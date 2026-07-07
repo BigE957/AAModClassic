@@ -1,4 +1,5 @@
 using System;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -6,24 +7,37 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons
 {
-    public class ToadTongue_Holdout : ModProjectile
+    public class ToadTongue_Holdout : FlailHoldout
     {
-		public override void SetStaticDefaults()
+        public override string ChainTexturePath => Texture + "_Chain";
+
+        public override float DrawRotationOffset => MathHelper.PiOver2;
+
+        public override float LaunchSpeed => 24;
+
+        public override int LaunchTimeLimit => 18;
+
+        public override float RetractAcceleration => base.RetractAcceleration;
+
+        public override float MaxRetractSpeed => base.MaxRetractSpeed;
+
+        public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Toad Tongue");
+            // DisplayName.SetDefault("Toad Tongue");
+            base.SetStaticDefaults();
 		}
         public override void SetDefaults()
         {
             Projectile.width = 20;
             Projectile.height = 20;
-            Projectile.friendly = true;
-            Projectile.penetrate = -1; 
-            Projectile.DamageType = DamageClass.Melee;
             Projectile.knockBack = 0;
+
+            base.SetDefaults();
         }
 		
 		public override void AI()
 		{
+            /*
             if (Main.rand.NextFloat() < 1f)
             {
                 Dust dust1;
@@ -122,7 +136,13 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
                 }
 
             }
+            */
+
+            base.AI();
+
+            //Unused, but left as it was for posterity
             //Spew eyes
+            /*
             if ((int)Projectile.ai[1] % 8 == 0 && Projectile.owner == Main.myPlayer && Main.rand.NextBool(50)) //higher # means later on in the attack
             {
                 Vector2 vector54 = Main.player[Projectile.owner].Center - Projectile.Center;
@@ -132,9 +152,10 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
                 vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866);
                 //Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vector55.X, vector55.Y, mod.ProjectileType("EyeProjectile2"), projectile.damage, projectile.knockBack, projectile.owner, -10f);
             }
+            */
         }
 		
-		public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
             Player player = Main.player[Projectile.owner];
             float TargetVelocity = 0;
@@ -154,25 +175,14 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
                 target.velocity = new Vector2(TargetVelocity, 0);
             }
         }
-		
-		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
-        {
-            width = 16;
-            height = 16;
-            return true;
-        }
-		
-		public override bool OnTileCollide (Vector2 oldVelocity)
-		{
-			Projectile.ai[0] = 1f;
-			return false;
-		}
-		
  
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
         { 
-            Texture2D texture = Mod.GetTexture("Chains/ToadTongue_Chain");
+            return base.PreDraw(ref  lightColor);
+
+            /*
+            Texture2D texture = ModContent.Request<Texture2D>(Texture + "_Chain").Value;
  
             Vector2 position = Projectile.Center;
             Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;
@@ -204,6 +214,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
                 }
             }
             return true;
+            */
         }
     }
 }

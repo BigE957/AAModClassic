@@ -12,28 +12,6 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Ammo
 {
     public class EventideArrow_Proj : ModProjectile
 	{
-        //TODO: Did this exist?
-        /*
-        public short customGlowMask = 0;
-        public override void SetStaticDefaults()
-         {
-            if (Main.netMode != NetmodeID.Server)
-            {
-                Asset<Texture2D>[] glowMasks = new Asset<Texture2D>[TextureAssets.GlowMask.Length + 1];
-                for (int i = 0; i < TextureAssets.GlowMask.Length; i++)
-                {
-                    glowMasks[i] = TextureAssets.GlowMask[i];
-                }
-                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>(Texture + "_Glow");
-                customGlowMask = (short)(glowMasks.Length - 1);
-                TextureAssets.GlowMask = glowMasks;
-            }
-            Projectile.glowMask = customGlowMask;
-
-            // DisplayName.SetDefault("Eventide Arrow");    
-		}
-        */
-
         private const float bulletFadeTime = 20;
 
 
@@ -50,9 +28,9 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Ammo
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = true;
 			Projectile.extraUpdates = 1;
-                        Projectile.knockBack = 0.1f;
-                        AIType = ProjectileID.WoodenArrowFriendly;
-                        Projectile.arrow = true;
+            Projectile.knockBack = 0.1f;
+            AIType = ProjectileID.WoodenArrowFriendly;
+            Projectile.arrow = true;
          }
 
         public override void AI()
@@ -72,8 +50,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Ammo
                             Projectile.GetSource_FromThis(),
                             Projectile.position.X,
                             Projectile.position.Y,
-                            Projectile.velocity.X + inaccuracy(),
-                            Projectile.velocity.Y + inaccuracy(),
+                            Projectile.velocity.X + Inaccuracy(),
+                            Projectile.velocity.Y + Inaccuracy(),
                             Projectile.type,
                             2 * Projectile.damage / 3,
                             0.2f,
@@ -121,7 +99,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Ammo
                  -Projectile.velocity.Y * 0.2f, 100, default);
                 }
 	        }
-        private static float inaccuracy()
+        private static float Inaccuracy()
         {
             return Main.rand.NextFloatDirection() * 1.5f;
         }

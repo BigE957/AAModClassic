@@ -1,14 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
 {
-    public class HydraTrishot : BaseAAItem
+    public class HydraTrishot : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
 
         public override void SetDefaults()
         {

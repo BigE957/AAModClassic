@@ -1,7 +1,8 @@
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Dyes;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.Items.Dyes;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Dyes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Graphics.Shaders;
@@ -11,24 +12,16 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Dyes
 {
-    public class DiscordianInfernoDye : BaseAAItem
+    public class DiscordianInfernoDye : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Dyes";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Discordian Inferno Dye");
-            BaseUtility.AddTooltips(Item, new string[] { "Gives a discordian touch to whatever this dye is applied to" });
+            // Tooltip.SetDefault("Gives a discordian touch to whatever this dye is applied to");
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity14;
-                }
-            }
-        }
+        
 
         public override void SetDefaults()
         {

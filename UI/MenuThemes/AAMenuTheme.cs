@@ -1,5 +1,7 @@
-﻿using AAModClassic._Content.Mire.World.Biomes;
-using AAModClassic.Backgrounds;
+﻿using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._Content.Void.World.Biomes;
+using AAModClassic.Assets;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
@@ -22,10 +24,10 @@ namespace AAModClassic.UI.MenuThemes
 
         public override void SetStaticDefaults()
         {
-            MireLogo = ModContent.Request<Texture2D>("AAModClassic/UI/LogoMire");
-            InfernoLogo = ModContent.Request<Texture2D>("AAModClassic/UI/LogoInferno");
-            VoidLogo = ModContent.Request<Texture2D>("AAModClassic/UI/LogoVoid");
-            BlankTex = ModContent.Request<Texture2D>("AAModClassic/BlankTex");
+            MireLogo = ModContent.Request<Texture2D>("AAModClassic/UI/MenuThemes/LogoMire");
+            InfernoLogo = ModContent.Request<Texture2D>("AAModClassic/UI/MenuThemes/LogoInferno");
+            VoidLogo = ModContent.Request<Texture2D>("AAModClassic/UI/MenuThemes/LogoVoid");
+            BlankTex = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
         }
 
         public override Asset<Texture2D> Logo 
@@ -79,55 +81,52 @@ namespace AAModClassic.UI.MenuThemes
         public override int Music => MusicID.Title;
         public override void Update(bool isOnTitleScreen)
         {
-            if (isOnTitleScreen)
+            if (Phase == 1 || Phase == 2)
             {
-                if (Phase == 1 || Phase == 2)
+                Main.numClouds = 0;
+                if (Phase == 2)
                 {
-                    Main.numClouds = 0;
-                    if (Phase == 2)
-                    {
-                        if (!SkyManager.Instance["AAModClassic:VoidSky"].IsActive())
-                            SkyManager.Instance.Activate("AAModClassic:VoidSky");
-                        SkyManager.Instance["AAModClassic:VoidSky"].Update(null);
+                    if (!SkyManager.Instance["AAModClassic:VoidSky"].IsActive())
+                        SkyManager.Instance.Activate("AAModClassic:VoidSky");
+                    SkyManager.Instance["AAModClassic:VoidSky"].Update(null);
 
-                        if (SkyManager.Instance["AAModClassic:InfernoSky"].IsActive())
-                            SkyManager.Instance.Deactivate("AAModClassic:InfernoSky", [true]);
-                        if (SkyManager.Instance["AAModClassic:MireSky"].IsActive())
-                            SkyManager.Instance.Deactivate("AAModClassic:MireSky", [true]);
-                    }
-                    else if (Main.dayTime)
-                    {
-                        if (!SkyManager.Instance["AAModClassic:InfernoSky"].IsActive())
-                            SkyManager.Instance.Activate("AAModClassic:InfernoSky");
-                        SkyManager.Instance["AAModClassic:InfernoSky"].Update(null);
+                    if (SkyManager.Instance["AAModClassic:InfernoSky"].IsActive())
+                        SkyManager.Instance.Deactivate("AAModClassic:InfernoSky", [true]);
+                    if (SkyManager.Instance["AAModClassic:MireSky"].IsActive())
+                        SkyManager.Instance.Deactivate("AAModClassic:MireSky", [true]);
+                }
+                else if (Main.dayTime)
+                {
+                    if (!SkyManager.Instance["AAModClassic:InfernoSky"].IsActive())
+                        SkyManager.Instance.Activate("AAModClassic:InfernoSky");
+                    SkyManager.Instance["AAModClassic:InfernoSky"].Update(null);
 
-                        if (SkyManager.Instance["AAModClassic:VoidSky"].IsActive())
-                            SkyManager.Instance.Deactivate("AAModClassic:VoidSky", [true]);
-                        if (SkyManager.Instance["AAModClassic:MireSky"].IsActive())
-                            SkyManager.Instance.Deactivate("AAModClassic:MireSky", [true]);
-                    }
-                    else
-                    {
-                        if (!SkyManager.Instance["AAModClassic:MireSky"].IsActive())
-                            SkyManager.Instance.Activate("AAModClassic:MireSky");
-                        SkyManager.Instance["AAModClassic:MireSky"].Update(null);
-
-                        if (SkyManager.Instance["AAModClassic:InfernoSky"].IsActive())
-                            SkyManager.Instance.Deactivate("AAModClassic:InfernoSky", [true]);
-                        if (SkyManager.Instance["AAModClassic:VoidSky"].IsActive())
-                            SkyManager.Instance.Deactivate("AAModClassic:VoidSky", [true]);
-                    }
+                    if (SkyManager.Instance["AAModClassic:VoidSky"].IsActive())
+                        SkyManager.Instance.Deactivate("AAModClassic:VoidSky", [true]);
+                    if (SkyManager.Instance["AAModClassic:MireSky"].IsActive())
+                        SkyManager.Instance.Deactivate("AAModClassic:MireSky", [true]);
                 }
                 else
                 {
-                    Main.numClouds = 10;
-                    if (SkyManager.Instance["AAModClassic:MireSky"].IsActive())
-                        SkyManager.Instance.Deactivate("AAModClassic:MireSky", [true]);
+                    if (!SkyManager.Instance["AAModClassic:MireSky"].IsActive())
+                        SkyManager.Instance.Activate("AAModClassic:MireSky");
+                    SkyManager.Instance["AAModClassic:MireSky"].Update(null);
+
                     if (SkyManager.Instance["AAModClassic:InfernoSky"].IsActive())
                         SkyManager.Instance.Deactivate("AAModClassic:InfernoSky", [true]);
                     if (SkyManager.Instance["AAModClassic:VoidSky"].IsActive())
                         SkyManager.Instance.Deactivate("AAModClassic:VoidSky", [true]);
                 }
+            }
+            else
+            {
+                Main.numClouds = 10;
+                if (SkyManager.Instance["AAModClassic:MireSky"].IsActive())
+                    SkyManager.Instance.Deactivate("AAModClassic:MireSky", [true]);
+                if (SkyManager.Instance["AAModClassic:InfernoSky"].IsActive())
+                    SkyManager.Instance.Deactivate("AAModClassic:InfernoSky", [true]);
+                if (SkyManager.Instance["AAModClassic:VoidSky"].IsActive())
+                    SkyManager.Instance.Deactivate("AAModClassic:VoidSky", [true]);
             }
         }
 

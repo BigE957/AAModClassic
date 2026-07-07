@@ -1,14 +1,16 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons
 {
-    public class RajahsRage : BaseAAItem
+    public class RajahsRage : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Summon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Rajah's Rage");

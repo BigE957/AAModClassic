@@ -1,4 +1,4 @@
-
+﻿
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -10,12 +10,14 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos
 {
     //imported from my tAPI mod because I'm lazy
-    public class CuriousLookingClaw : BaseAAItem
+    public class CuriousLookingClaw : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.BossSummon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Curious Looking Claw");

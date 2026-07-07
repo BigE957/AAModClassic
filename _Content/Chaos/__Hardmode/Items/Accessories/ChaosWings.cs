@@ -1,4 +1,6 @@
-using AAModClassic.Items.Materials;
+﻿using AAModClassic._Content.Chaos.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -7,12 +9,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class ChaosWings : BaseAAItem
+	public class ChaosWings : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Chaos Wings");
-            // Tooltip.SetDefault(@"Allows flight and slow fall");
 
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(180, 8, 2f);
         }
@@ -26,9 +28,9 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Accessories
 			Item.accessory = true;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipEffects()
         {
-            player.wingTimeMax = 180;
+            AddEffect(new WingTimeMaxEffect(180));
         }
 
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)

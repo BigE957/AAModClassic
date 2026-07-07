@@ -1,13 +1,15 @@
-using AAModClassic._Content.Mire.___PreHardmode.Items.Tools;
-using AAModClassic.Items.Materials;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Tools;
+using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Tools
 {
-    public class PerfectShadowDrill : BaseAAItem
+    public class PerfectShadowDrill : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Tools";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Perfect Shadow Drill");
@@ -40,7 +42,9 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Tools
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<ShadowDrill>());
-            recipe.AddIngredient(ModContent.ItemType<HeroShards>());
+            recipe.AddIngredient(ItemID.SoulofSight, 20);
+            recipe.AddIngredient(ItemID.SoulofMight, 20);
+            recipe.AddIngredient(ItemID.SoulofFright, 20);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

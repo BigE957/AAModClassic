@@ -1,19 +1,30 @@
+﻿using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using AAModClassic.Utilities.Attributes;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class DoomiteHelmet : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Head)]
+    public class DoomiteHelmet : EquipAbstract, ILocalizedModType, ICustomEquipGlow
     {
+        public new string LocalizationCategory => "Items.Armor.Doomite";
+        public Color Color => AAColor.ZeroShield;
+
+        public bool Condition(Player p) => p.GetModPlayer<DoomiteHelmetSetPlayer>().effect;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Doomite Visor");
-            // Tooltip.SetDefault(@"+1 Minion slot");
         }
 
         public override void SetDefaults()
@@ -25,32 +36,17 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
             Item.value = 9000;
         }
 
-        public override void UpdateEquip(Player player)
-        {
-            player.maxMinions += 1;
-        }
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ModContent.ItemType<DoomiteChestplate>() && legs.type == ModContent.ItemType<DoomiteLeggings>();
         }
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipEffects()
         {
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DoomiteVisorBonus");
-            player.maxMinions += 1;
-            player.GetModPlayer<AAPlayer>().doomite = true;
-            if (player.whoAmI == Main.myPlayer)
-            {
-                if (player.FindBuffIndex(ModContent.BuffType<Buffs.Searcher_Buff>()) == -1)
-                {
-                    player.AddBuff(ModContent.BuffType<Buffs.Searcher_Buff>(), 3600, true);
-                }
-                if (player.ownedProjectileCounts[ModContent.ProjectileType<DoomiteHelmet_Searcher>()] < 1)
-                {
-                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center.X, player.Center.Y, 0f, -1f, ModContent.ProjectileType<DoomiteHelmet_Searcher>(), 30, 0f, Main.myPlayer, 0f, 0f);
-                }
-            }
+            AddEffect(new MaxMinionSlotEffect(1));
+
+            AddSetEffect(new MaxMinionSlotEffect(1));
+            AddSetEffect<DoomiteHelmetSetEffect>();
         }
 
         public override void AddRecipes()
@@ -59,7 +55,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
             recipe.AddIngredient(ModContent.ItemType<DarkDoomiteHelmet>());
             recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 5);
             recipe.AddIngredient(ItemID.Coral, 5);
-            recipe.AddIngredient(ItemID.FossilOre, 5);
+            recipe.AddIngredient(ModContent.ItemType<DynaskullFossil>(), 10);
             recipe.AddIngredient(ModContent.ItemType<ScorchedScale>(), 5);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();

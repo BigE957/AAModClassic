@@ -1,12 +1,14 @@
-using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items.Ammo
 {
-    public class EventideBullet : BaseAAItem
+    public class EventideBullet : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Ammo";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Eventide Bullet");

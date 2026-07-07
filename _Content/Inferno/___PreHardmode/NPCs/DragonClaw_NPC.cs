@@ -1,17 +1,20 @@
 using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
-using AAModClassic.CrossMod;
+using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._CrossMod;
 using AAModClassic.Globals;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
+using AAModClassic.Utilities.Interfaces;
 using System;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
 {
-    public class DragonClaw_NPC : ModNPC
+    public class DragonClaw_NPC : ModNPC, IBannerNPC
     {
         public bool WasSpawnedByGripOfChaos = false;
 
@@ -50,8 +53,18 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
                 NPC.value = 100f;
                 NPC.knockBackResist = 0.4f;
                 Banner = NPC.type;
-                BannerItem = ModContent.ItemType<DragonClawBanner>();
+                //BannerItem = ModContent.ItemType<DragonClawBanner>();
             }
+
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.DragonClaw")
+            ]);
         }
 
         public override void AI()

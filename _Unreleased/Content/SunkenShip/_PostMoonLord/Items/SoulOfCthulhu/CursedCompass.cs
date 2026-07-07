@@ -1,23 +1,29 @@
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
-using System.Collections.Generic;
-using AAModClassic.Globals;
-using AAModClassic.Base.BaseMod.Base;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu
 {
-    public class CursedCompass : ModItem
+    public class CursedCompass : ModItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.BossSummon";
         public override void SetStaticDefaults()
         {
+            ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
             // DisplayName.SetDefault("Cursed Compass");
             // Tooltip.SetDefault(@"An old Compass. Who knows what it's for?");
         }
 
-        private static bool CthulhuFightable => AAWorld.downedAllAncients && !AAWorld_Unreleased.downedSoC;
+        private static bool CthulhuActive => AAWorld.downedAllAncients && !AAWorld_Unreleased.DownedSoC;
 
         public override void SetDefaults()
         {
@@ -34,19 +40,30 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
-            foreach (TooltipLine line2 in list)
+            bool canFightSoC = AAWorld.downedAllAncients;
+            foreach (TooltipLine line in list)
             {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
+                if (line.Mod == "Terraria" && line.Name == "ItemName")
+                    line.OverrideColor = canFightSoC ? AAColor.Cthulhu : new Color(100, 100, 100);
+
+                if (line.Mod == "Terraria" && line.Name == "Tooltip0")
                 {
-                    line2.OverrideColor = CthulhuFightable ? new Color(100, 100, 100) : AAColor.Cthulhu;
+                    if(CthulhuActive)
+                        line.Text = Language.GetTextValue("Mods.AAModClassic.Items.CursedCompass.AltText0.Ready");
+                    else if(AAWorld_Unreleased.DownedSoC)
+                        line.Text = Language.GetTextValue("Mods.AAModClassic.Items.CursedCompass.AltText0.Downed");
                 }
+
+                if (!canFightSoC)
+                {
+                    if (line.Mod == "Terraria" && line.Name == "Tooltip1")
+                        line.Hide();
+                    if (line.Mod == "Terraria" && line.Name == "Tooltip2")
+                        line.Hide();
+                }
+                else if(AAWorld_Unreleased.DownedSoC && line.Mod == "Terraria" && line.Name == "Tooltip1")
+                    line.Text = Language.GetTextValue("Mods.AAModClassic.Items.CursedCompass.AltText1");
             }
-        }
-
-        public override void Update(ref float gravity, ref float maxFallSpeed)
-        {
-
-            // Tooltip.SetDefault(CthulhuFightable ? "An old, broken compass. Who knows what it's for." : "The compass' arrow spins rapidly, giving off an eerie vibe.");
         }
 
         public override bool CanUseItem(Player player)
@@ -56,50 +73,58 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
                 if (player.whoAmI == Main.myPlayer) BaseUtility.Chat("The wheel doesn't do anything", Color.DarkCyan, false);
                 return false;
             }
-            return true;
+            return AAWorld.downedAllAncients;
         }
 
-        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
+        public override bool? UseItem(Player player)
         {
-            SpawnBoss(player, "CthulhuSpawn", "The Soul of Cthulhu");
+            SpawnBoss(player, ModContent.NPCType<CthulhuSpawn>());
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }
 
-        public void SpawnBoss(Player player, string name, string displayName)
+        public void SpawnBoss(Player player, int type)
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                int bossType = Mod.Find<ModNPC>(name).Type;
-                if (NPC.AnyNPCs(bossType)) { return; }
-                int npcID = NPC.NewNPC(Item.GetSource_FromThis(), (int)player.Center.X, (int)player.Center.Y, bossType, 0);
+                if (NPC.AnyNPCs(type))
+                    return;
+                int npcID = NPC.NewNPC(Item.GetSource_FromThis(), (int)player.Center.X, (int)player.Center.Y, type, 0);
                 Main.npc[npcID].Center = player.Center - new Vector2(MathHelper.Lerp(-300f, 300f, (float)Main.rand.NextDouble()), 300f);
                 Main.npc[npcID].netUpdate2 = true;
+                Main.npc[npcID].target = player.whoAmI;
             }
         }
 
-        //TODOSOC bring it back?
-        /*public float ArrowSpin = 0;
+        public float ArrowSpin = 0;
 
         public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            ArrowSpin += .008f;
-            Texture2D Arrow = mod.GetTexture("Items/BossSummons/CursedCompass_Arrow");
-            Vector2 offsetPositon = new Vector2(item.position.X, item.position.Y - 2);
-            spriteBatch.Draw(Arrow, position, null, drawColor, CthulhuFightable? ArrowSpin : 0, origin, scale, SpriteEffects.None, 0f);
+            ArrowSpin += MathF.Sin(Main.GlobalTimeWrappedHourly) * 0.25f;
+            Texture2D Arrow = ModContent.Request<Texture2D>(Texture + "_Arrow").Value;
+            Vector2 offsetPos = position - Vector2.UnitY * 3;
+            spriteBatch.Draw(Arrow, offsetPos, null, drawColor, CthulhuActive? ArrowSpin : 0, Arrow.Size() * 0.5f, scale, SpriteEffects.None, 0f);
         }
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            ArrowSpin += .008f;
-            Texture2D texture2D13 = Main.itemTexture[item.type];
-            Texture2D Arrow = mod.GetTexture("Items/BossSummons/CursedCompass_Arrow");
-            Vector2 position = item.position - Main.screenPosition + new Vector2(item.width / 2, item.height - texture2D13.Height * 0.5f + 2f);
-            Vector2 offsetPositon = new Vector2(item.position.X, item.position.Y - 2);
-            spriteBatch.Draw(Arrow, position, null, Main.DiscoColor, CthulhuFightable ? ArrowSpin : rotation, texture2D13.Size() * 0.5f, scale, SpriteEffects.None, 0f);
+            ArrowSpin += MathF.Sin(Main.GlobalTimeWrappedHourly) * 0.25f;
+            Texture2D Arrow = ModContent.Request<Texture2D>(Texture + "_Arrow").Value;
+            Item item = Main.item[whoAmI];
+            Vector2 position = item.position + new Vector2(item.width / 2, item.height * 0.5f);
+            position.Y -= 8;
+            spriteBatch.Draw(Arrow, position - Main.screenPosition, null, lightColor, CthulhuActive ? ArrowSpin : rotation, Arrow.Size() * 0.5f, scale, SpriteEffects.None, 0f);
 
-        }*/
+        }
 
         public override void UseStyle(Player player, Rectangle heldItemFrame) { BaseUseStyle.SetStyleBoss(player, Item, true, true); }
         public override void UseItemFrame(Player player) { BaseUseStyle.SetFrameBoss(player, Item); }
+
+        public override void AddRecipes()
+        {
+            Recipe r = CreateRecipe();
+            r.AddIngredient(ItemID.Compass);
+            r.AddCondition(new Condition("Mods.AAModClassic.Common.Conditions.InSunkenShipPreSoC", () => Main.LocalPlayer.GetModPlayer<AAPlayer_Unreleased>().ZoneShip && AAWorld.downedAllAncients));
+            r.Register();
+        }
     }
 }

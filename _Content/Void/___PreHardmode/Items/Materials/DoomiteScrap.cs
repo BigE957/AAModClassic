@@ -1,12 +1,14 @@
-using AAModClassic.Items.Walls;
+﻿using AAModClassic._Content.Void.World.Tiles;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Materials
 {
-    public class DoomiteScrap : BaseAAItem
+    public class DoomiteScrap : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Doomite Scrap");
@@ -31,7 +33,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Materials
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DoomiteWall>(), 4);
+            recipe.AddIngredient(ModContent.ItemType<DoomitePlatingWall>(), 4);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

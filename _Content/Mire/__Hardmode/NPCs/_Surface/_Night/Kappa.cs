@@ -1,5 +1,6 @@
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
-using AAModClassic.Items.Banners;
+using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -10,13 +11,19 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
 {
     // Party Zombie is a pretty basic clone of a vanilla NPC. To learn how to further adapt vanilla NPC behaviors, see https://github.com/blushiemagic/tModLoader/wiki/Advanced-Vanilla-Code-Adaption#example-npc-npc-clone-with-modified-projectile-hoplite
-    public class Kappa : ModNPC
-	{
+    public class Kappa : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Kappa");
 			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.CreatureFromTheDeep];
-		}
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Velocity = -2
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+        }
 
 		public override void SetDefaults()
 		{
@@ -31,8 +38,9 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
 			NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
 			AnimationType = NPCID.CreatureFromTheDeep;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<KappaBanner>();
-		}
+			//BannerItem = ModContent.ItemType<KappaBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
+        }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {

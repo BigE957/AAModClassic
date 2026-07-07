@@ -1,59 +1,74 @@
-AcropolisBiomeZone: {
-	DisplayName: Acropolis
+AcropolisBiome: {
+	DisplayName: The Acropolis
 	TownNPCDialogueName: the Acropolis
 }
 
-HoardBiomeZone: {
-	DisplayName: Hoard
+HoardBiome: {
+	DisplayName: The Hoard
 	TownNPCDialogueName: the Hoard
 }
 
-InfernoBiomeZone: {
-	DisplayName: Inferno
+InfernoBiome: {
+	DisplayName: The Inferno
 	TownNPCDialogueName: the Inferno
 }
 
-MireBiomeZone: {
-	DisplayName: Mire
+MireBiome: {
+	DisplayName: The Mire
 	TownNPCDialogueName: the Mire
 }
 
-MushroomBiomeZone: {
-	DisplayName: Mushroom
-	TownNPCDialogueName: the Mushroom
-}
-
-RadiumBiomeZone: {
-	DisplayName: Radium
-	TownNPCDialogueName: the Radium
-}
-
 RisingMoonLakeBiomeZone: {
-	DisplayName: Rising Moon Lake
+	DisplayName: The Rising Moon Lake
 	TownNPCDialogueName: the Rising Moon Lake
 }
 
-RisingSunPagodaBiomeZone: {
-	DisplayName: Rising Sun Pagoda
+RisingSunPagodaBiome: {
+	DisplayName: The Rising Sun Pagoda
 	TownNPCDialogueName: the Rising Sun Pagoda
 }
 
-TerrariumBiomeZone: {
-	DisplayName: Terrarium
+TerrariumBiome: {
+	DisplayName: The Terrarium
 	TownNPCDialogueName: the Terrarium
 }
 
-VoidBiomeZone: {
-	DisplayName: Void
+VoidBiome: {
+	DisplayName: The Void
 	TownNPCDialogueName: the Void
 }
 
-LostKeepBiomeZone: {
-	DisplayName: Lost Keep
+LostKeepBiome: {
+	DisplayName: The Lost Keep
 	TownNPCDialogueName: the Lost Keep
 }
 
-StormBiomeZone: {
-	DisplayName: Storm Biome Zone
-	TownNPCDialogueName: the Storm Biome Zone
+ParthenanBiome: {
+	DisplayName: The Parthenan
+	TownNPCDialogueName: the Parthenan
+}
+
+RedMushroomBiome: {
+	DisplayName: Red Mushroom
+	TownNPCDialogueName: the Red Mushroom
+}
+
+StarsBiome: {
+	DisplayName: Celestial Stars
+	TownNPCDialogueName: the Celestial Stars
+}
+
+SunkenShipBiome: {
+	DisplayName: The Sunken Ship
+	TownNPCDialogueName: the Sunken Ship
+}
+
+UndergroundInfernoBiome: {
+	DisplayName: Underground Inferno
+	TownNPCDialogueName: the Underground Inferno
+}
+
+UndergroundMireBiome: {
+	DisplayName: Underground Mire
+	TownNPCDialogueName: the Underground Mire
 }

@@ -1,13 +1,4 @@
-﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Pets;
-using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
-using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
-using AAModClassic.Globals;
-using AAModClassic.Items.Magic;
-using AAModClassic.Items.Melee;
-using AAModClassic.Items.Ranged;
-using System.Linq;
-using Terraria;
+﻿using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;

@@ -1,13 +1,14 @@
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFurniture
 {
-    public class DoomPiano : ModItem
+    public class DoomPiano : ModItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables.Furniture.Doom";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Doom Piano");
@@ -33,7 +34,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
             recipe.AddIngredient(ModContent.ItemType<DoomsdayCircuitPlating>(), 15);
             recipe.AddIngredient(ItemID.Book);
             recipe.AddIngredient(ItemID.Bone, 4);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
 
         }

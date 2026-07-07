@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandar
         {
             if (Main.tile[i, j].TileFrameY >= 56)
             {
-                AAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<ZAAPlayer>();
                 modPlayer.YamataAltar = true;
             }
         }

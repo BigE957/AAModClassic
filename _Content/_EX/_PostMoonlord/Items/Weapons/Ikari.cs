@@ -1,0 +1,69 @@
+﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+using Terraria;
+using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
+{
+    public class Ikari : BaseAAItem, ILocalizedModType
+	{
+        public new string LocalizationCategory => "Items.Weapons.Melee";
+		public override void SetStaticDefaults()
+		{
+			// DisplayName.SetDefault("Ikari");
+            /* Tooltip.SetDefault(@"Unleashes explosive blades of chaos to smite your foes
+blades go through tiles
+Chaos Slayer EX"); */
+        }
+
+        public override void SetDefaults()
+        {
+            Item.width = 85;
+            Item.height = 85;
+            Item.value = Item.sellPrice(3, 0, 0, 0);
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.useAnimation = 40;
+            Item.useTime = 40;
+            Item.UseSound = SoundID.Item103;
+            Item.damage = 666;
+            Item.knockBack = 12;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.expert = true;
+            Item.autoReuse = true;
+			Item.shoot = ModContent.ProjectileType<Ikari_BladeOfUnyieldingChaos>();
+			Item.shootSpeed = 7;
+            Item.useTurn = true;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
+        }
+
+        
+
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+			Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, type, damage, knockback, player.whoAmI);
+			for (int m = 0; m < 2; m++)
+			{
+				Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, m == 0 ? ModContent.ProjectileType<Ikari_BladeOfAbyssalWrath>() : ModContent.ProjectileType<Ikari_BladeOfBlazingFury>(), damage, knockback, player.whoAmI);
+			}
+			return false;
+		}
+
+        public override void AddRecipes()  //How to craft this sword
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<ChaosSlayer>());
+            recipe.AddIngredient(ModContent.ItemType<PerfectChaos>());
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
+            recipe.Register();
+        }
+    }
+}

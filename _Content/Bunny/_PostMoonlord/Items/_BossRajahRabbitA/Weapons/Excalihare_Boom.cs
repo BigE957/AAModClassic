@@ -1,4 +1,4 @@
-using AAModClassic.Buffs;
+using AAModClassic._Content._Misc._PostMoonlord.Items.Buffs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;

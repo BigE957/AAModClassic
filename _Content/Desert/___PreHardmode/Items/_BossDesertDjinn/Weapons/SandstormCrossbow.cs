@@ -1,4 +1,5 @@
-using System;
+﻿using System;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -7,8 +8,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons
 {
-    public class SandstormCrossbow : BaseAAItem
+    public class SandstormCrossbow : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Sandstorm Crossbow");

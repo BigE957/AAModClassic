@@ -1,7 +1,8 @@
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Zero;
-using AAModClassic.Tiles.Crafters;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
@@ -11,12 +12,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class ZeroWings : BaseAAItem
+	public class ZeroWings : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Zero Jet");
-            // Tooltip.SetDefault("Allows flight and slow fall");
 
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(220, 14, 3.5f);
         }
@@ -30,13 +31,13 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Accessories
 			Item.accessory = true;
             
         }
-		
-		public override void UpdateAccessory(Player player, bool hideVisual)
-		{
-			player.wingTimeMax = 220;
-		}
 
-		public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
+        public override void RegisterEquipEffects()
+        {
+            AddEffect(new WingTimeMaxEffect(220));
+        }
+
+        public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
 		{
 			ascentWhenFalling = 0.95f;
 			ascentWhenRising = 0.15f;
@@ -63,23 +64,12 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Accessories
             return true;
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
-
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 15);
             recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 5);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

@@ -207,7 +207,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons
         public float Rotation = 0;
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D tex = Mod.GetTexture("Projectiles/Athena/OwlRune");
+            Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Projectiles/Athena/OwlRune").Value;
             Rectangle SunFrame = new Rectangle(0, 0, tex.Width, tex.Height);
             BaseDrawing.DrawTexture(Main.spriteBatch, tex, 0, Projectile.position + new Vector2(0, Projectile.gfxOffY), Projectile.width, Projectile.height, Projectile.scale, 0, Projectile.spriteDirection, 1, SunFrame, Projectile.GetAlpha(Color.White), true);
             return false;

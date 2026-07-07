@@ -1,15 +1,17 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
 using AAModClassic._Content.Desert._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons
 {
-    public class ForsakenStaff : BaseAAItem
+    public class ForsakenStaff : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Magic";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Forsaken Staff");

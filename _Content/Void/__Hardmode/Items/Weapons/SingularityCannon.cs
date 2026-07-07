@@ -1,0 +1,36 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace AAModClassic._Content.Void.__Hardmode.Items.Weapons
+{
+    public class SingularityCannon : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
+
+        public override void SetDefaults()
+        {
+            Item.damage = 55;
+            Item.noMelee = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 36;
+            Item.height = 64;
+            Item.useTime = 40;
+            Item.useAnimation = 30;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.shoot = ModContent.ProjectileType<SingularityCannon_Singularity>();
+            Item.knockBack = 5;
+            Item.value = Terraria.Item.sellPrice(0, 8, 0, 0);
+            Item.rare = ItemRarityID.Purple;
+            Item.UseSound = SoundID.Item12;
+            Item.autoReuse = true;
+            Item.shootSpeed = 22f;
+        }
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Singularity Cannon");
+            // Tooltip.SetDefault("");
+        }
+    }
+}

@@ -1,4 +1,6 @@
+using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -9,12 +11,20 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
 {
-    public class TerraSquire : ModNPC
+    public class TerraSquire : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Squire");
             Main.npcFrameCount[NPC.type] = 20;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Velocity = -2,
+                PortraitPositionYOverride = 0,
+                Position = new(0, 12)
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
         public override void SetDefaults()
         {
@@ -34,7 +44,8 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             AIType = NPCID.GraniteGolem;  //npc behavior
             AnimationType = NPCID.GraniteGolem;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraSquireBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraSquireBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 
         public override void HitEffect(NPC.HitInfo hit)
@@ -54,7 +65,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Color color = BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, BaseDrawing.GetLightColor(NPC.position), BaseDrawing.GetLightColor(NPC.position), Color.LimeGreen, BaseDrawing.GetLightColor(NPC.position), Color.LimeGreen, BaseDrawing.GetLightColor(NPC.position));
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, NPC.dontTakeDamage ? color : drawColor);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, NPC.dontTakeDamage ? color : drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
             return false;
         }
     }

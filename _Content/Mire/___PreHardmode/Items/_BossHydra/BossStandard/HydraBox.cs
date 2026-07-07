@@ -1,19 +1,21 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandard
 {
-    public class    HydraBox : BaseAAItem
+    public class HydraBox : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Hydra Music Box");
-            // Tooltip.SetDefault(@"Plays 'Abyssal Wrath' by Spectral Aves");
+            // DisplayName.SetDefault("Music Box (Hydra)");
+            // Tooltip.SetDefault(@"Plays 'RAW Abyssal Wrath' by SpectralAves");
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

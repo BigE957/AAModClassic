@@ -1,5 +1,5 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,8 +7,10 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class DaybringerMask : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Head)]
+    public class DaybringerMask : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Vanity.Masks";
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

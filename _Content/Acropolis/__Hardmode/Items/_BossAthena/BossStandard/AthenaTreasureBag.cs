@@ -1,6 +1,7 @@
-using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -8,12 +9,13 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard
 {
-    public class AthenaTreasureBag : BaseAAItem
+    public class AthenaTreasureBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Athena)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;
@@ -26,7 +28,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStand
             Item.consumable = true;
             Item.width = 32;
             Item.height = 32;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.rare = ItemRarityID.Red;
         }
 
@@ -45,7 +47,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStand
         {
             if (Main.rand.NextBool(10))
             {
-                AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
                 modPlayer.PPDevArmor();
             }
         }

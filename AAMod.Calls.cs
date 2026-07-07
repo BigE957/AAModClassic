@@ -1,7 +1,10 @@
-﻿using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
+using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic.Music;
-using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.Localization;
@@ -16,7 +19,7 @@ namespace AAModClassic
             try
             {
                 if (args.Length <= 0 || args[0] is not string)
-                    return new Exception("ANCIENTS AWAKENED CALL ERROR: NO METHOD NAME! First param MUST be a method name!");
+                    return new Exception("Ancients Awakened Call Error: No method name. First parameter must be a string.");
 
                 string methodName = (string)args[0];
 
@@ -60,7 +63,7 @@ namespace AAModClassic
                         }
 
                         name = ((string)args[1]).ToLower();
-                        AAPlayer aap = ((Player)args[2]).GetModPlayer<AAPlayer>();
+                        ZAAPlayer aap = ((Player)args[2]).GetModPlayer<ZAAPlayer>();
 
                         return name switch
                         {
@@ -86,14 +89,14 @@ namespace AAModClassic
                             Logger.Error($"Ancients Awakened Call Error: {args[1].GetType().Name} is invalid for the first argument of {methodName}. Must be a string");
                             return null;
                         }
-                        if(args[2] is not int)
+                        if(args[2] is not short)
                         {
-                            Logger.Error($"Ancients Awakened Call Error: {args[2].GetType().Name} is invalid for the second argument of {methodName}. Must be an int");
+                            Logger.Error($"Ancients Awakened Call Error: {args[2].GetType().Name} is invalid for the second argument of {methodName}. Must be a short");
                             return null;
                         }
 
                         string key = (string)args[1];
-                        int slot = (int)args[2];
+                        short slot = (short)args[2];
                         return MusicManagementSystem.ReplaceTrack(key, slot);
                     case "AddShenDialogue":
                         if (args.Length <= 4)
@@ -117,7 +120,7 @@ namespace AAModClassic
                             return null;
                         }
                         
-                        return ShenA.AddShenCrossmodDialogue(dKey, text, condition);
+                        return ShenDoragonUtils.AddShenCrossmodDialogue(dKey, text, condition);
                     case "AddInfinityZeroDialogue":
                         if (args.Length <= 4)
                         {
@@ -154,6 +157,114 @@ namespace AAModClassic
                         }
                         AAWorld.DontSpawnAltarsOn.Add(tileType);
                         return null;
+                    case "AddOreProjectileData":
+                        if (args.Length < 3)
+                        {
+                            Logger.Error($"Ancients Awakened Call Error: ...");
+                            return null;
+                        }
+                        if (args[1] is not int oreID)
+                        {
+                            Logger.Error($"...");
+                            return null;
+                        }
+                        if (args[2] is not int dustType)
+                        {
+                            Logger.Error($"...");
+                            return null;
+                        }
+
+                        if (OreCannonSystem.OreData.ContainsKey(oreID))
+                        {
+                            Logger.Error($"Ore ID {oreID} already registered.");
+                            return null;
+                        }
+
+                        Action<Projectile> oreEffect = null;
+                        Action<Projectile> extraAI = null;
+                        OnHitDelegate onHit = null;
+                        Action<Projectile> onKill = null;
+                        Action<Projectile, Color> extraDraw = null;
+                        Action<Projectile> onSpawn = null;
+
+                        for (int i = 3; i < args.Length; i += 2)
+                        {
+                            if (args[i] is not string myKey)
+                            {
+                                Logger.Error($"Expected string key at position {i}, got {args[i]?.GetType().Name ?? "null"}.");
+                                return null;
+                            }
+                            if (i + 1 >= args.Length)
+                            {
+                                Logger.Error($"Missing value for key '{myKey}'.");
+                                return null;
+                            }
+
+                            object value = args[i + 1];
+                            switch (myKey)
+                            {
+                                case "OreEffect":
+                                    if (value is Action<Projectile> effectAction)
+                                        oreEffect = effectAction;
+                                    else
+                                    { 
+                                        Logger.Error($"Ancients Awakened Call Error: {args[i].GetType().Name} is invalid for argument {i} of {methodName}. 'OreEffect' must be Action<Projectile>."); 
+                                        return false;
+                                    }
+                                    break;
+                                case "ExtraAI":
+                                    if (value is Action<Projectile> aiAction) 
+                                        extraAI = aiAction;
+                                    else
+                                    { 
+                                        Logger.Error($"Ancients Awakened Call Error: {args[i].GetType().Name} is invalid for argument {i} of {methodName}. 'ExtraAI' must be Action<Projectile>."); 
+                                        return false;
+                                    }
+                                    break;
+                                case "OnHit":
+                                    if (value is OnHitDelegate hitAction)
+                                        onHit = hitAction;
+                                    else
+                                    {
+                                        Logger.Error($"Ancients Awakened Call Error: {args[i].GetType().Name} is invalid for argument {i} of {methodName}. 'OnHit' must be OnHitDelegate.");
+                                        return false;
+                                    }
+                                    break;
+                                case "OnKill":
+                                    if (value is Action<Projectile> killAction) 
+                                        onKill = killAction;
+                                    else
+                                    { 
+                                        Logger.Error($"Ancients Awakened Call Error: {args[i].GetType().Name} is invalid for argument {i} of {methodName}. 'OnKill' must be Action<Projectile>."); 
+                                        return false;
+                                    }
+                                    break;
+                                case "ExtraDraw":
+                                    if (value is Action<Projectile, Color> drawAction) 
+                                        extraDraw = drawAction;
+                                    else
+                                    { 
+                                        Logger.Error($"Ancients Awakened Call Error: {args[i].GetType().Name} is invalid for argument {i} of {methodName}. 'ExtraDraw' must be Action<Projectile, Color>."); 
+                                        return false;
+                                    }
+                                    break;
+                                case "OnSpawn":
+                                    if (value is Action<Projectile> spawnAction)
+                                        onSpawn = spawnAction;
+                                    else
+                                    { 
+                                        Logger.Error($"Ancients Awakened Call Error: {args[i].GetType().Name} is invalid for argument {i} of {methodName}. 'OnSpawn' must be Action<Projectile>.");
+                                        return false;
+                                    }
+                                    break;
+                                default:
+                                    Logger.Error($"Ancients Awakened Call Error: Unknown optional key '{myKey}'.");
+                                    return false;
+                            }
+                        }
+
+                        OreCannonSystem.OreData.Add(oreID, new OreProjectileData(dustType, oreEffect, extraAI, onHit, onKill, extraDraw, onSpawn));
+                        return true;
                     default:
                         Logger.Error($"Ancients Awakened Call Error: {methodName} does not exist.");
                         return null;

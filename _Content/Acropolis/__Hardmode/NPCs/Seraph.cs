@@ -1,19 +1,21 @@
-using System;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using AAModClassic.NPCs.Bosses.Athena;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Bosses.Athena.Olympian;
-using Terraria.Localization;
+using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Acropolis.Projectiles;
-using AAModClassic.Items.Banners;
+using AAModClassic._Content.Acropolis.World.Biomes;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
+using AAModClassic.Utilities.Interfaces;
+using Microsoft.Xna.Framework;
+using System;
+using Terraria;
+using Terraria.GameContent.Bestiary;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
 {
-	public class Seraph : ModNPC
+	public class Seraph : ModNPC, IBannerNPC
 	{
         public override void SetStaticDefaults()
 		{
@@ -24,7 +26,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
         {
             NPC.width = 60;
             NPC.height = 40;
-            NPC.value = Item.sellPrice(0, 0, 10, 0);
+            NPC.value = Item.buyPrice(0, 0, 10, 0);
             NPC.npcSlots = 1;
 			NPC.aiStyle = -1;
             NPC.lifeMax = 500;
@@ -35,12 +37,14 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.noTileCollide = true;
-            if (NPC.type == ModContent.NPCType<SeraphA>())
-            {
+            if (NPC.type == ModContent.NPCType<SeraphA>() && !NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
-            }
-            Banner = NPC.type;
-			BannerItem = ModContent.ItemType<SeraphBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<AcropolisBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Sky);
         }
 
         public override bool PreAI()
@@ -94,12 +98,12 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
                 NPC.netUpdate = true;
             }
 
-            if (!player.GetModPlayer<AAPlayer>().ZoneAcropolis || player.dead)
+            if (!player.GetModPlayer<ZAAPlayer>().ZoneAcropolis || player.dead)
             {
                 NPC.TargetClosest();
-                if (!player.GetModPlayer<AAPlayer>().ZoneAcropolis || player.dead)
+                if (!player.GetModPlayer<ZAAPlayer>().ZoneAcropolis || player.dead)
                 {
-                    if (!player.GetModPlayer<AAPlayer>().ZoneAcropolis)
+                    if (!player.GetModPlayer<ZAAPlayer>().ZoneAcropolis)
                     {
                         CombatText.NewText(NPC.Hitbox, Color.CadetBlue, SeraphBitching(), true);
                     }

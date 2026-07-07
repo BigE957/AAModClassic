@@ -26,7 +26,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
 
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)
         {
-            Color color = BaseUtility.ColorMult(AAPlayer.ZeroColor, 0.7f);
+            Color color = BaseUtility.ColorMult(ZAAPlayer.ZeroColor, 0.7f);
             r = color.R / 255f; g = color.G / 255f; b = color.B / 255f;
         }
 
@@ -35,7 +35,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
             Tile tile = Main.tile[x, y];
             if (tile != null && tile.HasTile && tile.TileType == Type)
             {
-                Texture2D glowTex = Mod.GetTexture("Glowmasks/ApocalyptiteTile_Glow");
+                Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
                 BaseDrawing.DrawTileTexture(sb, glowTex, x, y, true, false, false, null, AAGlobalTile.GetZeroColorDim);
             }
         }

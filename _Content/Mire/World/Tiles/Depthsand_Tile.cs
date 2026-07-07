@@ -12,12 +12,12 @@ namespace AAModClassic._Content.Mire.World.Tiles
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = true;
-            Main.tileSand[Type] = true;
-            RegisterItemDrop(ModContent.ItemType<Depthsand>());
             Main.tileBlendAll[Type] = true;
             Main.tileBlockLight[Type] = true;
-            //soundStyle/* tModPorter Note: _Unreleased. Integrate into HitSound */ = 18;
+            Main.tileSand[Type] = true;
+            RegisterItemDrop(ModContent.ItemType<Depthsand>());
             AddMapEntry(new Color(37, 33, 50));
+            TileID.Sets.Conversion.Sand[Type] = true;
             DustType = ModContent.DustType<Dusts.BogwoodDust>();
         }
 

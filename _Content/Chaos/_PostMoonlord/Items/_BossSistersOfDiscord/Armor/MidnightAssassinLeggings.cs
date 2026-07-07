@@ -1,4 +1,7 @@
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,15 +10,13 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class MidnightAssassinLeggings : BaseAAItem
+	public class MidnightAssassinLeggings : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.MidnightAssassin";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Midnight Assassin's Boots");
-			/* Tooltip.SetDefault(@"15% increased ranged/melee damage
-15% increased movement speed
-8% increased melee speed
-Dark boots infused with the shadow of midnight"); */
+			/* Tooltip.SetDefault(@"'Dark boots infused with the shadow of midnight'"); */
 		}
 
 		public override void SetDefaults()
@@ -24,28 +25,16 @@ Dark boots infused with the shadow of midnight"); */
 			Item.height = 16;
 			Item.value = 300000;
 			Item.defense = 20;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 12;
+            Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
+        public override void RegisterEquipEffects()
         {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity12;
-                }
-            }
+            damageMap.GetDamage(DamageClass.Melee) += .15f;
+            damageMap.GetDamage(DamageClass.Ranged) += .15f;
+            damageMap.GetAttackSpeed(DamageClass.Melee) += .08f;
+			AddEffect(new MovementSpeedEffect(0.15f));
+			AddEffect(new MaxRunSpeedEffect(0.15f));
         }
-
-        public override void UpdateEquip(Player player)
-		{
-            player.GetDamage(DamageClass.Melee) += .15f;
-            player.GetDamage(DamageClass.Ranged) += .15f;
-            player.moveSpeed += .15f;
-            player.GetAttackSpeed(DamageClass.Melee) += .08f;
-            player.GetModPlayer<AAPlayer>().MaxMovespeedboost += 0.15f;
-		}
     }
 }

@@ -1,6 +1,11 @@
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
+using AAModClassic.Achievements;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -10,7 +15,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
 {
     [AutoloadBossHead]
-    public class GripOfChaosMire : BaseGripOfChaos
+    public class GripOfChaosMire : GripOfChaosAbstract
     {
         public override void SetDefaults()
         {
@@ -21,6 +26,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
             NPC.buffImmune[BuffID.Poisoned] = true;	
 
 			offsetBasePoint = new Vector2(240f, 0f);
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<MireBiome>().Type };
         }
 
         public override void HitEffect(NPC.HitInfo hit)
@@ -38,12 +44,22 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
         {
             int redGripExists = NPC.CountNPCS(ModContent.NPCType<GripOfChaosInferno>());
             if (redGripExists == 0)
+            {
                 AAWorld.downedGrips = true;
+                if (NPC.playerInteraction[Main.myPlayer])
+                    GripsOfChaosKilled.Condition.Complete();
+            }
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MireGripTrophy>(), 10));
+
+            LeadingConditionRule masterMode = new(new MissingGripMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GripsOfChaosRelic>()));
+
+            npcLoot.Add(masterMode);
 
             LeadingConditionRule notExpert = new(new Conditions.NotExpert());
 
@@ -53,7 +69,12 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
 
             LeadingConditionRule lastStandingAlways = new(new MissingGripAlways());
 
+            LeadingConditionRule loreCondition = new(new LoreItemDropCondition(() => AAWorld.downedGrips));
+            lastStandingAlways.OnSuccess(loreCondition.OnSuccess(new PerPlayerDropRule(ModContent.ItemType<GripsOfChaosLore>(), 1)));
+
             lastStandingAlways.OnSuccess(ItemDropRule.BossBag(ModContent.ItemType<GripsOfChaosTreasureBag>()));
+
+            lastStandingAlways.OnSuccess(ItemDropRule.ByCondition(new MasterRevDropRule(), ModContent.ItemType<GripsOfChaosRelic>()));
 
             LeadingConditionRule lastStandingNormal = new(new MissingGripNormal());
 

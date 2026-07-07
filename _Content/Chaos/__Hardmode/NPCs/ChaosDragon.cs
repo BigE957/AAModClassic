@@ -1,4 +1,7 @@
+using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -6,13 +9,19 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.NPCs
 {
-    public class ChaosDragon : ModNPC
-	{
+    public class ChaosDragon : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Chaos Dragon");
 			Main.npcFrameCount[NPC.type] = 4;
-		}
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Position = new(0, 24)
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+        }
 
 		public override void SetDefaults()
 		{
@@ -25,11 +34,12 @@ namespace AAModClassic._Content.Chaos.__Hardmode.NPCs
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.4f;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             NPC.noTileCollide = true;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.ChaosDragonBanner>();
+            SpawnModBiomes = new int[2] { ModContent.GetInstance<InfernoBiome>().Type, ModContent.GetInstance<MireBiome>().Type };
         }
 
         public override void AI()
@@ -58,12 +68,16 @@ namespace AAModClassic._Content.Chaos.__Hardmode.NPCs
             {
                 NPC.spriteDirection = -1;
             }
+        }
+
+        public override void FindFrame(int frameHeight)
+        {
             NPC.frameCounter++;
             if (NPC.frameCounter >= 10)
             {
                 NPC.frameCounter = 0;
-                NPC.frame.Y += 96;
-                if (NPC.frame.Y > 96 * 3)
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y > frameHeight * 3)
                 {
                     NPC.frameCounter = 0;
                     NPC.frame.Y = 0;

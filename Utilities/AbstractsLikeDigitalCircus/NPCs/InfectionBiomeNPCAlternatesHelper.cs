@@ -2,13 +2,7 @@
 using ReLogic.Content;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
-using Terraria.DataStructures;
-using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs
@@ -45,9 +39,9 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs
                 Biomes.Add(new("Default"));
                 Biomes.Add(new("Corruption", 1, (p) => p.ZoneCorrupt));
                 Biomes.Add(new("Crimson", 1, (p) => p.ZoneCrimson));
-                Biomes.Add(new("Inferno", 2, (p) => p.GetModPlayer<AAPlayer>().ZoneMire));
-                Biomes.Add(new("Mire", 2, (p) => p.GetModPlayer<AAPlayer>().ZoneInferno));
-                Biomes.Add(new("Void", 2, (p) => p.GetModPlayer<AAPlayer>().ZoneVoid));
+                Biomes.Add(new("Inferno", 2, (p) => p.GetModPlayer<ZAAPlayer>().ZoneInferno));
+                Biomes.Add(new("Mire", 2, (p) => p.GetModPlayer<ZAAPlayer>().ZoneMire));
+                Biomes.Add(new("Void", 2, (p) => p.GetModPlayer<ZAAPlayer>().ZoneVoid));
                 Biomes.Add(new("Hallow", 3, (p) => p.ZoneHallow));
             }
         }
@@ -94,7 +88,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs
             {
                 if (biome.Priority > myBiome.Priority && biome.IsActive.Invoke(p))
                 {
-                    Main.NewText(biome.Name);
+                    //Main.NewText(biome.Name);
                     myBiome = biome;
                 }
             }

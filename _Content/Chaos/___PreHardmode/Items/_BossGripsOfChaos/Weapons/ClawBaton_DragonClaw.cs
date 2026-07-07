@@ -41,7 +41,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Wea
             }
             bool flag64 = Projectile.type == ModContent.ProjectileType<ClawBaton_DragonClaw>();
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             player.AddBuff(ModContent.BuffType<ClawBaton_Buff>(), 3600);
             if (flag64)
             {

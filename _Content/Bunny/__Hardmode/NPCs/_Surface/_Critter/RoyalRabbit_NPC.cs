@@ -1,12 +1,13 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
 {
@@ -38,6 +39,15 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
             NPC.rarity = 6;
         }
 
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.RoyalRabbit")
+            ]);
+        }
+
         public override void OnKill()
         {
             Player player = Main.player[Player.FindClosest(NPC.Center, NPC.width, NPC.height)];
@@ -45,13 +55,13 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
             if (bunnyKills % 100 == 0 && bunnyKills < 1000)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossSummonsInfo.RoyalRabbit1"), 107, 137, 179);
-                SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Rajah"), NPC.Center);
+                SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Rajah"), NPC.Center);
                 AAModGlobalNPC.SpawnRajah(player, true, new Vector2(NPC.Center.X, NPC.Center.Y - 2000), Language.GetTextValue("Mods.AAModClassic.Common.RajahRabbit"));
             }
             if (bunnyKills % 100 == 0 && bunnyKills >= 1000)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossSummonsInfo.RoyalRabbit2") + player.name.ToUpper() + "!!!", 107, 137, 179);
-                SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Rajah"), NPC.Center);
+                SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Rajah"), NPC.Center);
                 AAModGlobalNPC.SpawnRajah(player, true, new Vector2(NPC.Center.X, NPC.Center.Y - 2000), Language.GetTextValue("Mods.AAModClassic.Common.RajahRabbit"));
             }
         }

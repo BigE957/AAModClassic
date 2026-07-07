@@ -1,18 +1,22 @@
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class KindledHelmet : BaseAAItem
+	public class KindledHelmet : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Kindled";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Kindled Kabuto");
-			// Tooltip.SetDefault(@"Forged in the flames of the blazing sun");
+			// Tooltip.SetDefault(@"'Forged in the flames of the blazing sun'");
         }
 
 		public override void SetDefaults()
@@ -29,11 +33,11 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
             return body.type == ModContent.ItemType<KindledChestplate>() && legs.type == ModContent.ItemType<KindledLeggings>();
         }
 
-		public override void UpdateArmorSet(Player player)
-		{
-			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.KindledKabutoBonus");
-            player.endurance += .02f;
-            player.GetModPlayer<AAPlayer>().kindledSet = true;
+        public override void RegisterEquipEffects()
+        {
+            AddSetEffect(new EnduranceEffect(0.02f));
+            AddSetEffect<MagmaStoneEffect>();
+            AddSetEffect(new EmitLightFromPlayerEffect(AAColor.Lantern.R / 255, AAColor.Lantern.G / 255 * 0.95f, AAColor.Lantern.B / 255 * 0.8f));
         }
 
         public override void AddRecipes()

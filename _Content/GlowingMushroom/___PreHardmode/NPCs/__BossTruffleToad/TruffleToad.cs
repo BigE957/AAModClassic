@@ -1,20 +1,25 @@
-﻿using System.IO;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.GameContent;
-using Terraria.ModLoader;
-
-using Terraria.ID;
-using Terraria.Audio;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
-using Terraria.GameContent.ItemDropRules;
-using AAModClassic.Music;
+﻿using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.Music;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
+using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
+using Terraria.ModLoader;
+using static AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos.GripOfChaosAbstract;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad
 {
@@ -67,6 +72,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
         {
             // DisplayName.SetDefault("Truffle Toad");
             Main.npcFrameCount[NPC.type] = 12;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()
@@ -75,7 +81,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
             NPC.damage = 20;
             NPC.defense = 10;
             NPC.knockBackResist = 0f;
-            NPC.value = Item.sellPrice(0, 1, 0, 0);
+            NPC.value = Item.buyPrice(0, 1, 0, 0);
             NPC.aiStyle = -1;
             NPC.width = 98;
             NPC.height = 72;
@@ -85,7 +91,8 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
             NPC.noGravity = false;
             Music = MusicManagementSystem.MusicSlots["TruffleToad"];
             NPC.netAlways = true;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.Zombie29;
             if (Main.expertMode)
@@ -94,7 +101,16 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
             }
         }
 
-        public static int AISTATE_JUMP = 0, AISTATE_BARF = 1, AISTATE_JUMPALOT = 2, AISTATE_BUBBLES = 3, AISTATE_SEED = 4, AISTATE_STOMP = 5, AISTATE_TOADS = 6, AISTATE_BUBBLES2 = 7;
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.SurfaceMushroom,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.UndergroundMushroom,
+            ]);
+        }
+
+        public const int AISTATE_JUMP = 0, AISTATE_BARF = 1, AISTATE_JUMPALOT = 2, AISTATE_BUBBLES = 3, AISTATE_SEED = 4, AISTATE_STOMP = 5, AISTATE_TOADS = 6, AISTATE_BUBBLES2 = 7;
         public float[] internalAI = new float[5];
         public bool[] Minion = new bool[3];
         public bool tonguespawned = false;
@@ -607,6 +623,14 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<TruffleToadTreasureBag>()));
 
+            npcLoot.AddLoreItemDrop<TruffleToad>(ModContent.ItemType<TruffleToadLore>());
+
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<TruffleToadRelic>()));
+
+            npcLoot.Add(masterMode);
+
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TruffleToadTrophy>(), 10));
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
@@ -626,10 +650,10 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D GlowTex = Mod.GetTexture("Glowmasks/TruffleToad_Glow");
+            Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor, true);
-            BaseDrawing.DrawTexture(spriteBatch, GlowTex, 0, NPC, ColorUtils.COLOR_GLOWPULSE, true);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+            spriteBatch.Draw(GlowTex, NPC.Center - screenPos, NPC.frame, ColorUtils.COLOR_GLOWPULSE, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
             return false;
         }
 

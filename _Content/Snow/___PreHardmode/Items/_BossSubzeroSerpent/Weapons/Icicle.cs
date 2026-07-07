@@ -1,11 +1,13 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons
 {
-    public class Icicle : BaseAAItem
+    public class Icicle : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Magic";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Icicle");

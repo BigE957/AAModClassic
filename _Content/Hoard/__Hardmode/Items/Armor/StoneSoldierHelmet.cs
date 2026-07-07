@@ -1,20 +1,21 @@
+﻿using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
-using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class StoneSoldierHelmet : BaseAAItem
+	public class StoneSoldierHelmet : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.StoneSoldier";
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();
 			// DisplayName.SetDefault("Stone Soldier Helmet");
-			/* Tooltip.SetDefault(@"Increases mining speed by 10%
-Provides light & spelunker effect when worn"); */
 		}
 
 		public override void SetDefaults()
@@ -26,32 +27,25 @@ Provides light & spelunker effect when worn"); */
             Item.defense = 16;
 		}
 
-		public override void UpdateEquip(Player player)
-		{
-			player.findTreasure = true;
-			player.pickSpeed -= 0.15f;
-
-			Lighting.AddLight((int)player.Center.X, (int)player.Center.Y, 1f, 0.95f, .8f);
-		}
-
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ModContent.ItemType<StoneSoldierChestplate>() && legs.type == ModContent.ItemType<StoneSoldierLeggings>();
         }
 
-        public override void UpdateArmorSet(Player player)
-		{
-			player.setBonus = Language.GetTextValue("Mods.AAMod.Equipset.StoneSoldierMaskBonus");
+        public override void RegisterEquipEffects()
+        {
+            AddEffect(new MiningSpeedEffect(0.10f));
+			AddEffect<SpelunkerEffect>();
+            AddEffect(new EmitLightFromPlayerEffect(1f, 0.95f, .8f));
 
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			modPlayer.StoneSoldier = true;
+            AddSetEffect<GoldRingEffect>();
+            AddSetEffect<LuckyCoinEffect>();
+            AddSetEffect<DiscountCardEffect>();
+			AddSetEffect<StoneSoldierHelmetSetEffect>();
+			AddSetEffect(new AttacksInflictBuffEffect(null, (BuffID.Midas, 600)));
+        }
 
-			player.discountAvailable = true;
-			player.hasLuckyCoin = true;
-			player.goldRing = true;
-		}
-		
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MiningHelmet);

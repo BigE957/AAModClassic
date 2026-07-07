@@ -1,13 +1,15 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
-    public class YamataTrophy : BaseAAItem
+    public class YamataTrophy : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Placeables.Boss.Trophy";
         public static int type;
         
         public override void SetStaticDefaults()
@@ -15,16 +17,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandar
             // DisplayName.SetDefault("Yamata Trophy");
 		}
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
         public override void SetDefaults()
 		{

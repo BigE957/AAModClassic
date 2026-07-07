@@ -1,19 +1,26 @@
+﻿using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using AAModClassic.Utilities.Attributes;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class GlowingMushiumHelmet : BaseAAItem
-	{
-		public override void SetStaticDefaults()
+    [AutoloadEquipGlow(EquipType.Head)]
+    public class GlowingMushiumHelmet : EquipAbstract, ILocalizedModType, ICustomEquipGlow
+    {
+        public new string LocalizationCategory => "Items.Armor.GlowingMushium";
+        public Color Color => AAColor.Glow;
+
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Glowing Mushium Hat");
-            // Tooltip.SetDefault("2% increased mana regeneration");
-
 		}
 
 		public override void SetDefaults()
@@ -26,25 +33,19 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Armor
             Item.value = Item.sellPrice(0, 0, 25, 0);
         }
 
-		public override void UpdateEquip(Player player)
-        {
-            player.manaRegenBonus += 2;
-        }
-
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ModContent.ItemType<GlowingMushiumChestplate>() && legs.type == ModContent.ItemType<GlowingMushiumLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
+        public override void RegisterEquipEffects()
+        {
+            AddEffect(new ManaRegenEffect(2));
 
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.ShroomHatBonus");
+			AddSetEffect(new BuffImmunityEffect(BuffID.ManaSickness));
+        }
 
-            player.buffImmune[BuffID.ManaSickness] = true;
-		}
-
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<GlowingMushiumBar>(), 5);

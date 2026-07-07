@@ -1,5 +1,7 @@
-using AAModClassic._Content.Bunny.Projectiles;
+﻿using AAModClassic._Content.Bunny.Projectiles;
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -9,8 +11,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons
 {
 
-    public class RabbitsWrath : BaseAAItem
+    public class RabbitsWrath : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Magic";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Rabbit's Wrath");
@@ -34,20 +37,10 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
             Item.autoReuse = true;
             Item.shootSpeed = 14f;
             Item.shoot = ModContent.ProjectileType<RajahCarrotEX>();
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 14;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity14;
-                }
-            }
-        }
+        
 
         public override Vector2? HoldoutOffset()
 		{

@@ -1,31 +1,24 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using System.Collections.Generic;
 using AAModClassic.Globals;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
-    public class YamataBox : BaseAAItem
+    public class YamataBox : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Yamata Music Box");
+            // DisplayName.SetDefault("Music Box (Yamata)");
             // Tooltip.SetDefault("Plays 'Crescent of Madness' by Saucecoie");
         }
 
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
         public override void SetDefaults()
 		{

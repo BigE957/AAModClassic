@@ -1,21 +1,44 @@
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Chaos.Buffs;
+using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
+using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.Localization;
-using Terraria.ID;
-using AAModClassic.Globals;
-using AAModClassic.Buffs;
-using AAModClassic.Tiles.Crafters;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class ChaosSlayerHelmetMage : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Head)]
+    public class ChaosSlayerHelmetMage : EquipAbstract, ILocalizedModType, ICustomEquipGlow
     {
+        public new string LocalizationCategory => "Items.Armor.ChaosSlayer";
+        public Color Color => AAColor.Shen3;
+
         public override Color GlowmaskDrawColor => AAColor.Shen3;
+
+        public override void Load()
+        {
+            EquipLoader.AddEquipTexture(Mod, Texture + "_Head_Alt", EquipType.Head, item: this, name: $"{Name}_Head_Alt");
+            ZAAPlayer.ModifyDrawInfoEvent += ModifyDrawInfo;
+        }
+
+        private void ModifyDrawInfo(Player player)
+        {
+            int red = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Head);
+            int blue = EquipLoader.GetEquipSlot(Mod, Name + "_Head_Alt", EquipType.Head);
+
+            if (player.head == blue && player.direction == -1)
+                player.head = red;
+            else if (player.head == red && player.direction == 1)
+                player.head = blue;
+        }
 
         public override void SetStaticDefaults()
         {
@@ -33,41 +56,26 @@ The power of discordian rage radiates from this hood"); */
 			Item.width = 20;
 			Item.height = 24;
 			Item.value = Item.sellPrice(3, 0, 0, 0);
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 14;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
             Item.defense = 30;
 		}
-
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity14;
-                }
-            }
-        }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ModContent.ItemType<ChaosSlayerChestplate>() && legs.type == ModContent.ItemType<ChaosSlayerLeggings>();
 		}
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipEffects()
         {
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.PerfectChaosHoodBonus");
-            player.GetModPlayer<AAPlayer>().perfectChaosMa = true;
-            player.AddBuff(ModContent.BuffType<ChaosWrath_Buff>(), 2);
-        }
+            damageMap.GetDamage(DamageClass.Magic) += .32f;
+            damageMap.GetCritChance(DamageClass.Magic) += 20;
+            AddEffect(new EnduranceEffect(0.02f));
+            AddEffect(new ManaCostMultiplierEffect(0.70f));
+            AddEffect(new MaxManaEffect(150));
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Magic) += .32f;
-            player.GetCritChance(DamageClass.Magic) += 20;
-            player.endurance += .02f;
-            player.manaCost *= .7f;
-            player.statManaMax2 += 150;
+            AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Magic, (ModContent.BuffType<DiscordianInferno_Buff>(), 300)));
+            AddSetEffect<ChaosSlayerHelmetMageSetStatScalingEffect>();
+            AddSetEffect<ChaosSlayerHelmetSetDescEffect>();
         }
 
         public override void AddRecipes()
@@ -76,7 +84,7 @@ The power of discordian rage radiates from this hood"); */
             recipe.AddIngredient(ModContent.ItemType<DoomsdayHelmetMage>(), 1);
             recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 6);
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 6);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

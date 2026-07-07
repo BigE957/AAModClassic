@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Wea
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<ClawBaton_DragonClaw>()] > 0 || player.ownedProjectileCounts[ModContent.ProjectileType<ClawBaton_HydraClaw>()] > 0)
             {
 				modPlayer.GripMinion = true;

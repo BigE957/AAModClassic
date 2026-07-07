@@ -1,14 +1,16 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using System;
 using Terraria.ModLoader;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons
 {
-    public class SandScepter : BaseAAItem
+    public class SandScepter : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Summon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Sand Scepter");

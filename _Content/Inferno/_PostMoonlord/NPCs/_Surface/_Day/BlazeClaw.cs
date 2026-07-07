@@ -1,16 +1,17 @@
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.Interfaces;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
 using Terraria.ModLoader.Utilities;
-using AAModClassic.Globals;
-using AAModClassic.Items.Banners;
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Inferno.Buffs;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs._Surface._Day
 {
-    public class BlazeClaw : ModNPC
+    public class BlazeClaw : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
         {
@@ -33,7 +34,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs._Surface._Day
             NPC.noGravity = true;
             NPC.lavaImmune = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<BlazeClawBanner>();
+			//BannerItem = ModContent.ItemType<BlazeClawBanner>();
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
         public override void AI()
@@ -49,13 +51,16 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs._Surface._Day
                 NPC.spriteDirection = -1;
                 NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 3.14f;
             }
+        }
 
+        public override void FindFrame(int frameHeight)
+        {
             NPC.frameCounter++;
             if (NPC.frameCounter >= 8)
             {
                 NPC.frameCounter = 0;
-                NPC.frame.Y += 26;
-                if (NPC.frame.Y > 26 * 4)
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y > frameHeight * 4)
                 {
                     NPC.frameCounter = 0;
                     NPC.frame.Y = 0;

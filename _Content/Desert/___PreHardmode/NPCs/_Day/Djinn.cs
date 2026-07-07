@@ -1,14 +1,17 @@
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
 namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
 {
-    public class Djinn : ModNPC
+    public class Djinn : ModNPC, IBannerNPC
     {
         private bool Shooty = false;
         public override void SetStaticDefaults()
@@ -31,7 +34,15 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
             NPC.noTileCollide = true;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MiniDjinnBanner>();
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Desert,
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Djinn")
+            ]);
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

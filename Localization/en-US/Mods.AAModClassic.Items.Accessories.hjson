@@ -1,0 +1,386 @@
+AleisterBook: {
+	DisplayName: Aleister Book
+	Tooltip:
+		'''
+		A Legendary Book of the Mega Therion.
+		10% increased minion damage
+		+2 minion slots
+		Maybe you could make it stronger..?
+		There's a note written on the cover: 
+		I need more powerful souls, *****,*********,**********
+		'''
+}
+
+TheBookOfTheLaw: {
+	DisplayName: The Book of the Law
+	Tooltip:
+		'''
+		A Legendary Book of the Mega Therion.
+		30% increased minion damage
+		+2 minion slots
+		Includes the effects of all the pieces used to make this.
+
+		'''
+}
+
+DemonGauntlet: {
+	DisplayName: Demon Gauntlet
+	Tooltip: ""
+}
+
+Equinox: {
+	DisplayName: Equinox
+	Tooltip: "'True balance'"
+}
+
+Duality: {
+	DisplayName: Duality
+	Tooltip: "'Chaos flares from this ancient talisman'"
+}
+
+DragontamersCloak: {
+	DisplayName: Dragontamer's Cloak
+	Tooltip: ""
+}
+
+Lantern: {
+	DisplayName: Lantern
+	Tooltip: ""
+}
+
+TaiyangBaolei: {
+	DisplayName: Taiyang Baolei
+	Tooltip: ""
+}
+
+EnergyConduit: {
+	DisplayName: Energy Conduit
+	Tooltip: ""
+}
+
+Naitokurosu: {
+	DisplayName: Naitokurosu
+	Tooltip: ""
+}
+
+DarkVoid: {
+	DisplayName: Dark Void
+	Tooltip: "'Dark and spooky'"
+}
+
+RadiantStar: {
+	DisplayName: Radiant Star
+	Tooltip: "'It's Shiny'"
+}
+
+DarkmatterWings: {
+	DisplayName: Darkmatter Booster
+	Tooltip: ""
+}
+
+StormCharm: {
+	DisplayName: Storm Charm
+	Tooltip: ""
+}
+
+StormRiot: {
+	DisplayName: Storm Riot Shield
+	Tooltip: ""
+}
+
+StormPendant: {
+	DisplayName: Storm Pendant
+	Tooltip: ""
+}
+
+HoloCape: {
+	DisplayName: Holographic Cloak
+	Tooltip: ""
+}
+
+StormClaw: {
+	DisplayName: Storm Claw
+	Tooltip: ""
+}
+
+APageOfTheRuneBook: {
+	DisplayName: A Page of the Rune Book
+	Tooltip: ""
+}
+
+EmperorFishronWings: {
+	DisplayName: Emperor Fishron Wings
+	Tooltip: ""
+}
+
+TheBookOfRunes: {
+	DisplayName: The Book of Runes
+	Tooltip: ""
+}
+
+BulwarkOfChaos: {
+	DisplayName: Bulwark Of Chaos
+	Tooltip: ""
+}
+
+FireFrostMedallion: {
+	DisplayName: Fire Frost Medallion
+	Tooltip: ""
+}
+
+CursedEyeOfTheSoulBinder: {
+	DisplayName: Cursed Eye of the Soul Binder
+	Tooltip: ""
+}
+
+OlympianWings: {
+	DisplayName: Olympian Wings
+	Tooltip: ""
+}
+
+SeraphHarp: {
+	DisplayName: Seraph Harp
+	Tooltip: ""
+}
+
+GoddessHarp: {
+	DisplayName: Goddess Harp
+	Tooltip: ""
+}
+
+RabbitcopterWings: {
+	DisplayName: Rabbitcopter Ears
+	Tooltip: "'Yeah that's not how rabbit ears work but whatever, it works.'"
+}
+
+RajahRabbitsSashOfVengeance: {
+	DisplayName: Rajah Rabbit's Sash of Vengeance
+	Tooltip: ""
+}
+
+RajahRabbitsCloakOfSupremacy: {
+	DisplayName: Rajah Rabbit's Cloak of Supremecy
+	Tooltip: "'You have been deemed a worthy successor by the Champion of the Innocent'"
+}
+
+ClawOfChaos: {
+	DisplayName: Claw of Chaos
+	Tooltip: ""
+}
+
+ChaosWings: {
+	DisplayName: Chaos Wings
+	Tooltip: ""
+}
+
+DragonstrideBoots: {
+	DisplayName: Dragonstride Boots
+	Tooltip: ""
+}
+
+HeartOfPassion: {
+	DisplayName: Heart of Passion
+	Tooltip: ""
+}
+
+HeartOfSorrow: {
+	DisplayName: Heart of Sorrow
+	Tooltip: ""
+}
+
+WingsOfChaos: {
+	DisplayName: Wings of Chaos
+	Tooltip: ""
+}
+
+SandstormMedallion: {
+	DisplayName: Sandstorm Medallion
+	Tooltip: ""
+}
+
+VultureWings: {
+	DisplayName: Vulture Wings
+	Tooltip: ""
+}
+
+ArtifactOfJudgement: {
+	DisplayName: Artifact of Judgement
+	Tooltip: ""
+}
+
+ArtifactOfGuilt: {
+	DisplayName: Artifact of Guilt
+	Tooltip: ""
+}
+
+PalladiumShield: {
+	DisplayName: Palladium Shield
+	Tooltip: ""
+}
+
+GlowingTruffle: {
+	DisplayName: Glowing Truffle
+	Tooltip: "'Don't lick it.'"
+}
+
+TruffleLegs: {
+	DisplayName: Truffle Legs
+	Tooltip: ""
+}
+
+CharmOfDesire: {
+	DisplayName: Charm of Desire
+	Tooltip: ""
+}
+
+TalismanOfDesire: {
+	DisplayName: Talisman of Desire
+	Tooltip: ""
+}
+
+DragonsGuard: {
+	DisplayName: Dragon's Guard
+	Tooltip: ""
+}
+
+MagmancerWings: {
+	DisplayName: Magmancer Wings
+	Tooltip: ""
+}
+
+OrnateBand: {
+	DisplayName: Ornate Band
+	Tooltip: ""
+}
+
+DraconianWings: {
+	DisplayName: Draconian Sun Wings
+	Tooltip: ""
+}
+
+HydraPendant: {
+	DisplayName: Hydra Pendant
+	Tooltip: ""
+}
+
+AshProofVest0: {
+	DisplayName: Ash-Proof Vest
+	Tooltip: 
+		'''
+		"{$Accessories.AshProofVest3.SharedFlavorText}"
+		Vest Status: Ashes in the wind...
+		'''
+}
+
+AshProofVest1: {
+	DisplayName: Ash-Proof Vest
+	Tooltip: 
+		'''
+		"{$Accessories.AshProofVest3.SharedFlavorText}"
+		Vest Status: Going going gone
+		'''
+}
+
+AshProofVest2: {
+	DisplayName: Ash-Proof Vest
+	Tooltip: 
+		'''
+		"{$Accessories.AshProofVest3.SharedFlavorText}"
+		Vest Status: Seen better days
+		'''
+}
+
+AshProofVest3: {
+	SharedFlavorText: "Lingering in the firestorm for too long will degrade this accessory and cause it to break..."
+	DisplayName: Ash-Proof Vest
+	Tooltip: 
+		'''
+		"{$Accessories.AshProofVest3.SharedFlavorText}"
+		Vest Status: Good as new
+		'''
+}
+
+ShadowBand: {
+	DisplayName: Shadow Band
+	Tooltip: ""
+}
+
+AquamancerWings: {
+	DisplayName: Aquamancer Wings
+	Tooltip: ""
+}
+
+BlackLotusEmblem: {
+	DisplayName: Black Lotus Emblem
+	Tooltip: ""
+}
+
+BotchedBand: {
+	DisplayName: Botched Band
+	Tooltip: ""
+}
+
+DreadMoonWings: {
+	DisplayName: Dread Moon Wings
+	Tooltip: ""
+}
+
+OldOneCharm: {
+	DisplayName: Old One Charm
+	Tooltip: ""
+}
+
+HeartyTruffle: {
+	DisplayName: Hearty Truffle
+	Tooltip: "'Don't eat it.'"
+}
+
+ArcticMedallion: {
+	DisplayName: Arctic Medallion
+	Tooltip: ""
+}
+
+RadiumWings: {
+	DisplayName: Radium Wings
+	Tooltip: ""
+}
+
+TerraWings: {
+	DisplayName: Terra Wings
+	Tooltip: ""
+}
+
+SagittariusShield: {
+	DisplayName: Sagittarius Shield
+	Tooltip: ""
+}
+
+BrokenCode: {
+	DisplayName: Broken Code
+	Tooltip: "'You don't look so good'"
+}
+
+ZeroWings: {
+	DisplayName: Zero Jet
+	Tooltip: ""
+}
+
+DragonSerpentNecklace: {
+	DisplayName: Dragon Serpent Necklace
+	Tooltip: ""
+}
+
+MadnessTruffle: {
+	DisplayName: Madness Truffle
+	Tooltip: "'You know what? Just don't put it anywhere near your mouth.'"
+}
+
+HeartOfAnarchy: {
+	DisplayName: Heart of Anarchy
+	Tooltip: "'The Sisters' hearts beat as one in this antique china'"
+}
+
+MetallicTruffle: {
+	DisplayName: Metallic Truffle
+	Tooltip: "'Don't bite it.'"
+}

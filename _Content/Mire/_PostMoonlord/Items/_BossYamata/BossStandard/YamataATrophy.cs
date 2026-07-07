@@ -1,11 +1,13 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
-    public class YamataATrophy : BaseAAItem
-	{        
+    public class YamataATrophy : BaseAAItem, ILocalizedModType
+	{
+        public new string LocalizationCategory => "Items.Placeables.Boss.Trophy";        
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Yamata No Orochi Trophy");
@@ -25,7 +27,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandar
 			Item.consumable = true;
 			Item.value = 2000;
             Item.rare = ItemRarityID.Red;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
 			Item.createTile = ModContent.TileType<YamataATrophy_Tile>();
 		}
 	}

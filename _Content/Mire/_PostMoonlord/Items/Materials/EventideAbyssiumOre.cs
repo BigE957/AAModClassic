@@ -1,13 +1,27 @@
+﻿using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items.Materials
 {
-    public class EventideAbyssiumOre : BaseAAItem
+    public class EventideAbyssiumOre : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Eventide Abyssium Ore");
+            // Tooltip.SetDefault("It's cold and wet, like an evening in a swampy marsh");
+
+            ItemTrader.ChlorophyteExtractinator.AddOption_Interchangable(ModContent.ItemType<EventideAbyssiumOre>(), ModContent.ItemType<DaybreakIncineriteOre>());
+        }
+
         public override void SetDefaults()
         {
 
@@ -24,21 +38,6 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Materials
             Item.createTile = ModContent.TileType<EventideAbyssiumOre_Tile>(); //put your CustomBlock Tile name
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
-
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Eventide Abyssium Ore");
-            // Tooltip.SetDefault("It's cold and wet, like an evening in a swampy marsh");
-        }
+        
     }
 }

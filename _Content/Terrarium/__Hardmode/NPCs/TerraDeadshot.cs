@@ -1,5 +1,8 @@
-using AAModClassic.Items.Materials;
+using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
+using AAModClassic._Content.Terrarium.World.Biomes;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -7,12 +10,18 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
 {
-    public class TerraDeadshot : ModNPC
+    public class TerraDeadshot : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Deadshot");
             Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.VortexRifleman];
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Velocity = -2
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()
@@ -29,7 +38,8 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             NPC.buffImmune[31] = false;
             AnimationType = NPCID.VortexRifleman;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraDeadshotBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraDeadshotBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
         
         public override void AI()
@@ -426,6 +436,15 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             {
                 Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraPrism>());
             }
+        }
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            if (NPC.IsABestiaryIconDummy)
+            {
+                NPC.spriteDirection = -1;
+            }
+            return true;
         }
     }
 }

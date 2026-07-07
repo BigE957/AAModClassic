@@ -1,4 +1,6 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic._Content.Terrarium.World.Biomes;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +8,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
 {
-    public class UnityWatcher : ModNPC
-	{
+    public class UnityWatcher : ModNPC, IBannerNPC
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Unity Watcher");
@@ -18,7 +20,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
         {
             NPC.width = 35;
             NPC.height = 35;
-            NPC.value = Item.sellPrice(0, 0, 5, 50);
+            NPC.value = Item.buyPrice(0, 0, 5, 50);
             NPC.npcSlots = 1;
             NPC.aiStyle = -1;
             NPC.lifeMax = 300;
@@ -29,7 +31,8 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             NPC.knockBackResist = 0.5f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraWatcherBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.UnityWatcherBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 
         public override void HitEffect(NPC.HitInfo hit)

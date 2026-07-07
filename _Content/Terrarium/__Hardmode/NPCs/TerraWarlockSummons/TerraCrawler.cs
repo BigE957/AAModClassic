@@ -1,5 +1,8 @@
+using AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.TerraWeaver;
 using AAModClassic._Content.Terrarium.Buffs;
+using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -7,8 +10,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons
 {
-    public class TerraCrawler : ModNPC
-	{
+    public class TerraCrawler : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Terra Crawler");
@@ -26,9 +29,11 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.4f;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraCrawlerBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraCrawlerBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 
         public override void AI()
@@ -48,11 +53,16 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons
                 NPC.alpha = 0;
             }
             BaseAI.AIZombie(NPC, ref NPC.ai, false, false, 0, 0.07f, 3f, 3, 4, 60, true, 10, 60, true, null, false);
+        }
+
+        public override void FindFrame(int frameHeight)
+        {
+            NPC.frameCounter++;
             if (NPC.frameCounter >= 10)
             {
                 NPC.frameCounter = 0;
-                NPC.frame.Y += 20;
-                if (NPC.frame.Y > 20 * 4)
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y > frameHeight * 4)
                 {
                     NPC.frameCounter = 0;
                     NPC.frame.Y = 0;

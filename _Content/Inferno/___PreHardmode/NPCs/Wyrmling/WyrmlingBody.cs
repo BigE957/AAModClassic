@@ -1,5 +1,5 @@
-﻿using AAModClassic.Items.Banners;
-using AAModClassic.Utilities;
+﻿using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -8,8 +8,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
 {
-    public class WyrmlingBody : WyrmlingHead
+    public class WyrmlingBody : WyrmlingHead, IBannerNPC
     {
+        public int OverrideBannerNPCType => ModContent.NPCType<WyrmlingHead>();
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Wyrmling");
@@ -23,7 +24,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
 
             NPC.alpha = 255;
             Banner = ModContent.NPCType<WyrmlingHead>();
-            BannerItem = ModContent.ItemType<WyrmlingBanner>();
+            //BannerItem = ModContent.ItemType<WyrmlingBanner>();
         }
 
         public override void HitEffect(NPC.HitInfo hit)

@@ -1,11 +1,13 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.World.BiomeChest.Tiles
 {
-    public class MireChest : BaseAAItem
+    public class MireChest : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Placeables";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Mire Chest");

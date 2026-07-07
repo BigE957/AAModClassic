@@ -1,5 +1,5 @@
-using AAModClassic.Bases;
 using AAModClassic.Buffs;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;

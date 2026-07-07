@@ -1,12 +1,14 @@
 using AAModClassic._Content.Madness.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.Interfaces;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
 namespace AAModClassic._Content.Madness.___PreHardmode.NPCs
 {
-    public class MadnessBat : ModNPC
+    public class MadnessBat : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
         {
@@ -23,7 +25,7 @@ namespace AAModClassic._Content.Madness.___PreHardmode.NPCs
             NPC.noGravity = true;
             NPC.noTileCollide = false;
             NPC.knockBackResist = 0.5f;
-            NPC.value = Item.sellPrice(0, 0, 8, 30);
+            NPC.value = Item.buyPrice(0, 0, 8, 30);
             NPC.npcSlots = 0f;
             NPC.lavaImmune = true;
             NPC.netAlways = true;
@@ -32,7 +34,12 @@ namespace AAModClassic._Content.Madness.___PreHardmode.NPCs
             NPC.DeathSound = SoundID.NPCDeath1;
             AIType = NPCID.CaveBat;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MadnessBatBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MadnessBatBanner>();
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface);
         }
 
         public override void FindFrame(int frameHeight)

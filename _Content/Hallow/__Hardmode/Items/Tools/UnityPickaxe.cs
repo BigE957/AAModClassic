@@ -1,11 +1,13 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hallow.__Hardmode.Items.Tools
 {
-    public class UnityPickaxe : BaseAAItem
+    public class UnityPickaxe : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Tools";
         public override void SetDefaults()
         {
 

@@ -1,11 +1,13 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons
 {
-    public class BaneOfTheSlaughterer : BaseAAItem
+    public class BaneOfTheSlaughterer : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Melee";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Bane of the Slaughterer");
@@ -30,7 +32,7 @@ Bane of the Bunny EX"); */
             Item.value = Item.sellPrice(1, 0, 0, 0);
             Item.shoot = ModContent.ProjectileType<BaneOfTheSlaughterer_Holdout>();
             Item.rare = ItemRarityID.Cyan;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.useAnimation = 13;
             Item.useTime = 13;
             Item.autoReuse = true;

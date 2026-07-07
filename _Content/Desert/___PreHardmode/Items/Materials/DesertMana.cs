@@ -1,12 +1,15 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items.Materials
 {
-    public class DesertMana : BaseAAItem
+    public class DesertMana : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Desert Mana");

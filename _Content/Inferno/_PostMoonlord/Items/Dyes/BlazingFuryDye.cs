@@ -1,5 +1,6 @@
-using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Graphics.Shaders;
@@ -9,12 +10,13 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Dyes
 {
-    public class BlazingFuryDye : BaseAAItem
+    public class BlazingFuryDye : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Dyes";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Blazing Fury Dye");
-            BaseUtility.AddTooltips(Item, new string[] { "Gives a blazing touch to whatever this dye is applied to" });
+            // Tooltip.SetDefault("Gives a blazing touch to whatever this dye is applied to");
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

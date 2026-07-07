@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons
         {
             bool flag64 = Projectile.type == ModContent.ProjectileType<CottonCane_RabbitcopterSoldier>();
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (!player.active)
             {
                 Projectile.active = false;

@@ -1,5 +1,7 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -9,12 +11,15 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons
 {
-    public class FlameVortexStaff : BaseAAItem
+    public class FlameVortexStaff : BaseAAItem, ILocalizedModType
     {
-		public override void SetStaticDefaults()
+        public new string LocalizationCategory => "Items.Weapons.Summon";
+        public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Flame Vortex Staff");
-            BaseUtility.AddTooltips(Item, new string[] { "Conjures flaming spheres that increase your minion damage", "Each sphere takes up 1 minion slot", "You must have at least 2 open slots for the first summon" });			
+            /* Tooltip.SetDefault(@"Conjures flaming spheres that increase your minion damage
+Each sphere takes up 1 minion slot
+You must have at least 2 open slots for the first summon"); */	
 		}		
 
         public override void SetDefaults()
@@ -22,8 +27,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
             Item.width = 45;
             Item.height = 18;
             Item.maxStack = Item.CommonMaxStack;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 12;
+            Item.rare = ModContent.RarityType<PostEquinoxRarity>();
             Item.value = Item.sellPrice(0, 20, 0, 0);
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 35;
@@ -36,16 +40,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
             Item.shootSpeed = 5;
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity12;
-                }
-            }
-        }
+        
 
         public override void UseStyle(Player player, Rectangle heldItemFrame)
 		{

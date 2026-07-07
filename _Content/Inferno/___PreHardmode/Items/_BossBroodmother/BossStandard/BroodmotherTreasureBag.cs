@@ -1,9 +1,11 @@
-using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories;
+using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Pets;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Pets;
-using AAModClassic.CrossMod;
-using AAModClassic.Items.Ranged;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
+using AAModClassic._CrossMod;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -14,15 +16,17 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard
 {
-    public class BroodmotherTreasureBag : BaseAAItem
+    public class BroodmotherTreasureBag : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Broodmother)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;
             ItemID.Sets.BossBag[Type] = true;
+            ItemID.Sets.PreHardmodeLikeBossBag[Type] = true;
         }
 
 		public override void SetDefaults()
@@ -31,7 +35,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Bo
 			Item.consumable = true;
 			Item.width = 36;
 			Item.height = 32;
-			Item.expert = true; Item.expertOnly = true;
+			Item.expert = true;
         }
 
         public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
@@ -50,7 +54,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Bo
             if (Main.rand.NextBool(10))
             {
 
-                AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
                 modPlayer.PHMDevArmor();
             }
         }
@@ -60,7 +64,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Bo
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<BroodmotherMask>(), 7));
 
             if (ContentReplacementSystem.NeedToReplaceContent)
-                itemLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<AAModClassic.Items.Melee.Pyrosphere>(), ModContent.ItemType<Firebuster>(), ModContent.ItemType<AAModClassic.Items.Magic.Volley>(), ModContent.ItemType<DragonSoul>(), ModContent.ItemType<DragonsGuard>()));
+                itemLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<Pyrosphere>(), ModContent.ItemType<Firebuster>(), ModContent.ItemType<Volley>(), ModContent.ItemType<DragonSoul>(), ModContent.ItemType<DragonsGuard>()));
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ScorchedEgg>(), 7));
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<DragontamersCloak>()));

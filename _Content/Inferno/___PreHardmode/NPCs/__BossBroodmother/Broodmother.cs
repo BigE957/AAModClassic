@@ -1,18 +1,25 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard;
+using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Pets;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Pets;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._CrossMod;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.CrossMod;
-using AAModClassic.Items.Ranged;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -22,10 +29,24 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
     [AutoloadBossHead]
     public class Broodmother : ModNPC
     {
+        public static Asset<Texture2D> Glowmask;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("The Broodmother");
             Main.npcFrameCount[NPC.type] = 6;
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                PortraitPositionYOverride = 0,
+                Position = new(32, -4),
+                Scale = 0.85f
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()
@@ -45,20 +66,18 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
             NPC.netAlways = true;
             NPC.friendly = false;
             NPC.lifeMax = 6000;
-            NPC.value = Item.sellPrice(0, 5, 0, 0);
+            NPC.value = Item.buyPrice(0, 5, 0, 0);
             NPC.behindTiles = true;
             NPC.knockBackResist = 0f;
             NPC.HitSound = SoundID.NPCHit6;
             NPC.DeathSound = SoundID.NPCDeath8;
             NPC.npcSlots = 200;
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
         public int frame = 0;
 
         public int FrameTex = 0;
-
-        public Texture2D Tex = null;
-        public Texture2D Glow = null;
 
         public int damage = 0;
 
@@ -78,6 +97,12 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
                     }
                 }
             }
+            NPC.frame.Width = TextureAssets.Npc[NPC.type].Value.Width / 2;
+            if (FrameTex >= 1)
+                NPC.frame.X = TextureAssets.Npc[NPC.type].Value.Width / 2;
+            else
+                NPC.frame.X = 0;
+
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -119,6 +144,14 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<BroodmotherTreasureBag>()));
 
+            npcLoot.AddLoreItemDrop<Broodmother>(ModContent.ItemType<BroodmotherLore>());
+
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<BroodmotherRelic>()));
+
+            npcLoot.Add(masterMode);
+
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BroodmotherTrophy>(), 10));
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
@@ -126,7 +159,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<BroodmotherMask>(), 7));
 
             if (ContentReplacementSystem.NeedToReplaceContent)
-                notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<AAModClassic.Items.Melee.Pyrosphere>(), ModContent.ItemType<Firebuster>(), ModContent.ItemType<AAModClassic.Items.Magic.Volley>(), ModContent.ItemType<DragonSoul>(), ModContent.ItemType<DragonsGuard>()));
+                notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<Pyrosphere>(), ModContent.ItemType<Firebuster>(), ModContent.ItemType<Volley>(), ModContent.ItemType<DragonSoul>(), ModContent.ItemType<DragonsGuard>()));
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ScorchedEgg>(), 10));
 
@@ -138,19 +171,10 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            if (FrameTex == 0)
-            {
-                Tex = Mod.GetTexture("NPCs/Bosses/Broodmother/Broodmother");
-                Glow = Mod.GetTexture("Glowmasks/Broodmother_Glow");
-            }
-            else
-            {
-                Tex = Mod.GetTexture("NPCs/Bosses/Broodmother/Broodmother0");
-                Glow = Mod.GetTexture("Glowmasks/Broodmother0_Glow");
-            }			
-
-            BaseDrawing.DrawTexture(spriteBatch, Tex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 6, NPC.frame, drawColor, true);
-            BaseDrawing.DrawTexture(spriteBatch, Glow, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 6, NPC.frame, ColorUtils.COLOR_GLOWPULSE, true);
+            //spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            //spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, ColorUtils.COLOR_GLOWPULSE, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, NPC.IsABestiaryIconDummy ? Color.White : drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0f);
+            spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, ColorUtils.COLOR_GLOWPULSE, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0f);
             return false;
         }
 

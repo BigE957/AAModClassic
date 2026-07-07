@@ -16,7 +16,7 @@ namespace AAModClassic._Content.Inferno.Buffs
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-            if (player.GetModPlayer<AAPlayer>().ZoneInferno && !Main.dayTime && !AAWorld.downedAkuma)
+            if (player.GetModPlayer<ZAAPlayer>().ZoneInferno && !Main.dayTime && !AAWorld.downedAkuma)
             {
                 player.buffTime[buffIndex] = 5;
                 player.lifeRegenTime = 1;

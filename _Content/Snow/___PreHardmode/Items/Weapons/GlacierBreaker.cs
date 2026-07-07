@@ -1,0 +1,50 @@
+﻿using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace AAModClassic._Content.Snow.___PreHardmode.Items.Weapons   //where is located
+{
+    public class GlacierBreaker : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
+        public override void SetDefaults()
+        {
+			Item.CloneDefaults(ItemID.SolarEruption);
+
+            Item.damage = 9;            
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
+            Item.width = 32;              
+            Item.height = 46;             
+
+            Item.knockBack = 6;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = ItemRarityID.Orange;
+            Item.autoReuse = true;   
+            Item.useTurn = false;
+            Item.shoot = ModContent.ProjectileType<GlacierBreaker_Holdout>();
+			Item.UseSound = SoundID.Item18;
+            Item.channel = true;
+        }
+
+		public override void SetStaticDefaults()
+		{
+            // DisplayName.SetDefault("Glacier Breaker");
+            // Tooltip.SetDefault(@"Drops Icicles while the flail travels");
+            ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
+            base.SetStaticDefaults();
+        }
+		
+		public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();      
+            recipe.AddIngredient(ItemID.BorealWood, 20);
+			recipe.AddIngredient(ItemID.IceBlock, 40);
+			recipe.AddIngredient(ModContent.ItemType<SnowMana>(), 3);
+            recipe.AddTile(TileID.Anvils);
+            recipe.Register();
+
+        }
+    }
+}

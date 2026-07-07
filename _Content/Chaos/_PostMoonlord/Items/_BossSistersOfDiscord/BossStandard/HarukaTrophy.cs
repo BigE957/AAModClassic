@@ -1,11 +1,13 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard
 {
-    public class HarukaTrophy : BaseAAItem
+    public class HarukaTrophy : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables.Boss.Trophy";
         public static int type;
         
         public override void SetStaticDefaults()

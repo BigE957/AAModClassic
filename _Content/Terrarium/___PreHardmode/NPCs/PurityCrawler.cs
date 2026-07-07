@@ -1,5 +1,7 @@
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -7,13 +9,13 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
 {
-    public class PurityCrawler : ModNPC
+    public class PurityCrawler : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Purity Crawler");
 			Main.npcFrameCount[NPC.type] = 5;
-		}
+        }
 
         public bool Val = false;
         public int[] subNPCs = new int[0];
@@ -30,9 +32,11 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.4f;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PurityCrawlerBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PurityCrawlerBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 
         public override void OnKill()
@@ -65,6 +69,21 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
                 NPC.alpha = 0;
             }
             BaseAI.AIZombie(NPC, ref NPC.ai, false, false, 0, 0.07f, 3f, 3, 4, 60, true, 10, 60, true, null, false);
+        }
+
+        public override void FindFrame(int frameHeight)
+        {
+            NPC.frameCounter++;
+            if (NPC.frameCounter >= 10)
+            {
+                NPC.frameCounter = 0;
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y > frameHeight * 4)
+                {
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y = 0;
+                }
+            }
         }
     }
 }

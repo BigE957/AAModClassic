@@ -1,11 +1,14 @@
-using Terraria;
+﻿using Terraria;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Underground.___PreHardmode.Items.Materials
 {
-    public class Prism : BaseAAItem
+    public class Prism : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         
         public override void SetStaticDefaults()
         {

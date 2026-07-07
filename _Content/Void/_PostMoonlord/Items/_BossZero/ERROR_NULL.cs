@@ -1,4 +1,4 @@
-
+﻿
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -9,14 +9,17 @@ using Terraria.ID;
 using Terraria.DataStructures;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.NPCs.Bosses.Zero.Protocol;
-using AAModClassic.NPCs.Bosses.Zero;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
+using AAModClassic._Content.Void.___PreHardmode.NPCs;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero
 {
     //imported from my tAPI mod because I'm lazy
-    public class ERROR_NULL : BaseAAItem
+    public class ERROR_NULL : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.BossSummon";
         
         public override void SetStaticDefaults()
         {
@@ -52,14 +55,14 @@ N0N-C0NSUMABLE"); */
         // We use the CanUseItem hook to prevent a player from using this item while the boss is present in the world.
         public override bool CanUseItem(Player player)
         {
-            if (player.GetModPlayer<AAPlayer>().ZoneVoid)
+            if (player.GetModPlayer<ZAAPlayer>().ZoneVoid)
             {
                 if (NPC.AnyNPCs(ModContent.NPCType<Zero>()))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroUnitFalse"), new Color(255, 0, 0), false);
                     return false;
                 }
-                if (NPC.AnyNPCs(ModContent.NPCType<ZeroProtocol>()))
+                if (NPC.AnyNPCs(ModContent.NPCType<ZeroA>()))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroUnitFalse"), new Color(255, 0, 0), false);
                     return false;
@@ -78,7 +81,7 @@ N0N-C0NSUMABLE"); */
             {
                 AAWorld.zeroUS = true;
                 if (!NPC.AnyNPCs(ModContent.NPCType<ZeroDeactivated>()))
-                    NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X, (int)player.position.Y - 300, ModContent.NPCType<ZeroProtocol>());
+                    NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X, (int)player.position.Y - 300, ModContent.NPCType<ZeroA>());
             }
 
             SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/ZeroDeath"));

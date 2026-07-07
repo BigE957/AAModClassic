@@ -19,7 +19,7 @@ namespace AAModClassic._Content.Inferno.Buffs
 
         public override void Update(Player player, ref int buffIndex)
 		{
-            player.GetModPlayer<AAPlayer>().dragonFire = true;
+            player.GetModPlayer<ZAAPlayer>().dragonFire = true;
         }
         public override void Update(NPC npc, ref int buffIndex)
         {

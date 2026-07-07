@@ -1,6 +1,7 @@
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Graphics.Shaders;
@@ -10,24 +11,16 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Dyes
 {
-    public class BlazingDye : BaseAAItem
+    public class BlazingDye : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Dyes";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Blazing Dye");
-            BaseUtility.AddTooltips(Item, new string[] { "Gives a blazing touch to whatever this dye is applied to" });
+            // Tooltip.SetDefault("Gives a blazing touch to whatever this dye is applied to");
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
         public override void SetDefaults()
         {
@@ -42,8 +35,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Dyes
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 3);
             recipe.AddIngredient(ItemID.BottledWater);
+            recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 3);
             recipe.AddTile(TileID.DyeVat);
             recipe.Register();
         }

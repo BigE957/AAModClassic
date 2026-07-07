@@ -1,5 +1,6 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
-using AAModClassic.Items.Banners;
+using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -9,8 +10,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
 {
-    public class ChaoticTwilight : ModNPC
-	{
+    public class ChaoticTwilight : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Chaotic Twilight");
@@ -32,7 +33,8 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
             NPC.noTileCollide = true;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<ChaoticTwilightBanner>();
+			//BannerItem = ModContent.ItemType<ChaoticTwilightBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<UndergroundMireBiome>().Type];
         }
 
         public override void AI()

@@ -1,5 +1,6 @@
-using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Accessories;
+﻿using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Accessories;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -10,8 +11,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard
 {
-    public class EquinoxWormsTreasureBag : BaseAAItem
+    public class EquinoxWormsTreasureBag : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public static Asset<Texture2D> DaybringerTreasureBagTex;
         public static Asset<Texture2D> DaybringerTreasureBagGlowmask;
         public static Asset<Texture2D> NightcrawlerTreasureBagTex;
@@ -19,7 +21,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Boss
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Equinox Worms)");
             /* Tooltip.SetDefault(@"{$CommonItemTooltip.RightClickToOpen}
 Contained loot depends on the time of day"); */
 
@@ -39,7 +41,7 @@ Contained loot depends on the time of day"); */
 			Item.width = 32;
 			Item.height = 36;
 			Item.rare = ItemRarityID.Purple;
-			Item.expert = true; Item.expertOnly = true;
+			Item.expert = true;
         }
 
         public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
@@ -188,7 +190,7 @@ Contained loot depends on the time of day"); */
 		{
             if (Main.rand.NextBool(20))
             {
-                AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
                 modPlayer.PMLDevArmor();
             }
         }
@@ -201,7 +203,7 @@ Contained loot depends on the time of day"); */
 
             dayTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DaybringerMask>(), 7));
 
-            dayTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RadiantStar>(), 7));
+            dayTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RadiantStar>()));
 
             LeadingConditionRule nightTime = new(new Nighttime());
 
@@ -209,7 +211,7 @@ Contained loot depends on the time of day"); */
 
             nightTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<NightcrawlerMask>(), 7));
 
-            nightTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DarkVoid>(), 7));
+            nightTime.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DarkVoid>()));
 
             itemLoot.Add(dayTime);
             itemLoot.Add(nightTime);

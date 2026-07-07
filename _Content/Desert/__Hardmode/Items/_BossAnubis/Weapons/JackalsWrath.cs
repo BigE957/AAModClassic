@@ -1,12 +1,14 @@
-using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons
 {
-    public class JackalsWrath : BaseAAItem
+    public class JackalsWrath : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Melee";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Jackal's Wrath");

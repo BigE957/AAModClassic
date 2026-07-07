@@ -1,6 +1,7 @@
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -9,8 +10,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs
 {
-    public class Soulsucker : ModNPC
-	{
+    public class Soulsucker : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Soulsucker");
@@ -33,7 +34,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs
             NPC.lavaImmune = false;
             NPC.knockBackResist = 0.5f;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<SoulsuckerBanner>();
+			//BannerItem = ModContent.ItemType<SoulsuckerBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
         public override void FindFrame(int frameHeight)

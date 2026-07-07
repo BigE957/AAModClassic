@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Wea
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<SandScepter_DustDevil>()] > 0)
 			{
 				modPlayer.dustDevil = true;

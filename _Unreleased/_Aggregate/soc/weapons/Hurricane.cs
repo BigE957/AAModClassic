@@ -1,3 +1,4 @@
+using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
 using ReLogic.Utilities;
 using System;
@@ -10,7 +11,7 @@ namespace AAModClassic._Unreleased._Aggregate.soc.weapons
 {
     public class Hurricane : ModProjectile
     {
-        public override string Texture { get { return "AAModClassic/BlankTex"; } }
+        public override string Texture => AssetDirectory.General.Nothing;
 
         public override void SetStaticDefaults()
         {

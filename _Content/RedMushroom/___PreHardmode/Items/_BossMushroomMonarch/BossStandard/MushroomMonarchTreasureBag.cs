@@ -1,5 +1,6 @@
-using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.Accessories;
+﻿using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.Accessories;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -7,15 +8,17 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard
 {
-    public class MushroomMonarchTreasureBag : BaseAAItem
+    public class MushroomMonarchTreasureBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Mushroom Monarch)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;
             ItemID.Sets.BossBag[Type] = true;
+            ItemID.Sets.PreHardmodeLikeBossBag[Type] = true;
         }
 
         public override void SetDefaults()
@@ -25,7 +28,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMo
             Item.width = 32;
             Item.height = 36;
             Item.rare = ItemRarityID.Purple;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
         public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
@@ -43,7 +46,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMo
         {
             if (Main.rand.NextBool(10))
             {
-                AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
                 modPlayer.PHMDevArmor();
             }
         }

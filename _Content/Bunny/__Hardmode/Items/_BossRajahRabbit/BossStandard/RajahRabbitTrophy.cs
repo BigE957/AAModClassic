@@ -1,11 +1,12 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard
 {
-    public class RajahRabbitTrophy : BaseAAItem
+    public class RajahRabbitTrophy : BaseAAItem, ILocalizedModType
 	{
-        public static int type;
+        public new string LocalizationCategory => "Items.Placeables.Boss.Trophy";
         
         public override void SetStaticDefaults()
         {

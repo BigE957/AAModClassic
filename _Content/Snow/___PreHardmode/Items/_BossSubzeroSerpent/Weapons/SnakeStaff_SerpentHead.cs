@@ -57,7 +57,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.We
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 
             if ((int)Main.time % 120 == 0) Projectile.netUpdate = true;
             if (!player.active)
@@ -165,9 +165,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.We
                     Projectile.alpha = 0;
                 }
             }
-
-            float DamageBoost = Main.player[Projectile.owner].GetDamage(DamageClass.Summon).Flat;
-            Projectile.damage = (int)(DamageBoost > 0f? (10 + (Projectile.localAI[0] > 10? 10 : Projectile.localAI[0] - 1)) * DamageBoost : 1);
+            Projectile.damage = (int)Main.player[Projectile.owner].GetDamage(DamageClass.Summon).ApplyTo((10 + (Projectile.localAI[0] > 10 ? 10 : Projectile.localAI[0] - 1)));
         }
     }
 }

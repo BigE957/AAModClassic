@@ -1,11 +1,19 @@
+﻿using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
+using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class AthenaAMask : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Head)]
+    public class AthenaAMask : BaseAAItem, ILocalizedModType, ICustomEquipGlow
     {
+        public new string LocalizationCategory => "Items.Vanity.Masks";
+        public Color Color => AAColor.Flash;
+
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

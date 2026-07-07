@@ -1,25 +1,29 @@
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Mire.Buffs;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Humanizer;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories
 {
     [AutoloadEquip(EquipType.Neck)]
-    public class Naitokurosu : BaseAAItem
+    public class Naitokurosu : EquipAbstract, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Naitokurosu");
-            /* Tooltip.SetDefault(@"8% increased ranged damage
-Grants you the abilities of a true master ninja
-Allows you to do a speedy dash
-You move twice as fast and your ranged attacks & minions inflict Venom
-While in the mire, you gain 18% increased ranged damage instead of 9%
-At night, you move three times as fast and your ranged attacks & minions inflict Moonraze"); */
         }
 
         public override void SetDefaults()
@@ -27,18 +31,17 @@ At night, you move three times as fast and your ranged attacks & minions inflict
             Item.width = 26;
             Item.height = 26;
             Item.value = Item.sellPrice(3, 0, 0, 0);
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.accessory = true;
-            Item.rare = ItemRarityID.Cyan; AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
         }
-
 
         public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI)
         {
             Texture2D texture = TextureAssets.Item[Type].Value;
             Texture2D texture2 = ModContent.Request<Texture2D>(Texture + "_A").Value;
-            Texture2D textureGlow = Mod.GetTexture("Glowmasks/Naitokurosu_Glow");
-            Texture2D texture2Glow = Mod.GetTexture("Glowmasks/NaitokurosuA_Glow");
+            Texture2D textureGlow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+            Texture2D texture2Glow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             if (Main.dayTime)
             {
                 spriteBatch.Draw
@@ -127,30 +130,17 @@ At night, you move three times as fast and your ranged attacks & minions inflict
             return false;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipEffects()
         {
-            player.blackBelt = true;
-            player.dashType = 1;
-            player.spikedBoots = 2;
-            player.GetModPlayer<AAPlayer>().Naitokurosu = true;
-            player.buffImmune[ModContent.BuffType<HydraToxin_Buff>()] = true;
-            player.buffImmune[ModContent.BuffType<Clueless_Buff>()] = true;
-            if (player.GetModPlayer<AAPlayer>().ZoneMire)
-            {
-                player.GetDamage(DamageClass.Ranged) += .18f;
-            }
-            else
-            {
-                player.GetDamage(DamageClass.Ranged) += .09f;
-            }
-            if (Main.dayTime)
-            { 
-                player.moveSpeed += 2f;
-            }
-            else
-            {
-                player.moveSpeed += 3f;
-            }
+            damageMap.GetDamage(DamageClass.Ranged) += 0.09f;
+            AddEffect<NaitokurosuMireEffect>();
+            AddEffect(new MovementSpeedEffect(2));
+            AddEffect(new NaitokurosuNightEffect(1));
+            AddEffect(new BuffImmunityEffect(ModContent.BuffType<HydraToxin_Buff>()));
+            AddEffect<LanternEffect>();
+            AddEffect(new MasterNinjaMobilityEffect(true, true));
+            AddEffect<BlackBeltEffect>();
+            AddEffect<NaitokurosuDebuffEffect>();
         }
     }
 }

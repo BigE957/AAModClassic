@@ -1,6 +1,7 @@
-using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Graphics.Shaders;
@@ -10,24 +11,16 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items.Dyes
 {
-	public class AbyssalDye : BaseAAItem
+	public class AbyssalDye : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Dyes";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Abyssal Dye");
-            BaseUtility.AddTooltips(Item, new string[] { "Gives an abyssal touch to whatever this dye is applied to" });		
-		}
-
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
+            // Tooltip.SetDefault("Gives an abyssal touch to whatever this dye is applied to");		
         }
+
+        
         
         public override void SetDefaults()
         {
@@ -42,9 +35,9 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Dyes
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ItemID.BottledWater);
             recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 3);
-            recipe.AddIngredient(Terraria.ID.ItemID.BottledWater);
-            recipe.AddTile(Terraria.ID.TileID.DyeVat);
+            recipe.AddTile(TileID.DyeVat);
             recipe.Register();
         }
     }

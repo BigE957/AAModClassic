@@ -1,39 +1,23 @@
+using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Accessories;
 using AAModClassic.Base.BaseMod.Base;
 using Terraria;
 using Terraria.ModLoader;
+using static AAModClassic.Utilities.SummonEquipUtils;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories
 {
-    public class SeraphHarp_Buff : ModBuff
-	{
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Seraph");
-			// Description.SetDefault("Small but feisty");
-			Main.buffNoSave[Type] = true;
-			Main.buffNoTimeDisplay[Type] = true;
-		}
+    public class SeraphHarp_Buff : MinionBuffAbstract<SeraphHarp, SeraphHarp_Seraph>
+    {
+        public override int MinionDamage => 60;
+        public override float MinionKnockback => 2;
+        public override bool ShouldScaleWithClassDamage => true;
+        public override bool MinionHasVanitySupport => true;
 
-		public override void Update(Player player, ref int buffIndex)
+        public override void SetStaticDefaults()
 		{
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<SeraphHarp_Seraph>()] > 0 && BasePlayer.HasAccessory(player, ModContent.ItemType<SeraphHarp>(), true, false))
-			{
-				modPlayer.Seraph = true;
-			}
-            else
-            {
-                modPlayer.Seraph = false;
-            }
-			if (!modPlayer.Seraph)
-			{
-				player.DelBuff(buffIndex);
-				buffIndex--;
-			}
-			else
-			{
-				player.buffTime[buffIndex] = 18000;
-			}
+            base.SetStaticDefaults();
+            // DisplayName.SetDefault("Seraph");
+			// Description.SetDefault("Small but feisty");
 		}
 	}
 }

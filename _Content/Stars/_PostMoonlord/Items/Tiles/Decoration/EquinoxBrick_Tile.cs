@@ -28,7 +28,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
             }
             else
             {
-                BaseDrawing.DrawTileTexture(spriteBatch, Mod.GetTexture("Tiles/Bricks/DarkmatterBrick"), x, y, true, false, false);
+                BaseDrawing.DrawTileTexture(spriteBatch, ModContent.Request<Texture2D>("AAModClassic/Tiles/Bricks/DarkmatterBrick").Value, x, y, true, false, false);
             }
             return false;
         }

@@ -1,18 +1,31 @@
 ﻿using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
 {
-    public class SnowSerpentHead : ModNPC
-	{
+    public class SnowSerpentHead : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Snow Serpent");
-		}
+            // DisplayName.SetDefault("Snow Serpent");
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                Position = new Vector2(24, 12),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+        }
 
 		public override void SetDefaults()
 		{
@@ -32,10 +45,10 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
             NPC.HitSound = SoundID.NPCHit5;
             NPC.DeathSound = SoundID.NPCDeath7;
             NPC.netAlways = true;
-            NPC.value = Item.sellPrice(0, 0, 10, 0);
+            NPC.value = Item.buyPrice(0, 0, 10, 0);
             NPC.buffImmune[BuffID.Frostburn] = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SnakeBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SnowSerpentBanner>();
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
@@ -43,6 +56,15 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
             return spawnInfo.Player.ZoneSnow &&
                 NPC.downedBoss3 && 
                 !Main.dayTime ? .1f : 0f;
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Snow,
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.SnowSerpent")
+            ]);
         }
 
         public override void AI()
@@ -102,6 +124,13 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
             {
                 NPC.DropLoot(ModContent.ItemType<SubzeroCrystal>());
             }
+        }
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            if (NPC.IsABestiaryIconDummy)
+                return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, TextureAssets.Npc[Type].Value, TextureAssets.Npc[ModContent.NPCType<SnowSerpentBody>()].Value, 4, 28, 0.25f, Vector2.Zero, 2, 10, headOffset: -24);
+            return true;
         }
     }
 }

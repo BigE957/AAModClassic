@@ -45,7 +45,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
         {
             NPC.width = 14;
             NPC.height = 14;
-            NPC.value = Item.sellPrice(0, 0, 0, 0);
+            NPC.value = Item.buyPrice(0, 0, 0, 0);
             NPC.npcSlots = 1;
             NPC.aiStyle = -1;
             NPC.lifeMax = 1;

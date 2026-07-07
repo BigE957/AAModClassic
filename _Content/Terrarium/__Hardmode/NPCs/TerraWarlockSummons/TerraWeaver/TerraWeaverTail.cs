@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -7,8 +8,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.TerraWeaver
 {
-    public class TerraWeaverTail : TerraWeaverHead
+    public class TerraWeaverTail : TerraWeaverBody, IBannerNPC
     {
+        public new int OverrideBannerNPCType => ModContent.NPCType<TerraWeaverHead>();
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Weaver");
@@ -25,7 +28,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.Te
 
             NPC.alpha = 255;
             Banner = NPC.type;
-            BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraWeaverBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraWeaverBanner>();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)

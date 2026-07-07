@@ -1,13 +1,15 @@
-using Terraria;
+﻿using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard
 {
-    public class BroodmotherTrophy : BaseAAItem
+    public class BroodmotherTrophy : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Placeables.Boss.Trophy";
         public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Broodmother Trophy");

@@ -1,6 +1,8 @@
+using AAModClassic._Content._Misc._PostMoonlord.Items.Buffs;
+using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -36,7 +38,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
         {
 			bool flag64 = Projectile.type == ModContent.ProjectileType<RajahsRage_RoyalRabbit>();
 			Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (!player.active)
             {
                 Projectile.active = false;
@@ -271,14 +273,14 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
         {
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 4, 0, 0);
             BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 4, frame, lightColor, false);
-            BaseDrawing.DrawTexture(Main.spriteBatch, Mod.GetTexture("Glowmasks/RoyalRabbit_Glow"), 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 4, frame, Main.DiscoColor, false);
+            BaseDrawing.DrawTexture(Main.spriteBatch, ModContent.Request<Texture2D>(Texture + "_Glow").Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 4, frame, Main.DiscoColor, false);
             return false;
         }
     }
 
     internal class RabbitBeam : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Rabbit Bolt");

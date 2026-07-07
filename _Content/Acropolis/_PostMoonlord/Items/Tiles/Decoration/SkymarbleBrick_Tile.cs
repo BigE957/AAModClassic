@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.Items.Tiles.Decoration
 {
-    class SkymarbleBrick_Tile : ModTile
+    public class SkymarbleBrick_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

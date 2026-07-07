@@ -1,5 +1,7 @@
-using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,14 +9,14 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class AbyssalLeggings : BaseAAItem
+	public class AbyssalLeggings : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Abyssal";
 		public override void SetStaticDefaults()
 		{
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Abyssal Hakama");
-            /* Tooltip.SetDefault(@"30% increased movement speed
-Weightless as shadow itself"); */
+            /* Tooltip.SetDefault(@"'Weightless as shadow itself'"); */
 		}
 
 		public override void SetDefaults()
@@ -25,13 +27,13 @@ Weightless as shadow itself"); */
 			Item.defense = 6;
 		}
 
-		public override void UpdateEquip(Player player)
-		{
-			player.moveSpeed += 0.30f;
-			player.GetModPlayer<AAPlayer>().MaxMovespeedboost += 0.3f;
-		}
+        public override void RegisterEquipEffects()
+        {
+            AddEffect(new MovementSpeedEffect(0.30f));
+			AddEffect(new MaxRunSpeedEffect(0.30f));
+        }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DepthLeggings>(), 1);

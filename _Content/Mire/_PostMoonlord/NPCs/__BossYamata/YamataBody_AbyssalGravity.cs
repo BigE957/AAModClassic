@@ -1,0 +1,23 @@
+﻿using Terraria;
+using Terraria.ModLoader;
+
+namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
+{
+    public class YamataBody_AbyssalGravity : ModBuff
+	{
+		public override void SetStaticDefaults()
+		{
+			// DisplayName.SetDefault("Abyssal Gravity");
+			// Description.SetDefault("'YOU AIN'T GETTIN' AWAY FROM ME, PUNK!'");
+			Main.debuff[Type] = true;
+			Main.pvpBuff[Type] = true;
+			Main.buffNoSave[Type] = true;
+            Main.buffNoTimeDisplay[Type] = true;
+        }
+		
+		public override void Update(Player player, ref int buffIndex)
+		{
+			player.GetModPlayer<ZAAPlayer>().YamataGravity = true;
+		}
+	}
+}

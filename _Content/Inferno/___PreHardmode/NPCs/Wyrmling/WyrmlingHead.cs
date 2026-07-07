@@ -1,22 +1,30 @@
-﻿using Terraria;
-using System;
-using Terraria.GameContent;
-using Terraria.ID;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
+using System;
+using Terraria;
+using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
-using AAModClassic.Items.Banners;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
 {
-    public class WyrmlingHead : ModNPC
-	{
+    public class WyrmlingHead : ModNPC, IBannerNPC
+    {
         public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Wyrmling");
-
+            // DisplayName.SetDefault("Wyrmling");
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                Position = new Vector2(24, 12),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
 		public override void SetDefaults()
@@ -29,7 +37,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
             NPC.damage = 18;
             NPC.defense = 10;
             NPC.lifeMax = 100;
-            NPC.value = Item.sellPrice(0, 0, 3, 50);
+            NPC.value = Item.buyPrice(0, 0, 3, 50);
             NPC.knockBackResist = 0f;
             NPC.aiStyle = -1;
             NPC.lavaImmune = true;
@@ -39,11 +47,22 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.buffImmune[BuffID.OnFire] = true;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             NPC.lavaImmune = true;
-            Banner = NPC.type;
-			BannerItem = ModContent.ItemType<WyrmlingBanner>();
+            //Banner = NPC.type;
+			//BannerItem = ModContent.ItemType<WyrmlingBanner>();
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Wyrmling")
+            ]);
+        }
+
         public override bool PreAI()
         {
             Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
@@ -253,9 +272,10 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D texture = TextureAssets.Npc[NPC.type].Value;
-            var effects = NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-            spriteBatch.Draw(texture, NPC.Center - Main.screenPosition, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+            if (NPC.IsABestiaryIconDummy)
+                return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, TextureAssets.Npc[Type].Value, TextureAssets.Npc[ModContent.NPCType<WyrmlingBody>()].Value, 5, 24, 0.25f, Vector2.Zero, 2, 10, headSpeedOffset: -0.15f, headOffset: -24, flip: true);
+
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             return false;
         }
         

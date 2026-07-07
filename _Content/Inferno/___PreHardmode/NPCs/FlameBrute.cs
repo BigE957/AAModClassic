@@ -1,6 +1,7 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -10,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
 {
-    public class FlameBrute : ModNPC
+    public class FlameBrute : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
         {
@@ -24,7 +25,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
             NPC.damage = 25;
             NPC.defense = 10;
             NPC.knockBackResist = 0f;
-            NPC.value = Item.sellPrice(0, 0, 6, 45);
+            NPC.value = Item.buyPrice(0, 0, 6, 45);
             NPC.aiStyle = -1;
             NPC.width = 40;
             NPC.height = 60;
@@ -32,7 +33,8 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
             NPC.DeathSound = SoundID.NPCDeath1;		
             NPC.lavaImmune = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<FlamebruteBanner>();
+			//BannerItem = ModContent.ItemType<FlamebruteBanner>();
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
 		const int frameHeightPlusFluff = 78; //the 2 pixels per frame
@@ -55,28 +57,36 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
 				BaseAI.AIZombie(NPC, ref NPC.ai, false, true, -1, 0.1f, 2f, 5, 7, 120);	
 				NPC.spriteDirection = NPC.velocity.X > 0 ? 1 : -1;				
 			}
+        }
 
-			int frameMax = smashAttack ? 8 : 5;
-			NPC.frameCounter++;
-			if (NPC.frameCounter >= frameMax)
-			{
-				NPC.frameCounter = 0;
-				if(smashAttack)
-				{
-					NPC.frame.Y += frameHeightPlusFluff;
-					if (NPC.frame.Y < frameHeightPlusFluff * 6 || NPC.frame.Y > frameHeightPlusFluff * 8)
-					{
-						NPC.frame.Y = frameHeightPlusFluff * 6;
-					}
-				}else
-				{
-					NPC.frame.Y += frameHeightPlusFluff;
-					if (NPC.frame.Y > frameHeightPlusFluff * 5)
-					{
-						NPC.frame.Y = 0;
-					}
-				}
-			}
+        public override void FindFrame(int frameHeight)
+        {
+            Player player = Main.player[NPC.target];
+            float playerDistX = Math.Abs(player.Center.X - NPC.Center.X);
+            float playerDistY = Math.Abs(player.Center.Y - NPC.Center.Y);
+            bool smashAttack = playerDistX < 15f && playerDistY < 40f;
+            int frameMax = smashAttack ? 8 : 5;
+            NPC.frameCounter++;
+            if (NPC.frameCounter >= frameMax)
+            {
+                NPC.frameCounter = 0;
+                if (smashAttack)
+                {
+                    NPC.frame.Y += frameHeightPlusFluff;
+                    if (NPC.frame.Y < frameHeightPlusFluff * 6 || NPC.frame.Y > frameHeightPlusFluff * 8)
+                    {
+                        NPC.frame.Y = frameHeightPlusFluff * 6;
+                    }
+                }
+                else
+                {
+                    NPC.frame.Y += frameHeightPlusFluff;
+                    if (NPC.frame.Y > frameHeightPlusFluff * 5)
+                    {
+                        NPC.frame.Y = 0;
+                    }
+                }
+            }
         }
 
         public override void HitEffect(NPC.HitInfo hit)
@@ -94,7 +104,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneInferno && Main.dayTime ? 1f : 0f;
+            return spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneInferno && Main.dayTime ? 1f : 0f;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

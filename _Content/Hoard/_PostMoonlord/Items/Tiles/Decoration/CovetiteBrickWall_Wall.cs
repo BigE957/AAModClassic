@@ -1,0 +1,25 @@
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace AAModClassic._Content.Hoard._PostMoonlord.Items.Tiles.Decoration
+{
+    public class CovetiteBrickWall_Wall : ModWall
+	{
+		public override void SetStaticDefaults()
+        {
+            Main.wallLight[Type] = true;
+            DustType = DustID.Gold;
+            AddMapEntry(new Color(60, 60, 0));
+            HitSound = SoundID.Tink;
+            RegisterItemDrop(ModContent.ItemType<CovetiteBrickWall>());
+            Main.wallHouse[Type] = true;
+        }
+
+		public override void NumDust(int i, int j, bool fail, ref int num)
+		{
+			num = fail ? 1 : 3;
+		}
+    }
+}

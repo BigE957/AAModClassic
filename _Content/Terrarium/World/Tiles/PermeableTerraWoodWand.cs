@@ -1,18 +1,13 @@
-﻿using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
-using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.World.Tiles
 {
-    public class PermeableTerraWoodWand : BaseAAItem
+    public class PermeableTerraWoodWand : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Permeable Terra Wood Wand");

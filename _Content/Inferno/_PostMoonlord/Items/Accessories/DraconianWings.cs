@@ -1,6 +1,8 @@
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
@@ -10,12 +12,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class DraconianWings : BaseAAItem
+	public class DraconianWings : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Draconian Sun Wings");
-            // Tooltip.SetDefault("Allows flight and slow fall");
 
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(220, 14, 3.5f);
         }
@@ -29,21 +31,10 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Accessories
             Item.accessory = true;
             
 		}
-		
-		public override void UpdateAccessory(Player player, bool hideVisual)
-		{
-			player.wingTimeMax = 220;
-		}
 
-        public override void ModifyTooltips(List<TooltipLine> list)
+        public override void RegisterEquipEffects()
         {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
+            AddEffect(new WingTimeMaxEffect(220));
         }
 
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
@@ -60,7 +51,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Accessories
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 15);
             recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 5);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

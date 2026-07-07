@@ -1,7 +1,9 @@
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu
@@ -11,6 +13,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Quantum Portal");
+            this.HideFromBestiary();
 
         }
         public override void SetDefaults()
@@ -20,7 +23,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.alpha = 255;
             NPC.damage = 0;
             NPC.boss = true;
-            Music = MusicManagementSystem.MusicSlots["SoC"];
+            Music = MusicManagementSystem.MusicSlots["SoulOfCthulhu"];
             NPC.lifeMax = 1;
             NPC.dontTakeDamage = true;
             NPC.noGravity = true;
@@ -62,10 +65,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                Main.NewText("The Soul of Cthulhu shreds through reality into this world", Color.DarkCyan);
+                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Spawn"), new Color(175, 75, 255));
                 int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<SoulOfCthulhu>(), 0);
                 Main.npc[npcID].Center = NPC.Center;
                 Main.npc[npcID].netUpdate = true;
+                Main.npc[npcID].target = NPC.target;
             }
 
             NPC.active = false;

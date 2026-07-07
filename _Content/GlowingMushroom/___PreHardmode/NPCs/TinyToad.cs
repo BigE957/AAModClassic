@@ -4,14 +4,16 @@ using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToa
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
+using AAModClassic.Utilities.Interfaces;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs
 {
-    public class TinyToad : ModNPC
+    public class TinyToad : ModNPC, IBannerNPC
     {
         public bool WasSpawnedByTruffleToad = false;
         
@@ -33,12 +35,19 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs
             NPC.npcSlots = 0f;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             if (!WasSpawnedByTruffleToad)
-            {
                 Banner = NPC.type;
-                BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TinyToadBanner>();
-            }
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.SurfaceMushroom,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.UndergroundMushroom,
+            ]);
         }
 
         public override void HitEffect(NPC.HitInfo hit)
@@ -62,7 +71,12 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs
             NPC.AISlime(ref NPC.ai, false, 30, 6f, -6f, 6f, -8f);
         }
 
-        public override void FindFrame(int frameHeight) => NPC.FrameHandler_HostileFrog(frameHeight);
+        public override void FindFrame(int frameHeight)
+        {
+            NPC.FrameHandler_HostileFrog(frameHeight);
+            if (NPC.IsABestiaryIconDummy)
+                NPC.alpha = 0;
+        }
 
         public override void PostAI()
         {

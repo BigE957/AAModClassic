@@ -20,9 +20,9 @@ namespace AAModClassic.Buffs
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 
-            player.GetModPlayer<AAPlayer>().Spear = true;
+            player.GetModPlayer<ZAAPlayer>().Spear = true;
         }
 
 		public override void Update(NPC npc, ref int buffIndex)

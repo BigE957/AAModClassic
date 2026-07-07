@@ -1,5 +1,6 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic.Items.Banners;
+using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -10,7 +11,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
 {
 
-    public class Mosster : ModNPC
+    public class Mosster : ModNPC, IBannerNPC
     {
 
         public override void SetStaticDefaults()
@@ -18,6 +19,12 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             // DisplayName.SetDefault("Mosster");
 
             Main.npcFrameCount[NPC.type] = 8;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Velocity = -2
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()
@@ -26,7 +33,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             NPC.damage = 30;  //boss damage
             NPC.defense = 8;    //boss defense
             NPC.knockBackResist = 0f;
-            NPC.value = Item.sellPrice(0, 0, 6, 45);
+            NPC.value = Item.buyPrice(0, 0, 6, 45);
             AIType = NPCID.Crawdad;
             AnimationType = NPCID.Crawdad;
             NPC.HitSound = SoundID.NPCHit1;
@@ -36,8 +43,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             NPC.height = 78;
             NPC.lavaImmune = false;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<MossterBanner>();
-
+			//BannerItem = ModContent.ItemType<MossterBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
         public override void HitEffect(NPC.HitInfo hit)
@@ -60,7 +67,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             {
                 spriteEffects = SpriteEffects.FlipHorizontally;
             }
-            spriteBatch.Draw(Mod.GetTexture("Glowmasks/Mosster_Glow"), new Vector2(NPC.Center.X - Main.screenPosition.X, NPC.Center.Y - Main.screenPosition.Y),
+            spriteBatch.Draw(ModContent.Request<Texture2D>(Texture + "_Glow").Value, new Vector2(NPC.Center.X - Main.screenPosition.X, NPC.Center.Y - Main.screenPosition.Y),
             NPC.frame, Color.White, NPC.rotation,
             new Vector2(NPC.width * 0.5f, NPC.height * 0.5f), 1f, spriteEffects, 0f);
         }

@@ -1,4 +1,5 @@
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +7,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Materials
 {
-    public class DaybreakIncineriteOre : BaseAAItem
+    public class DaybreakIncineriteOre : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetDefaults()
         {
 
@@ -24,16 +26,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Materials
             Item.createTile = ModContent.TileType<DaybreakIncineriteOre_Tile>(); //put your CustomBlock Tile name
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
         public override void SetStaticDefaults()
         {

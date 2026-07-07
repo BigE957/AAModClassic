@@ -1,11 +1,13 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard
 {
-    public class NightcrawlerTrophy : BaseAAItem
+    public class NightcrawlerTrophy : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables.Boss.Trophy";
 
 
         public override void SetStaticDefaults()

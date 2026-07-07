@@ -1,14 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Tiles.Crafters;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
 {
-    public class DarkmatterBar : BaseAAItem
+    public class DarkmatterBar : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         
         public override void SetStaticDefaults()
         {
@@ -29,27 +31,6 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
             Item.consumable = true;
             Item.createTile = ModContent.TileType<DarkmatterBar_Tile>();
             Item.value = Item.sellPrice(0, 2, 0, 0);
-        }
-
-        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
-        {
-            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
-            spriteBatch.Draw
-            (
-                texture,
-                new Vector2
-                (
-                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
-                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
-                ),
-                new Rectangle(0, 0, texture.Width, texture.Height),
-                Color.White,
-                rotation,
-                texture.Size() * 0.5f,
-                scale,
-                SpriteEffects.None,
-                0f
-            );
         }
 
         public override void AddRecipes()

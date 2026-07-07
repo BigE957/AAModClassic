@@ -1,27 +1,29 @@
+﻿using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ID;
-using AAModClassic.Buffs;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 
 namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class AtlanteanHelmet : BaseAAItem
+	public class AtlanteanHelmet : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Atlantean";
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();
-			// DisplayName.SetDefault("Atlantean Helmet");
-            /* Tooltip.SetDefault(@"Decreases mana usage by 15%
-Allows to breath underwater"); */
+            // DisplayName.SetDefault("Atlantean Helmet");
+            /* Tooltip.SetDefault(@"'It vibrates with the powers of Atlantis'"); */
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Item.width = 22;
 			Item.height = 24;
@@ -29,29 +31,21 @@ Allows to breath underwater"); */
             Item.rare = ItemRarityID.LightRed;
             Item.defense = 6;
         }
-		
-		public override void UpdateEquip(Player player)
-		{
-			player.manaCost -= 0.15f;
-            player.gills = true;
-		}
-		
-		
+
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ModContent.ItemType<AtlanteanChestplate>() && legs.type == ModContent.ItemType<AtlanteanLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
-			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.AtlanteanBonus");
-			if (player.wet)
-			{
-                player.AddBuff(ModContent.BuffType<Atlantean_Buff>(), 2);
-			}
+        public override void RegisterEquipEffects()
+        {
+            AddEffect(new ManaCostEffect(-0.15f));
+            AddEffect<UnlimitedBreathingUnderWaterForeverAndEverEffect>();
+
+            AddSetEffect<AtlanteanHelmetSetEffect>();
         }
-		
-		public override void AddRecipes()
+
+        public override void AddRecipes()
         {
             Recipe recipe;
             recipe = CreateRecipe();
@@ -61,10 +55,11 @@ Allows to breath underwater"); */
             recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 5);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
+
             recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<OceanHelmet>());
             recipe.AddIngredient(ModContent.ItemType<ScorchedScale>(), 5);
-            recipe.AddIngredient(ItemID.FossilOre, 5);
+            recipe.AddIngredient(ModContent.ItemType<DynaskullFossil>(), 10);
             recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 5);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();

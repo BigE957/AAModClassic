@@ -1,11 +1,13 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.Items.Consumables
 {
-    public class OrangeSolution : BaseAAItem
+    public class OrangeSolution : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Consumables";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Orange Solution");
@@ -15,7 +17,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Consumables
 
 		public override void SetDefaults()
 		{
-			Item.shoot = ModContent.ProjectileType<Projectiles.OrangeSolution>() - ProjectileID.PureSpray;
+			Item.shoot = ModContent.ProjectileType<OrangeSolution_Proj>() - ProjectileID.PureSpray;
 			Item.ammo = AmmoID.Solution;
 			Item.width = 10;
 			Item.height = 12;

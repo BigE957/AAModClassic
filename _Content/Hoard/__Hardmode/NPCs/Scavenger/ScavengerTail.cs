@@ -1,15 +1,19 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
 {
-    public class ScavengerTail : ScavengerHead
+    public class ScavengerTail : ScavengerHead, IBannerNPC
     {
+        public int OverrideBannerNPCType => ModContent.NPCType<ScavengerHead>();
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Scavenger");
@@ -64,7 +68,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
         }
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 1, NPC.frame, drawColor, true);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
             return false;
         }
     }

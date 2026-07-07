@@ -1,13 +1,14 @@
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic.Items.Walls;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration
 {
-    public class IncineriteBrick : BaseAAItem
+    public class IncineriteBrick : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetDefaults()
         {
 
@@ -37,7 +38,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration
             recipe.Register();
 
             recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<IncineriteWall>(), 4);
+            recipe.AddIngredient(ModContent.ItemType<IncineriteBrickWall>(), 4);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

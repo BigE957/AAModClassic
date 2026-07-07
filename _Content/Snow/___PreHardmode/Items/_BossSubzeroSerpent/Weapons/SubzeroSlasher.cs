@@ -1,3 +1,4 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -6,8 +7,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons
 {
-    public class SubzeroSlasher : BaseAAItem
+    public class SubzeroSlasher : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
         private static int shoot;
 
         public override void SetStaticDefaults()
@@ -37,10 +39,11 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.We
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             shoot++;
-            if (shoot % 2 != 0) return false;
+            if (shoot % 2 != 0)
+                return false;
             shoot = 0;
-            Main.projectile[type].DamageType = DamageClass.Melee;
-            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, type, damage, knockback);
+            int p = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, type, damage, knockback);
+            Main.projectile[p].DamageType = DamageClass.Melee;
             return true;
         }
 

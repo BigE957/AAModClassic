@@ -1,9 +1,12 @@
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.BossStandard;
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,6 +16,7 @@ using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.Events;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -33,6 +37,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
         {
             // DisplayName.SetDefault("Desert Djinn");
             Main.npcFrameCount[NPC.type] = 15;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()
@@ -53,6 +58,15 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             Music = MusicManagementSystem.MusicSlots["Djinn"];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Desert,
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.DesertDjinn")
+            ]);
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
@@ -304,14 +318,22 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
         public override void FindFrame(int frameHeight)
         {
             NPC.frame.Width = TextureAssets.Npc[NPC.type].Value.Width / 3;
-            if (Anim_MudaMuda)
-                NPC.frame.X = NPC.frame.Width;
-            else if (Anim_Punch)
-                NPC.frame.X = NPC.frame.Width * 2;
-            else
+            if (NPC.IsABestiaryIconDummy)
+            {
                 NPC.frame.X = 0;
-
-                NPC.frameCounter++;
+                internalAI[0] = -1;
+            }
+            else
+            {
+                if (Anim_MudaMuda)
+                    NPC.frame.X = NPC.frame.Width;
+                else if (Anim_Punch)
+                    NPC.frame.X = NPC.frame.Width * 2;
+                else
+                    NPC.frame.X = 0;
+            }
+            
+            NPC.frameCounter++;
             if (internalAI[0] == 0)
             {
                 if (Frame < 6 || Frame > 14)
@@ -357,7 +379,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
                 NPC.frame.Y = Frame * frameHeight;
                 return;
             }
-            else if (internalAI[0] == 1 || !Main.player[NPC.target].ZoneDesert)
+            else if (internalAI[0] == 1 || (!NPC.IsABestiaryIconDummy && !Main.player[NPC.target].ZoneDesert))
             {
                 if (NPC.frameCounter > 5)
                 {
@@ -373,8 +395,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
             else if (internalAI[0] == 2)
             {
                 if (NPC.ai[3] < 60)
-                {
-					
+                {				
                     if (NPC.frameCounter > 9)
                     {
                         NPC.frame.Y += frameHeight;
@@ -386,8 +407,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
                     }
                 }
                 else
-                {
-					
+                {			
                     if (NPC.frame.Y < FrameHeight * 4)
                     {
                         NPC.frame.Y = FrameHeight * 4;
@@ -397,11 +417,11 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
                         NPC.frame.Y += frameHeight;
                         NPC.frameCounter = 0;
                     }
-			    if (NPC.frame.Y > FrameHeight * 7)
-                {
+			        if (NPC.frame.Y > FrameHeight * 7)
+                    {
 					
-                     NPC.frame.Y = FrameHeight * 5;
-                }
+                         NPC.frame.Y = FrameHeight * 5;
+                    }
                 }
                
                 return;
@@ -542,7 +562,6 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
             return null;
         }
 
-
         public override void BossLoot(ref int potionType)
         {
             potionType = ItemID.HealingPotion;
@@ -551,6 +570,14 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<DesertDjinnTreasureBag>()));
+
+            npcLoot.AddLoreItemDrop<DesertDjinn>(ModContent.ItemType<DesertDjinnLore>());
+
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DesertDjinnRelic>()));
+
+            npcLoot.Add(masterMode);
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DesertDjinnTrophy>(), 10));
 
@@ -570,17 +597,16 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
+            NPC.spriteDirection = NPC.direction;
 
-            var effects = NPC.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-
-            if (!Main.player[NPC.target].ZoneDesert)
+            if (!NPC.IsABestiaryIconDummy && !Main.player[NPC.target].ZoneDesert)
             {
                 drawColor = Color.Goldenrod;
                 //TODO: this doesnt support direction or horizontal frames in a sheet. has to be reworked to do that
                 BaseDrawing.DrawAfterimage(spriteBatch, texture, 0, NPC, 1, 1, 7, false, 0, 0, drawColor, NPC.frame, 15);
             }
 
-            spriteBatch.Draw(texture, NPC.Center - Main.screenPosition, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, effects, 0);
+            spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, NPC.SpriteEffectDirection(), 0);
 
             return false;
         }

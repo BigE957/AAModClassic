@@ -1,12 +1,14 @@
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items.Tools
 {
-    public class Excavator : BaseAAItem
+    public class Excavator : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Tools";
         public override void SetDefaults()
         {
             Item.damage = 5;
@@ -28,7 +30,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items.Tools
         public override void AddRecipes()  
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.DesertFossil, 15);
+            recipe.AddIngredient(ModContent.ItemType<DynaskullFossil>(), 15);
             recipe.AddIngredient(ItemID.Sandstone, 20);
             recipe.AddIngredient(ModContent.ItemType<DesertMana>(), 5);
             recipe.AddTile(TileID.Anvils);

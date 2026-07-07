@@ -1,18 +1,23 @@
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Armor;
+using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Mire.Buffs;
+using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
-using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Armor;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class DreadMoonHelmet : BaseAAItem
+	public class DreadMoonHelmet : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.DreadMoon";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Dread Moon Fukumen");
@@ -29,27 +34,7 @@ The abyssal wrath of the Mire rests in this armor"); */
 			Item.height = 22;
 			Item.value = 3000000;
 			Item.defense = 36;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 13;
-        }
-
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
-
-        public override void UpdateEquip(Player player)
-        {
-            player.GetCritChance(DamageClass.Ranged) += 24;
-            player.moveSpeed += .2f;
-            player.GetModPlayer<AAPlayer>().MaxMovespeedboost += .2f;
-            player.statLifeMax2 += 15;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -57,27 +42,32 @@ The abyssal wrath of the Mire rests in this armor"); */
 			return body.type == ModContent.ItemType<DreadMoonChestplate>() && legs.type == ModContent.ItemType<DreadMoonLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
-			
-			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DreadHelmBonus");
+        public override void RegisterEquipEffects()
+        {
+            damageMap.GetCritChance(DamageClass.Ranged) += 24;
+            AddEffect(new MovementSpeedEffect(0.20f));
+            AddEffect(new MaxRunSpeedEffect(0.20f));
+            AddEffect(new MaxLifeEffect(15));
 
-            player.buffImmune[24] = true;
-            player.buffImmune[39] = true;
-            player.buffImmune[44] = true;
-            player.buffImmune[67] = true;
-            player.AddBuff(BuffID.Shine, 2);
-            player.GetModPlayer<AAPlayer>().dreadSet = true;
-		}
+            AddSetEffect(new BuffImmunityEffect(BuffID.OnFire, BuffID.CursedInferno, BuffID.Frostburn, BuffID.Burning));
+            AddSetEffect(new EmitLightFromPlayerEffect(0.8f, 0.95f, 1f)); // shine potion
+			AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Ranged, (ModContent.BuffType<Moonraze_Buff>(), 600)));
+            AddSetEffect<DreadMoonHelmetSetDescEffect>();
+        }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 15);
             recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
             recipe.AddIngredient(ModContent.ItemType<DepthHelmet>(), 1);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
 			recipe.Register();
 		}
 	}
+
+    public class DreadMoonHelmetSetDescEffect : EquipmentEffectData
+    {
+
+    }
 }

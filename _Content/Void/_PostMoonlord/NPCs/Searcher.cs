@@ -1,6 +1,8 @@
 ﻿using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Void.Projectiles;
+using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Bosses.Zero;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -10,8 +12,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs
 {
-    public class Searcher : ModNPC
-	{
+    public class Searcher : ModNPC, IBannerNPC
+    {
 		public int timer = 0;
 		public bool start = true;
 
@@ -24,7 +26,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs
         {
             NPC.width = 35;
             NPC.height = 35;
-            NPC.value = Item.sellPrice(0, 0, 5, 50);
+            NPC.value = Item.buyPrice(0, 0, 5, 50);
             NPC.npcSlots = 1;
             NPC.aiStyle = -1;
             NPC.lifeMax = 250;
@@ -35,8 +37,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs
             NPC.knockBackResist = 0.5f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SearcherBanner>();
-
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SearcherBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
         public override void HitEffect(NPC.HitInfo hit)
@@ -79,11 +81,11 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D glowTex = Mod.GetTexture("Glowmasks/Searcher_Glow");
+            Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, drawColor);
-            BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, Color.Red);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+            spriteBatch.Draw(glowTex, NPC.Center - screenPos, NPC.frame, Color.Red, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
             return false;
         }
 

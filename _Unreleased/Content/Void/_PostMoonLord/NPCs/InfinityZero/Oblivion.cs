@@ -1,9 +1,13 @@
-using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.Tiles;
+using AAModClassic._Content.Void.World.Biomes;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Tiles;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.DiscordSupport;
+using AAModClassic.Globals;
 using AAModClassic.Music;
-using AAModClassic.UI.WorldGen;
+using AAModClassic.UI.Core;
+using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using Humanizer;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Win32;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -15,15 +19,21 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.IO.Pipes;
 using System.Linq;
+using System.Net.Http;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.Graphics.Effects;
+using Terraria.GameContent.Bestiary;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI.Chat;
@@ -58,6 +68,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             field = typeof(ChatMessageContainer).GetField("_color", BindingFlags.Instance | BindingFlags.NonPublic);
             if (field != null)
                 MessageColor = field;
+
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         private static bool InitializeSteamSearch()
@@ -90,7 +102,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             NPC.width = 1;
             NPC.height = 1;
             NPC.friendly = false;
-            NPC.lifeMax = 1;
+            NPC.lifeMax = 20;
             NPC.dontTakeDamage = true;
             NPC.noGravity = true;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
@@ -109,6 +121,14 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             if (localConfigPath == null)
                 InitializeSteamSearch();
+
+            SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.RemoveAll(e => e is NPCKillCounterInfoElement || e is NPCStatsReportInfoElement);
+            bestiaryEntry.Info.Add(new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Oblivion", AAColor.OblivionDialogue));
         }
 
         private static int OblivionSpeech = 0;
@@ -116,7 +136,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public override void AI()
         {
-            Color color1 = Color.DarkRed;
+            Color color1 = AAColor.OblivionDialogue;
             NPC.velocity.X = 0;
             NPC.velocity.Y = 0;
             Player player = Main.LocalPlayer;
@@ -125,7 +145,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             for (int i = 0; i < RateOfChange; i++)
                 UpdateMessage();
 
-            switch (AAPlayer.IZKills)
+            switch (ZAAPlayer.IZKills)
             {
                 case 1:
                     switch(OblivionSpeech)
@@ -278,7 +298,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     switch(OblivionSpeech)
                     {
                         case 180:
-                            string number = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(AAPlayer.IZKills.ToWords());
+                            string number = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(ZAAPlayer.IZKills.ToWords());
                             StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.1", number), color1);
                             SpeechRand = Main.rand.Next(7);
                             break;
@@ -402,6 +422,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             if (NPC.alpha >= 255)
             {
+                Main.BestiaryTracker.Sights.RegisterWasNearby(NPC);
                 NPC.active = false;
             }
         }
@@ -487,7 +508,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             if (MessageSwapComplete)
             {
-                messages[0].SetContents(CurrentMessage, Color.DarkRed, -1);
+                messages[0].SetContents(CurrentMessage, AAColor.OblivionDialogue, -1);
                 firstMessage = false;
             }
             else if (firstMessage)
@@ -495,7 +516,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 messages[0].SetContents(new string(arr), (Color)MessageColor.GetValue(messages[0]), -1);
             }
             else
-                messages[0].SetContents(new string(arr), Color.DarkRed, -1);
+                messages[0].SetContents(new string(arr), AAColor.OblivionDialogue, -1);
 
             ChatMessageList.SetValue(Main.chatMonitor, messages);
         }
@@ -532,14 +553,20 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 return (discordInfo.Remove(0, discordInfo.IndexOf('|') + 2), DiscordStatus.Server);
         }
 
-        private static bool IsPlayerStreaming()
+        public static bool IsPlayerStreaming()
         {
-            // List of common streaming executables DDLC checks for
-            string[] streamApps = { "obs", "obs64", "obs32", "xsplit.core", "livehime" };
+            if (DiscordSystem.IsStreaming)
+                return true;
 
-            // Get all running processes and check if any match our list
-            var runningProcesses = Process.GetProcesses();
-            return runningProcesses.Any(p => streamApps.Contains(p.ProcessName.ToLower()));
+            HashSet<string> streamApps = new HashSet<string>() {
+                "obs", "obs64", "obs32", "xsplit.core", "livehime",
+                "streamlabs desktop", "vmix64", "prism", "prismlivestudio",
+                "meldstudio", "radeonsoftware", "action", "outplayed",
+                "bandicam", "medal", "insightscapture", "ascent",
+                "twitchstudio", "loom"
+            };
+
+            return Process.GetProcesses().Any(p => streamApps.Contains(p.ProcessName.ToLower()));
         }
 
         private static readonly HashSet<string> ExcludedAppIDs = [
@@ -808,13 +835,13 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-            BaseDrawing.DrawTexture(spriteBatch, tex, 0, NPC, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC, NPC.Center + new Vector2(0, -30), true, 0f), drawColor) * NPC.Opacity, true);
-            BaseDrawing.DrawAura(spriteBatch, glow, 0, NPC, auraPercent, 1f, 0f, 0f, Color.White * NPC.Opacity, true);
-            BaseDrawing.DrawTexture(spriteBatch, glow, 0, NPC, Color.White * NPC.Opacity, true);
+            spriteBatch.Draw(tex, NPC.Center - screenPos, NPC.frame, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC, NPC.Center + new Vector2(0, -30), true, 0f), drawColor) * NPC.Opacity, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
+            DrawingUtils.DrawAura(spriteBatch, glow, NPC, auraPercent, 1f, 0f, 0f, Color.White * NPC.Opacity, true);
+            spriteBatch.Draw(glow, NPC.Center - screenPos, NPC.frame, Color.White * NPC.Opacity, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
 
-            if(unofficial && StaticActive)
+            if(!NPC.IsABestiaryIconDummy && unofficial && StaticActive)
             {
-                Effect effect = Filters.Scene["AAModClassic:Mask"].GetShader().Shader;
+                Effect effect = Terraria.Graphics.Effects.Filters.Scene["AAModClassic:Mask"].GetShader().Shader;
                 effect.Parameters["offset"].SetValue(Main.rand.NextVector2Square(0, 600));
                 effect.Parameters["noiseScale"].SetValue(new Vector2(0.2f, 1f));
 
@@ -826,12 +853,12 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
                 Texture2D mask = ModContent.Request<Texture2D>(Texture + "_Resprite_Mask").Value;
 
-                Main.EntitySpriteDraw(mask, NPC.position - Main.screenPosition, NPC.frame, Color.White * NPC.Opacity, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
+                Main.EntitySpriteDraw(mask, NPC.position - screenPos, NPC.frame, Color.White * NPC.Opacity, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
                 Main.spriteBatch.End();
                 Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);
             }
             //BaseDrawing.DrawAura(spriteBatch, glitchTex, 0, NPC, auraPercent, 1f, 0f, 0f, AAColor.Oblivion);
-            //BaseDrawing.DrawTexture(spriteBatch, glitchTex, 0, NPC, AAColor.Oblivion);
+            //spriteBatch.Draw(glitchTex, NPC.Center - screenPos, NPC.frame, AAColor.Oblivion, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
 
             return false;
         }
@@ -1071,6 +1098,265 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             uint MB_ICONERROR = 0x00000010;
 
             _ = MessageBox(IntPtr.Zero, message, "System Error", MB_ICONERROR);
+        }
+    }
+
+    public class DiscordIpcDetector
+    {
+        private const string PipePrefix = "discord-ipc-";
+        private const string ClientID = "1500954635790323722D";
+
+        private static readonly string TokenCachePath = Path.Combine(Main.SavePath,"AAModClassic", "discord_token.json");
+
+        public static async Task<bool> IsUserStreamingAsync()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                try
+                {
+                    using var pipe = new NamedPipeClientStream(".", PipePrefix + i, PipeDirection.InOut);
+                    pipe.Connect(500);
+
+                    SendFrame(pipe, 0, new { v = 1, client_id = ClientID });
+                    string readyJson = ReadFrame(pipe);
+                    string userId = ParseUserId(readyJson);
+                    if (userId == null) continue;
+
+                    string accessToken = await GetValidTokenAsync(pipe);
+                    if (accessToken == null) return false;
+
+                    SendFrame(pipe, 1, new
+                    {
+                        cmd = "GET_SELECTED_VOICE_CHANNEL",
+                        args = new { },
+                        nonce = Guid.NewGuid().ToString()
+                    });
+
+                    return IsStreaming(ReadFrame(pipe), userId);
+                }
+                catch { continue; }
+            }
+
+            return false;
+        }
+
+        private static async Task<string> GetValidTokenAsync(NamedPipeClientStream pipe)
+        {
+            // 1. Try cached token
+            var cached = LoadCachedToken();
+            if (cached != null)
+            {
+                // Try to use it
+                SendFrame(pipe, 1, new
+                {
+                    cmd = "AUTHENTICATE",
+                    args = new { access_token = cached.AccessToken },
+                    nonce = Guid.NewGuid().ToString()
+                });
+
+                string result = ReadFrame(pipe);
+                if (!result.Contains("\"ERROR\""))
+                    return cached.AccessToken;
+
+                // Try to refresh it silently
+                string refreshed = await RefreshTokenAsync(cached.RefreshToken);
+                if (refreshed != null) return refreshed;
+            }
+
+            // 2. Full PKCE flow (happens once, user sees a Discord consent popup)
+            return await FullPkceFlowAsync(pipe);
+        }
+
+        private static async Task<string> FullPkceFlowAsync(NamedPipeClientStream pipe)
+        {
+            // Generate PKCE challenge — no secret needed, security comes from these
+            string codeVerifier = GenerateCodeVerifier();
+            string codeChallenge = GenerateCodeChallenge(codeVerifier);
+
+            // AUTHORIZE — Discord shows a one-time user consent popup
+            SendFrame(pipe, 1, new
+            {
+                cmd = "AUTHORIZE",
+                args = new
+                {
+                    client_id = ClientID,
+                    scopes = new[] { "rpc" },
+                    prompt = "none",
+                    code_challenge = codeChallenge,
+                    code_challenge_method = "S256"
+                },
+                nonce = Guid.NewGuid().ToString()
+            });
+
+            string authorizeJson = ReadFrame(pipe);
+            string code = null;
+            try
+            {
+                using var doc = JsonDocument.Parse(authorizeJson);
+                code = doc.RootElement.GetProperty("data").GetProperty("code").GetString();
+            }
+            catch { return null; }
+
+            if (code == null) return null;
+
+            return await ExchangeCodePkceAsync(code, codeVerifier);
+        }
+
+        private static async Task<string> ExchangeCodePkceAsync(string code, string codeVerifier)
+        {
+            try
+            {
+                using var http = new HttpClient();
+                var resp = await http.PostAsync(
+                    "https://discord.com/api/oauth2/token",
+                    new FormUrlEncodedContent(new Dictionary<string, string>
+                    {
+                        ["client_id"] = ClientID,
+                        ["grant_type"] = "authorization_code",
+                        ["code"] = code,
+                        ["redirect_uri"] = "http://127.0.0.1",
+                        ["code_verifier"] = codeVerifier   // <-- replaces client_secret
+                    }));
+
+                string json = await resp.Content.ReadAsStringAsync();
+                using var doc = JsonDocument.Parse(json);
+                var root = doc.RootElement;
+
+                string accessToken = root.GetProperty("access_token").GetString();
+                string refreshToken = root.TryGetProperty("refresh_token", out var rt) ? rt.GetString() : null;
+                int expiresIn = root.TryGetProperty("expires_in", out var exp) ? exp.GetInt32() : 604800;
+
+                if (accessToken != null)
+                    SaveToken(accessToken, refreshToken, expiresIn);
+
+                return accessToken;
+            }
+            catch { return null; }
+        }
+
+        private static async Task<string> RefreshTokenAsync(string refreshToken)
+        {
+            if (refreshToken == null) return null;
+            try
+            {
+                using var http = new HttpClient();
+                var resp = await http.PostAsync(
+                    "https://discord.com/api/oauth2/token",
+                    new FormUrlEncodedContent(new Dictionary<string, string>
+                    {
+                        ["client_id"] = ClientID,
+                        ["grant_type"] = "refresh_token",
+                        ["refresh_token"] = refreshToken
+                        // Still no client_secret needed for PKCE-issued tokens
+                    }));
+
+                string json = await resp.Content.ReadAsStringAsync();
+                using var doc = JsonDocument.Parse(json);
+                var root = doc.RootElement;
+
+                string newAccess = root.GetProperty("access_token").GetString();
+                string newRefresh = root.TryGetProperty("refresh_token", out var rt)
+                                         ? rt.GetString() : refreshToken;
+                int expiresIn = root.TryGetProperty("expires_in", out var exp)
+                                    ? exp.GetInt32() : 604800;
+
+                if (newAccess != null)
+                    SaveToken(newAccess, newRefresh, expiresIn);
+
+                return newAccess;
+            }
+            catch { return null; }
+        }
+
+        // ---- PKCE Helpers ----
+        private static string GenerateCodeVerifier()
+        {
+            byte[] bytes = RandomNumberGenerator.GetBytes(32);
+            return Base64UrlEncode(bytes);
+        }
+
+        private static string GenerateCodeChallenge(string verifier)
+        {
+            byte[] hash = SHA256.HashData(Encoding.ASCII.GetBytes(verifier));
+            return Base64UrlEncode(hash);
+        }
+
+        private static string Base64UrlEncode(byte[] data) => Convert.ToBase64String(data).TrimEnd('=').Replace('+', '-').Replace('/', '_');
+
+        // ---- Token Cache ----
+        private record TokenCache(string AccessToken, string RefreshToken, DateTime ExpiresAt);
+
+        private static void SaveToken(string access, string refresh, int expiresInSeconds)
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(TokenCachePath)!);
+            var cache = new
+            {
+                access_token = access,
+                refresh_token = refresh,
+                expires_at = DateTime.UtcNow.AddSeconds(expiresInSeconds)
+            };
+            File.WriteAllText(TokenCachePath, JsonSerializer.Serialize(cache));
+        }
+
+        private static TokenCache LoadCachedToken()
+        {
+            try
+            {
+                if (!File.Exists(TokenCachePath)) return null;
+                using var doc = JsonDocument.Parse(File.ReadAllText(TokenCachePath));
+                var root = doc.RootElement;
+
+                var expiresAt = root.GetProperty("expires_at").GetDateTime();
+                if (expiresAt < DateTime.UtcNow.AddMinutes(5)) // Consider expired if < 5 min left
+                {
+                    // Don't discard — we still have a refresh token
+                    return new TokenCache(
+                        root.GetProperty("access_token").GetString()!,
+                        root.TryGetProperty("refresh_token", out var rt) ? rt.GetString() : null,
+                        expiresAt);
+                }
+
+                return new TokenCache(
+                    root.GetProperty("access_token").GetString()!,
+                    root.TryGetProperty("refresh_token", out var rt2) ? rt2.GetString() : null,
+                    expiresAt);
+            }
+            catch { return null; }
+        }
+
+        // ---- IPC Helpers ----
+        private static string ParseUserId(string json) { /* same as before */ return null; }
+        private static bool IsStreaming(string json, string userId) { /* same as before */ return false; }
+
+        private static void SendFrame(NamedPipeClientStream pipe, int opcode, object payload)
+        {
+            byte[] content = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(payload));
+            byte[] header = new byte[8];
+            BitConverter.GetBytes(opcode).CopyTo(header, 0);
+            BitConverter.GetBytes(content.Length).CopyTo(header, 4);
+            pipe.Write(header);
+            pipe.Write(content);
+        }
+
+        private static string ReadFrame(NamedPipeClientStream pipe)
+        {
+            byte[] header = new byte[8];
+            ReadExact(pipe, header, 8);
+            int length = BitConverter.ToInt32(header, 4);
+            byte[] buffer = new byte[length];
+            ReadExact(pipe, buffer, length);
+            return Encoding.UTF8.GetString(buffer);
+        }
+
+        private static void ReadExact(Stream stream, byte[] buffer, int count)
+        {
+            int offset = 0;
+            while (offset < count)
+            {
+                int read = stream.Read(buffer, offset, count - offset);
+                if (read == 0) throw new EndOfStreamException();
+                offset += read;
+            }
         }
     }
 }

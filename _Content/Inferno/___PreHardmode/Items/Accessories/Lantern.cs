@@ -1,17 +1,31 @@
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Mire.Buffs;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
-using Terraria;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic._Content.Mire.Buffs;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories
 {
-    public class Lantern : BaseAAItem
+    public class Lantern : EquipAbstract, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
+        public static Asset<Texture2D> Glowmask;
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Lantern");
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+        }
+
         public override void SetDefaults()
         {
             Item.width = 24;
@@ -21,38 +35,16 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories
             Item.accessory = true;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipEffects()
         {
-            if (Item.accessory)
-            {
-                player.buffImmune[ModContent.BuffType<Clueless_Buff>()] = true;
-            }
+            AddEffect<LanternEffect>();
+            AddEffect(new EmitLightFromPlayerEffect(AAColor.Lantern.R / 255, AAColor.Lantern.G / 255 * 0.95f, AAColor.Lantern.B / 255 * 0.8f));
         }
 
-        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
-        {
-            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
-            spriteBatch.Draw
-            (
-                texture,
-                new Vector2
-                (
-                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
-                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
-                ),
-                new Rectangle(0, 0, texture.Width, texture.Height),
-                AAColor.Lantern,
-                rotation,
-                texture.Size() * 0.5f,
-                scale,
-                SpriteEffects.None,
-                0f
-            );
-        }
-
+        //TODO: cant this be removed
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Glowmask.Value;
             Texture2D texture2 = TextureAssets.Item[Item.type].Value;
             spriteBatch.Draw(texture2, position, null, drawColor, 0, origin, scale, SpriteEffects.None, 0f);
             for (int i = 0; i < 4; i++)
@@ -63,12 +55,6 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories
             }
 
             return false;
-        }
-
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Lantern");
-            // Tooltip.SetDefault(@"Permanent accessory to partially remove The Fog");
         }
 
         public override void AddRecipes()

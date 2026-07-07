@@ -1,24 +1,31 @@
+using AAModClassic._Content.Hoard.__Hardmode.Items.Consumables;
+using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
+using AAModClassic._Content.Hoard.World.Biomes;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
-
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-using Terraria.Audio;
-using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
-using AAModClassic.Items.Banners;
-using AAModClassic.Items.Usable;
-
 namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
 {
-    public class ScavengerHead : ModNPC
+    public class ScavengerHead : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Scavenger");
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 12,
+                Position = new Vector2(54, 28),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()
@@ -42,8 +49,17 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
             NPC.HitSound = SoundID.Tink;
             NPC.DeathSound = SoundID.Item14;
             NPC.netAlways = true;
-            Banner = ModContent.NPCType<ScavengerHead>();
-			BannerItem = ModContent.ItemType<ScavengerBanner>();
+            //Banner = ModContent.NPCType<ScavengerHead>();
+            SpawnModBiomes = [ModContent.GetInstance<HoardBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Caverns,
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Scavenger")
+            ]);
         }
 
         public override void AI()
@@ -417,7 +433,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
             else
                 DropItem(NPC, ModContent.ItemType<CovetiteCrystal>(), 1, 5, 30, true);
 
-            NPC.DropLoot(ModContent.ItemType<GreedKey>(), .05f);
+            NPC.DropLoot(ModContent.ItemType<GildedKey>(), .05f);
         }
 
         /*
@@ -465,7 +481,10 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 1, NPC.frame, drawColor, true);
+            if (NPC.IsABestiaryIconDummy)
+                return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, TextureAssets.Npc[Type].Value, TextureAssets.Npc[ModContent.NPCType<ScavengerBody>()].Value, 5, 26, 0.25f, Vector2.Zero, 2, 10, -24);
+
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, NPC.IsABestiaryIconDummy ? Color.White : drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
             return false;
         }
     }

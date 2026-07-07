@@ -1,10 +1,13 @@
+using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.UI.WorldGen;
+using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -15,8 +18,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Zero Unit");
+            // DisplayName.SetDefault("Chained Zero");
             Main.npcFrameCount[NPC.type] = 3;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()
@@ -34,9 +38,18 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 NPC.buffImmune[k] = true;
             }
             RepairMode = false;
+            SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
-		public InfinityZero Body = null;
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.InfinityZeroChainedZero")
+            ]);
+        }
+
+        public InfinityZero Body = null;
 		public int handType = 0; //0 == left top, 1 == left middle, 2 == left bottom, 3 == right top, 4 == right middle, 5 == right bottom
 		public bool leftHand = true;
         public bool RepairMode = false;
@@ -138,7 +151,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     velocity += Main.rand.NextVector2Circular(0.4f, 0.4f);
                     velocity += NPC.velocity * 0.5f;
 
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<InfinityZero_InfinityZeroShot>(), 140, 0, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<InfinityZero_InfinityZeroShot>(), 140, 0);
                 }
             }
 
@@ -345,14 +358,15 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
                 Texture2D zeroTex = ModContent.Request<Texture2D>(texPath + "_Hand").Value;
                 Texture2D glowTex = ModContent.Request<Texture2D>(texPath + "_Hand_Glow").Value;
-                BaseDrawing.DrawTexture(spriteBatch, zeroTex, 0, NPC, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC), InfinityZero.GetGlowAlpha(true)), true);
+                spriteBatch.Draw(zeroTex, NPC.Center - screenPos, NPC.frame, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC), InfinityZero.GetGlowAlpha(true)), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
+
                 if (Body != null && Body.tenthHealth)
                 {
-                    BaseDrawing.DrawAura(spriteBatch, glowTex, 0, NPC, Body.auraPercent, 1f, 0f, 0f, InfinityZero.GetGlowAlpha(true), true);
-                    BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, InfinityZero.GetRedAlpha(), true);
+                    DrawingUtils.DrawAura(spriteBatch, glowTex, NPC, Body.auraPercent, 1f, 0f, 0f, InfinityZero.GetGlowAlpha(true), true);
+                    spriteBatch.Draw(glowTex, NPC.Center - screenPos, NPC.frame, InfinityZero.GetGlowAlpha(true), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
                 }
                 else
-                    BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, InfinityZero.GetGlowAlpha(false), true);
+                    spriteBatch.Draw(glowTex, NPC.Center - screenPos, NPC.frame, InfinityZero.GetGlowAlpha(false), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
             }
             else
             {
@@ -362,14 +376,14 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 Texture2D zeroTex = ModContent.Request<Texture2D>(zeroTexture).Value;
                 Texture2D glowTex = ModContent.Request<Texture2D>(glowMaskTexture).Value;
 
-                BaseDrawing.DrawTexture(spriteBatch, zeroTex, 0, NPC, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC), InfinityZero.GetGlowAlpha(true)), true);
+                spriteBatch.Draw(zeroTex, NPC.Center - screenPos, NPC.frame, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC), InfinityZero.GetGlowAlpha(true)), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
                 if (Body != null && Body.tenthHealth)
                 {
                     BaseDrawing.DrawAura(spriteBatch, glowTex, 0, NPC, Body.auraPercent, 1f, 0f, 0f, InfinityZero.GetGlowAlpha(true), true);
-                    BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, InfinityZero.GetRedAlpha(), true);
+                    spriteBatch.Draw(glowTex, NPC.Center - screenPos, NPC.frame, InfinityZero.GetRedAlpha(), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
                 }
                 else
-                    BaseDrawing.DrawTexture(spriteBatch, glowTex, 0, NPC, InfinityZero.GetGlowAlpha(false), true);
+                    spriteBatch.Draw(glowTex, NPC.Center - screenPos, NPC.frame, InfinityZero.GetGlowAlpha(false), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
             }
             return false;
         }

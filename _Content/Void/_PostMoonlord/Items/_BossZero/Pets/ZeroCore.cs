@@ -1,3 +1,4 @@
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -6,8 +7,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Pets
 {
-    public class ZeroCore : BaseAAItem
-	{
+    public class ZeroCore : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Vanity.Pets";
         public override void SetStaticDefaults()
 		{
 			// DisplayName and Tooltip are automatically set from the .lang files, but below is how it is done normally.

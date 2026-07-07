@@ -1,14 +1,17 @@
+﻿using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
-using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class VikingChestplate : BaseAAItem
+	public class VikingChestplate : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Viking";
 		public static int counter = 0;
 		public override void SetStaticDefaults()
 		{
@@ -23,24 +26,20 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Armor
 			Item.rare = ItemRarityID.Orange;
 			Item.defense = 9;
 		}
-		
-		public override void UpdateEquip(Player player)
-		{
-            player.GetDamage(DamageClass.Melee) += 0.07f;
-		}
 
-		public override bool IsArmorSet(Item head, Item body, Item legs)
+        public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return head.type == ModContent.ItemType<VikingHelmet>() && legs.type == ModContent.ItemType<VikingLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
-			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.VikingPlateBonus");
-            player.endurance += .04f;
+        public override void RegisterEquipEffects()
+        {
+            damageMap.GetDamage(DamageClass.Melee) += 0.07f;
+
+			AddSetEffect(new EnduranceEffect(0.04f));
         }
-		
-		public override void AddRecipes()
+
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<RelicBar>(), 14);

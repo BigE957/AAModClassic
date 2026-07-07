@@ -1,12 +1,15 @@
-using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit;
+﻿using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit;
+using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss.Zero;
-using AAModClassic.NPCs.Bosses.Rajah;
-using AAModClassic.Tiles.Crafters;
+using AAModClassic.Rarities;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -17,8 +20,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA
 {
-    public class TenCaratCarrot : BaseAAItem
+    public class TenCaratCarrot : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.BossSummon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ten Carat Carrot");
@@ -31,8 +35,7 @@ Non-consumable"); */
         {
             Item.width = 24;
             Item.height = 24;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 14;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
             Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.useAnimation = 45;
             Item.useTime = 45;
@@ -42,29 +45,20 @@ Non-consumable"); */
             Item.UseSound = new SoundStyle("AAModClassic/Sounds/Rajah");
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity14;
-                }
-            }
-        }
+        
 
         public override bool CanUseItem(Player player)
         {
             /*if (WorldTypeSystem.WorldType == AAWorldType.Beta)
                 return false;
             */
-            return !(NPC.AnyNPCs(ModContent.NPCType<Rajah>()) ||
-                NPC.AnyNPCs(ModContent.NPCType<SupremeRajah>()));
+            return !(NPC.AnyNPCs(ModContent.NPCType<RajahRabbit>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<RajahRabbitA>()));
         }
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            if (!NPCExtensions.BeenKilled<SupremeRajah>())
+            if (!NPCExtensions.BeenKilled<RajahRabbitA>())
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DiamondCarrotRajahText1"), 107, 137, 179);
             }
@@ -79,10 +73,10 @@ Non-consumable"); */
                 {
                     Name = Main.LocalPlayer.name;
                 }
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DiamondCarrotRajahText2") + Name + "!", 107, 137, 179);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DiamondCarrotRajahText2") + " " + Name + "!", 107, 137, 179);
             }
             int overrideDirection = Main.rand.NextBool(2) ? -1 : 1;
-            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<SupremeRajah>(), false, player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * overrideDirection, -1200), Language.GetTextValue("Mods.AAModClassic.Common.SupremeRajah"));
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<RajahRabbitA>(), false, player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * overrideDirection, -1200), Language.GetTextValue("Mods.AAModClassic.Common.SupremeRajah"));
             return true;
         }
 
@@ -95,8 +89,7 @@ Non-consumable"); */
             recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 3);
             recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 3);
             recipe.AddIngredient(ItemID.Diamond, 5);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
-            //recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
             recipe = CreateRecipe(1);
             recipe.AddIngredient(ModContent.ItemType<PlatinumCarrot>(), 1);
@@ -104,8 +97,7 @@ Non-consumable"); */
             recipe.AddIngredient(ModContent.ItemType<CrucibleScale>(), 3);
             recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 3);
             recipe.AddIngredient(ItemID.Diamond, 5);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
-            //recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

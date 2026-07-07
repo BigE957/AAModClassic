@@ -1,5 +1,6 @@
-using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Graphics.Shaders;
@@ -9,13 +10,14 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items.Dyes
 {
-	public class AbyssalWrathDye : BaseAAItem
+	public class AbyssalWrathDye : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Dyes";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Abyssal Wrath Dye");
-            BaseUtility.AddTooltips(Item, new string[] { "Gives an abyssal touch to whatever this dye is applied to" });		
-		}
+            // Tooltip.SetDefault("Gives an abyssal touch to whatever this dye is applied to");		
+        }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
@@ -43,8 +45,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Dyes
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<AbyssalDye>(), 2);
-            recipe.AddIngredient(Terraria.ID.ItemID.BottledWater);
-            recipe.AddTile(Terraria.ID.TileID.DyeVat);
+            recipe.AddTile(TileID.DyeVat);
             recipe.Register();
         }
     }

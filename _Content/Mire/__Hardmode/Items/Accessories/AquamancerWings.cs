@@ -1,4 +1,6 @@
-using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -8,12 +10,12 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Accessories
 {
 
     [AutoloadEquip(EquipType.Wings)]
-    public class AquamancerWings : BaseAAItem
+    public class AquamancerWings : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Accessories";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Aquamancer Wings");
-            // Tooltip.SetDefault("Allows flight and slow fall");
 
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(120, 7, 1.5f);
         }
@@ -27,13 +29,13 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Accessories
 			Item.accessory = true;
             Item.alpha = 100;
 		}
-        
-        public override void UpdateAccessory(Player player, bool hideVisual)
-		{
-			player.wingTimeMax = 120;
-		}
 
-		public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
+        public override void RegisterEquipEffects()
+        {
+            AddEffect(new WingTimeMaxEffect(120));
+        }
+
+        public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
 		{
 			ascentWhenFalling = 0.85f;
 			ascentWhenRising = 0.15f;

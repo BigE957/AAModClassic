@@ -1,6 +1,7 @@
-using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Accessories;
+﻿using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Accessories;
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -8,16 +9,18 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.BossStandard
 {
-    public class DesertDjinnTreasureBag : BaseAAItem
+    public class DesertDjinnTreasureBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Desert Djinn)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;
             ItemID.Sets.BossBag[Type] = true;
+            ItemID.Sets.PreHardmodeLikeBossBag[Type] = true;
         }
 
         public override void SetDefaults()
@@ -26,7 +29,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Bos
             Item.consumable = true;
             Item.width = 32;
             Item.height = 32;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
         public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
@@ -44,7 +47,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Bos
         {
             if (Main.rand.NextBool(10))
             {
-                AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
                 modPlayer.PHMDevArmor();
             }		
         }

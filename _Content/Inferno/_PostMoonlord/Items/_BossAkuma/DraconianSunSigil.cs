@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
 using Terraria.ModLoader;
@@ -6,21 +6,25 @@ using Terraria.Localization;
 using System.Collections.Generic;
 
 using Terraria.ID;
-using AAModClassic.NPCs.Bosses.Akuma.Awakened;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Bosses.Akuma;
 using AAModClassic.Globals;
-using AAModClassic.NPCs.Bosses.Shen;
-using AAModClassic.Tiles.Crafters;
-using AAModClassic.CrossMod;
 using AAModClassic.Utilities;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Rarities;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._CrossMod;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma
 {
-    public class DraconianSunSigil : BaseAAItem
+    public class DraconianSunSigil : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.BossSummon";
         
         public override void SetStaticDefaults()
         {
@@ -36,23 +40,14 @@ Non-Consumable"); */
         {
             Item.width = 18;
             Item.height = 28;
-            Item.rare = ItemRarityID.Green;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
             Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.useAnimation = 45;
             Item.useTime = 45;
             Item.useStyle = ItemUseStyleID.HoldUp;
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
 
         // We use the CanUseItem hook to prevent a player from using this item while the boss is present in the world.
@@ -65,23 +60,23 @@ Non-Consumable"); */
             }
             if (player.ZoneAnyInferno())
             {
-                if (!ContentReplacementSystem.NeedToReplaceContent && !AAWorld.downedAkuma && !player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda)
+                if (!ContentReplacementSystem.NeedToReplaceContent && !AAWorld.downedAkuma && !player.GetModPlayer<ZAAPlayer>().ZoneRisingSunPagoda)
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianRuneFalse2"), new Color(180, 41, 32), false);
                     return false;
                 }
-                if (NPC.AnyNPCs(ModContent.NPCType<Akuma>()))
+                if (NPC.AnyNPCs(ModContent.NPCType<AkumaHead>()))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianSigilFalse"), new Color(180, 41, 32), false);
                     return false;
                 }
-                if (NPC.AnyNPCs(ModContent.NPCType<AkumaA>()))
+                if (NPC.AnyNPCs(ModContent.NPCType<AkumaAHead>()))
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianSigilFalse"), new Color(0, 191, 255), false);
                     return false;
                 }
-                if (NPC.AnyNPCs(ModContent.NPCType<Shen>()) || NPC.AnyNPCs(ModContent.NPCType<ShenA>()) || NPC.AnyNPCs(ModContent.NPCType<ShenSpawn>()) ||
-                    NPC.AnyNPCs(ModContent.NPCType<ShenTransition>()) || NPC.AnyNPCs(ModContent.NPCType<ShenDeath>()) || NPC.AnyNPCs(ModContent.NPCType<ShenDefeat>()))
+                if (NPC.AnyNPCs(ModContent.NPCType<ShenDoragon>()) || NPC.AnyNPCs(ModContent.NPCType<ShenDoragonA>()) || NPC.AnyNPCs(ModContent.NPCType<ShenDoragonSpawn>()) ||
+                    NPC.AnyNPCs(ModContent.NPCType<ShenDoragonTransition>()) || NPC.AnyNPCs(ModContent.NPCType<ShenDoragonDeath>()) || NPC.AnyNPCs(ModContent.NPCType<ShenDoragonDefeat>()))
                 {
                     return false;
                 }
@@ -106,7 +101,7 @@ Non-Consumable"); */
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianSignalTrue2"), new Color(180, 41, 32));
             }
-            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Akuma>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Akuma"), false);
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<AkumaHead>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Akuma"), false);
             SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/AkumaRoar"), player.position);
             return true;
         }

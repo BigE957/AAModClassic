@@ -1,6 +1,8 @@
-using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Weapons;
+﻿using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Weapons;
 using AAModClassic._Content.Hoard._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -8,8 +10,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
 {
-    public class Earthbreaker : BaseAAItem
+    public class Earthbreaker : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Earthbreaker");
@@ -29,22 +32,12 @@ If the enemy hits the ground after being hit, they will take damage"); */
 			Item.knockBack = 20;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 12;
+            Item.rare = ModContent.RarityType<PostEquinoxRarity>();
             if (ModLoader.TryGetMod("Redemption", out var redemption))
                 redemption.Call("setHammerBonus", Item);
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity12;
-                }
-            }
-        }
+        
 
         public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers)
         {

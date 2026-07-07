@@ -60,7 +60,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.We
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 
             if ((int)Main.time % 120 == 0) Projectile.netUpdate = true;
             if (!player.active)

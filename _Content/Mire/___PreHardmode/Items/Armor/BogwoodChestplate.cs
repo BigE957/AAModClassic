@@ -1,4 +1,5 @@
-using AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,8 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-    public class BogwoodChestplate : BaseAAItem
+    public class BogwoodChestplate : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Armor.Bogwood";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Bogwood Chestplate");

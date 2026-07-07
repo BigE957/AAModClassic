@@ -1,13 +1,15 @@
-using AAModClassic._Content.Dungeon.___PreHardmode.Items.Tools;
+﻿using AAModClassic._Content.Dungeon.___PreHardmode.Items.Tools;
 using AAModClassic._Content.Jungle.___PreHardmode.Items.Tools;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Crimson.___PreHardmode.Items.Tools
 {
-    public class Scalpel : BaseAAItem
+    public class Scalpel : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Tools";
         public override void SetDefaults()
         {
 

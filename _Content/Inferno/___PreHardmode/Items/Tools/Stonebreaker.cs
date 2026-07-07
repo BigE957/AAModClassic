@@ -1,14 +1,16 @@
-using AAModClassic._Content.Desert.___PreHardmode.Items.Tools;
+﻿using AAModClassic._Content.Desert.___PreHardmode.Items.Tools;
 using AAModClassic._Content.Ocean.___PreHardmode.Items.Tools;
 using AAModClassic._Content.Void.___PreHardmode.Items.Tools;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tools
 {
-    public class Stonebreaker : BaseAAItem
+    public class Stonebreaker : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Tools";
         public override void SetDefaults()
         {
             Item.damage = 15;

@@ -1,8 +1,9 @@
-using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -12,8 +13,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad
 {
-    public class Toadstool : BaseAAItem
+    public class Toadstool : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.BossSummon";
         
         public override void SetStaticDefaults()
         {
@@ -70,7 +72,6 @@ Can only be used in a glowing mushroom biome"); */
             recipe.AddIngredient(ModContent.ItemType<Mushium>(), 10);
             recipe.AddIngredient(ModContent.ItemType<GlowingMushium>(), 10);
             recipe.AddTile(TileID.Anvils);
-            //recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
             recipe.Register();
         }
     }

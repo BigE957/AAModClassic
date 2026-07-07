@@ -1,8 +1,9 @@
+using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
+using AAModClassic._Content.Acropolis.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
-using AAModClassic.NPCs.Bosses.Athena;
-using AAModClassic.Tiles.Boss;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -11,8 +12,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
 {
-    public class SeraphHurt : ModNPC
+    public class SeraphHurt : ModNPC, IBannerNPC
 	{
+        public int OverrideBannerNPCType => ModContent.NPCType<Seraph>();
+
         public override void SetStaticDefaults()
 		{
             Main.npcFrameCount[NPC.type] = 5;
@@ -34,8 +37,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.noTileCollide = false;
-            Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SeraphBanner>();
+            Banner = ModContent.NPCType<Seraph>();
             NPC.dontTakeDamage = true;
         }
 
@@ -100,7 +102,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
                     {
                         Dust.NewDust(NPC.Center, 60, 40, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0);
                     }
-                    if (player.GetModPlayer<AAPlayer>().ZoneAcropolis)
+                    if (player.GetModPlayer<ZAAPlayer>().ZoneAcropolis)
                     {
                         AcropolisAltar_Tile.SpawnBoss(player, ModContent.NPCType<Athena>(), player.Center, Language.GetTextValue("Mods.AAModClassic.Common.Athena"), false);
                     }

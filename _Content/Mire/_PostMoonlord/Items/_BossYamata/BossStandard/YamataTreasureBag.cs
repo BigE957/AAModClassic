@@ -1,8 +1,9 @@
-using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
+﻿using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Ammo;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Tools;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -13,11 +14,12 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
-    public class YamataTreasureBag : BaseAAItem
+    public class YamataTreasureBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Yamata)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;
@@ -31,7 +33,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandar
             Item.width = 32;
             Item.height = 32;
             Item.rare = ItemRarityID.Red;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
         public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
@@ -49,20 +51,20 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandar
         {
             if (Main.rand.NextBool(10))
             {
-                AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
                 modPlayer.PMLDevArmor();
             }
         }
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<YamataMask>(), 7));
+            itemLoot.Add(ItemDropRule.OneFromOptions(7, ModContent.ItemType<YamataMask>(), ModContent.ItemType<YamataAMask>()));
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<DreadScale>(), 1, 30, 40));
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Naitokurosu>()));
 
-            int[] lootTable = { ModContent.ItemType<Flairdra>(), ModContent.ItemType<Crescent>(), ModContent.ItemType<Amenomuraku>(), ModContent.ItemType<EventideArrow>(), ModContent.ItemType<HydraStabber>(), ModContent.ItemType<MidnightWrath>(), ModContent.ItemType<DreadTerratool>() };
+            int[] lootTable = { ModContent.ItemType<Flairdra>(), ModContent.ItemType<Crescent>(), ModContent.ItemType<Amenomuraku>(), ModContent.ItemType<EventideArrow>(), ModContent.ItemType<HydraStabber>(), ModContent.ItemType<MidnightWrath>(), ModContent.ItemType<AbyssalYari>(), ModContent.ItemType<AbyssalBomb>(), ModContent.ItemType<AbyssalEruption>(), ModContent.ItemType<Darksprayer>(), ModContent.ItemType<FallingTwilight>(), ModContent.ItemType<Sevenshot>(), ModContent.ItemType<ThrowingCrescent>(), ModContent.ItemType<DreadTerratool>() };
 
             itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
         }

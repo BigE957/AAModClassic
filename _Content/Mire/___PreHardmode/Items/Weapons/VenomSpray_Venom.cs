@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Assets;
+using AAModClassic.UI.World;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,7 +9,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
 {
     public class VenomSpray_Venom : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Venom");
@@ -43,6 +45,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
 				float num153 = Projectile.velocity.Y / 3f * num151;
 				int num154 = 14;
 				int num155 = Dust.NewDust(new Vector2(Projectile.position.X + num154, Projectile.position.Y + num154), Projectile.width - num154 * 2, Projectile.height - num154 * 2, ModContent.DustType<Dusts.AcidDust>(), 0f, 0f, 100);
+				if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+					Main.dust[num155].position = new Vector2(Projectile.position.X + Projectile.width / 2, Projectile.position.Y + Projectile.height / 2);
 				Main.dust[num155].noGravity = true;
 				Main.dust[num155].velocity *= 0.1f;
 				Main.dust[num155].velocity += Projectile.velocity * 0.5f;
@@ -55,7 +59,9 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
 			{
 				int num156 = 16;
 				int num157 = Dust.NewDust(new Vector2(Projectile.position.X + num156, Projectile.position.Y + num156), Projectile.width - num156 * 2, Projectile.height - num156 * 2, ModContent.DustType<Dusts.AcidDust>(), 0f, 0f, 100, default, 0.5f);
-				Main.dust[num157].velocity *= 0.25f;
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                    Main.dust[num157].position = new Vector2(Projectile.position.X + Projectile.width / 2, Projectile.position.Y + Projectile.height / 2);
+                Main.dust[num157].velocity *= 0.25f;
 				Main.dust[num157].velocity += Projectile.velocity * 0.5f;
 				return;
 			}

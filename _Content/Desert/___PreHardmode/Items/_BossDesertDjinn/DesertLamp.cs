@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.ID;
@@ -10,12 +10,14 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn
 {
     //imported from my tAPI mod because I'm lazy
-    public class DesertLamp : BaseAAItem
+    public class DesertLamp : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.BossSummon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Desert Lamp");
@@ -94,7 +96,6 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn
                 recipe.AddIngredient(ModContent.ItemType<DesertMana>(), 3);
                 recipe.AddIngredient(ItemID.Sandstone, 30);
                 recipe.AddTile(TileID.Anvils);
-                //recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
                 recipe.Register();
             }
         }

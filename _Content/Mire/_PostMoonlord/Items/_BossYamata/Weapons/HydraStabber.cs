@@ -1,18 +1,21 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
-using AAModClassic.Items.Melee;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Underground.__Hardmode.Items.Weapons;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Rarities;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons   //where is located
 {
-    public class HydraStabber : BaseAAItem
+    public class HydraStabber : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
         
         public override void SetStaticDefaults()
         {
@@ -41,28 +44,7 @@ IInflicts Moonraze"); */
             Item.useTurn = false;
             Item.shoot = ModContent.ProjectileType<AbyssLash>();
             Item.shootSpeed = 10;
-            Item.rare = ItemRarityID.Cyan; AARarity = 13;
-        }
-
-        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
-        {
-            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
-            spriteBatch.Draw
-            (
-                texture,
-                new Vector2
-                (
-                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
-                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
-                ),
-                new Rectangle(0, 0, texture.Width, texture.Height),
-                Color.White,
-                rotation,
-                texture.Size() * 0.5f,
-                scale,
-                SpriteEffects.None,
-                0f
-            );
+            Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
         public override void MeleeEffects(Player player, Rectangle hitbox)
@@ -75,16 +57,7 @@ IInflicts Moonraze"); */
             }
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
         public static void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
@@ -97,7 +70,7 @@ IInflicts Moonraze"); */
             recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
             recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
             recipe.AddIngredient(ModContent.ItemType<TrueCopperShortsword>());
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

@@ -1,0 +1,121 @@
+EnergyCell: {
+	DisplayName: Energy Cell
+	Tooltip: ""
+}
+
+ReaperArrow: {
+	DisplayName: Reaper Arrow
+	Tooltip: This arrow can shoot through walls
+}
+
+DragonArrow: {
+	DisplayName: Dragon Arrow
+	Tooltip: Has stronger knockback than most arrows
+}
+
+DaybreakArrow: {
+	DisplayName: Daybreak Arrow
+	Tooltip:
+		'''
+		Scorches its target with the heat of the blazing sun
+		Inflicts Daybroken
+		Non-consumable
+		'''
+}
+
+EventideArrow: {
+	DisplayName: Eventide Arrow
+	Tooltip:
+		'''
+		Blinds its target with the darkness of the moonless night
+		Inflicts Moonraze
+		Non-consumable
+		'''
+}
+
+TerraArrow: {
+	DisplayName: Terra Arrow
+	Tooltip:
+		'''
+		Homes in on enemies
+		Not Consumable
+		'''
+}
+
+SingularityArrow: {
+	DisplayName: Singularity Arrow
+	Tooltip:
+		'''
+		The only thing faster than light is the void that devours it
+		Non-consumable
+		'''
+}
+
+UnstablePowerCell: {
+	DisplayName: Unstable Power Cell
+	Tooltip:
+		'''
+		Acts as a bullet
+		Non-consumable
+		'''
+}
+
+M79Round: {
+	DisplayName: M79 Round
+	Tooltip: ""
+}
+
+ChaosArrow: {
+	DisplayName: Chaos Arrow
+	Tooltip: Inflicts randomly selected debuff on hit
+}
+
+DragonfireArrow: {
+	DisplayName: Dragonfire Arrow
+	Tooltip: Inflicts Dragonfire debuff on hit
+}
+
+DragonfireBullet: {
+	DisplayName: Dragonfire Bullet
+	Tooltip: ""
+}
+
+DragonfireDart: {
+	DisplayName: Dragonfire Dart
+	Tooltip: ""
+}
+
+DaybreakBullet: {
+	DisplayName: Daybreak Bullet
+	Tooltip: ""
+}
+
+HydratoxinArrow: {
+	DisplayName: Hydratoxin Arrow
+	Tooltip: Inflicts Hydratoxin debuff on hit
+}
+
+HydratoxinBullet: {
+	DisplayName: Hydratoxin Bullet
+	Tooltip: ""
+}
+
+HydratoxinDart: {
+	DisplayName: Hydratoxin Dart
+	Tooltip: ""
+}
+
+EventideBullet: {
+	DisplayName: Eventide Bullet
+	Tooltip: ""
+}
+
+DarkmatterArrow: {
+	DisplayName: Darkmatter Arrow
+	Tooltip: ""
+}
+
+RadiumArrow: {
+	DisplayName: Radium Arrow
+	Tooltip: ""
+}

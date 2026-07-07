@@ -1,7 +1,8 @@
-using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Accessories;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -9,12 +10,13 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossStandard
 {
-    public class AthenaATreasureBag : BaseAAItem
+    public class AthenaATreasureBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Olympian Athena)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;
@@ -27,7 +29,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossS
             Item.consumable = true;
             Item.width = 32;
             Item.height = 32;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.rare = ItemRarityID.Red;
         }
 
@@ -46,7 +48,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossS
         {
             if (Main.rand.NextBool(10))
             {
-                AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
                 modPlayer.PMLDevArmor();
             }
         }

@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.We
 
         public override void Update(Player player, ref int buffIndex)
         {
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (player.ownedProjectileCounts[ModContent.ProjectileType<SnakeStaff_SerpentHead>()] > 0) modPlayer.SnakeMinion = true;
             if (!modPlayer.SnakeMinion)
             {

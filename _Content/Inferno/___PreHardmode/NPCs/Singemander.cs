@@ -1,5 +1,6 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic.Items.Banners;
+using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -11,7 +12,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
 {
 
-    public class Singemander : ModNPC
+    public class Singemander : ModNPC, IBannerNPC
     {
 
         public override void SetStaticDefaults()
@@ -19,6 +20,13 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
             // DisplayName.SetDefault("Singemander");
 
             Main.npcFrameCount[NPC.type] = 5;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                Position = new Vector2(-18, 0),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()
@@ -27,7 +35,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
             NPC.damage = 14;  //boss damage
             NPC.defense = 14;    //boss defense
             NPC.knockBackResist = 1f;   //this boss will behavior like the DemonEye  //boss frame/animation 
-            NPC.value = Item.sellPrice(0, 0, 6, 45);
+            NPC.value = Item.buyPrice(0, 0, 6, 45);
             NPC.aiStyle = NPCAIStyleID.Fighter;
             AIType = NPCID.GoblinScout;
             NPC.HitSound = SoundID.NPCHit1;
@@ -41,8 +49,8 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<InfernoSalamanderBanner>();
-
+			//BannerItem = ModContent.ItemType<SingemanderBanner>();
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
         private bool biteAttack;
@@ -68,25 +76,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
         {
             Player player = Main.player[NPC.target];
             Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
-            if (biteAttack == false)
-            {
-                NPC.frameCounter++;
-                if (NPC.frameCounter >= 10)
-                {
-                    NPC.frameCounter = 0;
-                    NPC.frame.Y += 28;
-                    if (NPC.frame.Y > 112)
-                    {
-                        NPC.frameCounter = 0;
-                        NPC.frame.Y = 0;
-                    }
-                }
-            }
-            else
-            {
-                NPC.frameCounter = 0;
-                NPC.frame.Y = 0;
-            }
+            
             if (NPC.velocity.X > 0) // so it faces the player
             {
                 NPC.spriteDirection = -1;
@@ -134,21 +124,46 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
                 NPC.aiStyle = NPCAIStyleID.Fighter;
             }
         }
+
+        public override void FindFrame(int frameHeight)
+        {
+            if (biteAttack == false)
+            {
+                NPC.frameCounter++;
+                if (NPC.frameCounter >= 10)
+                {
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y += frameHeight;
+                    if (NPC.frame.Y > frameHeight * 4)
+                    {
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = 0;
+                    }
+                }
+            }
+            else
+            {
+                NPC.frameCounter = 0;
+                NPC.frame.Y = 0;
+            }
+        }
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
+            Texture2D textureGlow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             Texture2D biteAni = ModContent.Request<Texture2D>(Texture + "_Nom").Value;
-            var effects = NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+            Texture2D biteGlow = ModContent.Request<Texture2D>(Texture + "_Nom_Glow").Value;
             if (biteAttack == false) // i think this is important for it to not do its usual walking cycle while its also doing those attacks
             {
-                spriteBatch.Draw(texture, NPC.Center - Main.screenPosition, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+                spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+                spriteBatch.Draw(textureGlow, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             }
             if (biteAttack == true)
             {
                 Vector2 drawCenter = new Vector2(NPC.Center.X, NPC.Center.Y);
-                int num214 = biteAni.Height / 3; // 3 is the number of frames in the sprite sheet
-                int y6 = num214 * biteFrame;
-                Main.spriteBatch.Draw(biteAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, biteAni.Width, num214)), drawColor, NPC.rotation, new Vector2(biteAni.Width / 2f, num214 / 2f), NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+                Rectangle frame = biteAni.Frame(1, 3, 0, biteFrame);
+                spriteBatch.Draw(biteAni, drawCenter - screenPos, frame, drawColor, NPC.rotation, frame.Size() * 0.5f, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+                spriteBatch.Draw(biteGlow, drawCenter - screenPos, frame, Color.White, NPC.rotation, frame.Size() * 0.5f, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             }
             return false;
         }

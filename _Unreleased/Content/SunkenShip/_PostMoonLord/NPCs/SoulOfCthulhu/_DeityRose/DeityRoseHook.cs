@@ -1,8 +1,11 @@
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -24,7 +27,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.noGravity = true;
             NPC.width = 40;
             NPC.height = 40;
-            NPC.aiStyle = NPCAIStyleID.PlanteraHook;
+            NPC.aiStyle = -1;
             NPC.damage = 60;
             NPC.defense = 24;
             NPC.lifeMax = 4000;
@@ -39,8 +42,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             bool flag49 = false;
             if (AAModGlobalNPC.Rose < 0)
             {
-                //TODOSOC
-                //NPC.StrikeNPCNoInteraction(9999, 0f, 0, false, false, false);
+                NPC.StrikeInstantKill();
                 NPC.netUpdate = true;
                 return;
             }
@@ -130,7 +132,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                         }
                         try
                         {
-                            if (WorldGen.SolidTile(num740, num741) || Main.tile[num740, num741].WallType > WallID.None && (num736 > 500 || Main.npc[AAModGlobalNPC.Rose].life < Main.npc[AAModGlobalNPC.Rose].lifeMax / 2))
+                            if (WorldGen.InWorld(num740, num741) && (WorldGen.SolidTile(num740, num741) || Main.tile[num740, num741].WallType > WallID.None) && (num736 > 500 || Main.npc[AAModGlobalNPC.Rose].life < Main.npc[AAModGlobalNPC.Rose].lifeMax / 2))
                             {
                                 flag50 = true;
                                 NPC.ai[0] = num740;
@@ -211,6 +213,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), 2 * hit.HitDirection, -2f, 0, default, 1f);
                 
             }
+        }
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            int rose = NPC.FindFirstNPC(ModContent.NPCType<DeityRose>());
+            if (rose != -1)
+                BaseDrawing.DrawChain(Main.spriteBatch, ModContent.Request<Texture2D>(Texture + "_Chain").Value, Main.npc[rose].Center, NPC.Center);
+            return true;
         }
     }
 }

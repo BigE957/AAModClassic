@@ -1,3 +1,4 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -7,8 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons
 {
 
-    public class RPG : BaseAAItem
+    public class RPG : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("RPG");
@@ -35,7 +37,7 @@ Bunnyzooka EX"); */
             Item.shoot = ModContent.ProjectileType<RPG_RajahRocket>();
             Item.useAmmo = AmmoID.Rocket;
             Item.rare = ItemRarityID.Cyan;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
         public override Vector2? HoldoutOffset()

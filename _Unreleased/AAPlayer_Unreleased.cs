@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace AAModClassic._Unreleased
 {
@@ -17,43 +18,25 @@ namespace AAModClassic._Unreleased
 
         public bool CustomBiomesMatch(Player other)
         {
-            AAPlayer modOther = other.GetModPlayer<AAPlayer>();
-            return ZoneStorm == modOther.ZoneStorm &&
-                ZoneShip == modOther.ZoneShip;
+            ZAAPlayer modOther = other.GetModPlayer<ZAAPlayer>();
+            return ZoneStorm == modOther.ZoneStorm && ZoneShip == modOther.ZoneShip;
         }
 
         public void CopyCustomBiomesTo(Player other)
         {
-            AAPlayer modOther = other.GetModPlayer<AAPlayer>();
+            ZAAPlayer modOther = other.GetModPlayer<ZAAPlayer>();
             modOther.ZoneStorm = ZoneStorm;
             modOther.ZoneShip = ZoneShip;
         }
 
         public void SendCustomBiomes(BinaryWriter bb)
         {
-            BitsByte zoneByte = 0;
-            zoneByte[0] = ZoneStorm;
-            zoneByte[1] = ZoneShip;
-            //zoneByte[2] = ZoneVoid;
-            //zoneByte[3] = ZoneMush;
-            //zoneByte[4] = Terrarium;
-            //zoneByte[5] = ZoneStorm;
-            //zoneByte[6] = ZoneRisingSunPagoda;
-            //zoneByte[7] = ZoneRisingMoonLake;
-            bb.Write(zoneByte);
+            bb.WriteFlags(ZoneStorm, ZoneShip);
         }
 
         public void ReceiveCustomBiomes(BinaryReader bb)
         {
-            BitsByte zoneByte = bb.ReadByte();
-            ZoneStorm = zoneByte[0];
-            ZoneShip = zoneByte[1];
-            //ZoneVoid = zoneByte[2];
-            //ZoneMush = zoneByte[3];
-            //Terrarium = zoneByte[4];
-            //ZoneStorm = zoneByte[5];
-            //ZoneRisingSunPagoda = zoneByte[6];
-            //ZoneRisingMoonLake = zoneByte[7];
+            bb.ReadFlags(out ZoneStorm, out ZoneShip);
         }
     }
 }

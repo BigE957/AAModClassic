@@ -1,25 +1,27 @@
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using Terraria.ID;
-using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
-using AAModClassic._Content.Bunny.__Hardmode.Items.Armor;
+﻿using AAModClassic._Content.Bunny.__Hardmode.Items.Armor;
 using AAModClassic._Content.Bunny._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
+using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class ChampionHelmetRanged : BaseAAItem
+    public class ChampionHelmetRanged : EquipAbstract, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Armor.Champion";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Champion Mask");
-            /* Tooltip.SetDefault(@"55% increased ranged damage
-44% increased ranged critical strike chance
-10% increased non-ranged damage
-25% reduced ammo consumption
-The armor of a champion feared across the land"); */
+            /* Tooltip.SetDefault(@"'The armor of a champion feared across the land'"); */
         }
 
         public override void SetDefaults()
@@ -27,40 +29,26 @@ The armor of a champion feared across the land"); */
 			Item.width = 20;
 			Item.height = 24;
 			Item.value = Item.sellPrice(3, 0, 0, 0);
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 14;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
             Item.defense = 34;
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity14;
-                }
-            }
-        }
+        
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ModContent.ItemType<ChampionChestplate>() && legs.type == ModContent.ItemType<ChampionLeggings>();
 		}
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipEffects()
         {
-            player.setBonus = Language.GetTextValue("Mods.AAMod.Equipset.ChampionMaskBonus");
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
-            modPlayer.ChampionRa = true;
-        }
+            damageMap.GetDamage(DamageClass.Generic) += .1f;
+            damageMap.GetDamage(DamageClass.Ranged) += .45f;
+            damageMap.GetCritChance(DamageClass.Ranged) += 44;
+            AddEffect<AmmoCost75Effect>();
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Ranged) += .45f;
-            player.GetCritChance(DamageClass.Ranged) += 44;
-            player.GetDamage(DamageClass.Generic) += .1f;
-            player.ammoCost75 = true;
+            AddSetEffect<ChampionHelmetRangedSetEffect>();
+            AddSetEffect<ChampionHelmetRangedSetDescEffect>();
         }
 
         public override void AddRecipes()
@@ -68,8 +56,13 @@ The armor of a champion feared across the land"); */
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<HoppingHoodlumHelmet>(), 1);
             recipe.AddIngredient(ModContent.ItemType<ChampionPlate>(), 10);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
+    }
+
+    public class ChampionHelmetRangedSetDescEffect : EquipmentEffectData
+    {
+
     }
 }

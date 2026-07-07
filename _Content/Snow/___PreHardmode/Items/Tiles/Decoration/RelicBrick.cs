@@ -1,13 +1,14 @@
-using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
-using AAModClassic.Items.Walls;
+﻿using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.Items.Tiles.Decoration
 {
-    public class RelicBrick : BaseAAItem
+    public class RelicBrick : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetDefaults()
         {
 
@@ -37,7 +38,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Tiles.Decoration
             recipe.Register();
 
             recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<RelicWall>(), 4);
+            recipe.AddIngredient(ModContent.ItemType<RelicBrickWall>(), 4);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

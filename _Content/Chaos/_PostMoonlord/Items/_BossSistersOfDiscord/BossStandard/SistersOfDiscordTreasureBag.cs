@@ -1,6 +1,9 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Accessories;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Accessories;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
+using AAModClassic._Unofficial.Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -11,12 +14,13 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard
 {
-    public class SistersOfDiscordTreasureBag : BaseAAItem
+    public class SistersOfDiscordTreasureBag : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Sisters of Discord)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
             Item.ResearchUnlockCount = 3;
             ItemID.Sets.BossBag[Type] = true;
@@ -28,7 +32,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
 			Item.consumable = true;
 			Item.width = 36;
 			Item.height = 32;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
 		}
 
         public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
@@ -105,13 +109,19 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
         {
             if (Main.rand.NextBool(10))
             {
-                AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
                 modPlayer.PMLDevArmor();
             }
         }
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
+            LeadingConditionRule unofficialRule = new(new AAConditions.Unofficial());
+
+            unofficialRule.OnSuccess(ItemDropRule.OneFromOptions(7, ModContent.ItemType<AsheMask>(), ModContent.ItemType<HarukaMask>()));
+
+            itemLoot.Add(unofficialRule);
+
             int[] lootTableA = { ModContent.ItemType<AshRain>(), ModContent.ItemType<FuryFlame>(), ModContent.ItemType<FlameVortexStaff>(), ModContent.ItemType<FuryWitchsBag>() };
             int[] lootTableH = { ModContent.ItemType<Masamune>(), ModContent.ItemType<AbyssalKunai>(), ModContent.ItemType<MizuArashi>(), ModContent.ItemType<MidnightAssassinBag>() };
 

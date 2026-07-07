@@ -1,18 +1,22 @@
-using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
+﻿using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Accessories;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.Items.Materials;
+using AAModClassic._Unofficial.Content.Bunny._PostMoonlord.Items._RajahA.BossStandard;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.BossStandard
 {
-    public class RajahRabbitATreasureBag : BaseAAItem
+    public class RajahRabbitATreasureBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Cache");
+            // DisplayName.SetDefault("Treasure Cache (Champion of the Innocent)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
@@ -22,7 +26,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Boss
             Item.consumable = true;
             Item.width = 32;
             Item.height = 32;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
         //public override int BossBagNPC => ModContent.NPCType<SupremeRajah>();
@@ -36,13 +40,19 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Boss
         {
             if (Main.rand.NextBool(10))
             {
-                AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
                 modPlayer.SADevArmor();
             }
         }
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
+            LeadingConditionRule unofficialRule = new(new AAConditions.Unofficial());
+
+            unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RajahRabbitAMask>(), 7));
+
+            itemLoot.Add(unofficialRule);
+
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<RajahRabbitMask>(), 7));
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<RajahRabbitsCloakOfSupremacy>()));

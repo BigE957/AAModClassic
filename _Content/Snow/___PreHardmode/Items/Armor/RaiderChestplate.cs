@@ -1,15 +1,18 @@
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class RaiderChestplate : BaseAAItem
+	public class RaiderChestplate : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Raider";
 		public static int counter = 0;
 		public override void SetStaticDefaults()
 		{
@@ -31,14 +34,13 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Armor
 			return head.type == ModContent.ItemType<RaiderHelmet>() && legs.type == ModContent.ItemType<RaiderLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.RaiderChestBonus");
-            player.noKnockback = true;
-            player.endurance += (1 - player.statLife / player.statLifeMax) * .1f;
+        public override void RegisterEquipEffects()
+        {
+			AddSetEffect<KnockbackImmunityEffect>();
+			AddSetEffect<RaiderChestplateSetEffect>();
         }
-		
-		public override void AddRecipes()
+
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<VikingChestplate>());

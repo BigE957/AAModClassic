@@ -1,14 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
 {
-    public class TheSquirter : BaseAAItem
+    public class TheSquirter : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
 
         public override void SetDefaults()
         {

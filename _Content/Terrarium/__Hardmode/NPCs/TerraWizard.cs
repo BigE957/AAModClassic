@@ -1,7 +1,9 @@
+using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
+using AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Terrarium.Buffs;
+using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Magic;
-using AAModClassic.Items.Materials;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -10,8 +12,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
 {
-    public class TerraWizard : ModNPC
-	{
+    public class TerraWizard : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Terra Wizard");
@@ -31,7 +33,8 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             NPC.knockBackResist = 0.4f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraWizardBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraWizardBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 
         public float[] shootAI = new float[4];
@@ -51,13 +54,16 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             NPC.TargetClosest(true);
             Player player = Main.player[NPC.target];
             BaseAI.AISpaceOctopus(NPC, ref NPC.ai, Main.player[NPC.target].Center, 0.15f, 6f, 250f, 70f, FireMagic);
-            
+        }
+
+        public override void FindFrame(int frameHeight)
+        {
             NPC.frameCounter++;
             if (NPC.frameCounter >= 10)
             {
                 NPC.frameCounter = 0;
-                NPC.frame.Y += 58;
-                if (NPC.frame.Y > 58 * 5)
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y > frameHeight * 5)
                 {
                     NPC.frameCounter = 0;
                     NPC.frame.Y = 0;

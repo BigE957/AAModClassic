@@ -1,5 +1,5 @@
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Tiles.Bars;
+﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials
 {
-    public class GlowingMushiumBar : BaseAAItem
+    public class GlowingMushiumBar : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetDefaults()
         {
             Item.width = 30;

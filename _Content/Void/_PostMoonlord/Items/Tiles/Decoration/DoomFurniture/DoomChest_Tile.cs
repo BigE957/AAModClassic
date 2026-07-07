@@ -214,7 +214,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
         {
             Tile tile = Main.tile[x, y];
 
-            Texture2D glowTex = Mod.GetTexture("Glowmasks/DoomChest_Glow");
+            Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
             int frameX = tile != null && tile.HasTile ? tile.TileFrameX + Main.tileFrame[Type] * 36 : 0;
             int frameY = tile != null && tile.HasTile ? tile.TileFrameY + Main.tileFrame[Type] * 38 : 0;

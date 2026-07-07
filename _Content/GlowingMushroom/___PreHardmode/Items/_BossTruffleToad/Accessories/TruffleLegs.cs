@@ -1,13 +1,17 @@
-using Terraria.ModLoader;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Accessories;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Accessories
 {
     [AutoloadEquip(EquipType.Shoes)]
-    public class TruffleLegs : BaseAAItem
+    public class TruffleLegs : EquipAbstract, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Truffle Legs");
@@ -23,16 +27,13 @@ Increased jump height"); */
             Item.value = Item.sellPrice(0, 1, 0, 0);
             Item.rare = ItemRarityID.Pink;
             Item.accessory = true;
-            Item.expertOnly = true;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipEffects()
         {
-            player.autoJump = true;
-            Player.jumpHeight = 20;
-            player.jumpSpeedBoost += 1.5f;
-            player.noFallDmg = true;
+            AddEffect(new JumpStatsEffect(1.5f, 20, true));
+            AddEffect<FallDamageImmunityEffect>();
         }
     }
 }

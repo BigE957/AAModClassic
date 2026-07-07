@@ -14,7 +14,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapo
 
         public override void Update(Player player, ref int buffIndex)
         {
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<SagittariusCore_Orbiter>()] > 0)
 			{
 				modPlayer.SagOrbiter = true;

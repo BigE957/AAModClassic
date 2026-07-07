@@ -1,4 +1,5 @@
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -6,8 +7,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
 {
-    public class ExilesKatana : BaseAAItem
+    public class ExilesKatana : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Melee";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Exile's Katana");

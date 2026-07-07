@@ -1,12 +1,14 @@
-using AAModClassic._Content.Sky.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Sky.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Sky.__Hardmode.Items.Tools
 {
-    public class DragonPickaxe : BaseAAItem
+    public class DragonPickaxe : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Tools";
         public override void SetDefaults()
         {
 

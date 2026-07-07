@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic._Content.Void.Projectiles;
+using Terraria.GameContent;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons
 {
@@ -46,8 +47,8 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapo
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D Glow = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
-            BaseDrawing.DrawTexture(Main.spriteBatch, Mod.GetTexture("Projectiles/Sag/ZeroStarP"), 0, Projectile, lightColor, true);
+            Texture2D Glow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Type].Value, 0, Projectile, lightColor, true);
             BaseDrawing.DrawTexture(Main.spriteBatch, Glow, 0, Projectile, AAColor.COLOR_WHITEFADE1, true);
             return false;
         }

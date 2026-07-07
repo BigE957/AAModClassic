@@ -1,11 +1,13 @@
-﻿using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
 {
-    public class HydrasSpear : BaseAAItem
+    public class HydrasSpear : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Hydra Spear");
@@ -19,7 +21,6 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
             Item.width = 132;
             Item.height = 132;
             Item.scale = 1.1f;
-            Item.maxStack = Item.CommonMaxStack;
             Item.useTime = 24;
             Item.useAnimation = 18;
             Item.knockBack = 2.3f;

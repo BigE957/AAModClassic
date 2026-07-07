@@ -1,4 +1,6 @@
-using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -8,8 +10,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class BiomiteHelmet : BaseAAItem
+	public class BiomiteHelmet : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Biomite";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Biomite Helmet");
@@ -29,12 +32,12 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Armor
 			return body.type == ModContent.ItemType<BiomiteChestplate>() && legs.type == ModContent.ItemType<BiomiteLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
-			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor1") + SetBonus(player);
-		}
+        public override void RegisterEquipEffects()
+        {
+			AddSetEffect<BiomiteHelmetSetEffect>();
+        }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<TerraShard>(), 15);
@@ -55,22 +58,22 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Armor
 				player.statManaMax2 += 20;
 				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor3");
 			}
-			if (player.GetModPlayer<AAPlayer>().ZoneVoid)
+			if (player.GetModPlayer<ZAAPlayer>().ZoneVoid)
 			{
 				player.detectCreature = true;
 				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor4");
 			}
-			if (player.GetModPlayer<AAPlayer>().ZoneInferno)
+			if (player.GetModPlayer<ZAAPlayer>().ZoneInferno)
 			{
 				player.buffImmune[BuffID.OnFire] = true;
 				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor5");
 			}
-			if (player.GetModPlayer<AAPlayer>().ZoneMire)
+			if (player.GetModPlayer<ZAAPlayer>().ZoneMire)
 			{
 				player.buffImmune[BuffID.Poisoned] = true;
 				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor6");
 			}
-			if (player.GetModPlayer<AAPlayer>().Terrarium)
+			if (player.GetModPlayer<ZAAPlayer>().Terrarium)
 			{
 				player.statDefense += 5;
 				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor7");
@@ -99,7 +102,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Armor
 			if (player.ZoneCorrupt)
 			{
 				player.moveSpeed += .1f;
-				player.GetModPlayer<AAPlayer>().MaxMovespeedboost += 0.1f;
+				player.GetModPlayer<ZAAPlayer>().MaxMovespeedboost += 0.1f;
 				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor12");
 			}
 			if (player.ZoneCrimson)

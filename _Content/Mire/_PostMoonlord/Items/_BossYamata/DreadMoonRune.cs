@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
 
@@ -10,16 +10,19 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Bosses.Shen;
 using AAModClassic.Utilities;
-using AAModClassic.CrossMod;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic._CrossMod;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata
 {
-    public class DreadMoonRune : BaseAAItem
+    public class DreadMoonRune : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.BossSummon";
 
         public override void SetStaticDefaults()
         {
@@ -70,7 +73,7 @@ Non-Consumable"); */
             }
             if (player.ZoneAnyMire())
             {
-                if (!ContentReplacementSystem.NeedToReplaceContent && !player.GetModPlayer<AAPlayer>().ZoneRisingMoonLake && !AAWorld.downedYamata)
+                if (!ContentReplacementSystem.NeedToReplaceContent && !player.GetModPlayer<ZAAPlayer>().ZoneRisingMoonLake && !AAWorld.downedYamata)
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadFalse1"), Color.Indigo, false);
                     return false;
@@ -85,8 +88,8 @@ Non-Consumable"); */
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadFalse2"), new Color(146, 30, 68), false);
                     return false;
                 }
-                if (NPC.AnyNPCs(ModContent.NPCType<Shen>()) || NPC.AnyNPCs(ModContent.NPCType<ShenA>()) || NPC.AnyNPCs(ModContent.NPCType<ShenSpawn>()) || 
-                    NPC.AnyNPCs(ModContent.NPCType<ShenTransition>()) || NPC.AnyNPCs(ModContent.NPCType<ShenDeath>()) || NPC.AnyNPCs(ModContent.NPCType<ShenDefeat>()))
+                if (NPC.AnyNPCs(ModContent.NPCType<ShenDoragon>()) || NPC.AnyNPCs(ModContent.NPCType<ShenDoragonA>()) || NPC.AnyNPCs(ModContent.NPCType<ShenDoragonSpawn>()) || 
+                    NPC.AnyNPCs(ModContent.NPCType<ShenDoragonTransition>()) || NPC.AnyNPCs(ModContent.NPCType<ShenDoragonDeath>()) || NPC.AnyNPCs(ModContent.NPCType<ShenDoragonDefeat>()))
                 {
                     return false;
                 }

@@ -1,14 +1,18 @@
-using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
+using Steamworks;
+using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Accessories
 {
     [AutoloadEquip(EquipType.HandsOn)]
-    public class RadiantStar : BaseAAItem
+    public class RadiantStar : EquipAbstract, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetDefaults()
         {
             Item.width = 32;
@@ -16,34 +20,19 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Acce
             Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
         
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Radiant Star");
-            /* Tooltip.SetDefault(
-@"Gives immensely increased stats during the day
-'It's Shiny'"); */
+            /* Tooltip.SetDefault(@"'It's Shiny'"); */
         }
 
-		public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipEffects()
         {
-            if (Main.dayTime)
-            {
-                player.lifeRegen += 5;
-                player.statDefense += 8;
-                player.GetAttackSpeed(DamageClass.Melee) += 0.10f;
-                player.GetCritChance(DamageClass.Melee) += 4;
-                player.GetCritChance(DamageClass.Ranged) += 4;
-                player.GetCritChance(DamageClass.Magic) += 4;
-                player.pickSpeed -= 0.30f;
-                player.GetKnockback(DamageClass.Summon).Base += 0.7f;
-                player.GetDamage(DamageClass.Generic) += 0.17f;
-                player.GetCritChance(DamageClass.Throwing) += 4;
-            }
-            player.GetModPlayer<AAPlayer>().RStar = true;
+            AddEffect(new EquinoxDayNightStatBoostsEffect());
+            AddEffect(new EmitLightFromPlayerEffect(1f, 0.95f, 0.8f));
         }
-
     }
 }

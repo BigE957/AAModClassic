@@ -5,14 +5,15 @@ fimale2: HER
 boy: ", BOY"
 girl: ", GIRL"
 FatPixie: YEET
+CoreSpawn: The Biomite Core whirs to life!
 
 SistersOfDiscord: {
 	Spawn: {
 		1: Well hello there, what a surprise to see YOU here~!
 
 		2: {
-			Broodmother: Oh yes, I've heard PLENTY about you, kid...you've been stirring up quite a bit of trouble in these parts...
-			None: Oh yes, I've heard PLENTY about you, kid...you're the little warm-blood who thrashed my mother..!
+			None: Oh yes, I've heard PLENTY about you, kid...you've been stirring up quite a bit of trouble in these parts...
+			Broodmother: Oh yes, I've heard PLENTY about you, kid...you're the little warm-blood who thrashed my mother..!
 		}
 
 		3: {
@@ -912,6 +913,65 @@ InfinityZero: {
 					Fables: Why not pay that nautilus pal of yours another visit? He actually likes fighting you.
 				}
 			}
+		}
+	}
+}
+
+SoulOfCthulhu: {
+	PreFight: {
+		CompassSteal: UNHAND WHAT ISN'T YOURS, THIEF!!
+
+		SunkenShipWarning: {
+			1: ...leave...
+			2: ...Leave this forsaken place...
+			3: ...you are trespassing upon things you cannot even comprehend...
+			4: ...turn back now...
+			5: ...leave.
+			6: FACE THE WRATH OF THE OUTER GODS YOU INSIGNIFICANT SPECK!!
+			Escape: ...do not return...
+		}
+	}
+
+	Spawn: The Soul of Cthulhu shreds through reality into this world!
+	Despawn: ...do not return...
+	Kill: ...good riddance...
+	Anticheat: YOU CANNOT CHEAT DEATH!!
+
+	Transition: {
+		1: ...you utter fool...
+		2: Thanks to you breaking that disgusting old ship’s wheel...
+		3: ...I am now free...
+		4: I should thank you, you simple-minded mortal...
+		5: However, you stand in the way between me and this world’s impending destruction...
+		6: And after all, you DID kill my brother...such a shame he’s gone.
+		7: ...so you must die.
+		8: YOU SHALL BE SLAIN BY ME, CTHULHU, COSMIC CALAMITY!
+		9: PREPARE FOR YOU AND YOUR WORLD’S CATASTROPHIC DEMISE!
+		Status: Cthulhu has been Awakened
+	}
+
+	Awakened: {
+		Summoning: {
+			Eye: Cyaegha! Scorch this insignificant mortal with your flames of agony!
+			Eater: Crom Cruach! Devour my foe for me so I may destroy this world!
+			Brain: Lu'Kthu! Send your minions upon this pest to distract them!
+			Skull: Rhan-Tegoth! Crush this annoyance with your claws of pain!
+			Rose: Ei'Lor! Tear this fool limb from limb with your vines!
+			Leviathan: THAT TEARS IT! VILE-OCT! DESTROY THIS INSIGNIFICANT PEST!
+		}
+
+		LastStand: I SHALL NOT LOSE TO A MORTAL AGAIN. YOU WILL FEEL MY WRATH UPON YOUR WORLD!
+
+		Defeat: {
+			1: AAAAAAAAAGGHHH...!!
+			2: NO!
+			3: NO!!!
+			4: IMPOSSIBLE!!
+			5: BY THE NAME OF AZATHOTH!
+			6: I CURSE YOU AND YOUR WORLD!
+			7: MAY YOU AND YOUR KIND ROT IN THE DEPTHS OF THE OCEAN!
+			8: GRAAAAAAAAAAAHHH...!
+			Cheater: Cheaters do not deserve the spoils of battle.
 		}
 	}
 }

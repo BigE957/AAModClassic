@@ -51,7 +51,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapo
         public override void AI()
 		{
 			Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (player.dead || !player.HasBuff(ModContent.BuffType<SagittariusCore_Buff>())) Projectile.Kill();
             if (modPlayer.SagOrbiter)
             {
@@ -104,10 +104,12 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapo
             }
             if (flag25)
             {
-                //TODO: smth here causes the orbiter to immediately despawn :(
                 int id = BaseAI.ShootPeriodic(Projectile, vector46, Width, Height, ModContent.ProjectileType<Darkray>(), ref Projectile.ai[1], 120, (int)Projectile.ai[0], 11, true);
-                Main.projectile[id].DamageType = DamageClass.Summon;
-                Main.projectile[id].minion = true;
+                if (id != -1)
+                {
+                    Main.projectile[id].DamageType = DamageClass.Summon;
+                    Main.projectile[id].minion = true;
+                }
             }
 			
             if (Projectile.active) { SetRot(); }

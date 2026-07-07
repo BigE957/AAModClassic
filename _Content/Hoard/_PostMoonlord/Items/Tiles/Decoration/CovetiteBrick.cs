@@ -1,13 +1,14 @@
-using AAModClassic._Content.Hoard._PostMoonlord.Items.Materials;
-using AAModClassic.Items.Walls;
+﻿using AAModClassic._Content.Hoard._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.Items.Tiles.Decoration
 {
-    public class CovetiteBrick : BaseAAItem
+    public class CovetiteBrick : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetDefaults()
         {
             Item.width = 16;

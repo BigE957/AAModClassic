@@ -1,13 +1,15 @@
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Tools;
-using AAModClassic.Items.Materials;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Tools;
+using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.Items.Tools
 {
-    public class PerfectStonebreaker : BaseAAItem
+    public class PerfectStonebreaker : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Tools";
         public override void SetDefaults()
         {
 
@@ -36,7 +38,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Tools
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<Stonebreaker>());
-            recipe.AddIngredient(ModContent.ItemType<HeroShards>());
+            recipe.AddIngredient(ItemID.ChlorophyteBar, 24);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

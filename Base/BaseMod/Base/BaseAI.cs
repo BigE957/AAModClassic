@@ -993,6 +993,7 @@ namespace AAModClassic.Base.BaseMod.Base
                     if (npc.velocity.X < -maxSpeed) npc.velocity.X = -maxSpeed;
                 }
             }
+            Collision.StepUp(ref npc.position, ref npc.velocity, npc.width, npc.height, ref npc.stepSpeed, ref npc.gfxOffY);
         }
 
         /*
@@ -1323,43 +1324,43 @@ namespace AAModClassic.Base.BaseMod.Base
                 if (npc.velocity.Y < 0f && npc.velocity.Y > -max) { npc.velocity.Y = -max; }
             }
             npc.TargetClosest(true);
-            Action move = () =>
+            void move()
             {
                 if (npc.direction == -1 && npc.velocity.X > -maxSpeedX)
                 {
                     npc.velocity.X -= moveIntervalX;
                     if (npc.velocity.X > maxSpeedX) { npc.velocity.X -= moveIntervalX; }
                     else
-                    if (npc.velocity.X > 0f) { npc.velocity.X += moveIntervalX * 0.5f; }
+                        if (npc.velocity.X > 0f) { npc.velocity.X += moveIntervalX * 0.5f; }
                     if (npc.velocity.X < -maxSpeedX) { npc.velocity.X = -maxSpeedX; }
                 }
                 else
-                if (npc.direction == 1 && npc.velocity.X < maxSpeedX)
-                {
-                    npc.velocity.X += moveIntervalX;
-                    if (npc.velocity.X < -maxSpeedX) { npc.velocity.X += moveIntervalX; }
-                    else
-                    if (npc.velocity.X < 0f) { npc.velocity.X -= moveIntervalX * 0.5f; }
-                    if (npc.velocity.X > maxSpeedX) { npc.velocity.X = maxSpeedX; }
-                }
+                    if (npc.direction == 1 && npc.velocity.X < maxSpeedX)
+                    {
+                        npc.velocity.X += moveIntervalX;
+                        if (npc.velocity.X < -maxSpeedX) { npc.velocity.X += moveIntervalX; }
+                        else
+                            if (npc.velocity.X < 0f) { npc.velocity.X -= moveIntervalX * 0.5f; }
+                        if (npc.velocity.X > maxSpeedX) { npc.velocity.X = maxSpeedX; }
+                    }
                 if (npc.directionY == -1 && (double)npc.velocity.Y > -maxSpeedY)
                 {
                     npc.velocity.Y -= moveIntervalY;
                     if ((double)npc.velocity.Y > maxSpeedY) { npc.velocity.Y -= moveIntervalY; }
                     else
-                    if (npc.velocity.Y > 0f) { npc.velocity.Y += moveIntervalY * 0.5f; }
+                        if (npc.velocity.Y > 0f) { npc.velocity.Y += moveIntervalY * 0.5f; }
                     if ((double)npc.velocity.Y < -maxSpeedY) { npc.velocity.Y = -maxSpeedY; }
                 }
                 else
-                if (npc.directionY == 1 && (double)npc.velocity.Y < maxSpeedY)
-                {
-                    npc.velocity.Y += moveIntervalY;
-                    if ((double)npc.velocity.Y < -maxSpeedY) { npc.velocity.Y += moveIntervalY; }
-                    else
-                    if (npc.velocity.Y < 0f) { npc.velocity.Y -= moveIntervalY * 0.5f; }
-                    if ((double)npc.velocity.Y > maxSpeedY) { npc.velocity.Y = maxSpeedY; }
-                }
-            };
+                    if (npc.directionY == 1 && (double)npc.velocity.Y < maxSpeedY)
+                    {
+                        npc.velocity.Y += moveIntervalY;
+                        if ((double)npc.velocity.Y < -maxSpeedY) { npc.velocity.Y += moveIntervalY; }
+                        else
+                            if (npc.velocity.Y < 0f) { npc.velocity.Y -= moveIntervalY * 0.5f; }
+                        if ((double)npc.velocity.Y > maxSpeedY) { npc.velocity.Y = maxSpeedY; }
+                    }
+            }
             if (canBeBored) { ai[0] += 1f; }
             if (canBeBored && ai[0] > timeUntilBoredom)
             {
@@ -2765,7 +2766,8 @@ namespace AAModClassic.Base.BaseMod.Base
             {
                 proj.friendly = (hostility == 1 || hostility == 2);
                 proj.hostile = (hostility == -1 || hostility == 2);
-                if (Main.netMode != NetmodeID.SinglePlayer) { MNet.SendBaseNetMessage(0, proj.owner, proj.identity, proj.friendly, proj.hostile); }
+                if (Main.netMode != NetmodeID.SinglePlayer)
+                    BaseNet.WriteToPacket(AAMod.instance.GetPacket(), 0, proj.owner, proj.identity, proj.friendly, proj.hostile).Send();
             }
             proj.netUpdate2 = true;
             Main.projectile[projectileID] = proj;

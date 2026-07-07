@@ -1,4 +1,5 @@
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -16,6 +17,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         {
             // DisplayName.SetDefault("Infinity Zero");
             Main.npcFrameCount[NPC.type] = 5;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()
@@ -41,7 +43,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             NPC.chaseable = true;
             Music = MusicManagementSystem.MusicSlots["InfinityZero"];
             NPC.HitSound = SoundID.NPCHit44;
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "_Unreleased/Sounds/IZRoar");
+            NPC.DeathSound = new SoundStyle("AAModClassic/_Unreleased/Sounds/IZRoar");
             NPC.scale *= 1.4f;
             NPC.width = 38;
             NPC.height = 44;
@@ -131,7 +133,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 projectile.damage *= (int).2;
             }
-            else if (projectile.penetrate > 1) //TODO: was >= 1 but that seemed too strict
+            else if (projectile.penetrate > 1)
             {
                 projectile.damage *= (int).2;
             }

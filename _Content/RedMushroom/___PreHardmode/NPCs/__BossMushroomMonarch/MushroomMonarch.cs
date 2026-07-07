@@ -1,13 +1,19 @@
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
+using AAModClassic._Content.RedMushroom.World.Biomes;
+using AAModClassic._CrossMod.CalamityMod;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Usable;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using System.IO;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -46,6 +52,15 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
         {
             // DisplayName.SetDefault("Mushroom Monarch");
             Main.npcFrameCount[NPC.type] = 12;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionYOverride = 0,
+                Position = new(0, 22)
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()
@@ -54,7 +69,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
             NPC.damage = 24;  //boss damage
             NPC.defense = 12;    //boss defense
             NPC.knockBackResist = 0f;   //this boss will behavior like the DemonEye  //boss frame/animation 
-            NPC.value = Item.sellPrice(0, 0, 50, 0);
+            NPC.value = Item.buyPrice(0, 0, 50, 0);
             NPC.aiStyle = -1;
             NPC.width = 74;
             NPC.height = 108;
@@ -69,7 +84,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             Music = MusicManagementSystem.MusicSlots["Monarch"];
-
+            SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -373,15 +388,23 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<MushroomMonarchTreasureBag>()));
 
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<MushroomMonarchRelic>()));
+
+            npcLoot.Add(masterMode);
+
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MushroomMonarchTrophy>(), 10));
 
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SporeSac>(), 1, 30, 35));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SporeBag>(), 1, 30, 35));
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<MushroomMonarchMask>(), 7));
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Mushium>(), 1, 25, 35));
+
+            npcLoot.AddLoreItemDrop<MushroomMonarch>(ModContent.ItemType<MushroomMonarchLore>());
 
             npcLoot.Add(notExpertRule);
         }

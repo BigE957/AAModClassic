@@ -1,22 +1,23 @@
-using Terraria;
-using Terraria.Localization;
-using Terraria.ID;
-using Terraria.ModLoader;
+﻿using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class AbyssalHelmet : BaseAAItem
+	public class AbyssalHelmet : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Abyssal";
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Abyssal Fukumen");
-            /* Tooltip.SetDefault(@"35% increased movement speed
-15% increased ranged damage
-Weightless as shadow itself"); */
+            /* Tooltip.SetDefault(@"'Weightless as shadow itself'"); */
         }
 
 		public override void SetDefaults()
@@ -27,24 +28,21 @@ Weightless as shadow itself"); */
 			Item.defense = 6;
 		}
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Ranged) += .15f;
-            player.moveSpeed += .35f;
-            player.GetModPlayer<AAPlayer>().MaxMovespeedboost += .35f;
-        }
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ModContent.ItemType<AbyssalChestplate>() && legs.type == ModContent.ItemType<AbyssalLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.AbyssalBonus");
-            player.GetModPlayer<AAPlayer>().depthSet = true;
-            player.aggro -= 3;
-            player.ammoCost80 = true;
+        public override void RegisterEquipEffects()
+        {
+            damageMap.GetDamage(DamageClass.Ranged) += .15f;
+            AddEffect(new MovementSpeedEffect(0.35f));
+            AddEffect(new MaxRunSpeedEffect(0.35f));
+
+            AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Ranged, (BuffID.Poisoned, 180)));
+            AddSetEffect(new AggroEffect(-3));
+            AddSetEffect<AmmoCost80Effect>();
+
         }
 
         public override void AddRecipes()

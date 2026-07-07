@@ -1,11 +1,13 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Tools
 {
-    public class Icepick : BaseAAItem
+    public class Icepick : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Tools";
 
         public override void SetStaticDefaults()
         {

@@ -1,0 +1,339 @@
+DarkmatterJackhammer: {
+	DisplayName: Darkmatter Jackhammer
+	Tooltip: ""
+}
+
+DarkmatterPitchet: {
+	DisplayName: Darkmatter Pitchet
+	Tooltip: ""
+}
+
+Terratool: {
+	DisplayName: Terratool
+	Tooltip:
+		'''
+		Right Click to change tool types
+		You may only have a maximum of 2 tool types active
+		'''
+}
+
+DoomiteMiningLaser: {
+	DisplayName: Doomite Mining Laser
+	Tooltip: Mines with an antimatter laser
+}
+
+FulguritePitchet: {
+	DisplayName: Fulgurite Pitchet
+	Tooltip: ""
+}
+
+ExtravagantTerratool: {
+	DisplayName: Extravagant Terratool
+	Tooltip:
+		'''
+		Right Click to change tool types
+		You may only have a maximum of 2 tool types active
+		'''
+}
+
+GroviteTerratool: {
+	DisplayName: Grovite Terratool
+	Tooltip:
+		'''
+		Right Click to change tool types
+		You may only have a maximum of 2 tool types active
+		'''
+}
+
+Terraformer: {
+	DisplayName: Terraformer
+	Tooltip:
+		'''
+		Right Click to change tool types
+		You may only have a maximum of 2 tool types active
+		Terratool EX
+		'''
+}
+
+ChaosTerratool: {
+	DisplayName: Chaos Terratool
+	Tooltip:
+		'''
+		Right Click to change tool types
+		You may only have a maximum of 2 tool types active
+		'''
+}
+
+Timecaller: {
+	DisplayName: Timecaller
+	Tooltip:
+		'''
+		Brings forth the next light.
+		Non-Consumable
+		'''
+}
+
+DiscordianTerratool: {
+	DisplayName: Discordian Terratool
+	Tooltip:
+		'''
+		Right Click to change tool types
+		You may only have a maximum of 2 tool types active
+		'''
+}
+
+Nightaxe: {
+	DisplayName: Nightaxe
+	Tooltip: ""
+}
+
+TrueNightaxe: {
+	DisplayName: True Nightaxe
+	Tooltip: ""
+}
+
+Scalpel: {
+	DisplayName: Scalpel
+	Tooltip: ""
+}
+
+TrueScalpel: {
+	DisplayName: True Scalpel
+	Tooltip: ""
+}
+
+Excavator: {
+	DisplayName: Excavator
+	Tooltip: ""
+}
+
+Toothpick: {
+	DisplayName: Toothpick
+	Tooltip: ""
+}
+
+GlowingMushmallet: {
+	DisplayName: Glowing Mushmallet
+	Tooltip: ""
+}
+
+GlowingMushpick: {
+	DisplayName: Glowing Mushpick
+	Tooltip: ""
+}
+
+UnityPickaxe: {
+	DisplayName: Unity Pickaxe
+	Tooltip: Can mine mythril and orichalcum.
+}
+
+MINEer: {
+	DisplayName: MINE-er
+	Tooltip: Mines ores faster
+}
+
+Unearther: {
+	DisplayName: Unearther
+	Tooltip: Mines ores even faster
+}
+
+DragonDigger: {
+	DisplayName: Dragon Digger
+	Tooltip: Dragons don't really dig, but this'll do
+}
+
+Stonebreaker: {
+	DisplayName: Stonebreaker
+	Tooltip: ""
+}
+
+PerfectStonebreaker: {
+	DisplayName: Perfect Stonebreaker
+	Tooltip: ""
+}
+
+ScorchShark: {
+	DisplayName: Scorch Shark
+	Tooltip: ""
+}
+
+Suncaller: {
+	DisplayName: Suncaller
+	Tooltip:
+		'''
+		Brings forth the morning sun.
+		Non-Consumable
+		'''
+}
+
+DraconianTerratool: {
+	DisplayName: Draconian Terratool
+	Tooltip:
+		'''
+		Right Click to change tool types
+		You may only have a maximum of 2 tool types active
+		+20 tile reach
+		'''
+}
+
+Grasscutter: {
+	DisplayName: Grasscutter
+	Tooltip: ""
+}
+
+MadnessAxe: {
+	DisplayName: Madness Axe
+	Tooltip: ""
+}
+
+MadnessHammer: {
+	DisplayName: Madness Hammer
+	Tooltip: ""
+}
+
+MadnessPickaxe: {
+	DisplayName: Madness Pickaxe
+	Tooltip: ""
+}
+
+HydraTuneller: {
+	DisplayName: Hydra Tuneller
+	Tooltip: Okay, this is getting rediculous. Hydras don't use drills.
+}
+
+ShadowDrill: {
+	DisplayName: Shadow Drill
+	Tooltip: Mines things with a spinning...green thing I guess?
+}
+
+DepthDigger: {
+	DisplayName: Depth Digger
+	Tooltip: ""
+}
+
+Mooncaller: {
+	DisplayName: Mooncaller
+	Tooltip:
+		'''
+		Brings forth the shimmering moon.
+		Non-Consumable
+		'''
+}
+
+PerfectShadowDrill: {
+	DisplayName: Perfect Shadow Drill
+	Tooltip: Now that's more like it.
+}
+
+DreadTerratool: {
+	DisplayName: Dread Terratool
+	Tooltip:
+		'''
+		Right Click to change tool types
+		You may only have a maximum of 2 tool types active
+		'''
+}
+
+CoralAxe: {
+	DisplayName: Coral Axe
+	Tooltip: the axe made from the Ocean
+}
+
+CoralPickaxe: {
+	DisplayName: Coral Pickaxe
+	Tooltip: Because Blue Pickaxe was a boring name
+}
+
+Mushmallet: {
+	DisplayName: Mushmallet
+	Tooltip: ""
+}
+
+Mushpick: {
+	DisplayName: Mushpick
+	Tooltip: ""
+}
+
+DragonPickaxe: {
+	DisplayName: Dragon Pickaxe
+	Tooltip: ""
+}
+
+Icepick: {
+	DisplayName: Icepick
+	Tooltip: ""
+}
+
+RadiumHammaxe: {
+	DisplayName: Radium Hammaxe
+	Tooltip: ""
+}
+
+Starminer: {
+	DisplayName: Starminer
+	Tooltip: ""
+}
+
+RiftMirror: {
+	DisplayName: Rift Mirror
+	Tooltip:
+		'''
+		Pressing the rift hotkey returns you home
+		Pressing the rift return hotkey brings you back to your most recent rift location
+		'''
+}
+
+CodeMagnet: {
+	DisplayName: Binary Code Magnet
+	Tooltip:
+		'''
+		Pulls items to you by moving its code closer to you
+		   Right click to deactivate effects
+		'''
+}
+
+CodeMagnetOff: {
+	DisplayName: Binary Code Magnet
+	Tooltip:
+		'''
+		Pulls items to you by moving its code closer to you
+		   Effects are currently inactive, Right click to reactivate
+		'''
+}
+
+DoomiteJacksaw: {
+	DisplayName: Doomite Jacksaw
+	Tooltip: Engineered for ultimate tree and wall breaking action!
+}
+
+DoomsdayTerratool: {
+	DisplayName: Doomsday Terratool
+	Tooltip:
+		'''
+		Right Click to change tool types
+		You may only have a maximum of 2 tool types active
+		'''
+}
+
+ShatteredMirror: {
+	DisplayName: Shattered Mirror
+	Tooltip: A long abandoned keepsake in dire need of repairs.
+}
+
+GravitronCentrifuge: {
+	DisplayName: Gravitron Centrifuge
+	Tooltip:
+		'''
+		Provides a great deal of centrifugal force, granting standard gravity in space
+		   Right click to deactivate effects
+		'''
+}
+
+GravitronCentrifugeOff: {
+	DisplayName: Gravitron Centrifuge (Inactive)
+	Tooltip:
+		'''
+		Provides a great deal of centrifugal force, granting standard gravity in space
+		   Effects are currently inactive, Right click to reactivate
+		'''
+}

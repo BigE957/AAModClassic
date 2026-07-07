@@ -1,22 +1,31 @@
 ﻿using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
-using AAModClassic.Items.Banners;
+using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm
 {
-    public class WyrmHead : ModNPC
-	{
+    public class WyrmHead : ModNPC, IBannerNPC
+    {
         public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Wyrm");
+            // DisplayName.SetDefault("Wyrm");
 
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 32,
+                Position = new Vector2(84, 18),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
 		public override void SetDefaults()
@@ -29,7 +38,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm
             NPC.damage = 20;
             NPC.defense = 20;
             NPC.lifeMax = 4000;
-            NPC.value = Item.sellPrice(0, 0, 90, 0);
+            NPC.value = Item.buyPrice(0, 0, 90, 0);
             NPC.knockBackResist = 0f;
             NPC.aiStyle = -1;
             NPC.lavaImmune = true;
@@ -39,11 +48,22 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.Item124;
             NPC.buffImmune[BuffID.OnFire] = true;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             NPC.lavaImmune = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<WyrmBanner>();
+			//BannerItem = ModContent.ItemType<WyrmBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<UndergroundInfernoBiome>().Type];
         }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Wyrm")
+            ]);
+        }
+
         public override bool PreAI()
         {
             Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
@@ -249,9 +269,11 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
+            if (NPC.IsABestiaryIconDummy)
+                return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, TextureAssets.Npc[Type].Value, TextureAssets.Npc[ModContent.NPCType<WyrmBody1>()].Value, 3, 38, 0.1f, Vector2.Zero, 2, 10, headOffset: -52, flip: true);
+
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
-            var effects = NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-            spriteBatch.Draw(texture, NPC.Center - Main.screenPosition, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+            spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             return false;
         }
 
@@ -286,7 +308,5 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm
                 Main.dust[dust2].noGravity = true;
             }
         }
-
-        
     }
 }

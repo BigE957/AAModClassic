@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Music
 {
     public class MusicManagementSystem : ModSystem
     {
-        public static readonly Dictionary<string, int> MusicSlots = [];
+        public static readonly Dictionary<string, short> MusicSlots = [];
 
         public override void OnModLoad()
         {
@@ -21,11 +22,11 @@ namespace AAModClassic.Music
                         break;
                     }
 
-                MusicSlots.Add(name, MusicLoader.GetMusicSlot(Mod, path));
+                MusicSlots.Add(name, (short)MusicLoader.GetMusicSlot(Mod, path));
             }
         }
 
-        public static bool ReplaceTrack(string key, int musicSlot)
+        public static bool ReplaceTrack(string key, short musicSlot)
         {
             if (!MusicSlots.ContainsKey(key))
                 return false;
@@ -38,7 +39,7 @@ namespace AAModClassic.Music
         {
             foreach(var pair in MusicSlots)
             {
-                int slot = pair.Value;
+                short slot = pair.Value;
                 string name = pair.Key.Replace("_", "") + "Box";
 
                 if (!Mod.TryFind<ModItem>(name, out ModItem item))
@@ -54,6 +55,16 @@ namespace AAModClassic.Music
                 }
 
                 MusicLoader.AddMusicBox(Mod, slot, item.Type, tile.Type);
+
+                if (!ModLoader.TryGetMod("MusicDisplay", out Mod display))
+                    return;
+
+                string displayPath = "Mods.AAModClassic.CrossMod.MusicDisplay.";
+
+                LocalizedText modName = Language.GetOrRegister(displayPath + "ModName");
+                LocalizedText author = Language.GetOrRegister(displayPath + pair.Key.Replace("_", "") + ".Author");
+                LocalizedText displayName = Language.GetOrRegister(displayPath + pair.Key.Replace("_", "") + ".DisplayName");
+                display.Call("AddMusic", slot, displayName, author, modName);
             }
         }
     }

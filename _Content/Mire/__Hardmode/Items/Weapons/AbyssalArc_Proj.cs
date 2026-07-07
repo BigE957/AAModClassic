@@ -22,7 +22,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
 			Projectile.height = 40;
 			Projectile.aiStyle = ProjAIStyleID.Boomerang;
 			Projectile.friendly = true;
-			Projectile.DamageType = DamageClass.Ranged;
+			Projectile.DamageType = DamageClass.Melee;
 			Projectile.penetrate = 5;
 			Projectile.timeLeft = 600;
 			Projectile.light = 0.9f;

@@ -1,21 +1,25 @@
+﻿using AAModClassic._Content.Chaos.__Hardmode.Items.Materials;
+using AAModClassic._Content.Desert.___PreHardmode.Items.Armor;
+using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Armor;
+using AAModClassic._Content.Mire.Buffs;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Items.Materials;
-using AAModClassic._Content.Desert.___PreHardmode.Items.Armor;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Armor;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class ChaosHelmetRanged : BaseAAItem
+	public class ChaosHelmetRanged : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Chaos";
 		public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Chaos Fukumen");
-            // Tooltip.SetDefault(@"24% increased ranged critical strike chance");
         }
 
 		public override void SetDefaults()
@@ -27,24 +31,21 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
 			Item.defense = 15;
 		}
 
-        public override void UpdateEquip(Player player)
+        public override void RegisterEquipEffects()
         {
-            player.GetCritChance(DamageClass.Ranged) += 24;
+            damageMap.GetCritChance(DamageClass.Ranged) += 24;
+
+            setDamageMap.GetDamage(DamageClass.Ranged) += .25f;
+            AddSetEffect(new AggroEffect(-7));
+            AddSetEffect<AmmoCost75Effect>();
+            AddSetEffect<NightOwlEffect>();
+            AddSetEffect<HunterEffect>();
+            AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Ranged, (ModContent.BuffType<DragonFire_Buff>(), 180), (ModContent.BuffType<HydraToxin_Buff>(), 180)));
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ModContent.ItemType<ChaosChestplate>() && legs.type == ModContent.ItemType<ChaosLeggings>();
-        }
-
-        public override void UpdateArmorSet(Player player){
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.ChaosFukumenBonus");
-            player.GetDamage(DamageClass.Ranged) += .25f;
-            player.aggro -= 7;
-            player.GetModPlayer<AAPlayer>().ChaosRa = true;
-            player.ammoCost75 = true;
-            player.nightVision = true;
-			player.detectCreature = true;
         }
 
         public override void AddRecipes()

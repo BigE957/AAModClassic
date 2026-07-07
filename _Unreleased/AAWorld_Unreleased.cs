@@ -1,18 +1,23 @@
-﻿using AAModClassic._Removed;
-using AAModClassic._Removed.Content.Parthenan.Tiles;
-using AAModClassic._Removed.Content.Parthenan.Tiles.Ancient;
-using AAModClassic._Unreleased.Content.Parthenan.World;
+﻿using AAModClassic._Content.RedMushroom.World.Biomes;
+using AAModClassic._CrossMod;
+using AAModClassic._Removed;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration;
+using AAModClassic._Unofficial.Content.SunkenShip.___PreHardmode.Items;
+using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
-using AAModClassic._Unreleased.Content.SunkenShip.Tiles;
-using AAModClassic._Unreleased.Content.SunkenShip.World;
-using AAModClassic.CrossMod;
-using AAModClassic.UI.WorldGen;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
+using AAModClassic._Unreleased.Content.SunkenShip.World.Tiles;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
-using AAModClassic.World;
 using Microsoft.Xna.Framework;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Terraria;
 using Terraria.GameContent.Generation;
 using Terraria.ID;
@@ -25,56 +30,53 @@ namespace AAModClassic._Unreleased
 {
     public class AAWorld_Unreleased : ModSystem
     {
-        private Vector2 shipPos = new Vector2(0, 0);
-        private int shipSide = 0;
+        public static Point shipPos = Point.Zero;
+        private static int shipSide = 0;
 
-        public static bool downedSoC;
-        public static bool downedIZ;
+        public static bool DownedSoC => (NPCExtensions.BeenKilled<SoulOfCthulhu>() && !Main.expertMode) || NPCExtensions.BeenKilled<Cthulhu>();
+        public static bool DownedIZ => ZAAPlayer.IZKills > 0;
+        public static bool Compass;
 
         public static int StormTiles = 0;
+        public static int ShipTiles = 0;
 
         #region stupid bullshit
         public override void PreWorldGen()
         {
-            downedSoC = false;
-            downedIZ = false;
+            Compass = false;
         }
 
         public override void SaveWorldData(TagCompound tag)
         {
-            var downedUnreleased = new List<string>();
-            if (downedSoC) downedUnreleased.Add("SoC");
-            if (downedIZ) downedUnreleased.Add("IZ");
-
-            tag.Add("downedUnreleased", downedUnreleased);
+            tag.Add("Compass", Compass);
+            tag.Add("ShipLocation", shipPos);
         }
 
         public override void LoadWorldData(TagCompound tag)
         {
-            var downedUnreleased = tag.GetList<string>("downedUnreleased");
-            downedSoC = downedUnreleased.Contains("SoC");
-            downedIZ = downedUnreleased.Contains("IZ");
+            Compass = tag.GetBool("Compass");
+            shipPos = tag.Get<Point>("ShipLocation");
         }
 
         public override void NetSend(BinaryWriter writer)
         {
-            BitsByte flags = new BitsByte();
-            flags[0] = downedSoC;
-            flags[1] = downedIZ;
+            //BitsByte flags = new BitsByte();
+            //flags[0] = downedSoC;
+            //flags[1] = downedIZ;
             //flags[2] = downedIZ;
             //flags[3] = downedIZ;
             //flags[4] = downedIZ;
             //flags[5] = downedIZ;
             //flags[6] = downedIZ;
             //flags[7] = downedIZ;
-            writer.Write(flags);
+            //writer.Write(flags);
         }
 
         public override void NetReceive(BinaryReader reader)
         {
-            BitsByte flags = reader.ReadByte();
-            downedSoC = flags[0];
-            downedIZ = flags[1];
+            //BitsByte flags = reader.ReadByte();
+            //downedSoC = flags[0];
+            //downedIZ = flags[1];
             //downedIZ = flags[2];
             //downedIZ = flags[3];
             //downedIZ = flags[4];
@@ -112,10 +114,11 @@ namespace AAModClassic._Unreleased
 
         public override void TileCountsAvailable(ReadOnlySpan<int> tileCounts)
         {
-            StormTiles = tileCounts[ModContent.TileType<StormCloud_Tile>()] + tileCounts[ModContent.TileType<AncientFulguritePlatingS_Tile>()] + tileCounts[ModContent.TileType<AncientFulguriteBrickS_Tile>()] + tileCounts[ModContent.TileType<AncientFulgurGlassS_Tile>()];
+            StormTiles = tileCounts[ModContent.TileType<StormCloud_Tile>()] + tileCounts[ModContent.TileType<FulguritePlating_Tile>()] + tileCounts[ModContent.TileType<FulguriteBrick_Tile>()] + tileCounts[ModContent.TileType<FulgurGlass_Tile>()];
+            ShipTiles = tileCounts[ModContent.TileType<RottedDynastyWoodS_Tile>()] + tileCounts[ModContent.TileType<RottedPlatform_Tile>()];
         }
 
-        private void Mush_Refactored(GenerationProgress progress)
+        private static void Mush_Refactored(GenerationProgress progress)
         {
             progress.Message = "Growing Shrooms";
 
@@ -201,7 +204,7 @@ namespace AAModClassic._Unreleased
 
                 if (grassCount > grassCountThreshold && regularBlockCount > (solidCount.Value * 0.9))
                 {
-                    //TODO: this worldgen has to truth nuke the stupid logs
+                    //TODO: this worldgen has to truth nuke the stupid fairy logs
                     attempts = 0;
                     SurfaceMushroomGen_Refactored biome = new SurfaceMushroomGen_Refactored();
                     biome.Place(origin, GenVars.structures);
@@ -213,7 +216,7 @@ namespace AAModClassic._Unreleased
         }
 
         // kept for posterity
-        private void Mush(GenerationProgress progress)
+        private static void Mush(GenerationProgress progress)
         {
             progress.Message = "Growing Shrooms";
 
@@ -223,12 +226,12 @@ namespace AAModClassic._Unreleased
             {
                 Point origin = new Point(WorldGen.genRand.Next(0, x), (int)GenVars.worldSurfaceLow);
                 origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
-                SurfaceMushroom biome = new SurfaceMushroom();
+                RedMushroomGeneration biome = new();
                 biome.Place(origin, GenVars.structures);
             }
         }
 
-        private void ParthenanIsland(GenerationProgress progress)
+        private static void ParthenanIsland(GenerationProgress progress)
         {
             progress.Message = "Storming the Parthenan";
 
@@ -239,36 +242,138 @@ namespace AAModClassic._Unreleased
             biome.Place(center, GenVars.structures);
         }
 
-        private void Ship(GenerationProgress progress)
+        private static void Ship(GenerationProgress progress)
         {
-            shipSide = ((Main.dungeonX > Main.maxTilesX / 2) ? (-1) : (1));
-            shipPos.X = (shipSide == 1 ? (Main.maxTilesX - 90) : 90);
+            bool small = WorldGenUtils.GetWorldSize() == 1;
+            shipSide = (Main.dungeonX > Main.maxTilesX / 2 ? -1 : 1);
+            int dist = small ? 90 : 140;
+            shipPos.X = (shipSide == 1 ? Main.maxTilesX - dist : dist);
+            shipPos.Y = WorldGenUtils.GetFirstTileFloor((int)shipPos.X, 10, true);
+            if (!small)
+                shipPos.Y += 36;
             progress.Message = "Sinking the ship";
 
-            Point origin = new Point((int)shipPos.X, (int)GenVars.worldSurfaceLow - 200);
+            Point origin = new Point((int)shipPos.X, (int)shipPos.Y);
             origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
-            SunkenShipGen biome = new SunkenShipGen();
-            biome.Place(origin, GenVars.structures);
+            new SunkenShipGen().Place(origin, GenVars.structures);
+        }
+
+
+        private static List<(int type, int min, int max)> GetLootPool(int chestID)
+        {
+            return chestID switch
+            {
+                0 =>    [   //Captain's Quarters
+                            (ModContent.ItemType<CursedCompass>(), 1, 1),
+                            (ItemID.TrifoldMap, 0, 1),
+                            (ItemID.Binoculars, 0, 1),
+                            (ItemID.Sextant, 0, 1),
+                            (ItemID.GoldBar, 8, 12),
+                            (ItemID.FlintlockPistol, 1, 1),
+                            (ItemID.Book, 1, 4),
+                        ],
+                9 =>    [   //Medical Ward
+                            (ItemID.HealingPotion, 3, 5),
+                            (ItemID.ManaPotion, 2, 4),
+                            (ModContent.ItemType<ShatteredMirror>(), 1, 1),
+                            (ItemID.RegenerationPotion, 0, 2),
+                            (ItemID.IronskinPotion, 0, 2),
+                            (ItemID.Silk, 8, 12),
+                            (ItemID.LifeCrystal, 1, 2),
+                        ],
+                10 =>   [   //Kitchen
+                            (ItemID.Bass, 4, 8),
+                            (ItemID.Tuna, 4, 8),
+                            (ItemID.Trout, 4, 8),
+                            (ItemID.FruitJuice, 3, 5),
+                            (ItemID.ShuckedOyster, 2, 3),
+                            (ItemID.BottledWater, 12, 18),
+                            (ItemID.Lemon, 3, 5),
+                        ],
+                _ =>    [   //Supplies Storage
+                            (ItemID.Rope, 18, 32),
+                            (ItemID.Sail, 6, 18),
+                            (ItemID.Rope, 18, 32),
+                            (ItemID.IronHammer, 0, 1),
+                            (ItemID.IronAxe, 0, 1),
+                            (ItemID.IronBar, 3, 6),
+                            (ItemID.Wood, 24, 48),
+                        ],
+            };
         }
 
         public override void PostWorldGen()
         {
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
             {
-                int[] itemsToPlaceInSunkenChest = new int[] { ModContent.ItemType<CursedCompass>() };
-                int itemsToPlaceInSunkenChestsChoice = 0;
-                for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 {
-                    Chest chest = Main.chest[chestIndex];
-                    if (chest != null && Main.tile[chest.x, chest.y].TileType == ModContent.TileType<SunkenChest_Tile>()) // if glass chest
+                    Rectangle shipArea = new(shipPos.X, shipPos.Y, SunkenShipTexGenAssets.BigShipTileData.Width, SunkenShipTexGenAssets.BigShipTileData.Height);
+                    int chestCounter = 0;
+
+                    foreach(Chest chest in Main.chest)
                     {
-                        for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
+                        if (chest is null)
+                            continue;
+
+                        if (!shipArea.Contains(chest.x, chest.y))
+                            continue;
+
+                        Tile tile = Main.tile[chest.x, chest.y];
+
+                        if (!Main.tileContainer[tile.TileType])
+                            continue;
+
+                        if (chestCounter == 0 && tile.TileType != ModContent.TileType<SunkenChest_Tile>())
+                            continue;
+
+                        var lootPool = GetLootPool(chestCounter);
+                        List<int> validIndices = Enumerable.Range(0, chest.item.Length).ToList();
+
+                        foreach (var (type, min, max) in lootPool)
                         {
-                            if (chest.item[inventoryIndex].type == ItemID.None)
+                            int myStack = Main.rand.Next(min, max + 1);
+                            if (myStack == 0)
+                                continue;
+
+                            int rand = Main.rand.Next(validIndices.Count);
+                            int myIndex = validIndices[rand];
+                            validIndices.RemoveAt(rand);
+
+                            chest.item[myIndex].SetDefaults(type);
+                            chest.item[myIndex].stack = myStack;
+                        }
+
+                        int webCount = Main.rand.Next(4, 8);
+                        for(int i = 0; i < webCount; i++)
+                        {
+                            int rand = Main.rand.Next(validIndices.Count);
+                            int myIndex = validIndices[rand];
+                            validIndices.RemoveAt(rand);
+
+                            chest.item[myIndex].SetDefaults(ItemID.Cobweb);
+                        }
+
+                        chestCounter++;
+                    }
+                }
+                else
+                {
+                    int[] itemsToPlaceInSunkenChest = [ModContent.ItemType<CursedCompass>()];
+                    int itemsToPlaceInSunkenChestsChoice = 0;
+                    for (int chestIndex = 0; chestIndex < Main.maxChests; chestIndex++)
+                    {
+                        Chest chest = Main.chest[chestIndex];
+                        if (chest != null && Main.tile[chest.x, chest.y].TileType == ModContent.TileType<SunkenChest_Tile>()) // if glass chest
+                        {
+                            for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
                             {
-                                itemsToPlaceInSunkenChestsChoice = Main.rand.Next(itemsToPlaceInSunkenChest.Length);
-                                chest.item[0].SetDefaults(itemsToPlaceInSunkenChest[itemsToPlaceInSunkenChestsChoice]);
-                                break;
+                                if (chest.item[inventoryIndex].type == ItemID.None)
+                                {
+                                    itemsToPlaceInSunkenChestsChoice = Main.rand.Next(itemsToPlaceInSunkenChest.Length);
+                                    chest.item[0].SetDefaults(itemsToPlaceInSunkenChest[itemsToPlaceInSunkenChestsChoice]);
+                                    break;
+                                }
                             }
                         }
                     }

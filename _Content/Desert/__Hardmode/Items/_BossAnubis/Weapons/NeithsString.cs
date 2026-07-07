@@ -1,15 +1,17 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic.Items.Ranged;
 using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
+using AAModClassic._Content.Desert.___PreHardmode.Items.Weapons;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons
 {
-    public class NeithsString : BaseAAItem
+    public class NeithsString : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Neith's String");

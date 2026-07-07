@@ -1,6 +1,6 @@
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic.Items.Walls;
-using AAModClassic.Tiles.Crafters;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -9,8 +9,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
 {
-    public class DoomsdayCircuitPlating : BaseAAItem
+    public class DoomsdayCircuitPlating : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Doomsday Circuit Plating");
@@ -31,36 +32,16 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
             Item.createTile = ModContent.TileType<DoomsdayCircuitPlating_Tile>(); //put your CustomBlock Tile name
         }
 
-        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
-        {
-            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
-            spriteBatch.Draw
-            (
-                texture,
-                new Vector2
-                (
-                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
-                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
-                ),
-                new Rectangle(0, 0, texture.Width, texture.Height),
-                Color.White,
-                rotation,
-                texture.Size() * 0.5f,
-                scale,
-                SpriteEffects.None,
-                0f
-            );
-        }
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(5);
             recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 1);
             recipe.AddIngredient(ItemID.StoneBlock, 5);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
 
             recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<DoomsdayWall>(), 4);
+            recipe.AddIngredient(ModContent.ItemType<DoomsdayPlatingWall>(), 4);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

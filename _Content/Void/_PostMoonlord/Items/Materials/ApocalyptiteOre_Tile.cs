@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Tiles;
+using AAModClassic._Content.Void.World.Tiles;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Materials
 {
@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Materials
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)
         {
             if (!glow) return;
-            Color color = BaseUtility.ColorMult(AAPlayer.ZeroColor, 0.7f);
+            Color color = BaseUtility.ColorMult(ZAAPlayer.ZeroColor, 0.7f);
             r = color.R / 255f; g = color.G / 255f; b = color.B / 255f;
         }
 
@@ -42,7 +42,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Materials
             Tile tile = Main.tile[x, y];
             if (glow && tile != null && tile.HasTile && tile.TileType == Type)
             {
-                if (glowTex == null) glowTex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/ApocalyptiteTile_Glow").Value;
+                if (glowTex == null) glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
                 BaseDrawing.DrawTileTexture(sb, glowTex, x, y, true, false, false, null, AAGlobalTile.GetZeroColorDim);
             }
         }

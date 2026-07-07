@@ -3,16 +3,22 @@ using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Pets;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._CrossMod;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.CrossMod;
 using AAModClassic.Music;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -37,6 +43,16 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
         {
             // DisplayName.SetDefault("Hydra");
             Main.npcFrameCount[NPC.type] = 15;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Scale = 0.65f,
+                PortraitScale = 0.75f,
+                PortraitPositionYOverride = 64,
+                Position = new(0, 96)
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()
@@ -48,7 +64,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             NPC.damage = 40;
             NPC.defense = 300;
             NPC.lifeMax = 4000;
-            NPC.value = Item.sellPrice(0, 5, 0, 0);
+            NPC.value = Item.buyPrice(0, 5, 0, 0);
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.Item80;
             NPC.knockBackResist = 0f;
@@ -57,6 +73,15 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             NPC.netAlways = true;
             Music = MusicManagementSystem.MusicSlots["Hydra"];
             NPC.buffImmune[BuffID.Poisoned] = true;
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Hydra")
+            ]);
         }
 
         public override void BossLoot(ref int potionType)
@@ -76,6 +101,14 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<HydraTreasureBag>()));
+
+            npcLoot.AddLoreItemDrop<HydraBody>(ModContent.ItemType<HydraLore>());
+
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<HydraRelic>()));
+
+            npcLoot.Add(masterMode);
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HydraTrophy>(), 10));
 
@@ -224,6 +257,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             NPC.oldPos[0] = NPC.position;
 
             bool foundTarget = TargetClosest();
+            if (playerTarget != null && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
+                playerTarget.AddBuff(ModContent.BuffType<HydraBody_Hunted>(), 10, true);
 
             if (!runningAway && foundTarget)
             {
@@ -395,34 +430,33 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
                  y2 * Math.Pow(t, 2)
              );
         }
-        public void DrawHead(SpriteBatch spriteBatch, string headTexture, string glowMaskTexture, NPC head, Color drawColor)
+        public void DrawHead(SpriteBatch spriteBatch, string headTexture, string glowMaskTexture, Vector2 drawPos, Rectangle drawFrame, float drawRot, Color drawColor)
         {
-            if (head != null && head.active && head.ModNPC != null && head.ModNPC is HydraHead1)
+            string neckTex = Texture + "_Neck";
+            Texture2D neckTex2D = ModContent.Request<Texture2D>(neckTex).Value;
+            Vector2 neckOrigin = new Vector2(NPC.Center.X, NPC.Center.Y - 30 * NPC.scale) - (NPC.IsABestiaryIconDummy ? Vector2.Zero : Main.screenPosition);
+            float chainsPerUse = 0.05f * NPC.scale;
+            for (float i = 0; i <= 1; i += chainsPerUse)
             {
-                string neckTex = Texture + "_Neck";
-                Texture2D neckTex2D = ModContent.Request<Texture2D>(neckTex).Value;
-                Vector2 neckOrigin = new Vector2(NPC.Center.X, NPC.Center.Y - 30);
-                Vector2 connector = head.Center;
-                float chainsPerUse = 0.05f;
-                for (float i = 0; i <= 1; i += chainsPerUse)
+                Vector2 distBetween;
+                float projTrueRotation;
+                if (i != 0)
                 {
-                    Vector2 distBetween;
-                    float projTrueRotation;
-                    if (i != 0)
-                    {
-                        distBetween = new Vector2(X(i, neckOrigin.X, (neckOrigin.X + connector.X) / 2, connector.X) -
-                        X(i - chainsPerUse, neckOrigin.X, (neckOrigin.X + connector.X) / 2, connector.X),
-                        Y(i, neckOrigin.Y, neckOrigin.Y + 50, connector.Y) -
-                        Y(i - chainsPerUse, neckOrigin.Y, neckOrigin.Y + 50, connector.Y));
-                        projTrueRotation = distBetween.ToRotation() - (float)Math.PI / 2;
-                        spriteBatch.Draw(neckTex2D, new Vector2(X(i, neckOrigin.X, (neckOrigin.X + connector.X) / 2, connector.X) - Main.screenPosition.X, Y(i, neckOrigin.Y, neckOrigin.Y + 50, connector.Y) - Main.screenPosition.Y),
-                        new Rectangle(0, 0, neckTex2D.Width, neckTex2D.Height), drawColor, projTrueRotation,
-                        new Vector2(neckTex2D.Width * 0.5f, neckTex2D.Height * 0.5f), 1f, SpriteEffects.None, 0f);
-                    }
+                    distBetween = new Vector2(
+                    X(i, neckOrigin.X, (neckOrigin.X + drawPos.X) / 2, drawPos.X) -
+                    X(i - chainsPerUse, neckOrigin.X, (neckOrigin.X + drawPos.X) / 2, drawPos.X),
+                    Y(i, neckOrigin.Y, neckOrigin.Y + 50, drawPos.Y) -
+                    Y(i - chainsPerUse, neckOrigin.Y, neckOrigin.Y + 50, drawPos.Y));
+                    projTrueRotation = distBetween.ToRotation() - (float)Math.PI / 2;
+
+                    Vector2 chainPos = new(X(i, neckOrigin.X, (neckOrigin.X + drawPos.X) / 2, drawPos.X), Y(i, neckOrigin.Y, neckOrigin.Y + 50, drawPos.Y));
+                    spriteBatch.Draw(neckTex2D, chainPos, null, drawColor, projTrueRotation, neckTex2D.Size() * 0.5f, NPC.scale, 0, 0);
                 }
-                spriteBatch.Draw(ModContent.Request<Texture2D>(headTexture).Value, new Vector2(head.Center.X - Main.screenPosition.X, head.Center.Y - Main.screenPosition.Y), head.frame, drawColor, head.rotation, new Vector2(36 * 0.5f, 32 * 0.5f), 1f, SpriteEffects.None, 0f);
-                spriteBatch.Draw(Mod.GetTexture(glowMaskTexture), new Vector2(head.Center.X - Main.screenPosition.X, head.Center.Y - Main.screenPosition.Y), head.frame, Color.White, head.rotation, new Vector2(36 * 0.5f, 32 * 0.5f), 1f, SpriteEffects.None, 0f);
             }
+            Texture2D headTex = ModContent.Request<Texture2D>(headTexture).Value;
+            Texture2D glowTex = ModContent.Request<Texture2D>(glowMaskTexture).Value;
+            spriteBatch.Draw(headTex, drawPos, drawFrame, drawColor, drawRot, drawFrame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0f);
+            spriteBatch.Draw(glowTex, drawPos, drawFrame, Color.White, drawRot, drawFrame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0f);
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
@@ -435,56 +469,73 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             HeadDraw(spriteBatch, drawColor);
 
             string tailTex = Texture + "_Tail";
-            BaseDrawing.DrawTexture(spriteBatch, ModContent.Request<Texture2D>(tailTex).Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY - 30), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 1, frameBottom, drawColor, false);
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, drawColor, false);
+            spriteBatch.Draw(ModContent.Request<Texture2D>(tailTex).Value, NPC.Center + new Vector2(0f, NPC.gfxOffY - (30 * NPC.scale)) - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(), 0);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center + new Vector2(0f, NPC.gfxOffY) - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(), 0);
 
-            if (Head1 != null)
+            string headTex = Texture.Replace("Body", "Head") + "1";
+            if (NPC.IsABestiaryIconDummy)
             {
-                DrawHead(spriteBatch, Texture.Replace("Body", "Head") + "1", "Glowmasks/HydraHead1_Glow", Head1, drawColor); //draw main head last!
+                Rectangle frame = ModContent.Request<Texture2D>(headTex).Frame(1, 2);
+                DrawHead(spriteBatch, headTex, headTex + "_Glow", NPC.Center + new Vector2(0, -110) * NPC.scale, frame, 0, drawColor); //draw main head last!
+            }
+            else if (Head1 != null && Head1.active && Head1.type == ModContent.NPCType<HydraHead1>())
+            {
+                DrawHead(spriteBatch, headTex, headTex + "_Glow", Head1.Center - Main.screenPosition, Head1.frame, Head1.rotation, drawColor); //draw main head last!
             }
             return false;
         }
 
         public void HeadDraw(SpriteBatch sb, Color drawColor)
         {
-            if (Head2 != null)
+            string headTex = Texture.Replace("Body", "Head");
+
+            if(NPC.IsABestiaryIconDummy)
             {
-                DrawHead(sb, Texture.Replace("Body", "Head") + "2", "Glowmasks/HydraHead2_Glow", Head2, drawColor);
+                Rectangle frame = ModContent.Request<Texture2D>(headTex + "2").Frame(1, 2);
+                bool small = NPC.scale == 0.65f;
+                DrawHead(sb, headTex + "2", headTex + "2_Glow", NPC.Center + new Vector2(small ? 36 : 80, -90) * NPC.scale, frame, 0, drawColor);
+
+                DrawHead(sb, headTex + "3", headTex + "3_Glow", NPC.Center + new Vector2(small ? -36 : -80, -90) * NPC.scale, frame, 0, drawColor);
             }
 
-            if (Head3 != null)
+            if (Head2 != null && Head2.active && Head2.type == ModContent.NPCType<HydraHead2>())
             {
-                DrawHead(sb, Texture.Replace("Body", "Head") + "3", "Glowmasks/HydraHead3_Glow", Head3, drawColor);
+                DrawHead(sb, headTex + "2", headTex + "2_Glow", Head2.Center - Main.screenPosition, Head2.frame, Head2.rotation, drawColor);
             }
 
-            if (Head4 != null)
+            if (Head3 != null && Head3.active && Head3.type == ModContent.NPCType<HydraHead3>())
             {
-                DrawHead(sb, Texture.Replace("Body", "Head") + "4", "Glowmasks/HydraHead4_Glow", Head4, drawColor);
+                DrawHead(sb, headTex + "3", headTex + "3_Glow", Head3.Center - Main.screenPosition, Head3.frame, Head3.rotation, drawColor);
             }
 
-            if (Head5 != null)
+            if (Head4 != null && Head4.active && Head4.type == ModContent.NPCType<HydraHead4>())
             {
-                DrawHead(sb, Texture.Replace("Body", "Head") + "5", "Glowmasks/HydraHead5_Glow", Head5, drawColor);
+                DrawHead(sb, headTex + "4", headTex + "4_Glow", Head4.Center - Main.screenPosition, Head4.frame, Head4.rotation, drawColor);
             }
 
-            if (Head6 != null)
+            if (Head5 != null && Head5.active && Head5.type == ModContent.NPCType<HydraHead5>())
             {
-                DrawHead(sb, Texture.Replace("Body", "Head") + "6", "Glowmasks/HydraHead6_Glow", Head6, drawColor);
+                DrawHead(sb, headTex + "5", headTex + "5_Glow", Head5.Center - Main.screenPosition, Head5.frame, Head5.rotation, drawColor);
             }
 
-            if (Head7 != null)
+            if (Head6 != null && Head6.active && Head6.type == ModContent.NPCType<HydraHead6>())
             {
-                DrawHead(sb, Texture.Replace("Body", "Head") + "7", "Glowmasks/HydraHead5_Glow", Head7, drawColor);
+                DrawHead(sb, headTex + "6", headTex + "6_Glow", Head6.Center - Main.screenPosition, Head6.frame, Head6.rotation, drawColor);
             }
 
-            if (Head8 != null)
+            if (Head7 != null && Head7.active && Head7.type == ModContent.NPCType<HydraHead7>())
             {
-                DrawHead(sb, Texture.Replace("Body", "Head") + "8", "Glowmasks/HydraHead4_Glow", Head8, drawColor);
+                DrawHead(sb, headTex + "7", headTex + "5_Glow", Head7.Center - Main.screenPosition, Head7.frame, Head7.rotation, drawColor);
             }
 
-            if (Head9 != null)
+            if (Head8 != null && Head8.active && Head8.type == ModContent.NPCType<HydraHead8>())
             {
-                DrawHead(sb, Texture.Replace("Body", "Head") + "9", "Glowmasks/HydraHead6_Glow", Head9, drawColor);
+                DrawHead(sb, headTex + "8", headTex + "4_Glow", Head8.Center - Main.screenPosition, Head8.frame, Head8.rotation, drawColor);
+            }
+
+            if (Head9 != null && Head9.active && Head9.type == ModContent.NPCType<HydraHead9>())
+            {
+                DrawHead(sb, headTex + "9", headTex + "6_Glow", Head9.Center - Main.screenPosition, Head9.frame, Head9.rotation, drawColor);
             }
         }
     }

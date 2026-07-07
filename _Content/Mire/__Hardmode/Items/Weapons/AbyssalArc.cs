@@ -1,12 +1,14 @@
-using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
 {
-    public class AbyssalArc : BaseAAItem
+    public class AbyssalArc : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Abyssal Arc");

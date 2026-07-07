@@ -1,19 +1,20 @@
+﻿using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class MushiumHelmet : BaseAAItem
+	public class MushiumHelmet : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Mushium";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Mushium Hat");
-			// Tooltip.SetDefault("1% Increased life regeneration");
-
 		}
 
 		public override void SetDefaults()
@@ -25,24 +26,20 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Armor
             Item.value = Item.sellPrice(0, 0, 25, 0);
             Item.defense = 3;
 		}
-		
-		public override void UpdateEquip(Player player)
-        {
-            player.lifeRegen += 1;
-        }
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ModContent.ItemType<MushiumChestplate>() && legs.type == ModContent.ItemType<MushiumLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.MushiumHatBonus");
-            player.pStone = true;
-		}
+        public override void RegisterEquipEffects()
+        {
+            AddEffect(new LifeRegenEffect(1));
 
-		public override void AddRecipes()
+			AddSetEffect<PhilosophersStoneEffect>();
+        }
+
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<MushiumBar>(), 5);

@@ -1,16 +1,18 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
+using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Void.World.Biomes;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Audio;
-using AAModClassic.Items.Boss.Zero;
-using AAModClassic.Items.Vanity.Ohno;
 
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs
 {
-    public class Null : ModNPC
-	{
+    public class Null : ModNPC, IBannerNPC
+    {
 		
 		public override void SetStaticDefaults()
 		{
@@ -29,14 +31,15 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs
             NPC.damage = 50;
             NPC.defense = 9999999;
             NPC.lifeMax = 100;
-            NPC.HitSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/Glitch");
+            NPC.HitSound = new SoundStyle("AAModClassic/Sounds/Glitch");
             NPC.DeathSound = SoundID.NPCDeath6;
             NPC.alpha = 70;
             NPC.value = 7000f;
             NPC.knockBackResist = 0.7f;
             NPC.noGravity = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.NullBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.NullBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
 		public int frameCount = 0;

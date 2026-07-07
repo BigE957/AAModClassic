@@ -1,15 +1,17 @@
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables
 {
-    public class Sunpowder : BaseAAItem
+    public class Sunpowder : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Consumables";
         public override void SetDefaults()
         {
-            Item.shoot = ModContent.ProjectileType<Projectiles.Sunpowder>();
+            Item.shoot = ModContent.ProjectileType<Sunpowder_Proj>();
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 4f;
             Item.width = 16;

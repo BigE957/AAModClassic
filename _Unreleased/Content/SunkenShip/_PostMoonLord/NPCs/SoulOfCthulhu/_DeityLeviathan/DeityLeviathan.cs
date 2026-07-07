@@ -1,22 +1,36 @@
-using System;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
+using AAModClassic.Dusts;
+using AAModClassic.Music;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
-using Terraria.Audio;
+using Terraria.Localization;
 using Terraria.ModLoader;
-using AAModClassic.Music;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityLeviathan
 {
     [AutoloadBossHead]
     public class DeityLeviathan : ModNPC
 	{
-
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Vile-Oct");
             Main.npcFrameCount[NPC.type] = 8;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 10,
+                PortraitPositionYOverride = 12,
+                Position = new Vector2(54, 0),
+                SpriteDirection = 1,
+                Scale = 0.9f
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()
@@ -40,8 +54,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.buffImmune[24] = true;
             NPC.buffImmune[31] = true;
             NPC.buffImmune[44] = true;
-            Music = MusicManagementSystem.MusicSlots["SoC"];
+            Music = NPC.AnyNPCs(ModContent.NPCType<Cthulhu>()) ? MusicManagementSystem.MusicSlots["Cthulhu"] : MusicManagementSystem.MusicSlots["SoulOfCthulhu"];
             for (int m = 0; m < NPC.buffImmune.Length; m++) NPC.buffImmune[m] = true;
+            SpawnModBiomes = [ModContent.GetInstance<SunkenShipBiome>().Type];
         }
 
         public override void ModifyHitByItem(Player player, Item item, ref NPC.HitModifiers modifiers)
@@ -50,7 +65,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 if (modifiers.GetDamage(item.damage, true) > NPC.lifeMax / 8)
                 {
-                    Main.NewText("YOU CANNOT CHEAT DEATH", Color.DarkCyan);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Anticheat"), Color.DarkCyan);
                     modifiers.TargetDamageMultiplier *= 0;
                 }
             }
@@ -62,7 +77,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 if (modifiers.GetDamage(projectile.damage, true) > NPC.lifeMax / 8)
                 {
-                    Main.NewText("YOU CANNOT CHEAT DEATH", Color.DarkCyan);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Anticheat"), Color.DarkCyan);
                     modifiers.TargetDamageMultiplier *= 0;
                 }
             }
@@ -261,22 +276,32 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 player = Main.player[NPC.target];
                 NPC.netUpdate = true;
             }
-            if (player.dead || Vector2.Distance(player.Center, vector) > 5600f)
+            bool BossAlive = NPC.AnyNPCs(ModContent.NPCType<SoulOfCthulhu>()) || NPC.AnyNPCs(ModContent.NPCType<Cthulhu>());
+
+            if (player.dead || Vector2.Distance(player.Center, NPC.Center) > 5600f || !BossAlive)
             {
-                NPC.velocity.Y = NPC.velocity.Y - 0.4f;
-                if (NPC.timeLeft > 10)
+                NPC.velocity *= .8f;
+                for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                 {
-                    NPC.timeLeft = 10;
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num935].noGravity = true;
+                    Main.dust[num935].noLight = true;
                 }
-                if (NPC.ai[0] > 4f)
+                NPC.alpha += 12;
+                if (NPC.alpha > 255)
                 {
-                    NPC.ai[0] = 5f;
+                    NPC.active = false;
                 }
-                else
+                return;
+            }
+            if (NPC.alpha != 0)
+            {
+                for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                 {
-                    NPC.ai[0] = 0f;
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num935].noGravity = true;
+                    Main.dust[num935].noLight = true;
                 }
-                NPC.ai[2] = 0f;
             }
             bool flag6 = player.position.Y < 800f || player.position.Y > Main.worldSurface * 16.0 || player.position.X > 6400f && player.position.X < Main.maxTilesX * 16 - 6400;
             if (flag6)

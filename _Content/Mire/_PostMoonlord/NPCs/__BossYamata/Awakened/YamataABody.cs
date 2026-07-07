@@ -1,24 +1,34 @@
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
+using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
+using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Buffs;
 using AAModClassic.Globals;
-using AAModClassic.Items.Boss;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
+using AAModClassic.Utilities.Components;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using static AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.AkumaAHead;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 {
@@ -74,10 +84,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
             displayName = "Yamata no Orochi";
             //Main.npcFrameCount[npc.type] = 7;
-
 
             HeadTex = ModContent.Request<Texture2D>(Texture.Replace("Body", "") + "Head");
             HeadFTexture = ModContent.Request<Texture2D>(Texture.Replace("Body", "") + "HeadFake");
@@ -88,6 +96,16 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             NeckTexture = ModContent.Request<Texture2D>(texRoot + "Neck");
             Glow = ModContent.Request<Texture2D>(texRoot + "Glow");
             TailTexture = ModContent.Request<Texture2D>(texRoot + "Tail");
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Scale = 0.7f,
+                PortraitScale = 0.8f,
+                PortraitPositionYOverride = 210,
+                Position = new(0, 190)
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()
@@ -105,19 +123,29 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             NPC.netAlways = true;
             frameWidth = 324;
             frameHeight = 236;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             NPC.frame = BaseDrawing.GetFrame(0, frameWidth, frameHeight, 0, 2);
             frameBottom = BaseDrawing.GetFrame(frameCount, frameWidth, 54, 0, 2);
             frameHead = BaseDrawing.GetFrame(frameCount, frameWidth, 118, 0, 2);
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/YamataRoar");
+            NPC.DeathSound = new SoundStyle("AAModClassic/Sounds/YamataRoar");
             NPC.chaseable = false;
-            NPC.value = Item.sellPrice(0, 40, 0, 0);
+            NPC.value = Item.buyPrice(0, 40, 0, 0);
             Music = MusicManagementSystem.MusicSlots["Yamata_Awakened"];
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
             }
             SceneEffectPriority = SceneEffectPriority.BossHigh;
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.YamataNoOrochi")
+            ]);
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
@@ -196,16 +224,23 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
         {
             if (!Main.expertMode)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Defeat.Cheat"), new Color(146, 30, 68));
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Defeat.Cheat"), new Color(146, 30, 68));
             }
+            else if (NPC.playerInteraction[Main.myPlayer])
+                YamataKilled.Condition.Complete();
+
             if (!NPC.BeenKilled(true))
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Defeat.First"), new Color(146, 30, 68));
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Defeat.Status"), Color.Indigo);
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Defeat.First"), new Color(146, 30, 68));
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Defeat.Status"), Color.Indigo);
             }
             else
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Defeat.Repeat"), new Color(146, 30, 68));
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Defeat.Repeat"), new Color(146, 30, 68));
             }
         }
 
@@ -213,13 +248,21 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<YamataTreasureBag>()));
 
+            npcLoot.AddLoreItemDrop<YamataABody>(ModContent.ItemType<YamataLore>());
+
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<YamataRelic>()));
+
+            npcLoot.Add(masterMode);
+
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<YamataATrophy>(), 10));
 
             LeadingConditionRule firstKill = new(new FirstTimeKillingYamataA());
 
             firstKill.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DreadMoonRune>()));
 
-            LeadingConditionRule shenDefeated = new(new AAModClassic.NPCs.Bosses.Akuma.Awakened.AkumaA.ShenDefeated());
+            LeadingConditionRule shenDefeated = new(new ShenDefeated());
 
             shenDefeated.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EXSoul>(), 50));
 
@@ -246,6 +289,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
         public Vector2 bottomVisualOffset = default;
         public Vector2 topVisualOffset = default;
         public LegInfo[] legs = null;
+        public IKLeg[] unofficialLegs = null;
         public bool[] headsSaidOw = new bool[7];
         public bool Tag = false;
         public bool TeleportMe1 = false;
@@ -394,7 +438,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                 if (Main.netMode != NetmodeID.MultiplayerClient && !flag)
                 {
                     flag = true;
-                    AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.NightReset"), new Color(146, 30, 68));
+                    ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.NightReset"), new Color(146, 30, 68));
                 }
                 Main.dayTime = false;
                 Main.time = 0;
@@ -422,7 +466,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                     Player t = Main.player[p];
                     if (t.active && !t.dead)
                     {
-                        Main.player[p].AddBuff(ModContent.BuffType<YamataAGravity_Buff>(), 10, true);
+                        Main.player[p].AddBuff(ModContent.BuffType<YamataABody_TrueAbyssalGravity>(), 10, true);
                     }
                 }
 
@@ -434,7 +478,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                     {
                         if (!FirstLine)
                         {
-                            if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Teleport"), new Color(146, 30, 68));
+                            if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Teleport"), new Color(146, 30, 68));
                             FirstLine = true;
                         }
                     }
@@ -498,7 +542,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
         {
             if (Main.netMode != NetmodeID.MultiplayerClient && !loludide)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) AAMod.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Kill"), new Color(146, 30, 68));
+                if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Awakened.Kill"), new Color(146, 30, 68));
                 loludide = true;
             }
 
@@ -702,17 +746,46 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 
         public void UpdateLimbs()
         {
-            if (legs == null || legs.Length < 4)
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
-                legs = new LegInfo[4];
-                legs[0] = new LegInfo(0, NPC.Bottom + new Vector2(60, 0), true);
-                legs[1] = new LegInfo(1, NPC.Bottom + new Vector2(-82, 0), true);
-                legs[2] = new LegInfo(2, NPC.Bottom + new Vector2(80, 0), true);
-                legs[3] = new LegInfo(3, NPC.Bottom + new Vector2(-102, 0), true);
+                if (unofficialLegs == null)
+                {
+                    unofficialLegs = new IKLeg[4];
+                    unofficialLegs[0] = new(NPC, new(-60, -30), 140, 100, false, true, -16, 72, 0.6f); //Back Left
+                    unofficialLegs[1] = new(NPC, new(60, -30), 140, 100, false, false, -16, 72, 0.6f); //Back Right
+                    unofficialLegs[2] = new(NPC, new(-20, -30), 120, 100, true, true, -16, 72, 0.6f); //Front Left
+                    unofficialLegs[3] = new(NPC, new(20, -30), 120, 100, true, false, -16, 72, 0.6f); //Front Right        
+
+                    unofficialLegs[0].PairedLeg = unofficialLegs[3];
+                    unofficialLegs[3].PairedLeg = unofficialLegs[0];
+
+                    unofficialLegs[0].SisterLeg = unofficialLegs[2];
+                    unofficialLegs[2].SisterLeg = unofficialLegs[0];
+
+                    unofficialLegs[1].PairedLeg = unofficialLegs[2];
+                    unofficialLegs[2].PairedLeg = unofficialLegs[1];
+
+                    unofficialLegs[1].SisterLeg = unofficialLegs[3];
+                    unofficialLegs[3].SisterLeg = unofficialLegs[1];
+                }
+
+                foreach (IKLeg leg in unofficialLegs)
+                    leg.Update(unofficialLegs.ToList());
             }
-            for (int m = 0; m < 4; m++)
+            else
             {
-                legs[m].UpdateLeg(NPC);
+                if (legs == null || legs.Length < 4)
+                {
+                    legs = new LegInfo[4];
+                    legs[0] = new LegInfo(0, NPC.Bottom + new Vector2(60, 0), true);
+                    legs[1] = new LegInfo(1, NPC.Bottom + new Vector2(-82, 0), true);
+                    legs[2] = new LegInfo(2, NPC.Bottom + new Vector2(80, 0), true);
+                    legs[3] = new LegInfo(3, NPC.Bottom + new Vector2(-102, 0), true);
+                }
+                for (int m = 0; m < 4; m++)
+                {
+                    legs[m].UpdateLeg(NPC);
+                }
             }
         }
 
@@ -733,63 +806,102 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                  y2 * Math.Pow(t, 2)
              );
         }
-        public void DrawHead(SpriteBatch spriteBatch, Texture2D headTexture, Texture2D glowMaskTexture, NPC head, Color drawColor, bool DrawUnder)
+
+        public void DrawHead(SpriteBatch spriteBatch, Texture2D headTexture, Texture2D glowMaskTexture, Vector2 drawPos, Rectangle drawFrame, float drawRot, Color drawColor, bool DrawUnder)
         {
-            Color lightColor = NPC.GetAlpha(BaseDrawing.GetLightColor(NPC.Center));
-            Color GlowColor = AAColor.COLOR_WHITEFADE1;
-            if (head != null && head.active && head.ModNPC != null && (head.ModNPC is YamataAHead || head.ModNPC is YamataAHeadFake))
+            drawPos -= Vector2.UnitY * 30;
+            Color glowColor = AAColor.COLOR_WHITEFADE1;
+            Texture2D neckTex2D = NeckTexture.Value;
+            Vector2 neckOrigin = new Vector2(NPC.Center.X, NPC.Center.Y - 110 * NPC.scale) - (NPC.IsABestiaryIconDummy ? Vector2.Zero : Main.screenPosition);
+            float chainsPerUse = 0.05f * NPC.scale;
+            for (float i = 0; i <= 1; i += chainsPerUse)
             {
-                Texture2D neckTex2D = NeckTexture.Value;
-                Vector2 connector = head.Center;
-                Vector2 neckOrigin = new Vector2(NPC.Center.X, NPC.Center.Y - 110 * NPC.scale);
-                float chainsPerUse = 0.05f;
-                for (float i = 0; i <= 1; i += chainsPerUse)
+                Vector2 distBetween;
+                float projTrueRotation;
+                if (i != 0)
                 {
-                    Vector2 distBetween;
-                    float projTrueRotation;
-                    if (i != 0)
-                    {
-                        distBetween = new Vector2(X(i, neckOrigin.X, (neckOrigin.X + connector.X) / 2, connector.X) -
-                        X(i - chainsPerUse, neckOrigin.X, (neckOrigin.X + connector.X) / 2, connector.X),
-                        Y(i, neckOrigin.Y, neckOrigin.Y + 50, connector.Y) -
-                        Y(i - chainsPerUse, neckOrigin.Y, neckOrigin.Y + 50, connector.Y));
-                        projTrueRotation = distBetween.ToRotation() + (float)Math.PI / 2;
-                        spriteBatch.Draw(neckTex2D, new Vector2(X(i, neckOrigin.X, (neckOrigin.X + connector.X) / 2, connector.X) - Main.screenPosition.X, Y(i, neckOrigin.Y, neckOrigin.Y + 50, connector.Y) - Main.screenPosition.Y),
-                        new Rectangle(0, 0, neckTex2D.Width, neckTex2D.Height), drawColor, projTrueRotation,
-                        new Vector2(neckTex2D.Width * 0.5f, neckTex2D.Height * 0.5f), 1f, SpriteEffects.None, 0f);
-                    }
+                    distBetween = new Vector2(X(i, neckOrigin.X, (neckOrigin.X + drawPos.X) / 2, drawPos.X) -
+                    X(i - chainsPerUse, neckOrigin.X, (neckOrigin.X + drawPos.X) / 2, drawPos.X),
+                    Y(i, neckOrigin.Y, neckOrigin.Y + 50, drawPos.Y) -
+                    Y(i - chainsPerUse, neckOrigin.Y, neckOrigin.Y + 50, drawPos.Y));
+                    projTrueRotation = distBetween.ToRotation() - (float)Math.PI / 2;
+                    Vector2 neckPos = new Vector2(X(i, neckOrigin.X, (neckOrigin.X + drawPos.X) / 2, drawPos.X), Y(i, neckOrigin.Y, neckOrigin.Y + 50, drawPos.Y));
+                    spriteBatch.Draw(neckTex2D, neckPos, null, drawColor, projTrueRotation, neckTex2D.Size() * 0.5f, NPC.scale, 0, 0);
                 }
-                BaseDrawing.DrawTexture(spriteBatch, headTexture, 0, head.position, head.width, head.height, head.scale, head.rotation, head.spriteDirection, Main.npcFrameCount[head.type], head.frame, drawColor, false);
-                BaseDrawing.DrawTexture(spriteBatch, glowMaskTexture, 0, head.position, head.width, head.height, head.scale, head.rotation, head.spriteDirection, Main.npcFrameCount[head.type], head.frame, GlowColor, false);
             }
+
+            spriteBatch.Draw(headTexture, drawPos, drawFrame, drawColor, drawRot, drawFrame.Size() * 0.5f, NPC.scale, 0, 0);
+            spriteBatch.Draw(glowMaskTexture, drawPos, drawFrame, glowColor, drawRot, drawFrame.Size() * 0.5f, NPC.scale, 0, 0);
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Color lightColor = NPC.GetAlpha(drawColor);
             SpriteBatch sb = spriteBatch;
-            BaseDrawing.DrawTexture(spriteBatch, TailTexture.Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + bottomVisualOffset + new Vector2(0, -32), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], frameBottom, lightColor, false);
-            if (legs != null && legs.Length == 4)
+            spriteBatch.Draw(TailTexture.Value, NPC.Center + new Vector2(0f, NPC.gfxOffY) + bottomVisualOffset - screenPos, null, lightColor, NPC.rotation, TailTexture.Size() * 0.5f, NPC.scale, 0, 0);
+            //BaseDrawing.DrawTexture(spriteBatch, TailTexture.Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + bottomVisualOffset + new Vector2(0, -32), NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], frameBottom, lightColor, false);
+
+            if (!NPC.IsABestiaryIconDummy)
             {
-                legs[2].DrawLeg(sb, NPC); //back legs
-                legs[3].DrawLeg(sb, NPC);
-                legs[0].DrawLeg(sb, NPC); //front legs
-                legs[1].DrawLeg(sb, NPC);
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && unofficialLegs != null)
+                {
+                    foreach (IKLeg leg in unofficialLegs)
+                        DrawYamataLeg(spriteBatch, NPC, leg.Start, leg.Middle, leg.End, leg.LeftSet, leg.FrontSet);
+                }
+                else if (legs != null && legs.Length == 4)
+                {
+                    for (int i = 3; i >= 0; i--)
+                    {
+                        var leg = legs[i];
+                        Vector2 start = leg.GetBodyConnector(NPC);
+                        Vector2 middle = leg.LegJoint;
+                        Vector2 end = leg.position - new Vector2(0f, leg.VelOffsetY);
+
+                        DrawYamataLeg(spriteBatch, NPC, start, middle, end, leg.LeftLeg, i <= 1);
+                    }
+                }
             }
 
-            DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head2, drawColor, false);
-            DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head3, drawColor, false);
-            DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head4, drawColor, false);
-            DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head5, drawColor, false);
-            DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head6, drawColor, false);
-            DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head7, drawColor, false);
+            if (NPC.IsABestiaryIconDummy)
+            {
+                List<Vector2> heads = [
+                    new Vector2(-70, 24),
+                    new Vector2(70, 24),
+                ];
+                foreach (Vector2 headPos in heads)
+                    DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, NPC.Center - (Vector2.UnitY * 240f * NPC.scale) + headPos, HeadFTexture.Frame(1, 3), 0, lightColor, false);
+            }
+            else
+            {
+                if (Head2 != null && Head2.active && Head2.ModNPC != null && Head2.ModNPC is YamataAHeadFake)
+                    DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head2.Center - screenPos, Head2.frame, Head2.rotation, lightColor, false);
+                if (Head3 != null && Head3.active && Head3.ModNPC != null && Head2.ModNPC is YamataAHeadFake)
+                    DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head3.Center - screenPos, Head3.frame, Head3.rotation, lightColor, false);
+                if (Head4 != null && Head4.active && Head4.ModNPC != null && Head2.ModNPC is YamataAHeadFake)
+                    DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head4.Center - screenPos, Head4.frame, Head4.rotation, lightColor, false);
+                if (Head5 != null && Head5.active && Head5.ModNPC != null && Head2.ModNPC is YamataAHeadFake)
+                    DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head5.Center - screenPos, Head5.frame, Head5.rotation, lightColor, false);
+                if (Head6 != null && Head6.active && Head6.ModNPC != null && Head2.ModNPC is YamataAHeadFake)
+                    DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head6.Center - screenPos, Head6.frame, Head6.rotation, lightColor, false);
+                if (Head7 != null && Head7.active && Head7.ModNPC != null && Head2.ModNPC is YamataAHeadFake)
+                    DrawHead(sb, HeadFTexture.Value, HeadFGlowTexture.Value, Head7.Center - screenPos, Head7.frame, Head7.rotation, lightColor, false);
+            }
 
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + topVisualOffset, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, lightColor, false);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center + new Vector2(0f, NPC.gfxOffY - 68) + topVisualOffset - screenPos, null, lightColor, NPC.rotation, TextureAssets.Npc[NPC.type].Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(), 0);
+            //BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + topVisualOffset, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, lightColor, false);
 
-            BaseDrawing.DrawTexture(spriteBatch, Glow.Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + topVisualOffset, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, AAColor.COLOR_WHITEFADE1, false);
-            BaseDrawing.DrawAfterimage(spriteBatch, Glow.Value, 0, NPC, 0.8f, 1f, 4, false, 0f, 0f, AAColor.COLOR_WHITEFADE1);
+            spriteBatch.Draw(Glow.Value, NPC.Center + new Vector2(0f, NPC.gfxOffY - 68) + topVisualOffset - screenPos, null, AAColor.COLOR_WHITEFADE1, NPC.rotation, Glow.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(), 0);
+            //BaseDrawing.DrawTexture(spriteBatch, Glow.Value, 0, NPC.position + new Vector2(0f, NPC.gfxOffY) + topVisualOffset, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, Main.npcFrameCount[NPC.type], NPC.frame, AAColor.COLOR_WHITEFADE1, false);
+            if (!NPC.IsABestiaryIconDummy)
+            {
+                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, Glow.Value, NPC.Center + new Vector2(0f, NPC.gfxOffY - 68) + topVisualOffset - screenPos, NPC.velocity, 4, null, AAColor.COLOR_WHITEFADE1, NPC.scale, [NPC.rotation], Glow.Size() * 0.5f, NPC.SpriteEffectDirection(), 0.8f);
+                //BaseDrawing.DrawAfterimage(spriteBatch, Glow.Value, 0, NPC, 0.8f, 1f, 4, false, 0f, 0f, AAColor.COLOR_WHITEFADE1);
+            }
 
-            DrawHead(sb, HeadTex.Value, HeadGlowTexture.Value, TrueHead, drawColor, false);
+            if (NPC.IsABestiaryIconDummy)
+                DrawHead(sb, HeadTex.Value, HeadGlowTexture.Value, NPC.Center - (Vector2.UnitY * 240f * NPC.scale), HeadTex.Frame(1, 3), 0, lightColor, false);
+            else if (TrueHead != null && TrueHead.active && TrueHead.ModNPC != null && TrueHead.ModNPC is YamataAHead)
+                DrawHead(sb, HeadTex.Value, HeadGlowTexture.Value, TrueHead.Center - screenPos, TrueHead.frame, TrueHead.rotation, lightColor, false);
         }
 
         public bool spawnHaruka = false;
@@ -831,198 +943,4 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             }
         }
     }
-
-    //TODO: make sure yamata and yamata a work with the modified centrailized animation stuff in normal yamata's file
-    /*
-    public class AnimationInfo
-    {
-        public int animType = 0;
-        public float movementRatio = 0f, movementRate = 0.01f, animMult = 1f;
-        public float halfPI = (float)Math.PI / 2f;
-        public bool[] fired = new bool[4];
-        public float[] hitRatios = null;
-        public bool flatJoint = false;
-
-        public AnimationInfo(int type, float aMult = 1f)
-        {
-            animType = type;
-            animMult = aMult;
-        }
-    }
-
-    public class LimbInfo
-    {
-        public int limbType = 0;
-        public Vector2 position, oldPosition;
-        public Vector2 Center
-        {
-            get { return new Vector2(position.X + (Hitbox.Width * 0.5f), position.Y + (Hitbox.Height * 0.5f)); }
-            set { position = new Vector2(value.X - (Hitbox.Width * 0.5f), value.Y - (Hitbox.Height * 0.5f)); }
-        }
-        public Rectangle Hitbox;
-        public float rotation = 0f, movementRatio = 0f;
-        public AnimationInfo overrideAnimation = null;
-        public YamataA yamataA = null;
-    }
-
-    public class LegInfo : LimbInfo
-    {
-        Vector2 velocity, legOrigin;
-        private float velOffsetY = 0f;
-        private readonly float distanceToMove = 120f, distanceToMoveX = 50f;
-        private readonly bool flying = false;
-        private bool leftLeg = false;
-
-        Vector2 pointToStandOn = default;
-        Vector2 legJoint = default;
-        public Texture2D[] textures = null;
-
-        public LegInfo(int lType, Vector2 initialPos, YamataA m)
-        {
-            yamataA = m;
-            position = initialPos;
-            pointToStandOn = position;
-            limbType = lType;
-            Hitbox = new Rectangle(0, 0, 140, 76);
-            legOrigin = new Vector2(limbType == 1 || limbType == 3 ? Hitbox.Width - 12 : 12, 12);
-        }
-
-        public void MoveLegFlying(NPC npc)
-        {
-            Vector2 movementSpot = GetBodyConnector(npc) + new Vector2(limbType == 3 ? (-35f - Hitbox.Width) : limbType == 2 ? 35f : limbType == 1 ? (-15f - Hitbox.Width) : 15f, limbType == 1 || limbType == 0 ? 40f : 50f);
-            float velLength = (npc.position - npc.oldPos[1]).Length();
-            if (velLength > 8f)
-            {
-                position = movementSpot;
-                velocity = default;
-            }
-            else
-            if (Vector2.Distance(movementSpot, position) > (40 + (int)npc.velocity.Length()))
-            {
-                Vector2 velAddon = movementSpot - position; velAddon.Normalize(); velAddon *= 2f + (velLength * 0.25f);
-                velocity += velAddon;
-                float velMax = 4f + velLength;
-                if (velocity.Length() > velMax) { velocity.Normalize(); velocity *= velMax; }
-                position += velocity;
-            }
-            else
-            {
-                position = movementSpot;
-                velocity = default;
-            }
-        }
-
-        public void UpdateVelOffsetY()
-        {
-            movementRatio += 0.04f;
-            movementRatio = Math.Max(0f, Math.Min(1f, movementRatio));
-            velOffsetY = BaseUtility.MultiLerp(movementRatio, 0f, 30f, 0f);
-        }
-
-        public void MoveLegWalking(NPC npc, Vector2 standOnPoint)
-        {
-            UpdateVelOffsetY();
-            if (pointToStandOn != default)
-            {
-                Vector2 velAddon = pointToStandOn - position; velAddon.Normalize(); velAddon *= 1.6f + (npc.velocity.Length() * 0.5f);
-                velocity += velAddon;
-                float velMax = 4f + npc.velocity.Length();
-                if (velocity.Length() > velMax) { velocity.Normalize(); velocity *= velMax; }
-                if (Vector2.Distance(pointToStandOn, position) <= 15) { position = pointToStandOn; velocity = default; }
-                position += velocity;
-                if (position == pointToStandOn || Vector2.Distance(standOnPoint, position + new Vector2(Hitbox.Width * 0.5f, 0f)) > distanceToMove || Math.Abs(position.X - standOnPoint.X) > distanceToMoveX)
-                {
-                    pointToStandOn = default;
-                }
-            }
-            if (pointToStandOn == default)
-            {
-                if (Vector2.Distance(standOnPoint, position + new Vector2(Hitbox.Width * 0.5f, 0f)) > distanceToMove || Math.Abs(position.X - standOnPoint.X) > distanceToMoveX)
-                {
-                    movementRatio = 0f;
-                    pointToStandOn = standOnPoint;
-                }
-            }
-        }
-
-        public void UpdateLeg(NPC npc)
-        {
-            leftLeg = limbType == 1 || limbType == 3;
-            if (Vector2.Distance(Center, npc.Center) > 499 || YamataA.TeleportMeBitch) position = npc.Center; //prevent issues when the legs are WAY off.
-            if (overrideAnimation != null)
-            {
-                if (overrideAnimation.movementRatio >= 1f) overrideAnimation = null;
-            }
-            else
-            {
-                rotation = 0f;
-                Vector2 standOnPoint = GetStandOnPoint(npc);
-                if (standOnPoint == default) //'flying' behavior but per leg
-                {
-                    MoveLegFlying(npc);
-                }
-                else
-                {
-                    MoveLegWalking(npc, standOnPoint);
-                }
-            }
-            Vector2 bodyConnector = GetBodyConnector(npc);
-            legJoint = Vector2.Lerp(position, bodyConnector, 0.3f) + new Vector2(leftLeg ? 30 : 0f, -30);
-            oldPosition = position;
-        }
-
-        public Vector2 GetStandOnPoint(NPC npc)
-        {
-            float scalar = npc.velocity.Length();
-            float outerLegDefault = 150f + (0.5f * scalar);
-            float innerLegDefault = 120f + (0.5f * scalar);
-            float standOnX = npc.Center.X + yamataA.topVisualOffset.X + (limbType == 3 ? (-outerLegDefault - Hitbox.Width) : limbType == 2 ? (outerLegDefault + Hitbox.Width) : limbType == 1 ? (-innerLegDefault - Hitbox.Width) : (innerLegDefault + Hitbox.Width));
-
-            int defaultTileY = (int)(npc.Bottom.Y / 16f);
-            int tileY = WorldGenUtils.GetFirstTileFloor((int)(standOnX / 16f), (int)(npc.Bottom.Y / 16f));
-            if (tileY - defaultTileY > YamataA.flyingTileCount) { return default; } //'flying' behavior
-            if (!flying)
-            {
-                tileY = (int)(tileY * 16f) / 16;
-                float tilePosY = tileY * 16f;
-                if (Main.tile[(int)(standOnX / 16f), tileY] == null || !Main.tile[(int)(standOnX / 16f), tileY].HasUnactuatedTile || !Main.tileSolid[Main.tile[(int)(standOnX / 16f), tileY].TileType]) tilePosY += 16f;
-                return new Vector2(standOnX - (Hitbox.Width * 0.5f), tilePosY - Hitbox.Height);
-            }
-            return default;
-        }
-
-        public Vector2 GetBodyConnector(NPC npc)
-        {
-            return npc.Center + yamataA.topVisualOffset + new Vector2(limbType == 3 || limbType == 1 ? -40f : 40f, 0f);
-        }
-
-        public void DrawLeg(SpriteBatch sb, NPC npc)
-        {
-            AAMod mod = AAMod.instance;
-            if (textures == null || textures.Length < 5 || textures[1].Height == 1)
-            {
-                string texRoot = "NPCs/Bosses/Yamata/Awakened/YamataA";
-                textures = new Texture2D[5];
-                textures[0] = mod.GetTexture(texRoot + "LegCap");
-                textures[1] = mod.GetTexture(texRoot + "LegSegment");
-                textures[2] = mod.GetTexture(texRoot + "LegCapR");
-                textures[3] = mod.GetTexture(texRoot + "LegSegmentR");
-                textures[4] = mod.GetTexture(texRoot + "Foot");
-            }
-            Vector2 drawPos = position - new Vector2(0f, velOffsetY);
-            Color lightColor = npc.GetAlpha(BaseDrawing.GetLightColor(Center));
-            if (!leftLeg)
-            {
-                BaseDrawing.DrawChain(sb, new Texture2D[] { null, textures[3], null }, 0, drawPos + new Vector2(Hitbox.Width * 0.5f, 6f), legJoint, 0f, null, 1f, false, null);
-                BaseDrawing.DrawChain(sb, new Texture2D[] { textures[2], textures[3], textures[2] }, 0, legJoint, GetBodyConnector(npc), 0f, null, 1f, false, null);
-            }
-            else
-            {
-                BaseDrawing.DrawChain(sb, new Texture2D[] { null, textures[1], null }, 0, drawPos + new Vector2(Hitbox.Width * 0.5f, 6f), legJoint, 0f, null, 1f, false, null);
-                BaseDrawing.DrawChain(sb, new Texture2D[] { textures[0], textures[1], textures[0] }, 0, legJoint, GetBodyConnector(npc), 0f, null, 1f, false, null);
-            }
-            BaseDrawing.DrawTexture(sb, textures[4], 0, drawPos, Hitbox.Width, Hitbox.Height, npc.scale, rotation, limbType == 1 || limbType == 3 ? 1 : -1, 1, Hitbox, lightColor, false, legOrigin);
-        }
-    }
-    */
 }

@@ -1,23 +1,31 @@
-﻿using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero;
-using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.InfinityZero.BossStandard;
+﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
+using AAModClassic._Content.Void.World.Biomes;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
+using AAModClassic._Unofficial.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard;
+using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossInfinityZero.BossStandard;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.BossStandard;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Weapons;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Blocks.Boxes;
-using AAModClassic.Items.Boss;
-using AAModClassic.Items.Potions;
 using AAModClassic.Music;
-using AAModClassic.NPCs.Bosses.Zero;
-using AAModClassic.UI.WorldGen;
+using AAModClassic.UI.Core;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.IO;
-using System.Net;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -40,12 +48,12 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public static Asset<Texture2D> glowTex;
 
-
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Infinity Zero; Mechanical Malice");
             glowTex = ModContent.Request<Texture2D>(Texture + "_Glow");
             Main.npcFrameCount[NPC.type] = 4;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 		public override void SetDefaults()
 		{
@@ -70,8 +78,18 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 			NPC.chaseable = true;
 			Music = MusicManagementSystem.MusicSlots["InfinityZero"];
 			NPC.HitSound = SoundID.NPCHit44;
-			NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "_Unreleased/Sounds/IZRoar");
+			NPC.DeathSound = new SoundStyle("AAModClassic/_Unreleased/Sounds/IZRoar");
             NPC.scale *= 1.4f;
+            SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.InfinityZero.1", AAColor.OblivionDialogue),
+                new ColoredFlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.InfinityZero.2", AAColor.OblivionDialogue)
+            ]);
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
@@ -147,7 +165,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 				}
 				if (roarTimer == 180)
 				{
-					SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "_Unreleased/Sounds/IZRoar"), NPC.Center);
+					SoundEngine.PlaySound(new SoundStyle("AAModClassic/_Unreleased/Sounds/IZRoar"), NPC.Center);
 				}
 			}
 
@@ -164,7 +182,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                         Vector2 tele = new Vector2(player.Center.X, player.Center.Y);
                         NPC.Center = tele;
                         NPC.dontTakeDamage = false;
-                        SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "_Unreleased/Sounds/IZRoar"), NPC.Center);
+                        SoundEngine.PlaySound(new SoundStyle("AAModClassic/_Unreleased/Sounds/IZRoar"), NPC.Center);
                     }
                 }
                 else //you're close to the player, so make sure you're visible!
@@ -251,28 +269,48 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 		{
             Dead = true;
             NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Oblivion>(), 0, 0);
-            AAPlayer.IZKills += 1;
-            AAWorld_Unreleased.downedIZ = true;
-            if (Main.expertMode)
+            ZAAPlayer.IZKills += 1;
+        }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            int[] lootTable =
             {
-                NPC.DropLoot(ModContent.ItemType<InfinityZeroTreasureBag>());
-            }
-            else
-            {
-                NPC.DropLoot(ModContent.ItemType<Infinitium>(), 25, 35);
-                string[] lootTable =
-                {
-                    "Genocide",
-                    "Nova",
-                    "Sagittarius",
-                    "TotalDestruction",
-                    "Annihilator",
-                    "InfinityBlade"
-                };
-                int loot = Main.rand.Next(lootTable.Length);
-                NPC.DropLoot(Mod.Find<ModItem>(lootTable[loot]).Type);
-                NPC.DropLoot(ModContent.ItemType<EXSoul>());
-            }
+                ModContent.ItemType<Genocide>(),
+                ModContent.ItemType<Nova>(),
+                ModContent.ItemType<Sagittarius>(),
+                ModContent.ItemType<TotalDestruction>(),
+                ModContent.ItemType<Annihilator>(),
+                ModContent.ItemType<InfinityBlade>()
+            };
+
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<InfinityZeroTreasureBag>()));
+
+            npcLoot.AddLoreItemDrop<InfinityZero>(ModContent.ItemType<InfinityZeroLore>());
+
+            LeadingConditionRule unofficialRule = new(new AAConditions.UnofficialNotExpert());
+
+            unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<InfinityZeroMask>(), 7));
+
+            npcLoot.Add(unofficialRule);
+
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<InfinityZeroRelic>()));
+
+            npcLoot.Add(masterMode);
+
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+
+            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Infinitium>(), 1, 25, 35));
+            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            LeadingConditionRule expertRule = new(new Conditions.IsExpert());
+
+            expertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EXSoul>()));
+
+            npcLoot.Add(notExpertRule);
+            npcLoot.Add(expertRule);
         }
 
         public override void BossLoot(ref int potionType)
@@ -484,9 +522,18 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public override void FindFrame(int frameHeight)
         {
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Position = new(0, 262),
+                PortraitPositionYOverride = 240,
+                Scale = 2f, // whenever we properly upscale the sprite this should just be 1x
+                PortraitScale = 2f // ditto
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+
             bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
             NPC.frame.Height = unofficial ? 455 : frameHeight;
-            if (roarTimer > -1)
+            if (!NPC.IsABestiaryIconDummy && roarTimer > -1)
             {
                 NPC.frame.Y = unofficial ? NPC.frame.Height : 2 * NPC.frame.Height;
             }
@@ -553,13 +600,13 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             if(!unofficialWorld)
                 DrawCore(spriteBatch, ModContent.GetInstance<InfinityCore>().Texture, Core, AAColor.Oblivion, false);
 
-            string respritePath = "AAModClassic/_Unreleased/Content/Void/_PostMoonLord/NPCs/InfinityZero/InfinityZero_Resprite";
+            string respritePath = Texture + "_Resprite";
             Texture2D texture = !unofficialWorld ? TextureAssets.Npc[NPC.type].Value : ModContent.Request<Texture2D>(respritePath).Value;
             Texture2D glow = !unofficialWorld ? glowTex.Value : ModContent.Request<Texture2D>(respritePath + "_Glow").Value;
 
             if (tenthHealth)
             {
-                BaseDrawing.DrawTexture(spriteBatch, texture, 0, NPC, drawColor, unofficialWorld);
+                spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, unofficialWorld ? NPC.frame.Size() * 0.5f : Vector2.Zero, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
                 BaseDrawing.DrawAura(spriteBatch, glow, 0, NPC, auraPercent, 1f, 0f, 0f, GetRedAlpha(), unofficialWorld);
                 BaseDrawing.DrawTexture(spriteBatch, glow, 0, NPC, GetRedAlpha(), unofficialWorld);
                 if(unofficialWorld)
@@ -582,9 +629,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             else
             {
                 Color color = BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC, NPC.Center + new Vector2(0, -30), true, 0f), GetGlowAlpha(true));
-                BaseDrawing.DrawTexture(spriteBatch, texture, 0, NPC, color, unofficialWorld);
+                spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, color, NPC.rotation, unofficialWorld ? NPC.frame.Size() * 0.5f : Vector2.Zero, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
                 BaseDrawing.DrawAura(spriteBatch, glow, 0, NPC, auraPercent, 1f, 0f, 0f, GetGlowAlpha(true), unofficialWorld);
-                BaseDrawing.DrawTexture(spriteBatch, glow, 0, NPC, GetGlowAlpha(false), unofficialWorld);
+                spriteBatch.Draw(glow, NPC.Center - screenPos, NPC.frame, GetGlowAlpha(false), NPC.rotation, unofficialWorld ? NPC.frame.Size() * 0.5f : Vector2.Zero, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
                 if (unofficialWorld)
                 {
                     if (CoreFrame != -1)
@@ -594,12 +641,13 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                         spriteBatch.Draw(core, NPC.Center - new Vector2(3, 15) - Main.screenPosition, frame, color, NPC.rotation, frame.Size() * 0.5f, NPC.scale, 0, 0);
                     }
                     Texture2D eye = ModContent.Request<Texture2D>(respritePath + "_Eye").Value;
-                    float maxDist = 9f;
-                    Vector2 drawPos = NPC.Center - new Vector2(7, 190);
-                    Vector2 eyeOffset = drawPos.DirectionTo(Main.LocalPlayer.Center) * drawPos.Distance(Main.LocalPlayer.Center) / 48f;
+                    float maxDist = 8.5f;
+                    Vector2 drawPos = NPC.Center - (new Vector2(0, 130) * NPC.scale);
+                    Vector2 lookAt = NPC.IsABestiaryIconDummy ? Main.MouseScreen : Main.LocalPlayer.Center;
+                    Vector2 eyeOffset = drawPos.DirectionTo(lookAt) * drawPos.Distance(lookAt) / 48f;
                     drawPos += new Vector2(MathHelper.Clamp(eyeOffset.X, -maxDist, maxDist), MathHelper.Clamp(eyeOffset.Y, -maxDist, maxDist));
-                    BaseDrawing.DrawAura(spriteBatch, eye, 0, drawPos, eye.Width, eye.Height, auraPercent, 1, NPC.scale, 0f, 1, 1, eye.Frame(), 0, 0, GetGlowAlpha(false), unofficialWorld);
-                    BaseDrawing.DrawTexture(spriteBatch, eye, 0, drawPos, eye.Width, eye.Height, NPC.scale, 0f, 1, 1, eye.Frame(), GetGlowAlpha(false), unofficialWorld);
+                    BaseDrawing.DrawAura(spriteBatch, eye, 0, drawPos - new Vector2(7, 9), eye.Width, eye.Height, auraPercent, 1, NPC.scale, 0f, 1, 1, eye.Frame(), 0, 0, GetGlowAlpha(false), unofficialWorld);
+                    spriteBatch.Draw(eye, drawPos - screenPos, null, Color.White, NPC.rotation, eye.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
                 }
             }
 
@@ -626,7 +674,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 Vector2 end = Zero.Center;
                 if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 {
-                    string texPath = "AAModClassic/_Unreleased/Content/Void/_PostMoonLord/NPCs/InfinityZero/InfinityZero_Resprite";
+                    string texPath = Texture + "_Resprite";
                     Texture2D ArmTex2D = ModContent.Request<Texture2D>(texPath + "_Arm").Value;
 
                     Vector2 direction = end - start;
@@ -660,7 +708,14 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 {
                     string ArmTex = Texture + "_Arm";
                     Texture2D ArmTex2D = ModContent.Request<Texture2D>(ArmTex).Value;
-                    BaseDrawing.DrawChain(spriteBatch, new Texture2D[] { ArmTex2D, ArmTex2D, ArmTex2D }, 0, start, end, ArmTex2D.Height - 10f, null, 1f, false, null);
+
+                    Vector2 dir = start.DirectionTo(end);
+                    float length = Vector2.Distance(start, end);
+                    for (int i = 0; i < length; i += (ArmTex2D.Height - 10))
+                    {
+                        Vector2 drawPos = start + dir * i;
+                        spriteBatch.Draw(ArmTex2D, drawPos - Main.screenPosition, null, Lighting.GetColor(drawPos.ToTileCoordinates()), dir.ToRotation() - MathHelper.PiOver2, ArmTex2D.Size() * 0.5f, 1f, 0, 0);
+                    }
                 }
             }
         }

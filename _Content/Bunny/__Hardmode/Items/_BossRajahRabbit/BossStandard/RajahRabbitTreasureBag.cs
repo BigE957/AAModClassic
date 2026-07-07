@@ -1,8 +1,8 @@
-using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Accessories;
+﻿using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Accessories;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
 using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
-using AAModClassic.CrossMod;
-using AAModClassic.Items.Thorium.Healer;
+using AAModClassic._CrossMod.Thorium.Weapons.Healer;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -11,12 +11,13 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard
 {
-    public class RajahRabbitTreasureBag : BaseAAItem
+    public class RajahRabbitTreasureBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Rajah Rabbit)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;
@@ -29,7 +30,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStan
             Item.consumable = true;
             Item.width = 32;
             Item.height = 32;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
         public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
@@ -48,7 +49,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStan
         {
             if (Main.rand.NextBool(10))
             {
-                AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
                 modPlayer.PMLDevArmor();
             }
         }
@@ -61,8 +62,8 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStan
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<RajahRabbitsSashOfVengeance>()));
 
-            List<int> lootTable = [ModContent.ItemType<BaneOfTheBunny>(), ModContent.ItemType<Bunzooka>(), ModContent.ItemType<RoyalScepter>(), ModContent.ItemType<ThePunisher>(), ModContent.ItemType<RabbitcopterEars>()];
-            if (ModSupport.GetMod("ThoriumMod") != null)
+            List<int> lootTable = [ModContent.ItemType<BaneOfTheBunny>(), ModContent.ItemType<Bunzooka>(), ModContent.ItemType<RoyalScepter>(), ModContent.ItemType<ThePunisher>(), ModContent.ItemType<RabbitcopterWings>()];
+            if (ModLoader.TryGetMod("ThoriumMod", out _))
                 lootTable.Add(ModContent.ItemType<CarrotFarmer>());
 
             itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable.ToArray()));

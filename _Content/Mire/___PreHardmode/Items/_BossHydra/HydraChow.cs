@@ -1,9 +1,10 @@
-using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -13,8 +14,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra
 {
-    public class HydraChow : BaseAAItem
+    public class HydraChow : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.BossSummon";
 
         public override void SetStaticDefaults()
         {

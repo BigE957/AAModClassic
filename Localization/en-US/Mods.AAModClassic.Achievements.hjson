@@ -1,0 +1,248 @@
+//Boss Kills
+MushroomMonarchKilled: {
+	FriendlyName: Big Fungus
+	Description: Overthrow the Mushroom Monarch, a fungal abomination whose title is self-imposed.
+}
+
+FeudalFungusKilled: {
+	FriendlyName: Glowing Feud
+	Description: Strike down the Feudal Fungus, a fungal abomination with a mean streak.
+}
+
+GripsOfChaosKilled: {
+	FriendlyName: Out of Hands
+	Description: Defeat the Grips of Chaos, disastrous beings with five fingers and a thirst for chaos.
+}
+
+TruffleToadKilled: {
+	FriendlyName: There She Croaked
+	Description: Take down the Truffle Toad, a surprisingly agile fungal beast.
+}
+
+BroodmotherKilled: {
+	FriendlyName: Ashes to Ashes
+	Description: Defeat the The Broodmother, a dragon born of molten fury.
+}
+
+HydraKilled: {
+	FriendlyName: Three Heads Think Better Than One
+	Description: Decapitate the Hydra, a wrathful beast that dwells in the Mire.
+}
+
+DesertDjinnKilled: {
+	FriendlyName: No Wishes?
+	Description: Outflex the the Desert Djinn, a muscular genie who roams the sandy wastes.
+}
+
+SubzeroSerpentKilled: {
+	FriendlyName: Below Zero
+	Description: Defrost the Subzero Serpent, a glistening snake that lives in the frigid tundra.
+}
+
+SagittariusKilled: {
+	FriendlyName: Feeling Hoarse
+	Description: Destroy Sagittarius, a machine-turned-trojan by the dark will of the Void.
+}
+
+AkumaKilled: {
+	FriendlyName: How To Slay A Dragon
+	Description: Reduce Akuma, the Draconian Demon into nothing but ash.
+}
+
+AnubisKilled: {
+	FriendlyName: Your First Step
+	Description: Best the legendscribe Anubis in a friendly spar.
+}
+
+BiomiteCoreKilled: {
+	FriendlyName: Core of the World
+	Description: Endure the Biomite Core, the Keep's defense and training mechanism.
+}
+
+AthenaKilled: {
+	FriendlyName: Divine Discipline
+	Description: Defeat the shrewd Seraph Queen, Athena.
+}
+
+ChampionRajahKilled: {
+	FriendlyName: Who Framed Rajah Rabbit?
+	Description: Make peace with the Pouncing Punisher himself and inherit his title of 'Champion of the Innocent'.
+}
+
+EquinoxWormsKilled: {
+	FriendlyName: See You Next Year!
+	Description: Pass the Equinox Worms' trial, earning their blessing.
+}
+
+GreedKilled: {
+	FriendlyName: Non-Fungible Totem
+	Description: Defeat the avaricious Greed and make his Hoard your own.
+}
+
+InfinityZeroKilled: {
+	FriendlyName: Fatal Error
+	Description: Obliterate Infinity Zero, leaving none of Oblivion's toys unscathed.
+}
+
+PreEquinoxAncientsKilled: {
+	FriendlyName: The Awakening
+	Description: Defeat Anubis, Athena and Greed at their strongest.
+}
+
+RajahKilled: {
+	FriendlyName: Rabbit Season
+	Description: Confront Rajah Rabbit and live to tell the tale.
+}
+
+ShenDoragonKilled: {
+	FriendlyName: Through the Mire and the Flames
+	Description: Decimate Shen Doragon, putting an end to his eternal chaos.
+}
+
+SiegeMechsKilled: {
+	FriendlyName: Warheap Arsenal
+	Description: Defeat the three nocturnal fulgarian menaces: the Retriever, Ortrus X, and Raider Ultima.
+}
+
+SistersOfDiscordKilled: {
+	FriendlyName: Discordian Intervention
+	Description: Send the Sisters of Discord crying back to their papas.
+}
+
+SoulOfCthulhuKilled: {
+	FriendlyName: Shipwrecked
+	Description: Exorcise the Soul of Cthulhu, preventing its cosmic calamity from enveloping the world.
+}
+
+StormingSiege: {
+	FriendlyName: Geargrind Assault
+	Description: Do battle against the Retriever, Orthrus X, and Raider Ultima simultaneously and emerge victorious.
+}
+
+TechnoTruffleKilled: {
+	FriendlyName: The Fourth Metal Ingredient
+	Description: Destroy the fulgarian fungal mistake, Techno Truffle
+}
+
+YamataKilled: {
+	FriendlyName: Talking Heads
+	Description: Sever the many heads of Yamata, the Dread Nightmare.
+}
+
+ZeroKilled: {
+	FriendlyName: System.DivideByZeroException
+	Description: Decommision the Void's primary Zero Unit, and earn the ire of a far greater threat...
+}
+
+AllBossesKilled: {
+	FriendlyName: Who's Awakening Now?
+	Description: Defeat every boss in Ancients Awakened: Classic.
+}
+
+//Ores Mined
+ChaosOreMined: {
+	FriendlyName: Chaos Control
+	Description: Mine Incinerite or Abyssium, chaotic ore found deep underground.
+}
+
+CelestialOreMined: {
+	FriendlyName: Quintessence
+	Description: Mine Radium or Darkmatter, cosmic ore formed in deep space.
+}
+
+TierThreeChaosOreMined: {
+	FriendlyName: Antediluvian
+	Description: Mine Daybreak Incinerite or Eventide Abyssium, primeval forms of previous ore found within the Inferno and Mire respectively.
+}
+
+ApocalyptiteOreMined: {
+	FriendlyName: Apocalypse Now
+	Description: Mine Apocalyptite, an unstable ore formed by the destructive energies of the Void.
+}
+
+//Items Obtained
+LuckyArmorEquipped: {
+	FriendlyName: Yu-Farm-Lot
+	Description: Equip a full set of the Stripeman's Lucky armor, allowing you to mine, fish and farm like no other.
+}
+
+MadnessPotionCrafted: {
+	FriendlyName: Forbidden Alchemy
+	Description: Trade a Madness Mushroom with the Mushman for some Rainbow mushroom, and craft a potion with them.
+}
+
+ChaosCrafted: {
+	FriendlyName: Nemesis
+	Description: Obtain Chaos, forged from the finest blades of fury and wrath.
+}
+
+TerratoolCrafted: {
+	FriendlyName: Omni-Tool
+	Description: Obtain a Terratool, and wield a pickaxe, axe, and hammer all in a single tool.
+}
+
+DragonstrideBootsCrafted: {
+	FriendlyName: Boots of the Dragon
+	Description: Craft the Dragonstride Boots, and dash across the world with draconic speed!
+}
+
+TimecallerCrafted: {
+	FriendlyName: Time Lord
+	Description: Craft the Timecaller, allowing you to bend time as you please.
+}
+
+EXSoulCrafted: {
+	FriendlyName: Going to the Extreme
+	Description: Upgrade a weapon with an EX Soul. Now you're cooking with gas!
+}
+
+InfinityCoreCrafted: {
+	FriendlyName: Divinity's Forge
+	Description: Complete the Infinity Core, the ultimate crafting station.
+}
+
+//Discovery
+RedMushroomDiscovered: {
+	FriendlyName: Groovy Grotto
+	Description: Encounter a Red Mushroom biome, or make one yourself with some Spore Bags.
+}
+
+TerrariumDiscovered: {
+	FriendlyName: Heart of Nature
+	Description: Discover the Terrarium, a crystaline globe radiating with natural energies.
+}
+
+VoidDiscovered: {
+	FriendlyName: Inanis
+	Description: Discover the Void, an ominous cluster of islands hanging in low orbit.
+}
+
+MushmanEncountered: {
+	FriendlyName: Now there are two of them!
+	Description: Build a house in the Red Mushroom biome and have the Mushman move in.
+}
+
+AcropolisDiscovered: {
+	FriendlyName: Mount Olympus
+	Description: Discover the Acropolis, home of the Seraph Queen and her kin.
+}
+
+HoardDiscovered: {
+	FriendlyName: Hoarding: Buried Alive
+	Description: Discover the Cavern of the Worm King, a hoard filled with stolen treasures.
+}
+
+GreedChestOpened: {
+	FriendlyName: Kleptomaniac
+	Description: Swipe a key from the Hoard's Scavengers, and unlock one of their King's precious chests.
+}
+
+EquinoxAltarDiscovered: {
+	FriendlyName: Equilibrium
+	Description: Find the Equinox Altar high above the clouds.
+}
+
+AllBiomesDiscovered: {
+	FriendlyName: Around the World
+	Description: Discover each of the biomes and structures in Ancients Awakened: Classic.
+}

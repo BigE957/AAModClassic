@@ -1,7 +1,10 @@
 using System;
 using AAModClassic._Content.Bunny.Projectiles;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -9,34 +12,34 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons
 {
-    public class ThePunisher_Holdout : ModProjectile
+    public class ThePunisher_Holdout : FlailHoldout
     {
-		public override void SetStaticDefaults()
+        public override string ChainTexturePath => Texture + "_Chain";
+
+        public override float DrawRotationOffset => MathHelper.PiOver2;
+
+        public override float LaunchSpeed => 16;
+
+        public override int LaunchTimeLimit => 21;
+
+        public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("The Punisher");
-		}
+            // DisplayName.SetDefault("The Punisher");
+
+            base.SetStaticDefaults();
+        }
+
         public override void SetDefaults()
         {
             Projectile.width = 26;
             Projectile.height = 26;
-            Projectile.aiStyle = -1;
-            Projectile.friendly = true;
-            Projectile.penetrate = -1;
-            Projectile.alpha = 255;
-            Projectile.DamageType = DamageClass.Melee;
-        }
-
-        public override bool OnTileCollide(Vector2 oldVelocity)
-        {
-            Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
-            Projectile.ai[0] = 1f;
-            Projectile.netUpdate = true;
-            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
-            return false;
+            //Projectile.alpha = 255;
+            base.SetDefaults();
         }
 
         public override void AI()
         {
+            /*
             Vector2 vector54 = Main.player[Projectile.owner].Center - Projectile.Center;
             Projectile.rotation = vector54.ToRotation() - 1.57f;
             if (Main.player[Projectile.owner].dead)
@@ -88,42 +91,45 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons
                     return;
                 }
             }
+            */
+
+            base.AI();
+
+            /*
             Projectile.ai[1] += 1f;
             if (Projectile.ai[1] > 5f)
             {
                 Projectile.alpha = 0;
             }
-            if ((int)Projectile.ai[1] % 4 == 0 && Projectile.owner == Main.myPlayer)
+            */
+
+            if (CurrentAIState != AIState.Ricochet && CurrentAIState != AIState.Dropping)
             {
-                Vector2 vector55 = vector54 * -1f;
-                vector55.Normalize();
-                vector55 *= Main.rand.Next(45, 65) * 0.1f;
-                vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866, default);
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector55.X * 2, vector55.Y * 2, ModContent.ProjectileType<RajahCarrot>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
-                return;
+                if ((CurrentAIState == AIState.Spinning ? SpinningStateTimer : StateTimer) % 4 == 0 && Projectile.owner == Main.myPlayer)
+                {
+                    Vector2 vector55 = Projectile.DirectionFrom(Main.player[Projectile.owner].Center) * Main.rand.Next(45, 65) * 0.1f;
+                    vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866, default);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vector55 * (CurrentAIState == AIState.Spinning ? 1 : 2), ModContent.ProjectileType<RajahCarrot>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
+                }
             }
         }
 
         public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
 		{
-            if (Projectile.ai[0] != 1)
+            if (CurrentAIState == AIState.LaunchingForward)
             {
-                Projectile.ai[1] = 1f;
+                CurrentAIState = AIState.Retracting;
+                StateTimer = 0f;
+                Projectile.netUpdate = true;
+                Projectile.velocity *= 0.3f;
             }
-            Projectile.ai[0] = 1;
-        }
-		
-		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
-        {
-            width = 30;
-            height = 30;
-            return true;
         }
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture = Mod.GetTexture("Chains/Punisher_Chain");
- 
+            return base.PreDraw(ref lightColor);
+            /*
+            Texture2D texture = Chain.Value;
             Vector2 position = Projectile.Center;
             Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;
             Rectangle? sourceRectangle = new Rectangle?();
@@ -151,7 +157,9 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons
                     Main.spriteBatch.Draw(texture, position - Main.screenPosition, sourceRectangle, Color.White, rotation, origin, 1f, SpriteEffects.None, 0.0f);
                 }
             }
+            
             return true;
+            */
         }
     }
 }

@@ -1,7 +1,8 @@
-using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
+﻿using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -9,15 +10,17 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard
 {
-    public class GripsOfChaosTreasureBag : BaseAAItem
+    public class GripsOfChaosTreasureBag : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
 		public override void SetStaticDefaults()
 		{
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Grips of Chaos)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;
             ItemID.Sets.BossBag[Type] = true;
+            ItemID.Sets.PreHardmodeLikeBossBag[Type] = true;
         }
 
 		public override void SetDefaults()
@@ -27,7 +30,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Bos
 			Item.width = 36;
 			Item.height = 32;
 			Item.rare = ItemRarityID.Cyan;
-			Item.expert = true; Item.expertOnly = true;
+			Item.expert = true;
         }
 
         public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
@@ -45,7 +48,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Bos
 		{
             if (Main.rand.NextBool(10))
             {
-                AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
                 modPlayer.PHMDevArmor();
             }
 		}

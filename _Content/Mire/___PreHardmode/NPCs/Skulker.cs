@@ -1,6 +1,7 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities.Interfaces;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -9,7 +10,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
 {
 
-    public class Skulker : ModNPC
+    public class Skulker : ModNPC, IBannerNPC
     {
 
         public override void SetStaticDefaults()
@@ -24,7 +25,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             NPC.lifeMax = 140;
             NPC.damage = 8;
             NPC.defense = 14;
-            NPC.value = Item.sellPrice(0, 0, 6, 45);
+            NPC.value = Item.buyPrice(0, 0, 6, 45);
             NPC.aiStyle = -1;
             NPC.width = 56;
             NPC.height = 28;
@@ -36,7 +37,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             NPC.noTileCollide = false;
             NPC.knockBackResist = .2f;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<MireSkulkerBanner>();
+			//BannerItem = ModContent.ItemType<SkulkerBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
         private bool Shell = false;

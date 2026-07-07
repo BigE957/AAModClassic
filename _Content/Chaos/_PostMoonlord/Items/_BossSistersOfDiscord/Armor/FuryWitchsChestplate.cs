@@ -1,4 +1,7 @@
 ﻿using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,16 +9,13 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor
 {
 	[AutoloadEquip(EquipType.Body)]
-	class FuryWitchsChestplate : BaseAAItem
+	class FuryWitchsChestplate : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.FuryWitchs";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Fury Witch's Robe");
-            /* Tooltip.SetDefault(@"10% increased magic/minion damage 
-10% increased critical strike chance
-+2 Max Minions
-+30 Max Life
-A robe enchanted with the firey spirit of a supreme dragon acolyte"); */
+            /* Tooltip.SetDefault(@"'A robe enchanted with the firey spirit of a supreme dragon acolyte'"); */
             ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false;
         }
 
@@ -23,31 +23,18 @@ A robe enchanted with the firey spirit of a supreme dragon acolyte"); */
 		{
 			Item.width = 14;
 			Item.height = 14;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 12;
+            Item.rare = ModContent.RarityType<PostEquinoxRarity>();
             Item.value = 300000;
             Item.defense = 26;
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
+        public override void RegisterEquipEffects()
         {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity12;
-                }
-            }
+            damageMap.GetCritChance(DamageClass.Magic) += 10;
+            damageMap.GetDamage(DamageClass.Magic) += .1f;
+            damageMap.GetDamage(DamageClass.Summon) += .1f;
+            AddEffect(new MaxMinionSlotEffect(2));
+            AddEffect(new MaxLifeEffect(30));
         }
-
-        public override void UpdateEquip(Player player)
-        {
-            player.GetCritChance(DamageClass.Magic) += 10;
-            player.GetDamage(DamageClass.Magic) += .1f;
-            player.GetDamage(DamageClass.Summon) += .1f;
-            player.maxMinions += 2;
-            player.statLifeMax2 += 30;
-
-        }
-	}
+    }
 }

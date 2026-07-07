@@ -1,3 +1,5 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,12 +8,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class DemonLeggings : BaseAAItem
+	public class DemonLeggings : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Demon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Demon Hoofs");
-            // Tooltip.SetDefault("9% Increased Minion damage");
         }
 
         public override void SetDefaults()
@@ -23,9 +25,9 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
             Item.defense = 6;
         }
 
-        public override void UpdateEquip(Player player)
+        public override void RegisterEquipEffects()
         {
-            player.GetDamage(DamageClass.Summon) += 0.09f;
+            damageMap.GetDamage(DamageClass.Summon) += 0.09f;
         }
 
         public override void AddRecipes()
@@ -35,16 +37,7 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
                 recipe.AddIngredient(ModContent.ItemType<ImpLeggings>(), 1);
                 recipe.AddIngredient(ItemID.Bone, 6);
                 recipe.AddIngredient(ItemID.JungleSpores, 6);
-                recipe.AddIngredient(ItemID.ShadowScale, 6);
-                recipe.AddTile(TileID.DemonAltar);
-                recipe.Register();
-            }
-            {
-                Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(ModContent.ItemType<ImpLeggings>(), 1);
-                recipe.AddIngredient(ItemID.Bone, 6);
-                recipe.AddIngredient(ItemID.JungleSpores, 6);
-                recipe.AddIngredient(ItemID.TissueSample, 6);
+                recipe.AddRecipeGroup("AAModClassic:EvilMaterial", 6);
                 recipe.AddTile(TileID.DemonAltar);
                 recipe.Register();
             }

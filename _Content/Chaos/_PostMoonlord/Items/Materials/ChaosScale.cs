@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -11,8 +12,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Materials
 {
-    public class ChaosScale : BaseAAItem
+    public class ChaosScale : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public short customGlowMask = 0;
         public override void SetStaticDefaults()
         {
@@ -23,7 +25,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Materials
                 {
                     glowMasks[i] = TextureAssets.GlowMask[i];
                 }
-                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow");
+                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>(Texture + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
                 TextureAssets.GlowMask = glowMasks;
             }
@@ -32,16 +34,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Materials
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 6));
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity14;
-                }
-            }
-        }
+        
 
         // TODO -- Velocity Y smaller, post NewItem?
         public override void SetDefaults()

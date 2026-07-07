@@ -1,12 +1,15 @@
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Accessories
 {
-    public class HeartOfSorrow: BaseAAItem
+    public class HeartOfSorrow : EquipAbstract, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Heart of Sorrow");
@@ -23,47 +26,23 @@ Below 1/3 of your maximum life, your melee and ranged attacks inflict Moonraze i
             Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.defense = 3;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipEffects()
         {
-            player.GetDamage(DamageClass.Melee) +=  1 - player.statLife / player.statLifeMax;
-            player.GetDamage(DamageClass.Ranged) += 1 - player.statLife / player.statLifeMax;
-            player.GetModPlayer<AAPlayer>().HeartS = true;
-
-            if (player.statLife > player.statLifeMax * (2/3))
-            {
-                player.moveSpeed += 1f;
-            }
+            AddEffect<HeartOfSorrowDamageBoostEffect>();
+            AddEffect<HeartOfSorrowMovementSpeedEffect>();
+            AddEffect<HeartOfSorrowDebuffEffect>();
         }
 
-        public override bool CanEquipAccessory(Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */
+        public override bool CanAccessoryBeEquippedWith(Item equippedItem, Item incomingItem, Player player)
         {
-            if (slot < 10)
-            {
-                int maxAccessoryIndex = 5 + player.extraAccessorySlots;
-                for (int i = 3; i < 3 + maxAccessoryIndex; i++)
-                {
-                    if (slot != i && player.armor[i].type == ModContent.ItemType<HeartOfPassion>())
-                    {
-                        return false;
-                    }
-                }
-            }
+            if (equippedItem.type == ModContent.ItemType<HeartOfPassion>())
+                return false;
+
             return true;
-        }
-
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity12;
-                }
-            }
         }
     }
 }

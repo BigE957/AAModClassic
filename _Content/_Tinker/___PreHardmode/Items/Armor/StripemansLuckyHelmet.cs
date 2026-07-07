@@ -1,16 +1,20 @@
+﻿using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
+using AAModClassic._Content.Bunny._PostMoonlord.Items.Armor;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using Microsoft.Xna.Framework;
-using AAModClassic.Items.Potions;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class StripemansLuckyHelmet : BaseAAItem
+	public class StripemansLuckyHelmet : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.StripemansLucky";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Stripeman's Lucky Hat");
@@ -29,54 +33,22 @@ You can put any sand into the Extractinator"); */
             Item.value = Item.sellPrice(0, 0, 0, 1);
             Item.defense = 1;
 		}
-		
-		public override void UpdateEquip(Player player)
-        {
-            player.GetModPlayer<AAPlayer>().StripeManOre = true;
-			
-			player.autoPaint = true;
-			player.pickSpeed -= 1f;
-			player.tileSpeed += 3f;
-			player.wallSpeed += 3f;
-			if (player.whoAmI == Main.myPlayer)
-			{
-				Player.tileRangeX += 6;
-				Player.tileRangeY += 4;
-			}
-
-			Vector2 vector = new Vector2(player.width / 2 + 8 * player.direction, 2f);
-			if (player.fullRotation != 0f)
-			{
-				vector = vector.RotatedBy(player.fullRotation, player.fullRotationOrigin);
-			}
-			int i = (int)(player.position.X + vector.X) / 16;
-			int j = (int)(player.position.Y + vector.Y) / 16;
-			Lighting.AddLight(i, j, 0.92f, 0.8f, 0.65f);
-        }
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ModContent.ItemType<StripemansLuckyChestplate>() && legs.type == ModContent.ItemType<StripemansLuckyLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
-			string active = "";
-			if (player.GetModPlayer<AAPlayer>().StripeCrasyLucky)
-			{
-				active = Language.GetTextValue("Mods.AAModClassic.Common.StripeManSetBonusactive");
-			}
-			else
-			{
-				active = Language.GetTextValue("Mods.AAModClassic.Common.StripeManSetBonusunactive");
-			}
-			
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.StripeManSetBonus1") + active  + "\n" + Language.GetTextValue("Mods.AAModClassic.Common.StripeManSetBonus2");
+        public override void RegisterEquipEffects()
+        {
+			AddEffect<ArchitectGizmoPackEffect>();
+            AddEffect(new EmitLightFromPlayerEffect(0.92f, 0.8f, 0.65f));
+			AddEffect<StripemansLuckyHelmetEffect>();
 
-			player.GetModPlayer<AAPlayer>().StripeManSet = true;
-		}
+			AddSetEffect<StripemansLuckyHelmetSetEffect>();
+        }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MiningHelmet, 1);

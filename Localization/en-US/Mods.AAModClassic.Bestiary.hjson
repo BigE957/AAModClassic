@@ -1,0 +1,196 @@
+LargeLetter: A strange character from an unknown land. They travel constantly in an attempt to track down odds and ends from across the lands. They make a business of selling these strange artifacts and costumes.
+OlympianDragon: As chaotic forces enthralled their brethen, some dragons sought refuge with the Seraph Queen. In exchange for her protection, they now serve at her beck and call.
+Athena: Queen of the Seraphs who never quits. Utterly livid at those she refers to as 'earthwalkers' for tormenting her followers.
+SeraphGuard: More magically astute then their lesser brethren, these royal guards protect their queen 'till the bitter end.
+Seraph: Pitiful fowls of the Acropolis, barely able to keep their magic and temper in check. They cry out for Athena at the slightest inconvenience.
+OlympianAthena: Pushed to her limits after the fall of the Moon Lord, this goddess bares her fangs to show all that a Varian never quits.
+AthenaClone: A prime display of the goddess' magical prowess. Brought to life, these clouded clones mimic her every wake.
+BunnyBrawler: If a rabbit eats enough, it'll grow. This is how many things work in the world.
+RabbitcopterSoldier: Some rabbits can fly. They've just got to spin their ears around. Maybe one day, you could do it too...
+RabidRabbit: Many of the worlds rabbits look up to the Pouncing Punisher. Some dedicated few take it upon themselves to join his quest for justice.
+RajahRabbit: A fabled warrior who many simply refer to as the 'Pouncing Punisher'. He keeps the law of fairness stable by protecting those who are too weak to protect themselves. Few have seen him and survived to tell the tale...
+RoyalRabbit: An ordinary rabbit under royal protection. Those who slaughter the innocent shall be punished...
+
+ChampionRajahRabbit: {
+	1: Champion of the Innocent, The Pouncing Punisher, Earth’s Greatest Defender. These are some of the many titles attributed to Rajah Rabbit in his time of servitude to rabbitkind. Even if extremely subjective, the placement of this world’s inhabitants in a hierarchy of power is something many have spent long slaving over. Among the cream of the crop, Rajah stands proud, with only a few being able to compare to the totality of his strength.
+	2: With the advent of modern historical and archeological studies, the cataloguing of extinct fauna is at the forefront of many a scholar’s workload. Due to the ever-evolving nature of Terraria’s ecosystems, be it natural long spanning shifts in biodiversity or abrupt cataclysmic events such as the appearance of the various infections plaguing the landscape, species of all shapes and sizes have come and gone. Among these, the Titanus Lepus is especially notable for its sheer size and strength.
+	3: While commonly believed to be fully extinct, only one member of their kind has been spotted, with all of these reports being extremely sporadic in frequency and location. The creature seems to hold its closest relative, the common rabbit, in extremely high regard, with all accounts being directly tied to interaction with these woodland critters. Seeming to desire nothing more but the protection of leporidae, Rajah Rabbit, the moniker it seems to have imposed upon itself, has been reported utilizing an arsenal of weaponry demanding extreme mastery over various fighting styles, all presumably forged by it. Along with its reported extraordinary strength, agility and stealth, Titanis Lepus has earned itself nigh mythological status, with most considering reports of its existence to be nothing more than simple tall tales, or fables.
+	4: It was not until the arrival of the Fulgarians that stories of Titanis Lepus were taken seriously. A race of scientists and scholars, this civilization set their eyes on the stars, with their studies ending up with the lands of Terraria as their main point of interest. Their thirst for knowledge was one that could not be quenched, however, merely snuffing out those who got too curious. Such is the case of the creation of the Pantheon, a process not as seamless as one might assume. The byproduct created by each failed attempt would lead to the creation of something beyond what they could’ve planned for, far beyond the capabilities of their equipment. With this Amalgamation roaming the lands, consuming all in its path, the Fulgurians could do nothing to stop it. Were it not for the princess’ compassion to the beast’s most defenseless victims, it’s most likely she would’ve not survived to tell the tales of Rajah’s heroism. This would be the first time he’d be her saviour, but it would not be the last. In the most dire of situations, the Pouncing Punisher’s might was the one thing that could have saved her from Umbra’s grasp. Through a fight clearly tipped in his favour, he’d push the Corruption’s ancient back to the shadows where she belonged, accomplishing his life’s work once more; protecting the innocent.
+	5: Protecting the innocent. This is what this has all been for. By defeating him in a spar and not taking his life, you’ve proven there’s somebody deserving of his title. Somebody stronger than him, who can accomplish his goals. Life is a gift many are quick to not appreciate fully. A gift many are willing to squander and intently destroy. Heroes that have dedicated centuries or millenia defending what is right. Humble townsfolk, providing their community with what they’re able to scrounge up. Critters of all shapes and sizes, all the way down to the humble rabbit. Their safety is in your hands now. He knows you won’t disappoint.
+}
+
+SupremeRabbitcopterSoldier: ...
+SupremeRabidRabbit: ...
+SupremeBunnyBrawler: ...
+GripOfChaosInferno: Chaotic hand of a higher being, devolved to fodder. This infernal grip scorches all in its path.
+GripOfChaosMire: Chaotic hand of a higher being, devolved to fodder. This abyssal grip drowns all in its path.
+ChaosDragon: Once having called the skies their home, these dragons descended to the surface after after chaotic forces appeared in the world. Now, they serve only to spread chaos further.
+AwakenedShenDoragon: While Shen Doragon is fierce, he is not the true form of the Chaos Wizard. This monster is nothing more than a glimpse of the sheer, overwhelming power of a soul on the verge of becoming whole.
+AbyssGrip: Resummoned by the Emperor of Chaos, the choking poisons of the Abyssal Grip return to enact his anarchic rule.
+BlazeGrip: Resummoned by the Emperor of Chaos, the flaming fury of the Infernal Grip returns to enact his anarchic rule.
+ShenDoragon: Despite how opposite the Mire and Inferno are, they are firmly connected by the root. Once torn asunder by a legendary hero, the Doomsayer is reborn, and thirsty for vengeance...
+FuryAshe: After being called by the reawakening of the Emperor of Chaos, this peppy sorcerer will do anything to protect her father.
+Shenling: Once regal Lungs, these serpentine terrors have been overloaded with foul discordian magicks.
+WrathHaruka: After being called by the reawakening of the Emperor of Chaos, this angsty assassin will do anything to protect her father.
+Ashe: The obnoxious daughter of Akuma and the Broodmother, trained in the arts of arcane magic and conjuration, is ready to find her next opponent.
+AshenDragon: By fusing a Wyvern's soul with her pyromancy, Ashe is able to summon these fearsome phantasms.
+Haruka: The angsty daughter of Yamata and the Hydra, trained in the arts of martial combat, is ready to find her next opponent.
+Samurai: The Samurai hails from a village destroyed by an ancient demon, now hoping to see it felled.
+DesertDjinn: An arrogant spirit wandering the desert, hoping to one day find a worthy opponent.
+Djinn: The difference between a Genie and a Djinn is that one grants wishes and the other grants death.
+Legendscribe: The god of the afterlife, the judge of souls, and the main protagonist of the award-winning autobiography 'The Life and Epic Adventures of Anubis the Wonder Dog!'.
+Anubis: There's a lot about myself that I could tell you, but I'm not gonna.
+EyeSentry: A deadly construct that'll scorch any under its gaze with Runefire.
+HorusHawk: Gifted to Anubis by a close friend, these agile avians now heed his call.
+Locust: Summoned from the Land of the Dead, these lowly pests spit upon the enemies of the Legendscribe.
+Scarab: Summoned from the Land of the Dead, these humble insects rush down the Legendscribe's foes.
+Uraeus: Summoned from the Land of the Dead, these regal serpents bare their fangs to aid in the Legendscribe's test.
+ForsakenAnubis: I already told you some things better stay locked away for good, now quit asking.
+CursedLocust: Bloated by the accursed souls of those judged, these locusts begrudgingly aid in the Forsaken Judge's test.
+CursedScarab: Empowered by the accursed souls of those judged, these scarabs will fierecely aid in the Forsaken Judge's test.
+HorusSentry: Empowered by the accursed souls of those judged, this construct now spells doom for any that fall beneath its gaze.
+Naddaha: A water spirit summoned from the Land of the Dead, she'll happily lend her voice to aid in the Forsaken Judge's test.
+FeudalFungus: Digging deep below the mushrooms of the surface reveals an entirely different species of fungus, though it is not dissimilar in temper. If one were to dig even deeper, what other new fungi could they find...?
+GlowingMushling: One of the Feudal Fungus’ dangerously luminescent servants.
+LuminousAccordyceps: ...
+TruffleToad: A large, perhaps too large frog that makes its home within the glowing caverns down below.
+TinyToad: These vile spawn are ready to defend their mother from the moment they're born. Nothing in this world is more disgusting than this beast.
+GoblinSlayer: A knight equipped with steel armor. Despite having poor equipment, he can sense any Goblin approaching, and he can slice, dice and make them goblin fries in no time!
+FatPixie: Despite its Hallowed origin, this creature’s existence is nothing short of unholy.
+Lucifer: The demonic proprietor of the Pit, and Hell's unjust ruler. He seems blissfully unaware that construction of his arena stopped years ago.
+Greed: This large stone worm, adorned with a wide variety of minerals, fiercely defends his cave and the treasure within it with all his might.
+OreConstruct: Animated by Greed's otherworldy power, these constructs inherit the power of the ores their built from, aiding further in the defence of their king.
+Scavenger: Worms who bring offerings to their King are rewarded with a portion of his power, evolving from lowly Diggers to only slightly more high-ranking Scavengers.
+WormKingGreed: Now reawakened after the fall of the Moon Lord, this avaricious worm can finally reveal his long forgotten strength; bending the fabric of space with a power not of our dimension.
+SingularityOfDesire: At his full strength, Greed is capable of conjuring these interdimensional portals. Whatever lies on the otherside wants you dead just as much as he does!
+Broodmini: In the Broodmother's rage, she calls upon her newborn to fight against trespassers. Tragically, this makes her a hypocrite.
+Broodmother: The mother of many dragons that watches over the brood within the Inferno. The destruction of the eggs draws this primal parent to come destroy whoever dares lay a hand on them.
+InfernalSlime: By incoorporating the Infero's molten rock into themselves, these slimes become more durable.
+DragonClaw: Lesser offspring of the Grips of Chaos. They roam the night searching for their next brawl.
+FlameBrute: A fierce tempered hunk of living magma, its refusal to cool down makes it quite the nuisance.
+Singemander: Singemanders boast a devestating bite force, capable of tearing through the scaled hides of their prey.
+Wyrmling: Despite being only juveniles, these Wyrm-spawn are relentless in their search for a fresh meal.
+BlazePhoenix: Pure manifestations of the Inferno's latent fury that seek out they might reduce to ash.
+InfernalGhoul: Ghouls scorched by the Inferno drool searing hot magma from their mouths, incinerating anyone who gets too close.
+ChaoticDawn: Hexed by the latent fury of the Inferno, this weapon slashes about and cuts down any it comes across.
+InfernoMimic: Mimics that are claimed by the Inferno swell with immense strength. They can be birthed from ordinary chests by force.
+Wyrm: Far more formidble than their offspring, dault Wyrms prefer to lurk in caverns, letting their meals come to them.
+MagmaSwimmer: A peculiar creature which manages to thrive in the Inferno's scalding hot waters.
+Akuma: The brazen billowing dragon of the Inferno. Akuma boldly places his power infront of all that dare enter his domain.
+OniAkuma: The draconian demon was never truly out of options. Tapping into his purest form, he shall show that his fire hungers for absolution.
+BlazeClaw: As the Ancient of Fury stirs from its slumber, nearby dragon claws take on a new and terrible form.
+AncientLung: It is unknown why such a glorious serpent is so exceedingly shrewd.
+MadnessBat: Many moons ago, Chaos seeped into the land. Its deep-rooted evil influences any willing to listen, driving them to madness.
+MadnessSlime: This slime absorbed a deep, slumbering miasma from the Chaos of the land. While slimes can't really go insane, it's the thought that counts.
+Hydra: This monsterous mangy swamplurker feasts on the algae pods common to the Mire. Unfortunately, breaking them seems to rouse its attention.
+MurkySlime: By absorbing plant-matter from the Mire's ecosystem, these murky divers blend in with their new environment.
+HydraClaw: Lesser offspring of the Mire Grip. They roam the night searching for their next brawl.
+Mosster: The Mire's resident juggernaut who'll beat down any foe in its path.
+Newt: This exceptionally lethal lizard should be avoided by any means necessary, should you want to traverse the Mire without being bombarded by explosive sludge.
+Skulker: These armor clad crustaceans are wary of anything out of the ordinary. They'll try to get rid of anything that interupts their peaceful sleep.
+Kappa: Lurking in the seas, these miscreants try and get the drop on any unsuspecting passersby.
+Toxitoad: These toads are attracted to anything shiny, and gobble up any coins they come across. However, its come with the consequence of some horrible indigestion.
+ShadowGhoul: Ghouls soaked in the Mire's waters spew a deadly poison from their mouths, quickly sapping the life of those they encounter.
+ChaoticTwilight: Bewitched by the wrath that permates the Mire, this weapon swipes about trying to silence anything that moves.
+MireMimic: Mimics that succumb to the Mire grow with newfound power. They can be birthed from ordinary chests by force.
+Miresquito: The reminder one gets for forgetting to put on bug spray before venturing into the Mire.
+FogAngler: Dominating the Mire's stagnant waters, nothing that enters can escape these terrors' jaws.
+MireSoul: While the six false heads of Yamata may not be a real part of his body, they are still very much alive. When he first began his rampage, he chose the six worshipers who believed in him most, devoured them, and bound them to his will.
+YamataNoOrochi: Driven to the point of madness, the serpent tapped into his primal form and shall stop at nothing to destroy all who dares oppose him.
+Yamata: The monsterous loud-mouthed menace of the Mire. Yamata stops at nothing to eliminate what he considers a threat to him.
+AbyssClaw: As the Ancient of Wrath stirs from its slumber, nearby hydra claws take on a new and terrible form.
+Soulsucker: No amount of moth balls will ward off this bloated menace.
+Lovecraftian: Descended from an otherworldly lord, the Lovecraftian offers insight on all things unknowable.
+Mushling: One of the Mushroom Monarch’s fiercely loyal subjects.
+MushroomMonarch: A common forest mushroom left to its own devices for far too long. Now it seeks only to spread its hive.
+Mushman: This fungal friend favours his field in pharmaceutics to fix you up a fill of his foremost formulas.
+FungusFrog: These creatures only started appearing after you defeated the Truffle Toad. Was this nothing more than a coincidence, or are the mushroom biomes communicating with each other...?
+Mushbug: This aggressive species of ladybug is quite at home near red mushrooms, living symbiotically with the fungus.
+MushroomCrab: These crustaceans scuttle about in red mushroom fields, heavily infested by the fungal spores.
+MushroomJelly: Some fish exposed to red mushroom spores become a curious mushroom-jellyfish hybrid.
+MushroomZombie: The fungus controlling the minds of these zombies wants only one thing: brains! This is very convenient for the zombie.
+ElderDragon: Dragons were once a common sight in the highest reaches. After chaotic forces appeared in the world, many dragons sought out its power. Now, only the elders remain in the skies.
+IceCrystal: A chunk of ice enchanted by the Subzero Serpent to aid in hunting its prey.
+SubzeroSerpent: The alpha and elder of the tundra's snake species, this slithery sidewinder can spit burning frost directly from its mouth.
+SnowSerpent: A rather unfortunate evolution for a reptile.
+Daybringer: Ancient beings known as the Equinox roam the cosmos. After finding a mate, they settle around a planet, and begin the eternal dance of day and night.
+Equiprobe: Spawned from a union of day and night, these probes aid their Equinox in offering a trial of combat for their planet's inhabitants to overcome.
+Nightcrawler: While the Equinox lack natural predators, there is one force they all fear; the Chaos Storm. Legend has it a pair of Equinox alongside a great hero managed to seal the storm away.
+Sunwatcher: Spawned from female Equinox, these probes harvest energy from light for their Equinox.
+Nightguard: Spawned from a male Equinox, these probes harvest energy from darkmatter for their Equinox.
+PurityCrawler: An insect-like creature adept at sapping nutrients from the crystaline structure of the Terrarium.
+PuritySphere: A biological single-celled organism formed by the latent natural energy of the Terrarium.
+PuritySquid: A cephalopod that's taken a liking to the thick, water-like air found within the Terrarium.
+PurityWeaver: Worms that gorge upon the Terrarium's energies are eventually transformed into its protectors.
+UnityProbe: A probe spawned by the Heart of Nature to defend it from threats as it works to reform.
+UnityWatcher: A probe spawned by the Heart of Nature to defend it from threats as it works to reform.
+TerraSquire: Juvenile defenders of the Heart of Nature, these squires may eventually ascend into a superior form with age.
+TerraDeadshot: A sniper who'll execute any who trespass within the Terrarium.
+TerraKnight: A berserker who'll cut down any who tresspass within the Terrarium.
+TerraWizard: An arch wizard who's spells will smite any who tresspass within the Terrarium.
+TerraWarlock: A conjurist who's minions will hunt down any who tresspass within the Terrarium.
+TerraCrawler: Conjured by a Terra Warlock to hunt down any who tresspass within the Terrarium.
+TerraSphere: Conjured by a Terra Warlock to hunt down any who tresspass within the Terrarium.
+TerraSquid: Conjured by a Terra Warlock to hunt down any who tresspass within the Terrarium.
+TerraWeaver: Conjured by a Terra Warlock to hunt down any who tresspass within the Terrarium.
+Sagittarius: A former construct of the Fulgarians, made for recon. It lost half of its body thanks to the Void’s malicious interference, yet still has enough horsepower to trample any enemy.
+ShadowScout: Durable drones that only seemed to appear after the destruction of a higher-ranking construct. Are they looking for something?
+StoneSearcher: A recon drone of unknown origin. Its shell is a durable type of augite naitive only to the Void.
+ZeroDeactivated: You cannot stop what is to come.
+VoidScout: A combat-oriented drone with a high-powered laser. It seems to be searching for something... Or maybe, someone...
+Vortex: Unusally designed drone with blades that tear through bone like butter. If they spin fast enough, they can create their own gravitational pull.
+ZeroProtocol: Man is not divine. Life is not divine. The ground, the seas, the skies, none of them are divine. And despite how I am not such, I am not divine. No hands here can touch the heavens. But my eyes pierce their firmament; I see through the wall, and straight through you. Leave me alone.
+Zero: Cast-iron blood. Wire tendons. Diodes and anodes and grease. A hand to give the Father. God makes world eats world eats God, a cyclical nil ouroboros whose hunger is only sated by itself.
+ZeroGenocideCannon: It was designed for slaughter.
+ZeroGigataser: It was designed to render targets immobile.
+ZeroNeutralizer: It was designed for execution.
+ZeroNovaFocus: It was designed to disorient armies.
+ZeroOmegaVolley: It was designed for supressive fire.
+ZeroRealityCannon: It was designed for precision.
+ZeroRiftShredder: It was designed to deny access.
+ZeroVoidStar: It was designed to group up targets.
+Null: System.NullReferenceException: Object reference not set to an instance of an object.
+Searcher: High-power recon drones that seem to have been drawn by recent disturbances. It's looking for you.
+OrthrusX: The protector of the Parthenan, specifically designed for defense. Out of all three S.I.E.G.E. Units it is by far the sturdiest, with its only weak points being its heads.
+RaiderUltima: The Fulgarian's prime attack android, designed for offense against any potential threats lurking within the Void.
+Raidmini: Sub-Units of Raider Ultima are designed to draw fire away from the Raider Ultima as it prepares its attacks.
+Retriever: The only device the Fulgarians have been able to send into the Void that's returned. It gathers objects for research, while evading anything dangerous.
+CyberClaw: Deployed after the Retriever went offline to gather research samples from across the surface of Terraria.
+BiomiteCore: The once-abandoned protector of the Lost Keep, this machine has harnessed the power of the world itself to defend its home.
+TechnoTruffle: An invention most perplexing. Perhaps its inventors should've asked themselves if they should.
+TruffleProbe: Upon being deployed, the Techno Truffle was so frightenly unpopular that it kept getting destroyed. This was their solution.
+Truffling: Techno Truffle's self-propagation protocols lead to it unleashing swarms of these menaces.
+DimensionDiver: Hailing from another dimension, these divers open fire on any potential threats.
+RiftShark: The rift at the Sunken Ship's heart has polluted the nearby seas, causing the marine life to take on new, eldritch forms.
+Cthulhu: Now reawakened, Cthulhu seeks only to begin its war anew, and wreath the world in cosmic calamity.
+DeityBrain: Shaped to resemble the brain Cthulhu lost centuries ago, Lu'Kthu shall lead Cthulhu's legions to victory in its new war.
+EyeOfAzathoth: Gifted to Cthulhu by an even greater deity, these eyes are commanded by Lu'Kthu to aid its master.
+DeityEater: Shaped to resemble the spine Cthulhu lost centuries ago, Crom Cruach shall devour any who dare impede its master's mission.
+DeityEye: Shaped to resemble the eye Cthulhu lost centuries ago, Cyaegha shall burn away all who stand against its master with the Flames of Agony.
+DeityLeviathan: Shaped to resemble a sea-beast Cthulhu witnessed in its slumber, Vile-Oct is the most powerful of Cthulhu's servants; unleashed on those who might pose a threat.
+DeityRose: Shaped as a mockery of the Dryads' guardian, Ei'lor can ensnare any deemed a threat by its master.
+ShadowUrchin: Deployed by Ei'lor, these urchins aid in supressing any potential threats to its master.
+DeitySkull: Shaped to resemble the bones Cthulhu lost centuries ago, Rhan-Tegoth shall crush any who dare to oppose its master's will.
+DeityDragon: The Wyverns and Dragons were the first to face the twin deities. As the first to fall, many of their souls were turned into mindless servants while the rest were left to linger in the atmosphere.
+RiftVision: Living curses wrought forth by a powerful deity, they offer only doom to those who witness them.
+SoulOfCthulhu: After being defeated centuries ago, Cthulhu's soul fled to the seas, causing a great typhoon which swallowed up a nearby ship. Its soul became bound to the vessel's wheel where it began its slumber.
+TrenchSquid: The rift at the Sunken Ship's heart has polluted the nearby seas; causing the marine life to take on new, eldritch forms.
+LovecraftianShadow: Be careful when treading into uncharted waters. In this long abandoned wreckage, you may encounter something far worse than even death itself.
+
+InfinityZero: {
+	1: Creation implies destruction. Change implies stillness. On itself it all turns and ebbs, twisting its own knife ever further through its own chest. A machine made to cultivate is a machine made to consume, for even in an infinity of infinities, none of it could ever matter.
+	2:
+		'''
+		Sheep-ridden country
+		They pretend that's it's so free
+		Falling, they're bleeding
+		Never really question why they die
+		Swim in the lake of death
+		Eaten by crocodiles
+		So
+		No-one saw, no-one cares
+		'''
+}
+
+InfinityZeroChainedZero: You thought there was just one of them?
+Oblivion: As if I’d tell you anything about myself.

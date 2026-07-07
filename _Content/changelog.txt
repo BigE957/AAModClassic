@@ -18,23 +18,119 @@ base
 -removed blocks made redundant by the previous change
 -subzero serpent now properly chooses a random segment sprite to use per segment
 -fixed subzero serpents head being fully opaque
+-removed the old ones charms hotkey effect as it is redundant
+-tiershifted dynaskull ore; it now generates post-evils. every recipe that previously used sturdy fossil now uses 2x dynaskull ore
+--1.4 tiershifted fossil ore, this keeps everything in line with intended balance
+-tiershifted hero relics; all aa items that use broken hero swords now use hero relics (except for the true copper and tin shortswords). they can no longer be crafted from broken hero swords, and now drop from frankensteins and swamp things after all 3 mechs have been defeated. a main.newtext message has been added to telegraph this
+--ditto but for broken hero sword
+-turned the material transmuter into a vanity tile named the ritual altar. certain functionality from it has been distributed across shimmer and the chlorophyte extractinator
+--nearly all of its recipes were made redundant by time. some recipes without any analogue have been removed as the intent with this change was closer to vanilla parity rather than preserving the function of the tile. if you really want to convert cursed flames to ichor, install fargos
+-perfect chaos chain no longer draws its flail head 1000 times per frame
+-renamed "Dragon's Breath" (the prehm inferno tome) to "Blazing Breath" to prevent confusion with The Dragon's Breath (the hardmode yoyo)
+-the mushman is now locked to hardmode, as strange plants were made hardmode exclusive in 1.4
+-grand healing and mana potions are now crafted in groups of 4
+-order solution is now only sold by the samurai in hardmode
+-renamed the yoyo Vortex to The Vortex
+-rajah rabbits weapons no longer lag one frame behind him
+-slightly adjusted the positioning of rajahs held weapons
+-rajahs world-famous thorium exclusive attack, the FIRST ever modded boss attack to be incorporated when another mod is installed, finally functions
+-black hole beater bullets are shot much closer to the muzzle of the gun instead of from the air
+-black hole beater no longer fires one of its bullets without a rotation
+-all trophy sprites have been updated to match 1.4.1s trophy resprites, and to fix sheeting errors. as well, several trophy item or tile sprites have been adjusted to better match the boss you obtain them from or the placed trophy (a notable example of this is zero protocols trophy)
+-the oni akuma and yamata no orochi masks are now obtainable
+-the regular shen doragon mask is now obtainable in expert mode
+-champion rajahs minions are now properly capped
+-rajah rabbit no longer randomly fails to summon minions
+-all of the rajah attacks that were meant to line up with his weapon-holding hand now properly do so
+-shen doragons wings no longer have improper coloring in certain areas
+-shen doragons shoulder facing away from the screen is now correctly colored
+-akuma now drops year of the dragon
+-terra armor mage set armor ability now uses a debuff for its cooldown instead of an invisible counter
+-fixed an obscure bug where any swung weapons that dealt ranged damage would not proc the terra armor ranged set bonus
+-terra armor melee armor set adjusted; now spawns orbs on all hits instead of just npc contact damage. orbs home in on the closest enemy instead of whoever hit the player
+-terra armor melee armor set bonus now properly gives you melee speed instead of movement speed
+-most if not all set bonus and armor item descriptions have been rewritten for clarity and accuracy
+-cleaned up many mistakes with armor pieces and armor set bonuses listing effects but not giving them, having unlisted effects, giving duplicate effects, ect
+-multiple dev items can no longer drop from one boss bag
+-the book of the law now uses frozen shield instead of paladin shield and frozen turtle shell
+-added recipes for abyssal yari, Amenomuraku, and doom portal (thanks diamondwalker!)
+-removed a single pixel from the wyrm third body segment sprite (thanks diamondwalker!)
+-changed abyssal eruption, midnight wrath, sevenshot, throwing crescent,  to use any ancient crafting station
+-throwing crescent now only requires 1 light disk
+-removed two recipes between gibs' femur and skullshot. you can instead shimmer between them
+-all EX items now use acs as their crafting station
+-dapper acorn is now craftable
+-grand resource potions and the big one are now crafted at a bottle
+-madness bow and madness knives are now made at a work bench like the rest of their set
+-dragonfire and hydratoxin darts are now made at a mythril anvil like all other darts
+-yamata now drops abyssal yari, abyssal bomb, abyssal eruption, darksprayer, falling twilight, sevenshot, and throwing crescent
+-dragon fang is now made with terragrim instead of arkhalis
+-the celestial crafting stations are now made at a hardmode anvil
+-zero now drops black hole beater, neutralizer, and nova focus
+-zero no longer drops FUCKING STALLIONS STAR????????????????????????????
+-abyssal wrath dye no longer uses bottled water in its recipe (thanks diamondwalker!) 
+-bottled water is now placed before the material in dye recipes
+-the active version of code magnet is now crafted instead of the inactive one
+-ancients awakened items no longner set the unused Item.expertOnly value
+-many accessories now work properly or display all of their info:
+--rajah rabbits cloak now inherits the 40% speed from its predecesessor and lists its max run speed increase 
+--night clothes now properly lists how it gives the effects of master ninja gear, doubles your movement speed when it isnt night, no longer makes melee swords inflict venom/moonraze, and how it gives immunity to hydra toxin and clueless
+--duality now mentions the claws of chaos effect, no longer gives 8 more defense than intended, and actually makes your attacks inflict discordian inferno in unreleased
+--heart of passion now inflicts its debuffs on all summon and mage damage instead of just broadsword-type weapons and mentions how it inflicts dragonfire instead of on fire
+--heart of sorrow now inflicts its debuffs on all melee and ranged dmage instead of just broadsword-type weapons
+--dragonstride boots now gives the effect of tiger climbing gear instead of climbing claws/shoe spikes, actually lets you walk on lava, and lists how it lets you walk on honey
+--talisman of desire now properly notes how its bonus damage cap is 40%, removed its custom buff due to an internal rework to how it and its predecessor work
+--old one charm now properly boosts summon damage by 22% during the ooa, instead of by 10%
+--dark void now lists how it gives the effect of night owl potion and follows the same description style as moon stone
+--dark void now lists a formerly hidden and unmentioned effect and follows the same description style as sun stone
+--equinox lists the two hidden effects from its componenets and follows the same description style as celestial stone
+--page of the rune book and book of runes no longer disable their effect if visibility is set to off because why would you want that
+--cursed eye of the soul binder now properly gives 31% damage during ooa
+-disabled aleister book and the book of law
+--this item was very broken in the original mod, and fixing it will take a while. aleister book WILL return...
+-many armor sets and armor pieces now list the correct effects
+--chaos helmet melee set bonus no longer specifies *swung* weapons inflict a debuff since it made all melee attacks deal debuff, no longer gives effect of magma stone, now always inflicts both debuffs on melee proj hit
+--chaos helmet ranged set bonus now always inflicts both debuffs instead of either or, like its sister effect
+--hopping hoodlum leggings now actually gives you 9% melee crit chance and 10% movement speed instead of the listed 8% and 8% respectively
+--goblin slayers set no longer states it decreases goblin damage when it does not in fact do that
+--terra helmet ranged no longer provides an extra 24% ranged damage and now actually provides hunter potion effect
+--
+--theres a bunch more but i either didnt notice them or didnt add them cuz i gotta hurry up fuuuuck
+-everything that reduces mana cost now works properly 
+-titanium face paint gives the 1.4 armor set effect instead of shadow dodge
+-hallowed face paint gives the 1.4 armor set effect instead of just minion slots
+-oroboros items are now properly named ouroboros
+-the player no longer takes 20% damage from goblins at all times
+-all chaos slayer set pieces share flavor text instead of some arbitrarily saying hood instead of armor
+-all flavor text descriptions for armor and accessories are now surrounded with 'these things'
+-fixed misspelling of fiery in ashe armor desc
 -
 
 removed
 -re-added the parthenan[sic], a fulgarian research site located near the left ocean
+-re-added the siege units, a set of three mech boss alts based on the hydra, the broodmother, and the grips of chaos
 -the red mushroom biome once again generates in the world with redone generation for stability
 -added the ancient hydra trishot
 -re-added the dragon serpent necklace
+-re-added fulgurite ore, and all of its items
+-dragon serpent necklance and storm charm are now crafted at a tinkers workshop
+-holo cape now properly gives 15% damage resistance instead of 115% damage resistance
+-storm charm now gives the shield of cthulhu dash instead of the tabi dash
 -
 
 unreleased
+-reworked anubis
+-unfortunately added techno truffle
 -added infinity zero with all of their created drops
 -added the soul of cthulhu with all of their created drops
 -added the lost keep, with a new miniboss: biolite core
---note: all three of these bosses suck. keep this note in the final changelog, do not get ppls hopes up
--added the lost ship. not to be confused with the lost sea, this ship is located inside one of the oceans
+--note: all of these bosses suck. keep this note in the final changelog, do not get ppls hopes up
+-added the lost ship. not to be confused with the lost sea, this ship is located at the jungle-side ocean
 -finished constructing the pit. no other pit content has been added, as none was ever completed
 -after all ancients have been defeated, a foul and malodorous smog overtakes the oceans to herald the soul of cthulhu
+-fixed one of athenas minions instantly despawning. the olympian dragon has been let loose
+-added the heart of anarchy, a tinker for the hearts of passion and sorrow based on real plans
+-madness truffle no longer gives you infinite flight
 -
 
 unofficial
@@ -44,6 +140,45 @@ unofficial
 -an entirely nonfunctional subzero serpent attack has been reinterpreted and restored
 --subzero serpent will periodically summon an ice crystal above the players head, up to a cap of 3. this crystal shoots projectiles towards the player. it kinda sucks but it gives u smth to hit while shes offscreen so it feels fine
 --this is our interpretation of the code, with very minor polish added. since it was never complete and extremely buggy, it's hard to tell what decisions were or were not intentional. consequently, we have put this change under unofficial
+-the legendscribe is now much larger, and now boasts a custom ui instead of janky town npc options
+-rajah rabbit has recived some tweaks and fixes
+--rajah rabbit now holds the cotton cane when summoning minions
+--rajah rabbit no longer swaps which hands he holds his weapons with when changing directions because thats weird 
+--champion rajah now holds out the equivalent ex weapon for weapons he used in his original fight
+--champion rajahs trail when stomping now lasts the duration of the stomp instead of for one frame at the start of it
+-added boss masks for ashe, haruka, champ rajah, and zero protocol
+-unreleased: added boss masks for infinity zero, soul of cthulhu, and cosmic calamity
+-several aspects of the zero protocol fight are now properly centered
+-venom sprays venom projectiles dust is now properly centered on the projectile instead of offset down and to the right
+-abyssal bombs bomb projectiles are now properly sized and the explosion is properly centered
+-fixed a bug where abyssal bomb never fired its alt shot
+-abyssal bombs bombs no longer spawn dust in the top left of the world
+-terra armor summoner set crystal projectiles no longer attempt to home onto nothing, causing them to fly off to the right
+-terra armor summoner set crystal projectiles no longer deal melee daamge
+-terra armor summoner set crytal no longer idles slightly higher and to the left than intended
+-THIS STUPID FUCKING CRYSTAL
+-terra armor summoner set crystal now tilts when moving in their idle above player modes
+-terra armor explosion effect is now centered
+-terra armor ranged set bullets now ignore gravity, making them hit their target much more often
+-terra armor summoner set crystal now has an associated buff
+-restored an unused dev set bag for planterror!
+-the large letter can no longer move in if the world is not in hardmode as he has no fucking point to do this
+-athena (and all adjacent fools) now tilts slightly when moving (thanks diamondwalker!)
+-awakened athena and awakened greed are now properly locked behind awakened anubis (thanks diamondwalker!)
+-improved the previously virtually invisible chaos ember rain effect that plays at the rising sun pagoda and rising moon lake post-ancients pre-shen (thanks diamondwalker!)
+-the chaos ember rain effect now plays after akuma and yamata are killed instead of akuma, yamata, and zero (thanks diamondwalker!)
+-code magnet now works from the inventory instead of needing to be held
+-improved and polished how enabling/disabling the code magnet works
+-added the gravitron centrifuge, a post-plantera tool that passively disables space gravity (thanks diamondwalker!)
+-seraph and goddess harp now provide a nonfunctional minion while in the vanity slot
+-seraph and goddess harp can now be equipped at the same time. wearing both will cause the seraph to follow athena
+-dragonstride boots now inherits the obisidan rose effect 
+-champion armor summoner set bonus has a tooltip like the others
+-baron bunny now fires his intended projectiles
+-baron bunnys unused javelin no longer deals damage to the enemy every frame when impaled
+-baron bunnys visuals now work as intended 
+-baron bunny attack speed now properly scales with missing player hp
+-slightly reworked stripemans lucky leggings fishing from enemies mechanic. now immediately reels back lure on contact w enemy, chance to fish up loot is vastly increased
 -
 
 crossmod
@@ -53,4 +188,6 @@ notes
 -this port was based on version 1.0.2.203(TODO: is it?). we have attempted to backport everything from the two patches after this version, but we may have missed some stuff
 -the changelogs for 1.0.3 note that mushmonarch drops his weapons. this is false. we cannot find evidence of this ever actually having been true. i guess we could add it if it was desired, but itd go under unofficial
 -this same changelog states elder dragons had their ai reworked. this is also false, as far as we can tell
+-lots of explosion type projectiles seemed to be offset towards the top left of where they should spawn. this is because these projectiles have a masssive hitbox relative to their sprite. since sprites are naitively drawn from the top left of a hitbox, the sprite appears offset relative to the hitboxs size
+-did u know abyssal yari was full-on unobtainable before this
 -

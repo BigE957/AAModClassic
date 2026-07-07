@@ -40,7 +40,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Tiles.Decoration
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Torch");
 			AddMapEntry(new Color(20, 120, 160), name);
-			DustType = ModContent.DustType<DragonflameDust>(); //TODO: lol?
+			DustType = ModContent.DustType<HydratoxinDust>();
 			RegisterItemDrop(ModContent.ItemType<BogtoxinTorch>());
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[]{ TileID.Torches };
@@ -102,7 +102,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Tiles.Decoration
 			{
 				float x = Utils.RandomInt(ref randSeed, -10, 11) * 0.15f;
 				float y = Utils.RandomInt(ref randSeed, -10, 1) * 0.35f;
-				Main.spriteBatch.Draw(Mod.GetTexture("Glowmasks/HydratoxinTorch_Glow"), new Vector2(i * 16 - (int)Main.screenPosition.X - (width - 16f) / 2f + x, j * 16 - (int)Main.screenPosition.Y + offsetY + y) + zero, new Rectangle(frameX, frameY, width, height), color, 0f, default, 1f, SpriteEffects.None, 0f);
+				Main.spriteBatch.Draw(ModContent.Request<Texture2D>(Texture + "_Glow").Value, new Vector2(i * 16 - (int)Main.screenPosition.X - (width - 16f) / 2f + x, j * 16 - (int)Main.screenPosition.Y + offsetY + y) + zero, new Rectangle(frameX, frameY, width, height), color, 0f, default, 1f, SpriteEffects.None, 0f);
 			}
 		}
 	}

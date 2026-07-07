@@ -1,6 +1,10 @@
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Accessories;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+using AAModClassic.UI.World;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -9,17 +13,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.Shoes)]
-    public class DragonstrideBoots : BaseAAItem
+    public class DragonstrideBoots : EquipAbstract, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dragonstride Boots");
-            /* Tooltip.SetDefault(@"Allows flight, super fast running, and extra mobility on ice
-12% increased movement speed
-Provides the ability to walk on water and lava
-Grants immunity to fire blocks and 10 seconds of immunity to lava
-Grants the ability to swim
-Allows the ability to climb walls"); */
         }
 
         public override void SetDefaults()
@@ -31,18 +30,17 @@ Allows the ability to climb walls"); */
             Item.accessory = true;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipEffects()
         {
-            player.moveSpeed += .12f;
-            player.GetModPlayer<AAPlayer>().MaxMovespeedboost += .12f;
-            player.waterWalk = true;
-            player.fireWalk = true;
-            player.lavaMax += 600;
-            player.spikedBoots = Math.Max(player.spikedBoots, 1);
-            player.rocketBoots = Math.Max(player.rocketBoots, 3);
-            player.accRunSpeed = Math.Max(player.accRunSpeed, 9f);
-            player.iceSkate = true;
-            player.accFlipper = true;
+            AddEffect(new FrostsparkBootsEffect(3, 9f, true));
+            AddEffect(new MovementSpeedEffect(0.12f));
+            AddEffect(new MaxRunSpeedEffect(0.12f));
+            AddEffect(new LavaWadersWaterWalkingEffect(true));
+            AddEffect(new LavaWadersFireImmunityEffect(true, 600));
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddEffect<ObsidianRoseEffect>();
+            AddEffect<FlipperEffect>();
+            AddEffect(new MasterNinjaMobilityEffect(false, true));
         }
 
         public override void AddRecipes()

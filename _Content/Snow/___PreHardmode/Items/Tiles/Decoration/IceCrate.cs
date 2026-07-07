@@ -1,12 +1,14 @@
 ﻿using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.Items.Tiles.Decoration
 {
-    public class IceCrate : BaseAAItem
+    public class IceCrate : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ice Crate");

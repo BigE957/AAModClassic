@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             NPC.chaseable = false;
             NPC.damage = 100;
             NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
-            NPC.DeathSound = Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/YamataRoar");
+            NPC.DeathSound = new SoundStyle("AAModClassic/Sounds/YamataRoar");
             NPC.lifeMax = 45000;
             NPC.width = 46;
             NPC.height = 46;
@@ -385,7 +385,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             {
                 modifiers.TargetDamageMultiplier *= 0.2f;
             }
-            else if (projectile.penetrate > 1) //TODO: Was >= 1 but that seemed too strict
+            else if (projectile.penetrate > 1)
             {
                 modifiers.TargetDamageMultiplier *= 0.2f;
             }

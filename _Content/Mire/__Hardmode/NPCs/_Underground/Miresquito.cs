@@ -1,6 +1,7 @@
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities.Interfaces;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -10,8 +11,8 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
 {
     // Party Zombie is a pretty basic clone of a vanilla NPC. To learn how to further adapt vanilla NPC behaviors, see https://github.com/blushiemagic/tModLoader/wiki/Advanced-Vanilla-Code-Adaption#example-npc-npc-clone-with-modified-projectile-hoplite
-    public class Miresquito : ModNPC
-	{
+    public class Miresquito : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Miresquito");
@@ -34,7 +35,8 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
             NPC.lavaImmune = false;
             NPC.knockBackResist = 0.5f;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<MiresquitoBanner>();
+			//BannerItem = ModContent.ItemType<MiresquitoBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<UndergroundMireBiome>().Type];
         }
 
         public override void FindFrame(int frameHeight)

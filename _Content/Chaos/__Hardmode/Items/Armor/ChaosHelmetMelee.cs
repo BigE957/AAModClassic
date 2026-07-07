@@ -1,20 +1,25 @@
+﻿using AAModClassic._Content.Chaos.__Hardmode.Items.Materials;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Armor;
+using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic._Content.Mire.Buffs;
+using AAModClassic._Content.Snow.___PreHardmode.Items.Armor;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Items.Materials;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Armor;
-using AAModClassic._Content.Snow.___PreHardmode.Items.Armor;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class ChaosHelmetMelee : BaseAAItem
+	public class ChaosHelmetMelee : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Chaos";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Chaos Kabuto");
-			// Tooltip.SetDefault(@"25% increased melee damage");
         }
 
 		public override void SetDefaults()
@@ -26,23 +31,19 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
             Item.defense = 26;
 		}
 
-        public override void UpdateEquip(Player player)
+        public override void RegisterEquipEffects()
         {
-            player.GetDamage(DamageClass.Melee) += .25f;
+            damageMap.GetDamage(DamageClass.Melee) += .25f;
+
+            setDamageMap.GetAttackSpeed(DamageClass.Melee) += .10f;
+            AddSetEffect(new AggroEffect(5));
+            AddSetEffect<DragonsGuardEffect>();
+            AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Melee, (ModContent.BuffType<DragonFire_Buff>(), 180), (ModContent.BuffType<HydraToxin_Buff>(), 180)));
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ModContent.ItemType<ChaosChestplate>() && legs.type == ModContent.ItemType<ChaosLeggings>();
-        }
-
-        public override void UpdateArmorSet(Player player)
-		{
-			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.ChaosKabutoBonus");
-            player.GetAttackSpeed(DamageClass.Melee) += .1f;
-            player.aggro += 4;
-            player.GetModPlayer<AAPlayer>().kindledSet = true;
-            player.GetModPlayer<AAPlayer>().ChaosMe = true;
         }
 
         public override void AddRecipes()

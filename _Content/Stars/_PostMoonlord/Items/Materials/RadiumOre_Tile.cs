@@ -33,6 +33,9 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
 
         public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
         {
+            if (effectOnly || noItem || fail)
+                return;
+
             noItem = true;
             if (Main.dayTime)
                 Item.NewItem(Entity.GetSource_NaturalSpawn(), new Point(i, j).ToWorldCoordinates(), ModContent.ItemType<RadiumOre>());
@@ -45,13 +48,13 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
             Texture2D glowtex;
             if (Main.dayTime)
             {
-                glowtex = Mod.GetTexture("Glowmasks/RadiumOre_Glow");
+                glowtex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
                 BaseDrawing.DrawTileTexture(spriteBatch, TextureAssets.Tile[Type].Value, x, y, true, false, false);
                 BaseDrawing.DrawTileTexture(spriteBatch, glowtex, x, y, true, false, false, null, AAGlobalTile.GetRadiumColorBright);
             }
             else
             {
-                glowtex = Mod.GetTexture("Glowmasks/DarkmatterOre_Glow");
+                glowtex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
                 BaseDrawing.DrawTileTexture(spriteBatch, ModContent.Request<Texture2D>(Texture + "_Darkmatter").Value, x, y, true, false, false);
                 BaseDrawing.DrawTileTexture(spriteBatch, glowtex, x, y, true, false, false, null, AAGlobalTile.GetDarkmatterColorBright);
             }

@@ -1,30 +1,30 @@
+﻿using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.GameContent;
-using Terraria.ModLoader;
+using ReLogic.Content;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
-using AAModClassic.Globals;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic._Content._Tinker.__Hardmode.Items.Accessories
 {
 
     [AutoloadEquip(EquipType.HandsOn, EquipType.HandsOff)]
-    public class DemonGauntlet : BaseAAItem
+    public class DemonGauntlet : EquipAbstract, ILocalizedModType
     {
-        
+        public new string LocalizationCategory => "Items.Accessories";
+        public static Asset<Texture2D> Glowmask;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Demon Gauntlet");
-            /* Tooltip.SetDefault(
-@"Enemies are more likely to target you
-14% Increased Melee Damage
-10% Increased melee speed
-Increased Melee Knockback
-Melee Attacks Inflict a different debuff depending on your world evil
-Inflicts Ichor in Crimson Worlds/Cursed Flame in Corruption worlds"); */
-            
+
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+
         }
 
         public override void SetDefaults()
@@ -39,7 +39,7 @@ Inflicts Ichor in Crimson Worlds/Cursed Flame in Corruption worlds"); */
         }
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Glowmask.Value;
             Color GlowColor = AAColor.CursedInferno;
             if (WorldGen.crimson)
             {
@@ -65,7 +65,7 @@ Inflicts Ichor in Crimson Worlds/Cursed Flame in Corruption worlds"); */
 
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
+            Texture2D texture = Glowmask.Value;
             Texture2D texture2 = TextureAssets.Item[Item.type].Value;
             Color GlowColor = AAColor.CursedInferno;
             if (WorldGen.crimson)
@@ -83,12 +83,16 @@ Inflicts Ichor in Crimson Worlds/Cursed Flame in Corruption worlds"); */
             return false;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipEffects()
         {
-            player.GetDamage(DamageClass.Melee) += 0.14f;
-            player.GetAttackSpeed(DamageClass.Melee) += 0.1f;
-            player.aggro += 5;
-            player.GetModPlayer<AAPlayer>().demonGauntlet = true;
+            damageMap.GetDamage(DamageClass.Melee) += 0.14f;
+            damageMap.GetAttackSpeed(DamageClass.Melee) += 0.1f;
+            damageMap.GetKnockback(DamageClass.Melee) += 2f;
+            AddEffect(new AggroEffect(5));
+            int buff = WorldGen.crimson ? BuffID.Ichor : BuffID.CursedInferno;
+            AddEffect(new AttacksInflictBuffEffect(DamageClass.Melee, (buff, 100)));
+            AddEffect<DemonGauntletEffect>();
+
         }
 
         public override void AddRecipes()
@@ -113,5 +117,34 @@ Inflicts Ichor in Crimson Worlds/Cursed Flame in Corruption worlds"); */
             }
         }
 
+    }
+
+    public class DemonGauntletEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.GetModPlayer<DemonGauntletPlayer>().effect = true;
+        }
+    }
+
+    public class DemonGauntletPlayer : EquipmentEffectPlayer
+    {
+        public override void MeleeEffects(Item item, Rectangle hitbox)
+        {
+            if (effect)
+            {
+                if (Main.rand.NextFloat() < 1f)
+                {
+                    int ThisDust = 170;
+                    if (!WorldGen.crimson)
+                    {
+                        ThisDust = 75;
+                    }
+
+                    Dust dust = Main.dust[Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, ThisDust, 0f, 0f, 46)];
+                    dust.noGravity = true;
+                }
+            }
+        }
     }
 }

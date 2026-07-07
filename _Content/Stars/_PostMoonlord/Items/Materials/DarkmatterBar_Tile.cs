@@ -10,7 +10,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
     {
         public override void SetStaticDefaults()
         {
-            HitSound = SoundID.Dig;
+            HitSound = SoundID.Tink;
 
             Main.tileShine[Type] = 1100;
             Main.tileSolid[Type] = true;

@@ -58,7 +58,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Pets
             Player player = Main.player[Projectile.owner];
             if (Main.myPlayer == Projectile.owner)
             {
-                if (player.GetModPlayer<AAPlayer>().DragonSoul)
+                if (player.GetModPlayer<ZAAPlayer>().DragonSoul)
                 {
                     Projectile.timeLeft = 2;
                 }

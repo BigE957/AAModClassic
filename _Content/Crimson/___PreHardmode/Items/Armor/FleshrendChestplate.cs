@@ -1,4 +1,6 @@
-using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,13 +9,13 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Crimson.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class FleshrendChestplate : BaseAAItem
+	public class FleshrendChestplate : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Fleshrend";
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();
 			// DisplayName.SetDefault("Fleshrend Plate");
-			// Tooltip.SetDefault("7% Increased melee damage");
 		}
 
 		public override void SetDefaults()
@@ -25,12 +27,12 @@ namespace AAModClassic._Content.Crimson.___PreHardmode.Items.Armor
 			Item.defense = 9;
 		}
 
-		public override void UpdateEquip(Player player)
-		{
-			player.GetDamage(DamageClass.Melee) += .07f;
-		}
+        public override void RegisterEquipEffects()
+        {
+            damageMap.GetDamage(DamageClass.Melee) += .07f;
+        }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.CrimsonScalemail, 1);

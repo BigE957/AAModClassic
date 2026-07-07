@@ -1,12 +1,14 @@
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tools
 {
-    public class Mushpick : BaseAAItem
+    public class Mushpick : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Tools";
         public override void SetDefaults()
         {
             Item.damage = 7;

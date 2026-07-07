@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.Chat;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,14 +6,17 @@ using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using AAModClassic.Globals;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Bosses.Rajah;
 using Terraria.Audio;
-using AAModClassic.Items.Potions;
+using AAModClassic._Content._Misc.__Hardmode.Items.Consumables;
+using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit
 {
-    public class PlatinumCarrot : BaseAAItem
+    public class PlatinumCarrot : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.BossSummon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ten Karat Carrot");
@@ -39,14 +42,14 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit
         // We use the CanUseItem hook to prevent a player from using this item while the boss is present in the world.
         public override bool CanUseItem(Player player)
         {
-            return !(NPC.AnyNPCs(ModContent.NPCType<Rajah>()) ||
-                NPC.AnyNPCs(ModContent.NPCType<SupremeRajah>()));
+            return !(NPC.AnyNPCs(ModContent.NPCType<RajahRabbit>()) ||
+                NPC.AnyNPCs(ModContent.NPCType<RajahRabbitA>()));
         }
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             int overrideDirection = Main.rand.NextBool(2) ? -1 : 1;
-            SpawnBoss(player, ModContent.NPCType<Rajah>(), true, player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * overrideDirection, -1200), Language.GetTextValue("Mods.AAModClassic.Common.RajahRabbit"));
+            SpawnBoss(player, ModContent.NPCType<RajahRabbit>(), true, player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * overrideDirection, -1200), Language.GetTextValue("Mods.AAModClassic.Common.RajahRabbit"));
             return true;
         }
 
@@ -101,7 +104,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit
             }
             else
             {
-                AANet.SendNetMessage(AANet.SummonNPCFromClient, (byte)player.whoAmI, (short)bossType, spawnMessage, (int)npcCenter.X, (int)npcCenter.Y, overrideDisplayName, namePlural);
+                AANet.SendNetMessage<SummonNPCFromClient>((byte)player.whoAmI, (short)bossType, spawnMessage, (int)npcCenter.X, (int)npcCenter.Y, overrideDisplayName, namePlural);
             }
         }
     }

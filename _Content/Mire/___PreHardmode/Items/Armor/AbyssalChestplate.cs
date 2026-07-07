@@ -1,5 +1,7 @@
-using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,14 +9,14 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class AbyssalChestplate : BaseAAItem
+	public class AbyssalChestplate : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Abyssal";
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();
 			// DisplayName.SetDefault("Abyssal Gi");
-			/* Tooltip.SetDefault(@"40% increased movement speed
-Weightless as shadow itself"); */
+			/* Tooltip.SetDefault(@"'Weightless as shadow itself'"); */
 		}
 
 		public override void SetDefaults()
@@ -25,10 +27,10 @@ Weightless as shadow itself"); */
 			Item.defense = 7;
 		}
 
-		public override void UpdateEquip(Player player)
-		{
-            player.moveSpeed += .40f;
-		}
+        public override void RegisterEquipEffects()
+        {
+            AddEffect(new MovementSpeedEffect(0.40f));
+        }
 
         public override void AddRecipes()
         {

@@ -1,13 +1,15 @@
-using AAModClassic.Buffs;
+﻿using AAModClassic._Content._Misc._PostMoonlord.Items.Buffs;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons
 {
-    public class Excalihare : BaseAAItem
+    public class Excalihare : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Melee";
 		public override void SetDefaults()
 		{
 			Item.damage = 500;
@@ -25,19 +27,10 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
             Item.scale = 1.1f;
             Item.shootSpeed = 14f;
             Item.knockBack = 6.5f;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
 		}
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity14;
-                }
-            }
-        }
+        
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {

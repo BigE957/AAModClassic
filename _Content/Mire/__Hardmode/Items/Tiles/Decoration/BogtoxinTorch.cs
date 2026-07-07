@@ -1,5 +1,6 @@
-using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -7,8 +8,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Tiles.Decoration
 {
-	public class BogtoxinTorch : BaseAAItem
+	public class BogtoxinTorch : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Bogtoxin Torch");

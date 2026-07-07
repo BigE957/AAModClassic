@@ -1,17 +1,19 @@
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Accessories;
+﻿using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Accessories;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Accessories;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories
 {
-    public class FireFrostMedallion : BaseAAItem
+    public class FireFrostMedallion : EquipAbstract, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Fire Frost Medallion");
-            // Tooltip.SetDefault(@"Doubles your stats during a Blizzard or Sandstorm");
         }
         public override void SetDefaults()
         {
@@ -19,23 +21,13 @@ namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories
             Item.height = 50;
             Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.accessory = true;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
         }
 
-        public override void UpdateAccessory(Player p, bool hideVisual)
+        public override void RegisterEquipEffects()
         {
-			if(p.ZoneSandstorm || p.ZoneRain && p.ZoneSnow)
-			{
-				p.GetDamage(DamageClass.Melee) *= 2f;
-				p.GetDamage(DamageClass.Ranged) *= 2f;
-				p.GetDamage(DamageClass.Magic) *= 2f;
-				p.GetDamage(DamageClass.Summon) *= 2f;
-				p.GetDamage(DamageClass.Throwing) *= 2f;
-				p.GetCritChance(DamageClass.Melee) *= 2;
-				p.GetCritChance(DamageClass.Ranged) *= 2;
-				p.GetCritChance(DamageClass.Magic) += 2;
-				p.GetCritChance(DamageClass.Throwing) *= 2;
-			}
+            AddEffect<SandstormMedallionEffect>();
+            AddEffect<ArcticMedallionEffect>();
         }
 
         public override void AddRecipes()

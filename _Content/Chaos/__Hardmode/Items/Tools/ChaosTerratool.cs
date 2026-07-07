@@ -1,14 +1,16 @@
-using AAModClassic._Content.Inferno.__Hardmode.Items.Tools;
+﻿using AAModClassic._Content.Inferno.__Hardmode.Items.Tools;
 using AAModClassic._Content.Mire.__Hardmode.Items.Tools;
-using AAModClassic.UI;
+using AAModClassic.UI.Tools;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Tools
 {
-    public class ChaosTerratool : BaseAAItem
+    public class ChaosTerratool : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Tools";
         public override void SetDefaults()
         {
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;

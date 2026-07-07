@@ -1,12 +1,14 @@
-using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Weapons
 {
-    public class GoldDigger : BaseAAItem
+    public class GoldDigger : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Magic";
         public override void SetDefaults()
         {
             Item.damage = 40;                        
@@ -38,12 +40,7 @@ Only 1 fountain may be active at once"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient(ItemID.GoldOre, 30);
-            recipe.AddIngredient(ModContent.ItemType<StoneShell>(), 10);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
-            recipe = CreateRecipe(1);
-            recipe.AddIngredient(ItemID.PlatinumOre, 30);
+            recipe.AddRecipeGroup("AAModClassic:GoldOre", 30);
             recipe.AddIngredient(ModContent.ItemType<StoneShell>(), 10);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

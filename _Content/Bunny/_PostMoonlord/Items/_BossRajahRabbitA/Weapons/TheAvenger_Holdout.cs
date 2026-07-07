@@ -1,7 +1,9 @@
-using System;
 using AAModClassic._Content.Bunny.Projectiles;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -9,34 +11,49 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons
 {
-    public class TheAvenger_Holdout : ModProjectile
+    public class TheAvenger_Holdout : FlailHoldout
     {
-		public override void SetStaticDefaults()
+        public override string ChainTexturePath => Texture + "_Chain";
+
+        public override float DrawRotationOffset => MathHelper.PiOver2;
+
+        public override float LaunchSpeed => base.LaunchSpeed;
+
+        public override int LaunchTimeLimit => 24;
+
+        public override float RetractAcceleration => base.RetractAcceleration;
+
+        public override float MaxRetractSpeed => base.MaxRetractSpeed;
+
+        public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("The Avenger");
-		}
+            // DisplayName.SetDefault("The Avenger");
+            base.SetStaticDefaults();
+        }
         public override void SetDefaults()
         {
             Projectile.width = 26;
             Projectile.height = 26;
-            Projectile.aiStyle = -1;
-            Projectile.friendly = true;
-            Projectile.penetrate = -1;
-            Projectile.alpha = 255;
-            Projectile.DamageType = DamageClass.Melee;
-        }
+            //Projectile.alpha = 255;
 
-        public override bool OnTileCollide(Vector2 oldVelocity)
-        {
-            Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
-            Projectile.ai[0] = 1f;
-            Projectile.netUpdate = true;
-            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
-            return false;
+            base.SetDefaults();
         }
 
         public override void AI()
         {
+            base.AI();
+
+            if (CurrentAIState != AIState.Ricochet && CurrentAIState != AIState.Dropping)
+            {
+                if ((CurrentAIState == AIState.Spinning ? SpinningStateTimer : StateTimer) % 4 == 0 && Projectile.owner == Main.myPlayer)
+                {
+                    Vector2 vector55 = Projectile.DirectionFrom(Main.player[Projectile.owner].Center) * Main.rand.Next(45, 65) * 0.1f;
+                    vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866, default);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vector55 * (CurrentAIState == AIState.Spinning ? 1 : 2), ModContent.ProjectileType<RajahCarrotEX>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
+                }
+            }
+
+            /*
             Vector2 vector54 = Main.player[Projectile.owner].Center - Projectile.Center;
             Projectile.rotation = vector54.ToRotation() - 1.57f;
             if (Main.player[Projectile.owner].dead)
@@ -102,18 +119,15 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
                 Main.projectile[p].DamageType = DamageClass.Melee;
                 return;
             }
-        }
-		
-		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
-        {
-            width = 30;
-            height = 30;
-            return true;
+            */
         }
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture = Mod.GetTexture("Chains/PunisherEX_Chain");
+            return base.PreDraw(ref lightColor);
+
+            /*
+            Texture2D texture = Chain.Value;
  
             Vector2 position = Projectile.Center;
             Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;
@@ -143,6 +157,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
                 }
             }
             return true;
+            */
         }
     }
 }

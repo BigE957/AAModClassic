@@ -1,15 +1,17 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons
 {
-    public class DivineWindStone : BaseAAItem
+    public class DivineWindStone : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Summon";
         
         public override void SetStaticDefaults()
         {
@@ -38,27 +40,6 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons
             Item.rare = ItemRarityID.Yellow;
         }
 
-        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
-        {
-            Texture2D texture = Mod.GetTexture("Glowmasks/" + GetType().Name + "_Glow");
-            spriteBatch.Draw
-            (
-                texture,
-                new Vector2
-                (
-                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
-                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
-                ),
-                new Rectangle(0, 0, texture.Width, texture.Height),
-                Color.White,
-                rotation,
-                texture.Size() * 0.5f,
-                scale,
-                SpriteEffects.None,
-                0f
-            );
-        }
-
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             int i = Main.myPlayer;
@@ -80,12 +61,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons
         {
             Recipe recipe;
             recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.SilverBar, 25);
-            recipe.AddIngredient(ModContent.ItemType<GoddessFeather>(), 10);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
-            recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.TungstenBar, 25);
+            recipe.AddRecipeGroup("AAModClassic:SilverBar", 25);
             recipe.AddIngredient(ModContent.ItemType<GoddessFeather>(), 10);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

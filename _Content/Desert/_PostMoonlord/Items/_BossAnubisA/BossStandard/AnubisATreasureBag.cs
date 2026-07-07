@@ -1,6 +1,7 @@
-using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Accessories;
+﻿using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Accessories;
 using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
 using AAModClassic._Content.Desert._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -11,11 +12,12 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.BossStandard
 {
-    public class AnubisATreasureBag : BaseAAItem
+    public class AnubisATreasureBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Forsaken Judge, Anubis)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;
@@ -28,7 +30,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.BossStan
             Item.consumable = true;
             Item.width = 32;
             Item.height = 32;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.rare = ItemRarityID.Red;
         }
 
@@ -48,7 +50,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.BossStan
         {
             if (Main.rand.NextBool(10))
             {
-                AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
                 modPlayer.PMLDevArmor();
             }
         }

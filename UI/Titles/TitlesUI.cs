@@ -1,19 +1,23 @@
-﻿using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
+using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
+using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
+using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
+using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
+using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
+using AAModClassic.Assets;
 using AAModClassic.Globals;
-using AAModClassic.NPCs.Bosses.AH.Ashe;
-using AAModClassic.NPCs.Bosses.Akuma;
-using AAModClassic.NPCs.Bosses.Akuma.Awakened;
-using AAModClassic.NPCs.Bosses.Anubis;
-using AAModClassic.NPCs.Bosses.Anubis.Forsaken;
-using AAModClassic.NPCs.Bosses.Athena;
-using AAModClassic.NPCs.Bosses.Athena.Olympian;
-using AAModClassic.NPCs.Bosses.Equinox;
-using AAModClassic.NPCs.Bosses.Greed;
-using AAModClassic.NPCs.Bosses.Rajah;
-using AAModClassic.NPCs.Bosses.Shen;
-using AAModClassic.NPCs.Bosses.Zero;
-using AAModClassic.NPCs.Bosses.Zero.Protocol;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Graphics;
@@ -35,7 +39,7 @@ namespace AAModClassic.UI.Titles
             if (modPlayer.text)
             {
                 var textLayer = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Inventory"));
-                var computerState = new LegacyGameInterfaceLayer("AAMod: UI",
+                var computerState = new LegacyGameInterfaceLayer("AAModClassic: UI",
                     delegate
                     {
                         BossTitle(modPlayer.BossID);
@@ -562,22 +566,22 @@ namespace AAModClassic.UI.Titles
         {
             IDtoTitle.Add(ModContent.NPCType<Anubis>(), Titles.Anubis);
             IDtoTitle.Add(ModContent.NPCType<Athena>(), Titles.Athena);
-            IDtoTitle.Add(ModContent.NPCType<Greed>(), Titles.Greed);
-            IDtoTitle.Add(ModContent.NPCType<ForsakenAnubis>(), Titles.AnubisF);
+            IDtoTitle.Add(ModContent.NPCType<GreedHead>(), Titles.Greed);
+            IDtoTitle.Add(ModContent.NPCType<AnubisA>(), Titles.AnubisF);
             IDtoTitle.Add(ModContent.NPCType<AthenaA>(), Titles.AthenaA);
-            IDtoTitle.Add(ModContent.NPCType<GreedA>(), Titles.WKGreed);
-            IDtoTitle.Add(ModContent.NPCType<Akuma>(), Titles.Akuma);
-            IDtoTitle.Add(ModContent.NPCType<AkumaA>(), Titles.AkumaA);
+            IDtoTitle.Add(ModContent.NPCType<GreedAHead>(), Titles.WKGreed);
+            IDtoTitle.Add(ModContent.NPCType<AkumaHead>(), Titles.Akuma);
+            IDtoTitle.Add(ModContent.NPCType<AkumaAHead>(), Titles.AkumaA);
             IDtoTitle.Add(ModContent.NPCType<YamataBody>(), Titles.Yamata);
             IDtoTitle.Add(ModContent.NPCType<YamataABody>(), Titles.YamataA);
             IDtoTitle.Add(ModContent.NPCType<Zero>(), Titles.Zero);
-            IDtoTitle.Add(ModContent.NPCType<ZeroProtocol>(), Titles.ZeroP);
-            IDtoTitle.Add(ModContent.NPCType<SupremeRajah>(), Titles.CRajah);
-            IDtoTitle.Add(ModContent.NPCType<Shen>(), Titles.Shen);
-            IDtoTitle.Add(ModContent.NPCType<ShenA>(), Titles.ShenA);
+            IDtoTitle.Add(ModContent.NPCType<ZeroA>(), Titles.ZeroP);
+            IDtoTitle.Add(ModContent.NPCType<RajahRabbitA>(), Titles.CRajah);
+            IDtoTitle.Add(ModContent.NPCType<ShenDoragon>(), Titles.Shen);
+            IDtoTitle.Add(ModContent.NPCType<ShenDoragonA>(), Titles.ShenA);
             IDtoTitle.Add(ModContent.NPCType<Ashe>(), Titles.AsheHaruka);
             IDtoTitle.Add(ModContent.NPCType<DaybringerHead>(), Titles.Equinox);
-            IDtoTitle.Add(ModContent.NPCType<Rajah>(), Titles.Rajah);
+            IDtoTitle.Add(ModContent.NPCType<RajahRabbit>(), Titles.Rajah);
         }
 
         public override bool PreAI(NPC npc)
@@ -628,7 +632,7 @@ namespace AAModClassic.UI.Titles
 
     public class Title : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 1;
@@ -677,7 +681,7 @@ namespace AAModClassic.UI.Titles
 
     public class SistersTitle : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
         {
             Projectile.width = 1;

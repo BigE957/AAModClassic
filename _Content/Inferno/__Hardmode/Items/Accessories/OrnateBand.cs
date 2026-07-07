@@ -1,3 +1,5 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -5,8 +7,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.__Hardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.HandsOn)]
-    public class OrnateBand : BaseAAItem
+    public class OrnateBand : EquipAbstract, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetDefaults()
         {
             Item.width = 30;
@@ -16,15 +19,14 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Accessories
             Item.accessory = true;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipEffects()
         {
-            player.statLifeMax2 += 50;
+            AddEffect(new MaxLifeEffect(50));
         }
 
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ornate Band");
-            // Tooltip.SetDefault("+50 Max Life");
         }
 
     }

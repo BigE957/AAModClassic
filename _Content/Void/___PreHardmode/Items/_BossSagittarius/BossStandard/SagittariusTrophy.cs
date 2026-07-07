@@ -1,11 +1,13 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.BossStandard
 {
-    public class SagittariusTrophy : BaseAAItem
+    public class SagittariusTrophy : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Placeables.Boss.Trophy";
         public static int type;
         
         public override void SetStaticDefaults()

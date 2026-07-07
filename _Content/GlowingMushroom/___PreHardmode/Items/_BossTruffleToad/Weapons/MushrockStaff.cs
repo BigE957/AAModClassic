@@ -1,10 +1,12 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons
 {
-    public class MushrockStaff : BaseAAItem
+    public class MushrockStaff : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Magic";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Mushrock Staff");

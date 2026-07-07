@@ -1,12 +1,13 @@
-using AAModClassic.Items.Walls;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
 {
-    public class EquinoxBrick : BaseAAItem
+    public class EquinoxBrick : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetDefaults()
         {
 
@@ -37,7 +38,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
             recipe.Register();
 
             recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<EquinoxWall>(), 4);
+            recipe.AddIngredient(ModContent.ItemType<EquinoxBrickWall>(), 4);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }

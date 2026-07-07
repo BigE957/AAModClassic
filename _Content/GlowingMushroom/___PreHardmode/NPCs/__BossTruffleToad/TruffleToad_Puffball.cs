@@ -33,7 +33,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.Shroomed_Buff>(), 200);
+            target.AddBuff(ModContent.BuffType<Shroomed_Buff>(), 200);
         }
 
         public override void OnKill(int timeleft)

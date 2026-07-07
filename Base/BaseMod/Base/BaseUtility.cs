@@ -46,21 +46,6 @@ namespace AAModClassic.Base.BaseMod.Base
             }
         }
 
-        public static void AddTooltips(Item item, string[] tooltips)
-        {
-            AddTooltips(item.ModItem, tooltips);
-        }
-
-        public static void AddTooltips(ModItem item, string[] tooltips)
-        {
-            string supertip = "";
-            for (int m = 0; m < tooltips.Length; m++)
-            {
-                supertip += tooltips[m] + (m == tooltips.Length - 1 ? "" : "\n");
-            }
-            // item.Tooltip.SetDefault(supertip);
-        }
-
         public static bool CanHit(Rectangle rect, Rectangle rect2)
         {
             return Collision.CanHit(new Vector2(rect.X, rect.Y), rect.Width, rect.Height, new Vector2(rect2.X, rect2.Y), rect2.Width, rect2.Height);

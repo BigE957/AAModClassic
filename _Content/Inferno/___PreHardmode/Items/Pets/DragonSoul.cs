@@ -3,12 +3,14 @@ using Terraria;
 using Terraria.ID;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Pets
 {
-    public class DragonSoul : BaseAAItem
-	{
-		public override void SetStaticDefaults()
+    public class DragonSoul : BaseAAItem, ILocalizedModType
+    {
+        public new string LocalizationCategory => "Items.Vanity.Pets";
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Dragon Soul");
 			/* Tooltip.SetDefault(@"Summons a Dragon Soul

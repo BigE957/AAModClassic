@@ -1,11 +1,13 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items.Tiles.Decoration
 {
-    public class EventideBrickWall : BaseAAItem
+    public class EventideBrickWall : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetDefaults()
         {
             Item.width = 16;

@@ -4,6 +4,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Audio;
 using Terraria.ModLoader;
+using AAModClassic.Utilities;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityLeviathan
 {
@@ -13,7 +14,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Soul of Cthulhu");
+            // DisplayName.SetDefault("Leviathan Bubble");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()

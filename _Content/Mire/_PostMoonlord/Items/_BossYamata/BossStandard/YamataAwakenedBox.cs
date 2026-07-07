@@ -1,18 +1,20 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using System.Collections.Generic;
 using AAModClassic.Globals;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
-    public class YamataAwakenedBox : BaseAAItem
+    public class YamataAwakenedBox : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Yamata Awakened Music Box");
-            // Tooltip.SetDefault(@"Plays 'Abyssal Nightmare' by Universe");
+            // DisplayName.SetDefault("Music Box (Yamata No Orochi)");
+            // Tooltip.SetDefault(@"Plays 'Abyssal Nightmare' by Tyeski");
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

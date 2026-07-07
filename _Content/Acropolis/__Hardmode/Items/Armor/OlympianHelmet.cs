@@ -1,14 +1,18 @@
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
+using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
-using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class OlympianHelmet : BaseAAItem
+	public class OlympianHelmet : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Olympian";
 		public override void SetStaticDefaults()
 		{
 			base.SetStaticDefaults();
@@ -30,17 +34,13 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items.Armor
 			return body.type == ModContent.ItemType<OlympianChestplate>() && legs.type == ModContent.ItemType<OlympianLeggings>();
         }
 
-        public override void UpdateArmorSet(Player player)
-		{
-			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.OlympianHelmBonus");
-
-			player.GetCritChance(DamageClass.Melee) += 60;
-			player.GetCritChance(DamageClass.Ranged) += 60;
-			player.GetCritChance(DamageClass.Magic) += 60;
-			player.GetCritChance(DamageClass.Throwing) += 60;
+        public override void RegisterEquipEffects()
+        {
+			setDamageMap.GetCritChance(DamageClass.Generic) += 60;
+			AddSetEffect<OlympianHelmetSetDescEffect>();
         }
-		
-		public override void AddRecipes()
+
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.GladiatorHelmet);
@@ -49,4 +49,9 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items.Armor
 			recipe.Register();
 		}
 	}
+
+    public class OlympianHelmetSetDescEffect : EquipmentEffectData
+    {
+
+    }
 }

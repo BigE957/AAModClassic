@@ -1,17 +1,19 @@
+using AAModClassic._Content.Void.Projectiles;
+using AAModClassic._Content.Void.World.Biomes;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
-using AAModClassic.Projectiles.Zero;
 
 namespace AAModClassic._Content.Void.__Hardmode.NPCs
 {
-    public class VoidScout : ModNPC
-	{
+    public class VoidScout : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Void Scout");
@@ -34,8 +36,9 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
 			Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.VoidScoutBanner>();
-		}
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.VoidScoutBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
+        }
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{		
@@ -55,7 +58,7 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
 			bool playerActive = player != null && player.active && !player.dead;
             if (shootAI < 60)
             {
-                BaseAI.LookAt(player.Center, NPC, 3, 0, .1f, false);
+                NPC.rotation = NPC.rotation.AngleTowards(NPC.AngleTo(player.Center), 0.1f);
             }
             if (Main.netMode != NetmodeID.MultiplayerClient && playerActive)
 			{
@@ -63,12 +66,13 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
 				if(shootAI >= 90)
 				{
 					shootAI = 0;
-                    int projType = ModContent.ProjectileType<Neutralizer>();
+                    int projType = ModContent.ProjectileType<DeathBeam>();
 
                     if (Collision.CanHit(NPC.position, NPC.width, NPC.height, player.position, player.width, player.height))
                     {
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, projType, (int)(NPC.damage * 0.25f), 3f, Main.myPlayer, NPC.whoAmI);
-
+                        Projectile p = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), NPC.Center, NPC.rotation.ToRotationVector2() * 4, projType, (int)(NPC.damage * 0.25f), 3f, Main.myPlayer, NPC.whoAmI);
+						p.friendly = false;
+						p.hostile = true;
                     }
                 }
 			}
@@ -97,10 +101,10 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture2D13 = TextureAssets.Npc[NPC.type].Value;
-            Texture2D GlowTex = Mod.GetTexture("Glowmasks/Scout_Glow");
+            Texture2D GlowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
-            BaseDrawing.DrawTexture(spriteBatch, texture2D13, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 4, NPC.frame, drawColor, true);
-            BaseDrawing.DrawTexture(spriteBatch, GlowTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 4, NPC.frame, AAColor.ZeroShield, true);
+            spriteBatch.Draw(texture2D13, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0);
+            spriteBatch.Draw(GlowTex, NPC.Center - screenPos, NPC.frame, AAColor.ZeroShield, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0);
             return false;
         }
     }

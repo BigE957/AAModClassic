@@ -1,9 +1,9 @@
-using AAModClassic._Content.__PLACEHOLDER.ore;
-using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
 using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Accessories;
 using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Tools;
 using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
 using AAModClassic._Content.Hoard._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -11,11 +11,12 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.BossStandard
 {
-    public class GreedATreasureBag : BaseAAItem
+    public class GreedATreasureBag : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Worm King, Greed)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;
@@ -29,7 +30,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.BossStanda
 			Item.width = 32;
 			Item.height = 36;
 			Item.rare = ItemRarityID.Purple;
-			Item.expert = true; Item.expertOnly = true;
+			Item.expert = true;
         }
 
         public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
@@ -47,7 +48,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.BossStanda
         {
             if (Main.rand.NextBool(10))
             {
-                AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
                 modPlayer.PMLDevArmor();
             }
         }

@@ -1,11 +1,13 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons
 {
-    public class BaneOfTheBunny : BaseAAItem
+    public class BaneOfTheBunny : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Melee";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Bane of the Bunny");

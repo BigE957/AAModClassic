@@ -1,11 +1,13 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Consumables
 {
-    public class IndigoSolution : BaseAAItem
+    public class IndigoSolution : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Consumables";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Indigo Solution");
@@ -15,7 +17,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Consumables
 
 		public override void SetDefaults()
 		{
-			Item.shoot = ModContent.ProjectileType<AAModClassic.Projectiles.IndigoSolution>() - ProjectileID.PureSpray;
+			Item.shoot = ModContent.ProjectileType<IndigoSolution_Proj>() - ProjectileID.PureSpray;
 			Item.ammo = AmmoID.Solution;
 			Item.width = 10;
 			Item.height = 12;

@@ -1,4 +1,6 @@
+using AAModClassic.Utilities;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,6 +14,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
             // gregarious is a real term used to describe mushrooms which are close together but not super packed
             // cluster usually refers to shrooms connected by the stem, so get outta here with that bullshit
             Main.npcFrameCount[NPC.type] = 7;
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()
@@ -25,9 +28,19 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
             NPC.knockBackResist = 0f;
             NPC.npcSlots = 0f;
             NPC.aiStyle = -1;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             NPC.dontTakeDamage = true;
             NPC.noTileCollide = false;
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.SurfaceMushroom,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.UndergroundMushroom,
+            ]);
         }
 
         public override void AI()
@@ -71,6 +84,8 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
             {
                 NPC.frame.Y = frameHeight * 4;
             }
+            if (NPC.IsABestiaryIconDummy)
+                NPC.alpha = 0;
         }
 
         public override bool PreKill()

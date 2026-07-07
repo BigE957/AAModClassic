@@ -527,103 +527,6 @@ namespace AAModClassic.Base.BaseMod.Base
             }
         }
 
-        public static bool DrawHeldGun(object sb, int shader, Player drawPlayer, Color lightColor = default(Color), float scale = 0f, float xOffset = 0, float yOffset = 0, bool shakeX = false, bool shakeY = false, float shakeScalarX = 1.0f, float shakeScalarY = 1.0f, Rectangle? frame = null, int frameCount = 1, Texture2D overrideTex = null)
-        {
-            if (ShouldDrawHeldItem(drawPlayer))
-            {
-                Item item = drawPlayer.inventory[drawPlayer.selectedItem];
-                DrawHeldGun(sb, (overrideTex != null ? overrideTex : TextureAssets.Item[item.type].Value), shader, drawPlayer.itemLocation, item, drawPlayer.direction, drawPlayer.itemRotation, scale <= 0f ? item.scale : scale, lightColor, item.color, xOffset, yOffset, shakeX, shakeY, shakeScalarX, shakeScalarY, drawPlayer.gravDir, drawPlayer, frame, frameCount);
-                return false;
-            }
-            return true;
-        }
-
-        /*
-         * Draws a texture in a gun-like fashion. (ie only when used and in the direction of the cursor)
-         * 
-         * direction : the direction the sprite should point. (-1 for left, 1 for right)
-         * itemRotation : Rotation of the item.
-         * itemScale : Scale of the item.
-         * lightColor : color of the light the weapon is at.
-         * wepColor : weapon's tint.
-         * XOffset / YOffset : Offsets the gun's position on the X/Y axis.
-         * shakeX / shakeY : If true, shakes the sprite on the X/Y axis.
-         * shakeScaleX / shakeScaleY : If shakeX/shakeY is true, this scales the amount it shakes by.
-         * gravDir : the direction of gravity.
-         * entity : If drawing for a player or npc, the instance of them. (can be null)
-         */
-        public static void DrawHeldGun(object sb, Texture2D tex, int shader, Vector2 position, Item item, int direction, float itemRotation, float itemScale, Color lightColor = default(Color), Color wepColor = default(Color), float xOffset = 0, float yOffset = 0, bool shakeX = false, bool shakeY = false, float shakeScalarX = 1.0f, float shakeScalarY = 1.0f, float gravDir = 1f, Entity entity = null, Rectangle? frame = null, int frameCount = 1)
-        {
-            if (frame == null) { frame = new Rectangle(0, 0, tex.Width, tex.Height); }
-            if (lightColor == default(Color)) { lightColor = GetLightColor(position); }
-            SpriteEffects spriteEffect = direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-            if (gravDir == -1f) { yOffset *= -1; spriteEffect = spriteEffect | SpriteEffects.FlipVertically; }
-            int type = item.type;
-            int fakeType = type;
-            Vector2 texOrigin = new Vector2((float)(tex.Width / 2), (float)(tex.Height / 2) / frameCount);
-            if (entity is Player)
-            {
-                Player drawPlayer = (Player)entity; yOffset += drawPlayer.gfxOffY;
-            }
-            else
-            if (entity is NPC)
-            {
-                NPC drawNPC = (NPC)entity; yOffset += drawNPC.gfxOffY;
-            }
-            Vector2 rotOrigin = new Vector2(-(float)xOffset, ((float)(tex.Height / 2) / frameCount) - yOffset);
-            if (direction == -1)
-            {
-                rotOrigin = new Vector2((float)(tex.Width + xOffset), ((float)(tex.Height / 2) / frameCount) - yOffset);
-            }
-            Vector2 pos = new Vector2((float)((int)(position.X - Main.screenPosition.X + texOrigin.X)), (float)((int)(position.Y - Main.screenPosition.Y + texOrigin.Y)));
-
-            if (shakeX) { pos.X += shakeScalarX * (Main.rand.Next(-5, 6) / 9f); }
-            if (shakeY) { pos.Y += shakeScalarY * (Main.rand.Next(-5, 6) / 9f); }
-
-            if (sb is List<DrawData>)
-            {
-                DrawData dd = new DrawData(tex, pos, frame, item.GetAlpha(lightColor), itemRotation, rotOrigin, itemScale, spriteEffect, 0);
-                dd.shader = shader;
-                ((List<DrawData>)sb).Add(dd);
-            }
-            else
-            if (sb is SpriteBatch) ((SpriteBatch)sb).Draw(tex, pos, frame, item.GetAlpha(lightColor), itemRotation, rotOrigin, itemScale, spriteEffect, 0);
-
-            if (wepColor != default(Color))
-            {
-                if (sb is List<DrawData>)
-                {
-                    DrawData dd = new DrawData(tex, pos, frame, item.GetColor(wepColor), itemRotation, rotOrigin, itemScale, spriteEffect, 0);
-                    dd.shader = shader;
-                    ((List<DrawData>)sb).Add(dd);
-                }
-                else
-                if (sb is SpriteBatch) ((SpriteBatch)sb).Draw(tex, pos, frame, item.GetColor(wepColor), itemRotation, rotOrigin, itemScale, spriteEffect, 0);
-            }
-            try { if (type != fakeType) { item.type = type; } }
-            catch { }
-        }
-
-        /*
-         * Draws the given texture in a spear-like fashion (texture is oriented at the upper-right corner) using the projectile provided.
-         */
-        public static void DrawProjectileSpear(object sb, Texture2D texture, int shader, Projectile p, Color? overrideColor = null, float offsetX = 0f, float offsetY = 0f)
-        {
-            offsetX += (-texture.Width * 0.5f);
-            Color lightColor = overrideColor != null ? (Color)overrideColor : p.GetAlpha(GetLightColor(Main.player[p.owner].Center));
-            Vector2 origin = new Vector2((float)texture.Width * 0.5f, (float)texture.Height * 0.5f);
-            offsetY -= Main.player[p.owner].gfxOffY;
-            Vector2 offset = BaseUtility.RotateVector(p.Center, p.Center + new Vector2(p.direction == -1 ? offsetX : offsetY, p.direction == 1 ? offsetX : offsetY), p.rotation - 2.355f) - p.Center;
-            if (sb is List<DrawData>)
-            {
-                DrawData dd = new DrawData(texture, p.Center - Main.screenPosition + offset, new Rectangle(0, 0, texture.Width, texture.Height), lightColor, p.rotation, origin, p.scale, p.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
-                dd.shader = shader;
-                ((List<DrawData>)sb).Add(dd);
-            }
-            else
-            if (sb is SpriteBatch) ((SpriteBatch)sb).Draw(texture, p.Center - Main.screenPosition + offset, new Rectangle(0, 0, texture.Width, texture.Height), lightColor, p.rotation, origin, p.scale, p.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
-        }
-
         public static void DrawAura(object sb, Texture2D texture, int shader, Entity codable, float auraPercent, float distanceScalar = 1f, float offsetX = 0f, float offsetY = 0f, Color? overrideColor = null, bool centered = false)
         {
             int frameCount = (codable is NPC ? Main.npcFrameCount[((NPC)codable).type] : 1);
@@ -721,138 +624,26 @@ namespace AAModClassic.Base.BaseMod.Base
             }
         }
 
-        public static void DrawChain(object sb, Texture2D texture, int shader, Vector2 start, Vector2 end, float Jump = 0f, Color? overrideColor = null, float scale = 1f, bool drawEndsUnder = false, Func<Texture2D, Vector2, Vector2, Vector2, Rectangle, Color, float, float, int, bool> OnDrawTex = null)
+        public static void DrawChain(SpriteBatch spriteBatch, Texture2D texture, Vector2 start, Vector2 end, float Jump = 0f, Color? overrideColor = null, float scale = 1f)
         {
-            DrawChain(sb, new Texture2D[] { texture, texture, texture }, shader, start, end, Jump, overrideColor, scale, drawEndsUnder, OnDrawTex);
-        }
-
-        //code written by Yoraiz0r, heavily edited by GroxTheGreat
-        /*
-         * Draws a chain from the start position to the end position using the texture provided.
-         * 
-         * textures : an array of 3 textures: the 'start' texture, the segment texture and the 'end' texture.
-         * start : the starting point of the chain.
-         * end : the ending point of the chain.
-         * Jump : The amount to 'jump' to draw the next piece of chain. If -1, will use the texture height.
-         * overrideColor : the color to draw the chain with.
-         * scale : the scalar of the chain.
-         * drawEndsUnder : If true, the end textures will be drawn under the segment texture. Otherwise, drawn above it.
-         * OnDrawTex : If not null, called when the chain draws a texture. Return true to draw the chain piece, false to not draw it. Parameters, in order:
-         *             1 - The texture.
-         *             2 - The world position of the chain.
-         *             3 - The draw position of the chain.
-         *             4 - The center of the texture.
-         *             5 - The frame of the texture being used.
-         *             6 - The color the texture is being drawn.
-         *             7 - The rotation of the chain.
-         *             8 - The scale of the chain.
-         *             9 - The count of this chain piece in the entire thing. (-1 for start tex, -2 for end tex)
-         */
-        public static void DrawChain(object sb, Texture2D[] textures, int shader, Vector2 start, Vector2 end, float Jump = 0f, Color? overrideColor = null, float scale = 1f, bool drawEndsUnder = false, Func<Texture2D, Vector2, Vector2, Vector2, Rectangle, Color, float, float, int, bool> OnDrawTex = null)
-        {
-            if (Jump <= 0f)
-                Jump = (textures[1].Height - 2f) * scale;
-            Vector2 dir = end - start;
-            dir.Normalize();
-            float length = Vector2.Distance(start, end);
-            float Way = 0f;
-            float rotation = BaseUtility.RotationTo(start, end) - 1.57f;
-            int texID = 0;
-            int maxTextures = textures.Length - 2;
-            int currentChain = 0;
-            int iterCap = 100;
-            int iters = 0;
-
-            while (Way < length)
+            if (Jump <= 0)
             {
-                if (iters++ > iterCap)
-                    break;
-
-                float texWidth;
-                float texHeight;
-                Vector2 texCenter;
-                Vector2 v;
-                Color lightColor;
-                Action drawEnds = () =>
-                {
-                    if (textures[0] != null && Way == 0f)
-                    {
-                        float texWidth2 = (float)textures[0].Width;
-                        float texHeight2 = (float)textures[0].Height;
-                        Vector2 texCenter2 = new Vector2(texWidth2 / 2f, texHeight2 / 2f) * scale;
-                        Vector2 v2 = start - Main.screenPosition + texCenter2;
-                        Color lightColor2 = (overrideColor != null ? (Color)overrideColor : GetLightColor(start + texCenter2));
-                        if (OnDrawTex != null && !OnDrawTex(textures[0], start + texCenter2, v2 - texCenter2, texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, scale, -1)) { }
-                        else
-                        {
-                            if (sb is List<DrawData>)
-                            {
-                                DrawData dd = new DrawData(textures[0], v2 - texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, texCenter2, scale, SpriteEffects.None, 0);
-                                dd.shader = shader;
-                                ((List<DrawData>)sb).Add(dd);
-                            }
-                            else
-                            if (sb is SpriteBatch)
-                            {
-                                ((SpriteBatch)sb).Draw(textures[0], v2 - texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, texCenter2, scale, SpriteEffects.None, 0);
-                            }
-                        }
-                    }
-                    if (textures[maxTextures + 1] != null && Way + Jump >= length)
-                    {
-                        float texWidth2 = (float)textures[maxTextures + 1].Width;
-                        float texHeight2 = (float)textures[maxTextures + 1].Height;
-                        Vector2 texCenter2 = new Vector2(texWidth2 / 2f, texHeight2 / 2f) * scale;
-                        Vector2 v2 = end - Main.screenPosition + texCenter2;
-                        Color lightColor2 = (overrideColor != null ? (Color)overrideColor : GetLightColor(end + texCenter2));
-                        if (OnDrawTex != null && !OnDrawTex(textures[maxTextures + 1], end + texCenter2, v2 - texCenter2, texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, scale, -2)) { }
-                        else
-                        {
-                            if (sb is List<DrawData>)
-                            {
-                                DrawData dd = new DrawData(textures[maxTextures + 1], v2 - texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, texCenter2, scale, SpriteEffects.None, 0);
-                                dd.shader = shader;
-                                ((List<DrawData>)sb).Add(dd);
-                            }
-                            else
-                            if (sb is SpriteBatch)
-                            {
-                                ((SpriteBatch)sb).Draw(textures[maxTextures + 1], v2 - texCenter2, new Rectangle(0, 0, (int)texWidth2, (int)texHeight2), lightColor2, rotation, texCenter2, scale, SpriteEffects.None, 0);
-                            }
-                        }
-                    }
-                };
-                texWidth = (float)textures[1].Width;
-                texHeight = (float)textures[1].Height;
-                texCenter = new Vector2(texWidth / 2f, texHeight / 2f) * scale;
-
-                v = (start + dir * Way) + texCenter;
-                if (InDrawZone(v))
-                {
-                    v -= Main.screenPosition;
-                    if ((Way == 0f || Way + Jump >= length) && drawEndsUnder) { drawEnds(); }
-                    lightColor = (overrideColor != null ? (Color)overrideColor : GetLightColor((start + dir * Way) + texCenter));
-                    texID++;
-                    if (texID >= maxTextures) { texID = 0; }
-                    if (OnDrawTex != null && !OnDrawTex(textures[texID + 1], (start + dir * Way) + texCenter, v - texCenter, texCenter, new Rectangle(0, 0, (int)texWidth, (int)texHeight), lightColor, rotation, scale, currentChain)) { }
-                    else
-                    {
-                        if (sb is List<DrawData>)
-                        {
-                            DrawData dd = new DrawData(textures[texID + 1], v - texCenter, new Rectangle(0, 0, (int)texWidth, (int)texHeight), lightColor, rotation, texCenter, scale, SpriteEffects.None, 0);
-                            dd.shader = shader;
-                            ((List<DrawData>)sb).Add(dd);
-                        }
-                        else
-                        if (sb is SpriteBatch)
-                        {
-                            ((SpriteBatch)sb).Draw(textures[texID + 1], v - texCenter, new Rectangle(0, 0, (int)texWidth, (int)texHeight), lightColor, rotation, texCenter, scale, SpriteEffects.None, 0);
-                        }
-                    }
-                    currentChain++;
-                    if ((Way == 0f || Way + Jump >= length) && !drawEndsUnder) { drawEnds(); }
-                }
-                Way += Jump;
+                if(texture.Height > 2)
+                    Jump = (texture.Height - 2f) * scale;
+                else
+                    Jump = texture.Height * scale;
+            }
+            Vector2 dir = start.DirectionTo(end);
+            float length = Vector2.Distance(start, end);
+            for (float i = 0; i < length; i += (int)Jump)
+            {
+                Vector2 drawPos = start + dir * i;
+                Color c;
+                if (overrideColor.HasValue)
+                    c = overrideColor.Value;
+                else
+                    c = Lighting.GetColor(drawPos.ToTileCoordinates());
+                spriteBatch.Draw(texture, drawPos - Main.screenPosition, null, c, dir.ToRotation() - MathHelper.PiOver2, texture.Size() * 0.5f, scale, 0, 0);
             }
         }
 

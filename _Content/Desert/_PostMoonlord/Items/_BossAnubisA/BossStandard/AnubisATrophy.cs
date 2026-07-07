@@ -1,11 +1,13 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.BossStandard
 {
-    public class AnubisATrophy : BaseAAItem
+    public class AnubisATrophy : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Placeables.Boss.Trophy";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Forsaken Anubis Trophy");

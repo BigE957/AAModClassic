@@ -1,3 +1,4 @@
+using AAModClassic.Assets;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -5,7 +6,7 @@ namespace AAModClassic.Projectiles
 {
     public class DummyExplosionTerra : ModProjectile
     {
-        public override string Texture => "AAModClassic/BlankTex";
+        public override string Texture => AssetDirectory.General.Nothing;
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Dummy Explosion");

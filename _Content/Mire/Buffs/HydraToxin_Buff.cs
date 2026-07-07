@@ -19,7 +19,7 @@ namespace AAModClassic._Content.Mire.Buffs
 
         public override void Update(Player player, ref int buffIndex)
 		{
-            player.GetModPlayer<AAPlayer>().hydraToxin = true;
+            player.GetModPlayer<ZAAPlayer>().hydraToxin = true;
         }
 
 		public override void Update(NPC npc, ref int buffIndex)

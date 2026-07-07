@@ -1,3 +1,5 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,13 +8,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-    public class DemonChestplate : BaseAAItem
+    public class DemonChestplate : EquipAbstract, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Armor.Demon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Demon Garb");
-            /* Tooltip.SetDefault(@"9% Increased Minion damage
-+2 minion slots"); */
         }
 
         public override void SetDefaults()
@@ -24,11 +25,10 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
             Item.defense = 6;
         }
 
-        public override void UpdateEquip(Player player)
+        public override void RegisterEquipEffects()
         {
-            player.GetDamage(DamageClass.Summon) += 0.09f;
-            player.maxMinions += 2;
-
+            damageMap.GetDamage(DamageClass.Summon) += 0.09f;
+            AddEffect(new MaxMinionSlotEffect(2));
         }
 
         public override void AddRecipes()
@@ -38,16 +38,7 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
                 recipe.AddIngredient(ModContent.ItemType<ImpChestplate>(), 1);
                 recipe.AddIngredient(ItemID.Bone, 8);
                 recipe.AddIngredient(ItemID.JungleSpores, 8);
-                recipe.AddIngredient(ItemID.ShadowScale, 8);
-                recipe.AddTile(TileID.DemonAltar);
-                recipe.Register();
-            }
-            {
-                Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(ModContent.ItemType<ImpChestplate>(), 1);
-                recipe.AddIngredient(ItemID.Bone, 8);
-                recipe.AddIngredient(ItemID.JungleSpores, 8);
-                recipe.AddIngredient(ItemID.TissueSample, 8);
+                recipe.AddRecipeGroup("AAModClassic:EvilMaterial", 8);
                 recipe.AddTile(TileID.DemonAltar);
                 recipe.Register();
             }

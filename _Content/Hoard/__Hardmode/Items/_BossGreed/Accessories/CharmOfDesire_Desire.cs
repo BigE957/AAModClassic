@@ -14,8 +14,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Accessories
         public override void Update(Player player, ref int buffIndex)
         {
             base.Update(player, ref buffIndex);
-            player.GetModPlayer<AAPlayer>().Greed1 = true;
-            player.GetDamage(DamageClass.Generic) += player.GetModPlayer<AAPlayer>().GreedyDamage / 100f;
+            player.GetDamage(DamageClass.Generic) += player.GetModPlayer<CharmOfDesirePlayer>().BonusDamage / 100f;
         }
 	}
 }

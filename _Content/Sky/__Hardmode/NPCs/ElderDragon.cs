@@ -1,6 +1,8 @@
 using AAModClassic._Content.Sky.__Hardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.UI.World;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
@@ -13,6 +15,12 @@ namespace AAModClassic._Content.Sky.__Hardmode.NPCs
         {
             // DisplayName.SetDefault("Elder Dragon");
             Main.npcFrameCount[NPC.type] = 5;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Position = new(0, 18)
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
         public override void SetDefaults()
         {
@@ -30,13 +38,24 @@ namespace AAModClassic._Content.Sky.__Hardmode.NPCs
             NPC.npcSlots = 0f;
             NPC.lavaImmune = true;
             NPC.netAlways = true;
-            Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.ElderDragonBanner>();
+            //Banner = NPC.type;
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.ElderDragonBanner>();
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Sky,
+            ]);
         }
 
         public override void AI()
         {
-            BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.8f, 0.04f, 8f, 7f, false, 300);
+            if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.3f, 0.08f, 7f, 6f, false, 300);
+            else
+                BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.8f, 0.04f, 8f, 7f, false, 300);
             Player player = Main.player[NPC.target];
             if (player.Center.X > NPC.Center.X)
             {
@@ -46,18 +65,23 @@ namespace AAModClassic._Content.Sky.__Hardmode.NPCs
             {
                 NPC.spriteDirection = -1;
             }
+        }
+
+        public override void FindFrame(int frameHeight)
+        {
             NPC.frameCounter++;
             if (NPC.frameCounter >= 10)
             {
                 NPC.frameCounter = 0;
-                NPC.frame.Y += 96;
-                if (NPC.frame.Y > 96 * 3)
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y > frameHeight * 3)
                 {
                     NPC.frameCounter = 0;
                     NPC.frame.Y = 0;
                 }
             }
         }
+
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (spawnInfo.PlayerSafe || !Main.hardMode)

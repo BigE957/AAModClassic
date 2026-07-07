@@ -1,10 +1,16 @@
-using System;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
+using AAModClassic.Dusts;
+using AAModClassic.Globals;
+using AAModClassic.Music;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityRose
 {
@@ -16,6 +22,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             // DisplayName.SetDefault("Ei'lor");
             Main.npcFrameCount[NPC.type] = 8;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionYOverride = 30,
+                Position = new Vector2(0, 60),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
         public override void SetDefaults()
@@ -23,7 +37,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.noTileCollide = true;
             NPC.width = 86;
             NPC.height = 86;
-            NPC.aiStyle = NPCAIStyleID.Plantera;
+            NPC.aiStyle = -1;// NPCAIStyleID.Plantera;
             NPC.damage = 90;
             NPC.defense = 100;
             NPC.lifeMax = 150000;
@@ -34,6 +48,10 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.boss = true;
             NPC.npcSlots = 16f;
             NPC.buffImmune[20] = true;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
+            Music = NPC.AnyNPCs(ModContent.NPCType<Cthulhu>()) ? MusicManagementSystem.MusicSlots["Cthulhu"] : MusicManagementSystem.MusicSlots["SoulOfCthulhu"];
+            SpawnModBiomes = [ModContent.GetInstance<SunkenShipBiome>().Type];
         }
 
         public override void ModifyHitByItem(Player player, Item item, ref NPC.HitModifiers modifiers)
@@ -42,7 +60,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 if (modifiers.GetDamage(item.damage, true) > NPC.lifeMax / 8)
                 {
-                    Main.NewText("YOU CANNOT CHEAT DEATH", Color.DarkCyan);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Anticheat"), Color.DarkCyan);
                     modifiers.TargetDamageMultiplier *= 0;
                 }
             }
@@ -54,7 +72,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 if (modifiers.GetDamage(projectile.damage, true) > NPC.lifeMax / 8)
                 {
-                    Main.NewText("YOU CANNOT CHEAT DEATH", Color.DarkCyan);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Anticheat"), Color.DarkCyan);
                     modifiers.TargetDamageMultiplier *= 0;
                 }
             }
@@ -87,6 +105,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     NPC.frame.Y = num * 4;
                 }
             }
+
+            if (NPC.IsABestiaryIconDummy)
+                NPC.alpha = 0;
         }
 
         public override void AI()
@@ -94,10 +115,37 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             bool flag45 = false;
             bool flag46 = false;
             NPC.TargetClosest(true);
-            if (Main.player[NPC.target].dead)
+            bool BossAlive = true;// NPC.AnyNPCs(ModContent.NPCType<SoulOfCthulhu>()) || NPC.AnyNPCs(ModContent.NPCType<Cthulhu>());
+
+            if (Main.player[NPC.target].dead || Vector2.Distance(Main.player[NPC.target].Center, NPC.Center) > 5600f || !BossAlive)
             {
-                flag46 = true;
-                flag45 = true;
+                NPC.velocity *= .8f;
+                for (int spawnDust = 0; spawnDust < 2; spawnDust++)
+                {
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num935].noGravity = true;
+                    Main.dust[num935].noLight = true;
+                }
+                NPC.alpha += 12;
+                if (NPC.alpha > 255)
+                {
+                    NPC.active = false;
+                }
+                return;
+            }
+            if (NPC.alpha != 0)
+            {
+                for (int spawnDust = 0; spawnDust < 2; spawnDust++)
+                {
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num935].noGravity = true;
+                    Main.dust[num935].noLight = true;
+                }
+            }
+            NPC.alpha -= 12;
+            if (NPC.alpha < 0)
+            {
+                NPC.alpha = 0;
             }
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
@@ -122,7 +170,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             int num706 = 0;
             for (int num707 = 0; num707 < 200; num707++)
             {
-                if (Main.npc[num707].active && Main.npc[num707].aiStyle == NPCAIStyleID.PlanteraHook)
+                if (Main.npc[num707].active && Main.npc[num707].type == ModContent.NPCType<DeityRoseHook>())
                 {
                     num704 += Main.npc[num707].Center.X;
                     num705 += Main.npc[num707].Center.Y;
@@ -147,7 +195,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 num708 = 7f;
             }
-            if (!Main.player[NPC.target].ZoneBeach || Main.player[NPC.target].position.Y < Main.worldSurface * 16.0 || Main.player[NPC.target].position.Y > (Main.maxTilesY - 200) * 16)
+            if (!Main.player[NPC.target].ZoneBeach)
             {
                 flag45 = true;
                 num708 += 8f;
@@ -191,6 +239,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             num710 = num704 - vector87.X;
             num711 = num705 - vector87.Y;
             num712 = (float)Math.Sqrt((double)(num710 * num710 + num711 * num711));
+
             if (num712 < num708)
             {
                 num710 = NPC.velocity.X;
@@ -302,7 +351,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                             num717 *= num719;
                             num718 *= num719;
                             int num720 = 22;
-                            int num721 = 275;
+                            int num721 = ModContent.ProjectileType<DeityRose_Splinter>();
                             int maxValue2 = 4;
                             int maxValue3 = 8;
                             if (Main.expertMode)
@@ -314,13 +363,13 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                             {
                                 num720 = 27;
                                 NPC.localAI[1] = -30f;
-                                num721 = 276;
+                                num721 = ModContent.NPCType<ShadowUrchin>();
                             }
                             else if (NPC.life < NPC.lifeMax * 0.8 && Main.rand.Next(maxValue3) == 0)
                             {
                                 num720 = 31;
                                 NPC.localAI[1] = -120f;
-                                num721 = 277;
+                                num721 = ProjectileID.ThornBall;
                             }
                             if (flag45)
                             {
@@ -332,11 +381,19 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                             }
                             vector89.X += num717 * 3f;
                             vector89.Y += num718 * 3f;
-                            int num722 = Projectile.NewProjectile(NPC.GetSource_FromThis(), vector89.X, vector89.Y, num717, num718, num721, num720, 0f, Main.myPlayer, 0f, 0f);
-                            if (num721 != 277)
+                            if (num721 == ModContent.NPCType<ShadowUrchin>())
                             {
-                                Main.projectile[num722].timeLeft = 300;
-                                return;
+                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)vector89.X, (int)vector89.Y, num721);
+                            }
+                            else
+                            {
+                                SoundEngine.PlaySound(SoundID.Item17);
+                                int num722 = Projectile.NewProjectile(NPC.GetSource_FromThis(), vector89.X, vector89.Y, num717, num718, num721, num720, 0f, Main.myPlayer, 0f, 0f);
+                                if (num721 != ModContent.ProjectileType<DeityRose_Splinter>())
+                                {
+                                    Main.projectile[num722].timeLeft = 300;
+                                    return;
+                                }
                             }
                         }
                     }
@@ -457,6 +514,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 }
                 return;
             }
+            else
+                AAModGlobalNPC.Rose = -1;
             for (int num441 = 0; num441 < 150; num441++)
             {
                 if (Main.rand.NextBool(3))

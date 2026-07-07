@@ -1,223 +1,328 @@
-AsheFlame: {
-	DisplayName: Ashe Flame
-	Description: You get the flame power of inferno
-}
-
-Athena: {
-	DisplayName: Athena
-	Description: "'I'll help you, but but I'll still thrash you someday.'"
-}
-
-AtlanteanBuff: {
-	DisplayName: Atlantean Power
-	Description: Your magic abilities are increased
-}
-
-BabyPhoenix: {
-	DisplayName: Baby Phoenix
-	Description: Summons a baby phoenix to fight for you
-}
-
-BlazingPain: {
-	DisplayName: Scorching Pain
-	Description: Fire debuffs inflict double damage on you
-}
-
-BoomBoi: {
-	DisplayName: Boomer
-	Description: Doesn't actually explode...Yet.
-}
-
-BrokenArmor: {
-	DisplayName: Broken Armor
-	Description: Mods.AAModClassic.Buffs.BrokenArmor.Description
-}
-
-Broodmini: {
-	DisplayName: Broodmini
-	Description: Smol bab
-}
-
-BurningAsh: {
-	DisplayName: Burning Ash
-	Description: Ash is melting your skin
-}
-
-CCRune: {
+﻿APageOfTheRuneBookEffect_Buff: {
 	DisplayName: Rune
 	Description: Summons runes to fight for you
 }
 
-Cerberus: {
+PrettyPony_Buff: {
+	DisplayName: Pretty Pony
+	Description: Its a horse.
+}
+
+CerberusWhistle_Buff: {
 	DisplayName: Cerberus
 	Description: "'Aww, that isn't so scary!'"
 }
 
-ChaosBuff: {
-	DisplayName: Chaotic Fury
-	Description: Your magic abilities are increased substantially
+K9Collar_Buff: {
+	DisplayName: K9 Unit
+	Description: Bork.
 }
 
-ChaosClaw: {
-	DisplayName: Discordian Claw
-	Description: Summons a discordian claw to fight for you
+MoonBeeInAJar_Buff: {
+	DisplayName: Lunamini
+	Description: A small lunar bee follows you
 }
 
-ChaosConstruct: {
-	DisplayName: Chaos Construct
-	Description: Summons a chaos construct to fight for you
+MudFishBall_Buff: {
+	DisplayName: Mudkip
+	Description: Gotta catch 'em all!
 }
 
-ChaosWrath: {
-	DisplayName: Chaotic Wrath
-	Description: Pain only makes you stronger
+RoyalStar_Buff: {
+	DisplayName: Royal Kitten
+	Description: "'She's so pretty!'"
 }
 
-Clueless: {
-	DisplayName: Fog
-	Description: You can't see a thing
+ShinyFishBall_Buff: {
+	DisplayName: Shiny Mudkip
+	Description: Gotta catch 'em all!
 }
 
-CrasyLucky: {
-	DisplayName: Lucky?
-	Description: You feel the world around you become strange
+AleisterStaff_BeBanished: {
+	DisplayName: Be Banished
+	Description: You are marked by Invoked Magic
 }
 
-CrimeraMinion: {
-	DisplayName: Crimtane Crimera
-	Description: Summons a crimtane crimera to fight for you
+AleisterStaff_InvokerOfMadness: {
+	DisplayName: The Invoker of Madness
+	Description: The Crasy Invoker
 }
 
-CrowMinion: {
-	DisplayName: Crow
-	Description: Summons a vicious crow to fight for you
-}
-
-CursedHellfire: {
-	DisplayName: Cursed Hellfire
-	Description: Your flesh and blood are burning away
-}
-
-DapperSquirrel: {
-	DisplayName: Dapper Squirrel
-	Description: Now with funny hats
-}
-
-DarkCurse: {
-	DisplayName: Dark Curse
-	Description: You deal significanlty less damage!
-}
-
-DarkLock: {
-	DisplayName: Dark Lock
-	Description: You're locked in place by darkness!
-}
-
-DemonBuff: {
-	DisplayName: Demon Lord
-	Description: You command a small imp that follows you around.
-}
-
-DemonMinion: {
-	DisplayName: Demon Buddy
-	Description: Summons a demon to fight for you
-}
-
-DestinedToDie: {
-	DisplayName: Destined To Die
-	Description: Mods.AAModClassic.Buffs.DestinedToDie.Description
-}
-
-DevilMinion: {
-	DisplayName: Devil Servant
-	Description: Summons a devil to fight for you
-}
-
-DiscordInferno: {
-	DisplayName: Discordian Inferno
-	Description: Your soul is tearing itself apart
-}
-
-DoomiteProbe: {
-	DisplayName: Doomite Probe
-	Description: Summons a doomite probe to fight for you
-}
-
-DoomiteProbeC: {
-	DisplayName: Doomite Radio Probe
-	Description: Summons a doomite radio probe to fight for you
-}
-
-DragonFire: {
-	DisplayName: Dragon Fire
-	Description: Your damage output is reduced
-}
-
-DragonfireFlaskBuff: {
-	DisplayName: Weapon Imbue: Dragonfire
-	Description: Melee attacks inflict Dragonfire
-}
-
-DragonMinion: {
-	DisplayName: Flame Dragon
-	Description: Summons a dragon to fight for you
-}
-
-DragonSoul: {
-	DisplayName: Dragon Soul
-	Description: Burns with the rage of a dragon
-}
-
-DragonSpirit: {
-	DisplayName: Dragon Spirit
-	Description: Summons a Dragon Spirit to fight for you
-}
-
-DustDevil: {
-	DisplayName: Dust Devil
-	Description: Summons a dust devil to fight for you
-}
-
-DynaEnergy1: {
-	DisplayName: Dyna-Energy
-	Description: Mods.AAModClassic.Buffs.DynaEnergy1.Description
-}
-
-DynaEnergy2: {
-	DisplayName: Dyna-Energy
-	Description: Mods.AAModClassic.Buffs.DynaEnergy2.Description
-}
-
-EaterMinion: {
-	DisplayName: Demon Eater
-	Description: Summons a demonite eater to fight for you
-}
-
-Electrified: {
-	DisplayName: Electrified
-	Description: Mods.AAModClassic.Buffs.Electrified.Description
-}
-
-EnderMinionBuff: {
-	DisplayName: Ender Minion
+ConflagrateStaff_Buff: {
+	DisplayName: Conflagrate Construct
 	Description: Summons a conflagrate construct to fight for you
 }
 
-EnderMinionBuffEX: {
+MagicAcorn_Buff: {
+	DisplayName: Squirrel
+	Description: Throws nuts
+}
+
+ScytheOfTheGrimReaper_ReaperScytheImmunity: {
+	DisplayName: Reaper Scythe Immunity
+	Description: You are immune to damage and deal greatly increased melee damage
+}
+
+ScytheOfTheGrimReaper_ReaperScytheImmunityCooldown: {
+	DisplayName: Reaper Scythe Immunity Cooldown
+	Description: You cannot use dashing ability of the weapon now
+}
+
+SockStaff_Buff: {
+	DisplayName: Sock Puppet
+	Description: Summons a Sock Puppet to fight for you
+}
+
+PrinceFishron_Buff: {
+	DisplayName: Prince Fishron
+	Description: The fishron heir
+}
+
+FishnadoStaff_Buff: {
+	DisplayName: Fishnado
+	Description: Summons a fishnado to fight for you
+}
+
+TheBookOfRunesEffect_Buff: {
+	DisplayName: Rune
+	Description: Summons runes to fight for you
+}
+
+TheBookOfTheLaw_InvokedCaligula: {
+	DisplayName: Invoked Caligula
+	Description: Your claw hit the enemy crasily and heal you.
+}
+
+ConflagrateScythe_Buff: {
 	DisplayName: Ender Minion EX
 	Description: Summons a terra construct to fight for you
 }
 
-EyeOfForsaken: {
-	DisplayName: Eye of the Forsaken
+OmenStaff_Buff: {
+	DisplayName: Crow
+	Description: Summons a vicious crow to fight for you
+}
+
+PerfectChaosRitual_Buff: {
+	DisplayName: Xiao Doragon
+	Description: Summons a small chaos dragon to fight for you
+}
+
+SoccOnAStick_Buff: {
+	DisplayName: Socc
+	Description: Socc.
+}
+
+TartarusReaper_CursedHellfire: {
+	DisplayName: Cursed Hellfire
+	Description: Your flesh and blood are burning away
+}
+
+LuckyCracker_CrasyLucky: {
+	DisplayName: Lucky?
+	Description: You feel the world around you become strange
+}
+
+LuckyCalming: {
+	DisplayName: Lucky Calming
+	Description: Reduces enemy aggression
+}
+
+LuckyEndurance: {
+	DisplayName: Lucky Endurance
 	Description:
 		'''
-		Eye of the Forsaken is protecting you
-		Damage and speed are increased
+		Reduces damage taken by 10%
+		Increase your 10% defense
 		'''
 }
 
-EyeOfJudgement: {
+LuckyIronskin: {
+	DisplayName: Lucky Ironskin
+	Description: Increase defense by 9
+}
+
+LuckyLifeforce: {
+	DisplayName: Lucky Lifeforce
+	Description: Increases max life by 21%
+}
+
+LuckyRage: {
+	DisplayName: Lucky Rage
+	Description: Increases critical chance by 11%
+}
+
+LuckyRegeneration: {
+	DisplayName: Lucky Regeneration
+	Description: Provides life regeneration
+}
+
+LuckySummoning: {
+	DisplayName: Lucky Summoning
+	Description: Increases your max number of minions and turrents
+}
+
+LuckySwiftness: {
+	DisplayName: Lucky Swiftness
+	Description: 26% increased movement speed
+}
+
+LuckyThorns: {
+	DisplayName: Lucky Thorns
+	Description: Attackers also take damage
+}
+
+LuckyWrath: {
+	DisplayName: Lucky Wrath
+	Description: Increases damage by 11%
+}
+
+RoninPotion_Buff: {
+	DisplayName: Ronin
+	Description: You wont take any damage
+}
+
+PaperBomb_Buff: {
+	DisplayName: Boomer
+	Description: Doesn't actually explode...Yet.
+}
+
+InfinityOverload_Buff: {
+	DisplayName: Elemental Overload
+	Description: The elements lash out against your very being
+}
+
+SeraphHarp_Buff: {
+	DisplayName: Seraph
+	Description: Small but feisty
+}
+
+GoddessHarp_Buff: {
+	DisplayName: Athena
+	Description: "'I'll help you, but but I'll still thrash you someday.'"
+}
+
+CottonCane_Buff: {
+	DisplayName: Rabbitcopter Soldier
+	Description: Summons a Rabbitcopter Soldier to fight for you
+}
+
+RajahsRage_Buff: {
+	DisplayName: Royal Rabbit
+	Description: Summons a Royal Rabbit to fight for you
+}
+
+ChampionHelmetMageSetEffect_ChampionBoost1: {
+	DisplayName: Champion Boost
+	Description: Increased stats
+}
+
+ChampionHelmetMageSetEffect_ChampionBoost2: {
+	DisplayName: Champion Boost
+	Description: Increased stats
+}
+
+ChampionHelmetMageSetEffect_ChampionBoost3: {
+	DisplayName: Champion Boost
+	Description: Increased stats
+}
+
+ChampionHelmetMeleeSetEffect_DefendersRage: {
+	DisplayName: Defender's Rage
+	Description: A champion of Terraria never backs down
+}
+
+ChampionHelmetMeleeSetEffect_RajahsRage: {
+	DisplayName: Rajah's Rage
+	Description: A champion of Terraria never backs down
+}
+
+ChampionHelmetRangedSetEffect_RABITUnitReloadProtocol: {
+	DisplayName: R.A.B.I.T. Unit Reload Protocol
+	Description: RELOADING. DAMAGE COMPENSATION PROVIDED.
+}
+
+ChampionHelmetSummonerSetEffect_Buff: {
+	DisplayName: Baron Bunny
+	Description: Baron Bunny protects you
+}
+
+ClawBaton_Buff: {
+	DisplayName: Grips of Chaos
+	Description: Summons a chaos claw to fight for you
+}
+
+ChaosHelmetMageSetEffect_ChaoticFury: {
+	DisplayName: Chaotic Fury
+	Description: Your magic abilities are increased substantially
+}
+
+ChaosHelmetSummonerSetEffect_Buff: {
+	DisplayName: Dragon Spirit
+	Description: Summons a Dragon Spirit to fight for you
+}
+
+ChaosRitual_Buff: {
+	DisplayName: Chaos Construct
+	Description: Summons a chaos construct to fight for you
+}
+
+FuryWitchsHelmetSetHotkeyEffect_AsheFlame: {
+	DisplayName: Ashe Flame
+	Description: You get the flame power of inferno
+}
+
+FuryWitchsHelmetSetHotkeyEffect_AsheFlameCooldown: {
+	DisplayName: Ashe Flame Cooldown
+	Description: You cannot wield the flames for a period of time
+}
+
+FuryWitchsHelmetSetMinionEffect_Buff: {
+	DisplayName: Flame Soul
+	Description: The weaker you are, the harder it fights
+}
+
+MidnightAssassinHelmetSetEffect_AssassinHurt: {
+	DisplayName: Assassin Hirt
+	Description: ""
+}
+
+FlameVortexStaff_Buff: {
+	DisplayName: Orbiters
+	Description: Flames orbit you, empowering you
+}
+
+ChaosBaton_Buff: {
+	DisplayName: Discordian Claw
+	Description: Summons a discordian claw to fight for you
+}
+
+DiscordianInferno_Buff: {
+	DisplayName: Discordian Inferno
+	Description: Your soul is tearing itself apart
+}
+
+DemoniteStaff_Buff: {
+	DisplayName: Demon Eater
+	Description: Summons a demonite eater to fight for you
+}
+
+CrimeraStaff_Buff: {
+	DisplayName: Crimtane Crimera
+	Description: Summons a crimtane crimera to fight for you
+}
+
+SandScepter_Buff: {
+	DisplayName: Dust Devil
+	Description: Summons a dust devil to fight for you
+}
+
+DynaskullJavelin_DynaEnergyBuff: {
+	DisplayName: Dyna-Energy
+	Description: ""
+}
+
+ArtifactOfJudgement_Buff: {
 	DisplayName: Eye of Judgement
 	Description:
 		'''
@@ -226,62 +331,126 @@ EyeOfJudgement: {
 		'''
 }
 
-Falling: {
-	DisplayName: Falling
-	Description: Mods.AAModClassic.Buffs.Falling.Description
+PrimevalJavelin_DynaEnergy: {
+	DisplayName: Dyna-Energy
+	Description: ""
 }
 
-FireSpirit: {
-	DisplayName: Fire Spirit
-	Description: Daz Hot
+ArtifactOfGuilt_Buff: {
+	DisplayName: Eye of the Forsaken
+	Description:
+		'''
+		Eye of the Forsaken is protecting you
+		Damage and speed are increased
+		'''
 }
 
-Fishnado: {
-	DisplayName: Fishnado
-	Description: Summons a fishnado to fight for you
-}
-
-FlameSoul: {
-	DisplayName: Flame Soul
-	Description: The weaker you are, the harder it fights
-}
-
-Forsaken: {
+Lifeline_Forsaken: {
 	DisplayName: Forsaken
 	Description: You are forsaken
 }
 
-ForsakenFlames: {
-	DisplayName: Forsaken Flames
-	Description: Your sins manifest upon your flesh as flames
-}
-
-ForsakenWeak: {
+Lifeline_ForsakenWeak: {
 	DisplayName: Forsaken Weakening
 	Description: Weakens enemy contact damage
 }
 
-Glitched: {
-	DisplayName: Glitched
-	Description: Your head is like 10 feet in front of you
+SkullWand_Buff: {
+	DisplayName: Aquatic Skull
+	Description: Summons a dungeon skull to fight for you
 }
 
-Glowmoss: {
+Shroomed_Buff: {
+	DisplayName: SHROOM'D
+	Description: You've been shroomed
+}
+
+HallowStaff_Buff: {
+	DisplayName: Hallowed Prism
+	Description: Summons a prism to fight for you
+}
+
+TrueHallowStaff_Buff: {
+	DisplayName: True Hallowed Prism
+	Description: Summons a holy prism to fight for you
+}
+
+DemonHelmetSetEffect_Buff: {
+	DisplayName: Demon Lord
+	Description: You command a small imp that follows you around.
+}
+
+DemonStaff_Buff: {
+	DisplayName: Demon Buddy
+	Description: Summons a demon to fight for you
+}
+
+DevilStaff_Buff: {
+	DisplayName: Devil Servant
+	Description: Summons a devil to fight for you
+}
+
+CharmOfDesire_Desire: {
+	DisplayName: Desire
+	Description: MORE COINS, MORE POWER!!!
+}
+
+Earthbreaker_Falling: {
+	DisplayName: Falling
+	Description: ""
+}
+
+ScorchedEgg_Buff: {
+	DisplayName: Broodmini
+	Description: Smol bab
+}
+
+DragonSoul_Buff: {
+	DisplayName: Dragon Soul
+	Description: Burns with the rage of a dragon
+}
+
+FireStaff_Buff: {
+	DisplayName: Baby Phoenix
+	Description: Summons a baby phoenix to fight for you
+}
+
+FlaskOfDragonfire_Buff: {
+	DisplayName: Weapon Imbue: Dragonfire
+	Description: Melee attacks inflict Dragonfire
+}
+
+DragonsPike_Buff: {
+	DisplayName: Flame Dragon
+	Description: Summons a dragon to fight for you
+}
+
+LungMinion_Buff: {
+	DisplayName: Ancient Lung
+	Description: Summons an ancient dragon to fight for you
+}
+
+AkumaAHead_ScorchingPain: {
+	DisplayName: Scorching Pain
+	Description: Fire debuffs inflict double damage on you
+}
+
+BurningAsh_Buff: {
+	DisplayName: Burning Ash
+	Description: Ash is melting your skin
+}
+
+DragonFire_Buff: {
+	DisplayName: Dragon Fire
+	Description: Your damage output is reduced
+}
+
+GlowingMossBall_Buff: {
 	DisplayName: Glowmoss Ball
 	Description: Don't ask what makes it glows. Trust me.
 }
 
-GripMinion: {
-	DisplayName: Grips of Chaos
-	Description: Summons a chaos claw to fight for you
-}
-
-HallowedPrism: {
-	DisplayName: Hallow Prism
-	Description: Summons a prism to fight for you
-}
-
-Hunted: {
+HydraBody_Hunted: {
 	DisplayName: Hunted
 	Description:
 		'''
@@ -290,1201 +459,212 @@ Hunted: {
 		'''
 }
 
-HydraToxin: {
-	DisplayName: Hydra Toxin
-	Description: The longer you have it, the faster it festers and eats you away
-}
-
-HydratoxinFlaskBuff: {
+FlaskOfHydratoxin_Buff: {
 	DisplayName: Weapon Imbue: Hydratoxin
-	Description: Melee attacks inflict hydratoxin
+	Description: Melee attacks inflict Hydratoxin
 }
 
-Impaled: {
-	DisplayName: Impaled
-	Description: Ouch!
-}
-
-InfinityOverload: {
-	DisplayName: Elemental Overload
-	Description: The elements lash out against your very being
-}
-
-InvokedCaligulaSafe: {
-	DisplayName: Invoked Caligula
-	Description: Your claw hit the enemy crasily and heal you.
-}
-
-InvokerofMadness: {
-	DisplayName: The Invoker of Madness
-	Description: The Crasy Invoker
-}
-
-Irradiated: {
-	DisplayName: Irradiated
-	Description: Your health is burning away
-}
-
-K9: {
-	DisplayName: K9 Unit
-	Description: Bork.
-}
-
-Lunamini: {
-	DisplayName: Lunamini
-	Description: A small lunar bee follows you
-}
-
-LungMinion: {
-	DisplayName: Ancient Lung
-	Description: Summons an ancient dragon to fight for you
-}
-
-ManaOverload: {
-	DisplayName: Mana Overload
-	Description: Double magic attack speed
-}
-
-MB: {
-	DisplayName: Lunar Wasp
-	Description: plz don't sue Erilipah
-}
-
-MiniProbe: {
-	DisplayName: Mini Probe
-	Description: Seeks out life and treasure for you
-}
-
-Moonraze: {
-	DisplayName: Moonraze
-	Description: Incinerated by lunar rays
-}
-
-Mudkip: {
-	DisplayName: Mudkip
-	Description: So I heard you like mudkips
-}
-
-MudkipS: {
-	DisplayName: Shiny Mudkip
-	Description: So I heard you like mudkips
-}
-
-Orbiters: {
-	DisplayName: Orbiters
-	Description: Flames orbit you, empowering you
-}
-
-PrettyPony: {
-	DisplayName: Pretty Pony
-	Description: Its a horse.
-}
-
-PrinceFishron: {
-	DisplayName: Pretty Pony
-	Description: Its a horse.
-}
-
-ProbeMinion: {
-	DisplayName: Void Probe
-	Description: Summons a void probe to fight for you
-}
-
-Protocol: {
-	DisplayName: D00M PR0T0C0L
-	Description: Summons a baby ZER0 PR0T0C0L to fight for you
-}
-
-RabbitcopterSoldier: {
-	DisplayName: Rabbitcopter Soldier
-	Description: Summons a Rabbitcopter Soldier to fight for you
-}
-
-RadiumInferno: {
-	DisplayName: Radium Inferno
-	Description: Rapidly depleting life
-}
-
-RealityBent: {
-	DisplayName: Riftbent
-	Description: The space around you is being distorted
-}
-
-ReaperCD: {
-	DisplayName: Reaper Scythe Immunity Cooldown
-	Description: You cannot use dashing ability of the weapon now
-}
-
-ReaperImmune: {
-	DisplayName: Reaper Scythe immunity
-	Description: You are immune to damage and deal 10x damage
-}
-
-ReaperImmune2: {
-	DisplayName: Reaper Scythe immunity
-	Description: You are immune to damage and deal 15x damage
-}
-
-Ronin: {
-	DisplayName: Ronin
-	Description: You wont take any damage
-}
-
-RoyalKitten: {
-	DisplayName: Royal Kitten
-	Description: "'She's so pretty!'"
-}
-
-RoyalRabbit: {
-	DisplayName: Royal Rabbit
-	Description: Summons a Royal Rabbit to fight for you
-}
-
-SagOrbiter: {
-	DisplayName: Sagittarius Orbiter
-	Description: Summons an orbiter to fight for you
-}
-
-SagShield: {
-	DisplayName: Shields Up
-	Description: They can't get in, but your weapons can't get out.
-}
-
-ScoutMinion: {
-	DisplayName: Void Scout
-	Description: Summons a Void Scout to fight for you
-}
-
-Searcher: {
-	DisplayName: Searcher Scout
-	Description: Summons a searcher to fight for you
-}
-
-Seraph: {
-	DisplayName: Seraph
-	Description: Small but feisty
-}
-
-Sharkron: {
-	DisplayName: Sharkron
-	Description: It won't bite...much...
-}
-
-Shroomed: {
-	DisplayName: SHROOM'D
-	Description: You've been shroomed
-}
-
-SkullMinion: {
-	DisplayName: Skull Minion
-	Description: Summons a dungeon skull to fight for you
-}
-
-SnakeMinion: {
-	DisplayName: Snow Serpent
-	Description: Summons a snow serpent to fight for you
-}
-
-Socc: {
-	DisplayName: Socc
-	Description: Socc.
-}
-
-SockPuppet: {
-	DisplayName: Sock Puppet
-	Description: Summons a Sock Puppet to fight for you
-}
-
-SpearStuck: {
-	DisplayName: Speared
-	Description: There's a spear stuck in you. Ouch.
-}
-
-Squirrel: {
-	DisplayName: Squirrel
-	Description: Throws nuts
-}
-
-Stunned: {
-	DisplayName: Stunned
-	Description: It's small but has a fiery temper
-}
-
-Terrablaze: {
-	DisplayName: Terrablaze
-	Description: Incoming damage increased
-}
-
-Terrarium: {
-	DisplayName: Terra's Guidance
-	Description: Your feet glow with the power of the terrarium, preventing fall damage
-}
-
-TerraSummon: {
-	DisplayName: Terra Minions
-	Description: An array of unity constructs at your disposal
-}
-
-TerraWizard: {
-	DisplayName: Terra Wizard
-	Description: Magic
-}
-
-TimeFrozen: {
-	DisplayName: Time Frozen
-	Description: Mods.AAModClassic.Buffs.TimeFrozen.Description
-}
-
-TrueHallowedPrism: {
-	DisplayName: True Hallow Prism
-	Description: Summons a holy prism to fight for you
-}
-
-UnstableSoul: {
-	DisplayName: Unstable Soul
-	Description:
-		'''
-		You are now etheral 
-		You have more invincibility frames, but less defense
-		'''
-}
-
-XiaoDoragon: {
-	DisplayName: Xiao Doragon
-	Description: Summons a small chaos dragon to fight for you
-}
-
-YamataAGravity: {
+YamataABody_TrueAbyssalGravity: {
 	DisplayName: True Abyssal Gravity
 	Description: "'REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE'"
 }
 
-YamataGravity: {
+YamataBody_AbyssalGravity: {
 	DisplayName: Abyssal Gravity
 	Description: "'YOU AIN'T GETTIN' AWAY FROM ME, PUNK!'"
 }
 
-Yanked: {
-	DisplayName: Yanked
-	Description: "'YOU AREN'T GOING ANYWHERE, YOU LITTLE SISSY!'"
+Clueless_Buff: {
+	DisplayName: Fog
+	Description: You can't see a thing
 }
 
-ZeroBab: {
+HydraToxin_Buff: {
+	DisplayName: Hydratoxin
+	Description: The longer you have it, the faster it festers and eats you away
+}
+
+Moonraze_Buff: {
+	DisplayName: Moonraze
+	Description: Incinerated by lunar rays
+}
+
+AquaintedWithWater_Buff: {
+	DisplayName: Aquainted With Water
+	Description: Your magic abilities are slightly increased
+}
+
+Atlantean_Buff: {
+	DisplayName: Atlantean Power
+	Description: Your magic abilities are increased
+}
+
+Seashroom_Buff: {
+	DisplayName: Sharkron
+	Description: It won't bite...much...
+}
+
+SnakeStaff_Buff: {
+	DisplayName: Snow Serpent
+	Description: Summons a snow serpent to fight for you
+}
+
+StarHelmetRangedPlayer_DarkmatterSphere_DarkCurse_Buff: {
+	DisplayName: Dark Curse
+	Description: You deal significanlty less damage!
+}
+
+StarHelmetRangedPlayer_DarkmatterSphere_DarkLock_Buff: {
+	DisplayName: Dark Lock
+	Description: You're locked in place by darkness!
+}
+
+StarHelmetRangedPlayer_SunSiphon_ManaOverload: {
+	DisplayName: Mana Overload
+	Description: Double magic attack speed
+}
+
+RadiumInferno_Buff: {
+	DisplayName: Radium Inferno
+	Description: Rapidly depleting life
+}
+
+TerraHelmetMageSetEffect_TerraRoseCooldown: {
+	DisplayName: Terra Rose Cooldown
+	Description: Cannot plant roses at this time...
+}
+
+TerraHelmetSummonerSetEffect_Buff: {
+	DisplayName: Terra Crystal
+	Description: Shoots orbs at nearby enemies, if so desired
+}
+
+TerraStaff_Buff: {
+	DisplayName: Terra Wizard
+	Description: Magic
+}
+
+TerraGauntlet_Buff: {
+	DisplayName: Terra Minions
+	Description: An array of unity constructs at your disposal
+}
+
+Terrablaze_Buff: {
+	DisplayName: Terrablaze
+	Description: Incoming damage increased
+}
+
+TerrasGuidance_Buff: {
+	DisplayName: Terra's Guidance
+	Description: Your feet glow with the power of the terrarium, preventing fall damage
+}
+
+SagittariusShield_ShieldsUp: {
+	DisplayName: Shields Up
+	Description: They can't get in, but your weapons can't get out.
+}
+
+SagittariusCore_Buff: {
+	DisplayName: Sagittarius Orbiter
+	Description: Summons an orbiter to fight for you
+}
+
+DoomiteHelmetSetEffect_Buff: {
+	DisplayName: Searcher Scout
+	Description: Summons a searcher to fight for you
+}
+
+DoomiteRadio_Buff: {
+	DisplayName: Doomite Radio Probe
+	Description: Summons a doomite radio probe to fight for you
+}
+
+DoomiteSignal_Buff: {
+	DisplayName: Doomite Probe
+	Description: Summons a doomite probe to fight for you
+}
+
+VoidProbeControlUnit_Buff: {
+	DisplayName: Mini Probe
+	Description: Summons a void probe to fight for you
+}
+
+OverloadedDoomiteRadio_Buff: {
+	DisplayName: Void Scout
+	Description: Summons a Void Scout to fight for you
+}
+
+BrokenCode_Freeze: {
+	DisplayName: Freeze
+	Description: Task Manager isn't gonna help with this
+}
+
+BrokenCode_FreezeCooldown: {
+	DisplayName: Freeze Cooldown
+	Description: Atleast your head is still on your body!
+}
+
+BrokenCode_Glitched: {
+	DisplayName: Glitched
+	Description: Your head is like 10 feet in front of you
+}
+
+ZeroCore_Buff: {
 	DisplayName: ZER0 lite
 	Description: LIFE DETECTION SYSTEMS ENGAGED
 }
 
-AssassinHurt: {
-	DisplayName: AssassinHirt
-	Description: Mods.AAModClassic.Buffs.AssassinHurt.Description
+DoomPortal_Buff: {
+	DisplayName: D00M PR0T0C0L
+	Description: Summons a baby ZER0 PR0T0C0L to fight for you
 }
 
-BaronBuff: {
-	DisplayName: Baron Bunny
-	Description: Baron Bunny protects you
+CyberneticEgg_Buff: {
+	DisplayName: Raidmini
+	Description: Smol bot
 }
 
-CBoost1: {
-	DisplayName: Champion Boost
-	Description: Increased stats
+CyberBaton_Buff: {
+	DisplayName: Cyber Claw
+	Description: Summons a cyber claw to fight for you
 }
 
-CBoost2: {
-	DisplayName: Champion Boost
-	Description: Increased stats
-}
-
-CBoost3: {
-	DisplayName: Champion Boost
-	Description: Increased stats
-}
-
-DroneCool: {
-	DisplayName: R.A.B.I.T. Unit Reload Protocol
-	Description: RELOADING. DAMAGE COMPENSATION PROVIDED.
-}
-
-RageBuff: {
-	DisplayName: Defender's Rage
-	Description: A champion of Terraria never backs down
-}
-
-RageCool: {
-	DisplayName: Rajah's Rage
-	Description: A champion of Terraria never backs down
-}
-
-CharmBuff: {
-	DisplayName: Desire
-	Description: MORE COINS, MORE POWER!!!
-}
-
-TalismanBuff: {
-	DisplayName: Ruthless Desire
-	Description: MONEY MONEY MONEY!!!
-}
-
-Invokedproj: {
-	DisplayName: Be Banished
-	Description: You are marked by Invoked Magic
-}
-
-CinematicBuff: {
-	DisplayName: Purity Shield
-	Description: The Spirit of Purity lends you power
-}
-
-LuckyCalming: {
-	DisplayName: Calm
-	Description: Reduced enemy aggression
-}
-
-LuckyEndurance: {
-	DisplayName: Endurance
-	Description: Increase your endurance
-}
-
-LuckyIronskin: {
-	DisplayName: Ironskin
-	Description: Increase defense by 9
-}
-
-LuckyLifeforce: {
-	DisplayName: Lifeforce
-	Description: 21% increased max life
-}
-
-LuckyRage: {
-	DisplayName: Rage
-	Description: 11% increased critical chance
-}
-
-LuckyRegeneration: {
-	DisplayName: Regeneration
-	Description: Provides life regeneration
-}
-
-LuckySummoning: {
-	DisplayName: Summoning
-	Description: Increased max number of minions and turrents
-}
-
-LuckySwiftness: {
-	DisplayName: Swiftness
-	Description: 26% increased movement speed
-}
-
-LuckyThorns: {
-	DisplayName: Thorns
-	Description: Attackers also take damage
-}
-
-LuckyWrath: {
-	DisplayName: Wrath
-	Description: 11% increased damage
-}
-
-FlaskOfHydratoxin_Buff: {
-	DisplayName: Flask Of Hydratoxin_ Buff
-	Description: Mods.AAModClassic.Buffs.FlaskOfHydratoxin_Buff.Description
-}
-
-GlowmossBall_Buff: {
-	DisplayName: Glowmoss Ball_ Buff
-	Description: Mods.AAModClassic.Buffs.GlowmossBall_Buff.Description
-}
-
-Clueless_Buff: {
-	DisplayName: Clueless_ Buff
-	Description: Mods.AAModClassic.Buffs.Clueless_Buff.Description
-}
-
-HydraToxin_Buff: {
-	DisplayName: Hydra Toxin_ Buff
-	Description: Mods.AAModClassic.Buffs.HydraToxin_Buff.Description
-}
-
-Moonraze_Buff: {
-	DisplayName: Moonraze_ Buff
-	Description: Mods.AAModClassic.Buffs.Moonraze_Buff.Description
-}
-
-InfinityScorch_Buff: {
-	DisplayName: Infinity Scorch_ Buff
-	Description: Mods.AAModClassic.Buffs.InfinityScorch_Buff.Description
-}
-
-LockedOn_Buff: {
-	DisplayName: Locked On_ Buff
-	Description: Mods.AAModClassic.Buffs.LockedOn_Buff.Description
-}
-
-AsheFlame_Buff: {
-	DisplayName: Ashe Flame_ Buff
-	Description: Mods.AAModClassic.Buffs.AsheFlame_Buff.Description
-}
-
-Athena_Buff: {
-	DisplayName: Athena_ Buff
-	Description: Mods.AAModClassic.Buffs.Athena_Buff.Description
-}
-
-Atlantean_Buff: {
-	DisplayName: Atlantean_ Buff
-	Description: Mods.AAModClassic.Buffs.Atlantean_Buff.Description
-}
-
-BabyPhoenix_Buff: {
-	DisplayName: Baby Phoenix_ Buff
-	Description: Mods.AAModClassic.Buffs.BabyPhoenix_Buff.Description
-}
-
-BlazingPain_Buff: {
-	DisplayName: Blazing Pain_ Buff
-	Description: Mods.AAModClassic.Buffs.BlazingPain_Buff.Description
-}
-
-BoomBoi_Buff: {
-	DisplayName: Boom Boi_ Buff
-	Description: Mods.AAModClassic.Buffs.BoomBoi_Buff.Description
-}
-
-BrokenArmor_Buff: {
-	DisplayName: Broken Armor_ Buff
-	Description: Mods.AAModClassic.Buffs.BrokenArmor_Buff.Description
-}
-
-Broodmini_Buff: {
-	DisplayName: Broodmini_ Buff
-	Description: Mods.AAModClassic.Buffs.Broodmini_Buff.Description
-}
-
-BurningAsh_Buff: {
-	DisplayName: Burning Ash_ Buff
-	Description: Mods.AAModClassic.Buffs.BurningAsh_Buff.Description
-}
-
-CCRune_Buff: {
-	DisplayName: C C Rune_ Buff
-	Description: Mods.AAModClassic.Buffs.CCRune_Buff.Description
-}
-
-Cerberus_Buff: {
-	DisplayName: Cerberus_ Buff
-	Description: Mods.AAModClassic.Buffs.Cerberus_Buff.Description
-}
-
-Chaos_Buff: {
-	DisplayName: Chaos_ Buff
-	Description: Mods.AAModClassic.Buffs.Chaos_Buff.Description
-}
-
-ChaosClaw_Buff: {
-	DisplayName: Chaos Claw_ Buff
-	Description: Mods.AAModClassic.Buffs.ChaosClaw_Buff.Description
-}
-
-ChaosConstruct_Buff: {
-	DisplayName: Chaos Construct_ Buff
-	Description: Mods.AAModClassic.Buffs.ChaosConstruct_Buff.Description
-}
-
-ChaosWrath_Buff: {
-	DisplayName: Chaos Wrath_ Buff
-	Description: Mods.AAModClassic.Buffs.ChaosWrath_Buff.Description
-}
-
-CrasyLucky_Buff: {
-	DisplayName: Crasy Lucky_ Buff
-	Description: Mods.AAModClassic.Buffs.CrasyLucky_Buff.Description
-}
-
-CrimeraMinion_Buff: {
-	DisplayName: Crimera Minion_ Buff
-	Description: Mods.AAModClassic.Buffs.CrimeraMinion_Buff.Description
-}
-
-CrowMinion_Buff: {
-	DisplayName: Crow Minion_ Buff
-	Description: Mods.AAModClassic.Buffs.CrowMinion_Buff.Description
-}
-
-CursedHellfire_Buff: {
-	DisplayName: Cursed Hellfire_ Buff
-	Description: Mods.AAModClassic.Buffs.CursedHellfire_Buff.Description
-}
-
-DapperSquirrel_Buff: {
-	DisplayName: Dapper Squirrel_ Buff
-	Description: Mods.AAModClassic.Buffs.DapperSquirrel_Buff.Description
-}
-
-DarkCurse_Buff: {
-	DisplayName: Dark Curse_ Buff
-	Description: Mods.AAModClassic.Buffs.DarkCurse_Buff.Description
-}
-
-DarkLock_Buff: {
-	DisplayName: Dark Lock_ Buff
-	Description: Mods.AAModClassic.Buffs.DarkLock_Buff.Description
-}
-
-Demon_Buff: {
-	DisplayName: Demon_ Buff
-	Description: Mods.AAModClassic.Buffs.Demon_Buff.Description
-}
-
-DemonMinion_Buff: {
-	DisplayName: Demon Minion_ Buff
-	Description: Mods.AAModClassic.Buffs.DemonMinion_Buff.Description
-}
-
-DestinedToDie_Buff: {
-	DisplayName: Destined To Die_ Buff
-	Description: Mods.AAModClassic.Buffs.DestinedToDie_Buff.Description
-}
-
-DevilMinion_Buff: {
-	DisplayName: Devil Minion_ Buff
-	Description: Mods.AAModClassic.Buffs.DevilMinion_Buff.Description
-}
-
-DiscordInferno_Buff: {
-	DisplayName: Discord Inferno_ Buff
-	Description: Mods.AAModClassic.Buffs.DiscordInferno_Buff.Description
-}
-
-DoomiteProbe_Buff: {
-	DisplayName: Doomite Probe_ Buff
-	Description: Mods.AAModClassic.Buffs.DoomiteProbe_Buff.Description
-}
-
-DoomiteProbeC_Buff: {
-	DisplayName: Doomite Probe C_ Buff
-	Description: Mods.AAModClassic.Buffs.DoomiteProbeC_Buff.Description
-}
-
-DragonFire_Buff: {
-	DisplayName: Dragon Fire_ Buff
-	Description: Mods.AAModClassic.Buffs.DragonFire_Buff.Description
-}
-
-DragonfireFlask_Buff: {
-	DisplayName: Dragonfire Flask_ Buff
-	Description: Mods.AAModClassic.Buffs.DragonfireFlask_Buff.Description
-}
-
-DragonMinion_Buff: {
-	DisplayName: Dragon Minion_ Buff
-	Description: Mods.AAModClassic.Buffs.DragonMinion_Buff.Description
-}
-
-DragonSoul_Buff: {
-	DisplayName: Dragon Soul_ Buff
-	Description: Mods.AAModClassic.Buffs.DragonSoul_Buff.Description
-}
-
-DragonSpirit_Buff: {
-	DisplayName: Dragon Spirit_ Buff
-	Description: Mods.AAModClassic.Buffs.DragonSpirit_Buff.Description
-}
-
-DustDevil_Buff: {
-	DisplayName: Dust Devil_ Buff
-	Description: Mods.AAModClassic.Buffs.DustDevil_Buff.Description
-}
-
-DynaEnergy1_Buff: {
-	DisplayName: Dyna Energy1_ Buff
-	Description: Mods.AAModClassic.Buffs.DynaEnergy1_Buff.Description
-}
-
-DynaEnergy2_Buff: {
-	DisplayName: Dyna Energy2_ Buff
-	Description: Mods.AAModClassic.Buffs.DynaEnergy2_Buff.Description
-}
-
-EaterMinion_Buff: {
-	DisplayName: Eater Minion_ Buff
-	Description: Mods.AAModClassic.Buffs.EaterMinion_Buff.Description
-}
-
-Electrified_Buff: {
-	DisplayName: Electrified_ Buff
-	Description: Mods.AAModClassic.Buffs.Electrified_Buff.Description
-}
-
-EnderMinion_Buff: {
-	DisplayName: Ender Minion_ Buff
-	Description: Mods.AAModClassic.Buffs.EnderMinion_Buff.Description
-}
-
-EnderMinionEX_Buff: {
-	DisplayName: Ender Minion E X_ Buff
-	Description: Mods.AAModClassic.Buffs.EnderMinionEX_Buff.Description
-}
-
-EyeOfForsaken_Buff: {
-	DisplayName: Eye Of Forsaken_ Buff
-	Description: Mods.AAModClassic.Buffs.EyeOfForsaken_Buff.Description
-}
-
-EyeOfJudgement_Buff: {
-	DisplayName: Eye Of Judgement_ Buff
-	Description: Mods.AAModClassic.Buffs.EyeOfJudgement_Buff.Description
-}
-
-Falling_Buff: {
-	DisplayName: Falling_ Buff
-	Description: Mods.AAModClassic.Buffs.Falling_Buff.Description
-}
-
-Fishnado_Buff: {
-	DisplayName: Fishnado_ Buff
-	Description: Mods.AAModClassic.Buffs.Fishnado_Buff.Description
-}
-
-FlameSoul_Buff: {
-	DisplayName: Flame Soul_ Buff
-	Description: Mods.AAModClassic.Buffs.FlameSoul_Buff.Description
-}
-
-Forsaken_Buff: {
-	DisplayName: Forsaken_ Buff
-	Description: Mods.AAModClassic.Buffs.Forsaken_Buff.Description
-}
-
-ForsakenFlames_Buff: {
-	DisplayName: Forsaken Flames_ Buff
-	Description: Mods.AAModClassic.Buffs.ForsakenFlames_Buff.Description
-}
-
-ForsakenWeak_Buff: {
-	DisplayName: Forsaken Weak_ Buff
-	Description: Mods.AAModClassic.Buffs.ForsakenWeak_Buff.Description
-}
-
-Glitched_Buff: {
-	DisplayName: Glitched_ Buff
-	Description: Mods.AAModClassic.Buffs.Glitched_Buff.Description
-}
-
-GripMinion_Buff: {
-	DisplayName: Grip Minion_ Buff
-	Description: Mods.AAModClassic.Buffs.GripMinion_Buff.Description
-}
-
-HallowedPrism_Buff: {
-	DisplayName: Hallowed Prism_ Buff
-	Description: Mods.AAModClassic.Buffs.HallowedPrism_Buff.Description
-}
-
-Hunted_Buff: {
-	DisplayName: Hunted_ Buff
-	Description: Mods.AAModClassic.Buffs.Hunted_Buff.Description
-}
-
-Impaled_Buff: {
-	DisplayName: Impaled_ Buff
-	Description: Mods.AAModClassic.Buffs.Impaled_Buff.Description
-}
-
-InfinityOverload_Buff: {
-	DisplayName: Infinity Overload_ Buff
-	Description: Mods.AAModClassic.Buffs.InfinityOverload_Buff.Description
-}
-
-InvokedCaligulaSafe_Buff: {
-	DisplayName: Invoked Caligula Safe_ Buff
-	Description: Mods.AAModClassic.Buffs.InvokedCaligulaSafe_Buff.Description
-}
-
-InvokerofMadness_Buff: {
-	DisplayName: Invokerof Madness_ Buff
-	Description: Mods.AAModClassic.Buffs.InvokerofMadness_Buff.Description
-}
-
-Irradiated_Buff: {
-	DisplayName: Irradiated_ Buff
-	Description: Mods.AAModClassic.Buffs.Irradiated_Buff.Description
-}
-
-K9_Buff: {
-	DisplayName: K9_ Buff
-	Description: Mods.AAModClassic.Buffs.K9_Buff.Description
-}
-
-Lunamini_Buff: {
-	DisplayName: Lunamini_ Buff
-	Description: Mods.AAModClassic.Buffs.Lunamini_Buff.Description
-}
-
-LungMinion_Buff: {
-	DisplayName: Lung Minion_ Buff
-	Description: Mods.AAModClassic.Buffs.LungMinion_Buff.Description
-}
-
-ManaOverload_Buff: {
-	DisplayName: Mana Overload_ Buff
-	Description: Mods.AAModClassic.Buffs.ManaOverload_Buff.Description
-}
-
-MiniProbe_Buff: {
-	DisplayName: Mini Probe_ Buff
-	Description: Mods.AAModClassic.Buffs.MiniProbe_Buff.Description
-}
-
-Mudkip_Buff: {
-	DisplayName: Mudkip_ Buff
-	Description: Mods.AAModClassic.Buffs.Mudkip_Buff.Description
-}
-
-MudkipS_Buff: {
-	DisplayName: Mudkip S_ Buff
-	Description: Mods.AAModClassic.Buffs.MudkipS_Buff.Description
-}
-
-Orbiters_Buff: {
-	DisplayName: Orbiters_ Buff
-	Description: Mods.AAModClassic.Buffs.Orbiters_Buff.Description
-}
-
-PrettyPony_Buff: {
-	DisplayName: Pretty Pony_ Buff
-	Description: Mods.AAModClassic.Buffs.PrettyPony_Buff.Description
-}
-
-PrinceFishron_Buff: {
-	DisplayName: Prince Fishron_ Buff
-	Description: Mods.AAModClassic.Buffs.PrinceFishron_Buff.Description
-}
-
-ProbeMinion_Buff: {
-	DisplayName: Probe Minion_ Buff
-	Description: Mods.AAModClassic.Buffs.ProbeMinion_Buff.Description
-}
-
-Protocol_Buff: {
-	DisplayName: Protocol_ Buff
-	Description: Mods.AAModClassic.Buffs.Protocol_Buff.Description
-}
-
-RabbitcopterSoldier_Buff: {
-	DisplayName: Rabbitcopter Soldier_ Buff
-	Description: Mods.AAModClassic.Buffs.RabbitcopterSoldier_Buff.Description
-}
-
-RadiumInferno_Buff: {
-	DisplayName: Radium Inferno_ Buff
-	Description: Mods.AAModClassic.Buffs.RadiumInferno_Buff.Description
+DapperAcorn_Buff: {
+	DisplayName: Dapper Squirrel
+	Description: Now with funny hats
 }
 
 RealityBent_Buff: {
-	DisplayName: Reality Bent_ Buff
-	Description: Mods.AAModClassic.Buffs.RealityBent_Buff.Description
+	DisplayName: Riftbent
+	Description: The space around you is being distorted
 }
 
-ReaperCD_Buff: {
-	DisplayName: Reaper C D_ Buff
-	Description: Mods.AAModClassic.Buffs.ReaperCD_Buff.Description
+InfinityScorch_Buff: {
+	DisplayName: Infinity Scorch
+	Description: Your health is burning away
 }
 
-ReaperImmune_Buff: {
-	DisplayName: Reaper Immune_ Buff
-	Description: Mods.AAModClassic.Buffs.ReaperImmune_Buff.Description
+LockedOn_Buff: {
+	DisplayName: Locked On
+	Description: ""
 }
 
-ReaperImmune2_Buff: {
-	DisplayName: Reaper Immune2_ Buff
-	Description: Mods.AAModClassic.Buffs.ReaperImmune2_Buff.Description
+BrokenArmor_Buff: {
+	DisplayName: Broken Armor
+	Description: ""
 }
 
-Ronin_Buff: {
-	DisplayName: Ronin_ Buff
-	Description: Mods.AAModClassic.Buffs.Ronin_Buff.Description
+Electrified_Buff: {
+	DisplayName: Electrified
+	Description: ""
 }
 
-RoyalKitten_Buff: {
-	DisplayName: Royal Kitten_ Buff
-	Description: Mods.AAModClassic.Buffs.RoyalKitten_Buff.Description
-}
-
-RoyalRabbit_Buff: {
-	DisplayName: Royal Rabbit_ Buff
-	Description: Mods.AAModClassic.Buffs.RoyalRabbit_Buff.Description
-}
-
-SagOrbiter_Buff: {
-	DisplayName: Sag Orbiter_ Buff
-	Description: Mods.AAModClassic.Buffs.SagOrbiter_Buff.Description
-}
-
-SagShield_Buff: {
-	DisplayName: Sag Shield_ Buff
-	Description: Mods.AAModClassic.Buffs.SagShield_Buff.Description
-}
-
-ScoutMinion_Buff: {
-	DisplayName: Scout Minion_ Buff
-	Description: Mods.AAModClassic.Buffs.ScoutMinion_Buff.Description
-}
-
-Searcher_Buff: {
-	DisplayName: Searcher_ Buff
-	Description: Mods.AAModClassic.Buffs.Searcher_Buff.Description
-}
-
-Seraph_Buff: {
-	DisplayName: Seraph_ Buff
-	Description: Mods.AAModClassic.Buffs.Seraph_Buff.Description
-}
-
-Sharkron_Buff: {
-	DisplayName: Sharkron_ Buff
-	Description: Mods.AAModClassic.Buffs.Sharkron_Buff.Description
-}
-
-Shroomed_Buff: {
-	DisplayName: Shroomed_ Buff
-	Description: Mods.AAModClassic.Buffs.Shroomed_Buff.Description
-}
-
-SkullMinion_Buff: {
-	DisplayName: Skull Minion_ Buff
-	Description: Mods.AAModClassic.Buffs.SkullMinion_Buff.Description
-}
-
-SnakeMinion_Buff: {
-	DisplayName: Snake Minion_ Buff
-	Description: Mods.AAModClassic.Buffs.SnakeMinion_Buff.Description
-}
-
-Socc_Buff: {
-	DisplayName: Socc_ Buff
-	Description: Mods.AAModClassic.Buffs.Socc_Buff.Description
-}
-
-SockPuppet_Buff: {
-	DisplayName: Sock Puppet_ Buff
-	Description: Mods.AAModClassic.Buffs.SockPuppet_Buff.Description
+Impaled_Buff: {
+	DisplayName: Impaled
+	Description: "'Ouch!'"
 }
 
 SpearStuck_Buff: {
-	DisplayName: Spear Stuck_ Buff
-	Description: Mods.AAModClassic.Buffs.SpearStuck_Buff.Description
-}
-
-Squirrel_Buff: {
-	DisplayName: Squirrel_ Buff
-	Description: Mods.AAModClassic.Buffs.Squirrel_Buff.Description
-}
-
-Stunned_Buff: {
-	DisplayName: Stunned_ Buff
-	Description: Mods.AAModClassic.Buffs.Stunned_Buff.Description
-}
-
-Terrablaze_Buff: {
-	DisplayName: Terrablaze_ Buff
-	Description: Mods.AAModClassic.Buffs.Terrablaze_Buff.Description
-}
-
-Terrarium_Buff: {
-	DisplayName: Terrarium_ Buff
-	Description: Mods.AAModClassic.Buffs.Terrarium_Buff.Description
-}
-
-TerraSummon_Buff: {
-	DisplayName: Terra Summon_ Buff
-	Description: Mods.AAModClassic.Buffs.TerraSummon_Buff.Description
-}
-
-TerraWizard_Buff: {
-	DisplayName: Terra Wizard_ Buff
-	Description: Mods.AAModClassic.Buffs.TerraWizard_Buff.Description
-}
-
-TimeFrozen_Buff: {
-	DisplayName: Time Frozen_ Buff
-	Description: Mods.AAModClassic.Buffs.TimeFrozen_Buff.Description
-}
-
-TrueHallowedPrism_Buff: {
-	DisplayName: True Hallowed Prism_ Buff
-	Description: Mods.AAModClassic.Buffs.TrueHallowedPrism_Buff.Description
-}
-
-UnstableSoul_Buff: {
-	DisplayName: Unstable Soul_ Buff
-	Description: Mods.AAModClassic.Buffs.UnstableSoul_Buff.Description
-}
-
-XiaoDoragon_Buff: {
-	DisplayName: Xiao Doragon_ Buff
-	Description: Mods.AAModClassic.Buffs.XiaoDoragon_Buff.Description
-}
-
-YamataAGravity_Buff: {
-	DisplayName: Yamata A Gravity_ Buff
-	Description: Mods.AAModClassic.Buffs.YamataAGravity_Buff.Description
-}
-
-YamataGravity_Buff: {
-	DisplayName: Yamata Gravity_ Buff
-	Description: Mods.AAModClassic.Buffs.YamataGravity_Buff.Description
-}
-
-Yanked_Buff: {
-	DisplayName: Yanked_ Buff
-	Description: Mods.AAModClassic.Buffs.Yanked_Buff.Description
-}
-
-ZeroBab_Buff: {
-	DisplayName: Zero Bab_ Buff
-	Description: Mods.AAModClassic.Buffs.ZeroBab_Buff.Description
-}
-
-AssassinHurt_Buff: {
-	DisplayName: Assassin Hurt_ Buff
-	Description: Mods.AAModClassic.Buffs.AssassinHurt_Buff.Description
-}
-
-Baron_Buff: {
-	DisplayName: Baron_ Buff
-	Description: Mods.AAModClassic.Buffs.Baron_Buff.Description
-}
-
-CBoost1_Buff: {
-	DisplayName: C Boost1_ Buff
-	Description: Mods.AAModClassic.Buffs.CBoost1_Buff.Description
-}
-
-CBoost2_Buff: {
-	DisplayName: C Boost2_ Buff
-	Description: Mods.AAModClassic.Buffs.CBoost2_Buff.Description
-}
-
-CBoost3_Buff: {
-	DisplayName: C Boost3_ Buff
-	Description: Mods.AAModClassic.Buffs.CBoost3_Buff.Description
-}
-
-DroneCool_Buff: {
-	DisplayName: Drone Cool_ Buff
-	Description: Mods.AAModClassic.Buffs.DroneCool_Buff.Description
-}
-
-Rage_Buff: {
-	DisplayName: Rage_ Buff
-	Description: Mods.AAModClassic.Buffs.Rage_Buff.Description
-}
-
-RageCool_Buff: {
-	DisplayName: Rage Cool_ Buff
-	Description: Mods.AAModClassic.Buffs.RageCool_Buff.Description
-}
-
-Charm_Buff: {
-	DisplayName: Charm_ Buff
-	Description: Mods.AAModClassic.Buffs.Charm_Buff.Description
-}
-
-Talisman_Buff: {
-	DisplayName: Talisman_ Buff
-	Description: Mods.AAModClassic.Buffs.Talisman_Buff.Description
-}
-
-Cinematic_Buff: {
-	DisplayName: Cinematic_ Buff
-	Description: Mods.AAModClassic.Buffs.Cinematic_Buff.Description
-}
-
-GlowingMossBall_Buff: {
-	DisplayName: Glowing Moss Ball_ Buff
-	Description: Mods.AAModClassic.Buffs.GlowingMossBall_Buff.Description
-}
-
-FlaskOfDragonfire_Buff: {
-	DisplayName: Flask Of Dragonfire_ Buff
-	Description: Mods.AAModClassic.Buffs.FlaskOfDragonfire_Buff.Description
-}
-
-ChaosHelmetSummoner_Buff: {
-	DisplayName: Chaos Helmet Summoner_ Buff
-	Description: Mods.AAModClassic.Buffs.ChaosHelmetSummoner_Buff.Description
-}
-
-FuryWitchsHelmet_Buff: {
-	DisplayName: Fury Witchs Helmet_ Buff
-	Description: Mods.AAModClassic.Buffs.FuryWitchsHelmet_Buff.Description
-}
-
-MidnightAssassinHelmet_AssassinHurtBuff: {
-	DisplayName: Midnight Assassin Helmet_ Assassin Hurt Buff
-	Description: Mods.AAModClassic.Buffs.MidnightAssassinHelmet_AssassinHurtBuff.Description
-}
-
-DiscordianInferno_Buff: {
-	DisplayName: Discordian Inferno_ Buff
-	Description: Mods.AAModClassic.Buffs.DiscordianInferno_Buff.Description
-}
-
-DemonHelmet_Buff: {
-	DisplayName: Demon Helmet_ Buff
-	Description: Mods.AAModClassic.Buffs.DemonHelmet_Buff.Description
-}
-
-ScorchingPain_Buff: {
-	DisplayName: Scorching Pain_ Buff
-	Description: Mods.AAModClassic.Buffs.ScorchingPain_Buff.Description
-}
-
-TerrasGuidance_Buff: {
-	DisplayName: Terras Guidance_ Buff
-	Description: Mods.AAModClassic.Buffs.TerrasGuidance_Buff.Description
-}
-
-DemonStaff_Buff: {
-	DisplayName: Demon Staff_ Buff
-	Description: Mods.AAModClassic.Buffs.DemonStaff_Buff.Description
-}
-
-ChampionHelmetMage_ChampionBoost1: {
-	DisplayName: Champion Helmet Mage_ Champion Boost1
-	Description: Mods.AAModClassic.Buffs.ChampionHelmetMage_ChampionBoost1.Description
-}
-
-ChampionHelmetMage_ChampionBoost2: {
-	DisplayName: Champion Helmet Mage_ Champion Boost2
-	Description: Mods.AAModClassic.Buffs.ChampionHelmetMage_ChampionBoost2.Description
-}
-
-ChampionHelmetMage_ChampionBoost3: {
-	DisplayName: Champion Helmet Mage_ Champion Boost3
-	Description: Mods.AAModClassic.Buffs.ChampionHelmetMage_ChampionBoost3.Description
-}
-
-ChampionHelmetMelee_DefendersRage: {
-	DisplayName: Champion Helmet Melee_ Defenders Rage
-	Description: Mods.AAModClassic.Buffs.ChampionHelmetMelee_DefendersRage.Description
-}
-
-ChampionHelmetMelee_RajahsRage: {
-	DisplayName: Champion Helmet Melee_ Rajahs Rage
-	Description: Mods.AAModClassic.Buffs.ChampionHelmetMelee_RajahsRage.Description
-}
-
-ChampionHelmetRanged_RABITUnitReloadProtocol: {
-	DisplayName: Champion Helmet Ranged_ R A B I T Unit Reload Protocol
-	Description: Mods.AAModClassic.Buffs.ChampionHelmetRanged_RABITUnitReloadProtocol.Description
-}
-
-ChampionHelmetSummoner_Buff: {
-	DisplayName: Champion Helmet Summoner_ Buff
-	Description: Mods.AAModClassic.Buffs.ChampionHelmetSummoner_Buff.Description
-}
-
-ClawBaton_Buff: {
-	DisplayName: Claw Baton_ Buff
-	Description: Mods.AAModClassic.Buffs.ClawBaton_Buff.Description
-}
-
-FlameVortexStaff_Buff: {
-	DisplayName: Flame Vortex Staff_ Buff
-	Description: Mods.AAModClassic.Buffs.FlameVortexStaff_Buff.Description
-}
-
-SagittariusCore_Buff: {
-	DisplayName: Sagittarius Core_ Buff
-	Description: Mods.AAModClassic.Buffs.SagittariusCore_Buff.Description
-}
-
-SeraphHarp_Buff: {
-	DisplayName: Seraph Harp_ Buff
-	Description: Mods.AAModClassic.Buffs.SeraphHarp_Buff.Description
-}
-
-ChaosBaton_Buff: {
-	DisplayName: Chaos Baton_ Buff
-	Description: Mods.AAModClassic.Buffs.ChaosBaton_Buff.Description
-}
-
-GoddessHarp_Buff: {
-	DisplayName: Goddess Harp_ Buff
-	Description: Mods.AAModClassic.Buffs.GoddessHarp_Buff.Description
-}
-
-SandScepter_Buff: {
-	DisplayName: Sand Scepter_ Buff
-	Description: Mods.AAModClassic.Buffs.SandScepter_Buff.Description
-}
-
-SnakeStaff_Buff: {
-	DisplayName: Snake Staff_ Buff
-	Description: Mods.AAModClassic.Buffs.SnakeStaff_Buff.Description
-}
-
-ArtifactOfJudgement_Buff: {
-	DisplayName: Artifact Of Judgement_ Buff
-	Description: Mods.AAModClassic.Buffs.ArtifactOfJudgement_Buff.Description
-}
-
-ArtifactOfGuilt_Buff: {
-	DisplayName: Artifact Of Guilt_ Buff
-	Description: Mods.AAModClassic.Buffs.ArtifactOfGuilt_Buff.Description
-}
-
-Lifeline_Forsaken: {
-	DisplayName: Lifeline_ Forsaken
-	Description: Mods.AAModClassic.Buffs.Lifeline_Forsaken.Description
-}
-
-Lifeline_ForsakenWeak: {
-	DisplayName: Lifeline_ Forsaken Weak
-	Description: Mods.AAModClassic.Buffs.Lifeline_ForsakenWeak.Description
-}
-
-CharmOfDesire_Desire: {
-	DisplayName: Charm Of Desire_ Desire
-	Description: Mods.AAModClassic.Buffs.CharmOfDesire_Desire.Description
-}
-
-TalismanOfDesire_RuthlessDesire: {
-	DisplayName: Talisman Of Desire_ Ruthless Desire
-	Description: Mods.AAModClassic.Buffs.TalismanOfDesire_RuthlessDesire.Description
-}
-
-Earthbreaker_Falling: {
-	DisplayName: Earthbreaker_ Falling
-	Description: Mods.AAModClassic.Buffs.Earthbreaker_Falling.Description
-}
-
-CottonCane_Buff: {
-	DisplayName: Cotton Cane_ Buff
-	Description: Mods.AAModClassic.Buffs.CottonCane_Buff.Description
-}
-
-RajahsRage_Buff: {
-	DisplayName: Rajahs Rage_ Buff
-	Description: Mods.AAModClassic.Buffs.RajahsRage_Buff.Description
-}
-
-ScorchedEgg_Buff: {
-	DisplayName: Scorched Egg_ Buff
-	Description: Mods.AAModClassic.Buffs.ScorchedEgg_Buff.Description
-}
-
-Seashroom_Buff: {
-	DisplayName: Seashroom_ Buff
-	Description: Mods.AAModClassic.Buffs.Seashroom_Buff.Description
-}
-
-ZeroCore_Buff: {
-	DisplayName: Zero Core_ Buff
-	Description: Mods.AAModClassic.Buffs.ZeroCore_Buff.Description
-}
-
-PaperBomb_Buff: {
-	DisplayName: Paper Bomb_ Buff
-	Description: Mods.AAModClassic.Buffs.PaperBomb_Buff.Description
-}
+	DisplayName: Speared
+	Description: There's a spear stuck in you. Ouch.
+}

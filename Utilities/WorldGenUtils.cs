@@ -1,10 +1,14 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Keep;
+using AAModClassic.Base.BaseMod.Base;
+using Microsoft.VisualBasic;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.WorldBuilding;
+using static Mono.CompilerServices.SymbolWriter.CodeBlockEntry;
 
 namespace AAModClassic.Utilities
 {
@@ -112,94 +116,105 @@ namespace AAModClassic.Utilities
         {
             try
             {
-                Tile Mtile = Framing.GetTileSafely(x, y);
+                if (!WorldGen.InWorld(x, y))
+                    return;
 
-                if (!WorldGen.InWorld(x, y)) return;
+                Tile Mtile = Framing.GetTileSafely(x, y);
                 TileObjectData data = tile <= -1 ? null : TileObjectData.GetTileData(tile, tileStyle);
                 int width = data == null ? 1 : data.Width;
                 int height = data == null ? 1 : data.Height;
-                int tileWidth = tile == -1 || data == null ? 1 : data.Width;
-                int tileHeight = tile == -1 || data == null ? 1 : data.Height;
                 byte oldSlope = (byte)Main.tile[x, y].Slope;
                 bool oldHalfBrick = Main.tile[x, y].IsHalfBlock;
+
                 if (tile != -1)
                 {
                     WorldGen.destroyObject = true;
+
                     if (width > 1 || height > 1)
                     {
-                        int xs = x, ys = y;
-                        Vector2 newPos = FindTopLeft(xs, ys);
+                        Vector2 topLeft = FindTopLeft(x, y);
+                        int tlX = (int)topLeft.X;
+                        int tlY = (int)topLeft.Y;
+
                         for (int x1 = 0; x1 < width; x1++)
                         {
                             for (int y1 = 0; y1 < height; y1++)
                             {
-                                int x2 = (int)newPos.X + x1;
-                                int y2 = (int)newPos.Y + y1;
-                                if (x1 == 0 && y1 == 0 && Main.tile[x2, y2].TileType == TileID.Containers) //is a chest, special case to prevent dupe glitch
-                                {
+                                int x2 = tlX + x1;
+                                int y2 = tlY + y1;
+
+                                if (x1 == 0 && y1 == 0 && Main.tile[x2, y2].TileType == TileID.Containers)
                                     KillChestAndItems(x2, y2);
-                                }
-                                Main.tile[x, y].TileType = TileID.Dirt;
-                                if (!silent) { WorldGen.KillTile(x, y, false, false, true); }
+
+                                Main.tile[x2, y2].TileType = TileID.Dirt;
+                                if (!silent)
+                                    WorldGen.KillTile(x2, y2, false, false, true);
+
                                 if (removeLiquid)
-                                {
                                     GenerateLiquid(x2, y2, 0, true, 0, false);
-                                }
                             }
                         }
+
                         for (int x1 = 0; x1 < width; x1++)
                         {
                             for (int y1 = 0; y1 < height; y1++)
                             {
-                                int x2 = (int)newPos.X + x1;
-                                int y2 = (int)newPos.Y + y1;
-                                WorldGen.SquareTileFrame(x2, y2);
-                                WorldGen.SquareWallFrame(x2, y2);
+                                WorldGen.SquareTileFrame(tlX + x1, tlY + y1);
+                                WorldGen.SquareWallFrame(tlX + x1, tlY + y1);
                             }
                         }
                     }
-                    else
-                        if (!silent)
-                        {
-                            WorldGen.KillTile(x, y, false, false, true);
-                        }
+
                     WorldGen.destroyObject = false;
+
                     if (active)
                     {
-                        if (tileWidth <= 1 && tileHeight <= 1 && !Main.tileFrameImportant[tile])
+                        if (width <= 1 && height <= 1 && !Main.tileFrameImportant[tile])
                         {
                             Main.tile[x, y].TileType = (ushort)tile;
                             Mtile.HasTile = true;
-                            if (slope == -2 && oldHalfBrick) { Mtile.IsHalfBlock = true; }
+
+                            if (slope == -2 && oldHalfBrick)
+                                Mtile.IsHalfBlock = true;
+                            else if (slope == -1)
+                                Mtile.IsHalfBlock = true;
                             else
-                                if (slope == -1) { Mtile.IsHalfBlock = true; }
-                                else
-                                { Mtile.Slope = (SlopeType)(slope == -2 ? oldSlope : (byte)slope); }
-                            WorldGen.SquareTileFrame(x, y);
+                                Mtile.Slope = (SlopeType)(slope == -2 ? oldSlope : (byte)slope);
+
+                            if (removeLiquid)
+                                GenerateLiquid(x, y, 0, true, 0, false);
+
+                            if (WorldGen.InWorld(x, y))
+                                WorldGen.SquareTileFrame(x, y);
                         }
                         else
                         {
                             WorldGen.destroyObject = true;
-                            if (!silent)
+                            for (int x1 = 0; x1 < width; x1++)
+                                for (int y1 = 0; y1 < height; y1++)
+                                    Framing.GetTileSafely(x + x1, y + y1).ClearTile();
+                            WorldGen.destroyObject = false;
+
+                            if (TileID.Sets.Platforms[tile])
                             {
-                                for (int x1 = 0; x1 < tileWidth; x1++)
+                                Mtile.HasTile = true;
+                                Mtile.TileType = (ushort)tile;
+                                Mtile.Slope = SlopeType.Solid;
+                                Mtile.IsHalfBlock = false;
+
+                                WorldGen.SquareTileFrame(x, y);
+                                if (tile >= TileID.Count && Mtile.TileFrameY != 0)
                                 {
-                                    for (int y1 = 0; y1 < tileHeight; y1++)
-                                    {
-                                        WorldGen.KillTile(x + x1, y + y1, false, false, true);
-                                    }
+                                    Mtile.TileFrameX = 5 * 18;
+                                    Mtile.TileFrameY = 0;
                                 }
                             }
-                            WorldGen.destroyObject = false;
-                            int genX = x;
-                            int genY = tile == 10 ? y : y + height;
-                            WorldGen.PlaceTile(genX, genY, tile, true, true, -1, tileStyle);
-                            for (int x1 = 0; x1 < tileWidth; x1++)
+                            else
                             {
-                                for (int y1 = 0; y1 < tileHeight; y1++)
-                                {
-                                    WorldGen.SquareTileFrame(x + x1, y + y1);
-                                }
+                                WorldGen.PlaceTile(x, y, tile, true, true, -1, tileStyle);
+                                for (int x1 = 0; x1 < width; x1++)
+                                    for (int y1 = 0; y1 < height; y1++)
+                                        WorldGen.SquareTileFrame(x + x1, y + y1);
                             }
                         }
                     }
@@ -208,18 +223,18 @@ namespace AAModClassic.Utilities
                         Mtile.ClearTile();
                     }
                 }
+
                 if (wall != -1)
                 {
-                    if (wall == -2) { wall = 0; }
+                    if (wall == -2) wall = 0;
                     Main.tile[x, y].WallType = WallID.None;
                     WorldGen.PlaceWall(x, y, wall, true);
                 }
+
                 if (sync && Main.netMode != NetmodeID.SinglePlayer)
                 {
-                    int sizeWidth = tileWidth + Math.Max(0, width - 1);
-                    int sizeHeight = tileHeight + Math.Max(0, height - 1);
-                    int size = sizeWidth > sizeHeight ? sizeWidth : sizeHeight;
-                    NetMessage.SendTileSquare(-1, x + (int)(size * 0.5F), y + (int)(size * 0.5F), size + 1);
+                    int size = Math.Max(width, height);
+                    NetMessage.SendTileSquare(-1, x + size / 2, y + size / 2, size + 1);
                 }
             }
             catch (Exception e)
@@ -391,6 +406,25 @@ namespace AAModClassic.Utilities
             Main.tileSolid[137] = true;
         }
 
+        public static void AddProtectedStructure(Rectangle area, int padding = 0)
+        {
+            // Always add to the vanilla protected structures list.
+            GenVars.structures.AddProtectedStructure(area, padding);
+
+            Rectangle paddedArea = new Rectangle(area.X, area.Y, area.Width, area.Height);
+            paddedArea.Inflate(padding, padding);
+
+            // If Fargo's Mutant Mod is loaded, add to their Indestructible Rectangle list, which prevents structures from being trashed by Fargo's terrain tools.
+            if (ModLoader.TryGetMod("Fargowiltas", out Mod fargos))
+            {
+                paddedArea.X *= 16;
+                paddedArea.Y *= 16;
+                paddedArea.Width *= 16;
+                paddedArea.Height *= 16;
+                fargos.Call("AddIndestructibleRectangle", paddedArea);
+            }
+        }
+
         //Gen Actions
         public class SetModTile : GenAction
         {
@@ -524,6 +558,42 @@ namespace AAModClassic.Utilities
                     return UnitApply(origin, x, y, args);
                 }
                 return Fail();
+            }
+        }
+
+        public class InWorld : GenAction
+        {
+            public InWorld()
+            {
+            }
+
+            public override bool Apply(Point origin, int x, int y, params object[] args)
+            {
+                if (x < 0 || x > Main.maxTilesX || y < 0 || y > Main.maxTilesY)
+                    return Fail();
+                return UnitApply(origin, x, y, args);
+            }
+        }
+
+        public class ConvertTile : GenAction
+        {
+            int conversionType = -1;
+            public ConvertTile(int type)
+            {
+                conversionType = type;
+            }
+
+            public override bool Apply(Point origin, int x, int y, params object[] args)
+            {
+                if (conversionType == -1)
+                    return Fail();
+
+                if (x < 0 || x > Main.maxTilesX || y < 0 || y > Main.maxTilesY)
+                    return Fail();
+
+                WorldGen.Convert(x, y, conversionType, 1, true, true);
+
+                return UnitApply(origin, x, y, args);
             }
         }
     }

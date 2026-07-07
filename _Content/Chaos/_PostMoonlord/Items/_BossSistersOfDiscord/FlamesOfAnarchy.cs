@@ -1,25 +1,27 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.Localization;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
-using AAModClassic.NPCs.Bosses.AH;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.NPCs.Bosses.AH.Haruka;
-using AAModClassic.NPCs.Bosses.AH.Ashe;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord
 {
-    public class FlamesOfAnarchy : BaseAAItem
+    public class FlamesOfAnarchy : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.BossSummon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Flames of Anarchy");
@@ -55,7 +57,8 @@ Non-Consumable"); */
 
             if (AAWorld.SistersSummoned && !AAWorld.downedSisters)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.SistersDownedInfo1"), new Color(102, 20, 48));
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.SistersDownedInfo1"), new Color(102, 20, 48));
 
                 AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Ashe>(), false, -1, 0, "Ashe Akuma", false);
 

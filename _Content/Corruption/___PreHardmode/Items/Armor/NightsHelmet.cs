@@ -1,18 +1,20 @@
+﻿using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Corruption.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class NightsHelmet : BaseAAItem
+	public class NightsHelmet : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Nights";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Night's Helm");
-			// Tooltip.SetDefault("9% increased melee speed");
 		}
 
 		public override void SetDefaults()
@@ -24,24 +26,21 @@ namespace AAModClassic._Content.Corruption.___PreHardmode.Items.Armor
 			Item.defense = 6;
 		}
 		
-		public override void UpdateEquip(Player player)
-		{
-			player.GetAttackSpeed(DamageClass.Melee) += 0.09f;
-		}
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ModContent.ItemType<NightsChestplate>() && legs.type == ModContent.ItemType<NightsLeggings>();
 		}
 
-		public override void UpdateArmorSet(Player player)
-		{
-			player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.NightsHelmBonus");
-            player.moveSpeed += 0.22f;
-            player.panic = true;
-		}
+        public override void RegisterEquipEffects()
+        {
+            damageMap.GetAttackSpeed(DamageClass.Melee) += 0.09f;
 
-		public override void AddRecipes()
+			AddSetEffect(new MovementSpeedEffect(0.22f));
+			AddSetEffect<PanicNecklaceEffect>();
+        }
+
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.ShadowHelmet, 1);

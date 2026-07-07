@@ -1,12 +1,16 @@
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.UI.Tools;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Tools
 {
-    public class DreadTerratool : BaseAAItem
+    public class DreadTerratool : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Tools";
         public override void SetDefaults()
         {
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
@@ -18,7 +22,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Tools
             Item.tileBoost += 20;
             Item.knockBack = 3;
             Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.rare = ItemRarityID.Cyan; AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.useTurn = true;
@@ -27,16 +31,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Tools
         }
 
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
         public override void SetStaticDefaults()
         {
@@ -63,9 +58,9 @@ You may only have a maximum of 2 tool types active"); */
             }
             else if(player.altFunctionUse != 2)
             {
-                Item.pick = UI.TerratoolYUI.Pick;
-                Item.axe = UI.TerratoolYUI.Axe;
-                Item.hammer = UI.TerratoolYUI.Hammer;
+                Item.pick = TerratoolYUI.Pick;
+                Item.axe = TerratoolYUI.Axe;
+                Item.hammer = TerratoolYUI.Hammer;
                 Item.damage = 100;
             }
             else

@@ -1,4 +1,4 @@
-using AAModClassic.Items.Banners;
+using AAModClassic._Content.Inferno.World.Biomes;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,7 +12,13 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Desert
 		{
 			// DisplayName.SetDefault("Infernal Ghoul");
 			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.DesertGhoul];
-		}
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Velocity = -2
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+        }
 
 		public override void SetDefaults()
 		{
@@ -20,8 +26,9 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Desert
             AnimationType = NPCID.DesertGhoul;
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
-			Banner = NPC.type;
-			BannerItem = ModContent.ItemType<InfernoGhoulBanner>();
+			Banner = Item.NPCtoBanner(NPCID.DesertGhoul);
+			BannerItem = ItemID.DesertGhoulBanner;
+            SpawnModBiomes = [ModContent.GetInstance<UndergroundInfernoBiome>().Type];
         }
 
         public override void HitEffect(NPC.HitInfo hit)

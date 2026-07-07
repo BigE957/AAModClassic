@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
 using Terraria.Localization;
@@ -6,11 +6,13 @@ using Microsoft.Xna.Framework;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Consumables
 {
-    public class StarIdol : BaseAAItem
+    public class StarIdol : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Consumables";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Blessing of the Stars");

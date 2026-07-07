@@ -1,4 +1,6 @@
-using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,12 +9,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class MushiumChestplate : BaseAAItem
+	public class MushiumChestplate : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Mushium";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Mushium Shirt");
-            // Tooltip.SetDefault("2% Increased life regeneration");
         }
 
 		public override void SetDefaults()
@@ -25,12 +27,12 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Armor
             Item.value = Item.sellPrice(0, 0, 25, 0);
         }
 
-		public override void UpdateEquip(Player player)
+        public override void RegisterEquipEffects()
         {
-            player.lifeRegen += 2;
+			AddEffect(new LifeRegenEffect(2));
         }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<MushiumBar>(), 5);

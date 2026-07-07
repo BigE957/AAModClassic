@@ -1,12 +1,14 @@
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tools
 {
-    public class DragonDigger : BaseAAItem
+    public class DragonDigger : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Tools";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Dragon Digger");

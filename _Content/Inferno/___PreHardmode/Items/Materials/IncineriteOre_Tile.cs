@@ -1,6 +1,6 @@
+using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Tiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -40,7 +40,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Materials
 
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)
         {
-            Color color = BaseUtility.ColorMult(AAPlayer.IncineriteColor, 0.7f);
+            Color color = BaseUtility.ColorMult(ZAAPlayer.IncineriteColor, 0.7f);
             r = color.R / 255f; g = color.G / 255f; b = color.B / 255f;
         }
 
@@ -49,7 +49,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Materials
             Tile tile = Main.tile[x, y];
             if (tile != null && tile.HasTile && tile.TileType == Type)
             {
-                if (glowTex == null) glowTex = Mod.GetTexture("Glowmasks/IncineriteOre_Tile_Glow");
+                if (glowTex == null) glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
                 BaseDrawing.DrawTileTexture(sb, glowTex, x, y, true, false, false, null, AAGlobalTile.GetIncineriteColorDim);
             }
         }

@@ -1,6 +1,8 @@
+using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Banners;
+using AAModClassic.Utilities.Interfaces;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -9,13 +11,20 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.NPCs
 {
-    public class MagmaSwimmer : ModNPC
+    public class MagmaSwimmer : ModNPC, IBannerNPC
 	{
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Magma Swimmer");
             Main.npcFrameCount[NPC.type] = 4;
-		}
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                Position = new Vector2(-12, 0),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+        }
 
 		public override void SetDefaults()
         {
@@ -32,7 +41,8 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<MagmalgamBanner>();
+			//BannerItem = ModContent.ItemType<MagmalgamBanner>();
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
         public override void AI()

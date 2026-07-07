@@ -6,11 +6,13 @@ using Microsoft.Xna.Framework;
 using Terraria.Localization;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
 {
-    class RoyalRabbitCage : BaseAAItem
+    class RoyalRabbitCage : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Royal Rabbit Cage");
@@ -38,7 +40,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<RoyalRabbit_Item>(), 1);
             recipe.AddIngredient(ItemID.Terrarium, 1);
-            recipe.AddRecipeGroup("AAModClassic:Gold", 20);
+            recipe.AddRecipeGroup("AAModClassic:GoldBar", 20);
             recipe.Register();
         }
 

@@ -1,4 +1,4 @@
-using AAModClassic.Items.Banners;
+using AAModClassic._Content.Mire.World.Biomes;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,14 +11,21 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Desert
 		{
 			// DisplayName.SetDefault("Shadow Ghoul");
 			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.DesertGhoul];
-		}
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Velocity = -2
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+        }
 
 		public override void SetDefaults()
 		{
             NPC.CloneDefaults(NPCID.DesertGhoul);
             AnimationType = NPCID.DesertGhoul;
-			Banner = NPC.type;
-			BannerItem = ModContent.ItemType<MireGhoulBanner>();
+            Banner = Item.NPCtoBanner(NPCID.DesertGhoul);
+            BannerItem = ItemID.DesertGhoulBanner;
+            SpawnModBiomes = [ModContent.GetInstance<UndergroundMireBiome>().Type];
         }
 
         public override void HitEffect(NPC.HitInfo hit)

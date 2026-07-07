@@ -1,13 +1,15 @@
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic.Tiles.Crafters;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFurniture
 {
-    public class DoomChest : BaseAAItem
+    public class DoomChest : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Placeables.Furniture.Doom";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Doom Chest");
@@ -35,14 +37,14 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.IronBar, 2);
                 recipe.AddIngredient(ModContent.ItemType<DoomsdayCircuitPlating>(), 12);
-                recipe.AddTile(ModContent.TileType<ACS_Tile>());
+                recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
                 recipe.Register();
             }
             {
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.LeadBar, 2);
                 recipe.AddIngredient(ModContent.ItemType<DoomsdayCircuitPlating>(), 12);
-                recipe.AddTile(ModContent.TileType<ACS_Tile>());
+                recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
                 recipe.Register();
             }
         }

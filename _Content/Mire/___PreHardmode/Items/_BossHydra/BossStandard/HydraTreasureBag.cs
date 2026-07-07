@@ -1,11 +1,13 @@
-using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.Accessories;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.Accessories;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Pets;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
-using AAModClassic.CrossMod;
+using AAModClassic._CrossMod;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -13,20 +15,22 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandard
 {
-    public class HydraTreasureBag : BaseAAItem
+    public class HydraTreasureBag : BaseAAItem, ILocalizedModType
 	{
-        //TODO: Doesnt seem to exist
-        //public static Asset<Texture2D> Glowmask;
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
+        
+        public static Asset<Texture2D> Glowmask;
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Hydra)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
-            //Glowmask = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow");
+            Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
 
             Item.ResearchUnlockCount = 3;
             ItemID.Sets.BossBag[Type] = true;
+            ItemID.Sets.PreHardmodeLikeBossBag[Type] = true;
         }
 
 		public override void SetDefaults()
@@ -35,7 +39,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandar
 			Item.consumable = true;
 			Item.width = 36;
 			Item.height = 32;
-			Item.expert = true; Item.expertOnly = true;
+			Item.expert = true;
 		}
 
         public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
@@ -52,7 +56,6 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandar
         
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            /*
             Texture2D texture = Glowmask.Value;
             spriteBatch.Draw
             (
@@ -70,14 +73,13 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandar
                 SpriteEffects.None,
                 0f
             );
-            */
         }
 
         public override void RightClick(Player player)
 		{
             if (Main.rand.NextBool(10))
             {
-                AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
                 modPlayer.PHMDevArmor();
             }
         }

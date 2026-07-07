@@ -1,0 +1,88 @@
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria;
+using Terraria.GameContent;
+using Terraria.ID;
+using Terraria.ModLoader;
+using AAModClassic.Effects;
+using AAModClassic.Music;
+using AAModClassic.Utilities;
+
+namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
+{
+    public class ZeroTransition : ModNPC
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Broken Rift");
+            Main.npcFrameCount[NPC.type] = 26;
+            NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
+            this.HideFromBestiary();
+        }
+        public override void SetDefaults()
+        {
+            NPC.width = 146;
+            NPC.height = 150;
+            NPC.friendly = false;
+            NPC.lifeMax = 1;
+            NPC.dontTakeDamage = true;
+            NPC.noTileCollide = true;
+            NPC.noGravity = true;
+            NPC.aiStyle = -1;
+            NPC.timeLeft = 10;
+            NPC.alpha = 255;
+            Music = MusicManagementSystem.MusicSlots["Silence"];
+            NPC.boss = true;
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
+            {
+                NPC.buffImmune[k] = true;
+            }
+        }
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, AAColor.Oblivion, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
+            return false;
+        }
+
+        public override void AI()
+        {
+			NPC.TargetClosest();			
+            Player player = Main.player[NPC.target];
+
+            NPC.ai[0]++;
+            
+            if (NPC.ai[0] % 5 == 0)
+            {
+                NPC.frame.Y += 152;
+            }
+            if (NPC.ai[0] >= 130)
+            {
+                NPC.frame.Y = 152 * 25;
+            }
+            if (NPC.ai[0] >= 135 && !NPC.AnyNPCs(ModContent.NPCType<ZeroA>()) && Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<ZeroA>(), false, NPC.Center, "", false);
+
+                int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
+                Main.projectile[b].Center = NPC.Center;
+
+                NPC.netUpdate = true;
+                NPC.active = false;
+            }
+        }
+
+        public override bool CheckActive()
+        {
+            if (!NPC.AnyNPCs(ModContent.NPCType<ZeroA>()))
+            {
+                return false;
+            }
+            return true;
+        }
+
+    }
+}

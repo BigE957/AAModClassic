@@ -1,19 +1,21 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.NPCs.Bosses.Sag;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius
 {
-    public class Lifescanner : BaseAAItem
+    public class Lifescanner : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.BossSummon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Lifescanner");
@@ -36,19 +38,19 @@ Can only be used in the Void"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Sag>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Sagittarius"), false);
+            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Sagittarius>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Sagittarius"), false);
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }
 
         public override bool CanUseItem(Player player)
         {
-            if (!player.GetModPlayer<AAPlayer>().ZoneVoid)
+            if (!player.GetModPlayer<ZAAPlayer>().ZoneVoid)
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.LifescannerFalse"), new Color(216, 60, 0), false);
                 return false;
             }
-            if (NPC.AnyNPCs(ModContent.NPCType<Sag>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<Sagittarius>()))
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.LifescannerFalse"), new Color(216, 60, 0), false);
                 return false;

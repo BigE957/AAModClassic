@@ -1,13 +1,16 @@
+﻿using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class StoneSoldierLeggings : BaseAAItem
+	public class StoneSoldierLeggings : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.StoneSoldier";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Stone Soldier Greaves");
@@ -23,12 +26,12 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items.Armor
 			Item.defense = 16;
 		}
 
-		public override void UpdateEquip(Player player)
-		{
-			player.pickSpeed -= 0.15f;
-		}
+        public override void RegisterEquipEffects()
+        {
+            AddEffect(new MiningSpeedEffect(0.15f));
+        }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.MiningPants);

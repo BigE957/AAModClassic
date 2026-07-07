@@ -1,6 +1,7 @@
-using System;
+﻿using System;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -9,8 +10,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
 {
-    public class DeathDaggers : BaseAAItem
+    public class DeathDaggers : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Death Daggers");

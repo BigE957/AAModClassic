@@ -35,7 +35,7 @@ namespace AAModClassic._Content.Ocean.__Hardmode.Items._BossDukeFishron.Pets
 		public override void AI()
 		{
 			Player player = Main.player[Projectile.owner];
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			if (player.dead)
 			{
 				modPlayer.Sharkron = false;

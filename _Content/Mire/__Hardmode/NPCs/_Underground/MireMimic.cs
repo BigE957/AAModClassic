@@ -1,6 +1,6 @@
 using AAModClassic._Content.Mire.__Hardmode.Items.Accessories;
-using AAModClassic.Items.Melee;
-using AAModClassic.Items.Ranged;
+using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Mire.World.Biomes;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Mire Mimic");
-			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[475];
+			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.BigMimicHallow];
 		}
 
 		public override void SetDefaults()
@@ -32,12 +32,13 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
             NPC.aiStyle = NPCAIStyleID.BiomeMimic;
             AIType = NPCID.Zombie;
             AnimationType = NPCID.BigMimicHallow;
+            SpawnModBiomes = [ModContent.GetInstance<UndergroundMireBiome>().Type];
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             Player player = spawnInfo.Player;
-            if (spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMire && Main.hardMode && !spawnInfo.PlayerSafe)
+            if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneMire && Main.hardMode && !spawnInfo.PlayerSafe)
             {
                 return SpawnCondition.UndergroundMimic.Chance;
             }
@@ -56,7 +57,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.OneFromOptions(ModContent.ItemType<BotchedBand>(), ModContent.ItemType<BackScratcher>(), ModContent.ItemType<Bubbleshot>()));
+            npcLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<BotchedBand>(), ModContent.ItemType<BackScratcher>(), ModContent.ItemType<Bubbleshot>()));
         }
     }
 }

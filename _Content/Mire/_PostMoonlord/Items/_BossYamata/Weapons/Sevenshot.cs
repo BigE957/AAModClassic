@@ -1,17 +1,21 @@
-using System.Collections.Generic;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
-    public class Sevenshot : BaseAAItem
+    public class Sevenshot : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Hydra Sevenshot");
@@ -36,19 +40,10 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 	        Item.shoot = ProjectileID.PurificationPowder;
 	        Item.shootSpeed = 20f;
 	        Item.useAmmo = 97;
-            Item.rare = ItemRarityID.Cyan; AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
         public override Vector2? HoldoutOffset()
 		{
@@ -83,8 +78,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 	        recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
             recipe.AddIngredient(ModContent.ItemType<HydraTrishot>());
             recipe.AddIngredient(ItemID.OnyxBlaster);
-            recipe.AddTile(TileID.LunarCraftingStation);
-	        recipe.Register();
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
+            recipe.Register();
 	    }
 	}
 }

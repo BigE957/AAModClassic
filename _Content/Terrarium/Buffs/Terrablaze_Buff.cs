@@ -19,7 +19,7 @@ namespace AAModClassic._Content.Terrarium.Buffs
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			player.GetModPlayer<AAPlayer>().terraBlaze = true;
+			player.GetModPlayer<ZAAPlayer>().terraBlaze = true;
             player.statDefense -= 25;
 		}
 

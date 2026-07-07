@@ -1,15 +1,17 @@
-using AAModClassic.Items.Banners;
+using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Snow
 {
-    public class PigronMire : ModNPC
-	{
+    public class PigronMire : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Pigron");
@@ -30,10 +32,15 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Snow
             NPC.value = 2000f;
             AnimationType = NPCID.PigronCorruption;
             NPC.buffImmune[31] = false;
-            Banner = NPC.type;
-			BannerItem = ModContent.ItemType<MiregronBanner>();
+            Banner = Item.NPCtoBanner(NPCID.PigronCorruption);
+            BannerItem = ItemID.PigronBanner;
+            SpawnModBiomes = [ModContent.GetInstance<UndergroundMireBiome>().Type];
         }
 
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.Add(new FlavorTextBestiaryInfoElement("CommonBestiaryFlavor.Pigron"));
+        }
 
         public override void AI()
         {

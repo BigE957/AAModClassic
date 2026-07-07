@@ -8,14 +8,16 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Globals;
 using ReLogic.Content;
-using AAModClassic.Tiles.Crafters;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Materials
 {
-    public class DiscordiumBar : BaseAAItem
+    public class DiscordiumBar : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public short customGlowMask = 0;
         public override void SetStaticDefaults()
         {
@@ -26,7 +28,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Materials
                 {
                     glowMasks[i] = TextureAssets.GlowMask[i];
                 }
-                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/" + GetType().Name + "_Glow");
+                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>(Texture + "_Glow");
                 customGlowMask = (short)(glowMasks.Length - 1);
                 TextureAssets.GlowMask = glowMasks;
             }
@@ -35,16 +37,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Materials
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 9));
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity14;
-                }
-            }
-        }
+        
 
         // TODO -- Velocity Y smaller, post NewItem?
         public override void SetDefaults()
@@ -62,7 +55,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Materials
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DaybreakIncineriteBar>(), 1);
             recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 1);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
 

@@ -1,3 +1,4 @@
+using AAModClassic.Dusts;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -16,7 +17,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
         public override void SetStaticDefaults()
         {
-
+            //DisplayName.SetDefault("Tegoth's Claw");
             Main.npcFrameCount[NPC.type] = 4;
             this.HideFromBestiary();
         }
@@ -39,7 +40,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.buffImmune[39] = true;
             NPC.lavaImmune = true;
             NPC.netAlways = true;
-
+            NPC.alpha = 255;
         }
 
         public override void SendExtraAI(BinaryWriter writer)
@@ -60,6 +61,20 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             float num2 = Main.npc[(int)NPC.ai[1]].position.Y + 230f - vector2_1.Y;
             float num3 = (float)Math.Sqrt(num1 * (double)num1 + num2 * (double)num2);
 
+            if (NPC.alpha != 0)
+            {
+                for (int spawnDust = 0; spawnDust < 2; spawnDust++)
+                {
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default(Color), 2f);
+                    Main.dust[num935].noGravity = true;
+                    Main.dust[num935].noLight = true;
+                }
+            }
+            NPC.alpha -= 6;
+            if (NPC.alpha < 0)
+            {
+                NPC.alpha = 0;
+            }
 
             if (NPC.ai[2] != 99.0)
             {
@@ -345,7 +360,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 }
                 float rotation7 = (float)Math.Atan2((double)num22, (double)num21) - 1.57f;
                 Color color7 = Lighting.GetColor((int)vector7.X / 16, (int)(vector7.Y / 16f));
-                Main.spriteBatch.Draw(Mod.GetTexture("_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/_DeitySkull/DeitySkull_Arm"), new Vector2(vector7.X - Main.screenPosition.X, vector7.Y - Main.screenPosition.Y), new Rectangle?(new Rectangle(0, 0, ModContent.Request<Texture2D>("Terraria/Images/Arm_Bone").Value.Width, ModContent.Request<Texture2D>("Terraria/Images/Arm_Bone").Value.Height)), color7, rotation7, new Vector2(ModContent.Request<Texture2D>("Terraria/Images/Arm_Bone").Value.Width * 0.5f, ModContent.Request<Texture2D>("Terraria/Images/Arm_Bone").Value.Height * 0.5f), 1f, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/_DeitySkull/DeitySkull_Arm").Value, new Vector2(vector7.X - Main.screenPosition.X, vector7.Y - Main.screenPosition.Y), new Rectangle?(new Rectangle(0, 0, ModContent.Request<Texture2D>("Terraria/Images/Arm_Bone").Value.Width, ModContent.Request<Texture2D>("Terraria/Images/Arm_Bone").Value.Height)), color7, rotation7, new Vector2(ModContent.Request<Texture2D>("Terraria/Images/Arm_Bone").Value.Width * 0.5f, ModContent.Request<Texture2D>("Terraria/Images/Arm_Bone").Value.Height * 0.5f), 1f, SpriteEffects.None, 0f);
                 if (l == 0)
                 {
                     vector7.X += num21 * num23 / 2f;

@@ -44,7 +44,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwo
 			RegisterItemDrop(ModContent.ItemType<BogwoodDresser>());
 		}
 
-        public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("BogDresser").DisplayName;
+        public override LocalizedText DefaultContainerName(int i, int j) => ContentSamples.ItemsByType[ModContent.ItemType<BogwoodDresser>()].ModItem.DisplayName;
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
 		{

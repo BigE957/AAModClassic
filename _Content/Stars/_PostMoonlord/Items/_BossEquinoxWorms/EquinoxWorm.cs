@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.ID;
@@ -6,14 +6,17 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.NPCs.Bosses.Equinox;
-using AAModClassic.Tiles.Altar;
 using AAModClassic.Globals;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
+using AAModClassic._Content.Stars.World.Altar;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms
 {
-    public class EquinoxWorm : BaseAAItem
+    public class EquinoxWorm : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.BossSummon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Equinox Worm");

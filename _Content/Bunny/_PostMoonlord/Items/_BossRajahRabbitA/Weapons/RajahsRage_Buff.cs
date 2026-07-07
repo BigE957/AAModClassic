@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<RajahsRage_RoyalRabbit>()] > 0)
 			{
 				modPlayer.RabbitcopterR = true;

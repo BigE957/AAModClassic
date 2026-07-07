@@ -1,6 +1,7 @@
-using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -12,8 +13,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent
 {
     //imported from my tAPI mod because I'm lazy
-    public class SubzeroCrystal : BaseAAItem
+    public class SubzeroCrystal : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.BossSummon";
         
         public override void SetStaticDefaults()
         {
@@ -76,11 +78,11 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent
                 {
                     type = 2;
                 }
-                else if (player.GetModPlayer<AAPlayer>().ZoneInferno)
+                else if (player.GetModPlayer<ZAAPlayer>().ZoneInferno)
                 {
                     type = 3;
                 }
-                else if (player.GetModPlayer<AAPlayer>().ZoneMire)
+                else if (player.GetModPlayer<ZAAPlayer>().ZoneMire)
                 {
                     type = 4;
                 }
@@ -114,7 +116,6 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent
             recipe.AddIngredient(ModContent.ItemType<SnowMana>(), 3);
             recipe.AddIngredient(ItemID.IceBlock, 30);
             recipe.AddTile(TileID.IceMachine);
-            //recipe.AddCondition(Language.GetText("Mods.AAModClassic.Common.Conditions.ReleaseOrMixed"), () => WorldTypeSystem.WorldType != AAWorldType.Beta);
             recipe.Register();
         }
 	}

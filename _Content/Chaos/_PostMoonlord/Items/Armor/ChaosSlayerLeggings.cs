@@ -1,27 +1,48 @@
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Armor;
+using AAModClassic._Content.Mire._PostMoonlord.Items.Armor;
+using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ID;
-using AAModClassic.Globals;
-using AAModClassic.Tiles.Crafters;
-using AAModClassic._Content.Mire._PostMoonlord.Items.Armor;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Armor;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class ChaosSlayerLeggings : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Legs)]
+    public class ChaosSlayerLeggings : EquipAbstract, ILocalizedModType, ICustomEquipGlow
 	{
+        public new string LocalizationCategory => "Items.Armor.ChaosSlayer";
+        public Color Color => AAColor.Shen3;
+
         public override Color GlowmaskDrawColor => AAColor.Shen3;
+
+        public override void Load()
+        {
+            EquipLoader.AddEquipTexture(Mod, Texture + "_Legs_Alt", EquipType.Legs, item: this, name: $"{Name}_Legs_Alt");
+            ZAAPlayer.ModifyDrawInfoEvent += ModifyDrawInfo;
+        }
+
+        private void ModifyDrawInfo(Player player)
+        {
+            int red = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Legs);
+            int blue = EquipLoader.GetEquipSlot(Mod, Name + "_Legs_Alt", EquipType.Legs);
+
+            if (player.legs == blue && player.direction == -1)
+                player.legs = red;
+            else if (player.legs == red && player.direction == 1)
+                player.legs = blue;
+        }
 
         public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Chaos Slayer Greaves");
-            /* Tooltip.SetDefault(@"45% increased movement speed
-2% increased damage resistance
-The power of discordian rage radiates from this armor"); */
+            /* Tooltip.SetDefault(@"'The power of discordian rage radiates from this armor'"); */
         }
 
 		public override void SetDefaults()
@@ -30,25 +51,13 @@ The power of discordian rage radiates from this armor"); */
             Item.height = 16;
             Item.value = Item.sellPrice(3, 0, 0, 0);
             Item.defense = 35;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 14;
+            Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
+        public override void RegisterEquipEffects()
         {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity14;
-                }
-            }
-        }
-
-        public override void UpdateEquip(Player player)
-        {
-            player.endurance += .02f;
-            player.moveSpeed += .45f;
+            AddEffect(new EnduranceEffect(0.02f));
+            AddEffect(new MovementSpeedEffect(0.45f));
         }
 
         public override void AddRecipes()
@@ -58,7 +67,7 @@ The power of discordian rage radiates from this armor"); */
             recipe.AddIngredient(ModContent.ItemType<DreadMoonLeggings>(), 1);
             recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 4);
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 4);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
     }

@@ -1,8 +1,8 @@
 using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
-using AAModClassic.Items.Banners;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -21,6 +21,13 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Surface._Day
         {
             // DisplayName.SetDefault("Blaze Phoenix");
             Main.npcFrameCount[NPC.type] = 8;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                Position = new Vector2(8, 0),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()
@@ -29,7 +36,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Surface._Day
 			NPC.height = 30;
             NPC.aiStyle = -1;
             NPC.npcSlots = 1;
-            NPC.value = Item.sellPrice(0, 1, 25, 0);
+            NPC.value = Item.buyPrice(0, 1, 25, 0);
             NPC.lifeMax = 200;
             NPC.defense = 5;
             NPC.noGravity = true;
@@ -41,7 +48,8 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Surface._Day
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.damage = 70;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<BlazePhoenixBanner>();
+			//BannerItem = ModContent.ItemType<BlazePhoenixBanner>();
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
         public override void AI()
@@ -50,16 +58,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Surface._Day
 			AAAI.AIShadowflameGhost(NPC, ref NPC.ai, false, 660f, 0.3f, 10f, 0.2f, 6f, 5f, 10f, 0.4f, 0.4f, 0.95f, 5f);
 			NPC.spriteDirection = NPC.velocity.X > 0 ? -1 : 1;
 			BaseAI.LookAt(NPC.Center + NPC.velocity, NPC, 0);
-            NPC.frameCounter++;
-            if (NPC.frameCounter > 3)
-            {
-                NPC.frameCounter = 0;
-                NPC.frame.Y += 76;
-                if (NPC.frame.Y > 76 * 7)
-                {
-                    NPC.frame.Y = 0;
-                }
-            }
+            
             float num1276 = 120f;
             if (NPC.localAI[0] < num1276)
             {
@@ -81,8 +80,20 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Surface._Day
                 }
             }
         }
-		
-				
+
+        public override void FindFrame(int frameHeight)
+        {
+            NPC.frameCounter++;
+            if (NPC.frameCounter > 3)
+            {
+                NPC.frameCounter = 0;
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y > frameHeight * 7)
+                {
+                    NPC.frame.Y = 0;
+                }
+            }
+        }
 
         public static Color GetGlowAlpha()
         {
@@ -102,7 +113,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Surface._Day
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
             BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 0.8f, 1f, 4, false, 0f, 0f, GetGlowAlpha());
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, Color.White);			
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);			
             return false;
         }
 

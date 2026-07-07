@@ -1,10 +1,13 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials
 {
-    public class TerraShard : BaseAAItem
+    public class TerraShard : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Shard");

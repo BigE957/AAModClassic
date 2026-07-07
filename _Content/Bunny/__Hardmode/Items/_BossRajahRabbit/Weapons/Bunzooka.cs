@@ -1,3 +1,4 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -7,8 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons
 {
 
-    public class Bunzooka : BaseAAItem
+    public class Bunzooka : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Bunzooka");

@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -25,7 +26,7 @@ namespace AAModClassic._Content.Hallow.__Hardmode.NPCs
             NPC.damage = 30;
             NPC.defense = 15;
             NPC.knockBackResist = 0f;
-            NPC.value = Item.sellPrice(0, 0, 75, 45);
+            NPC.value = Item.buyPrice(0, 0, 75, 45);
             NPC.aiStyle = -1;
             NPC.width = 60;
             NPC.height = 36;
@@ -39,8 +40,15 @@ namespace AAModClassic._Content.Hallow.__Hardmode.NPCs
             NPC.HitSound = SoundID.NPCHit5;
             NPC.DeathSound = SoundID.NPCDeath7;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.FatPixieBanner>();
+			BannerItem = ModContent.ItemType<FatPixie_Banner>();
+        }
 
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheHallow,
+            ]);
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
@@ -119,7 +127,7 @@ namespace AAModClassic._Content.Hallow.__Hardmode.NPCs
                 }
                 BaseDrawing.DrawAura(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, auraPercent, 1f, 0f, 0f, Color.Gold);
             }
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, Color.White);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
 			return false;
 		}
     }

@@ -1,17 +1,25 @@
+using AAModClassic._Content.RedMushroom.World.Biomes;
+using AAModClassic.Utilities.Interfaces;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
 {
-    public class Mushbug : ModNPC
-	{
+    public class Mushbug : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Mushbug");
             Main.npcFrameCount[NPC.type] = 6;
-		}
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Velocity = -2
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+        }
 
 		public override void SetDefaults()
         {
@@ -30,12 +38,13 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             NPC.buffImmune[31] = false;
             NPC.npcSlots = 0.3f;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MushbugBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MushbugBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-            return spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMush ? 1f : 0f;
+            return spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneMush ? 1f : 0f;
         }
 
 		public override void HitEffect(NPC.HitInfo hit)

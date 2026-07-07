@@ -1,21 +1,30 @@
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
+using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using AAModClassic.Utilities.Attributes;
+using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
-using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class HoppingHoodlumHelmet : BaseAAItem
+    [AutoloadEquipGlow(EquipType.Head)]
+    public class HoppingHoodlumHelmet : EquipAbstract, ILocalizedModType, ICustomEquipGlow
     {
+        public new string LocalizationCategory => "Items.Armor.HoppingHoodlum";
+        public Color Color => AAColor.COLOR_WHITEFADE1;
+
+        public bool Condition(Player p) => p.statLife < (p.statLifeMax2 / 2);
 
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Hopping Hoodlum Hood");
-            /* Tooltip.SetDefault(@"18% increased melee & minion Damage
-Enemies are more likely to target you
-Hopping Mad."); */
+            /* Tooltip.SetDefault(@"'Hopping Mad'"); */
         }
 
         public override void SetDefaults()
@@ -32,22 +41,13 @@ Hopping Mad."); */
 			return body.type == ModContent.ItemType<HoppingHoodlumChestplate>() && legs.type == ModContent.ItemType<HoppingHoodlumLeggings>();
 		}
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipEffects()
         {
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.HoodlumHoodBonus");
-            if (player.statLife <= player.statLifeMax2 * .5f)
-            {
-                player.moveSpeed += .5f;
-                player.GetDamage(DamageClass.Summon) += .5f;
-                player.GetDamage(DamageClass.Melee) += .5f;
-            }
-        }
+            damageMap.GetDamage(DamageClass.Melee) += .18f;
+            damageMap.GetDamage(DamageClass.Summon) += .18f;
+            AddEffect(new AggroEffect(2));
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Melee) += .18f;
-            player.GetDamage(DamageClass.Summon) += .18f;
-            player.aggro += 2;
+            AddSetEffect<HoppingHoodlumHelmetSetEffect>();
         }
 
         public override void AddRecipes()

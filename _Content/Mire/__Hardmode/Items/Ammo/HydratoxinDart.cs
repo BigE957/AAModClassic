@@ -1,12 +1,14 @@
-using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Ammo
 {
-    public class HydratoxinDart : BaseAAItem
+    public class HydratoxinDart : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Ammo";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Hydratoxin Dart");
@@ -31,6 +33,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Ammo
 		{
 			Recipe recipe = CreateRecipe(100);
 			recipe.AddIngredient(ModContent.ItemType<Bogtoxin>(), 1);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

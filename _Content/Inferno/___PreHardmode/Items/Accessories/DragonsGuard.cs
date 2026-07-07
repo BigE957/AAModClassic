@@ -1,16 +1,22 @@
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using System;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.Shield)]
-    public class DragonsGuard : BaseAAItem
+    public class DragonsGuard : EquipAbstract, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Accessories";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dragon's Guard");
-            // Tooltip.SetDefault(@"Enemies that strike you are set ablaze");
         }
 
         public override void SetDefaults()
@@ -23,9 +29,9 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories
             Item.defense = 3;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
+        public override void RegisterEquipEffects()
         {
-            player.GetModPlayer<AAPlayer>().DragonsGuard = true;
+            AddEffect<DragonsGuardEffect>();
         }
     }
 }

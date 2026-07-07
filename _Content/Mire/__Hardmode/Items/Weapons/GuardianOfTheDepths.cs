@@ -1,13 +1,15 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
 {
-    public class GuardianOfTheDepths : BaseAAItem
+    public class GuardianOfTheDepths : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Guardian of the Depths");
@@ -29,10 +31,6 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
             Item.UseSound = SoundID.Item1;       
             Item.autoReuse = true;   
             Item.useTurn = true;
-
-            glowmaskTexture = "Glowmasks/" + GetType().Name + "_Glow"; //the glowmask texture path.
-            glowmaskDrawType = GLOWMASKTYPE_SWORD; //what type it is when drawn in the hand, _NONE == no draw, _SWORD == like a sword, _GUN == like a gun	
-            glowmaskDrawColor = Color.White;  //glowmask draw color
         }
 
         public override void AddRecipes()  //How to craft this sword

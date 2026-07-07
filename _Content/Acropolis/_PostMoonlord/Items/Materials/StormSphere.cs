@@ -4,11 +4,14 @@ using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials
 {
-    public class StormSphere : BaseAAItem
+    public class StormSphere : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Storm Sphere");
@@ -23,19 +26,10 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials
             Item.maxStack = Item.CommonMaxStack;
             Item.value = 10000;
             Item.rare = ItemRarityID.Cyan;
-            AARarity = 12;
+            Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity12;
-                }
-            }
-        }
+        
 
         public override Color? GetAlpha(Color lightColor)
         {

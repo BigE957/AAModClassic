@@ -1,12 +1,15 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Materials
 {
-    public class SoulOfSpite : BaseAAItem
+    public class SoulOfSpite : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Soul of Spite");
@@ -32,7 +35,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Materials
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(Item.Center, Color.Indigo.ToVector3() * 0.55f * Main.essScale);
+            Lighting.AddLight(Item.Center, Color.Indigo.ToVector3() * 0.75f * Main.essScale);
         }
     }
 }

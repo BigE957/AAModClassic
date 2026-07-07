@@ -1,24 +1,25 @@
-﻿using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.BossStandard;
+﻿using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
+using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.BossStandard;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Tools;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
+using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
-using AAModClassic.UI.WorldGen;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq.Expressions;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -60,6 +61,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 		{
 			// DisplayName.SetDefault("Subzero Serpent");
             Main.npcFrameCount[NPC.type] = 4;
+            NPCID.Sets.BossBestiaryPriority.Add(Type);
             base.SetStaticDefaults();
         }
 
@@ -71,6 +73,14 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                 index = HeadSlots[BiomeType];
         }
 
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Snow,
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.SubzeroSerpent")
+            ]);
+        }
 
         public override void SetDefaults()
 		{
@@ -556,13 +566,16 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
+            //if (NPC.IsABestiaryIconDummy)
+            //    return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, TextureAssets.Npc[Type].Value, TextureAssets.Npc[ModContent.NPCType<SubzeroSerpent_Body>()].Value, 2, 24, 0.25f, Vector2.Zero, 2, 10, -18, flip: true);
+
             Texture2D texture;
             if (BiomeType == "Corruption" || BiomeType == "Default" || !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 texture = GetCurrentTexture();
             else
                 texture = ModContent.Request<Texture2D>($"AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/{BiomeType}/SubzeroSerpent_Head_{BiomeType}_Unofficial").Value;
 
-            spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor * NPC.Opacity, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0f);
+            spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, NPC.IsABestiaryIconDummy ? Color.White : NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0f);
             return false;
         }
 
@@ -794,17 +807,6 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             }
         }
 
-        //TODO: Temporary helper to make things have errors. Should be removed once things are properly moved to new system
-        private static int BiomeNumber(string biome) => biome switch
-        {
-            "Corruption" => 1,
-            "Crimson" => 2,
-            "Inferno" => 3,
-            "Mire" => 4,
-            "Hallow" => 5,
-            _ => 0,
-        };
-
         public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 		{
 			if (Main.expertMode)
@@ -854,6 +856,14 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<SubzeroSerpentTreasureBag>()));
+
+            npcLoot.AddLoreItemDrop<SubzeroSerpent_Head>(ModContent.ItemType<SubzeroSerpentLore>());
+
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RajahRabbitRelic>()));
+
+            npcLoot.Add(masterMode);
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SubzeroSerpentTrophy>(), 10));
 

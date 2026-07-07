@@ -1,14 +1,16 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using System;
 using Terraria.ModLoader;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons
 {
-    public class ClawBaton : BaseAAItem
+    public class ClawBaton : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Weapons.Summon";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Claw Baton");

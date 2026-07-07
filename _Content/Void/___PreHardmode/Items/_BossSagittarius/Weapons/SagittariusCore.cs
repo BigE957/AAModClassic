@@ -1,4 +1,5 @@
-using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 
 using Terraria;
@@ -8,19 +9,19 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons
 {
-    public class SagittariusCore : BaseAAItem
+    public class SagittariusCore : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Summon";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Sagittarius Core");
-            BaseUtility.AddTooltips(Item, new string[] { "Activates probes that orbit you and defend you from surrounding enemies" });			
-		}		
+            // Tooltip.SetDefault("Activates probes that orbit you and defend you from surrounding enemies");			
+        }
 
         public override void SetDefaults()
         {
             Item.width = 30;
             Item.height = 34;
-            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.LightRed;
             Item.value = Item.sellPrice(0, 0, 60, 0);
             Item.useStyle = ItemUseStyleID.Swing;

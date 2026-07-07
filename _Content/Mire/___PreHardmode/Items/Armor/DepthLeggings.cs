@@ -1,4 +1,6 @@
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,14 +8,14 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-    public class DepthLeggings : BaseAAItem
+    public class DepthLeggings : EquipAbstract, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Armor.Depth";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Depth Hakama");
-            /* Tooltip.SetDefault(@"15% increased movement speed
-Weightless as shadow itself"); */
+            /* Tooltip.SetDefault(@"'Weightless as shadow itself'"); */
         }
 
         public override void SetDefaults()
@@ -25,9 +27,9 @@ Weightless as shadow itself"); */
             Item.defense = 5;
         }
 
-        public override void UpdateEquip(Player player)
+        public override void RegisterEquipEffects()
         {
-            player.moveSpeed += 0.15f;
+            AddEffect(new MovementSpeedEffect(0.15f));
         }
 
         public override void AddRecipes()

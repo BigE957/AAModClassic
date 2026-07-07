@@ -1,7 +1,11 @@
-using AAModClassic.Items.Banners;
+using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic.Globals;
+using AAModClassic.UI.Core;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,7 +13,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Snow
 {
     public class PigronInferno : ModNPC
-	{
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Pigron");
@@ -32,10 +36,15 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Snow
             NPC.buffImmune[31] = false;
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
-            Banner = NPC.type;
-			BannerItem = ModContent.ItemType<DragronBanner>();
+            Banner = Item.NPCtoBanner(NPCID.PigronCorruption);
+			BannerItem = ItemID.PigronBanner;
+            SpawnModBiomes = [ModContent.GetInstance<UndergroundInfernoBiome>().Type];
         }
 
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.Add(new FlavorTextBestiaryInfoElement("CommonBestiaryFlavor.Pigron"));
+        }
 
         public override void AI()
         {

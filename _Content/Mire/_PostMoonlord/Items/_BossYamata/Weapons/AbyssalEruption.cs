@@ -1,8 +1,11 @@
-using System.Collections.Generic;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -10,8 +13,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
-    public class AbyssalEruption : BaseAAItem
+    public class AbyssalEruption : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Ranged";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Abyssal Eruption");
@@ -32,22 +36,14 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             Item.UseSound = SoundID.Item34;
             Item.value = 1000000;
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<AcidFlame>(); //idk why but all the guns in the vanilla source have this
+            Item.shoot = ModContent.ProjectileType<AbyssalEruption_AcidFlame>(); //idk why but all the guns in the vanilla source have this
             Item.shootSpeed = 20f;
             Item.useAmmo = 23;
-            Item.rare = ItemRarityID.Cyan; AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
+            Item.consumeAmmoOnFirstShotOnly = true;
         }
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
         public override Vector2? HoldoutOffset()
         {
@@ -60,7 +56,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             for (int i = 0; i < 3; i++)
             {
                 Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(10));
-                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<AcidFlame>(), damage, knockback, player.whoAmI);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<AbyssalEruption_AcidFlame>(), damage, knockback, player.whoAmI);
             }
             shoot++;
 
@@ -68,7 +64,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 
             if (shoot >= 6)
             {
-                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<AcidFlame>(), damage * 2, knockback, player.whoAmI);
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<AbyssalEruption_AcidFlame>(), damage * 2, knockback, player.whoAmI);
                 shoot = 0;
             }
             shoot = 0;
@@ -82,8 +78,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 	        recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
 	        recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
             recipe.AddIngredient(ModContent.ItemType<Toxithrower>());
-            recipe.AddTile(TileID.LunarCraftingStation);
-	        recipe.Register();
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
+            recipe.Register();
 	    }
 	}
 }

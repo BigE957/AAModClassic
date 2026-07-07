@@ -7,8 +7,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Consumables
 {
-    public class EventideCrate : MireCrate
+    public class EventideCrate : MireCrate, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.Crates";
         public override int Tile => ModContent.TileType<EventideCrate_Tile>();
         public override bool Hardmode => true;
         public override int? ShimmerInto => ModContent.ItemType<MireCrate>();

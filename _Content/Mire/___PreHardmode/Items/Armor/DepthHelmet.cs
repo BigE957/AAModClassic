@@ -1,21 +1,22 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    public class DepthHelmet : BaseAAItem
+    public class DepthHelmet : EquipAbstract, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Armor.Depth";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Depth Fukumen");
-            /* Tooltip.SetDefault(@"25% increased movement speed
-8% increased ranged damage
-Weightless as shadow itself"); */
+            /* Tooltip.SetDefault(@"'Weightless as shadow itself'"); */
         }
 
         public override void SetDefaults()
@@ -27,23 +28,19 @@ Weightless as shadow itself"); */
             Item.defense = 5;
         }
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetDamage(DamageClass.Ranged) += .08f;
-            player.moveSpeed += .25f;
-        }
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ModContent.ItemType<DepthChestplate>() && legs.type == ModContent.ItemType<DepthLeggings>();
         }
 
-        public override void UpdateArmorSet(Player player)
+        public override void RegisterEquipEffects()
         {
-            player.setBonus = Language.GetTextValue("Mods.AAModClassic.Common.DepthFukumenBonus");
-            player.aggro -= 3;
-            player.ammoCost80 = true;
-            player.nightVision = true;
+            damageMap.GetDamage(DamageClass.Ranged) += .08f;
+            AddEffect(new MovementSpeedEffect(0.25f));
+
+            AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Ranged, (BuffID.Poisoned, 180)));
+            AddSetEffect(new AggroEffect(-3));
+            AddSetEffect<AmmoCost80Effect>();
         }
 
         public override void AddRecipes()

@@ -1,21 +1,15 @@
-﻿using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Mire._PostMoonlord.Items.Tiles.Decoration;
+﻿using AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional;
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
-using AAModClassic.Items.Blocks;
-using AAModClassic.Tiles.Crafters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.World.Tiles
 {
-    public class TerraCrystal : BaseAAItem
+    public class TerraCrystal : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Crystal");

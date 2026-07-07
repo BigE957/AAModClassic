@@ -1,8 +1,10 @@
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
+using AAModClassic._Content.RedMushroom.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
+using AAModClassic.Utilities.Interfaces;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,7 +12,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
 {
-    public class FungusFrog : ModNPC
+    public class FungusFrog : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
         {
@@ -30,9 +32,11 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             NPC.npcSlots = 0f;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.FungusFrogBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.FungusFrogBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
         }
 
         public override void HitEffect(NPC.HitInfo hit)
@@ -55,7 +59,12 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             NPC.AISlime(ref NPC.ai, false, 60, 3f, -2f, 6f, -4f);
         }
 
-        public override void FindFrame(int frameHeight) => NPC.FrameHandler_HostileFrog(frameHeight);
+        public override void FindFrame(int frameHeight)
+        {
+            NPC.FrameHandler_HostileFrog(frameHeight);
+            if (NPC.IsABestiaryIconDummy)
+                NPC.alpha = 0;
+        }
 
         public override void PostAI()
         {
@@ -64,7 +73,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMush && NPCExtensions.BeenKilled<MushroomMonarch>() ? .3f : 0f;
+            return spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneMush && NPCExtensions.BeenKilled<MushroomMonarch>() ? .3f : 0f;
         }
 
         public override void OnKill()

@@ -34,7 +34,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             NPC.noGravity = true;
             NPC.aiStyle = -1;
             NPC.timeLeft = 10;
-            NPC.alpha = 255;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
             NPC.scale = .1f;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
@@ -48,8 +49,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 24, NPC.frame, NPC.GetAlpha(drawColor), true);
-            BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("Glowmasks/YamataTransition"), 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, 24, NPC.frame, NPC.GetAlpha(new Color(RVal, 0, BVal)), true);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
+            spriteBatch.Draw(ModContent.Request<Texture2D>(Texture + "_Glow").Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(new Color(RVal, 0, BVal)), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
             return false;
         }
 
@@ -147,7 +148,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                     int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
                     Main.projectile[b].Center = NPC.Center;
 
-                    SoundEngine.PlaySound(Mod.GetLegacySoundSlot(SoundType.Sound, "Sounds/YamataRoar"), NPC.position);
+                    SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/YamataRoar"), NPC.position);
                     Vector2 position = NPC.Center + Vector2.One * -20f;
                     int num84 = 40;
                     int height3 = num84;

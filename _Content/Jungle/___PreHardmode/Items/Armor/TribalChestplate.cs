@@ -1,4 +1,6 @@
-using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,13 +9,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-    public class TribalChestplate : BaseAAItem
+    public class TribalChestplate : EquipAbstract, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Armor.Tribal";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Tribal Cloak");
-            /* Tooltip.SetDefault(@"8% Increased magic critical chance
-Increases Maximum Mana by 20"); */
         }
 
         public override void SetDefaults()
@@ -25,10 +26,10 @@ Increases Maximum Mana by 20"); */
             Item.defense = 6;
         }
 
-        public override void UpdateEquip(Player player)
+        public override void RegisterEquipEffects()
         {
-            player.statManaMax2 += 20;
-            player.GetCritChance(DamageClass.Magic) += 8;
+            damageMap.GetCritChance(DamageClass.Magic) += 8;
+            AddEffect(new MaxManaEffect(20));
         }
 
         public override void AddRecipes()
@@ -36,16 +37,7 @@ Increases Maximum Mana by 20"); */
             {
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ItemID.JungleShirt, 1);
-                recipe.AddIngredient(ItemID.ShadowScale, 6);
-                recipe.AddIngredient(ItemID.Bone, 6);
-                recipe.AddIngredient(ModContent.ItemType<DevilSilk>(), 6);
-                recipe.AddTile(TileID.DemonAltar);
-                recipe.Register();
-            }
-            {
-                Recipe recipe = CreateRecipe();
-                recipe.AddIngredient(ItemID.JungleShirt, 1);
-                recipe.AddIngredient(ItemID.TissueSample, 6);
+                recipe.AddRecipeGroup("AAModClassic:EvilMaterial", 6);
                 recipe.AddIngredient(ItemID.Bone, 6);
                 recipe.AddIngredient(ModContent.ItemType<DevilSilk>(), 6);
                 recipe.AddTile(TileID.DemonAltar);

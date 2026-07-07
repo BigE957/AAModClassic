@@ -28,6 +28,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
             AIType = ProjectileID.WoodenArrowFriendly;
             Projectile.penetrate = 2;
             Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 60;
 		}
 
         public override Color? GetAlpha(Color lightColor)

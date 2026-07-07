@@ -1,12 +1,14 @@
-using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons
 {
-    public class DesertStaff : BaseAAItem
+    public class DesertStaff : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Magic";
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Desert Staff");

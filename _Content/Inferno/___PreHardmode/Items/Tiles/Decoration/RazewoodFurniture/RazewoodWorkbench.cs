@@ -1,11 +1,12 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture
 {
-    public class RazewoodWorkbench : ModItem
+    public class RazewoodWorkbench : ModItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables.Furniture.Razewood";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Razewood Workbench");

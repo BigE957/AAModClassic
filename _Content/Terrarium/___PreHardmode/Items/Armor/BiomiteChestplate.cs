@@ -1,4 +1,5 @@
-using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,8 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
-	public class BiomiteChestplate : BaseAAItem
+	public class BiomiteChestplate : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Biomite";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Biomite Crystalmail");

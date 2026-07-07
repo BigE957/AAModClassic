@@ -1,13 +1,16 @@
 ﻿using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items.Tiles.Decoration
 {
-    public class DesertCrate : BaseAAItem
+    public class DesertCrate : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Desert Crate");

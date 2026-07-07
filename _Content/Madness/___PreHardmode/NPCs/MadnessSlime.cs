@@ -1,13 +1,15 @@
 ﻿using AAModClassic._Content.Madness.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.Interfaces;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
 namespace AAModClassic._Content.Madness.___PreHardmode.NPCs
 {
-    public class MadnessSlime : ModNPC
-	{
+    public class MadnessSlime : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Madness Slime");
@@ -24,7 +26,7 @@ namespace AAModClassic._Content.Madness.___PreHardmode.NPCs
 			NPC.lifeMax = 25;
 			NPC.knockBackResist = 0f;
 			AnimationType = NPCID.CorruptSlime;
-			NPC.value = Item.sellPrice(0, 0, 5, 0);
+			NPC.value = Item.buyPrice(0, 0, 5, 0);
 			NPC.alpha = 60;
 			NPC.lavaImmune = false;
 			NPC.noGravity = false;
@@ -33,10 +35,15 @@ namespace AAModClassic._Content.Madness.___PreHardmode.NPCs
 			NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
 			Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MadnessSlimeBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MadnessSlimeBanner>();
 		}
-		
-		public override float SpawnChance(NPCSpawnInfo spawnInfo)
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface);
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			if (spawnInfo.PlayerSafe || Main.hardMode)
 			{

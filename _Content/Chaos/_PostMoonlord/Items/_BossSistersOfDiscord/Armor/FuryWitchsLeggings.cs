@@ -1,4 +1,7 @@
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,15 +10,13 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class FuryWitchsLeggings : BaseAAItem
+	public class FuryWitchsLeggings : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.FuryWitchs";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Fury Witch's Boots");
-			/* Tooltip.SetDefault(@"12% increased magic/minion damage
-12% increased movement speed
-+2 max minions
-Boots enchanted with the firey spirit of a supreme dragon acolyte"); */
+			/* Tooltip.SetDefault(@"'Boots enchanted with the firey spirit of a supreme dragon acolyte'"); */
 		}
 
 		public override void SetDefaults()
@@ -24,29 +25,16 @@ Boots enchanted with the firey spirit of a supreme dragon acolyte"); */
 			Item.height = 16;
 			Item.value = 300000;
 			Item.defense = 20;
-            Item.rare = ItemRarityID.Cyan;
-            AARarity = 12;
+            Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
-        public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
+        public override void RegisterEquipEffects()
         {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity12;
-                }
-            }
+            damageMap.GetDamage(DamageClass.Magic) += .12f;
+            damageMap.GetDamage(DamageClass.Summon) += .12f;
+			AddEffect(new MovementSpeedEffect(0.10f));
+            AddEffect(new MaxMinionSlotEffect(2));
+            AddEffect(new MaxRunSpeedEffect(0.12f));
         }
-
-        public override void UpdateEquip(Player player)
-		{
-            player.GetDamage(DamageClass.Magic) += .12f;
-            player.GetDamage(DamageClass.Summon) += .12f;
-            player.moveSpeed += .1f;
-            player.maxMinions += 2;
-            player.GetModPlayer<AAPlayer>().MaxMovespeedboost += .12f;
-		}
-        
     }
 }

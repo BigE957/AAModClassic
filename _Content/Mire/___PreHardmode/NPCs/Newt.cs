@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.Projectiles;
-using AAModClassic.Items.Banners;
+using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -11,12 +12,19 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
 {
-    public class Newt : ModNPC
+    public class Newt : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Newt");
             Main.npcFrameCount[NPC.type] = 15;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 0,
+                Position = new Vector2(-32, 0),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()
@@ -35,7 +43,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             NPC.DeathSound = SoundID.NPCDeath1;
             AIType = NPCID.Crawdad;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<NewtBanner>();
+			//BannerItem = ModContent.ItemType<NewtBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
         
         private bool tongueAttack;
@@ -46,25 +55,6 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
         public override void AI()
         {
             Player player = Main.player[NPC.target]; // makes it so you can reference the player the npc is targetting
-            if (tongueAttack == false)
-            {
-                NPC.frameCounter++;
-                if (NPC.frameCounter >= 10)
-                {
-                    NPC.frameCounter = 0;
-                    NPC.frame.Y += 30;
-                    if (NPC.frame.Y > 420)
-                    {
-                        NPC.frameCounter = 0;
-                        NPC.frame.Y = 0;
-                    }
-                }
-            }
-            else
-            {
-                NPC.frameCounter = 0;
-                NPC.frame.Y = 0;
-            }
             if (!tongueAttack)
             {
                 if (NPC.velocity.X < 0) // so it faces the player
@@ -144,6 +134,29 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             }
         }
 
+        public override void FindFrame(int frameHeight)
+        {
+            if (tongueAttack == false)
+            {
+                NPC.frameCounter++;
+                if (NPC.frameCounter >= 10)
+                {
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y += 30;
+                    if (NPC.frame.Y > 420)
+                    {
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = 0;
+                    }
+                }
+            }
+            else
+            {
+                NPC.frameCounter = 0;
+                NPC.frame.Y = 0;
+            }
+        }
+
         public override void HitEffect(NPC.HitInfo hit)
         {
             if (NPC.life <= 0)
@@ -165,14 +178,14 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             var effects = NPC.direction == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             if (tongueAttack == false) // i think this is important for it to not do its usual walking cycle while its also doing those attacks
             {
-                spriteBatch.Draw(texture, NPC.Center - Main.screenPosition, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, effects, 0f);
+                spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, effects, 0f);
             }
             if (tongueAttack == true)
             {
                 Vector2 drawCenter = new Vector2(NPC.Center.X, NPC.Center.Y);
                 int num214 = tongueAni.Height / 4;
                 int y6 = num214 * tongueFrame;
-                Main.spriteBatch.Draw(tongueAni, drawCenter - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, tongueAni.Width, num214)), drawColor, NPC.rotation, new Vector2(tongueAni.Width / 2f, num214 / 2f), NPC.scale, effects, 0f);
+                spriteBatch.Draw(tongueAni, drawCenter - screenPos, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, tongueAni.Width, num214)), drawColor, NPC.rotation, new Vector2(tongueAni.Width / 2f, num214 / 2f), NPC.scale, effects, 0f);
             }
             return false;
         }

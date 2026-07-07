@@ -1,17 +1,24 @@
+﻿using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
-using AAModClassic.Tiles.Crafters;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items.Materials
 {
-    public class EventideAbyssiumBar : BaseAAItem
+    public class EventideAbyssiumBar : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Eventide Abyssium");
             // Tooltip.SetDefault("Cold as the evening moon");
+
+            ItemTrader.ChlorophyteExtractinator.AddOption_Interchangable(ModContent.ItemType<EventideAbyssiumBar>(), ModContent.ItemType<DaybreakIncineriteBar>());
         }
         public override void SetDefaults()
         {

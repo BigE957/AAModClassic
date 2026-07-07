@@ -1,16 +1,18 @@
-using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Accessories;
+﻿using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Accessories;
 using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.BossStandard
 {
-    public class GreedTreasureBag : BaseAAItem
+    public class GreedTreasureBag : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Greed)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;
@@ -24,7 +26,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.BossStandard
 			Item.width = 32;
 			Item.height = 36;
 			Item.rare = ItemRarityID.Purple;
-			Item.expert = true; Item.expertOnly = true;
+			Item.expert = true;
         }
 
         public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
@@ -47,7 +49,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.BossStandard
             }
             if (Main.rand.NextBool(10))
             {
-                AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
                 modPlayer.PPDevArmor();
             }
             string[] lootTable = { "GildedGlock", "Miner", "StoneSlammer", "GoldDigger"};

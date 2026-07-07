@@ -1,5 +1,8 @@
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -7,8 +10,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
-    public class ThrowingCrescent : BaseAAItem
+    public class ThrowingCrescent : BaseAAItem, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Weapons.Melee";
 		public override void SetDefaults()
 		{
 
@@ -26,7 +30,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 			Item.shoot = ModContent.ProjectileType<ThrowingCrescent_Proj>();
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-            Item.rare = ItemRarityID.Cyan; AARarity = 13;
+            Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
         public override void SetStaticDefaults()
@@ -36,16 +40,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
         }
 
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            foreach (TooltipLine line2 in list)
-            {
-                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
-                {
-                    line2.OverrideColor = AAColor.Rarity13;
-                }
-            }
-        }
+        
 
         public override bool CanUseItem(Player player)       //this make that you can shoot only 1 boomerang at once
         {
@@ -60,12 +55,12 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
         }
         public override void AddRecipes()
         {
-                Recipe recipe = CreateRecipe();
-				recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
-                recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
-                recipe.AddIngredient(ItemID.LightDisc, 5);
-				recipe.AddTile(TileID.LunarCraftingStation);
-                recipe.Register();
+            Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
+            recipe.AddIngredient(ItemID.LightDisc);
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
+            recipe.Register();
 		}
     }
 }

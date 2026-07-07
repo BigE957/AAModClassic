@@ -1,12 +1,14 @@
-using AAModClassic._Content.Madness.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Madness.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Madness.___PreHardmode.Items.Tools
 {
-    public class MadnessPickaxe : BaseAAItem
+    public class MadnessPickaxe : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Tools";
         public override void SetDefaults()
         {
             Item.width = 40;

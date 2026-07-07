@@ -1,6 +1,7 @@
-using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
+﻿using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -11,11 +12,12 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard
 {
-    public class AnubisTreasureBag : BaseAAItem
+    public class AnubisTreasureBag : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Treasure Bag");
+            // DisplayName.SetDefault("Treasure Bag (Anubis)");
             // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 
             Item.ResearchUnlockCount = 3;
@@ -28,7 +30,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard
             Item.consumable = true;
             Item.width = 32;
             Item.height = 32;
-            Item.expert = true; Item.expertOnly = true;
+            Item.expert = true;
             Item.rare = ItemRarityID.Red;
         }
 
@@ -48,7 +50,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard
         {
             if (Main.rand.NextBool(10))
             {
-                AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
                 modPlayer.HMDevArmor();
             }
         }

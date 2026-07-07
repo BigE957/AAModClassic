@@ -1,0 +1,41 @@
+Healer: {
+	AuroraScythe: {
+		DisplayName: Aurora Scythe
+		Tooltip:
+			'''
+			Spins a frostburning scythe around you that shreds through enemies
+			Scythes inflict frostburn on contact
+			Grants 1 soul essence on direct hit
+			'''
+	}
+
+	CarrotFarmer: {
+		DisplayName: Carrot Farmer
+		Tooltip:
+			'''
+			Spins a Carrot Scythe around you that shreds through enemies
+			Scythes fire off carrots while spun
+			Grants 1 soul essence on direct hit
+			'''
+	}
+
+	DragonsClaw: {
+		DisplayName: Dragon's Claw
+		Tooltip:
+			'''
+			Spins a fiery scythe around you that shreds through enemies
+			Scythes ignites enemies on contact
+			Grants 1 soul essence on direct hit
+			'''
+	}
+
+	HydrasFury: {
+		DisplayName: Hydra's Fury
+		Tooltip:
+			'''
+			Spins an abyssal scythe around you that shreds through enemies
+			Scythes inflict poison on contact
+			Grants 1 soul essence on direct hit
+			'''
+	}
+}

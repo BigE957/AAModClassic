@@ -1,5 +1,4 @@
-﻿using AAModClassic.Tiles;
-using AAModClassic.World;
+﻿using AAModClassic._Content.RedMushroom.World.Tiles;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,8 +13,6 @@ namespace AAModClassic._Removed
     {
         public override bool Place(Point origin, StructureMap structures)
         {
-            Mod mod = AAMod.instance;
-
             ushort tileGrass = (ushort)ModContent.TileType<Mycelium_Tile>();
 
             int worldSize = GetWorldSize();

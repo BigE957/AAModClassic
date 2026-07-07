@@ -22,6 +22,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
             Projectile.timeLeft = 300;
             Projectile.aiStyle = -1;
             Projectile.alpha = 70;
+            Projectile.DamageType = DamageClass.Magic;
         }
 
         public override void AI()

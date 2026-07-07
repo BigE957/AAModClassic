@@ -1,13 +1,14 @@
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic.Tiles.Crafters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFurniture
 {
-    public class DoomLantern : ModItem
+    public class DoomLantern : ModItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables.Furniture.Doom";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Doom Lantern");
@@ -32,7 +33,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DoomsdayCircuitPlating>(), 6);
             recipe.AddIngredient(ItemID.Torch, 1);
-            recipe.AddTile(ModContent.TileType<ACS_Tile>());
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
 
         }

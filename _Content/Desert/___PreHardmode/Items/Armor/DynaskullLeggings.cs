@@ -1,6 +1,8 @@
-using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,13 +11,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Desert.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class DynaskullLeggings : BaseAAItem
+	public class DynaskullLeggings : EquipAbstract, ILocalizedModType
 	{
+        public new string LocalizationCategory => "Items.Armor.Dynaskull";
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Dynaskull Greaves");
-            // Tooltip.SetDefault("12% Increased ranged critical chance");
-
         }
 
 		public override void SetDefaults()
@@ -27,12 +28,12 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items.Armor
 			Item.defense = 7;
 		}
 
-		public override void UpdateEquip(Player player)
-		{
-			player.GetCritChance(DamageClass.Ranged) += 12;
-		}
+        public override void RegisterEquipEffects()
+        {
+            damageMap.GetCritChance(DamageClass.Ranged) += 12;
+        }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.FossilPants, 1);

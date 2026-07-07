@@ -1,0 +1,428 @@
+TreasureBags: {
+	ShenDoragonTreasureBag: {
+		DisplayName: Treasure Cache (Shen Doragon)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	AnubisTreasureBag: {
+		DisplayName: Treasure Bag (Anubis)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	AnubisATreasureBag: {
+		DisplayName: Treasure Bag (Forsaken Judge Anubis)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	BroodmotherTreasureBag: {
+		DisplayName: Treasure Bag (Broodmother)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	AkumaTreasureBag: {
+		DisplayName: Treasure Bag (Akuma)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	HydraTreasureBag: {
+		DisplayName: Treasure Bag (Hydra)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	YamataTreasureBag: {
+		DisplayName: Treasure Bag (Yamata)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	ZeroTreasureBag: {
+		DisplayName: Treasure Bag (Zero)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	OrthrusXTreasureBag: {
+		DisplayName: Treasure Bag (Orthrus X)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	RaiderUltimaTreasureBag: {
+		DisplayName: Treasure Bag (Raider Ultima)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	RetrieverTreasureBag: {
+		DisplayName: Treasure Bag (Retriever)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	TechnoTruffleTreasureBag: {
+		DisplayName: Treasure Bag (Techno Truffle)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	InfinityZeroTreasureBag: {
+		DisplayName: Treasure Cache (Infinity Zero)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	AthenaTreasureBag: {
+		DisplayName: Treasure Bag (Athena)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	AthenaATreasureBag: {
+		DisplayName: Treasure Bag (Olympian Athena)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	RajahRabbitTreasureBag: {
+		DisplayName: Treasure Bag (Rajah Rabbit)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	RajahRabbitATreasureBag: {
+		DisplayName: Treasure Cache (Champion of the Innocent)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	GripsOfChaosTreasureBag: {
+		DisplayName: Treasure Bag (Grips of Chaos)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	SistersOfDiscordTreasureBag: {
+		DisplayName: Treasure Bag (Sisters of Discord)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	DesertDjinnTreasureBag: {
+		DisplayName: Treasure Bag (Desert Djinn)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	FeudalFungusTreasureBag: {
+		DisplayName: Treasure Bag (Feudal Fungus)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	TruffleToadTreasureBag: {
+		DisplayName: Treasure Bag (Truffle Toad)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	GreedTreasureBag: {
+		DisplayName: Treasure Bag (Greed)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	GreedATreasureBag: {
+		DisplayName: Treasure Bag (Worm King Greed)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	MushroomMonarchTreasureBag: {
+		DisplayName: Treasure Bag (Mushroom Monarch)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	SubzeroSerpentTreasureBag: {
+		DisplayName: Treasure Bag (Subzero Serpent)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	EquinoxWormsTreasureBag: {
+		DisplayName: Treasure Bag (Equinox Worms)
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen}
+			Contained loot depends on the time of day
+			'''
+	}
+
+	SagittariusTreasureBag: {
+		DisplayName: Treasure Bag (Sagittarius)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	SoulOfCthulhuTreasureBag: {
+		DisplayName: Treasure Cache (Soul of Cthulhu)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+}
+
+Vanity: {
+	AnarchyBag: {
+		DisplayName: Pristine Bag
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}"
+			'All the essentials for impersonating Anarchy! No really it's just Anarchy.'
+			For the record, Anarchy sprited this himself.
+			'''
+	}
+
+	ApawnBag: {
+		DisplayName: Surprise Egg
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'Its a plastic egg. A REEEEEEEALLY big one.!'
+			'''
+	}
+
+	AvesBag: {
+		DisplayName: DJ Duck's Bag
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating the Monochrome Mallard!'
+			'''
+	}
+
+	BegBag: {
+		DisplayName: Weird Horse Bag
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating that weird horse kid!'
+			'''
+	}
+
+	BigEBag: {
+		DisplayName: Large Letter's Bag
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating a Large Letter!'
+			'''
+	}
+
+	BlazenBag: {
+		DisplayName: Thunder Lord's Bag
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating the Thunder Lord!'
+			'''
+	}
+
+	CCBag: {
+		DisplayName: Mire Manic's Cardboard Box
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating the Dread Devotee!'
+			'''
+	}
+
+	CerberusBag: {
+		DisplayName: Pup Cerberus' Kennel
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating the Invoker of Pups!'
+			'''
+	}
+
+	CharlieBag: {
+		DisplayName: Reaper's Bag
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating the Grim Edgelord!'
+			'''
+	}
+
+	DellyBag: {
+		DisplayName: Daughter of the Void's Bag
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating the Void Mistress!'
+			'''
+	}
+
+	FargoBag: {
+		DisplayName: Squirrelly Top Hat
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating the Meme Squirrel!'
+			'''
+	}
+
+	FazerBag: {
+		DisplayName: Wet Furrbag
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating the Funloving Fox!'
+			'''
+	}
+
+	GibsBag: {
+		DisplayName: Angry Revenant's Sarcophagus
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating the Raging Revenant!'
+			'''
+	}
+
+	GroxBag: {
+		DisplayName: Grovite Sea Chest
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating the Angry Code Pirate!'
+			'''
+	}
+
+	HallamBag: {
+		DisplayName: Magician's Top Hat
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating the Mad Cat!'
+			'''
+	}
+
+	MaskanoBag: {
+		DisplayName: Mask Bag
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}"
+			'All the essentials for impersonating the Mask Lord.'
+			'''
+	}
+
+	MikpinBag: {
+		DisplayName: Kitsune's Bag
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating the Weeb Fox!'
+			'''
+	}
+
+	MoonBag: {
+		DisplayName: Lunar Insect's Bag
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating the Moon Bee!'
+			'''
+	}
+
+	PlutoBag: {
+		DisplayName: Outer God's Bag
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating the Dwarf God!'
+			'''
+	}
+
+	ShoxBag: {
+		DisplayName: Charged Shock Bag
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating the Shock Lord!'
+			'''
+	}
+
+	TailsBag: {
+		DisplayName: Tails' Toolbox
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating the Fox Wonder!'
+			'''
+	}
+
+	TiedBag: {
+		DisplayName: Old Magician's Top Hat
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating the Dapper Bone Man!'
+			'''
+	}
+
+	VoidEyeBag: {
+		DisplayName: Void Gate
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}"
+			'All the essentials for impersonating the Dark Watcher!'
+			'''
+	}
+
+	DallinBag: {
+		DisplayName: Fez Lord's Bag
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating the Fez Lord!'
+			'''
+	}
+
+	FuryWitchsBag: {
+		DisplayName: Ashe's Satchel
+		Tooltip:
+			'''
+			Right click to open
+			Contains a set of Fury Witch's robes
+			'''
+	}
+
+	MidnightAssassinBag: {
+		DisplayName: Haruka's Lockbox
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}"
+			Contains a set of Midnight Assassin clothes
+			'''
+	}
+
+	PlanterrorBag: {
+		DisplayName: Plant Terror's Bag
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'All the essentials for impersonating the Plant Terror!'
+			'''
+	}
+}
+
+Crates: {
+	InfernoCrate: {
+		DisplayName: Inferno Crate
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	DaybreakCrate: {
+		DisplayName: Daybreak Crate
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	MireCrate: {
+		DisplayName: Mire Crate
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	EventideCrate: {
+		DisplayName: Eventide Crate
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	VoidCrate: {
+		DisplayName: Void Crate
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	NullCrate: {
+		DisplayName: Null Crate
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+}

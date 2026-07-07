@@ -1,17 +1,25 @@
+using AAModClassic._Content.RedMushroom.World.Biomes;
+using AAModClassic.Utilities.Interfaces;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
 {
-    public class MushroomJelly : ModNPC
-	{
+    public class MushroomJelly : ModNPC, IBannerNPC
+    {
 		public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Mushroom Jelly");
             Main.npcFrameCount[NPC.type] = 4;
-		}
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Position = new(0, 6)
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+        }
 
 		public override void SetDefaults()
         {
@@ -30,7 +38,8 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             NPC.alpha = 20;
             NPC.npcSlots = 0.3f;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.ShroomJellyBanner>();
+			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MushroomJellyBanner>();
+            SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
         }
 
         public override void HitEffect(NPC.HitInfo hit)
@@ -47,7 +56,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMush && spawnInfo.Water ? .7f : 0f;
+            return spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneMush && spawnInfo.Water ? .7f : 0f;
         }
 
         public override void OnKill()

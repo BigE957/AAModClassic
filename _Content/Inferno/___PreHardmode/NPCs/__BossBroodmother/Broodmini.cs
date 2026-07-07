@@ -1,5 +1,7 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -33,6 +35,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
             NPC.value = 0f;
             NPC.npcSlots = 0.1f;
             AnimationType = NPCID.MothronSpawn;
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
         public override void HitEffect(NPC.HitInfo hit)
@@ -72,7 +75,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
             NPC.knockBackResist = 0.4f * Main.GameModeInfo.KnockbackToEnemiesMultiplier;
             NPC.noGravity = true;
             NPC.rotation = (NPC.rotation * 9f + NPC.velocity.X * 0.1f) / 10f;
-            if (Main.player[NPC.target].GetModPlayer<AAPlayer>().ZoneInferno == false)
+            if (Main.player[NPC.target].GetModPlayer<ZAAPlayer>().ZoneInferno == false)
             {
                 if (NPC.timeLeft > 5)
 					NPC.timeLeft = 5;
@@ -316,7 +319,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-			BaseDrawing.DrawTexture(spriteBatch, Mod.GetTexture("Glowmasks/Broodmini_Glow"), 0, NPC, GetGlowAlpha());
+			BaseDrawing.DrawTexture(spriteBatch, ModContent.Request<Texture2D>(Texture + "_Glow").Value, 0, NPC, GetGlowAlpha());
         }		
 		
     }

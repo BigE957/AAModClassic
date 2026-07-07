@@ -1,11 +1,14 @@
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.World.Tiles
 {
-    public class IndigoIce : BaseAAItem
+    public class IndigoIce : BaseAAItem, ILocalizedModType
     {
+        public new string LocalizationCategory => "Items.Placeables";
         public override void SetDefaults()
         {
 
@@ -25,6 +28,8 @@ namespace AAModClassic._Content.Mire.World.Tiles
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Indigo Ice");
+
+            ItemTrader.ChlorophyteExtractinator.AddOption_OneWay(Type, 1, ItemID.IceBlock, 1);
         }
 
     }
