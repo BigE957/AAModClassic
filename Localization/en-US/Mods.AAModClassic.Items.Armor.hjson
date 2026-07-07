@@ -1,5 +1,6 @@
 ChaosSlayer: {
 	SharedFlavorText: "'The power of discordian rage radiates from this armor'"
+
 	ChaosSlayerChestplate: {
 		DisplayName: Chaos Slayer Plate
 		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
@@ -95,6 +96,7 @@ Chaos: {
 
 DraconianSun: {
 	SharedFlavorText: "'The blazing fury of the Inferno rests in this armor'"
+
 	DraconianSunChestplate: {
 		DisplayName: Draconian Sun Dao
 		Tooltip: "{$Armor.DraconianSun.SharedFlavorText}"
@@ -113,6 +115,7 @@ DraconianSun: {
 
 Darkmatter: {
 	SharedFlavorText: "'Dark, yet still barely visible'"
+
 	DarkmatterChestplate: {
 		DisplayName: Darkmatter Breastplate
 		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
@@ -146,6 +149,7 @@ Darkmatter: {
 
 Radium: {
 	SharedFlavorText: "'Shines with the light of a starry night sky'"
+
 	RadiumChestplate: {
 		DisplayName: Radium Platemail
 		Tooltip: "{$Armor.Radium.SharedFlavorText}"
@@ -196,6 +200,7 @@ Biomite: {
 
 Doomsday: {
 	SharedFlavorText: "'The power to destroy entire planets rests in this armor'"
+
 	DoomsdayChestplate: {
 		DisplayName: Doomsday Assault Armor
 		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
@@ -219,6 +224,7 @@ Doomsday: {
 
 InfinitySlayer: {
 	SharedFlavorText: "'Infinite power and malice flows through this armor'"
+
 	InfinitySlayerChestplate: {
 		DisplayName: Infinity Slayer Chestplate
 		Tooltip: "{$Armor.InfinitySlayer.SharedFlavorText}"
@@ -271,6 +277,7 @@ Olympian: {
 
 HoppingHoodlum: {
 	SharedFlavorText: "'Hopping Mad'"
+
 	HoppingHoodlumChestplate: {
 		DisplayName: Hopping Hoodlum Shirt
 		Tooltip: "{$Armor.HoppingHoodlum.SharedFlavorText}"
@@ -289,6 +296,7 @@ HoppingHoodlum: {
 
 Champion: {
 	SharedFlavorText: "'The armor of a champion feared across the land'"
+
 	ChampionChestplate: {
 		DisplayName: Champion Chestplate
 		Tooltip: "{$Armor.Champion.SharedFlavorText}"
@@ -516,6 +524,7 @@ StoneSoldier: {
 
 Blazing: {
 	SharedFlavorText: "{$Armor.Kindled.SharedFlavorText}"
+
 	BlazingChestplate: {
 		DisplayName: Blazing Dao
 		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
@@ -534,6 +543,7 @@ Blazing: {
 
 Kindled: {
 	SharedFlavorText: "'Forged in the flames of the blazing sun'"
+
 	KindledChestplate: {
 		DisplayName: Kindled Dao
 		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
@@ -598,6 +608,7 @@ Chlorophyte: {
 
 Abyssal: {
 	SharedFlavorText: "{$Armor.Depth.SharedFlavorText}"
+
 	AbyssalChestplate: {
 		DisplayName: Abyssal Gi
 		Tooltip: "{$Armor.Abyssal.SharedFlavorText}"
@@ -633,6 +644,7 @@ Bogwood: {
 
 Depth: {
 	SharedFlavorText: "'Weightless as shadow itself'"
+
 	DepthChestplate: {
 		DisplayName: Depth Gi
 		Tooltip: "{$Armor.Depth.SharedFlavorText}"
@@ -651,6 +663,7 @@ Depth: {
 
 DreadMoon: {
 	SharedFlavorText: "'The abyssal wrath of the Mire rests in this armor'"
+
 	DreadMoonChestplate: {
 		DisplayName: Dread Moon Gi
 		Tooltip: "{$Armor.DreadMoon.SharedFlavorText}"
@@ -669,6 +682,7 @@ DreadMoon: {
 
 Atlantean: {
 	SharedFlavorText: "'It vibrates with the powers of Atlantis'"
+
 	AtlanteanChestplate: {
 		DisplayName: Atlantean Chestplate
 		Tooltip: "{$Armor.Atlantean.SharedFlavorText}"
