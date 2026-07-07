@@ -469,4 +469,5 @@ Effect: {
 		Increases block placement & tool range by 3
 		Automatically paints or coats placed objects
 		'''
+	DangersenseEffect: Allows you to see nearby danger sources
 }
