@@ -49,9 +49,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
                 if (line.Mod == "Terraria" && line.Name == "Tooltip0")
                 {
                     if(CthulhuActive)
-                        line.Text = Language.GetTextValue("Mods.AAModClassic.Items.CursedCompass.AltText0.Ready");
+                        line.Text = Language.GetTextValue("Mods.AAModClassic.Items.BossSummon.CursedCompass.AltText0.Ready");
                     else if(AAWorld_Unreleased.DownedSoC)
-                        line.Text = Language.GetTextValue("Mods.AAModClassic.Items.CursedCompass.AltText0.Downed");
+                        line.Text = Language.GetTextValue("Mods.AAModClassic.Items.BossSummon.CursedCompass.AltText0.Downed");
                 }
 
                 if (!canFightSoC)
@@ -62,7 +62,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
                         line.Hide();
                 }
                 else if(AAWorld_Unreleased.DownedSoC && line.Mod == "Terraria" && line.Name == "Tooltip1")
-                    line.Text = Language.GetTextValue("Mods.AAModClassic.Items.CursedCompass.AltText1");
+                    line.Text = Language.GetTextValue("Mods.AAModClassic.Items.BossSummon.CursedCompass.AltText1");
             }
         }
 
@@ -73,7 +73,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
                 if (player.whoAmI == Main.myPlayer) BaseUtility.Chat("The wheel doesn't do anything", Color.DarkCyan, false);
                 return false;
             }
-            return AAWorld.downedAllAncients;
+            return AAWorld.downedAllAncients && player.GetModPlayer<AAPlayer_Unreleased>().ZoneShip;
         }
 
         public override bool? UseItem(Player player)

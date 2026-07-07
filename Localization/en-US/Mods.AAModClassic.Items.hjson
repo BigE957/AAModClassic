@@ -25,7 +25,7 @@ BossSummon: {
 			'''
 			An enchanted tablet bursting with flaming chaotic energy
 			Summons Akuma Awakened
-			Only Usable during the day in the inferno
+			Only useable during the day in the Inferno
 			Non-Consumable
 			'''
 	}
@@ -236,7 +236,7 @@ BossSummon: {
 			'''
 			An ornate tablet said to contain the radiant power of a thousand suns
 			Summons Akuma
-			Only Usable during the day in the inferno
+			Only useable during the day in the Inferno
 			Non-Consumable
 			'''
 	}
@@ -299,7 +299,23 @@ BossSummon: {
 
 	CursedCompass: {
 		DisplayName: Cursed Compass
-		Tooltip: An old Compass. Who knows what it's for?
+		Tooltip:
+			'''
+			An old, broken compass. Who knows what it's for.
+			Faint whispers urge you to return to the Sunken Ship
+			Non-consumable
+			'''
+
+		AltText0: {
+			Ready: The compass' arrow spins rapidly, giving off an eerie vibe.
+			Downed: An old, broken compass harboring an eldritch curse.
+		}
+
+		AltText1:
+			'''
+			Summons the Cosmic Calamity
+			Only useable near the Sunken Ship
+			'''
 	}
 
 	Masshroom: {
@@ -823,8 +839,8 @@ LovecraftiansResearchList: {
 		1. Something from that biosphere underground. A crystal from it could work...
 		2. Flesh samples from the corruption. I want to see what those things are made of.
 		3. A bone sample from the crimson. I'm wondering how their bone structure works.
-		4. Find whatever the creatures in the mire eat. Just kill them until one drops its food or something.
-		5. A scale from something in the inferno. I'm trying to figure out how these things are so fire resistant.
+		4. Find whatever the creatures in the Mire eat. Just kill them until one drops its food or something.
+		5. A scale from something in the Inferno. I'm trying to figure out how these things are so fire resistant.
 		6. Spore Samples from the jungle. These mushrooms are really annoying, maybe I can make something to kill them off.
 		7. Some kind of creature part that injects poison or something. My syringe broke and that nurse won't let me use any of hers.
 		8. A sample of whatever the Mushroom Monarch and Feudal Fungus are made of. I might need some help studying these, though...
