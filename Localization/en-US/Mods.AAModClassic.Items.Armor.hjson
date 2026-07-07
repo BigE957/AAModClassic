@@ -688,11 +688,7 @@ Atlantean: {
 Ocean: {
 	OceanChestplate: {
 		DisplayName: Ocean Chestplate
-		Tooltip:
-			'''
-			Increases maximum mana by 20
-			5% increased magic damage
-			'''
+		Tooltip: ""
 	}
 
 	OceanHelmet: {
@@ -765,12 +761,7 @@ Terra: {
 
 	TerraHelmetMage: {
 		DisplayName: Terra Hood
-		Tooltip:
-			'''
-			Increases maximum mana by 100 and 30% reduced mana cost
-			   17% increased magic damage
-			   15% increased magic critical strike chance
-			'''
+		Tooltip: ""
 	}
 
 	TerraHelmetMelee: {
@@ -795,12 +786,7 @@ Terra: {
 
 	TerraHelmetMageTest: {
 		DisplayName: Terra Hood
-		Tooltip:
-			'''
-			Increases maximum mana by 100 and 30% reduced mana cost
-			   17% increased magic damage
-			   15% increased magic critical strike chance
-			'''
+		Tooltip: ""
 	}
 }
 
