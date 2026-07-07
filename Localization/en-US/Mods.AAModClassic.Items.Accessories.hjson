@@ -30,12 +30,12 @@ DemonGauntlet: {
 
 Equinox: {
 	DisplayName: Equinox
-	Tooltip: True balance
+	Tooltip: "'True balance'"
 }
 
 Duality: {
 	DisplayName: Duality
-	Tooltip: Chaos flares from this ancient talisman
+	Tooltip: "'Chaos flares from this ancient talisman'"
 }
 
 DragontamersCloak: {
@@ -65,7 +65,7 @@ Naitokurosu: {
 
 DarkVoid: {
 	DisplayName: Dark Void
-	Tooltip: Dark and spooky
+	Tooltip: "'Dark and spooky'"
 }
 
 RadiantStar: {
@@ -95,7 +95,7 @@ StormPendant: {
 
 HoloCape: {
 	DisplayName: Holographic Cloak
-	Tooltip: 15% Increased Damage Resistance
+	Tooltip: ""
 }
 
 StormClaw: {
@@ -110,7 +110,7 @@ APageOfTheRuneBook: {
 
 EmperorFishronWings: {
 	DisplayName: Emperor Fishron Wings
-	Tooltip: Allows flight and slow fall
+	Tooltip: ""
 }
 
 TheBookOfRunes: {
@@ -130,15 +130,7 @@ FireFrostMedallion: {
 
 CursedEyeOfTheSoulBinder: {
 	DisplayName: Cursed Eye of the Soul Binder
-	Tooltip:
-		'''
-		Increase 21% minion damage
-		Increase your max number of minions
-		Increase your max number of sentries
-		+50 Max Life
-		Your minions can strike the enemy's soul
-		While Old One's Army is on, increase 31% minion damage.
-		'''
+	Tooltip: ""
 }
 
 OlympianWings: {
@@ -148,20 +140,12 @@ OlympianWings: {
 
 SeraphHarp: {
 	DisplayName: Seraph Harp
-	Tooltip:
-		'''
-		Summons a seraph to fight for you
-		Seraph is boosted by minion damage
-		'''
+	Tooltip: ""
 }
 
 GoddessHarp: {
 	DisplayName: Goddess Harp
-	Tooltip:
-		'''
-		Summons the seraph queen herself to fight with you
-		Athena is boosted by minion damage
-		'''
+	Tooltip: ""
 }
 
 RabbitcopterWings: {
@@ -176,7 +160,7 @@ RajahRabbitsSashOfVengeance: {
 
 RajahRabbitsCloakOfSupremacy: {
 	DisplayName: Rajah Rabbit's Cloak of Supremecy
-	Tooltip: You have been deemed a worthy successor by the Champion of the Innocent
+	Tooltip: "'You have been deemed a worthy successor by the Champion of the Innocent'"
 }
 
 ClawOfChaos: {
@@ -201,18 +185,12 @@ HeartOfPassion: {
 
 HeartOfSorrow: {
 	DisplayName: Heart of Sorrow
-	Tooltip:
-		'''
-		Your melee and ranged attacks grow stronger the less health you have
-		Melee and Ranged inflict Hydratoxin
-		Below 2/3 of your maximum life, Your movement speed is doubled
-		Below 1/3 of your maximum life, your melee and ranged attacks inflict Moonraze instead of Hydratoxin
-		'''
+	Tooltip: ""
 }
 
 WingsOfChaos: {
 	DisplayName: Wings of Chaos
-	Tooltip: Allows flight and slow fall
+	Tooltip: ""
 }
 
 SandstormMedallion: {
@@ -247,12 +225,7 @@ GlowingTruffle: {
 
 TruffleLegs: {
 	DisplayName: Truffle Legs
-	Tooltip:
-		'''
-		Increased jump speed and allows auto-jump
-		You are immune to fall damage
-		Increased jump height
-		'''
+	Tooltip: ""
 }
 
 CharmOfDesire: {
@@ -292,22 +265,39 @@ HydraPendant: {
 
 AshProofVest0: {
 	DisplayName: Ash-Proof Vest
-	Tooltip: Lingering in the firestorm for too long will degrade this accessory and cause it to break...
+	Tooltip: 
+		'''
+		"{$Accessories.AshProofVest3.SharedFlavorText}"
+		Vest Status: Ashes in the wind...
+		'''
 }
 
 AshProofVest1: {
 	DisplayName: Ash-Proof Vest
-	Tooltip: Lingering in the firestorm for too long will degrade this accessory and cause it to break...
+	Tooltip: 
+		'''
+		"{$Accessories.AshProofVest3.SharedFlavorText}"
+		Vest Status: Going going gone
+		'''
 }
 
 AshProofVest2: {
 	DisplayName: Ash-Proof Vest
-	Tooltip: Lingering in the firestorm for too long will degrade this accessory and cause it to break...
+	Tooltip: 
+		'''
+		"{$Accessories.AshProofVest3.SharedFlavorText}"
+		Vest Status: Seen better days
+		'''
 }
 
 AshProofVest3: {
+	SharedFlavorText: "Lingering in the firestorm for too long will degrade this accessory and cause it to break..."
 	DisplayName: Ash-Proof Vest
-	Tooltip: Lingering in the firestorm for too long will degrade this accessory and cause it to break...
+	Tooltip: 
+		'''
+		"{$Accessories.AshProofVest3.SharedFlavorText}"
+		Vest Status: Good as new
+		'''
 }
 
 ShadowBand: {
@@ -342,7 +332,7 @@ OldOneCharm: {
 
 HeartyTruffle: {
 	DisplayName: Hearty Truffle
-	Tooltip: "'Don't eat it'"
+	Tooltip: "'Don't eat it.'"
 }
 
 ArcticMedallion: {
@@ -367,11 +357,7 @@ SagittariusShield: {
 
 BrokenCode: {
 	DisplayName: Broken Code
-	Tooltip:
-		'''
-
-		   'You don't look so good'
-		'''
+	Tooltip: "'You don't look so good'"
 }
 
 ZeroWings: {
