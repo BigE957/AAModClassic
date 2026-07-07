@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<SkullWand_AquaticSkull>()] > 0)
 			{
 				modPlayer.SkullMinion = true;

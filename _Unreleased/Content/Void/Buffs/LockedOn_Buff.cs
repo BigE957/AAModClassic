@@ -41,20 +41,20 @@ Infinity Zero: " + IZHP;
         public override void Update(Player player, ref int buffIndex)
         {
             player.buffTime[buffIndex] = 60;
-            player.GetModPlayer<AAPlayer>().LockedOn = true;
+            player.GetModPlayer<ZAAPlayer>().LockedOn = true;
 
             if (IZ && Inf != null && (!Inf.NPC.active || Inf.Dead))
             {
             	IZ = false;
-            	player.GetModPlayer<AAPlayer>().InfZ = false;     		
-            	player.GetModPlayer<AAPlayer>().GetIZHealth = 2000000;
+            	player.GetModPlayer<ZAAPlayer>().InfZ = false;     		
+            	player.GetModPlayer<ZAAPlayer>().GetIZHealth = 2000000;
                 player.ClearBuff(Type);
                 buffIndex--;
             }
             if (NPC.AnyNPCs(ModContent.NPCType<InfinityZero>()) || NPC.AnyNPCs(ModContent.NPCType<InfinityZeroSpawn1>()) || IZ)
             {
             	IZ = true;
-            	player.GetModPlayer<AAPlayer>().InfZ = true;
+            	player.GetModPlayer<ZAAPlayer>().InfZ = true;
             	if (NPC.AnyNPCs(ModContent.NPCType<InfinityZero>()))
             	{
                     if (Inf == null)
@@ -64,7 +64,7 @@ Infinity Zero: " + IZHP;
                     if (Inf.NPC.life != 0)
                     {
                         IZHP = Inf.NPC.life;
-                        player.GetModPlayer<AAPlayer>().GetIZHealth = IZHP;
+                        player.GetModPlayer<ZAAPlayer>().GetIZHealth = IZHP;
                     }
             	}
                 else

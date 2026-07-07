@@ -10,9 +10,9 @@ namespace AAModClassic.Utilities
 
         public static bool ZoneSurface(this Player player) => !player.ZoneDirtLayerHeight && !player.ZoneRockLayerHeight;
 
-        public static bool ZoneAnyInferno(this Player player) => player.GetModPlayer<AAPlayer>().ZoneInferno || ContentReplacementSystem.InNewInferno(player);
+        public static bool ZoneAnyInferno(this Player player) => player.GetModPlayer<ZAAPlayer>().ZoneInferno || ContentReplacementSystem.InNewInferno(player);
 
-        public static bool ZoneAnyMire(this Player player) => player.GetModPlayer<AAPlayer>().ZoneMire || ContentReplacementSystem.InNewMire(player);
+        public static bool ZoneAnyMire(this Player player) => player.GetModPlayer<ZAAPlayer>().ZoneMire || ContentReplacementSystem.InNewMire(player);
 
         public static TransformationPlayer Transformation(this Player player) => player.GetModPlayer<TransformationPlayer>();
 

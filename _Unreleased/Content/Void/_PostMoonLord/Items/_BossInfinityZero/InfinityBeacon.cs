@@ -132,7 +132,7 @@ Non-consumable");*/
 		{
             if (NPC.AnyNPCs(ModContent.NPCType<InfinityZero>()) || NPC.AnyNPCs(ModContent.NPCType<InfinityZeroSpawn1>()))
                 return false;
-            return player.GetModPlayer<AAPlayer>().ZoneVoid;
+            return player.GetModPlayer<ZAAPlayer>().ZoneVoid;
 		}
 
 		public void SpawnBoss(Player player, string name, string displayName)

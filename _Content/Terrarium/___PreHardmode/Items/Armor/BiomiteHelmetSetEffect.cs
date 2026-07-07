@@ -29,25 +29,25 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Armor
                 DumbBullshit.Add(Language.GetTextValue($"{Description}.Night"));
             }
 
-            if (player.GetModPlayer<AAPlayer>().ZoneVoid)
+            if (player.GetModPlayer<ZAAPlayer>().ZoneVoid)
             {
                 player.detectCreature = true;
                 DumbBullshit.Add(Language.GetTextValue($"{Description}.Void"));
             }
 
-            if (player.GetModPlayer<AAPlayer>().ZoneInferno)
+            if (player.GetModPlayer<ZAAPlayer>().ZoneInferno)
             {
                 player.buffImmune[BuffID.OnFire] = true;
                 DumbBullshit.Add(Language.GetTextValue($"{Description}.Inferno"));
             }
 
-            if (player.GetModPlayer<AAPlayer>().ZoneMire)
+            if (player.GetModPlayer<ZAAPlayer>().ZoneMire)
             {
                 player.buffImmune[BuffID.Poisoned] = true;
                 DumbBullshit.Add(Language.GetTextValue($"{Description}.Mire"));
             }
 
-            if (player.GetModPlayer<AAPlayer>().Terrarium)
+            if (player.GetModPlayer<ZAAPlayer>().Terrarium)
             {
                 player.statDefense += 5;
                 DumbBullshit.Add(Language.GetTextValue($"{Description}.Terrarium"));
@@ -81,7 +81,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Armor
             if (player.ZoneCorrupt)
             {
                 player.moveSpeed += .1f;
-                player.GetModPlayer<AAPlayer>().MaxMovespeedboost += 0.1f;
+                player.GetModPlayer<ZAAPlayer>().MaxMovespeedboost += 0.1f;
                 DumbBullshit.Add(Language.GetTextValue($"{Description}.Corruption"));
             }
 

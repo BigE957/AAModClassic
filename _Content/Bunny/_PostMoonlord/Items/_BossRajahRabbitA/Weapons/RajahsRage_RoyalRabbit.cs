@@ -38,7 +38,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
         {
 			bool flag64 = Projectile.type == ModContent.ProjectileType<RajahsRage_RoyalRabbit>();
 			Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (!player.active)
             {
                 Projectile.active = false;

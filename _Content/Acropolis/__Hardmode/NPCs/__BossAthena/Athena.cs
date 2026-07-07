@@ -140,7 +140,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
             }
             NPC.TargetClosest();
             Player player = Main.player[NPC.target];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 
             Vector2 Acropolis = new Vector2(Origin.X + 80 * 16, Origin.Y + 79 * 16);
 
@@ -296,7 +296,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                 if (player.dead || !player.active || Vector2.Distance(NPC.position, player.position) > 5000 || !modPlayer.ZoneAcropolis)
                 {
                     NPC.TargetClosest();
-                    if (Main.player[NPC.target].dead || !Main.player[NPC.target].active || Math.Abs(Vector2.Distance(NPC.position, Main.player[NPC.target].position)) > 5000 || !Main.player[NPC.target].GetModPlayer<AAPlayer>().ZoneAcropolis)
+                    if (Main.player[NPC.target].dead || !Main.player[NPC.target].active || Math.Abs(Vector2.Distance(NPC.position, Main.player[NPC.target].position)) > 5000 || !Main.player[NPC.target].GetModPlayer<ZAAPlayer>().ZoneAcropolis)
                     {
                         CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Kill"));
                         int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());

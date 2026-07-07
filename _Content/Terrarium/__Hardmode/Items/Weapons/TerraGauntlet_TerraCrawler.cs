@@ -49,7 +49,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			if (modPlayer.TerraSummon)
 			{
 				Projectile.timeLeft = 2;

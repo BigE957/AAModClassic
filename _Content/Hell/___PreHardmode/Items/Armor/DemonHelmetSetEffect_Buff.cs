@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
 
         public override void Update(Player player, ref int buffIndex)
         {
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (player.ownedProjectileCounts[ModContent.ProjectileType<DemonHelmetSetEffect_ImpServant>()] <= 0)
             {
                 player.DelBuff(buffIndex);

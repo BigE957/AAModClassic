@@ -10,7 +10,7 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
     {
         public override bool IsBiomeActive(Player player)
         {
-            player.GetModPlayer<AAPlayer>().Terrarium = AAWorld.terraTiles >= 1 || AAWorld.keepTiles >= 1;
+            player.GetModPlayer<ZAAPlayer>().Terrarium = AAWorld.terraTiles >= 1 || AAWorld.keepTiles >= 1;
             return AAWorld.keepTiles >= 1;
         }
 

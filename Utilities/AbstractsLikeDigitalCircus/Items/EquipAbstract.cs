@@ -373,7 +373,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         private readonly float Amount = amount;
         public override void DoEffect(Player player)
         {
-            player.GetModPlayer<AAPlayer>().MaxMovespeedboost += Amount;
+            player.GetModPlayer<ZAAPlayer>().MaxMovespeedboost += Amount;
         }
 
         public override string GetDescription() => Language.GetTextValue(Description).FormatWith(Amount * 100);

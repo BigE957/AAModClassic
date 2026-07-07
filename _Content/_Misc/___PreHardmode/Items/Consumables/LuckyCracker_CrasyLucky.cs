@@ -21,7 +21,7 @@ namespace AAModClassic._Content._Misc.___PreHardmode.Items.Consumables
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			player.GetModPlayer<AAPlayer>().CrasyLucky = true;
+			player.GetModPlayer<ZAAPlayer>().CrasyLucky = true;
             player.luck += 0.25f;
 		}
     }

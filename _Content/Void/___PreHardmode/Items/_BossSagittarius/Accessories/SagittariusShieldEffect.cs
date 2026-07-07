@@ -32,30 +32,30 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Acces
 
             if (Player.HasBuff<SagittariusShield_ShieldsUp>())
             {
-                Player.GetModPlayer<AAPlayer>().RingRotation += .05f;
-                Player.GetModPlayer<AAPlayer>().ShieldScale += .02f;
-                if (Player.GetModPlayer<AAPlayer>().ShieldScale >= 1f)
+                Player.GetModPlayer<ZAAPlayer>().RingRotation += .05f;
+                Player.GetModPlayer<ZAAPlayer>().ShieldScale += .02f;
+                if (Player.GetModPlayer<ZAAPlayer>().ShieldScale >= 1f)
                 {
-                    Player.GetModPlayer<AAPlayer>().ShieldScale = 1f;
+                    Player.GetModPlayer<ZAAPlayer>().ShieldScale = 1f;
                 }
             }
             else
             {
-                Player.GetModPlayer<AAPlayer>().ShieldScale -= .02f;
-                if (Player.GetModPlayer<AAPlayer>().ShieldScale <= 0f)
+                Player.GetModPlayer<ZAAPlayer>().ShieldScale -= .02f;
+                if (Player.GetModPlayer<ZAAPlayer>().ShieldScale <= 0f)
                 {
-                    Player.GetModPlayer<AAPlayer>().ShieldScale = 0f;
+                    Player.GetModPlayer<ZAAPlayer>().ShieldScale = 0f;
                 }
             }
 
-            if (Player.GetModPlayer<AAPlayer>().ShieldScale > 0f)
+            if (Player.GetModPlayer<ZAAPlayer>().ShieldScale > 0f)
             {
-                Player.GetModPlayer<AAPlayer>().RingRotation += .05f;
+                Player.GetModPlayer<ZAAPlayer>().RingRotation += .05f;
             }
 
-            if (Player.GetModPlayer<AAPlayer>().ShieldScale > 0)
+            if (Player.GetModPlayer<ZAAPlayer>().ShieldScale > 0)
             {
-                Player.GetModPlayer<AAPlayer>().RingRotation += .05f;
+                Player.GetModPlayer<ZAAPlayer>().RingRotation += .05f;
             }
         }
 

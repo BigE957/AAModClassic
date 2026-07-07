@@ -19,7 +19,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			player.GetModPlayer<AAPlayer>().CursedHellfire = true;
+			player.GetModPlayer<ZAAPlayer>().CursedHellfire = true;
 		}
 
         public override void Update(NPC npc, ref int buffIndex)

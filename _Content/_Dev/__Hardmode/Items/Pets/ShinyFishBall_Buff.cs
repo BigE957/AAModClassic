@@ -17,7 +17,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Pets
 		public override void Update(Player player, ref int buffIndex)
 		{
 			player.buffTime[buffIndex] = 18000;
-            player.GetModPlayer<AAPlayer>().MudkipS = true;
+            player.GetModPlayer<ZAAPlayer>().MudkipS = true;
 			bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<ShinyFishBall_ShinyMudkip>()] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
 			{

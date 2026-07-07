@@ -98,12 +98,12 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
                 NPC.netUpdate = true;
             }
 
-            if (!player.GetModPlayer<AAPlayer>().ZoneAcropolis || player.dead)
+            if (!player.GetModPlayer<ZAAPlayer>().ZoneAcropolis || player.dead)
             {
                 NPC.TargetClosest();
-                if (!player.GetModPlayer<AAPlayer>().ZoneAcropolis || player.dead)
+                if (!player.GetModPlayer<ZAAPlayer>().ZoneAcropolis || player.dead)
                 {
-                    if (!player.GetModPlayer<AAPlayer>().ZoneAcropolis)
+                    if (!player.GetModPlayer<ZAAPlayer>().ZoneAcropolis)
                     {
                         CombatText.NewText(NPC.Hitbox, Color.CadetBlue, SeraphBitching(), true);
                     }

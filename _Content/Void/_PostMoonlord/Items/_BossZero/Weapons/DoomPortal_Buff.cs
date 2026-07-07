@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<DoomPortal_D00MPR0T0C0L>()] > 0)
 			{
 				modPlayer.Protocol = true;

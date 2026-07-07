@@ -16,7 +16,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Pets
         public override void Update(Player player, ref int buffIndex)
         {
             player.buffTime[buffIndex] = 1800000;
-            player.GetModPlayer<AAPlayer>().Cerberus = true;
+            player.GetModPlayer<ZAAPlayer>().Cerberus = true;
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<CerberusWhistle_Cerberus>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {

@@ -90,7 +90,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
 
         public override void DoEffect(Player player)
         {
-            if (player.GetModPlayer<AAPlayer>().ZoneInferno || player.GetModPlayer<AAPlayer>().ZoneMire)
+            if (player.GetModPlayer<ZAAPlayer>().ZoneInferno || player.GetModPlayer<ZAAPlayer>().ZoneMire)
                 player.GetDamage(DamageClass.Ranged) += DAMAGEBOOST;
         }
 
@@ -103,7 +103,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
 
         public override void DoEffect(Player player)
         {
-            if (player.GetModPlayer<AAPlayer>().ZoneInferno)
+            if (player.GetModPlayer<ZAAPlayer>().ZoneInferno)
                 player.statDefense += DEFENSEBOOST;
         }
 

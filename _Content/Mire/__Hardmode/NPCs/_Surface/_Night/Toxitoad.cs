@@ -49,7 +49,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (Main.hardMode && (spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMire || ContentReplacementSystem.InNewMire(spawnInfo.Player)))
+            if (Main.hardMode && (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneMire || ContentReplacementSystem.InNewMire(spawnInfo.Player)))
             {
                 return SpawnCondition.OverworldNightMonster.Chance * 0.25f;
             }

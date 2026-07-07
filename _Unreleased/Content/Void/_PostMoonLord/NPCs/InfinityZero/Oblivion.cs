@@ -145,7 +145,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             for (int i = 0; i < RateOfChange; i++)
                 UpdateMessage();
 
-            switch (AAPlayer.IZKills)
+            switch (ZAAPlayer.IZKills)
             {
                 case 1:
                     switch(OblivionSpeech)
@@ -298,7 +298,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     switch(OblivionSpeech)
                     {
                         case 180:
-                            string number = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(AAPlayer.IZKills.ToWords());
+                            string number = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(ZAAPlayer.IZKills.ToWords());
                             StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.1", number), color1);
                             SpeechRand = Main.rand.Next(7);
                             break;

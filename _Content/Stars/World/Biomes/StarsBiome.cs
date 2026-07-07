@@ -12,7 +12,7 @@ namespace AAModClassic._Content.Stars.World.Biomes
             bool active = AAWorld.EquinoxAltar >= 20;
             if (active && player.whoAmI == Main.myPlayer)
                 EquinoxAltarDiscovered.Condition.Complete();
-            return player.GetModPlayer<AAPlayer>().ZoneStars = AAWorld.Radium + AAWorld.EquinoxAltar >= 20;
+            return player.GetModPlayer<ZAAPlayer>().ZoneStars = AAWorld.Radium + AAWorld.EquinoxAltar >= 20;
         }
 
         public override int Music => AAWorld.EquinoxAltar > 0 ? MusicManagementSystem.MusicSlots["Equinox_Altar"] : MusicManagementSystem.MusicSlots["Stars"];

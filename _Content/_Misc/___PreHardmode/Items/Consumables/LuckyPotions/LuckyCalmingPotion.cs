@@ -62,7 +62,7 @@ namespace AAModClassic._Content._Misc.___PreHardmode.Items.Consumables.LuckyPoti
 		public override void Update(Player player, ref int buffIndex)
 		{
 			player.buffImmune[106] = true;
-			player.GetModPlayer<AAPlayer>().luckycalm = true;
+			player.GetModPlayer<ZAAPlayer>().luckycalm = true;
 		}
 	}
 }

@@ -24,7 +24,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Acce
             DamageClass highestClass = PlayerUtils.GetHighestDamageClass(player);
             player.GetDamage(highestClass) += PlayerUtils.GetHealthIntervalAsPercent(player, HEALTHINTERVAL, DAMAGEBOOSTPERINTERVAL);
             player.moveSpeed += PlayerUtils.GetHealthIntervalAsPercent(player, HEALTHINTERVAL, SPEEDBOOSTPERINTERVAL);
-            player.GetModPlayer<AAPlayer>().MaxMovespeedboost += PlayerUtils.GetHealthIntervalAsPercent(player, HEALTHINTERVAL, SPEEDBOOSTPERINTERVAL);
+            player.GetModPlayer<ZAAPlayer>().MaxMovespeedboost += PlayerUtils.GetHealthIntervalAsPercent(player, HEALTHINTERVAL, SPEEDBOOSTPERINTERVAL);
         }
 
         public override string GetDescription() => Language.GetTextValue(Description).FormatWith(HEALTHINTERVAL, DAMAGEBOOSTPERINTERVAL * 100, SPEEDBOOSTPERINTERVAL * 100, ColorUtils.GetDamageClassColor(PlayerUtils.GetHighestDamageClass(Main.LocalPlayer)).Hex3(), Math.Round(PlayerUtils.GetHealthIntervalAsPercent(Main.LocalPlayer, HEALTHINTERVAL, DAMAGEBOOSTPERINTERVAL) * 100, 0), Language.GetOrRegister($"Mods.AAModClassic.EquipStats.ClassGlobalStats.{PlayerUtils.GetHighestDamageClass(Main.LocalPlayer).Name}"), PlayerUtils.GetHealthIntervalAsPercent(Main.LocalPlayer, HEALTHINTERVAL, SPEEDBOOSTPERINTERVAL) * 100);

@@ -45,7 +45,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
             if (ContentReplacementSystem.NeedToReplaceContent)
                 return 0f;
 
-            bool biomeCorrect = spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneForest || spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMush;
+            bool biomeCorrect = spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneForest || spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneMush;
             if (spawnInfo.PlayerSafe || NPC.AnyNPCs(ModContent.NPCType<MushroomMonarchAsleep>()) || NPC.AnyNPCs(ModContent.NPCType<MushroomMonarchWakeUp>()) || NPC.AnyNPCs(ModContent.NPCType<MushroomMonarch>()))
             {
                 return 0f;

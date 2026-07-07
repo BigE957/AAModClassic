@@ -17,7 +17,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 
         public override void Update(Player player, ref int buffIndex)
         {
-            AAPlayer mp = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer mp = player.GetModPlayer<ZAAPlayer>();
             mp.AkumaPain = true;
         }
 	}

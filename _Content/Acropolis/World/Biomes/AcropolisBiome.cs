@@ -12,7 +12,7 @@ namespace AAModClassic._Content.Acropolis.World.Biomes
             bool active = AAWorld.CloudTiles > 1;
             if (active && player.whoAmI == Main.myPlayer)
                 AcropolisDiscovered.Condition.Complete();
-            return player.GetModPlayer<AAPlayer>().ZoneAcropolis = active;
+            return player.GetModPlayer<ZAAPlayer>().ZoneAcropolis = active;
         }
 
         public override int Music => MusicManagementSystem.MusicSlots["Acropolis"];

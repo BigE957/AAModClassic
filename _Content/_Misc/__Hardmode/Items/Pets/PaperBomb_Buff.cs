@@ -17,7 +17,7 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Pets
 		public override void Update(Player player, ref int buffIndex)
 		{
 			player.buffTime[buffIndex] = 1800000;
-            player.GetModPlayer<AAPlayer>().BoomBoi = true;
+            player.GetModPlayer<ZAAPlayer>().BoomBoi = true;
 			bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<PaperBomb_Boomer>()] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
 			{

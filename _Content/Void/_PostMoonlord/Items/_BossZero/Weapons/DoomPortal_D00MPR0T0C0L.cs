@@ -58,7 +58,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
             float num636 = 150f;
             bool flag64 = Projectile.type == ModContent.ProjectileType<DoomPortal_D00MPR0T0C0L>();
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (flag64)
             {
                 if (player.dead)

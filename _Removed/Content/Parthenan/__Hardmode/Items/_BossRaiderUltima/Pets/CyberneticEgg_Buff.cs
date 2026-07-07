@@ -17,7 +17,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUl
 		public override void Update(Player player, ref int buffIndex)
 		{
 			player.buffTime[buffIndex] = 1800000;
-            player.GetModPlayer<AAPlayer>().Raidmini = true;
+            player.GetModPlayer<ZAAPlayer>().Raidmini = true;
 			bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<CyberneticEgg_Raidmini>()] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
 			{

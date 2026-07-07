@@ -621,14 +621,14 @@ namespace AAModClassic.Globals
                         npc.DropLoot(ModContent.ItemType<InfernoKey>());
                     }
                 }
-                if (player.GetModPlayer<AAPlayer>().ZoneVoid)
+                if (player.GetModPlayer<ZAAPlayer>().ZoneVoid)
                 {
                     if (Main.rand.NextBool(1250))
                     {
                         npc.DropLoot(ModContent.ItemType<VoidKey>());
                     }
                 }
-                if (player.GetModPlayer<AAPlayer>().Terrarium && NPC.downedPlantBoss)
+                if (player.GetModPlayer<ZAAPlayer>().Terrarium && NPC.downedPlantBoss)
                 {
                     if (Main.rand.NextBool(100))
                     {
@@ -977,7 +977,7 @@ namespace AAModClassic.Globals
             {
                 return;
             }
-            if (spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneStars)
+            if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneStars)
             {
                 pool.Add(Main.dayTime ? ModContent.NPCType<SunWatcher>() : ModContent.NPCType<NightGuard>(), .2f);
             }
@@ -1098,7 +1098,7 @@ namespace AAModClassic.Globals
                     pool.Add(ModContent.NPCType<HarukaShadow>(), .00005f);
             }
 
-            if (spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneVoid)
+            if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneVoid)
             {
                 ClearPoolWithExceptions(pool);
 
@@ -1126,7 +1126,7 @@ namespace AAModClassic.Globals
                 }
             }
 
-            if (spawnInfo.Player.GetModPlayer<AAPlayer>().Terrarium)
+            if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().Terrarium)
             {
                 ClearPoolWithExceptions(pool);
 
@@ -1164,7 +1164,7 @@ namespace AAModClassic.Globals
                 }
             }
 
-            if (spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneAcropolis)
+            if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneAcropolis)
             {
                 ClearPoolWithExceptions(pool);
                 pool.Add(NPCID.Harpy, .06f);
@@ -1174,7 +1174,7 @@ namespace AAModClassic.Globals
                     pool.Add(ModContent.NPCType<Seraph>(), .03f);
             }
 
-            if (spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneHoard)
+            if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneHoard)
             {
                 ClearPoolWithExceptions(pool);
 
@@ -1201,7 +1201,7 @@ namespace AAModClassic.Globals
 
         public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
 		{
-            if (player.GetModPlayer<AAPlayer>().luckycalm)
+            if (player.GetModPlayer<ZAAPlayer>().luckycalm)
 			{
 				spawnRate = (int)((double)spawnRate * 30f);
 				maxSpawns = (int)(maxSpawns * 0.009f);

@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
 
         public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
         {
-            if (!player.GetModPlayer<AAPlayer>().luckycalm && player.GetModPlayer<StripemansLuckyChestplatePlayer>().effect && !player.calmed && player.active && !player.dead && player.nearbyActiveNPCs < maxSpawns && Main.rand.NextDouble() * (spawnRate / 1.333f) < 1)
+            if (!player.GetModPlayer<ZAAPlayer>().luckycalm && player.GetModPlayer<StripemansLuckyChestplatePlayer>().effect && !player.calmed && player.active && !player.dead && player.nearbyActiveNPCs < maxSpawns && Main.rand.NextDouble() * (spawnRate / 1.333f) < 1)
             {
                 VanillaNPCSpawn(player);
             }

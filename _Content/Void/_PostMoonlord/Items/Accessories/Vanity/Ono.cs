@@ -26,7 +26,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity
 
 		public override void UpdateAccessory(Player player, bool hideVisual) 
 		{
-			AAPlayer p = player.GetModPlayer<AAPlayer>();
+			ZAAPlayer p = player.GetModPlayer<ZAAPlayer>();
 			p.ono = true;
 			if (hideVisual) 
 			{

@@ -149,19 +149,19 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                             {
                                 itemtype = ModContent.ItemType<DesertCrate>();
                             }
-                            else if (Main.rand.NextBool(3) && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneInferno)
+                            else if (Main.rand.NextBool(3) && Main.player[projectile.owner].GetModPlayer<ZAAPlayer>().ZoneInferno)
                             {
                                 itemtype = ModContent.ItemType<InfernoCrate>();
                             }
-                            else if (Main.rand.NextBool(3) && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneMire)
+                            else if (Main.rand.NextBool(3) && Main.player[projectile.owner].GetModPlayer<ZAAPlayer>().ZoneMire)
                             {
                                 itemtype = ModContent.ItemType<MireCrate>();
                             }
-                            else if (Main.rand.NextBool(3) && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneVoid)
+                            else if (Main.rand.NextBool(3) && Main.player[projectile.owner].GetModPlayer<ZAAPlayer>().ZoneVoid)
                             {
                                 itemtype = ModContent.ItemType<VoidCrate>();
                             }
-                            else if (Main.rand.NextBool(3) && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneHoard)
+                            else if (Main.rand.NextBool(3) && Main.player[projectile.owner].GetModPlayer<ZAAPlayer>().ZoneHoard)
                             {
                                 itemtype = ItemID.GoldenCrate;
                             }

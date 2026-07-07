@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<DoomiteRadio_DoomiteRadioProbe>()] > 0)
 			{
 				modPlayer.DoomiteProbeC = true;

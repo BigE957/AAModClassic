@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = Main.player[Projectile.owner].GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = Main.player[Projectile.owner].GetModPlayer<ZAAPlayer>();
             player.AddBuff(ModContent.BuffType<SkullWand_Buff>(), 3600);
             if (player.dead)
             {

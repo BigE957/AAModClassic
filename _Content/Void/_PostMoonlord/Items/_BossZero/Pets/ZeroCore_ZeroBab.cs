@@ -42,7 +42,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Pets
         {
             Lighting.AddLight((int)(Projectile.Center.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, 1f, 0.2f, 0.1f);
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (player.dead)
             {
                 modPlayer.ZeroBab = false;

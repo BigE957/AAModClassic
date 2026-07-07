@@ -63,7 +63,7 @@ namespace AAModClassic
                         }
 
                         name = ((string)args[1]).ToLower();
-                        AAPlayer aap = ((Player)args[2]).GetModPlayer<AAPlayer>();
+                        ZAAPlayer aap = ((Player)args[2]).GetModPlayer<ZAAPlayer>();
 
                         return name switch
                         {

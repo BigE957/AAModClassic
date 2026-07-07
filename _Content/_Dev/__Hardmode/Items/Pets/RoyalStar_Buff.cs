@@ -16,7 +16,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Pets
         public override void Update(Player player, ref int buffIndex)
         {
             player.buffTime[buffIndex] = 1800000;
-            player.GetModPlayer<AAPlayer>().RoyalKitten = true;
+            player.GetModPlayer<ZAAPlayer>().RoyalKitten = true;
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<RoyalStar_RoyalKitten>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {

@@ -51,7 +51,7 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Weapons
             }
 
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (player.dead) modPlayer.HallowedPrism = false;
             if (modPlayer.HallowedPrism) Projectile.timeLeft = 2;
 

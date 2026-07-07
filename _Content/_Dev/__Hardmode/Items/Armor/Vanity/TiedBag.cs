@@ -30,7 +30,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 
  		public override void RightClick(Player player)
         {
-            if (player.GetModPlayer<AAPlayer>().ShinyCheck())
+            if (player.GetModPlayer<ZAAPlayer>().ShinyCheck())
             {
                 if (Main.rand.NextBool(10))
                 {

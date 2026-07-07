@@ -31,7 +31,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 
  		public override void RightClick(Player player)
 		{
-            if (player.GetModPlayer<AAPlayer>().ShinyCheck())
+            if (player.GetModPlayer<ZAAPlayer>().ShinyCheck())
             {
                 player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<LittleES>());
                 if (Main.hardMode)

@@ -17,7 +17,7 @@ namespace AAModClassic._Content.Terrarium.World.Biomes
             bool active = AAWorld.terraTiles >= 1 || AAWorld.keepTiles >= 1;
             if (active && player.whoAmI == Main.myPlayer)
                 TerrariumDiscovered.Condition.Complete();
-            player.GetModPlayer<AAPlayer>().Terrarium = active;
+            player.GetModPlayer<ZAAPlayer>().Terrarium = active;
             return AAWorld.terraTiles >= 1;
         }
 

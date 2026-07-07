@@ -16,7 +16,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Pe
 		public override void Update(Player player, ref int buffIndex)
 		{
 			player.buffTime[buffIndex] = 1800000;
-            player.GetModPlayer<AAPlayer>().Broodmini = true;
+            player.GetModPlayer<ZAAPlayer>().Broodmini = true;
 			bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<ScorchedEgg_Broodmini>()] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
 			{

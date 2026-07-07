@@ -102,7 +102,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
                     {
                         Dust.NewDust(NPC.Center, 60, 40, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0);
                     }
-                    if (player.GetModPlayer<AAPlayer>().ZoneAcropolis)
+                    if (player.GetModPlayer<ZAAPlayer>().ZoneAcropolis)
                     {
                         AcropolisAltar_Tile.SpawnBoss(player, ModContent.NPCType<Athena>(), player.Center, Language.GetTextValue("Mods.AAModClassic.Common.Athena"), false);
                     }

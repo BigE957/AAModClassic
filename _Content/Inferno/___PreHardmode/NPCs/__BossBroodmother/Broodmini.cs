@@ -75,7 +75,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
             NPC.knockBackResist = 0.4f * Main.GameModeInfo.KnockbackToEnemiesMultiplier;
             NPC.noGravity = true;
             NPC.rotation = (NPC.rotation * 9f + NPC.velocity.X * 0.1f) / 10f;
-            if (Main.player[NPC.target].GetModPlayer<AAPlayer>().ZoneInferno == false)
+            if (Main.player[NPC.target].GetModPlayer<ZAAPlayer>().ZoneInferno == false)
             {
                 if (NPC.timeLeft > 5)
 					NPC.timeLeft = 5;

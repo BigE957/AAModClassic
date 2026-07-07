@@ -6,7 +6,7 @@ namespace AAModClassic._Content.Mire.World.Biomes
 {
     public class RisingMoonLakeBiomeZone : ModBiome
     {
-        public override bool IsBiomeActive(Player player) => player.GetModPlayer<AAPlayer>().ZoneRisingMoonLake = AAWorld.lakeTiles >= 1;
+        public override bool IsBiomeActive(Player player) => player.GetModPlayer<ZAAPlayer>().ZoneRisingMoonLake = AAWorld.lakeTiles >= 1;
 
         public override int Music =>
             (AAWorld.downedAllAncients && !AAWorld.downedShen) ? MusicManagementSystem.MusicSlots["Chaos_PreShen"] :

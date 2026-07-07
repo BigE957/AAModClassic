@@ -1640,7 +1640,7 @@ namespace AAModClassic
 
         public override void ResetNearbyTileEffects()
         {
-            AAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<ZAAPlayer>();
             modPlayer.VoidUnit = false;
             modPlayer.SunAltar = false;
             modPlayer.MoonAltar = false;

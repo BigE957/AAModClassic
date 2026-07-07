@@ -43,7 +43,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
 		{
 			bool flag64 = Projectile.type == ModContent.ProjectileType<ChaosRitual_ChaosConstruct>();
 			Player player = Main.player[Projectile.owner];
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			player.AddBuff(ModContent.BuffType<ChaosRitual_Buff>(), 3600);
 			if (flag64)
 			{

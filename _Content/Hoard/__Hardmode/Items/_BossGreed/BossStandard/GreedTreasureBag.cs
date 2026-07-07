@@ -49,7 +49,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.BossStandard
             }
             if (Main.rand.NextBool(10))
             {
-                AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
                 modPlayer.PPDevArmor();
             }
             string[] lootTable = { "GildedGlock", "Miner", "StoneSlammer", "GoldDigger"};

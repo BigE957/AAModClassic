@@ -13,7 +13,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossS
         public override void Load()
         {
             EquipLoader.AddEquipTexture(Mod, Texture + "_Head_Alt", EquipType.Head, item: this, name: $"{Name}_Head_Alt");
-            AAPlayer.ModifyDrawInfoEvent += ModifyDrawInfo;
+            ZAAPlayer.ModifyDrawInfoEvent += ModifyDrawInfo;
         }
 
         private void ModifyDrawInfo(Player player)

@@ -15,7 +15,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			bool flag2 = player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunesEffect_TerraRune>()] > 0 || player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunesEffect_ChaosRune>()] > 0 || player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunesEffect_VoidRune>()] > 0;
             if (!flag2)
             {

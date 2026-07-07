@@ -389,7 +389,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
 
         public bool DeathCheck()
         {
-            AAPlayer modPlayer = Main.player[NPC.target].GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = Main.player[NPC.target].GetModPlayer<ZAAPlayer>();
             if (Main.player[NPC.target].dead || Vector2.Distance(Main.player[NPC.target].Center, NPC.Center) > 5000 || !modPlayer.ZoneVoid)
             {
                 NPC.TargetClosest(true);

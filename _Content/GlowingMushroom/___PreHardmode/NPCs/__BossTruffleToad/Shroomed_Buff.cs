@@ -23,7 +23,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
                 player.wingTimeMax = 0;
             }
             player.wingTimeMax /= 8;
-            player.GetModPlayer<AAPlayer>().shroomed = true;
+            player.GetModPlayer<ZAAPlayer>().shroomed = true;
         }
         
 	}

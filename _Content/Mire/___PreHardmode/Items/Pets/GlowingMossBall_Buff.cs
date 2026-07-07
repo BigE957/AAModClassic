@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Pets
 
         public override void Update(Player player, ref int buffIndex)
         {
-            player.GetModPlayer<AAPlayer>().Glowmoss = true;
+            player.GetModPlayer<ZAAPlayer>().Glowmoss = true;
             player.buffTime[buffIndex] = 18000;
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<GlowingMossBall_Pet>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)

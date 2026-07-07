@@ -45,7 +45,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                 if (AAMod.ArmorAbilityKey.JustPressed)
                     doEffectForReal = !doEffectForReal;
 
-                Main.CurrentPlayer.GetModPlayer<AAPlayer>().CrasyLucky = doEffectForReal;
+                Main.CurrentPlayer.GetModPlayer<ZAAPlayer>().CrasyLucky = doEffectForReal;
             }
         }
     }

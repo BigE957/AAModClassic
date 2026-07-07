@@ -32,12 +32,12 @@ namespace AAModClassic._Content.Void.World.Biomes
             bool active = (AAWorld.voidTiles > 20 && player.ZoneSkyHeight) || (AAWorld.voidTiles > 100 && !player.ZoneSkyHeight) || BaseAI.GetNPC(player.Center, ModContent.NPCType<Zero>(), 5000) != -1 || BaseAI.GetNPC(player.Center, ModContent.NPCType<ZeroA>(), 5000) != -1;
             if (active && player.whoAmI == Main.myPlayer)
                 VoidDiscovered.Condition.Complete();
-            return player.GetModPlayer<AAPlayer>().ZoneVoid = active;
+            return player.GetModPlayer<ZAAPlayer>().ZoneVoid = active;
         }
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            player.ManageSpecialBiomeVisuals("AAModClassic:VoidSky", isActive || player.GetModPlayer<AAPlayer>().VoidUnit);
+            player.ManageSpecialBiomeVisuals("AAModClassic:VoidSky", isActive || player.GetModPlayer<ZAAPlayer>().VoidUnit);
         }
 
         public override int Music =>

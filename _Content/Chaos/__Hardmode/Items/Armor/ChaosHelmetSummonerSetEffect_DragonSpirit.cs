@@ -43,7 +43,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
                 }
             }
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             player.AddBuff(ModContent.BuffType<ChaosHelmetSummonerSetEffect_Buff>(), 3600);
             if (!player.dead && player.GetModPlayer<ChaosHelmetSummonerSetPlayer>().effect)
                 Projectile.timeLeft = 2;

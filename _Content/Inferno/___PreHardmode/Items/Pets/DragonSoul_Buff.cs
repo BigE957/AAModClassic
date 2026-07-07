@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Pets
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			player.GetModPlayer<AAPlayer>().DragonSoul = true;
+			player.GetModPlayer<ZAAPlayer>().DragonSoul = true;
 			player.buffTime[buffIndex] = 18000;
 			bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<DragonSoul_DragonSoul>()] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)

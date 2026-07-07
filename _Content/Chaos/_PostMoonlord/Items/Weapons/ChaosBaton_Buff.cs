@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Weapons
 
         public override void Update(Player player, ref int buffIndex)
         {
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (player.ownedProjectileCounts[ModContent.ProjectileType<ChaosBaton_AbyssClaw>()] > 0 || player.ownedProjectileCounts[ModContent.ProjectileType<ChaosBaton_BlazeClaw>()] > 0)
             {
 				modPlayer.ChaosClaw = true;

@@ -49,7 +49,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Wea
         {
             bool flag64 = Projectile.type == ModContent.ProjectileType<SandScepter_DustDevil>();
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             player.AddBuff(ModContent.BuffType<SandScepter_Buff>(), 3600);
             if (flag64)
             {

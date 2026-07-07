@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStand
         {
             if (Main.tile[i, j].TileFrameY >= 56)
             {
-                AAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<ZAAPlayer>();
                 modPlayer.SunAltar = true;
             }
         }

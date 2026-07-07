@@ -58,22 +58,22 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Armor
 				player.statManaMax2 += 20;
 				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor3");
 			}
-			if (player.GetModPlayer<AAPlayer>().ZoneVoid)
+			if (player.GetModPlayer<ZAAPlayer>().ZoneVoid)
 			{
 				player.detectCreature = true;
 				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor4");
 			}
-			if (player.GetModPlayer<AAPlayer>().ZoneInferno)
+			if (player.GetModPlayer<ZAAPlayer>().ZoneInferno)
 			{
 				player.buffImmune[BuffID.OnFire] = true;
 				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor5");
 			}
-			if (player.GetModPlayer<AAPlayer>().ZoneMire)
+			if (player.GetModPlayer<ZAAPlayer>().ZoneMire)
 			{
 				player.buffImmune[BuffID.Poisoned] = true;
 				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor6");
 			}
-			if (player.GetModPlayer<AAPlayer>().Terrarium)
+			if (player.GetModPlayer<ZAAPlayer>().Terrarium)
 			{
 				player.statDefense += 5;
 				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor7");
@@ -102,7 +102,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Armor
 			if (player.ZoneCorrupt)
 			{
 				player.moveSpeed += .1f;
-				player.GetModPlayer<AAPlayer>().MaxMovespeedboost += 0.1f;
+				player.GetModPlayer<ZAAPlayer>().MaxMovespeedboost += 0.1f;
 				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor12");
 			}
 			if (player.ZoneCrimson)

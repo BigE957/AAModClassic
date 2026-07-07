@@ -63,7 +63,7 @@ namespace AAModClassic._Content._Misc.___PreHardmode.Items.Consumables.LuckyPoti
 		{
 			player.buffImmune[3] = true;
 			player.moveSpeed += 0.26f;
-            player.GetModPlayer<AAPlayer>().MaxMovespeedboost += .26f;
+            player.GetModPlayer<ZAAPlayer>().MaxMovespeedboost += .26f;
 		}
 	}
 }

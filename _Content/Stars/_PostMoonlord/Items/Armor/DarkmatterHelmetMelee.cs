@@ -24,7 +24,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
         public new string LocalizationCategory => "Items.Armor.Darkmatter";
         public Color Color => AAColor.Nightcrawler;
 
-        public bool Condition(Player p) => !Main.dayTime && p.GetModPlayer<AAPlayer>().DarkmatterSet;
+        public bool Condition(Player p) => !Main.dayTime && p.GetModPlayer<ZAAPlayer>().DarkmatterSet;
 
         public static Asset<Texture2D> Glowmask;
 

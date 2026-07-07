@@ -1047,7 +1047,7 @@ namespace AAModClassic._Unofficial.Desert
         public override void SetChatButtons(ref string button, ref string button2)
         {
             bool fAnubisTime = NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>();
-            bool hasGreedBook = !Main.LocalPlayer.GetModPlayer<AAPlayer>().AnubisBook && Main.LocalPlayer.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>()) >= 0;
+            bool hasGreedBook = !Main.LocalPlayer.GetModPlayer<ZAAPlayer>().AnubisBook && Main.LocalPlayer.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>()) >= 0;
             if (!fAnubisTime && hasGreedBook)
                 button = "Found your book";
             else
@@ -1063,7 +1063,7 @@ namespace AAModClassic._Unofficial.Desert
             {
                 Player player = Main.LocalPlayer;
 
-                if (!NPCExtensions.BeenKilled<Anubis>() && player.GetModPlayer<AAPlayer>().GivenAnuSummon && !BasePlayer.HasItem(player, ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>()))
+                if (!NPCExtensions.BeenKilled<Anubis>() && player.GetModPlayer<ZAAPlayer>().GivenAnuSummon && !BasePlayer.HasItem(player, ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>()))
                 {
                     player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>(), 1);
                     Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisScapterLost");
@@ -1076,7 +1076,7 @@ namespace AAModClassic._Unofficial.Desert
                     return;
                 }
 
-                if (!player.GetModPlayer<AAPlayer>().AnubisBook && NPCExtensions.BeenKilled<GreedHead>())
+                if (!player.GetModPlayer<ZAAPlayer>().AnubisBook && NPCExtensions.BeenKilled<GreedHead>())
                 {
                     int Item = player.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>());
                     if (Item >= 0)
@@ -1089,7 +1089,7 @@ namespace AAModClassic._Unofficial.Desert
 
                         Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.GetBookChat");
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition>(), 1);
-                        player.GetModPlayer<AAPlayer>().AnubisBook = true;
+                        player.GetModPlayer<ZAAPlayer>().AnubisBook = true;
                         SoundEngine.PlaySound(SoundID.Chat);
                         return;
                     }
@@ -1099,7 +1099,7 @@ namespace AAModClassic._Unofficial.Desert
             }
             else
             {
-                if (Main.LocalPlayer.GetModPlayer<AAPlayer>().AnubisBook)
+                if (Main.LocalPlayer.GetModPlayer<ZAAPlayer>().AnubisBook)
                     QuestSystem.Questlines["LegendscribeEarlyGame"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeQuestline.Greed.Description.FoundBook");
                 else
                     QuestSystem.Questlines["LegendscribeEarlyGame"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeQuestline.Greed.Description.Complete");

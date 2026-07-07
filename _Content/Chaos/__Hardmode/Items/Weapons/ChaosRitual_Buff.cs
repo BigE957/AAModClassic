@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<ChaosRitual_ChaosConstruct>()] > 0)
 			{
 				modPlayer.ChaosConstruct = true;

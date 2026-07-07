@@ -78,11 +78,11 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent
                 {
                     type = 2;
                 }
-                else if (player.GetModPlayer<AAPlayer>().ZoneInferno)
+                else if (player.GetModPlayer<ZAAPlayer>().ZoneInferno)
                 {
                     type = 3;
                 }
-                else if (player.GetModPlayer<AAPlayer>().ZoneMire)
+                else if (player.GetModPlayer<ZAAPlayer>().ZoneMire)
                 {
                     type = 4;
                 }

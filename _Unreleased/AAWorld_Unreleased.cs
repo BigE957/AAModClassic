@@ -34,7 +34,7 @@ namespace AAModClassic._Unreleased
         private static int shipSide = 0;
 
         public static bool DownedSoC => (NPCExtensions.BeenKilled<SoulOfCthulhu>() && !Main.expertMode) || NPCExtensions.BeenKilled<Cthulhu>();
-        public static bool DownedIZ => AAPlayer.IZKills > 0;
+        public static bool DownedIZ => ZAAPlayer.IZKills > 0;
         public static bool Compass;
 
         public static int StormTiles = 0;

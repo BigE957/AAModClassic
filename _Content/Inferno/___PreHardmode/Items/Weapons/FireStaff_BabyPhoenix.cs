@@ -58,7 +58,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
 
             bool flag64 = Projectile.type == ModContent.ProjectileType<FireStaff_BabyPhoenix>();
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             player.AddBuff(ModContent.BuffType<FireStaff_Buff>(), 3600);
             if (flag64)
             {

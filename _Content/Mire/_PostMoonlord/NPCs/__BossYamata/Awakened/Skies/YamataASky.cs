@@ -19,7 +19,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened.Sk
 
     public class YamataASkyScene : ModSceneEffect
     {
-        public override bool IsSceneEffectActive(Player player) => NPC.AnyNPCs(ModContent.NPCType<YamataABody>()) || player.GetModPlayer<AAPlayer>().YamataAltar;
+        public override bool IsSceneEffectActive(Player player) => NPC.AnyNPCs(ModContent.NPCType<YamataABody>()) || player.GetModPlayer<ZAAPlayer>().YamataAltar;
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
@@ -87,7 +87,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened.Sk
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
-                if (!Main.dayTime || Main.LocalPlayer.GetModPlayer<AAPlayer>().YamataAltar)
+                if (!Main.dayTime || Main.LocalPlayer.GetModPlayer<ZAAPlayer>().YamataAltar)
                 {
                     spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White * Intensity);
                     double bgTop = 0;

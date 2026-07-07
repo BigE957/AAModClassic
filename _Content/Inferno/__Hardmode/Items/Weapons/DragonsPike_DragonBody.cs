@@ -61,7 +61,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 
             if ((int) Main.time % 120 == 0) Projectile.netUpdate = true;
             if (!player.active)

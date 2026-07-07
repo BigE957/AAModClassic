@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Crimson.___PreHardmode.Items.Weapons
         {
             bool flag64 = Projectile.type == ModContent.ProjectileType<CrimeraStaff_CrimtaneCrimera>();
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             player.AddBuff(ModContent.BuffType<CrimeraStaff_Buff>(), 3600);
             if (flag64)
             {

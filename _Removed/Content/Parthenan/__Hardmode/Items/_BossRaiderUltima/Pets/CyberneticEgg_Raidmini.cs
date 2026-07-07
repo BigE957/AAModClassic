@@ -32,7 +32,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUl
 		public override void AI()
 		{
 			Player player = Main.player[Projectile.owner];
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			if (player.dead)
 			{
 				modPlayer.Raidmini = false;

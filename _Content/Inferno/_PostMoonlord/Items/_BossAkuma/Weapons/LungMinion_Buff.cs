@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 
         public override void Update(Player player, ref int buffIndex)
         {
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (player.ownedProjectileCounts[ModContent.ProjectileType<AncientLungStaff_LungHead>()] > 0) modPlayer.LungMinion = true;
             if (!modPlayer.LungMinion)
             {

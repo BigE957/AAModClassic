@@ -88,7 +88,7 @@ using Terraria.Utilities;
 
 namespace AAModClassic
 {
-    public partial class AAPlayer : ModPlayer
+    public partial class ZAAPlayer : ModPlayer
     {
         #region Variables
 
@@ -467,7 +467,7 @@ namespace AAModClassic
 
         public bool CustomBiomesMatch(Player other)
         {
-            AAPlayer modOther = other.GetModPlayer<AAPlayer>();
+            ZAAPlayer modOther = other.GetModPlayer<ZAAPlayer>();
             return ZoneMire == modOther.ZoneMire &&
                 ZoneInferno == modOther.ZoneInferno &&
                 ZoneVoid == modOther.ZoneVoid &&
@@ -482,7 +482,7 @@ namespace AAModClassic
 
         public void CopyCustomBiomesTo(Player other)
         {
-            AAPlayer modOther = other.GetModPlayer<AAPlayer>();
+            ZAAPlayer modOther = other.GetModPlayer<ZAAPlayer>();
             modOther.ZoneInferno = ZoneInferno;
             modOther.ZoneMire = ZoneMire;
             modOther.ZoneVoid = ZoneVoid;
@@ -760,13 +760,13 @@ namespace AAModClassic
                         itemDrop = ModContent.ItemType<IceCrate>();
                     if (liquidType == 0 && Player.ZoneDesert && Main.rand.NextBool())
                         itemDrop = ModContent.ItemType<DesertCrate>();
-                    if ((liquidType == 0 || liquidType == 1) && Player.GetModPlayer<AAPlayer>().ZoneInferno)
+                    if ((liquidType == 0 || liquidType == 1) && Player.GetModPlayer<ZAAPlayer>().ZoneInferno)
                         itemDrop = ModContent.ItemType<InfernoCrate>();
-                    if (liquidType == 0 && Player.GetModPlayer<AAPlayer>().ZoneMire)
+                    if (liquidType == 0 && Player.GetModPlayer<ZAAPlayer>().ZoneMire)
                         itemDrop = ModContent.ItemType<MireCrate>();
-                    if (liquidType == 0 && Player.GetModPlayer<AAPlayer>().ZoneVoid)
+                    if (liquidType == 0 && Player.GetModPlayer<ZAAPlayer>().ZoneVoid)
                         itemDrop = ModContent.ItemType<VoidCrate>();
-                    if (liquidType == 0 && Player.GetModPlayer<AAPlayer>().ZoneHoard)
+                    if (liquidType == 0 && Player.GetModPlayer<ZAAPlayer>().ZoneHoard)
                         itemDrop = ItemID.GoldenCrate;
                     if (liquidType == 1 && attempt.CanFishInLava && Player.ZoneUnderworldHeight && Main.rand.NextBool())
                         itemDrop = ModContent.ItemType<HellCrate>();
@@ -774,14 +774,14 @@ namespace AAModClassic
                 return;
             }
 
-            if (attempt.questFish == ModContent.ItemType<TriHeadedKoi>() && Player.GetModPlayer<AAPlayer>().ZoneMire && attempt.uncommon)
+            if (attempt.questFish == ModContent.ItemType<TriHeadedKoi>() && Player.GetModPlayer<ZAAPlayer>().ZoneMire && attempt.uncommon)
                 itemDrop = ModContent.ItemType<TriHeadedKoi>();
-            if (attempt.questFish == ModContent.ItemType<Fishmother>() && Player.GetModPlayer<AAPlayer>().ZoneInferno && attempt.uncommon)
+            if (attempt.questFish == ModContent.ItemType<Fishmother>() && Player.GetModPlayer<ZAAPlayer>().ZoneInferno && attempt.uncommon)
                 itemDrop = ModContent.ItemType<Fishmother>();
-            if (attempt.questFish == ModContent.ItemType<GlitchFish>() && Player.GetModPlayer<AAPlayer>().ZoneVoid && attempt.uncommon)
+            if (attempt.questFish == ModContent.ItemType<GlitchFish>() && Player.GetModPlayer<ZAAPlayer>().ZoneVoid && attempt.uncommon)
                 itemDrop = ModContent.ItemType<GlitchFish>();
 
-            if (Player.GetModPlayer<AAPlayer>().ZoneInferno)
+            if (Player.GetModPlayer<ZAAPlayer>().ZoneInferno)
             {
                 if(attempt.legendary)
                 {
@@ -792,7 +792,7 @@ namespace AAModClassic
                 }
             }
 
-            if (Player.GetModPlayer<AAPlayer>().ZoneMire)
+            if (Player.GetModPlayer<ZAAPlayer>().ZoneMire)
             {
                 if (attempt.legendary)
                 {
@@ -1048,7 +1048,7 @@ namespace AAModClassic
                 }
             }
 
-            if (Player.GetModPlayer<AAPlayer>().ZoneMire || Player.GetModPlayer<AAPlayer>().ZoneRisingMoonLake)
+            if (Player.GetModPlayer<ZAAPlayer>().ZoneMire || Player.GetModPlayer<ZAAPlayer>().ZoneRisingMoonLake)
             {
                 if (Main.dayTime && !AAWorld.downedYamata)
                 {
@@ -1072,7 +1072,7 @@ namespace AAModClassic
                 Filters.Scene["MoonLordShake"].GetShader().UseIntensity(1f);
             }
 
-            if (Player.GetModPlayer<AAPlayer>().ZoneInferno || Player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda)
+            if (Player.GetModPlayer<ZAAPlayer>().ZoneInferno || Player.GetModPlayer<ZAAPlayer>().ZoneRisingSunPagoda)
             {
                 if (AshCurse)
                 {
@@ -1080,7 +1080,7 @@ namespace AAModClassic
                 }
             }
 
-            if (Player.GetModPlayer<AAPlayer>().ZoneRisingMoonLake || Player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda)
+            if (Player.GetModPlayer<ZAAPlayer>().ZoneRisingMoonLake || Player.GetModPlayer<ZAAPlayer>().ZoneRisingSunPagoda)
             {
                 if (((!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && AAWorld.downedAllAncients) || (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && AAWorld.downedAkuma && AAWorld.downedYamata)) && !AAWorld.downedShen)
                 {
@@ -1335,7 +1335,7 @@ namespace AAModClassic
                 return;
             }
 
-            if ((player.GetModPlayer<AAPlayer>().ZoneInferno || player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda) && player.GetModPlayer<AAPlayer>().AshCurse)
+            if ((player.GetModPlayer<ZAAPlayer>().ZoneInferno || player.GetModPlayer<ZAAPlayer>().ZoneRisingSunPagoda) && player.GetModPlayer<ZAAPlayer>().AshCurse)
             {
                 if (!(player.ZoneSkyHeight || player.ZoneOverworldHeight))
                 {
@@ -1397,7 +1397,7 @@ namespace AAModClassic
                                     Dust expr_292_cp_0 = Main.dust[dust];
                                     expr_292_cp_0.velocity.Y *= Main.dust[dust].scale;
 
-                                    if (!player.GetModPlayer<AAPlayer>().AshCurse)
+                                    if (!player.GetModPlayer<ZAAPlayer>().AshCurse)
                                     {
                                         Main.dust[dust].velocity.X = Main.rand.Next(-10, 10) * 0.1f;
 
@@ -1883,7 +1883,7 @@ namespace AAModClassic
         {
             groviteGlow[Player.whoAmI] = false;
 
-            if (Player.GetModPlayer<AAPlayer>().ZoneVoid || Player.GetModPlayer<AAPlayer>().ZoneInferno || Player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda)
+            if (Player.GetModPlayer<ZAAPlayer>().ZoneVoid || Player.GetModPlayer<ZAAPlayer>().ZoneInferno || Player.GetModPlayer<ZAAPlayer>().ZoneRisingSunPagoda)
             {
                 if (Main.raining)
                 {
@@ -1893,7 +1893,7 @@ namespace AAModClassic
                 }
             }
 
-            if (Player.GetModPlayer<AAPlayer>().ZoneMire || Player.GetModPlayer<AAPlayer>().ZoneRisingMoonLake)
+            if (Player.GetModPlayer<ZAAPlayer>().ZoneMire || Player.GetModPlayer<ZAAPlayer>().ZoneRisingMoonLake)
             {
                 if (Main.raining)
                 {
@@ -2972,7 +2972,7 @@ namespace AAModClassic
 
             protected override void Draw(ref PlayerDrawSet drawInfo)
             {
-                if (drawInfo.drawPlayer.merman || drawInfo.drawPlayer.wereWolf || !AAPlayer.groviteGlow[drawInfo.drawPlayer.whoAmI])
+                if (drawInfo.drawPlayer.merman || drawInfo.drawPlayer.wereWolf || !ZAAPlayer.groviteGlow[drawInfo.drawPlayer.whoAmI])
                     return;
 
                 Mod mod = AAMod.instance;
@@ -2992,7 +2992,7 @@ namespace AAModClassic
 
             protected override void Draw(ref PlayerDrawSet drawInfo)
             {
-                if (drawInfo.drawPlayer.merman || drawInfo.drawPlayer.wereWolf || !AAPlayer.groviteGlow[drawInfo.drawPlayer.whoAmI])
+                if (drawInfo.drawPlayer.merman || drawInfo.drawPlayer.wereWolf || !ZAAPlayer.groviteGlow[drawInfo.drawPlayer.whoAmI])
                     return;
 
                 Mod mod = AAMod.instance;
@@ -3012,7 +3012,7 @@ namespace AAModClassic
 
             protected override void Draw(ref PlayerDrawSet drawInfo)
             {
-                if (drawInfo.drawPlayer.merman || drawInfo.drawPlayer.wereWolf || !AAPlayer.groviteGlow[drawInfo.drawPlayer.whoAmI])
+                if (drawInfo.drawPlayer.merman || drawInfo.drawPlayer.wereWolf || !ZAAPlayer.groviteGlow[drawInfo.drawPlayer.whoAmI])
                     return;
 
                 Mod mod = AAMod.instance;
@@ -3032,7 +3032,7 @@ namespace AAModClassic
 
             protected override void Draw(ref PlayerDrawSet drawInfo)
             {
-                if (drawInfo.drawPlayer.merman || drawInfo.drawPlayer.wereWolf || !AAPlayer.groviteGlow[drawInfo.drawPlayer.whoAmI])
+                if (drawInfo.drawPlayer.merman || drawInfo.drawPlayer.wereWolf || !ZAAPlayer.groviteGlow[drawInfo.drawPlayer.whoAmI])
                     return;
 
                 Mod mod = AAMod.instance;
@@ -3052,7 +3052,7 @@ namespace AAModClassic
 
             protected override void Draw(ref PlayerDrawSet drawInfo)
             {
-                if (drawInfo.drawPlayer.merman || drawInfo.drawPlayer.wereWolf || !AAPlayer.groviteGlow[drawInfo.drawPlayer.whoAmI])
+                if (drawInfo.drawPlayer.merman || drawInfo.drawPlayer.wereWolf || !ZAAPlayer.groviteGlow[drawInfo.drawPlayer.whoAmI])
                     return;
 
                 Mod mod = AAMod.instance;
@@ -3089,23 +3089,23 @@ namespace AAModClassic
                     return;
                 }
 
-                if (drawPlayer.GetModPlayer<AAPlayer>().ShieldScale > 0)
+                if (drawPlayer.GetModPlayer<ZAAPlayer>().ShieldScale > 0)
                 {
                     Texture2D Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/___PreHardmode/Items/_BossSagittarius/Accessories/SagittariusShield").Value;
-                    BaseDrawing.DrawTexture(Main.spriteBatch, Shield, 0, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<AAPlayer>().ShieldScale, 0, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), AAColor.ZeroShield, true);
+                    BaseDrawing.DrawTexture(Main.spriteBatch, Shield, 0, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<ZAAPlayer>().ShieldScale, 0, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), AAColor.ZeroShield, true);
 
                     Texture2D Ring = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/___PreHardmode/Items/_BossSagittarius/Accessories/SagittariusShield_Ring").Value;
-                    BaseDrawing.DrawTexture(Main.spriteBatch, Ring, 0, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<AAPlayer>().ShieldScale, drawPlayer.GetModPlayer<AAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, Ring.Width, Ring.Height), BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), true);
+                    BaseDrawing.DrawTexture(Main.spriteBatch, Ring, 0, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<ZAAPlayer>().ShieldScale, drawPlayer.GetModPlayer<ZAAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, Ring.Width, Ring.Height), BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), true);
 
                     Texture2D RingGlow = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/___PreHardmode/Items/_BossSagittarius/Accessories/SagittariusShield_RingActive").Value;
-                    BaseDrawing.DrawTexture(Main.spriteBatch, RingGlow, 0, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<AAPlayer>().ShieldScale, drawPlayer.GetModPlayer<AAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, RingGlow.Width, RingGlow.Height), ColorUtils.COLOR_GLOWPULSE, true);
+                    BaseDrawing.DrawTexture(Main.spriteBatch, RingGlow, 0, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<ZAAPlayer>().ShieldScale, drawPlayer.GetModPlayer<ZAAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, RingGlow.Width, RingGlow.Height), ColorUtils.COLOR_GLOWPULSE, true);
                 }
 
-                if (drawPlayer.GetModPlayer<AAPlayer>().AsheFlameScale > 0)
+                if (drawPlayer.GetModPlayer<ZAAPlayer>().AsheFlameScale > 0)
                 {
                     Texture2D Shield = ModContent.Request<Texture2D>(ModContent.GetInstance<AsheRune>().Texture).Value;
                     int red = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
-                    BaseDrawing.DrawTexture(Main.spriteBatch, Shield, red, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<AAPlayer>().AsheFlameScale, drawPlayer.GetModPlayer<AAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), true);
+                    BaseDrawing.DrawTexture(Main.spriteBatch, Shield, red, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<ZAAPlayer>().AsheFlameScale, drawPlayer.GetModPlayer<ZAAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), true);
                 }
 
                 int cbuff = drawPlayer.GetModPlayer<ChampionHelmetMageSetPlayer>().CarrotBuff;
@@ -3121,7 +3121,7 @@ namespace AAModClassic
                     {
                         Shield = ModContent.Request<Texture2D>("AAModClassic/_Content/Bunny/_PostMoonlord/Items/Armor/ChampionHelmetMageSetEffect_ChampionBoost3_Aura").Value;
                     }
-                    BaseDrawing.DrawTexture(Main.spriteBatch, Shield, 0, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<AAPlayer>().AsheFlameScale, drawPlayer.GetModPlayer<AAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), Main.DiscoColor, true);
+                    BaseDrawing.DrawTexture(Main.spriteBatch, Shield, 0, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<ZAAPlayer>().AsheFlameScale, drawPlayer.GetModPlayer<ZAAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), Main.DiscoColor, true);
                 }
             }
         }

@@ -53,7 +53,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Accessories
                 }
             }
 
-            if (player.GetModPlayer<AAPlayer>().ZoneInferno && !Main.dayTime && !AAWorld.downedAkuma)
+            if (player.GetModPlayer<ZAAPlayer>().ZoneInferno && !Main.dayTime && !AAWorld.downedAkuma)
             {
                 if (Main.rand.NextBool(3600))
                 {

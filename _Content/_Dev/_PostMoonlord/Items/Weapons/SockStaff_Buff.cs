@@ -15,7 +15,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<SockStaff_SockPuppet>()] > 0)
 			{
 				modPlayer.Sock = true;

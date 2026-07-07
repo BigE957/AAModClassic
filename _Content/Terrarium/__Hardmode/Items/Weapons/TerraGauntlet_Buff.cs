@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
 
         public override void Update(Player player, ref int buffIndex)
         {
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             modPlayer.TerraSummon = true;
 			
             if (!modPlayer.TerraSummon)

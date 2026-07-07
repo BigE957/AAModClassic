@@ -190,7 +190,7 @@ Contained loot depends on the time of day"); */
 		{
             if (Main.rand.NextBool(20))
             {
-                AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
                 modPlayer.PMLDevArmor();
             }
         }

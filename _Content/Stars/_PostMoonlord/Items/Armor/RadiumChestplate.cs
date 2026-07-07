@@ -19,7 +19,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
         public new string LocalizationCategory => "Items.Armor.Radium";
         public Color Color => AAColor.Glow;
 
-        public bool Condition(Player p) => Main.dayTime && p.GetModPlayer<AAPlayer>().Radium;
+        public bool Condition(Player p) => Main.dayTime && p.GetModPlayer<ZAAPlayer>().Radium;
 
         public override void SetStaticDefaults()
 		{

@@ -17,7 +17,7 @@ namespace AAModClassic._Content.Ocean.__Hardmode.Items._BossDukeFishron.Pets
 		public override void Update(Player player, ref int buffIndex)
 		{
 			player.buffTime[buffIndex] = 1800000;
-            player.GetModPlayer<AAPlayer>().Sharkron = true;
+            player.GetModPlayer<ZAAPlayer>().Sharkron = true;
 			bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<Seashroom_Sharkron>()] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
 			{

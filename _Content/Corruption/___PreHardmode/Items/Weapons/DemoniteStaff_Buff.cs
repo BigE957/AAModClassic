@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Corruption.___PreHardmode.Items.Weapons
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<DemoniteStaff_DemonEater>()] > 0)
 			{
 				modPlayer.EaterMinion = true;

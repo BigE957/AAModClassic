@@ -36,7 +36,7 @@ namespace AAModClassic._Content.Corruption.___PreHardmode.Items.Weapons
         {
             bool flag64 = Projectile.type == ModContent.ProjectileType<DemoniteStaff_DemonEater>();
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             player.AddBuff(ModContent.BuffType<DemoniteStaff_Buff>(), 3600);
             if (flag64)
             {

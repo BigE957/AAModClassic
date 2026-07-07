@@ -17,7 +17,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Pets
 		public override void Update(Player player, ref int buffIndex)
 		{
 			player.buffTime[buffIndex] = 1800000;
-            player.GetModPlayer<AAPlayer>().Lunamini = true;
+            player.GetModPlayer<ZAAPlayer>().Lunamini = true;
 			bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<MoonBeeInAJar_Lunamini>()] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
 			{

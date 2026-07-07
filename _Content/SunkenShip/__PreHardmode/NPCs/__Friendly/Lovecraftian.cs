@@ -165,7 +165,7 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
         public override void OnChatButtonClicked(bool firstButton, ref string shopName)
         {
             Player player = Main.LocalPlayer;
-            AAPlayer p = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer p = player.GetModPlayer<ZAAPlayer>();
 
             if (firstButton)
             {

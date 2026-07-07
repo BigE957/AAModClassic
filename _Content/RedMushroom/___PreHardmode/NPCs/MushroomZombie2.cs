@@ -57,7 +57,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-            return spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMush ? .7f : 0f;
+            return spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneMush ? .7f : 0f;
         }
 
 		public override void HitEffect(NPC.HitInfo hit)

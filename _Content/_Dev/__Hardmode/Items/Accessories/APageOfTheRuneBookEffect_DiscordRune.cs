@@ -32,7 +32,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
             Lighting.AddLight((int)(Projectile.position.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, 1f, 0.95f, 0.8f);
             bool flag64 = Projectile.type == ModContent.ProjectileType<APageOfTheRuneBookEffect_DiscordRune>();
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 
             if (player.dead || !player.GetModPlayer<APageOfTheRuneBookPlayer>().effect || player.maxMinions - player.slotsMinions < 3f)
             {

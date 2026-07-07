@@ -22,7 +22,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.World.Biomes
         {
 			if(Main.netMode == NetmodeID.Server || Main.dedServ) return; //BEGONE SERVER HEATHENS! UPDATE ONLY CLIENTSIDE!
 
-			bool inStorm = Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneStorm;
+			bool inStorm = Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneStorm;
 
             if (!backgroundClouds) inStorm = false;
 			

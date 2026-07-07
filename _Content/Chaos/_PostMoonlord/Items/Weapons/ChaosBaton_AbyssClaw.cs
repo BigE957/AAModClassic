@@ -47,7 +47,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Weapons
 			float num15 = 1200f;
 			float num16 = 150f;
 			Player player = Main.player[Projectile.owner];
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			player.AddBuff(ModContent.BuffType<ChaosBaton_Buff>(), 3600);
             if (player.dead)
             {

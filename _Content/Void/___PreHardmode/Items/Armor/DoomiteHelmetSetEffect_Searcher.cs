@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (!player.dead && player.GetModPlayer<DoomiteHelmetSetPlayer>().effect)
             {
                 Projectile.timeLeft = 2;

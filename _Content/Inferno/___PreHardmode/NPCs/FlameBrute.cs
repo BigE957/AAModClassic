@@ -104,7 +104,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneInferno && Main.dayTime ? 1f : 0f;
+            return spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneInferno && Main.dayTime ? 1f : 0f;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

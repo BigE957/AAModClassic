@@ -44,7 +44,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
             {
                 if (NPC.goldCritterChance >= 30)
                     NPC.goldCritterChance = 30;
-                if (!spawnInfo.Player.calmed && !spawnInfo.Player.GetModPlayer<AAPlayer>().luckycalm)
+                if (!spawnInfo.Player.calmed && !spawnInfo.Player.GetModPlayer<ZAAPlayer>().luckycalm)
                 {
                     foreach (int npctype in AALuckyConfig.ListRareNpc)
                         if (pool.TryGetValue(npctype, out float value) && value <= 0.05f)

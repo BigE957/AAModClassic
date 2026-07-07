@@ -17,7 +17,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 		
 		public override void Update(Player player, ref int buffIndex)
 		{
-			player.GetModPlayer<AAPlayer>().YamataAGravity = true;
+			player.GetModPlayer<ZAAPlayer>().YamataAGravity = true;
 		}
 	}
 }

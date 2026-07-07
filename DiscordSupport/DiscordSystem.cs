@@ -166,7 +166,7 @@ public class DiscordSystem : ModSystem
                 return $"Fighting {npc.FullName}";
         }
 
-        AAPlayer aaPlayer = player.GetModPlayer<AAPlayer>();
+        ZAAPlayer aaPlayer = player.GetModPlayer<ZAAPlayer>();
         if (aaPlayer.ZoneInferno) return "In The Inferno";
         if (aaPlayer.ZoneMire) return "In The Mire";
         if (aaPlayer.ZoneVoid) return "Lost in The Void";

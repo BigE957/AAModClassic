@@ -9,13 +9,13 @@ namespace AAModClassic._Content.Hoard.World.Biomes
     {
         public override bool IsBiomeActive(Player player)
         {
-            bool active = AAWorld.HoardTiles > 1 && !player.GetModPlayer<AAPlayer>().ZoneStars;
+            bool active = AAWorld.HoardTiles > 1 && !player.GetModPlayer<ZAAPlayer>().ZoneStars;
             if (active && player.whoAmI == Main.myPlayer)
                 HoardDiscovered.Condition.Complete();
-            return player.GetModPlayer<AAPlayer>().ZoneHoard = active;
+            return player.GetModPlayer<ZAAPlayer>().ZoneHoard = active;
         }
 
-        public override int Music => Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneStars ? -1 : MusicManagementSystem.MusicSlots["Hoard"];
+        public override int Music => Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneStars ? -1 : MusicManagementSystem.MusicSlots["Hoard"];
 
         public override SceneEffectPriority Priority => SceneEffectPriority.Event;
 

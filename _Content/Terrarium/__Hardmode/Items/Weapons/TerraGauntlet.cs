@@ -57,7 +57,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
                 return false;
             }
 			
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			modPlayer.TerraSummon = true;
 			player.AddBuff(ModContent.BuffType<TerraGauntlet_Buff>(), 2, true);
 

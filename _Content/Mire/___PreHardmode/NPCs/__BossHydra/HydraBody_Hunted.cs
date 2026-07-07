@@ -18,7 +18,7 @@ Flight time and run speed reduced"); */
 		
 		public override void Update(Player player, ref int buffIndex)
 		{
-			player.GetModPlayer<AAPlayer>().Hunted = true;
+			player.GetModPlayer<ZAAPlayer>().Hunted = true;
 		}
 	}
 }

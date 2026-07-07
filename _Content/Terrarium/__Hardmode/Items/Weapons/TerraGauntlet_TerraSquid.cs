@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
         {
 			Projectile.tileCollide = false;
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			if (modPlayer.TerraSummon)
 			{
 				Projectile.timeLeft = 2;

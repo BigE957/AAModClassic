@@ -18,7 +18,7 @@ namespace AAModClassic._Content._Misc._PostMoonlord.Items.Buffs
 
         public override void Update(Player player, ref int buffIndex)
 		{
-			player.GetModPlayer<AAPlayer>().infinityOverload = true;
+			player.GetModPlayer<ZAAPlayer>().infinityOverload = true;
 		}
 	}
 }

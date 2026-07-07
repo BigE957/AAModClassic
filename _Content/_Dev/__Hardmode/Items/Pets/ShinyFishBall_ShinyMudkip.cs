@@ -31,7 +31,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Pets
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (player.dead)
             {
                 modPlayer.MudkipS = false;

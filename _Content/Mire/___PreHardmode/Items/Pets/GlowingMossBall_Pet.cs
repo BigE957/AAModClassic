@@ -38,7 +38,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Pets
             Projectile.rotation += 0.02f;
             if (Main.myPlayer == Projectile.owner)
             {
-                if (player.GetModPlayer<AAPlayer>().Glowmoss)
+                if (player.GetModPlayer<ZAAPlayer>().Glowmoss)
                 {
                     Projectile.timeLeft = 2;
                 }

@@ -16,7 +16,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.
 {
     public class AkumaASkyScene : ModSceneEffect
     {
-        public override bool IsSceneEffectActive(Player player) => NPC.AnyNPCs(ModContent.NPCType<AkumaAHead>()) || player.GetModPlayer<AAPlayer>().AkumaAltar;
+        public override bool IsSceneEffectActive(Player player) => NPC.AnyNPCs(ModContent.NPCType<AkumaAHead>()) || player.GetModPlayer<ZAAPlayer>().AkumaAltar;
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
@@ -92,7 +92,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
-                if (Main.dayTime || Main.LocalPlayer.GetModPlayer<AAPlayer>().AkumaAltar)
+                if (Main.dayTime || Main.LocalPlayer.GetModPlayer<ZAAPlayer>().AkumaAltar)
                 {
                     spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
                     spriteBatch.Draw(sky, new Rectangle(0, Math.Max(0, (int)((Main.worldSurface * 16.0 - Main.screenPosition.Y - 2400.0) * 0.10000000149011612)), Main.screenWidth, Main.screenHeight), Color.DeepSkyBlue * Math.Min(1f, (Main.screenPosition.Y - 800f) / 1000f * Intensity));

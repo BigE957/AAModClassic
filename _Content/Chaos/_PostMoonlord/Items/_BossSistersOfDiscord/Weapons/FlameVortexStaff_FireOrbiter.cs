@@ -64,7 +64,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
             }
 			
 			Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (player.dead || !player.HasBuff(ModContent.BuffType<FlameVortexStaff_Buff>())) Projectile.Kill();
             if (modPlayer.Orbiters)
             {

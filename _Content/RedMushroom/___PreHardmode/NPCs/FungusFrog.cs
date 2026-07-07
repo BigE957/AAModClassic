@@ -73,7 +73,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneMush && NPCExtensions.BeenKilled<MushroomMonarch>() ? .3f : 0f;
+            return spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneMush && NPCExtensions.BeenKilled<MushroomMonarch>() ? .3f : 0f;
         }
 
         public override void OnKill()

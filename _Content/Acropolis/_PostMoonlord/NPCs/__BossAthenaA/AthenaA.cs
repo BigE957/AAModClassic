@@ -555,12 +555,12 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
 
         private bool AliveCheck(Player player)
         {
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             Vector2 Acropolis = new Vector2(Origin.X + 79 * 16, Origin.Y + 79 * 16);
             if (player.dead || !player.active || Vector2.Distance(NPC.position, player.position) > 6000 || !modPlayer.ZoneAcropolis || Vector2.Distance(Acropolis, player.position) > 1500)
             {
                 NPC.TargetClosest();
-                if (Main.player[NPC.target].dead || !Main.player[NPC.target].active || Math.Abs(Vector2.Distance(NPC.position, Main.player[NPC.target].position)) > 6000 || !Main.player[NPC.target].GetModPlayer<AAPlayer>().ZoneAcropolis || Vector2.Distance(Acropolis, Main.player[NPC.target].position) > 1500)
+                if (Main.player[NPC.target].dead || !Main.player[NPC.target].active || Math.Abs(Vector2.Distance(NPC.position, Main.player[NPC.target].position)) > 6000 || !Main.player[NPC.target].GetModPlayer<ZAAPlayer>().ZoneAcropolis || Vector2.Distance(Acropolis, Main.player[NPC.target].position) > 1500)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Kill"), Color.CornflowerBlue);
                     int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());

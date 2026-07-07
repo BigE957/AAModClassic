@@ -35,7 +35,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             player.AddBuff(ModContent.BuffType<OmenStaff_Buff>(), 3600);
             if (player.dead)
             {

@@ -47,7 +47,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
         public override bool PreAI()
         {
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (player.dead)
             {
                 modPlayer.enderMinion = false;

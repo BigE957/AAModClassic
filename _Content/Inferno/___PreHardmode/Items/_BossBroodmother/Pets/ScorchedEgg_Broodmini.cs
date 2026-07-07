@@ -36,7 +36,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Pe
         public override void AI()
 		{
 			Player player = Main.player[Projectile.owner];
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			if (player.dead)
 			{
 				modPlayer.Broodmini = false;

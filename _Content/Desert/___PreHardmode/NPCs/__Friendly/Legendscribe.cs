@@ -459,7 +459,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             {
                 Player player = Main.LocalPlayer;
                 int Item = player.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>());
-                if (Item >= 0 && !player.GetModPlayer<AAPlayer>().AnubisBook && Greed)
+                if (Item >= 0 && !player.GetModPlayer<ZAAPlayer>().AnubisBook && Greed)
                 {
                     player.inventory[Item].stack--;
                     if (player.inventory[Item].stack <= 0)
@@ -668,7 +668,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             }
             else if (Greed)
             {
-                return NPCExtensions.BeenKilled<GreedHead>() ? player.GetModPlayer<AAPlayer>().AnubisBook ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGreedYBookY") : 
+                return NPCExtensions.BeenKilled<GreedHead>() ? player.GetModPlayer<ZAAPlayer>().AnubisBook ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGreedYBookY") : 
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGreedYBookN") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGreedN");
             }
@@ -778,7 +778,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             WeightedRandom<string> chat = new WeightedRandom<string>();
 
             Player player = Main.LocalPlayer;
-            AAPlayer mPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer mPlayer = player.GetModPlayer<ZAAPlayer>();
 
             #region general
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat1"));

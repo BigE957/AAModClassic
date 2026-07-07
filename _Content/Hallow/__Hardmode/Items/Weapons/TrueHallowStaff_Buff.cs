@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Weapons
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<TrueHallowStaff_TrueHallowedPrism>()] > 0)
 			{
 				modPlayer.TrueHallowedPrism = true;

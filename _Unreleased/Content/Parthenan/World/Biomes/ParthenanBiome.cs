@@ -19,7 +19,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.World.Biomes
 
         public override bool IsBiomeActive(Player player)
         {
-            return player.GetModPlayer<AAPlayer>().ZoneStorm = AAWorld_Unreleased.StormTiles >= 1;
+            return player.GetModPlayer<ZAAPlayer>().ZoneStorm = AAWorld_Unreleased.StormTiles >= 1;
         }
 
         public override void SpecialVisuals(Player player, bool isActive)
@@ -206,7 +206,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.World.Biomes
 
         private void UpdateStormSky()
         {
-            AAPlayer modPlayer = Main.player[Main.myPlayer].GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = Main.player[Main.myPlayer].GetModPlayer<ZAAPlayer>();
             if (AAWorld_Unreleased.StormTiles < 1)
             {
                 return;

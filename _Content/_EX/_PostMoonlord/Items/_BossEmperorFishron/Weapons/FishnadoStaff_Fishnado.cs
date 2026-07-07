@@ -35,7 +35,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weap
             }
             bool flag64 = Projectile.type == ModContent.ProjectileType<FishnadoStaff_Fishnado>();
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             player.AddBuff(ModContent.BuffType<FishnadoStaff_Buff>(), 3600);
             if (flag64)
             {

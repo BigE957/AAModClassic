@@ -51,7 +51,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapo
         public override void AI()
 		{
 			Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (player.dead || !player.HasBuff(ModContent.BuffType<SagittariusCore_Buff>())) Projectile.Kill();
             if (modPlayer.SagOrbiter)
             {

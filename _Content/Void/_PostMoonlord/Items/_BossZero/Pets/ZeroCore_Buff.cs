@@ -18,7 +18,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Pets
 		{
 			player.buffTime[buffIndex] = 1800000;
 			player.detectCreature = true;
-            player.GetModPlayer<AAPlayer>().ZeroBab = true;
+            player.GetModPlayer<ZAAPlayer>().ZeroBab = true;
 			bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<ZeroCore_ZeroBab>()] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
 			{

@@ -16,9 +16,9 @@ namespace AAModClassic._Content.Mire.Buffs
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-            if (player.GetModPlayer<AAPlayer>().ZoneMire && Main.dayTime && !AAWorld.downedYamata && !player.ZoneUnderworldHeight && !player.ZoneRockLayerHeight)
+            if (player.GetModPlayer<ZAAPlayer>().ZoneMire && Main.dayTime && !AAWorld.downedYamata && !player.ZoneUnderworldHeight && !player.ZoneRockLayerHeight)
             {
-                player.GetModPlayer<AAPlayer>().Clueless = true;
+                player.GetModPlayer<ZAAPlayer>().Clueless = true;
                 player.buffTime[buffIndex] = 5;
                 player.blind = true;
             }

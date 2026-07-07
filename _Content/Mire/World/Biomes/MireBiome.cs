@@ -28,12 +28,12 @@ namespace AAModClassic._Content.Mire.World.Biomes
         public override bool IsBiomeActive(Player player)
         {
             bool active = (AAWorld.mireTiles > 100) || BaseAI.GetNPC(player.Center, ModContent.NPCType<YamataBody>(), 5000) != -1 || BaseAI.GetNPC(player.Center, ModContent.NPCType<YamataABody>(), 5000) != -1;
-            return player.GetModPlayer<AAPlayer>().ZoneMire = active;
+            return player.GetModPlayer<ZAAPlayer>().ZoneMire = active;
         }
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            bool rllyActive = ((isActive && player.Center.Y <= Main.worldSurface * 16) || player.GetModPlayer<AAPlayer>().MoonAltar) && !ModContent.GetInstance<YamataASkyScene>().IsSceneEffectActive(player);
+            bool rllyActive = ((isActive && player.Center.Y <= Main.worldSurface * 16) || player.GetModPlayer<ZAAPlayer>().MoonAltar) && !ModContent.GetInstance<YamataASkyScene>().IsSceneEffectActive(player);
             player.ManageSpecialBiomeVisuals("AAModClassic:MireSky", rllyActive);
         }
 
@@ -81,7 +81,7 @@ namespace AAModClassic._Content.Mire.World.Biomes
 
         public override Color OnTileColor(Color inColor)
         {
-            bool SilouetteMode = !Main.gameMenu && Main.LocalPlayer.GetModPlayer<AAPlayer>().Clueless;
+            bool SilouetteMode = !Main.gameMenu && Main.LocalPlayer.GetModPlayer<ZAAPlayer>().Clueless;
             if (SilouetteMode)
                 return new(1, 1, 1);
 
@@ -97,7 +97,7 @@ namespace AAModClassic._Content.Mire.World.Biomes
             Texture2D sky = SkyTex.Value;
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
-                if (Main.gameMenu || !Main.dayTime || Main.LocalPlayer.GetModPlayer<AAPlayer>().MoonAltar)
+                if (Main.gameMenu || !Main.dayTime || Main.LocalPlayer.GetModPlayer<ZAAPlayer>().MoonAltar)
                 {
                     spriteBatch.Draw(sky, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White * Intensity);
                     double bgTop = 0;
@@ -155,7 +155,7 @@ namespace AAModClassic._Content.Mire.World.Biomes
 
         public override void Deactivate(params object[] args)
         {
-            if ((!Main.gameMenu && !Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneMire && !Main.LocalPlayer.GetModPlayer<AAPlayer>().MoonAltar && !Main.LocalPlayer.GetModPlayer<AAPlayer>().YamataAltar) || (args.Length > 0 && (bool)args[0] == true))
+            if ((!Main.gameMenu && !Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneMire && !Main.LocalPlayer.GetModPlayer<ZAAPlayer>().MoonAltar && !Main.LocalPlayer.GetModPlayer<ZAAPlayer>().YamataAltar) || (args.Length > 0 && (bool)args[0] == true))
                 Active = false;
         }
 
@@ -333,7 +333,7 @@ namespace AAModClassic._Content.Mire.World.Biomes
             if (Main.netMode == NetmodeID.Server || Main.dedServ || Main.gameMenu) return; //BEGONE SERVER HEATHENS! UPDATE ONLY CLIENTSIDE!
 
             Player player = Main.LocalPlayer;
-            bool inMire = Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneMire;
+            bool inMire = Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneMire;
             if (!backgroundFog && (BasePlayer.HasAccessory(player, AAMod.instance.Find<ModItem>("Lantern").Type, true, false) || AAWorld.downedYamata)) inMire = false;
 
             fogOffsetX += 1;

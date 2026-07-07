@@ -15,7 +15,7 @@ namespace AAModClassic._Unreleased.Content._Dev._PostMoonlord.Items.Weapons
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<DapperAcorn_DapperSquirrel1>()] + player.ownedProjectileCounts[ModContent.ProjectileType<DapperAcorn_DapperSquirrel2>()] > 0)
 			{
 				modPlayer.DapperSquirrel = true;

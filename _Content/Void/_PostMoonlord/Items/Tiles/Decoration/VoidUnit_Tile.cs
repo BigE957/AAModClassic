@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
         {
             if (Main.tile[i, j].TileFrameY >= 56)
             {
-                AAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<AAPlayer>();
+                ZAAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<ZAAPlayer>();
                 modPlayer.VoidUnit = true;
             }
         }

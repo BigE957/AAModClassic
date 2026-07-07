@@ -16,7 +16,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 			bool flag = player.ownedProjectileCounts[ModContent.ProjectileType<APageOfTheRuneBookEffect_BunnyRune>()] > 0 || player.ownedProjectileCounts[ModContent.ProjectileType<APageOfTheRuneBookEffect_DiscordRune>()] > 0 || player.ownedProjectileCounts[ModContent.ProjectileType<APageOfTheRuneBookEffect_EnergyRune>()] > 0;
 			if (!flag)
 			{

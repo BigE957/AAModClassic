@@ -22,7 +22,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories
 
         public override void DoEffect(Player player)
         {
-            if (player.GetModPlayer<AAPlayer>().ZoneMire)
+            if (player.GetModPlayer<ZAAPlayer>().ZoneMire)
                 player.GetDamage(DamageClass.Ranged) += DAMAGEBOOST;
         }
 

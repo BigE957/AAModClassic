@@ -18,13 +18,13 @@ namespace AAModClassic._Unreleased
 
         public bool CustomBiomesMatch(Player other)
         {
-            AAPlayer modOther = other.GetModPlayer<AAPlayer>();
+            ZAAPlayer modOther = other.GetModPlayer<ZAAPlayer>();
             return ZoneStorm == modOther.ZoneStorm && ZoneShip == modOther.ZoneShip;
         }
 
         public void CopyCustomBiomesTo(Player other)
         {
-            AAPlayer modOther = other.GetModPlayer<AAPlayer>();
+            ZAAPlayer modOther = other.GetModPlayer<ZAAPlayer>();
             modOther.ZoneStorm = ZoneStorm;
             modOther.ZoneShip = ZoneShip;
         }

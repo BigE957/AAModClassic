@@ -19,7 +19,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
         public override void Update(Player player, ref int buffIndex)
 		{
-            player.GetModPlayer<AAPlayer>().riftbent = true;
+            player.GetModPlayer<ZAAPlayer>().riftbent = true;
 		}
 
         public override void Update(NPC npc, ref int buffIndex)

@@ -136,7 +136,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-            return spawnInfo.Player.GetModPlayer<AAPlayer>().ZoneInferno && spawnInfo.SpawnTileY > Main.worldSurface && Main.hardMode ? .1f : 0f;
+            return spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneInferno && spawnInfo.SpawnTileY > Main.worldSurface && Main.hardMode ? .1f : 0f;
         }
 
 		public override void HitEffect(NPC.HitInfo hit)

@@ -52,7 +52,7 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Weapons
             }
 
             Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (player.dead) modPlayer.DemonMinion = false;
             if (modPlayer.DemonMinion) Projectile.timeLeft = 2;
 

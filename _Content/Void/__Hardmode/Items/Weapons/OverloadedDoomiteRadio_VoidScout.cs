@@ -53,7 +53,7 @@ namespace AAModClassic._Content.Void.__Hardmode.Items.Weapons
 			float num635 = 1200f;
 			float num636 = 150f;
 			Player player = Main.player[Projectile.owner];
-            AAPlayer modPlayer = Main.player[Projectile.owner].GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = Main.player[Projectile.owner].GetModPlayer<ZAAPlayer>();
             if (player.dead)
             {
                 modPlayer.ScoutMinion = false;

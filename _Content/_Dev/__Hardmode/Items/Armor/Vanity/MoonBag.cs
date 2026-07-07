@@ -36,7 +36,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
                 player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonWings>());
             }
             player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonBeeInAJar>());
-            if (player.GetModPlayer<AAPlayer>().ShinyCheck())
+            if (player.GetModPlayer<ZAAPlayer>().ShinyCheck())
             {
                 player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonHelmetS>());
                 player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonChestplateS>());

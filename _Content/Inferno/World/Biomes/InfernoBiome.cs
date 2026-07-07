@@ -42,12 +42,12 @@ namespace AAModClassic._Content.Inferno.World.Biomes
         public override bool IsBiomeActive(Player player)
         {
             bool active = AAWorld.infernoTiles > 100 || BaseAI.GetNPC(player.Center, ModContent.NPCType<AkumaHead>(), 5000) != -1 || BaseAI.GetNPC(player.Center, ModContent.NPCType<AkumaAHead>(), 5000) != -1;
-            return player.GetModPlayer<AAPlayer>().ZoneInferno = active;
+            return player.GetModPlayer<ZAAPlayer>().ZoneInferno = active;
         }
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            bool rllyActive = ((isActive && player.Center.Y <= Main.worldSurface * 16) || player.GetModPlayer<AAPlayer>().SunAltar) && !ModContent.GetInstance<AkumaASkyScene>().IsSceneEffectActive(player);
+            bool rllyActive = ((isActive && player.Center.Y <= Main.worldSurface * 16) || player.GetModPlayer<ZAAPlayer>().SunAltar) && !ModContent.GetInstance<AkumaASkyScene>().IsSceneEffectActive(player);
             player.ManageSpecialBiomeVisuals("AAModClassic:InfernoSky", rllyActive);
             player.ManageSpecialBiomeVisuals("HeatDistortion", rllyActive && Main.UseHeatDistortion);
         }
@@ -150,7 +150,7 @@ namespace AAModClassic._Content.Inferno.World.Biomes
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
-                if (Main.gameMenu || Main.dayTime || Main.LocalPlayer.GetModPlayer<AAPlayer>().SunAltar)
+                if (Main.gameMenu || Main.dayTime || Main.LocalPlayer.GetModPlayer<ZAAPlayer>().SunAltar)
                 {
                     spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
                     if (Main.gameMenu)
@@ -275,7 +275,7 @@ namespace AAModClassic._Content.Inferno.World.Biomes
 
         public override void Deactivate(params object[] args)
         {
-            if ((!Main.gameMenu && !Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneInferno && !Main.LocalPlayer.GetModPlayer<AAPlayer>().SunAltar && !Main.LocalPlayer.GetModPlayer<AAPlayer>().AkumaAltar) || (args.Length > 0 && (bool)args[0] == true))
+            if ((!Main.gameMenu && !Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneInferno && !Main.LocalPlayer.GetModPlayer<ZAAPlayer>().SunAltar && !Main.LocalPlayer.GetModPlayer<ZAAPlayer>().AkumaAltar) || (args.Length > 0 && (bool)args[0] == true))
                 Active = false;
         }
 

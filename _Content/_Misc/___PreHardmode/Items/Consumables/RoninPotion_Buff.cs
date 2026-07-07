@@ -18,7 +18,7 @@ namespace AAModClassic._Content._Misc.___PreHardmode.Items.Consumables
 
         public override void Update(Player player, ref int buffIndex)
 		{
-			player.GetModPlayer<AAPlayer>().Ronin = true;
+			player.GetModPlayer<ZAAPlayer>().Ronin = true;
 		}
     }
 }

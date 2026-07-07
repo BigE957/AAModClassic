@@ -26,7 +26,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
         public override void Load()
         {
             EquipLoader.AddEquipTexture(Mod, Texture + "_Body_Alt", EquipType.Body, item: this, name: $"{Name}_Body_Alt");
-            AAPlayer.ModifyDrawInfoEvent += ModifyDrawInfo;
+            ZAAPlayer.ModifyDrawInfoEvent += ModifyDrawInfo;
         }
 
         private void ModifyDrawInfo(Player player)

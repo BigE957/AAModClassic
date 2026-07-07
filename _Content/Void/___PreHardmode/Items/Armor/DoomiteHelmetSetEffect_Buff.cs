@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
 
         public override void Update(Player player, ref int buffIndex)
         {
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (!player.GetModPlayer<DoomiteHelmetSetPlayer>().effect)
             {
                 player.DelBuff(buffIndex);
