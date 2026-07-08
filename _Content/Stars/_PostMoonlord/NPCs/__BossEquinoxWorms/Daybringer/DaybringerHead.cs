@@ -795,7 +795,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
 
             LeadingConditionRule lastWorm = new(new LastWorm());
             LeadingConditionRule loreCondition = new(new LoreItemDropCondition(() => AAWorld.downedEquinox));
-            lastWorm.OnSuccess(loreCondition.OnSuccess(new PerPlayerDropRule(ModContent.ItemType<EquinoxWormsLore>(), 1)));
+            lastWorm.OnSuccess(loreCondition).OnSuccess(new PerPlayerDropRule(ModContent.ItemType<EquinoxWormsLore>(), 1));
 
             npcLoot.Add(lastWorm);
 

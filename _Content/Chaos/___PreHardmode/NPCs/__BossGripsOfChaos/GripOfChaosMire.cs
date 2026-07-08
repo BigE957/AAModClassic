@@ -70,7 +70,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
             LeadingConditionRule lastStandingAlways = new(new MissingGripAlways());
 
             LeadingConditionRule loreCondition = new(new LoreItemDropCondition(() => AAWorld.downedGrips));
-            lastStandingAlways.OnSuccess(loreCondition.OnSuccess(new PerPlayerDropRule(ModContent.ItemType<GripsOfChaosLore>(), 1)));
+            lastStandingAlways.OnSuccess(loreCondition).OnSuccess(new PerPlayerDropRule(ModContent.ItemType<GripsOfChaosLore>(), 1));
 
             lastStandingAlways.OnSuccess(ItemDropRule.BossBag(ModContent.ItemType<GripsOfChaosTreasureBag>()));
 

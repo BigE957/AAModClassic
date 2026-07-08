@@ -589,7 +589,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             npcLoot.Add(ItemDropRule.BossBagByCondition(lastStandingAlways.condition, ModContent.ItemType<SistersOfDiscordTreasureBag>()));
 
             LeadingConditionRule loreCondition = new(new LoreItemDropCondition(() => AAWorld.downedSisters));
-            lastStandingAlways.OnSuccess(loreCondition.OnSuccess(new PerPlayerDropRule(ModContent.ItemType<SistersOfDiscordLore>(), 1)));
+            lastStandingAlways.OnSuccess(loreCondition).OnSuccess(new PerPlayerDropRule(ModContent.ItemType<SistersOfDiscordLore>(), 1));
 
             LeadingConditionRule masterMode = new(new MissingSisterInMaster());
 
