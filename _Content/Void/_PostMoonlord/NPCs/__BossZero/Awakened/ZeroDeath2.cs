@@ -43,7 +43,10 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
             {
                 if (Projectile.timeLeft == 913)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Defeat.First.3"), Color.Red.R, Color.Red.G, Color.Red.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Defeat.First.3"), Color.Red.R, Color.Red.G, Color.Red.B);
+                    if (VoidSky.Alpha == -1)
+                        VoidSky.Alpha = 0;
                 }
             }
             else if (!NPCExtensions.BeenKilled<ZeroA>(true) && Projectile.timeLeft == 800)

@@ -243,6 +243,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Defeat.Status"), Color.PaleVioletRed);
                     VoidSky.Alpha = 0f;
                 }
+                else if (VoidSky.Alpha == -1)
+                    VoidSky.Alpha = 0;
 
                 if (NPC.playerInteraction[Main.myPlayer])
                     ZeroKilled.Condition.Complete();
