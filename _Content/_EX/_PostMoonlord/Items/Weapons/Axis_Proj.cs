@@ -46,14 +46,12 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 				{
 					Projectile.localAI[0] = 0f;
 					int num566 = 0;
-					int num3;
-					for (int num567 = 0; num567 < 1000; num567 = num3 + 1)
-					{
-						if (Main.projectile[num567].active && Main.projectile[num567].owner == Projectile.owner && Main.projectile[num567].type == ProjectileID.NorthPoleSnowflake)
+                    foreach (Projectile p in Main.ActiveProjectiles)
+                    {
+						if (p.owner == Projectile.owner && p.type == ProjectileID.NorthPoleSnowflake)
 						{
 							num566++;
 						}
-						num3 = num567;
 					}
 					float num568 = Projectile.damage * 0.8f;
 					if (num566 > 100)

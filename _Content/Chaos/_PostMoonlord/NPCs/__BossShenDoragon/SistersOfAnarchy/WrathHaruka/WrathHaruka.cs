@@ -348,13 +348,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
             if(Main.expertMode && internalAI[0] != AISTATE_Shadowkilling && internalAI[0] != AISTATE_SPIN && SHADOWCONTER <= 0 && !Invisible)
             {
-                for(int i=0 ; i < 1000; i++)
+                foreach(Projectile p in Main.ActiveProjectiles)
                 {
-                    if(NPC.Hitbox.Intersects(Main.projectile[i].Hitbox) && Main.projectile[i].friendly && Main.projectile[i].damage > 0)
+                    if(p.friendly && p.damage > 0 && NPC.Hitbox.Intersects(p.Hitbox))
                     {
                         if(internalAI[6] >= 2000)
                         {
-                            Main.projectile[i].Kill();
+                            p.Kill();
                             internalAI[6] -= 2000;
                             strikebackproj ++;
                             internalAI[0] = AISTATE_SPIN;
@@ -625,9 +625,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
                     if (strikebackproj != 0)
                     {
-                        for(int i=0 ; i < 1000; i++)
+                        foreach(Projectile p in Main.ActiveProjectiles)
                         {
-                            if(NPC.Hitbox.Intersects(Main.projectile[i].Hitbox) && Main.projectile[i].friendly && Main.projectile[i].damage > 0)
+                            if(p.friendly && p.damage > 0 && NPC.Hitbox.Intersects(p.Hitbox))
                             {
                                 strikebackproj ++;
                                 break;

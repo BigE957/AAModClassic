@@ -45,11 +45,11 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Weapons
 		{
 			if (player.altFunctionUse == 2)
 			{
-				for(int i = 0; i < 1000; ++i)
-				{
-					if(Main.projectile[i].active && (Main.projectile[i].type == ProjectileID.Flare || Main.projectile[i].type == ProjectileID.BlueFlare))
+                foreach (Projectile p in Main.ActiveProjectiles)
+                {
+					if((p.type == ProjectileID.Flare || p.type == ProjectileID.BlueFlare))
 					{
-						Main.projectile[i].Kill();
+						p.Kill();
 					}
 				}
 				return false;

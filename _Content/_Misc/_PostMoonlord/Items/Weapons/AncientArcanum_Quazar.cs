@@ -287,13 +287,12 @@ namespace AAModClassic._Content._Misc._PostMoonlord.Items.Weapons
 			}
 			if (Main.myPlayer == Projectile.owner)
 			{
-				for (int num105 = 0; num105 < 1000; num105 = num3 + 1)
-				{
-					if (Main.projectile[num105].active && Main.projectile[num105].type == ProjectileID.NebulaArcanumSubshot && Main.projectile[num105].ai[1] == Projectile.whoAmI)
+                foreach (Projectile p in Main.ActiveProjectiles)
+                {
+					if (p.type == ProjectileID.NebulaArcanumSubshot && p.ai[1] == Projectile.whoAmI)
 					{
-						Main.projectile[num105].Kill();
+						p.Kill();
 					}
-					num3 = num105;
 				}
 				int num106 = Main.rand.Next(5, 9);
 				int num107 = Main.rand.Next(5, 9);

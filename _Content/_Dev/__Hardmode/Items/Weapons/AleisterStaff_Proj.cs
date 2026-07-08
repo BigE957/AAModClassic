@@ -211,11 +211,11 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
                             Projectile.damage = 0;
                             Point[] array = new Point[10];
                             int num2 = 0;
-                            for (int j = 0; j < 1000; j++)
+                            foreach (Projectile p in Main.ActiveProjectiles)
                             {
-                                if (j != Projectile.whoAmI && Main.projectile[j].active && Main.projectile[j].owner == Main.myPlayer && Main.projectile[j].type == Projectile.type && Main.projectile[j].ai[0] == 1f && Main.projectile[j].ai[1] == i)
+                                if (p.whoAmI != Projectile.whoAmI && p.owner == Main.myPlayer && p.type == Projectile.type && p.ai[0] == 1f && p.ai[1] == i)
                                 {
-                                    array[num2++] = new Point(j, Main.projectile[j].timeLeft);
+                                    array[num2++] = new Point(p.whoAmI, p.timeLeft);
                                     if (num2 >= array.Length)
                                     {
                                         break;

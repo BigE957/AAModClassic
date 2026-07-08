@@ -200,11 +200,10 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 		public override void UpdateLifeRegen(NPC npc, ref int damage) 
 		{
 			int InvokedCount = 0;
-			for (int i = 0; i < 1000; i++) 
-			{
-				Projectile p = Main.projectile[i];
+			foreach(Projectile p in Main.ActiveProjectiles)
+			{ 
 				int num9 = (int)p.ai[1];
-				if (p.active && p.type == ModContent.ProjectileType<AleisterStaff_Proj>() && p.ai[0] == 1f && npc == Main.npc[num9]) 
+				if (p.type == ModContent.ProjectileType<AleisterStaff_Proj>() && p.ai[0] == 1f && npc == Main.npc[num9]) 
 				{
 					InvokedCount++;
 					npc.lifeRegen -= 10 * InvokedCount;

@@ -59,11 +59,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Weapons
             {
                 Projectile.timeLeft = 2;
             }
-            for (int whoAmI = 0; whoAmI < 1000; whoAmI++)
+            foreach(Projectile p in Main.ActiveProjectiles)
             {
-                if (whoAmI != Projectile.whoAmI && Main.projectile[whoAmI].active && Main.projectile[whoAmI].owner == Projectile.owner && Math.Abs(Projectile.position.X - Main.projectile[whoAmI].position.X) + Math.Abs(Projectile.position.Y - Main.projectile[whoAmI].position.Y) < Projectile.width)
+                if (p.whoAmI != Projectile.whoAmI && p.owner == Projectile.owner && Math.Abs(Projectile.position.X - p.position.X) + Math.Abs(Projectile.position.Y - p.position.Y) < Projectile.width)
                 {
-                    if (Projectile.position.X < Main.projectile[whoAmI].position.X)
+                    if (Projectile.position.X < p.position.X)
                     {
                         Projectile.velocity.X = Projectile.velocity.X - 0.05f;
                     }
@@ -71,7 +71,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Weapons
                     {
                         Projectile.velocity.X = Projectile.velocity.X + 0.05f;
                     }
-                    if (Projectile.position.Y < Main.projectile[whoAmI].position.Y)
+                    if (Projectile.position.Y < p.position.Y)
                     {
                         Projectile.velocity.Y = Projectile.velocity.Y - 0.05f;
                     }

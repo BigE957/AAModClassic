@@ -64,11 +64,11 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Wea
             }
             float num8 = 0.1f;
             float num9 = Projectile.width * 2f;
-            for (int j = 0; j < 1000; j++)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
-                if (j != Projectile.whoAmI && Main.projectile[j].active && Main.projectile[j].owner == Projectile.owner && Main.projectile[j].type == Projectile.type && Math.Abs(Projectile.position.X - Main.projectile[j].position.X) + Math.Abs(Projectile.position.Y - Main.projectile[j].position.Y) < num9)
+                if (p.whoAmI != Projectile.whoAmI && p.owner == Projectile.owner && p.type == Projectile.type && Math.Abs(Projectile.position.X - p.position.X) + Math.Abs(Projectile.position.Y - p.position.Y) < num9)
                 {
-                    if (Projectile.position.X < Main.projectile[j].position.X)
+                    if (Projectile.position.X < p.position.X)
                     {
                         Projectile.velocity.X = Projectile.velocity.X - num8;
                     }
@@ -76,7 +76,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Wea
                     {
                         Projectile.velocity.X = Projectile.velocity.X + num8;
                     }
-                    if (Projectile.position.Y < Main.projectile[j].position.Y)
+                    if (Projectile.position.Y < p.position.Y)
                     {
                         Projectile.velocity.Y = Projectile.velocity.Y - num8;
                     }

@@ -63,12 +63,12 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             float MaxRange = 1200f;
             float MaxOwnerDist = 150f;
             float IdleSpeed = 0.05f;
-            for (int num638 = 0; num638 < 1000; num638++)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
-                bool flag23 = Main.projectile[num638].type == ModContent.ProjectileType<PerfectChaosRitual_XiaoDoragon>();
-                if (num638 != Projectile.whoAmI && Main.projectile[num638].active && Main.projectile[num638].owner == Projectile.owner && flag23 && Math.Abs(Projectile.position.X - Main.projectile[num638].position.X) + Math.Abs(Projectile.position.Y - Main.projectile[num638].position.Y) < Projectile.width)
+                bool flag23 = p.type == ModContent.ProjectileType<PerfectChaosRitual_XiaoDoragon>();
+                if (p.whoAmI != Projectile.whoAmI && p.owner == Projectile.owner && flag23 && Math.Abs(Projectile.position.X - p.position.X) + Math.Abs(Projectile.position.Y - p.position.Y) < Projectile.width)
                 {
-                    if (Projectile.position.X < Main.projectile[num638].position.X)
+                    if (Projectile.position.X < p.position.X)
                     {
                         Projectile.velocity.X = Projectile.velocity.X - IdleSpeed;
                     }
@@ -76,7 +76,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                     {
                         Projectile.velocity.X = Projectile.velocity.X + IdleSpeed;
                     }
-                    if (Projectile.position.Y < Main.projectile[num638].position.Y)
+                    if (Projectile.position.Y < p.position.Y)
                     {
                         Projectile.velocity.Y = Projectile.velocity.Y - IdleSpeed;
                     }

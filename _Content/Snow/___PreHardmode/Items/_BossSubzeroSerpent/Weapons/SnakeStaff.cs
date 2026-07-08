@@ -58,13 +58,12 @@ Summons 2 segments for each minion slot"); */
             int headCheck = -1;
             int tailCheck = -1;
 
-            for (int i = 0; i < 1000; i++)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
-                Projectile proj = Main.projectile[i];
-                if (proj.active && proj.owner == player.whoAmI)
+                if (p.active && p.owner == player.whoAmI)
                 {
-                    if (headCheck == -1 && proj.type == ModContent.ProjectileType<SnakeStaff_SerpentHead>()) headCheck = i;
-                    if (tailCheck == -1 && proj.type == ModContent.ProjectileType<SnakeStaff_SerpentTail>()) tailCheck = i;
+                    if (headCheck == -1 && p.type == ModContent.ProjectileType<SnakeStaff_SerpentHead>()) headCheck = p.whoAmI;
+                    if (tailCheck == -1 && p.type == ModContent.ProjectileType<SnakeStaff_SerpentTail>()) tailCheck = p.whoAmI;
                     if (headCheck != -1 && tailCheck != -1) break;
                 }
             }

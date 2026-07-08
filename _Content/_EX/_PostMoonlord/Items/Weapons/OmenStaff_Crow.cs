@@ -53,11 +53,11 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                 return;
             }
 
-            for (int num527 = 0; num527 < 1000; num527++)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
-                if (num527 != Projectile.whoAmI && Main.projectile[num527].active && Main.projectile[num527].owner == Projectile.owner && Main.projectile[num527].type == Projectile.type && Math.Abs(Projectile.position.X - Main.projectile[num527].position.X) + Math.Abs(Projectile.position.Y - Main.projectile[num527].position.Y) < Projectile.width)
+                if (p.whoAmI != Projectile.whoAmI && p.active && p.owner == Projectile.owner && p.type == Projectile.type && Math.Abs(Projectile.position.X - p.position.X) + Math.Abs(Projectile.position.Y - p.position.Y) < Projectile.width)
                 {
-                    if (Projectile.position.X < Main.projectile[num527].position.X)
+                    if (Projectile.position.X < p.position.X)
                     {
                         Projectile.velocity.X = Projectile.velocity.X - 0.05f;
                     }
@@ -65,7 +65,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                     {
                         Projectile.velocity.X = Projectile.velocity.X + 0.05f;
                     }
-                    if (Projectile.position.Y < Main.projectile[num527].position.Y)
+                    if (Projectile.position.Y < p.position.Y)
                     {
                         Projectile.velocity.Y = Projectile.velocity.Y - 0.05f;
                     }

@@ -37,9 +37,9 @@ namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Weapons
 		
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            for (int num17 = 0; num17 < 1000; num17++)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
-                if (Main.projectile[num17].active && Main.projectile[num17].owner == Main.myPlayer && Main.projectile[num17].type == Item.shoot)
+                if (p.owner == Main.myPlayer && p.type == Item.shoot)
                 {
                     return false;
                 }

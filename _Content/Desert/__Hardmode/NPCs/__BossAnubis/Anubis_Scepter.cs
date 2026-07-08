@@ -54,34 +54,34 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 
         public static void ReflectProjectiles(Rectangle myRect)
         {
-            for (int i = 0; i < 1000; i++)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
-                if (Main.projectile[i].active && Main.projectile[i].CanBeReflected())
+                if (p.CanBeReflected())
                 {
-                    Rectangle hitbox = Main.projectile[i].Hitbox;
+                    Rectangle hitbox = p.Hitbox;
                     if (myRect.Intersects(hitbox))
                     {
-                        SoundEngine.PlaySound(SoundID.NPCHit4, Main.projectile[i].position);
+                        SoundEngine.PlaySound(SoundID.NPCHit4, p.position);
                         for (int j = 0; j < 3; j++)
                         {
-                            int num = Dust.NewDust(Main.projectile[i].position, Main.projectile[i].width, Main.projectile[i].height, DustID.Gold, 0f, 0f, 0, default, 1f);
+                            int num = Dust.NewDust(p.position, p.width, p.height, DustID.Gold, 0f, 0f, 0, default, 1f);
                             Main.dust[num].velocity *= 0.3f;
                         }
-                        Main.projectile[i].hostile = true;
-                        Main.projectile[i].friendly = false;
-                        Vector2 vector = Main.player[Main.projectile[i].owner].Center - Main.projectile[i].Center;
+                        p.hostile = true;
+                        p.friendly = false;
+                        Vector2 vector = Main.player[p.owner].Center - p.Center;
                         vector.Normalize();
-                        vector *= Main.projectile[i].oldVelocity.Length();
+                        vector *= p.oldVelocity.Length();
                         Vector2 reflectvelocity = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101));
                         reflectvelocity.Normalize();
                         reflectvelocity *= vector.Length();
                         reflectvelocity += vector * 20f;
                         reflectvelocity.Normalize();
                         reflectvelocity *= vector.Length();
-                        Main.projectile[i].damage /= 2;
-                        Main.projectile[i].penetrate = 1;
-                        Main.projectile[i].GetGlobalProjectile<AAGlobalProjectile>().reflectvelocity = reflectvelocity;
-                        Main.projectile[i].GetGlobalProjectile<AAGlobalProjectile>().isReflecting = true;
+                        p.damage /= 2;
+                        p.penetrate = 1;
+                        p.GetGlobalProjectile<AAGlobalProjectile>().reflectvelocity = reflectvelocity;
+                        p.GetGlobalProjectile<AAGlobalProjectile>().isReflecting = true;
                     }
                 }
             }

@@ -76,13 +76,12 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
             int headCheck = -1;
             int tailCheck = -1;
 
-            for (int i = 0; i < 1000; i++)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
-                Projectile proj = Main.projectile[i];
-                if (proj.active && proj.owner == player.whoAmI)
+                if (p.owner == player.whoAmI)
                 {
-                    if (headCheck == -1 && proj.type == ModContent.ProjectileType<DragonsPike_DragonHead>()) headCheck = i;
-                    if (tailCheck == -1 && proj.type == ModContent.ProjectileType<DragonsPike_DragonTail>()) tailCheck = i;
+                    if (headCheck == -1 && p.type == ModContent.ProjectileType<DragonsPike_DragonHead>()) headCheck = p.whoAmI;
+                    if (tailCheck == -1 && p.type == ModContent.ProjectileType<DragonsPike_DragonTail>()) tailCheck = p.whoAmI;
                     if (headCheck != -1 && tailCheck != -1) break;
                 }
             }

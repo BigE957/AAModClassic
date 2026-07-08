@@ -77,17 +77,17 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
             float num81 = Main.mouseX + Main.screenPosition.X - vector2.X;
             float num82 = Main.mouseY + Main.screenPosition.Y - vector2.Y;
-            for (int num186 = 0; num186 < 1000; num186++)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
-                if (Main.projectile[num186].active && Main.projectile[num186].owner == Main.myPlayer)
+                if (p.owner == Main.myPlayer)
                 {
-                    if (num184 == -1 && Main.projectile[num186].type == ModContent.ProjectileType<AncientLungStaff_LungHead>())
+                    if (num184 == -1 && p.type == ModContent.ProjectileType<AncientLungStaff_LungHead>())
                     {
-                        num184 = num186;
+                        num184 = p.whoAmI;
                     }
-                    if (num185 == -1 && Main.projectile[num186].type == ModContent.ProjectileType<AncientLungStaff_LungTail>())
+                    if (num185 == -1 && p.type == ModContent.ProjectileType<AncientLungStaff_LungTail>())
                     {
-                        num185 = num186;
+                        num185 = p.whoAmI;
                     }
                     if (num184 != -1 && num185 != -1)
                     {

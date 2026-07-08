@@ -46,17 +46,17 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             Projectile.rotation += Projectile.direction * 0.003f;
             Projectile.velocity *= 0.96f;
             Rectangle rectangle5 = new Rectangle((int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height);
-            for (int num886 = 0; num886 < 1000; num886++)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
-                if (num886 != Projectile.whoAmI && Main.projectile[num886].active && Main.projectile[num886].type >= ProjectileID.ToxicCloud && Main.projectile[num886].type <= ProjectileID.ToxicCloud3)
+                if (p.whoAmI != Projectile.whoAmI && p.type >= ProjectileID.ToxicCloud && p.type <= ProjectileID.ToxicCloud3)
                 {
-                    Rectangle value53 = new Rectangle((int)Main.projectile[num886].position.X, (int)Main.projectile[num886].position.Y, Main.projectile[num886].width, Main.projectile[num886].height);
+                    Rectangle value53 = new Rectangle((int)p.position.X, (int)p.position.Y, p.width, p.height);
                     if (rectangle5.Intersects(value53))
                     {
-                        Vector2 vector91 = Main.projectile[num886].Center - Projectile.Center;
+                        Vector2 vector91 = p.Center - Projectile.Center;
                         if (vector91.X == 0f && vector91.Y == 0f)
                         {
-                            if (num886 < Projectile.whoAmI)
+                            if (p.whoAmI < Projectile.whoAmI)
                             {
                                 vector91.X = -1f;
                                 vector91.Y = 1f;
@@ -70,7 +70,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
                         vector91.Normalize();
                         vector91 *= 0.005f;
                         Projectile.velocity -= vector91;
-                        Main.projectile[num886].velocity += vector91;
+                        p.velocity += vector91;
                     }
                 }
             }

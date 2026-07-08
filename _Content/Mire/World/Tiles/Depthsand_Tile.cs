@@ -65,9 +65,9 @@ namespace AAModClassic._Content.Mire.World.Tiles
 
                         tile.HasTile = false;
                         bool flag20 = false;
-                        for (int m = 0; m < 1000; m++)
+                        foreach (Projectile p in Main.ActiveProjectiles)
                         {
-                            if (Main.projectile[m].active && Main.projectile[m].owner == Main.myPlayer && Main.projectile[m].type == projectileType && Math.Abs(Main.projectile[m].timeLeft - 3600) < 60 && Main.projectile[m].Distance(new Vector2(i * 16 + 8, j * 16 + 10)) < 4f)
+                            if (p.owner == Main.myPlayer && p.type == projectileType && Math.Abs(p.timeLeft - 3600) < 60 && p.Distance(new Vector2(i * 16 + 8, j * 16 + 10)) < 4f)
                             {
                                 flag20 = true;
                                 break;

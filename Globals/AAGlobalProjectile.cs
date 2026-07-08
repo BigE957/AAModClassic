@@ -84,9 +84,9 @@ namespace AAModClassic.Globals
             }
             if (!projectile.minion && projectile.type > ProjectileID.None && !projectile.CountsAsClass(DamageClass.Melee) && !projectile.CountsAsClass(DamageClass.Magic) && !projectile.CountsAsClass(DamageClass.Ranged))
             {
-                for (int j = 0; j < 1000; j++)
+                foreach(Projectile p in Main.ActiveProjectiles)
                 {
-                    if (Main.projectile[j].active && Main.projectile[j].sentry && Main.projectile[j].type + 1 == projectile.type)
+                    if (p.sentry && p.type + 1 == projectile.type)
                     {
                         projectile.minion = true;
                         break;

@@ -55,11 +55,11 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
 			}
 			if (player.ownedProjectileCounts[num74] == player.maxTurrets)
 			{
-				for(int g = 0; g < 1000; ++g)
-				{
-					if(Main.projectile[g].active && Main.projectile[g].type == num74)
+                foreach (Projectile p in Main.ActiveProjectiles)
+                {
+					if(p.type == num74)
 					{
-						Main.projectile[g].Kill();
+						p.Kill();
 						break;
 					}
 				}

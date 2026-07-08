@@ -54,11 +54,11 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Weapons
             float num635 = 1200f;
             float num636 = 150f;
             float num637 = 0.05f;
-            for (int num638 = 0; num638 < 1000; num638++)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
-                if (num638 != Projectile.whoAmI && Main.projectile[num638].active && Main.projectile[num638].owner == Projectile.owner && Math.Abs(Projectile.position.X - Main.projectile[num638].position.X) + Math.Abs(Projectile.position.Y - Main.projectile[num638].position.Y) < Projectile.width)
+                if (p.whoAmI != Projectile.whoAmI && p.owner == Projectile.owner && Math.Abs(Projectile.position.X - p.position.X) + Math.Abs(Projectile.position.Y - p.position.Y) < Projectile.width)
                 {
-                    if (Projectile.position.X < Main.projectile[num638].position.X)
+                    if (Projectile.position.X < p.position.X)
                     {
                         Projectile.velocity.X = Projectile.velocity.X - num637;
                     }
@@ -66,7 +66,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Weapons
                     {
                         Projectile.velocity.X = Projectile.velocity.X + num637;
                     }
-                    if (Projectile.position.Y < Main.projectile[num638].position.Y)
+                    if (Projectile.position.Y < p.position.Y)
                     {
                         Projectile.velocity.Y = Projectile.velocity.Y - num637;
                     }

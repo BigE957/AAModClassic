@@ -38,9 +38,9 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
 
         public override bool CanUseItem(Player player)       //this make that you can shoot only 1 boomerang at once
         {
-            for (int i = 0; i < 1000; ++i)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
-                if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == Item.shoot)
+                if (p.owner == Main.myPlayer && p.type == Item.shoot)
                 {
                     return false;
                 }

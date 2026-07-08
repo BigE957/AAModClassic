@@ -50,12 +50,12 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
 
             Projectile.timeLeft ++;
 
-            for (int num638 = 0; num638 < 1000; num638++)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
-                bool flag23 = Main.projectile[num638].type == ModContent.ProjectileType<TheBookOfRunesEffect_TerraRune>();
-                if (num638 != Projectile.whoAmI && Main.projectile[num638].active && Main.projectile[num638].owner == Projectile.owner && flag23 && Math.Abs(Projectile.position.X - Main.projectile[num638].position.X) + Math.Abs(Projectile.position.Y - Main.projectile[num638].position.Y) < Projectile.width)
+                bool flag23 = p.type == ModContent.ProjectileType<TheBookOfRunesEffect_TerraRune>();
+                if (p.whoAmI != Projectile.whoAmI && p.owner == Projectile.owner && flag23 && Math.Abs(Projectile.position.X - p.position.X) + Math.Abs(Projectile.position.Y - p.position.Y) < Projectile.width)
                 {
-                    if (Projectile.position.X < Main.projectile[num638].position.X)
+                    if (Projectile.position.X < p.position.X)
                     {
                         Projectile.velocity.X = Projectile.velocity.X - 0.02f;
                     }
@@ -63,7 +63,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
                     {
                         Projectile.velocity.X = Projectile.velocity.X + 0.02f;
                     }
-                    if (Projectile.position.Y < Main.projectile[num638].position.Y)
+                    if (Projectile.position.Y < p.position.Y)
                     {
                         Projectile.velocity.Y = Projectile.velocity.Y - 0.02f;
                     }
