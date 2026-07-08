@@ -24,7 +24,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             if (!Main.keyState.PressingShift())
             {
                 if (line != null)
-                    line.Text = CalamityMod.IsEnabled ? Language.GetTextValue("Mods.CalamityMod.Items.Lore.ShortTooltip") : Language.GetTextValue("Mods.AAModClassic.CrossMod.Calamity.LoreItemTooltip");
+                    line.Text = CalamityMod.IsEnabled ? Language.GetTextValue("Mods.CalamityMod.Items.Lore.ShortTooltip") : Language.GetTextValue("Mods.AAModClassic.CrossMod.CalamityMod.LoreItemTooltip");
                 return;
             }
             //tooltips.RemoveRange(1, tooltips.Count - 1);
