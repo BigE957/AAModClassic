@@ -67,7 +67,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
         }
 
         // shamelessly stolen from the queen slime hook teleport effect
-        public void TeleportEffect(Rectangle effectRect, float dustCountMult = 1f, Vector2 otherPosition = default)
+        public static void TeleportEffect(Rectangle effectRect, float dustCountMult = 1f, Vector2 otherPosition = default)
         {
             effectRect.Inflate(15, 15);
             int num7 = (int)(60f * dustCountMult);
@@ -139,7 +139,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
             }
 
             // if any other players have the buff, we still freeze
-            foreach (Player player in Main.player)
+            foreach (Player player in Main.ActivePlayers)
             {
                 if (player != null && player != p && player.active && player.HasBuff(buff))
                 {
@@ -153,7 +153,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
         private static void UpdateNPC(On_NPC.orig_UpdateNPC orig, NPC npc, int i)
         {
             int buff = ModContent.BuffType<BrokenCode_Freeze>();
-            foreach (Player player in Main.player)
+            foreach (Player player in Main.ActivePlayers)
             {
                 if (player != null && player.active && player.HasBuff(buff))
                 {
@@ -167,7 +167,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
         private static void UpdateProj(On_Projectile.orig_Update orig, Projectile proj, int i)
         {
             int buff = ModContent.BuffType<BrokenCode_Freeze>();
-            foreach (Player player in Main.player)
+            foreach (Player player in Main.ActivePlayers)
             {
                 if (player != null && player.active && player.HasBuff(buff))
                 {
@@ -181,7 +181,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
         private static void UpdateDust(On_Dust.orig_UpdateDust orig)
         {
             int buff = ModContent.BuffType<BrokenCode_Freeze>();
-            foreach (Player player in Main.player)
+            foreach (Player player in Main.ActivePlayers)
             {
                 if (player != null && player.active && player.HasBuff(buff))
                 {
