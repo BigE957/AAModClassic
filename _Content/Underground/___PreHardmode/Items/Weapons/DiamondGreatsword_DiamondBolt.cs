@@ -12,7 +12,7 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Weapons
 {
     public class DiamondGreatsword_DiamondBolt : ModProjectile
     {
-        public virtual Color LightColor => new Color((255 - Projectile.alpha) * .8f / 255f, (255 - Projectile.alpha) * .8f / 255f, (255 - Projectile.alpha) * .8f / 255f);
+        public virtual (float, float, float) LightColor => ((255 - Projectile.alpha) * .8f / 255f, (255 - Projectile.alpha) * .8f / 255f, (255 - Projectile.alpha) * .8f / 255f);
 
         public virtual Color DustColor => Color.Silver;
         public virtual Color DrawColor => Color.White;
@@ -38,7 +38,7 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Weapons
 
         public override void AI()
         {
-            Lighting.AddLight(Projectile.Center, LightColor.R, LightColor.G, LightColor.B);
+            Lighting.AddLight(Projectile.Center, LightColor.Item1, LightColor.Item2, LightColor.Item3);
             Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
             for (int num339 = 0; num339 < 16; num339++)
             {
