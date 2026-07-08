@@ -701,6 +701,11 @@ Consumables: {
 		DisplayName: Terra Key
 		Tooltip: ""
 	}
+
+	GoblinTinkererDoll: {
+		DisplayName: Goblin Tinkerer Doll
+		Tooltip: "'I'm sorry, little one...'"
+	}
 }
 
 Currency: {
@@ -1239,4 +1244,19 @@ Lore: {
 				'''
 		}
 	}
+}
+
+InfinityGauntlet: {
+	DisplayName: Infinity Gauntlet
+	Tooltip: ""
+}
+
+TimeStone: {
+	DisplayName: Time Stone
+	Tooltip: ""
+}
+
+GoblinTinkererDoll: {
+	DisplayName: Goblin Tinkerer Doll
+	Tooltip: ""
 }

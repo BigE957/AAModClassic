@@ -16,7 +16,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
+namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor
 {
     public class StripemansLuckyHelmetSetEffect : EquipmentEffectData
     {

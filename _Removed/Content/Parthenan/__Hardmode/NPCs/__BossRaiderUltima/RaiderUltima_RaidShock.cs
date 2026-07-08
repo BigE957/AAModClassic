@@ -1,3 +1,4 @@
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Utilities;
@@ -99,14 +100,14 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
                 float num730 = 55f * num728;
                 float num731 = 11f * num728;
                 float num732 = 0.5f;
-                int num733 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), 0f, 0f, 100, default, 0.5f);
+                int num733 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<VoidDust>(), 0f, 0f, 100, default, 0.5f);
                 Main.dust[num733].noGravity = true;
                 Main.dust[num733].velocity *= 2f;
                 Main.dust[num733].position = ((float)Main.rand.NextDouble() * 6.28318548f).ToRotationVector2() * (num731 + num732 * (float)Main.rand.NextDouble() * num730) + Projectile.Center;
                 Main.dust[num733].velocity = Main.dust[num733].velocity / 2f + Vector2.Normalize(Main.dust[num733].position - Projectile.Center);
                 if (Main.rand.NextBool(2))
                 {
-                    num733 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), 0f, 0f, 100, default, 0.9f);
+                    num733 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<VoidDust>(), 0f, 0f, 100, default, 0.9f);
                     Main.dust[num733].noGravity = true;
                     Main.dust[num733].velocity *= 1.2f;
                     Main.dust[num733].position = ((float)Main.rand.NextDouble() * 6.28318548f).ToRotationVector2() * (num731 + num732 * (float)Main.rand.NextDouble() * num730) + Projectile.Center;
@@ -114,7 +115,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
                 }
                 if (Main.rand.NextBool(4))
                 {
-                    num733 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), 0f, 0f, 100, default, 0.7f);
+                    num733 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<VoidDust>(), 0f, 0f, 100, default, 0.7f);
                     Main.dust[num733].noGravity = true;
                     Main.dust[num733].velocity *= 1.2f;
                     Main.dust[num733].position = ((float)Main.rand.NextDouble() * 6.28318548f).ToRotationVector2() * (num731 + num732 * (float)Main.rand.NextDouble() * num730) + Projectile.Center;

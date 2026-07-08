@@ -470,4 +470,19 @@ Effect: {
 		'''
 	DangersenseEffect: Allows you to see nearby danger sources
 	ManaCostMultiplierEffect: Multiplies mana cost by {0}
+	AnkhShieldEffect:
+		'''
+		Grants immunity to knockback and fire blocks
+		Grants immunity to most debuffs
+		'''
+	DwarvenGauntletEffect: Having this gauntlet allows you to handle the infinity stones without overloading
+	FullLavaImmunityEffect: Provides immunity to lava
+	TimeStoneRespawnEffect: Respawn time cut by 80%
+	TimeStoneTimeStopEffect: Pressing the Time Stone hotkey will allow you to speed up and resume time
+	SpaceStoneEffect: Allows you to teleport with the hook funtion like with the rod of discord
+	InfinityGauntletEffect:
+		'''
+		Pressing the accessory ability key allows you to snap your fingers, wiping out half of the enemies on your screen
+		The snap has a 5 minute cooldown
+		'''
 }

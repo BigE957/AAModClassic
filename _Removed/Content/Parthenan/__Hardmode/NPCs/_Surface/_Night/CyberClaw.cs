@@ -2,6 +2,7 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
 using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 using AAModClassic.Utilities;
 using System;
 using Terraria;
@@ -80,13 +81,13 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs._Surface._Nigh
         {
             for (int k = 0; k < 3; k++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.FulguriteDust>(), hit.HitDirection, -1f, 0);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<FulguriteDust>(), hit.HitDirection, -1f, 0);
             }
             if (NPC.life <= 0)
             {
                 for (int k = 0; k < 15; k++)
                 {
-                    Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.FulguriteDust>(), hit.HitDirection, -1f, 0);
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<FulguriteDust>(), hit.HitDirection, -1f, 0);
                 }
             }
         }

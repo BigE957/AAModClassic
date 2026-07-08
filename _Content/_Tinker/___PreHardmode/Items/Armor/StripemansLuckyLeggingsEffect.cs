@@ -21,7 +21,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
+namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor
 {
     public class StripemansLuckyLeggingsEffect : EquipmentEffectData
     {
@@ -52,7 +52,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                     Rectangle value = new Rectangle((int)Main.player[projectile.owner].position.X, (int)Main.player[projectile.owner].position.Y, Main.player[projectile.owner].width, Main.player[projectile.owner].height);
 
                     bool condition = false;
-                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && (projectile.ai[0] != 1))
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && projectile.ai[0] != 1)
                         condition = true;
                     else if (projectile.ai[0] != 1 && Main.rand.NextBool(2000))
                         condition = true;
@@ -64,7 +64,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                             Rectangle npcrec = new Rectangle((int)Main.npc[i].position.X, (int)Main.npc[i].position.Y, Main.npc[i].width, Main.npc[i].height);
                             if (Main.npc[i].active && Main.npc[i].life != 0 && !Main.npc[i].boss && rectangle.Intersects(npcrec))
                             {
-                                if ((WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && Main.rand.NextBool(25)) || (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial)))
+                                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && Main.rand.NextBool(25) || !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                                     Main.npc[i].NPCLoot(); //TODO: can we just pull from the loot and make this not count towards npc kills i feel like thats gonna cause issues
                                 projectile.ai[0] = 1;
                                 Main.npc[i].active = true;
@@ -223,15 +223,15 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                                 veryrare = true,
                                 legendary = true,
                                 crate = true,
-                                inLava = (liquidtype == 1),
-                                inHoney = (liquidtype == 2),
+                                inLava = liquidtype == 1,
+                                inHoney = liquidtype == 2,
                                 waterTilesCount = 1000,
                                 waterNeededToFish = 0,
                                 waterQuality = 0,
                                 chumsInWater = 0,
                                 fishingLevel = 0,
-                                CanFishInLava = (liquidtype == 1),
-                                atmo = (WorldHeightType == 0) ? 0.25f : 1f,
+                                CanFishInLava = liquidtype == 1,
+                                atmo = WorldHeightType == 0 ? 0.25f : 1f,
                                 questFish = 0,
                                 heightLevel = WorldHeightType
                             };

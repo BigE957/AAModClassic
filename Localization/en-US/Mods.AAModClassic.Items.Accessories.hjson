@@ -384,3 +384,67 @@ MetallicTruffle: {
 	DisplayName: Metallic Truffle
 	Tooltip: "'Don't bite it.'"
 }
+
+AnkhNecklace: {
+	DisplayName: Ankh Necklace
+	Tooltip: ""
+}
+
+AnkhScarf: {
+	DisplayName: Ankh Scarf
+	Tooltip: ""
+}
+
+AnkhTablet: {
+	DisplayName: Ankh Tablet
+	Tooltip: ""
+}
+
+DwarvenGauntlet: {
+	DisplayName: Dwarven Gauntlet
+	Tooltip: "'Fine. I'll do it myself.'"
+}
+
+MindStone: {
+	DisplayName: Mind Stone
+	Tooltip: "'It's simple Calculus'"
+}
+
+PowerStone: {
+	DisplayName: Power Stone
+	Tooltip: "'Fun isnt something one considers when balancing the universe'"
+}
+
+RealityStone: {
+	DisplayName: Reality Stone
+	Tooltip: "'Now...reality can be whatever I want it to be...'"
+}
+
+SoulStone: {
+	DisplayName: Soul Stone
+	Tooltip: "'I have lost more than you can imagine'"
+}
+
+TimeStone: {
+	DisplayName: Time Stone
+	Tooltip:
+		'''
+		Using the Time Stone like an item, stops/resumes time
+		'Dread it. Run from it. Destiny still arives.'
+		'''
+}
+
+SpaceStone: {
+	DisplayName: Space Stone
+	Tooltip:
+		'''
+		Pressing the rift hotkey returns you home
+		Pressing the rift return hotkey brings you back to your most recent rift location
+		"'But this...Does put a smile on my face'"
+		'''
+}
+
+InfinityGauntlet: {
+	DisplayName: Infinity Gauntlet
+	Tooltip: Perfectly Balanced, as all things should be
+}

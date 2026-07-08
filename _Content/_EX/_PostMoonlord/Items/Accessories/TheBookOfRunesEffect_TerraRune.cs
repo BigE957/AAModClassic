@@ -1,5 +1,4 @@
 ﻿using System;
-using AAModClassic._Content._Dev.__Hardmode.Items.Accessories;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;

@@ -116,6 +116,10 @@ removed
 -dragon serpent necklance and storm charm are now crafted at a tinkers workshop
 -holo cape now properly gives 15% damage resistance instead of 115% damage resistance
 -storm charm now gives the shield of cthulhu dash instead of the tabi dash
+-READDED. THE. ANKH. ACCESSORIES. + ankh shield change
+-the ankh accessories now actually give you the effects of ankh sheild (NOTE THIS IN THE CHANGELOGS IN BIG BOLD GLOWING TEXT)
+-RE. ADDED. THE INFINITY GAUNTLET.
+-infinity gauntlet uses acc ability hotkey instead of its own key. fuck you
 -
 
 unreleased

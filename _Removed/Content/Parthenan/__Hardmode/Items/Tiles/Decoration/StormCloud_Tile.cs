@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration
 {
@@ -17,7 +18,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decorat
             Main.tileSolid[Type] = true;
             Main.tileMerge[Type][TileID.Cloud] = true;
             Main.tileMergeDirt[Type] = false;
-            DustType = ModContent.DustType<Dusts.FulguriteDust>();
+            DustType = ModContent.DustType<FulguriteDust>();
             AddMapEntry(new Color(60, 20, 90));
 			MinPick = 9999;
         }

@@ -16,7 +16,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 
-namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
+namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor
 {
     public class StripemansLuckyChestplateEffect : EquipmentEffectData
     {
@@ -61,14 +61,14 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                 {
                     if (Main.hardMode && Main.rand.NextBool(15))
                     {
-                        npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.SandElemental, 0, 0f, 0f, 0f, 0f, 255);
+                        npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.SandElemental, 0, 0f, 0f, 0f, 0f, 255);
                     }
                 }
                 else if (player.ZoneDungeon && NPC.downedPlantBoss)
                 {
                     if (Main.rand.NextBool(15))
                     {
-                        npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.BoneLee, 0, 0f, 0f, 0f, 0f, 255);
+                        npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.BoneLee, 0, 0f, 0f, 0f, 0f, 255);
                     }
                     if (Main.rand.NextBool(10))
                     {
@@ -79,11 +79,11 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                             case 1: Skeletontype = 292; break;
                             case 3: Skeletontype = 293; break;
                         }
-                        npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, Skeletontype, 0, 0f, 0f, 0f, 0f, 255);
+                        npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, Skeletontype, 0, 0f, 0f, 0f, 0f, 255);
                     }
                     if (Main.rand.NextBool(15))
                     {
-                        npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Paladin, 0, 0f, 0f, 0f, 0f, 255);
+                        npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Paladin, 0, 0f, 0f, 0f, 0f, 255);
                     }
                 }
                 else if (y <= Main.worldSurface && Main.dayTime && Main.eclipse)
@@ -95,41 +95,41 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                     }
                     if (flag && Main.rand.NextBool(40))
                     {
-                        npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Mothron, 0, 0f, 0f, 0f, 0f, 255);
+                        npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Mothron, 0, 0f, 0f, 0f, 0f, 255);
                     }
                 }
                 else if (y <= Main.worldSurface)
                 {
                     if (player.ZoneSnow && Main.hardMode && Main.cloudAlpha > 0f && Main.rand.NextBool(15))
                     {
-                        npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.IceGolem, 0, 0f, 0f, 0f, 0f, 255);
+                        npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.IceGolem, 0, 0f, 0f, 0f, 0f, 255);
                     }
                     if (player.ZoneHallow && Main.hardMode && Main.rand.NextBool(30))
                     {
-                        npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.RainbowSlime, 0, 0f, 0f, 0f, 0f, 255);
+                        npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.RainbowSlime, 0, 0f, 0f, 0f, 0f, 255);
                     }
                     if (y <= Main.worldSurface / 2 && NPC.AnyDanger() && Main.hardMode && NPC.downedGolemBoss && Main.rand.NextBool(100) && !NPC.AnyNPCs(399))
                     {
-                        npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.MartianProbe, 0, 0f, 0f, 0f, 0f, 255);
+                        npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.MartianProbe, 0, 0f, 0f, 0f, 0f, 255);
                     }
                     if (Main.hardMode && Main.rand.NextBool(25) && Main.bloodMoon)
                     {
-                        npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Clown, 0, 0f, 0f, 0f, 0f, 255);
+                        npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Clown, 0, 0f, 0f, 0f, 0f, 255);
                     }
                     if (Main.rand.NextBool(100) && Main.bloodMoon)
                     {
-                        npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.TheGroom, 0, 0f, 0f, 0f, 0f, 255);
+                        npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.TheGroom, 0, 0f, 0f, 0f, 0f, 255);
                     }
                     if (Main.rand.NextBool(100) && Main.bloodMoon)
                     {
-                        npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.TheBride, 0, 0f, 0f, 0f, 0f, 255);
+                        npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.TheBride, 0, 0f, 0f, 0f, 0f, 255);
                     }
 
                     if (Main.dayTime)
                     {
                         if (Main.rand.NextBool(50))
                         {
-                            npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.BlueSlime, 0, 0f, 0f, 0f, 0f, 255);
+                            npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.BlueSlime, 0, 0f, 0f, 0f, 0f, 255);
                             Main.npc[npcid].SetDefaults(-4);
                         }
                     }
@@ -138,49 +138,49 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                 {
                     if (Main.rand.NextBool(2) && player.ZoneCorrupt)
                     {
-                        npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.BigMimicCorruption, 0, 0f, 0f, 0f, 0f, 255);
+                        npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.BigMimicCorruption, 0, 0f, 0f, 0f, 0f, 255);
                     }
                     else if (Main.rand.NextBool(2) && player.ZoneCrimson)
                     {
-                        npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.BigMimicCrimson, 0, 0f, 0f, 0f, 0f, 255);
+                        npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.BigMimicCrimson, 0, 0f, 0f, 0f, 0f, 255);
                     }
                     else if (Main.rand.NextBool(2) && player.ZoneHallow)
                     {
-                        npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.BigMimicHallow, 0, 0f, 0f, 0f, 0f, 255);
+                        npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.BigMimicHallow, 0, 0f, 0f, 0f, 0f, 255);
                     }
                     else
                     {
-                        npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Mimic, 0, 0f, 0f, 0f, 0f, 255);
+                        npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Mimic, 0, 0f, 0f, 0f, 0f, 255);
                     }
                 }
                 else if (Main.hardMode && Main.tile[x, y - 1].WallType == WallID.DirtUnsafe && Main.rand.NextBool(10))
                 {
-                    npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Mimic, 0, 0f, 0f, 0f, 0f, 255);
+                    npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Mimic, 0, 0f, 0f, 0f, 0f, 255);
                 }
                 else if (Main.tile[x, y].TileType == TileID.JungleGrass && Main.rand.NextBool(100) && !Main.dayTime)
                 {
-                    npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.DoctorBones, 0, 0f, 0f, 0f, 0f, 255);
+                    npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.DoctorBones, 0, 0f, 0f, 0f, 0f, 255);
                 }
                 else if (Main.tile[x, y].TileType == TileID.JungleGrass && Main.hardMode && Main.rand.NextBool(45) && !Main.dayTime)
                 {
-                    npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Moth, 0, 0f, 0f, 0f, 0f, 255);
+                    npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Moth, 0, 0f, 0f, 0f, 0f, 255);
                 }
                 else if (y > Main.maxTilesY - 190)
                 {
                     if (Main.hardMode && !NPC.savedTaxCollector && Main.rand.NextBool(10) && !NPC.AnyNPCs(534))
                     {
-                        npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.DemonTaxCollector, 0, 0f, 0f, 0f, 0f, 255);
+                        npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.DemonTaxCollector, 0, 0f, 0f, 0f, 0f, 255);
                     }
                 }
                 else if (y <= Main.maxTilesY - 190 && y > Main.rockLayer)
                 {
                     if (Main.rand.NextBool(50))
                     {
-                        npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.LostGirl, 0, 0f, 0f, 0f, 0f, 255);
+                        npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.LostGirl, 0, 0f, 0f, 0f, 0f, 255);
                     }
                     if (y > (Main.rockLayer + Main.maxTilesY) / 2.0 && Main.rand.NextBool(50))
                     {
-                        npcid = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Tim, 0, 0f, 0f, 0f, 0f, 255);
+                        npcid = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), x * 16 + 8, y * 16, NPCID.Tim, 0, 0f, 0f, 0f, 0f, 255);
                     }
                 }
             }
@@ -269,29 +269,29 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
         public static void PotsDropMethod(int i, int j)
         {
             int itemcreat = 0;
-            if (WorldGen.genRand.NextBool(30) || (Main.rand.NextBool(30) && Main.expertMode))
+            if (WorldGen.genRand.NextBool(30) || Main.rand.NextBool(30) && Main.expertMode)
             {
                 if (WorldGen.genRand.NextBool(20))
                 {
                     int rand = WorldGen.genRand.Next(100);
                     if (rand == 0)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 678, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 678, 1, false, 0, false, false);
                     }
                     else
                     {
                         int rand2 = WorldGen.genRand.Next(3);
                         if (rand2 == 0)
                         {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2352, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2352, 1, false, 0, false, false);
                         }
                         if (rand2 == 1)
                         {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2353, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2353, 1, false, 0, false, false);
                         }
                         if (rand2 == 2)
                         {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2756, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2756, 1, false, 0, false, false);
                         }
                     }
                 }
@@ -302,7 +302,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                     {
                         if (Main.rand.Next(k) == 0)
                         {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, itempotion, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, itempotion, 1, false, 0, false, false);
                             break;
                         }
                         k -= 1;
@@ -313,15 +313,15 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                     int rand = WorldGen.genRand.Next(3);
                     if (rand == 0)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2354, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2354, 1, false, 0, false, false);
                     }
                     if (rand == 1)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2355, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2355, 1, false, 0, false, false);
                     }
                     if (rand >= 2)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2356, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2356, 1, false, 0, false, false);
                     }
                 }
                 else if (j < Main.worldSurface)
@@ -332,68 +332,68 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                         if (Main.rand.NextBool(100))
                         {
                             int rarepotion = ModContent.ItemType<LuckyIronskinPotion>();
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                         }
                         else
                         {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 292, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 292, 1, false, 0, false, false);
                         }
                     }
                     if (rand == 1)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 298, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 298, 1, false, 0, false, false);
                     }
                     if (rand == 2)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 299, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 299, 1, false, 0, false, false);
                     }
                     if (rand == 3)
                     {
                         if (Main.rand.NextBool(100))
                         {
                             int rarepotion = ModContent.ItemType<LuckySwiftnessPotion>();
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                         }
                         else
                         {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 290, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 290, 1, false, 0, false, false);
                         }
                     }
                     if (rand == 4)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2322, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2322, 1, false, 0, false, false);
                     }
                     if (rand == 5)
                     {
                         if (Main.rand.NextBool(100))
                         {
                             int rarepotion = ModContent.ItemType<LuckyCalmingPotion>();
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                         }
                         else
                         {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2324, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2324, 1, false, 0, false, false);
                         }
                     }
                     if (rand == 6)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2325, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2325, 1, false, 0, false, false);
                     }
                     if (rand == 7 || rand == 8)
                     {
                         if (Main.rand.NextBool(100))
                         {
                             int rarepotion = ModContent.ItemType<LuckyWrathPotion>();
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                         }
                         else
                         {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2349, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2349, 1, false, 0, false, false);
                         }
                     }
                     if (rand >= 9)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2350, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2350, 1, false, 0, false, false);
                     }
                 }
                 else if (j < Main.rockLayer)
@@ -406,11 +406,11 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                             if (Main.rand.NextBool(100))
                             {
                                 int rarepotion = ModContent.ItemType<LuckySummoningPotion>();
-                                itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
+                                itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                             }
                             else
                             {
-                                itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2328, 1, false, 0, false, false);
+                                itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2328, 1, false, 0, false, false);
                             }
                         }
                         else
@@ -418,11 +418,11 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                             if (Main.rand.NextBool(100))
                             {
                                 int rarepotion = ModContent.ItemType<LuckyThornsPotion>();
-                                itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
+                                itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                             }
                             else
                             {
-                                itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 301, 1, false, 0, false, false);
+                                itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 301, 1, false, 0, false, false);
                             }
                         }
                     }
@@ -430,7 +430,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                     {
                         if (WorldGen.genRand.NextBool(2))
                         {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2359, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2359, 1, false, 0, false, false);
                         }
                     }
                     int rand = WorldGen.genRand.Next(12);
@@ -439,68 +439,68 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                         if (Main.rand.NextBool(100))
                         {
                             int rarepotion = ModContent.ItemType<LuckyRegenerationPotion>();
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                         }
                         else
                         {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 289, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 289, 1, false, 0, false, false);
                         }
                     }
                     if (rand == 1)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 298, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 298, 1, false, 0, false, false);
                     }
                     if (rand == 2)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 299, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 299, 1, false, 0, false, false);
                     }
                     if (rand == 3)
                     {
                         if (Main.rand.NextBool(100))
                         {
                             int rarepotion = ModContent.ItemType<LuckySwiftnessPotion>();
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                         }
                         else
                         {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 290, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 290, 1, false, 0, false, false);
                         }
                     }
                     if (rand == 4)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 303, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 303, 1, false, 0, false, false);
                     }
                     if (rand == 5)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 291, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 291, 1, false, 0, false, false);
                     }
                     if (rand == 6)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 304, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 304, 1, false, 0, false, false);
                     }
                     if (rand == 7)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2322, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2322, 1, false, 0, false, false);
                     }
                     if (rand == 8)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2329, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2329, 1, false, 0, false, false);
                     }
                     if (rand == 9)
                     {
                         if (Main.rand.NextBool(100))
                         {
                             int rarepotion = ModContent.ItemType<LuckyEndurancePotion>();
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                         }
                         else
                         {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2346, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2346, 1, false, 0, false, false);
                         }
                     }
                     if (rand >= 10)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2350, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2350, 1, false, 0, false, false);
                     }
                 }
                 else if (j < Main.maxTilesY - 200)
@@ -508,71 +508,71 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                     int rand = WorldGen.genRand.Next(15);
                     if (rand == 0)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 296, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 296, 1, false, 0, false, false);
                     }
                     if (rand == 1)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 295, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 295, 1, false, 0, false, false);
                     }
                     if (rand == 2)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 299, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 299, 1, false, 0, false, false);
                     }
                     if (rand == 3)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 302, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 302, 1, false, 0, false, false);
                     }
                     if (rand == 4)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 303, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 303, 1, false, 0, false, false);
                     }
                     if (rand == 5)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 305, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 305, 1, false, 0, false, false);
                     }
                     if (rand == 6)
                     {
                         if (Main.rand.NextBool(100))
                         {
                             int rarepotion = ModContent.ItemType<LuckyThornsPotion>();
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                         }
                         else
                         {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 301, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 301, 1, false, 0, false, false);
                         }
                     }
                     if (rand == 7)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 302, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 302, 1, false, 0, false, false);
                     }
                     if (rand == 8)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 297, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 297, 1, false, 0, false, false);
                     }
                     if (rand == 9)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 304, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 304, 1, false, 0, false, false);
                     }
                     if (rand == 10)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2322, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2322, 1, false, 0, false, false);
                     }
                     if (rand == 11)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2323, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2323, 1, false, 0, false, false);
                     }
                     if (rand == 12)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2327, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2327, 1, false, 0, false, false);
                     }
                     if (rand == 13)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2329, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2329, 1, false, 0, false, false);
                     }
                     if (rand == 14)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2350, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2350, 1, false, 0, false, false);
                     }
                 }
                 else
@@ -580,78 +580,78 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                     int rand = WorldGen.genRand.Next(16);
                     if (rand == 0)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 296, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 296, 1, false, 0, false, false);
                     }
                     if (rand == 1)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 295, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 295, 1, false, 0, false, false);
                     }
                     if (rand == 2)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 293, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 293, 1, false, 0, false, false);
                     }
                     if (rand == 3)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 288, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 288, 1, false, 0, false, false);
                     }
                     if (rand == 4)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 294, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 294, 1, false, 0, false, false);
                     }
                     if (rand == 5)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 297, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 297, 1, false, 0, false, false);
                     }
                     if (rand == 6)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 304, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 304, 1, false, 0, false, false);
                     }
                     if (rand == 7)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 305, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 305, 1, false, 0, false, false);
                     }
                     if (rand == 8)
                     {
                         if (Main.rand.NextBool(100))
                         {
                             int rarepotion = ModContent.ItemType<LuckyThornsPotion>();
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                         }
                         else
                         {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 301, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 301, 1, false, 0, false, false);
                         }
                     }
                     if (rand == 9)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 302, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 302, 1, false, 0, false, false);
                     }
                     if (rand == 10)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 288, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 288, 1, false, 0, false, false);
                     }
                     if (rand == 11)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 300, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 300, 1, false, 0, false, false);
                     }
                     if (rand == 12)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2323, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2323, 1, false, 0, false, false);
                     }
                     if (rand == 13)
                     {
-                        itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2326, 1, false, 0, false, false);
+                        itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2326, 1, false, 0, false, false);
                     }
                     if (rand == 14)
                     {
                         if (Main.rand.NextBool(100))
                         {
                             int rarepotion = ModContent.ItemType<LuckyRagePotion>();
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                         }
                         else
                         {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2347, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2347, 1, false, 0, false, false);
                         }
                     }
                     if (rand == 15)
@@ -661,20 +661,20 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                             if (Main.rand.NextBool(100))
                             {
                                 int rarepotion = ModContent.ItemType<LuckyLifeforcePotion>();
-                                itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
+                                itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, rarepotion, 1, false, 0, false, false);
                             }
                             else
                             {
-                                itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2345, 1, false, 0, false, false);
+                                itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2345, 1, false, 0, false, false);
                             }
                         }
                         else if (Main.rand.NextBool(2))
                         {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2326, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2326, 1, false, 0, false, false);
                         }
                         else
                         {
-                            itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2323, 1, false, 0, false, false);
+                            itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 16, 16, 2323, 1, false, 0, false, false);
                         }
                     }
                 }

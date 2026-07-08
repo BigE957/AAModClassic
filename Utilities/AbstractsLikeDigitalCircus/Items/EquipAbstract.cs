@@ -517,6 +517,14 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         }
     }
 
+    public class FullLavaImmunityEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.lavaImmune = true;
+        }
+    }
+
     public class KnockbackImmunityEffect : EquipmentEffectData
     {
         public override void DoEffect(Player player)
@@ -655,7 +663,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             player.maxMinions += amount;
         }
 
-        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.IncreaseDecrease), Math.Abs(Math.Round((float)amount, 2)));
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.IncreasesDecreases).FirstCharToUpper(), Math.Abs(Math.Round((float)amount, 2)));
     }
 
     public class ShieldOfCthulhuDashEffect : EquipmentEffectData
@@ -663,6 +671,26 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public override void DoEffect(Player player)
         {
             player.dashType = 2;
+        }
+    }
+
+    public class AnkhShieldEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.buffImmune[46] = true;
+            player.noKnockback = true;
+            player.fireWalk = true;
+            player.buffImmune[33] = true;
+            player.buffImmune[36] = true;
+            player.buffImmune[30] = true;
+            player.buffImmune[20] = true;
+            player.buffImmune[32] = true;
+            player.buffImmune[31] = true;
+            player.buffImmune[35] = true;
+            player.buffImmune[23] = true;
+            player.buffImmune[22] = true;
+            player.buffImmune[156] = true;
         }
     }
 

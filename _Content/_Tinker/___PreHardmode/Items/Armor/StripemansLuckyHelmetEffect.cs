@@ -21,7 +21,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
+namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor
 {
     public class StripemansLuckyHelmetEffect : EquipmentEffectData
     {
@@ -656,7 +656,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
             if (result > 0)
             {
                 Vector2 vector = Main.ReverseGravitySupport(Main.MouseScreen, 0f) + Main.screenPosition;
-                int number = Item.NewItem(Item.GetSource_NaturalSpawn(), (int)vector.X, (int)vector.Y, 1, 1, result, stack, false, -1, false, false);
+                int number = Item.NewItem(Entity.GetSource_NaturalSpawn(), (int)vector.X, (int)vector.Y, 1, 1, result, stack, false, -1, false, false);
                 if (Main.netMode == NetmodeID.MultiplayerClient)
                 {
                     NetMessage.SendData(MessageID.SyncItem, -1, -1, null, number, 1f, 0f, 0f, 0, 0, 0);
@@ -674,7 +674,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                 if (TileID.Sets.Conversion.Stone[type])
                 {
                     int k = DropOreMethod(i, j, type);
-                    if (k != 0) Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, k, 1, false, 0, false, false);
+                    if (k != 0) Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, k, 1, false, 0, false, false);
                 }
             }
         }
@@ -690,9 +690,9 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                 chance = chance / ChanceBalance * 100f;
                 if (chance < 100 && !(itemtype == ItemID.DemoniteOre || itemtype == ItemID.CrimtaneOre || itemtype == ModContent.ItemType<AbyssiumOre>() || itemtype == ModContent.ItemType<IncineriteOre>() || itemtype == ModContent.ItemType<ApocalyptiteOre>()))
                 {
-                    if (Utils.NextFloat(Main.rand, SecondDrop) < 1)
+                    if (Main.rand.NextFloat(SecondDrop) < 1)
                     {
-                        int itemcreat = Item.NewItem(Item.GetSource_NaturalSpawn(), x * 16, y * 16, 32, 32, itemtype, 1, false, 0, false, false);
+                        int itemcreat = Item.NewItem(Entity.GetSource_NaturalSpawn(), x * 16, y * 16, 32, 32, itemtype, 1, false, 0, false, false);
                         if (Main.netMode == NetmodeID.MultiplayerClient)
                         {
                             NetMessage.SendData(MessageID.SyncItem, -1, -1, null, itemcreat, 1f, 0f, 0f, 0, 0, 0);
@@ -703,28 +703,28 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                 }
                 else if (itemtype == ItemID.DemoniteOre || itemtype == ItemID.CrimtaneOre)
                 {
-                    if (Utils.NextFloat(Main.rand, chance) < 1 && (type == TileID.Crimstone || type == TileID.Ebonstone))
+                    if (Main.rand.NextFloat(chance) < 1 && (type == TileID.Crimstone || type == TileID.Ebonstone))
                     {
                         return itemtype;
                     }
                 }
                 else if (itemtype == ModContent.ItemType<AbyssiumOre>())
                 {
-                    if (Utils.NextFloat(Main.rand, chance) < 1 && type == ModContent.TileType<Depthstone_Tile>())
+                    if (Main.rand.NextFloat(chance) < 1 && type == ModContent.TileType<Depthstone_Tile>())
                     {
                         return itemtype;
                     }
                 }
                 else if (itemtype == ModContent.ItemType<IncineriteOre>())
                 {
-                    if (Utils.NextFloat(Main.rand, chance) < 1 && type == ModContent.TileType<Torchstone_Tile>())
+                    if (Main.rand.NextFloat(chance) < 1 && type == ModContent.TileType<Torchstone_Tile>())
                     {
                         return itemtype;
                     }
                 }
                 else if (itemtype == ModContent.ItemType<ApocalyptiteOre>())
                 {
-                    if (Utils.NextFloat(Main.rand, chance) < 1 && type == ModContent.TileType<Doomstone_Tile>() && AAWorld.downedZero)
+                    if (Main.rand.NextFloat(chance) < 1 && type == ModContent.TileType<Doomstone_Tile>() && AAWorld.downedZero)
                     {
                         return itemtype;
                     }
@@ -733,7 +733,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                 {
                     if (AALuckyConfig.LuckyOre[itemtype] <= 500)
                     {
-                        if (Utils.NextFloat(Main.rand, chance) < 1)
+                        if (Main.rand.NextFloat(chance) < 1)
                         {
                             return itemtype;
                         }
@@ -746,7 +746,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                     bool flag = AALuckyConfig.LuckyOre[itemtype] <= digcheck;
                     if (flag || AAWorld.downedShen)
                     {
-                        if (Utils.NextFloat(Main.rand, chance) < 1)
+                        if (Main.rand.NextFloat(chance) < 1)
                         {
                             return itemtype;
                         }

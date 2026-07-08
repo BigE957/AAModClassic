@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
 using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
-using AAModClassic._Content.Bunny._PostMoonlord.Items.Armor;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;

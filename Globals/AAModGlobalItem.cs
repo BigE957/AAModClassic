@@ -136,6 +136,33 @@ namespace AAModClassic.Globals
             }
         }
 
+        //TODO: move this stuff into its own file... obv...
+        public override void UpdateAccessory(Item item, Player player, bool hideVisual)
+        {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed) && item.type == ItemID.AnkhShield)
+            {
+                player.GetAttackSpeed(DamageClass.Melee) += 0.07f;
+            }
+        }
+
+        public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
+        {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed) && item.type == ItemID.AnkhShield)
+            {
+                int index = 1;
+                for (int m = 0; m < tooltips.Count; m++)
+                {
+                    TooltipLine line = tooltips[m];
+                    if (line.Mod == "Terraria" && line.Text == "Grants immunity to most debuffs")
+                    {
+                        index = m;
+                        break;
+                    }
+                }
+                tooltips.Insert(index + 1, new TooltipLine(Mod, "AnkhShieldMeleeSpeed", "7% melee speed"));
+            }
+        }
+
         public override bool CanEquipAccessory(Item item, Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */
         {
             if (item.type == ItemID.AnkhShield || item.type == ItemID.ObsidianShield || item.type == ModContent.ItemType<TaiyangBaolei>() || item.type == ModContent.ItemType<Duality>())

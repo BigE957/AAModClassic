@@ -1,3 +1,4 @@
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -16,7 +17,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decorat
             Main.tileMergeDirt[Type] = false;
             //true for block to emit light
             HitSound = SoundID.Tink; 
-            DustType = ModContent.DustType<Dusts.FulguriteDust>();
+            DustType = ModContent.DustType<FulguriteDust>();
             AddMapEntry(new Color(90, 20, 120));
 			MinPick = 200;
         }

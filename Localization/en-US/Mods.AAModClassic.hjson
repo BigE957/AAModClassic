@@ -11,6 +11,7 @@ Keybinds: {
 				RiftReturnhotkey.DisplayName: Mods. A A Mod Classic. Keybinds. Rift Returnhotkey
 				AccessoryAbilityKey.DisplayName: Mods. A A Mod Classic. Keybinds. Accessory Ability Key
 				ArmorAbilityKey.DisplayName: Mods. A A Mod Classic. Keybinds. Armor Ability Key
+				TimeStoneKey.DisplayName: Mods. A A Mod Classic. Keybinds. Time Stone Key
 			}
 		}
 	}

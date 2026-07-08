@@ -9,6 +9,7 @@ using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
+using AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Effects;
@@ -31,6 +32,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
@@ -290,6 +292,12 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             notExpertRule.OnSuccess(loreCondition.OnSuccess(new PerPlayerDropRule(ModContent.ItemType<ZeroLore>(), 1)));
 
             npcLoot.Add(notExpertRule);
+
+            LeadingConditionRule anceintsDownAndRemoved = new(new PostLateAncientsAndRemovedWorldAndNotExpert());
+
+            anceintsDownAndRemoved.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RealityStone>(), 50));
+
+            npcLoot.Add(anceintsDownAndRemoved);
         }
 
         public override void BossLoot(ref int potionType)
