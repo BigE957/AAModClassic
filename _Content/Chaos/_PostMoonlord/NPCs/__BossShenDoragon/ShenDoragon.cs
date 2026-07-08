@@ -1152,28 +1152,37 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             return (pos, forward);
         }
 
+        private const int NumStripPoints = 12;
+        private readonly Vector2[] _stripPointsCache = new Vector2[NumStripPoints];
+        private readonly VertexPositionColorTexture[] _stripVertsCache = new VertexPositionColorTexture[NumStripPoints * 2];
+
+        private void FillStripPoints()
+        {
+            for (int i = 0; i < NumStripPoints; i++)
+            {
+                float t = (float)i / (NumStripPoints - 1);
+                (_stripPointsCache[i], _) = GetBodyPoint(t);
+            }
+        }
+
         private VertexPositionColorTexture[] BuildStrip(Vector2 screenPos, Color color)
         {
-            const int NumPoints = 12;
-            Vector2[] points = GetStripPoints(NumPoints);
-
-            var verts = new VertexPositionColorTexture[NumPoints * 2];
+            FillStripPoints();
+            Vector2[] points = _stripPointsCache;
 
             float frameUMin = (float)NPC.frame.X / Body.Value.Width;
             float frameUMax = (float)(NPC.frame.X + NPC.frame.Width) / Body.Value.Width;
-
             float halfHeight = Body.Value.Height * NPC.scale * 0.5f;
-
             Vector2 referenceUp = new(MathF.Sin(NPC.rotation), -MathF.Cos(NPC.rotation));
 
-            for (int i = 0; i < NumPoints; i++)
+            for (int i = 0; i < NumStripPoints; i++)
             {
-                float u = MathHelper.Lerp(frameUMin, frameUMax, (float)i / (NumPoints - 1));
+                float u = MathHelper.Lerp(frameUMin, frameUMax, (float)i / (NumStripPoints - 1));
 
                 Vector2 tangent;
                 if (i == 0)
                     tangent = (points[0] - points[1]).SafeNormalize(Vector2.UnitX);
-                else if (i == NumPoints - 1)
+                else if (i == NumStripPoints - 1)
                     tangent = (points[i - 1] - points[i]).SafeNormalize(Vector2.UnitX);
                 else
                     tangent = (points[i - 1] - points[i + 1]).SafeNormalize(Vector2.UnitX);
@@ -1184,28 +1193,42 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 perp *= halfHeight;
 
                 Vector2 world = points[i] - screenPos;
-                verts[i * 2 + 0] = new VertexPositionColorTexture(new Vector3(world - perp, 0f), color, new Vector2(u, 1f));
-                verts[i * 2 + 1] = new VertexPositionColorTexture(new Vector3(world + perp, 0f), color, new Vector2(u, 0f));
+                _stripVertsCache[i * 2 + 0] = new VertexPositionColorTexture(new Vector3(world - perp, 0f), color, new Vector2(u, 1f));
+                _stripVertsCache[i * 2 + 1] = new VertexPositionColorTexture(new Vector3(world + perp, 0f), color, new Vector2(u, 0f));
             }
 
-            return verts;
+            return _stripVertsCache;
         }
 
-        private Vector2[] GetStripPoints(int numPoints)
+        private static BasicEffect _bodyEffect;
+
+        private static BasicEffect GetBodyEffect(GraphicsDevice gd)
         {
-            var output = new Vector2[numPoints];
-            for (int i = 0; i < numPoints; i++)
+            if (_bodyEffect == null || _bodyEffect.IsDisposed)
             {
-                float t = (float)i / (numPoints - 1);
-                (output[i], _) = GetBodyPoint(t);
+                _bodyEffect = new BasicEffect(gd)
+                {
+                    TextureEnabled = true,
+                    VertexColorEnabled = true
+                };
             }
-            return output;
+            return _bodyEffect;
+        }
+
+        public override void Unload()
+        {
+            _bodyEffect?.Dispose();
+            _bodyEffect = null;
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
             bool hasHistory = unofficial && NPC.oldPos[0] != Vector2.Zero;
+
+            Vector2 sharedWingPos = Vector2.Zero;
+            float sharedWingRot = 0f;
+            bool wingCached = false;
 
             // back wing
             Vector2 backWingPos = NPC.Center - screenPos;
@@ -1214,10 +1237,14 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             {
                 UpdateBodyBend();
                 (Vector2 wingPos, Vector2 wingForward) = GetBodyPoint(0.5f);
-                backWingPos = wingPos - screenPos;
-                backWingRot = wingForward.ToRotation();
+                sharedWingPos = wingPos;
+                sharedWingRot = wingForward.ToRotation();
                 if (NPC.spriteDirection == -1)
-                    backWingRot += MathHelper.Pi;
+                    sharedWingRot += MathHelper.Pi;
+                wingCached = true;
+
+                backWingPos = sharedWingPos - screenPos;
+                backWingRot = sharedWingRot;
             }
             spriteBatch.Draw(WingBack.Value, backWingPos, wingFrameBack, NPC.GetAlpha(drawColor), backWingRot, wingFrameBack.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
 
@@ -1296,15 +1323,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     spriteBatch.End();
 
                     var gd = Main.instance.GraphicsDevice;
-                    var effect = new BasicEffect(gd)
-                    {
-                        TextureEnabled = true,
-                        Texture = Body.Value,
-                        VertexColorEnabled = true,
-                        World = Main.GameViewMatrix.TransformationMatrix,
-                        View = Matrix.Identity,
-                        Projection = Matrix.CreateOrthographicOffCenter(0, Main.screenWidth, Main.screenHeight, 0, 0, 1)
-                    };
+                    var effect = GetBodyEffect(gd);
+                    effect.Texture = Body.Value;
+                    effect.World = Main.GameViewMatrix.TransformationMatrix;
+                    effect.View = Matrix.Identity;
+                    effect.Projection = Matrix.CreateOrthographicOffCenter(0, Main.screenWidth, Main.screenHeight, 0, 0, 1);
 
                     var prevBlend = gd.BlendState;
                     var prevRaster = gd.RasterizerState;
@@ -1319,7 +1342,6 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
                     gd.RasterizerState = prevRaster;
                     gd.BlendState = prevBlend;
-                    effect.Dispose();
 
                     spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);
                 }
@@ -1470,17 +1492,14 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
                 spriteBatch.Draw(LowerArmsFront.Value, lowerFrontArmPos, lowerFrontArmFrame, NPC.GetAlpha(drawColor), lowerFrontWorldRot, lowerFrontArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
             }
-            
+
             //front wing
             Vector2 frontWingPos = NPC.Center - screenPos;
             float frontWingRot = NPC.rotation;
-            if (hasHistory && !NPC.IsABestiaryIconDummy)
+            if (hasHistory && !NPC.IsABestiaryIconDummy && wingCached)
             {
-                (Vector2 wingPos, Vector2 wingForward) = GetBodyPoint(0.5f);
-                frontWingPos = wingPos - screenPos;
-                frontWingRot = wingForward.ToRotation();
-                if (NPC.spriteDirection == -1)
-                    frontWingRot += MathHelper.Pi;
+                frontWingPos = sharedWingPos - screenPos;
+                frontWingRot = sharedWingRot;
             }
             spriteBatch.Draw(WingFront.Value, frontWingPos, wingFrameFront, NPC.GetAlpha(drawColor), frontWingRot, wingFrameFront.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(true), 0);
             return false;
