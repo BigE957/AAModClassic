@@ -76,7 +76,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 {
                     Dust dust1;
                     Vector2 position1 = NPC.Center;
-                    dust1 = Main.dust[Dust.NewDust(position1, 20, 20, ModContent.DustType<Dusts.Discord_Dust>(), 0, 0, 0, default, 1f)];
+                    dust1 = Main.dust[Dust.NewDust(position1 - new Vector2(10, 10), 20, 20, ModContent.DustType<Dusts.Discord_Dust>(), 0, 0, 0, default, 1f)];
                     dust1.noGravity = false;
                     dust1.scale *= 1.3f;
                     dust1.velocity.Y -= 6;
@@ -188,7 +188,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     {
                         Dust dust1;
                         Vector2 position1 = NPC.Center;
-                        dust1 = Main.dust[Dust.NewDust(position1, 20, 20, ModContent.DustType<Dusts.Discord_Dust>(), 0, 0, 0, default, 1f)];
+                        dust1 = Main.dust[Dust.NewDust(position1 - new Vector2(10, 10), 20, 20, ModContent.DustType<Dusts.Discord_Dust>(), 0, 0, 0, default, 1f)];
                         dust1.noGravity = false;
                         dust1.scale *= 1.3f;
                         dust1.velocity.Y -= 6;
@@ -242,7 +242,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
             if (NPC.alpha <= 0)
             {
-                spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+                //spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
                 BaseDrawing.DrawAura(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, auraPercent, 1f, 0f, 0f, GetColorAlpha());
                 BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, GetColorAlpha());
                 return false;
