@@ -333,7 +333,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             player.endurance += Amount;
         }
 
-        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(Amount * 100);
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(Amount * -100, ChatUtils.IncreaseDecreaseTextType.IncreasesDecreases, true).FirstCharToUpper(), ChatUtils.GetDisplayNumber(Amount) * 100);
     }
 
     public class FishingPowerEffect(int amount) : EquipmentEffectData
@@ -366,7 +366,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             player.moveSpeed += Amount;
         }
 
-        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(Amount * 100);
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.GetDisplayNumber(Amount) * 100, ChatUtils.IncreaseOrDecreaseText(Amount));
     }
 
     public class MaxRunSpeedEffect(float amount) : EquipmentEffectData
@@ -377,7 +377,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             player.GetModPlayer<ZAAPlayer>().MaxMovespeedboost += Amount;
         }
 
-        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(Amount * 100);
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.GetDisplayNumber(Amount) * 100, ChatUtils.IncreaseOrDecreaseText(Amount));
     }
 
     public class WingTimeMaxEffect(int amount) : EquipmentEffectData
@@ -625,7 +625,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             player.manaCost += amount;
         }
 
-        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(Math.Abs(amount * 100), ChatUtils.IncreaseOrDecreaseText(amount, reduced: true));
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.GetDisplayNumber(amount) * 100, ChatUtils.IncreaseOrDecreaseText(amount, reduced: true));
     }
 
     public class ManaCostMultiplierEffect(float amount) : EquipmentEffectData
@@ -635,7 +635,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             player.manaCost *= amount;
         }
 
-        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(amount);
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(Math.Round(amount, 2));
     }
 
     public class MaxSentrySlotEffect(int amount) : EquipmentEffectData
@@ -655,7 +655,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             player.maxMinions += amount;
         }
 
-        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.IncreaseDecrease), Math.Abs(amount));
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.IncreaseDecrease), Math.Abs(Math.Round((float)amount, 2)));
     }
 
     public class ShieldOfCthulhuDashEffect : EquipmentEffectData
@@ -683,7 +683,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             player.pickSpeed -= amount;
         }
 
-        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount * -1, ChatUtils.IncreaseDecreaseTextType.IncreasesDecreases), Math.Abs(amount * 100));
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount * -1, ChatUtils.IncreaseDecreaseTextType.IncreasesDecreases), ChatUtils.GetDisplayNumber(amount) * 100);
     }
 
     public class AmmoCost75Effect : EquipmentEffectData
@@ -1123,16 +1123,47 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
                     }
                     if (damageMap.GetCritChance(currentClass) != 0 && !critAndDamageAdditiveAreSame)
                     {
-                        line = new TooltipLine(mod, "CritChanceLine", "increases crit by something (wip)");
+                        string increaseOrDecrease = "Increased";
+                        if (damageMap.GetCritChance(currentClass) < 0)
+                            increaseOrDecrease = "Decreased";
 
+                        string extraSpaceForGeneric = " ";
+                        if (currentClass == DamageClass.Generic)
+                            extraSpaceForGeneric = "";
+
+                        string adlibPath = Language.GetTextValue($"{rootPath}.ClassGlobalStats.CritChance");
+                        string increaseOrDecreasePath = Language.GetTextValue($"{rootPath}.{statModifierPath}.{increaseOrDecrease}");
+                        string damageTypePath = Language.GetTextValue($"{rootPath}.ClassGlobalStats.{currentClass.Name}");
+
+                        string finalTooltipText = Language.GetOrRegister(adlibPath).Format(Math.Abs(damageMap.GetCritChance(currentClass)), increaseOrDecreasePath, damageTypePath, extraSpaceForGeneric);
+                        line = new TooltipLine(mod, "CritChanceLine", finalTooltipText);
                         int index = list.FindIndex(x => x.Name == "Tooltip0");
                         if (index != -1)
                             list.Insert(index, line);
                     }
                     if (damageMap.GetAttackSpeed(currentClass) != 1)
                     {
-                        line = new TooltipLine(mod, "AttackSpeedLine", "increases attack speed by something (wip)");
+                        string increaseOrDecrease = "Increased";
+                        if (damageMap.GetAttackSpeed(currentClass) < 0)
+                            increaseOrDecrease = "Decreased";
 
+                        string extraSpaceForGeneric = " ";
+                        if (currentClass == DamageClass.Generic)
+                            extraSpaceForGeneric = "";
+
+                        string adlibPath = Language.GetTextValue($"{rootPath}.ClassGlobalStats.AttackSpeed");
+                        string increaseOrDecreasePath = Language.GetTextValue($"{rootPath}.{statModifierPath}.{increaseOrDecrease}");
+                        string damageTypePath = Language.GetTextValue($"{rootPath}.ClassGlobalStats.{currentClass.Name}");
+                        if (currentClass == DamageClass.Generic)
+                            damageTypePath = "attack";
+
+                        float damageToDisplay = damageMap.GetAttackSpeed(currentClass);
+                        if (damageToDisplay > 1)
+                            damageToDisplay -= 1;
+                        damageToDisplay *= 100;
+
+                        string finalTooltipText = Language.GetOrRegister(adlibPath).Format(ChatUtils.GetDisplayNumber(damageToDisplay), increaseOrDecreasePath, damageTypePath, extraSpaceForGeneric);
+                        line = new TooltipLine(mod, "AttackSpeedLine", finalTooltipText);
                         int index = list.FindIndex(x => x.Name == "Tooltip0");
                         if (index != -1)
                             list.Insert(index, line);
@@ -1263,10 +1294,10 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
                     damageToDisplay = input.Base;
                     break;
                 case StatModifierValueType.Additive:
-                    damageToDisplay = (int)((input.Additive - 1f) * 100f);
+                    damageToDisplay = ((input.Additive - 1f) * 100f);
                     break;
                 case StatModifierValueType.Multiplicative:
-                    damageToDisplay = (int)((input.Multiplicative) * 100f);
+                    damageToDisplay = (input.Multiplicative * 100f);
                     break;
                 case StatModifierValueType.Flat:
                     damageToDisplay = input.Flat;
@@ -1308,7 +1339,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             string damageOrKBText = Language.GetTextValue(damageOrKBPath);
             string andCritText = Language.GetTextValue(andCritPath);
 
-            string finalTooltipText = Language.GetOrRegister(currentDamageThingPath).Format(damageToDisplay, increaseOrDecreaseText, damageTypeText, extraSpaceForGeneric, damageOrKBText, andCritText);
+            string finalTooltipText = Language.GetOrRegister(currentDamageThingPath).Format(ChatUtils.GetDisplayNumber(damageToDisplay), increaseOrDecreaseText, damageTypeText, extraSpaceForGeneric, damageOrKBText, andCritText);
             finalTooltipText = finalTooltipText.FirstCharToUpper();
             return finalTooltipText;
         }

@@ -179,6 +179,8 @@ unofficial
 -baron bunnys visuals now work as intended 
 -baron bunny attack speed now properly scales with missing player hp
 -slightly reworked stripemans lucky leggings fishing from enemies mechanic. now immediately reels back lure on contact w enemy, chance to fish up loot is vastly increased
+-fixed most of aas mana cost decreases actually increasing your mana cost
+--this issue was so prevalent and balance-impacting im locking the fix to custom
 -
 
 crossmod

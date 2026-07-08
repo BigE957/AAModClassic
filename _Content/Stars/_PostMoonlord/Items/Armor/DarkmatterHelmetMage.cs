@@ -3,6 +3,7 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Projectiles;
 using AAModClassic.Rarities;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
@@ -71,7 +72,10 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
         public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Magic) += 0.10f;
-            AddEffect(new ManaCostMultiplierEffect(0.85f));
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddEffect(new ManaCostMultiplierEffect(0.85f));
+            else
+                AddEffect(new ManaCostEffect(0.15f));
 
             AddSetEffect<DarkmatterHelmetMageSetEffect>();
             AddSetEffect<DrawShadowLokisEffect>();

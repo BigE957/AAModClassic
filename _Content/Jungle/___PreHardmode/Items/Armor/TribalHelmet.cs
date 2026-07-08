@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
@@ -38,7 +39,10 @@ Increases maximum mana by 20"); */
             damageMap.GetCritChance(DamageClass.Magic) += 8;
             AddEffect(new MaxManaEffect(20));
 
-            AddSetEffect(new ManaCostMultiplierEffect(0.7f));
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddSetEffect(new ManaCostMultiplierEffect(0.70f));
+            else
+                AddSetEffect(new ManaCostEffect(0.30f));
             AddSetEffect<ManaFlowerEffect>();
         }
 

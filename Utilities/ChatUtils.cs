@@ -141,5 +141,13 @@ namespace AAModClassic.Utilities
         {
             return Language.GetTextValue($"Mods.AAModClassic.EquipStats.ClassGlobalStats.{damageType.Name}");
         }
+
+        public static double GetDisplayNumber(float input, bool absolute = true)
+        {
+            float input2 = input + 0.0000001f;
+            if (absolute)
+                return Math.Abs(Math.Round(input2, 4, MidpointRounding.AwayFromZero));
+            return Math.Round(input2, 4, MidpointRounding.AwayFromZero);
+        }
     }
 }

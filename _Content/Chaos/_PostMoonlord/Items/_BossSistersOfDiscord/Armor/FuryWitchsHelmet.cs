@@ -1,5 +1,6 @@
 ﻿using AAModClassic.Globals;
 using AAModClassic.Rarities;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
@@ -38,7 +39,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
             damageMap.GetDamage(DamageClass.Magic) += .1f;
             damageMap.GetCritChance(DamageClass.Magic) += 10;
             damageMap.GetDamage(DamageClass.Summon) += .1f;
-            AddEffect(new ManaCostMultiplierEffect(0.80f));
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddEffect(new ManaCostMultiplierEffect(0.70f));
+            else
+                AddEffect(new ManaCostEffect(0.20f));
             AddEffect(new MaxMinionSlotEffect(2));
             AddEffect(new MaxManaEffect(120));
 

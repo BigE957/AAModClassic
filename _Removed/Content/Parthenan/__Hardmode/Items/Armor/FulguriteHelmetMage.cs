@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
@@ -38,7 +39,11 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Armor
 			AddEffect(new MaxManaEffect(120));
 
 			AddSetEffect(new ManaCostMultiplierEffect(0.80f));
-			AddSetEffect<FulguriteHelmetSetEffect>();
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddSetEffect(new ManaCostMultiplierEffect(0.80f));
+            else
+                AddSetEffect(new ManaCostEffect(0.30f));
+            AddSetEffect<FulguriteHelmetSetEffect>();
         }
 
         public override void AddRecipes()

@@ -8,52 +8,22 @@ ChaosSlayer: {
 
 	ChaosSlayerHelmetMage: {
 		DisplayName: Chaos Slayer Hood
-		Tooltip:
-			'''
-			32% increased Magic damage
-			20% increased Magic critical strike chance
-			2% increased damage resistance
-			30% reduced Mana consumption
-			150 increased maximum mana
-			{$Armor.ChaosSlayer.SharedFlavorText}
-			'''
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
 	}
 
 	ChaosSlayerHelmetMelee: {
 		DisplayName: Chaos Slayer Kabuto
-		Tooltip:
-			'''
-			30% increased Melee damage & critical strike chance
-			5% increased damage resistance
-			15% increased melee speed
-			+25 Max Life
-			{$Armor.ChaosSlayer.SharedFlavorText}
-			'''
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
 	}
 
 	ChaosSlayerHelmetRanged: {
 		DisplayName: Chaos Slayer Visor
-		Tooltip:
-			'''
-			45% increased ranged damage
-			38% increased ranged critical strike chance
-			3% increased damage resistance
-			25% reduced ammo consumption
-			+15 Max Life
-			{$Armor.ChaosSlayer.SharedFlavorText}
-			'''
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
 	}
 
 	ChaosSlayerHelmetSummoner: {
 		DisplayName: Chaos Slayer Mask
-		Tooltip:
-			'''
-			70% increased minion damage
-			1% increased damage resistance
-			+6 maximum Minions
-			+2 maximum sentries 
-			{$Armor.ChaosSlayer.SharedFlavorText}
-			'''
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
 	}
 
 	ChaosSlayerLeggings: {

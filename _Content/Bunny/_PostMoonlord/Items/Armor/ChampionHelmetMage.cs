@@ -4,6 +4,7 @@ using AAModClassic._Content.Bunny._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
@@ -51,7 +52,10 @@ The armor of a champion feared across the land"); */
             damageMap.GetDamage(DamageClass.Generic) += .1f;
             damageMap.GetCritChance(DamageClass.Magic) += 25;
             AddEffect(new MaxManaEffect(150));
-            AddEffect(new ManaCostMultiplierEffect(0.75f));
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddEffect(new ManaCostMultiplierEffect(0.75f));
+            else 
+                AddEffect(new ManaCostEffect(0.25f));
 
             AddSetEffect<ChampionHelmetMageSetEffect>();
             AddSetEffect<ChampionHelmetMageSetDescEffect>();

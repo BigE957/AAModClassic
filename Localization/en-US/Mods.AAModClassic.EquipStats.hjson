@@ -9,8 +9,8 @@ ClassGlobalStats: {
 	SummonMeleeSpeedDamageClass: "{$EquipStats.ClassGlobalStats.SummonDamageClass}"
 	MagicSummonHybridDamageClass: magic and summon
 	ThrowingDamageClass: throwing
-	CritChance: ""
-	AttackSpeed: ""
+	CritChance: "{0}% {1} {2}{3}critical strike chance"
+	AttackSpeed: "{0}% {1} {2}{3}speed"
 	ArmorPenetration: "{0} {1}{2}armor penetration by {3}"
 
 	StatModifier: {
@@ -50,9 +50,9 @@ Misc.Nothing: ""
 Effect: {
 	ManaFlowerEffect: Automatically use mana potions when needed
 	CrimsonArmorSetBonusEffect: Greatly increased life regen
-	EnduranceEffect: Reduces damage taken by {0}%
+	EnduranceEffect: "{0} damage taken by {1}%"
 	MaxLifeEffect: "{0} maximum life by {1}"
-	MovementSpeedEffect: "{0}% increased movement speed"
+	MovementSpeedEffect: "{0}% {1} movement speed"
 	BrokenCodeTeleportEffect:
 		'''
 		Allows you to glitch with a 5 second cooldown
@@ -97,7 +97,7 @@ Effect: {
 		[c/{3}:Current Damage Boost: +{4}% {5} damage]
 		Current Speed Boost: +{6}% movement speed and max run speed
 		'''
-	MaxRunSpeedEffect: "{0}% increased run speed"
+	MaxRunSpeedEffect: "{0}% {1} run speed"
 	BlackBeltEffect: Gives a chance to dodge attacks
 
 	MasterNinjaMobilityEffect: {
@@ -266,7 +266,6 @@ Effect: {
 	ChaosHelmetSummonerSetEffect: A dragon soul ravages foes for you
 	OlympianHelmetSetDescEffect: "'They will fear your precision, yet you will fear the slightest gust'"
 	HoppingHoodlumHelmetSetEffect: While below half health, your movement speed, melee damage, and summon damage are increased by 50%
-	ManaCostMultiplierEffect: Multiplies mana cost by {0}
 	ChampionHelmetMageSetDescEffect: "'Energy emanates from your body...'"
 	ChampionHelmetMageSetEffect:
 		'''
@@ -470,4 +469,5 @@ Effect: {
 		Automatically paints or coats placed objects
 		'''
 	DangersenseEffect: Allows you to see nearby danger sources
+	ManaCostMultiplierEffect: Multiplies mana cost by {0}
 }

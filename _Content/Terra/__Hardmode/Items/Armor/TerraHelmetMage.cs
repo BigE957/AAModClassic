@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Jungle.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
@@ -45,7 +46,10 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
             AddEffect(new ManaCostEffect(0.3f));
 
             AddSetEffect<ManaFlowerEffect>();
-            AddSetEffect(new ManaCostMultiplierEffect(0.60f));
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddSetEffect(new ManaCostMultiplierEffect(0.60f));
+            else
+                AddSetEffect(new ManaCostEffect(0.40f));
             AddSetEffect<TerraHelmetMageSetEffect>();
         }
 

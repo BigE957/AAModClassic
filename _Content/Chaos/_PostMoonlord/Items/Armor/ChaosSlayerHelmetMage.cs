@@ -4,6 +4,7 @@ using AAModClassic._Content.Chaos.Buffs;
 using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
@@ -70,7 +71,10 @@ The power of discordian rage radiates from this hood"); */
             damageMap.GetDamage(DamageClass.Magic) += .32f;
             damageMap.GetCritChance(DamageClass.Magic) += 20;
             AddEffect(new EnduranceEffect(0.02f));
-            AddEffect(new ManaCostMultiplierEffect(0.70f));
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddEffect(new ManaCostMultiplierEffect(0.70f));
+            else
+                AddEffect(new ManaCostEffect(0.30f));
             AddEffect(new MaxManaEffect(150));
 
             AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Magic, (ModContent.BuffType<DiscordianInferno_Buff>(), 300)));

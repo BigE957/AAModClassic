@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Rarities;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
@@ -33,8 +34,11 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Armor
 
         public override void RegisterEquipEffects()
         {
-			AddEffect(new ManaCostMultiplierEffect(0.75f));
-			AddEffect(new MaxManaEffect(50));
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddEffect(new ManaCostMultiplierEffect(0.75f));
+            else
+                AddEffect(new ManaCostEffect(0.25f));
+            AddEffect(new MaxManaEffect(50));
         }
 
         public override void AddRecipes()

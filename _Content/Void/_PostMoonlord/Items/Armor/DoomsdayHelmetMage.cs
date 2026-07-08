@@ -2,6 +2,7 @@
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Rarities;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
@@ -42,8 +43,11 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Armor
             damageMap.GetDamage(DamageClass.Magic) += .25f;
             damageMap.GetCritChance(DamageClass.Magic) += 18;
 
-			AddSetEffect(new ManaCostMultiplierEffect(0.7f));
-			AddSetEffect<HunterEffect>();
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddSetEffect(new ManaCostMultiplierEffect(0.70f));
+            else
+                AddSetEffect(new ManaCostEffect(0.80f));
+            AddSetEffect<HunterEffect>();
 			AddSetEffect<NightOwlEffect>();
 			AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Magic, (BuffID.BrokenArmor, 1000)));
             AddSetEffect<DoomsdayHelmetSetDescEffect>();

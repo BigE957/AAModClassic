@@ -30,9 +30,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
 
         public override void RegisterEquipEffects()
         {
-            damageMap.GetDamage(DamageClass.Melee) += .15f;
-            damageMap.GetDamage(DamageClass.Ranged) += .15f;
-            damageMap.GetAttackSpeed(DamageClass.Melee) += .08f;
+            damageMap.GetDamage(DamageClass.Melee) += 0.15f;
+            damageMap.GetAttackSpeed(DamageClass.Melee) += 0.08f;
+            damageMap.GetDamage(DamageClass.Ranged) += 0.15f;
 			AddEffect(new MovementSpeedEffect(0.15f));
 			AddEffect(new MaxRunSpeedEffect(0.15f));
         }
