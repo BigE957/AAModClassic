@@ -7,11 +7,12 @@ Keybinds: {
 	Mods: {
 		AAModClassic: {
 			Keybinds: {
-				Rifthotkey.DisplayName: Mods. A A Mod Classic. Keybinds. Rifthotkey
-				RiftReturnhotkey.DisplayName: Mods. A A Mod Classic. Keybinds. Rift Returnhotkey
-				AccessoryAbilityKey.DisplayName: Mods. A A Mod Classic. Keybinds. Accessory Ability Key
-				ArmorAbilityKey.DisplayName: Mods. A A Mod Classic. Keybinds. Armor Ability Key
-				TimeStoneKey.DisplayName: Mods. A A Mod Classic. Keybinds. Time Stone Key
+				InfinityHotKey.DisplayName: Snap
+				Rifthotkey.DisplayName: Rift Home
+				RiftReturnhotkey.DisplayName: Rift Back
+				AccessoryAbilityKey.DisplayName: Accessory Ability
+				ArmorAbilityKey.DisplayName: Armor Ability
+				TimeStoneKey.DisplayName: Time Stone
 			}
 		}
 	}
@@ -22,23 +23,18 @@ Configs: {
 		DisplayName: AA Config Client
 
 		NoAATownNPC: {
-			Label: "{$Mods.AAModClassic.Common.AATownNPC}"
-			Tooltip: "{$Mods.AAModClassic.Common.AATownNPCInfo}"
+			Label: Disable AA Town NPCs
+			Tooltip: Disables this mod's town npcs from spawning, for those who'd prefer to have other npcs spawn quicker. Note: This does not affect Anubis due to him being key to progression.
 		}
 
 		NoBossDialogue: {
-			Label: "{$Mods.AAModClassic.Common.DisableBossDialogue}"
-			Tooltip: "{$Mods.AAModClassic.Common.DisableBossDialogueInfo}"
-		}
-
-		AAStyleMainPage: {
-			Label: "{$Mods.AAModClassic.Common.AAStyleMainPage}"
-			Tooltip: "{$Mods.AAModClassic.Common.AAStyleMainPageInfo}"
+			Label: Disable Boss Dialogue
+			Tooltip: Disables dialogue from bosses to prevent chatspam. Also makes animations that have boss dialogue go by a little quicker.
 		}
 
 		DisableNewAAReminderMessage: {
-			Label: Disable New A A Reminder Message
-			Tooltip: ""
+			Label: Disable Ancients Awakened Reminder Message
+			Tooltip: Disables the reminder message on world join to check out Ancients Awakened [BETA].
 		}
 
 		EnableContentReplacement: {
@@ -47,18 +43,18 @@ Configs: {
 		}
 
 		AncientIntroText: {
-			Label: Ancient Intro Text
-			Tooltip: ""
+			Label: Boss Title Cards
+			Tooltip: Toggles the Title Cards that some later bosses display when spawned.
 		}
 
 		DisableAnticheat: {
 			Label: Disable Anticheat
-			Tooltip: ""
+			Tooltip: Disables some of the mod's anti-cheat features.
 		}
 
 		DisablePinchThemes: {
 			Label: Disable Pinch Themes
-			Tooltip: ""
+			Tooltip: Disables the theme that plays when endgame bosses are low on health.
 		}
 	}
 }

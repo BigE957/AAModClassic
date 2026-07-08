@@ -45,6 +45,7 @@ Developers and Contributors behind this port:
 - Big E
 - CaligulasAquarium
 - ProduceVGM
+- MaestroVGM
 - Sulphur
 - Pil
 

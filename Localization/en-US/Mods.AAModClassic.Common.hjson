@@ -86,14 +86,7 @@ InfernoChest_Locked: Locked Inferno Chest
 MireChest_Locked: Locked Mire Chest
 DoomsdayChest_Locked: Locked Doomsday Chest
 GreedChest_Locked: Locked Greed Chest
-#hotkey
 
-InfinityHotKey: Snap
-Rifthotkey: Rift Home
-RiftReturnhotkey: Rift Back
-AccessoryAbilityKey: AA Accessory Ability
-ArmorAbilityKey: AA Armor Ability
-TimeStonehotKey: Time Stone
 #TownNPCName
 
 GoblinSlayerName: Goblin Slayer
@@ -233,14 +226,6 @@ RecipeGroups: {
 	Misc.DevBag: Dev Bag
 }
 
-#AAConfig
-
-AATownNPC: Disable AA Town NPCs
-AATownNPCInfo: Disables this mod's town npcs from spawning, for those who'd prefer to have other npcs spawn quicker. Note: This does not affect Anubis due to him being key to progression.
-DisableBossDialogue: Disable Boss Dialogue
-DisableBossDialogueInfo: Disables dialogue from bosses to prevent chatspam. Also makes animations that have boss dialogue go by a little quicker.
-DisableNewAAReminderMessage: Disable Ancients Awakened Reminder Message
-DisableNewAAReminderMessageInfo: Disables the reminder message on world join to check out Ancients Awakened [BETA].
 NPCarrive: has awoken!
 #GlobalNPCSInfo
 
