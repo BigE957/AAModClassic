@@ -482,13 +482,13 @@ MusicDisplay: {
 	}
 
 	SoulOfCthulhu: {
-		Author: by Keisuke Ito
-		DisplayName: Dharkon
+		Author: by MaestroVGM
+		DisplayName: Recondite Rhapsody (Calm)
 	}
 
 	Cthulhu: {
-		Author: by Hideki Sakamoto
-		DisplayName: Galeem/Dharkon
+		Author: by MaestroVGM
+		DisplayName: Recondite Rhapsody (Combat)
 	}
 
 	InfinityZero: {

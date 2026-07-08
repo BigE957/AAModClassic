@@ -240,7 +240,7 @@ SunkenShipBox: {
 
 SoulOfCthulhuBox: {
 	DisplayName: Music Box (Soul of Cthulhu)
-	Tooltip: Plays 'Wheel Of Misfortune' by ProduceVGM
+	Tooltip: Plays 'Recondite Rhapsody (Calm)' by MaestroVGM
 }
 
 SunkenShipPreSoCBox: {
@@ -250,5 +250,5 @@ SunkenShipPreSoCBox: {
 
 CthulhuBox: {
 	DisplayName: Music Box (Cthulhu)
-	Tooltip: Plays 'Soul Ultimatum' by ProduceVGM
+	Tooltip: Plays 'Recondite Rhapsody (Combat)' by MaestroVGM
 }
