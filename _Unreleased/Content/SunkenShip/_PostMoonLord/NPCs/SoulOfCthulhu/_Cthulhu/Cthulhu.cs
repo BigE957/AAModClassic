@@ -291,7 +291,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             expert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EXSoul>()));
 
             LeadingConditionRule loreCondition = new(new LoreItemDropCondition<Cthulhu>());
-            expert.OnSuccess(loreCondition.OnSuccess(new PerPlayerDropRule(ModContent.ItemType<SoulOfCthulhuLore>(), 1)));
+            expert.OnSuccess(loreCondition).OnSuccess(new PerPlayerDropRule(ModContent.ItemType<SoulOfCthulhuLore>(), 1)));
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SoulOfCthulhuTrophy>(), 10));
 
