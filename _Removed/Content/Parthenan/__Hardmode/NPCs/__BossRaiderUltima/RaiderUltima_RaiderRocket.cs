@@ -1,3 +1,4 @@
+using AAModClassic.Dusts;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
@@ -79,7 +80,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             }
             if (NPC.ai[0] != 3f)
             {
-                int num1008 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.FulguriteDust>(), 0f, 0f, 100, default(Color), 0.5f);
+                int num1008 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<FulguriteDust>(), 0f, 0f, 100, default(Color), 0.5f);
                 Main.dust[num1008].noGravity = true;
                 Main.dust[num1008].velocity = NPC.velocity / 5f;
                 Vector2 vector125 = new Vector2(-10f, 10f);
@@ -150,7 +151,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
                 }
                 if (Main.rand.Next(4) == 0)
                 {
-                    int num1015 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.FulguriteDust>(), 0f, 0f, 100, default(Color), 0.5f);
+                    int num1015 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<FulguriteDust>(), 0f, 0f, 100, default(Color), 0.5f);
                     Main.dust[num1015].noGravity = true;
                     Main.dust[num1015].velocity *= 2f;
                     Main.dust[num1015].velocity = Main.dust[num1015].velocity / 2f + Vector2.Normalize(Main.dust[num1015].position - NPC.Center);
@@ -229,14 +230,14 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
                 }
                 for (int num1019 = 0; num1019 < 40; num1019++)
                 {
-                    int num1020 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.FulguriteDust>(), 0f, 0f, 100, default(Color), 0.5f);
+                    int num1020 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<FulguriteDust>(), 0f, 0f, 100, default(Color), 0.5f);
                     Main.dust[num1020].noGravity = true;
                     Main.dust[num1020].velocity *= 2f;
                     Main.dust[num1020].position = ((float)Main.rand.NextDouble() * 6.28318548f).ToRotationVector2() * ((float)Main.rand.NextDouble() * 96f) + NPC.Center;
                     Main.dust[num1020].velocity = Main.dust[num1020].velocity / 2f + Vector2.Normalize(Main.dust[num1020].position - NPC.Center);
                     if (Main.rand.Next(2) == 0)
                     {
-                        num1020 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.FulguriteDust>(), 0f, 0f, 100, default(Color), 0.9f);
+                        num1020 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<FulguriteDust>(), 0f, 0f, 100, default(Color), 0.9f);
                         Main.dust[num1020].noGravity = true;
                         Main.dust[num1020].velocity *= 1.2f;
                         Main.dust[num1020].position = ((float)Main.rand.NextDouble() * 6.28318548f).ToRotationVector2() * ((float)Main.rand.NextDouble() * 96f) + NPC.Center;
@@ -244,7 +245,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
                     }
                     if (Main.rand.Next(4) == 0)
                     {
-                        num1020 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.FulguriteDust>(), 0f, 0f, 100, default(Color), 0.7f);
+                        num1020 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<FulguriteDust>(), 0f, 0f, 100, default(Color), 0.7f);
                         Main.dust[num1020].velocity *= 1.2f;
                         Main.dust[num1020].position = ((float)Main.rand.NextDouble() * 6.28318548f).ToRotationVector2() * ((float)Main.rand.NextDouble() * 96f) + NPC.Center;
                         Main.dust[num1020].velocity = Main.dust[num1020].velocity / 2f + Vector2.Normalize(Main.dust[num1020].position - NPC.Center);
@@ -267,7 +268,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             int num236 = 0;
             while ((double)num236 < hit.Damage / (double)(NPC.lifeMax * 50))
             {
-                int num237 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.FulguriteDust>(), (float)(-1 * hit.HitDirection), -1f, 0, default(Color), 1f);
+                int num237 = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<FulguriteDust>(), (float)(-1 * hit.HitDirection), -1f, 0, default(Color), 1f);
                 Main.dust[num237].position = Vector2.Lerp(Main.dust[num237].position, NPC.Center, 0.25f);
                 Main.dust[num237].scale = 0.5f;
                 num236++;

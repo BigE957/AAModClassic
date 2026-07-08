@@ -3,6 +3,7 @@ using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
+using AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
@@ -29,6 +30,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using static AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.AkumaAHead;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 {
@@ -268,6 +270,12 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 
             npcLoot.Add(firstKill);
             npcLoot.Add(shenDefeated);
+
+            LeadingConditionRule anceintsDownAndRemoved = new(new PostLateAncientsAndRemovedWorldAndExpert());
+
+            anceintsDownAndRemoved.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SpaceStone>(), 50));
+
+            npcLoot.Add(anceintsDownAndRemoved);
         }
 
         public class FirstTimeKillingYamataA : IItemDropRuleCondition, IProvideItemConditionDescription

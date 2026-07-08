@@ -74,6 +74,7 @@ using AAModClassic._Content.Void.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Void.__Hardmode.NPCs;
 using AAModClassic._Content.Void._PostMoonlord.NPCs;
 using AAModClassic._CrossMod;
+using AAModClassic._Removed.Content.GoblinArmy._PostMoonlord.Items.Consumables;
 using AAModClassic._Unreleased;
 using AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs;
@@ -319,6 +320,11 @@ namespace AAModClassic.Globals
             if (npc.type == NPCID.FireImp)
             {
                 npc.DropLoot(ModContent.ItemType<DevilSilk>(), Main.rand.Next(2, 3));
+            }
+
+            if (npc.type == NPCID.GoblinSummoner && AAWorld.downedAllAncients && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed) && Main.rand.NextBool(4))
+            {
+                npc.DropLoot(ModContent.ItemType<GoblinTinkererDoll>());
             }
 
             if (npc.type == NPCID.RedDevil && Main.rand.NextBool(3))

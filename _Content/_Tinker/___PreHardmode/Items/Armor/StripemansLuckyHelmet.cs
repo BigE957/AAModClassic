@@ -1,5 +1,4 @@
 ﻿using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
-using AAModClassic._Content.Bunny._PostMoonlord.Items.Armor;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;

@@ -1,5 +1,4 @@
-﻿using AAModClassic._Content._EX._PostMoonlord.Items.Accessories;
-using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
@@ -8,7 +7,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
+namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
 {
     public class TheBookOfRunesEffect : EquipmentEffectData
     {
@@ -39,15 +38,15 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
 
                 if (Player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunesEffect_TerraRune>()] < 1 && slotscanuse > 1f)
                 {
-                    Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<TheBookOfRunesEffect_TerraRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(1), 0, Player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<TheBookOfRunesEffect_TerraRune>(), (int)Player.GetDamage(DamageClass.Summon).ApplyTo(1), 0, Player.whoAmI, 0f, 0f);
                 }
                 if (Player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunesEffect_ChaosRune>()] < 1 && slotscanuse > 2f)
                 {
-                    Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<TheBookOfRunesEffect_ChaosRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(400), 4f, Player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<TheBookOfRunesEffect_ChaosRune>(), (int)Player.GetDamage(DamageClass.Summon).ApplyTo(400), 4f, Player.whoAmI, 0f, 0f);
                 }
                 if (Player.ownedProjectileCounts[ModContent.ProjectileType<TheBookOfRunesEffect_VoidRune>()] < 1 && slotscanuse > 3f)
                 {
-                    Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<TheBookOfRunesEffect_VoidRune>(), (int)(Player.GetDamage(DamageClass.Summon)).ApplyTo(800), 2f, Player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center.X, Player.Center.Y, 0f, -1f, ModContent.ProjectileType<TheBookOfRunesEffect_VoidRune>(), (int)Player.GetDamage(DamageClass.Summon).ApplyTo(800), 2f, Player.whoAmI, 0f, 0f);
                 }
             }
         }

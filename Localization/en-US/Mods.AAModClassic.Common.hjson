@@ -328,4 +328,5 @@ Conditions: {
 	IsMaster: In Master Mode
 	Unofficial: In Unoffifical worlds
 	NotUnofficial: In Non-unofficial worlds
+	PostLateAncientsAndRemovedWorld: Post-Late Ancients
 }

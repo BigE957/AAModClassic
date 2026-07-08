@@ -1,4 +1,4 @@
-﻿APageOfTheRuneBookEffect_BunnyRune.DisplayName: Bunny Rune
+APageOfTheRuneBookEffect_BunnyRune.DisplayName: Bunny Rune
 APageOfTheRuneBookEffect_DiscordRune.DisplayName: Discord Rune
 APageOfTheRuneBookEffect_EnergyRune.DisplayName: Energy Rune
 CerberusWhistle_Cerberus.DisplayName: Cerberus Whistle_ Cerberus
@@ -900,4 +900,5 @@ InfinityZero_InfinityZeroShot.DisplayName: Infinity Zero_ Infinity Zero Shot
 ShockwaveBoom.DisplayName: Shockwave Boom
 DummyExplosionTerra.DisplayName: Dummy Explosion
 SistersTitle.DisplayName: Sisters Title
-Title.DisplayName: Title
+Title.DisplayName: Title
+InfinityGauntletEffect_Snap.DisplayName: Infinity Gauntlet Effect_ Snap

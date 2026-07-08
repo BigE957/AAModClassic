@@ -667,4 +667,9 @@ Impaled_Buff: {
 SpearStuck_Buff: {
 	DisplayName: Speared
 	Description: There's a spear stuck in you. Ouch.
+}
+
+InfinityGauntletEffect_InfinityBurnout: {
+	DisplayName: Infinity Burnout
+	Description: They didn't go for the head.
 }

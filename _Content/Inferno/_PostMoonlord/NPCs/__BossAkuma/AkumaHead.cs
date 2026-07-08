@@ -5,6 +5,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
+using AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
@@ -23,6 +24,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 {
@@ -565,6 +567,12 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             notExpertRule.OnSuccess(loreCondition.OnSuccess(new PerPlayerDropRule(ModContent.ItemType<AkumaLore>(), 1)));
 
             npcLoot.Add(notExpertRule);
+
+            LeadingConditionRule anceintsDownAndRemoved = new(new PostLateAncientsAndRemovedWorldAndNotExpert());
+
+            anceintsDownAndRemoved.OnSuccess(ItemDropRule.Common(ModContent.ItemType<PowerStone>(), 50));
+
+            npcLoot.Add(anceintsDownAndRemoved);
         }
 
         public override void HitEffect(NPC.HitInfo hit)

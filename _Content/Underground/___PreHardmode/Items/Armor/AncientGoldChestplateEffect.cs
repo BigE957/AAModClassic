@@ -12,7 +12,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
+namespace AAModClassic._Content.Underground.___PreHardmode.Items.Armor
 {
     public class AncientGoldChestplateEffect : EquipmentEffectData
     {
@@ -35,7 +35,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
             {
                 if (TileID.Sets.Conversion.Stone[type] && Main.rand.NextBool(50))
                 {
-                    Item.NewItem(Item.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, ItemID.GoldCoin, 1, false, 0, false, false);
+                    Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 32, 32, ItemID.GoldCoin, 1, false, 0, false, false);
                 }
             }
         }

@@ -3,6 +3,7 @@ using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Consumab
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
+using AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories;
 using AAModClassic.UI.Core.BestiaryBackgrounds;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
@@ -12,6 +13,7 @@ using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler
 {
@@ -79,6 +81,12 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nigh
 
             npcLoot.Add(starGenned);
             npcLoot.Add(notExpert);
+
+            LeadingConditionRule anceintsDownAndRemoved = new(new PostLateAncientsAndRemovedWorld());
+
+            anceintsDownAndRemoved.OnSuccess(ItemDropRule.Common(ModContent.ItemType<TimeStone>(), 50));
+
+            npcLoot.Add(anceintsDownAndRemoved);
         }
     }
 }

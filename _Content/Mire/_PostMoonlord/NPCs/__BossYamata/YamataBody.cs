@@ -6,6 +6,7 @@ using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
+using AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
@@ -30,6 +31,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 {
@@ -276,6 +278,12 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             notExpertRule.OnSuccess(loreCondition.OnSuccess(new PerPlayerDropRule(ModContent.ItemType<YamataLore>(), 1)));
 
             npcLoot.Add(notExpertRule);
+
+            LeadingConditionRule anceintsDownAndRemoved = new(new PostLateAncientsAndRemovedWorldAndNotExpert());
+
+            anceintsDownAndRemoved.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SpaceStone>(), 50));
+
+            npcLoot.Add(anceintsDownAndRemoved);
         }
 
         public int playerTooFarDist = 800;

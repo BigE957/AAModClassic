@@ -1,4 +1,3 @@
-using AAModClassic._Content._Dev.__Hardmode.Items.Accessories;
 using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic._Content.Mire.Buffs;

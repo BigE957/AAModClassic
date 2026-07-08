@@ -102,6 +102,7 @@ namespace AAModClassic
         internal static ModKeybind ArmorAbilityKey;
         internal static ModKeybind Rift;
         internal static ModKeybind RiftReturn;
+        internal static ModKeybind TimeStoneKey;
 
         // UI
         internal UserInterface TerratoolInterface;
@@ -470,8 +471,10 @@ namespace AAModClassic
             RiftReturn = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.RiftReturnhotkey"), "X");
 
             AccessoryAbilityKey = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.AccessoryAbilityKey"), "U");
-            ArmorAbilityKey = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.ArmorAbilityKey"), "Y"); 
-            
+            ArmorAbilityKey = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.ArmorAbilityKey"), "Y");
+
+            TimeStoneKey = KeybindLoader.RegisterKeybind(this, Language.GetTextValue("Mods.AAModClassic.Keybinds.TimeStoneKey"), "K");
+
             On_Wiring.ActuateForced += Wiring_ActuateForced;
             On_Wiring.Actuate += Actuate;
 
@@ -624,6 +627,7 @@ namespace AAModClassic
             RiftReturn = null;
             AccessoryAbilityKey = null;
             ArmorAbilityKey = null;
+            TimeStoneKey = null;
         }
 
         private void Wiring_ActuateForced(Terraria.On_Wiring.orig_ActuateForced orig, int i, int j)

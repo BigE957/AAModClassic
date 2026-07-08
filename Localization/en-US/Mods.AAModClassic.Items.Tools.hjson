@@ -288,7 +288,7 @@ CodeMagnet: {
 	Tooltip:
 		'''
 		Pulls items to you by moving its code closer to you
-		   Right click to deactivate effects
+		Right click to deactivate effects
 		'''
 }
 
@@ -297,7 +297,7 @@ CodeMagnetOff: {
 	Tooltip:
 		'''
 		Pulls items to you by moving its code closer to you
-		   Effects are currently inactive, Right click to reactivate
+		Effects are currently inactive, Right click to reactivate
 		'''
 }
 
@@ -325,7 +325,7 @@ GravitronCentrifuge: {
 	Tooltip:
 		'''
 		Provides a great deal of centrifugal force, granting standard gravity in space
-		   Right click to deactivate effects
+		Right click to deactivate effects
 		'''
 }
 
@@ -334,6 +334,6 @@ GravitronCentrifugeOff: {
 	Tooltip:
 		'''
 		Provides a great deal of centrifugal force, granting standard gravity in space
-		   Effects are currently inactive, Right click to reactivate
+		Effects are currently inactive, Right click to reactivate
 		'''
 }
