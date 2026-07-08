@@ -50,7 +50,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             AAAI.AIShadowflameGhost(NPC, ref NPC.ai, false, 660f, 0.3f, 15f, 0.2f, 8f, 5f, 10f, 0.4f, 0.4f, 0.95f, 5f);
             if (!NPC.AnyNPCs(ModContent.NPCType<YamataABody>()))
             {
-                //NPC.life = 0;
+                NPC.life = 0;
             }
             if (NPC.alpha != 0)
             {
