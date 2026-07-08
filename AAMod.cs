@@ -113,6 +113,7 @@ namespace AAModClassic
         internal TerratoolZUI TerratoolZState;
         internal TerratoolSUI TerratoolSState;
         internal TerratoolKipUI TerratoolKipState;
+        internal TerratoolLizUI TerratoolLizState;
         internal TerratoolGroxUI TerratoolGroxState;
         internal TerratoolEXUI TerratoolEXState;
 
