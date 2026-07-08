@@ -1,3 +1,4 @@
+using AAModClassic._Vanilla.Facsimiles._1._3._5._3;
 using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -7,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons
 {
-    public class MushrockStaff_Rock : ModProjectile
+    public class MushrockStaff_Rock : BoulderStaffOfEarthFacsimile
     {
         public override void SetStaticDefaults()
         {
@@ -16,7 +17,8 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
 
         public override void SetDefaults()
         {
-            Projectile.CloneDefaults(ProjectileID.BoulderStaffOfEarth);
+            //Projectile.CloneDefaults(ProjectileID.BoulderStaffOfEarth);
+            base.SetDefaults();
             Projectile.penetrate = 1;  
 			Projectile.friendly = true;
 			Projectile.hostile = false;

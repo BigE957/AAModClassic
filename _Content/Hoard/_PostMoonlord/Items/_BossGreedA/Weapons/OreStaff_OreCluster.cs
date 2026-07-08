@@ -1,3 +1,4 @@
+using AAModClassic._Vanilla.Facsimiles._1._3._5._3;
 using Microsoft.Xna.Framework;
 using System.Linq;
 using Terraria;
@@ -7,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
 {
-    public class OreStaff_OreCluster : ModProjectile
+    public class OreStaff_OreCluster : BoulderStaffOfEarthFacsimile
     {
         public override void SetStaticDefaults()
         {
@@ -16,7 +17,8 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
 
         public override void SetDefaults()
         {
-            Projectile.CloneDefaults(ProjectileID.BoulderStaffOfEarth);
+            //Projectile.CloneDefaults(ProjectileID.BoulderStaffOfEarth);
+            base.SetDefaults();
             Projectile.penetrate = 1;  
             Projectile.width = 44;
             Projectile.height = 44;
