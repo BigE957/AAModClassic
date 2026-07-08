@@ -625,7 +625,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             player.manaCost += amount;
         }
 
-        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.GetDisplayNumber(amount) * 100, ChatUtils.IncreaseOrDecreaseText(amount, reduced: true));
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.GetDisplayNumber(amount) * 100, ChatUtils.IncreaseOrDecreaseText(amount * -100, reduced: true));
     }
 
     public class ManaCostMultiplierEffect(float amount) : EquipmentEffectData
