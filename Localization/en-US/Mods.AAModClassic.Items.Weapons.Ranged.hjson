@@ -227,7 +227,7 @@ FulguriteTazerblaster: {
 
 Annihilator: {
 	DisplayName: Annihilator
-	Tooltip: ""
+	Tooltip: Fires a quantum laser that creates an immensely powerful singularity
 }
 
 GameRaider: {
