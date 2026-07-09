@@ -1175,9 +1175,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                         Alpha.G = (byte)(float)(255 - internalAI[4] * 3);
                         Alpha.B = (byte)(float)(255 - internalAI[4] * 3);
                         Alpha.A = (byte)(float)(255 - internalAI[4] * 3);
-                        spriteBatch.Draw(texture, playerLocation - new Vector2(texture.Width/2 * .6f * scaleFactor, texture.Height/2 * .6f * scaleFactor + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(Alpha), 0f, default, 0.6f * scaleFactor, SpriteEffects.None, 0f);
+                        spriteBatch.Draw(texture, playerLocation - new Vector2(texture.Width/2 * .6f * scaleFactor, texture.Height/2 * .6f * scaleFactor + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(Alpha), 0f, default, 0.6f * scaleFactor, NPC.SpriteEffectDirection(true), 0f);
                     }
-                    spriteBatch.Draw(texture, playerLocation - new Vector2(texture.Width/2 * .6f, texture.Height/2 * .6f + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(drawColor) * (0.6f + 0.4f * scaleFactor2), 0f, default, 0.6f, SpriteEffects.None, 0f);
+                    spriteBatch.Draw(texture, playerLocation - new Vector2(texture.Width/2 * .6f, texture.Height/2 * .6f + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(drawColor) * (0.6f + 0.4f * scaleFactor2), 0f, default, 0.6f, NPC.SpriteEffectDirection(true), 0f);
                 }
             }
             else if(SHADOWDOG && !Invisible)
@@ -1197,7 +1197,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             {
                 BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
             }
-            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
             if (Invisible) 
                 return false;
             
