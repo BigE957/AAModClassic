@@ -1108,9 +1108,9 @@ namespace AAModClassic._CrossMod
                         string path = ModContent.GetInstance<BiomiteCore>().Texture;
                         Texture2D coreTex = ModContent.Request<Texture2D>(path).Value;
                         Rectangle coreFrame = coreTex.Frame(1, 8);
-                        Texture2D shellTex = ModContent.Request<Texture2D>(path + "Shell").Value;
+                        Texture2D shellTex = ModContent.Request<Texture2D>(path + "_Front").Value;
                         Rectangle shellFrame = shellTex.Frame(1, 4, 0, 3);
-                        Texture2D backTex = ModContent.Request<Texture2D>(path + "Back").Value;
+                        Texture2D backTex = ModContent.Request<Texture2D>(path + "_Back").Value;
                         Vector2 centered = new(rect.Center.X, rect.Center.Y);
                         Main.spriteBatch.Draw(backTex, centered, null, color, 0, backTex.Size() * 0.5f, 1.5f, SpriteEffects.None, 0f);
                         Main.spriteBatch.Draw(shellTex, centered, shellFrame, color, 0, shellFrame.Size() * 0.5f, 1.5f, SpriteEffects.None, 0f);
