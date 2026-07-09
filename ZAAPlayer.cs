@@ -2865,8 +2865,8 @@ namespace AAModClassic
 
                 if (HasAndCanDraw(drawPlayer, ModContent.ItemType<TaiyangBaolei>()))
                 {
-                    string texturePath = Main.dayTime ? "Glowmasks/TaiyangBaoleiA_Shield_Glow" : "Glowmasks/TaiyangBaolei_Shield_Glow";
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/" + texturePath).Value, drawInfo.cShield, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
+                    string texturePath = Main.dayTime ? FilePathUtils.TexturePath<TaiyangBaolei>() + "A_Shield_Glow" : FilePathUtils.TexturePath<TaiyangBaolei>() + "_Shield_Glow";
+                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>(texturePath).Value, drawInfo.cShield, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 }
             }
         }
@@ -2921,8 +2921,8 @@ namespace AAModClassic
 
                 if (HasAndCanDraw(drawPlayer, ModContent.ItemType<Naitokurosu>()))
                 {
-                    string texturePath = Main.dayTime ? "Glowmasks/Naitokurosu_Neck_Glow" : "Glowmasks/NaitokurosuA_Neck_Glow";
-                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>("AAModClassic/" + texturePath).Value, drawInfo.cShield, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
+                    string texturePath = Main.dayTime ? FilePathUtils.TexturePath<Naitokurosu>() + "_Neck_Glow" : FilePathUtils.TexturePath<Naitokurosu>() + "A_Neck_Glow";
+                    BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>(texturePath).Value, drawInfo.cShield, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
                 } 
             }
         }
@@ -2938,7 +2938,7 @@ namespace AAModClassic
 
                 if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DemonGauntlet>()))
                 {
-                    Texture2D Glow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DemonGauntlet_HandsOn_Glow").Value;
+                    Texture2D Glow = ModContent.Request<Texture2D>(FilePathUtils.TexturePath<DemonGauntlet>() + "_HandsOn_Glow").Value;
                     Color GlowColor = WorldGen.crimson ? AAColor.Ichor : AAColor.CursedInferno;
 
                     BaseDrawing.DrawPlayerTexture(drawInfo, Glow, drawInfo.cHandOn, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(GlowColor, drawInfo.shadow), drawPlayer.bodyFrame);
@@ -2957,7 +2957,7 @@ namespace AAModClassic
 
                 if (HasAndCanDraw(drawPlayer, ModContent.ItemType<DemonGauntlet>()))
                 {
-                    Texture2D Glow = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/DemonGauntlet_HandsOff_Glow").Value;
+                    Texture2D Glow = ModContent.Request<Texture2D>(FilePathUtils.TexturePath<DemonGauntlet>() + "_HandsOff_Glow").Value;
                     Color GlowColor = WorldGen.crimson ? AAColor.Ichor : AAColor.CursedInferno;
 
                     BaseDrawing.DrawPlayerTexture(drawInfo, Glow, drawInfo.cHandOff, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(GlowColor, drawInfo.shadow), drawPlayer.bodyFrame);
@@ -2980,7 +2980,7 @@ namespace AAModClassic
 
                 if (drawInfo.shadow == 0 && HasAndCanDraw(drawPlayer, ModContent.ItemType<GroxHelmet>()))
                 {
-                    Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AngryPirateHood_Head_Glow").Value;
+                    Texture2D tex = ModContent.Request<Texture2D>(FilePathUtils.TexturePath<GroxHelmet>() + "_Head_Glow").Value;
                     DrawFlickerTexture(0, drawInfo, drawInfo, tex, drawInfo.cHead, drawPlayer, drawPlayer.bodyFrame, drawPlayer.headRotation, drawPlayer.headPosition, drawInfo.headVect);
                 }
             }
@@ -3020,7 +3020,7 @@ namespace AAModClassic
 
                 if (drawInfo.shadow == 0 && (!drawPlayer.mount.Active || drawPlayer.mount.Type != MountID.Minecart) && HasAndCanDraw(drawPlayer, ModContent.ItemType<GroxLeggings>()))
                 {
-                    Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AngryPirateBoots_Legs_Glow").Value;
+                    Texture2D tex = ModContent.Request<Texture2D>(FilePathUtils.TexturePath<GroxLeggings>() + "_Legs_Glow").Value;
                     DrawFlickerTexture(0, drawInfo, drawInfo, tex, drawInfo.cLegs, drawPlayer, drawPlayer.legFrame, drawPlayer.legRotation, drawPlayer.legPosition, drawInfo.legVect);
                 }
             }
@@ -3040,7 +3040,7 @@ namespace AAModClassic
 
                 if (drawInfo.shadow == 0 && HasAndCanDraw(drawPlayer, ModContent.ItemType<GroxChestplate>()))
                 {
-                    Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AngryPirateCofferplate_Arms_Glow").Value;
+                    Texture2D tex = ModContent.Request<Texture2D>(FilePathUtils.TexturePath<GroxChestplate>() + "_Arms_Glow").Value;
                     DrawFlickerTexture(0, drawInfo, drawInfo, tex, drawInfo.cBody, drawPlayer, drawPlayer.bodyFrame, drawPlayer.bodyRotation, drawPlayer.bodyPosition, drawInfo.bodyVect);
                 }
             }
@@ -3069,7 +3069,7 @@ namespace AAModClassic
                         dye = 0;
                     }
 
-                    DrawFlickerTexture(1, drawInfo, drawInfo, ModContent.Request<Texture2D>("AAModClassic/Glowmasks/AngryPirateSails_Wings/Glow").Value, dye, drawPlayer);
+                    DrawFlickerTexture(1, drawInfo, drawInfo, ModContent.Request<Texture2D>(FilePathUtils.TexturePath<GroxWings>() + "_Wings_Glow").Value, dye, drawPlayer);
                 }
             }
         }

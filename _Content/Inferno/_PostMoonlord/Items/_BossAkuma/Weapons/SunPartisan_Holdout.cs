@@ -1,4 +1,6 @@
+using AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -11,7 +13,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {
     public class SunPartisan_Holdout : ModProjectile
     {
-        public override string GlowTexture => "AAModClassic/Glowmasks/SunSpear_Glow";
+        public override string GlowTexture => FilePathUtils.TexturePath<SunPartisan>() + "_Glow";
         public short customGlowMask = 0;
         public override void SetStaticDefaults()
         {
