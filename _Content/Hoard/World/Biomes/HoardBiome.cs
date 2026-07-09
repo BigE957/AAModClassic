@@ -9,7 +9,7 @@ namespace AAModClassic._Content.Hoard.World.Biomes
     {
         public override bool IsBiomeActive(Player player)
         {
-            bool active = AAWorld.HoardTiles > 1 && !player.GetModPlayer<ZAAPlayer>().ZoneStars;
+            bool active = AAWorld.HoardTiles > 1 && (player.ZoneDirtLayerHeight || player.ZoneRockLayerHeight) && !player.GetModPlayer<ZAAPlayer>().ZoneStars;
             if (active && player.whoAmI == Main.myPlayer)
                 HoardDiscovered.Condition.Complete();
             return player.GetModPlayer<ZAAPlayer>().ZoneHoard = active;

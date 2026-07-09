@@ -97,12 +97,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 {
                     NPC.alpha -= 5;
                 }
-                if (NPC.ai[0] == 1540)
+                if (NPC.ai[0] == 1600)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Transition.6"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     NPC.netUpdate = true;
                 }
-                if (NPC.ai[0] >= 1790)
+                if (NPC.ai[0] >= 1870)
                 {
                     MusicUtils.InstantSwitchMusic(MusicManagementSystem.MusicSlots["Shen_Awakened"]);
                     SummonShen();

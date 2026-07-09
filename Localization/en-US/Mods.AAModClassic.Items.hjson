@@ -68,6 +68,7 @@ BossSummon: {
 			'''
 			DESCRIPTI0NHERE
 			UNSTABLE. C0NTAINS C0DE T0 ACTIVATE THE BRINGER 0F DEATH
+			ANALYSIS 0F M0D C0NFIGURATI0N RECC0MENDED: Y0U HAVE BEEN WARNED
 			N0N-C0NSUMABLE
 			'''
 	}
@@ -107,6 +108,7 @@ BossSummon: {
 			'''
 			An ominous device with unstable code
 			Summons the Infinity Slayer
+			You get the feeling it may be wise to check the mod's configuration. You've been warned.
 			Non-consumable
 			'''
 	}
@@ -284,6 +286,7 @@ BossSummon: {
 		Tooltip:
 			'''
 			ACTIVATES THE GR0UND ZER0 C0DE F0R THE NEAREST ZER0 UNIT
+			ANALYSIS 0F M0D C0NFIGURATI0N RECC0MENDED: Y0U HAVE BEEN WARNED
 			N0N-C0NSUMABLE
 			'''
 	}

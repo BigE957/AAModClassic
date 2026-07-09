@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Boss
 		public override void SetStaticDefaults()
 		{
             //DisplayName.SetDefault("Music Box (Champion of the Innocent)");
-            //Tooltip.SetDefault(@"Plays 'Supreme Justice'");
+            //Tooltip.SetDefault(@"Plays 'Supreme Justice EX' by Jteoh");
         }
 
         

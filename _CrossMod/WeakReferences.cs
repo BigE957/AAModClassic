@@ -1611,16 +1611,19 @@ namespace AAModClassic._CrossMod
                 // AddSummon, order or value in terms of vanilla bosses, your mod internal name, summon   
                 //item internal name, inline method for retrieving downed value, price to sell for in copper
 
-                fargos.Call("AddSummon", BossProgressionValues["MushroomMonarch"], "AAModClassic", "IntimidatingMushroom", (() => NPCExtensions.BeenKilled<MushroomMonarch>()), 20000);
-                fargos.Call("AddSummon", BossProgressionValues["FeudalFungus"], "AAModClassic", "ConfusingMushroom", (() => NPCExtensions.BeenKilled<FeudalFungus>()), 20000);
-                fargos.Call("AddSummon", BossProgressionValues["GripsOfChaos"], "AAModClassic", "InterestingClaw", (() => AAWorld.downedGrips), 80000);
-                fargos.Call("AddSummon", BossProgressionValues["TruffleToad"], "AAModClassic", "Toadstool", (() => NPCExtensions.BeenKilled<TruffleToad>()), 80000);
-                fargos.Call("AddSummon", BossProgressionValues["Broodmother"], "AAModClassic", "DragonBell", (() => NPCExtensions.BeenKilled<Broodmother>()), 100000);
+                if (!ContentReplacementSystem.NeedToReplaceContent)
+                {
+                    fargos.Call("AddSummon", BossProgressionValues["MushroomMonarch"], "AAModClassic", "IntimidatingLookingMushroom", (() => NPCExtensions.BeenKilled<MushroomMonarch>()), 20000);
+                    fargos.Call("AddSummon", BossProgressionValues["FeudalFungus"], "AAModClassic", "ConfusingLookingMushroom", (() => NPCExtensions.BeenKilled<FeudalFungus>()), 20000);
+                    fargos.Call("AddSummon", BossProgressionValues["GripsOfChaos"], "AAModClassic", "InterestingLookingClaw", (() => AAWorld.downedGrips), 80000);
+                    fargos.Call("AddSummon", BossProgressionValues["TruffleToad"], "AAModClassic", "Toadstool", (() => NPCExtensions.BeenKilled<TruffleToad>()), 80000);
+                }
+                fargos.Call("AddSummon", BossProgressionValues["Broodmother"], "AAModClassic", "AncientBell", (() => NPCExtensions.BeenKilled<Broodmother>()), 100000);
                 fargos.Call("AddSummon", BossProgressionValues["Hydra"], "AAModClassic", "HydraChow", (() => NPCExtensions.BeenKilled<HydraBody>()), 100000);
                 fargos.Call("AddSummon", BossProgressionValues["SubzeroSerpent"], "AAModClassic", "SubzeroCrystal", (() => NPCExtensions.BeenKilled<SubzeroSerpent_Head>()), 100000);
                 fargos.Call("AddSummon", BossProgressionValues["DesertDjinn"], "AAModClassic", "DesertLamp", (() => NPCExtensions.BeenKilled<DesertDjinn>()), 100000);
                 fargos.Call("AddSummon", BossProgressionValues["Sagittarius"], "AAModClassic", "Lifescanner", (() => NPCExtensions.BeenKilled<Sagittarius>()), 200000);
-                fargos.Call("AddSummon", BossProgressionValues["Anubis"], "AAModClassic", "Scepter", (() => NPCExtensions.BeenKilled<Anubis>()), 400000);
+                fargos.Call("AddSummon", BossProgressionValues["Anubis"], "AAModClassic", "RasScepter", (() => NPCExtensions.BeenKilled<Anubis>()), 400000);
                 fargos.Call("AddSummon", BossProgressionValues["Athena"], "AAModClassic", "OwlStatue", (() => NPCExtensions.BeenKilled<Athena>()), 500000);
                 fargos.Call("AddSummon", BossProgressionValues["Greed"], "AAModClassic", "GoldenGrub", (() => NPCExtensions.BeenKilled<GreedHead>()), 500000);
                 fargos.Call("AddSummon", BossProgressionValues["RajahRabbit"], "AAModClassic", "GoldenCarrot", (() => NPCExtensions.BeenKilled<RajahRabbit>()), 600000);
@@ -1635,7 +1638,7 @@ namespace AAModClassic._CrossMod
                 fargos.Call("AddSummon", BossProgressionValues["RajahRabbitR"], "AAModClassic", "TenCaratCarrot", (() => NPCExtensions.BeenKilled<RajahRabbitA>()), 2500000);
                 fargos.Call("AddSummon", BossProgressionValues["Shen"], "AAModClassic", "ChaosSigil", (() => AAWorld.downedShen), 2500000);
                 fargos.Call("AddSummon", BossProgressionValues["ShenA"], "AAModClassic", "ChaosRune", (() => AAWorld.downedShen && Main.expertMode), 4000000);
-                fargos.Call("AddSummon", BossProgressionValues["InfinityZero"], "AAModClassic", "InfinityOverloader", (() => NPCExtensions.BeenKilled<InfinityZero>()), 2500000);
+                fargos.Call("AddSummon", BossProgressionValues["InfinityZero"], "AAModClassic", "InfinityBeacon", (() => NPCExtensions.BeenKilled<InfinityZero>()), 2500000);
                 fargos.Call("AddSummon", BossProgressionValues["SoulOfCthulhu"], "AAModClassic", "CursedCompass", (() => NPCExtensions.BeenKilled<SoulOfCthulhu>()), 2500000);
             }
         }

@@ -56,6 +56,11 @@ Configs: {
 			Label: Disable Pinch Themes
 			Tooltip: Disables the theme that plays when endgame bosses are low on health.
 		}
+
+		HideIdentifiableInfo: {
+			Label: Hide Identifiable Info
+			Tooltip: Disables 4th wall breaking dialogue that makes use of personally identifiable information.
+		}
 	}
 }
 

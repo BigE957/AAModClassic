@@ -889,8 +889,11 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         [DllImport("secur32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         private static extern int GetUserNameEx(int nameFormat, StringBuilder userName, ref uint userNameSize);
 
-        internal static string GetRealName()
+        public static string GetRealName()
         {
+            if (ModContent.GetInstance<AAConfigClient>().HideIdentifiableInfo)
+                return TryGetSteamName() ?? Main.LocalPlayer.name;
+
             if (_cachedName is not null)
                 return _cachedName;
 
