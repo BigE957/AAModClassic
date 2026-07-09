@@ -37,7 +37,9 @@ namespace AAModClassic.Music
 
         public override void PostSetupContent()
         {
-            foreach(var pair in MusicSlots)
+            bool hasDisplay = ModLoader.TryGetMod("MusicDisplay", out Mod display);
+
+            foreach (var pair in MusicSlots)
             {
                 short slot = pair.Value;
                 string name = pair.Key.Replace("_", "") + "Box";
@@ -56,8 +58,8 @@ namespace AAModClassic.Music
 
                 MusicLoader.AddMusicBox(Mod, slot, item.Type, tile.Type);
 
-                if (!ModLoader.TryGetMod("MusicDisplay", out Mod display))
-                    return;
+                if (!hasDisplay)
+                    continue;
 
                 string displayPath = "Mods.AAModClassic.CrossMod.MusicDisplay.";
 
