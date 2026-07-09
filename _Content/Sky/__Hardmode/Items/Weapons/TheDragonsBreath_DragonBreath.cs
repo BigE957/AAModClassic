@@ -20,7 +20,7 @@ namespace AAModClassic._Content.Sky.__Hardmode.Items.Weapons
             Projectile.height = 12;
             Projectile.friendly = true;
             Projectile.ignoreWater = true;
-            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.DamageType = DamageClass.Melee;
             Projectile.penetrate = -1;
             Projectile.extraUpdates = 3;
             Projectile.timeLeft = 45;

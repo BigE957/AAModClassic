@@ -11,6 +11,7 @@
         {
             Projectile.CloneDefaults(Terraria.ModLoader.ModContent.ProjectileType<DraconicRipper_ShenDoragonTooth>());
             type = 2;
+            Projectile.DamageType = DamageClass.Ranged;
         }
     }
 }

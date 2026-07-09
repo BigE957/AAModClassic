@@ -2,6 +2,8 @@
 using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
+using AAModClassic._Content.Chaos.Buffs;
+using AAModClassic._Content.Mire.Buffs;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons
 {
@@ -42,7 +44,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapo
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(type == 1 ? BuffID.Daybreak : Mod.Find<ModBuff>(type == 2 ? "Moonraze" : "DiscordInferno").Type, 60);
+            target.AddBuff(type == 1 ? BuffID.Daybreak : type == 2 ? ModContent.BuffType<Moonraze_Buff>() : ModContent.BuffType<DiscordianInferno_Buff>(), 60);
         }
     }
 }

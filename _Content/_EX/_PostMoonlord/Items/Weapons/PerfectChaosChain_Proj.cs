@@ -92,7 +92,8 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 
         public override void OnKill(int timeleft)
         {
-            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<PerfectChaosJavelin_PerfectChaosBlast>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0, 0);
+            int p = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<PerfectChaosJavelin_PerfectChaosBlast>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0, 0);
+            Main.projectile[p].DamageType = DamageClass.Melee;
             int pieCut = 20;
             SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             for (int m = 0; m < pieCut; m++)

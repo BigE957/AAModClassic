@@ -28,6 +28,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 			Projectile.scale = 1f;
 			AIType = ProjectileID.Bullet;
 			flag1 = true;
+			Projectile.DamageType = DamageClass.Ranged;
         }
         public bool flag1;
 		public override void AI()
