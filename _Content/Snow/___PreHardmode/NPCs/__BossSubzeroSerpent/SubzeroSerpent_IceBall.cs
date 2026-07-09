@@ -1,3 +1,4 @@
+using AAModClassic._Vanilla.Facsimiles._1._3._5._3;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
@@ -12,7 +13,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 {
-    public class SubzeroSerpent_IceBall : ModProjectile
+    public class SubzeroSerpent_IceBall : BoulderStaffOfEarthFacsimile
     {
         private static readonly Dictionary<string, Asset<Texture2D>> BiomeTextures = [];
 
@@ -36,7 +37,8 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 
         public override void SetDefaults()
         {
-            Projectile.CloneDefaults(ProjectileID.BoulderStaffOfEarth);
+            //Projectile.CloneDefaults(ProjectileID.BoulderStaffOfEarth);
+            base.SetDefaults();
             Projectile.penetrate = 1;  
             Projectile.width = 30;
             Projectile.height = 30;
