@@ -19,7 +19,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Acc
             if (player.ZoneSandstorm)
             {
                 player.GetDamage(DamageClass.Generic) += 1f;
-                player.GetCritChance(DamageClass.Generic) += 1f;
+                player.GetCritChance(DamageClass.Generic) += 100;
             }
         }
     }
