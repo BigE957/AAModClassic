@@ -19,7 +19,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Ac
             if (player.ZoneRain && player.ZoneSnow)
             {
                 player.GetDamage(DamageClass.Generic) += 1f;
-                player.GetCritChance(DamageClass.Generic) += 1f;
+                player.GetCritChance(DamageClass.Generic) += 100;
             }
         }
     }
