@@ -148,7 +148,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
 
             if (targetPlayer == null || !targetPlayer.active || targetPlayer.dead) targetPlayer = null; //deliberately set to null
             
-            if (!targetPlayer.ZoneAnyMire())
+            if (targetPlayer != null && !targetPlayer.ZoneAnyMire())
             {
                 NPC.damage = 80;
                 NPC.defense = 100;
