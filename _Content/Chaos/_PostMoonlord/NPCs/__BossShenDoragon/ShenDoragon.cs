@@ -366,6 +366,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     else if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.ai[2] > 180 && NPC.ai[2] % 3 == 0)
                     {
                         RandomizedFrameParticle lightning = telegraphParticles.RequestParticle();
+                        Main.instance.LoadProjectile(ProjectileID.ScytheWhipProj);
                         lightning.SetBasicInfo(TextureAssets.Projectile[ProjectileID.ScytheWhipProj], null, Vector2.Zero, Main.rand.NextVector2Circular(8f, 8f));
                         lightning.SetTypeInfo(Main.projFrames[ProjectileID.ScytheWhipProj], 2, 24f); 
                         lightning.Velocity = (NPC.spriteDirection == -1 ? MathHelper.Pi : 0 + Main.rand.NextFloat(-MathHelper.PiOver4, MathHelper.PiOver4)).ToRotationVector2() * Main.rand.NextFloat(2, 4);
