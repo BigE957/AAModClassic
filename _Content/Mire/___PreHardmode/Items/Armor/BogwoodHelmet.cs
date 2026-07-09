@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
 
         public override void RegisterEquipEffects()
         {
-            AddEffect(new DefenseEffect(1));
+            AddSetEffect(new DefenseEffect(1));
         }
 
         public override void AddRecipes()
