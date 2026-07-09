@@ -1611,10 +1611,13 @@ namespace AAModClassic._CrossMod
                 // AddSummon, order or value in terms of vanilla bosses, your mod internal name, summon   
                 //item internal name, inline method for retrieving downed value, price to sell for in copper
 
-                fargos.Call("AddSummon", BossProgressionValues["MushroomMonarch"], "AAModClassic", "IntimidatingMushroom", (() => NPCExtensions.BeenKilled<MushroomMonarch>()), 20000);
-                fargos.Call("AddSummon", BossProgressionValues["FeudalFungus"], "AAModClassic", "ConfusingMushroom", (() => NPCExtensions.BeenKilled<FeudalFungus>()), 20000);
-                fargos.Call("AddSummon", BossProgressionValues["GripsOfChaos"], "AAModClassic", "InterestingClaw", (() => AAWorld.downedGrips), 80000);
-                fargos.Call("AddSummon", BossProgressionValues["TruffleToad"], "AAModClassic", "Toadstool", (() => NPCExtensions.BeenKilled<TruffleToad>()), 80000);
+                if (!ContentReplacementSystem.NeedToReplaceContent)
+                {
+                    fargos.Call("AddSummon", BossProgressionValues["MushroomMonarch"], "AAModClassic", "IntimidatingMushroom", (() => NPCExtensions.BeenKilled<MushroomMonarch>()), 20000);
+                    fargos.Call("AddSummon", BossProgressionValues["FeudalFungus"], "AAModClassic", "ConfusingMushroom", (() => NPCExtensions.BeenKilled<FeudalFungus>()), 20000);
+                    fargos.Call("AddSummon", BossProgressionValues["GripsOfChaos"], "AAModClassic", "InterestingClaw", (() => AAWorld.downedGrips), 80000);
+                    fargos.Call("AddSummon", BossProgressionValues["TruffleToad"], "AAModClassic", "Toadstool", (() => NPCExtensions.BeenKilled<TruffleToad>()), 80000);
+                }
                 fargos.Call("AddSummon", BossProgressionValues["Broodmother"], "AAModClassic", "DragonBell", (() => NPCExtensions.BeenKilled<Broodmother>()), 100000);
                 fargos.Call("AddSummon", BossProgressionValues["Hydra"], "AAModClassic", "HydraChow", (() => NPCExtensions.BeenKilled<HydraBody>()), 100000);
                 fargos.Call("AddSummon", BossProgressionValues["SubzeroSerpent"], "AAModClassic", "SubzeroCrystal", (() => NPCExtensions.BeenKilled<SubzeroSerpent_Head>()), 100000);

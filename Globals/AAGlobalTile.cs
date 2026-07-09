@@ -1,26 +1,20 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.WorldBuilding;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Content.Mire.World.Tiles;
-using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content._Misc.__Hardmode.Items.Consumables;
+using AAModClassic._Content.Acropolis.World.Tiles;
+using AAModClassic._Content.Hoard.World.Tiles;
 using AAModClassic._Content.Inferno.World.Tiles;
+using AAModClassic._Content.Mire.World.Tiles;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
+using AAModClassic._Content.Stars.World.Altar;
+using AAModClassic.Base.BaseMod.Base;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System.Collections.Generic;
-using Terraria.ModLoader.IO;
 using System.Linq;
-using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
-using AAModClassic._Content._Misc.__Hardmode.Items.Consumables;
-using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables.LuckyPotions;
-using AAModClassic._Content.Void.World.Tiles;
-using AAModClassic._Content.Acropolis.World.Tiles;
-using AAModClassic._Content.Hoard.World.Tiles;
-using AAModClassic._Content.Stars.World.Altar;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace AAModClassic.Globals
 {
@@ -122,19 +116,6 @@ namespace AAModClassic.Globals
 
         #endregion
 
-        public override void Drop(int i, int j, int type)/* tModPorter Suggestion: Use CanDrop to decide if items can drop, use this method to drop additional items. See documentation. */
-        {
-            if (type == TileID.Dirt && TileID.Sets.BreakableWhenPlacing[TileID.Dirt]) //placing grass
-            {
-                return;
-            }
-
-            if (type == TileID.Mud && TileID.Sets.BreakableWhenPlacing[TileID.Mud]) //placing grass
-            {
-                return;
-            }
-        }
-
         public static Color GetTimedrawColor(Color tColor, Color color, float min, float max, bool clamp)
         {
             Color glowColor = BaseUtility.ColorMult(tColor, BaseUtility.MultiLerp(glowTick / (float)glowMax, min, max, min));
@@ -179,7 +160,7 @@ namespace AAModClassic.Globals
             if (TileProtectionSystem.UnbreakableTiles.Contains(new(i, j)))
                 return false;
 
-            Tile t = Main.tile[i, j - 1];
+            Tile t = Framing.GetTileSafely(i, j - 1);
 
             if(!t.HasTile)
                 return true;
@@ -201,7 +182,7 @@ namespace AAModClassic.Globals
             if (TileProtectionSystem.UnbreakableTiles.Contains(new(i, j)))
                 return false;
 
-            Tile t = Main.tile[i, j - 1];
+            Tile t = Framing.GetTileSafely(i, j - 1);
 
             if (!t.HasTile)
                 return true;
@@ -220,7 +201,7 @@ namespace AAModClassic.Globals
 
         public override bool CanExplode(int i, int j, int type)
         {
-            Tile t = Main.tile[i, j - 1];
+            Tile t = Framing.GetTileSafely(i, j - 1);
             if (t.HasTile && (t.TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || t.TileType == ModContent.TileType<DragonAltarUnsafe_Tile>()) && (t.TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || t.TileType != ModContent.TileType<DragonAltarUnsafe_Tile>()))
                 return false;
 
@@ -232,12 +213,13 @@ namespace AAModClassic.Globals
 
         public override bool Slope(int i, int j, int type)
         {
-            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || Main.tile[i, j - 1].TileType == ModContent.TileType<DragonAltarUnsafe_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<DragonAltarUnsafe_Tile>()))
+            Tile t = Framing.GetTileSafely(i, j - 1);
+            if (t.HasTile && (t.TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || t.TileType == ModContent.TileType<DragonAltarUnsafe_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<DragonAltarUnsafe_Tile>()))
             {
                 return false;
             }
 
-            if (Main.tile[i, j - 1].HasTile && (Main.tile[i, j - 1].TileType == ModContent.TileType<GreedAltar_Tile>() || Main.tile[i, j - 1].TileType == ModContent.TileType<AcropolisAltar_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<GreedAltar_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<AcropolisAltar_Tile>()))
+            if (t.HasTile && (t.TileType == ModContent.TileType<GreedAltar_Tile>() || t.TileType == ModContent.TileType<AcropolisAltar_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<GreedAltar_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<AcropolisAltar_Tile>()))
             {
                 return false;
             }
@@ -247,7 +229,9 @@ namespace AAModClassic.Globals
 
         public override void RandomUpdate(int i, int j, int type)
         {
-            if (Main.tile[i, j].TileType == TileID.MushroomGrass)
+            Tile t = Framing.GetTileSafely(i, j - 1);
+
+            if (t.TileType == TileID.MushroomGrass)
             {
                 if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(1000))
                 {
@@ -260,7 +244,7 @@ namespace AAModClassic.Globals
                 }
             }
 
-            if (Main.tile[i, j].TileType == TileID.Grass && Main.hardMode)
+            if (t.TileType == TileID.Grass && Main.hardMode)
             {
                 if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(800))
                 {
