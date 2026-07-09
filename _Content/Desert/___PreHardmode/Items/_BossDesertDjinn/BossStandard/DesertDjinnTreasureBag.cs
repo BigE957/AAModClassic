@@ -58,11 +58,19 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Bos
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<DesertMana>(), 1, 15, 20));
 
-            int[] lootTable = { ModContent.ItemType<Djinnerang>(), ModContent.ItemType<SandLamp>(), ModContent.ItemType<SandScepter>(), ModContent.ItemType<SandstormCrossbow>(), ModContent.ItemType<SultansScimitar>() };
-
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Sandagger>(), 6, 100, 130).OnFailedRoll(ItemDropRule.OneFromOptions(1, lootTable)));
-
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandstormMedallion>()));
+
+            int[] lootTable = {
+                ModContent.ItemType<Djinnerang>(),
+                ModContent.ItemType<SandLamp>(),
+                ModContent.ItemType<SandScepter>(),
+                ModContent.ItemType<SandstormCrossbow>(),
+                ModContent.ItemType<SultansScimitar>()
+            };
+
+            var sandaggerRule = ItemDropRule.Common(ModContent.ItemType<Sandagger>(), 6, 100, 130);
+            sandaggerRule.OnFailedRoll(ItemDropRule.OneFromOptions(1, lootTable));
+            itemLoot.Add(sandaggerRule);
         }
     }
 }

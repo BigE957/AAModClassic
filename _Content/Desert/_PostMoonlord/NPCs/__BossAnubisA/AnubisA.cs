@@ -628,7 +628,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SoulFragment>(), 1, 8, 16));
 
-            int[] lootTable = { ModContent.ItemType<Verdict>(), ModContent.ItemType<Lifeline>(), ModContent.ItemType<ForsakenStaff>(), ModContent.ItemType<Soulsplitter>(), ModContent.ItemType<CursedFlamefury>(), ModContent.ItemType<HorusCane>() };
+            int[] lootTable = { ModContent.ItemType<Verdict>(), ModContent.ItemType<CrookOfTheSoulJudge>(), ModContent.ItemType<Lifeline>(), ModContent.ItemType<ForsakenStaff>(), ModContent.ItemType<Soulsplitter>(), ModContent.ItemType<CursedFlamefury>(), ModContent.ItemType<HorusCane>() };
 
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 

@@ -589,7 +589,9 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
 
             int[] lootTable = { ModContent.ItemType<Djinnerang>(), ModContent.ItemType<SandLamp>(), ModContent.ItemType<SandScepter>(), ModContent.ItemType<SandstormCrossbow>(), ModContent.ItemType<SultansScimitar>() };
 
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Sandagger>(), 6, 90, 120).OnFailedRoll(ItemDropRule.OneFromOptions(1, lootTable)));
+            var sandaggerRule = ItemDropRule.Common(ModContent.ItemType<Sandagger>(), 6, 90, 120);
+            sandaggerRule.OnFailedRoll(ItemDropRule.OneFromOptions(1, lootTable));
+            notExpertRule.OnSuccess(sandaggerRule);
 
             npcLoot.Add(notExpertRule);
         }

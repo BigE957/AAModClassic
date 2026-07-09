@@ -63,7 +63,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.BossStan
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<SoulFragment>(), 1, 10, 20));
 
-            int[] lootTable = { ModContent.ItemType<Verdict>(), ModContent.ItemType<Lifeline>(), ModContent.ItemType<ForsakenStaff>(), ModContent.ItemType<Soulsplitter>(), ModContent.ItemType<CursedFlamefury>(), ModContent.ItemType<HorusCane>() };
+            int[] lootTable = { ModContent.ItemType<Verdict>(), ModContent.ItemType<CrookOfTheSoulJudge>(), ModContent.ItemType<Lifeline>(), ModContent.ItemType<ForsakenStaff>(), ModContent.ItemType<Soulsplitter>(), ModContent.ItemType<CursedFlamefury>(), ModContent.ItemType<HorusCane>() };
 
             itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
         }

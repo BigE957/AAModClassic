@@ -875,9 +875,11 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 
             int[] lootTable = { ModContent.ItemType<BlizzardBuster>(), ModContent.ItemType<SerpentSpike>(), ModContent.ItemType<Icepick>(), ModContent.ItemType<SerpentsSting>(), ModContent.ItemType<Icicle>(), ModContent.ItemType<Sickleshot>(), ModContent.ItemType<SnakeStaff>(), ModContent.ItemType<SubzeroSlasher>() };
 
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SnowMana>(), 9, 90, 120).OnFailedRoll(ItemDropRule.OneFromOptions(1, lootTable)));
+            var shurikenRule = ItemDropRule.Common(ModContent.ItemType<SnowflakeShuriken>(), 9, 100, 130);
+            shurikenRule.OnFailedRoll(ItemDropRule.OneFromOptions(1, lootTable));
+            notExpertRule.OnSuccess(shurikenRule);
 
-            npcLoot.Add(notExpertRule);
+            npcLoot.Add(shurikenRule);
         }
     }
 }
