@@ -29,7 +29,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapo
         {
             Player p = Main.player[Projectile.owner];
             BaseAI.AIBoomerang(Projectile, ref Projectile.ai, p.position, p.width, p.height, true, 20f, 30, 20f, 0.6f, true);
-            int Target = BaseAI.GetNPC(Projectile.Center, -1, 500);
+            int Target = Projectile.FindTargetWithLineOfSight(500);
             if (Target != -1 && !Main.npc[Target].friendly)
             {
                 NPC target = Main.npc[Target];
