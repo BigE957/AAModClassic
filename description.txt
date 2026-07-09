@@ -7,7 +7,7 @@ Looking for a new, modern take on the original mod? Check out Ancients Awakened 
 Ancients Awakened: Classic features the original mod's:
 - 800+ Items
 - 100+ NPCs
-- 21 Bosses (7 Pre-Hardmode, 4 Hardmode, and 5 Post-Moon Lord)
+- 21 Bosses (7 Pre-Hardmode, 4 Hardmode, and 10 Post-Moon Lord)
 - 4 New Biomes:
 	- The Inferno: a volcanic biome ravaged by dragons, with gear mainly focusing on raw defense.
 	- The Mire: a swampy biome infested by slithering creatures of the dark, with gear mainly focusing on sheer speed.
