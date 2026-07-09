@@ -137,7 +137,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
                 {
                     NPC.ai[2] = 0;
                     NPC.ai[3] = 0;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) laser.Kill();
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        laser?.Kill();
                 }
                 else if (!AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<ZeroNovaFocus_NovaRay>()) && Main.netMode != NetmodeID.MultiplayerClient)
                 {

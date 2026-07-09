@@ -195,6 +195,11 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     }
                 }
             }
+            else
+            {
+                NPC.TargetClosest();
+                player = Main.player[NPC.target];
+            }
 
             float movementMax = 1.5f;
 			if(NPC.target > -1)
@@ -222,6 +227,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             BaseAI.AIElemental(NPC, ref customAI, false, 0, false, false, 800f, 600f, 60, movementMax);
             if (!ZerosSpawned)
             {
+                Main.NewText("SPAWN");
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     int latestNPC;
@@ -247,6 +253,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 }
                 ZerosSpawned = true;
             }
+            
             if (testime == 0 && (Zero1 == null || Zero2 == null || Zero3 == null || Zero4 == null || Zero5 == null || Zero6 == null || !Zero1.active || !Zero2.active || !Zero3.active || !Zero4.active || !Zero5.active || !Zero6.active))
             {
                 Reseting = true;
@@ -256,11 +263,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 ZerosSpawned = false;
             }
-            for (int m = NPC.oldPos.Length - 1; m > 0; m--)
-            {
-                NPC.oldPos[m] = NPC.oldPos[m - 1];
-            }
-            NPC.oldPos[0] = NPC.position;		
         }
 
         public bool Dead = false;
@@ -629,9 +631,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             else
             {
                 Color color = BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC, NPC.Center + new Vector2(0, -30), true, 0f), GetGlowAlpha(true));
-                spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, color, NPC.rotation, unofficialWorld ? NPC.frame.Size() * 0.5f : Vector2.Zero, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
-                BaseDrawing.DrawAura(spriteBatch, glow, 0, NPC, auraPercent, 1f, 0f, 0f, GetGlowAlpha(true), unofficialWorld);
-                spriteBatch.Draw(glow, NPC.Center - screenPos, NPC.frame, GetGlowAlpha(false), NPC.rotation, unofficialWorld ? NPC.frame.Size() * 0.5f : Vector2.Zero, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+                spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, color, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+                BaseDrawing.DrawAura(spriteBatch, glow, 0, NPC, auraPercent, 1f, 0f, 0f, GetGlowAlpha(true), true);
+                spriteBatch.Draw(glow, NPC.Center - screenPos, NPC.frame, GetGlowAlpha(false), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
                 if (unofficialWorld)
                 {
                     if (CoreFrame != -1)

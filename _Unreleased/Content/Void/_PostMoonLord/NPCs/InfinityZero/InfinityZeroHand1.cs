@@ -126,9 +126,16 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         }
 
         private int ZeroShot = 0;
+
+        public override bool CheckActive()
+        {
+            return base.CheckActive();
+        }
         
         public override void AI()
 		{
+            Main.NewText(NPC.whoAmI);
+
             bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
             if (RepairMode)
                 NPC.life = NPC.lifeMax;
@@ -299,7 +306,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     }
                     else
                     {
-                        NPC.velocity = Vector2.Normalize(destination - NPC.Center) * 18;
+                        NPC.velocity = NPC.DirectionTo(destination) * 18;
                     }
                 }
             }
@@ -309,14 +316,14 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     NPC.velocity = (destination - NPC.Center) / 30f;
                 else
                 {
-                    if (Vector2.Distance(destination, NPC.Center) < 60f)
+                    if (Vector2.Distance(destination, NPC.Center) > 60f)
                         NPC.velocity = Vector2.Normalize(destination - NPC.Center) * 8f;
                     else
                         NPC.velocity *= 0.98f;
                 }
             }
 
-            NPC.position += Body.NPC.oldPos[0] - Body.NPC.position;
+            NPC.position += Body.NPC.velocity;
         }
 
         public Vector2 GetVariance(bool random = true)
@@ -324,12 +331,30 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 			float offsetX = 0, offsetY = 0;
 			switch(handType)
 			{
-				case 0: offsetX = -DistFromBodyX - 100; offsetY = -DistFromBodyY; break;
-				case 1: offsetX = -DistFromBodyX - 50; offsetY = 0; break;
-				case 2: offsetX = -DistFromBodyX; offsetY = DistFromBodyY; break;
-				case 3: offsetX = DistFromBodyX + 100; offsetY = -DistFromBodyY; break;
-				case 4: offsetX = DistFromBodyX + 50; offsetY = 0; break;
-				case 5: offsetX = DistFromBodyX; offsetY = DistFromBodyY; break;		
+				case 0: 
+                    offsetX = -DistFromBodyX - 100; 
+                    offsetY = -DistFromBodyY;
+                    break;
+				case 1: 
+                    offsetX = -DistFromBodyX - 50;
+                    offsetY = 0;
+                    break;
+				case 2: 
+                    offsetX = -DistFromBodyX;
+                    offsetY = DistFromBodyY;
+                    break;
+				case 3: 
+                    offsetX = DistFromBodyX + 100;
+                    offsetY = -DistFromBodyY;
+                    break;
+				case 4: 
+                    offsetX = DistFromBodyX + 50;
+                    offsetY = 0;
+                    break;
+				case 5: 
+                    offsetX = DistFromBodyX;
+                    offsetY = DistFromBodyY;
+                    break;		
 				default: break;
 			}
 			if(random)
