@@ -1,4 +1,6 @@
-﻿namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons
+﻿using Terraria.ModLoader;
+
+namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons
 {
     public class DraconicRipper_YamataTooth : DraconicRipper_ShenDoragonTooth
     {
