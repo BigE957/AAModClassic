@@ -1,0 +1,110 @@
+The Ancients have Awakened. Chaos reigns, storms ravage, and reality tears at the seams!
+
+Reexperience the original 1.3 version of Ancients Awakened; ported to 1.4.4.
+
+Looking for a new, modern take on the original mod? Check out [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3596943461] Ancients Awakened [/url]!
+
+Report issues or just want to talk about the mod? Check out our [url=https://discord.gg/ghChaEa] Discord [/url]!
+
+Ancients Awakened: Classic features the original mod's:
+[list]
+[*] 800+ Items
+[*] 100+ NPCs
+[*] 21 Bosses (7 Pre-Hardmode, 4 Hardmode, and 5 Post-Moon Lord)
+[*] 4 New Biomes:
+[list]
+[*] The Inferno: a volcanic biome ravaged by dragons, with gear mainly focusing on raw defense.
+[*] The Mire: a swampy biome infested by slithering creatures of the dark, with gear mainly focusing on sheer speed.
+[*] The Void: Floating Islands at the top right of the world. Nothing is there, there is no reason to go there (Or is there?)
+[*] The Terrarium: A crystal biosphere safe from the ever-corrupting world around you.
+[/list]
+[*] Cross-Mod content with Thorium
+[*] Fargo's Mutant Mod and Calamity Mod support
+[*] Unique soundtrack
+[/list]
+
+Additionally, Ancients Awakened: Classic features new World Generation options to add additional content, both old and new, to a world:
+[list]
+[*] Removed: Brings back older content from previous versions of the mod that were removed over the course of development:
+[list]
+[*] Techno Truffle: A cybernetic mushroom menace created by the enigmatic Fulgarians, it combines moves from both the Mushroom Monarch and Feudal Fungus.
+[*] The Siege Mechs: This trio of bosses fought around the same time as the vanilla Mechanical Bosses,
+[list]
+[*] The Retriever: A cybernetic Grip of Chaos that can move at high speeds.
+[*] Orthrus X: A cybernetic version of the Hydra wielding high-power lasers.
+[*] Raider Ultima: A cybernetic version of the Broodmother armed with devastating firepower.
+[/list]
+[/list]
+[*] Unreleased: Features new content never-before-seen in public versions of the mod. This content has been pulled from in-dev versions of Ancients Awakened:
+[list]
+[*] The Lost Keep: An underground citadel which was once the home of a legendary hero, it holds a slew of mysteries to be uncovered.
+[list]
+[*] The Biomite Core: The Lost Keep's defence mechanism which wields powers from every biome, it can be challenged by offering a Biome Prism.
+[/list]
+[*] Anubis; Legendscribe: Anubis has been reworked with an all new fight! Only by paying careful attention to the runes he wields will you emerge victorious.
+[*] Infinity Zero: Face the Void's Superancient, commanding 6 Zero Units and harboring an even more malicious presence.
+[*] The Soul of Cthulhu: Awaken the Ocean's Superancient which lurks within the new Sunken Ship structure. It calls upon fearsome recreations of previous bosses.
+[/list]
+[*] Unofficial: Includes a handful of QoL changes, visual enhancements, and more created by the porting team to enhance the mod's experience:
+[list]
+[*] Boss Visual Improvements: Many bosses have been given visual enhancements to make them feel more alive and dynamic.
+[*] Anubis Quest UI: Anubis' boss dialogue has been expanded into a full Quest UI, making it easier to follow along.
+[*] And More!
+[/list]
+[/list]
+
+Finally, Ancients Awakened: Classic aims to offer full compatibility with the new Ancients Awakened, disabling classic content that overlaps with new content to facilitate a smooth, complete playthrough with both enabled.
+
+Note: Some of the mod's tracks have been removed or replaced at the request of their original composers. Please respect their decision.
+
+Developers and Contributors behind this port:
+[list]
+[*] Big E
+[*] CaligulasAquarium
+[*] EduaRRdo
+[*] MaestroVGM
+[*] Memeisseur
+[*] Pil
+[*] ProduceVGM
+[*] Rocket
+[*] Skoores
+[*] SpectralAves
+[*] SulfurInASea
+[/list]
+
+Credit of course to the original team behind the mod:
+[list]
+[*] Beg
+[*] Charlie Debnam
+[*] Chinzilla00
+[*] Dan Yami
+[*] Diverman Sam
+[*] Dradonhunter11
+[*] Elizabeth Miles
+[*] Ezalos
+[*] FailureOfMankind
+[*] Fargowilta
+[*] Fazergamer
+[*] Frogtism
+[*] GamingWithZack
+[*] Glitched Pixel
+[*] Gregg
+[*] Grox The Great
+[*] Hallam, God of Rainbows
+[*] Hero
+[*] KyuuSW
+[*] LordCakeSpy
+[*] MechanicPluto
+[*] Niorin
+[*] Moonburn
+[*] OverlordCMD
+[*] Rockwizard
+[*] SpectralAves
+[*] Sume
+[*] Tails the Fox 92
+[*] Tied
+[*] TheRedstoneBro
+[*] Uncle Danny
+[*] Welox
+[*] ZipZopZoop
+[/list]

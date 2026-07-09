@@ -3,16 +3,14 @@ The Ancients have Awakened. Chaos reigns, storms ravage, and reality tears at th
 Reexperience the original 1.3 version of Ancients Awakened; ported to 1.4.4.
 
 Looking for a new, modern take on the original mod? Check out Ancients Awakened [BETA]!
-https://steamcommunity.com/sharedfiles/filedetails/?id=3596943461
 
 Ancients Awakened: Classic features the original mod's:
 - 800+ Items
 - 100+ NPCs
 - 21 Bosses (7 Pre-Hardmode, 4 Hardmode, and 5 Post-Moon Lord)
 - 4 New Biomes:
-	- The World Chaoses: Alternatives to the World Evils. 
-		* The Inferno, a volcanic biome ravaged by dragons, with gear mainly focusing on raw defense.
-		* The Mire, a swampy biome infested by slithering creatures of the dark, with gear mainly focusing on sheer speed.
+	- The Inferno: a volcanic biome ravaged by dragons, with gear mainly focusing on raw defense.
+	- The Mire: a swampy biome infested by slithering creatures of the dark, with gear mainly focusing on sheer speed.
 	- The Void: Floating Islands at the top right of the world. Nothing is there, there is no reason to go there (Or is there?)
 	- The Terrarium: A crystal biosphere safe from the ever-corrupting world around you.
 - Cross-Mod content with Thorium
@@ -28,7 +26,7 @@ Additionally, Ancients Awakened: Classic features new World Generation options t
 		* Raider Ultima: A cybernetic version of the Broodmother armed with devastating firepower.
 - Unreleased: Features new content never-before-seen in public versions of the mod. This content has been pulled from in-dev versions of Ancients Awakened:
 	- The Lost Keep: An underground citadel which was once the home of a legendary hero, it holds a slew of mysteries to be uncovered.
-		* The Biomite Core: The Lost Keep's defence mechanism which wields powers from every Biome, it can be challenged by offering a Biome Prism.
+		* The Biomite Core: The Lost Keep's defence mechanism which wields powers from every biome, it can be challenged by offering a Biome Prism.
 	- Anubis; Legendscribe: Anubis has been reworked with an all new fight! Only by paying careful attention to the runes he wields will you emerge victorious.
 	- Infinity Zero: Face the Void's Superancient, commanding 6 Zero Units and harboring an even more malicious presence.
 	- The Soul of Cthulhu: Awaken the Ocean's Superancient which lurks within the new Sunken Ship structure. It calls upon fearsome recreations of previous bosses.
@@ -44,10 +42,15 @@ Note: Some of the mod's tracks have been removed or replaced at the request of t
 Developers and Contributors behind this port:
 - Big E
 - CaligulasAquarium
-- ProduceVGM
+- EduaRRdo
 - MaestroVGM
-- Sulphur
+- Memeisseur
 - Pil
+- ProduceVGM
+- Rocket
+- Skoores
+- SpectralAves
+- SulfurInASea
 
 Credit of course to the original team behind the mod:
 - Beg
