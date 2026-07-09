@@ -13,6 +13,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items.Tiles.Decoration
             Main.tileMergeDirt[Type] = true;
             Main.tileLighted[Type] = false;
             Main.tileBlockLight[Type] = true;
+            Main.tileMerge[Type][ModContent.TileType<SkymarbleBrick_Tile>()] = true;
             RegisterItemDrop(ModContent.ItemType<SkycrystalBrick>());
             AddMapEntry(new Color(40, 120, 150));
             DustType = DustID.Gold;
