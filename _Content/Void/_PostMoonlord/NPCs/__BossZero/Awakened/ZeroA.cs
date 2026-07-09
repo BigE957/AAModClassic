@@ -643,7 +643,34 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                 }
                 if(NPC.ai[2] == 40)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetText("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.3." + (Oblivion.IsPlayerStreaming() ? "Streaming" : "Normal")).WithFormatArgs(Main.SavePath.ToUpper().Replace(" ", "").Replace("O", "0")).Value, Color.Red.R, Color.Red.G, Color.Red.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        string path = Main.SavePath;
+                        if(ModContent.GetInstance<AAConfigClient>().HideIdentifiableInfo)
+                        {
+                            string name = "";
+                            string previous = "";
+                            bool onName = false;
+                            for(int i = 0; i < path.Length; i++)
+                            {
+                                if (path[i] == '\\')
+                                {
+                                    if(onName)
+                                    {
+                                        name = previous;
+                                        break;
+                                    }
+                                    if (previous.ToLower() == "users")
+                                        onName = true;
+                                    previous = "";
+                                }
+                                else
+                                    previous += path[i];
+                            }
+                            path = path.Replace(name, PlayerIdentityHelper.GetRealName());
+                        }
+                        ChatUtils.Chat(Language.GetText("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.3." + (Oblivion.IsPlayerStreaming() ? "Streaming" : "Normal")).WithFormatArgs(path.ToUpper().Replace(" ", "").Replace("O", "0")).Value, Color.Red.R, Color.Red.G, Color.Red.B);
+                    }
                 }
                 if(NPC.ai[2] == 110)
                 {

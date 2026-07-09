@@ -32,6 +32,9 @@ namespace AAModClassic
 
         [DefaultValue(false)]
         public bool DisablePinchThemes;
+
+        [DefaultValue(false)]
+        public bool HideIdentifiableInfo;
     }
 
     public static class AALuckyConfig
