@@ -34,7 +34,8 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapo
             {
                 NPC target = Main.npc[Target];
                 int id = BaseAI.ShootPeriodic(Projectile, target.position, 14, 14, ModContent.ProjectileType<Darkray>(), ref internalAI[0], 30, Projectile.damage, 7, true);
-                Main.projectile[id].DamageType = DamageClass.Melee;
+                if(id != -1)
+                    Main.projectile[id].DamageType = DamageClass.Melee;
             }
         }
 
