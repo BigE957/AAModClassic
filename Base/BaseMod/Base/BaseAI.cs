@@ -1170,11 +1170,8 @@ namespace AAModClassic.Base.BaseMod.Base
                 bool inRangeY = false;
                 if (npc.position.X > ai[0] - tileDist && npc.position.X < ai[0] + tileDist)
                     inRangeX = true;
-                else
-                {
-                    if (npc.velocity.X < 0f && npc.direction > 0 || npc.velocity.X > 0f && npc.direction < 0)
-                        inRangeX = true;
-                }
+                else if(npc.velocity.X < 0f && npc.direction > 0 || npc.velocity.X > 0f && npc.direction < 0)
+                    inRangeX = true;
                 tileDist += 24;
                 if (npc.position.Y > ai[1] - tileDist && npc.position.Y < ai[1] + tileDist)
                 {
@@ -1203,8 +1200,8 @@ namespace AAModClassic.Base.BaseMod.Base
                     ai[2] = 0f;
                 }
 
-                npc.direction = target.Center.X > npc.Center.X ? -1 : 1;
-                npc.directionY = target.Center.Y > npc.Center.Y ? -1 : 1;
+                npc.direction = target.Center.X > npc.Center.X ? 1 : -1;
+                npc.directionY = target.Center.Y > npc.Center.Y ? 1 : -1;
             }
             else
             {
@@ -1254,30 +1251,34 @@ namespace AAModClassic.Base.BaseMod.Base
             if (npc.collideX)
             {
                 npc.velocity.X = npc.oldVelocity.X * -0.4f;
-                if (npc.direction == -1 && npc.velocity.X is > 0f and < 1f) { npc.velocity.X = 1f; }
-                if (npc.direction == 1 && npc.velocity.X is < 0f and > -1f) { npc.velocity.X = -1f; }
+                if (npc.direction == -1 && npc.velocity.X is > 0f and < 1f)
+                    npc.velocity.X = 1f;
+                if (npc.direction == 1 && npc.velocity.X is < 0f and > -1f)
+                    npc.velocity.X = -1f;
             }
             if (npc.collideY)
             {
                 npc.velocity.Y = npc.oldVelocity.Y * -0.25f;
-                if (npc.velocity.Y is > 0f and < 1f) { npc.velocity.Y = 1f; }
-                if (npc.velocity.Y is < 0f and > -1f) { npc.velocity.Y = -1f; }
+                if (npc.velocity.Y is > 0f and < 1f)
+                    npc.velocity.Y = 1f;
+                if (npc.velocity.Y is < 0f and > -1f)
+                    npc.velocity.Y = -1f;
             }
             if (npc.direction == -1 && npc.velocity.X > -maxSpeedX)
             {
                 npc.velocity.X -= moveInterval * 0.5f;
-                if (npc.velocity.X > maxSpeedX) { npc.velocity.X -= 0.1f; }
-                else
-                    if (npc.velocity.X > 0f) { npc.velocity.X += 0.05f; }
-                if (npc.velocity.X < -maxSpeedX) { npc.velocity.X = -maxSpeedX; }
+                if (npc.velocity.X > maxSpeedX)
+                    npc.velocity.X -= 0.1f;
+                else if (npc.velocity.X > 0f)
+                    npc.velocity.X += 0.05f;
+                if (npc.velocity.X < -maxSpeedX)
+                    npc.velocity.X = -maxSpeedX;
             }
-            else
-                if (npc.direction == 1 && npc.velocity.X < maxSpeedX)
+            else if (npc.direction == 1 && npc.velocity.X < maxSpeedX)
             {
                 npc.velocity.X += moveInterval * 0.5f;
                 if (npc.velocity.X < -maxSpeedX) { npc.velocity.X += 0.1f; }
-                else
-                    if (npc.velocity.X < 0f) { npc.velocity.X -= 0.05f; }
+                else if (npc.velocity.X < 0f) { npc.velocity.X -= 0.05f; }
                 if (npc.velocity.X > maxSpeedX) { npc.velocity.X = maxSpeedX; }
             }
             if (npc.directionY == -1 && (double)npc.velocity.Y > -hoverMaxSpeed)
@@ -2717,7 +2718,12 @@ namespace AAModClassic.Base.BaseMod.Base
         public static int ShootPeriodic(Entity codable, Vector2 position, int width, int height, int projType, ref float delayTimer, float delayTimerMax = 100f, int damage = -1, float speed = 10f, bool checkCanHit = true, Vector2 offset = default(Vector2))
         {
             int pID = -1;
-            if (damage == -1) { Projectile proj = new Projectile(); proj.SetDefaults(projType); damage = proj.damage; }
+            if (damage == -1) 
+            { 
+                Projectile proj = new Projectile(); 
+                proj.SetDefaults(projType); 
+                damage = proj.damage; 
+            }
             bool properSide = (codable is NPC ? Main.netMode != NetmodeID.MultiplayerClient : codable is Projectile ? ((Projectile)codable).owner == Main.myPlayer : true);
             if (properSide)
             {
