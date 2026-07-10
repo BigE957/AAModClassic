@@ -2,6 +2,7 @@ using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.__Hardmode.NPCs;
 using AAModClassic._Content.Terrarium.World.Biomes;
+using AAModClassic._Unreleased.Content.LostKeep.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
@@ -90,7 +91,7 @@ public class BiomiteCore : ModNPC
 
 	public override void AI()
 	{
-		Vector2 val = Origin();
+		Vector2 val = AAWorld_Unreleased.lostKeepOrigin.ToWorldCoordinates(0, 0);
 		Vector2 val2 = val + Vector16(140, 125) + Vector16(5, 4);
 		Vector2 val3 = val + Vector16(106, 129) + Vector16(5, 4);
 		Vector2 val4 = val + Vector16(174, 129) + Vector16(5, 4);
@@ -480,16 +481,6 @@ public class BiomiteCore : ModNPC
 				NPC.frame.Y = 0;
 			}
 		}
-	}
-
-	public static Vector2 Origin()
-	{
-		Point val = new((int)((float)Main.maxTilesX * 0.35f), (int)((float)Main.maxTilesY * 0.38f));
-		if (Main.dungeonX < Main.maxTilesX / 2)
-		{
-            val = new((int)((float)Main.maxTilesX * 0.65f), (int)((float)Main.maxTilesY * 0.38f));
-		}
-		return new Vector2((float)val.X * 16f, (float)val.Y * 16f);
 	}
 
 	public static Vector2 Vector16(int x, int y)

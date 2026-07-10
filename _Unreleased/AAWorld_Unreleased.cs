@@ -33,6 +33,8 @@ namespace AAModClassic._Unreleased
         public static Point shipPos = Point.Zero;
         private static int shipSide = 0;
 
+        public static Point lostKeepOrigin = Point.Zero;
+
         public static bool DownedSoC => (NPCExtensions.BeenKilled<SoulOfCthulhu>() && !Main.expertMode) || NPCExtensions.BeenKilled<Cthulhu>();
         public static bool DownedIZ => ZAAPlayer.IZKills > 0;
         public static bool Compass;
@@ -50,12 +52,14 @@ namespace AAModClassic._Unreleased
         {
             tag.Add("Compass", Compass);
             tag.Add("ShipLocation", shipPos);
+            tag.Add("lostKeepOrigin", lostKeepOrigin);
         }
 
         public override void LoadWorldData(TagCompound tag)
         {
             Compass = tag.GetBool("Compass");
             shipPos = tag.Get<Point>("ShipLocation");
+            lostKeepOrigin = tag.Get<Point>("lostKeepOrigin");
         }
 
         public override void NetSend(BinaryWriter writer)
