@@ -35,6 +35,7 @@ InvokerStaff2:
 InvokerDamage1: banish
 InvokerDamage2: summon
 CaligulaSoul: Powerful Soul Steal!
+
 #Items
 
 InfinityGauntlet: {
@@ -309,21 +310,15 @@ ZeroTesseractTrue: ZER0 UNIT ACTIVATED. ENGAGE D00MBRINGER PR0T0C0L.
 ZeroTesseractDownedTrue: TARGET L0CKED. FAILURE T0 TERMINATE Y0U IS N0T A P0SSIBILITY THIS TIME, TERRARIAN.
 RoyalRabbitSummoned1: Those who slaughter the innocent must be PUNISHED!
 RoyalRabbitSummoned2: YOU WILL PAY FOR YOUR SINS,
-
 ScrapHeapFalse1: You feel a static shock from using this. Maybe it's trying to send a signal?
 ScrapHeapFalse2: Orthrus wants to eat that AND you!
-
 CyberneticClawFalse1: The claw just lays limp in your hand.
 CyberneticClawFalse2: The Retriever is still trying to grab you!
-
 CyberneticBellFalse1: The bell rings, but nothing happens.
 CyberneticBellFalse2: The Raider hears the bell and keeps attempting to kill you!
-
 CyberneticShroomFalse1: Stop waving that metal mushroom around like a psychopath.
 CyberneticShroomFalse2: The Techno Truffle continues to exist.
-
 CursedCompassFalse: The curses bound to the compass wail at their maker's presence.
-
 MassShroomInitiated: It's time for a Mush Pit!
 GlowingMassShroomInitiated: You are being assaulted by a bunch of fungi!
 GlowingMassShroomFalse: Stop waving a bunch of shrooms around in the middle of nowhere like a nutcase.
