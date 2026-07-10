@@ -227,7 +227,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             BaseAI.AIElemental(NPC, ref customAI, false, 0, false, false, 800f, 600f, 60, movementMax);
             if (!ZerosSpawned)
             {
-                Main.NewText("SPAWN");
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     int latestNPC;

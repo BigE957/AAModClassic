@@ -134,8 +134,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         
         public override void AI()
 		{
-            Main.NewText(NPC.whoAmI);
-
             bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
             if (RepairMode)
                 NPC.life = NPC.lifeMax;
