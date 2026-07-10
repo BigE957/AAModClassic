@@ -230,7 +230,12 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
                 NPC.defense = (int)(NPC.defDefense * ShroomCount);
                 if(internalAI[3] ++ > 20)
                 {
-                    if(NPC.life < NPC.lifeMax) NPC.life += Shrooms.Length;
+                    if (NPC.life < NPC.lifeMax)
+                    {
+                        NPC.life += Shrooms.Length;
+                        if (NPC.life > NPC.lifeMax)
+                            NPC.life = NPC.lifeMax;
+                    }
                     internalAI[3] = 0;
                 }
                 AIChangeRate = 120;
