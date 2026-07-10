@@ -42,6 +42,7 @@ Note: Some of the mod's tracks have been removed or replaced at the request of t
 Developers and Contributors behind this port:
 - Big E
 - CaligulasAquarium
+- DiamondWalker
 - EduaRRdo
 - MaestroVGM
 - Memeisseur
