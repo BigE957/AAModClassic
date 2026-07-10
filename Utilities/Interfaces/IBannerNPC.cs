@@ -50,7 +50,7 @@ namespace AAModClassic.Utilities.Interfaces
             else if (path.EndsWith("_NPC"))
                 path = path.Substring(0, path.Length - 4);
 
-            if (ModContent.RequestIfExists<Texture2D>(path + "_Banner", out _))
+            if (Main.dedServ || ModContent.RequestIfExists<Texture2D>(path + "_Banner", out _))
             {
                 string name = lead.Name;
                 if (name.EndsWith("Head"))
