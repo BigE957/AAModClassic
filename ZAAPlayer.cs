@@ -164,7 +164,6 @@ namespace AAModClassic
         #endregion
 
         #region Armor bools.
-        public bool StripeManSet = false;
         public bool MoonSet;
         public bool leatherSet; // TODO: WE NEED TO FIND THIS
         public bool darkmatterSetMe;
@@ -381,7 +380,6 @@ namespace AAModClassic
             AsheFlame = false;
             ChaosRa2 = false;
             ChaosMa = false;
-            StripeManSet = false;
         }
 
         private void ResetAccessoryEffect()

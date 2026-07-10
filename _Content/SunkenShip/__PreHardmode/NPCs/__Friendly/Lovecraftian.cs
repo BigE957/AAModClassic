@@ -20,6 +20,8 @@ using AAModClassic._Content.Void.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.UI.World;
+using Humanizer;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -364,7 +366,7 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
                     AAWorld.squid8++;
                     SoundEngine.PlaySound(SoundID.Chat);
                 }
-                else if (Item9 >= 0 && AAWorld.squid9 < 5 && Mushman >= 0)
+                else if (Item9 >= 0 && AAWorld.squid9 < 5 && (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) || (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && Mushman >= 0)))
                 {
                     Main.npcChatCornerItem = ModContent.ItemType<Mushium>();
                     player.inventory[Item9].stack--;
@@ -374,7 +376,13 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
                     }
                     if (AAWorld.squid9 == 4)
                     {
-                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.SporeSacChat1") + Main.npc[Mushman].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.SporeSacChat2");
+                        string mushmanName = "";
+                        if (Mushman != -1)
+                            mushmanName = Main.npc[Mushman].GivenName;
+                        else
+                            mushmanName = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.SporeSacMushmanNameFallback");
+
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.SporeSacChat").FormatWith(mushmanName);
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<SporeBag>(), 5);
                         Main.npcChatCornerItem = ModContent.ItemType<SporeBag>();
                     }
@@ -385,7 +393,7 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
                     AAWorld.squid9++;
                     SoundEngine.PlaySound(SoundID.Chat);
                 }
-                else if (Item10 >= 0 && AAWorld.squid10 < 5 && Mushman >= 0)
+                else if (Item10 >= 0 && AAWorld.squid10 < 5 && (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) || (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && Mushman >= 0)))
                 {
                     Main.npcChatCornerItem = ModContent.ItemType<GlowingMushium>();
                     player.inventory[Item10].stack--;
@@ -395,7 +403,13 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
                     }
                     if (AAWorld.squid10 == 4)
                     {
-                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.GlowingSporeSacChat1") + Main.npc[Mushman].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.GlowingSporeSacChat2");
+                        string mushmanName = "";
+                        if (Mushman != -1)
+                            mushmanName = Main.npc[Mushman].GivenName;
+                        else
+                            mushmanName = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.GlowingSporeSacMushmanNameFallback");
+
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.GlowingSporeSacChat").FormatWith(mushmanName);
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<GlowingSporeBag>(), 5);
                         Main.npcChatCornerItem = ModContent.ItemType<GlowingSporeBag>();
                     }
