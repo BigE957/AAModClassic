@@ -92,7 +92,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
             NPC.damage = (int)(NPC.damage * 0.6f);
         }
 
-        public float[] internalAI = new float[5];
+        public float[] internalAI = new float[7];
         public float[] FlyAI = new float[2];
         public Vector2 MoveVector2;
         public bool Seen = false;
@@ -107,6 +107,8 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                 writer.Write(internalAI[2]);
                 writer.Write(internalAI[3]);
                 writer.Write(internalAI[4]);
+                writer.Write(internalAI[5]);
+                writer.Write(internalAI[6]);
                 writer.Write(FlyAI[0]);
                 writer.Write(FlyAI[1]);
                 writer.Write(MoveVector2.X);
@@ -125,6 +127,8 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                 internalAI[2] = reader.ReadSingle();
                 internalAI[3] = reader.ReadSingle();
                 internalAI[4] = reader.ReadSingle();
+                internalAI[5] = reader.ReadSingle();
+                internalAI[6] = reader.ReadSingle();
                 FlyAI[0] = reader.ReadSingle();
                 FlyAI[1] = reader.ReadSingle();
                 MoveVector2.X = reader.ReadSingle();
@@ -149,7 +153,6 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
             Vector2 Acropolis = new Vector2(Origin.X + 80 * 16, Origin.Y + 79 * 16);
 
             //Preamble Shite 
-
             if (internalAI[2] != 1)
             {
                 NPC.dontTakeDamage = true;
@@ -300,7 +303,8 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                 if (player.dead || !player.active || Vector2.Distance(NPC.position, player.position) > 5000 || !modPlayer.ZoneAcropolis)
                 {
                     NPC.TargetClosest();
-                    if (Main.player[NPC.target].dead || !Main.player[NPC.target].active || Math.Abs(Vector2.Distance(NPC.position, Main.player[NPC.target].position)) > 5000 || !Main.player[NPC.target].GetModPlayer<ZAAPlayer>().ZoneAcropolis)
+                    internalAI[6]++;
+                    if (Main.player[NPC.target].dead || !Main.player[NPC.target].active || ((Math.Abs(Vector2.Distance(NPC.position, Main.player[NPC.target].position)) > 5000 || !Main.player[NPC.target].GetModPlayer<ZAAPlayer>().ZoneAcropolis) && internalAI[6] > 3000))
                     {
                         CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Kill"));
                         int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
@@ -309,6 +313,8 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                         NPC.netUpdate = true;
                     }
                 }
+                else
+                    internalAI[6] = 0;
 
                 Music = MusicLoader.GetMusicSlot("AAModClassic/Music/Athena");
 
@@ -374,7 +380,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                     {
                         if (NPC.ai[1] == 300)
                         {
-                            if (Main.rand.NextBool(5))
+                            if (Main.rand.NextBool(5) || internalAI[5] >= 5)
                             {
                                 internalAI[1] = 0;
                                 NPC.ai[0] = 0;
@@ -386,6 +392,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                             }
                             NPC.ai[0] = 0;
                             MoveVector2 = CloudPick();
+                            internalAI[5]++;
                             NPC.netUpdate = true;
                         }
                     }
@@ -402,13 +409,9 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                         if (NPC.ai[1] % 200 == 0 && Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             int Choice = Main.rand.Next(2);
-                            bool seraphPresent = false;
-                            foreach (NPC npc in Main.ActiveNPCs)
-                            {
-                                if (npc.type == ModContent.NPCType<SeraphA>())
-                                    seraphPresent = true;
-                            }
-                            if (Choice == 0)
+                            bool seraphPresent = NPC.AnyNPCs(ModContent.NPCType<SeraphA>());
+                            bool spawnDragons = !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
+                            if (Choice == 0 && spawnDragons)
                             {
                                 NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 100, (int)NPC.Center.Y, ModContent.NPCType<OlympianDragon>(), ai1: 1);
                                 NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X - 100, (int)NPC.Center.Y, ModContent.NPCType<OlympianDragon>(), ai1: 1);
@@ -420,13 +423,13 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                                 {
                                    Dust d = Main.dust[Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0)];
                                 }
+                                NPC Seraph2 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 100, (int)NPC.Center.Y - 50, ModContent.NPCType<SeraphA>())];
+                                for (int i = 0; i < 3; i++)
+                                {
+                                    Dust d = Main.dust[Dust.NewDust(Seraph2.position, Seraph2.height, Seraph2.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0)];
+                                }
                                 if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                                 {
-                                    NPC Seraph2 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 100, (int)NPC.Center.Y - 50, ModContent.NPCType<SeraphA>())];
-                                    for (int i = 0; i < 3; i++)
-                                    {
-                                        Dust d = Main.dust[Dust.NewDust(Seraph2.position, Seraph2.height, Seraph2.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0)];
-                                    }
                                     NPC Seraph3 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 100, (int)NPC.Center.Y - 50, ModContent.NPCType<SeraphA>())];
                                     for (int i = 0; i < 3; i++)
                                     {

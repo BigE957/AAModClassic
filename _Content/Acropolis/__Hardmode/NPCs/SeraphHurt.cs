@@ -2,6 +2,7 @@ using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
@@ -39,6 +40,9 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
             NPC.noTileCollide = false;
             Banner = ModContent.NPCType<Seraph>();
             NPC.dontTakeDamage = true;
+
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                NPC.damage = 0;
         }
 
         public Vector2 Origin = new Vector2((int)(Main.maxTilesX * 0.65f), 100) * 16;
