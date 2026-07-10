@@ -790,7 +790,13 @@ namespace AAModClassic._Unofficial.Desert
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            //fishOffset = Vector2.Zero;
+
+            if(Icon == null)
+            {
+                RemoveAllChildren();
+                OnInitialize();
+            }
+
             Icon.NormalizedOrigin = Vector2.One * 0.5f;
             Icon.Width.Pixels = QuestSystem.Questlines[Questline].Quests[ID].Icon.Width();
             Icon.Height.Pixels = QuestSystem.Questlines[Questline].Quests[ID].Icon.Height();
