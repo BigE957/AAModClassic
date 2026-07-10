@@ -231,7 +231,7 @@ LegendscribeUnofficial: {
 		DislikeNPC: This {NPCName} guy keeps golfing in my desert!
 	}
 
-	Census.SpawnCondition: Always Available
+	Census.SpawnCondition: Needs a home with a Tall Gate
 }
 
 GoblinSlayer: {
@@ -321,7 +321,7 @@ Lovecraftian: {
 }
 
 Mushman: {
-	Census.SpawnCondition: After defeating Mushroom Monarch or Feudal Fungus, build a house in a red mushroom biome
+	Census.SpawnCondition: After defeating Mushroom Monarch, build a house in a red mushroom biome
 	DisplayName: Mushman
 
 	TownNPCMood: {
