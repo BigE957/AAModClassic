@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -31,7 +32,7 @@ namespace AAModClassic._Content.Crimson.___PreHardmode.Items.Consumables
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Projectiles/Flasks/CrimsonFlask").Value;
+            Texture2D tex = TextureAssets.Projectile[Type].Value;
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, tex.Width, tex.Height, 0, 2);
             BaseDrawing.DrawTexture(Main.spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 7, frame, lightColor, true);
             return false;
