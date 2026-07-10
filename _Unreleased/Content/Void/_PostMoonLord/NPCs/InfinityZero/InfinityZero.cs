@@ -279,7 +279,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 ModContent.ItemType<Genocide>(),
                 ModContent.ItemType<Nova>(),
-                ModContent.ItemType<Sagittarius>(),
+                ModContent.ItemType<SagittariusA>(),
                 ModContent.ItemType<TotalDestruction>(),
                 ModContent.ItemType<Annihilator>(),
                 ModContent.ItemType<InfinityBlade>()

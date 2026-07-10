@@ -15,7 +15,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX
 {
-    public class ScrapHeap : BaseAAItem, ILocalizedModType
+    [LegacyName("ScrapHeap")]
+    public class CyberneticScrap : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.BossSummon";
         public override void SetStaticDefaults()

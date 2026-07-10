@@ -73,8 +73,8 @@ BossSummon: {
 			'''
 	}
 
-	ScrapHeap: {
-		DisplayName: Scrap Heap
+	CyberneticScrap: {
+		DisplayName: Cybernetic Scrap
 		Tooltip:
 			'''
 			A bunch of metal garbage

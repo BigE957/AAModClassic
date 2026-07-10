@@ -1042,9 +1042,9 @@ namespace AAModClassic._CrossMod
                 AddBoss(bossChecklist, mod, "OrthrusX", (() => NPCExtensions.BeenKilled<OrthrusXBody>()), ModContent.NPCType<OrthrusXBody>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "OrthrusX.Name"),
-                    ["spawnInfo"] = Language.GetOrRegister(path + "OrthrusX.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<ScrapHeap>() + "]"),
+                    ["spawnInfo"] = Language.GetOrRegister(path + "OrthrusX.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<CyberneticScrap>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "OrthrusX.Despawn"),
-                    ["spawnItems"] = ModContent.ItemType<ScrapHeap>(),
+                    ["spawnItems"] = ModContent.ItemType<CyberneticScrap>(),
                     ["collectibles"] = orthrusCollectibles,
                     ["availability"] = (() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed))
                 });
