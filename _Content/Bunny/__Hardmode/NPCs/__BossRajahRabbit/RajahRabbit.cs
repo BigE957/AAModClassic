@@ -50,9 +50,11 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         public bool IsFlying = false;
         public bool isSupreme = false;
 
-        public int roarTimer = 0;
-        public int roarTimerMax = 240;
-        public bool IsRoaring => roarTimer > 0;
+        public int RoarTimer = 0;
+        public int RoarTimerMax = 240;
+        public bool IsRoaring => RoarTimer > 0;
+
+        public int JumpDelayTimer = -1;
 
         private Texture2D WeaponTex;
         public int WeaponFrame = 0;
@@ -194,7 +196,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 
         public void Roar(int timer)
         {
-            roarTimer = timer;
+            RoarTimer = timer;
             SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Rajah"), NPC.Center);
         }
 
@@ -251,7 +253,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             WeaponPos = new Vector2(NPC.Center.X + (78 * NPC.spriteDirection), NPC.Center.Y - 9);
 
             if (IsRoaring) 
-                roarTimer--;
+                RoarTimer--;
 
             if (Main.netMode != NetmodeID.MultiplayerClient && NPC.type == ModContent.NPCType<RajahRabbitA>() && isSupreme == false)
             {
@@ -429,20 +431,54 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             }
             else if(CurrentMovement == RajahMovements.BeginStomp)
             {
-                NPC.noTileCollide = true;
-                NPC.noGravity = true;
-                isDashing = true;
-                if(TargetPlayer.velocity.X == 0)
+                bool performStomp = false;
+                if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                    performStomp = true;
+                if (JumpDelayTimer >= 8)
                 {
-                    NPC.velocity = (TargetPlayer.Center - NPC.Center) * .06f;
+                    JumpDelayTimer = -1;
+                    NPC.velocity.X = 0f;
+                    performStomp = true;
+                }
+
+                if (performStomp)
+                {
+                    NPC.noTileCollide = true;
+                    NPC.noGravity = true;
+                    isDashing = true;
+
+                    float stompDampen = 0.06f;
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        stompDampen = 0.08f;
+
+                    if (TargetPlayer.velocity.X == 0)
+                        NPC.velocity = (TargetPlayer.Center - NPC.Center) * stompDampen;
+                    else
+                        NPC.velocity = (TargetPlayer.Center + new Vector2(100f * (TargetPlayer.velocity.X > 0 ? 1 : -1), 0) - NPC.Center) * stompDampen;
+
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        NPC.velocity.X = 0;
+
+                    NPC.velocity = Vector2.Normalize(NPC.velocity) * 26f;
+
+                    if (NPC.velocity.X > 10f)
+                        NPC.velocity.X = 10f;
+
+                    CurrentMovement = RajahMovements.Stomp;
                 }
                 else
                 {
-                    NPC.velocity = (TargetPlayer.Center + new Vector2(100f * (TargetPlayer.velocity.X > 0? 1 : -1), 0) - NPC.Center) * .06f;
+                    if (JumpDelayTimer <= -1)
+                    {
+                        NPC.velocity.Y = -8f;
+                        JumpDelayTimer = 0;
+                    }
+                    else if (JumpDelayTimer >= 0)
+                    {
+                        JumpDelayTimer++;
+                        NPC.velocity.Y -= 0.06f;
+                    }
                 }
-                NPC.velocity = Vector2.Normalize(NPC.velocity) * 26f;
-                if(NPC.velocity.X > 10f) NPC.velocity.X = 10f;
-                CurrentMovement = RajahMovements.Stomp;
             }
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -496,7 +532,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             {
                 if (Main.rand.NextBool(5))
                 {
-                    Roar(roarTimerMax);
+                    Roar(RoarTimerMax);
                 }
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
@@ -731,14 +767,20 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 {
                     if (CurrentlyHeldProj == null || CurrentlyHeldProj.active == false || (CurrentlyHeldProj.type != ModContent.ProjectileType<RajahRabbit_ThePunisher>() && CurrentlyHeldProj.type != ModContent.ProjectileType<RajahRabbitA_TheAvenger>()))
                     {
+                        TimerPerformAttack++;
+
                         float knockBack = isSupreme == true ? 7f : 6.5f;
                         int type = isSupreme == true ? ModContent.ProjectileType<RajahRabbitA_TheAvenger>() : ModContent.ProjectileType<RajahRabbit_ThePunisher>();
-                        CurrentlyHeldProj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), WeaponPos, WeaponPos.DirectionTo(TargetPlayer.Center) * 15, type, damage, knockBack, Main.myPlayer, 0, 0, NPC.whoAmI);
+                        if (TimerPerformAttack >= 90)
+                        {
+                            CurrentlyHeldProj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), WeaponPos, WeaponPos.DirectionTo(TargetPlayer.Center) * 15, type, damage, knockBack, Main.myPlayer, 0, 0, NPC.whoAmI);
+                            TimerPerformAttack = 0;
+                        }
                         NPC.netUpdate = true;
                     }
                 }
             }
-
+            CurrentAttack = RajahAttacks.ThePunisher;
             if (Main.expertMode)
             {
                 if (NPC.life < NPC.lifeMax * .85f) //The lower the health, the more damage is done
@@ -828,6 +870,8 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                         float longth = Math.Abs(NPC.Center.X - TargetPlayer.Center.X);
                         NPC.velocity.X = (6 + longth * .01f) * NPC.direction;
                         NPC.velocity.Y = -12.1f;
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            NPC.velocity.Y = -13.67f;
                         IsJumping = true;
                         TimerJump = 0f;
                         NPC.netUpdate = true;
