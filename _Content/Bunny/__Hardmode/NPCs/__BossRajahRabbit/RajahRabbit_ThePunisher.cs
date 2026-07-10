@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
+using System.Xml.Serialization;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -106,12 +107,13 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             {
                 Projectile.alpha = 0;
             }
-            if ((int)Projectile.ai[1] % 4 == 0 && Projectile.owner == Main.myPlayer)
+            Projectile.position += rajah.NPC.velocity;
+            if ((int)Projectile.ai[1] > 5 && (int)Projectile.ai[1] % 4 == 0 && Projectile.owner == Main.myPlayer)
             {
                 Vector2 vector55 = vector54 * -1f;
                 vector55.Normalize();
                 vector55 *= Main.rand.Next(45, 65) * 0.1f;
-                vector55 = vector55.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866, default);
+                vector55 = vector55.RotatedBy(((Main.rand.NextDouble() * 0.5)) * 1.5707963705062866, default);
                 int type = rajah.isSupreme == true ? ModContent.ProjectileType<RajahRabbitA_GoldenCarrot>() : ModContent.ProjectileType<RajahRabbit_Carrot>();
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector55.X * 2, vector55.Y * 2, type, Projectile.damage, Projectile.knockBack, Projectile.owner, -10f, 0f);
                 return;
@@ -163,7 +165,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                     vector21.Normalize();
                     position += vector21 * num1;
                     vector24 = mountedCenter - position;
-                    Main.spriteBatch.Draw(texture, position - Main.screenPosition, sourceRectangle, Color.White, rotation, origin, 1f, SpriteEffects.None, 0.0f);
+                    Main.spriteBatch.Draw(texture, position - Main.screenPosition, sourceRectangle, Lighting.GetColor(position.ToTileCoordinates()), rotation, origin, 1f, SpriteEffects.None, 0.0f);
                 }
             }
             

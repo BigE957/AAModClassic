@@ -16,6 +16,11 @@ EnemyChat: {
 	SeraphHurtChat3: NOW You've done it! Oh ATHEEEEENAAAAAAAA
 	SeraphHurtChat4: THAT HURT..! WAAAAAAAAAAH ATHENAAAAAA THE EARTHWALKER IS BEING MEAN!
 	SeraphHurtChat5: *GASP*! You scuffed up my dress..! I'm getting Athena..!
+	SeraphAthenaRunChat1: Now you've done it...!
+	SeraphAthenaRunChat2: I don't wanna be around for this...
+	SeraphAthenaRunChat3: You're gonna get it now!
+	SeraphAthenaRunChat4: What happens next is not my fault.
+	SeraphAthenaRunChat5: That's what you get!
 	AthenaChat1: ...ugh...those little whiny--
 	AthenaChat2: I dont have time for this..!
 }

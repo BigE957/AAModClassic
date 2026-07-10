@@ -1,3 +1,4 @@
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.Interfaces;
 using Terraria.GameContent.Bestiary;
 using Terraria.ModLoader;
@@ -26,7 +27,8 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
         public override void SetDefaults()
         {
             base.SetDefaults();
-            NPC.lifeMax = 130;
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                NPC.lifeMax = 130;
         }
 
         public override bool PreKill() => false;

@@ -4,6 +4,7 @@ using AAModClassic._Content.Acropolis.Projectiles;
 using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
@@ -40,6 +41,9 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
             if (NPC.type == ModContent.NPCType<SeraphA>() && !NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
             SpawnModBiomes = [ModContent.GetInstance<AcropolisBiome>().Type];
+
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                NPC.damage = 0;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -61,7 +65,6 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
 
 		public override void AI()
 		{
-
             if (!NPC.HasPlayerTarget)
             {
                 NPC.TargetClosest();
@@ -80,10 +83,24 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
                 NPC.alpha = 0;
             }
 
-            if (NPC.ai[3]++ > 30 && Main.netMode != NetmodeID.MultiplayerClient)
+            bool athenaAlive = NPC.AnyNPCs(ModContent.NPCType<Athena>());
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) || NPC.type == ModContent.NPCType<SeraphA>())
+                athenaAlive = false;
+
+            int fireInterval = 30;
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                fireInterval = 90;
+
+            bool lineOfSight = Collision.CanHitLine(NPC.Center, 1, 1, player.Center, 1, 1);
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                lineOfSight = true;
+
+            if (NPC.ai[3]++ > fireInterval && Main.netMode != NetmodeID.MultiplayerClient && !athenaAlive && lineOfSight)
             {
                 int projType = ModContent.ProjectileType<SeraphFeather>();
                 float spread = 30f * 0.0174f;
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                    spread = 180f * 0.0174f;
                 Vector2 dir = Vector2.Normalize(player.Center - NPC.Center);
                 dir *= 14f;
                 float baseSpeed = (float)Math.Sqrt(dir.X * dir.X + dir.Y * dir.Y);
@@ -92,13 +109,15 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
                 for (int i = 0; i < 3; i++)
                 {
                     double offsetAngle = startAngle + deltaAngle * i;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, NPC.damage / 4, 2, Main.myPlayer);
+                    int damage = NPC.damage / 4;
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        damage = 55 / 4; //TODO: this doesnt scale with damage on higeh difficulties... but i want seraphs to not deal cd... FUCK...
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, damage, 2, Main.myPlayer);
                 }
                 NPC.ai[3] = 0;
                 NPC.netUpdate = true;
             }
-
-            if (!player.GetModPlayer<ZAAPlayer>().ZoneAcropolis || player.dead)
+            else if (!player.GetModPlayer<ZAAPlayer>().ZoneAcropolis || player.dead)
             {
                 NPC.TargetClosest();
                 if (!player.GetModPlayer<ZAAPlayer>().ZoneAcropolis || player.dead)
@@ -117,6 +136,16 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
                     }
                     BaseAI.KillNPC(NPC);
                 }
+            }
+            else if (athenaAlive)
+            {
+                if (NPC.localAI[3] == 0)
+                {
+                    CombatText.NewText(NPC.Hitbox, Color.CadetBlue, SeraphBitchingLeaveSoWhyDidHeNameTheseMethodsLikeThat(), true);
+                    NPC.localAI[3] = 1;
+                }
+
+                NPC.velocity.Y -= 0.25f;
             }
 
             NPC.spriteDirection = NPC.direction;
@@ -162,22 +191,50 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
         {
             switch (Main.rand.Next(5))
             {
-                case 0: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphChat1");
-                case 1: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphChat2");
-                case 2: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphChat3");
-                case 3: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphChat4");
-                default: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphChat5");
+                case 0: 
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphChat1");
+                case 1: 
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphChat2");
+                case 2: 
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphChat3");
+                case 3: 
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphChat4");
+                default: 
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphChat5");
             }
         }
+
         public static string SeraphBitchingKill()
         {
             switch (Main.rand.Next(5))
             {
-                case 0: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphKillChat1");
-                case 1: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphKillChat2");
-                case 2: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphKillChat3");
-                case 3: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphKillChat4");
-                default: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphKillChat5");
+                case 0: 
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphKillChat1");
+                case 1: 
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphKillChat2");
+                case 2: 
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphKillChat3");
+                case 3: 
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphKillChat4");
+                default: 
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphKillChat5");
+            }
+        }
+
+        public static string SeraphBitchingLeaveSoWhyDidHeNameTheseMethodsLikeThat()
+        {
+            switch (Main.rand.Next(5))
+            {
+                case 0: 
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphAthenaRunChat1");
+                case 1: 
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphAthenaRunChat2");
+                case 2: 
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphAthenaRunChat3");
+                case 3: 
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphAthenaRunChat4");
+                default: 
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphAthenaRunChat5");
             }
         }
     }
