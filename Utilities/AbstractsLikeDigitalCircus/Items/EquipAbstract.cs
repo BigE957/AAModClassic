@@ -901,7 +901,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
     {
         public override void DoEffect(Player player)
         {
-            Lighting.AddLight((int)player.Center.X, (int)player.Center.Y, r, g, b);
+            Lighting.AddLight(player.Center, r, g, b);
         }
     }
 

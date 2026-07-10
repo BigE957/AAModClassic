@@ -218,7 +218,7 @@ LegendscribeUnofficial: {
 
 	TownNPCMood: {
 		Content: I'm cool as a cucumber.
-		NoHome: "I'll need a nice big house. Think you could get me one with a nice [c/FFFF00:Tall Gate] I can fit through?"
+		NoHome: I'll need a nice big house. Think you could get me one with a nice [c/FFFF00:Tall Gate] I can fit through?
 		FarFromHome: I'm putting up missing dog posters... They're for me...
 		LoveSpace: It's nice to be able to kick back and relax with all this space.
 		DislikeCrowded: It's a bit noisy hear. I just want to read this really good book.

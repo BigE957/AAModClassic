@@ -35,7 +35,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Pets
 
 		public override void AI()
         {
-            Lighting.AddLight((int)(Projectile.Center.X + Projectile.width / 2f) / 16, (int)(Projectile.position.Y + Projectile.height / 2f) / 16, .5f, 0.3f, 0f);
+            Lighting.AddLight(Projectile.Center, 0.5f, 0.3f, 0f);
             if (Projectile.velocity.X > 0f)
             {
                 Projectile.spriteDirection = -1;
