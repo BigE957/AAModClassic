@@ -31,20 +31,20 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetrieve
             int useAnimate = item.useAnimation;
             if (effect)
             {
-                if (item.autoReuse == false)
+                if (item.autoReuse == false && item.damage > -1)
                 {
                     multiplier *= 2f;
                 }
-            }
-            
-            while (useTime / multiplier < 1)
-            {
-                multiplier -= .1f;
-            }
 
-            while (useAnimate / multiplier < 2)
-            {
-                multiplier -= .1f;
+                while (useTime / multiplier < 1)
+                {
+                    multiplier -= .1f;
+                }
+
+                while (useAnimate / multiplier < 2)
+                {
+                    multiplier -= .1f;
+                }
             }
 
             return multiplier;
