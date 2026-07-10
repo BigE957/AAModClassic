@@ -309,10 +309,10 @@ Lovecraftian: {
 	HallowFlaskChat: What is this stuff? It's...sparkly..? Whatever, I'll research it a bit more. Here's a new flask.
 	VoidFlaskChat: Wow this is heavy! What is this? I've never seen this kind of metal before. Oh right. New flask. Here.
 	FungicideChat: Hmm...glowing spores? I've never seen something like this aside from glowing mushrooms. Speaking of mushrooms, here, I found a recipe for some really good fungicide. I made it into a flask.
-	SporeSacChat1: "What is this stuff? It's so squishy...I'll make it work I guess. Oh by the way, "
-	SporeSacChat2: " showed me how to make mushroom spores. Feel free to use it how you see fit."
-	GlowingSporeSacChat1: "Hm, this stuff is pretty glowy. *Sniff* Yowza that burns my nostrils. Anyways, here, I made a glowing version of  "
-	GlowingSporeSacChat2: "'s spores."
+	SporeSacChat: "What is this stuff? It's so squishy...I'll make it work I guess. Oh by the way, (0) showed me how to make mushroom spores. Feel free to use it how you see fit."
+	SporeSacMushmanNameFallback: "someone I talked to earlier"
+	GlowingSporeSacChat: "Hm, this stuff is pretty glowy. *Sniff* Yowza that burns my nostrils. Anyways, here, I made a glowing version of {0}'s spores."
+	GlowingSporeSacMushmanNameFallback: "a fun guy"
 	JungleFlaskChat: Oh thank you so much! These stingers will work nicely for some makeshift syringes. Here, I've developed a brand new solution that changes forest into jungle. Nifty, huh?
 	IceFlaskChat: Now THIS will come in handy. Thank you. Hey, speaking of ice, check this out. Snow creation AND removal flasks? You like it? Two for the price of one!
 	ForestFlaskChat: I wish we had these back where I came from. They're adorable~! Oh, but I'd be careful with these little guys if I were you. The dryad told me there's some giant monster that protects them...anyways, while you were out, I made a new flask. It turns Jungle into forest. Careful with it.
