@@ -66,10 +66,10 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Mounts
             //TODO: These guys are invisible atm.
             if (Main.netMode != NetmodeID.Server)
             {
-                MountData.backTexture = ModContent.Request<Texture2D>(Texture);
-                MountData.backTextureExtra = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
-                MountData.frontTexture = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
-                MountData.frontTextureExtra = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
+                //MountData.backTexture = ModContent.Request<Texture2D>(Texture);
+                //MountData.backTextureExtra = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
+                //MountData.frontTexture = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
+                //MountData.frontTextureExtra = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
                 MountData.textureWidth = MountData.backTexture.Width();
                 MountData.textureHeight = MountData.backTexture.Height();
             }
