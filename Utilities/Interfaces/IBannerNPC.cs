@@ -35,7 +35,7 @@ namespace AAModClassic.Utilities.Interfaces
                 }
                 else
                 {
-                    me.BannerItem = lead.Banner;
+                    me.BannerItem = lead.BannerItem;
                     return true;
                 }
             }
@@ -110,7 +110,7 @@ namespace AAModClassic.Utilities.Interfaces
             {
                 int type = NPCsToDoubleCheck.Dequeue();
                 ModNPC me = ModContent.GetModNPC(type);
-                me.BannerItem = ModContent.GetModNPC((me as IBannerNPC).OverrideBannerNPCType).Banner;
+                me.BannerItem = ModContent.GetModNPC((me as IBannerNPC).OverrideBannerNPCType).BannerItem;
 
                 mod.Logger.Info($"  - {me.Name}'s BannerItem updated from 0 to {me.BannerItem}");
             }
