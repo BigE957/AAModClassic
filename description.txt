@@ -43,7 +43,7 @@ Developers and Contributors behind this port:
 - Big E
 - CaligulasAquarium
 - DiamondWalker
-- Ermudo
+- ERMUDO
 - EduaRRdo
 - MaestroVGM
 - Memeisseur

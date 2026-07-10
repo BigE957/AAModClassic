@@ -63,7 +63,7 @@ Developers and Contributors behind this port:
 [*] CaligulasAquarium
 [*] DiamondWalker
 [*] EduaRRdo
-[*] Ermudo
+[*] ERMUDO
 [*] MaestroVGM
 [*] Memeisseur
 [*] Pil
