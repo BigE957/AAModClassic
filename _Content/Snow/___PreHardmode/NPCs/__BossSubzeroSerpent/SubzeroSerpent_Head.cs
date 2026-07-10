@@ -1,5 +1,4 @@
-﻿using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
-using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.BossStandard;
+﻿using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.BossStandard;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Tools;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
@@ -861,7 +860,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 
             LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 
-            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RajahRabbitRelic>()));
+            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SubzeroSerpentRelic>()));
 
             npcLoot.Add(masterMode);
 
