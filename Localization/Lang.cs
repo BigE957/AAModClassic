@@ -5262,9 +5262,9 @@ namespace AAModClassic.Localization
                     switch(Tiles)
                     {
                         case "Spawnpointremoved":
-                        return "Spawn point removed!";
+                        return Language.GetTextValue("Game.SpawnPointRemoved");
                         case "Spawnpointset":
-                        return "Spawn point set!";
+                        return Language.GetTextValue("Game.SpawnPointSet");
 
 
                         case "EnderMemoryInfo": 
