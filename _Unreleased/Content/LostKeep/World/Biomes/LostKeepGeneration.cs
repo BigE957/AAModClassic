@@ -46,8 +46,13 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 		{
 			Tile tile = Framing.GetTileSafely(p);
 
-			if ((!leniant && (tile.TileType == TileID.JungleGrass)) ||
-				tile.TileType == TileID.Sandstone ||
+			if (!leniant && tile.TileType == TileID.JungleGrass)
+            {
+                AAMod.instance.Logger.Info("Lost Keep Placement Failed, Encountered Tile of type: " + tile.TileType);
+                return true;
+            }
+
+            if (tile.TileType == TileID.Sandstone ||
 				tile.TileType == TileID.SnowBlock ||
 				tile.TileType == TileID.IceBlock ||
 				tile.TileType == TileID.Ash ||
@@ -65,6 +70,8 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 
 			return false;
 		}
+
+        private static readonly bool[] AllTilesAllowed = Enumerable.Repeat(true, TileLoader.TileCount).ToArray();
 
         public override bool Place(Point origin, StructureMap structures)
         {
@@ -91,7 +98,7 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 						break;
 				}
 
-                if (canGenerateInLocation && !structures.CanPlace(new Rectangle(placementPoint.X, placementPoint.Y, LostKeepTexGenAssets.KeepTileData.Width, LostKeepTexGenAssets.KeepTileData.Height), Enumerable.Repeat(true, TileLoader.TileCount).ToArray(), 0))
+                if (canGenerateInLocation && !structures.CanPlace(new Rectangle(placementPoint.X, placementPoint.Y, LostKeepTexGenAssets.KeepTileData.Width, LostKeepTexGenAssets.KeepTileData.Height), AllTilesAllowed, 0))
                 {
                     AAMod.instance.Logger.Info("Lost Keep Placement Failed, Encountered a Pre-Existing Structure");
 					canGenerateInLocation = false;
@@ -104,8 +111,9 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 					break;
 				}
 
-                int targetX = Math.Clamp(origin.X + WorldGen.genRand.Next(-400, 400), 200, Main.maxTilesX - 200);
-                int targetY = Math.Clamp(origin.Y + WorldGen.genRand.Next(-150, 400), 100, Main.maxTilesY - 300);
+                int radius = 200 + attempts / 2;
+                int targetX = Math.Clamp(origin.X + WorldGen.genRand.Next(-radius, radius), 200, Main.maxTilesX - 200);
+                int targetY = Main.maxTilesY - 300 - Main.rand.Next(0, 500);
                 placementPoint = new Point(targetX, targetY);
 
             } while (attempts++ < maxAttempts);
@@ -146,7 +154,10 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 			TexGen texGenerator = TexGen.GetTexGenerator(LostKeepTexGenAssets.KeepTileData, colorToTile, LostKeepTexGenAssets.KeepWallData, colorToWall, null, LostKeepTexGenAssets.KeepSlopeData);
 			int placeX = origin.X;
 			int placeY = origin.Y;
-			texGenerator.Generate(placeX, placeY, silent: true, sync: true);
+
+            AAWorld_Unreleased.lostKeepOrigin = new(placeX, placeY);
+
+            texGenerator.Generate(placeX, placeY, silent: true, sync: true);
 			Dictionary<Color, int> dictionary3 = new Dictionary<Color, int>();
 			dictionary3[new(255, 0, 0)] = TileID.AmberGemspark;
 			dictionary3[new(0, 255, 0)] = TileID.TopazGemspark;
