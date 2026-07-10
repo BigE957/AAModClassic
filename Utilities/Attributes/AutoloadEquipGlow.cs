@@ -24,6 +24,9 @@ namespace AAModClassic.Utilities.Attributes
     {
         public override void OnModLoad()
         {
+            if (Main.dedServ)
+                return;
+
             ModContent.GetInstance<AAMod>().Logger.Info("Loading Equip Glow Textures: ");
             foreach (ModItem item in Mod.GetContent<ModItem>())
             {
