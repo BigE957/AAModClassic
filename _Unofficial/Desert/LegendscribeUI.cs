@@ -730,7 +730,7 @@ namespace AAModClassic._Unofficial.Desert
         public string Questline = questline;
         public string ID = id;
         public Vector2 Position = pos;
-        private int NodeID = nodeID;
+        private readonly int NodeID = nodeID;
         public Vector2 DrawPos => new(Left.Pixels, Top.Pixels);
 
         internal class NodeBubble(Vector2 startOffset, Vector2 startVelocity)
@@ -747,11 +747,11 @@ namespace AAModClassic._Unofficial.Desert
         private Vector2 birdVelocity = Main.rand.NextVector2CircularEdge(4, 4);
         private Vector2 fishAcceleration = Vector2.Zero;
 
-        bool isSelected => LegendscribeQuestUI.CurrentQuest == null ? false : LegendscribeQuestUI.CurrentQuest.ID == ID;
+        bool IsSelected => LegendscribeQuestUI.CurrentQuest == null ? false : LegendscribeQuestUI.CurrentQuest.ID == ID;
         int selectedCounter = 0;
         int hoverCounter = 0;
-        float floatiness => MathHelper.Clamp(MathUtils.SineInOutEasing(hoverCounter / 30f), 0f, 1f);
-        float scalePower => MathHelper.Clamp(MathUtils.SineInOutEasing(selectedCounter / 30f), 0f, 1f);
+        float Floatiness => MathHelper.Clamp(MathUtils.SineInOutEasing(hoverCounter / 30f), 0f, 1f);
+        float ScalePower => MathHelper.Clamp(MathUtils.SineInOutEasing(selectedCounter / 30f), 0f, 1f);
 
         public override void OnInitialize()
         {
@@ -797,21 +797,24 @@ namespace AAModClassic._Unofficial.Desert
                 OnInitialize();
             }
 
-            Icon.NormalizedOrigin = Vector2.One * 0.5f;
-            Icon.Width.Pixels = QuestSystem.Questlines[Questline].Quests[ID].Icon.Width();
-            Icon.Height.Pixels = QuestSystem.Questlines[Questline].Quests[ID].Icon.Height();
-            Icon.Top.Pixels = 23;
-            Icon.Left.Pixels = 23;
-
-            Node.ImageScale = Vector2.One * (0.5f + scalePower * 0.25f + ((MathF.Sin((Main.GlobalTimeWrappedHourly + NodeID) * 10) / 2f + 0.5f) / 40f));
+            Node.ImageScale = Vector2.One * (0.5f + ScalePower * 0.25f + ((MathF.Sin((Main.GlobalTimeWrappedHourly + NodeID) * 10) / 2f + 0.5f) / 40f));
             Node.Color = QuestSystem.Questlines[Questline].UnlockedQuests.Contains(ID) ? Color.White : Color.Gray;
             Node.Rotation += 0.025f * (NodeID % 2 == 0 ? -1 : 1);
 
-            Icon.ImageScale = Vector2.One * (1f + scalePower * 0.5f);
-            Icon.Color = QuestSystem.Questlines[Questline].UnlockedQuests.Contains(ID) ? Color.White : Color.Black;
+            if (Icon != null)
+            {
+                Icon.NormalizedOrigin = Vector2.One * 0.5f;
+                Icon.Width.Pixels = QuestSystem.Questlines[Questline].Quests[ID].Icon.Width();
+                Icon.Height.Pixels = QuestSystem.Questlines[Questline].Quests[ID].Icon.Height();
+                Icon.Top.Pixels = 23;
+                Icon.Left.Pixels = 23;
 
-            Left.Pixels = Position.X + (float)Math.Sin(Main.GlobalTimeWrappedHourly / 3f + Position.Y) * 8f * (1 - floatiness);
-            Top.Pixels = Position.Y + (float)Math.Sin(Main.GlobalTimeWrappedHourly + Position.Y) * 12f * (1 - floatiness);
+                Icon.ImageScale = Vector2.One * (1f + ScalePower * 0.5f);
+                Icon.Color = QuestSystem.Questlines[Questline].UnlockedQuests.Contains(ID) ? Color.White : Color.Black;
+            }
+
+            Left.Pixels = Position.X + (float)Math.Sin(Main.GlobalTimeWrappedHourly / 3f + Position.Y) * 8f * (1 - Floatiness);
+            Top.Pixels = Position.Y + (float)Math.Sin(Main.GlobalTimeWrappedHourly + Position.Y) * 12f * (1 - Floatiness);
 
             if (IsMouseHovering)
             {
@@ -822,7 +825,7 @@ namespace AAModClassic._Unofficial.Desert
             else if (hoverCounter > 0)
                 hoverCounter--;
 
-            if (isSelected)
+            if (IsSelected)
             {
                 if (selectedCounter < 30)
                     selectedCounter++;
@@ -830,6 +833,7 @@ namespace AAModClassic._Unofficial.Desert
             else if (selectedCounter > 0)
                 selectedCounter--;
 
+            /*
             bubbles ??= [];
 
             if (QuestSystem.Questlines[Questline].Quests[ID].Active && (int)(Main.GlobalTimeWrappedHourly * 60) % 5 == 0)
@@ -844,6 +848,7 @@ namespace AAModClassic._Unofficial.Desert
                 else
                     bubbles[i].counter++;
             }
+            */
 
             var nodePos = Position;
             var fishPos = birdOffset;
