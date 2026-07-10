@@ -98,7 +98,7 @@ namespace AAModClassic.UI.World
 
                 AddAAWorldOptions(worldCreation, optionDesc, infoRack, worldGenPanel.Height.Pixels - 20f - 48f - 40, ClickAAWorldTypeOption, "AAWorldType", 1f);
             }
-            else if(Main.MenuUI.CurrentState is not UIVirtualKeyboard)
+            else if (Main.MenuUI.CurrentState is UIWorldSelect)
                 perviousStateWorldCreation = false;
         }
 
