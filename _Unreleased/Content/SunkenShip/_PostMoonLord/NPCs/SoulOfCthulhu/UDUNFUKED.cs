@@ -26,7 +26,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.width = 130;
             NPC.height = 130;
             NPC.aiStyle = -1;
-            NPC.damage = 999999999;
+            NPC.friendly = false;
+            NPC.damage = 99999999;
             NPC.dontTakeDamage = true;
             NPC.lifeMax = 1000000;
             NPC.DeathSound = SoundID.Item88;
@@ -55,9 +56,12 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             Player player = Main.player[NPC.target];
             AAPlayer_Unreleased modPlayer = player.GetModPlayer<AAPlayer_Unreleased>();
-
-            if (player.dead || !player.active || !modPlayer.ZoneShip)
+            if (player == null || player.dead || !player.active || !modPlayer.ZoneShip)
+            { 
                 NPC.TargetClosest(true);
+                player = Main.player[NPC.target];
+                modPlayer = player.GetModPlayer<AAPlayer_Unreleased>();
+            }
 
             if (Main.player[NPC.target].dead || Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000.0 || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000.0)
                 NPC.active = false;
@@ -96,7 +100,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.velocity.Y = num442 * num5;
             Rotation += NPC.velocity.X * .08f;
             RiftSpin -= NPC.velocity.X * .08f;
-            return;
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
