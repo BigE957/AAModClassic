@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.Ra
 
         public override bool RightClick(int x, int y)
         {
-            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.RazewoodClockGetTime"), 205, 62, 12);
+            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Tiles.RazewoodClock_Tile.FlavorText"), 205, 62, 12);
             return true;
         }
 

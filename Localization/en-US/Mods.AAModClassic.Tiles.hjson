@@ -65,7 +65,12 @@ RazewoodCandle_Tile.MapEntry: Razewood Candle
 RazewoodChair_Tile.MapEntry: Razewood Chair
 RazewoodChandelier_Tile.MapEntry: Razewood Chandelier
 RazewoodChest_Tile.MapEntry: Razewood Chest
-RazewoodClock_Tile.MapEntry: Razewood Clock
+
+RazewoodClock_Tile: {
+	MapEntry: Razewood Clock
+	FlavorText: Maybe making a clock out of burned wood wasn't such a good idea. It doesn't even work.
+}
+
 RazewoodCouch_Tile.MapEntry: Razewood Couch
 RazewoodDoorClosed_Tile.MapEntry: Razewood Door
 RazewoodDoorOpen_Tile.MapEntry: Razewood Door
@@ -145,7 +150,20 @@ DoomCandle_Tile.MapEntry: Doom Candle
 DoomChair_Tile.MapEntry: Doom Chair
 DoomChandelier_Tile.MapEntry: Doom Chandelier
 DoomChest_Tile.MapEntry: Doom Chest
-DoomClock_Tile.MapEntry: Doom Clock
+
+DoomClock_Tile: {
+	MapEntry: Doom Clock
+
+	FlavorText: {
+		PreZero:
+			'''
+			The clock is counting down to something...you aren't sure what though.
+			The number at the moment is so high you don't even know what the number is called.
+			'''
+		PostZero: The Clock reads one digit: 0
+	}
+}
+
 DoomCouch_Tile.MapEntry: Doom Couch
 DoomDoorClosed_Tile.MapEntry: Doom Door
 DoomDoorOpen_Tile.MapEntry: Doom Door

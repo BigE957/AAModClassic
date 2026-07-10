@@ -7,6 +7,7 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu
@@ -71,7 +72,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 if (Line == false && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     Line = true;
-                    Main.NewText("Do not return...", Color.DarkCyan);
+                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.Kill"), Color.DarkCyan);
                 }
             }
             if (Line == true)
