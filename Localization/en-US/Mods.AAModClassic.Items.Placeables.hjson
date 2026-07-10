@@ -587,133 +587,133 @@ KeepBrick: {
 }
 
 AcropolisPainting: {
-	DisplayName: Acropolis Painting
-	Tooltip: ""
+	DisplayName: Palace in the Sky
+	Tooltip: 'Those seraphs act more like harpies than actual harpies...'
 }
 
 AkumaPainting: {
-	DisplayName: Akuma Painting
-	Tooltip: ""
+	DisplayName: Draconian Demon
+	Tooltip: 'The flames of hate...they still rage in this demon...'
 }
 
 AnubisPainting: {
-	DisplayName: Anubis Painting
-	Tooltip: ""
+	DisplayName: An Old Friend
+	Tooltip: 'Tough guy, but he makes me laugh.'
 }
 
 CRajahPainting: {
-	DisplayName: Champion Rajah Painting
-	Tooltip: ""
+	DisplayName: Champion of the Innocent
+	Tooltip: 'The only thing more powerful than a defender is his unending fury.'
 }
 
 DaedalusPainting: {
-	DisplayName: Daedalus Painting
-	Tooltip: ""
+	DisplayName: Lord of Light
+	Tooltip: 'Does what's right...even if it's not the best thing to do.'
 }
 
 DecayPainting: {
-	DisplayName: Decay Painting
-	Tooltip: ""
+	DisplayName: The Warden
+	Tooltip: 'That old spectre...what is he planning..?'
 }
 
 FulgurusPainting: {
-	DisplayName: Fulgurus Painting
-	Tooltip: ""
+	DisplayName: Thunder Bringer
+	Tooltip: 'I didn't paint this one. It was a gift from the fulgarians...they seem alright.'
 }
 
 GreedPainting: {
-	DisplayName: Greed Painting
-	Tooltip: ""
+	DisplayName: The Worm King
+	Tooltip: 'Deep in the caverns lies mountains of treasure...guarded by a serpent made of it.'
 }
 
 HotJPainting: {
-	DisplayName: Heart of the Jungle Painting
-	Tooltip: ""
+	DisplayName: The Heart
+	Tooltip: 'The origin of life...reduced to a sentient dirt pile. Poor thing...'
 }
 
 IZPainting: {
-	DisplayName: Infinity Zero Painting
-	Tooltip: ""
+	DisplayName: Eye of Infinity
+	Tooltip: 'It still haunts my nightmares...'
 }
 
 JojoBagginsPainting: {
-	DisplayName: Jojo Baggins Painting
-	Tooltip: ""
+	DisplayName: The Architect
+	Tooltip: 'Weird guy but boy was he ever a great builder.'
 }
 
 KingQueenPainting: {
-	DisplayName: King & Queen Painting
-	Tooltip: ""
+	DisplayName: The Monarchs
+	Tooltip: 'I miss you, mom and dad...'
 }
 
 LuciferPainting: {
-	DisplayName: Lucifer Painting
-	Tooltip: ""
+	DisplayName: King of Evil
+	Tooltip: 'The pit. Hot, dark, and bloody, no thanks.'
 }
 
 MushmadPainting: {
-	DisplayName: Mushmad Painting
-	Tooltip: ""
+	DisplayName: Madness
+	Tooltip: 'So many mushrooms...'
 }
 
 NKPainting: {
-	DisplayName: Nameless Knight Painting
-	Tooltip: ""
+	DisplayName: The Lost Knight
+	Tooltip: 'Legends say this ruthless dungeon guard was once like us before she died...'
 }
 
 RajahPainting: {
-	DisplayName: Rajah Rabbit Painting
-	Tooltip: ""
+	DisplayName: Pouncing Punisher
+	Tooltip: 'The king of the small and helpless, both of which he is most certainly not.'
 }
 
 SanguinePainting: {
-	DisplayName: Sanguine Painting
-	Tooltip: ""
+	DisplayName: Blood & Bones
+	Tooltip: "'They seem to have taken the term 'face monster' a bit too seriously.'"
 }
 
 ShenPainting: {
-	DisplayName: Shen Doragon Painting
-	Tooltip: ""
+	DisplayName: Discordian Doomsayer
+	Tooltip: 'I sealed him away, but the thing about containing chaos forever...is that you can't.'
 }
 
 ShipPainting: {
-	DisplayName: Sunken Ship Painting
-	Tooltip: ""
+	DisplayName: Gloomy Galleon
+	Tooltip: 'That ship...I still don't understand what those creatures infesting it are...'
 }
 
 SoCPainting: {
-	DisplayName: Soul of Cthulhu Painting
-	Tooltip: ""
+	DisplayName: Sunken Soul
+	Tooltip: 'An eldritch abomination sealed into the ship it sunk...'
 }
 
 TerraPainting: {
-	DisplayName: Terra Painting
-	Tooltip: ""
+	DisplayName: The Hero
+	Tooltip: 'They hail me as a Hero, yet I feel like I haven't done enough.'
 }
 
 UmbraPainting: {
-	DisplayName: Umbra Painting
-	Tooltip: ""
+	DisplayName: Arachnid
+	Tooltip: 'I hate spiders. Especially this one.'
 }
 
 ValkyriePainting: {
-	DisplayName: Valkyrie Painting
-	Tooltip: ""
+	DisplayName: Valor
+	Tooltip: 'I hope you can find your lost loved one...'
 }
 
 WizardPainting: {
-	DisplayName: Chaos Wizard Painting
-	Tooltip: ""
+	DisplayName: The Wizard
+	Tooltip: 'I don't care what you've become. I still have hope for you.'
 }
 
 YamataPainting: {
-	DisplayName: Yamata Painting
-	Tooltip: ""
+	DisplayName: 7-Headed Scream
+	Tooltip: 'Sweet Azathoth, will this oversized lizard zip his lip?!'
 }
 
 ZeroPainting: {
-	DisplayName: Zero Painting
-	Tooltip: ""
+	DisplayName: 0
+	Tooltip: 'That thing...I don't know what it is, but it just...gives me the chills.'
 }
 
 TerraBrick: {
