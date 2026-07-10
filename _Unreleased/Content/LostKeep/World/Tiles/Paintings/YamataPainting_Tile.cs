@@ -32,7 +32,7 @@ public class YamataPainting_Tile : ModTile
 	{
 		if (Main.netMode != NetmodeID.Server)
 		{
-			BaseUtility.Chat("'Sweet Azathoth, will this oversized lizard zip his lip?!'", AAColor.Yamata, sync: false);
+			BaseUtility.Chat(Language.GetTextValue($"Mods.AAModClassic.Items.Placeables.{Name.Replace("_Tile", "")}.Tooltip"), AAColor.Yamata, sync: false);
 		}
 		return true;
 	}

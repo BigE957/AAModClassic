@@ -31,7 +31,7 @@ public class WizardPainting_Tile : ModTile
 	{
 		if (Main.netMode != NetmodeID.Server)
 		{
-			BaseUtility.Chat("'I don't care what you've become. I still have hope for you.'", Color.Magenta, sync: false);
+			BaseUtility.Chat(Language.GetTextValue($"Mods.AAModClassic.Items.Placeables.{Name.Replace("_Tile", "")}.Tooltip"), Color.Magenta, sync: false);
 		}
 		return true;
 	}

@@ -37,7 +37,7 @@ public class IZPainting_Tile : ModTile
 		//IL_000d: Unknown result type (might be due to invalid IL or missing references)
 		if (Main.netMode != NetmodeID.Server)
 		{
-			BaseUtility.Chat("'It still haunts my nightmares...'", Color.Red, sync: false);
+			BaseUtility.Chat(Language.GetTextValue($"Mods.AAModClassic.Items.Placeables.{Name.Replace("_Tile", "")}.Tooltip"), Color.Red, sync: false);
 		}
 		return true;
 	}

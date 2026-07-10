@@ -38,7 +38,9 @@ Can only be used in glowing mushroom biomes"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("You are being assaulted by a bunch of fungis", Color.SkyBlue, false);
+            if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.GlowingMassShroomInitiated"), Color.SkyBlue, false); 
 
             for (int i = 0; i < 10; i++)
             {
@@ -53,12 +55,16 @@ Can only be used in glowing mushroom biomes"); */
         {
             if (!player.ZoneGlowshroom)
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("Stop waving a bunch of shrooms around in the middle of nowhere like a nutcase.",  Color.SkyBlue, false);
+                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.GlowingMassShroomFalse"),  Color.SkyBlue, false);
                 return false;
             }
-            if (NPC.AnyNPCs(ModContent.NPCType<MushroomMonarch>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<FeudalFungus>()))
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ConfusingMushroomFalse2"), Color.SkyBlue, false);
+                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ConfusingMushroomFalse2"), Color.SkyBlue, false);
                 return false;
             }
             return true;

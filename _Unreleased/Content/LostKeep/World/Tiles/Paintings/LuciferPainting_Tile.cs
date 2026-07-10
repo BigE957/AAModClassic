@@ -32,7 +32,7 @@ public class LuciferPainting_Tile : ModTile
 		//IL_000d: Unknown result type (might be due to invalid IL or missing references)
 		if (Main.netMode != NetmodeID.Server)
 		{
-			BaseUtility.Chat("'The pit. Hot, dark, and bloody, no thanks.'", Color.Orange, sync: false);
+			BaseUtility.Chat(Language.GetTextValue($"Mods.AAModClassic.Items.Placeables.{Name.Replace("_Tile", "")}.Tooltip"), Color.Orange, sync: false);
 		}
 		return true;
 	}

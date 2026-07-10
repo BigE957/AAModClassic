@@ -1,15 +1,16 @@
+using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
+using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using Terraria.Localization;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
-using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetriever
 {
@@ -50,12 +51,16 @@ Only useable at night"); */
         {
             if (Main.dayTime)
             {
-                if (player.whoAmI == Main.myPlayer) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("The claw just lays limp in your hand.", Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
+                if (player.whoAmI == Main.myPlayer)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.CyberneticClawFalse1"), Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
                 return false;
             }
             if (NPC.AnyNPCs(ModContent.NPCType<Retriever>()))
             {
-                if (player.whoAmI == Main.myPlayer) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("The Retriever is still trying to grab you", Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
+                if (player.whoAmI == Main.myPlayer)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.CyberneticClawFalse2"), Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
                 return false;
             }
             return true;

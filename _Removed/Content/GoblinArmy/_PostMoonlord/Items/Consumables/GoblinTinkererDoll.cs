@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.GoblinArmy._PostMoonlord.Items.Consumables
@@ -23,7 +24,7 @@ namespace AAModClassic._Removed.Content.GoblinArmy._PostMoonlord.Items.Consumabl
         {
             Item.width = 16;
             Item.height = 28;
-            Item.rare = 0;
+            Item.rare = ItemRarityID.White;
             Item.value = 50000;
         }
 
@@ -51,8 +52,8 @@ namespace AAModClassic._Removed.Content.GoblinArmy._PostMoonlord.Items.Consumabl
                         Player player = Main.LocalPlayer;
                         player.QuickSpawnItem(player.GetSource_GiftOrReward(), ModContent.ItemType<SoulStone>());
                         Main.npc[i].StrikeInstantKill();
-                        if (Main.netMode != 1) 
-                            BaseUtility.Chat("The soul stone materializes in your hand", 180, 120, 0);
+                        if (Main.netMode != NetmodeID.MultiplayerClient) 
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.InfinityGauntlet.SoulStoneStatus"), 180, 120, 0);
                     }
                 }
             }

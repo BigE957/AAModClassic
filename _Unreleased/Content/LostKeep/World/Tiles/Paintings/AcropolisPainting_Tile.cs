@@ -1,5 +1,6 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -34,7 +35,7 @@ public class AcropolisPainting_Tile : ModTile
 		//IL_000d: Unknown result type (might be due to invalid IL or missing references)
 		if (Main.netMode != NetmodeID.Server)
 		{
-			BaseUtility.Chat("'Those seraphs act more like harpies than actual harpies...'", AAColor.Sky, sync: false);
+			BaseUtility.Chat(Language.GetTextValue($"Mods.AAModClassic.Items.Placeables.{Name.Replace("_Tile", "")}.Tooltip"), AAColor.Sky, sync: false);
 		}
 		return true;
 	}

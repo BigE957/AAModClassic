@@ -32,7 +32,7 @@ public class UmbraPainting_Tile : ModTile
 		//IL_000d: Unknown result type (might be due to invalid IL or missing references)
 		if (Main.netMode != NetmodeID.Server)
 		{
-			BaseUtility.Chat("'I hate spiders. Especially this one.'", Color.MediumPurple, sync: false);
+			BaseUtility.Chat(Language.GetTextValue($"Mods.AAModClassic.Items.Placeables.{Name.Replace("_Tile", "")}.Tooltip"), Color.MediumPurple, sync: false);
 		}
 		return true;
 	}

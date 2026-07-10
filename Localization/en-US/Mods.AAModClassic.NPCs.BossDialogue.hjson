@@ -712,6 +712,8 @@ ShenDoragon: {
 }
 
 InfinityZero: {
+	Spawn: ...Target Identified.
+
 	Health: {
 		75: WARNING. Systems have reached 75% efficiency.
 		50: Redirecting resources to offensive systems.
