@@ -51,9 +51,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
             {
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ModContent.ItemType<BlazingDawn>(), 1);
-                recipe.AddIngredient(ItemID.SoulofFright, 20);
-                recipe.AddIngredient(ItemID.SoulofMight, 20);
-                recipe.AddIngredient(ItemID.SoulofSight, 20);
+                recipe.AddIngredient(ItemID.ChlorophyteBar, 24);
                 recipe.AddTile(TileID.MythrilAnvil);
                 recipe.Register();
             }
