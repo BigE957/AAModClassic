@@ -5,6 +5,7 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -21,31 +22,25 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetrieve
 
     public class StormClawPlayer : EquipmentEffectPlayer
     {
-        //TODO: what was he trying to do here
         public override float UseTimeMultiplier(Item item)
         {
-            float multiplier = 1f;
+            if (!effect)
+                return 1f;
 
-            int useTime = item.useTime;
+            // Only speed up manual-swing weapons
+            if (item.autoReuse || item.damage <= -1)
+                return 1f;
 
-            int useAnimate = item.useAnimation;
-            if (effect)
-            {
-                if (item.autoReuse == false && item.damage > -1)
-                {
-                    multiplier *= 2f;
-                }
+            float multiplier = 2f;
 
-                while (useTime / multiplier < 1)
-                {
-                    multiplier -= .1f;
-                }
+            // Keep useTime >= 1 tick
+            multiplier = Math.Min(multiplier, item.useTime);
 
-                while (useAnimate / multiplier < 2)
-                {
-                    multiplier -= .1f;
-                }
-            }
+            // Keep useAnimation >= 2 ticks
+            multiplier = Math.Min(multiplier, item.useAnimation / 2f);
+
+            // Never let it go below 1
+            multiplier = Math.Max(multiplier, 1f);
 
             return multiplier;
         }
