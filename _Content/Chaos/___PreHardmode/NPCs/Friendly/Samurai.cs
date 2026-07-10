@@ -1,3 +1,4 @@
+using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother;
@@ -12,6 +13,7 @@ using AAModClassic._Content.Mire.__Hardmode.Items.Consumables;
 using AAModClassic.Utilities;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.Personalities;
 using Terraria.ID;
 using Terraria.Localization;
@@ -229,12 +231,12 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.Friendly
             }
         }
 
-		public override void OnKill()
-		{
-			Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ItemID.Katana);
-		}
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.Common(ItemID.Katana));
+        }
 
-		public override void TownNPCAttackStrength(ref int damage, ref float knockback)
+        public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
 			damage = 30;
 			knockback = 4f;

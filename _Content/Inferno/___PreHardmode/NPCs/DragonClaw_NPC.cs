@@ -1,4 +1,7 @@
 using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._CrossMod;
 using AAModClassic.Globals;
@@ -8,7 +11,9 @@ using AAModClassic.Utilities.Interfaces;
 using System;
 using Terraria;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
@@ -127,10 +132,26 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
             target.AddBuff(BuffID.OnFire, 180);
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            if (!WasSpawnedByGripOfChaos && Main.rand.NextBool())
-                NPC.DropLoot(ModContent.ItemType<Items.Materials.DragonClaw_Item>(), 1);
+            LeadingConditionRule spawnedByGrips = new(new SpawnedByGripsInferno());
+
+            spawnedByGrips.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DragonClaw_Item>(), 2));
+
+            npcLoot.Add(spawnedByGrips);
+        }
+
+        public class SpawnedByGripsInferno : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info)
+            {
+                DragonClaw_NPC claw = info.npc.ModNPC as DragonClaw_NPC;
+                return !claw.WasSpawnedByGripOfChaos;
+            }
+
+            public bool CanShowItemDropInUI() => true;
+
+            public string GetConditionDescription() => Language.GetTextValue("Mods.AAModClassic.Common.Conditions.SpawnedByGrips");
         }
     }
 }

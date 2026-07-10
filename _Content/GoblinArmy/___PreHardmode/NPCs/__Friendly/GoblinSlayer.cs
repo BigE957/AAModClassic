@@ -1,3 +1,4 @@
+using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Armor;
 using AAModClassic._Content.MartianMadness.__Hardmode.Items.Accessories;
 using AAModClassic._Content.OldOnesArmy.___PreHardmode.Items.Accessories;
@@ -6,6 +7,7 @@ using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic.Globals;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.Personalities;
 using Terraria.ID;
 using Terraria.Localization;
@@ -775,12 +777,12 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly
             }
         }
 
-		public override void OnKill()
-		{
-			Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<Items.Weapons.GoblinSlayer>());
-		}
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Weapons.GoblinSlayer>()));
+        }
 
-		public override void TownNPCAttackStrength(ref int damage, ref float knockback)
+        public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
 			damage = 80;
 			knockback = 3f;

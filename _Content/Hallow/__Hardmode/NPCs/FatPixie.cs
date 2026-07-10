@@ -1,3 +1,4 @@
+using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
@@ -5,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -101,10 +103,9 @@ namespace AAModClassic._Content.Hallow.__Hardmode.NPCs
 			BaseDrawing.AddLight(NPC.Center, new Color(212, 208, 107), 2f);
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-			if(Main.netMode != NetmodeID.MultiplayerClient)
-				Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.PixieDust, Main.rand.Next(5, 7));
+            npcLoot.Add(ItemDropRule.Common(ItemID.PixieDust, 1, 5, 7));
         }
 
         public float auraPercent = 0f;

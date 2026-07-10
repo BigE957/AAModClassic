@@ -1,14 +1,20 @@
+using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad;
+using AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using AAModClassic.Utilities.Interfaces;
 using Terraria;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs
@@ -91,10 +97,26 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs
             return spawnInfo.Player.ZoneGlowshroom && NPCExtensions.BeenKilled<FeudalFungus>() ? .3f : 0f;
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            if (!WasSpawnedByTruffleToad) 
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<GlowingMushium>(), Main.rand.Next(1, 5));
+            LeadingConditionRule spawnedByTruffleToad = new(new SpawnedByTruffleToad());
+
+            spawnedByTruffleToad.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GlowingMushium>(), 1, 1, 5));
+
+            npcLoot.Add(spawnedByTruffleToad);
+        }
+
+        public class SpawnedByTruffleToad : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info)
+            {
+                TinyToad toad = info.npc.ModNPC as TinyToad;
+                return !toad.WasSpawnedByTruffleToad;
+            }
+
+            public bool CanShowItemDropInUI() => true;
+
+            public string GetConditionDescription() => Language.GetTextValue("Mods.AAModClassic.Common.Conditions.SpawnedByTruffleToad");
         }
     }
 }

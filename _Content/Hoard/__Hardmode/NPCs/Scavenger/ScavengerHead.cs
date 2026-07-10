@@ -1,3 +1,5 @@
+using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
+using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
 using AAModClassic._Content.Hoard.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
 using AAModClassic._Content.Hoard.World.Biomes;
@@ -9,6 +11,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -426,14 +429,12 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
             }
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            if(Main.expertMode)
-                DropItem(NPC, ModContent.ItemType<CovetiteCrystal>(), 1 + Main.rand.Next(1), 5, 40, true);
-            else
-                DropItem(NPC, ModContent.ItemType<CovetiteCrystal>(), 1, 5, 30, true);
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CovetiteCrystal>()));
 
-            NPC.DropLoot(ModContent.ItemType<GildedKey>(), .05f);
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GildedKey>(), 20));
+
         }
 
         /*

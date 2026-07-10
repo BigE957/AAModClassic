@@ -330,4 +330,6 @@ Conditions: {
 	Unofficial: In Unoffifical worlds
 	NotUnofficial: In Non-unofficial worlds
 	PostLateAncientsAndRemovedWorld: Post-Late Ancients
+	SpawnedByTruffleToad: If not spawned by Truffle Toad
+	SpawnedByGrips: If not spawned by the Grips of Chaos
 }

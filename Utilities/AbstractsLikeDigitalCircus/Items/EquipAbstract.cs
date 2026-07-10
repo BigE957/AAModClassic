@@ -32,7 +32,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
                 DamageClass currentClass = DamageClassLoader.GetDamageClass(i);
                 player.GetDamage(currentClass) = player.GetDamage(currentClass).CombineWith(damageMap.GetDamage(currentClass));
                 player.GetCritChance(currentClass) += damageMap.GetCritChance(currentClass);
-                player.GetAttackSpeed(currentClass) += damageMap.GetAttackSpeed(currentClass);
+                player.GetAttackSpeed(currentClass) += damageMap.GetAttackSpeed(currentClass) - 1;
                 player.GetArmorPenetration(currentClass) += damageMap.GetArmorPenetration(currentClass);
                 player.GetKnockback(currentClass) = player.GetKnockback(currentClass).CombineWith(damageMap.GetKnockback(currentClass));
             }
@@ -89,7 +89,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
                 DamageClass currentClass = DamageClassLoader.GetDamageClass(i);
                 player.GetDamage(currentClass) = player.GetDamage(currentClass).CombineWith(setDamageMap.GetDamage(currentClass));
                 player.GetCritChance(currentClass) += setDamageMap.GetCritChance(currentClass);
-                player.GetAttackSpeed(currentClass) += setDamageMap.GetAttackSpeed(currentClass);
+                player.GetAttackSpeed(currentClass) += setDamageMap.GetAttackSpeed(currentClass) - 1;
                 player.GetArmorPenetration(currentClass) += setDamageMap.GetArmorPenetration(currentClass);
                 player.GetKnockback(currentClass) = player.GetKnockback(currentClass).CombineWith(setDamageMap.GetKnockback(currentClass));
             }

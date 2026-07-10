@@ -1,3 +1,4 @@
+using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Acropolis.Projectiles;
@@ -10,6 +11,7 @@ using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -184,7 +186,11 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
                 Main.npc[a].velocity = NPC.velocity;
             }
             SeraphChance.SeraphKills++;
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Materials.SeraphFeather>());
+        }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Materials.SeraphFeather>()));
         }
 
         public static string SeraphBitching()

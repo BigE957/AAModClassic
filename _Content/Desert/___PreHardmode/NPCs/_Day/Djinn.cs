@@ -1,3 +1,4 @@
+using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
@@ -5,6 +6,7 @@ using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -146,12 +148,9 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
             }
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            if (Main.rand.NextBool(4))
-            {
-                NPC.DropLoot(ModContent.ItemType<DesertLamp>());
-            }
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DesertLamp>(), 4));
         }
     }
 }
