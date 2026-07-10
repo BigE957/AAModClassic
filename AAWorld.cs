@@ -935,6 +935,7 @@ namespace AAModClassic
                 }
             }
             progress.Set(0.85f);
+            ChestNumber = 0;
             for (int j = 0; j < posIslands.Count; ++j)
             {
                 Point position = posIslands[j];
@@ -1111,7 +1112,7 @@ namespace AAModClassic
             }
         }
 
-        public void VoidLoot(int Item, Chest chest)
+        public static void VoidLoot(int Item, Chest chest)
         {
             chest.item[0].SetDefaults(Item, false);
             chest.item[1].SetDefaults(ModContent.ItemType<DoomiteScrap>(), false);
