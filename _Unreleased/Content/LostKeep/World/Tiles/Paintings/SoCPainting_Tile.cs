@@ -37,7 +37,7 @@ public class SoCPainting_Tile : ModTile
 		//IL_000d: Unknown result type (might be due to invalid IL or missing references)
 		if (Main.netMode != NetmodeID.Server)
 		{
-			BaseUtility.Chat("'An eldritch abomination sealed into the ship it sunk...'", Color.DarkCyan, sync: false);
+			BaseUtility.Chat(Language.GetTextValue($"Mods.AAModClassic.Items.Placeables.{Name.Replace("_Tile", "")}.Tooltip"), Color.DarkCyan, sync: false);
 		}
 		return true;
 	}

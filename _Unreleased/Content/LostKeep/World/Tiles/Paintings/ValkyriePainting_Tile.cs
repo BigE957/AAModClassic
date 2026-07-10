@@ -31,7 +31,7 @@ public class ValkyriePainting_Tile : ModTile
 	{
 		if (Main.netMode != NetmodeID.Server)
 		{
-			BaseUtility.Chat("'I hope you can find your lost loved one...'", Color.Cyan, sync: false);
+			BaseUtility.Chat(Language.GetTextValue($"Mods.AAModClassic.Items.Placeables.{Name.Replace("_Tile", "")}.Tooltip"), Color.Cyan, sync: false);
 		}
 		return true;
 	}

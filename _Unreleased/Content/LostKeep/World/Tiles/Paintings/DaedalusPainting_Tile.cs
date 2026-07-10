@@ -32,7 +32,7 @@ public class DaedalusPainting_Tile : ModTile
 		//IL_000d: Unknown result type (might be due to invalid IL or missing references)
 		if (Main.netMode != NetmodeID.Server)
 		{
-			BaseUtility.Chat("'Does what's right...even if it's not the best thing to do.'", Color.HotPink, sync: false);
+			BaseUtility.Chat(Language.GetTextValue($"Mods.AAModClassic.Items.Placeables.{Name.Replace("_Tile", "")}.Tooltip"), Color.HotPink, sync: false);
 		}
 		return true;
 	}

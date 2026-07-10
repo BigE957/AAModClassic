@@ -1,15 +1,16 @@
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
+using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using Terraria.Localization;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima
 {
@@ -51,12 +52,16 @@ Can only be used at night"); */
         {
             if (Main.dayTime)
             {
-                if (player.whoAmI == Main.myPlayer) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("The bell rings, but nothing happens.", Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
+                if (player.whoAmI == Main.myPlayer)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.CyberneticBellFalse1"), Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
                 return false;
             }
             if (NPC.AnyNPCs(ModContent.NPCType<RaiderUltima>()))
             {
-                if (player.whoAmI == Main.myPlayer) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("The Raider hears the bell and keeps attempting to kill you", Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
+                if (player.whoAmI == Main.myPlayer)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.CyberneticBellFalse2"), Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
                 return false;
             }
             return true;

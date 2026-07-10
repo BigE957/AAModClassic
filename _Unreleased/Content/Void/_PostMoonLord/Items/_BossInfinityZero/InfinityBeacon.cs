@@ -16,6 +16,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero
@@ -114,7 +115,7 @@ Non-consumable");*/
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
-            Main.NewText("...Target Identified.", new Color(158, 3, 32));
+            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Spawn"), new Color(158, 3, 32));
             for (int i = 0; i < Main.player.Length; i++)
             {
                 Player player2 = Main.player[i];

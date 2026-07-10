@@ -1,4 +1,5 @@
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
+using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
@@ -68,9 +69,16 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 
         public override bool CanUseItem(Player player)
         {
-            if (NPC.AnyNPCs(ModContent.NPCType<NPCs.SoulOfCthulhu.SoulOfCthulhu>()))
+            bool anyCthulhus = false;
+            if (!AAWorld.downedEquinox && !AAWorld.downedAllAncients)
+                foreach (NPC npc in Main.ActiveNPCs)
+                    if (npc.type == ModContent.NPCType<UDUNFUKED>() || npc.type == ModContent.NPCType<NPCs.SoulOfCthulhu.SoulOfCthulhu>() || npc.type == ModContent.NPCType<Cthulhu>() || npc.type == ModContent.NPCType<CthulhuSpawn>() || npc.type == ModContent.NPCType<CthulhuPortal>())
+                        anyCthulhus = true;
+
+            if (anyCthulhus)
             {
-                if (player.whoAmI == Main.myPlayer) BaseUtility.Chat("The wheel doesn't do anything", Color.DarkCyan, false);
+                if (player.whoAmI == Main.myPlayer)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.CursedCompassFalse"), Color.DarkCyan, false);
                 return false;
             }
             return AAWorld.downedAllAncients && player.GetModPlayer<AAPlayer_Unreleased>().ZoneShip;

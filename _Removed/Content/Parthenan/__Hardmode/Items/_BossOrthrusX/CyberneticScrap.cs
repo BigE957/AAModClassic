@@ -54,7 +54,9 @@ Can only be used at night"); */
         {
             if (Main.dayTime)
             {
-                if (player.whoAmI == Main.myPlayer) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("You feel a static shock from using this. Maybe it's trying to send a signal?", Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
+                if (player.whoAmI == Main.myPlayer)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ScrapHeapFalse1"), Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
                 if (Main.netMode == NetmodeID.SinglePlayer)
                 {
                     player.statLife -= 1;
@@ -63,7 +65,9 @@ Can only be used at night"); */
             }
             if (NPC.AnyNPCs(ModContent.NPCType<OrthrusXBody>()))
             {
-                if (player.whoAmI == Main.myPlayer) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("Orthrus wants to eat that AND you", Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
+                if (player.whoAmI == Main.myPlayer)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ScrapHeapFalse2"), Color.Purple.R, Color.Purple.G, Color.Purple.B, false);
                 return false;
             }
             return true;

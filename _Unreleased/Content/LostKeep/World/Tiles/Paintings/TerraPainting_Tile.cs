@@ -31,7 +31,7 @@ public class TerraPainting_Tile : ModTile
 	{
 		if (Main.netMode != NetmodeID.Server)
 		{
-			BaseUtility.Chat("'They hail me as a Hero, yet I feel like I haven't done enough.'", Color.LimeGreen, sync: false);
+			BaseUtility.Chat(Language.GetTextValue($"Mods.AAModClassic.Items.Placeables.{Name.Replace("_Tile", "")}.Tooltip"), Color.LimeGreen, sync: false);
 		}
 		return true;
 	}

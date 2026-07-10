@@ -37,7 +37,9 @@ namespace AAModClassic._CrossMod.Fargos.OverloadSummons
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("It's time for a Mush Pit", new Color(216, 110, 40), false);
+            if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.MassShroomInitiated"), new Color(216, 110, 40), false);
             for (int i = 0; i < 10; i++)
             {
                  NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X + Main.rand.Next(-1000, 1000), (int)player.position.Y + Main.rand.Next(-1000, -400), ModContent.NPCType<MushroomMonarch>());
@@ -51,7 +53,9 @@ namespace AAModClassic._CrossMod.Fargos.OverloadSummons
         {
             if (NPC.AnyNPCs(ModContent.NPCType<MushroomMonarch>()))
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.IntimidatingMushroomFalse2"), new Color(216, 110, 40), false);
+                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.IntimidatingMushroomFalse2"), new Color(216, 110, 40), false);
                 return false;
             }
             return true;

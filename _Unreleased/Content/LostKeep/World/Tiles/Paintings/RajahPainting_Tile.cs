@@ -32,7 +32,7 @@ public class RajahPainting_Tile : ModTile
 		//IL_000d: Unknown result type (might be due to invalid IL or missing references)
 		if (Main.netMode != NetmodeID.Server)
 		{
-			BaseUtility.Chat("'The king of the small and helpless, both of which he is most certainly not.'", Color.LightCyan, sync: false);
+			BaseUtility.Chat(Language.GetTextValue($"Mods.AAModClassic.Items.Placeables.{Name.Replace("_Tile", "")}.Tooltip"), Color.LightCyan, sync: false);
 		}
 		return true;
 	}

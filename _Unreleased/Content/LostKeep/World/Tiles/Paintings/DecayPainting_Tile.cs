@@ -37,7 +37,7 @@ public class DecayPainting_Tile : ModTile
 		//IL_000d: Unknown result type (might be due to invalid IL or missing references)
 		if (Main.netMode != NetmodeID.Server)
 		{
-			BaseUtility.Chat("'That old spectre...what is he planning..?'", Color.DarkSlateBlue, sync: false);
+			BaseUtility.Chat(Language.GetTextValue($"Mods.AAModClassic.Items.Placeables.{Name.Replace("_Tile", "")}.Tooltip"), Color.DarkSlateBlue, sync: false);
 		}
 		return true;
 	}

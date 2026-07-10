@@ -1,16 +1,17 @@
-using Terraria;
-using Terraria.Audio;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch;
 using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechnoTruffle;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle
 {
@@ -50,12 +51,16 @@ Can only be used at night"); */
         {
             if (Main.dayTime)
             {
-                if (player.whoAmI == Main.myPlayer) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("Stop waving that metal mushroom around like a psychopath.", new Color(216, 110, 40), false);
+                if (player.whoAmI == Main.myPlayer)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.CyberneticShroomFalse1"), new Color(216, 110, 40), false);
                 return false;
             }
             if (NPC.AnyNPCs(ModContent.NPCType<TechnoTruffle>()))
             {
-                if (player.whoAmI == Main.myPlayer) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat("The Techno Truffle exists.", new Color(216, 110, 40), false);
+                if (player.whoAmI == Main.myPlayer)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.CyberneticShroomFalse2"), new Color(216, 110, 40), false);
                 return false;
             }
             return true;

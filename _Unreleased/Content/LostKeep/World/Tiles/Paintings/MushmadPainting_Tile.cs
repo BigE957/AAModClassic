@@ -37,7 +37,7 @@ public class MushmadPainting_Tile : ModTile
 		//IL_000d: Unknown result type (might be due to invalid IL or missing references)
 		if (Main.netMode != NetmodeID.Server)
 		{
-			BaseUtility.Chat("'So many mushrooms...'", Color.DodgerBlue, sync: false);
+			BaseUtility.Chat(Language.GetTextValue($"Mods.AAModClassic.Items.Placeables.{Name.Replace("_Tile", "")}.Tooltip"), Color.DodgerBlue, sync: false);
 		}
 		return true;
 	}

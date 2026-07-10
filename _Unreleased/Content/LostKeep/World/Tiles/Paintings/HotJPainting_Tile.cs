@@ -32,7 +32,7 @@ public class HotJPainting_Tile : ModTile
 		//IL_000d: Unknown result type (might be due to invalid IL or missing references)
 		if (Main.netMode != NetmodeID.Server)
 		{
-			BaseUtility.Chat("'The origin of life...reduced to a sentient dirt pile. Poor thing...'", Color.Green, sync: false);
+			BaseUtility.Chat(Language.GetTextValue($"Mods.AAModClassic.Items.Placeables.{Name.Replace("_Tile", "")}.Tooltip"), Color.Green, sync: false);
 		}
 		return true;
 	}

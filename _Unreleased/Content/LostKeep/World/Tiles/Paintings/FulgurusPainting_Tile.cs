@@ -32,7 +32,7 @@ public class FulgurusPainting_Tile : ModTile
 		//IL_000d: Unknown result type (might be due to invalid IL or missing references)
 		if (Main.netMode != NetmodeID.Server)
 		{
-			BaseUtility.Chat("'I didn't paint this one. It was a gift from the fulgarians...they seem alright.'", Color.Violet, sync: false);
+			BaseUtility.Chat(Language.GetTextValue($"Mods.AAModClassic.Items.Placeables.{Name.Replace("_Tile", "")}.Tooltip"), Color.Violet, sync: false);
 		}
 		return true;
 	}

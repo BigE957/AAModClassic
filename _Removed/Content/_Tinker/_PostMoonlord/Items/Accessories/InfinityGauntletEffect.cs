@@ -12,6 +12,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameInput;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories
@@ -34,9 +35,9 @@ namespace AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories
 
                 Projectile.NewProjectile(Player.GetSource_FromThis(), Player.position, Vector2.Zero, ModContent.ProjectileType<InfinityGauntletEffect_Snap>(), 0, 0, Player.whoAmI);
 
-                if (Main.netMode != 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    BaseUtility.Chat("Perfectly Balanced, as all things should be...", Color.Purple);
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.InfinityGauntlet.SnapStatus"), Color.Purple);
                 }
 
                 Main.npc.Where(x => x.active && !x.townNPC && x.type != NPCID.TargetDummy && !NPCID.Sets.ShouldBeCountedAsBoss[x.type] && !x.boss && x.type != ModContent.NPCType<ZeroDeactivated>()).ToList().ForEach(x =>

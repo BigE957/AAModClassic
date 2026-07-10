@@ -32,7 +32,7 @@ public class GreedPainting_Tile : ModTile
 		//IL_000d: Unknown result type (might be due to invalid IL or missing references)
 		if (Main.netMode != NetmodeID.Server)
 		{
-			BaseUtility.Chat("'Deep in the caverns lies mountains of treasure...guarded by a serpent made of it.'", Color.SaddleBrown, sync: false);
+			BaseUtility.Chat(Language.GetTextValue($"Mods.AAModClassic.Items.Placeables.{Name.Replace("_Tile", "")}.Tooltip"), Color.SaddleBrown, sync: false);
 		}
 		return true;
 	}
