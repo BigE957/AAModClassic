@@ -2,6 +2,7 @@
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic._Content.Void.World.Biomes.Water;
 using AAModClassic._Unreleased;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic.Achievements;
 using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
@@ -223,9 +224,21 @@ namespace AAModClassic._Content.Void.World.Biomes
                     spriteBatch.Draw(PlanetTexture, planetPos, null, Color.White * 0.9f * Intensity * Alpha, Rotation, new Vector2(PlanetTexture.Width >> 1, PlanetTexture.Height >> 1), 1f, SpriteEffects.None, 1f);
                     float lightningIntensity = BaseUtility.MultiLerp(Main.LocalPlayer.miscCounter % 100f / 100f, 0.2f, 0.8f, 0.2f);
                     spriteBatch.Draw(LB, planetPos, null, Color.White * 0.9f * Intensity * Alpha * lightningIntensity, LBRotation, new Vector2(LB.Width >> 1, LB.Height >> 1), 1f, SpriteEffects.None, 1f);
+
                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !AAWorld_Unreleased.DownedIZ)
                     {
-                        spriteBatch.Draw(Echo, echoPos, null, GetGlowAlpha(true) * Intensity * Alpha, 0f, new Vector2(Echo.Width >> 1, Echo.Height >> 1), AAWorld.downedAllAncients ? 0.4f : .3f, SpriteEffects.None, 1f);
+                        bool anyIZ = false;
+                        foreach(NPC n in Main.ActiveNPCs)
+                        {
+                            if (n.type != ModContent.NPCType<InfinityZeroSpawn1>() && n.type != ModContent.NPCType<InfinityZero>())
+                                continue;
+
+                            anyIZ = true;
+                            break;
+                        }
+
+                        if(!anyIZ)
+                            spriteBatch.Draw(Echo, echoPos, null, GetGlowAlpha(true) * Intensity * Alpha, 0f, new Vector2(Echo.Width >> 1, Echo.Height >> 1), AAWorld.downedAllAncients ? 0.4f : .3f, SpriteEffects.None, 1f);
                     }
                 }
                 Color astroGlow = Color.White * MathHelper.Lerp(0.7f, 1f, Main.mouseTextColor / 255f);
