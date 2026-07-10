@@ -7,6 +7,7 @@ using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena;
+using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.BossStandard;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
@@ -75,6 +76,9 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                 NPC.alpha = 255;
             NPC.noTileCollide = true;
             SpawnModBiomes = [ModContent.GetInstance<AcropolisBiome>().Type];
+
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                NPC.lifeMax = 60000;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -398,27 +402,36 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                         if (NPC.ai[1] % 200 == 0 && Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             int Choice = Main.rand.Next(2);
+                            bool seraphPresent = false;
+                            foreach (NPC npc in Main.ActiveNPCs)
+                            {
+                                if (npc.type == ModContent.NPCType<SeraphA>())
+                                    seraphPresent = true;
+                            }
                             if (Choice == 0)
                             {
                                 NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 100, (int)NPC.Center.Y, ModContent.NPCType<OlympianDragon>(), ai1: 1);
                                 NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X - 100, (int)NPC.Center.Y, ModContent.NPCType<OlympianDragon>(), ai1: 1);
                             }
-                            else
+                            else if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) || !seraphPresent)
                             {
                                 NPC Seraph1 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y + 100, ModContent.NPCType<SeraphA>())];
                                 for (int i = 0; i < 3; i++)
                                 {
                                    Dust d = Main.dust[Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0)];
                                 }
-                                NPC Seraph2 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 100, (int)NPC.Center.Y - 50, ModContent.NPCType<SeraphA>())];
-                                for (int i = 0; i < 3; i++)
+                                if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                                 {
-                                    Dust d = Main.dust[Dust.NewDust(Seraph2.position, Seraph2.height, Seraph2.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0)];
-                                }
-                                NPC Seraph3 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 100, (int)NPC.Center.Y - 50, ModContent.NPCType<SeraphA>())];
-                                for (int i = 0; i < 3; i++)
-                                {
-                                    Dust d = Main.dust[Dust.NewDust(Seraph3.position, Seraph3.height, Seraph3.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0)];
+                                    NPC Seraph2 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 100, (int)NPC.Center.Y - 50, ModContent.NPCType<SeraphA>())];
+                                    for (int i = 0; i < 3; i++)
+                                    {
+                                        Dust d = Main.dust[Dust.NewDust(Seraph2.position, Seraph2.height, Seraph2.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0)];
+                                    }
+                                    NPC Seraph3 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 100, (int)NPC.Center.Y - 50, ModContent.NPCType<SeraphA>())];
+                                    for (int i = 0; i < 3; i++)
+                                    {
+                                        Dust d = Main.dust[Dust.NewDust(Seraph3.position, Seraph3.height, Seraph3.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0)];
+                                    }
                                 }
                             }
                             NPC.netUpdate = true;

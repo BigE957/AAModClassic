@@ -1,10 +1,11 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.UI.World;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Crimson.___PreHardmode.Items.Weapons
 {
@@ -59,8 +60,15 @@ namespace AAModClassic._Content.Crimson.___PreHardmode.Items.Weapons
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            type = ProjectileID.IchorBullet;
-            return true;
+			if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+			{
+                if (type == ProjectileID.Bullet)
+                    type = ProjectileID.IchorBullet;
+                Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
+				return false;
+            }
+			else
+				return true;
         }
 
         // What if I wanted this gun to have a 2% chance not to consume ammo?

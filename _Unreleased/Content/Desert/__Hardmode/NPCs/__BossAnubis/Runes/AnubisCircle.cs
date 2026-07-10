@@ -62,6 +62,18 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis.R
 
         public override void AI()
         {
+            bool anubisAlive = false;
+            foreach (NPC npc in Main.ActiveNPCs)
+            {
+                if (npc.type == ModContent.NPCType<AnubisUnreleased>())
+                    anubisAlive = true;
+            }
+            if (!anubisAlive)
+            {
+                NPC.active = false;
+                return;
+            }
+            
             if (internalAI == 0)
             {
                 NPC.alpha = 255;
