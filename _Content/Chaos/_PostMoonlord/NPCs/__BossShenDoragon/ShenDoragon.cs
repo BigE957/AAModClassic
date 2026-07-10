@@ -682,14 +682,14 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         NPC.ai[0]++;
                         NPC.ai[1] = 0;
                         NPC.ai[2] = 0;
-                        NPC.ai[3] = NPC.Distance(player.Center);
+                        NPC.ai[3] = MathHelper.Clamp(NPC.Distance(player.Center), 1f, 400f);
                         NPC.netUpdate = true;
                         NPC.velocity = NPC.DirectionTo(player.Center).RotatedBy(Math.PI / 2) * 40;
                     }
                     break;
 
                 case 14: //fly in jumbo circle
-                    NPC.velocity -= NPC.velocity.RotatedBy(Math.PI / 2) * NPC.velocity.Length() / NPC.ai[3];
+                    NPC.velocity -= NPC.velocity.RotatedBy(MathHelper.Pi / 2f) * NPC.velocity.Length() / NPC.ai[3];
                     int fireballSpawnRate = IsAwakened ? 1 : 5;
                     if (++NPC.ai[2] > fireballSpawnRate)
                     {
