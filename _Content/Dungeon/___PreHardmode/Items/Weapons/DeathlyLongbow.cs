@@ -62,7 +62,7 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons
         {
             if (type == ProjectileID.BoneArrowFromMerchant)
             {
-                Projectile p = Projectile.NewProjectileDirect(source, position, velocity, ProjectileID.Skull, damage, knockback, player.whoAmI);
+                Projectile p = Projectile.NewProjectileDirect(source, position, velocity, ProjectileID.BookOfSkullsSkull, damage, knockback, player.whoAmI);
                 p.DamageType = DamageClass.Ranged;
             }
             else
