@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
+using Terraria.GameContent;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons
 {
@@ -262,7 +263,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapo
                     Projectile.frame = 0;
                 }
             }
-            Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Projectiles/Athena/OwlRuneCharged").Value;
+            Texture2D tex = TextureAssets.Projectile[Type].Value;
             Rectangle SunFrame = new Rectangle(Projectile.frame, 0, tex.Width, tex.Height / 4);
             BaseDrawing.DrawTexture(Main.spriteBatch, tex, 0, Projectile.position + new Vector2(0, Projectile.gfxOffY), Projectile.width, Projectile.height, Projectile.scale, 0, Projectile.spriteDirection, 4, SunFrame, Projectile.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
             return false;

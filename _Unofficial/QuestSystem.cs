@@ -477,11 +477,23 @@ namespace AAModClassic._Unofficial
                     TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<SoulOfCthulhu>()]],
                     hasCompleteText: true
                 );
+
+                Questlines["LegendscribeLateGame"].Quests["Akuma"].QuestUnlocks = ["Shen", "SoulOfCthulhu"];
+                Questlines["LegendscribeLateGame"].Quests["Yamata"].QuestUnlocks = ["Shen", "SoulOfCthulhu"];
+                Questlines["LegendscribeLateGame"].Quests["Zero"].QuestUnlocks = ["InfinityZero", "SoulOfCthulhu"];
+
+                Questlines["LegendscribeLateGame"].Quests["Shen"].QuestRequirements = ["Akuma", "Yamata"];
+                Questlines["LegendscribeLateGame"].Quests["InfinityZero"].QuestRequirements = ["Zero"];
+                Questlines["LegendscribeLateGame"].Quests["SoulOfCthulhu"].QuestRequirements = ["Akuma", "Yamata", "Zero"];
+
             }
             else if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && Questlines["LegendscribeLateGame"].Quests.ContainsKey("InfinityZero"))
             {
                 Questlines["LegendscribeLateGame"].Quests.Remove("InfinityZero");
                 Questlines["LegendscribeLateGame"].Quests.Remove("SoulOfCthulhu");
+                Questlines["LegendscribeLateGame"].Quests["Akuma"].QuestUnlocks = ["Shen"];
+                Questlines["LegendscribeLateGame"].Quests["Yamata"].QuestUnlocks = ["Shen"];
+                Questlines["LegendscribeLateGame"].Quests["Zero"].QuestUnlocks = [];
             }
 
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed) && !Questlines["LegendscribeEarlyGame"].Quests.ContainsKey("Retriever"))
