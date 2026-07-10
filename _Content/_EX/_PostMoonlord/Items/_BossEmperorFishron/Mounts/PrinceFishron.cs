@@ -60,10 +60,10 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Moun
             //TODO: These guys are invisible atm.
             if (Main.netMode != NetmodeID.Server)
 			{
-				MountData.backTexture = ModContent.Request<Texture2D>(Texture);
-				MountData.backTextureGlow = ModContent.Request<Texture2D>(Texture + "_Glow");
-				MountData.frontTexture = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
-				MountData.frontTextureExtra = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
+                //MountData.backTexture = ModContent.Request<Texture2D>(Texture);
+                MountData.frontTextureGlow = ModContent.Request<Texture2D>("AAModClassic/_Content/_EX/_PostMoonlord/Items/_BossEmperorFishron/Mounts/PrinceFishron_Glow");
+				//MountData.frontTexture = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
+				//MountData.frontTextureExtra = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
 				MountData.textureWidth = MountData.backTexture.Width();
 				MountData.textureHeight = MountData.backTexture.Height();
 			}
