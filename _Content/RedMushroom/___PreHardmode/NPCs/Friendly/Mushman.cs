@@ -64,8 +64,6 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
 
         public override bool CheckConditions(int left, int right, int top, int bottom)
         {
-            if (!Main.hardMode)
-                return false;
             if (WorldGen.roomY2 > Main.worldSurface)
             {
                 return false;
@@ -106,20 +104,8 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
 
         public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
         {
-            if (!AAConfigClient.Instance.NoAATownNPC)
-            {
-                for (int k = 0; k < 255; k++)
-                {
-                    Player player = Main.player[k];
-                    if (player.active)
-                    {
-                        if (NPCExtensions.BeenKilled<MushroomMonarch>() == true)
-                        {
-                            return true;
-                        }
-                    }
-                }
-            }
+            if (!AAConfigClient.Instance.NoAATownNPC && NPCExtensions.BeenKilled<MushroomMonarch>())
+                return true;
             return false;
         }
 
