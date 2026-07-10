@@ -7,9 +7,9 @@ using AAModClassic.Globals;
 using AAModClassic._Content.Void.Projectiles;
 using Terraria.GameContent;
 
-namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons
+namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
 {
-    class StallionsStar_Proj : ModProjectile
+    public class StallionsStar_Proj : ModProjectile
 	{
         public override void SetDefaults()
         {
