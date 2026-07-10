@@ -32,6 +32,9 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
                 DamageClass currentClass = DamageClassLoader.GetDamageClass(i);
                 player.GetDamage(currentClass) = player.GetDamage(currentClass).CombineWith(damageMap.GetDamage(currentClass));
                 player.GetCritChance(currentClass) += damageMap.GetCritChance(currentClass);
+                player.GetAttackSpeed(currentClass) += damageMap.GetAttackSpeed(currentClass);
+                player.GetArmorPenetration(currentClass) += damageMap.GetArmorPenetration(currentClass);
+                player.GetKnockback(currentClass) = player.GetKnockback(currentClass).CombineWith(damageMap.GetKnockback(currentClass));
             }
 
             foreach (EquipmentEffectData effect in effectMap)
@@ -247,6 +250,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         #endregion
     }
 
+    #region nostalgia critics the wall
     public abstract class EquipmentEffectData
     {
         public string Name { get; }
@@ -1114,6 +1118,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             return text;
         }
     }
+    #endregion
 
     public static class StatModifierUtils
     {
