@@ -154,7 +154,6 @@ namespace AAModClassic
                             Logger.Warn("item name: " + modItem.DisplayName);
                             Logger.Warn("glowmask in that slot: " + texture.Name);
                         }
-                        Logger.Warn("added item name: " + modItem.DisplayName);
                     }
                 }
             }

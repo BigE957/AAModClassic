@@ -35,23 +35,23 @@ namespace AAModClassic.Utilities.Attributes
                 if (autoloadEquip is null)
                     continue;
 
-                ModContent.GetInstance<AAMod>().Logger.Info("- Autoload Equip Glow found on item: " + item.Name);
+                //ModContent.GetInstance<AAMod>().Logger.Info("- Autoload Equip Glow found on item: " + item.Name);
                 foreach (var equip in autoloadEquip.equipTypes)
                 {
                     if (ModContent.RequestIfExists<Texture2D>($"{item.Texture}_{equip}_Glow", out var asset))
                     {
-                        ModContent.GetInstance<AAMod>().Logger.Info(" - Glow Texture found: " + asset.Name);
+                        //ModContent.GetInstance<AAMod>().Logger.Info(" - Glow Texture found: " + asset.Name);
                         int slot = EquipLoader.GetEquipSlot(Mod, item.Name, equip);
                         if (slot != -1)
                         {
-                            ModContent.GetInstance<AAMod>().Logger.Info(" - Equip Slot found: " + slot);
+                            //ModContent.GetInstance<AAMod>().Logger.Info(" - Equip Slot found: " + slot);
                             EquipLoader.AddEquipTexture(Mod, $"{item.Texture}_{equip}_Glow", equip, name: item.Name + "_Glow");
                         }
                         else
-                            ModContent.GetInstance<AAMod>().Logger.Info(" - Could not add due to " + item.Name + " not having a regular Equip Texture");
+                            ModContent.GetInstance<AAMod>().Logger.Info(" - Could not add a Glowmask to " + item.Name + " due to it not having a regular Equip Texture");
                     }
                     else
-                        ModContent.GetInstance<AAMod>().Logger.Info(" - Could not Add due to " + $"{item.Texture}_{equip}_Glow" + " not being found.");
+                        ModContent.GetInstance<AAMod>().Logger.Info(" - Could not add a Glowmask to " + item.Name + " due to " + $"{item.Texture}_{equip}_Glow" + " not being found.");
                 }
             }
         }
