@@ -19,6 +19,7 @@ using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
 using AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
+using AAModClassic._CrossMod;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX.BossStandard;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima;
@@ -37,6 +38,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -462,8 +464,8 @@ namespace AAModClassic._Unofficial
             foreach (Questline questline in Questlines.Values)
                 foreach (Quest quest in questline.Quests.Values)
                 {
-                    writer.Write(quest.IsTurnedIn);
-                    writer.Write(quest.EverTurnedIn);
+                    //writer.Write(quest.IsTurnedIn);
+                    //writer.Write(quest.EverTurnedIn);
                     foreach (QuestObjective obj in quest.Objectives)
                         writer.Write(obj.Progress);
                     writer.Write(quest.Active);
@@ -475,11 +477,10 @@ namespace AAModClassic._Unofficial
             foreach (Questline questline in Questlines.Values)
                 foreach (Quest quest in questline.Quests.Values)
                 {
-                    quest.IsTurnedIn = reader.ReadBoolean();
-                    quest.EverTurnedIn = reader.ReadBoolean();
+                    //quest.IsTurnedIn = reader.ReadBoolean();
+                    //quest.EverTurnedIn = reader.ReadBoolean();
                     foreach (QuestObjective obj in quest.Objectives)
                         obj.AddProgress(reader.ReadInt32(), true, true);
-
                     quest.Active = reader.ReadBoolean();
                 }
         }
@@ -568,6 +569,8 @@ namespace AAModClassic._Unofficial
                 }
         }
 
+        private static readonly Dictionary<string, FieldInfo> newAADownedInfo = [];
+
         public override void PostWorldLoad()
         {
             bool anyChange = false;
@@ -598,8 +601,37 @@ namespace AAModClassic._Unofficial
                 anyChange = true;
             }
 
+            if (ContentReplacementSystem.NeedToReplaceContent)
+            {
+                AAMod.instance.Logger.Info("Quest System: Need to handle content replacement for New AA!");
+
+                Questlines["LegendscribeEarlyGame"].Quests.Remove("FeudalFungus");
+                Questlines["LegendscribeEarlyGame"].Quests["MushroomMonarch"].QuestUnlocks = ["Broodmother", "Hydra"];
+                Questlines["LegendscribeEarlyGame"].Quests["MushroomMonarch"].QuestRequirements = ["GripsOfChaos"];
+                Questlines["LegendscribeEarlyGame"].Quests["GripsOfChaos"].QuestUnlocks = ["MushroomMonarch"];
+                Questlines["LegendscribeEarlyGame"].Quests["GripsOfChaos"].QuestRequirements = [];
+
+                Questlines["LegendscribeEarlyGame"].UnlockedQuests.Add("GripsOfChaos");
+                if (!Questlines["LegendscribeEarlyGame"].Quests["GripsOfChaos"].IsComplete && !Questlines["LegendscribeEarlyGame"].Quests["MushroomMonarch"].IsComplete)
+                    Questlines["LegendscribeEarlyGame"].UnlockedQuests.Remove("MushroomMonarch");
+
+                Questlines["LegendscribeEarlyGame"].Quests["GripsOfChaos"].Icon = TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ContentReplacementSystem.NewAA.Find<ModNPC>("InfernoGrip").Type]];
+                Questlines["LegendscribeEarlyGame"].Quests["MushroomMonarch"].Icon = TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ContentReplacementSystem.NewAA.Find<ModNPC>("MushMon").Type]];
+
+                if(newAADownedInfo.Count == 0 && ContentReplacementSystem.NewAA.TryFind("AABossDowned", out ModSystem downed))
+                {
+                    newAADownedInfo.Add("GripsDowned", downed.GetType().GetField("downedGrips", BindingFlags.Static | BindingFlags.Public));
+                    newAADownedInfo.Add("MonarchDowned", downed.GetType().GetField("downedMonarch", BindingFlags.Static | BindingFlags.Public));
+                }
+
+                Questlines["LegendscribeEarlyGame"].Quests["GripsOfChaos"].Objectives = [new FlagObjective(() => (bool)newAADownedInfo["GripsDowned"].GetValue(null), false)];
+                Questlines["LegendscribeEarlyGame"].Quests["MushroomMonarch"].Objectives = [new FlagObjective(() => (bool)newAADownedInfo["MonarchDowned"].GetValue(null), false)];
+
+                anyChange = true;
+            }
+
             if (!anyChange)
-                AAMod.instance.Logger.Info("Quest System: Don't need to remove any bosses!");
+                AAMod.instance.Logger.Info("Quest System: Questlines are fine as is!");
 
             if (!Main.dedServ)
             {
@@ -622,7 +654,7 @@ namespace AAModClassic._Unofficial
 
         public readonly Dictionary<string, Quest> Quests = [];
 
-        public readonly List<string> UnlockedQuests = [];
+        public readonly HashSet<string> UnlockedQuests = [];
 
         public readonly string Vendor = vendor;
 
@@ -677,7 +709,7 @@ namespace AAModClassic._Unofficial
         /// <summary>
         /// The tasks that must be completed to finish the quest
         /// </summary>
-        public readonly List<QuestObjective> Objectives;
+        public List<QuestObjective> Objectives;
 
         public bool AutoCompletes => Objectives.Count == 0;
 

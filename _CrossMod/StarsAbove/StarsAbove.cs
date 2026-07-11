@@ -14,9 +14,9 @@ namespace AAModClassic._CrossMod.StarsAbove
     {
         private static Mod Tsa = null;
 
-        private static Dictionary<string, FieldInfo> tsaPlayerFieldInfo = [];
+        private static readonly Dictionary<string, FieldInfo> tsaPlayerFieldInfo = [];
 
-        private static Dictionary<string, MethodInfo> tsaPlayerVoicelines = [];
+        private static readonly Dictionary<string, MethodInfo> tsaPlayerVoicelines = [];
 
         public static bool Initialized = false;
 

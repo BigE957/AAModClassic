@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
 using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
+using AAModClassic._CrossMod;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -92,7 +93,10 @@ namespace AAModClassic._Unofficial.Desert
                 innerBack = Color.Black;
                 labelBack = Color.Gold;
 
-                CurrentQuestID = "MushroomMonarch";
+                if(ContentReplacementSystem.NeedToReplaceContent)
+                    CurrentQuestID = "GripsOfChaos";
+                else
+                    CurrentQuestID = "MushroomMonarch";
             }
             else
             {
@@ -199,7 +203,7 @@ namespace AAModClassic._Unofficial.Desert
 
             #region Quest Description
             float descWidth = 320;
-            var wrapped = FontAssets.MouseText.Value.CreateWrappedText(CurrentQuest == null ? "Salutations" : CurrentQuest.DescriptionIncomplete.Format(Main.LocalPlayer.name), descWidth - 40);
+            var wrapped = FontAssets.MouseText.Value.CreateWrappedText(CurrentQuest == null ? "Mushroom Monarch" : CurrentQuest.DescriptionIncomplete.Format(Main.LocalPlayer.name), descWidth - 40);
 
             QuestDescriptionText = new(wrapped);
             QuestDescriptionText.Width.Pixels = descWidth - 20;
@@ -359,13 +363,16 @@ namespace AAModClassic._Unofficial.Desert
             float maxDepth;
             if (CurrentQuestline.ID == "LegendscribeEarlyGame")
             {
-                maxDepth = FillDepthValues("MushroomMonarch", 0);
-                DepthValues.TryAdd("FeudalFungus", 0);
+                if (ContentReplacementSystem.NeedToReplaceContent)
+                    maxDepth = FillDepthValues("GripsOfChaos", 0);
+                else
+                {
+                    maxDepth = FillDepthValues("MushroomMonarch", 0);
+                    DepthValues.TryAdd("FeudalFungus", 0);
+                }
             }
             else
-            {
                 maxDepth = FillDepthValues("ForsakenAnubis", 0);
-            }
 
             if (CurrentQuest != null)
             {
