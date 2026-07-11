@@ -5,6 +5,7 @@ using AAModClassic.UI.Core;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
@@ -218,15 +219,40 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Snow
 
             npcLoot.Add(notUnofficialRule);
 
-            List<IItemDropRule> pirgronHallow = Main.ItemDropsDB.GetRulesForNPCID(NPCID.PigronHallow, false);
-            foreach (IItemDropRule v in pirgronHallow)
+            LeadingConditionRule unofficialRule = new(new Unofficial());
+
+            //TODO: for 1.4.5 uncomment this
+            //RemoveAndChangeDrops(NPCID.PigronHallow, [ItemID.Crystallize], unofficialRule, ref npcLoot);
+        }
+
+        // you fat chud. move this somewhere better and rename it 
+        public static void RemoveAndChangeDrops(int idToClone, int[] itemIds, LeadingConditionRule leadingCondition, ref NPCLoot loot)
+        {
+            List<IItemDropRule> clonedDropRules = Main.ItemDropsDB.GetRulesForNPCID(idToClone, false);
+
+
+            foreach (IItemDropRule rule in clonedDropRules)
             {
-                LeadingConditionRule unofficialRule = new(new Unofficial());
-                unofficialRule.OnSuccess(v);
-                npcLoot.Add(unofficialRule);
+                int itemID = 0;
+
+                if (rule is ItemDropWithConditionRule conditionDrop)
+                {
+                    itemID = conditionDrop.itemId;
+                }
+                else if (rule is CommonDrop commonDrop)
+                {
+                    itemID = commonDrop.itemId;
+                }
+
+                if (itemIds.Contains(itemID))
+                {
+                    continue;
+                }
+
+                leadingCondition.OnSuccess(rule);
             }
 
-            npcLoot.RemoveWhere(rule => rule is ItemDropWithConditionRule drop && drop.itemId == ItemID.HamBat);
+            loot.Add(leadingCondition);
         }
     }
 }
