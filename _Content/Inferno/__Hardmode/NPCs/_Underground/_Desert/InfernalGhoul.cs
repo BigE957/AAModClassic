@@ -1,7 +1,17 @@
+using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
+using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossZero.BossStandard;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.UI;
+using static AAModClassic._Content.Inferno.___PreHardmode.NPCs.DragonClaw_NPC;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Desert
 {
@@ -40,5 +50,16 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Desert
                 Main.dust[dustIndex].velocity *= 0.3f;
 			}
 		}
-	}
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            LeadingConditionRule unofficialRule = new(new Unofficial());
+
+            unofficialRule.OnSuccess(ItemDropRule.Common(ItemID.AncientCloth, 10));
+
+            unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DragonFire>(), 3));
+
+            npcLoot.Add(unofficialRule);
+        }
+    }
 }

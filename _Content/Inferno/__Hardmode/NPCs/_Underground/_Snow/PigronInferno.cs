@@ -1,14 +1,17 @@
+using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Globals;
 using AAModClassic.UI.Core;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Snow
 {
@@ -209,7 +212,21 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Snow
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ItemID.Bacon, 3));
+            LeadingConditionRule notUnofficialRule = new(new NotUnofficial());
+
+            notUnofficialRule.OnSuccess(ItemDropRule.Common(ItemID.Bacon, 3));
+
+            npcLoot.Add(notUnofficialRule);
+
+            List<IItemDropRule> pirgronHallow = Main.ItemDropsDB.GetRulesForNPCID(NPCID.PigronHallow, false);
+            foreach (IItemDropRule v in pirgronHallow)
+            {
+                LeadingConditionRule unofficialRule = new(new Unofficial());
+                unofficialRule.OnSuccess(v);
+                npcLoot.Add(unofficialRule);
+            }
+
+            npcLoot.RemoveWhere(rule => rule is ItemDropWithConditionRule drop && drop.itemId == ItemID.HamBat);
         }
     }
 }
