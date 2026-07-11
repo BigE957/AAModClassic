@@ -65,11 +65,11 @@ namespace AAModClassic.Utilities
          */
         public static bool KillChestAndItems(int x, int y)
         {
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < Main.chest.Length; i++)
             {
                 if (Main.chest[i] != null && Main.chest[i].x == x && Main.chest[i].y == y)
                 {
-                    Main.chest[i] = null;
+                    Chest.DestroyChestDirect(x, y, i);
                     return true;
                 }
             }
@@ -84,11 +84,11 @@ namespace AAModClassic.Utilities
          */
         public static void GenerateLiquid(int x, int y, int liquidType, bool updateFlow = true, int liquidHeight = 255, bool sync = true)
         {
-            Tile Mtile = Main.tile[x, y];
+            Tile Mtile = Framing.GetTileSafely(x, y);
 
             if (!WorldGen.InWorld(x, y)) return;
             liquidHeight = (int)MathHelper.Clamp(liquidHeight, 0, 255);
-            Main.tile[x, y].LiquidAmount = (byte)liquidHeight;
+            Mtile.LiquidAmount = (byte)liquidHeight;
             if (liquidType == 0) { Mtile.LiquidType = LiquidID.Water; }
             else
                 if (liquidType == 1) { Mtile.LiquidType = LiquidID.Lava; }
@@ -123,8 +123,8 @@ namespace AAModClassic.Utilities
                 TileObjectData data = tile <= -1 ? null : TileObjectData.GetTileData(tile, tileStyle);
                 int width = data == null ? 1 : data.Width;
                 int height = data == null ? 1 : data.Height;
-                byte oldSlope = (byte)Main.tile[x, y].Slope;
-                bool oldHalfBrick = Main.tile[x, y].IsHalfBlock;
+                byte oldSlope = (byte)Mtile.Slope;
+                bool oldHalfBrick = Mtile.IsHalfBlock;
 
                 if (tile != -1)
                 {
@@ -143,10 +143,12 @@ namespace AAModClassic.Utilities
                                 int x2 = tlX + x1;
                                 int y2 = tlY + y1;
 
-                                if (x1 == 0 && y1 == 0 && Main.tile[x2, y2].TileType == TileID.Containers)
+                                Tile tile2 = Framing.GetTileSafely(x2, y2);
+
+                                if (x1 == 0 && y1 == 0 && tile2.TileType == TileID.Containers)
                                     KillChestAndItems(x2, y2);
 
-                                Main.tile[x2, y2].TileType = TileID.Dirt;
+                                tile2.TileType = TileID.Dirt;
                                 if (!silent)
                                     WorldGen.KillTile(x2, y2, false, false, true);
 
@@ -171,7 +173,7 @@ namespace AAModClassic.Utilities
                     {
                         if (width <= 1 && height <= 1 && !Main.tileFrameImportant[tile])
                         {
-                            Main.tile[x, y].TileType = (ushort)tile;
+                            Mtile.TileType = (ushort)tile;
                             Mtile.HasTile = true;
 
                             if (slope == -2 && oldHalfBrick)
@@ -227,7 +229,7 @@ namespace AAModClassic.Utilities
                 if (wall != -1)
                 {
                     if (wall == -2) wall = 0;
-                    Main.tile[x, y].WallType = WallID.None;
+                    Mtile.WallType = WallID.None;
                     WorldGen.PlaceWall(x, y, wall, true);
                 }
 
@@ -254,14 +256,16 @@ namespace AAModClassic.Utilities
         }
         public static void SmoothTiles(int topX, int topY, int bottomX, int bottomY)
         {
-            Main.tileSolid[137] = false;
+            Main.tileSolid[TileID.Traps] = false;
             for (int x = topX; x < bottomX; x++)
             {
                 for (int y = topY; y < bottomY; y++)
                 {
-                    if (Main.tile[x, y].TileType != TileID.Spikes && Main.tile[x, y].TileType != TileID.Traps && Main.tile[x, y].TileType != TileID.WoodenSpikes && Main.tile[x, y].TileType != TileID.LivingWood && Main.tile[x, y].TileType != TileID.SandstoneBrick && Main.tile[x, y].TileType != TileID.SandStoneSlab)
+                    Tile t = Framing.GetTileSafely(x, y);
+
+                    if (t.TileType != TileID.Spikes && t.TileType != TileID.Traps && t.TileType != TileID.WoodenSpikes && t.TileType != TileID.LivingWood && t.TileType != TileID.SandstoneBrick && t.TileType != TileID.SandStoneSlab)
                     {
-                        if (!Main.tile[x, y - 1].HasTile)
+                        if (!Framing.GetTileSafely(x, y - 1).HasTile)
                         {
                             if (WorldGen.SolidTile(x, y))
                             {
@@ -334,7 +338,7 @@ namespace AAModClassic.Utilities
                                     }
                                 }
                             }
-                            else if (!Main.tile[x, y].HasTile && Main.tile[x, y + 1].TileType != TileID.SandstoneBrick && Main.tile[x, y + 1].TileType != TileID.SandStoneSlab)
+                            else if (!t.HasTile && Main.tile[x, y + 1].TileType != TileID.SandstoneBrick && Main.tile[x, y + 1].TileType != TileID.SandStoneSlab)
                             {
                                 if (Main.tile[x + 1, y].TileType != TileID.MushroomBlock && Main.tile[x + 1, y].TileType != TileID.Spikes && Main.tile[x + 1, y].TileType != TileID.WoodenSpikes && WorldGen.SolidTile(x - 1, y + 1) && WorldGen.SolidTile(x + 1, y) && !Main.tile[x - 1, y].HasTile && !Main.tile[x + 1, y - 1].HasTile)
                                 {
@@ -380,7 +384,9 @@ namespace AAModClassic.Utilities
             {
                 for (int y = topY; y < bottomY; y++)
                 {
-                    if (WorldGen.genRand.NextBool(2) && !Main.tile[x, y - 1].HasTile && Main.tile[x, y].TileType != TileID.Traps && Main.tile[x, y].TileType != TileID.Spikes && Main.tile[x, y].TileType != TileID.WoodenSpikes && Main.tile[x, y].TileType != TileID.LivingWood && Main.tile[x, y].TileType != TileID.SandstoneBrick && Main.tile[x, y].TileType != TileID.SandStoneSlab && Main.tile[x, y].TileType != TileID.ObsidianBrick && Main.tile[x, y].TileType != TileID.HellstoneBrick && WorldGen.SolidTile(x, y) && Main.tile[x - 1, y].TileType != TileID.Traps && Main.tile[x + 1, y].TileType != TileID.Traps)
+                    Tile t = Framing.GetTileSafely(x, y);
+
+                    if (WorldGen.genRand.NextBool(2) && !Framing.GetTileSafely(x, y - 1).HasTile && t.TileType != TileID.Traps && t.TileType != TileID.Spikes && t.TileType != TileID.WoodenSpikes && t.TileType != TileID.LivingWood && t.TileType != TileID.SandstoneBrick && t.TileType != TileID.SandStoneSlab && t.TileType != TileID.ObsidianBrick && t.TileType != TileID.HellstoneBrick && WorldGen.SolidTile(x, y) && Main.tile[x - 1, y].TileType != TileID.Traps && Main.tile[x + 1, y].TileType != TileID.Traps)
                     {
                         if (WorldGen.SolidTile(x, y + 1) && WorldGen.SolidTile(x + 1, y) && !Main.tile[x - 1, y].HasTile)
                         {
@@ -391,19 +397,19 @@ namespace AAModClassic.Utilities
                             WorldGen.SlopeTile(x, y, 1);
                         }
                     }
-                    if (Main.tile[x, y].Slope == SlopeType.SlopeDownLeft && !WorldGen.SolidTile(x - 1, y))
+                    if (t.Slope == SlopeType.SlopeDownLeft && !WorldGen.SolidTile(x - 1, y))
                     {
                         WorldGen.SlopeTile(x, y);
                         WorldGen.PoundTile(x, y);
                     }
-                    if (Main.tile[x, y].Slope == SlopeType.SlopeDownRight && !WorldGen.SolidTile(x + 1, y))
+                    if (t.Slope == SlopeType.SlopeDownRight && !WorldGen.SolidTile(x + 1, y))
                     {
                         WorldGen.SlopeTile(x, y);
                         WorldGen.PoundTile(x, y);
                     }
                 }
             }
-            Main.tileSolid[137] = true;
+            Main.tileSolid[TileID.Traps] = true;
         }
 
         public static void AddProtectedStructure(Rectangle area, int padding = 0)
