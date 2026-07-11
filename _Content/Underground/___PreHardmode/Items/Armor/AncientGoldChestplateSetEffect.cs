@@ -48,7 +48,22 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Armor
                         num += Player.inventory[i].stack * 1000000;
                     }
                 }
-                if (num >= modifiers.FinalDamage.Flat * 10000)
+
+                float damage = -1;
+                if (modifiers.DamageSource.TryGetCausingEntity(out Entity sourceEntity))
+                {
+                    switch (sourceEntity)
+                    {
+                        case Projectile proj:
+                            damage = modifiers.GetDamage(proj.damage, Player.statDefense, Player.DefenseEffectiveness.Value);
+                            break;
+                        case NPC npc:
+                            damage = modifiers.GetDamage(npc.damage, Player.statDefense, Player.DefenseEffectiveness.Value);
+                            break;
+                    }
+                }
+
+                if (damage != -1 && num >= damage * 10000)
                 {
                     for (int i = 0; i < 54; i++)
                     {
