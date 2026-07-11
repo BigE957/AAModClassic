@@ -690,6 +690,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
                 case 14: //fly in jumbo circle
                     NPC.velocity -= NPC.velocity.RotatedBy(MathHelper.Pi / 2f) * NPC.velocity.Length() / NPC.ai[3];
+                    NPC.velocity = NPC.velocity.ClampMagnitude(0f, 64f);
                     int fireballSpawnRate = IsAwakened ? 1 : 5;
                     if (++NPC.ai[2] > fireballSpawnRate)
                     {
