@@ -948,15 +948,15 @@ namespace AAModClassic
                     var modOrganizerType = typeof(ModLoader).Assembly.GetType("Terraria.ModLoader.Core.ModOrganizer");
 
                     if (modOrganizerType == null)
-                        return false;
+                        return true;
 
                     var findModsMethod = modOrganizerType.GetMethod("FindMods", BindingFlags.NonPublic | BindingFlags.Static);
 
                     if (findModsMethod == null)
-                        return false;
+                        return true;
 
                     if (findModsMethod.Invoke(null, [false]) is not System.Collections.IEnumerable mods)
-                        return false;
+                        return true;
 
                     foreach (var mod in mods)
                     {
