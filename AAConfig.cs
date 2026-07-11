@@ -1,10 +1,11 @@
-﻿using Terraria.ModLoader.Config;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using Terraria;
 using Terraria.IO;
 using Terraria.ModLoader;
-using System.ComponentModel;
-using System.Collections.Generic;
+using Terraria.ModLoader.Config;
 
 namespace AAModClassic
 {
@@ -50,46 +51,57 @@ namespace AAModClassic
 		}
 
         private static readonly string ConfigPath = Path.Combine(Main.SavePath, "ModConfigs", "AALuckyConfig.json");
-		private static readonly Preferences Configuration = new Preferences(ConfigPath, false, false);
+		private static readonly Preferences Configuration = new(ConfigPath, false, false);
 
         public static void SetDefaults()
 		{
-            LuckyOre = new Dictionary<int, int>();
-            LuckyPotion = new Dictionary<int, int>();
-            ListRareNpc = new List<int>();
+            LuckyOre = [];
+            LuckyPotion = [];
+            ListRareNpc = [];
         }
 
         public static bool ReadConfig()
-		{
-			if (Configuration.Load())
-			{
-                try
-                {
-                    Configuration.Get("LuckyOreMine", ref LuckyOre);
-                    Configuration.Get("LuckyPotionGet", ref LuckyPotion);
-                    Configuration.Get("RareNpcList", ref ListRareNpc);
-                }
-				catch
-                {
-                    return false;
-                }
-				return true;
-			}
-			return false;
+        {
+            if (!Configuration.Load())
+                return false;
+
+            bool allGood = true;
+            allGood &= TryReadField("LuckyOreMine", ref LuckyOre);
+            allGood &= TryReadField("LuckyPotionGet", ref LuckyPotion);
+            allGood &= TryReadField("RareNpcList", ref ListRareNpc);
+            return allGood;
+        }
+
+        private static bool TryReadField<T>(string key, ref T field) where T : new()
+        {
+            try
+            {
+                string json = null;
+                Configuration.Get(key, ref json);
+                field = json != null
+                    ? JsonConvert.DeserializeObject<T>(json) ?? new T()
+                    : new T();
+                return json != null;
+            }
+            catch
+            {
+                field = new T();
+                return false;
+            }
         }
 
         public static void SaveConfig()
-		{
+        {
             Configuration.Clear();
-            Configuration.Put("LuckyOreMine", LuckyOre);
-            Configuration.Put("LuckyPotionGet", LuckyPotion);
-            Configuration.Put("RareNpcList", ListRareNpc);
+            Configuration.Put("LuckyOreMine", JsonConvert.SerializeObject(LuckyOre));
+            Configuration.Put("LuckyPotionGet", JsonConvert.SerializeObject(LuckyPotion));
+            Configuration.Put("RareNpcList", JsonConvert.SerializeObject(ListRareNpc));
             Configuration.Save(true);
         }
 
-        public static Dictionary<int, int> LuckyOre = new Dictionary<int, int>();
-        public static Dictionary<int, int> LuckyPotion = new Dictionary<int, int>();
-        public static List<int> ListRareNpc = new List<int>();
+        public static Dictionary<int, int> LuckyOre = [];
+        public static Dictionary<int, int> LuckyPotion = [];
+        public static HashSet<int> ListRareNpc = [];
         
     }
 }
