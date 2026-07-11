@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs._Surface._Night
             NPC.knockBackResist = 0.5f;
             NPC.aiStyle = -1;
             NPC.noGravity = true;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AbyssClawBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }

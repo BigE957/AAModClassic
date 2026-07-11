@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             NPC.knockBackResist = 0.4f;
             NPC.buffImmune[31] = false;
             AnimationType = NPCID.VortexRifleman;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraDeadshotBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }

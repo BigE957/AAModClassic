@@ -52,7 +52,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
                 NPC.lifeMax = 20;
                 NPC.value = 100f;
                 NPC.knockBackResist = 0.6f;
-                Banner = NPC.type;
+                //Banner = NPC.type;
                 //BannerItem = ModContent.ItemType<HydraClawBanner>();
             }
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];

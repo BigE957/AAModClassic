@@ -40,7 +40,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
             NPC.noGravity = true;
             AnimationType = NPCID.Shark;
             SpawnModBiomes = [ModContent.GetInstance<SunkenShipBiome>().Type];
-            Banner = NPC.type;
+            //Banner = NPC.type;
         }
 
 

@@ -43,7 +43,7 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
             NPC.knockBackResist = 0f;
             NPC.noGravity = true;
             NPC.netAlways = true;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.VortexBanner>();
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }

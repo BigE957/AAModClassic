@@ -39,7 +39,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
             NPC.value = 700f;
             NPC.knockBackResist = 0.7f;
             NPC.noGravity = true;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<ShadowScoutBanner>();
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }

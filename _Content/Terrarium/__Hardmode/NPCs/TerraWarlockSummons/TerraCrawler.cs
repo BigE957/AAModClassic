@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons
             NPC.knockBackResist = 0.4f;
             if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraCrawlerBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }

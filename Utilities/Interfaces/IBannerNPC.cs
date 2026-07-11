@@ -30,7 +30,7 @@ namespace AAModClassic.Utilities.Interfaces
                 if (lead.Banner == 0)
                 {
                     BannerNPCLoader.NPCsToDoubleCheck.Enqueue(me.Type);
-                    ModContent.GetInstance<AAMod>().Logger.Info($"  - Override Type {lead.Name}'s banner hasn't been setup yet. Adding {me.Name} to queue.");
+                    //ModContent.GetInstance<AAMod>().Logger.Info($"- Override Type {lead.Name}'s banner hasn't been setup yet. Adding {me.Name} to queue.");
                     return false;
                 }
                 else
@@ -42,7 +42,7 @@ namespace AAModClassic.Utilities.Interfaces
             else
                 lead = me;
 
-            ModContent.GetInstance<AAMod>().Logger.Info($"  - Creating new Banner");
+            //ModContent.GetInstance<AAMod>().Logger.Info($"  - Creating new Banner");
 
             string path = lead.Texture;
             if(path.EndsWith("Head"))
@@ -60,24 +60,40 @@ namespace AAModClassic.Utilities.Interfaces
 
                 BannerTile tile = new(path + "_Banner", name);
 
-                ModContent.GetInstance<AAMod>().AddContent(tile);
+                if (!ModContent.GetInstance<AAMod>().AddContent(tile))
+                {
+                    ModContent.GetInstance<AAMod>().Logger.Warn($"- Failed to add a banner");
+                    ModContent.GetInstance<AAMod>().Logger.Warn($"  - Tile could not be added to Content");
+                    return false;
+                }
 
                 BannerTile.TileTypeToNPC.Add(tile.Type, lead.Type);
 
                 BannerItem item = new(path + "_Banner", name, tile.Type);
                 
-                ModContent.GetInstance<AAMod>().AddContent(item);
+                if(!ModContent.GetInstance<AAMod>().AddContent(item))
+                {
+                    ModContent.GetInstance<AAMod>().Logger.Warn($"- Failed to add a banner");
+                    ModContent.GetInstance<AAMod>().Logger.Warn($"  - Item could not be added to Content");
+                    return false;
+                }
 
                 tile.RegisterItemDrop(item.Type);
 
+                /*
+                if (lead.Type == me.Type)
+                    ModContent.GetInstance<AAMod>().Logger.Info($"- Registered banner ID {item.Type} to {me.Name}");
+                else
+                    ModContent.GetInstance<AAMod>().Logger.Info($"- Registered banner ID {item.Type} to {me.Name}, inherited from {lead.Name}");
+                */
                 me.Banner = lead.Type;
                 me.BannerItem = item.Type;
 
                 return true;
             }
 
-            ModContent.GetInstance<AAMod>().Logger.Info($"  - Failed to add a banner");
-            ModContent.GetInstance<AAMod>().Logger.Info($"    - Texture not found: " + path + "_Banner");
+            ModContent.GetInstance<AAMod>().Logger.Warn($"- Failed to add a banner");
+            ModContent.GetInstance<AAMod>().Logger.Warn($"  - Texture not found: " + path + "_Banner");
             return false;
         }
     }
@@ -96,23 +112,24 @@ namespace AAModClassic.Utilities.Interfaces
             {
                 if (modNPC is IBannerNPC inter)
                 {
-                    mod.Logger.Info("- Attempting to add a banner to " + modNPC.Name);
+                    //mod.Logger.Info("- Attempting to add a banner to " + modNPC.Name);
 
                     bool success = inter.TryAddBanner(modNPC);
-                    if (success)
-                        mod.Logger.Info("  - Successfully added a banner");
+                    //if (success)
+                    //    mod.Logger.Info("  - Successfully added a banner");
                 }
             }
 
-            mod.Logger.Info("- Double checking skipped NPCs");
+            //mod.Logger.Info("- Double checking skipped NPCs");
 
             while (NPCsToDoubleCheck.Count > 0)
             {
                 int type = NPCsToDoubleCheck.Dequeue();
                 ModNPC me = ModContent.GetModNPC(type);
-                me.BannerItem = ModContent.GetModNPC((me as IBannerNPC).OverrideBannerNPCType).BannerItem;
+                ModNPC lead = ModContent.GetModNPC((me as IBannerNPC).OverrideBannerNPCType);
+                me.BannerItem = lead.BannerItem;
 
-                mod.Logger.Info($"  - {me.Name}'s BannerItem updated from 0 to {me.BannerItem}");
+                //mod.Logger.Info($"- {me.Name}'s BannerItem updated from 0 to {me.BannerItem}, {lead.Name}'s BannerItem");
             }
         }
     }

@@ -42,7 +42,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
             NPC.aiStyle = NPCAIStyleID.Fighter;
             AIType = NPCID.GoblinScout;
             NPC.rarity = 2;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<ToxitoadBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }

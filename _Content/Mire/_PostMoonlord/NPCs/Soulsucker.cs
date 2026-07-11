@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs
             NPC.value = 6000f;
             NPC.lavaImmune = false;
             NPC.knockBackResist = 0.5f;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<SoulsuckerBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }

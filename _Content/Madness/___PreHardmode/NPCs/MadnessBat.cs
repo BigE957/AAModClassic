@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Madness.___PreHardmode.NPCs
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             AIType = NPCID.CaveBat;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MadnessBatBanner>();
         }
 

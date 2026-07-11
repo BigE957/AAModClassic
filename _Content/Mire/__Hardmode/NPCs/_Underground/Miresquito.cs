@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
             NPC.value = 6000f;
             NPC.lavaImmune = false;
             NPC.knockBackResist = 0.5f;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<MiresquitoBanner>();
             SpawnModBiomes = [ModContent.GetInstance<UndergroundMireBiome>().Type];
         }

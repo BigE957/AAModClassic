@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
             NPC.aiStyle = -1;
             NPC.noTileCollide = true;
             NPC.noGravity = true;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<ChaoticTwilightBanner>();
             SpawnModBiomes = [ModContent.GetInstance<UndergroundMireBiome>().Type];
         }

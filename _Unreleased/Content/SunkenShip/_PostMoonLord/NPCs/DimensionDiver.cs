@@ -38,7 +38,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
             NPC.buffImmune[31] = false;
             AnimationType = NPCID.VortexRifleman;
             SpawnModBiomes = [ModContent.GetInstance<SunkenShipBiome>().Type];
-            Banner = NPC.type;
+            //Banner = NPC.type;
         }
 
 

@@ -48,7 +48,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
             NPC.noTileCollide = false;
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<SingemanderBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }

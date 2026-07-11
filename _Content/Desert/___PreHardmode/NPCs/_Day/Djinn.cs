@@ -35,7 +35,6 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
             NPC.knockBackResist = 0.4f;
             NPC.noTileCollide = true;
             NPC.noGravity = true;
-            Banner = NPC.type;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

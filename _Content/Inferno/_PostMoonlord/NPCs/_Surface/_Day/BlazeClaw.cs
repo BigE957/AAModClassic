@@ -33,8 +33,6 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs._Surface._Day
             NPC.aiStyle = -1;
             NPC.noGravity = true;
             NPC.lavaImmune = true;
-            Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<BlazeClawBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 

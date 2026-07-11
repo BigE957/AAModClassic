@@ -37,7 +37,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             NPC.value = 1000f;
             NPC.alpha = 20;
             NPC.npcSlots = 0.3f;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MushroomJellyBanner>();
             SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
         }

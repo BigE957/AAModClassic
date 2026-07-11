@@ -40,7 +40,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             NPC.knockBackResist = 0.4f;
             NPC.value = 1000f;
             NPC.buffImmune[31] = false;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MushroomZombieBanner>();
             SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
         }

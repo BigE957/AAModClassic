@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
             NPC.DeathSound = SoundID.NPCDeath14;
             NPC.knockBackResist = 0.5f;
             NPC.noGravity = true;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<StoneSearcherBanner>();
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }

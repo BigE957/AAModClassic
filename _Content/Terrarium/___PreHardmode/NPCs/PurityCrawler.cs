@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
             NPC.knockBackResist = 0.4f;
             if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PurityCrawlerBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }

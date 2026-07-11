@@ -47,7 +47,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
             NPC.netAlways = true;
             NPC.value = Item.buyPrice(0, 0, 10, 0);
             NPC.buffImmune[BuffID.Frostburn] = true;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SnowSerpentBanner>();
         }
 

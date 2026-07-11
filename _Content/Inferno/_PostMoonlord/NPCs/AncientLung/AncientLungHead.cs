@@ -60,8 +60,6 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung
                 NPC.alpha = 255;
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
-            Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AncientLungBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 

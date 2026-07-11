@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
                 NPC.alpha = 255;
             NPC.noGravity = true;
             NPC.noTileCollide = false;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PuritySphereBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }

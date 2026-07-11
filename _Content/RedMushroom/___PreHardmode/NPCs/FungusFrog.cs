@@ -34,7 +34,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             NPC.DeathSound = SoundID.NPCDeath1;
             if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.FungusFrogBanner>();
             SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
         }

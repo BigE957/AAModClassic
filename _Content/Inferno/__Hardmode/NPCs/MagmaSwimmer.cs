@@ -40,8 +40,6 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs
             NPC.aiStyle = -1;
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
-            Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<MagmalgamBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 

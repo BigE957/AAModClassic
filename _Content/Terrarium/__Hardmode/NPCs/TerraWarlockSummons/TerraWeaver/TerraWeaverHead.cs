@@ -14,6 +14,8 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.Te
 {
     public class TerraWeaverHead : TerraWeaverBody, IBannerNPC
     {
+        public new int OverrideBannerNPCType => -1;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Weaver");
@@ -28,13 +30,23 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.Te
 
         public override void SetDefaults()
         {
-            base.SetDefaults();
+            NPC.lifeMax = 350;
+            NPC.defense = 20;
+            NPC.damage = 50;
+            NPC.width = 20;
+            NPC.height = 18;
+            NPC.aiStyle = -1;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.knockBackResist = 0f;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
+            SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
             NPC.dontCountMe = true;
             if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
-            Banner = NPC.type;
-            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraWeaverBanner>();
-            SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

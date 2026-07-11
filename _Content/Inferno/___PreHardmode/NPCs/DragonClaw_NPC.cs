@@ -57,7 +57,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
                 NPC.lifeMax = 25;
                 NPC.value = 100f;
                 NPC.knockBackResist = 0.4f;
-                Banner = NPC.type;
+                //Banner = NPC.type;
                 //BannerItem = ModContent.ItemType<DragonClawBanner>();
             }
 

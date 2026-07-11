@@ -35,8 +35,6 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.Te
                 NPC.alpha = 255;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
-            Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraWeaverBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 

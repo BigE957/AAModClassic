@@ -43,7 +43,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             NPC.lavaImmune = true;
             AIType = NPCID.GraniteGolem;  //npc behavior
             AnimationType = NPCID.GraniteGolem;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraSquireBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }

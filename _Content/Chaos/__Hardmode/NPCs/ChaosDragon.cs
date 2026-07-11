@@ -38,7 +38,6 @@ namespace AAModClassic._Content.Chaos.__Hardmode.NPCs
                 NPC.alpha = 255;
             NPC.noTileCollide = true;
             NPC.noGravity = true;
-            Banner = NPC.type;
             SpawnModBiomes = new int[2] { ModContent.GetInstance<InfernoBiome>().Type, ModContent.GetInstance<MireBiome>().Type };
         }
 

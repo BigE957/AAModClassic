@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
 			NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;		
             NPC.lavaImmune = true;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<FlamebruteBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }

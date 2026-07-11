@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs
             NPC.value = 7000f;
             NPC.knockBackResist = 0.7f;
             NPC.noGravity = true;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.NullBanner>();
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }

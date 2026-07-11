@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.4f;
-            Banner = NPC.type;
+            //Banner = NPC.type;
             //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraWarlockBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }

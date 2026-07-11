@@ -42,7 +42,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             AIType = NPCID.Crawdad;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<NewtBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }

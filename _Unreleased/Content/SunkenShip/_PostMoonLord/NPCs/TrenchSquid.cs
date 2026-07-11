@@ -33,7 +33,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
             NPC.noTileCollide = true;
             NPC.noGravity = true;
             SpawnModBiomes = [ModContent.GetInstance<SunkenShipBiome>().Type];
-            Banner = NPC.type;
+            //Banner = NPC.type;
         }
 
         public override void AI()

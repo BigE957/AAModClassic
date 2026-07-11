@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
             AIType = NPCID.Bunny;  //npc behavior
             AnimationType = NPCID.Bunny;
             NPC.dontTakeDamageFromHostiles = false;
-            Banner = NPC.type;
+            Banner = Item.NPCtoBanner(NPCID.Bunny);
             BannerItem = ItemID.BunnyBanner;
             NPC.catchItem = (short)ModContent.ItemType<RoyalRabbit_Item>();
             NPC.rarity = 6;

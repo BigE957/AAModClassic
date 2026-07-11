@@ -36,7 +36,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs._Surface._Day
             NPC.knockBackResist = 0.5f;
             AnimationType = NPCID.CorruptSlime;
             NPC.buffImmune[BuffID.OnFire] = true;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<InfernalSlimeBanner>();
             SpawnModBiomes = [ModContent.GetInstance<InfernoBiome>().Type];
         }

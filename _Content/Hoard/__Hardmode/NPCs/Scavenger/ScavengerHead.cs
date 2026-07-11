@@ -52,7 +52,6 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
             NPC.HitSound = SoundID.Tink;
             NPC.DeathSound = SoundID.Item14;
             NPC.netAlways = true;
-            //Banner = ModContent.NPCType<ScavengerHead>();
             SpawnModBiomes = [ModContent.GetInstance<HoardBiome>().Type];
         }
 

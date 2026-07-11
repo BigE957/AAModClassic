@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
                 NPC.alpha = 255;
             NPC.noTileCollide = false;
             NPC.noGravity = true;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PuritySquidBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }

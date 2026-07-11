@@ -51,7 +51,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm
             if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
             NPC.lavaImmune = true;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<WyrmBanner>();
             SpawnModBiomes = [ModContent.GetInstance<UndergroundInfernoBiome>().Type];
         }

@@ -43,8 +43,8 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs
             NPC.DeathSound = SoundID.NPCDeath1;
             if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
-            if (!WasSpawnedByTruffleToad)
-                Banner = NPC.type;
+            if (WasSpawnedByTruffleToad)
+                Banner = 0;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

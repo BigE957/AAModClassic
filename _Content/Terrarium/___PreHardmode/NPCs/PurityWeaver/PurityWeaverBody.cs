@@ -24,7 +24,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver
             NPC.dontCountMe = true;
 
             NPC.alpha = 255;
-            Banner = NPC.type;
+            //Banner = NPC.type;
             //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PurityWeaverBanner>();
         }
 

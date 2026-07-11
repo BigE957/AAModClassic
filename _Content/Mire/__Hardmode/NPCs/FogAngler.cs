@@ -38,7 +38,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs
             NPC.value = 5000;
             NPC.knockBackResist = .10f;
             NPC.aiStyle = -1;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<FogAnglerBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }

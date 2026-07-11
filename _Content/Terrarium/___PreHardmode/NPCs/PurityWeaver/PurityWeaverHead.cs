@@ -42,7 +42,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver
                 NPC.alpha = 255;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PurityWeaverBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }

@@ -42,7 +42,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             NPC.width = 72;
             NPC.height = 78;
             NPC.lavaImmune = false;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<MossterBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }

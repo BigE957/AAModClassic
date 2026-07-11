@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
 			NPC.value = 450f;
 			NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
 			AnimationType = NPCID.CreatureFromTheDeep;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<KappaBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
