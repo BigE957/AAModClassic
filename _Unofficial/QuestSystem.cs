@@ -52,27 +52,6 @@ namespace AAModClassic._Unofficial
     {
         public static Dictionary<string, Questline> Questlines = [];
 
-        public override void OnModLoad()
-        {
-            On_Main.UpdateTime_StartDay += RefreshQuests;
-        }
-
-        public static void RefreshQuests(On_Main.orig_UpdateTime_StartDay orig, ref bool stopEvents)
-        {
-            orig(ref stopEvents);
-
-            // At the start of each day, reset completed quests
-            foreach (Questline questline in Questlines.Values)
-                foreach (string ID in questline.UnlockedQuests)
-                {
-                    if (questline.Quests.TryGetValue(ID, out Quest quest) && quest.IsRepeatable && quest.IsTurnedIn)
-                    {
-                        quest.IsTurnedIn = false;
-                        quest.RefreshQuest();
-                    }
-                }
-        }
-
         public static void InitializeAllQuestlines()
         {
             Questlines.Clear();
