@@ -74,6 +74,8 @@ namespace AAModClassic._Unofficial.Desert
             if (!QuestSystem.Questlines.ContainsKey("LegendscribeEarlyGame"))
                 return;
 
+            RemoveAllChildren();
+
             Color outerBorder;
             Color outerBack;
 
