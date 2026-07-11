@@ -203,6 +203,8 @@ namespace AAModClassic._CrossMod
             if (!NewAAPresent)
                 return;
 
+            if (NeedToReplaceContent)
+                ModContent.GetInstance<AAMod>().Logger.Info("Beginning Content Replacement");
 
             List<Recipe> newRecipes = [];
 
@@ -244,8 +246,6 @@ namespace AAModClassic._CrossMod
             ItemID.Sets.ShimmerTransformToItem[NewAA.Find<ModItem>("IncineriteOre").Type] = ModContent.ItemType<IncineriteOre>();
             #endregion
         }
-
-
     }
 
     public class ReplacementGlobalNPC : GlobalNPC
@@ -289,7 +289,7 @@ namespace AAModClassic._CrossMod
                         recipe.AddIngredient(newItem, stack);
                     shouldAdd = true;
 
-                    ModContent.GetInstance<AAMod>().Logger.Info($"Recipe Hit: Item {oldID} has been replaced by Item {newID}");
+                    //ModContent.GetInstance<AAMod>().Logger.Info($"Recipe Hit: Item {oldID} has been replaced by Item {newID}");
                 }
             }
 
