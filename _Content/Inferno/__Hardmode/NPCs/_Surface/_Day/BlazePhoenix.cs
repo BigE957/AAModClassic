@@ -3,6 +3,7 @@ using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -47,7 +48,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Surface._Day
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.damage = 70;
-            Banner = NPC.type;
+            //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<BlazePhoenixBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
@@ -58,7 +59,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Surface._Day
 			AAAI.AIShadowflameGhost(NPC, ref NPC.ai, false, 660f, 0.3f, 10f, 0.2f, 6f, 5f, 10f, 0.4f, 0.4f, 0.95f, 5f);
 			NPC.spriteDirection = NPC.velocity.X > 0 ? -1 : 1;
 			BaseAI.LookAt(NPC.Center + NPC.velocity, NPC, 0);
-            
+
             float num1276 = 120f;
             if (NPC.localAI[0] < num1276)
             {
@@ -112,8 +113,8 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Surface._Day
         {
             if (auraDirection) { auraPercent += 0.1f; auraDirection = auraPercent < 1f; }
             else { auraPercent -= 0.1f; auraDirection = auraPercent <= 0f; }
-            BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 0.8f, 1f, 4, false, 0f, 0f, GetGlowAlpha());
-            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);			
+            DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, TextureAssets.Npc[NPC.type].Value, NPC.Center - Main.screenPosition, NPC.velocity, 4, NPC.frame, GetGlowAlpha(), NPC.scale, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.spriteDirection == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0.8f, 1f);
+            spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.spriteDirection == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);			
             return false;
         }
 
