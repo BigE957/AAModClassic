@@ -31,6 +31,8 @@ namespace AAModClassic._Unofficial.Desert
         /// </summary>
         private static string CurrentQuestID = "";
 
+        private static bool InEarlygameState = true;
+
         internal static Questline CurrentQuestline => NPCExtensions.BeenKilled<AnubisA>() ? QuestSystem.Questlines["LegendscribeLateGame"] : QuestSystem.Questlines["LegendscribeEarlyGame"];
         internal static Quest CurrentQuest => CurrentQuestID == "" ? null : CurrentQuestline.Quests[CurrentQuestID];
         internal static UIPanel Area;
@@ -97,6 +99,8 @@ namespace AAModClassic._Unofficial.Desert
                     CurrentQuestID = "GripsOfChaos";
                 else
                     CurrentQuestID = "MushroomMonarch";
+
+                InEarlygameState = true;
             }
             else
             {
@@ -107,8 +111,10 @@ namespace AAModClassic._Unofficial.Desert
                 labelBack = Color.YellowGreen;
 
                 CurrentQuestID = "ForsakenAnubis";
+
+                InEarlygameState = false;
             }
-            
+
 
             Area = new()
             {
@@ -359,6 +365,11 @@ namespace AAModClassic._Unofficial.Desert
             if (!QuestSystem.Questlines.ContainsKey("LegendscribeEarlyGame"))
                 return;
 
+            if(InEarlygameState && CurrentQuestline.ID != "LegendscribeEarlyGame")
+            {
+                OnInitialize();
+            }
+
             CurrentQuestline.Started = true;
             float maxDepth;
             if (CurrentQuestline.ID == "LegendscribeEarlyGame")
@@ -372,7 +383,11 @@ namespace AAModClassic._Unofficial.Desert
                 }
             }
             else
+            {
                 maxDepth = FillDepthValues("ForsakenAnubis", 0);
+                if (!CurrentQuestline.Quests.ContainsKey(CurrentQuestID))
+                    CurrentQuestID = "ForsakenAnubis";
+            }
 
             if (CurrentQuest != null)
             {
