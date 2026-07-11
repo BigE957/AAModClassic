@@ -949,7 +949,7 @@ namespace AAModClassic.Globals
                     ModNPC mnpc = NPCLoader.GetNPC(npcID);
                     if (mnpc != null && mnpc.Mod != null) //splitting so you can add other exceptions if need be
                     {
-                        if (mnpc.Mod.Name.Equals("GRealm")) //do not remove GRealm spawns!
+                        if (mnpc.Mod.Name.Equals("GRealm") || mnpc.Mod.Name.Equals("AAMod")) //do not remove GRealm or Modern AA spawns!
                         {
                             keepPool.Add(npcID, kvp.Value);
                         }
@@ -960,9 +960,8 @@ namespace AAModClassic.Globals
                 foreach (var newkvp in keepPool)
                 {
                     pool.Add(newkvp.Key, newkvp.Value);
+                    ModNPC mnpc = NPCLoader.GetNPC(newkvp.Key);
                 }
-
-                keepPool.Clear();
             }
             catch (Exception e)
             {
@@ -991,6 +990,7 @@ namespace AAModClassic.Globals
             if (spawnInfo.Player.ZoneAnyInferno())
             {
                 ClearPoolWithExceptions(pool);
+
                 if ((spawnInfo.Player.position.Y < (Main.worldSurface * 16.0)) && (Main.dayTime || AAWorld.downedAkuma))
                 {
                     if (!ContentReplacementSystem.NeedToReplaceContent)
@@ -1050,6 +1050,7 @@ namespace AAModClassic.Globals
             if (spawnInfo.Player.ZoneAnyMire())
             {
                 ClearPoolWithExceptions(pool);
+
                 if ((spawnInfo.Player.position.Y < (Main.worldSurface * 16.0)) && (!Main.dayTime || AAWorld.downedYamata))
                 {
                     if (!ContentReplacementSystem.NeedToReplaceContent)
