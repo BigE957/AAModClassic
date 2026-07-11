@@ -85,6 +85,7 @@ GoblinSlayerShopChristmasLoot: Christmas Loot
 GoblinSlayerShopMartianLoot: Martian Loot
 #AAModClassic.Tiles.RazewoodF
 
+RazewoodClockGetTime: Maybe making a clock out of burned wood wasn't such a good idea. It doesn't even work.
 #lockedchest
 
 InfernoChest_Locked: Locked Inferno Chest
@@ -332,4 +333,8 @@ Conditions: {
 	PostLateAncientsAndRemovedWorld: Post-Late Ancients
 	SpawnedByTruffleToad: If not spawned by Truffle Toad
 	SpawnedByGrips: If not spawned by the Grips of Chaos
+	InAnyInferno: In the Inferno biome
+	InAnyMire: In the Mire biome
+	InAnyRedMushroom: In the Red Mushroom biome
+	InAnyVoid: In the Void biome
 }

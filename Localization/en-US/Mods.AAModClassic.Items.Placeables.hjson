@@ -125,6 +125,26 @@ Functional: {
 			Combiles all vanilla and Ancients Awakened crafting stations together
 			'''
 	}
+
+	InfernoPylon: {
+		DisplayName: Inferno Pylon
+		Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
+	}
+
+	MirePylon: {
+		DisplayName: Mire Pylon
+		Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
+	}
+
+	RedMushroomPylon: {
+		DisplayName: Red Mushroom Pylon
+		Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
+	}
+
+	VoidPylon: {
+		DisplayName: Void Pylon
+		Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
+	}
 }
 
 TerraCrystal: {
