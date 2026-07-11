@@ -19,6 +19,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
         {
             NPC.lifeMax = 600;
             NPC.defense = 10;
+            NPC.damage = 50;
             NPC.width = 30;
             NPC.height = 30;
             NPC.aiStyle = -1;
