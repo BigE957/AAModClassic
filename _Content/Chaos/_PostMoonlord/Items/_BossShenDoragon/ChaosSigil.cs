@@ -21,6 +21,7 @@ using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._CrossMod;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon
 {
@@ -88,7 +89,7 @@ Non-Consumable"); */
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ChaosSigilFalse3"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B, false);
                 return false;
             }
-            if (!AAWorld.downedShen && !player.GetModPlayer<ZAAPlayer>().ZoneRisingSunPagoda && !player.GetModPlayer<ZAAPlayer>().ZoneRisingMoonLake)
+            if (!ContentReplacementSystem.NeedToReplaceContent && !AAWorld.downedShen && !player.GetModPlayer<ZAAPlayer>().ZoneRisingSunPagoda && !player.GetModPlayer<ZAAPlayer>().ZoneRisingMoonLake)
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ChaosSigilFalse4"), Color.DarkMagenta, false);
                 return false;
