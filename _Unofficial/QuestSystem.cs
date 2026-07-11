@@ -59,6 +59,8 @@ namespace AAModClassic._Unofficial
 
         public static void RefreshQuests(On_Main.orig_UpdateTime_StartDay orig, ref bool stopEvents)
         {
+            orig(ref stopEvents);
+
             // At the start of each day, reset completed quests
             foreach (Questline questline in Questlines.Values)
                 foreach (string ID in questline.UnlockedQuests)
@@ -69,7 +71,6 @@ namespace AAModClassic._Unofficial
                         quest.RefreshQuest();
                     }
                 }
-            orig(ref stopEvents);
         }
 
         public static void InitializeAllQuestlines()
