@@ -1,4 +1,5 @@
-﻿using AAModClassic._Content.Terra._PostMoonLord.Items.Tiles.Functional;
+﻿using AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional;
+using AAModClassic._Content.Terra._PostMoonLord.Items.Tiles.Functional;
 using AAModClassic._Content.Underground.___PreHardmode.Items.Materials;
 using AAModClassic.Assets;
 using AAModClassic.Globals;
@@ -45,7 +46,7 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Materials
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<Prism>(), 5);
-            recipe.AddTile(ModContent.TileType<TerraPrismStation_Tile>());
+            recipe.AddTile(ModContent.TileType<HallowedForge_Tile>());
             recipe.Register();
         }
     }
