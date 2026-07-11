@@ -175,7 +175,7 @@ namespace AAModClassic._CrossMod
                 OldToNewItems.Add(ModContent.ItemType<IncineriteBar>(), NewAA.Find<ModItem>("IncineriteBar").Type);
                 //OldToNewItems.Add(ModContent.ItemType<AbyssiumBar>(), NewAA.Find<ModItem>("AbyssiumBar").Type);
 
-                OldToNewItems.Add(ModContent.ItemType<MirePod>(), NewAA.Find<ModItem>("BeastScales").Type);
+                OldToNewItems.Add(ModContent.ItemType<MirePod>(), NewAA.Find<ModItem>("MonsterTeeth").Type);
 
                 OldToNewItems.Add(ModContent.ItemType<DragonScale>(), NewAA.Find<ModItem>("DragonScale").Type);
 
