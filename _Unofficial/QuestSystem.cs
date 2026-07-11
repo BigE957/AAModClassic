@@ -63,8 +63,7 @@ namespace AAModClassic._Unofficial
             foreach (Questline questline in Questlines.Values)
                 foreach (string ID in questline.UnlockedQuests)
                 {
-                    Quest quest = questline.Quests[ID];
-                    if (quest.IsRepeatable && quest.IsTurnedIn)
+                    if (questline.Quests.TryGetValue(ID, out Quest quest) && quest.IsRepeatable && quest.IsTurnedIn)
                     {
                         quest.IsTurnedIn = false;
                         quest.RefreshQuest();
