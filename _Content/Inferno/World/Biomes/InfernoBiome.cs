@@ -15,6 +15,7 @@ using System.Reflection.PortableExecutable;
 using System.Threading.Channels;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.Events;
 using Terraria.GameInput;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
@@ -437,8 +438,26 @@ namespace AAModClassic._Content.Inferno.World.Biomes
 
     public class InfernoDesertBgStyle : ModSurfaceBackgroundStyle
     {
+        public override void Load()
+        {
+            On_Sandstorm.ShouldSandstormDustPersist += AllowSandstormVisualsInInfernoDesert;
+        }
+
+        private bool AllowSandstormVisualsInInfernoDesert(On_Sandstorm.orig_ShouldSandstormDustPersist orig)
+        {
+            if (orig())
+                return true;
+
+            if(Sandstorm.Happening && Main.LocalPlayer.ZoneSandstorm && Main.bgStyle == Slot)
+                return Main.bgDelay < 50;
+
+            return false;
+        }
+
         public override void ModifyFarFades(float[] fades, float transitionSpeed)
         {
+            Sandstorm.HandleEffectAndSky(Sandstorm.Happening);
+
             for (int i = 0; i < fades.Length; i++)
             {
                 if (i == Slot)
