@@ -3,13 +3,12 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic.UI.World;
 
 namespace AAModClassic._Content.Inferno.World.Tiles
 {
     public class InfernoGrass_Tile : ModTile
     {
-        public static int _type;
-
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
@@ -26,12 +25,13 @@ namespace AAModClassic._Content.Inferno.World.Tiles
 
         public override void RandomUpdate(int i, int j)
         {
-            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(40))
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) &&!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(40))
             {
-                int style = Main.rand.Next(23);
-                if (PlaceObject(i, j - 1, InfernoFoliage_Tile._type, false, style))
-                    NetMessage.SendObjectPlacement(-1, i, j - 1, InfernoFoliage_Tile._type, style, 0, -1, -1);
+                int style = Main.rand.Next(24);
+                if (PlaceObject(i, j - 1, ModContent.TileType<InfernoFoliage_Tile>(), false, style))
+                    NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<InfernoFoliage_Tile>(), style, 0, -1, -1);
             }
+
             if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(1500))
             {
                 PlaceObject(i, j - 1, ModContent.TileType<Hotshroom_Tile>());
