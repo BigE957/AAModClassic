@@ -1091,9 +1091,9 @@ namespace AAModClassic._Unofficial.Desert
             else
             {
                 if (Main.LocalPlayer.GetModPlayer<ZAAPlayer>().AnubisBook)
-                    QuestSystem.Questlines["LegendscribeEarlyGame"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeQuestline.Greed.Description.FoundBook");
+                    QuestSystem.Questlines["LegendscribeEarlyGame"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeEarlyGame.Greed.Description.FoundBook");
                 else
-                    QuestSystem.Questlines["LegendscribeEarlyGame"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeQuestline.Greed.Description.Complete");
+                    QuestSystem.Questlines["LegendscribeEarlyGame"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeEarlyGame.Greed.Description.Complete");
                 LegendscribeQuestUISystem.OpenLegendscribeUI(NPC.whoAmI);
             }
         }
