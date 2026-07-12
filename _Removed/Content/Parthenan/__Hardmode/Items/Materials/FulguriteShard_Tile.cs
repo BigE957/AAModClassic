@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
@@ -22,7 +23,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
             Main.tileLighted[Type] = true;
             HitSound = SoundID.Tink;
             DustType = ModContent.DustType<FulguriteDust>();
-            AddMapEntry(new Color(204, 0, 150));
+            AddMapEntry(new Color(204, 0, 150), CreateMapEntryName());
 			MinPick = 180;
         }
 
