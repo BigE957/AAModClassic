@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Globals
 {
-    public class AANet : AAModSystem
+    public class AANet : ModSystem
     {
         private static readonly List<AAPacket> instances = [];
         private static readonly Dictionary<Type, byte> typeToId = [];
