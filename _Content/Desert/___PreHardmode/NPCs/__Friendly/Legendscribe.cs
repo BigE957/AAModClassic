@@ -531,8 +531,22 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             return true;
         }
 
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            if (NPC.IsABestiaryIconDummy && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                NPC.frame = TextureAssets.Npc[ModContent.NPCType<LegendscribeUnofficial>()].Frame(1, 17);
+                LegendscribeUnofficial.DrawUnofficialLegendscribe(NPC, drawColor);
+                return false;
+            }
+            return true;
+        }
+
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
+            if (NPC.IsABestiaryIconDummy && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                return;
+
             Texture2D tex = NPC.IsShimmerVariant ? GlowmaskShimmer.Value : Glowmask.Value;
             //TODO: this is disgusting. find out whatever stat vanilla modifies while npcs are sitting to lift the spirte up (npc.ai[0] == 5)
             int sittingOffset = NPC.ai[0] == 5 ? 4 : 0;

@@ -53,26 +53,33 @@ namespace AAModClassic._Unofficial.Desert
         // we wanna draw him under npcs bcuz he is so massive
         private static void GeneralDrawLayer_DrawToLayer_NPCs(On_Main.orig_DoDraw_DrawNPCsOverTiles orig, Main self)
         {
+            Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);
+
             foreach (NPC npc in Main.npc)
             {
                 if (npc.whoAmI != -1 && npc.active && npc.type == ModContent.NPCType<LegendscribeUnofficial>())
                 {
-                    Texture2D tex = npc.IsShimmerVariant ? Shimmer.Value : TextureAssets.Npc[npc.type].Value;
-                    Texture2D glow = npc.IsShimmerVariant ? GlowmaskShimmer.Value : Glowmask.Value;
-
-                    Vector2 position = npc.Center - (npc.IsABestiaryIconDummy ? Vector2.Zero : Main.screenPosition) + new Vector2(0f, npc.gfxOffY - 8);
                     Color color = Lighting.GetColor(npc.Center.ToTileCoordinates()) * npc.Opacity;
-
-                    Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);
-                    Main.spriteBatch.Draw(tex, position, npc.frame, color, npc.rotation, npc.frame.Size() / 2f, npc.scale, npc.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
-                    Main.spriteBatch.Draw(glow, position, npc.frame, Color.White * npc.Opacity, npc.rotation, npc.frame.Size() / 2f, npc.scale, npc.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
-                    if (BirthdayParty.ManualParty || BirthdayParty.GenuineParty)
-                        Main.spriteBatch.Draw(PartyHat.Value, position, npc.frame, color, npc.rotation, npc.frame.Size() / 2f, npc.scale, npc.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
-                    Main.spriteBatch.End();
+                    DrawUnofficialLegendscribe(npc, color);
                 }
             }
-            
+
+            Main.spriteBatch.End();
+
             orig(self);
+        }
+
+        public static void DrawUnofficialLegendscribe(NPC npc, Color color)
+        {
+            Texture2D tex = npc.IsShimmerVariant ? Shimmer.Value : TextureAssets.Npc[ModContent.NPCType<LegendscribeUnofficial>()].Value;
+            Texture2D glow = npc.IsShimmerVariant ? GlowmaskShimmer.Value : Glowmask.Value;
+
+            Vector2 position = npc.Center - (npc.IsABestiaryIconDummy ? Vector2.Zero : Main.screenPosition) + new Vector2(0f, npc.gfxOffY - 8);
+
+            Main.spriteBatch.Draw(tex, position, npc.frame, color, npc.rotation, npc.frame.Size() / 2f, npc.scale, npc.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+            Main.spriteBatch.Draw(glow, position, npc.frame, Color.White * npc.Opacity, npc.rotation, npc.frame.Size() / 2f, npc.scale, npc.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+            if (BirthdayParty.ManualParty || BirthdayParty.GenuineParty)
+                Main.spriteBatch.Draw(PartyHat.Value, position, npc.frame, color, npc.rotation, npc.frame.Size() / 2f, npc.scale, npc.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
@@ -1101,6 +1108,8 @@ namespace AAModClassic._Unofficial.Desert
         public override string GetChat()
         {
             AnubisDialoguePlayer p = Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>();
+
+            Main.BestiaryTracker.Chats.RegisterChatStartWith(ContentSamples.NpcsByNetId[ModContent.NPCType<Legendscribe>()]);
 
             if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>())
             {
