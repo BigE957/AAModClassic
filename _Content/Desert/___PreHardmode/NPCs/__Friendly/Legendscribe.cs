@@ -148,19 +148,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
 
 		public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
         {
-            for (int k = 0; k < 255; k++)
-            {
-                Player player = Main.player[k];
-                if (player.active && 
-                    !NPC.AnyNPCs(ModContent.NPCType<Anubis>()) &&
-                    !NPC.AnyNPCs(ModContent.NPCType<LegendscribeUnofficial>()) &&
-                    !NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) &&
-                    !NPC.AnyNPCs(ModContent.NPCType<AnubisA>()))
-                {
-                    return true;
-                }
-            }
-            return false;
+            return !NPC.AnyNPCs(ModContent.NPCType<AnubisUnreleased>()) && !NPC.AnyNPCs(ModContent.NPCType<Anubis>()) && !NPC.AnyNPCs(ModContent.NPCType<LegendscribeUnofficial>()) && !NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) && !NPC.AnyNPCs(ModContent.NPCType<AnubisA>());
 		}
 
 		public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */

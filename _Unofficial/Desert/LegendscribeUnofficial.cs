@@ -161,18 +161,9 @@ namespace AAModClassic._Unofficial.Desert
 
 		public override bool CanTownNPCSpawn(int numTownNPCs)
         {
-            for (int k = 0; k < 255; k++)
-            {
-                Player player = Main.player[k];
-                if (player.active && !NPC.AnyNPCs(ModContent.NPCType<Anubis>()) && 
-                    !NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) &&
-                    !NPC.AnyNPCs(ModContent.NPCType<AnubisA>()))
-                {
-                    return true;
-                }
-            }
-            return false;
-		}
+            return !NPC.AnyNPCs(ModContent.NPCType<AnubisUnreleased>()) && !NPC.AnyNPCs(ModContent.NPCType<Anubis>()) && !NPC.AnyNPCs(ModContent.NPCType<LegendscribeUnofficial>()) && !NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) && !NPC.AnyNPCs(ModContent.NPCType<AnubisA>());
+
+        }
 
         public override bool CheckConditions(int left, int right, int top, int bottom)
         {
