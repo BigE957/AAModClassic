@@ -170,10 +170,13 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 			}
 
             Player player = Main.player[NPC.target];
-            if (player != null)
+            float movementMax = 1.5f;
+            bool teleporting = false;
+            if (player != null && player.active && !player.dead)
             {
                 if (NPC.DistanceSQ(player.Center) > 1440000) //trigger teleporting stuff
                 {
+                    teleporting = true;
                     NPC.dontTakeDamage = true;
                     NPC.alpha += 10;
                     if (NPC.alpha >= 255) //teleport, you're invisible!
@@ -182,6 +185,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                         Vector2 tele = new Vector2(player.Center.X, player.Center.Y);
                         NPC.Center = tele;
                         NPC.dontTakeDamage = false;
+                        foreach (NPC n in Main.ActiveNPCs)
+                            if (n.type == ModContent.NPCType<InfinityZeroHand1>() || n.type == ModContent.NPCType<InfinityZeroHand2>() || n.type == ModContent.NPCType<InfinityCore>())
+                                n.Center = tele;
                         SoundEngine.PlaySound(new SoundStyle("AAModClassic/_Unreleased/Sounds/IZRoar"), NPC.Center);
                     }
                 }
@@ -199,30 +205,31 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 NPC.TargetClosest();
                 player = Main.player[NPC.target];
-            }
 
-            float movementMax = 1.5f;
-			if(NPC.target > -1)
-			{
-				Player targetPlayer = Main.player[NPC.target];
-				if(!targetPlayer.dead) //speed changes depending on how far the player is
-				{
-                    NPC.alpha -= 10;
-                    if (NPC.alpha <= 0)
-                    {
-                        NPC.alpha = 0;
-                    }
-                    movementMax = MathHelper.Lerp(1f, 4f, Math.Min(1f, Math.Max(0f, Vector2.Distance(NPC.Center, targetPlayer.Center) / 1000f)));
-				}
-                if (targetPlayer.dead) //speed changes depending on how far the player is
+                if (player != null || !player.active || player.dead) //All players dead. Fuck off.
                 {
                     NPC.alpha += 10;
                     if (NPC.alpha >= 255)
                     {
                         NPC.active = false;
+                        foreach (NPC n in Main.ActiveNPCs)
+                            if (n.type == ModContent.NPCType<InfinityZeroHand1>() || n.type == ModContent.NPCType<InfinityZeroHand2>() || n.type == ModContent.NPCType<InfinityCore>())
+                                n.active = false;
+                        return;
                     }
                 }
             }
+
+            if (!teleporting && player != null && player.active && !player.dead)
+            {
+                NPC.alpha -= 10;
+                if (NPC.alpha <= 0)
+                {
+                    NPC.alpha = 0;
+                }
+                movementMax = MathHelper.Lerp(1f, 4f, Math.Min(1f, Math.Max(0f, Vector2.Distance(NPC.Center, player.Center) / 1000f)));
+            }
+
 			//customAI is used here because the original ai and localAI are both used elsewhere. It is synced above.
             BaseAI.AIElemental(NPC, ref customAI, false, 0, false, false, 800f, 600f, 60, movementMax);
             if (!ZerosSpawned)

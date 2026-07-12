@@ -127,10 +127,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         private int ZeroShot = 0;
 
-        public override bool CheckActive()
-        {
-            return base.CheckActive();
-        }
+        public override bool CheckActive() => false;
         
         public override void AI()
 		{
