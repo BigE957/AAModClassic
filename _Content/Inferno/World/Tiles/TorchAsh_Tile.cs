@@ -17,6 +17,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             TileID.Sets.Snow[Type] = true;
+            TileID.Sets.Conversion.Snow[Type] = true;
             DustType = ModContent.DustType<Dusts.AshRain>();
             AddMapEntry(new Color(30, 30, 30));
             RegisterItemDrop(ModContent.ItemType<TorchAsh>());

@@ -25,7 +25,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles.Trees
             TileObjectData.newTile.CoordinateHeights = [16, 18];
             TileObjectData.newTile.CoordinateWidth = 16;
             TileObjectData.newTile.CoordinatePadding = 2;
-            TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<InfernoGrass_Tile>()];
+            TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<InfernoGrass_Tile>(), ModContent.TileType<TorchAsh_Tile>(), ModContent.TileType<TorchMoss_Tile>()];
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.DrawFlipHorizontal = true;
             TileObjectData.newTile.WaterPlacement = LiquidPlacement.NotAllowed;
