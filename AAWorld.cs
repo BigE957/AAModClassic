@@ -1304,7 +1304,7 @@ namespace AAModClassic
                     Luminite = true;
                     if (Main.netMode != NetmodeID.MultiplayerClient) 
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedMoonlordInfo2"), Color.DarkSeaGreen);
-                    for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 6E-05); k++)
+                    for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 8E-05); k++)
                     {
                         WorldGen.OreRunner(WorldGen.genRand.Next(0, Main.maxTilesX), WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 200), WorldGen.genRand.Next(5, 9), WorldGen.genRand.Next(6, 10), TileID.LunarOre);
                     }
