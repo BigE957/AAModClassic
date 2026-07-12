@@ -163,7 +163,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.Te
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             if (NPC.IsABestiaryIconDummy)
-                return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, TextureAssets.Npc[Type].Value, TextureAssets.Npc[ModContent.NPCType<TerraWeaverBody>()].Value, 7, 16, 0.25f, Vector2.Zero, 2, 10, -10);
+                return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, TextureAssets.Npc[ModContent.NPCType<TerraWeaverBody>()].Value, TextureAssets.Npc[Type].Value, 7, 16, 0.25f, Vector2.Zero, 2, 10, -10);
             return true;
         }
     }
