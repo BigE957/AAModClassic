@@ -317,3 +317,8 @@ TerraWeaverBanner: {
 	DisplayName: Terra Weaver Banner
 	Tooltip: ""
 }
+
+TerraSerpentBanner: {
+	DisplayName: Terra Serpent Banner
+	Tooltip: ""
+}

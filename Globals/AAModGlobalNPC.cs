@@ -67,6 +67,7 @@ using AAModClassic._Content.Terrarium.___PreHardmode.NPCs;
 using AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.__Hardmode.NPCs;
+using AAModClassic._Content.Terrarium._PostMoonLord.NPCs;
 using AAModClassic._Content.Underground.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Void.___PreHardmode.NPCs;
 using AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius;
@@ -1169,6 +1170,9 @@ namespace AAModClassic.Globals
                     pool.Add(ModContent.NPCType<PurityCrawler>(), .05f);
                     pool.Add(ModContent.NPCType<PuritySquid>(), .05f);
                 }
+
+                if(AAWorld.downedEquinox)
+                    pool.Add(ModContent.NPCType<TerraSerpentHead>(), .025f);
             }
 
             if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneAcropolis)
