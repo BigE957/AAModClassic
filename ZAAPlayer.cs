@@ -783,7 +783,7 @@ namespace AAModClassic
             {
                 if(attempt.legendary)
                 {
-                    if (Main.rand.NextBool() && Main.hardMode)
+                    if (!Main.hardMode || Main.rand.NextBool())
                         itemDrop = ModContent.ItemType<SharpeningLavaFish>();
                     else
                         itemDrop = ModContent.ItemType<ScorchShark>();
@@ -794,7 +794,7 @@ namespace AAModClassic
             {
                 if (attempt.legendary)
                 {
-                    if (Main.rand.NextBool() && Main.hardMode)
+                    if (!Main.hardMode || Main.rand.NextBool())
                         itemDrop = ModContent.ItemType<ToxinMonkfish>();
                     else
                         itemDrop = ModContent.ItemType<SwimmingHydra>();
