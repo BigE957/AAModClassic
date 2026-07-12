@@ -794,7 +794,7 @@ namespace AAModClassic
             {
                 if (attempt.legendary)
                 {
-                    if (!Main.hardMode || Main.rand.NextBool())
+                    if (Main.rand.NextBool())
                         itemDrop = ModContent.ItemType<ToxinMonkfish>();
                     else
                         itemDrop = ModContent.ItemType<SwimmingHydra>();
