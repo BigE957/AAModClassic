@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Void.World.Biomes.Water
         public override int ChooseWaterfallStyle() => WaterfallStyle.Slot;
         public override int GetSplashDust() => SplashDust;
         public override int GetDropletGore() => DropletGore;
-		public override Asset<Texture2D> GetRainTexture() => RainTexture ??= ModContent.Request<Texture2D>("AAModClassic/_Content/Void/World/Biomes/Water/VoidDroplet");
+		public override Asset<Texture2D> GetRainTexture() => RainTexture ??= ModContent.Request<Texture2D>("AAModClassic/_Content/Void/World/Biomes/Water/VoidRain");
 
 		public override void LightColorMultiplier(ref float r, ref float g, ref float b)
 		{
