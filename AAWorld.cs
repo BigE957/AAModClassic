@@ -1378,18 +1378,6 @@ namespace AAModClassic
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedBoss2Info1"), Color.LimeGreen);
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedBoss2Info2"), Color.DarkOrange.R, Color.DarkOrange.G, Color.DarkOrange.B);
-                    }
-                    int x = Main.maxTilesX;
-                    int y = Main.maxTilesY;
-                    for (int k = 0; k < (int)(x * y * 15E-05); k++)
-                    {
-                        int tilesX = WorldGen.genRand.Next(0, x);
-                        int tilesY = WorldGen.genRand.Next(0, y);
-                        if (Main.tile[tilesX, tilesY].TileType == TileID.HardenedSand)
-                        {
-                            WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(5, 6), WorldGen.genRand.Next(10, 11), (ushort)ModContent.TileType<DynaskullFossil_Tile>());
-                        }
                     }
                 }
             }
@@ -1403,6 +1391,21 @@ namespace AAModClassic
                     {
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedBoss3Info1"), Color.Orange);
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedBoss3Info2"), Color.Cyan.R, Color.Cyan.G, Color.Cyan.B);
+
+                        int x = Main.maxTilesX;
+                        int y = Main.maxTilesY;
+                        for (int k = 0; k < (int)(x * y * 15E-05); k++)
+                        {
+                            int tilesX = WorldGen.genRand.Next(0, x);
+                            int tilesY = WorldGen.genRand.Next((int)(y * 0.1f), (int)(y * 0.8f));
+                            int type = Main.tile[tilesX, tilesY].TileType;
+                            if (type == TileID.HardenedSand || type == TileID.Sandstone || type == TileID.DesertFossil)
+                            {
+                                WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(5, 6), WorldGen.genRand.Next(10, 11), (ushort)ModContent.TileType<DynaskullFossil_Tile>());
+                            }
+                        }
+
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedBoss3Info3"), Color.DarkOrange.R, Color.DarkOrange.G, Color.DarkOrange.B);
                     }
                 }
             }
