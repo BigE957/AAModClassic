@@ -139,6 +139,9 @@ namespace AAModClassic
         {
             WeakReferences.PerformModSupport();
 
+            //Make Luminite Spelunkerable
+            Main.tileSpelunker[TileID.LunarOre] = true;
+
             Array.Resize(ref AASets.Goblins, NPCLoader.NPCCount);
 
             if (!Main.dedServ)
