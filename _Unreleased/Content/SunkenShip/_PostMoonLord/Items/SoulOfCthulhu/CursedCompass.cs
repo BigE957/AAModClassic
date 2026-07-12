@@ -69,11 +69,13 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 
         public override bool CanUseItem(Player player)
         {
+            if (!AAWorld.downedAllAncients || !player.GetModPlayer<AAPlayer_Unreleased>().ZoneShip)
+                return false;
+
             bool anyCthulhus = false;
-            if (!AAWorld.downedEquinox && !AAWorld.downedAllAncients)
-                foreach (NPC npc in Main.ActiveNPCs)
-                    if (npc.type == ModContent.NPCType<UDUNFUKED>() || npc.type == ModContent.NPCType<NPCs.SoulOfCthulhu.SoulOfCthulhu>() || npc.type == ModContent.NPCType<Cthulhu>() || npc.type == ModContent.NPCType<CthulhuSpawn>() || npc.type == ModContent.NPCType<CthulhuPortal>())
-                        anyCthulhus = true;
+            foreach (NPC npc in Main.ActiveNPCs)
+                if (npc.type == ModContent.NPCType<UDUNFUKED>() || npc.type == ModContent.NPCType<NPCs.SoulOfCthulhu.SoulOfCthulhu>() || npc.type == ModContent.NPCType<Cthulhu>() || npc.type == ModContent.NPCType<CthulhuSpawn>() || npc.type == ModContent.NPCType<CthulhuPortal>())
+                    anyCthulhus = true;
 
             if (anyCthulhus)
             {
@@ -81,7 +83,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.CursedCompassFalse"), Color.DarkCyan, false);
                 return false;
             }
-            return AAWorld.downedAllAncients && player.GetModPlayer<AAPlayer_Unreleased>().ZoneShip;
+            return true;
         }
 
         public override bool? UseItem(Player player)
