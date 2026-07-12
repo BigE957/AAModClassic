@@ -1,3 +1,4 @@
+using AAModClassic._Content._Dev.__Hardmode.Items.Accessories.Vanity;
 using AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity;
 using AAModClassic._Content._Dev.__Hardmode.Items.Consumables;
 using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
@@ -22,6 +23,7 @@ using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.Personalities;
 using Terraria.ID;
@@ -79,7 +81,16 @@ namespace AAModClassic._Content._Dev.__Hardmode.NPCs.__Friendly
             AnimationType = NPCID.Guide;
 		}
 
-		public override void HitEffect(NPC.HitInfo hit)
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.LargeLetter")
+            ]);
+        }
+
+        public override void HitEffect(NPC.HitInfo hit)
 		{
 
 		}
@@ -356,7 +367,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.NPCs.__Friendly
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MudFishBall>()));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<LittleE>()));
         }
 
         public override void TownNPCAttackStrength(ref int damage, ref float knockback)

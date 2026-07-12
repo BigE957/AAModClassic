@@ -7,6 +7,7 @@ using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic.Globals;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.Personalities;
 using Terraria.ID;
@@ -73,7 +74,16 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly
             AnimationType = NPCID.Guide;
 		}
 
-		public override void HitEffect(NPC.HitInfo hit)
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.GoblinSlayer")
+            ]);
+        }
+
+        public override void HitEffect(NPC.HitInfo hit)
 		{
 		}
 

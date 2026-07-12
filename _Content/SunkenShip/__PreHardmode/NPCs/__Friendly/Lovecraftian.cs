@@ -25,6 +25,7 @@ using Humanizer;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.Personalities;
 using Terraria.ID;
 using Terraria.Localization;
@@ -70,6 +71,15 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
             AnimationType = NPCID.Guide;
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Ocean,
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Lovecraftian")
+            ]);
         }
 
         public override void HitEffect(NPC.HitInfo hit)

@@ -67,7 +67,8 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.Friendly
 			NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
             AnimationType = NPCID.Guide;
-		}
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
+        }
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
