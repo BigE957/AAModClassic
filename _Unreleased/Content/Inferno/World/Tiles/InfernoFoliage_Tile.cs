@@ -5,10 +5,9 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Inferno.World.Tiles
 {
+    //TODO: is this accurate to weeds in 1.4? can we make this support flower boots?
     public class InfernoFoliage_Tile : ModTile
 	{
-		public static int _type;
-
         public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;

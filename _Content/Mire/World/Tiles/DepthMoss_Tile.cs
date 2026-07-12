@@ -3,13 +3,12 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.UI.World;
 
 namespace AAModClassic._Content.Mire.World.Tiles
 {
     public class DepthMoss_Tile : ModTile
     {
-        public static int _type;
-
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
@@ -34,13 +33,14 @@ namespace AAModClassic._Content.Mire.World.Tiles
                 NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Darkshroom_Tile>(), 0, 0, -1, -1);
 
             }
-            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(40))
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(40))
             {
+                // okay man
                 if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(20))
                 {
-                    int style = Main.rand.Next(23);
-                    if (PlaceObject(i, j - 1, MireFoliage_Tile._type, false, style))
-                        NetMessage.SendObjectPlacement(-1, i, j - 1, MireFoliage_Tile._type, style, 0, -1, -1);
+                    int style = Main.rand.Next(24);
+                    if (PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), false, style))
+                        NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MireFoliage_Tile>(), style, 0, -1, -1);
                 }
             }
         }

@@ -1,8 +1,9 @@
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
+using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
 
 namespace AAModClassic._Content.RedMushroom.World.Tiles
 {
@@ -24,9 +25,14 @@ namespace AAModClassic._Content.RedMushroom.World.Tiles
         {
             if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(30))
             {
-                PlaceObject(i, j - 1, ModContent.TileType<Mushroom_Tile>());
-                NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Mushroom_Tile>(), Main.rand.Next(5), 0, -1, -1);
+                int style = Main.rand.Next(5);
+                if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
+                    style = 0;
+
+                if (PlaceObject(i, j - 1, ModContent.TileType<Mushroom_Tile>(), false, style))
+                    NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Mushroom_Tile>(), style, 0, -1, -1);
             }
+
             if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(1000))
             {
                 int style = Main.rand.Next(5);

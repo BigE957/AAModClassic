@@ -8,8 +8,6 @@ namespace AAModClassic._Content.Inferno.World.Tiles
 {
     public class TorchMoss_Tile : ModTile
     {
-        public static int _type;
-
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;

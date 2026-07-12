@@ -7,8 +7,6 @@ namespace AAModClassic._Content.Mire.World.Tiles
 {
     public class AbyssGrass_Tile : ModTile
 	{
-		public static int _type;
-
 		public override void SetStaticDefaults()
 		{
 			Main.tileSolid[Type] = true;

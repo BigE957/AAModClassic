@@ -6,8 +6,6 @@ namespace AAModClassic._Content.RedMushroom.World.Tiles
 {
     public class MushroomBlock_Tile : ModTile
 	{
-		public static int _type;
-
 		public override void SetStaticDefaults()
 		{
 			Main.tileSolid[Type] = true;
