@@ -27,16 +27,15 @@ namespace AAModClassic.Conversions
         {
             TileLoader.RegisterConversion(TileID.Grass, Type, ModContent.TileType<MireGrass_Tile>());
             TileLoader.RegisterConversion(TileID.JungleGrass, Type, ModContent.TileType<MireGrass_Tile>());
-            //TODO: Fake wall item
-            //WallLoader.RegisterConversion(WallID.Grass, Type, ModContent.WallType<MireJungleWall>());
+            WallLoader.RegisterConversion(WallID.Grass, Type, ModContent.WallType<MireGrassWall_Wall>());
             TileLoader.RegisterConversion(TileID.Dirt, Type, TileID.Mud); //Unofficial: This just makes sense to me
 
-            //WallLoader.RegisterConversion(WallID.GrassUnsafe, Type, ModContent.WallType<MireJungleWall>());
-            //WallLoader.RegisterConversion(WallID.JungleUnsafe, Type, ModContent.WallType<MireJungleWall>());
-            //WallLoader.RegisterConversion(WallID.JungleUnsafe1, Type, ModContent.WallType<MireJungleWall>());
-            //WallLoader.RegisterConversion(WallID.JungleUnsafe2, Type, ModContent.WallType<MireJungleWall>());
-            //WallLoader.RegisterConversion(WallID.JungleUnsafe3, Type, ModContent.WallType<MireJungleWall>());
-            //WallLoader.RegisterConversion(WallID.JungleUnsafe4, Type, ModContent.WallType<MireJungleWall>());
+            WallLoader.RegisterConversion(WallID.GrassUnsafe, Type, ModContent.WallType<MireGrassWall_Wall>());
+            WallLoader.RegisterConversion(WallID.JungleUnsafe, Type, ModContent.WallType<MireGrassWall_Wall>());
+            WallLoader.RegisterConversion(WallID.JungleUnsafe1, Type, ModContent.WallType<MireGrassWall_Wall>());
+            WallLoader.RegisterConversion(WallID.JungleUnsafe2, Type, ModContent.WallType<MireGrassWall_Wall>());
+            WallLoader.RegisterConversion(WallID.JungleUnsafe3, Type, ModContent.WallType<MireGrassWall_Wall>());
+            WallLoader.RegisterConversion(WallID.JungleUnsafe4, Type, ModContent.WallType<MireGrassWall_Wall>());
             
             TileLoader.RegisterConversion(TileID.Stone, Type, ModContent.TileType<Depthstone_Tile>());
             WallLoader.RegisterConversion(WallID.Stone, Type, ModContent.WallType<DepthstoneWall_Wall>());
