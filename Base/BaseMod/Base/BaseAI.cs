@@ -2765,7 +2765,7 @@ namespace AAModClassic.Base.BaseMod.Base
         {
             Vector2 rotVec = BaseUtility.RotateVector(position, position + new Vector2(speedScalar, 0f), BaseUtility.RotationTo(position, fireTarget));
             rotVec -= position;
-            int projectileID = Projectile.NewProjectile(Projectile.GetSource_None(), position.X, position.Y, rotVec.X, rotVec.Y, projectileType, damage, knockback, (owner != -1 ? owner : Main.myPlayer));
+            int projectileID = Projectile.NewProjectile(Projectile.GetSource_None(), position.X, position.Y, rotVec.X, rotVec.Y, projectileType, damage, knockback, owner);
             Projectile proj = Main.projectile[projectileID];
             proj.velocity = rotVec;
             if (hostility != 0)
