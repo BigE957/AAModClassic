@@ -1108,7 +1108,7 @@ namespace AAModClassic
                 ModContent.ItemType<DemonChestplate>()
             });
             RecipeGroup.RegisterGroup("AAModClassic:TerraChestplate", recipeGroup);
-            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Armor.TerraBppts"), new int[]
+            recipeGroup = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Armor.TerraLeggings"), new int[]
             {
                 ModContent.ItemType<FleshrendLeggings>(),
                 ModContent.ItemType<NightsLeggings>(),
