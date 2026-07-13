@@ -123,10 +123,10 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "SubzeroSerpent",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<SubzeroSerpent_Head>(), false)
+                    new FlagObjective(() => NPCExtensions.BeenKilled<SubzeroSerpentHead>(), false)
                 ],
                 ["Sagittarius"],
-                ModContent.Request<Texture2D>("AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpent_Head_Boss"),
+                ModContent.Request<Texture2D>("AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpentHead_Boss"),
                 hasCompleteText: true
             );
 

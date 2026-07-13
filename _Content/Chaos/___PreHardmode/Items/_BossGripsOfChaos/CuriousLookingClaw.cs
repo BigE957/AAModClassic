@@ -42,7 +42,7 @@ Can only be used at night"); */
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe(1);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DragonClaw_Item>(), 6);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();

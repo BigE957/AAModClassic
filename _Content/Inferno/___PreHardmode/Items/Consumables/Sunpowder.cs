@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(5);
-            recipe.AddIngredient(ModContent.ItemType<Hotshroom>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<SolarMushroom>(), 1);
             recipe.AddTile(TileID.Bottles);
             recipe.Register();
         }

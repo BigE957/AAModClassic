@@ -30,7 +30,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             {
                 if (biome.Name == "Default")
                     BiomeTextures.Add(biome.Name, TextureAssets.Projectile[Type]);
-                else if (biome.Name != "Void")
+                else
                     BiomeTextures.Add(biome.Name, ModContent.Request<Texture2D>(Texture + "_" + biome.Name));
             }
         }

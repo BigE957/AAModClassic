@@ -1,10 +1,11 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
 {
-    public class Djinn_BurstRed : ModProjectile
+    public class DustDjinn_BurstBlue : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -22,6 +23,11 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 600;
+        }
+
+        public override Color? GetAlpha(Color lightColor)
+        {
+            return Color.White;
         }
 
         public override void AI()
@@ -45,9 +51,22 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
             Projectile.timeLeft = 0;
         }
 
+        public override bool PreDraw(ref Color lightColor)
+        {
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 10)
+            {
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 3)
+                    Projectile.frame = 0;
+            }
+            return false;
+        }
+
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(BuffID.OnFire, 600);
+            target.AddBuff(BuffID.Chilled, 600);
         }
 
     }

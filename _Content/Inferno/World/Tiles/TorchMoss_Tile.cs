@@ -1,8 +1,9 @@
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Unreleased.Content.Inferno.World.Tiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 
 namespace AAModClassic._Content.Inferno.World.Tiles
 {
@@ -26,8 +27,9 @@ namespace AAModClassic._Content.Inferno.World.Tiles
         {
             if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(500))
             {
-                PlaceObject(i, j - 1, ModContent.TileType<Hotshroom_Tile>());
-                NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Hotshroom_Tile>(), 0, 0, -1, -1);
+                int style = 23; // mushroom
+                if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<InfernoFoliage_Tile>(), false, style))
+                    NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<InfernoFoliage_Tile>(), style, 0, -1, -1);
 
             }
         }

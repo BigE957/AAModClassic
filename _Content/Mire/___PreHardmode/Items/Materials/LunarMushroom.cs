@@ -5,7 +5,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Materials
 {
-    public class Darkshroom : BaseAAItem, ILocalizedModType
+    [LegacyName("Darkshroom")]
+    public class LunarMushroom : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()

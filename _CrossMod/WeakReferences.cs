@@ -928,7 +928,7 @@ namespace AAModClassic._CrossMod
                 if (CalamityMod.CalamityMod.IsEnabled)
                     serpentCollectibles.Add(ModContent.ItemType<SubzeroSerpentLore>());
 
-                AddBoss(bossChecklist, mod, "SubzeroSerpent", (() => NPCExtensions.BeenKilled<SubzeroSerpent_Head>()), new List<int>() { ModContent.NPCType<SubzeroSerpent_Head>(), ModContent.NPCType<SubzeroSerpent_Body>(), ModContent.NPCType<SubzeroSerpent_Tail>() }, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "SubzeroSerpent", (() => NPCExtensions.BeenKilled<SubzeroSerpentHead>()), new List<int>() { ModContent.NPCType<SubzeroSerpentHead>(), ModContent.NPCType<SubzeroSerpentBody>(), ModContent.NPCType<SubzeroSerpentTail>() }, new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "SubzeroSerpent.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "SubzeroSerpent.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<SubzeroCrystal>() + "]"),
@@ -1620,7 +1620,7 @@ namespace AAModClassic._CrossMod
                 }
                 fargos.Call("AddSummon", BossProgressionValues["Broodmother"], "AAModClassic", "AncientBell", (() => NPCExtensions.BeenKilled<Broodmother>()), 100000);
                 fargos.Call("AddSummon", BossProgressionValues["Hydra"], "AAModClassic", "HydraChow", (() => NPCExtensions.BeenKilled<HydraBody>()), 100000);
-                fargos.Call("AddSummon", BossProgressionValues["SubzeroSerpent"], "AAModClassic", "SubzeroCrystal", (() => NPCExtensions.BeenKilled<SubzeroSerpent_Head>()), 100000);
+                fargos.Call("AddSummon", BossProgressionValues["SubzeroSerpent"], "AAModClassic", "SubzeroCrystal", (() => NPCExtensions.BeenKilled<SubzeroSerpentHead>()), 100000);
                 fargos.Call("AddSummon", BossProgressionValues["DesertDjinn"], "AAModClassic", "DesertLamp", (() => NPCExtensions.BeenKilled<DesertDjinn>()), 100000);
                 fargos.Call("AddSummon", BossProgressionValues["Sagittarius"], "AAModClassic", "Lifescanner", (() => NPCExtensions.BeenKilled<Sagittarius>()), 200000);
                 fargos.Call("AddSummon", BossProgressionValues["Anubis"], "AAModClassic", "RasScepter", (() => NPCExtensions.BeenKilled<Anubis>()), 400000);
@@ -1936,9 +1936,9 @@ namespace AAModClassic._CrossMod
                 redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<HydraHead8>());
                 redemption.Call("addElementNPC", (int)ElementalID.Poison, ModContent.NPCType<HydraHead9>());
 
-                redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SubzeroSerpent_Head>());
-                redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SubzeroSerpent_Body>());
-                redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SubzeroSerpent_Tail>());
+                redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SubzeroSerpentHead>());
+                redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SubzeroSerpentBody>());
+                redemption.Call("addElementNPC", (int)ElementalID.Ice, ModContent.NPCType<SubzeroSerpentTail>());
 
                 redemption.Call("addElementNPC", (int)ElementalID.Earth, ModContent.NPCType<DesertDjinn>());
 

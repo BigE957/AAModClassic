@@ -63,7 +63,6 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             }
             else
             {
-                //TODO: speed based on distance or something
                 int p = BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<IceCrystal_IceSpike>(), ref NPC.ai[0], 80, NPC.damage / 2, 7, true);
                 if (p != -1)
                 {

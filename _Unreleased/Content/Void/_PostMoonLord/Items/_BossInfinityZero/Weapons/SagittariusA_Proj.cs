@@ -9,7 +9,7 @@ using Terraria.Enums;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Weapons
 {
-    public class Sagittarius_Proj : ModProjectile
+    public class SagittariusA_Proj : ModProjectile
     {
         public override void SetDefaults()
         {

@@ -25,15 +25,15 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 {
-	public class SubzeroSerpent_Head : BiomeConvertableNPC
+	public class SubzeroSerpentHead : BiomeConvertableNPC
 	{
         public int damage = 0;
 
         private static readonly Dictionary<string, int> HeadSlots = [];
         private static readonly Dictionary<string, int> UnofficialHeadSlots = [];
 
-        public override string Texture => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpent_Head";
-        public override string HeadTexture => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpent_Head_Boss";
+        public override string Texture => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpentHead";
+        public override string HeadTexture => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpentHead_Boss";
         
         public override string AssetPath => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/";
         public override bool SeperateBiomeFolders => true;
@@ -46,7 +46,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             {
                 if (biome.Name == "Default")
                     HeadSlots.Add(biome.Name, Mod.AddBossHeadTexture(HeadTexture, Type));
-                else if(biome.Name != "Void")
+                else
                     HeadSlots.Add(biome.Name, Mod.AddBossHeadTexture(Texture.Replace("Default", biome.Name) + "_" + biome.Name + "_Head_Boss", Type));
             }
 
@@ -210,10 +210,10 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                     int Length = 12;
                     for (int a = 0; a <= Length; a++)
                     {
-                        int type = ModContent.NPCType<SubzeroSerpent_Body>();
+                        int type = ModContent.NPCType<SubzeroSerpentBody>();
                         if (a == Length)
                         {
-                            type = ModContent.NPCType<SubzeroSerpent_Tail>();
+                            type = ModContent.NPCType<SubzeroSerpentTail>();
                         }
                         int segment = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), type, NPC.whoAmI, 0f, previousSegment, 0, NPC.whoAmI, 255);
                         Main.npc[segment].realLife = NPC.whoAmI;
@@ -569,10 +569,10 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             //    return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, TextureAssets.Npc[Type].Value, TextureAssets.Npc[ModContent.NPCType<SubzeroSerpent_Body>()].Value, 2, 24, 0.25f, Vector2.Zero, 2, 10, -18, flip: true);
 
             Texture2D texture;
-            if (BiomeType == "Corruption" || BiomeType == "Default" || !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            if (BiomeType == "Corruption" || BiomeType == "Void" || BiomeType == "Default" || !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 texture = GetCurrentTexture();
             else
-                texture = ModContent.Request<Texture2D>($"AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/{BiomeType}/SubzeroSerpent_Head_{BiomeType}_Unofficial").Value;
+                texture = ModContent.Request<Texture2D>($"AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/{BiomeType}/SubzeroSerpentHead_{BiomeType}_Unofficial").Value;
 
             spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, NPC.IsABestiaryIconDummy ? Color.White : NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0f);
             return false;
@@ -856,7 +856,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<SubzeroSerpentTreasureBag>()));
 
-            npcLoot.AddLoreItemDrop<SubzeroSerpent_Head>(ModContent.ItemType<SubzeroSerpentLore>());
+            npcLoot.AddLoreItemDrop<SubzeroSerpentHead>(ModContent.ItemType<SubzeroSerpentLore>());
 
             LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 

@@ -6,14 +6,14 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
 {
-    public class Djinn_MagicBlastBlue : ModProjectile
+    public class DustDjinn_MagicBlastRed : ModProjectile
     {
-    	
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Magic Blast");
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Magic Blast");
             Main.projFrames[Projectile.type] = 4;
-		}
+        }
 
         public override void SetDefaults()
         {
@@ -27,10 +27,6 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
             Projectile.ignoreWater = true;
         }
 
-        public override Color? GetAlpha(Color lightColor)
-        {
-            return Color.White;
-        }
 
         public override void AI()
         {
@@ -46,7 +42,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
 
             for (int num85 = 0; num85 < 4; num85++)
             {
-                int num86 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.InfinityOverloadB>(), 0f, 0f, 100, default, 1.2f);
+                int num86 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.InfinityOverloadR>(), 0f, 0f, 100, default, 1.2f);
                 Main.dust[num86].position = Projectile.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f;
                 Main.dust[num86].noGravity = true;
             }
@@ -62,15 +58,20 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
         {
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.InfinityOverloadB>(), -Projectile.velocity.X * 0.2f,
+                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.InfinityOverloadR>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 100, default, 2f);
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
-                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.InfinityOverloadB>(), -Projectile.velocity.X * 0.2f,
+                num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.InfinityOverloadR>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
-            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<Djinn_BurstBlue>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<DustDjinn_BurstRed>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+        }
+
+        public override Color? GetAlpha(Color lightColor)
+        {
+            return Color.White;
         }
 
         public override bool PreDraw(ref Color lightColor)
@@ -86,9 +87,10 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
             return false;
         }
 
+
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(BuffID.Chilled, 600);
+            target.AddBuff(BuffID.OnFire, 600);
         }
 
     }

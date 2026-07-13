@@ -5,7 +5,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Materials
 {
-    public class Hotshroom : BaseAAItem, ILocalizedModType
+    [LegacyName("Hotshroom")]
+    public class SolarMushroom : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()

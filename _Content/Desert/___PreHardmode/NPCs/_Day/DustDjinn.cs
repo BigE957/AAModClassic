@@ -13,7 +13,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
 {
-    public class Djinn : ModNPC, IBannerNPC
+    public class DustDjinn : ModNPC, IBannerNPC
     {
         private bool Shooty = false;
         public override void SetStaticDefaults()
@@ -42,7 +42,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
             bestiaryEntry.Info.AddRange(
             [
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Desert,
-                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Djinn")
+                new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.DustDjinn")
             ]);
         }
 
@@ -114,10 +114,10 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
             switch (Shoot)
             {
                 case 0:
-                    Shoot = ModContent.ProjectileType<Djinn_MagicBlastBlue>();
+                    Shoot = ModContent.ProjectileType<DustDjinn_MagicBlastBlue>();
                     break;
                 default:
-                    Shoot = ModContent.ProjectileType<Djinn_MagicBlastRed>();
+                    Shoot = ModContent.ProjectileType<DustDjinn_MagicBlastRed>();
                     break;
             }
 

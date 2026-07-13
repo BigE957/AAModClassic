@@ -267,7 +267,7 @@ DragonScale: {
 	Tooltip: ""
 }
 
-Hotshroom: {
+SolarMushroom: {
 	DisplayName: Solar Mushroom
 	Tooltip: Only grows during the day
 }
@@ -327,7 +327,7 @@ BlackLotus: {
 	Tooltip: It's said that someone offered $160000 for this thing.
 }
 
-Darkshroom: {
+LunarMushroom: {
 	DisplayName: Lunar Mushroom
 	Tooltip: Only grows at night
 }

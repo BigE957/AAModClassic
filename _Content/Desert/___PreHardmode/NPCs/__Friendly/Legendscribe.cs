@@ -634,22 +634,22 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             }
             else if (Serpent)
             {
-                return NPCExtensions.BeenKilled<SubzeroSerpent_Head>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedSerpentY") : 
+                return NPCExtensions.BeenKilled<SubzeroSerpentHead>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedSerpentY") : 
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedSerpentN");
             }
             else if (Retriever)
             {
-                return NPCExtensions.BeenKilled<SubzeroSerpent_Head>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRetrieverY") :
+                return NPCExtensions.BeenKilled<SubzeroSerpentHead>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRetrieverY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRetrieverN");
             }
             else if (OrthrusX)
             {
-                return NPCExtensions.BeenKilled<SubzeroSerpent_Head>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedOrthrusXY") :
+                return NPCExtensions.BeenKilled<SubzeroSerpentHead>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedOrthrusXY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedOrthrusXN");
             }
             else if (RaiderUltima)
             {
-                return NPCExtensions.BeenKilled<SubzeroSerpent_Head>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRaiderUltimaY") :
+                return NPCExtensions.BeenKilled<SubzeroSerpentHead>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRaiderUltimaY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRaiderUltimaN");
             }
             else if (AnubisB)

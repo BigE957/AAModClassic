@@ -34,7 +34,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Item.value = Item.sellPrice(1, 0, 0, 0);
             Item.autoReuse = true;
             Item.useTurn = false;
-            Item.shoot = ModContent.ProjectileType<Aerodrake_AeroSlash>();
+            Item.shoot = ModContent.ProjectileType<Aerodrake_Aeroslash>();
             Item.shootSpeed = 17f;
             Item.expert = true;
         }

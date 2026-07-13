@@ -637,7 +637,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
     {
         public override void DoEffect(Player player)
         {
-            player.manaCost += amount;
+            player.manaCost -= amount;
         }
 
         public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.GetDisplayNumber(amount) * 100, ChatUtils.IncreaseOrDecreaseText(amount * -100, reduced: true));

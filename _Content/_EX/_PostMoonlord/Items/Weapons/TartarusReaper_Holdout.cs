@@ -78,13 +78,13 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Projectile.position.X = player.Center.X - Projectile.width / 2f;
             Projectile.position.Y = player.Center.Y - Projectile.height / 2f;
 
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, ModContent.ProjectileType<CursedSickleEXDamage>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, ModContent.ProjectileType<CursedSickleEXDamage>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, ModContent.ProjectileType<TartarusReaperDamage>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, ModContent.ProjectileType<TartarusReaperDamage>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
 
             if (Projectile.timeLeft == 13)
             {
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, ModContent.ProjectileType<CursedSickleEXDamage2>(), (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, ModContent.ProjectileType<CursedSickleEXDamage2>(), (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, ModContent.ProjectileType<TartarusReaperDamage2>(), (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, ModContent.ProjectileType<TartarusReaperDamage2>(), (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
             }
 
             if (Projectile.timeLeft < 8)
@@ -93,7 +93,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             }
         }
     }
-    public class CursedSickleEXEffect : ModProjectile
+    public class TartarusReaperEffect : ModProjectile
     {
         public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
@@ -148,7 +148,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         }
     }
 
-    public class CursedSickleEXDamage : ModProjectile
+    public class TartarusReaperDamage : ModProjectile
     {
         public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
@@ -179,7 +179,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         }
     }
 
-    public class CursedSickleEXDamage2 : ModProjectile
+    public class TartarusReaperDamage2 : ModProjectile
     {
         public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()
