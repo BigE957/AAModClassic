@@ -41,7 +41,7 @@ namespace AAModClassic._Content.Mire.World.Tiles
                 if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(20))
                 {
                     int style = Main.rand.Next(23);
-                    if (style == 9)
+                    if (style == 9) // dont be the orchid
                         style = 7;
                     if (PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), false, style))
                         NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MireFoliage_Tile>(), style, 0, -1, -1);

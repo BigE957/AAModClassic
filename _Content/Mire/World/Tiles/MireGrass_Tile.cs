@@ -112,8 +112,8 @@ namespace AAModClassic._Content.Mire.World.Tiles
             else if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(40))
             {
                 int style = Main.rand.Next(23);
-                if (style == 9)
-                    style = 7;
+                if (style == 9) // dont be the orchid
+                    style = 7; 
                 if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), false, style))
                     NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MireFoliage_Tile>(), style, 0, -1, -1);
             }
@@ -156,39 +156,39 @@ namespace AAModClassic._Content.Mire.World.Tiles
                 }
                 else
                 */
-                if (!Main.dayTime && (Main.rand.NextBool(50) || WorldGen.genRand.NextBool(40))) // mushroom. yes this is the vanilla logic
+                if (!Main.dayTime && (Main.rand.NextBool(50) || WorldGen.genRand.NextBool(40))) // yes this is the vanilla logic
                 {
-                    int style = 24;
+                    int style = 24; // mushroom
                     if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), true, style))
                         NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MireFoliage_Tile>(), style, 0, -1, -1);
                 }
-                else if (Main.rand.NextBool(60) && flag) // spore
+                else if (Main.rand.NextBool(60) && flag) 
                 {
-                    int style = 8;
+                    int style = 8; // spore
                     if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), true, style))
                         NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MireFoliage_Tile>(), style, 0, -1, -1);
                 }
-                else if (Main.rand.NextBool(230) && flag) // natures gift,but now its the thing
+                else if (Main.rand.NextBool(230) && flag) 
                 {
-                    int style = 9;
+                    int style = 9; // natures gift,but now its the thing
                     if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), true, style))
                         NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MireFoliage_Tile>(), style, 0, -1, -1);
                 }
-                else if (Main.rand.NextBool(15)) // jungle rose and vanity flowers
+                else if (Main.rand.NextBool(15)) 
                 {
-                    int style = 0;
+                    int style = 0; // jungle rose and vanity flowers
 
-                    if (Main.rand.NextBool(3)) // jungle rose, replaced by nothing
-                        style = (short)(Main.rand.Next(2) + 6);
-                    else // vanity flowers
-                        style = (short)(Main.rand.Next(13) + 10);
+                    if (Main.rand.NextBool(3)) 
+                        style = (short)(Main.rand.Next(2) + 6); // jungle rose, replaced by nothing
+                    else 
+                        style = (short)(Main.rand.Next(13) + 10); // vanity flowers
 
                     if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), true, style))
                         NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MireFoliage_Tile>(), style, 0, -1, -1);
                 }
-                else // grass
+                else 
                 {
-                    int style = Main.rand.Next(6);
+                    int style = Main.rand.Next(6); // grass
                     if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), false, style))
                         NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MireFoliage_Tile>(), style, 0, -1, -1);
                 }
