@@ -242,7 +242,7 @@ GoblinSlayer: {
 		Content: I sense no goblins nearby. I am at peace.
 		NoHome: Not having a place to story my goblin-slaying weapons is rough. Can you help?
 		FarFromHome: I've been away from home for too long. We could've been raided by goblins!
-		LoveSpace: I perfer to be alone. Makes spotting goblins easier.
+		LoveSpace: I prefer to be alone. Makes spotting goblins easier.
 		DislikeCrowded: Some of these people.. They, they don't mind goblins. This can't stand.
 		HateCrowded: There's goblins hiding amongst this crowd... I know it!!
 		LikeNPC_Princess: "{NPCName} isn't a goblin. I respect that."
