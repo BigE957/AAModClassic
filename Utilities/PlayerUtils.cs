@@ -48,7 +48,7 @@ namespace AAModClassic.Utilities
             {
                 float totalDamage = player.GetTotalDamage(damageClass).ApplyTo(1);
 
-                if (highestClass == null || totalDamage > player.GetTotalDamage(highestClass).ApplyTo(1))
+                if (highestClass == null || (totalDamage > player.GetTotalDamage(highestClass).ApplyTo(1)) && highestClass != DamageClass.Default && highestClass != DamageClass.Generic)
                     highestClass = damageClass;
             }
 
