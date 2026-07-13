@@ -46,7 +46,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             {
                 if (biome.Name == "Default")
                     HeadSlots.Add(biome.Name, Mod.AddBossHeadTexture(HeadTexture, Type));
-                else if(biome.Name != "Void")
+                else
                     HeadSlots.Add(biome.Name, Mod.AddBossHeadTexture(Texture.Replace("Default", biome.Name) + "_" + biome.Name + "_Head_Boss", Type));
             }
 

@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic._Unreleased.Content.Void.Buffs;
+using AAModClassic.UI.World;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -17,7 +19,8 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             { "Crimson", (DustID.GoldFlame, BuffID.Ichor) },
             { "Inferno", (ModContent.DustType<Dusts.BroodmotherDust>(), BuffID.OnFire) },
             { "Mire", (ModContent.DustType<Dusts.AcidDust>(), BuffID.Poisoned) },
-            { "Hallow", (ModContent.DustType<Dusts.HallowedDustT>(), -1) }, //TODO: Had Confused in unofficial but idk i wanna bother adding support for that
+            { "Hallow", (ModContent.DustType<Dusts.HallowedDustT>(), -1) },
+            { "Void", (ModContent.DustType<Dusts.RealityDust>(), ModContent.BuffType<InfinityScorch_Buff>()) },
         };
 
         public override void SetStaticDefaults()
@@ -104,6 +107,11 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             int debuff = BiomeData[BiomeType].Dust;
             if(debuff != -1)
                 target.AddBuff(debuff, 180);
+
+            // if you wont support unofficial debuffs officially, then ill HACK it in...
+            // watch and learn, buddy... watch and learn...
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && BiomeType == "Hallow")
+                target.AddBuff(BuffID.Confused, 180);
         }
     }
 }
