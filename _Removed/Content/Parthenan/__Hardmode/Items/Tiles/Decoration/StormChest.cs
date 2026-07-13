@@ -1,12 +1,11 @@
 ﻿using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration
 {
-    public abstract class StormChest : BaseAAItem, ILocalizedModType
+    public class StormChest : ModItem, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Placeables";
 		public override void SetStaticDefaults()
@@ -18,7 +17,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decorat
 		{
 			Item.width = 32;
 			Item.height = 32;
-			Item.maxStack = 99;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.useTurn = true;
 			Item.autoReuse = true;
 			Item.useAnimation = 15;

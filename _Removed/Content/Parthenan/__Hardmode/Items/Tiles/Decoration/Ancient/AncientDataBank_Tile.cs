@@ -20,18 +20,9 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decorat
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
-            TileObjectData.newTile.Height = 4;
-            TileObjectData.newTile.Width = 3;
-            TileObjectData.newTile.CoordinateHeights = new int[]
-            {
-                16,
-                16,
-                16,
-                16,
-                16
-            };
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style3x4);
             TileObjectData.addTile(Type);
+            RegisterItemDrop(ModContent.ItemType<AncientDataBank>());
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Data Bank");
             AddMapEntry(new Color(60, 0, 120), name);
