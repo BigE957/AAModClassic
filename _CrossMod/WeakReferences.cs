@@ -260,9 +260,16 @@ namespace AAModClassic._CrossMod
             { "Cthulhu", 24.121f },
         };
 
-        public override void UpdateUI(GameTime gameTime)
+        public override void PostUpdateEverything()
         {
-            base.UpdateUI(gameTime);
+            // If you're wondering why this is here when its also in VoidSky,
+            // its because for some reason this is what's turning it off when in a world,
+            // and the code in VoidSky is turning it off in the Menu Theme.
+            if (ModLoader.TryGetMod("RealisticSky", out var mod))
+            {
+                if (Main.gameMenu || Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneVoid)
+                    mod.Call("temporarilydisable");
+            }
         }
 
         public static void PerformModSupport()
