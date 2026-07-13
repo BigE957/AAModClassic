@@ -115,16 +115,12 @@ namespace AAModClassic._Content.Void.World.Biomes
             else
             {
                 Intensity = Math.Max(0f, Intensity - 0.01f);
+                if (Intensity < 0.001f)
+                    Intensity = 0f;
             }
 
-            if(Intensity > 0)
-            {
-                if (ModLoader.TryGetMod("RealisticSky", out var mod))
-                {
-                    if (Main.gameMenu || Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneVoid)
-                        mod.Call("temporarilydisable");
-                }
-            }
+            if (Intensity > 0 && ModLoader.TryGetMod("RealisticSky", out var mod))
+                mod.Call("temporarilydisable");
             
             if (Main.gameMenu || NPC.downedMoonlord)
             {

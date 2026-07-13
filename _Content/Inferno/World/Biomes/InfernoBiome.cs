@@ -132,13 +132,12 @@ namespace AAModClassic._Content.Inferno.World.Biomes
                 Intensity = Math.Max(0f, Intensity - 0.01f);
             }
 
-            if (Intensity > 0)
+            if (Intensity > 0 && ModLoader.TryGetMod("RealisticSky", out var mod))
             {
-                if (ModLoader.TryGetMod("RealisticSky", out var mod))
-                {
-                    if (Main.gameMenu || Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneInferno)
-                        mod.Call("setsunbloomopacity", 1 - (SkyManager.Instance["AAModClassic:InfernoSky"] as InfernoSky).Intensity);
-                }
+                if (SkyManager.Instance["AAModClassic:AkumaASky"].IsActive())
+                    mod.Call("setsunbloomopacity", 0);
+                else
+                    mod.Call("setsunbloomopacity", 1 - Intensity);
             }
         }
 

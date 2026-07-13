@@ -171,6 +171,7 @@ using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Pets;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
+using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._CrossMod.CalamityMod;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Removed.Content.Parthenan;
@@ -267,7 +268,7 @@ namespace AAModClassic._CrossMod
             // and the code in VoidSky is turning it off in the Menu Theme.
             if (ModLoader.TryGetMod("RealisticSky", out var mod))
             {
-                if (Main.gameMenu || Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneVoid)
+                if ((SkyManager.Instance["AAModClassic:VoidSky"] as VoidSky).Intensity > 0)
                     mod.Call("temporarilydisable");
             }
         }

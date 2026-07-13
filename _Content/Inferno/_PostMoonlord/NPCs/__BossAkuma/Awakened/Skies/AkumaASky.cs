@@ -66,6 +66,14 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.
             else
                 Intensity = Math.Max(0f, Intensity - 0.01f);
 
+            if (Intensity > 0 && ModLoader.TryGetMod("RealisticSky", out var mod))
+            {
+                if(SkyManager.Instance["AAModClassic:InfernoSky"].IsActive())
+                    mod.Call("setsunbloomopacity", 0);
+                else
+                    mod.Call("setsunbloomopacity", 1 - Intensity);
+            }
+
             for (int i = 0; i < Meteors.Length; i++)
             {
                 Meteor[] expr_60_cp_0_cp_0 = Meteors;
