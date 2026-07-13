@@ -4,10 +4,13 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Hell.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
+using AAModClassic._Content.Mire.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Void.___PreHardmode.Items.Consumables;
+using AAModClassic._Content.Void.__Hardmode.Items.Consumables;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.UI.World;
@@ -119,67 +122,67 @@ namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor
                         {
                             if (Main.rand.NextBool(3))
                             {
-                                itemtype = 2336;
+                                itemtype = Main.hardMode ? ItemID.GoldenCrateHard : ItemID.GoldenCrate;
                             }
                             else if (Main.rand.NextBool(3) && Main.player[projectile.owner].ZoneCorrupt)
                             {
-                                itemtype = 3203;
+                                itemtype = Main.hardMode ? ItemID.CorruptFishingCrateHard : ItemID.CorruptFishingCrate;
                             }
                             else if (Main.rand.NextBool(3) && Main.player[projectile.owner].ZoneCrimson)
                             {
-                                itemtype = 3204;
+                                itemtype = Main.hardMode ? ItemID.CrimsonFishingCrateHard : ItemID.CrimsonFishingCrate;
                             }
                             else if (Main.rand.NextBool(3) && Main.player[projectile.owner].ZoneHallow)
                             {
-                                itemtype = 3207;
+                                itemtype = Main.hardMode ? ItemID.HallowedFishingCrateHard : ItemID.HallowedFishingCrate;
                             }
                             else if (Main.rand.NextBool(3) && Main.player[projectile.owner].ZoneDungeon)
                             {
-                                itemtype = 3205;
+                                itemtype = Main.hardMode ? ItemID.DungeonFishingCrateHard : ItemID.DungeonFishingCrate;
                             }
                             else if (Main.rand.NextBool(3) && Main.player[projectile.owner].ZoneJungle)
                             {
-                                itemtype = 3208;
+                                itemtype = Main.hardMode ? ItemID.JungleFishingCrateHard : ItemID.JungleFishingCrate;
                             }
                             else if (Main.rand.NextBool(3) && Main.player[projectile.owner].ZoneSnow)
                             {
-                                itemtype = ModContent.ItemType<IceCrate>();
+                                itemtype = Main.hardMode ? ItemID.FrozenCrateHard : ItemID.FrozenCrate;
                             }
                             else if (Main.rand.NextBool(3) && Main.player[projectile.owner].ZoneDesert)
                             {
-                                itemtype = ModContent.ItemType<DesertCrate>();
+                                itemtype = Main.hardMode ? ItemID.OasisCrateHard : ItemID.OasisCrate;
                             }
                             else if (Main.rand.NextBool(3) && Main.player[projectile.owner].GetModPlayer<ZAAPlayer>().ZoneInferno)
                             {
-                                itemtype = ModContent.ItemType<InfernoCrate>();
+                                itemtype = Main.hardMode ? ModContent.ItemType<InfernoCrate>() : ModContent.ItemType<DaybreakCrate>();
                             }
                             else if (Main.rand.NextBool(3) && Main.player[projectile.owner].GetModPlayer<ZAAPlayer>().ZoneMire)
                             {
-                                itemtype = ModContent.ItemType<MireCrate>();
+                                itemtype = Main.hardMode ? ModContent.ItemType<MireCrate>() : ModContent.ItemType<EventideCrate>();
                             }
                             else if (Main.rand.NextBool(3) && Main.player[projectile.owner].GetModPlayer<ZAAPlayer>().ZoneVoid)
                             {
-                                itemtype = ModContent.ItemType<VoidCrate>();
+                                itemtype = Main.hardMode ? ModContent.ItemType<VoidCrate>() : ModContent.ItemType<NullCrate>();
                             }
                             else if (Main.rand.NextBool(3) && Main.player[projectile.owner].GetModPlayer<ZAAPlayer>().ZoneHoard)
                             {
-                                itemtype = ItemID.GoldenCrate;
+                                itemtype = Main.hardMode ? ItemID.GoldenCrateHard : ItemID.GoldenCrate;
                             }
                             else if (Main.rand.NextBool(3) && Main.player[projectile.owner].ZoneUnderworldHeight)
                             {
-                                itemtype = ModContent.ItemType<HellCrate>();
+                                itemtype = Main.hardMode ? ItemID.LavaCrateHard : ItemID.LavaCrate;
                             }
                             else if (Main.rand.NextBool(3) && WorldHeightType == 0)
                             {
-                                itemtype = 3206;
+                                itemtype = Main.hardMode ? ItemID.FloatingIslandFishingCrateHard : ItemID.FloatingIslandFishingCrate;
                             }
                             else if (Main.rand.NextBool(2))
                             {
-                                itemtype = 2335;
+                                itemtype = Main.hardMode ? ItemID.IronCrateHard : ItemID.IronCrate;
                             }
                             else
                             {
-                                itemtype = 2334;
+                                itemtype = Main.hardMode ? ItemID.WoodenCrateHard : ItemID.WoodenCrate;
                             }
                         }
                         int liquidtype = 0;
