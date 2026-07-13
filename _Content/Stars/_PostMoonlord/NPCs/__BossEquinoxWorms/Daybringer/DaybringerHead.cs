@@ -387,7 +387,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
                                 Vector2 speed = Vector2.Normalize(new Vector2(1f, 0f).RotatedBy(Main.npc[i].rotation + 3.1415f)) * 8f;
-                                Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, ModContent.ProjectileType<NightcrawlerHead_NightcrawlerDeathraySmall>(), NPC.damage / 2, 0, Main.myPlayer, 0, i);
+                                Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, ModContent.ProjectileType<NightcrawlerHead_NightDeathraySmall>(), NPC.damage / 2, 0, Main.myPlayer, 0, i);
                             }
                         }
                     }
@@ -396,7 +396,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                 {
                     for(int deathRay = 0; deathRay < Main.maxProjectiles; deathRay++)
                     {
-                        if(Main.projectile[deathRay].active && Main.projectile[deathRay].type == ModContent.ProjectileType<NightcrawlerHead_NightcrawlerDeathraySmall>() || Main.projectile[deathRay].type == ModContent.ProjectileType<NightcrawlerHead_NightDeathray>() && Main.projectile[deathRay].ai[1] == NPC.whoAmI)
+                        if(Main.projectile[deathRay].active && Main.projectile[deathRay].type == ModContent.ProjectileType<NightcrawlerHead_NightDeathraySmall>() || Main.projectile[deathRay].type == ModContent.ProjectileType<NightcrawlerHead_NightDeathray>() && Main.projectile[deathRay].ai[1] == NPC.whoAmI)
                         {
                             return false;
                         }

@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    public class Aerodrake_AeroSlash : ModProjectile
+    public class Aerodrake_Aeroslash : ModProjectile
 	{
 		public override void SetDefaults()
 		{

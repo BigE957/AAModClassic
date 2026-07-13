@@ -12,7 +12,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler
 {
-    public class NightcrawlerHead_NightcrawlerDeathraySmall : NightcrawlerHead_NightDeathray
+    public class NightcrawlerHead_NightDeathraySmall : NightcrawlerHead_NightDeathray
     {
         public override string Texture => ModContent.GetInstance<NightcrawlerHead_NightDeathray>().Texture;
 
