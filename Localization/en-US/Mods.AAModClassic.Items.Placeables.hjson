@@ -760,3 +760,18 @@ Sticker: {
 	DisplayName: Special Sticker
 	Tooltip: Y0u're winner
 }
+
+AncientDataBank: {
+	DisplayName: Ancient Data Bank
+	Tooltip: ""
+}
+
+DataBank: {
+	DisplayName: Data Bank
+	Tooltip: ""
+}
+
+StormChest: {
+	DisplayName: Storm Chest
+	Tooltip: ""
+}
