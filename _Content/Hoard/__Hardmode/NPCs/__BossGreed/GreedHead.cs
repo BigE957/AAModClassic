@@ -513,6 +513,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
         {
             if ((!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.downedMoonlord) || (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPCExtensions.BeenKilled<AnubisA>()))
             {
+                AAWorld.GreedAwakened = true;
                 int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<GreedTransition>());
                 Main.npc[a].Center = NPC.Center;
             }

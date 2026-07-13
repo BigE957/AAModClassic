@@ -170,6 +170,9 @@ namespace AAModClassic
         public static bool downedKraken;
         */
         public static bool AnubisAwakened;
+        public static bool AthenaAwakened;
+        public static bool GreedAwakened;
+
         public static bool WormActive;
         public static bool StarActive;
         public static bool GravActive;

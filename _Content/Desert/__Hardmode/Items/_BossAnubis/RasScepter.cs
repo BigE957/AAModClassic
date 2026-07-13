@@ -45,7 +45,7 @@ Can only be used in the desert on the surface
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
-            if (!NPCExtensions.BeenKilled<AnubisA>() && !Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().HasLostToForsakenAnubis)
+            if (!NPCExtensions.BeenKilled<AnubisA>() && !AAWorld.AnubisAwakened)
                 return;
 
             int indexToInsert = -1;
@@ -62,7 +62,7 @@ Can only be used in the desert on the surface
             list.Insert(indexToInsert, new(Mod, "Tooltip0.5", Language.GetTextValue("Mods.AAModClassic.Items.BossSummon.RasScepter.TooltipExtension")));
         }
 
-        public override bool AltFunctionUse(Player player) => NPCExtensions.BeenKilled<AnubisA>() || player.GetModPlayer<AnubisDialoguePlayer>().HasLostToForsakenAnubis;
+        public override bool AltFunctionUse(Player player) => NPCExtensions.BeenKilled<AnubisA>() || AAWorld.AnubisAwakened;
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {

@@ -1,7 +1,15 @@
 ﻿using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
+using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
+using AAModClassic._Unofficial.Desert;
+using AAModClassic.Effects;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena
@@ -24,6 +32,49 @@ Can only be used in the Acropolis at the Owl Altar
             Item.height = 22;
             Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.LightPurple;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.useAnimation = 30;
+            Item.useTime = 30;
+            Item.noMelee = true;
+            Item.consumable = true;
+        }
+
+        public override void ModifyTooltips(List<TooltipLine> list)
+        {
+            if (!NPCExtensions.BeenKilled<AthenaA>() && !AAWorld.AthenaAwakened)
+                return;
+
+            int indexToInsert = -1;
+            int indexToRemove = -1;
+            for (int i = 0; i < list.Count; i++)
+            {
+                var line = list[i];
+                if (line.Mod == "Terraria" && line.Name == "Tooltip0")
+                    indexToRemove = i;
+
+                if (line.Mod == "Terraria" && line.Name == "Tooltip1")
+                {
+                    list[i].Text = Language.GetTextValue("Mods.AAModClassic.Items.BossSummon.OwlStatue.TooltipAlt1");
+                    indexToInsert = i + 1;
+                    break;
+                }
+            }
+
+            list.Insert(indexToInsert, new(Mod, "Tooltip0.5", Language.GetTextValue("Mods.AAModClassic.Items.BossSummon.OwlStatue.TooltipAlt3")));
+            list.Insert(indexToInsert, new(Mod, "Tooltip0.5", Language.GetTextValue("Mods.AAModClassic.Items.BossSummon.OwlStatue.TooltipAlt2")));
+
+            list.RemoveAt(indexToRemove);
+        }
+
+        public override bool CanUseItem(Player player) => player.GetModPlayer<ZAAPlayer>().ZoneAcropolis && (NPCExtensions.BeenKilled<AthenaA>() || AAWorld.AthenaAwakened);
+
+        public override bool? UseItem(Player player)
+        {
+            Vector2 spawnPos = player.Center - Vector2.UnitY * 128;
+            int a = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<AthenaA>());
+            int b = Projectile.NewProjectile(NPC.GetBossSpawnSource(player.whoAmI), spawnPos.X, spawnPos.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
+            CombatText.NewText(Main.npc[a].Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Transition.Repeat"));
+            return true;
         }
 
         public override void AddRecipes()

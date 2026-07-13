@@ -121,6 +121,9 @@ BossSummon: {
 			Can only be used in the Acropolis at the Owl Altar
 			'It stares into your soul.'
 			'''
+		TooltipAlt1: Can only be used in the Acropolis
+		TooltipAlt2: Use at the Owl Altar to summon Athena
+		TooltipAlt3: Use directly to summon Olympian Athena
 	}
 
 	GoldenCarrot: {
