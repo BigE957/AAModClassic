@@ -55,10 +55,6 @@ namespace AAModClassic._Content.Mire.World.Tiles
                 }
                 */
 
-                int style2 = 23;
-                if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), true, style2))
-                    NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MireFoliage_Tile>(), style2, 0, -1, -1);
-
                 // short grass
                 if (WorldGen.genRand.Next(7) == 0)
                 {

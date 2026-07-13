@@ -470,3 +470,13 @@ UnstableSingularity: {
 	DisplayName: Unstable Singularity
 	Tooltip: Barely stable enough to hold
 }
+
+SolarMushroom: {
+	DisplayName: Solar Mushroom
+	Tooltip: ""
+}
+
+LunarMushroom: {
+	DisplayName: Lunar Mushroom
+	Tooltip: ""
+}
