@@ -540,18 +540,10 @@ namespace AAModClassic
             return orig(self, x, y, pickPower, hitBufferIndex, tileTarget);
         }
 
-        public override void AddRecipeGroups()
-        {
-            AARecipes.AddRecipeGroups();
-        }
-
-        public override void AddRecipes()
-        {
-            AARecipes.AddRecipes();
-        }
-
         public override void PostAddRecipes()
         {
+            AAMod.instance.Logger.Info("Doing Lucky Shit.");
+
             LuckyCheckProgress();
             foreach (Mod mo in ModLoader.Mods)
             {
