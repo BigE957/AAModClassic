@@ -857,18 +857,18 @@ Axe.DisplayName: Axe
 HugeAxe.DisplayName: Axe
 BiomiteCore_Boulder.DisplayName: Biomite Core_ Boulder
 BiomiteCore_BoulderChunk.DisplayName: Biomite Core_ Boulder Chunk
-BiomiteCore_FireBreath.DisplayName: Biomite Core_ Fire Breath
-BiomiteCore_ForbiddenStorm.DisplayName: Biomite Core_ Forbidden Storm
-BiomiteCore_Glacier.DisplayName: Biomite Core_ Glacier
-BiomiteCore_GlacierBomb.DisplayName: Biomite Core_ Glacier Bomb
-BiomiteCore_HellfireBlast.DisplayName: Biomite Core_ Hellfire Blast
-BiomiteCore_HellfireBoom.DisplayName: Biomite Core_ Hellfire Boom
-BiomiteCore_Rainbow.DisplayName: Biomite Core_ Rainbow
+BiomiteCore_FireBreath.DisplayName: Fire Breath
+BiomiteCore_ForbiddenStorm.DisplayName: Forbidden Storm
+BiomiteCore_Glacier.DisplayName: Glacier
+BiomiteCore_GlacierBomb.DisplayName: Glacier Bomb
+BiomiteCore_HellfireBlast.DisplayName: Hellfire Blast
+BiomiteCore_HellfireBoom.DisplayName: Hellfire Boom
+BiomiteCore_Rainbow.DisplayName: Rainbow
 TechnoTruffle_BookIt.DisplayName: Techno Truffle
-TechnoTruffle_TruffleShot.DisplayName: Techno Truffle_ Truffle Shot
+TechnoTruffle_TruffleShot.DisplayName: Truffle Shot
 CthulhuCannon_CthulhuBomb.DisplayName: Cthulhu Bomb
 CthulhuCannon_CthulhuBoom.DisplayName: Cthulhusplosion
-GalacticStormspike_Stormray.DisplayName: Galactic Stormspike_ Stormray
+GalacticStormspike_Stormray.DisplayName: Stormray
 RealityAnchor_Holdout.DisplayName: Reality Anchor
 RealityAnchor_RealityBurst.DisplayName: Reality Burst
 SquidStorm_CthulhuTentacle.DisplayName: Tentacle
@@ -881,24 +881,25 @@ CthulhuShot.DisplayName: Cthulhu Shot
 Cthulhusplosion.DisplayName: Reality Break
 CthulhuStrike.DisplayName: Reality Strike
 Watcher.DisplayName: Watcher
-DeityEye_DeityFlames.DisplayName: Deity Eye_ Deity Flames
+DeityEye_DeityFlames.DisplayName: Deity Flames
 DeityLeviathan_Leviacane.DisplayName: Leviacane
 DeityLeviathan_Leviacane2.DisplayName: Leviacane
-DeityLeviathan_RazorbladeRift.DisplayName: Deity Leviathan_ Razorblade Rift
+DeityLeviathan_RazorbladeRift.DisplayName: Razorblade Rift
 DeityRose_Splinter.DisplayName: Ei'Lor Splinter
 Annihilator_Annihilation.DisplayName: Anhialation
 Annihilator_AnnihilationBurst.DisplayName: Singulatiy
 Genocide_Antimatter.DisplayName: Antimatter
-InfinityBlade_Rift.DisplayName: Infinity Blade_ Rift
-Nova_NovaBurst.DisplayName: Nova_ Nova Burst
+InfinityBlade_Rift.DisplayName: Rift
+Nova_NovaBurst.DisplayName: Nova Burst
 Nova_Supernova.DisplayName: Supernova
-Sagittarius_Proj.DisplayName: Sagittarius_ Proj
-TotalDestruction_Proj.DisplayName: Total Destruction_ Proj
+SagittariusA_Proj.DisplayName: Sagittarius-A
+TotalDestruction_Proj.DisplayName: Total Destruction
 InfinityZero_InfinityBolt.DisplayName: Infinity Bolt
 InfinityZero_InfinityStorm.DisplayName: Infinity Storm
-InfinityZero_InfinityZeroShot.DisplayName: Infinity Zero_ Infinity Zero Shot
+InfinityZero_InfinityZeroShot.DisplayName: Infinity Zero Shot
 ShockwaveBoom.DisplayName: Shockwave Boom
 DummyExplosionTerra.DisplayName: Dummy Explosion
 SistersTitle.DisplayName: Sisters Title
 Title.DisplayName: Title
-InfinityGauntletEffect_Snap.DisplayName: Infinity Gauntlet Effect_ Snap
+InfinityGauntletEffect_Snap.DisplayName: Snap
+ProtocolR_RaiderRocket.DisplayName: Raider Rocket

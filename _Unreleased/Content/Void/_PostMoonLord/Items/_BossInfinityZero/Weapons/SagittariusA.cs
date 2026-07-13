@@ -40,7 +40,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
             Item.knockBack = 2f;
             Item.UseSound = SoundID.Item116;
             Item.value = Item.buyPrice(1, 0, 0, 0);
-            Item.shoot = ModContent.ProjectileType<Sagittarius_Proj>();
+            Item.shoot = ModContent.ProjectileType<SagittariusA_Proj>();
             Item.shootSpeed = 22f;
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
