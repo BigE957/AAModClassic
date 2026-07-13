@@ -1189,7 +1189,7 @@ namespace AAModClassic
                 }
             }
 
-            if (!Main.dayTime)
+            if (!ContentReplacementSystem.NeedToReplaceContent && !Main.dayTime)
             {
                 if (!Main.IsFastForwardingTime()/* tModPorter Note: _Unreleased. Suggestion: IsFastForwardingTime(), fastForwardTimeToDawn or fastForwardTimeToDusk */)
                 {
@@ -1253,6 +1253,7 @@ namespace AAModClassic
                     }
                 }
             }
+
             if (downedEquinox)
             {
                 if (RadiumOre == false)
