@@ -131,6 +131,15 @@ namespace AAModClassic._Content.Inferno.World.Biomes
             {
                 Intensity = Math.Max(0f, Intensity - 0.01f);
             }
+
+            if (Intensity > 0)
+            {
+                if (ModLoader.TryGetMod("RealisticSky", out var mod))
+                {
+                    if (Main.gameMenu || Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneInferno)
+                        mod.Call("setsunbloomopacity", 1 - (SkyManager.Instance["AAModClassic:InfernoSky"] as InfernoSky).Intensity);
+                }
+            }
         }
 
         public override Color OnTileColor(Color inColor)

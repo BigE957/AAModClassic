@@ -1,4 +1,5 @@
-﻿using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
+﻿using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic._Content.Void.World.Biomes.Water;
 using AAModClassic._Unreleased;
@@ -115,6 +116,16 @@ namespace AAModClassic._Content.Void.World.Biomes
             {
                 Intensity = Math.Max(0f, Intensity - 0.01f);
             }
+
+            if(Intensity > 0)
+            {
+                if (ModLoader.TryGetMod("RealisticSky", out var mod))
+                {
+                    if (Main.gameMenu || Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneVoid)
+                        mod.Call("temporarilydisable");
+                }
+            }
+            
             if (Main.gameMenu || NPC.downedMoonlord)
             {
                 if (ticksUntilNextBolt <= 0)

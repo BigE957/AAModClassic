@@ -102,6 +102,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs._Surface._Day;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung;
 using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Jungle.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Jungle.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Madness.___PreHardmode.Items.Weapons;
@@ -212,12 +213,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Terraria;
+using Terraria.Graphics.Effects;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._CrossMod
 {
-    internal class WeakReferences
+    public class WeakReferences : ModSystem
     {
         private static readonly Dictionary<string, float> BossProgressionValues = new()
         {
@@ -257,6 +259,11 @@ namespace AAModClassic._CrossMod
             { "SoulOfCthulhu", 24.12f },
             { "Cthulhu", 24.121f },
         };
+
+        public override void UpdateUI(GameTime gameTime)
+        {
+            base.UpdateUI(gameTime);
+        }
 
         public static void PerformModSupport()
         {
