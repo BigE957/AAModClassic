@@ -52,6 +52,7 @@ using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Accessories;
 using AAModClassic._Content.Void.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Void.___PreHardmode.Items.Quest;
+using AAModClassic._Content.Void.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic._Unofficial.Content._Dev.__Hardmode.Items.Consumables;
@@ -754,20 +755,14 @@ namespace AAModClassic
             {
                 if (attempt.rare)
                 {
-                    if (liquidType == 0 && Player.ZoneSnow && Main.rand.NextBool())
-                        itemDrop = ModContent.ItemType<IceCrate>();
-                    if (liquidType == 0 && Player.ZoneDesert && Main.rand.NextBool())
-                        itemDrop = ModContent.ItemType<DesertCrate>();
                     if ((liquidType == 0 || liquidType == 1) && Player.GetModPlayer<ZAAPlayer>().ZoneInferno)
-                        itemDrop = ModContent.ItemType<InfernoCrate>();
+                        itemDrop = Main.hardMode ? ModContent.ItemType<InfernoCrate>() : ModContent.ItemType<DaybreakCrate>();
                     if (liquidType == 0 && Player.GetModPlayer<ZAAPlayer>().ZoneMire)
-                        itemDrop = ModContent.ItemType<MireCrate>();
+                        itemDrop = Main.hardMode ? ModContent.ItemType<MireCrate>() : ModContent.ItemType<EventideCrate>();
                     if (liquidType == 0 && Player.GetModPlayer<ZAAPlayer>().ZoneVoid)
-                        itemDrop = ModContent.ItemType<VoidCrate>();
+                        itemDrop = Main.hardMode ? ModContent.ItemType<VoidCrate>() : ModContent.ItemType<NullCrate>();
                     if (liquidType == 0 && Player.GetModPlayer<ZAAPlayer>().ZoneHoard)
-                        itemDrop = ItemID.GoldenCrate;
-                    if (liquidType == 1 && attempt.CanFishInLava && Player.ZoneUnderworldHeight && Main.rand.NextBool())
-                        itemDrop = ModContent.ItemType<HellCrate>();
+                        itemDrop = ItemID.GoldenCrate; // intended. greed only likes gold
                 }
                 return;
             }
