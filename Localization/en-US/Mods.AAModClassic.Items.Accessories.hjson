@@ -448,3 +448,13 @@ InfinityGauntlet: {
 	DisplayName: Infinity Gauntlet
 	Tooltip: Perfectly Balanced, as all things should be
 }
+
+KappaFins: {
+	DisplayName: Kappa Fins
+	Tooltip: ""
+}
+
+KappaGear: {
+	DisplayName: Kappa Gear
+	Tooltip: ""
+}
