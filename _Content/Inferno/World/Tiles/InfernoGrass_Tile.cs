@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.UI.World;
+using AAModClassic._Unreleased.Content.Inferno.World.Tiles;
 
 namespace AAModClassic._Content.Inferno.World.Tiles
 {

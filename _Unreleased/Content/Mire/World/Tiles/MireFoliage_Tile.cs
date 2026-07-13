@@ -1,4 +1,5 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
+using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.UI.World;
@@ -11,7 +12,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic._Content.Mire.World.Tiles
+namespace AAModClassic._Unreleased.Content.Mire.World.Tiles
 {
     //TODO: is this accurate to weeds in 1.4? can we make this support flower boots?
     public class MireFoliage_Tile : ModTile
