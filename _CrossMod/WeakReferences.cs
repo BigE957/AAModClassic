@@ -261,20 +261,25 @@ namespace AAModClassic._CrossMod
             { "Cthulhu", 24.121f },
         };
 
+        public static Mod RealisticSky = null;
+
         public override void PostUpdateEverything()
         {
             // If you're wondering why this is here when its also in VoidSky,
             // its because for some reason this is what's turning it off when in a world,
             // and the code in VoidSky is turning it off in the Menu Theme.
-            if (ModLoader.TryGetMod("RealisticSky", out var mod))
+            if (RealisticSky != null)
             {
                 if ((SkyManager.Instance["AAModClassic:VoidSky"] as VoidSky).Intensity > 0)
-                    mod.Call("temporarilydisable");
+                    RealisticSky.Call("temporarilydisable");
             }
         }
 
         public static void PerformModSupport()
         {
+            if (ModLoader.TryGetMod("RealisticSky", out var mod))
+                RealisticSky = mod;
+
             PerformHealthBarSupport();
 
             PerformBossChecklistSupport();
