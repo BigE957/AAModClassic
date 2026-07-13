@@ -182,7 +182,9 @@ BossSummon: {
 			Summons Anubis
 			Can only be used in the desert on the surface
 			'I uh...borrowed this from a bird friend of mine.'
+			Non-Consumable
 			'''
+		TooltipExtension: Right click to summon Forsaken Judge, Anubis
 	}
 
 	CursedSkull: {

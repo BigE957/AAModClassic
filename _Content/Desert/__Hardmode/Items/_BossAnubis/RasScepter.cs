@@ -1,16 +1,20 @@
-﻿using Terraria;
-using Terraria.Audio;
-using Terraria.Localization;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-
-using Terraria.ID;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
-using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
+﻿using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic._Unofficial.Desert;
+using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Effects;
+using AAModClassic.UI.Titles;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis
 {
@@ -39,16 +43,41 @@ Can only be used in the desert on the surface
             Item.consumable = false;
         }
 
+        public override void ModifyTooltips(List<TooltipLine> list)
+        {
+            if (!NPCExtensions.BeenKilled<AnubisA>() && !Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().HasLostToForsakenAnubis)
+                return;
+
+            int indexToInsert = -1;
+            for(int i = 0; i < list.Count; i++)
+            {
+                var line = list[i];
+                if (line.Mod == "Terraria" && line.Name == "Tooltip1")
+                {
+                    indexToInsert = i;
+                    break;
+                }
+            }
+
+            list.Insert(indexToInsert, new(Mod, "Tooltip0.5", Language.GetTextValue("Mods.AAModClassic.Items.BossSummon.RasScepter.TooltipExtension")));
+        }
+
+        public override bool AltFunctionUse(Player player) => NPCExtensions.BeenKilled<AnubisA>() || player.GetModPlayer<AnubisDialoguePlayer>().HasLostToForsakenAnubis;
+
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
             if (!player.ZoneDesert && !player.ZoneUndergroundDesert)
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ScepterBossFalse1"), Color.Gold, false);
+                if (player.whoAmI == Main.myPlayer && player.itemTime == 0) 
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ScepterBossFalse1"), Color.Gold, false);
                 return true;
             }
-            if (NPC.AnyNPCs(ModContent.NPCType<Anubis>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<Anubis>()) || NPC.AnyNPCs(ModContent.NPCType<AnubisUnreleased>()))
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ScepterBossFalse2"), Color.Gold, false);
+                if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ScepterBossFalse2"), Color.Gold, false);
                 return true;
             }
 
@@ -57,29 +86,39 @@ Can only be used in the desert on the surface
                 return true;
             }
 
-            int anubis = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) ? ModContent.NPCType<AnubisUnreleased>() : ModContent.NPCType<Anubis>();
+            int anubis = player.altFunctionUse == 2 ? ModContent.NPCType<AnubisA>() : WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) ? ModContent.NPCType<AnubisUnreleased>() : ModContent.NPCType<Anubis>();
             int a = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X + Main.rand.Next(-300, 300), (int)player.position.Y - 400, anubis);
+            NPC npc = Main.npc[a];
+
+            if (anubis == ModContent.NPCType<AnubisA>())
+            {
+                int b = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center.X, npc.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 0, Main.myPlayer, 0, 10);
+                Main.projectile[b].Center = npc.Center;
+                npc.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
+            }
+            
             SoundEngine.PlaySound(SoundID.Roar, player.position);
 
-            NPC npc = Main.npc[a];
+
+            int dustType = anubis == ModContent.NPCType<AnubisA>() ? ModContent.DustType<Dusts.ForsakenDust>() : ModContent.DustType<Dusts.JudgementDust>();
 
             Vector2 position = npc.Center + Vector2.One * -20f;
             int num84 = 40;
             int height3 = num84;
             for (int num85 = 0; num85 < 3; num85++)
             {
-                int num86 = Dust.NewDust(position, num84, height3, DustID.Granite, 0f, 0f, 100, default, 1.5f);
+                int num86 = Dust.NewDust(position, num84, height3, anubis == ModContent.NPCType<AnubisA>() ? DustID.GemEmerald : DustID.Granite, 0f, 0f, 100, default, 1.5f);
                 Main.dust[num86].position = npc.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f;
             }
             for (int num87 = 0; num87 < 15; num87++)
             {
-                int num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.JudgementDust>(), 0f, 0f, 50, default, 3.7f);
+                int num88 = Dust.NewDust(position, num84, height3, dustType, 0f, 0f, 50, default, 3.7f);
                 Main.dust[num88].position = npc.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f;
                 Main.dust[num88].noGravity = true;
                 Main.dust[num88].noLight = true;
                 Main.dust[num88].velocity *= 3f;
                 Main.dust[num88].velocity += npc.DirectionTo(Main.dust[num88].position) * (2f + Main.rand.NextFloat() * 4f);
-                num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.JudgementDust>(), 0f, 0f, 25, default, 1.5f);
+                num88 = Dust.NewDust(position, num84, height3, dustType, 0f, 0f, 25, default, 1.5f);
                 Main.dust[num88].position = npc.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f;
                 Main.dust[num88].velocity *= 2f;
                 Main.dust[num88].noGravity = true;
@@ -90,7 +129,7 @@ Can only be used in the desert on the surface
             }
             for (int num89 = 0; num89 < 10; num89++)
             {
-                int num90 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.JudgementDust>(), 0f, 0f, 0, default, 2.7f);
+                int num90 = Dust.NewDust(position, num84, height3, dustType, 0f, 0f, 0, default, 2.7f);
                 Main.dust[num90].position = npc.Center + Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(npc.velocity.ToRotation(), default) * num84 / 2f;
                 Main.dust[num90].noGravity = true;
                 Main.dust[num90].noLight = true;
@@ -99,7 +138,7 @@ Can only be used in the desert on the surface
             }
             for (int num91 = 0; num91 < 30; num91++)
             {
-                int num92 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.JudgementDust>(), 0f, 0f, 0, default, 1.5f);
+                int num92 = Dust.NewDust(position, num84, height3, dustType, 0f, 0f, 0, default, 1.5f);
                 Main.dust[num92].position = npc.Center + Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(npc.velocity.ToRotation(), default) * num84 / 2f;
                 Main.dust[num92].noGravity = true;
                 Main.dust[num92].velocity *= 3f;
