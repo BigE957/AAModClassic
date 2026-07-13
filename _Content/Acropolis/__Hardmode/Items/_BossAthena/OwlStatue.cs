@@ -73,7 +73,8 @@ Can only be used in the Acropolis at the Owl Altar
             Vector2 spawnPos = player.Center - Vector2.UnitY * 128;
             int a = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<AthenaA>());
             int b = Projectile.NewProjectile(NPC.GetBossSpawnSource(player.whoAmI), spawnPos.X, spawnPos.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
-            CombatText.NewText(Main.npc[a].Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Transition.Repeat"));
+            
+            CombatText.NewText(Main.npc[a].Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.AwakenedSummon"));
             return true;
         }
 

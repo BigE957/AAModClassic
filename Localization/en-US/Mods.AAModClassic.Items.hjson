@@ -225,6 +225,9 @@ BossSummon: {
 			Can only be used in Greed's Hoard at the Altar of Desire
 			'It's really shiny.'
 			'''
+		TooltipAlt1: Can only be used in Greed's Hoard
+		TooltipAlt2: Use at the Altar of Desire to summon Greed
+		TooltipAlt3: Use directly to summon Worm King, Greed
 	}
 
 	AncientBell: {
@@ -1158,7 +1161,7 @@ Lore: {
 				'''
 				A rather irksome pair those two are.
 				I have no doubt the quiet one has been spying on the Crusade's operations for some time now.
-				Likewise, the mage has attacked my troops on multiple occasions. I've heard she wishes to face Brimstone Witch one-on-one.
+				Likewise, the mage has attacked my troops on multiple occasions. I've heard she wishes to face the Brimstone Witch one-on-one.
 				I doubt even as a team they would survive such an encounter.
 				'''
 		}

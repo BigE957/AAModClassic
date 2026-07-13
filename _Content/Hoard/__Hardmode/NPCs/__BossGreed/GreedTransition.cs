@@ -1,5 +1,6 @@
 using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Effects;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
@@ -96,11 +97,10 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
                 else if (NPC.ai[0] >= 610)
                 {
                     AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedAHead>(), true, NPC.Center, ModContent.GetInstance<GreedAHead>().DisplayName.Value, false);
+                    int b = Projectile.NewProjectile(NPC.GetBossSpawnSource(player.whoAmI), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
 
                     if (Main.netMode != NetmodeID.MultiplayerClient)
-                    {
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Transition.4"), Color.Goldenrod);
-                    }
 
                     NPC.netUpdate = true;
                     NPC.active = false;
