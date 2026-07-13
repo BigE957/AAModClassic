@@ -1,9 +1,11 @@
+using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Unreleased.Content.Mire.World.Tiles;
+using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic.UI.World;
 
 namespace AAModClassic._Content.Mire.World.Tiles
 {
@@ -29,8 +31,9 @@ namespace AAModClassic._Content.Mire.World.Tiles
             {
                 Tile tile = Main.tile[i, j];
                 Tile tileAbove = Main.tile[i, j - 1];
+                Tile tileBwlow = Main.tile[i, j + 1];
 
-                // grow tall foliage from reg folaige flowers
+                // tall grass
                 /*
                 if (tileAbove.TileType == ModContent.TileType<MireFoliage_Tile>() && WorldGen.genRand.Next(3) == 0)
                 {
@@ -48,6 +51,12 @@ namespace AAModClassic._Content.Mire.World.Tiles
                     }
                 }
                 */
+
+                int style2 = 23;
+                if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), true, style2))
+                    NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MireFoliage_Tile>(), style2, 0, -1, -1);
+
+                // short grass
                 if (WorldGen.genRand.Next(7) == 0)
                 {
                     PlaceMireFoliageLikeJungleGrass(i, j);
@@ -61,6 +70,7 @@ namespace AAModClassic._Content.Mire.World.Tiles
                     }
                 }
                 /*
+                // trees
                 else if (WorldGen.genRand.Next(500) == 0 && (!Main.tile[i, j].HasTile || Main.tile[i, j].TileType == TileID.JunglePlants || Main.tile[i, j].TileType == TileID.JunglePlants2 || Main.tile[i, j].TileType == TileID.JungleThorns))
                 {
                     if (WorldGen.GrowTree(i, j) && WorldGen.PlayerLOS(i, j))
@@ -68,6 +78,7 @@ namespace AAModClassic._Content.Mire.World.Tiles
                         WorldGen.TreeGrowFXCheck(i, j - 1);
                     }
                 }
+                // big plants
                 else if (WorldGen.genRand.Next(25) == 0 && Main.tile[i, j].LiquidType == LiquidID.Water)
                 {
                     WorldGen.PlaceJunglePlant(i, j, 233, WorldGen.genRand.Next(8), 0);
@@ -87,8 +98,8 @@ namespace AAModClassic._Content.Mire.World.Tiles
                         }
                     }
                 }
-                bool flag2 = false;
 
+                bool flag2 = false;
                 if (Main.netMode == 2 && flag2)
                 {
                     NetMessage.SendTileSquare(-1, i, j, 3);
@@ -97,21 +108,28 @@ namespace AAModClassic._Content.Mire.World.Tiles
             }
             else if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(40))
             {
-                int style = Main.rand.Next(24);
+                int style = Main.rand.Next(23);
+                if (style == 9)
+                    style = 7;
                 if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), false, style))
                     NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MireFoliage_Tile>(), style, 0, -1, -1);
             }
 
-            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(1500))
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
-                if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<Darkshroom_Tile>()))
-                    NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Darkshroom_Tile>(), 0, 0, -1, -1);
-            }
+                if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(1500))
+                {
+                    int style = 24; // black orchid
+                    if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), true, style))
+                        NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MireFoliage_Tile>(), style, 0, -1, -1);
+                }
 
-            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && !Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(10000))
-            {
-                if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<BlackLotus_Tile>()))
-                    NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<BlackLotus_Tile>(), 0, 0, -1, -1);
+                if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(10000))
+                {
+                    int style = 9; // mushroom
+                    if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), true, style))
+                        NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MireFoliage_Tile>(), style, 0, -1, -1);
+                }
             }
         }
 
@@ -135,7 +153,13 @@ namespace AAModClassic._Content.Mire.World.Tiles
                 }
                 else
                 */
-                if (Main.rand.NextBool(60) && flag) // spore
+                if (!Main.dayTime && (Main.rand.NextBool(50) || WorldGen.genRand.NextBool(40))) // mushroom. yes this is the vanilla logic
+                {
+                    int style = 24;
+                    if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), true, style))
+                        NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MireFoliage_Tile>(), style, 0, -1, -1);
+                }
+                else if (Main.rand.NextBool(60) && flag) // spore
                 {
                     int style = 8;
                     if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), true, style))
@@ -143,8 +167,9 @@ namespace AAModClassic._Content.Mire.World.Tiles
                 }
                 else if (Main.rand.NextBool(230) && flag) // natures gift,but now its the thing
                 {
-                    if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<BlackLotus_Tile>()))
-                        NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<BlackLotus_Tile>(), 0, 0, -1, -1);
+                    int style = 9;
+                    if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), true, style))
+                        NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MireFoliage_Tile>(), style, 0, -1, -1);
                 }
                 else if (Main.rand.NextBool(15)) // jungle rose and vanity flowers
                 {

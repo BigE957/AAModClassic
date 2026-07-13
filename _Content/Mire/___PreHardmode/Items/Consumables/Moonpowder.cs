@@ -33,7 +33,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Consumables
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(5);
-            recipe.AddIngredient(ModContent.ItemType<Darkshroom>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<LunarMushroom>(), 1);
             recipe.AddTile(TileID.Bottles);
             recipe.Register();
         }

@@ -68,7 +68,7 @@ namespace AAModClassic._CrossMod
             ModContent.ItemType<_Content.Inferno.___PreHardmode.Items.Materials.DragonClaw_Item>(),
             ModContent.ItemType<_Content.Mire.___PreHardmode.Items.Materials.HydraClaw_Item>(),
             ModContent.ItemType<Hotshroom>(),
-            ModContent.ItemType<Darkshroom>(),
+            ModContent.ItemType<LunarMushroom>(),
             #endregion
 
             #region Boss Summons
@@ -186,7 +186,7 @@ namespace AAModClassic._CrossMod
                 //OldToNewItems.Add(ModContent.ItemType<HydraHide>(), NewAA.Find<ModItem>("LurkerHide").Type);
 
                 OldToNewItems.Add(ModContent.ItemType<Hotshroom>(), NewAA.Find<ModItem>("InfernoShroom").Type);
-                OldToNewItems.Add(ModContent.ItemType<Darkshroom>(), NewAA.Find<ModItem>("MireShroom").Type);
+                OldToNewItems.Add(ModContent.ItemType<LunarMushroom>(), NewAA.Find<ModItem>("MireShroom").Type);
 
                 OldToNewItems.Add(ModContent.ItemType<MushiumBar>(), NewAA.Find<ModItem>("BlightShroom").Type);
                 OldToNewItems.Add(ModContent.ItemType<GlowingMushiumBar>(), NewAA.Find<ModItem>("Biomass").Type);

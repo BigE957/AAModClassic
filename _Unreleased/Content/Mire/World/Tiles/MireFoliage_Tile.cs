@@ -1,4 +1,6 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.UI.World;
@@ -11,47 +13,14 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic._Content.Mire.World.Tiles
+namespace AAModClassic._Unreleased.Content.Mire.World.Tiles
 {
     //TODO: is this accurate to weeds in 1.4? can we make this support flower boots?
+    [LegacyName("Darkshroom_Tile", "BlackLotus_Tile")]
     public class MireFoliage_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{
-            /*
-			Main.tileFrameImportant[Type] = true;
-			Main.tileCut[Type] = true;
-			Main.tileSolid[Type] = false;
-			Main.tileMergeDirt[Type] = true;
-            Main.tileLighted[Type] = false;
-
-            DustType = ModContent.DustType<Dusts.BogwoodDust>();
-            HitSound = SoundID.Grass;
-
-			TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
-			TileObjectData.newTile.LavaDeath = true;
-			TileObjectData.newTile.WaterDeath = false;
-
-			TileObjectData.newTile.CoordinatePadding = 2;
-			TileObjectData.newTile.CoordinateWidth = 16;
-			TileObjectData.newTile.CoordinateHeights = new int[]
-			{
-				20
-			};
-			TileObjectData.newTile.DrawYOffset = -2;
-			TileObjectData.newTile.Style = 0;
-			TileObjectData.newTile.StyleHorizontal = true;
-			TileObjectData.newTile.UsesCustomCanPlace = true;
-
-			for (int i = 0; i < 23; i++)
-			{
-				TileObjectData.newSubTile.CopyFrom(TileObjectData.newTile);
-				TileObjectData.addSubTile(TileObjectData.newSubTile.Style);
-			}
-
-			TileObjectData.addTile(Type);
-			*/
-
             Main.tileLighted[Type] = true;
             Main.tileCut[Type] = true;
             Main.tileSolid[Type] = false;
@@ -83,7 +52,7 @@ namespace AAModClassic._Content.Mire.World.Tiles
             };
             TileObjectData.addTile(Type);
 
-            DustType = ModContent.DustType<Dusts.BogwoodDust>();
+            DustType = ModContent.DustType<BogwoodDust>();
             HitSound = SoundID.Grass;
             AddMapEntry(new Color(0, 32, 137));
 
@@ -94,7 +63,7 @@ namespace AAModClassic._Content.Mire.World.Tiles
         {
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && tileFrameX == 144 && Main.rand.Next(60) == 0)
             {
-                int num37 = Dust.NewDust(new Vector2(i * 16, j * 16), 16, 16, ModContent.DustType<MireSporeDust>(), 0f, 0f, 250, default(Color), 0.4f);
+                int num37 = Dust.NewDust(new Vector2(i * 16, j * 16), 16, 16, ModContent.DustType<MireSporeDust>(), 0f, 0f, 250, default, 0.4f);
                 Main.dust[num37].fadeIn = 0.7f;
             }
         }
@@ -105,8 +74,8 @@ namespace AAModClassic._Content.Mire.World.Tiles
 
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && Main.tile[i, j].TileFrameX == 144)
             {
-                float num17 = 1f + (float)(270 - Main.mouseTextColor) / 400f;
-                float num18 = 0.8f - (float)(270 - Main.mouseTextColor) / 400f;
+                float num17 = 1f + (270 - Main.mouseTextColor) / 400f;
+                float num18 = 0.8f - (270 - Main.mouseTextColor) / 400f;
                 r = 0.82f * num18;
                 g = 0.21f * num17;
                 b = 0.72f * num18;
@@ -135,8 +104,15 @@ namespace AAModClassic._Content.Mire.World.Tiles
 
         public override IEnumerable<Item> GetItemDrops(int i, int j)
         {
-            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && Main.tile[i, j].TileFrameX == 144)
-                yield return new Item(ItemID.JungleSpores, Main.rand.Next(1, 3));
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                if (Main.tile[i, j].TileFrameX == 144)
+                    yield return new Item(ItemID.JungleSpores, Main.rand.Next(1, 3));
+                else if (Main.tile[i, j].TileFrameX == 414)
+                    yield return new Item(ModContent.ItemType<LunarMushroom>());
+                else if (Main.tile[i, j].TileFrameX == 162)
+                    yield return new Item(ModContent.ItemType<BlackLotus>());
+            }
 
             Vector2 worldPosition = new Vector2(i, j).ToWorldCoordinates();
             Player nearestPlayer = Main.player[Player.FindClosest(worldPosition, 16, 16)];
