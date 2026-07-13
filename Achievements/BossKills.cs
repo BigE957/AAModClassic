@@ -166,7 +166,7 @@ namespace AAModClassic.Achievements
         public override void SetStaticDefaults()
         {
             Achievement.SetCategory(AchievementCategory.Slayer);
-            AddNPCKilledCondition(ModContent.NPCType<SubzeroSerpent_Head>());
+            AddNPCKilledCondition(ModContent.NPCType<SubzeroSerpentHead>());
         }
 
         public override Position GetDefaultPosition() => new After("DUNGEON_HEIST");

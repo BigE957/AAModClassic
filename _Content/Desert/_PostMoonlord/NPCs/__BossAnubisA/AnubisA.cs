@@ -299,27 +299,27 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
                         {
                             if (NPC.life < NPC.lifeMax / 2)
                             {
-                                int m = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + 130, (int)NPC.position.Y, ModContent.NPCType<CursedMinionCircle>());
+                                int m = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + 130, (int)NPC.position.Y, ModContent.NPCType<CursedMinionRitual>());
                                 Main.npc[m].Center = new Vector2(NPC.Center.X + 130, NPC.Center.Y);
 
-                                int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 130, (int)NPC.position.Y, ModContent.NPCType<CursedMinionCircle>());
+                                int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 130, (int)NPC.position.Y, ModContent.NPCType<CursedMinionRitual>());
                                 Main.npc[n].Center = new Vector2(NPC.Center.X - 130, NPC.Center.Y);
 
-                                int o = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y + 130, ModContent.NPCType<CursedMinionCircle>());
+                                int o = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y + 130, ModContent.NPCType<CursedMinionRitual>());
                                 Main.npc[o].Center = new Vector2(NPC.Center.X, NPC.Center.Y + 130);
 
-                                int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y - 130, ModContent.NPCType<CursedMinionCircle>());
+                                int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y - 130, ModContent.NPCType<CursedMinionRitual>());
                                 Main.npc[p].Center = new Vector2(NPC.Center.X, NPC.Center.Y - 130);
                             }
                             else
                             {
-                                int m = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + 130, (int)NPC.position.Y, ModContent.NPCType<CursedMinionCircle>());
+                                int m = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + 130, (int)NPC.position.Y, ModContent.NPCType<CursedMinionRitual>());
                                 Main.npc[m].Center = new Vector2(NPC.Center.X + 130, NPC.Center.Y - 60);
 
-                                int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 130, (int)NPC.position.Y, ModContent.NPCType<CursedMinionCircle>());
+                                int n = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 130, (int)NPC.position.Y, ModContent.NPCType<CursedMinionRitual>());
                                 Main.npc[n].Center = new Vector2(NPC.Center.X - 130, NPC.Center.Y - 60);
 
-                                int o = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y + 130, ModContent.NPCType<CursedMinionCircle>());
+                                int o = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y + 130, ModContent.NPCType<CursedMinionRitual>());
                                 Main.npc[o].Center = new Vector2(NPC.Center.X, NPC.Center.Y + 130);
                             }
                         }

@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 {
-    public class CursedMinionCircle : ModNPC
+    public class CursedMinionRitual : ModNPC
     {
         public override void SetStaticDefaults()
         {

@@ -26,14 +26,14 @@ EnemyChat: {
 }
 
 Athena.DisplayName: Athena
-AthenaDefeat.DisplayName: Athena Defeat
-AthenaFlee.DisplayName: Athena
+AthenaDefeat.DisplayName: "{$NPCs.Athena.DisplayName}"
+AthenaFlee.DisplayName: "{$NPCs.Athena.DisplayName}"
 OwlRune.DisplayName: Owl Rune
 SeraphA.DisplayName: Seraph Guard
 Seraph.DisplayName: Seraph
-SeraphHurt.DisplayName: Seraph Hurt
+SeraphHurt.DisplayName: "{$NPCs.Seraph.DisplayName}"
 AthenaA.DisplayName: Olympian Athena
-AthenaCloneDark.DisplayName: Athena Clone
+AthenaCloneDark.DisplayName: "{$NPCs.AthenaCloneLight.DisplayName}"
 AthenaCloneLight.DisplayName: Athena Clone
 ChargedOwlRune.DisplayName: Charged Owl Rune
 SeraphHerald.DisplayName: Seraph Herald
@@ -43,65 +43,65 @@ RabidRabbit.DisplayName: Rabid Rabbit
 RajahRabbit.DisplayName: Rajah Rabbit
 RoyalRabbit_NPC.DisplayName: Royal Rabbit
 RajahRabbitA.DisplayName: Rajah Rabbit; Champion of the Innocent
-RajahRabbitADefeat.DisplayName: Rajah Rabbit
+RajahRabbitADefeat.DisplayName: "{$NPCs.RajahRabbitA.DisplayName}"
 SupremeBunnyBrawler.DisplayName: Supreme Bunny Brawler
 SupremeRabbitcopterSoldier.DisplayName: Supreme Rabbitcopter Soldier
 SupremeRabidRabbit.DisplayName: Supreme Rabid Rabbit
 GripOfChaosInferno.DisplayName: Grip of Chaos
 GripOfChaosMire.DisplayName: Grip of Chaos
 ChaosDragon.DisplayName: Chaos Dragon
-ShenDoragonA.DisplayName: Shen Doragon Awakened
+ShenDoragonA.DisplayName: Emperor Shen Doragon
 ShenDoragon.DisplayName: Shen Doragon; Discordian Doomsayer
 AbyssGrip.DisplayName: Grip of Abyssal Wrath
 BlazeGrip.DisplayName: Grip of Blazing Fury
-ShenDoragon_Hitbox.DisplayName: Shen Doragon; Discordian Doomsayer
+ShenDoragon_Hitbox.DisplayName: "{$NPCs.ShenDoragon.DisplayName}"
 ShenDoragonDeath.DisplayName: Discord's Death
 ShenDoragonDefeat.DisplayName: Discord's Defeat
 ShenDoragonSpawn.DisplayName: Discord
 ShenDoragonTransition.DisplayName: Discordian Awakening
 FuryAshe.DisplayName: Fury Ashe
-FuryAsheVanish.DisplayName: Ashe Akuma
+FuryAsheVanish.DisplayName: "{$NPCs.FuryAshe.DisplayName}"
 FuryFlameVortex.DisplayName: Flame Vortex
-ShenlingBody1.DisplayName: Discordian Serpent
-ShenlingBody2.DisplayName: Discordian Serpent
+ShenlingBody1.DisplayName: "{$NPCs.ShenlingHead.DisplayName}"
+ShenlingBody2.DisplayName: "{$NPCs.ShenlingHead.DisplayName}"
 ShenlingHead.DisplayName: Discordian Serpent
-ShenlingTail.DisplayName: Discordian Serpent
+ShenlingTail.DisplayName: "{$NPCs.ShenlingHead.DisplayName}"
 WrathHaruka.DisplayName: Wrath Haruka
-WrathHarukaClone.DisplayName: Wrath Haruka
-WrathHarukaVanish.DisplayName: Wrath Haruka
+WrathHarukaClone.DisplayName: "{$NPCs.WrathHaruka.DisplayName}"
+WrathHarukaVanish.DisplayName: "{$NPCs.WrathHaruka.DisplayName}"
 AHDeath.DisplayName: Sisters Defeat
 AHSpawn.DisplayName: Sisters of Discord
 Ashe.DisplayName: Ashe Akuma
-AshenDragonArms.DisplayName: Ashen Dragon
-AshenDragonBody1.DisplayName: Ashen Dragon
-AshenDragonBody2.DisplayName: Ashen Dragon
-AshenDragonBody3.DisplayName: Ashen Dragon
+AshenDragonArms.DisplayName: "{$NPCs.AshenDragonHead.DisplayName}"
+AshenDragonBody1.DisplayName: "{$NPCs.AshenDragonHead.DisplayName}"
+AshenDragonBody2.DisplayName: "{$NPCs.AshenDragonHead.DisplayName}"
+AshenDragonBody3.DisplayName: "{$NPCs.AshenDragonHead.DisplayName}"
 AshenDragonHead.DisplayName: Ashen Dragon
-AshenDragonTail.DisplayName: Ashen Dragon
+AshenDragonTail.DisplayName: "{$NPCs.AshenDragonHead.DisplayName}"
 AsheRune.DisplayName: Ashe Rune
-AsheSpawn.DisplayName: Ashe Akuma
-AsheVanish.DisplayName: Ashe Akuma
+AsheSpawn.DisplayName: "{$NPCs.Ashe.DisplayName}"
+AsheVanish.DisplayName: "{$NPCs.Ashe.DisplayName}"
 FlameVortex.DisplayName: Flame Vortex
 Haruka.DisplayName: Haruka Yamata
-HarukaClone.DisplayName: Haruka Yamata
-HarukaFall.DisplayName: Haruka Yamata
-HarukaSpawn.DisplayName: Haruka Yamata
-HarukaVanish.DisplayName: Haruka Yamata
+HarukaClone.DisplayName: "{$NPCs.Haruka.DisplayName}"
+HarukaFall.DisplayName: "{$NPCs.Haruka.DisplayName}"
+HarukaSpawn.DisplayName: "{$NPCs.Haruka.DisplayName}"
+HarukaVanish.DisplayName: "{$NPCs.Haruka.DisplayName}"
 DesertDjinn.DisplayName: Desert Djinn
-Djinn.DisplayName: Djinn
-Anubis.DisplayName: Anubis Legendscribe
+DustDjinn.DisplayName: Dust Djinn
+Anubis.DisplayName: Anubis; Legendscribe
 EyeSentry.DisplayName: Eye Sentry
 HorusHawk.DisplayName: Horus Hawk
 Locust.DisplayName: Locust
-MinionRitual.DisplayName: Minion Ritual
+MinionRitual.DisplayName: Ritual
 Scarab.DisplayName: Scarab
-UraeusBody.DisplayName: Uraeus
-UraeusHead.DisplayName: Uraeus Head
-UraeusTail.DisplayName: Uraeus
+UraeusBody.DisplayName: "{$NPCs.UraeusHead.DisplayName}"
+UraeusHead.DisplayName: Uraeus
+UraeusTail.DisplayName: "{$NPCs.UraeusHead.DisplayName}"
 AnubisA.DisplayName: Anubis; Forsaken Judge
-AnubisForsakenTransition.DisplayName: Anubis Legendscribe
+AnubisForsakenTransition.DisplayName: "{$NPCs.Anubis.DisplayName}"
 CursedLocust.DisplayName: Cursed Locust
-CursedMinionCircle.DisplayName: Cursed Minion Circle
+CursedMinionRitual.DisplayName: Cursed Ritual
 CursedScarab.DisplayName: Cursed Scarab
 ForsakenSun.DisplayName: Forsaken Sun
 HorusSentry.DisplayName: Horus Sentry
@@ -117,16 +117,16 @@ LuminousAccordyceps.DisplayName: Luminous Accordyceps
 TruffleToad.DisplayName: Truffle Toad
 TinyToad.DisplayName: Tiny Toad
 FatPixie.DisplayName: Fat Pixie
-GreedBody.DisplayName: Greed
+GreedBody.DisplayName: "{$NPCs.GreedHead.DisplayName}"
 GreedHead.DisplayName: Greed
 GreedTransition.DisplayName: Spark of Greed
 OreConstruct.DisplayName: Ore Construct
 SparkOfDesire.DisplayName: Spark of Desire
-ScavengerBody.DisplayName: Scavenger
+ScavengerBody.DisplayName: "{$NPCs.ScavengerHead.DisplayName}"
 ScavengerHead.DisplayName: Scavenger
-ScavengerTail.DisplayName: Scavenger
-GreedABody.DisplayName: Worm King Greed
-GreedAHead.DisplayName: Worm King Greed
+ScavengerTail.DisplayName: "{$NPCs.ScavengerHead.DisplayName}"
+GreedABody.DisplayName: "{$NPCs.GreedAHead.DisplayName}"
+GreedAHead.DisplayName: Worm King, Greed
 SingularityOfDesire.DisplayName: Singularity of Desire
 Broodmini.DisplayName: Broodmini
 Broodmother.DisplayName: The Broodmother
@@ -135,47 +135,47 @@ InfernalSlime.DisplayName: Infernal Slime
 DragonClaw_NPC.DisplayName: Dragon Claw
 FlameBrute.DisplayName: Flame Brute
 Singemander.DisplayName: Singemander
-WyrmlingBody.DisplayName: Wyrmling
+WyrmlingBody.DisplayName: "{$NPCs.WyrmlingHead.DisplayName}"
 WyrmlingHead.DisplayName: Wyrmling
-WyrmlingTail1.DisplayName: Wyrmling
-WyrmlingTail2.DisplayName: Wyrmling
+WyrmlingTail1.DisplayName: "{$NPCs.WyrmlingHead.DisplayName}"
+WyrmlingTail2.DisplayName: "{$NPCs.WyrmlingHead.DisplayName}"
 BlazePhoenix.DisplayName: Blaze Phoenix
 InfernalGhoul.DisplayName: Infernal Ghoul
 PigronInferno.DisplayName: Pigron
 ChaoticDawn.DisplayName: Chaotic Dawn
 InfernoMimic.DisplayName: Inferno Mimic
-WyrmBody1.DisplayName: Wyrm
-WyrmBody2.DisplayName: Wyrm
-WyrmBody3.DisplayName: Wyrm
-WyrmBody4.DisplayName: Wyrm
+WyrmBody1.DisplayName: "{$NPCs.WyrmHead.DisplayName}"
+WyrmBody2.DisplayName: "{$NPCs.WyrmHead.DisplayName}"
+WyrmBody3.DisplayName: "{$NPCs.WyrmHead.DisplayName}"
+WyrmBody4.DisplayName: "{$NPCs.WyrmHead.DisplayName}"
 WyrmHead.DisplayName: Wyrm
 MagmaSwimmer.DisplayName: Magma Swimmer
-AkumaBody.DisplayName: Akuma, Draconian Demon
+AkumaBody.DisplayName: "{$NPCs.AkumaHead.DisplayName}"
 AkumaHead.DisplayName: Akuma; Draconian Demon
 AkumaTransition.DisplayName: Soul Of Fury
-AkumaABody.DisplayName: Oni Akuma
+AkumaABody.DisplayName: "{$NPCs.AkumaAHead}"
 AkumaAHead.DisplayName: Oni Akuma
-AwakenedLungBody.DisplayName: Awakened Lung
+AwakenedLungBody.DisplayName: "{$NPCs.AwakenedLungHead.DisplayName}"
 AwakenedLungHead.DisplayName: Awakened Lung
-AwakenedLungTail.DisplayName: Awakened Lung
+AwakenedLungTail.DisplayName: "{$NPCs.AwakenedLungHead.DisplayName}"
 BlazeClaw.DisplayName: Blaze Claw
-AncientLungBody.DisplayName: Ancient Lung
+AncientLungBody.DisplayName: "{$NPCs.AncientLungHead.DisplayName}"
 AncientLungHead.DisplayName: Ancient Lung
-AncientLungTail.DisplayName: Ancient Lung
+AncientLungTail.DisplayName: "{$NPCs.AncientLungHead.DisplayName}"
 MadnessBat.DisplayName: Madness Flier
 MadnessSlime.DisplayName: Madness Slime
-HarukaShadowPostHydra.DisplayName: ...
+HarukaShadowPostHydra.DisplayName: "{$NPCs.HarukaShadow.DisplayName}"
 HarukaShadow.DisplayName: ...
 HydraBody.DisplayName: Hydra
-HydraHead1.DisplayName: Hydra
-HydraHead2.DisplayName: Hydra
-HydraHead3.DisplayName: Hydra
-HydraHead4.DisplayName: Hydra
-HydraHead5.DisplayName: Hydra
-HydraHead6.DisplayName: Hydra
-HydraHead7.DisplayName: Hydra
-HydraHead8.DisplayName: Hydra
-HydraHead9.DisplayName: Hydra
+HydraHead1.DisplayName: "{$NPCs.HydraBody.DisplayName}"
+HydraHead2.DisplayName: "{$NPCs.HydraBody.DisplayName}"
+HydraHead3.DisplayName: "{$NPCs.HydraBody.DisplayName}"
+HydraHead4.DisplayName: "{$NPCs.HydraBody.DisplayName}"
+HydraHead5.DisplayName: "{$NPCs.HydraBody.DisplayName}"
+HydraHead6.DisplayName: "{$NPCs.HydraBody.DisplayName}"
+HydraHead7.DisplayName: "{$NPCs.HydraBody.DisplayName}"
+HydraHead8.DisplayName: "{$NPCs.HydraBody.DisplayName}"
+HydraHead9.DisplayName: "{$NPCs.HydraBody.DisplayName}"
 MurkySlime.DisplayName: Murky Slime
 HydraClaw_NPC.DisplayName: Hydra Claw
 Mosster.DisplayName: Mosster
@@ -190,13 +190,13 @@ MireMimic.DisplayName: Mire Mimic
 Miresquito.DisplayName: Miresquito
 FogAngler.DisplayName: Fog Angler
 MireSoul.DisplayName: Mire Soul
-YamataABody.DisplayName: Yamata A Body
-YamataAHead.DisplayName: Yamata no Orochi
-YamataAHeadFake.DisplayName: Yamata no Orochi
-YamataBody.DisplayName: Yamata
-YamataHead.DisplayName: Yamata
-YamataHeadFake1.DisplayName: Yamata
-YamataHeadFake2.DisplayName: Yamata
+YamataABody.DisplayName: Yamata no Orochi
+YamataAHead.DisplayName: "{$NPCs.YamataABody.DisplayName}"
+YamataAHeadFake.DisplayName: "{$NPCs.YamataABody.DisplayName}"
+YamataBody.DisplayName: Yamata; Dread Nightmare
+YamataHead.DisplayName: "{$NPCs.YamataBody.DisplayName}"
+YamataHeadFake1.DisplayName: "{$NPCs.YamataBody.DisplayName}"
+YamataHeadFake2.DisplayName: "{$NPCs.YamataBody.DisplayName}"
 YamataTransition.DisplayName: Spirit of Wrath
 AbyssClaw.DisplayName: Abyss Claw
 Soulsucker.DisplayName: Soulsucker
@@ -212,24 +212,24 @@ MushroomZombie.DisplayName: Mushroom Zombie
 MushroomZombie2.DisplayName: Mushroom Zombie
 ElderDragon.DisplayName: Elder Dragon
 IceCrystal.DisplayName: Ice Crystal
-SubzeroSerpent_Body.DisplayName: Subzero Serpent
-SubzeroSerpent_Head.DisplayName: Subzero Serpent
-SubzeroSerpent_Tail.DisplayName: Subzero Serpent
-SnowSerpentBody.DisplayName: Snow Serpent
+SubzeroSerpentBody.DisplayName: "{$NPCs.SubzeroSerpentHead.DisplayName}"
+SubzeroSerpentHead.DisplayName: Subzero Serpent
+SubzeroSerpentTail.DisplayName: "{$NPCs.SubzeroSerpentHead.DisplayName}"
+SnowSerpentBody.DisplayName: "{$NPCs.SnowSerpentHead.DisplayName}"
 SnowSerpentHead.DisplayName: Snow Serpent
-SnowSerpentTail.DisplayName: Snow Serpent
-DaybringerBody.DisplayName: Daybringer
+SnowSerpentTail.DisplayName: "{$NPCs.SnowSerpentHead.DisplayName}"
+DaybringerBody.DisplayName: "{$NPCs.DaybringerHead.DisplayName}"
 DaybringerHead.DisplayName: Daybringer
-DaybringerTail.DisplayName: Daybringer
+DaybringerTail.DisplayName: "{$NPCs.DaybringerHead.DisplayName}"
 Equiprobe.DisplayName: Equiprobe
 NightCloud.DisplayName: Night Cloud
-NightcrawlerBody.DisplayName: Nightcrawler
+NightcrawlerBody.DisplayName: "{$NPCs.NightcrawlerHead.DisplayName}"
 NightcrawlerHead.DisplayName: Nightcrawler
-NightcrawlerTail.DisplayName: Nightcrawler
+NightcrawlerTail.DisplayName: "{$NPCs.NightcrawlerHead.DisplayName}"
 SunWatcher.DisplayName: Sun Watcher
 NightGuard.DisplayName: Night Guard
 DBPortal.DisplayName: Bright Star
-NCPortal.DisplayName: N C Portal
+NCPortal.DisplayName: Dark Void
 WormSpawn.DisplayName: Heavenly Voice
 PurityCrawler.DisplayName: Purity Crawler
 PuritySphere.DisplayName: Purity Sphere
@@ -244,9 +244,9 @@ TerraWarlock.DisplayName: Terra Warlock
 TerraCrawler.DisplayName: Terra Crawler
 TerraSphere.DisplayName: Terra Sphere
 TerraSquid.DisplayName: Terra Squid
-TerraWeaverBody.DisplayName: Terra Weaver
+TerraWeaverBody.DisplayName: "{$NPCs.TerraWeaverHead.DisplayName}"
 TerraWeaverHead.DisplayName: Terra Weaver
-TerraWeaverTail.DisplayName: Terra Weaver
+TerraWeaverTail.DisplayName: "{$NPCs.TerraWeaverHead.DisplayName}"
 TerraWizard.DisplayName: Terra Wizard
 UnityProbe.DisplayName: Unity Probe
 UnityWatcher.DisplayName: Unity Watcher
@@ -256,7 +256,7 @@ StoneSearcher.DisplayName: Stone Searcher
 ZeroDeactivated.DisplayName: Strange Machine
 VoidScout.DisplayName: Void Scout
 Vortex.DisplayName: Vortex
-NullZP.DisplayName: Null
+NullZP.DisplayName: "{$NPCs.Null.DisplayName}"
 Null.DisplayName: Null
 ZeroA.DisplayName: ZER0 PR0T0C0L
 ZeroEcho.DisplayName: 3CH0
@@ -274,17 +274,17 @@ ZeroRiftShredder.DisplayName: Rift Shredder
 ZeroVoidStar.DisplayName: Void Star
 Searcher.DisplayName: Searcher
 OrthrusXBody.DisplayName: Orthrus X
-OrthrusXHead.DisplayName: Orthrus X
-OrthrusXHead_OrthrusReticle.DisplayName: Orthrus Reticle
+OrthrusXHead.DisplayName: "{$NPCs.OrthrusXBody.DisplayName}"
+OrthrusXHead_OrthrusReticle.DisplayName: Reticle
 RaiderEgg.DisplayName: Raider Egg
-RaiderUltima.DisplayName: The Raider Ultima
+RaiderUltima.DisplayName: Raider Ultima
 RaiderUltima_RaiderRocket.DisplayName: Raider Rocket
 Raidmini.DisplayName: Raidmini
 Retriever.DisplayName: The Retriever
 CyberClaw.DisplayName: Cyber Claw
 AmbientSoulOfCthulhu.DisplayName: ???
 OlympianDragon.DisplayName: Olympian Dragon
-AnubisUnreleased.DisplayName: Anubis Legendscribe
+AnubisUnreleased.DisplayName: "{$NPCs.Anubis.DisplayName}"
 AnubisCircle.DisplayName: Anubis Circle
 BiomiteCore.DisplayName: Biomite Core
 TechnoTruffle.DisplayName: Techno Truffle
@@ -296,8 +296,8 @@ Cthulhu.DisplayName: Cthulhu, Cosmic Calamity
 DeityBrain.DisplayName: Lu'Kthu
 EyeOfAzathoth.DisplayName: Eye Of Azathoth
 DeityEater.DisplayName: Crom Cruach
-DeityEaterBody.DisplayName: Crom Cruach
-DeityEaterTail.DisplayName: Crom Cruach
+DeityEaterBody.DisplayName: "{$NPCs.DeityEater.DisplayName}"
+DeityEaterTail.DisplayName: "{$NPCs.DeityEater.DisplayName}"
 DeityEye.DisplayName: Cyaegha
 DeityLeviathan.DisplayName: Vile-Oct
 DeityShark.DisplayName: Deity Shark
@@ -310,30 +310,30 @@ DeityRoseSpore.DisplayName: Ei'Lor's Spore
 ShadowUrchin.DisplayName: Shadow Urchin
 DeitySkull.DisplayName: Rhan-Tegoth
 DeitySkull_Hand.DisplayName: Tegoth's Claw
-DeitySkull_Hand1.DisplayName: Tegoth's Claw
-DeitySkull_Hand2.DisplayName: Tegoth's Claw
-DeitySkull_Hand3.DisplayName: Tegoth's Claw
-DeitySkull_Hand4.DisplayName: Tegoth's Claw
-DeitySkull_Hand5.DisplayName: Tegoth's Claw
+DeitySkull_Hand1.DisplayName: "{$NPCs.DeitySkull_Hand.DisplayName}"
+DeitySkull_Hand2.DisplayName: "{$NPCs.DeitySkull_Hand.DisplayName}"
+DeitySkull_Hand3.DisplayName: "{$NPCs.DeitySkull_Hand.DisplayName}"
+DeitySkull_Hand4.DisplayName: "{$NPCs.DeitySkull_Hand.DisplayName}"
+DeitySkull_Hand5.DisplayName: "{$NPCs.DeitySkull_Hand.DisplayName}"
 CthulhuPortal.DisplayName: Dark Portal
 CthulhuSpawn.DisplayName: Quantum Portal
 DeityDragon.DisplayName: Psyvern
-DeityDragon_Arms.DisplayName: Psyvern
-DeityDragon_Body1.DisplayName: Psyvern
-DeityDragon_Body2.DisplayName: Psyvern
-DeityDragon_Body3.DisplayName: Psyvern
-DeityDragon_Tail.DisplayName: Psyvern
+DeityDragon_Arms.DisplayName: "{$NPCs.DeityDragon.DisplayName}"
+DeityDragon_Body1.DisplayName: "{$NPCs.DeityDragon.DisplayName}"
+DeityDragon_Body2.DisplayName: "{$NPCs.DeityDragon.DisplayName}"
+DeityDragon_Body3.DisplayName: "{$NPCs.DeityDragon.DisplayName}"
+DeityDragon_Tail.DisplayName: "{$NPCs.DeityDragon.DisplayName}"
 Portal.DisplayName: Rift Portal
 RiftVision.DisplayName: Rift Vision
 SoulOfCthulhu.DisplayName: Soul of Cthulhu
 UDUNFUKED.DisplayName: Lovecraftian Shadow
 TrenchSquid.DisplayName: Trench Squid
-InfinityCore.DisplayName: Infinity Zero
+InfinityCore.DisplayName: Zero Point
 InfinityZero.DisplayName: Infinity Zero; Mechanical Malice
 InfinityZeroHand1.DisplayName: Chained Zero
-InfinityZeroHand2.DisplayName: Chained Zero
+InfinityZeroHand2.DisplayName: "{$NPCs.InfinityZeroHand1.DisplayName}"
 InfinityZeroSpawn1.DisplayName: Death
 Oblivion.DisplayName: Oblivion
-TerraSerpentBody.DisplayName: Terra Serpent
+TerraSerpentBody.DisplayName: "{$NPCs.TerraSerpentHead.DisplayName}"
 TerraSerpentHead.DisplayName: Terra Serpent
-TerraSerpentTail.DisplayName: Terra Serpent
+TerraSerpentTail.DisplayName: "{$NPCs.TerraSerpentHead.DisplayName}"

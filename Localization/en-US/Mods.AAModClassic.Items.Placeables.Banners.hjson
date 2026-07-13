@@ -322,3 +322,8 @@ TerraSerpentBanner: {
 	DisplayName: Terra Serpent Banner
 	Tooltip: ""
 }
+
+DustDjinnBanner: {
+	DisplayName: Dust Djinn Banner
+	Tooltip: ""
+}

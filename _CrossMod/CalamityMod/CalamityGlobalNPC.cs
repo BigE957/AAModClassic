@@ -45,7 +45,7 @@ namespace AAModClassic._CrossMod.CalamityMod
                 if(npc.type == ModContent.NPCType<GreedHead>()) CalamityDR = 0.8f;
 
                 if(npc.type == ModContent.NPCType<AnubisA>()) CalamityDR = 0.65f;
-                if(npc.type == ModContent.NPCType<CursedMinionCircle>()) CalamityDR = 0.65f;
+                if(npc.type == ModContent.NPCType<CursedMinionRitual>()) CalamityDR = 0.65f;
                 if(npc.type == ModContent.NPCType<CursedScarab>()) CalamityDR = 0.65f;
                 if(npc.type == ModContent.NPCType<CursedLocust>()) CalamityDR = 0.65f;
                 if(npc.type == ModContent.NPCType<Naddaha>()) CalamityDR = 0.65f;

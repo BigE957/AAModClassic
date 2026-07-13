@@ -10,7 +10,7 @@ ShinyFishBall_ShinyMudkip.DisplayName: Shiny Mudkip
 AleisterStaff_InvokedDamage.DisplayName: Invoked Damage
 AleisterStaff_InvokedHeal.DisplayName: Invoked Heal
 AleisterStaff_InvokedRune.DisplayName: Invoked Rune
-AleisterStaff_Proj.DisplayName: Aleister Staff_
+AleisterStaff_Proj.DisplayName: Aleister Staff
 GameRaider_GameRocket.DisplayName: Game Rocket
 GameRaider_MooBoom.DisplayName: Moo Boom
 PineBreaker_Pine.DisplayName: Pine
@@ -903,3 +903,7 @@ SistersTitle.DisplayName: Sisters Title
 Title.DisplayName: Title
 InfinityGauntletEffect_Snap.DisplayName: Snap
 ProtocolR_RaiderRocket.DisplayName: Raider Rocket
+DustDjinn_BurstBlue.DisplayName: Dust Djinn_ Burst Blue
+DustDjinn_BurstRed.DisplayName: Dust Djinn_ Burst Red
+DustDjinn_MagicBlastBlue.DisplayName: Dust Djinn_ Magic Blast Blue
+DustDjinn_MagicBlastRed.DisplayName: Dust Djinn_ Magic Blast Red
