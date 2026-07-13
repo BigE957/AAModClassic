@@ -6,6 +6,9 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.UI.World;
+using AAModClassic._Unreleased.Content.Mire.World.Tiles;
 
 namespace AAModClassic._Content.Mire.World.Tiles
 {
