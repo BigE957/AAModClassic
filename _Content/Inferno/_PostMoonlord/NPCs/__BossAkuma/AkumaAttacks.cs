@@ -30,7 +30,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             num79 *= num80;
             float num115 = num79 + (Main.rand.Next(41) * 0.02f);
             int projType = Awakened ? ModContent.ProjectileType<AkumaAHead_Meteor>() : ModContent.ProjectileType<AkumaHead_Meteor>();
-            Projectile.NewProjectile(npc.GetSource_FromThis(), vector2.X, vector2.Y, 0, num115 * 1.5f, projType, npc.damage / 4, 0, player.whoAmI, 0f, 0.5f + ((float)Main.rand.NextDouble() * 0.3f));
+            Projectile.NewProjectile(npc.GetSource_FromThis(), vector2.X, vector2.Y, 0, num115 * 1.5f, projType, npc.damage / 4, 0, -1, 0f, 0.5f + ((float)Main.rand.NextDouble() * 0.3f));
         }
 
         public static void Eruption(NPC npc, Mod mod)
@@ -54,7 +54,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             num80 = num72 / num80;
             num79 *= num80;
             float num115 = num79 + (Main.rand.Next(41) * 0.02f);
-            Projectile.NewProjectile(npc.GetSource_FromThis(), vector2.X, vector2.Y, 0, num115 * 2f, ModContent.ProjectileType<AkumaAHead_Rock>(), npc.damage / 4, 0, player.whoAmI, 0f, 0.5f + ((float)Main.rand.NextDouble() * 0.3f));
+            Projectile.NewProjectile(npc.GetSource_FromThis(), vector2.X, vector2.Y, 0, num115 * 2f, ModContent.ProjectileType<AkumaAHead_Rock>(), npc.damage / 4, 0, -1, 0f, 0.5f + ((float)Main.rand.NextDouble() * 0.3f));
         }
     }
 }

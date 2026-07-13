@@ -198,6 +198,7 @@ Athena: {
 		}
 	}
 
+	AwakenedSummon: Destroying one of my artifacts...? You Earthwalkers just don't stop pissing me off!
 	Kill: And stay away...idiot.
 	Defeat: OW! Fine, fine..! I'll leave you alone! Geez, you don't let up, do you.
 
@@ -280,6 +281,7 @@ Greed: {
 		4: I WILL STEAL YOUR LIFE!
 	}
 
+	AwakenedSummon: YOU DARE TO FEAST IN MY HOARD?! THEN I WILL TURN YOU INTO MY NEXT MEAL!
 	Despawn: EEEEEEEEEEEEEEEGH THE LIGHT OF THE SURFACE! TOO BRIGHT! TOO BRIGHT!
 	Kill: AND STAY AWAY FROM MY GLORIOUS RICHES YOU LITTLE THIEF!
 }

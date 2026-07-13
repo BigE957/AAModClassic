@@ -19,7 +19,9 @@ using AAModClassic._Content.FrostMoon.__Hardmode.Items.Currency;
 using AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Currency;
 using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Hell.__Hardmode.Items.Materials;
+using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger;
+using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs._Surface._Day;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling;
@@ -1189,12 +1191,15 @@ namespace AAModClassic.Globals
             {
                 ClearPoolWithExceptions(pool);
 
-                pool.Add(NPCID.GiantWormHead, .005f);
-                pool.Add(NPCID.GoldWorm, .001f);
-                pool.Add(NPCID.Worm, .005f);
+                if (!NPC.AnyNPCs(ModContent.NPCType<GreedHead>()) && !NPC.AnyNPCs(ModContent.NPCType<GreedAHead>()))
+                {
+                    pool.Add(NPCID.GiantWormHead, .005f);
+                    pool.Add(NPCID.GoldWorm, .001f);
+                    pool.Add(NPCID.Worm, .005f);
 
-                if (NPC.downedPlantBoss)
-                    pool.Add(ModContent.NPCType<ScavengerHead>(), .03f);
+                    if (NPC.downedPlantBoss)
+                        pool.Add(ModContent.NPCType<ScavengerHead>(), .03f);
+                }
             }
 
             if (spawnInfo.Player.GetModPlayer<AAPlayer_Unreleased>().ZoneShip)

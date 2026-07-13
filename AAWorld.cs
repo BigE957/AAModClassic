@@ -170,6 +170,9 @@ namespace AAModClassic
         public static bool downedKraken;
         */
         public static bool AnubisAwakened;
+        public static bool AthenaAwakened;
+        public static bool GreedAwakened;
+
         public static bool WormActive;
         public static bool StarActive;
         public static bool GravActive;
@@ -1186,7 +1189,7 @@ namespace AAModClassic
                 }
             }
 
-            if (!Main.dayTime)
+            if (!ContentReplacementSystem.NeedToReplaceContent && !Main.dayTime)
             {
                 if (!Main.IsFastForwardingTime()/* tModPorter Note: _Unreleased. Suggestion: IsFastForwardingTime(), fastForwardTimeToDawn or fastForwardTimeToDusk */)
                 {
@@ -1250,6 +1253,7 @@ namespace AAModClassic
                     }
                 }
             }
+
             if (downedEquinox)
             {
                 if (RadiumOre == false)
