@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -68,15 +69,15 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
                 zero = Vector2.Zero;
             }
             int height = 16;
-            Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Tiles/Furniture/Doom/DoomClock").Value;
+            Texture2D tex = TextureAssets.Tile[Type].Value;
             Texture2D Glow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             if (AAWorld.downedZero)
             {
-                tex = ModContent.Request<Texture2D>("AAModClassic/Tiles/Furniture/Doom/DoomClock0").Value;
-                Glow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
+                tex = ModContent.Request<Texture2D>(Texture + "0").Value;
+                Glow = ModContent.Request<Texture2D>(Texture + "0_Glow").Value;
             }
-            Main.spriteBatch.Draw(tex, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-            Main.spriteBatch.Draw(Glow, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(tex, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(Glow, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
     }
 }
