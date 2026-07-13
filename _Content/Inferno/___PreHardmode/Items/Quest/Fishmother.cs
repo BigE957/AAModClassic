@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
+using AAModClassic._CrossMod;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
@@ -32,7 +33,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Quest
 
         public override bool IsAnglerQuestAvailable()
         {
-            return NPCExtensions.BeenKilled<Broodmother>();
+            return !ContentReplacementSystem.NeedToReplaceContent && NPCExtensions.BeenKilled<Broodmother>();
         }
 
         public override void AnglerQuestChat(ref string description, ref string catchLocation)

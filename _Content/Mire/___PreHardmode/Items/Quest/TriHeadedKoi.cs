@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
+using AAModClassic._CrossMod;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
@@ -30,7 +31,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Quest
 
         public override bool IsAnglerQuestAvailable()
         {
-            return NPCExtensions.BeenKilled<HydraBody>();
+            return !ContentReplacementSystem.NeedToReplaceContent && NPCExtensions.BeenKilled<HydraBody>();
         }
 
         public override void AnglerQuestChat(ref string description, ref string catchLocation)
