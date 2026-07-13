@@ -4,6 +4,7 @@ using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Effects;
 using AAModClassic.Globals;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -42,7 +43,7 @@ Can only be used in Greed's Hoard at the Altar of Desire
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
-            if (!NPCExtensions.BeenKilled<AthenaA>() && !AAWorld.AthenaAwakened)
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) || (!NPCExtensions.BeenKilled<AthenaA>() && !AAWorld.AthenaAwakened))
                 return;
 
             int indexToInsert = -1;
@@ -67,7 +68,7 @@ Can only be used in Greed's Hoard at the Altar of Desire
             list.RemoveAt(indexToRemove);
         }
 
-        public override bool CanUseItem(Player player) => player.GetModPlayer<ZAAPlayer>().ZoneHoard && (NPCExtensions.BeenKilled<GreedAHead>() || AAWorld.GreedAwakened);
+        public override bool CanUseItem(Player player) => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && player.GetModPlayer<ZAAPlayer>().ZoneHoard && (NPCExtensions.BeenKilled<GreedAHead>() || AAWorld.GreedAwakened);
 
         public override bool? UseItem(Player player)
         {

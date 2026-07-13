@@ -3,6 +3,7 @@ using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._Unofficial.Desert;
 using AAModClassic.Effects;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -41,7 +42,7 @@ Can only be used in the Acropolis at the Owl Altar
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
-            if (!NPCExtensions.BeenKilled<AthenaA>() && !AAWorld.AthenaAwakened)
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) || (!NPCExtensions.BeenKilled<AthenaA>() && !AAWorld.AthenaAwakened))
                 return;
 
             int indexToInsert = -1;
@@ -66,7 +67,7 @@ Can only be used in the Acropolis at the Owl Altar
             list.RemoveAt(indexToRemove);
         }
 
-        public override bool CanUseItem(Player player) => player.GetModPlayer<ZAAPlayer>().ZoneAcropolis && (NPCExtensions.BeenKilled<AthenaA>() || AAWorld.AthenaAwakened);
+        public override bool CanUseItem(Player player) => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && player.GetModPlayer<ZAAPlayer>().ZoneAcropolis && (NPCExtensions.BeenKilled<AthenaA>() || AAWorld.AthenaAwakened);
 
         public override bool? UseItem(Player player)
         {
