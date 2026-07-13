@@ -28,7 +28,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles
         {
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) &&!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(40))
             {
-                int style = Main.rand.Next(24);
+                int style = Main.rand.Next(23);
                 if (PlaceObject(i, j - 1, ModContent.TileType<InfernoFoliage_Tile>(), false, style))
                     NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<InfernoFoliage_Tile>(), style, 0, -1, -1);
             }

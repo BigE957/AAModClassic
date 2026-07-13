@@ -30,7 +30,7 @@ namespace AAModClassic._Content.Mire.World.Tiles
         {
             if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(500))
             {
-                int style = 9; // mushroom
+                int style = 23; // mushroom
                 if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), true, style))
                     NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MireFoliage_Tile>(), style, 0, -1, -1);
 

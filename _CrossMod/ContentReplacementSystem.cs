@@ -67,7 +67,7 @@ namespace AAModClassic._CrossMod
             ModContent.ItemType<DragonScale>(),
             ModContent.ItemType<_Content.Inferno.___PreHardmode.Items.Materials.DragonClaw_Item>(),
             ModContent.ItemType<_Content.Mire.___PreHardmode.Items.Materials.HydraClaw_Item>(),
-            ModContent.ItemType<Hotshroom>(),
+            ModContent.ItemType<SolarMushroom>(),
             ModContent.ItemType<LunarMushroom>(),
             #endregion
 
@@ -185,7 +185,7 @@ namespace AAModClassic._CrossMod
                 //OldToNewItems.Add(ModContent.ItemType<BroodScale>(), NewAA.Find<ModItem>("ScorchedScale").Type);
                 //OldToNewItems.Add(ModContent.ItemType<HydraHide>(), NewAA.Find<ModItem>("LurkerHide").Type);
 
-                OldToNewItems.Add(ModContent.ItemType<Hotshroom>(), NewAA.Find<ModItem>("InfernoShroom").Type);
+                OldToNewItems.Add(ModContent.ItemType<SolarMushroom>(), NewAA.Find<ModItem>("InfernoShroom").Type);
                 OldToNewItems.Add(ModContent.ItemType<LunarMushroom>(), NewAA.Find<ModItem>("MireShroom").Type);
 
                 OldToNewItems.Add(ModContent.ItemType<MushiumBar>(), NewAA.Find<ModItem>("BlightShroom").Type);

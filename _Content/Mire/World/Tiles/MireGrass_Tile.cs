@@ -122,14 +122,14 @@ namespace AAModClassic._Content.Mire.World.Tiles
             {
                 if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(1500))
                 {
-                    int style = 24; // black orchid
+                    int style = 23; // mushroom
                     if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), true, style))
                         NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MireFoliage_Tile>(), style, 0, -1, -1);
                 }
 
                 if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(10000))
                 {
-                    int style = 9; // mushroom
+                    int style = 9; // black orchid
                     if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), true, style))
                         NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MireFoliage_Tile>(), style, 0, -1, -1);
                 }

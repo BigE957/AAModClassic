@@ -780,7 +780,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                     }
                 }
             }
-            CurrentAttack = RajahAttacks.ThePunisher;
+
             if (Main.expertMode)
             {
                 if (NPC.life < NPC.lifeMax * .85f) //The lower the health, the more damage is done
