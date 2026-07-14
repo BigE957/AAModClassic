@@ -275,6 +275,11 @@ namespace AAModClassic._CrossMod
             }
         }
 
+        public override void PostSetupContent()
+        {
+            PerformModSupport();
+        }
+
         public static void PerformModSupport()
         {
             if (ModLoader.TryGetMod("RealisticSky", out var mod))
