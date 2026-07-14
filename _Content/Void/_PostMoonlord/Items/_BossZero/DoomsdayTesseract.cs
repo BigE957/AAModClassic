@@ -1,21 +1,23 @@
 ﻿
+using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Void.___PreHardmode.NPCs;
+using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
+using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
-using Terraria.Localization;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
+using Terraria.GameContent;
 using Terraria.ID;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
-using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
-using AAModClassic._Content.Void.___PreHardmode.NPCs;
-using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero
 {
@@ -23,7 +25,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero
     public class DoomsdayTesseract : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.BossSummon";
-        
+        public static Asset<Texture2D> glowmask;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Doomsday Tesseract");
@@ -31,6 +34,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero
             /* Tooltip.SetDefault(@"DESCRIPTI0NHERE
 UNSTABLE. C0NTAINS C0DE T0 ACTIVATE THE BRINGER 0F DEATH
 N0N-C0NSUMABLE"); */
+            if (Main.netMode != NetmodeID.Server)
+                glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
         public override void SetDefaults()
@@ -105,6 +110,13 @@ N0N-C0NSUMABLE"); */
             recipe.AddIngredient(ModContent.ItemType<DarkmatterBar>(), 20);
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
+        }
+
+        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
+        {
+            var position = Item.Center - Main.screenPosition;
+            var origin = glowmask.Size() / 2f;
+            spriteBatch.Draw(glowmask.Value, position, null, lightColor, rotation, origin, scale, SpriteEffects.None, 0);
         }
     }
 }

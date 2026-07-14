@@ -3,8 +3,12 @@ using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -13,7 +17,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Ammo
     public class UnstablePowerCell : BaseAAItem, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Ammo";
-        
+        public static Asset<Texture2D> glowmask;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Unstable Power Cell");
@@ -22,6 +27,8 @@ Non-consumable"); */
 
             Main.RegisterItemAnimation(Type, new DrawAnimationVertical(10, 4));
             ItemID.Sets.AnimatesAsSoul[Type] = true;
+            if (Main.netMode != NetmodeID.Server)
+                glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
         public override void SetDefaults()
@@ -40,8 +47,6 @@ Non-consumable"); */
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        
-
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe(1);
@@ -51,5 +56,13 @@ Non-consumable"); */
             recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
 			recipe.Register();
 		}
-	}
+
+        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
+        {
+            var frame = TextureAssets.Item[Type].Frame(1, 10, 0, (int)(Main.GlobalTimeWrappedHourly * 5) % 4);
+            var position = Item.Center - Main.screenPosition;
+            var origin = frame.Size() / 2f;
+            spriteBatch.Draw(glowmask.Value, position, frame, lightColor, rotation, origin, scale, SpriteEffects.None, 0);
+        }
+    }
 }
