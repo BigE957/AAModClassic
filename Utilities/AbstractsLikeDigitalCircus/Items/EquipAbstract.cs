@@ -59,6 +59,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         {
             base.UpdateAccessory(player, hideVisual);
             Clear();
+            RegisterEquipEffects();
 
             foreach (EquipmentEffectData effect in effectMap)
             {
