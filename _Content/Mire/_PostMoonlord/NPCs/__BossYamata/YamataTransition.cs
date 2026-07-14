@@ -123,16 +123,16 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 
 				if (NPC.ai[0] == 375)    
 				{
-					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.1"), new Color(45, 46, 70));
+					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.1"), AAColor.YamataDialogue);
 					NPC.netUpdate = true;
 				}else
 				if (NPC.ai[0] == 650)
 				{
-					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.2"), new Color(45, 46, 70));
+					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.2"), AAColor.YamataDialogue);
 				}else
 				if (NPC.ai[0] == 900)
 				{
-					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.3"), new Color(45, 46, 70));
+					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.3"), AAColor.YamataDialogue);
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.PlayerStatus"), Color.PaleVioletRed);
                     NPC.netUpdate = true;
 				}else
