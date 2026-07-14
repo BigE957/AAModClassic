@@ -1,4 +1,4 @@
-using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEye;
+﻿using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEye;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
@@ -106,7 +106,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 {
                     Vector2 dir = Vector2.Normalize(targetPlayer.Center - NPC.Center);
                     dir *= 5f;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X * 3, dir.Y * 3, ModContent.ProjectileType<DeityEye_DeityFlames>(), (int)(NPC.damage * .8f), 0f, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X * 3, dir.Y * 3, ModContent.ProjectileType<DeityEye_DeityFlames>(), 48, 0f, -1);
                 }
             }
 

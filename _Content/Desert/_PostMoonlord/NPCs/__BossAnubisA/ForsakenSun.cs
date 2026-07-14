@@ -1,4 +1,4 @@
-
+﻿
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
@@ -99,31 +99,31 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 
             if (NPC.ai[1] == 120)
             {
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12, 12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12, 12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12, -12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12, -12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12, 12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), 18, 0f, -1, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12, 12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), 18, 0f, -1, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12, -12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), 18, 0f, -1, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12, -12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), 18, 0f, -1, 0, NPC.whoAmI);
             }
             if (NPC.ai[1] == 240)
             {
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12, 0), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12, 0), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12, 0), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), 18, 0f, -1, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12, 0), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), 18, 0f, -1, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), 18, 0f, -1, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), 18, 0f, -1, 0, NPC.whoAmI);
             }
             if (NPC.ai[1] == 360)
             {
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12, 12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12, 12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12, -12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12, -12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12, 12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), 18, 0f, -1, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12, 12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), 18, 0f, -1, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12, -12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), 18, 0f, -1, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12, -12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), 18, 0f, -1, 0, NPC.whoAmI);
             }
             if (NPC.ai[1] == 480)
             {
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12, 0), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12, 0), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), NPC.damage / 3, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(12, 0), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), 18, 0f, -1, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-12, 0), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), 18, 0f, -1, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), 18, 0f, -1, 0, NPC.whoAmI);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -12), ModContent.ProjectileType<AnubisA_ForsakenBlast>(), 18, 0f, -1, 0, NPC.whoAmI);
             }
 
             if (NPC.ai[1] > 600)

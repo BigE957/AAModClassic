@@ -1,4 +1,4 @@
-using AAModClassic._Content.Void.World.Biomes;
+﻿using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.Core;
@@ -140,7 +140,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
                 for (int i = 0; i < Arrows; i++)
                 {
                     double offsetAngle = startAngle + deltaAngle * i;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), ModContent.ProjectileType<ZeroNeutralizer_SingularityArrow>(), NPC.damage / 2, 5, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), ModContent.ProjectileType<ZeroNeutralizer_SingularityArrow>(), 27, 5, -1);
                 }
                 NPC.netUpdate = true;
                 NPC.ai[2] = 0;

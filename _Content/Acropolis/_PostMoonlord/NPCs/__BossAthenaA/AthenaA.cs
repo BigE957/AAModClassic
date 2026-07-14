@@ -1,4 +1,4 @@
-using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossStandard;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
@@ -244,7 +244,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
                         for (int i = 0; i < 3; i++)
                         {
                             double offsetAngle = startAngle + deltaAngle * i;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, NPC.damage / 2, 5, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, 55, 5, -1);
                         }
                     }
                     if (NPC.ai[2] == 180 && NPC.life < NPC.lifeMax / 2)
@@ -259,7 +259,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
                         for (int i = 0; i < 3; i++)
                         {
                             double offsetAngle = startAngle + deltaAngle * i;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, NPC.damage / 2, 5, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, 55, 5, -1);
                         }
                     }
                     if (NPC.ai[2] > 220)
@@ -289,13 +289,13 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
 
                     if (NPC.ai[1] == 120)
                     {
-                        int a = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, -8f), ModContent.ProjectileType<AthenaA_ChargedVarianBurst>(), NPC.damage / 2, 3);
+                        int a = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, -8f), ModContent.ProjectileType<AthenaA_ChargedVarianBurst>(), 55, 3);
                         Main.projectile[a].Center = NPC.Center;
-                        int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, 8f), ModContent.ProjectileType<AthenaA_ChargedVarianBurst>(), NPC.damage / 2, 3);
+                        int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(8f, 8f), ModContent.ProjectileType<AthenaA_ChargedVarianBurst>(), 55, 3);
                         Main.projectile[b].Center = NPC.Center;
-                        int c = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, 8f), ModContent.ProjectileType<AthenaA_ChargedVarianBurst>(), NPC.damage / 2, 3);
+                        int c = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, 8f), ModContent.ProjectileType<AthenaA_ChargedVarianBurst>(), 55, 3);
                         Main.projectile[c].Center = NPC.Center;
-                        int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, -8f), ModContent.ProjectileType<AthenaA_ChargedVarianBurst>(), NPC.damage / 2, 3);
+                        int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(-8f, -8f), ModContent.ProjectileType<AthenaA_ChargedVarianBurst>(), 55, 3);
                         Main.projectile[d].Center = NPC.Center;
                     }
                     if (NPC.ai[1] > 180)

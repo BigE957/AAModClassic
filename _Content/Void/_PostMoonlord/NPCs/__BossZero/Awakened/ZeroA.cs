@@ -391,7 +391,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                                 if (NPC.ai[2] % Main.rand.Next(10) == 0 && Main.rand.NextBool(2))
                                 {
                                     double offsetAngle = startAngle + deltaAngle * i;
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), ModContent.ProjectileType<ZeroA_StaticSphere>(), NPC.damage / 4, 5, Main.myPlayer);
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), ModContent.ProjectileType<ZeroA_StaticSphere>(), 30, 5, -1);
                                 }
                             }
                         }

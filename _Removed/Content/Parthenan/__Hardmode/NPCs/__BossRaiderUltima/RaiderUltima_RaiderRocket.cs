@@ -1,4 +1,4 @@
-using AAModClassic.Dusts;
+﻿using AAModClassic.Dusts;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
@@ -280,11 +280,11 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             {
                 if (TileHit)
                 {
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y + 20, NPC.velocity.X, NPC.velocity.Y, ModContent.ProjectileType<RaiderUltima_RocketStrike>(), NPC.damage / 4, 1, 255);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y + 20, NPC.velocity.X, NPC.velocity.Y, ModContent.ProjectileType<RaiderUltima_RocketStrike>(), 60 / 4, 1, 255);
                 }
                 if (PlayerHit)
                 {
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y + 20, NPC.velocity.X, NPC.velocity.Y, ModContent.ProjectileType<RaiderUltima_RaiderExplosion>(), NPC.damage / 4, 1, 255);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y + 20, NPC.velocity.X, NPC.velocity.Y, ModContent.ProjectileType<RaiderUltima_RaiderExplosion>(), 60 / 4, 1, 255);
                 }
             }
         }

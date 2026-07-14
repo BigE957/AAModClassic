@@ -1,4 +1,4 @@
-using AAModClassic._Content.Acropolis.Projectiles;
+﻿using AAModClassic._Content.Acropolis.Projectiles;
 using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
@@ -89,17 +89,17 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                 NPC.TargetClosest();
                 if (NPC.ai[2]++ == 15)
                 {
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(8f, 8f), ModContent.ProjectileType<SeraphFeather>(), NPC.damage, 0);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(-8f, 8f), ModContent.ProjectileType<SeraphFeather>(), NPC.damage, 0);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(-8f, -8f), ModContent.ProjectileType<SeraphFeather>(), NPC.damage, 0);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(8f, -8f), ModContent.ProjectileType<SeraphFeather>(), NPC.damage, 0);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(8f, 8f), ModContent.ProjectileType<SeraphFeather>(), Main.expertMode ? 50 : 84, 0);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(-8f, 8f), ModContent.ProjectileType<SeraphFeather>(), Main.expertMode ? 50 : 84, 0);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(-8f, -8f), ModContent.ProjectileType<SeraphFeather>(), Main.expertMode ? 50 : 84, 0);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(8f, -8f), ModContent.ProjectileType<SeraphFeather>(), Main.expertMode ? 50 : 84, 0);
                 }
                 else if (NPC.ai[2] >= 30)
                 {
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(0f, 8f), ModContent.ProjectileType<SeraphFeather>(), NPC.damage, 0);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(-8f, 0f), ModContent.ProjectileType<SeraphFeather>(), NPC.damage, 0);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(0f, -8f), ModContent.ProjectileType<SeraphFeather>(), NPC.damage, 0);
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(8f, 0f), ModContent.ProjectileType<SeraphFeather>(), NPC.damage, 0);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(0f, 8f), ModContent.ProjectileType<SeraphFeather>(), Main.expertMode ? 50 : 84, 0);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(-8f, 0f), ModContent.ProjectileType<SeraphFeather>(), Main.expertMode ? 50 : 84, 0);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(0f, -8f), ModContent.ProjectileType<SeraphFeather>(), Main.expertMode ? 50 : 84, 0);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position, new Vector2(8f, 0f), ModContent.ProjectileType<SeraphFeather>(), Main.expertMode ? 50 : 84, 0);
                     NPC.ai[2] = 0;
                 }
             }

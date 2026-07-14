@@ -387,7 +387,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
                                 Vector2 speed = Vector2.Normalize(new Vector2(1f, 0f).RotatedBy(Main.npc[i].rotation + 3.1415f)) * 8f;
-                                Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, ModContent.ProjectileType<NightcrawlerHead_NightDeathraySmall>(), NPC.damage / 2, 0, Main.myPlayer, 0, i);
+                                Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, ModContent.ProjectileType<NightcrawlerHead_NightDeathraySmall>(), 65, 0, Main.myPlayer, 0, i);
                             }
                         }
                     }
@@ -443,7 +443,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                                 if (Main.npc[i].active && Main.npc[i].type == ModContent.NPCType<DaybringerBody>() && Main.npc[i].realLife == NPC.whoAmI && AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<DaybringerHead_DaySun>()) < 3)
                                 {
                                     Vector2 speed = Vector2.Normalize(new Vector2(1f, 0f).RotatedBy(Main.npc[i].rotation + 3.1415f)) * 8f;
-                                    Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, -speed.X, -speed.Y, ModContent.ProjectileType<DaybringerHead_DaySun>(), NPC.damage / 3, 1, 255);
+                                    Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, -speed.X, -speed.Y, ModContent.ProjectileType<DaybringerHead_DaySun>(), 42, 1, -1);
                                 }
                             }
                         }
@@ -462,7 +462,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                                 if (Main.npc[i].active && Main.npc[i].type == ModContent.NPCType<DaybringerBody>() && Main.npc[i].realLife == NPC.whoAmI && AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<DaybringerHead_DaySun>()) < 3)
                                 {
                                     Vector2 speed = Vector2.Normalize(new Vector2(1f, 0f).RotatedBy(Main.npc[i].rotation + 3.1415f)) * 8f;
-                                    Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, -speed.X, -speed.Y, ModContent.ProjectileType<DaybringerHead_DaySun>(), NPC.damage / 3, 1, 255);
+                                    Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, -speed.X, -speed.Y, ModContent.ProjectileType<DaybringerHead_DaySun>(), 42, 1, 255);
                                 }
                             }
                         }
@@ -471,7 +471,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                 if (internalAI[3] % 200 == 60 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     Vector2 speed = Vector2.Normalize(NPC.velocity) * 8f;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, speed.X, speed.Y, ModContent.ProjectileType<DaybringerHead_DaySun>(), NPC.damage / 2, 1, 255);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, speed.X, speed.Y, ModContent.ProjectileType<DaybringerHead_DaySun>(), 65, 1, 255);
                 }
                 if (NPC.Center.X < targetpos.X)
                 {
@@ -547,32 +547,32 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                                 {
                                     if (Main.rand.NextBool(2))
                                     {
-                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X - 200f, Main.player[playerid].Center.Y + 200f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), NPC.damage / 3, 5, playerid, -200f, playerid);
-                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X, Main.player[playerid].Center.Y - 300f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), NPC.damage / 3, 5, playerid, 0, playerid);
-                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X + 200f, Main.player[playerid].Center.Y + 200f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), NPC.damage / 3, 5, playerid, 200f, playerid);
+                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X - 200f, Main.player[playerid].Center.Y + 200f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), 42, 5, playerid, -200f, playerid);
+                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X, Main.player[playerid].Center.Y - 300f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), 42, 5, playerid, 0, playerid);
+                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X + 200f, Main.player[playerid].Center.Y + 200f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), 42, 5, playerid, 200f, playerid);
                                     }
                                     else
                                     {
-                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X + 200f, Main.player[playerid].Center.Y - 200f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), NPC.damage / 3, 5, playerid, -200f, playerid);
-                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X, Main.player[playerid].Center.Y + 300f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), NPC.damage / 3, 5, playerid, 0, playerid);
-                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X - 200f, Main.player[playerid].Center.Y - 200f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), NPC.damage / 3, 5, playerid, 200f, playerid);
+                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X + 200f, Main.player[playerid].Center.Y - 200f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), 42, 5, playerid, -200f, playerid);
+                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X, Main.player[playerid].Center.Y + 300f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), 42, 5, playerid, 0, playerid);
+                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X - 200f, Main.player[playerid].Center.Y - 200f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), 42, 5, playerid, 200f, playerid);
                                     }
                                 }
                                 else
                                 {
                                     if (Main.rand.NextBool(2))
                                     {
-                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X - 200f, Main.player[playerid].Center.Y + 200f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), NPC.damage / 3, 5, playerid, -200f, playerid);
-                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X + 200f, Main.player[playerid].Center.Y + 200f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), NPC.damage / 3, 5, playerid, 200f, playerid);
-                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X - 200f, Main.player[playerid].Center.Y - 200f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), NPC.damage / 3, 5, playerid, -200f, playerid);
-                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X + 200f, Main.player[playerid].Center.Y - 200f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), NPC.damage / 3, 5, playerid, 200f, playerid);
+                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X - 200f, Main.player[playerid].Center.Y + 200f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), 42, 5, playerid, -200f, playerid);
+                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X + 200f, Main.player[playerid].Center.Y + 200f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), 42, 5, playerid, 200f, playerid);
+                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X - 200f, Main.player[playerid].Center.Y - 200f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), 42, 5, playerid, -200f, playerid);
+                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X + 200f, Main.player[playerid].Center.Y - 200f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), 42, 5, playerid, 200f, playerid);
                                     }
                                     else
                                     {
-                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X, Main.player[playerid].Center.Y + 300f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), NPC.damage / 3, 5, playerid, 0, playerid);
-                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X, Main.player[playerid].Center.Y - 300f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), NPC.damage / 3, 5, playerid, 0, playerid);
-                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X + 300f, Main.player[playerid].Center.Y, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), NPC.damage / 3, 5, playerid, 0, playerid);
-                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X - 300f, Main.player[playerid].Center.Y, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), NPC.damage / 3, 5, playerid, 0, playerid);
+                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X, Main.player[playerid].Center.Y + 300f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), 42, 5, playerid, 0, playerid);
+                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X, Main.player[playerid].Center.Y - 300f, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), 42, 5, playerid, 0, playerid);
+                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X + 300f, Main.player[playerid].Center.Y, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), 42, 5, playerid, 0, playerid);
+                                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Main.player[playerid].Center.X - 300f, Main.player[playerid].Center.Y, 0, 0, ModContent.ProjectileType<DaybringerHead_DayStar>(), 42, 5, playerid, 0, playerid);
                                     }
                                 }
                             }
@@ -585,9 +585,9 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                             if (Main.npc[i].active && Main.npc[i].type == ModContent.NPCType<DaybringerBody>() && Main.npc[i].realLife == NPC.whoAmI)
                             {
                                 Vector2 speed = Vector2.Normalize(new Vector2(1f, 0f).RotatedBy(Main.npc[i].rotation + 3.1415f)) * 12f;
-                                Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, ModContent.ProjectileType<DaybringerHead_DayDart>(), NPC.damage / 3, 0, Main.myPlayer);
+                                Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, ModContent.ProjectileType<DaybringerHead_DayDart>(), 42, 0, Main.myPlayer);
                                 speed = -speed;
-                                Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, ModContent.ProjectileType<DaybringerHead_DayDart>(), NPC.damage / 3, 0, Main.myPlayer);
+                                Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, ModContent.ProjectileType<DaybringerHead_DayDart>(), 42, 0, Main.myPlayer);
                             }
                         }
                     }
@@ -598,9 +598,9 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                             if (Main.npc[i].active && Main.npc[i].type == ModContent.NPCType<DaybringerBody>() && Main.npc[i].realLife == NPC.whoAmI && Main.rand.NextBool(15))
                             {
                                 Vector2 speed = Vector2.Normalize(new Vector2(1f, 0f).RotatedBy(Main.npc[i].rotation + 3.1415f)) * 8f;
-                                Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, ModContent.ProjectileType<DaybringerHead_DayOrb>(), NPC.damage / 3, 0, Main.myPlayer, 0, NPC.whoAmI);
+                                Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, ModContent.ProjectileType<DaybringerHead_DayOrb>(), 42, 0, Main.myPlayer, 0, NPC.whoAmI);
                                 speed = -speed;
-                                Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, ModContent.ProjectileType<DaybringerHead_DayOrb>(), NPC.damage / 3, 0, Main.myPlayer, 0, NPC.whoAmI);
+                                Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, ModContent.ProjectileType<DaybringerHead_DayOrb>(), 42, 0, Main.myPlayer, 0, NPC.whoAmI);
                             }
                         }
                     }
@@ -647,9 +647,9 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                             if (Main.npc[i].active && Main.npc[i].type == ModContent.NPCType<NightcrawlerBody>() && Main.npc[i].realLife == NPC.whoAmI)
                             {
                                 Vector2 speed = Vector2.Normalize(new Vector2(1f, 0f).RotatedBy(Main.npc[i].rotation + 3.1415f)) * .5f;
-                                Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, ModContent.ProjectileType<NightcrawlerHead_NightScythe>(), NPC.damage / 3, 0, Main.myPlayer, NPC.rotation, NPC.spriteDirection);
+                                Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, ModContent.ProjectileType<NightcrawlerHead_NightScythe>(), 42, 0, Main.myPlayer, NPC.rotation, NPC.spriteDirection);
                                 speed = -speed;
-                                Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, ModContent.ProjectileType<NightcrawlerHead_NightScythe>(), NPC.damage / 3, 0, Main.myPlayer, NPC.rotation, NPC.spriteDirection);
+                                Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, ModContent.ProjectileType<NightcrawlerHead_NightScythe>(), 42, 0, Main.myPlayer, NPC.rotation, NPC.spriteDirection);
                             }
                         }
                     }
@@ -665,7 +665,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                                 speed = (Main.rand.NextBool(2) ? 1: -1) * speed;
                                 float ai = Main.rand.Next(120);
                                 Vector2 speedR = Vector2.Normalize(speed.RotatedByRandom(0.6)) * 20f;
-                                Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, speedR.X, speedR.Y, ModContent.ProjectileType<NightcrawlerHead_NightLaser>(), NPC.damage / 3, 0, Main.myPlayer, speed.ToRotation() + 1000f, ai);
+                                Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, speedR.X, speedR.Y, ModContent.ProjectileType<NightcrawlerHead_NightLaser>(), 42, 0, Main.myPlayer, speed.ToRotation() + 1000f, ai);
                             }
                         }
                     }

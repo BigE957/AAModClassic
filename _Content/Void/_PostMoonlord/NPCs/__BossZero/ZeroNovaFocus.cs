@@ -1,4 +1,4 @@
-using AAModClassic._Content.Void.World.Biomes;
+﻿using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.Core;
@@ -142,7 +142,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
                 }
                 else if (!AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<ZeroNovaFocus_NovaRay>()) && Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    laser = Main.projectile[Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ZeroNovaFocus_NovaRay>(), (int)(NPC.damage * 0.75f), 3f, Main.myPlayer, NPC.whoAmI, 420)];
+                    laser = Main.projectile[Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ZeroNovaFocus_NovaRay>(), 42, 3f, -1, NPC.whoAmI, 420)];
                     laser.velocity = BaseUtility.RotateVector(default, new Vector2(14f, 0f), laser.rotation);
                 }
             }

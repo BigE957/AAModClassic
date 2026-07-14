@@ -1,4 +1,4 @@
-using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
+﻿using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.__Hardmode.NPCs;
 using AAModClassic._Content.Terrarium.World.Biomes;
@@ -394,7 +394,7 @@ public class BiomiteCore : ModNPC
 					Vector2 val9 = array2[j] - NPC.Center;
 					float num5 = Main.rand.Next(100);
 					Vector2 val10 = Vector2.Normalize(val9.RotatedByRandom(0.7853981852531433)) * 14f;
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, val10.X, val10.Y, ModContent.ProjectileType<ChargedOwlRune_OlympianStorm>(), NPC.damage, 0f, Main.myPlayer, val9.ToRotation(), num5);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, val10.X, val10.Y, ModContent.ProjectileType<ChargedOwlRune_OlympianStorm>(), 40, 0f, Main.myPlayer, val9.ToRotation(), num5);
 				}
 				break;
 			}

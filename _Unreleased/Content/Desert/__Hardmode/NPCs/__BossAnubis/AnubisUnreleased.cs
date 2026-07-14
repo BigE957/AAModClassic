@@ -310,8 +310,8 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                         {
                             if (Main.rand.Next(2) == 0 && IsBelow33Percent)
                             {
-                                int a = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X + 100, NPC.Center.Y), Vector2.Zero, ModContent.ProjectileType<Anubis_EyeSentrySummon>(), 0, 0, Main.myPlayer, NPC.Center.X - 200, NPC.Center.Y);
-                                int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X - 100, NPC.Center.Y), Vector2.Zero, ModContent.ProjectileType<Anubis_EyeSentrySummon>(), 0, 0, Main.myPlayer, NPC.Center.X + 200, NPC.Center.Y);
+                                int a = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X + 100, NPC.Center.Y), Vector2.Zero, ModContent.ProjectileType<Anubis_EyeSentrySummon>(), 0, 0, -1, NPC.Center.X - 200, NPC.Center.Y);
+                                int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X - 100, NPC.Center.Y), Vector2.Zero, ModContent.ProjectileType<Anubis_EyeSentrySummon>(), 0, 0, -1, NPC.Center.X + 200, NPC.Center.Y);
                             }
                             else
                             {
@@ -408,8 +408,8 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                         {
                             if (Main.rand.Next(2) == 0)
                             {
-                                int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockVertical>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
-                                int r = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockVertical>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
+                                int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockVertical>(), 18, 7, -1, 0, 0);
+                                int r = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockVertical>(), 18, 7, -1, 1, 0);
                                 Main.projectile[l].ai[1] = r;
                                 Main.projectile[l].Center = player.Center + new Vector2(-800, 0);
                                 Main.projectile[r].ai[1] = l;
@@ -417,8 +417,8 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                             }
                             else
                             {
-                                int u = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, -800), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockHorizontal>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
-                                int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, 800), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockHorizontal>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
+                                int u = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, -800), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockHorizontal>(), 18, 7, -1, 0, 0);
+                                int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, 800), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockHorizontal>(), 18, 7, -1, 1, 0);
                                 Main.projectile[u].ai[1] = d;
                                 Main.projectile[u].Center = player.Center + new Vector2(0, -800);
                                 Main.projectile[d].ai[1] = u;
@@ -435,8 +435,8 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                     {
                         if (AttackTimer == 50)
                         {
-                            int l = Projectile.NewProjectile(NPC.GetSource_FromThis(),  player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockVertical>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
-                            int r = Projectile.NewProjectile(   NPC.GetSource_FromThis(), player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockVertical>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
+                            int l = Projectile.NewProjectile(NPC.GetSource_FromThis(),  player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockVertical>(), 18, 7, -1, 0, 0);
+                            int r = Projectile.NewProjectile(   NPC.GetSource_FromThis(), player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockVertical>(), 18, 7, -1, 1, 0);
                             Main.projectile[l].ai[1] = r;
                             Main.projectile[l].Center = player.Center + new Vector2(-800, 0);
                             Main.projectile[r].ai[1] = l;
@@ -444,8 +444,8 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                         }
                         if (AttackTimer == 100)
                         {
-                            int u = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, -800), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockHorizontal>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
-                            int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, 800), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockHorizontal>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
+                            int u = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, -800), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockHorizontal>(), 18, 7, -1, 0, 0);
+                            int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, 800), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockHorizontal>(), 18, 7, -1, 1, 0);
                             Main.projectile[u].ai[1] = d;
                             Main.projectile[u].Center = player.Center + new Vector2(0, -800);
                             Main.projectile[d].ai[1] = u;
@@ -462,8 +462,8 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                         {
                             if (Main.rand.Next(2) == 0)
                             {
-                                int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockVertical>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
-                                int r = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockVertical>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
+                                int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockVertical>(), 18, 7, -1, 0, 0);
+                                int r = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockVertical>(), 18, 7, -1, 1, 0);
                                 Main.projectile[l].ai[1] = r;
                                 Main.projectile[l].Center = player.Center + new Vector2(-800, 0);
                                 Main.projectile[r].ai[1] = l;
@@ -471,8 +471,8 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                             }
                             else
                             {
-                                int u = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, -800), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockHorizontal>(), NPC.damage / 2, 7, Main.myPlayer, 0, 0);
-                                int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, 800), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockHorizontal>(), NPC.damage / 2, 7, Main.myPlayer, 1, 0);
+                                int u = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, -800), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockHorizontal>(), 18, 7, -1, 0, 0);
+                                int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, 800), Vector2.Zero, ModContent.ProjectileType<Anubis_BlockHorizontal>(), 18, 7, -1, 1, 0);
                                 Main.projectile[u].ai[1] = d;
                                 Main.projectile[u].Center = player.Center + new Vector2(0, -800);
                                 Main.projectile[d].ai[1] = u;
@@ -496,7 +496,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                                 Vector2 goal = player.Center - NPC.Center;
                                 if (!MathUtils.TryGetLaunchVelocity(goal, 10, 0.2f, out Vector2 velocity))
                                     velocity = new Vector2(Math.Sign(goal.X) == -1 ? -10 : 10, 10);
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<Axe>(), NPC.damage / 2, 0.5f, -1);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<Axe>(), 18, 0.5f, -1);
 
                                 CurrentTextureFrame = 3;
                                 NPC.frameCounter = 0;
@@ -580,7 +580,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                         if (!MathUtils.TryGetLaunchVelocity(goal, 10, 0.2f, out Vector2 velocity))
                             velocity = NPC.DirectionTo(targetPos) * 100;
 
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<Axe>(), NPC.damage / 2, 0.5f, -1);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<Axe>(), 18, 0.5f, -1);
 
                         ThrowAxe2_AmountOfAxesThrown++;
                     }
@@ -627,7 +627,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
 
                         if (!MathUtils.TryGetLaunchVelocity(goal, 10, 0.2f, out Vector2 velocity))
                             velocity = NPC.DirectionTo(targetPos) * 100;
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<Axe>(), NPC.damage / 2, 0.5f, -1);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<Axe>(), 18, 0.5f, -1);
 
                         ThrowAxe2_AmountOfAxesThrown++;
                     }
@@ -661,7 +661,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                         float vxi = goal.X / t;
 
                         Vector2 velocity = new Vector2(float.IsNaN(vxi) ? goal.X > 0 ? 10 : -10 : vxi, -vyi);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<HugeAxe>(), NPC.damage / 2, 0.5f, -1);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<HugeAxe>(), 18, 0.5f, -1);
 
                         ThrowAxe3_HasThrownHugeAxe = true;
                         AttackTimer = 0;

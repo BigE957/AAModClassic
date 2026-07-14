@@ -1,4 +1,4 @@
-using AAModClassic._Content.Acropolis.World.Biomes;
+﻿using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
@@ -101,7 +101,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
                     Vector2 vector82 = array5[num842] - NPC.Center;
                     float ai = Main.rand.Next(100);
                     Vector2 vector83 = Vector2.Normalize(vector82.RotatedByRandom(0.78539818525314331)) * 14f;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector83.X, vector83.Y, ModContent.ProjectileType<ChargedOwlRune_OlympianStorm>(), NPC.damage, 0f, Main.myPlayer, vector82.ToRotation(), ai);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector83.X, vector83.Y, ModContent.ProjectileType<ChargedOwlRune_OlympianStorm>(), Main.expertMode ? 50 : 84, 0f, Main.myPlayer, vector82.ToRotation(), ai);
                 }
             }
             Lighting.AddLight(NPC.Center, 0f, 0.85f, 0.9f);

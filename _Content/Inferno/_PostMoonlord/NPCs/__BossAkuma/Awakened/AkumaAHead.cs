@@ -244,7 +244,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                     {
                         NPC.ai[2] = 0;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 20f * Vector2.Normalize(NPC.velocity), ModContent.ProjectileType<AkumaAFireballFrag>(), NPC.damage / 4, 0f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 20f * Vector2.Normalize(NPC.velocity), ModContent.ProjectileType<AkumaAFireballFrag>(), 38, 0f, -1);
                     }
                     if (++NPC.ai[1] > 300)
                     {
@@ -289,7 +289,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                                         Vector2 vel = 4f * Vector2.UnitY;
                                         vel.X += Main.rand.NextFloat(-1f, 1f);
                                         vel.Y += Main.rand.NextFloat(-1f, 1f);
-                                        Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center, vel, ModContent.ProjectileType<AkumaAHead_Rock>(), Main.npc[i].damage / 4, 0f, Main.myPlayer);
+                                        Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center, vel, ModContent.ProjectileType<AkumaAHead_Rock>(), 38, 0f, -1);
                                     }
                                 }
                         }
@@ -308,7 +308,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                                         Vector2 vel = 4f * Vector2.UnitY;
                                         vel.X += Main.rand.NextFloat(-1f, 1f);
                                         vel.Y += Main.rand.NextFloat(-1f, 1f);
-                                        Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center, vel, ModContent.ProjectileType<AkumaAHead_Rock>(), Main.npc[i].damage / 4, 0f, Main.myPlayer);
+                                        Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center, vel, ModContent.ProjectileType<AkumaAHead_Rock>(), 38, 0f, -1);
                                     }
                                 }
                         }
@@ -332,7 +332,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                         NPC.ai[1] = 0;
                         NPC.netUpdate = true;
                         if (Main.netMode != NetmodeID.MultiplayerClient) //fire deathray
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity), ModContent.ProjectileType<AkumaAHead_SolarDeathraySmall>(), NPC.damage / 4, 0f, Main.myPlayer, 0, NPC.whoAmI);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity), ModContent.ProjectileType<AkumaAHead_SolarDeathraySmall>(), 38, 0f, -1, 0, NPC.whoAmI);
                     }
                     break;
 
@@ -359,8 +359,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                                 fire = !fire;
                                 if (fire)
                                 {
-                                    Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center, Main.npc[i].rotation.ToRotationVector2(), ModContent.ProjectileType<AkumaAHead_SolarDeathraySmall>(), Main.npc[i].damage / 4, 0f, Main.myPlayer, (float)Math.PI / 2, Main.npc[i].whoAmI);
-                                    Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center, (Main.npc[i].rotation + (float)Math.PI).ToRotationVector2(), ModContent.ProjectileType<AkumaAHead_SolarDeathraySmall>(), Main.npc[i].damage / 4, 0f, Main.myPlayer, (float)-Math.PI / 2, Main.npc[i].whoAmI);
+                                    Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center, Main.npc[i].rotation.ToRotationVector2(), ModContent.ProjectileType<AkumaAHead_SolarDeathraySmall>(), 38, 0f, -1, (float)Math.PI / 2, Main.npc[i].whoAmI);
+                                    Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center, (Main.npc[i].rotation + (float)Math.PI).ToRotationVector2(), ModContent.ProjectileType<AkumaAHead_SolarDeathraySmall>(), 38, 0f, -1, (float)-Math.PI / 2, Main.npc[i].whoAmI);
                                 }
                             }
                     }
@@ -420,7 +420,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                                         vel.X += Main.rand.NextFloat(-1f, 1f);
                                         vel.Y += Main.rand.NextFloat(-.5f, .5f);
                                         vel *= 1.5f;
-                                        Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center, vel, ModContent.ProjectileType<AkumaAHead_Meteor>(), Main.npc[i].damage / 4, 0f, Main.myPlayer, 0f, 1f);
+                                        Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center, vel, ModContent.ProjectileType<AkumaAHead_Meteor>(), 38, 0f, -1, 0f, 1f);
                                     }
                                 }
                         }
@@ -444,7 +444,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                                         vel.X += Main.rand.NextFloat(-1f, 1f);
                                         vel.Y += Main.rand.NextFloat(-.5f, .5f);
                                         vel *= 1.5f;
-                                        Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center, vel, ModContent.ProjectileType<AkumaAHead_Meteor>(), Main.npc[i].damage / 4, 0f, Main.myPlayer, 0f, 1f);
+                                        Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center, vel, ModContent.ProjectileType<AkumaAHead_Meteor>(), 38, 0f, -1, 0f, 1f);
                                     }
                                 }
                         }
@@ -458,7 +458,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                     {
                         NPC.ai[2] = 1;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<AsheA>(), NPC.damage / 4, 0f, Main.myPlayer, NPC.target); 
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<AsheA>(), 38, 0f, -1, NPC.target); 
                         if (!spawnAshe)
                         {
                             spawnAshe = true;

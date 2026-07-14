@@ -372,7 +372,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
                         Vector2 dir = new Vector2(NPC.velocity.X * 2f + 4f * NPC.direction, NPC.velocity.Y * 0.5f + 1f);
                         Vector2 firePos = new Vector2(NPC.Center.X + 64 * NPC.direction, NPC.Center.Y + 28f);
                         firePos = BaseUtility.RotateVector(NPC.Center, firePos, NPC.rotation); //+ (npc.direction == -1 ? (float)Math.PI : 0f)));
-                        int projID = Projectile.NewProjectile(NPC.GetSource_FromThis(), firePos, dir, ModContent.ProjectileType<RaiderUltima_RaidSphere>(), NPC.damage / (Main.expertMode ? 2 : 4), 1, 255);
+                        int projID = Projectile.NewProjectile(NPC.GetSource_FromThis(), firePos, dir, ModContent.ProjectileType<RaiderUltima_RaidSphere>(), 35, 1, -1);
                         Main.projectile[projID].netUpdate = true;
                     }
                 }
