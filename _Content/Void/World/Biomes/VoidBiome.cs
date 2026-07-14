@@ -1,6 +1,8 @@
-﻿using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
+﻿using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic._Content.Void.World.Biomes.Water;
+using AAModClassic._CrossMod;
 using AAModClassic._Unreleased;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic.Achievements;
@@ -114,7 +116,13 @@ namespace AAModClassic._Content.Void.World.Biomes
             else
             {
                 Intensity = Math.Max(0f, Intensity - 0.01f);
+                if (Intensity < 0.001f)
+                    Intensity = 0f;
             }
+
+            if (Intensity > 0 && WeakReferences.RealisticSky != null)
+                WeakReferences.RealisticSky.Call("temporarilydisable");
+            
             if (Main.gameMenu || NPC.downedMoonlord)
             {
                 if (ticksUntilNextBolt <= 0)

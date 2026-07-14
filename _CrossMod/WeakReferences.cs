@@ -102,6 +102,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs._Surface._Day;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung;
 using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Jungle.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Jungle.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Madness.___PreHardmode.Items.Weapons;
@@ -170,6 +171,7 @@ using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Pets;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
+using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._CrossMod.CalamityMod;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Removed.Content.Parthenan;
@@ -212,12 +214,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Terraria;
+using Terraria.Graphics.Effects;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._CrossMod
 {
-    internal class WeakReferences
+    public class WeakReferences : ModSystem
     {
         private static readonly Dictionary<string, float> BossProgressionValues = new()
         {
@@ -258,8 +261,30 @@ namespace AAModClassic._CrossMod
             { "Cthulhu", 24.121f },
         };
 
+        public static Mod RealisticSky = null;
+
+        public override void PostUpdateEverything()
+        {
+            // If you're wondering why this is here when its also in VoidSky,
+            // its because for some reason this is what's turning it off when in a world,
+            // and the code in VoidSky is turning it off in the Menu Theme.
+            if (RealisticSky != null)
+            {
+                if ((SkyManager.Instance["AAModClassic:VoidSky"] as VoidSky).Intensity > 0)
+                    RealisticSky.Call("temporarilydisable");
+            }
+        }
+
+        public override void PostSetupContent()
+        {
+            PerformModSupport();
+        }
+
         public static void PerformModSupport()
         {
+            if (ModLoader.TryGetMod("RealisticSky", out var mod))
+                RealisticSky = mod;
+
             PerformHealthBarSupport();
 
             PerformBossChecklistSupport();

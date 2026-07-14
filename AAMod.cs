@@ -137,8 +137,6 @@ namespace AAModClassic
 
         public override void PostSetupContent()
         {
-            WeakReferences.PerformModSupport();
-
             //Make Luminite Spelunkerable
             Main.tileSpelunker[TileID.LunarOre] = true;
 

@@ -4,6 +4,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.Skies;
 using AAModClassic._Content.Inferno.World.Biomes.Waters;
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._CrossMod;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
@@ -130,6 +131,14 @@ namespace AAModClassic._Content.Inferno.World.Biomes
             else
             {
                 Intensity = Math.Max(0f, Intensity - 0.01f);
+            }
+
+            if (Intensity > 0 && WeakReferences.RealisticSky != null)
+            {
+                if (SkyManager.Instance["AAModClassic:AkumaASky"].IsActive())
+                    WeakReferences.RealisticSky.Call("setsunbloomopacity", 0);
+                else
+                    WeakReferences.RealisticSky.Call("setsunbloomopacity", 1 - Intensity);
             }
         }
 
