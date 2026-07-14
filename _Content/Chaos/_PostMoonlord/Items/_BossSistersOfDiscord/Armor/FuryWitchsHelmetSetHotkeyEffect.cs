@@ -21,7 +21,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
     {
         public override void DoEffect(Player player)
         {
-            player.GetModPlayer<FuryWitchsHelmetSetMinionPlayer>().effect = true;
+            player.GetModPlayer<FuryWitchsHelmetSetHotkeyPlayer>().effect = true;
         }
     }
 
