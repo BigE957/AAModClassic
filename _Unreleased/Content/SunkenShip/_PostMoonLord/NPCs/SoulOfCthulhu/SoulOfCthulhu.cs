@@ -687,10 +687,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             else
                 shader = 0;
 
-            if (shader == 0)
-                spriteBatch.Draw(Rift, NPC.Center - screenPos, null, AAColor.Cthulhu, RiftSpin, Rift.Size() * 0.5f, 1.5f, 0, 0);
-            else
-                BaseDrawing.DrawTexture(spriteBatch, Rift, 0, NPC.position, NPC.width, NPC.height, 1.5f, RiftSpin, 0, 1, new Rectangle(0, 0, Rift.Width, Rift.Height), AAColor.Cthulhu, true);
+            spriteBatch.Draw(Rift, NPC.Center - screenPos, null, AAColor.Cthulhu, RiftSpin, Rift.Size() * 0.5f, 1.5f, 0, 0);
 
             if (!BossAlive)
                 DrawBackVines(spriteBatch, drawColor);
@@ -698,18 +695,25 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             if (shader == 0)
                 spriteBatch.Draw(WheelTex, NPC.Center - screenPos, null, drawColor, Rotation, WheelTex.Size() * 0.5f, NPC.scale, 0, 0);
             else
-                BaseDrawing.DrawTexture(spriteBatch, WheelTex, shader, NPC.position, NPC.width, NPC.height, NPC.scale, Rotation, 0, 1, new Rectangle(0, 0, WheelTex.Width, WheelTex.Height), drawColor, true);
+                DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (sb) =>
+                {
+                    sb.Draw(WheelTex, NPC.Center - screenPos, null, drawColor, Rotation, WheelTex.Size() * 0.5f, NPC.scale, 0, 0);
+                });
 
             if (shader == 0)
                 spriteBatch.Draw(texture2D13, NPC.Center - screenPos, null, drawColor, NPC.rotation, texture2D13.Size() * 0.5f, NPC.scale, 0, 0);
             else
-                BaseDrawing.DrawTexture(spriteBatch, texture2D13, shader, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 1, new Rectangle(0, 0, texture2D13.Width, texture2D13.Height), drawColor, true);
+                DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (sb) =>
+                {
+                    sb.Draw(texture2D13, NPC.Center - screenPos, null, drawColor, NPC.rotation, texture2D13.Size() * 0.5f, NPC.scale, 0, 0);
+                });
 
             if (!NPC.IsABestiaryIconDummy && (BossAlive || Summon))
             {
-                BaseDrawing.DrawTexture(spriteBatch, GlowTex, 0, NPC.position, NPC.width, NPC.height, NPC.scale, NPC.rotation, 0, 1, new Rectangle(0, 0, GlowTex.Width, GlowTex.Height), Color.White, true);
+                spriteBatch.Draw(GlowTex, NPC.Center - Main.screenPosition, null, AAColor.Cthulhu2, NPC.rotation, GlowTex.Size() * 0.5f, NPC.scale, 0, 0);
 
-                BaseDrawing.DrawAfterimage(spriteBatch, GlowTex, 0, NPC, 0.8f, 1f, 6, false, 0f, 0f, AAColor.Cthulhu2);
+                //These don't do anything since SoC sets its position rather than using velocity
+                //BaseDrawing.DrawAfterimage(spriteBatch, GlowTex, 0, NPC, 0.8f, 1f, 6, false, 0f, 0f, AAColor.Cthulhu2);
             }
 
             if (!BossAlive)
