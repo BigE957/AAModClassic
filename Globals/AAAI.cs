@@ -144,7 +144,7 @@ namespace AAModClassic.Globals
 		 * DamageReduction: How much to divide damage by to prevent one-shotting projectiles
 		 */
 
-        public static void BreatheFire(NPC npc, bool UseNPCVelocity = false, int ProjectileType = 85, float SpeedBoost = 1, float DamageReduction = 2)
+        public static void BreatheFire(NPC npc, int damage, bool UseNPCVelocity = false, int ProjectileType = 85, float SpeedBoost = 1)
         {
             int num429 = 1;
             if (npc.position.X + (npc.width / 2) < Main.player[npc.target].position.X + Main.player[npc.target].width)
@@ -173,7 +173,7 @@ namespace AAModClassic.Globals
                 PlayerPosX = npc.velocity.X;
                 PlayerPosY = npc.velocity.Y;
             }
-            Projectile.NewProjectile(npc.GetSource_FromThis(), Origin.X, Origin.Y, PlayerPosX * SpeedBoost, PlayerPosY * SpeedBoost, ProjectileType, (int)(npc.damage / DamageReduction), 0f, ai1: npc.whoAmI);
+            Projectile.NewProjectile(npc.GetSource_FromThis(), Origin.X, Origin.Y, PlayerPosX * SpeedBoost, PlayerPosY * SpeedBoost, ProjectileType, damage, 0f, ai1: npc.whoAmI);
         }
 
         public static void AIShadowflameGhost(NPC npc, ref float[] ai, bool speedupOverTime = false, float distanceBeforeTakeoff = 660f, float velIntervalX = 0.3f, float velMaxX = 7f, float velIntervalY = 0.2f, float velMaxY = 4f, float velScalarY = 4f, float velScalarYMax = 15f, float velIntervalXTurn = 0.4f, float velIntervalYTurn = 0.4f, float velIntervalScalar = 0.95f, float velIntervalMaxTurn = 5f)

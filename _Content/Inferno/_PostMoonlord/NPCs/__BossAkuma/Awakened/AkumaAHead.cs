@@ -226,7 +226,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                     }
                     else
                     {
-                        AAAI.BreatheFire(NPC, true, ModContent.ProjectileType<AkumaAHead_Breath>(), 2, 4);
+                        AAAI.BreatheFire(NPC, 38, true, ModContent.ProjectileType<AkumaAHead_Breath>(), 2);
                     }
                     if (++NPC.ai[1] > 240)
                     {
