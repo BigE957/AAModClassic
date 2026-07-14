@@ -6,6 +6,7 @@ using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
@@ -550,7 +551,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
                     internalAI[1]++;
                 }
                 NPC.velocity.X *= .98f;
-                if (internalAI[1] == 35)
+                if (internalAI[1] == 35 && !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 {
                     NPC toadNPC = NPC.NewNPCDirect(NPC.GetSource_FromThis(), (int)(NPC.Center.X - 30f), (int)(NPC.Center.Y - 16), ModContent.NPCType<TinyToad>());
                     TinyToad toad = toadNPC.ModNPC as TinyToad;

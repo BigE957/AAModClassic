@@ -222,14 +222,19 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Snow
             LeadingConditionRule unofficialRule = new(new Unofficial());
 
             //TODO: for 1.4.5 uncomment this
-            //RemoveAndChangeDrops(NPCID.PigronHallow, [ItemID.Crystallize], unofficialRule, ref npcLoot);
+            //CloneDropsWithoutInput(NPCID.PigronHallow, [ItemID.Crystallize], unofficialRule, ref npcLoot);
         }
 
-        // you fat chud. move this somewhere better and rename it 
-        public static void RemoveAndChangeDrops(int idToClone, int[] itemIds, LeadingConditionRule leadingCondition, ref NPCLoot loot)
+        /// <summary>
+        /// Clones the given NPC's loot except anything input and adds it to the given loot pool.
+        /// </summary>
+        /// <param name="npcToClone">The ID of the npc whose loot is to be cloned.</param>
+        /// <param name="itemIdsToExclude">The items present in the former NPC's lootpool you do not wish to clone.</param>
+        /// <param name="leadingCondition">The loading condition rule to apply to all cloned loot.</param>
+        /// <param name="loot">The loot pool you wish to add the loot to.</param>
+        public static void CloneDropsWithoutInput(int npcToClone, int[] itemIdsToExclude, LeadingConditionRule leadingCondition, ref NPCLoot loot)
         {
-            List<IItemDropRule> clonedDropRules = Main.ItemDropsDB.GetRulesForNPCID(idToClone, false);
-
+            List<IItemDropRule> clonedDropRules = Main.ItemDropsDB.GetRulesForNPCID(npcToClone, false);
 
             foreach (IItemDropRule rule in clonedDropRules)
             {
@@ -244,7 +249,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Snow
                     itemID = commonDrop.itemId;
                 }
 
-                if (itemIds.Contains(itemID))
+                if (itemIdsToExclude.Contains(itemID))
                 {
                     continue;
                 }
