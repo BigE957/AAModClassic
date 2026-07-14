@@ -3098,7 +3098,10 @@ namespace AAModClassic
                 {
                     Texture2D Shield = ModContent.Request<Texture2D>(ModContent.GetInstance<AsheRune>().Texture).Value;
                     int red = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
-                    BaseDrawing.DrawTexture(Main.spriteBatch, Shield, red, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<ZAAPlayer>().AsheFlameScale, drawPlayer.GetModPlayer<ZAAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), true);
+                    DrawingUtils.DrawWithVanillaShader(Main.spriteBatch, red, (sb) =>
+                    {
+                        sb.Draw(Shield, drawPlayer.Center - Main.screenPosition, null, Color.White, drawPlayer.GetModPlayer<ZAAPlayer>().RingRotation, Shield.Size() * 0.5f, drawPlayer.GetModPlayer<ZAAPlayer>().AsheFlameScale, 0, 0);
+                    });
                 }
 
                 int cbuff = drawPlayer.GetModPlayer<ChampionHelmetMageSetPlayer>().CarrotBuff;

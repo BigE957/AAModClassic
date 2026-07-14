@@ -69,6 +69,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Terraria;
@@ -286,15 +288,70 @@ namespace AAModClassic
             }
         }
 
+        private static readonly FieldInfo ShaderRefField = typeof(ShaderData).GetField("_shader", BindingFlags.NonPublic | BindingFlags.Instance);
+
+        private static readonly FieldInfo AssetField = typeof(ShaderData).GetField("_asset", BindingFlags.NonPublic | BindingFlags.Instance);
+
+        private static readonly FieldInfo PassNameField = typeof(ShaderData).GetField("_passName", BindingFlags.NonPublic | BindingFlags.Instance);
+
+        private static ArmorShaderData NewShaderFrom(int vanillaDyeId)
+        {
+            ArmorShaderData baseShader = GameShaders.Armor.GetShaderFromItemId(vanillaDyeId);
+
+            var newShader = (ArmorShaderData)RuntimeHelpers.GetUninitializedObject(typeof(ArmorShaderData));
+
+            ShaderRefField.SetValue(newShader, ShaderRefField.GetValue(baseShader));
+            AssetField.SetValue(newShader, AssetField.GetValue(baseShader));
+            PassNameField.SetValue(newShader, PassNameField.GetValue(baseShader));
+
+            return newShader;
+        }
+
         public void LoadClient()
         {
-            GameShaders.Armor.BindShader(Find<ModItem>("BlazingDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.LivingFlameDye)).UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f).UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f);
-            GameShaders.Armor.BindShader(Find<ModItem>("AbyssalDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.LivingFlameDye).UseColor(146f / 255f, 30f / 255f, 68f / 255f).UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f));
-            GameShaders.Armor.BindShader(Find<ModItem>("DoomsdayDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.VortexDye)).UseImage("Images/Misc/noise").UseColor(0f, 0f, 0f).UseSecondaryColor(1f, 0f, 0f).UseSaturation(1f);
-            GameShaders.Armor.BindShader(Find<ModItem>("DiscordianDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.LivingFlameDye).UseColor(0.66f, 0f, 1f).UseSecondaryColor(0.66f, 0f, 1f));
-            GameShaders.Armor.BindShader(Find<ModItem>("DiscordianInfernoDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.HadesDye)).UseColor(0.88f, 0f, 1f).UseSecondaryColor(0.66f, 0f, 1f);
-            GameShaders.Armor.BindShader(Find<ModItem>("AbyssalWrathDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.HadesDye).UseColor(146f / 255f, 30f / 255f, 68f / 255f).UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f));
-            GameShaders.Armor.BindShader(Find<ModItem>("BlazingFuryDye").Type, GameShaders.Armor.GetShaderFromItemId(ItemID.HadesDye)).UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f).UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f);
+            GameShaders.Armor.BindShader(Find<ModItem>("BlazingDye").Type,
+                NewShaderFrom(ItemID.LivingFlameDye)
+                .UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f)
+                .UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f)
+            );
+
+            GameShaders.Armor.BindShader(Find<ModItem>("AbyssalDye").Type,
+                NewShaderFrom(ItemID.LivingFlameDye)
+                .UseColor(146f / 255f, 30f / 255f, 68f / 255f)
+                .UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f)
+            );
+
+            GameShaders.Armor.BindShader(Find<ModItem>("DoomsdayDye").Type,
+                NewShaderFrom(ItemID.VortexDye)
+                .UseImage("Images/Misc/noise")
+                .UseColor(0f, 0f, 0f)
+                .UseSecondaryColor(1f, 0f, 0f)
+                .UseSaturation(1f)
+            );
+
+            GameShaders.Armor.BindShader(Find<ModItem>("DiscordianDye").Type,
+                NewShaderFrom(ItemID.LivingFlameDye)
+                .UseColor(0.66f, 0f, 1f)
+                .UseSecondaryColor(0.66f, 0f, 1f)
+            );
+
+            GameShaders.Armor.BindShader(Find<ModItem>("DiscordianInfernoDye").Type,
+                NewShaderFrom(ItemID.HadesDye)
+                .UseColor(0.88f, 0f, 1f)
+                .UseSecondaryColor(0.66f, 0f, 1f)
+            );
+
+            GameShaders.Armor.BindShader(Find<ModItem>("AbyssalWrathDye").Type,
+                NewShaderFrom(ItemID.HadesDye)
+                .UseColor(146f / 255f, 30f / 255f, 68f / 255f)
+                .UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f)
+            );
+
+            GameShaders.Armor.BindShader(Find<ModItem>("BlazingFuryDye").Type,
+                NewShaderFrom(ItemID.HadesDye)
+                .UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f)
+                .UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f)
+            );
 
             Asset<Effect> shader = ModContent.Request<Effect>("AAModClassic/Effects/Shockwave");
             ScreenShaderData shaderdata = new(shader, "Shockwave");
