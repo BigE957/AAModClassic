@@ -300,7 +300,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
                     }
                     if (NPC.ai[1] == 120)
                     {
-                        BaseAI.FireProjectile(player.position, NPC.position, ModContent.ProjectileType<Anubis_Scepter>(), NPC.damage / 2, 14, 10, -1);
+                        BaseAI.FireProjectile(player.position, NPC.position, ModContent.ProjectileType<Anubis_Scepter>(), 27, 14, 10, -1);
                     }
                     if (NPC.ai[1] == 160)
                     {

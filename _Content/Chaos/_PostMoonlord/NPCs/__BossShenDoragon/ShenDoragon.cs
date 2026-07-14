@@ -47,7 +47,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
         public bool SpawnMinionPhaseCharacters = false;
 
-        public int damage = 0;
+        public int damage = 50; //Complete guess
 
         private static Asset<Texture2D> Glowmask;
         private static Asset<Texture2D> EyeGlowmask;

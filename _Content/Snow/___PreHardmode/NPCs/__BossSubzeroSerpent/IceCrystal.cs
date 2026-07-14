@@ -63,7 +63,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             }
             else
             {
-                int p = BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<IceCrystal_IceSpike>(), ref NPC.ai[0], 80, NPC.damage / 2, 7, true);
+                int p = BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<IceCrystal_IceSpike>(), ref NPC.ai[0], 80, 25, 7, true);
                 if (p != -1)
                 {
                     ((IceCrystal_IceSpike)Main.projectile[p].ModProjectile).BiomeType = BiomeType;

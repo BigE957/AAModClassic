@@ -152,7 +152,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
                     }
                     MoveToVector2(targetPos);
 
-                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<AthenaA_VarianBurst>(), ref NPC.ai[1], 50, NPC.damage / 3, 10, true);
+                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<AthenaA_VarianBurst>(), ref NPC.ai[1], 50, 36, 10, true);
 
                     if (internalAI[3]++ >= 250 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
@@ -209,7 +209,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
 
                     MoveToVector2(targetPos);
 
-                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<AthenaA_SwiftwindSpear>(), ref NPC.ai[1], 100, NPC.damage / 3, 10, true);
+                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<AthenaA_SwiftwindSpear>(), ref NPC.ai[1], 100, 36, 10, true);
 
                     if (NPC.ai[2]++ > 400)
                     {

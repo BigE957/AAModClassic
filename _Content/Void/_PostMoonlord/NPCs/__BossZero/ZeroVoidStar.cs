@@ -146,7 +146,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
                     Vector2 fireTarget = NPC.Center;
                     float rot = BaseUtility.RotationTo(NPC.Center, player.Center);
                     fireTarget = BaseUtility.RotateVector(NPC.Center, fireTarget, rot);
-                    BaseAI.FireProjectile(player.Center, fireTarget, ModContent.ProjectileType<ZeroVoidStar_VoidStorm>(), NPC.damage / 2, 0f, 4f);
+                    BaseAI.FireProjectile(player.Center, fireTarget, ModContent.ProjectileType<ZeroVoidStar_VoidStorm>(), 30, 0f, 4f);
                 }
             }
 

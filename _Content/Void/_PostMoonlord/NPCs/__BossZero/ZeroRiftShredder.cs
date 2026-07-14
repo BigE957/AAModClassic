@@ -158,7 +158,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
                 NPC.rotation += (float)(0.1 + (double)(NPC.ai[3] / 120) * 0.4f) * NPC.direction * 1;
                 if (NPC.ai[3] > 120)
                 {
-                    BaseAI.FireProjectile(player.Center, NPC.position, ModContent.ProjectileType<ZeroRiftShredder_Rift>(), NPC.damage / 2, 4, 2, -1, Main.myPlayer);
+                    BaseAI.FireProjectile(player.Center, NPC.position, ModContent.ProjectileType<ZeroRiftShredder_Rift>(), 25, 4, 2, -1, Main.myPlayer);
                     NPC.ai[2] = 0;
                     NPC.ai[3] = 0;
                 }

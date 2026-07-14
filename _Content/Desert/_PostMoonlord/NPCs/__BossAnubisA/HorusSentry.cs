@@ -100,7 +100,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
             }
             if (NPC.ai[0] >= 340 && NPC.ai[0] <= 460)
             {
-                BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<AnubisA_CurseFlame>(), ref NPC.ai[1], 20, NPC.damage / 2, 10, true);
+                BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<AnubisA_CurseFlame>(), ref NPC.ai[1], 20, 30, 10, true);
             }
             if (NPC.ai[0] > 460)
             {

@@ -275,7 +275,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
 
                 if (Shoot == Interval)
                 {
-                    BaseAI.FireProjectile(player.position, NPC.position, proj, NPC.damage / 4, 2, 10, -1, Main.myPlayer);
+                    BaseAI.FireProjectile(player.position, NPC.position, proj, 10, 2, 10, -1, Main.myPlayer);
                 }
 
                 if (Shoot >= Interval + 60)

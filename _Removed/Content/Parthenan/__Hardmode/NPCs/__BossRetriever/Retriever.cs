@@ -301,7 +301,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
 					}
 					if(Vector2.Distance(NPC.Center, point) < 10f || customAI[0] > 50)
 					{
-						BaseAI.ShootPeriodic(NPC, targetPlayer.position, targetPlayer.width, targetPlayer.height, ModContent.ProjectileType<Retriever_Shot>(), ref customAI[1], ShootLaserRate, NPC.damage / (Main.expertMode ? 2 : 4), 12f, false);
+						BaseAI.ShootPeriodic(NPC, targetPlayer.position, targetPlayer.width, targetPlayer.height, ModContent.ProjectileType<Retriever_Shot>(), ref customAI[1], ShootLaserRate, 40, 12f, false);
 					}
                 }
             }
@@ -326,7 +326,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
 					}	
 					if(Vector2.Distance(NPC.Center, point) < 10f)
 					{						
-						BaseAI.ShootPeriodic(NPC, targetPlayer.position, targetPlayer.width, targetPlayer.height, ModContent.ProjectileType<Retriever_Shot>(), ref customAI[1], ShootLaserRate, NPC.damage / (Main.expertMode ? 2 : 4), 12f, false);
+						BaseAI.ShootPeriodic(NPC, targetPlayer.position, targetPlayer.width, targetPlayer.height, ModContent.ProjectileType<Retriever_Shot>(), ref customAI[1], ShootLaserRate, 40, 12f, false);
 					}
                 }
             }				

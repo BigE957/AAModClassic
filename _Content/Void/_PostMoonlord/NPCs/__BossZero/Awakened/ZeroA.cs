@@ -740,11 +740,11 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                 }
                 if (Main.rand.NextBool(2))
                 {
-                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<ZeroA_GlitchBomb>(), ref NPC.ai[3], Frequency, NPC.damage / 3, 10, true);
+                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<ZeroA_GlitchBomb>(), ref NPC.ai[3], Frequency, 40, 10, true);
                 }
                 else
                 {
-                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<ZeroA_GlitchRocket>(), ref NPC.ai[3], Frequency, NPC.damage / 3, 10, true);
+                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<ZeroA_GlitchRocket>(), ref NPC.ai[3], Frequency, 40, 10, true);
                 }
             }
 

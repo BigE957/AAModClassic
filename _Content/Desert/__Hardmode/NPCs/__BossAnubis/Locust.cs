@@ -97,7 +97,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 			NPC.rotation = (NPC.position.X - NPC.oldPos[1].X) * 0.05f;
 
             Player player = Main.player[anubis.target];
-            BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<Locust_Spit>(), ref NPC.ai[2], Main.expertMode ? 120 : 80, NPC.damage / 2, 9, true);
+            BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<Locust_Spit>(), ref NPC.ai[2], Main.expertMode ? 120 : 80, 3, 9, true);
 		}
 
 		public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

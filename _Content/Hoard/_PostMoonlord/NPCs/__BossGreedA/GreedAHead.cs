@@ -161,7 +161,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
             {
                 if (internalAI[5] == 0)
                 {
-                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<GreedAHead_PlatinumCoin>(), ref internalAI[4], 30, NPC.damage / 4, 10, false);
+                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<GreedAHead_PlatinumCoin>(), ref internalAI[4], 30, 24, 10, false);
                 }
                 else
                 {

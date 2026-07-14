@@ -229,7 +229,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 
                     int proj = Main.rand.NextBool(2) ? ModContent.ProjectileType<AnubisA_ForsakenBlast>() : ModContent.ProjectileType<AnubisA_ForsakenSkull>();
 
-                    int damage = NPC.damage / 2;
+                    int damage = 27;
 
                     BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, proj, ref NPC.ai[3], 60, damage, 10, true);
 
@@ -331,7 +331,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 
                     if (NPC.ai[1] == 120)
                     {
-                        BaseAI.FireProjectile(player.position, NPC.position, ModContent.ProjectileType<AnubisA_CrookOfTheSoulJudge>(), NPC.damage / 2, 14, 10, -1);
+                        BaseAI.FireProjectile(player.position, NPC.position, ModContent.ProjectileType<AnubisA_CrookOfTheSoulJudge>(), 27, 14, 10, -1);
                     }
                     if (NPC.ai[1] == 140)
                     {
@@ -409,7 +409,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 
                     int proj1 = ModContent.ProjectileType<AnubisA_DamnedSoul>();
 
-                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, proj1, ref NPC.ai[3], 100, NPC.damage / 2, 10, true);
+                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, proj1, ref NPC.ai[3], 100, 27, 10, true);
 
                     if (NPC.ai[3] == 50)
                     {

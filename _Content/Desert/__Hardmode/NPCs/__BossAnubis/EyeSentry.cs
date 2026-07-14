@@ -100,7 +100,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
             }
             if (NPC.ai[0] >= 340 && NPC.ai[0] <= 460)
             {
-                BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<Runefire>(), ref NPC.ai[1], 30, NPC.damage / 2, 10, true);
+                BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<Runefire>(), ref NPC.ai[1], 30, 20, 10, true);
             }
             if (NPC.ai[0] > 460)
             {

@@ -115,7 +115,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
             Player player = Main.player[npc.target];
             Shooty = true;
 
-            BaseAI.FireProjectile(player.Center, npc, ModContent.ProjectileType<AnubisA_CurseFlame>(), npc.damage / 2, 0f, 2f);
+            BaseAI.FireProjectile(player.Center, npc, ModContent.ProjectileType<AnubisA_CurseFlame>(), 20, 0f, 2f);
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

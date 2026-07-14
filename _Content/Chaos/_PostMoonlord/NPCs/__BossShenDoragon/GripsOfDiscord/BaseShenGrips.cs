@@ -285,7 +285,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                     {
                         for (int m = 0; m < 16; m++)
                         {
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 0), ModContent.ProjectileType<AbyssGrip_Orbiter>(), NPC.damage / 2, 0f, Main.myPlayer, NPC.whoAmI, 2f * (float)Math.PI / 16 * m);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 0), ModContent.ProjectileType<AbyssGrip_Orbiter>(), 40, 0f, Main.myPlayer, NPC.whoAmI, 2f * (float)Math.PI / 16 * m);
                         }
                     }
                 }
@@ -336,7 +336,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                         {
                             double offsetAngle = startAngle + deltaAngle * i;
                             Vector2 shootdir = new Vector2(baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle));
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(shootdir), ModContent.ProjectileType<BlazeGrip_Deathray>(), NPC.damage / 4, 0f, Main.myPlayer, i, NPC.whoAmI);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(shootdir), ModContent.ProjectileType<BlazeGrip_Deathray>(), 15, 0f, Main.myPlayer, i, NPC.whoAmI);
                         }
                     }
                     if(internalAI[2] > 200)

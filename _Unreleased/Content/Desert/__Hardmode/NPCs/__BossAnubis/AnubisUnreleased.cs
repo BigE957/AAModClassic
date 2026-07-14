@@ -358,7 +358,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                     break;
                 case (int)AnubisAttacks.ShootRuneblasts:
 
-                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<Anubis_Runeblast>(), ref ShotTimer, 80, NPC.damage / 2, 10, true);
+                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<Anubis_Runeblast>(), ref ShotTimer, 80, 20, 10, true);
 
                     if (ShotTimer == 79)
                     {
@@ -383,7 +383,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                 case (int)AnubisAttacks.ThrowScepter:
                     if (AttackTimer == 120)
                     {
-                        BaseAI.FireProjectile(player.position, NPC.position, ModContent.ProjectileType<Anubis_Scepter>(), NPC.damage / 2, 14, 10, -1);
+                        BaseAI.FireProjectile(player.position, NPC.position, ModContent.ProjectileType<Anubis_Scepter>(), 20, 14, 10, -1);
                     }
                     if (AttackTimer == 160)
                     {
@@ -502,7 +502,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                                 NPC.frameCounter = 0;
                             }
                             else
-                                BaseAI.FireProjectile(player.position, NPC.position, ModContent.ProjectileType<Axe>(), NPC.damage / 2, 14, 10, -1);
+                                BaseAI.FireProjectile(player.position, NPC.position, ModContent.ProjectileType<Axe>(), 20, 14, 10, -1);
                         }
                     }
                     if (AttackTimer == 86)

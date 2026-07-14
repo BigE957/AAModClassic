@@ -142,22 +142,22 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
                         if (MinionType == 8) //Demonite
                         {
                             p = ProjectileID.CursedFlameHostile;
-                            ShootPeriodic(NPC, player.position, player.width, player.height, p, ref NPC.ai[1], 120, NPC.damage / 2, 9, true);
+                            ShootPeriodic(NPC, player.position, player.width, player.height, p, ref NPC.ai[1], 120, 25, 9, true);
                         }
                         else if (MinionType == 20) //Chlorophyte
                         {
                             p = ProjectileID.Leaf; //ProjectileID.CrystalLeafShot;
-                            ShootPeriodic(NPC, player.position, player.width, player.height, p, ref NPC.ai[1], 120, NPC.damage / 2, 9, true);
+                            ShootPeriodic(NPC, player.position, player.width, player.height, p, ref NPC.ai[1], 120, 25, 9, true);
                         }
                         else if (MinionType == 22) //Nebula
                         {
                             p = ModContent.ProjectileType<OreConstruct_Nebula>();
-                            ShootPeriodic(NPC, player.position, player.width, player.height, p, ref NPC.ai[1], 200, NPC.damage / 2, 9, true);
+                            ShootPeriodic(NPC, player.position, player.width, player.height, p, ref NPC.ai[1], 200, 25, 9, true);
                         }
                         else if (MinionType == 23) //Vortex
                         {
                             p = 640;
-                            ShootPeriodic(NPC, player.position, player.width, player.height, p, ref NPC.ai[1], 200, NPC.damage / 2, 9, true);
+                            ShootPeriodic(NPC, player.position, player.width, player.height, p, ref NPC.ai[1], 200, 25, 9, true);
                         }
                         else if (MinionType == 16 && NPC.ai[1]++ > 180) //Oricalcum
                         {

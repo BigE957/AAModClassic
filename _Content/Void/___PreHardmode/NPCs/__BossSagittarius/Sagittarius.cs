@@ -253,7 +253,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
             switch ((int)NPC.ai[3])
             {
                 case 0:
-                    BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<Sagittarius_VoidShot>(), ref NPC.ai[2], 60, NPC.damage / 4, 9, false, new Vector2(-36 * NPC.direction, -51));
+                    BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<Sagittarius_VoidShot>(), ref NPC.ai[2], 60, 9, 9, false, new Vector2(-36 * NPC.direction, -51));
                     break;
                 case 1:
                     if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -267,7 +267,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
                     }
                     if (internalAI[0] > 80)
                     {
-                        BaseAI.ShootPeriodic(NPC, player.Center + new Vector2(Main.rand.Next(-10, 10), Main.rand.Next(-10, 10)), player.width, player.height, ModContent.ProjectileType<Sagittarius_NovaStar>(), ref NPC.ai[2], 20, NPC.damage / 4, 9, false, new Vector2(36 * NPC.direction, -51));
+                        BaseAI.ShootPeriodic(NPC, player.Center + new Vector2(Main.rand.Next(-10, 10), Main.rand.Next(-10, 10)), player.width, player.height, ModContent.ProjectileType<Sagittarius_NovaStar>(), ref NPC.ai[2], 20, 9, 9, false, new Vector2(36 * NPC.direction, -51));
                     }
                     break;
                 case 2:
@@ -297,7 +297,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
                     }
                     if (internalAI[0] > 80)
                     {
-                        BaseAI.ShootPeriodic(NPC, player.Center + new Vector2(Main.rand.Next(-10, 10), Main.rand.Next(-10, 10)), player.width, player.height, ModContent.ProjectileType<Sagittarius_RaiderRocket>(), ref NPC.ai[2], 40, NPC.damage / 4, 9, false);
+                        BaseAI.ShootPeriodic(NPC, player.Center + new Vector2(Main.rand.Next(-10, 10), Main.rand.Next(-10, 10)), player.width, player.height, ModContent.ProjectileType<Sagittarius_RaiderRocket>(), ref NPC.ai[2], 40, 9, 9, false);
                     }
                     break;
                 case 4:
@@ -307,7 +307,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
                     }
                     if (internalAI[0] > 80)
                     {
-                        BaseAI.ShootPeriodic(NPC, player.Center + new Vector2(Main.rand.Next(-10, 10), Main.rand.Next(-10, 10)), player.width, player.height, ModContent.ProjectileType<Sagittarius_VoidRay>(), ref NPC.ai[2], 50, NPC.damage / 4, 9, false, new Vector2(36 * NPC.direction, -51));
+                        BaseAI.ShootPeriodic(NPC, player.Center + new Vector2(Main.rand.Next(-10, 10), Main.rand.Next(-10, 10)), player.width, player.height, ModContent.ProjectileType<Sagittarius_VoidRay>(), ref NPC.ai[2], 50, 9, 9, false, new Vector2(36 * NPC.direction, -51));
                     }
                     break;
                 default:

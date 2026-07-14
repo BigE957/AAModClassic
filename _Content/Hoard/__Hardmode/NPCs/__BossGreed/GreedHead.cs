@@ -164,7 +164,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
             {
                 if (internalAI[5] == 0)
                 {
-                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<GreedHead_GoldCoin>(), ref internalAI[4], 30, NPC.damage / 4, 10, false);
+                    BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<GreedHead_GoldCoin>(), ref internalAI[4], 30, 9, 10, false);
                 }
                 else
                 {

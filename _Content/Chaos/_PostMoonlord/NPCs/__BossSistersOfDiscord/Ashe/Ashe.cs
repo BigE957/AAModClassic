@@ -112,7 +112,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
                     MoveToPoint(wantedVelocity);
 
-                    BaseAI.ShootPeriodic(NPC, player.Center + new Vector2(Main.rand.Next(-10, 10), Main.rand.Next(-10, 10)), player.width, player.height, ModContent.ProjectileType<Ashe_DayfireShot>(), ref NPC.ai[2], 18, NPC.damage / 4, 9, false);
+                    BaseAI.ShootPeriodic(NPC, player.Center + new Vector2(Main.rand.Next(-10, 10), Main.rand.Next(-10, 10)), player.width, player.height, ModContent.ProjectileType<Ashe_DayfireShot>(), ref NPC.ai[2], 18, 32, 9, false);
                     if (NPC.ai[1]++ > (Main.expertMode ? 180 : 280))
                     {
                         AIChange();
@@ -150,7 +150,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                     {
                         if (NPC.ai[1] > 60 && NPC.ai[1] <= 180)
                         {
-                            BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<Ashe_BlazingFury>(), ref NPC.ai[2], 5, NPC.damage / 4, 16, false);
+                            BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<Ashe_BlazingFury>(), ref NPC.ai[2], 5, 32, 16, false);
                         }
                     }
 
@@ -247,7 +247,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                     }
                     if (NPC.life > NPC.lifeMax / 3 || NPC.ai[1] < 100)
                     {
-                        BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<Ashe_FireBomb>(), ref NPC.ai[2], NPC.life < NPC.lifeMax * 0.666f ? 30 : 60, NPC.damage / 4, 8, false);
+                        BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<Ashe_FireBomb>(), ref NPC.ai[2], NPC.life < NPC.lifeMax * 0.666f ? 30 : 60, 32, 8, false);
                     }
                     if (NPC.ai[1]++ > (Main.expertMode ? 180 : 280))
                     {
@@ -333,7 +333,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                     float RunepositionY = Runeposition.Y;
                     if(Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        int id = NPC.NewNPC(NPC.GetSource_FromThis(), (int)RunepositionX, (int)RunepositionY, ModContent.NPCType<AsheRune>(), 0, RunepositionX, RunepositionY, NPC.damage / 4, NPC.whoAmI, player.whoAmI);
+                        int id = NPC.NewNPC(NPC.GetSource_FromThis(), (int)RunepositionX, (int)RunepositionY, ModContent.NPCType<AsheRune>(), 0, RunepositionX, RunepositionY, 32, NPC.whoAmI, player.whoAmI);
                         if (Main.netMode == NetmodeID.Server && id < 200) NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, id);
                     }
                     NPC.ai[2] = 0;

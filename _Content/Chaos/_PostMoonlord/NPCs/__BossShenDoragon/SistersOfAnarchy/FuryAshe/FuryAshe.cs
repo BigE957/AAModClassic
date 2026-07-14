@@ -104,7 +104,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
                     MoveToPoint(wantedVelocity);
 
-                    BaseAI.ShootPeriodic(NPC, player.Center + new Vector2(Main.rand.Next(-10, 10), Main.rand.Next(-10, 10)), player.width, player.height, ModContent.ProjectileType<ShenDoragon_DiscordianInferno>(), ref NPC.ai[2], 22, NPC.damage / 4, 9, false);
+                    BaseAI.ShootPeriodic(NPC, player.Center + new Vector2(Main.rand.Next(-10, 10), Main.rand.Next(-10, 10)), player.width, player.height, ModContent.ProjectileType<ShenDoragon_DiscordianInferno>(), ref NPC.ai[2], 22, 36, 9, false);
                     if (NPC.ai[1]++ > (Main.expertMode ? 180 : 280))
                     {
                         AIChange();
@@ -138,7 +138,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
                     MoveToPoint(wantedVelocity);
 
-                    BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<ShenDoragonA_FireBreath>(), ref NPC.ai[2], 5, NPC.damage / 4, 16, false);
+                    BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<ShenDoragonA_FireBreath>(), ref NPC.ai[2], 5, 36, 16, false);
                     if (NPC.ai[1]++ > (Main.expertMode ? 180 : 280))
                     {
                         NPC.ai[1] = 0;
@@ -179,8 +179,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             const float ai0 = 0.01f;
-                            NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), NPC.damage / 4, 0f, Main.myPlayer, ai0, chaosType: ChaosType.Discord);
-                            NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), NPC.damage / 4, 0f, Main.myPlayer, ai0, chaosType: ChaosType.Discord);
+                            NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), 36, 0f, -1, ai0, chaosType: ChaosType.Discord);
+                            NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), 36, 0f, -1, ai0, chaosType: ChaosType.Discord);
                         }
                     }
                     if (++NPC.ai[1] > 40)
@@ -232,7 +232,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                     }
                     if (NPC.life > NPC.lifeMax / 3 || NPC.ai[1] < 100)
                     {
-                        BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<FuryAshe_FuryFireBomb>(), ref NPC.ai[2], NPC.life < NPC.lifeMax * 0.666f ? 30 : 60, NPC.damage / 4, 8, false);
+                        BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<FuryAshe_FuryFireBomb>(), ref NPC.ai[2], NPC.life < NPC.lifeMax * 0.666f ? 30 : 60, 36, 8, false);
                     }
                     if (NPC.ai[1]++ > (Main.expertMode ? 180 : 280))
                     {
@@ -315,7 +315,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                         
                         float RunepositionX = Runeposition.X;
                         float RunepositionY = Runeposition.Y;
-                        int id = NPC.NewNPC(NPC.GetSource_FromThis(), (int)RunepositionX, (int)RunepositionY, ModContent.NPCType<AsheRune>(), 0, RunepositionX, RunepositionY, NPC.damage / 4, NPC.whoAmI, player.whoAmI);
+                        int id = NPC.NewNPC(NPC.GetSource_FromThis(), (int)RunepositionX, (int)RunepositionY, ModContent.NPCType<AsheRune>(), 0, RunepositionX, RunepositionY, 36, NPC.whoAmI, player.whoAmI);
                         if (Main.netMode == NetmodeID.Server && id < 200) NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, id);
                     }
                     NPC.ai[2] = 0;
