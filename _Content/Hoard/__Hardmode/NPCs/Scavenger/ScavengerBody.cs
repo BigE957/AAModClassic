@@ -1,4 +1,6 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
+using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using AAModClassic.Utilities.Interfaces;
@@ -35,6 +37,12 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
 
         public override void AI()
         {
+            if (NPC.AnyNPCs(ModContent.NPCType<GreedHead>()) || NPC.AnyNPCs(ModContent.NPCType<GreedAHead>()))
+            {
+                NPC.active = false;
+                return;
+            }
+
             if (!Main.npc[(int)NPC.ai[1]].active)
             {
                 NPC.life = 0;

@@ -2,6 +2,8 @@ using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
 using AAModClassic._Content.Hoard.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
+using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
+using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
 using AAModClassic._Content.Hoard.World.Biomes;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
@@ -66,6 +68,12 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
 
         public override void AI()
         {
+            if(NPC.AnyNPCs(ModContent.NPCType<GreedHead>()) || NPC.AnyNPCs(ModContent.NPCType<GreedAHead>()))
+            {
+                NPC.active = false;
+                return;
+            }
+
             Player player = Main.player[NPC.target];
             if (NPC.ai[3] > 0f)
             {
