@@ -19,7 +19,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Materials
             // DisplayName.SetDefault("EX Soul");
             // Tooltip.SetDefault("Essence of ancient, arcane magic");
             // ticksperframe, frameCount
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 4));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(4, 4));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
             ItemID.Sets.AnimatesAsSoul[Type] = true;
         }

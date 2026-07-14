@@ -28,7 +28,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories.Vanity
 
         public override void SetStaticDefaults()
         {
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 14));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 14));
             ItemID.Sets.AnimatesAsSoul[Type] = true;
             base.SetStaticDefaults();
         }

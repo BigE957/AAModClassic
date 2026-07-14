@@ -16,9 +16,10 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Materials
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terror Soul");
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 3));
-            ItemID.Sets.ItemIconPulse[Item.type] = true;
-            ItemID.Sets.ItemNoGravity[Item.type] = true;
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(6, 3));
+            ItemID.Sets.ItemIconPulse[Type] = true;
+            ItemID.Sets.ItemNoGravity[Type] = true;
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
         // TODO -- Velocity Y smaller, post NewItem?

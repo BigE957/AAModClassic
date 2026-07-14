@@ -20,8 +20,9 @@ namespace AAModClassic._Unofficial.Content.Void.__Hardmode.Items.Tools
             // DisplayName.SetDefault("Gravitron Centrifuge");
             /* Tooltip.SetDefault(@"Provides a great deal of centrifugal force, granting standard gravity in space
             Right click to deactivate effects"); */
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 4));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
         public override void SetDefaults()

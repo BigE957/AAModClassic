@@ -20,7 +20,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Ammo
             /* Tooltip.SetDefault(@"Acts as a bullet
 Non-consumable"); */
 
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(10, 4));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(10, 4));
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
         public override void SetDefaults()

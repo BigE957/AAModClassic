@@ -14,10 +14,13 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Humanizer;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -27,11 +30,16 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
     public class Duality : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
+        public static Asset<Texture2D> glowmask;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Duality");
             /* Tooltip.SetDefault(@"'Chaos flares from this ancient talisman'"); */
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 8));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(4, 8));
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
+            if (Main.netMode != NetmodeID.Server)
+                glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
         // TODO -- Velocity Y smaller, post NewItem?
@@ -50,6 +58,14 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
         public override void PostUpdate()
         {
             Lighting.AddLight(Item.Center, Color.DarkMagenta.ToVector3() * 0.55f * Main.essScale);
+        }
+
+        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
+        {
+            var frame = TextureAssets.Item[Type].Frame(1, 10, 0, (int)(Main.GlobalTimeWrappedHourly * 8) % 8);
+            var position = Item.Center - Main.screenPosition;
+            var origin = frame.Size() / 2f;
+            spriteBatch.Draw(glowmask.Value, position, frame, lightColor, rotation, origin, scale, SpriteEffects.None, 0);
         }
 
         public override void RegisterEquipEffects()

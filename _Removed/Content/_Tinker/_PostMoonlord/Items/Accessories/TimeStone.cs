@@ -23,8 +23,9 @@ Pressing the Time Stone hotkey will allow you to speed up and resume time.
 Using the Time stone like an item stops/resumes time.
 'Dread it. Run from it. Destiny still arives.'");*/
 
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 16));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(4, 16));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
         public override void SetDefaults()

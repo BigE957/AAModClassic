@@ -13,7 +13,8 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Materials
         {
             // DisplayName.SetDefault("Dragon's Fire");
             // Tooltip.SetDefault("It's really really hot.");
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 4));
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
         public override void SetDefaults()
         {

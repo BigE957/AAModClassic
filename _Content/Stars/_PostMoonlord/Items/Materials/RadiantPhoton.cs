@@ -14,7 +14,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
         
         public override void SetStaticDefaults()
         {
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 4));
             ItemID.Sets.ItemIconPulse[Item.type] = true;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
             // DisplayName.SetDefault("Radiant Photon");

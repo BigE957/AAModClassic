@@ -21,9 +21,10 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             //DisplayName.SetDefault("Reality Bar");
             //Tooltip.SetDefault("Raw, interdimensional energy");
             // ticksperframe, frameCount
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 6));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 6));
             if (Main.netMode != NetmodeID.Server)
                 glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

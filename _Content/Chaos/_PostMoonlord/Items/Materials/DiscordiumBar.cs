@@ -18,23 +18,15 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Materials
     public class DiscordiumBar : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Materials";
-        public short customGlowMask = 0;
+        public static Asset<Texture2D> glowmask;
         public override void SetStaticDefaults()
         {
-            if (Main.netMode != NetmodeID.Server)
-            {
-                Asset<Texture2D>[] glowMasks = new Asset<Texture2D>[TextureAssets.GlowMask.Length + 1];
-                for (int i = 0; i < TextureAssets.GlowMask.Length; i++)
-                {
-                    glowMasks[i] = TextureAssets.GlowMask[i];
-                }
-                glowMasks[glowMasks.Length - 1] = ModContent.Request<Texture2D>(Texture + "_Glow");
-                customGlowMask = (short)(glowMasks.Length - 1);
-                TextureAssets.GlowMask = glowMasks;
-            }
             // DisplayName.SetDefault("Discordium");
             // Tooltip.SetDefault("The World Chaoses melded together into a single, powerful bar");
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 9));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(4, 9));
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
+            if (Main.netMode != NetmodeID.Server)
+                glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
         
@@ -47,7 +39,6 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Materials
             Item.maxStack = Item.CommonMaxStack;
             Item.value = 10000;
             Item.rare = ItemRarityID.Purple;
-            Item.glowMask = customGlowMask;
         }
 
         public override void AddRecipes()
@@ -59,10 +50,17 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Materials
             recipe.Register();
         }
 
-
         public override void PostUpdate()
         {
             Lighting.AddLight(Item.Center, Color.Magenta.ToVector3() * 0.55f * Main.essScale);
+        }
+
+        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
+        {
+            var frame = TextureAssets.Item[Type].Frame(1, 10, 0, (int)(Main.GlobalTimeWrappedHourly * 8) % 8);
+            var position = Item.Center - Main.screenPosition;
+            var origin = frame.Size() / 2f;
+            spriteBatch.Draw(glowmask.Value, position, frame, lightColor, rotation, origin, scale, SpriteEffects.None, 0);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Hell.__Hardmode.Items.Materials
             // DisplayName.SetDefault("Pure Evil");
             // Tooltip.SetDefault("So insidious, you feel guilty just looking at it");
             // ticksperframe, frameCount
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 4));
             ItemID.Sets.AnimatesAsSoul[Item.type] = true;
             ItemID.Sets.ItemIconPulse[Item.type] = true;
             ItemID.Sets.ItemNoGravity[Item.type] = true;

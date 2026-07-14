@@ -17,8 +17,9 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Pets
 
 			// Tooltip.SetDefault("Summons a very pretty kitty");
 
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 6));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(6, 6));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
 		public override void SetDefaults()

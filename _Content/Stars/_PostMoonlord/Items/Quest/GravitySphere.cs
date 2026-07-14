@@ -11,7 +11,8 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Quest
         {
             // DisplayName.SetDefault("Gravity Sphere");
             // Tooltip.SetDefault("A stone model of the planet, complete with an orbitting moon!");
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 8));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(4, 8));
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
         public override void SetDefaults()

@@ -16,7 +16,8 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials
         {
             // DisplayName.SetDefault("Storm Sphere");
             // Tooltip.SetDefault("A supercharged crystal sphere of Varian Energy");
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 5));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(4, 5));
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
         public override void SetDefaults()

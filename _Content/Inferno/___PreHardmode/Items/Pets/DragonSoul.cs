@@ -15,7 +15,8 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Pets
 			// DisplayName.SetDefault("Dragon Soul");
 			/* Tooltip.SetDefault(@"Summons a Dragon Soul
 It feels hot, but comforting..."); */
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 4));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(6, 4));
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
 		public override void SetDefaults()

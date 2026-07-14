@@ -15,7 +15,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Mater
         {
             // DisplayName.SetDefault("Chaos Soul");
             // Tooltip.SetDefault("Solid discord, symbolizing unrest and Anarchy itself");
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 7));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 7));
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
 
         }

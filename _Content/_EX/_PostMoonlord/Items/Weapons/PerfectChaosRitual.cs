@@ -18,8 +18,9 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         {
             // DisplayName.SetDefault("Perfect Chaos Ritual");
             // Tooltip.SetDefault(@"Summons a small chaos dragon to fight for you");
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 6));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 6));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
         public override void SetDefaults()

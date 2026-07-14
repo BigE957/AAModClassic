@@ -29,7 +29,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord
             /* Tooltip.SetDefault(@"The flames of chaos burn in this antique china
 Calls upon the Sisters of Discord
 Non-Consumable"); */
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 4));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(6, 4));
         }
 
         public override void SetDefaults()

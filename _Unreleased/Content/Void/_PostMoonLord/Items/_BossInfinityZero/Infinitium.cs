@@ -22,7 +22,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
             // Tooltip.SetDefault("Pure, unpredictable malice");
             // ticksperframe, frameCount
             
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 10));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 10));
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
             if (Main.netMode != NetmodeID.Server)
                 GlowTexture = ModContent.Request<Texture2D>(Texture + "_Glow");
 
@@ -59,7 +60,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
             var frame = TextureAssets.Item[Type].Frame(1, 10, 0, (int)(Main.GlobalTimeWrappedHourly * 10) % 10);
             var position = Item.Center - Main.screenPosition;
             var origin = frame.Size() / 2f;
-            spriteBatch.Draw(TextureAssets.Item[Type].Value, position, frame, lightColor, rotation, origin, scale, SpriteEffects.None, 0);
             spriteBatch.Draw(GlowTexture.Value, position, frame, lightColor, rotation, origin, scale, SpriteEffects.None, 0);
         }
     }

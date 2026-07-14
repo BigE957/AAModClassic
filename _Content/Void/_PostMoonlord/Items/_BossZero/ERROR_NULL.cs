@@ -27,7 +27,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero
             ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
             /* Tooltip.SetDefault(@"ACTIVATES THE GR0UND ZER0 C0DE F0R THE NEAREST ZER0 UNIT
 N0N-C0NSUMABLE"); */
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 41));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 41));
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
         public override void SetDefaults()

@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Materials
 			// DisplayName.SetDefault("Soul of Smite");
 			// Tooltip.SetDefault("The essence of Inferno creatures");
 			// ticksperframe, frameCount
-			Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
+			Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 4));
 			ItemID.Sets.AnimatesAsSoul[Item.type] = true;
 			ItemID.Sets.ItemIconPulse[Item.type] = true;
 			ItemID.Sets.ItemNoGravity[Item.type] = true;

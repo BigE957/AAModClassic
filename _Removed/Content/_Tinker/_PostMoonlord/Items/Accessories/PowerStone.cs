@@ -18,8 +18,9 @@ namespace AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories
             Tooltip.SetDefault(
 @"Multiplies your attack power by 40%
 'Fun isnt something one considers when balancing the universe'");*/
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 8));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(4, 8));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
         public override void SetDefaults()
         {

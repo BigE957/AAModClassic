@@ -17,9 +17,10 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Materials
         {
             // DisplayName.SetDefault("Searing Spark");
             // ticksperframe, frameCount
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 4));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(6, 4));
             ItemID.Sets.ItemIconPulse[Item.type] = true;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
         // TODO -- Velocity Y smaller, post NewItem?

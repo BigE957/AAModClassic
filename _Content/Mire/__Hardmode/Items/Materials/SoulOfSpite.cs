@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Materials
             // DisplayName.SetDefault("Soul of Spite");
             // Tooltip.SetDefault("The essence of Mire creatures");
             // ticksperframe, frameCount
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 4));
             ItemID.Sets.AnimatesAsSoul[Item.type] = true;
             ItemID.Sets.ItemIconPulse[Item.type] = true;
             ItemID.Sets.ItemNoGravity[Item.type] = true;

@@ -14,9 +14,10 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Materials
         {
             // DisplayName.SetDefault("Snow Mana");
             // ticksperframe, frameCount
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 7));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 7));
             ItemID.Sets.ItemIconPulse[Item.type] = true;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
         // TODO -- Velocity Y smaller, post NewItem?

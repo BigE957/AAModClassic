@@ -18,8 +18,9 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Materials
             // DisplayName.SetDefault("Unstable Singularity");
             // Tooltip.SetDefault("Barely stable enough to hold");
             // ticksperframe, frameCount
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 6));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 6));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
         public override Color? GetAlpha(Color lightColor)

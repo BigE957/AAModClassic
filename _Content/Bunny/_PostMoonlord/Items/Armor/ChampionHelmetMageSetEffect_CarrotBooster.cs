@@ -14,7 +14,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
         {
             // DisplayName.SetDefault("Carrot Booster");
             // Tooltip.SetDefault("Etheral, but crunchy.");
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 4));
             ItemID.Sets.AnimatesAsSoul[Item.type] = true;
             ItemID.Sets.ItemIconPulse[Item.type] = true;
             ItemID.Sets.ItemNoGravity[Item.type] = true;

@@ -33,7 +33,8 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Consumables
         {
             // DisplayName.SetDefault("Void Flask");
             // Tooltip.SetDefault(@"Spreads the Void");
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(1, 4));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(1, 4));
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
         public override bool AltFunctionUse(Player player)

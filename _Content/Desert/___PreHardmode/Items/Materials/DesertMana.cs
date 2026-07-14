@@ -14,9 +14,10 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items.Materials
         {
             // DisplayName.SetDefault("Desert Mana");
             // ticksperframe, frameCount
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 4));
             ItemID.Sets.ItemIconPulse[Item.type] = true;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
         // TODO -- Velocity Y smaller, post NewItem?

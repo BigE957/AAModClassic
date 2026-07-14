@@ -12,7 +12,8 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Quest
         {
             // DisplayName.SetDefault("Star Chart");
             // Tooltip.SetDefault("A map of the solar system up to this planet.");
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 8));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(4, 8));
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
         public override void SetDefaults()

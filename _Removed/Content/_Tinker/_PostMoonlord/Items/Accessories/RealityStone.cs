@@ -20,8 +20,9 @@ namespace AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories
 @"Grants you control over reality around you allowing long flight, insane speed, and uninhibited movement
 'Now...reality can be whatever I want it to be...'");*/
 
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 13));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(4, 13));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
         public override void SetDefaults()
         {

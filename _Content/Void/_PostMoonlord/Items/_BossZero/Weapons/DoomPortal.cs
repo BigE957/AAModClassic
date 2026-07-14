@@ -24,8 +24,9 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
         {
             // DisplayName.SetDefault("Doom Portal");
             // Tooltip.SetDefault(@"Summons a small Doom Protocol to fight for you");
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 4));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
         public override Color? GetAlpha(Color lightColor)

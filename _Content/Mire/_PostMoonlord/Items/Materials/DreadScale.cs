@@ -17,7 +17,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Materials
         {
             // DisplayName.SetDefault("Dread Scale");
             // Tooltip.SetDefault("The power of the dread moon is in your hands");
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 9));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(4, 9));
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
         public override void SetDefaults()
@@ -28,9 +29,6 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Materials
             Item.value = Item.sellPrice(0, 1, 0, 0);
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
-
-        
-
 
         public override void PostUpdate()
         {

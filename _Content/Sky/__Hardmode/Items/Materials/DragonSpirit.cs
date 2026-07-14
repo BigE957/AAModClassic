@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Sky.__Hardmode.Items.Materials
             // DisplayName.SetDefault("Dragon Spirit");
             // Tooltip.SetDefault("It looks apple-flavored");
             // ticksperframe, frameCount
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 4));
             ItemID.Sets.AnimatesAsSoul[Item.type] = true;
             ItemID.Sets.ItemIconPulse[Item.type] = true;
             ItemID.Sets.ItemNoGravity[Item.type] = true;

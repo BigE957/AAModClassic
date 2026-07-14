@@ -15,7 +15,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Accessories
         {
             // DisplayName.SetDefault("Ash-Proof Vest");
             // Tooltip.SetDefault(@"Lingering in the firestorm for too long will degrade this accessory and cause it to break...");
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 6));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 6));
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
         public override void AddRecipes()

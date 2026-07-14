@@ -16,7 +16,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Materials
         {
             // DisplayName.SetDefault("Crucible Scale");
             // Tooltip.SetDefault("The fury of the draconian sun eminates from this scale");
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 4));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(4, 4));
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
         public override void SetDefaults()

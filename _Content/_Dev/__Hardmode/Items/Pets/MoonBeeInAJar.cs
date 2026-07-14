@@ -15,8 +15,9 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Pets
 			// DisplayName.SetDefault("Moon Bee in a Jar");
 			// Tooltip.SetDefault("Summons a Lunamini");
 
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(2, 2));
+            Main.RegisterItemAnimation(Type, new DrawAnimationVertical(2, 2));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+            ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
 		public override void SetDefaults()
