@@ -1,5 +1,6 @@
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -248,7 +249,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
         {
             if (NPC.life <= 0)
             {
-                CombatText.NewText(NPC.getRect(), new Color(45, 46, 70), Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Killed"), true, true);
+                CombatText.NewText(NPC.getRect(), AAColor.YamataDialogue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Killed"), true, true);
             }
         }
 

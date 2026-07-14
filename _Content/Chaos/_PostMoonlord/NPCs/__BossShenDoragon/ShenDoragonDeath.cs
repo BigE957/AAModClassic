@@ -66,7 +66,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
                 if (NPC.ai[1] == 360)
                 {
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.First.2"), new Color(45, 46, 70), false);
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.First.2"), AAColor.YamataDialogue, false);
                 }
 
                 if (NPC.ai[1] == 540)
@@ -79,12 +79,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
                 if (NPC.ai[1] == 720)
                 {
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.First.4"), new Color(45, 46, 70), false);
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.First.4"), AAColor.YamataDialogue, false);
                 }
 
                 if (NPC.ai[1] == 899)
                 {
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.First.5"), new Color(45, 46, 70), false);
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.First.5"), AAColor.YamataDialogue, false);
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.First.5"), new Color(180, 41, 32), false);
                 }
 
@@ -99,7 +99,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             {
                 if (NPC.ai[1] == 180)
                 {
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.Repeat.1"), new Color(45, 46, 70), false);
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.Repeat.1"), AAColor.YamataDialogue, false);
                 }
 
                 if (NPC.ai[1] == 360)
@@ -114,9 +114,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     else
                     {
                         if(Main.LocalPlayer.Male)
-                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.Repeat.3.Singleplayer.Male"), new Color(45, 46, 70), false);
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.Repeat.3.Singleplayer.Male"), AAColor.YamataDialogue, false);
                         else
-                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.Repeat.3.Singleplayer.Female"), new Color(45, 46, 70), false);
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.Repeat.3.Singleplayer.Female"), AAColor.YamataDialogue, false);
                     }
                 }
 
@@ -129,7 +129,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.Repeat.5"), new Color(45, 46, 70), false);
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.Repeat.5"), AAColor.YamataDialogue, false);
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.Repeat.5"), new Color(180, 41, 32), false);
                     }
                 }

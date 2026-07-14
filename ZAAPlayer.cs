@@ -973,7 +973,7 @@ namespace AAModClassic
                             Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.NewAAInfo1"), new Color(180, 41, 32));
                             break;
                         case 1:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.NewAAInfo2"), new Color(45, 46, 70));
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.NewAAInfo2"), AAColor.YamataDialogue);
                             break;
                         case 2:
                             Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.NewAAInfo3"), new Color(255, 0, 0));
@@ -1012,7 +1012,7 @@ namespace AAModClassic
                             Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo1"), new Color(180, 41, 32));
                             break;
                         case 1:
-                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo2"), new Color(45, 46, 70));
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo2"), AAColor.YamataDialogue);
                             break;
                         case 2:
                             Main.NewText(Language.GetTextValue("Mods.AAModClassic.Common.WorldgenReminderInfo3"), new Color(255, 0, 0));

@@ -150,6 +150,8 @@ namespace AAModClassic.Globals
         public static Color Rainbow3 => BaseUtility.MultiLerpColor(((int)(Main.GlobalTimeWrappedHourly * 60)) % 100 / 100f, Color.Blue, Color.Red, Color.Green);
 
 
-        public static Color OblivionDialogue => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) == true ? new Color(200, 0, 0) : Color.DarkRed;
+        public static Color OblivionDialogue => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? new Color(200, 0, 0) : Color.DarkRed;
+
+        public static Color YamataDialogue => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? new Color(85, 86, 110) : new Color(45, 46, 70);
     }
 }
