@@ -2,6 +2,7 @@ using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFung
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Accessories;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.Accessories;
 using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle.Accessories;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Humanizer;
@@ -32,15 +33,13 @@ namespace AAModClassic._Unreleased.Content._Tinker.__Hardmode.Accessories
             Item.defense = 8;
         }
 
-        /*
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            if (player.wingTime > 0)
+            if (player.wingTime > 0 && !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
                 player.wingTime += 3;
             }
         }
-        */
 
         public override void RegisterEquipEffects()
         {
