@@ -878,7 +878,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             shurikenRule.OnFailedRoll(ItemDropRule.OneFromOptions(1, lootTable));
             notExpertRule.OnSuccess(shurikenRule);
 
-            npcLoot.Add(shurikenRule);
+            npcLoot.Add(notExpertRule);
         }
     }
 }

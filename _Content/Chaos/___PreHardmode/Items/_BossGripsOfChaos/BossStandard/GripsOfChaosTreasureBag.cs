@@ -55,7 +55,9 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Bos
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<MireGripMask>(), 7).OnFailedRoll(ItemDropRule.Common(ModContent.ItemType<InfernoGripMask>(), 7)));
+            var maskRule = ItemDropRule.Common(ModContent.ItemType<MireGripMask>(), 7);
+            maskRule.OnFailedRoll(ItemDropRule.Common(ModContent.ItemType<InfernoGripMask>(), 6));
+            itemLoot.Add(maskRule);
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ClawBaton>(), 3));
 
