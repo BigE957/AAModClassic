@@ -141,8 +141,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
         }
 
         public bool Weakness = false;
-        public float _normalSpeed = 15f;
-        public float _chargeSpeed = 40f;
+        public const float _normalSpeed = 15f;
+        public const float _chargeSpeed = 40f;
+
+        public Vector2 AttackPosition = Vector2.Zero;
+
         public float MoveSpeed
         {
             get
@@ -215,20 +218,17 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
         public override void SendExtraAI(BinaryWriter writer)
         {
-            base.SendExtraAI(writer);
-            if (Main.netMode == NetmodeID.Server || Main.dedServ)
-            {
-                writer.Write(FleeTimer[0]);
-            }
+            writer.Write(FleeTimer[0]);
+            writer.Write(AttackPosition.X);
+            writer.Write(AttackPosition.X);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            base.ReceiveExtraAI(reader);
-            if (Main.netMode == NetmodeID.MultiplayerClient)
-            {
-                FleeTimer[0] = reader.ReadSingle();
-            }
+            FleeTimer[0] = reader.ReadSingle();
+            float attackX = reader.ReadSingle();
+            float attackY = reader.ReadSingle();
+            AttackPosition = new(attackX, attackY);
         }
 
         public override void AI()
@@ -681,25 +681,30 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     {
                         NPC.ai[0]++;
                         NPC.ai[1] = 0;
-                        NPC.ai[2] = 0;
-                        NPC.ai[3] = MathHelper.Clamp(NPC.Distance(player.Center), 1f, 400f);
+                        NPC.ai[2] = NPC.Center.X > player.Center.X ? 1 : -1;
+                        NPC.ai[3] = 720;// MathHelper.Clamp(NPC.Distance(player.Center), 1f, 400f);
+                        AttackPosition = player.Center;
                         NPC.netUpdate = true;
                         NPC.velocity = NPC.DirectionTo(player.Center).RotatedBy(Math.PI / 2) * 40;
                     }
                     break;
 
                 case 14: //fly in jumbo circle
-                    NPC.velocity -= NPC.velocity.RotatedBy(MathHelper.Pi / 2f) * NPC.velocity.Length() / NPC.ai[3];
-                    NPC.velocity = NPC.velocity.ClampMagnitude(0f, 64f);
-                    int fireballSpawnRate = IsAwakened ? 1 : 5;
-                    if (++NPC.ai[2] > fireballSpawnRate)
+                    float rotAngle = MathHelper.Pi / 48f * NPC.ai[1];
+                    float radius = 720;
+                    NPC.Center = AttackPosition + Vector2.UnitX.RotatedBy(rotAngle) * NPC.ai[2] * radius;
+                    //NPC.velocity -= NPC.velocity.RotatedBy(MathHelper.Pi / 2f) * NPC.velocity.Length() / NPC.ai[3];
+                    //NPC.velocity = NPC.velocity.ClampMagnitude(0f, 16f);
+
+                    rotAngle += MathHelper.PiOver2 * NPC.ai[2];
+
+                    if (NPC.ai[1] % (IsAwakened ? 2 : 6) == 0)
                     {
-                        NPC.ai[2] = 0;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             const float ai0 = 0.004f;
-                            NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), 30, 0f, -1, ai0);
-                            NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), 30, 0f, -1, ai0);
+                            NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, rotAngle.ToRotationVector2().RotatedBy(Math.PI / 2), 30, 0f, -1, ai0);
+                            NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, rotAngle.ToRotationVector2().RotatedBy(-Math.PI / 2), 30, 0f, -1, ai0);
                         }
                     }
                     if (NPC.ai[1] <= 1)
@@ -710,9 +715,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     {
                         NPC.ai[0]++;
                         NPC.ai[1] = 0;
+                        NPC.ai[2] = 0;
                         NPC.ai[3] = 0;
                     }
-                    NPC.rotation = NPC.velocity.ToRotation();
+                    NPC.rotation = rotAngle;
                     if (NPC.spriteDirection == -1)
                         NPC.rotation += MathHelper.Pi;
                     Dashing = true;
