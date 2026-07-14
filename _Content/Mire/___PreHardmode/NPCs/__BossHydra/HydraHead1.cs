@@ -152,20 +152,13 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             {
                 NPC.damage = 80;
                 NPC.defense = 100;
+                damage = 40;
             }
             else
             {
                 NPC.damage = 40;
                 NPC.defense = 0;
-            }
-
-            if (Main.expertMode)
-            {
-                damage = NPC.damage / 4;
-            }
-            else
-            {
-                damage = NPC.damage / 2;
+                damage = 20;
             }
 
             if (Main.netMode != NetmodeID.MultiplayerClient)

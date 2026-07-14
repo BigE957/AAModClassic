@@ -113,14 +113,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
         public override void AI()
         {
             int attackpower = 130;
-            if (Main.expertMode)
-            {
-                damage = NPC.damage / 4;
-            }
-            else
-            {
-                damage = NPC.damage / 2;
-            }
+            damage = 45;
+
 	        if (Body == null)
             {
                 NPC npcBody = Main.npc[(int)NPC.ai[0]];
@@ -233,7 +227,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 NPC.ai[3] = 1;
                 fireTimer = 0;
             }
-            projDamage = NPC.damage / 6;
+            projDamage = 15;
             if (NPC.ai[3] == 1)
             {
                 attackTimer++;

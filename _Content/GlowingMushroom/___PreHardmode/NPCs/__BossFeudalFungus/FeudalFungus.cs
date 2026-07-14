@@ -105,14 +105,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
 		
         public override void AI()
         {
-            if (Main.expertMode)
-            {
-                damage = NPC.damage / 4;
-            }
-            else
-            {
-                damage = NPC.damage / 2;
-            }
+            damage = 12;
             NPC.TargetClosest();
             Player player = Main.player[NPC.target];
              

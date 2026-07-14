@@ -173,13 +173,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
 		{
             bool BlazeGrip = NPC.type == ModContent.NPCType<BlazeGrip>();
 
-            if (Main.expertMode)
+            if (BlazeGrip)
             {
-                damage = NPC.damage / 4;
+                damage = 30;
             }
             else
             {
-                damage = NPC.damage / 2;
+                damage = 40;
             }
             NPC.TargetClosest();
 			Player targetPlayer = Main.player[NPC.target];

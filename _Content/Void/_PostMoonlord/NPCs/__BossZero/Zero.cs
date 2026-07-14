@@ -509,14 +509,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
         {
             NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
 
-            if (Main.expertMode)
-            {
-                damage = NPC.damage / 4;
-            }
-            else
-            {
-                damage = NPC.damage / 2;
-            }
+            damage = 25;
 
             if (NPC.ai[0] > 0)
             {

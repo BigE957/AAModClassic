@@ -111,7 +111,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
                 for (int i = 0; i < 3; i++)
                 {
                     double offsetAngle = startAngle + deltaAngle * i;
-                    int damage = NPC.damage / 4;
+                    int damage = 14;
                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                         damage = 55 / 4; //TODO: this doesnt scale with damage on higeh difficulties... but i want seraphs to not deal cd... FUCK...
                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, damage, 2, Main.myPlayer);

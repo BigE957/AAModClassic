@@ -241,14 +241,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         {
             NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
 
-            if (Main.expertMode)
-            {
-                damage = NPC.damage / 4;
-            }
-            else
-            {
-                damage = NPC.damage / 2;
-            }
+            damage = 65;
             AAModGlobalNPC.Rajah = NPC.whoAmI;
             WeaponPos = new Vector2(NPC.Center.X + (78 * NPC.spriteDirection), NPC.Center.Y - 9);
 

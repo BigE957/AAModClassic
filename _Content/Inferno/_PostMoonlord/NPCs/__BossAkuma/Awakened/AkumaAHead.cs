@@ -139,14 +139,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
 
             Player player = Main.player[NPC.target];
-            if (Main.expertMode)
-            {
-                damage = NPC.damage / 4;
-            }
-            else
-            {
-                damage = NPC.damage / 2;
-            }
+            damage = 75;
 
             NPC.frameCounter++;
             if (NPC.frameCounter > 8)

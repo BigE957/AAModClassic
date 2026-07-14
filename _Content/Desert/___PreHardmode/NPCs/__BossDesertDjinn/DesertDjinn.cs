@@ -110,14 +110,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
 
         public override void AI()
         {
-            if (Main.expertMode)
-            {
-                damage = NPC.damage / 4;
-            }
-            else
-            {
-                damage = NPC.damage / 2;
-            }
+            damage = 20;
             Player player = Main.player[NPC.target];
             if (runonce == 0)
             {

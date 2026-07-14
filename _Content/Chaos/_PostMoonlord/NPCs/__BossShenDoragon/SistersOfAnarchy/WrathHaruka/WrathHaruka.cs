@@ -191,14 +191,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
         {
             NPC.TargetClosest();
             Player player = Main.player[NPC.target];
-            if (Main.expertMode)
-            {
-                damage = NPC.damage / 4;
-            }
-            else
-            {
-                damage = NPC.damage / 2;
-            }
+            damage = 60;
 
             Vector2 wantedVelocity = player.Center - new Vector2(pos, 0);
             NPC.direction = NPC.spriteDirection = NPC.position.X < player.position.X ? 1 : -1;

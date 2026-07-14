@@ -114,7 +114,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
             NPC.TargetClosest();
             Player player = Main.player[NPC.target];
 
-            damage = NPC.damage / 2;
+            damage = 45;
 
 
             if (NPC.alpha <= 0)

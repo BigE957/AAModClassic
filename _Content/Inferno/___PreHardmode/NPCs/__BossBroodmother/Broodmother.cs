@@ -237,14 +237,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
 
 		public override void AI()
         {
-            if (Main.expertMode)
-            {
-                damage = NPC.damage / 4;
-            }
-            else
-            {
-                damage = NPC.damage / 2;
-            }
+            damage = 18;
             if (internalAI[1] == AISTATE_RUNAWAY)
             {
                 NPC.noTileCollide = true;

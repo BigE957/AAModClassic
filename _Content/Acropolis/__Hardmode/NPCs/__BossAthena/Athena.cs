@@ -138,14 +138,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
         }
         public override void AI()
         {
-            if (Main.expertMode)
-            {
-                damage = NPC.damage / 4;
-            }
-            else
-            {
-                damage = NPC.damage / 2;
-            }
+            damage = 45;
             NPC.TargetClosest();
             Player player = Main.player[NPC.target];
             ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();

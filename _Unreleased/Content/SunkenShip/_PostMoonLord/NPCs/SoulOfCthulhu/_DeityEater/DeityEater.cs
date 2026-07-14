@@ -88,8 +88,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             if (fireAttack == true)
             {
                 SoundEngine.PlaySound(SoundID.Item34, NPC.position);
-                int proj2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + Main.rand.Next(-20, 20), NPC.Center.Y + Main.rand.Next(-20, 20), NPC.velocity.X * 1.6f, NPC.velocity.Y * 1.6f, ModContent.ProjectileType<DeityEye_DeityFlames>(), 20, 0, Main.myPlayer);
-                Main.projectile[proj2].damage = NPC.damage / 3;
+                int proj2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + Main.rand.Next(-20, 20), NPC.Center.Y + Main.rand.Next(-20, 20), NPC.velocity.X * 1.6f, NPC.velocity.Y * 1.6f, ModContent.ProjectileType<DeityEye_DeityFlames>(), 30, 0, -1);
                 fireAttack = false;
 
             }

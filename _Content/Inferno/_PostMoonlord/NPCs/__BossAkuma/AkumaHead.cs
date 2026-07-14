@@ -141,14 +141,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
 
             Player player = Main.player[NPC.target];
-            if (Main.expertMode)
-            {
-                damage = NPC.damage / 4;
-            }
-            else
-            {
-                damage = NPC.damage / 2;
-            }
+            damage = 70;
 
             if (fireAttack == true || internalAI[0] >= 450)
             {

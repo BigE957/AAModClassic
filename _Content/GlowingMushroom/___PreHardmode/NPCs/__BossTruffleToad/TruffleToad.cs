@@ -120,14 +120,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
 
         public override void AI()
         {
-            if (Main.expertMode)
-            {
-                damage = NPC.damage / 4;
-            }
-            else
-            {
-                damage = NPC.damage / 2;
-            }
+            damage = 10;
             NPC.TargetClosest();
             Player player = Main.player[NPC.target]; // makes it so you can reference the player the npc is targetting
             AAModGlobalNPC.Toad = NPC.whoAmI;

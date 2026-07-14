@@ -208,7 +208,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
                         break;
                     int proj = Main.rand.NextBool(50) ? ModContent.ProjectileType<Anubis_Pumpkin>() : ModContent.ProjectileType<Anubis_Runeblast>();
 
-                    int damage = NPC.damage / 2;
+                    int damage = 16;
                     if (NPC.ai[3] == 0 && proj == ModContent.ProjectileType<Anubis_Pumpkin>())
                     {
                         CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Combat.PumpkinThrow"), true); 

@@ -110,14 +110,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
 
             NPC.TargetClosest();
             Player player = Main.player[NPC.target];
-            if (Main.expertMode)
-            {
-                damage = NPC.damage / 4;
-            }
-            else
-            {
-                damage = NPC.damage / 2;
-            }
+            damage = 18;
 
             if (NPC.alpha <= 0)
             {

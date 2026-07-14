@@ -119,15 +119,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             NPC.realLife = bodyNPC.whoAmI;
             NPC.timeLeft = 100;
 
-            if (Main.expertMode)
-            {
-                damage = NPC.damage / 4;
-                //attackDelay = 180;
-            }
-            else
-            {
-                damage = NPC.damage / 2;
-            }
+            damage = 20;
 
             Player targetPlayer = Main.player[NPC.target];
             if (!targetPlayer.active || targetPlayer.dead || Main.dayTime) //fleeing
