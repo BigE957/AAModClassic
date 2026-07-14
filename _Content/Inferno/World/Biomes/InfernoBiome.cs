@@ -75,7 +75,7 @@ namespace AAModClassic._Content.Inferno.World.Biomes
                     return null;
                 }
 
-                return Main.LocalPlayer.ZoneDesert ? ModContent.GetInstance<InfernoDesertBgStyle>() : !Main.LocalPlayer.ZoneSnow ? ModContent.GetInstance<InfernoSurfaceBgStyle>() : null;
+                return Main.LocalPlayer.ZoneDesert ? ModContent.GetInstance<InfernoDesertBgStyle>() : ModContent.GetInstance<InfernoSurfaceBgStyle>();
             }
         }
 
