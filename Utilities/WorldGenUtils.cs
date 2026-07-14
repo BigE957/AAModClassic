@@ -1,8 +1,10 @@
 ﻿using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Keep;
 using AAModClassic.Base.BaseMod.Base;
+using Humanizer;
 using Microsoft.VisualBasic;
 using Microsoft.Xna.Framework;
 using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,6 +16,24 @@ namespace AAModClassic.Utilities
 {
     public class WorldGenUtils
     {
+        private static readonly HashSet<(int x, int y)> _framingInProgress = new();
+        private static void SafeSquareTileFrame(int x, int y)
+        {
+            var coords = (x, y);
+            if (_framingInProgress.Contains(coords))
+                return;
+
+            _framingInProgress.Add(coords);
+            try
+            {
+                WorldGen.SquareTileFrame(x, y);
+            }
+            finally
+            {
+                _framingInProgress.Remove(coords);
+            }
+        }
+
         public static Tile GetTileSafely(Vector2 position)
         {
             return GetTileSafely((int)(position.X / 16f), (int)(position.Y / 16f));
@@ -144,8 +164,9 @@ namespace AAModClassic.Utilities
                                 int y2 = tlY + y1;
 
                                 Tile tile2 = Framing.GetTileSafely(x2, y2);
+                                int chest = Chest.FindChest(x2, y2);
 
-                                if (x1 == 0 && y1 == 0 && tile2.TileType == TileID.Containers)
+                                if (chest != -1)
                                     KillChestAndItems(x2, y2);
 
                                 tile2.TileType = TileID.Dirt;
@@ -161,7 +182,7 @@ namespace AAModClassic.Utilities
                         {
                             for (int y1 = 0; y1 < height; y1++)
                             {
-                                WorldGen.SquareTileFrame(tlX + x1, tlY + y1);
+                                SafeSquareTileFrame(tlX + x1, tlY + y1);
                                 WorldGen.SquareWallFrame(tlX + x1, tlY + y1);
                             }
                         }
@@ -173,6 +194,12 @@ namespace AAModClassic.Utilities
                     {
                         if (width <= 1 && height <= 1 && !Main.tileFrameImportant[tile])
                         {
+                            int chest = Chest.FindChest(x, y);
+                            if (chest != -1)
+                                KillChestAndItems(x, y);
+
+                            TileObjectData olddata = !Mtile.HasTile ? null : TileObjectData.GetTileData(Mtile);
+
                             Mtile.TileType = (ushort)tile;
                             Mtile.HasTile = true;
 
@@ -186,8 +213,21 @@ namespace AAModClassic.Utilities
                             if (removeLiquid)
                                 GenerateLiquid(x, y, 0, true, 0, false);
 
+                            //Clears remnants of multi-tiles that get replaced
+                            if(olddata != null && (olddata.Height != 1 || olddata.Width != 1))
+                            {
+                                for(int i = 0; i < olddata.Width; i++)
+                                    for (int j = 0; j < olddata.Height; j++)
+                                    {
+                                        if (i == 0 && j == 0)
+                                            continue;
+
+                                        Framing.GetTileSafely(x + i, y + j).ClearTile();
+                                    }
+                            }
+
                             if (WorldGen.InWorld(x, y))
-                                WorldGen.SquareTileFrame(x, y);
+                                SafeSquareTileFrame(x, y);
                         }
                         else
                         {
@@ -204,7 +244,8 @@ namespace AAModClassic.Utilities
                                 Mtile.Slope = SlopeType.Solid;
                                 Mtile.IsHalfBlock = false;
 
-                                WorldGen.SquareTileFrame(x, y);
+                                if (WorldGen.InWorld(x, y))
+                                    SafeSquareTileFrame(x, y);
                                 if (tile >= TileID.Count && Mtile.TileFrameY != 0)
                                 {
                                     Mtile.TileFrameX = 5 * 18;
@@ -216,7 +257,8 @@ namespace AAModClassic.Utilities
                                 WorldGen.PlaceTile(x, y, tile, true, true, -1, tileStyle);
                                 for (int x1 = 0; x1 < width; x1++)
                                     for (int y1 = 0; y1 < height; y1++)
-                                        WorldGen.SquareTileFrame(x + x1, y + y1);
+                                        if (WorldGen.InWorld(x + x1, y + y1))
+                                            SafeSquareTileFrame(x + x1, y + y1);
                             }
                         }
                     }
