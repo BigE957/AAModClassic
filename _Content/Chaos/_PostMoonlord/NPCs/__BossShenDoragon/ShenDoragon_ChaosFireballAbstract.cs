@@ -105,7 +105,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
             int frameWidth = TextureAssets.Projectile[Projectile.type].Value.Width / FRAMECOUNT_X;
             int frameHeight = TextureAssets.Projectile[Projectile.type].Value.Height / FRAMECOUNT_Y;
-            int horizFrame = Chaos == ChaosType.Inferno ? 0 : Chaos == ChaosType.Mire ? 1 : 2;
+            int horizFrame = Chaos == ChaosType.Mire ? 0 : Chaos == ChaosType.Inferno ? 1 : 2;
             BetterFrame = new Rectangle(horizFrame * frameWidth, Projectile.frame * frameHeight, frameWidth, frameHeight);
             if (IsSmall)
                 BetterFrame.X += TextureAssets.Projectile[Projectile.type].Value.Width / 2;
