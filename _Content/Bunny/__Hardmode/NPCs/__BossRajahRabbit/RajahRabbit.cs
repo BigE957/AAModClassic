@@ -285,7 +285,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                             else if(!NPCExtensions.BeenKilled<RajahRabbitA>())
                                 BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.LastStand.Singleplayer.Normal"), 107, 137, 179);
                             else
-                                BaseUtility.Chat(Language.GetOrRegister("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.LastStand.Singleplayer.Repeat").FormatWith(Main.LocalPlayer.name.ToUpper()), 107, 137, 179);
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.LastStand.Singleplayer.Repeat", Main.LocalPlayer.name.ToUpper()), 107, 137, 179);
                         }
                     }
                     Music = MusicManagementSystem.MusicSlots["Superancients_Pinch"];
