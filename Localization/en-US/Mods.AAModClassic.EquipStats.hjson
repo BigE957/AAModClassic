@@ -373,7 +373,7 @@ Effect: {
 	RadiumHelmetMeleeSetEffect:
 		'''
 		Summons a light shield over nearby enemies
-		The shield reduces the damage they take by 40%
+		The shield increases the damage they take by 40%
 		'''
 	RadiumHelmetRangedSetEffect:
 		'''
