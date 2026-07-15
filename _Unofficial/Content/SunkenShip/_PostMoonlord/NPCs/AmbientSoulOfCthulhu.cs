@@ -314,6 +314,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
             On_Main.DoDraw_DrawNPCsOverTiles += DrawRopes;
         }
 
+        /*
         public override void SaveWorldData(TagCompound tag)
         {
             if(RopeEnds.Length > 0)
@@ -325,6 +326,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
             if (!tag.TryGet("RopeEnds", out RopeEnds))
                 RopeEnds = [];
         }
+        */
 
         public override void PreUpdateNPCs()
         {
