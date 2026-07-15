@@ -10,10 +10,11 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables
         public new string LocalizationCategory => "Items.Consumables";
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Brown Solution");
-			/* Tooltip.SetDefault("Used by the Clentaminator"
+            // DisplayName.SetDefault("Brown Solution");
+            /* Tooltip.SetDefault("Used by the Clentaminator"
 				+ "\nSpreads the Red Mushroom biome"); */
-		}
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void SetDefaults()
 		{

@@ -18,6 +18,8 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items._BossSkeletron
             ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
             /* Tooltip.SetDefault(@"Summons Skeletron
 Can only be used at night"); */
+
+            Item.ResearchUnlockCount = 3;
         }
 
         public override void SetDefaults()

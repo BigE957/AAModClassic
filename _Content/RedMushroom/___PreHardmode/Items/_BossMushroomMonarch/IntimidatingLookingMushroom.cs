@@ -20,6 +20,8 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMo
             // DisplayName.SetDefault("Intimidating Looking Mushroom");
             ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
             // Tooltip.SetDefault(@"Summons the Mushroom Monarch");
+
+            Item.ResearchUnlockCount = 3;
         }
 
         public override void SetDefaults()

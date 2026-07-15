@@ -15,6 +15,7 @@ namespace AAModClassic._Content._Dev.___PreHardmode.Items.Currency
         {
             // DisplayName.SetDefault("Ancient Coin");
             // Tooltip.SetDefault("A red and blue coin with an A engraved into it");
+            Item.ResearchUnlockCount = 50;
         }
 
         public override void SetDefaults()

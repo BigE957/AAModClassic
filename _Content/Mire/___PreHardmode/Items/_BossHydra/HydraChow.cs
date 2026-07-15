@@ -25,6 +25,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra
             /* Tooltip.SetDefault(@"Just holding this makes you gag
 Summons the Hydra
 Can only be used at night"); */
+            Item.ResearchUnlockCount = 3;
         }
         public override void SetDefaults()
         {

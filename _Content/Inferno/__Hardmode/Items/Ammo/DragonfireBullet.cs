@@ -12,7 +12,8 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Ammo
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Dragonfire Bullet");
-		}
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void SetDefaults()
 		{

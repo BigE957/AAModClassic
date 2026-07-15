@@ -12,6 +12,8 @@ namespace AAModClassic._Content._Dev.___PreHardmode.Items.Materials
         {
             // DisplayName.SetDefault("Shiny Charm");
             // Tooltip.SetDefault("A rare charm that allows you to make certain weapons shiny");
+
+            Item.ResearchUnlockCount = 3;
         }
         public override void SetDefaults()
         {

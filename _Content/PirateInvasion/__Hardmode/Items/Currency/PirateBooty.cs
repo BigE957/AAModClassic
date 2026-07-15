@@ -15,6 +15,7 @@ namespace AAModClassic._Content.PirateInvasion.__Hardmode.Items.Currency
         {
             // DisplayName.SetDefault("Pirate's Booty");
             // Tooltip.SetDefault("An exceedingly well-crafted gold coin");
+            Item.ResearchUnlockCount = 50;
         }
 
         public override void SetDefaults()

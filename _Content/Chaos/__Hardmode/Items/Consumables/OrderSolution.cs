@@ -10,10 +10,11 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Consumables
         public new string LocalizationCategory => "Items.Consumables";
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Order Solution");
-			/* Tooltip.SetDefault(@"Used by the Clentaminator
+            // DisplayName.SetDefault("Order Solution");
+            /* Tooltip.SetDefault(@"Used by the Clentaminator
 Cleanses the Chaos"); */
-		}
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void SetDefaults()
 		{

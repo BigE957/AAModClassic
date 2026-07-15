@@ -22,6 +22,7 @@ namespace AAModClassic._Content.Jungle.__Hardmode.Items._BossPlantera
             ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
             /* Tooltip.SetDefault(@"Summons Plantera
 Can only be used in the underground jungle"); */
+            Item.ResearchUnlockCount = 3;
         }
 
         public override void SetDefaults()

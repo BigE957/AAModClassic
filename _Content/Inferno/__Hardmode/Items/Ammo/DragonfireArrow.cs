@@ -12,8 +12,9 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Ammo
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Dragonfire Arrow");
-			// Tooltip.SetDefault("Inflicts Dragonfire debuff on hit");
-		}
+            // Tooltip.SetDefault("Inflicts Dragonfire debuff on hit");
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void SetDefaults()
 		{

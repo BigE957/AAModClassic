@@ -13,7 +13,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Ammo
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Daybreak Bullet");
-		}
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void SetDefaults()
 		{

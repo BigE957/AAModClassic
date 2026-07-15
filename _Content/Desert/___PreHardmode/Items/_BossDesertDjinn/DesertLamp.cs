@@ -23,7 +23,8 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn
             // DisplayName.SetDefault("Desert Lamp");
             ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
             // Tooltip.SetDefault(@"Summons the Desert Djinn");
-		}
+            Item.ResearchUnlockCount = 3;
+        }
 
 		public override void SetDefaults()
 		{

@@ -10,10 +10,11 @@ namespace AAModClassic._Content.Desert.__Hardmode.Items.Consumables
         public new string LocalizationCategory => "Items.Consumables";
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Yellow Solution");
-			/* Tooltip.SetDefault("Used by the Clentaminator"
+            // DisplayName.SetDefault("Yellow Solution");
+            /* Tooltip.SetDefault("Used by the Clentaminator"
 				+ "\nClears the Snow biome"); */
-		}
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void SetDefaults()
 		{

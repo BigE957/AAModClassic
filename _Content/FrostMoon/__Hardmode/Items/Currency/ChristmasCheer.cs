@@ -24,6 +24,8 @@ namespace AAModClassic._Content.FrostMoon.__Hardmode.Items.Currency
             ItemID.Sets.ItemNoGravity[Item.type] = true;
 
             AnimatedTexture = ModContent.Request<Texture2D>(Texture + "_Animated");
+
+            Item.ResearchUnlockCount = 50;
         }
 
 

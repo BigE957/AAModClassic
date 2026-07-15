@@ -23,6 +23,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
             ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
             /* Tooltip.SetDefault(@"Summons the Truffle Toad
 Can only be used in a glowing mushroom biome"); */
+            Item.ResearchUnlockCount = 3;
         }
 
         public override void SetDefaults()

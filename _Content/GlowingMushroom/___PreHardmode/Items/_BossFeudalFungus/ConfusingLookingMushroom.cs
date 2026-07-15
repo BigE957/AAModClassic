@@ -21,6 +21,8 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudal
             ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
             /* Tooltip.SetDefault(@"Summons the Feudal Fungus
 Can only be used in a glowing mushroom biome"); */
+
+            Item.ResearchUnlockCount = 3;
         }
 
         public override void SetDefaults()

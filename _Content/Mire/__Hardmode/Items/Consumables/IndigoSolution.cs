@@ -10,10 +10,11 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Consumables
         public new string LocalizationCategory => "Items.Consumables";
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Indigo Solution");
-			/* Tooltip.SetDefault("Used by the Clentaminator"
+            // DisplayName.SetDefault("Indigo Solution");
+            /* Tooltip.SetDefault("Used by the Clentaminator"
 				+ "\nSpreads the Mire"); */
-		}
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void SetDefaults()
 		{

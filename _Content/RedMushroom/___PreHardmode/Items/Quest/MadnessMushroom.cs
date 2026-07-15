@@ -11,6 +11,8 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest
             // DisplayName.SetDefault("Madness Mushroom");
             /* Tooltip.SetDefault(@"An exceedingly rare mushroom
 Maybe the Mushman knows what to do with it?"); */
+
+            Item.ResearchUnlockCount = 3;
         }
         public override void SetDefaults()
         {

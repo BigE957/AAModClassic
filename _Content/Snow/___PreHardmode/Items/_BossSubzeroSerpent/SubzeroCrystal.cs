@@ -22,7 +22,8 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent
             // DisplayName.SetDefault("Subzero Crystal");
             ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
             // Tooltip.SetDefault(@"Summons the Subzero Serpent");
-		}
+            Item.ResearchUnlockCount = 3;
+        }
 
 		public override void SetDefaults()
 		{

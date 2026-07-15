@@ -24,7 +24,8 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Ammo
 		
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("M79 Round");
-		}
+            // DisplayName.SetDefault("M79 Round");
+            Item.ResearchUnlockCount = 99;
+        }
     }
 }

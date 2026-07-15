@@ -23,6 +23,8 @@ namespace AAModClassic._Content.SolarEclipse.__Hardmode.Items.Currency
             Main.RegisterItemAnimation(Type, new DrawAnimationVertical(8, 8));
             ItemID.Sets.ItemIconPulse[Item.type] = true;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+
+            Item.ResearchUnlockCount = 50;
         }
 
 

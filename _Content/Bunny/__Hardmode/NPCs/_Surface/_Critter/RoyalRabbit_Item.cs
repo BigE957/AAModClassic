@@ -16,6 +16,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
         {
             // DisplayName.SetDefault("Royal Rabbit");
             // Tooltip.SetDefault("Under direct protection by the Pouncing Punisher");
+            Item.ResearchUnlockCount = 3;
         }
 
         public override void SetDefaults()

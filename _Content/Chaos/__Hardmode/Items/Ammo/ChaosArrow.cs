@@ -12,9 +12,10 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Ammo
         public new string LocalizationCategory => "Items.Ammo";
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Chaos Arrow");
+            // DisplayName.SetDefault("Chaos Arrow");
             // Tooltip.SetDefault("Inflicts randomly selected debuff on hit");
-		}
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void SetDefaults()
 		{

@@ -22,6 +22,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius
             ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
             /* Tooltip.SetDefault(@"Summons Sagittarius
 Can only be used in the Void"); */
+            Item.ResearchUnlockCount = 3;
         }
 
         public override void SetDefaults()

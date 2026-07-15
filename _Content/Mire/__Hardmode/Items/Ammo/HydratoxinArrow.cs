@@ -12,8 +12,9 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Ammo
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Hydratoxin Arrow");
-			// Tooltip.SetDefault("Inflicts Hydratoxin debuff on hit");
-		}
+            // Tooltip.SetDefault("Inflicts Hydratoxin debuff on hit");
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void SetDefaults()
 		{

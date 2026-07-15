@@ -26,6 +26,8 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother
             /* Tooltip.SetDefault(@"An ornately crafted bell
 Summons the Broodmother in the Inferno
 Only useable during the day"); */
+
+            Item.ResearchUnlockCount = 3;
         }
 
         public override void SetDefaults()

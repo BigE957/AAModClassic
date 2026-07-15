@@ -15,6 +15,7 @@ namespace AAModClassic._Content.PumpkinMoon.__Hardmode.Items.Currency
         {
             // DisplayName.SetDefault("Halloween Treat");
             // Tooltip.SetDefault("A very tasty treat. Don't eat it though, most likely cursed.");
+            Item.ResearchUnlockCount = 50;
         }
 
         public override void SetDefaults()

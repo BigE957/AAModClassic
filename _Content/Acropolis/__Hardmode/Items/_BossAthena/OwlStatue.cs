@@ -25,6 +25,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena
             /* Tooltip.SetDefault(@"Summons Athena
 Can only be used in the Acropolis at the Owl Altar
 'It stares into your soul.'"); */
+            Item.ResearchUnlockCount = 3;
         }
 
         public override void SetDefaults()

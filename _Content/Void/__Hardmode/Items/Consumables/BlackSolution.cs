@@ -10,10 +10,11 @@ namespace AAModClassic._Content.Void.__Hardmode.Items.Consumables
         public new string LocalizationCategory => "Items.Consumables";
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Black Solution");
-			/* Tooltip.SetDefault("Used by the Clentaminator"
+            // DisplayName.SetDefault("Black Solution");
+            /* Tooltip.SetDefault("Used by the Clentaminator"
 				+ "\nSpreads the Void"); */
-		}
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void SetDefaults()
 		{

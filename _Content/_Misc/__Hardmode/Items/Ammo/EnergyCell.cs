@@ -27,7 +27,8 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Ammo
 		
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Energy Cell");
-		}
+            // DisplayName.SetDefault("Energy Cell");
+            Item.ResearchUnlockCount = 99;
+        }
     }
 }

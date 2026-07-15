@@ -15,6 +15,7 @@ namespace AAModClassic._Content.MartianMadness.__Hardmode.Items.Currency
         {
             // DisplayName.SetDefault("Martian Credit");
             // Tooltip.SetDefault("A card that has some sort of monetary value to the martians");
+            Item.ResearchUnlockCount = 50;
         }
 
 

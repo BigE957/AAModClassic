@@ -15,7 +15,8 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Ammo
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Darkmatter Arrow");
-		}
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void SetDefaults()
 		{

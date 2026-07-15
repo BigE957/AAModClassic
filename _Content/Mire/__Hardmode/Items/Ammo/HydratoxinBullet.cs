@@ -12,7 +12,8 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Ammo
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Hydratoxin Bullet");
-		}
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void SetDefaults()
 		{

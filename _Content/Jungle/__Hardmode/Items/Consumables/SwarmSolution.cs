@@ -10,10 +10,11 @@ namespace AAModClassic._Content.Jungle.__Hardmode.Items.Consumables
         public new string LocalizationCategory => "Items.Consumables";
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Swarm Solution");
-			/* Tooltip.SetDefault("Used by the Clentaminator"
+            // DisplayName.SetDefault("Swarm Solution");
+            /* Tooltip.SetDefault("Used by the Clentaminator"
 				+ "\nCleanses the mushroom biomes"); */
-		}
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void SetDefaults()
 		{

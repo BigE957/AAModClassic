@@ -18,8 +18,10 @@ namespace AAModClassic._Content._Dev.___PreHardmode.Items.Materials
 
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Shiny Charm Fish");
-			// Tooltip.SetDefault("A kind of rare fish");
-		}
+            // DisplayName.SetDefault("Shiny Charm Fish");
+            // Tooltip.SetDefault("A kind of rare fish");
+
+            Item.ResearchUnlockCount = 100;
+        }
     }
 }

@@ -12,7 +12,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Ammo
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Eventide Bullet");
-		}
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void SetDefaults()
 		{

@@ -10,10 +10,11 @@ namespace AAModClassic._Content.Snow.__Hardmode.Items.Consumables
         public new string LocalizationCategory => "Items.Consumables";
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("White Solution");
-			/* Tooltip.SetDefault("Used by the Clentaminator"
+            // DisplayName.SetDefault("White Solution");
+            /* Tooltip.SetDefault("Used by the Clentaminator"
 				+ "\nSpreads the snow biome"); */
-		}
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void SetDefaults()
 		{

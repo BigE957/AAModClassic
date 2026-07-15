@@ -12,9 +12,10 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Ammo
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Terra Arrow");
-			/* Tooltip.SetDefault(@"Homes in on enemies
+            /* Tooltip.SetDefault(@"Homes in on enemies
 Not Consumable"); */
-		}
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void SetDefaults()
 		{

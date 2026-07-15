@@ -11,8 +11,9 @@ namespace AAModClassic._Content.Dungeon.__Hardmode.Items.Ammo
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Reaper Arrow");
-			// Tooltip.SetDefault("This arrow can shoot through walls");
-		}
+            // Tooltip.SetDefault("This arrow can shoot through walls");
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void SetDefaults()
 		{

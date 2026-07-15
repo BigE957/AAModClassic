@@ -12,8 +12,9 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Ammo
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Dragon Arrow");
-			// Tooltip.SetDefault("Has stronger knockback than most arrows");
-		}
+            // Tooltip.SetDefault("Has stronger knockback than most arrows");
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void SetDefaults()
 		{

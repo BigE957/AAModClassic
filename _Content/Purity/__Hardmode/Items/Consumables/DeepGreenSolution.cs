@@ -10,10 +10,11 @@ namespace AAModClassic._Content.Purity.__Hardmode.Items.Consumables
         public new string LocalizationCategory => "Items.Consumables";
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Deep Green Solution");
-			/* Tooltip.SetDefault("Used by the Clentaminator"
+            // DisplayName.SetDefault("Deep Green Solution");
+            /* Tooltip.SetDefault("Used by the Clentaminator"
 				+ "\nConverts the jungle into forest"); */
-		}
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void SetDefaults()
 		{

@@ -15,7 +15,6 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.Consumables
 
         public override void SetStaticDefaults()
         {
-            //TODO: automatically pull crate desc from a god "Right click to open" string. do this to all grab bags
             // Tooltip.SetDefault("Right click to open");
 
             Item.ResearchUnlockCount = 5;

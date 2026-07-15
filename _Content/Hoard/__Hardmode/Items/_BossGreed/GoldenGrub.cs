@@ -26,6 +26,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed
             /* Tooltip.SetDefault(@"Summons Greed
 Can only be used in Greed's Hoard at the Altar of Desire
 'It's really shiny.'"); */
+            Item.ResearchUnlockCount = 3;
         }
 
         public override void SetDefaults()

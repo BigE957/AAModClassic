@@ -22,6 +22,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit
             // DisplayName.SetDefault("Ten Karat Carrot");
             ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
             // Tooltip.SetDefault(@"Summons the Pouncing Punisher himself");
+            Item.ResearchUnlockCount = 3;
         }
 
         public override void SetDefaults()
