@@ -1,7 +1,9 @@
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Madness.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.Interfaces;
 using Terraria;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
@@ -99,10 +101,9 @@ namespace AAModClassic._Content.Madness.___PreHardmode.NPCs
             }
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<MadnessFragment>(), Main.rand.Next(1,2));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MadnessFragment>()));
         }
-
     }
 }

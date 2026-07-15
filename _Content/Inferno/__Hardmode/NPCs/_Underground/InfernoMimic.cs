@@ -1,12 +1,14 @@
 using AAModClassic._Content.Inferno.__Hardmode.Items.Accessories;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
 {
@@ -60,6 +62,14 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<OrnateBand>(), ModContent.ItemType<SunHalberd>()));
+
+            LeadingConditionRule unofficialRule = new(new Unofficial());
+
+            unofficialRule.OnSuccess(ItemDropRule.Common(ItemID.GreaterHealingPotion, 1, 5, 10));
+
+            unofficialRule.OnSuccess(ItemDropRule.Common(ItemID.GreaterManaPotion, 1, 5, 15));
+
+            npcLoot.Add(unofficialRule);
         }
     }
 }

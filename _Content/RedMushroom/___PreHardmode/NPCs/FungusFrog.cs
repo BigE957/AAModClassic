@@ -1,3 +1,4 @@
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 using AAModClassic._Content.RedMushroom.World.Biomes;
@@ -6,6 +7,7 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using AAModClassic.Utilities.Interfaces;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -76,9 +78,9 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             return spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneMush && NPCExtensions.BeenKilled<MushroomMonarch>() ? .3f : 0f;
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Mushium>(), Main.rand.Next(1, 5));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Mushium>(), 4));
         }
     }
 }

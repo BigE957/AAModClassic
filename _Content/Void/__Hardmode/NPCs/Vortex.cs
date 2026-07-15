@@ -1,4 +1,6 @@
+using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void.World.Biomes;
+using AAModClassic._Unofficial.Content.Void.__Hardmode.Items.Tools;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.Interfaces;
@@ -7,8 +9,10 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 
 namespace AAModClassic._Content.Void.__Hardmode.NPCs
@@ -77,6 +81,15 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
             spriteBatch.Draw(BladesGlowmask.Value, NPC.Center - screenPos, BladesGlowmask.Frame(), AAColor.ZeroShield, Rotation, BladesGlowmask.Value.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0);
             spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, Glowmask.Frame(), AAColor.ZeroShield, NPC.rotation, Glowmask.Value.Size() * 0.5f, NPC.scale, SpriteEffects.None, 0);
             return false;
+        }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            LeadingConditionRule unofficialRule = new(new Unofficial());
+
+            unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GravitronCentrifuge>(), 10));
+
+            npcLoot.Add(unofficialRule);
         }
     }
 }

@@ -9,8 +9,10 @@ using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System.IO;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
@@ -197,17 +199,15 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             }
         }
 
-
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            if (Main.rand.NextBool(40))
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraPrism>());
-            }
-            if (Main.rand.NextBool(20))
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraGauntlet>());
-            }
+            LeadingConditionRule notUnreleasedRule = new(new NotUnreleasedAndIsUnofficial());
+
+            notUnreleasedRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<TerraPrism>(), 40));
+
+            npcLoot.Add(notUnreleasedRule);
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TerraGauntlet>(), 20));
         }
 
         public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)

@@ -1,5 +1,6 @@
 using AAModClassic._Content._Misc.__Hardmode.Items.Materials.Mushrooms;
 using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
@@ -10,6 +11,7 @@ using AAModClassic.Utilities;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.Personalities;
 using Terraria.ID;
 using Terraria.Localization;
@@ -530,12 +532,12 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
             }
         }
 
-		public override void OnKill()
-		{
-			Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ItemID.Mushroom);
-		}
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule.Common(ItemID.Mushroom));
+        }
 
-		public override void TownNPCAttackStrength(ref int damage, ref float knockback)
+        public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
 			damage = 20;
 			knockback = 4f;

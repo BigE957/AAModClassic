@@ -6,6 +6,7 @@ using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
 using AAModClassic._Content.Stars.World.Altar;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -230,6 +231,8 @@ namespace AAModClassic.Globals
         public override void RandomUpdate(int i, int j, int type)
         {
             Tile t = Framing.GetTileSafely(i, j - 1);
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                Framing.GetTileSafely(i, j);
 
             if (t.TileType == TileID.MushroomGrass)
             {

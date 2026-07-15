@@ -7,6 +7,7 @@ using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Snow
 {
@@ -204,7 +205,16 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Snow
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ItemID.Bacon, 3));
+            LeadingConditionRule notUnofficialRule = new(new NotUnofficial());
+
+            notUnofficialRule.OnSuccess(ItemDropRule.Common(ItemID.Bacon, 3));
+
+            npcLoot.Add(notUnofficialRule);
+
+            LeadingConditionRule unofficialRule = new(new Unofficial());
+
+            //TODO: for 1.4.5 uncomment this
+            //CloneDropsWithoutInput(NPCID.PigronHallow, [ItemID.Crystallize], unofficialRule, ref npcLoot);
         }
     }
 }

@@ -7,9 +7,11 @@ using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using static AAModClassic._Content.Stars._PostMoonlord.NPCs._Day.SunWatcher;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Night
 {
@@ -83,15 +85,13 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Night
             return SpawnCondition.Underground.Chance * 0.1f;
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-			if(AAWorld.downedEquinox)
-			{
-				for (int Ammount = 0; Ammount < Main.rand.Next(3); Ammount++)
-				{
-					NPC.DropLoot(ModContent.ItemType<DarkEnergy>());
-				}
-			}
+            LeadingConditionRule spawnedByGrips = new(new EquinoxWormsDefeated());
+
+            spawnedByGrips.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DarkEnergy>(), 1, 0, 2));
+
+            npcLoot.Add(spawnedByGrips);
         }
 
         public override Color? GetAlpha(Color drawColor)

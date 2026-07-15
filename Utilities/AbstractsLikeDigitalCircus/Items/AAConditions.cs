@@ -34,6 +34,27 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             public string GetConditionDescription() => Language.GetTextValue("Bestiary_ItemDropConditions.NotExpert");
         }
 
+        public class Unreleased : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info) => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased);
+            public bool CanShowItemDropInUI() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased);
+            public string GetConditionDescription() => null;
+        }
+
+        public class NotUnreleased : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info) => !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased);
+            public bool CanShowItemDropInUI() => !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased);
+            public string GetConditionDescription() => null;
+        }
+
+        public class NotUnreleasedAndIsUnofficial : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info) => !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased);
+            public bool CanShowItemDropInUI() => !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased);
+            public string GetConditionDescription() => null;
+        }
+
         public class RevOrMaster : IItemDropRuleCondition, IProvideItemConditionDescription
         {
             public bool CanDrop(DropAttemptInfo info) => Main.masterMode || CalamityMod.IsRevengance;

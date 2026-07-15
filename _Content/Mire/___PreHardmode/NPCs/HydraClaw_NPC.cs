@@ -1,4 +1,6 @@
 using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
+using AAModClassic._Content.Madness.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._CrossMod;
 using AAModClassic.Globals;
@@ -8,6 +10,7 @@ using AAModClassic.Utilities.Interfaces;
 using System;
 using Terraria;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
@@ -128,13 +131,9 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             target.AddBuff(BuffID.Poisoned, 180);
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            if(Main.rand.NextBool())
-            {
-                NPC.DropLoot(ModContent.ItemType<Items.Materials.HydraClaw_Item>(), 1);
-            }
-            
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HydraClaw_Item>(), 2));
         }
     }
 }

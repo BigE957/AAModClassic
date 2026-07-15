@@ -1,9 +1,11 @@
+using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -39,12 +41,9 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            if (Main.rand.NextBool(4))
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraShard>());
-            }
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TerraShard>(), 4));
         }
 
         public override Color? GetAlpha(Color drawColor)

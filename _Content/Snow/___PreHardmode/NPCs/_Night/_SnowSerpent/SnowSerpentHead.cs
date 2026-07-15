@@ -1,4 +1,6 @@
-﻿using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.___PreHardmode.NPCs;
+using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
@@ -8,14 +10,18 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
 {
     public class SnowSerpentHead : ModNPC, IBannerNPC
     {
-		public override void SetStaticDefaults()
+        public bool WasSpawnedBySubzeroSerpent = false;
+
+        public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Snow Serpent");
 
@@ -118,12 +124,27 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
             }
             return base.PreKill();
         }
-        public override void OnKill()
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            if (Main.rand.NextBool(4))
+            LeadingConditionRule spawnedBySerpent = new(new SpawnedBySubzeroSerpent());
+
+            spawnedBySerpent.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SubzeroCrystal>(), 4));
+
+            npcLoot.Add(spawnedBySerpent);
+        }
+
+        public class SpawnedBySubzeroSerpent : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info)
             {
-                NPC.DropLoot(ModContent.ItemType<SubzeroCrystal>());
+                SnowSerpentHead serpent = info.npc.ModNPC as SnowSerpentHead;
+                return !serpent.WasSpawnedBySubzeroSerpent;
             }
+
+            public bool CanShowItemDropInUI() => true;
+
+            public string GetConditionDescription() => Language.GetTextValue("Mods.AAModClassic.Common.Conditions.SpawnedBySubzeroSerpent");
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

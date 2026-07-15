@@ -61,9 +61,9 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
             BaseAI.LookAt(playerActive ? player.Center : NPC.Center + NPC.velocity, NPC, 0);         
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<DoomiteScrap>(), Main.rand.Next(3));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DoomiteScrap>(), 1, 0, 2));
         }
     }
 }
