@@ -38,7 +38,6 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Armor
             damageMap.GetCritChance(DamageClass.Magic) += 14;
 			AddEffect(new MaxManaEffect(120));
 
-			AddSetEffect(new ManaCostMultiplierEffect(0.80f));
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 AddSetEffect(new ManaCostMultiplierEffect(0.80f));
             else
