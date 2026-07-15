@@ -18,6 +18,8 @@ namespace AAModClassic._Content.Inferno.World.Tiles
 
             ItemID.Sets.ShimmerTransformToItem[Type] = ModContent.ItemType<ScorchedDynastyWood>();
             ItemID.Sets.ShimmerTransformToItem[ModContent.ItemType<ScorchedDynastyWood>()] = Type;
+
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

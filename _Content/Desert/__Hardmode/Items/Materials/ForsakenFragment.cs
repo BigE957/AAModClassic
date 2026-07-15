@@ -11,7 +11,8 @@ namespace AAModClassic._Content.Desert.__Hardmode.Items.Materials
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Forsaken Fragment");
-		}
+            Item.ResearchUnlockCount = 25;
+        }
 
         public override void SetDefaults()
 		{

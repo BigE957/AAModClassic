@@ -30,6 +30,8 @@ namespace AAModClassic._Content.Mire.World.Tiles
             // DisplayName.SetDefault("Hardened Depthsand");
 
             ItemTrader.ChlorophyteExtractinator.AddOption_OneWay(Type, 1, ItemID.HardenedSand, 1);
+
+            Item.ResearchUnlockCount = 100;
         }
 
     }

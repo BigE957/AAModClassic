@@ -3,16 +3,16 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unreleased.Content.SunkenShip.World.Tiles
+namespace AAModClassic._Content.Inferno.World.Tiles
 {
-    public class RottedDynastyWood : BaseAAItem, ILocalizedModType
+    public class ScorchedDynastyWoodWall : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables";
         public override void SetDefaults()
         {
 
-            Item.width = 24;
-            Item.height = 22;
+            Item.width = 16;
+            Item.height = 16;
             Item.maxStack = Item.CommonMaxStack;
             Item.useTurn = true;
             Item.autoReuse = true;
@@ -20,20 +20,22 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Tiles
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<RottedDynastyWood_Tile>(); //put your CustomBlock Tile name
+            Item.createWall = ModContent.WallType<ScorchedDynastyWoodWall_Wall>(); //put your CustomBlock Tile name
         }
+
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Rotted Dynasty Wood");
-            // Tooltip.SetDefault("It's squishy");
-            Item.ResearchUnlockCount = 100;
+            // DisplayName.SetDefault("Scorched Dynasty Wood Wall");
+            Item.ResearchUnlockCount = 400;
         }
+
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.DynastyWood, 1);
-            recipe.AddCondition(Condition.NearWater);
+            Recipe recipe;
+            recipe = CreateRecipe(4);
+            recipe.AddIngredient(ModContent.ItemType<ScorchedDynastyWood>());
+            recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }
     }

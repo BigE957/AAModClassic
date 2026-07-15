@@ -26,9 +26,10 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
 
         public override void SetStaticDefaults()
         {
-            
+
             // DisplayName.SetDefault("Darkmatter Ore");
             // Tooltip.SetDefault("It feels weightless, yet it still has some kind of mass to it");
+            Item.ResearchUnlockCount = 100;
         }
 
     }

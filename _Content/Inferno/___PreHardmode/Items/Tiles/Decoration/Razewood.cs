@@ -30,7 +30,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Razewood");
-            // Tooltip.SetDefault("");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void AddRecipes()

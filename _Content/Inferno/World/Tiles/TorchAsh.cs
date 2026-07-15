@@ -30,6 +30,8 @@ namespace AAModClassic._Content.Inferno.World.Tiles
             // DisplayName.SetDefault("Volcanic Ash");
 
             ItemTrader.ChlorophyteExtractinator.AddOption_OneWay(Type, 1, ItemID.SnowBlock, 1);
+
+            Item.ResearchUnlockCount = 100;
         }
     }
 }

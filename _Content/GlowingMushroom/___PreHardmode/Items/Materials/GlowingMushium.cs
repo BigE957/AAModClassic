@@ -22,6 +22,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Glowing Mushium");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override Color? GetAlpha(Color lightColor)

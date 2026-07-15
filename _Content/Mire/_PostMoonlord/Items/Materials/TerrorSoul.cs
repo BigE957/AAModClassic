@@ -20,6 +20,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Materials
             ItemID.Sets.ItemIconPulse[Type] = true;
             ItemID.Sets.ItemNoGravity[Type] = true;
             ItemID.Sets.AnimatesAsSoul[Type] = true;
+
+            Item.ResearchUnlockCount = 15;
         }
 
         // TODO -- Velocity Y smaller, post NewItem?

@@ -24,6 +24,9 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Materials
             // Tooltip.SetDefault("The power of the dread moon is in your hands");
             Main.RegisterItemAnimation(Type, new DrawAnimationVertical(4, 9));
             ItemID.Sets.AnimatesAsSoul[Type] = true;
+
+            Item.ResearchUnlockCount = 25;
+
             if (Main.netMode != NetmodeID.Server)
                 glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }

@@ -31,6 +31,8 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Materials
         {
             // DisplayName.SetDefault("Incinerite");
             // Tooltip.SetDefault("This stuff is really friggin' hot. Careful.");
+
+            Item.ResearchUnlockCount = 100;
         }
 
     }

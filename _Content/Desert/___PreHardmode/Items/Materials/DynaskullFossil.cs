@@ -15,6 +15,8 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items.Materials
 
             // DisplayName.SetDefault("Dynaskull Fossil");
             // Tooltip.SetDefault("The energy of millions of years pulsates through this ancient fossil");
+
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

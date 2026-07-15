@@ -31,6 +31,8 @@ namespace AAModClassic._Content.Mire.World.Tiles
             // Tooltip.SetDefault("Dank");
 
             ItemTrader.ChlorophyteExtractinator.AddOption_OneWay(Type, 1, ItemID.StoneBlock, 1);
+
+            Item.ResearchUnlockCount = 100;
         }
 
     }

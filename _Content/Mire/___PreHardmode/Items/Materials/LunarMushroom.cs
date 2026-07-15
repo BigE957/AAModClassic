@@ -13,6 +13,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Materials
         {
             // DisplayName.SetDefault("Lunar Mushroom");
             // Tooltip.SetDefault("Only grows at night");
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {

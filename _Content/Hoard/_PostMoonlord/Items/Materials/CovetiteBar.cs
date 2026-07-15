@@ -34,6 +34,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items.Materials
         {
             // DisplayName.SetDefault("Covetite Bar");
             // Tooltip.SetDefault("It's somehow shiny but not at the same time. How did greed fall for this?");
+            Item.ResearchUnlockCount = 25;
         }
 
 		public override void AddRecipes()

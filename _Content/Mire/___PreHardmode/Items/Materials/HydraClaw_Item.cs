@@ -11,6 +11,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Materials
         {
             // DisplayName.SetDefault("Hydra Claw");
             // Tooltip.SetDefault("Don't prick yourself");
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {

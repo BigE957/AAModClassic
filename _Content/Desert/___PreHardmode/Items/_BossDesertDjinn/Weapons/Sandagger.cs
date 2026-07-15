@@ -11,7 +11,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Wea
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Sandagger");
-            // Tooltip.SetDefault("");
+            Item.ResearchUnlockCount = 99;
         }
 
         public override void SetDefaults()

@@ -29,6 +29,8 @@ namespace AAModClassic._Content.Inferno.World.Tiles
             // DisplayName.SetDefault("Torchsandstone");
 
             ItemTrader.ChlorophyteExtractinator.AddOption_OneWay(Type, 1, ItemID.Sandstone, 1);
+
+            Item.ResearchUnlockCount = 100;
         }
 
     }

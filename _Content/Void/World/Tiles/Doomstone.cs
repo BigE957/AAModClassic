@@ -31,9 +31,9 @@ namespace AAModClassic._Content.Void.World.Tiles
 
         public override void SetStaticDefaults()
         {
-            
+
             // DisplayName.SetDefault("Charged Doomstone");
-            // Tooltip.SetDefault("");
+            Item.ResearchUnlockCount = 100;
 
         }
     }

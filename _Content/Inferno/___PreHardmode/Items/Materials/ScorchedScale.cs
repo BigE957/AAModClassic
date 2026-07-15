@@ -23,6 +23,8 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Materials
         {
             // DisplayName.SetDefault("Scorched Scale");
             // Tooltip.SetDefault("The scale of a formidable foe");
+
+            Item.ResearchUnlockCount = 25;
         }
     }
 }

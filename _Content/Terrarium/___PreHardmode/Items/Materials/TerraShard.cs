@@ -11,7 +11,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Shard");
-            // ticksperframe, frameCount
+            Item.ResearchUnlockCount = 25;
         }
 
         // TODO -- Velocity Y smaller, post NewItem?

@@ -27,6 +27,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles
         {
             // DisplayName.SetDefault("Scorched Dynasty Wood");
             // Tooltip.SetDefault("");
+            Item.ResearchUnlockCount = 100;
         }
         public override void AddRecipes()
         {

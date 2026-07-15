@@ -14,6 +14,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Materials
         {
             // DisplayName.SetDefault("Daybreak Incinerite");
             // Tooltip.SetDefault("Bright as the radiant sun");
+
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {

@@ -27,6 +27,7 @@ namespace AAModClassic._Content.RedMushroom.World.Tiles
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Mushroom Block");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void AddRecipes()

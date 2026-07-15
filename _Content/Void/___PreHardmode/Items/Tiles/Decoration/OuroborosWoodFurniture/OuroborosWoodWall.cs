@@ -11,6 +11,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Ourob
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ouroboros Wood Wall");
+            Item.ResearchUnlockCount = 400;
         }
 
         public override void SetDefaults()

@@ -33,9 +33,10 @@ namespace AAModClassic._Content.PumpkinMoon.__Hardmode.Items.Weapons
 
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Spooky Knife");
-			// Tooltip.SetDefault("Spreads Mourning Wood Embers on hit");
-		}
+            // DisplayName.SetDefault("Spooky Knife");
+            // Tooltip.SetDefault("Spreads Mourning Wood Embers on hit");
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void AddRecipes()
 		{

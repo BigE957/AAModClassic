@@ -26,7 +26,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Tiles
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Rotted Shingles");
-            // Tooltip.SetDefault("");
+            Item.ResearchUnlockCount = 100;
         }
         public override void AddRecipes()
         {

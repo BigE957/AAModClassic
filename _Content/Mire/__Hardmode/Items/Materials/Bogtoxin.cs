@@ -12,6 +12,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Materials
         {
             // DisplayName.SetDefault("Bogtoxin");
             // Tooltip.SetDefault("Exceedingly corrosive venom.");
+            Item.ResearchUnlockCount = 15;
         }
         public override void SetDefaults()
         {

@@ -28,6 +28,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Doomsday Circuit Wall");
+            Item.ResearchUnlockCount = 400;
         }
         public override void AddRecipes()
         {

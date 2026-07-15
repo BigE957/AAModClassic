@@ -11,6 +11,7 @@ namespace AAModClassic._Content.Hoard.World.Tiles
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Hoard Brick");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

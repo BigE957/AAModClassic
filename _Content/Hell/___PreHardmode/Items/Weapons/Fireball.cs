@@ -33,9 +33,10 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Weapons
 
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Fireball");
-			// Tooltip.SetDefault("Even better than Mario's Fire Flower!");
-		}
+            // DisplayName.SetDefault("Fireball");
+            // Tooltip.SetDefault("Even better than Mario's Fire Flower!");
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void AddRecipes()
 		{

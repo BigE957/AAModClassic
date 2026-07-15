@@ -32,6 +32,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items.Materials
         {
             // DisplayName.SetDefault("Covetite Ore");
             // Tooltip.SetDefault("Only a fool would want this. Makes sense why greed has it.");
+            Item.ResearchUnlockCount = 100;
         }
 
     }

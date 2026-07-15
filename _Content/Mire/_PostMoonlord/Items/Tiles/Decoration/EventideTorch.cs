@@ -16,6 +16,10 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Tiles.Decoration
 		{
 			// DisplayName.SetDefault("Eventide Torch");
 			ItemID.Sets.Torches[Type] = true;
+            ItemID.Sets.SingleUseInGamepad[Type] = true;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.ShimmerTorch;
+
+            Item.ResearchUnlockCount = 100;
         }
 
 		public override void SetDefaults()

@@ -32,8 +32,9 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
 
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Murky Gel");
-			// Tooltip.SetDefault("Inflicts Oiled debuff on hit");
-		}
+            // DisplayName.SetDefault("Murky Gel");
+            // Tooltip.SetDefault("Inflicts Oiled debuff on hit");
+            Item.ResearchUnlockCount = 99;
+        }
 	}
 }

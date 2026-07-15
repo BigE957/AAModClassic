@@ -12,6 +12,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.We
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Snowflake Shuriken");
+            Item.ResearchUnlockCount = 99;
         }
         public override void SetDefaults()
 		{

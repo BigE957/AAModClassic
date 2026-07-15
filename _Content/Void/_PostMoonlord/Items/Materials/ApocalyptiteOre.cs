@@ -12,8 +12,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Materials
         public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Apocalyptite");
-            // Tooltip.SetDefault(@"");
+            // DisplayName.SetDefault("Apocalyptite");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

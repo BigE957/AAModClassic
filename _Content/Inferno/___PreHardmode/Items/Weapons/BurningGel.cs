@@ -32,8 +32,9 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
 
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Burning Gel");
-			// Tooltip.SetDefault("Ignites target on hit");
-		}
+            // DisplayName.SetDefault("Burning Gel");
+            // Tooltip.SetDefault("Ignites target on hit");
+            Item.ResearchUnlockCount = 99;
+        }
 	}
 }

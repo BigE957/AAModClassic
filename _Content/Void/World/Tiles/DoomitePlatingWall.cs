@@ -28,6 +28,7 @@ namespace AAModClassic._Content.Void.World.Tiles
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Doomite Plating Wall");
+            Item.ResearchUnlockCount = 400;
         }
         public override void AddRecipes()
         {

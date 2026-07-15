@@ -11,6 +11,7 @@ namespace AAModClassic._Content.Madness.___PreHardmode.Items.Materials
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Madness Fragment");
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {

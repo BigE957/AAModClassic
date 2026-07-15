@@ -33,7 +33,13 @@ Used to create ancient crafting stations"); */
             Item.consumable = true;
             Item.value = 1000000;
             Item.createTile = ModContent.TileType<TerraCore_Tile>();
-        }  
+        }
+
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.CraftingObjects;
+        }
+
 
         public override void AddRecipes()
         {

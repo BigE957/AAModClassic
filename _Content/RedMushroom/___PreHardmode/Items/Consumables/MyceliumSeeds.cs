@@ -14,8 +14,9 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables
 		public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Mycelium Seeds");
-            // Tooltip.SetDefault("Plants Mycelium"); ;	
-		}		
+            // Tooltip.SetDefault("Plants Mycelium");
+            Item.ResearchUnlockCount = 25;
+        }		
 		
         public override void SetDefaults()
         {

@@ -10,6 +10,15 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials
     public class SkyCrystal : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Materials";
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Sky Crystal");
+            // Tooltip.SetDefault("A beautiful crystal, said to contain a piece of the sky");
+
+            Item.ResearchUnlockCount = 100;
+        }
+
         public override void SetDefaults()
         {
             Item.width = 16;
@@ -26,14 +35,5 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials
             Item.rare = ItemRarityID.Cyan;
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
-
-        
-
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Sky Crystal");
-            // Tooltip.SetDefault("A beautiful crystal, said to contain a piece of the sky");
-        }
-
     }
 }

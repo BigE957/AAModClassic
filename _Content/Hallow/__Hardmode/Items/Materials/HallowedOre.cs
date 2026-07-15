@@ -28,6 +28,7 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Materials
         {
             // DisplayName.SetDefault("Hallowed Ore");
             // Tooltip.SetDefault("It's super bright");
+            Item.ResearchUnlockCount = 100;
         }
 
     }

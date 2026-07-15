@@ -10,9 +10,9 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Materials
         public new string LocalizationCategory => "Items.Materials";
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Viking Relic");
-			// Tooltip.SetDefault("");
-		}
+            // DisplayName.SetDefault("Viking Relic");
+            Item.ResearchUnlockCount = 50;
+        }
 
 		public override void SetDefaults()
 		{

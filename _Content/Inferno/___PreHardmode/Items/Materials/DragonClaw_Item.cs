@@ -11,6 +11,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Materials
         {
             // DisplayName.SetDefault("Dragon Claw");
             // Tooltip.SetDefault("Don't prick yourself");
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {

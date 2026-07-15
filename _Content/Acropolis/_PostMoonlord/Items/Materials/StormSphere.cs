@@ -18,6 +18,8 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials
             // Tooltip.SetDefault("A supercharged crystal sphere of Varian Energy");
             Main.RegisterItemAnimation(Type, new DrawAnimationVertical(4, 5));
             ItemID.Sets.AnimatesAsSoul[Type] = true;
+
+            Item.ResearchUnlockCount = 25;
         }
 
         public override void SetDefaults()

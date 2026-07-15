@@ -31,6 +31,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials
         {
             // DisplayName.SetDefault("Glowing Mushium Bar");
             // Tooltip.SetDefault("Glowy");
+            Item.ResearchUnlockCount = 25;
         }
 
         public override Color? GetAlpha(Color lightColor)

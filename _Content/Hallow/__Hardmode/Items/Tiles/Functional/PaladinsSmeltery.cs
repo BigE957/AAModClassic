@@ -32,6 +32,11 @@ Functions as most hardmode crafting stations + A workbench and heavy workbench")
             Item.createTile = ModContent.TileType<PaladinsSmeltery_Tile>();
         }
 
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.CraftingObjects;
+        }
+
         public override void AddRecipes()
         {
             {

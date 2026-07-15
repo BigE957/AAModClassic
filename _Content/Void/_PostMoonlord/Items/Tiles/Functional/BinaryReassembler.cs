@@ -38,7 +38,11 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Functional
             Item.createTile = ModContent.TileType<BinaryReassembler_Tile>();
         }
 
-        
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.CraftingObjects;
+        }
+
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {

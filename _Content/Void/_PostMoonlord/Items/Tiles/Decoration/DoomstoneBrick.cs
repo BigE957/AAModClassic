@@ -34,8 +34,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Doomstone Brick");
-            // Tooltip.SetDefault("");
-           
+            Item.ResearchUnlockCount = 100;
+
         }
         public override void AddRecipes()
         {

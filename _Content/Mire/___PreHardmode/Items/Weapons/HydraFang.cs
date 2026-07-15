@@ -34,9 +34,10 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
 
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Hydra Fang");
-			// Tooltip.SetDefault("Pierces up to 3 enemies");
-		}
+            // DisplayName.SetDefault("Hydra Fang");
+            // Tooltip.SetDefault("Pierces up to 3 enemies");
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void AddRecipes()
 		{

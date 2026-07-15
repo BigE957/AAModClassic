@@ -19,6 +19,8 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
             ItemID.Sets.ItemNoGravity[Item.type] = true;
             // DisplayName.SetDefault("Radiant Photon");
             // Tooltip.SetDefault("A shard of the heavenly cosmos");
+
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {

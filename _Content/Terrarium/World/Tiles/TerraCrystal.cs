@@ -13,6 +13,7 @@ namespace AAModClassic._Content.Terrarium.World.Tiles
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Crystal");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

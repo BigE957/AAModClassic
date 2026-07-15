@@ -14,6 +14,8 @@ namespace AAModClassic._Content.Mire.World.Tiles
             // DisplayName.SetDefault("Depthsand");
 
             ItemTrader.ChlorophyteExtractinator.AddOption_OneWay(Type, 1, ItemID.SandBlock, 1);
+
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

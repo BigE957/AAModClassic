@@ -12,6 +12,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items.Materials
         {
             // DisplayName.SetDefault("Stone Shell");
             // Tooltip.SetDefault(@"Harder than bedrock but lighter than pumice");
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {

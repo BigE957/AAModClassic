@@ -36,6 +36,10 @@ Allows you to work with Dark Matter and Radium"); */
             Item.createTile = ModContent.TileType<QuantumFusionAccelerator_Tile>();
         }
 
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.CraftingObjects;
+        }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {

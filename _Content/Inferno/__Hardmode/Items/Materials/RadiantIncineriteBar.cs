@@ -33,6 +33,8 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Materials
         {
             // DisplayName.SetDefault("Radiant Incinerite Bar");
             // Tooltip.SetDefault("You can barely look at it, it's so bright");
+
+            Item.ResearchUnlockCount = 25;
         }
 
 		public override void AddRecipes()

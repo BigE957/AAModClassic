@@ -19,6 +19,8 @@ namespace AAModClassic._Content.Sky.__Hardmode.Items.Materials
             ItemID.Sets.AnimatesAsSoul[Item.type] = true;
             ItemID.Sets.ItemIconPulse[Item.type] = true;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+
+            Item.ResearchUnlockCount = 15;
         }
 
         // TODO -- Velocity Y smaller, post NewItem?

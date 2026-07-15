@@ -28,6 +28,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
         {
             // DisplayName.SetDefault("Radium Ore");
             // Tooltip.SetDefault("Twinkles like the stars in the midnight skies");
+            Item.ResearchUnlockCount = 100;
         }
 
     }

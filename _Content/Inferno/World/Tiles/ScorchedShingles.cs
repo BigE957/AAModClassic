@@ -25,7 +25,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Scorched Dynasty Shingles");
-            // Tooltip.SetDefault("");
+            Item.ResearchUnlockCount = 100;
         }
         public override void AddRecipes()
         {

@@ -31,6 +31,12 @@ namespace AAModClassic._Content.Crimson.___PreHardmode.Items.Tiles.Functional
             Item.accessory = false;
             Item.maxStack = Item.CommonMaxStack;
         }
+
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.CraftingObjects;
+        }
+
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();

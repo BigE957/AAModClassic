@@ -27,6 +27,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
         {
             // DisplayName.SetDefault("Equinox Brick");
             // Tooltip.SetDefault("Changes depending on the time of day");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void AddRecipes()

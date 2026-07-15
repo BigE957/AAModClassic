@@ -25,8 +25,9 @@ public class TerraBrick : BaseAAItem, ILocalizedModType
 
 	public override void SetStaticDefaults()
 	{
-		//((ModItem)this).DisplayName.SetDefault("Terra Brick");
-	}
+        //((ModItem)this).DisplayName.SetDefault("Terra Brick");
+        Item.ResearchUnlockCount = 100;
+    }
 
 	public override void AddRecipes()
 	{

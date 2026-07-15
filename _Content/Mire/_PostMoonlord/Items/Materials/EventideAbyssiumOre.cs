@@ -20,6 +20,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Materials
             // Tooltip.SetDefault("It's cold and wet, like an evening in a swampy marsh");
 
             ItemTrader.ChlorophyteExtractinator.AddOption_Interchangable(ModContent.ItemType<EventideAbyssiumOre>(), ModContent.ItemType<DaybreakIncineriteOre>());
+
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

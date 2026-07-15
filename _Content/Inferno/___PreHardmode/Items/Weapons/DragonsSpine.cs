@@ -12,7 +12,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dragon's Spine");
-            // Tooltip.SetDefault("");
+            Item.ResearchUnlockCount = 99;
         }
 
         public override void SetDefaults()

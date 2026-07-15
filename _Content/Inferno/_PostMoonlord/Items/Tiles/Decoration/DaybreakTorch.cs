@@ -16,6 +16,10 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Tiles.Decoration
 		{
 			// DisplayName.SetDefault("Daybreak Torch");
 			ItemID.Sets.Torches[Type] = true;
+            ItemID.Sets.SingleUseInGamepad[Type] = true;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.ShimmerTorch;
+
+            Item.ResearchUnlockCount = 100;
         }
 
 		public override void SetDefaults()

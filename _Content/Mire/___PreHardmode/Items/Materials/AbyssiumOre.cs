@@ -18,6 +18,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Materials
             // Tooltip.SetDefault("It's all mushy. Nasty.");
 
             ItemTrader.ChlorophyteExtractinator.AddOption_Interchangable(ModContent.ItemType<AbyssiumOre>(), ModContent.ItemType<IncineriteOre>());
+
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

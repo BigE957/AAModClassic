@@ -26,6 +26,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items.Tiles.Decoration
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Skymarble Brick");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void AddRecipes()

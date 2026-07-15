@@ -20,6 +20,7 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Materials
         {
             // DisplayName.SetDefault("Biome Prism");
             // Tooltip.SetDefault("A magical prism that can be enhanced with the power of a biome.");
+            Item.ResearchUnlockCount = 5;
         }
 
         // TODO -- Velocity Y smaller, post NewItem?

@@ -30,6 +30,8 @@ namespace AAModClassic._Content.Inferno.World.Tiles
             // Tooltip.SetDefault("Warm to the touch");
 
             ItemTrader.ChlorophyteExtractinator.AddOption_OneWay(Type, 1, ItemID.StoneBlock, 1);
+
+            Item.ResearchUnlockCount = 100;
         }
 
     }

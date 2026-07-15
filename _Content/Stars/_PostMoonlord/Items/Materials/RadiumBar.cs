@@ -13,6 +13,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
         {
             // DisplayName.SetDefault("Radium Bar");
             // Tooltip.SetDefault("It's sparkly");
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {

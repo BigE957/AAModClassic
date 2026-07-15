@@ -30,6 +30,8 @@ namespace AAModClassic._Content.Mire.World.Tiles
             // DisplayName.SetDefault("Depthsandstone");
 
             ItemTrader.ChlorophyteExtractinator.AddOption_OneWay(Type, 1, ItemID.Sandstone, 1);
+
+            Item.ResearchUnlockCount = 100;
         }
 
     }

@@ -15,6 +15,8 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Materials
         {
             // DisplayName.SetDefault("Incinerite Bar");
             // Tooltip.SetDefault("Careful. It's hot.");
+
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {

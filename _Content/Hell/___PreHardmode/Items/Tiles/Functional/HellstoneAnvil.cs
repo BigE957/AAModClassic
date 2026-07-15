@@ -30,6 +30,11 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Tiles.Functional
             Item.createTile = ModContent.TileType<HellstoneAnvil_Tile>();
         }
 
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.CraftingObjects;
+        }
+
         public override void AddRecipes()
         { 
             {

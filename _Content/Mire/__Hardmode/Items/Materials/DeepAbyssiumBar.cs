@@ -18,6 +18,8 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Materials
             // Tooltip.SetDefault("It's a wonder you can even see it, it's so dark");
 
             ItemTrader.ChlorophyteExtractinator.AddOption_Interchangable(ModContent.ItemType<DeepAbyssiumBar>(), ModContent.ItemType<RadiantIncineriteBar>());
+
+            Item.ResearchUnlockCount = 25;
         }
 
         public override void SetDefaults()

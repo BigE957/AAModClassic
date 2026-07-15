@@ -27,6 +27,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Tiles.Decoration
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Daybreak Brick");
+
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void AddRecipes()

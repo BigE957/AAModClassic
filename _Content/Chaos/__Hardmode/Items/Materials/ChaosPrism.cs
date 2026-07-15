@@ -17,6 +17,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Materials
         {
             // DisplayName.SetDefault("Chaos Prism");
             // Tooltip.SetDefault("Imbued with the discordian flames of chaos");
+            Item.ResearchUnlockCount = 10;
         }
 
         // TODO -- Velocity Y smaller, post NewItem?

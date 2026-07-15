@@ -17,6 +17,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Materials
             // Tooltip.SetDefault("The skin of a formidable foe");
 
             ItemTrader.ChlorophyteExtractinator.AddOption_Interchangable(ModContent.ItemType<HydraHide>(), ModContent.ItemType<ScorchedScale>());
+
+            Item.ResearchUnlockCount = 25;
         }
 
         public override void SetDefaults()

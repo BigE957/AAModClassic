@@ -33,6 +33,11 @@ Combiles all vanilla and Ancients Awakened crafting stations together"); */
             Item.createTile = ModContent.TileType<TerraPrismStation_Tile>();
         }
 
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.CraftingObjects;
+        }
+
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();

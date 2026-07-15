@@ -15,6 +15,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Doomsday Circuit Plating");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

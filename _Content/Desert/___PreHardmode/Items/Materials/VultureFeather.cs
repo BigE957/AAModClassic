@@ -10,8 +10,9 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items.Materials
         public new string LocalizationCategory => "Items.Materials";
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Vulture Feather");
-		}
+            // DisplayName.SetDefault("Vulture Feather");
+            Item.ResearchUnlockCount = 15;
+        }
 
 		public override void SetDefaults()
 		{

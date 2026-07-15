@@ -10,7 +10,6 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials
         public new string LocalizationCategory => "Items.Materials";
         public override void SetDefaults()
         {
-
             Item.width = 30;
             Item.height = 24;
             Item.maxStack = Item.CommonMaxStack;
@@ -29,6 +28,8 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials
         {
             // DisplayName.SetDefault("Mushium Bar");
             // Tooltip.SetDefault("Mushy");
+
+            Item.ResearchUnlockCount = 25;
         }
 
 		public override void AddRecipes()

@@ -21,6 +21,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Materials
             Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 6));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
             ItemID.Sets.AnimatesAsSoul[Type] = true;
+
+            Item.ResearchUnlockCount = 15;
         }
 
         public override Color? GetAlpha(Color lightColor)

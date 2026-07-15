@@ -12,6 +12,7 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Materials
         {
             // DisplayName.SetDefault("Devil Silk");
             // Tooltip.SetDefault("Physical Sin; feels good, but it isn't a good long-lasting material");
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {

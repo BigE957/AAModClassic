@@ -12,6 +12,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
         {
             // DisplayName.SetDefault("Fulgurite Bar");
             // Tooltip.SetDefault("It's static-y");
+
+            Item.ResearchUnlockCount = 25;
         }
 
         public override void SetDefaults()

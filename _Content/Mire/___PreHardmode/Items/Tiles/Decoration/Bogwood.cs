@@ -29,7 +29,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Bogwood");
-            // Tooltip.SetDefault("");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void AddRecipes()

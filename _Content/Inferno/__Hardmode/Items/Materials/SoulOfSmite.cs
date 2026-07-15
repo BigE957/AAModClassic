@@ -19,7 +19,9 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Materials
 			ItemID.Sets.AnimatesAsSoul[Item.type] = true;
 			ItemID.Sets.ItemIconPulse[Item.type] = true;
 			ItemID.Sets.ItemNoGravity[Item.type] = true;
-		}
+
+            Item.ResearchUnlockCount = 25;
+        }
 
 		// TODO -- Velocity Y smaller, post NewItem?
 		public override void SetDefaults()

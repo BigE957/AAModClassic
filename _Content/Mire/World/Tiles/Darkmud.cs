@@ -27,6 +27,7 @@ namespace AAModClassic._Content.Mire.World.Tiles
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Darkmud");
+            Item.ResearchUnlockCount = 100;
         }
     }
 }

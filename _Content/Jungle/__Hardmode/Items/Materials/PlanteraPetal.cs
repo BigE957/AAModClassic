@@ -12,6 +12,7 @@ namespace AAModClassic._Content.Jungle.__Hardmode.Items.Materials
         {
             // DisplayName.SetDefault("Plantera Petal");
             // Tooltip.SetDefault("It's very pink");
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {

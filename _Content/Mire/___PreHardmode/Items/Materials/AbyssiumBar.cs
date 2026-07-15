@@ -16,6 +16,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Materials
             // Tooltip.SetDefault("Solid Darkness");
 
             ItemTrader.ChlorophyteExtractinator.AddOption_Interchangable(ModContent.ItemType<AbyssiumBar>(), ModContent.ItemType<IncineriteBar>());
+
+            Item.ResearchUnlockCount = 25;
         }
 
         public override void SetDefaults()

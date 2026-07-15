@@ -25,9 +25,9 @@ namespace AAModClassic._Content.Void.World.Tiles
        
         public override void SetStaticDefaults()
         {
-            
+
             // DisplayName.SetDefault("Doomstone");
-            // Tooltip.SetDefault("");
+            Item.ResearchUnlockCount = 100;
 
         }
     }

@@ -8,7 +8,7 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles;
 
 public class KeepBrick : BaseAAItem, ILocalizedModType
 {
-        public new string LocalizationCategory => "Items.Placeables";
+    public new string LocalizationCategory => "Items.Placeables";
 	public override void SetDefaults()
 	{
 		Item.width = 16;
@@ -25,8 +25,9 @@ public class KeepBrick : BaseAAItem, ILocalizedModType
 
 	public override void SetStaticDefaults()
 	{
-		//((ModItem)this).DisplayName.SetDefault("Keep Brick");
-	}
+        //((ModItem)this).DisplayName.SetDefault("Keep Brick");
+        Item.ResearchUnlockCount = 100;
+    }
 
 	public override void AddRecipes()
 	{

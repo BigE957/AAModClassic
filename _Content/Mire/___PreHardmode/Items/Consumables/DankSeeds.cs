@@ -15,8 +15,10 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Consumables
 		public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dank Seeds");
-            // Tooltip.SetDefault("Plants Mire grass"); ;	
-		}		
+            // Tooltip.SetDefault("Plants Mire grass");
+
+            Item.ResearchUnlockCount = 25;
+        }		
 		
         public override void SetDefaults()
         {

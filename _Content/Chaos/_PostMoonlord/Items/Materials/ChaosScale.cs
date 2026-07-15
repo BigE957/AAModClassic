@@ -22,6 +22,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Materials
             // Tooltip.SetDefault("Chaos radiates from this blazing scale");
             Main.RegisterItemAnimation(Type, new DrawAnimationVertical(4, 6));
             ItemID.Sets.AnimatesAsSoul[Type] = true;
+
+            Item.ResearchUnlockCount = 25;
+
             if (Main.netMode != NetmodeID.Server)
                 glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }

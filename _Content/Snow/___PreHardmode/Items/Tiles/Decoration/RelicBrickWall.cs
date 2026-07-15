@@ -25,6 +25,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Tiles.Decoration
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Relic Brick Wall");
+            Item.ResearchUnlockCount = 400;
         }
 
         public override void AddRecipes()

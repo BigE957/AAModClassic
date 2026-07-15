@@ -12,6 +12,8 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Materials.Mushrooms
         {
             // DisplayName.SetDefault("Blue Alchemical Mushroom");
             // Tooltip.SetDefault(@"It smells weird");
+
+            Item.ResearchUnlockCount = 3;
         }
         public override void SetDefaults()
         {

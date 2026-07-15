@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ouroboros Wood");
-            // Tooltip.SetDefault("");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

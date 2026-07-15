@@ -27,6 +27,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Abyssium Brick");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void AddRecipes()

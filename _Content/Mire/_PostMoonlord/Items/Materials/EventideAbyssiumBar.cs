@@ -19,6 +19,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Materials
             // Tooltip.SetDefault("Cold as the evening moon");
 
             ItemTrader.ChlorophyteExtractinator.AddOption_Interchangable(ModContent.ItemType<EventideAbyssiumBar>(), ModContent.ItemType<DaybreakIncineriteBar>());
+
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {

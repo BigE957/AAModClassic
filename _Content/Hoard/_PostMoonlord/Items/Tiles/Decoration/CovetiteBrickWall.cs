@@ -25,6 +25,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items.Tiles.Decoration
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Covetite Brick Wall");
+            Item.ResearchUnlockCount = 400;
         }
 
         public override void AddRecipes()

@@ -30,6 +30,8 @@ namespace AAModClassic._Content.Mire.World.Tiles
             // DisplayName.SetDefault("Indigo Ice");
 
             ItemTrader.ChlorophyteExtractinator.AddOption_OneWay(Type, 1, ItemID.IceBlock, 1);
+
+            Item.ResearchUnlockCount = 100;
         }
 
     }

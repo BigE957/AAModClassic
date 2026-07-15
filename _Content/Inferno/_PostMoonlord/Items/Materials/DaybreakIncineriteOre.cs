@@ -32,6 +32,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Materials
         {
             // DisplayName.SetDefault("Daybreak Incinerite Ore");
             // Tooltip.SetDefault("It's warm to the touch, like a bright summer morning.");
+
+            Item.ResearchUnlockCount = 100;
         }
     }
 }

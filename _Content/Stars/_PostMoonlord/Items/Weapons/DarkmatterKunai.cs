@@ -39,7 +39,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Darkmatter Kunai");
-            // Tooltip.SetDefault("");
+            Item.ResearchUnlockCount = 99;
         }
         public override void AddRecipes()
         {

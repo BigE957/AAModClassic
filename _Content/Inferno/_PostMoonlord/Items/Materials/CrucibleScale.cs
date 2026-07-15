@@ -18,6 +18,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Materials
             // Tooltip.SetDefault("The fury of the draconian sun eminates from this scale");
             Main.RegisterItemAnimation(Type, new DrawAnimationVertical(4, 4));
             ItemID.Sets.AnimatesAsSoul[Type] = true;
+
+            Item.ResearchUnlockCount = 25;
         }
 
         public override void SetDefaults()

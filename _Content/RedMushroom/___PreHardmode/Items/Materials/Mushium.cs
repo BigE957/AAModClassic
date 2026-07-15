@@ -11,6 +11,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Mushium");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

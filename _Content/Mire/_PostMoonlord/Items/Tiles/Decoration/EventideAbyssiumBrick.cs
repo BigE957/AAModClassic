@@ -12,6 +12,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Tiles.Decoration
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Eventide Brick");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

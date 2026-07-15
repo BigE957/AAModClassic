@@ -11,6 +11,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Materials
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dragon Scale");
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {

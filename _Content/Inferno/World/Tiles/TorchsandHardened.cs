@@ -29,6 +29,8 @@ namespace AAModClassic._Content.Inferno.World.Tiles
             // DisplayName.SetDefault("Hardened Torchsand");
 
             ItemTrader.ChlorophyteExtractinator.AddOption_OneWay(Type, 1, ItemID.HardenedSand, 1);
+
+            Item.ResearchUnlockCount = 100;
         }
 
     }

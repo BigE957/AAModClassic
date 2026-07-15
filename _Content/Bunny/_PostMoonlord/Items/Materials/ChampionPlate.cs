@@ -13,6 +13,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Materials
         {
             // DisplayName.SetDefault("Champion Plate");
             // Tooltip.SetDefault("Forged from Champium");
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {

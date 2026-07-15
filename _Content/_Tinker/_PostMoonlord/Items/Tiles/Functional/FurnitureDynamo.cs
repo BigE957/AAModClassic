@@ -31,6 +31,12 @@ Now you don't have to clutter your base with 12 crafting stations!"); */
             Item.createTile = ModContent.TileType<FurnitureDynamo_Tile>();
         }
 
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.CraftingObjects;
+        }
+
+
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();

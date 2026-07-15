@@ -14,6 +14,7 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Materials
         {
             // DisplayName.SetDefault("Prism");
             // Tooltip.SetDefault("Shines with the colors of all the gems");
+            Item.ResearchUnlockCount = 25;
         }
 
         public override Color? GetAlpha(Color lightColor)

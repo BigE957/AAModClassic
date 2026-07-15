@@ -14,8 +14,10 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables
 		public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Scorched Seeds");
-            // Tooltip.SetDefault("Plants Inferno grass"); ;	
-		}		
+            // Tooltip.SetDefault("Plants Inferno grass");
+
+            Item.ResearchUnlockCount = 25;
+        }		
 		
         public override void SetDefaults()
         {

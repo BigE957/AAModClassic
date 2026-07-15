@@ -18,6 +18,8 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items.Materials
             ItemID.Sets.ItemIconPulse[Item.type] = true;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
             ItemID.Sets.AnimatesAsSoul[Type] = true;
+
+            Item.ResearchUnlockCount = 25;
         }
 
         // TODO -- Velocity Y smaller, post NewItem?

@@ -14,6 +14,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Materials
             // DisplayName.SetDefault("Doomite Scrap");
             /* Tooltip.SetDefault(@"It's worthless
 ...or is it?"); */
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {

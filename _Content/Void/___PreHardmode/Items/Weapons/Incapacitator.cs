@@ -12,7 +12,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Incapacitator");
-            // Tooltip.SetDefault("");
+            Item.ResearchUnlockCount = 99;
         }
 
         public override void SetDefaults()

@@ -12,6 +12,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Materials
         {
             // DisplayName.SetDefault("Doomite Bar");
             // Tooltip.SetDefault("Unsettling energy radiates from this bar");
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {

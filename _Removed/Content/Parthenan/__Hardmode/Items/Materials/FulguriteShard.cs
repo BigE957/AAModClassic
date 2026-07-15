@@ -11,6 +11,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
         {
             // DisplayName.SetDefault("Fulgurite Shard");
             // Tooltip.SetDefault("The fury of a thousand bolts of lightning run through this shard");
+
+            Item.ResearchUnlockCount = 15;
         }
 
         public override void SetDefaults()

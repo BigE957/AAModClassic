@@ -33,9 +33,9 @@ namespace AAModClassic._Content.Madness.___PreHardmode.Items.Weapons
 
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Madness Knife");
-			// Tooltip.SetDefault("");
-		}
+            // DisplayName.SetDefault("Madness Knife");
+            Item.ResearchUnlockCount = 99;
+        }
 
 		public override void AddRecipes()
 		{

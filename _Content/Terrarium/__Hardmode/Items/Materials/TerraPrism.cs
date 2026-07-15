@@ -24,6 +24,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Materials
         {
             // DisplayName.SetDefault("Terra Prism");
             // Tooltip.SetDefault("Imbued with the unified harmony of the land of Terraria");
+            Item.ResearchUnlockCount = 10;
         }
 
         // TODO -- Velocity Y smaller, post NewItem?

@@ -14,6 +14,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Materials
         {
             // DisplayName.SetDefault("Apocalyptite Plate");
             // Tooltip.SetDefault("A forboding energy rings from this metal plating");
+            Item.ResearchUnlockCount = 25;
         }
 
         public override void SetDefaults()

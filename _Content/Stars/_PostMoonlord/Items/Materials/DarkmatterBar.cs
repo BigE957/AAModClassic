@@ -16,6 +16,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
         {
             // DisplayName.SetDefault("Dark Matter");
             // Tooltip.SetDefault("The building blocks of physics itself");
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {

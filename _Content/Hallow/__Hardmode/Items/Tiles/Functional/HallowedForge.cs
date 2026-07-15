@@ -31,6 +31,11 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional
             Item.createTile = ModContent.TileType<HallowedForge_Tile>();
         }
 
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
+        {
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.CraftingObjects;
+        }
+
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();

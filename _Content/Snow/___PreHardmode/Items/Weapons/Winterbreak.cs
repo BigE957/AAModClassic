@@ -12,7 +12,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Weapons
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Winterbreak");
-            // Tooltip.SetDefault("");
+            Item.ResearchUnlockCount = 99;
         }
 
         public override void SetDefaults()

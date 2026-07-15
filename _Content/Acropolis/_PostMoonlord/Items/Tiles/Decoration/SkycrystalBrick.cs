@@ -9,6 +9,11 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items.Tiles.Decoration
     public class SkycrystalBrick : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables";
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Skycrystal Brick");
+            Item.ResearchUnlockCount = 100;
+        }
         public override void SetDefaults()
         {
             Item.width = 16;
@@ -21,11 +26,6 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items.Tiles.Decoration
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<SkycrystalBrick_Tile>();
-        }
-
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Skycrystal Brick");
         }
 
         public override void AddRecipes()

@@ -12,6 +12,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items.Materials
         {
             // DisplayName.SetDefault("Seraph Feather");
             // Tooltip.SetDefault("A silvery feather from a harpy seraph");
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {

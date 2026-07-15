@@ -15,6 +15,8 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Materials
             // Tooltip.SetDefault("It's really really hot.");
             Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 4));
             ItemID.Sets.AnimatesAsSoul[Type] = true;
+
+            Item.ResearchUnlockCount = 15;
         }
         public override void SetDefaults()
         {

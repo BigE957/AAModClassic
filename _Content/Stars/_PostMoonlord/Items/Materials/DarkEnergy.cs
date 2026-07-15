@@ -17,6 +17,8 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
             // Tooltip.SetDefault("It's oddly weightless");
             ItemID.Sets.ItemIconPulse[Item.type] = true;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {

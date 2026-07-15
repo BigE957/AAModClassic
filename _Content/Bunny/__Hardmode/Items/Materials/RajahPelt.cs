@@ -10,9 +10,10 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items.Materials
         public new string LocalizationCategory => "Items.Materials";
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Rabbit Pelt");
+            // DisplayName.SetDefault("Rabbit Pelt");
             // Tooltip.SetDefault("Surpisingly durable for a pelt of fur");
-		}
+            Item.ResearchUnlockCount = 25;
+        }
 
 		public override void SetDefaults()
 		{

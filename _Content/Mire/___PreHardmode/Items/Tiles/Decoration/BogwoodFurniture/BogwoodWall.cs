@@ -27,6 +27,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwo
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Bogwood Wall");
+            Item.ResearchUnlockCount = 400;
         }
 
         public override void AddRecipes()

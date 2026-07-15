@@ -13,6 +13,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Materials
         {
             // DisplayName.SetDefault("Solar Mushroom");
             // Tooltip.SetDefault("Only grows during the day");
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {
