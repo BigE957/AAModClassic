@@ -135,7 +135,6 @@ namespace AAModClassic
         //Messages
         public static bool AMessage;
         public static bool Empowered;
-        public static bool HeroRelicMessage;
         //Boss Bools
         public static bool Ancients;
         public static bool downedGrips;

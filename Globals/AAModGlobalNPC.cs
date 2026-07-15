@@ -95,6 +95,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.DataStructures;
+using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.Events;
 using Terraria.GameContent.ItemDropRules;
@@ -103,6 +104,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.ModLoader.Utilities;
+using static AAModClassic.Assets.AssetDirectory;
 using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 namespace AAModClassic.Globals
@@ -307,6 +309,7 @@ namespace AAModClassic.Globals
             LeadingConditionRule expertRule = new(new Conditions.IsExpert());
             LeadingConditionRule skeletronRule = new(new SkeletronDefated());
             LeadingConditionRule GolemRule = new(new GolemDefated());
+            LeadingConditionRule GoblinRule = new(new GoblinsDefated());
 
             LeadingConditionRule unofficialRule = new(new Unofficial());
             LeadingConditionRule notUnofficialRule = new(new NotUnofficial());
@@ -417,18 +420,204 @@ namespace AAModClassic.Globals
                     skeletronRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<VikingRelic>(), 3, 1, 2));
                     npcLoot.Add(skeletronRule);
                     break;
+                case NPCID.Bunny:
                 case NPCID.GoldBunny:
-                    GolemRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GoldenCarrot>()));
+                case NPCID.BunnySlimed:
+                case NPCID.BunnyXmas:
+                case NPCID.ExplosiveBunny:
+                case NPCID.GemBunnyAmber:
+                case NPCID.GemBunnyAmethyst:
+                case NPCID.GemBunnyDiamond:
+                case NPCID.GemBunnyEmerald:
+                case NPCID.GemBunnyRuby:
+                case NPCID.GemBunnySapphire:
+                case NPCID.GemBunnyTopaz:
+                case NPCID.TownBunny: //Idk if blud should count but whatever
+                case NPCID.PartyBunny:
+                    GolemRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GoldenCarrot>(), 80));
                     npcLoot.Add(GolemRule);
                     break;
-                case NPCID.Bunny:
-
+                case NPCID.PirateDeckhand:
+                case NPCID.PirateCorsair:
+                case NPCID.PirateDeadeye:
+                case NPCID.PirateCrossbower:
+                case NPCID.Parrot:
+                case NPCID.PirateCaptain:
+                case NPCID.PirateShip:
+                case NPCID.PirateShipCannon:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PirateBooty>(), 8));
+                    break;
+                case NPCID.Frankenstein:
+                case NPCID.Vampire:
+                case NPCID.VampireBat:
+                case NPCID.SwampThing:
+                case NPCID.CreatureFromTheDeep:
+                case NPCID.Fritz:
+                case NPCID.Reaper:
+                case NPCID.ThePossessed:
+                case NPCID.Mothron:
+                case NPCID.Butcher:
+                case NPCID.DeadlySphere:
+                case NPCID.DrManFly:
+                case NPCID.Nailhead:
+                case NPCID.Psycho:
+                case NPCID.Eyezor:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MonsterSoul>(), 8));
+                    break;
+                case NPCID.Scarecrow1:
+                case NPCID.Scarecrow2:
+                case NPCID.Scarecrow3:
+                case NPCID.Scarecrow4:
+                case NPCID.Scarecrow5:
+                case NPCID.Scarecrow6:
+                case NPCID.Scarecrow7:
+                case NPCID.Scarecrow8:
+                case NPCID.Scarecrow9:
+                case NPCID.Scarecrow10:
+                case NPCID.Splinterling:
+                case NPCID.Hellhound:
+                case NPCID.Poltergeist:
+                case NPCID.HeadlessHorseman:
+                case NPCID.MourningWood:
+                case NPCID.Pumpking:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HalloweenTreat>(), 8));
+                    break;
+                case NPCID.PresentMimic:
+                case NPCID.Flocko:
+                case NPCID.GingerbreadMan:
+                case NPCID.ZombieElf:
+                case NPCID.ZombieElfBeard:
+                case NPCID.ZombieElfGirl:
+                case NPCID.ElfArcher:
+                case NPCID.ElfCopter:
+                case NPCID.Nutcracker:
+                case NPCID.NutcrackerSpinning:
+                case NPCID.Yeti:
+                case NPCID.Krampus:
+                case NPCID.Everscream:
+                case NPCID.SantaNK1:
+                case NPCID.IceQueen:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ChristmasCheer>(), 8));
+                    break;
+                case NPCID.Scutlix:
+                case NPCID.ScutlixRider:
+                case NPCID.MartianWalker:
+                case NPCID.MartianDrone:
+                case NPCID.MartianTurret:
+                case NPCID.GigaZapper:
+                case NPCID.MartianEngineer:
+                case NPCID.MartianOfficer:
+                case NPCID.RayGunner:
+                case NPCID.GrayGrunt:
+                case NPCID.BrainScrambler:
+                case NPCID.MartianSaucer:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MartianCredit>(), 8));
+                    break;
+                default:
+                    if(AASets.Goblins[npc.type])
+                    {
+                        GoblinRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GoblinSoul>(), 8));
+                        npcLoot.Add(GoblinRule);
+                    }
                     break;
             }
         }
 
+        internal class LambdaDropRuleCondition : IItemDropRuleCondition
+        {
+            private readonly Func<DropAttemptInfo, bool> conditionLambda;
+            private readonly bool visibleInUI;
+            private readonly string description;
+
+            internal LambdaDropRuleCondition(Func<DropAttemptInfo, bool> lambda, bool ui = true, string desc = null)
+            {
+                conditionLambda = lambda;
+                visibleInUI = ui;
+                description = desc;
+            }
+
+            public bool CanDrop(DropAttemptInfo info) => conditionLambda(info);
+            public bool CanShowItemDropInUI() => visibleInUI;
+            public string GetConditionDescription() => description;
+        }
+
+        public override void ModifyGlobalLoot(GlobalLoot globalLoot)
+        {
+            //Shiny Charm
+            globalLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShinyCharm>(), 8192));
+
+            //Event Tokens
+            LeadingConditionRule bloodRuneCondition = new(new LambdaDropRuleCondition((info) =>
+            {
+                return Main.bloodMoon;
+            }, false));
+
+            bloodRuneCondition.OnSuccess(ItemDropRule.Common(ModContent.ItemType<BloodRune>(), 8), true);
+            globalLoot.Add(bloodRuneCondition);
+
+            //Hardmode Souls
+            LeadingConditionRule spiteSoulCondition = new(new LambdaDropRuleCondition((info) =>
+            {
+                return Main.hardMode && info.player.ZoneAnyMire() && info.player.position.Y > (Main.worldSurface * 16.0); ;
+            }, false));
+
+            spiteSoulCondition.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SoulOfSpite>(), 5), true);
+            globalLoot.Add(spiteSoulCondition);
+
+            LeadingConditionRule smiteSoulCondition = new(new LambdaDropRuleCondition((info) =>
+            {
+                return Main.hardMode && info.player.ZoneAnyInferno() && info.player.position.Y > (Main.worldSurface * 16.0);
+            }, false));
+
+            smiteSoulCondition.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SoulOfSmite>(), 5), true);
+            globalLoot.Add(smiteSoulCondition);
+
+            //Biome Keys
+            LeadingConditionRule mireKeyCondition = new(new LambdaDropRuleCondition((info) =>
+            {
+                return Main.hardMode && info.player.ZoneAnyMire();
+            }, false));
+
+            mireKeyCondition.OnSuccess(ItemDropRule.Common(ModContent.ItemType<MireKey>(), 2500), true);
+            globalLoot.Add(mireKeyCondition);
+
+            LeadingConditionRule infernoKeyCondition = new(new LambdaDropRuleCondition((info) =>
+            {
+                return Main.hardMode && info.player.ZoneAnyInferno();
+            }, false));
+
+            infernoKeyCondition.OnSuccess(ItemDropRule.Common(ModContent.ItemType<InfernoKey>(), 2500), true);
+            globalLoot.Add(infernoKeyCondition);
+
+            LeadingConditionRule voidKeyCondition = new(new LambdaDropRuleCondition((info) =>
+            {
+                return Main.hardMode && info.player.GetModPlayer<ZAAPlayer>().ZoneVoid;
+            }, false));
+
+            voidKeyCondition.OnSuccess(ItemDropRule.Common(ModContent.ItemType<VoidKey>(), 2500), true);
+            globalLoot.Add(voidKeyCondition);
+
+            //Prisims
+            LeadingConditionRule chaosPrismCondition = new(new LambdaDropRuleCondition((info) =>
+            {
+                return NPC.downedPlantBoss && (info.player.ZoneAnyInferno() || info.player.ZoneAnyMire());
+            }, false));
+
+            chaosPrismCondition.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ChaosPrism>(), 100), true);
+            globalLoot.Add(chaosPrismCondition);
+
+            LeadingConditionRule terraPrismCondition = new(new LambdaDropRuleCondition((info) =>
+            {
+                return !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && NPC.downedPlantBoss && info.player.GetModPlayer<ZAAPlayer>().Terrarium;
+            }, false));
+
+            terraPrismCondition.OnSuccess(ItemDropRule.Common(ModContent.ItemType<TerraPrism>(), 100), true);
+            globalLoot.Add(terraPrismCondition);
+        }
+
         public override void OnKill(NPC npc)
         {
+            #region Downed
             if (npc.type == NPCID.GoblinSummoner)
             {
                 DownedBools.downedGobSummoner = true;
@@ -448,6 +637,7 @@ namespace AAModClassic.Globals
             {
                 DownedBools.downedMoth = true;
             }
+            #endregion
 
             //TODO: Fake item
             /*
@@ -483,12 +673,6 @@ namespace AAModClassic.Globals
             }
             */
 
-            // TODO: make its drop hidden cuz itd be ugly to be on everything
-            if (Main.rand.NextBool(8192))
-            {
-                npc.DropLoot(ModContent.ItemType<ShinyCharm>());
-            }
-
             //TODO: Fake Item
             /*
             if (npc.type == NPCID.GiantFlyingFox)
@@ -511,15 +695,8 @@ namespace AAModClassic.Globals
             }
             */
 
-            if (AASets.Goblins[npc.type] && NPC.downedGoblins)
-            {
-                if (Main.rand.NextBool(20))
-                {
-                    npc.DropLoot(ModContent.ItemType<GoblinSoul>());
-                }
-            }
-
             //TODO: just remove these
+            /*
             if (NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && (npc.type == NPCID.SwampThing || npc.type == NPCID.Frankenstein))
             {
                 if (Main.rand.NextFloat() <= .4f)
@@ -527,71 +704,7 @@ namespace AAModClassic.Globals
                     npc.DropLoot(ModContent.ItemType<HeroRelics>(), Main.rand.Next(2, 4));
                 }
             }
-
-            if (IsBunny(npc) && NPC.downedGolemBoss)
-            {
-                if (Main.rand.NextBool(80))
-                {
-                    npc.DropLoot(ModContent.ItemType<GoldenCarrot>());
-                }
-            }
-
-            if (Main.hardMode)
-            {
-                Player player = Main.player[Player.FindClosest(npc.position, npc.width, npc.height)];
-                if (player.ZoneAnyMire() && player.position.Y > (Main.worldSurface * 16.0))
-                {
-                    if (Main.rand.NextBool(5))
-                    {
-                        npc.DropLoot(ModContent.ItemType<SoulOfSpite>());
-                    }
-                }
-
-                if (player.ZoneAnyInferno() && player.position.Y > (Main.worldSurface * 16.0))
-                {
-                    if (Main.rand.NextBool(5))
-                    {
-                        npc.DropLoot(ModContent.ItemType<SoulOfSmite>());
-                    }
-                }
-                if (player.ZoneAnyMire())
-                {
-                    if (Main.rand.NextBool(2500))
-                    {
-                        npc.DropLoot(ModContent.ItemType<MireKey>());
-                    }
-                }
-                if (player.ZoneAnyInferno())
-                {
-                    if (Main.rand.NextBool(2500))
-                    {
-                        npc.DropLoot(ModContent.ItemType<InfernoKey>());
-                    }
-                }
-                if (player.GetModPlayer<ZAAPlayer>().ZoneVoid)
-                {
-                    if (Main.rand.NextBool(1250))
-                    {
-                        npc.DropLoot(ModContent.ItemType<VoidKey>());
-                    }
-                }
-                if (player.GetModPlayer<ZAAPlayer>().Terrarium && NPC.downedPlantBoss)
-                {
-                    if (Main.rand.NextBool(100))
-                    {
-                        npc.DropLoot(ModContent.ItemType<TerraPrism>());
-                    }
-                }
-
-                if ((player.ZoneAnyInferno() || player.ZoneAnyMire()) && NPC.downedPlantBoss)
-                {
-                    if (Main.rand.NextBool(100))
-                    {
-                        npc.DropLoot(ModContent.ItemType<ChaosPrism>());
-                    }
-                }
-            }
-
+            */
 
             if (/*WorldTypeSystem.WorldType != AAWorldType.Beta &&*/ Main.hardMode && IsBunny(npc) && Rajah != -1)
             {
@@ -628,51 +741,6 @@ namespace AAModClassic.Globals
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.RajahGlobalInfo3"), 107, 137, 179);
                     }
                 }
-            }
-
-            if (Main.bloodMoon)
-            {
-                if (Main.rand.NextBool(8)) 
-                    npc.DropLoot(ModContent.ItemType<BloodRune>());
-            }
-
-            if ((npc.type >= NPCID.PirateDeckhand && npc.type <= NPCID.PirateCaptain) || npc.type == NPCID.Parrot || npc.type == NPCID.PirateShip)
-            {
-                if (Main.rand.NextBool(8)) 
-                    npc.DropLoot(ModContent.ItemType<PirateBooty>());
-            }
-
-            if (npc.type == NPCID.Frankenstein || npc.type == NPCID.Vampire || npc.type == NPCID.VampireBat || npc.type == NPCID.SwampThing ||
-                npc.type == NPCID.CreatureFromTheDeep || npc.type == NPCID.Fritz || npc.type == NPCID.Reaper || npc.type == NPCID.ThePossessed ||
-                npc.type == NPCID.Mothron || npc.type == NPCID.Butcher || npc.type == NPCID.DeadlySphere || npc.type == NPCID.DrManFly ||
-                npc.type == NPCID.Nailhead || npc.type == NPCID.Psycho || npc.type == NPCID.Eyezor)
-            {
-                if (Main.rand.NextBool(8)) 
-                    npc.DropLoot(ModContent.ItemType<MonsterSoul>());
-            }
-
-            if ((npc.type >= NPCID.PirateDeckhand && npc.type <= NPCID.PirateCaptain) || npc.type == NPCID.Parrot || npc.type == NPCID.PirateShip)
-            {
-                if (Main.rand.NextBool(8)) 
-                    npc.DropLoot(ModContent.ItemType<PirateBooty>());
-            }
-
-            if ((npc.type >= NPCID.Scarecrow1 && npc.type <= NPCID.HeadlessHorseman) || (npc.type >= NPCID.MourningWood && npc.type <= NPCID.Poltergeist && npc.type != NPCID.PumpkingBlade))
-            {
-                if (Main.rand.NextBool(8)) 
-                    npc.DropLoot(ModContent.ItemType<HalloweenTreat>());
-            }
-
-            if (npc.type >= NPCID.ZombieElf && npc.type <= NPCID.Krampus)
-            {
-                if (Main.rand.NextBool(8)) 
-                    npc.DropLoot(ModContent.ItemType<ChristmasCheer>());
-            }
-
-            if (npc.type >= NPCID.BrainScrambler && npc.type <= NPCID.MartianSaucer && npc.type != NPCID.ForceBubble)
-            {
-                if (Main.rand.NextBool(8)) 
-                    npc.DropLoot(ModContent.ItemType<MartianCredit>());
             }
         }
 

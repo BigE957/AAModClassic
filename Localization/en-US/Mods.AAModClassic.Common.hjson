@@ -343,4 +343,5 @@ Conditions: {
 	OneMechDefeated: If one mechanical boss has been defeated
 	SkeletronDefeated: If Skeletron has been defeated
 	GolemDefeated: If Golem has been defeated
+	GoblinsDefeated: If the Goblin Army has been defeated
 }

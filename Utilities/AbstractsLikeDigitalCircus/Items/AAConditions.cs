@@ -116,5 +116,12 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             public bool CanShowItemDropInUI() => true;
             public string GetConditionDescription() => Language.GetTextValue("Mods.AAModClassic.Common.Conditions.GolemDefeated");
         }
+
+        public class GoblinsDefated : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info) => NPC.downedGoblins;
+            public bool CanShowItemDropInUI() => true;
+            public string GetConditionDescription() => Language.GetTextValue("Mods.AAModClassic.Common.Conditions.GoblinsDefeated");
+        }
     }
 }
