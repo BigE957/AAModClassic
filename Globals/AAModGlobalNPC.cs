@@ -56,6 +56,7 @@ using AAModClassic._Content.Ocean.__Hardmode.Items._BossDukeFishron.Pets;
 using AAModClassic._Content.PirateInvasion.__Hardmode.Items.Currency;
 using AAModClassic._Content.PumpkinMoon.__Hardmode.Items.Currency;
 using AAModClassic._Content.Purity.__Hardmode.Items.Consumables;
+using AAModClassic._Content.Rain.__Hardmode.Items.Weapons;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
@@ -93,13 +94,16 @@ using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
+using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.Events;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.ModLoader.Utilities;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 namespace AAModClassic.Globals
 {
@@ -298,6 +302,131 @@ namespace AAModClassic.Globals
 			}
 		}
 
+        public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
+        {
+            LeadingConditionRule expertRule = new(new Conditions.IsExpert());
+            LeadingConditionRule skeletronRule = new(new SkeletronDefated());
+            LeadingConditionRule GolemRule = new(new GolemDefated());
+
+            LeadingConditionRule unofficialRule = new(new Unofficial());
+            LeadingConditionRule notUnofficialRule = new(new NotUnofficial());
+            LeadingConditionRule unreleasedRule = new(new Unreleased());
+            LeadingConditionRule removedRule = new(new Removed());
+
+            LeadingConditionRule removedPostAncientsRule = new(new PostLateAncientsAndRemovedWorld());
+            LeadingConditionRule oneMechDownRule = new(new OneMechDefated());
+
+            switch (npc.type)
+            {
+                case NPCID.FireImp:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilSilk>(), 1, 2));
+                    break;
+                case NPCID.GoblinSummoner:
+                    removedPostAncientsRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GoblinTinkererDoll>(), 4));
+                    npcLoot.Add(removedPostAncientsRule);
+                    break;
+                case NPCID.RedDevil:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PureEvil>()));
+                    break;
+                case NPCID.Demon:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilSilk>(), 1, 4));
+                    break;
+                case NPCID.VoodooDemon:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilSilk>(), 1, 5));
+                    break;
+                case NPCID.AngryNimbus:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ElectricityShard>(), 6));
+                    break;
+                case NPCID.Plantera:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PlanteraPetal>(), 1, 30, 39));
+                    npcLoot.Add(ItemID.ChlorophyteOre, 1, 50, 79));
+                    break;
+                case NPCID.DukeFishron:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Seashroom>(), 10));
+                    break;
+                case NPCID.EnchantedSword:
+                    notUnofficialRule.OnSuccess(ItemDropRule.Common(ItemID.Excalibur, 10));
+                    oneMechDownRule.OnSuccess(unofficialRule);
+                    unofficialRule.OnSuccess(ItemDropRule.Common(ItemID.Excalibur, 10));
+                    npcLoot.Add(oneMechDownRule);
+                    break;
+                case NPCID.CrimsonAxe:
+                    npcLoot.Add(ItemDropRule.Common(ItemID.BloodLustCluster, 10));
+                    break;
+                case NPCID.LostGirl:
+                case NPCID.Nymph:
+                case NPCID.DoctorBones:
+                    expertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AncientGoldLeggings>(), 20));
+                    npcLoot.Add(expertRule);
+                    break;
+                case NPCID.Tim:
+                case NPCID.RuneWizard:
+                    expertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AncientGoldChestplate>(), 20));
+                    npcLoot.Add(expertRule);
+                    break;
+                case NPCID.EyeofCthulhu:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CthulhusBlade>(), 4));
+                    break;
+                case NPCID.AngryBones:
+                case NPCID.AngryBonesBig:
+                case NPCID.AngryBonesBigHelmet:
+                case NPCID.AngryBonesBigMuscle:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AquaLance>(), 100));
+                    break;
+                case NPCID.Probe:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EnergyCell>(), 1, 3, 11));
+                    break;
+                case NPCID.TheDestroyer:
+                case NPCID.SkeletronPrime:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EnergyCell>(), 1, 8, 15));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<LaserRifle>(), 3));
+                    break;
+                case NPCID.WallofFlesh:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HKMP5>(), 10));
+                    break;
+                case NPCID.MartianSaucerCore:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AlienRifle>(), 8));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EnergyConduit>(), 33));
+                    break;
+                case NPCID.CursedSkull:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SkullWand>(), 8));
+                    break;
+                case NPCID.Vulture:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<VultureFeather>(), 1, 1, 2));
+                    break;
+                case NPCID.Drippler:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BloodyMary>(), 200));
+                    break;
+                case NPCID.TacticalSkeleton:
+                case NPCID.SkeletonSniper:
+                case NPCID.SkeletonCommando:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<M79Parts>(), 50));
+                    break;
+                case NPCID.QueenBee:
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BugSwatter>(), 100));
+                    npcLoot.Add(ItemDropRule.Common(ItemID.Stinger, 1, 14, 19));
+                    break;
+                case NPCID.SkeletronHand:
+                    npcLoot.Add(ItemDropRule.Common(ItemID.Bone, 1, 4, 7));
+                    break;
+                case NPCID.SkeletronHead:
+                    npcLoot.Add(ItemDropRule.Common(ItemID.Bone, 1, 30, 44));
+                    break;
+                case NPCID.ArmoredViking:
+                case NPCID.UndeadViking:
+                    skeletronRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<VikingRelic>(), 3, 1, 2));
+                    npcLoot.Add(skeletronRule);
+                    break;
+                case NPCID.GoldBunny:
+                    GolemRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GoldenCarrot>()));
+                    npcLoot.Add(GolemRule);
+                    break;
+                case NPCID.Bunny:
+
+                    break;
+            }
+        }
+
         public override void OnKill(NPC npc)
         {
             if (npc.type == NPCID.GoblinSummoner)
@@ -320,35 +449,6 @@ namespace AAModClassic.Globals
                 DownedBools.downedMoth = true;
             }
 
-            if (npc.type == NPCID.FireImp)
-            {
-                npc.DropLoot(ModContent.ItemType<DevilSilk>(), Main.rand.Next(2, 3));
-            }
-
-            if (npc.type == NPCID.GoblinSummoner && AAWorld.downedAllAncients && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed) && Main.rand.NextBool(4))
-            {
-                npc.DropLoot(ModContent.ItemType<GoblinTinkererDoll>());
-            }
-
-            if (npc.type == NPCID.RedDevil && Main.rand.NextBool(3))
-            {
-                npc.DropLoot(ModContent.ItemType<PureEvil>());
-            }
-
-            if (npc.type == NPCID.Demon)
-            {
-                npc.DropLoot(ModContent.ItemType<DevilSilk>(), Main.rand.Next(4, 5));
-            }
-
-            if (npc.type == NPCID.VoodooDemon)
-            {
-                npc.DropLoot(ModContent.ItemType<DevilSilk>(), Main.rand.Next(5, 6));
-            }
-
-            if (npc.type == NPCID.Plantera)
-            {
-                npc.DropLoot(ModContent.ItemType<PlanteraPetal>(), Main.rand.Next(30, 40));
-            }
             //TODO: Fake item
             /*
             if (npc.type == NPCID.GreekSkeleton)
@@ -372,30 +472,6 @@ namespace AAModClassic.Globals
                 }
             }
 
-            if (npc.type == NPCID.DukeFishron)
-            {
-                if (Main.rand.NextFloat() < 0.1f)
-                {
-                    npc.DropLoot(ModContent.ItemType<Seashroom>());
-                }
-            }
-
-            if (npc.type == NPCID.EnchantedSword)
-            {
-                if (Main.rand.NextFloat() < 0.1f)
-                {
-                    npc.DropLoot(ItemID.Excalibur);
-                }
-            }
-
-            if (npc.type == NPCID.CrimsonAxe)
-            {
-                if (Main.rand.NextFloat() < 0.1f)
-                {
-                    npc.DropLoot(ItemID.BloodLustCluster);
-                }
-            }
-
             //TODO: Fake item
             /*
             if (npc.type == NPCID.CursedHammer)
@@ -407,34 +483,12 @@ namespace AAModClassic.Globals
             }
             */
 
+            // TODO: make its drop hidden cuz itd be ugly to be on everything
             if (Main.rand.NextBool(8192))
             {
                 npc.DropLoot(ModContent.ItemType<ShinyCharm>());
             }
 
-            if (npc.type == NPCID.LostGirl || npc.type == NPCID.Nymph || npc.type == NPCID.DoctorBones)
-            {
-                if (Main.rand.NextBool(20) && Main.expertMode)
-                {
-                    npc.DropLoot(ModContent.ItemType<AncientGoldLeggings>());
-                }
-            }
-
-            if (npc.type == NPCID.Tim || npc.type == NPCID.RuneWizard)
-            {
-                if (Main.rand.NextBool(20) && Main.expertMode)
-                {
-                    npc.DropLoot(ModContent.ItemType<AncientGoldChestplate>());
-                }
-            }
-
-            if (npc.type == NPCID.EyeofCthulhu)
-            {
-                if (Main.rand.NextBool(4))
-                {
-                    npc.DropLoot(ModContent.ItemType<CthulhusBlade>());
-                }
-            }
             //TODO: Fake Item
             /*
             if (npc.type == NPCID.GiantFlyingFox)
@@ -456,118 +510,6 @@ namespace AAModClassic.Globals
                 }
             }
             */
-            if (npc.type == NPCID.AngryBones || npc.type == NPCID.AngryBonesBig || npc.type == NPCID.AngryBonesBigHelmet || npc.type == NPCID.AngryBonesBigMuscle)
-            {
-                if (Main.rand.NextFloat() < 0.01f)
-                {
-                    npc.DropLoot(ModContent.ItemType<AquaLance>());
-                }
-            }
-
-            if (npc.type == NPCID.Probe)
-            {
-                npc.DropLoot(ModContent.ItemType<EnergyCell>(), Main.rand.Next(3, 12));
-            }
-
-            if (npc.type == NPCID.TheDestroyer)
-            {
-                npc.DropLoot(ModContent.ItemType<EnergyCell>(), Main.rand.Next(8, 16));
-
-                if (Main.rand.NextFloat() < .34f)
-                {
-                    npc.DropLoot(ModContent.ItemType<LaserRifle>());
-                }
-            }
-
-            if (npc.type == NPCID.SkeletronPrime)
-            {
-                npc.DropLoot(ModContent.ItemType<EnergyCell>(), Main.rand.Next(8, 16));
-
-                if (Main.rand.NextFloat() < .34f)
-                {
-                    npc.DropLoot(ModContent.ItemType<LaserRifle>());
-                }
-            }
-
-            if (npc.type == NPCID.WallofFlesh)
-            {
-                if (Main.rand.NextFloat() < .1f)
-                {
-                    npc.DropLoot(ModContent.ItemType<HKMP5>());
-                }
-            }
-
-            if (npc.type == NPCID.MartianSaucerCore)
-            {
-                if (Main.rand.NextFloat() < .12f)
-                {
-                    npc.DropLoot(ModContent.ItemType<AlienRifle>());
-                }
-
-                if (Main.rand.NextFloat() < .03f)
-                {
-                    npc.DropLoot(ModContent.ItemType<EnergyConduit>());
-                }
-            }
-
-            if (npc.type == NPCID.CursedSkull)
-            {
-                if (Main.rand.NextFloat() < .12f)
-                {
-                    npc.DropLoot(ModContent.ItemType<SkullWand>());
-                }
-            }
-
-            if (npc.type == NPCID.Vulture)
-            {
-                npc.DropLoot(ModContent.ItemType<VultureFeather>(), Main.rand.Next(1, 3));
-            }
-
-            if (npc.type == NPCID.Drippler)
-            {
-                if (Main.rand.NextFloat() < .005f)
-                {
-                    npc.DropLoot(ModContent.ItemType<BloodyMary>());
-                }
-            }
-
-            if (npc.type == NPCID.TacticalSkeleton || npc.type == NPCID.SkeletonSniper || npc.type == NPCID.SkeletonCommando)
-            {
-                if (Main.rand.NextBool(50))
-                {
-                    npc.DropLoot(ModContent.ItemType<M79Parts>());
-                }
-            }
-
-            if (npc.type == NPCID.QueenBee)
-            {
-                if (Main.rand.NextFloat() < .01f)
-                {
-                    npc.DropLoot(ModContent.ItemType<BugSwatter>());
-                }
-
-                npc.DropLoot(ItemID.Stinger, Main.rand.Next(14, 20));
-            }
-
-            if (npc.type == NPCID.Plantera)
-            {
-                npc.DropLoot(ItemID.ChlorophyteOre, Main.rand.Next(50, 80));
-            }
-
-            if (npc.type == NPCID.SkeletronHand)
-            {
-                npc.DropLoot(ItemID.Bone, Main.rand.Next(4, 8));
-            }
-
-            if (npc.type == NPCID.SkeletronHead)
-            {
-                npc.DropLoot(ItemID.Bone, Main.rand.Next(30, 45));
-            }
-
-            if ((npc.type == NPCID.ArmoredViking || npc.type == NPCID.UndeadViking) && NPC.downedBoss3 && Main.rand.NextBool(3))
-            {
-                npc.DropLoot(ModContent.ItemType<VikingRelic>(), Main.rand.Next(1, 3));
-            }
 
             if (AASets.Goblins[npc.type] && NPC.downedGoblins)
             {
@@ -577,11 +519,7 @@ namespace AAModClassic.Globals
                 }
             }
 
-            if (npc.type == NPCID.GoldBunny && NPC.downedGolemBoss)
-            {
-                npc.DropLoot(ModContent.ItemType<GoldenCarrot>());
-            }
-
+            //TODO: just remove these
             if (NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && (npc.type == NPCID.SwampThing || npc.type == NPCID.Frankenstein))
             {
                 if (Main.rand.NextFloat() <= .4f)
@@ -694,12 +632,14 @@ namespace AAModClassic.Globals
 
             if (Main.bloodMoon)
             {
-                if (Main.rand.NextBool(8)) npc.DropLoot(ModContent.ItemType<BloodRune>());
+                if (Main.rand.NextBool(8)) 
+                    npc.DropLoot(ModContent.ItemType<BloodRune>());
             }
 
             if ((npc.type >= NPCID.PirateDeckhand && npc.type <= NPCID.PirateCaptain) || npc.type == NPCID.Parrot || npc.type == NPCID.PirateShip)
             {
-                if (Main.rand.NextBool(8)) npc.DropLoot(ModContent.ItemType<PirateBooty>());
+                if (Main.rand.NextBool(8)) 
+                    npc.DropLoot(ModContent.ItemType<PirateBooty>());
             }
 
             if (npc.type == NPCID.Frankenstein || npc.type == NPCID.Vampire || npc.type == NPCID.VampireBat || npc.type == NPCID.SwampThing ||
@@ -707,27 +647,32 @@ namespace AAModClassic.Globals
                 npc.type == NPCID.Mothron || npc.type == NPCID.Butcher || npc.type == NPCID.DeadlySphere || npc.type == NPCID.DrManFly ||
                 npc.type == NPCID.Nailhead || npc.type == NPCID.Psycho || npc.type == NPCID.Eyezor)
             {
-                if (Main.rand.NextBool(8)) npc.DropLoot(ModContent.ItemType<MonsterSoul>());
+                if (Main.rand.NextBool(8)) 
+                    npc.DropLoot(ModContent.ItemType<MonsterSoul>());
             }
 
             if ((npc.type >= NPCID.PirateDeckhand && npc.type <= NPCID.PirateCaptain) || npc.type == NPCID.Parrot || npc.type == NPCID.PirateShip)
             {
-                if (Main.rand.NextBool(8)) npc.DropLoot(ModContent.ItemType<PirateBooty>());
+                if (Main.rand.NextBool(8)) 
+                    npc.DropLoot(ModContent.ItemType<PirateBooty>());
             }
 
             if ((npc.type >= NPCID.Scarecrow1 && npc.type <= NPCID.HeadlessHorseman) || (npc.type >= NPCID.MourningWood && npc.type <= NPCID.Poltergeist && npc.type != NPCID.PumpkingBlade))
             {
-                if (Main.rand.NextBool(8)) npc.DropLoot(ModContent.ItemType<HalloweenTreat>());
+                if (Main.rand.NextBool(8)) 
+                    npc.DropLoot(ModContent.ItemType<HalloweenTreat>());
             }
 
             if (npc.type >= NPCID.ZombieElf && npc.type <= NPCID.Krampus)
             {
-                if (Main.rand.NextBool(8)) npc.DropLoot(ModContent.ItemType<ChristmasCheer>());
+                if (Main.rand.NextBool(8)) 
+                    npc.DropLoot(ModContent.ItemType<ChristmasCheer>());
             }
 
             if (npc.type >= NPCID.BrainScrambler && npc.type <= NPCID.MartianSaucer && npc.type != NPCID.ForceBubble)
             {
-                if (Main.rand.NextBool(8)) npc.DropLoot(ModContent.ItemType<MartianCredit>());
+                if (Main.rand.NextBool(8)) 
+                    npc.DropLoot(ModContent.ItemType<MartianCredit>());
             }
         }
 

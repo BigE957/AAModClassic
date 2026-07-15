@@ -55,6 +55,20 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             public string GetConditionDescription() => null;
         }
 
+        public class Removed : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info) => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed);
+            public bool CanShowItemDropInUI() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed);
+            public string GetConditionDescription() => null;
+        }
+
+        public class NotRemoved : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info) => !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed);
+            public bool CanShowItemDropInUI() => !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed);
+            public string GetConditionDescription() => null;
+        }
+
         public class RevOrMaster : IItemDropRuleCondition, IProvideItemConditionDescription
         {
             public bool CanDrop(DropAttemptInfo info) => Main.masterMode || CalamityMod.IsRevengance;
@@ -81,6 +95,26 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             public bool CanDrop(DropAttemptInfo info) => AAWorld.downedAllAncients && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed) && Main.expertMode;
             public bool CanShowItemDropInUI() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed) && Main.expertMode;
             public string GetConditionDescription() => Language.GetTextValue("Mods.AAModClassic.Common.Conditions.PostLateAncientsAndRemovedWorld");
+        }
+
+        public class OneMechDefated : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info) => NPC.downedMechBoss1 || NPC.downedMechBoss2 || NPC.downedMechBoss3;
+            public bool CanShowItemDropInUI() => true;
+            public string GetConditionDescription() => Language.GetTextValue("Mods.AAModClassic.Common.Conditions.OneMechDefeated");
+        }
+        public class SkeletronDefated : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info) => NPC.downedBoss3;
+            public bool CanShowItemDropInUI() => true;
+            public string GetConditionDescription() => Language.GetTextValue("Mods.AAModClassic.Common.Conditions.SkeletronDefeated");
+        }
+
+        public class GolemDefated : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info) => NPC.downedGolemBoss;
+            public bool CanShowItemDropInUI() => true;
+            public string GetConditionDescription() => Language.GetTextValue("Mods.AAModClassic.Common.Conditions.GolemDefeated");
         }
     }
 }
