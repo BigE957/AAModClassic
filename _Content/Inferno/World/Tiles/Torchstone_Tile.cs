@@ -12,7 +12,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles
         {
             Main.tileSolid[Type] = true;
             Main.tileMerge[Type][ModContent.TileType<IncineriteOre_Tile>()] = true;
-            Terraria.ID.TileID.Sets.Conversion.Stone[Type] = true;
+            TileID.Sets.Conversion.Stone[Type] = true;
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             HitSound = SoundID.Tink;

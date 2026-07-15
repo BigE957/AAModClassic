@@ -546,6 +546,20 @@ namespace AAModClassic
                 }));
             }
 
+            int liquidsIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Settle Liquids Again"));
+            if (liquidsIndex != -1)
+            {
+                tasks.Insert(liquidsIndex + 1, new PassLegacy("LostKeep", delegate (GenerationProgress progress, GameConfiguration config)
+                {
+                    LostKeep(progress);
+                }));
+
+                tasks.Insert(liquidsIndex + 1, new PassLegacy("Terrarium", delegate (GenerationProgress progress, GameConfiguration config)
+                {
+                    Terrarium(progress);
+                }));
+            }
+
             int ChaosIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Micro Biomes"));
             if(ChaosIndex > -1)
             {
@@ -594,32 +608,22 @@ namespace AAModClassic
                     Hoard(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 3, new PassLegacy("Terrarium", delegate (GenerationProgress progress, GameConfiguration config)
-                {
-                    Terrarium(progress);
-                }));
-
-                tasks.Insert(shiniesIndex2 + 4, new PassLegacy("LostKeep", delegate (GenerationProgress progress, GameConfiguration config)
-                {
-                    LostKeep(progress);
-                }));
-
-                tasks.Insert(shiniesIndex2 + 5, new PassLegacy("Acropolis", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(shiniesIndex2 + 3, new PassLegacy("Acropolis", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     Acropolis(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 6, new PassLegacy("Void Islands", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(shiniesIndex2 + 4, new PassLegacy("Void Islands", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     VoidIslands(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 7, new PassLegacy("Altars", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(shiniesIndex2 + 5, new PassLegacy("Altars", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     Altars(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 8, new PassLegacy("Equinox", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(shiniesIndex2 + 6, new PassLegacy("Equinox", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     EquinoxAlt(progress);
                 }));
@@ -889,9 +893,14 @@ namespace AAModClassic
             progress.Message = "0" + NumberRand(1) + "0" + NumberRand(1) + "0" + NumberRand(1) + "0" + NumberRand(1) + "0" + NumberRand(1) + "0" + NumberRand(1) + "0" + NumberRand(1) + "0" + NumberRand(1) + "0" + NumberRand(1) + "0";
 
             progress.Set(0f);
-            int VoidHeight = 0;
+            int VoidHeight = 90;
             progress.Set(0.1f);
-            VoidHeight = 120;
+            int IslandNumber = 2;
+            if (WorldGenUtils.GetWorldSize() != 1)
+            {
+                IslandNumber = 4;
+                VoidHeight = 120;
+            }
             progress.Set(0.4f);
             Point center = new((Main.maxTilesX / 15 * 14) + (Main.maxTilesX / 15 / 2) - 100, center.Y = VoidHeight);
             WHERESDAVOIDAT = center;
@@ -900,11 +909,7 @@ namespace AAModClassic
             progress.Set(0.6f);
             List<Point> posIslands = new();
             progress.Set(0.7f);
-            int IslandNumber = 2;
-            if (WorldGenUtils.GetWorldSize() != 1)
-            {
-                IslandNumber = 4;
-            }
+            
 
             for (int i = 0; i < IslandNumber; i++)
             {
@@ -971,7 +976,7 @@ namespace AAModClassic
             return repeats;
         }
 
-        private void MiniIsland(Point position, int size)
+        private static void MiniIsland(Point position, int size)
         {
             for (int i = -size / 2; i < size / 2; ++i)
             {
@@ -986,6 +991,9 @@ namespace AAModClassic
                 WorldGen.PlaceObject(position.X + i, y, ModContent.TileType<OuroborosSapling_Tile>());
                 WorldGen.GrowTree(position.X + i, y);
             }
+
+            int halfSize = size / 2;
+            WorldGenUtils.AddProtectedStructure(new(position.X - halfSize, position.Y - halfSize, size, size), 20);
         }
 
         public static readonly HashSet<int> DontSpawnAltarsOn =
@@ -1593,7 +1601,10 @@ namespace AAModClassic
         private static void Acropolis(GenerationProgress progress)
         {
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildAcropolis");
-            Point origin = new((int)(Main.maxTilesX * 0.65f), ModLoader.HasMod("Remnants") ? 75 : 100);
+            int height = 100;
+            if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                height = WorldGenUtils.GetWorldSize() == 1 ? 40 : ModLoader.HasMod("Remnants") ? 75 : 100;
+            Point origin = new((int)(Main.maxTilesX * 0.65f), height);
             AcropolisGeneration biome = new AcropolisGeneration();
             biome.Place(origin, GenVars.structures);
         }

@@ -239,9 +239,8 @@ namespace AAModClassic._Unreleased
         {
             progress.Message = "Storming the Parthenan";
 
-            int ParthenanHeight = 0;
-            ParthenanHeight = 120;
-            Point center = new Point((Main.maxTilesX / 15), center.Y = ParthenanHeight);
+            int ParthenanHeight = WorldGenUtils.GetWorldSize() == 1 ? 60 : ModLoader.HasMod("Remnants") ? 90 : 120;
+            Point center = new Point((int)(Main.maxTilesX * 0.06f), center.Y = ParthenanHeight);
             ParthenanGen biome = new ParthenanGen();
             biome.Place(center, GenVars.structures);
         }
@@ -252,7 +251,7 @@ namespace AAModClassic._Unreleased
             shipSide = (Main.dungeonX > Main.maxTilesX / 2 ? -1 : 1);
             int dist = small ? 90 : 140;
             shipPos.X = (shipSide == 1 ? Main.maxTilesX - dist : dist);
-            shipPos.Y = WorldGenUtils.GetFirstTileFloor((int)shipPos.X, 10, true);
+            shipPos.Y = WorldGenUtils.GetFirstTileFloor((int)shipPos.X, 100, true);
             if (!small)
                 shipPos.Y += 36;
             progress.Message = "Sinking the ship";

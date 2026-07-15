@@ -6,6 +6,7 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
@@ -28,7 +29,55 @@ namespace AAModClassic._Content.Stars.World.Biomes
     {
         public override bool Place(Point origin, StructureMap structures)
         {
-            WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, EquinoxShrineTexGenAssets.EquinoxTileData.Width, EquinoxShrineTexGenAssets.EquinoxTileData.Height), 20);
+            int attempts = 0;
+            int maxAttempts = 5000;
+            Point placementPoint = origin;
+            do
+            {
+                //AAMod.instance.Logger.Info("Attempting to Place Equinox Shrine at: " + placementPoint);
+
+                bool canGenerateInLocation = true;
+
+                if (!structures.CanPlace(new Rectangle(placementPoint.X, placementPoint.Y, EquinoxShrineTexGenAssets.EquinoxTileData.Width, EquinoxShrineTexGenAssets.EquinoxTileData.Height), WorldGenUtils.AllTilesAllowed, 0))
+                {
+                    //AAMod.instance.Logger.Info("Equinox Shrine Placement Failed, Encountered a Pre-Existing Structure");
+                    canGenerateInLocation = false;
+                }
+
+                if (canGenerateInLocation)
+                {
+                    int fullX = placementPoint.X + EquinoxShrineTexGenAssets.EquinoxTileData.Width;
+                    int fullY = placementPoint.Y + EquinoxShrineTexGenAssets.EquinoxTileData.Height;
+
+                    for (int x = placementPoint.X; x < fullX; x++)
+                    {
+                        for (int y = placementPoint.Y; y < fullY; y++)
+                        {
+                            if (Framing.GetTileSafely(x, y).HasTile)//ShouldAvoidLocation(new Point(x, y), attempts > 1000, attempts > 4000))
+                            {
+                                canGenerateInLocation = false;
+                                break;
+                            }
+                        }
+                        if (!canGenerateInLocation)
+                            break;
+                    }
+                }
+
+                if (canGenerateInLocation)
+                {
+                    AAMod.instance.Logger.Info("Equinox Shrine successfully placed after " + attempts + " attempts.");
+                    break;
+                }
+
+                int radius = 200 + attempts / 2;
+                int targetX = Math.Clamp(origin.X + WorldGen.genRand.Next(-radius, radius), 40, Main.maxTilesX - (40 + EquinoxShrineTexGenAssets.EquinoxTileData.Width));
+                int targetY = origin.Y;
+                placementPoint = new Point(targetX, targetY);
+
+            } while (attempts++ < maxAttempts);
+
+            WorldGenUtils.AddProtectedStructure(new Rectangle(placementPoint.X, placementPoint.Y, EquinoxShrineTexGenAssets.EquinoxTileData.Width, EquinoxShrineTexGenAssets.EquinoxTileData.Height), 20);
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {
@@ -43,14 +92,14 @@ namespace AAModClassic._Content.Stars.World.Biomes
 
             TexGen gen = TexGen.GetTexGenerator(EquinoxShrineTexGenAssets.EquinoxTileData, colorToTile, null, null, null, EquinoxShrineTexGenAssets.EquinoxSlopeData);
 
-            gen.Generate(origin.X, origin.Y, true, true);
+            gen.Generate(placementPoint.X, placementPoint.Y, true, true);
 
-            WorldGen.PlaceObject(origin.X + 36, origin.Y + 39, ModContent.TileType<WormAltar_Tile>());
-            NetMessage.SendObjectPlacement(-1, origin.X + 36, origin.Y + 39, ModContent.TileType<WormAltar_Tile>(), 0, 0, -1, -1);
-            WorldGen.PlaceObject(origin.X + 30, origin.Y + 42, ModContent.TileType<StarAltar_Tile>());
-            NetMessage.SendObjectPlacement(-1, origin.X + 30, origin.Y + 42, ModContent.TileType<StarAltar_Tile>(), 0, 0, -1, -1);
-            WorldGen.PlaceObject(origin.X + 45, origin.Y + 42, ModContent.TileType<GravAltar_Tile>());
-            NetMessage.SendObjectPlacement(-1, origin.X + 80, origin.Y + 88, ModContent.TileType<GravAltar_Tile>(), 0, 0, -1, -1);
+            WorldGen.PlaceObject(placementPoint.X + 36, placementPoint.Y + 39, ModContent.TileType<WormAltar_Tile>());
+            NetMessage.SendObjectPlacement(-1, placementPoint.X + 36, placementPoint.Y + 39, ModContent.TileType<WormAltar_Tile>(), 0, 0, -1, -1);
+            WorldGen.PlaceObject(placementPoint.X + 30, placementPoint.Y + 42, ModContent.TileType<StarAltar_Tile>());
+            NetMessage.SendObjectPlacement(-1, placementPoint.X + 30, placementPoint.Y + 42, ModContent.TileType<StarAltar_Tile>(), 0, 0, -1, -1);
+            WorldGen.PlaceObject(placementPoint.X + 45, placementPoint.Y + 42, ModContent.TileType<GravAltar_Tile>());
+            NetMessage.SendObjectPlacement(-1, placementPoint.X + 80, placementPoint.Y + 88, ModContent.TileType<GravAltar_Tile>(), 0, 0, -1, -1);
 
             return true;
         }

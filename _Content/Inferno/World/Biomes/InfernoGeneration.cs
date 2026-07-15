@@ -86,16 +86,16 @@ namespace AAModClassic._Content.Inferno.World.Biomes
                 new Actions.SetLiquid(0, 0)
             }));
 
+            int genX = origin.X - (gen.width / 2);
+            int genY = origin.Y - 80;
+            gen.Generate(genX, genY, true, true);
+
             WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //convert tiles
 			{
                 new InWorld(),
                 new Modifiers.RadialDither(biomeRadius - 5, biomeRadius), //this provides the 'blending' on the edges (except the top)
 				new ConvertTile(ModContent.GetInstance<InfernoConversion>().Type) //actually place the tile
 			}));
-
-            int genX = origin.X - (gen.width / 2);
-            int genY = origin.Y - 80;
-            gen.Generate(genX, genY, true, true);
 
             //WorldGen.PlaceObject(genX + 65, genY + 4, Terraria.ModLoader.ModContent.TileType<DracoAltarS_Tile>());
             WorldGen.PlaceObject(genX + 24, genY + 307, ModContent.TileType<DragonEgg_Tile>());

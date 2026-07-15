@@ -42,21 +42,29 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 
     public class LostKeepGeneration : MicroBiome
 	{
-		private static bool ShouldAvoidLocation(Point p, bool leniant)
+		private static bool ShouldAvoidLocation(Point p, bool leniant, bool desperate)
 		{
 			Tile tile = Framing.GetTileSafely(p);
 
-			if (!leniant && tile.TileType == TileID.JungleGrass)
+			if (!leniant && (
+				tile.TileType == TileID.JungleGrass ||
+                tile.TileType == TileID.Hive))
             {
-                AAMod.instance.Logger.Info("Lost Keep Placement Failed, Encountered Tile of type: " + tile.TileType);
+                //AAMod.instance.Logger.Info("Lost Keep Placement Failed, Encountered Tile of type: " + tile.TileType);
                 return true;
             }
 
-            if (tile.TileType == TileID.Sandstone ||
-				tile.TileType == TileID.SnowBlock ||
-				tile.TileType == TileID.IceBlock ||
-				tile.TileType == TileID.Ash ||
-                tile.TileType == TileID.Hive ||
+			if(!desperate && (
+				tile.TileType == TileID.Sandstone ||
+                tile.TileType == TileID.SnowBlock ||
+                tile.TileType == TileID.IceBlock))
+			{
+                //AAMod.instance.Logger.Info("Lost Keep Placement Failed, Encountered Tile of type: " + tile.TileType);
+                return true;
+            }
+
+            if (
+				tile.TileType == TileID.Ash ||          
                 tile.TileType == TileID.Crimstone ||
                 tile.TileType == TileID.Ebonstone ||
                 tile.TileType == TileID.LihzahrdBrick ||
@@ -64,59 +72,71 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 				tile.TileType == TileID.GreenDungeonBrick ||
 				tile.TileType == TileID.PinkDungeonBrick)
 			{
-				AAMod.instance.Logger.Info("Lost Keep Placement Failed, Encountered Tile of type: " + tile.TileType);
+				//AAMod.instance.Logger.Info("Lost Keep Placement Failed, Encountered Tile of type: " + tile.TileType);
 				return true;
 			}
 
 			return false;
 		}
 
-        private static readonly bool[] AllTilesAllowed = Enumerable.Repeat(true, TileLoader.TileCount).ToArray();
-
         public override bool Place(Point origin, StructureMap structures)
         {
             int attempts = 0;
-            int maxAttempts = 5000;
+            int maxAttempts = 20000;
             Point placementPoint = origin;
+            bool placementSucceeded = false;
+			int maxHeightUp = 550;
+			if (WorldGenUtils.GetWorldSize() == 1)
+				maxHeightUp = 300;
+
             do
             {
-                AAMod.instance.Logger.Info("Attempting to Place Lost Keep at: " + placementPoint);
+                bool canGenerateInLocation = true;
 
-				bool canGenerateInLocation = true;
-
-				for (int x = placementPoint.X; x < placementPoint.X + LostKeepTexGenAssets.KeepTileData.Width; x++)
-				{
-					for (int y = placementPoint.Y; y < placementPoint.Y + LostKeepTexGenAssets.KeepTileData.Height; y++)
-					{
-						if (ShouldAvoidLocation(new Point(x, y), attempts > 1000))
-						{
-							canGenerateInLocation = false;
-							break;
-						}
-					}
-					if (!canGenerateInLocation)
-						break;
-				}
-
-                if (canGenerateInLocation && !structures.CanPlace(new Rectangle(placementPoint.X, placementPoint.Y, LostKeepTexGenAssets.KeepTileData.Width, LostKeepTexGenAssets.KeepTileData.Height), AllTilesAllowed, 0))
+                if (!structures.CanPlace(new Rectangle(placementPoint.X, placementPoint.Y, LostKeepTexGenAssets.KeepTileData.Width, LostKeepTexGenAssets.KeepTileData.Height), WorldGenUtils.AllTilesAllowed, 0))
                 {
-                    AAMod.instance.Logger.Info("Lost Keep Placement Failed, Encountered a Pre-Existing Structure");
-					canGenerateInLocation = false;
+                    canGenerateInLocation = false;
                 }
 
                 if (canGenerateInLocation)
-				{
+                {
+                    int fullX = placementPoint.X + LostKeepTexGenAssets.KeepTileData.Width;
+                    int fullY = placementPoint.Y + LostKeepTexGenAssets.KeepTileData.Height;
+
+                    for (int x = placementPoint.X; x < fullX; x++)
+                    {
+                        for (int y = placementPoint.Y; y < fullY; y++)
+                        {
+                            if (ShouldAvoidLocation(new Point(x, y), attempts > 4000, attempts > 12500))
+                            {
+                                canGenerateInLocation = false;
+                                break;
+                            }
+                        }
+                        if (!canGenerateInLocation)
+                            break;
+                    }
+                }
+
+                if (canGenerateInLocation)
+                {
                     AAMod.instance.Logger.Info("Lost Keep successfully placed after " + attempts + " attempts.");
                     origin = placementPoint;
-					break;
-				}
+                    placementSucceeded = true;
+                    break;
+                }
 
-                int radius = 200 + attempts / 2;
-                int targetX = Math.Clamp(origin.X + WorldGen.genRand.Next(-radius, radius), 200, Main.maxTilesX - 200);
-                int targetY = Main.maxTilesY - 300 - Main.rand.Next(0, 500);
+                int radius = (int)MathHelper.Lerp(200, 1600, attempts / (float)maxAttempts);
+                int targetX = Math.Clamp(origin.X + WorldGen.genRand.Next(-radius, radius), 50, Main.maxTilesX - (50 + LostKeepTexGenAssets.KeepTileData.Width));
+                int targetY = Main.maxTilesY - 450 - Main.rand.Next(0, maxHeightUp);
                 placementPoint = new Point(targetX, targetY);
 
             } while (attempts++ < maxAttempts);
+
+            if (!placementSucceeded)
+            {
+                AAMod.instance.Logger.Warn("Lost Keep placement failed after " + maxAttempts + " attempts.");
+            }
 
             WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, LostKeepTexGenAssets.KeepTileData.Width, LostKeepTexGenAssets.KeepTileData.Height), 20);
 

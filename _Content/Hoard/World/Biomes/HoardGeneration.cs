@@ -50,7 +50,7 @@ namespace AAModClassic._Content.Hoard.World.Biomes
                 tile.TileType == TileID.GreenDungeonBrick ||
                 tile.TileType == TileID.PinkDungeonBrick)
             {
-                AAMod.instance.Logger.Info("Hoard Placement Failed, Encountered Tile of type: " + tile.TileType);
+                //AAMod.instance.Logger.Info("Hoard Placement Failed, Encountered Tile of type: " + tile.TileType);
                 return true;
             }
 
@@ -66,7 +66,7 @@ namespace AAModClassic._Content.Hoard.World.Biomes
             {
                 bool canGenerateInLocation = true;
 
-                AAMod.instance.Logger.Info("Attempting to Place Hoard at: " + placementPoint);
+                //AAMod.instance.Logger.Info("Attempting to Place Hoard at: " + placementPoint);
 
                 for (int x = placementPoint.X; x < placementPoint.X + HoardTexGenAssets.HoardTileData.Width; x++)
                 {
@@ -84,7 +84,7 @@ namespace AAModClassic._Content.Hoard.World.Biomes
 
                 if (canGenerateInLocation && !structures.CanPlace(new Rectangle(placementPoint.X, placementPoint.Y, HoardTexGenAssets.HoardTileData.Width, HoardTexGenAssets.HoardTileData.Height)))
                 {
-                    AAMod.instance.Logger.Info("Hoard Placement Failed, Encountered a Pre-Existing Structure");
+                    //AAMod.instance.Logger.Info("Hoard Placement Failed, Encountered a Pre-Existing Structure");
                     canGenerateInLocation = false;
                 }
 

@@ -1,10 +1,14 @@
 ﻿using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items.Tiles.Decoration;
 using AAModClassic._Content.Acropolis.World.Tiles;
+using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -30,7 +34,57 @@ namespace AAModClassic._Content.Acropolis.World.Biomes
     {
         public override bool Place(Point origin, StructureMap structures)
         {
-            WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, AcropolisTexGenAssets.AcropolisTileData.Width, AcropolisTexGenAssets.AcropolisTileData.Height), 20);
+            int attempts = 0;
+            int maxAttempts = 5000;
+            Point placementPoint = origin;
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                do
+                {
+                    //AAMod.instance.Logger.Info("Attempting to Place Acropolis at: " + placementPoint);
+
+                    bool canGenerateInLocation = true;
+
+                    if (!structures.CanPlace(new Rectangle(placementPoint.X, placementPoint.Y, AcropolisTexGenAssets.AcropolisTileData.Width, AcropolisTexGenAssets.AcropolisTileData.Height), WorldGenUtils.AllTilesAllowed, 0))
+                    {
+                        //AAMod.instance.Logger.Info("Acropolis Placement Failed, Encountered a Pre-Existing Structure");
+                        canGenerateInLocation = false;
+                    }
+
+                    if (canGenerateInLocation)
+                    {
+                        int fullX = placementPoint.X + AcropolisTexGenAssets.AcropolisTileData.Width;
+                        int fullY = placementPoint.Y + AcropolisTexGenAssets.AcropolisTileData.Height;
+
+                        for (int x = placementPoint.X; x < fullX; x++)
+                        {
+                            for (int y = placementPoint.Y; y < fullY; y++)
+                            {
+                                if (Framing.GetTileSafely(x, y).HasTile)//ShouldAvoidLocation(new Point(x, y), attempts > 1000, attempts > 4000))
+                                {
+                                    canGenerateInLocation = false;
+                                    break;
+                                }
+                            }
+                            if (!canGenerateInLocation)
+                                break;
+                        }
+                    }
+
+                    if (canGenerateInLocation)
+                    {
+                        AAMod.instance.Logger.Info("Acropolis successfully placed after " + attempts + " attempts.");
+                        break;
+                    }
+
+                    int radius = 200 + attempts / 5;
+                    int targetX = Math.Clamp(origin.X + WorldGen.genRand.Next(-radius, radius), 200, Main.maxTilesX - 200);
+                    int targetY = origin.Y;
+                    placementPoint = new Point(targetX, targetY);
+
+                } while (attempts++ < maxAttempts);
+            }
+            WorldGenUtils.AddProtectedStructure(new Rectangle(placementPoint.X, placementPoint.Y, AcropolisTexGenAssets.AcropolisTileData.Width, AcropolisTexGenAssets.AcropolisTileData.Height), 20);
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {
@@ -67,10 +121,10 @@ namespace AAModClassic._Content.Acropolis.World.Biomes
 
             TexGen gen = TexGen.GetTexGenerator(AcropolisTexGenAssets.AcropolisTileData, colorToTile, AcropolisTexGenAssets.AcropolisWallData, colorToWall, null, AcropolisTexGenAssets.AcropolisRoofData, unbreakableTiles: protectedTiles, unbreakableWalls: protectedWalls);
 
-            gen.Generate(origin.X, origin.Y, true, true);
+            gen.Generate(placementPoint.X, placementPoint.Y, true, true);
 
-            WorldGen.PlaceObject(origin.X + 79, origin.Y + 86, (ushort)ModContent.TileType<AcropolisAltar_Tile>());
-            NetMessage.SendObjectPlacement(-1, origin.X + 79, origin.Y + 87, (ushort)ModContent.TileType<AcropolisAltar_Tile>(), 0, 0, -1, -1);
+            WorldGen.PlaceObject(placementPoint.X + 79, placementPoint.Y + 86, (ushort)ModContent.TileType<AcropolisAltar_Tile>());
+            NetMessage.SendObjectPlacement(-1, placementPoint.X + 79, placementPoint.Y + 87, (ushort)ModContent.TileType<AcropolisAltar_Tile>(), 0, 0, -1, -1);
 
             return true;
         }

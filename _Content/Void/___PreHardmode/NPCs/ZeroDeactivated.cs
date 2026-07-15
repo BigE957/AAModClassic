@@ -4,6 +4,7 @@ using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.Core;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -194,7 +195,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
 
         public void SpawnDeactivatedZero()
         {
-            int VoidHeight = 140;
+            int VoidHeight = WorldGenUtils.GetWorldSize() == 1 ? 110 : 140;
 			
 			Point spawnTilePos = new Point(Main.maxTilesX / 15 * 14 + Main.maxTilesX / 15 / 2 - 100, VoidHeight);				
 			Vector2 spawnPos = new Vector2(spawnTilePos.X * 16, spawnTilePos.Y * 16);
