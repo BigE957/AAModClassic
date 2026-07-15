@@ -319,7 +319,7 @@ namespace AAModClassic.Globals
             switch (npc.type)
             {
                 case NPCID.FireImp:
-                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilSilk>(), 1, 2));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilSilk>(), 1, 2, 2));
                     break;
                 case NPCID.GoblinSummoner:
                     removedPostAncientsRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GoblinTinkererDoll>(), 4));
@@ -329,10 +329,10 @@ namespace AAModClassic.Globals
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PureEvil>()));
                     break;
                 case NPCID.Demon:
-                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilSilk>(), 1, 4));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilSilk>(), 1, 4, 4));
                     break;
                 case NPCID.VoodooDemon:
-                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilSilk>(), 1, 5));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilSilk>(), 1, 5, 5));
                     break;
                 case NPCID.AngryNimbus:
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ElectricityShard>(), 6));
