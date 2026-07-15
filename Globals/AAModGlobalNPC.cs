@@ -339,7 +339,7 @@ namespace AAModClassic.Globals
                     break;
                 case NPCID.Plantera:
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PlanteraPetal>(), 1, 30, 39));
-                    npcLoot.Add(ItemID.ChlorophyteOre, 1, 50, 79));
+                    npcLoot.Add(ItemDropRule.Common(ItemID.ChlorophyteOre, 1, 50, 79));
                     break;
                 case NPCID.DukeFishron:
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Seashroom>(), 10));
