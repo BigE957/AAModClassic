@@ -383,11 +383,11 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             }
             if (projectile.penetrate == -1 && !projectile.minion)
             {
-                modifiers.TargetDamageMultiplier *= 0.2f;
+                projectile.damage = (int)(projectile.damage * 0.2f);
             }
             else if (projectile.penetrate > 1)
             {
-                modifiers.TargetDamageMultiplier *= 0.2f;
+                projectile.damage = (int)(projectile.damage * 0.2f);
             }
             else if (projectile.type == ProjectileID.LastPrismLaser)
             {

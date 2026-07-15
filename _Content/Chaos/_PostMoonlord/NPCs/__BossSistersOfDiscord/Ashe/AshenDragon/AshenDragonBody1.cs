@@ -135,11 +135,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
             if (projectile.penetrate == -1 && !projectile.minion)
             {
-                modifiers.TargetDamageMultiplier *= 0.2f;
+                projectile.damage = (int)(projectile.damage * 0.2f);
             }
             else if (projectile.penetrate > 1)
             {
-                projectile.damage *= (int).2;
+                projectile.damage = (int)(projectile.damage * 0.2f);
             }
         }
 

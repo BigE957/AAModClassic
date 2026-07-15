@@ -335,11 +335,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             }
             if (projectile.penetrate == -1 && !projectile.minion)
             {
-                projectile.damage *= (int).2;
+                projectile.damage = (int)(projectile.damage * 0.2f);
             }
             else if (projectile.penetrate > 1) //TODO: Was formerly >= 1 which seems to affect everything?? Dunno if this should be an unofficial change
             {
-                projectile.damage *= (int).2;
+                projectile.damage = (int)(projectile.damage * 0.2f);
             }
 
             if (!AAConfigClient.Instance.DisableAnticheat)

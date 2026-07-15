@@ -131,11 +131,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             }
             if (projectile.penetrate == -1 && !projectile.minion)
             {
-                modifiers.TargetDamageMultiplier *= 0.2f;
+                projectile.damage = (int)(projectile.damage * 0.2f);
             }
             else if (projectile.penetrate > 1)
             {
-               modifiers.TargetDamageMultiplier *= 0.2f;
+                projectile.damage = (int)(projectile.damage * 0.2f);
             }
         }
     }

@@ -785,3 +785,8 @@ LivingDragonFireBlock: {
 	DisplayName: Living Dragon Fire Block
 	Tooltip: ""
 }
+
+ScorchedDynastyWoodWall: {
+	DisplayName: Scorched Dynasty Wood Wall
+	Tooltip: ""
+}

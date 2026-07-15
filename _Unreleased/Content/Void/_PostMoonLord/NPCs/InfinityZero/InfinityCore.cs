@@ -131,11 +131,11 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
             if (projectile.penetrate == -1 && !projectile.minion)
             {
-                projectile.damage *= (int).2;
+                projectile.damage = (int)(projectile.damage * 0.2f);
             }
             else if (projectile.penetrate > 1)
             {
-                projectile.damage *= (int).2;
+                projectile.damage = (int)(projectile.damage * 0.2f);
             }
         }
 

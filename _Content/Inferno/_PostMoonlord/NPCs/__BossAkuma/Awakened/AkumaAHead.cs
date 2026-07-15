@@ -687,7 +687,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
         {
             if (projectile.penetrate > 1)
             {
-                damage = (int)(damage * .5f);
+                damage = (int)(damage * 0.5f);
             }
         }
 
