@@ -130,6 +130,7 @@ namespace AAModClassic.Globals
         public bool AssassinHurt = false;
         public bool FFlames = false;
 
+        //WhoAmI
         public static int Toad = -1;
         public static int Rose = -1;
         public static int Brain = -1;
