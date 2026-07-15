@@ -504,7 +504,7 @@ Consumables: {
 
 	FlaskOfDragonfire: {
 		DisplayName: Flask of Dragonfire
-		Tooltip: Melee attacks inflict Dragonflame
+		Tooltip: Melee and Whip attacks inflict enemies with Dragonflame
 	}
 
 	KeyOfSmite: {
@@ -606,7 +606,7 @@ Consumables: {
 
 	FlaskOfHydratoxin: {
 		DisplayName: Flask of Hydratoxin
-		Tooltip: Melee attacks inflict hydratoxin
+		Tooltip: Melee and Whip attacks inflict enemies with Hydratoxin
 	}
 
 	IndigoSolution: {
