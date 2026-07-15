@@ -1,3 +1,4 @@
+using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Utilities.Interfaces;
@@ -5,8 +6,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
 {
@@ -430,12 +433,13 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             }
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            if (Main.rand.NextBool(40))
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<TerraPrism>());
-            }
+            LeadingConditionRule notUnreleasedRule = new(new NotUnreleasedAndIsUnofficial());
+
+            notUnreleasedRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<TerraPrism>(), 40));
+
+            npcLoot.Add(notUnreleasedRule);
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

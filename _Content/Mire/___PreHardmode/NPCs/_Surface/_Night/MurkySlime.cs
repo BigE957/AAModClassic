@@ -1,3 +1,4 @@
+using AAModClassic._Content.Madness.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Utilities.Interfaces;
@@ -52,5 +53,5 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs._Surface._Night
         {
 			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MurkyGel>(), 1, 5, 15));
         }
-	}
+    }
 }

@@ -1,5 +1,6 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
@@ -7,6 +8,7 @@ using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
 {
@@ -147,7 +149,19 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
+            LeadingConditionRule unofficialRule = new(new Unofficial());
+
+            unofficialRule.OnSuccess(ItemDropRule.Common(ItemID.Nazar, 100));
+
+            npcLoot.Add(unofficialRule);
+
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AbyssalTwilight>(), 10));
+        }
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
+        {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && Main.rand.NextBool(3))
+                target.AddBuff(BuffID.Cursed, 240, false);
         }
     }
 }

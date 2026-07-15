@@ -1,3 +1,4 @@
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Mire.World.Biomes;
@@ -5,6 +6,7 @@ using AAModClassic.Globals;
 using AAModClassic.Utilities.Interfaces;
 using System;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
@@ -92,9 +94,9 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs._Surface._Night
             target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 180);
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<EventideAbyssiumOre>());
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EventideAbyssiumOre>()));
         }
     }
 }

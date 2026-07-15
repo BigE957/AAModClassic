@@ -1,3 +1,6 @@
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.___PreHardmode.NPCs;
+using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars.Projectiles;
 using AAModClassic._Content.Stars.World.Biomes;
@@ -7,7 +10,9 @@ using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Day
@@ -73,15 +78,25 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Day
 			}
 		}
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-			if(AAWorld.downedEquinox)
-			{
-				for (int Ammount = 0; Ammount < Main.rand.Next(3); Ammount++)
-				{
-					NPC.DropLoot(ModContent.ItemType<RadiantPhoton>());
-				}
-			}
+            LeadingConditionRule spawnedByGrips = new(new EquinoxWormsDefeated());
+
+            spawnedByGrips.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RadiantPhoton>(), 1, 0, 2));
+
+            npcLoot.Add(spawnedByGrips);
+        }
+
+        public class EquinoxWormsDefeated : IItemDropRuleCondition, IProvideItemConditionDescription
+        {
+            public bool CanDrop(DropAttemptInfo info)
+            {
+				return AAWorld.downedEquinox;
+            }
+
+            public bool CanShowItemDropInUI() => true;
+
+            public string GetConditionDescription() => Language.GetTextValue("Mods.AAModClassic.Common.Conditions.EquinoxWormsDefeated");
         }
 
         public override Color? GetAlpha(Color drawColor)

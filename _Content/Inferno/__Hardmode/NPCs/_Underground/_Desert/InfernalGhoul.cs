@@ -1,9 +1,12 @@
 using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
+using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossZero.BossStandard;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -60,6 +63,12 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Desert
             unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DragonFire>(), 3));
 
             npcLoot.Add(unofficialRule);
+        }
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
+        {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 420);
         }
     }
 }

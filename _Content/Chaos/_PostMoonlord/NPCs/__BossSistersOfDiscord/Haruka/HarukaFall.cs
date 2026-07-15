@@ -84,6 +84,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                         Item.NewItem(NPC.GetSource_Loot(), NPC.Hitbox, ModContent.ItemType<SistersOfDiscordTreasureBag>());
                     }
 
+                    //TODO: fix this
                     if (!Main.expertMode)
                     {
                         string[] lootTableH = { "HarukaKunai", "Masamune", "MizuArashi", "HarukaBox" };

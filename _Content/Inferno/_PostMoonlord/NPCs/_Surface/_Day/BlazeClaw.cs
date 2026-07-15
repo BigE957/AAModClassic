@@ -1,10 +1,14 @@
+using AAModClassic._Content.Inferno.__Hardmode.Items.Accessories;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Globals;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.Interfaces;
 using System;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
@@ -91,9 +95,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs._Surface._Day
             target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 180);
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<DaybreakIncineriteOre>());
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DaybreakIncineriteOre>()));
         }
     }
 }

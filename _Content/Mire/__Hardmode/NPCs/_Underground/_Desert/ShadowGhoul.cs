@@ -1,7 +1,13 @@
+using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
+using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic.UI.World;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Desert
 {
@@ -37,5 +43,22 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Desert
                 Main.dust[dustIndex].velocity *= 0.3f;
 			}
 		}
-	}
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            LeadingConditionRule unofficialRule = new(new Unofficial());
+
+            unofficialRule.OnSuccess(ItemDropRule.Common(ItemID.AncientCloth, 10));
+
+            unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Bogtoxin>(), 3));
+
+            npcLoot.Add(unofficialRule);
+        }
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
+        {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 420);
+        }
+    }
 }

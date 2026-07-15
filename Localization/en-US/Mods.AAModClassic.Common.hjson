@@ -338,4 +338,9 @@ Conditions: {
 	InAnyMire: In the Mire biome
 	InAnyRedMushroom: In the Red Mushroom biome
 	InAnyVoid: In the Void biome
+	SpawnedBySubzeroSerpent: If Subzero Serpent is not currently alive	
+	PostLateAncientsAndRemovedWorldAndExpert: If the Equinox Worms have been defeated
+	OneMechDefeated: If one mechanical boss has been defeated
+	SkeletronDefeated: If Skeletron has been defeated
+	GolemDefeated: If Golem has been defeated
 }

@@ -54,16 +54,4 @@ namespace AAModClassic._Content.Rain.__Hardmode.Items.Weapons
 		return false;
 		}
 	}
-
-    public class SpellDrop : GlobalNPC
-    {
-        public override void OnKill(NPC npc)
-        {
-            if (npc.type == NPCID.AngryNimbus && Main.rand.NextBool(6))
-            {
-                npc.DropLoot(ModContent.ItemType<ElectricityShard>());
-            }
-        }
-    }
-
 }

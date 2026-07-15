@@ -7,6 +7,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
 {
@@ -58,6 +59,14 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<BotchedBand>(), ModContent.ItemType<BackScratcher>(), ModContent.ItemType<Bubbleshot>()));
+
+            LeadingConditionRule unofficialRule = new(new Unofficial());
+
+            unofficialRule.OnSuccess(ItemDropRule.Common(ItemID.GreaterHealingPotion, 1, 5, 10));
+
+            unofficialRule.OnSuccess(ItemDropRule.Common(ItemID.GreaterManaPotion, 1, 5, 15));
+
+            npcLoot.Add(unofficialRule);
         }
     }
 }

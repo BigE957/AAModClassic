@@ -1,4 +1,5 @@
-﻿using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
+﻿using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
@@ -6,6 +7,7 @@ using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -63,16 +65,11 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs
             }
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<UnstableSingularity>(), 1);
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<UnstableSingularity>()));
 
-            if (Main.rand.NextBool(100))
-            {
-                Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Ono>(), 1);
-            }
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Ono>(), 100));
         }
-
-        
     }
 }

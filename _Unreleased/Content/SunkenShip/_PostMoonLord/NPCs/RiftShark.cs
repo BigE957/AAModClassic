@@ -1,11 +1,16 @@
+using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
+using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
 {
@@ -71,6 +76,20 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
                 Main.dust[dust2].scale *= 1.3f;
                 Main.dust[dust2].fadeIn = 1f;
                 Main.dust[dust2].noGravity = true;
+            }
+        }
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            List<IItemDropRule> sharkRules = Main.ItemDropsDB.GetRulesForNPCID(NPCID.Shark, false);
+
+            LeadingConditionRule unofficialRule = new(new Unofficial());
+
+            foreach (var v in sharkRules)
+            {
+                unofficialRule.OnSuccess(v);
+
+                npcLoot.Add(unofficialRule);
             }
         }
     }

@@ -3,9 +3,11 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.UI.World;
 using Terraria;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 namespace AAModClassic._Content.Sky.__Hardmode.NPCs
 {
@@ -97,6 +99,20 @@ namespace AAModClassic._Content.Sky.__Hardmode.NPCs
         public override void OnKill()
         {
             Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<DragonSpirit>());
+        }
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            LeadingConditionRule notUnofficialRule = new(new NotUnofficial());
+
+            notUnofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DragonSpirit>()));
+
+            npcLoot.Add(notUnofficialRule);
+
+            LeadingConditionRule unofficialRule = new(new Unofficial());
+
+            unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DragonSpirit>(), 1, 5, 9));
+
+            npcLoot.Add(unofficialRule);
         }
     }
 }

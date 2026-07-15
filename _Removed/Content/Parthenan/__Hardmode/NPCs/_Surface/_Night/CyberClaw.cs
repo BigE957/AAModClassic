@@ -1,3 +1,5 @@
+using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
+using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
 using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
@@ -7,6 +9,7 @@ using AAModClassic.Utilities;
 using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
@@ -92,9 +95,9 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs._Surface._Nigh
             }
         }
 
-        public override void OnKill()
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            Item.NewItem(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<FulguriteShard>(), Main.rand.Next(2));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FulguriteShard>(), 2));
         }
     }
 }
