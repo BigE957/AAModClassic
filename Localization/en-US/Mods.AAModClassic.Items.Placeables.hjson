@@ -775,3 +775,13 @@ StormChest: {
 	DisplayName: Storm Chest
 	Tooltip: ""
 }
+
+LivingBogtoxinBlock: {
+	DisplayName: Living Bogtoxin Block
+	Tooltip: ""
+}
+
+LivingDragonFireBlock: {
+	DisplayName: Living Dragon Fire Block
+	Tooltip: ""
+}
