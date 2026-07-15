@@ -18,6 +18,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Decoration
             // DisplayName.SetDefault("Music Box (Sleeping Dragon)");
 
             // Tooltip.SetDefault(@"Plays 'Condemned' by MaestroVGM");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

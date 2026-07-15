@@ -15,6 +15,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossS
             // DisplayName.SetDefault("Music Box (Awakened Shen Doragon)");
 
             // Tooltip.SetDefault(@"Plays 'Discordant Coda' by MaestroVGM");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

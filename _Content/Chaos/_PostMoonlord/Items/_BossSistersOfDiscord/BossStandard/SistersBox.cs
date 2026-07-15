@@ -14,6 +14,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
 		{
             // DisplayName.SetDefault("Music Box (Sisters of Discord)");
             // Tooltip.SetDefault(@"Plays 'United' by MaestroVGM");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

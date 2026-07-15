@@ -15,6 +15,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStand
 		{
             // DisplayName.SetDefault("Music Box (Akuma)");
             // Tooltip.SetDefault(@"Plays 'Trial By Fire' by Saucecoie");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         

@@ -13,6 +13,8 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items.Tiles
 		{
             // DisplayName.SetDefault("Music Box (Hoard)");
             // Tooltip.SetDefault(@"Plays 'Cove' by Tyeski");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

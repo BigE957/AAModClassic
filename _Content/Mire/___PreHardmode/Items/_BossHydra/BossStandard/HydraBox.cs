@@ -13,6 +13,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandar
 		{
             // DisplayName.SetDefault("Music Box (Hydra)");
             // Tooltip.SetDefault(@"Plays 'RAW Abyssal Wrath' by SpectralAves");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

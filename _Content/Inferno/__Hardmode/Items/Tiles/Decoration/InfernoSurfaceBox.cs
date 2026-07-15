@@ -13,6 +13,8 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Tiles.Decoration
 		{
             // DisplayName.SetDefault("Music Box (Inferno)");
             // Tooltip.SetDefault(@"Plays ‘Scorched Earth’ by ProduceVGM");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

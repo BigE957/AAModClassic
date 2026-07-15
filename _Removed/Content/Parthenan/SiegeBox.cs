@@ -14,6 +14,8 @@ namespace AAModClassic._Removed.Content.Parthenan
 		{
             // DisplayName.SetDefault("Music Box (S.I.E.G.E. Units)");
             // Tooltip.SetDefault(@"Plays 'Controlled Chaos' by ProduceVGM");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

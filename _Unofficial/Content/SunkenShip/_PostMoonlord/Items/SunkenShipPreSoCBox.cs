@@ -14,6 +14,8 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items
         {
             // DisplayName.SetDefault("Music Box (Sleeping Curse)");
             // Tooltip.SetDefault(@"Plays 'Sleeping Curse' by ProduceVGM");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

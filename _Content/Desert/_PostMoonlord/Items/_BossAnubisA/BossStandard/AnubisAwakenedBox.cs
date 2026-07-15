@@ -13,6 +13,8 @@ namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.BossStan
 		{
             // DisplayName.SetDefault("Music Box (Forsaken Anubis)");
             // Tooltip.SetDefault(@"Plays 'Purgatorium' by Tyeski");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

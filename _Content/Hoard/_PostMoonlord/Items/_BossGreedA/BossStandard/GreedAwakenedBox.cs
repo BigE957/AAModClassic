@@ -13,6 +13,8 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.BossStanda
         {
             // DisplayName.SetDefault("Music Box (Worm King Greed)");
             // Tooltip.SetDefault("Plays 'Ira De Riquezas Perdidas' by Tyeski");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

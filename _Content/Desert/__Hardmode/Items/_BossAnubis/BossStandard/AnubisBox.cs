@@ -13,6 +13,8 @@ namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard
 		{
             // DisplayName.SetDefault("Music Box (Anubis)");
             // Tooltip.SetDefault(@"Plays 'Strings of Judgement' by Tyeski");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

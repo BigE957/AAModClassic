@@ -13,6 +13,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Tiles.Decoration
         {
             // DisplayName.SetDefault("Music Box (Lake of the Rising Moon)");
             // Tooltip.SetDefault("Plays 'Lake of Souls' by Rockwizard");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

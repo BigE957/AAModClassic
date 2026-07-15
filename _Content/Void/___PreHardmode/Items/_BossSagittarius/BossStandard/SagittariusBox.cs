@@ -15,6 +15,8 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.BossS
             // DisplayName.SetDefault("Music Box (Sagittarius)");
 
             // Tooltip.SetDefault(@"Plays 'Event Horizon' by SpectralAves");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

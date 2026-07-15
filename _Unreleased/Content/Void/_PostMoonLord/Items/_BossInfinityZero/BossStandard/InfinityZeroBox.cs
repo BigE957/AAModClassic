@@ -16,6 +16,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
         {
             // DisplayName.SetDefault("Music Box (Infinity Zero )");
             // Tooltip.SetDefault(@"Plays 'Infinitum' by MaestroVGM");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

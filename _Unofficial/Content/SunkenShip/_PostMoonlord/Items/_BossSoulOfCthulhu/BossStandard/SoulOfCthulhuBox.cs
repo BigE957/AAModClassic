@@ -15,6 +15,8 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossS
         {
             // DisplayName.SetDefault("Music Box (Soul of Cthulhu)");
             // Tooltip.SetDefault(@"Plays 'Wheel Of Misfortune' by ProduceVGM");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

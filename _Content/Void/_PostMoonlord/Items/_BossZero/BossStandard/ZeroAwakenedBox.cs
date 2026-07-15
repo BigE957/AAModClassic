@@ -16,6 +16,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
         {
             // DisplayName.SetDefault("Music Box (Zero Protocol)");
             // Tooltip.SetDefault("Plays 'Doomsday Arrives' by Saucecoie");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
         public override void SetDefaults()
 		{

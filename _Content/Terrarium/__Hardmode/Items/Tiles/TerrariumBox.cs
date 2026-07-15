@@ -18,6 +18,8 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Tiles
             // DisplayName.SetDefault("Music Box (Terrarium)");
             // Tooltip.SetDefault("Plays ‘Resting Place’ by ProduceVGM");
 
+            ItemID.Sets.CanGetPrefixes[Type] = false;
+
         }
 
         public override void SetDefaults()

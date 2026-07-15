@@ -15,6 +15,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Tiles.Decoration
 		{
             // DisplayName.SetDefault("Music Box (Pagoda of the Rising Sun)");
             // Tooltip.SetDefault("Plays 'Scorched Tower' by Rockwizard");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         

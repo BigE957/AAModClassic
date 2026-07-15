@@ -14,6 +14,8 @@ namespace AAModClassic._Unofficial.Content.SunkenShip.___PreHardmode.Items
         {
             // DisplayName.SetDefault("Music Box (Sunken Ship)");
             // Tooltip.SetDefault(@"Plays 'Rift-Torn Ruins' by Cosmoptera");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

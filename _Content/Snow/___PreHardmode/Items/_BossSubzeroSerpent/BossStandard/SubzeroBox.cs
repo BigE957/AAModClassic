@@ -13,6 +13,8 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Bo
 		{
             // DisplayName.SetDefault("Music Box (Subzero Serpent)");
             // Tooltip.SetDefault(@"Plays 'Glacial Grace' by ProduceVGM");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
 

@@ -13,6 +13,8 @@ namespace AAModClassic._Unofficial.Content.Parthenan.___PreHardmode.Items
         {
             // DisplayName.SetDefault("Music Box (Parthenan)");
             // Tooltip.SetDefault(@"Plays 'Maelstrom' by Tyeski");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

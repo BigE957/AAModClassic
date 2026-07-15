@@ -18,6 +18,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
             // DisplayName.SetDefault("Music Box (Sleeping Giant)");
 
             // Tooltip.SetDefault(@"Plays 'Sleeping Giant' by Cosmoptera");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

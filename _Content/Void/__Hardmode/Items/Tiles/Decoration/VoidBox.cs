@@ -19,6 +19,8 @@ namespace AAModClassic._Content.Void.__Hardmode.Items.Tiles.Decoration
         {
             // DisplayName.SetDefault("Music Box (Void)");
             // Tooltip.SetDefault(@"Plays 'Waste' by ProduceVGM");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

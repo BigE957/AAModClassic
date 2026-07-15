@@ -13,6 +13,8 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.BossStandard
         {
             // DisplayName.SetDefault("Music Box (Greed)");
             // Tooltip.SetDefault("Plays 'Gold Digger' by Tyeski");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

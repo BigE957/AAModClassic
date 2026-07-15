@@ -13,6 +13,8 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMo
 		{
             // DisplayName.SetDefault("Music Box (Mushroom Monarch)");
             // Tooltip.SetDefault(@"Plays 'Fungal Face-off' by SpectralAves");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

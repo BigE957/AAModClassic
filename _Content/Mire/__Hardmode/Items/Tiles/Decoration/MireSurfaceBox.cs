@@ -13,6 +13,8 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Tiles.Decoration
 		{
             // DisplayName.SetDefault("Music Box (Mire)");
             // Tooltip.SetDefault(@"Plays 'Secluded Swamp' by ProduceVGM");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

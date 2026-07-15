@@ -13,6 +13,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
         {
             // DisplayName.SetDefault("Music Box (Void - Activated)");
             // Tooltip.SetDefault("Plays 'Inanis' by ProduceVGM");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

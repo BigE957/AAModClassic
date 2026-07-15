@@ -16,6 +16,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
         {
             // DisplayName.SetDefault("Music Box (Zero)");
             // Tooltip.SetDefault("Plays 'Clockwork Catastrophe' by SpectralAves");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

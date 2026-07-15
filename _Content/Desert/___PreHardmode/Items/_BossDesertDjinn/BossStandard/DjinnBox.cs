@@ -13,6 +13,8 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Bos
 		{
             // DisplayName.SetDefault("Music Box (Desert Djinn)");
             // Tooltip.SetDefault(@"Plays 'The Dust Bowl' by Tyeski");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

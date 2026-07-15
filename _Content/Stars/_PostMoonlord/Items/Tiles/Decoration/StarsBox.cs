@@ -19,6 +19,8 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
         {
             // DisplayName.SetDefault("Music Box (Celestial Stars)");
             // Tooltip.SetDefault(@"Plays 'Scattered Stars' by ProduceVGM");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

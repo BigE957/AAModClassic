@@ -13,6 +13,8 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossS
 		{
             // DisplayName.SetDefault("Music Box (Olympian Athena)");
             // Tooltip.SetDefault(@"Plays 'Goddess of Those Winged' by ENNWAY");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

@@ -13,6 +13,8 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items.Tiles
 		{
             // DisplayName.SetDefault("Music Box (Acropolis)");
             // Tooltip.SetDefault(@"Plays 'Palace in the Sky' by ENNWAY");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

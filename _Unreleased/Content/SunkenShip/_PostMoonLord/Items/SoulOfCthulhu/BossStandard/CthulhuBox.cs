@@ -18,6 +18,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
         {
             // DisplayName.SetDefault("Music Box (Cthulhu)");
             // Tooltip.SetDefault(@"Plays 'Soul Ultimatum' by ProduceVGM");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

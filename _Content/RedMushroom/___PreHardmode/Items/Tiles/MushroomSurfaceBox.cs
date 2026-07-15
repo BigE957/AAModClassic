@@ -10,8 +10,10 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles
         public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("Red Mushroom Music Box");
+            // DisplayName.SetDefault("Red Mushroom Music Box");
             // Tooltip.SetDefault("Plays 'Overgrowth' by SpectralAves");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()

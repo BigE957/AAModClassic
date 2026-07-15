@@ -16,6 +16,8 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Boss
 		{
             //DisplayName.SetDefault("Music Box (Champion of the Innocent)");
             //Tooltip.SetDefault(@"Plays 'Supreme Justice EX' by Jteoh");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         

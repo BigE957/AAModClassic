@@ -16,6 +16,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStand
 		{
             // DisplayName.SetDefault("Music Box (Oni Akuma)");
             // Tooltip.SetDefault(@"Plays 'Dawn of the Dragon' by Tyeski");
+
+            ItemID.Sets.CanGetPrefixes[Type] = false;
         }
 
         public override void SetDefaults()
