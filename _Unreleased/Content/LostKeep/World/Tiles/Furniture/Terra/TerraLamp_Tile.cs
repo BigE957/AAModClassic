@@ -38,7 +38,8 @@ public class TerraLamp_Tile : ModTile
 		AddMapEntry(new Color(65, 205, 12), val);
 		base.DustType = DustID.Terra;
 		AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-	}
+        RegisterItemDrop(ModContent.ItemType<TerraLamp>());
+    }
 
 	public override void HitWire(int i, int j)
 	{

@@ -48,6 +48,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.ClosedDoor };
             TileID.Sets.OpenDoorID[Type] = ModContent.TileType<DoomDoorOpen_Tile>();
+            RegisterItemDrop(ModContent.ItemType<DoomDoor>());
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -138,6 +139,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.OpenDoor };
             TileID.Sets.CloseDoorID[Type] = ModContent.TileType<DoomDoorClosed_Tile>();
+            RegisterItemDrop(ModContent.ItemType<DoomDoor>());
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)

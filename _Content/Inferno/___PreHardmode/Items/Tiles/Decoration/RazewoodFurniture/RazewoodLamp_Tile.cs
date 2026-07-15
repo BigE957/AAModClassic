@@ -43,8 +43,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.Ra
             AddMapEntry(new Color(205, 62, 12), name);
             DustType = ModContent.DustType<Dusts.RazewoodDust>();
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-
-
+            RegisterItemDrop(ModContent.ItemType<RazewoodLamp>());
         }
         public override void HitWire(int i, int j)
         {

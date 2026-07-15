@@ -48,7 +48,8 @@ public class KeepDoorClosed_Tile : ModTile
 		TileID.Sets.DisableSmartCursor[Type] = true;
 		base.AdjTiles = new int[1] { 10 };
 		TileID.Sets.OpenDoorID[Type] = ModContent.TileType<KeepDoorOpen_Tile>();
-	}
+        RegisterItemDrop(ModContent.ItemType<KeepDoor>());
+    }
 
 	public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
 	{
@@ -127,6 +128,7 @@ public class KeepDoorOpen_Tile : ModTile
         TileID.Sets.DisableSmartCursor[Type] = true;
         base.AdjTiles = new int[1] { 11 };
         TileID.Sets.CloseDoorID[Type] = ModContent.TileType<KeepDoorClosed_Tile>();
+        RegisterItemDrop(ModContent.ItemType<KeepDoor>());
     }
 
     public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)

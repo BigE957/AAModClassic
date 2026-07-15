@@ -34,7 +34,8 @@ public class KeepChandelier_Tile : ModTile
 		base.DustType = DustID.Stone;
 		base.AdjTiles = new int[1] { 34 };
 		AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-	}
+        RegisterItemDrop(ModContent.ItemType<KeepChandelier>());
+    }
 
 	public override void HitWire(int i, int j)
 	{

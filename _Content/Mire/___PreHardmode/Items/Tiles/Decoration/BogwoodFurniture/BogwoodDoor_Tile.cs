@@ -48,6 +48,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwo
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.ClosedDoor };
             TileID.Sets.OpenDoorID[Type] = ModContent.TileType<BogwoodDoorOpen_Tile>();
+            RegisterItemDrop(ModContent.ItemType<BogwoodDoor>());
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -126,6 +127,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwo
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.OpenDoor };
             TileID.Sets.CloseDoorID[Type] = ModContent.TileType<BogwoodDoorClosed_Tile>();
+            RegisterItemDrop(ModContent.ItemType<BogwoodDoor>());
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)

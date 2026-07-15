@@ -47,6 +47,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.Ra
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.ClosedDoor };
             TileID.Sets.OpenDoorID[Type] = ModContent.TileType<RazewoodDoorOpen_Tile>();
+            RegisterItemDrop(ModContent.ItemType<RazewoodDoor>());
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -124,6 +125,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.Ra
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.OpenDoor };
             TileID.Sets.CloseDoorID[Type] = ModContent.TileType<RazewoodDoorClosed_Tile>();
+            RegisterItemDrop(ModContent.ItemType<RazewoodDoor>());
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)

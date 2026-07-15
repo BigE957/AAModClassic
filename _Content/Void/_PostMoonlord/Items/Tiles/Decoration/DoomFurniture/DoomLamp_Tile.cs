@@ -43,7 +43,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
             AddMapEntry(new Color(200, 0, 0), name);
             DustType = ModContent.DustType<Dusts.DoomDust>();
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-
+            RegisterItemDrop(ModContent.ItemType<DoomLamp>());
 
         }
         public override void HitWire(int i, int j)

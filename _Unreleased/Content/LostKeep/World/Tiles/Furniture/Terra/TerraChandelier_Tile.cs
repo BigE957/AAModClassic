@@ -33,7 +33,8 @@ public class TerraChandelier_Tile : ModTile
 		base.DustType = DustID.Terra;
 		base.AdjTiles = new int[1] { 34 };
 		AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-	}
+        RegisterItemDrop(ModContent.ItemType<TerraChandelier>());
+    }
 
 	public override void HitWire(int i, int j)
 	{

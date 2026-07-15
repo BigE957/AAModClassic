@@ -35,7 +35,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwo
             DustType = ModContent.DustType<Dusts.BogwoodDust>();
             AdjTiles = new int[] { TileID.Chandeliers };
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-
+            RegisterItemDrop(ModContent.ItemType<BogwoodChandelier>());
         }
         public override void HitWire(int i, int j)
         {

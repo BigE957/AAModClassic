@@ -43,8 +43,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwo
             AddMapEntry(new Color(12, 62, 205), name);
             DustType = ModContent.DustType<Dusts.BogwoodDust>();
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-
-
+            RegisterItemDrop(ModContent.ItemType<BogwoodLamp>());
         }
         public override void HitWire(int i, int j)
         {

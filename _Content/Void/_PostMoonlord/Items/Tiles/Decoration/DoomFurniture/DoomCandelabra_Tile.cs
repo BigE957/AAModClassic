@@ -25,7 +25,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
             DustType = ModContent.DustType<Dusts.DoomDust>();
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             AdjTiles = new int[]{ TileID.Candelabras };
-		}
+            RegisterItemDrop(ModContent.ItemType<DoomCandelabra>());
+        }
         public override void HitWire(int i, int j)
         {
             int left = i - Main.tile[i, j].TileFrameX / 18 % 2;

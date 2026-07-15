@@ -25,6 +25,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.Ra
             DustType = ModContent.DustType<Dusts.RazewoodDust>();
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             AdjTiles = new int[]{ TileID.Candelabras };
+            RegisterItemDrop(ModContent.ItemType<RazewoodCandelabra>());
 		}
         public override void HitWire(int i, int j)
         {

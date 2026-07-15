@@ -26,7 +26,8 @@ public class TerraCandelabra_Tile : ModTile
 		base.DustType = DustID.Terra;
 		AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
 		base.AdjTiles = new int[1] { 100 };
-	}
+        RegisterItemDrop(ModContent.ItemType<TerraCandelabra>());
+    }
 
 	public override void HitWire(int i, int j)
 	{

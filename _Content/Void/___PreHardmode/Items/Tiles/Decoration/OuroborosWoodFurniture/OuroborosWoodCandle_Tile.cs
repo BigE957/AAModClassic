@@ -21,6 +21,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Ourob
             Main.tileLighted[Type] = true; 
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
 	        AddMapEntry(new Color(70, 0, 10));
+            RegisterItemDrop(ModContent.ItemType<OuroborosWoodCandle>());
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

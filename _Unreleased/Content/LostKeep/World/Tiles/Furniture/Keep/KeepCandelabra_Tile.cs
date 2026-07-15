@@ -27,7 +27,8 @@ public class KeepCandelabra_Tile : ModTile
 		base.DustType = DustID.Stone;
 		AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
 		base.AdjTiles = new int[1] { 100 };
-	}
+        RegisterItemDrop(ModContent.ItemType<KeepCandelabra>());
+    }
 
 	public override void HitWire(int i, int j)
 	{

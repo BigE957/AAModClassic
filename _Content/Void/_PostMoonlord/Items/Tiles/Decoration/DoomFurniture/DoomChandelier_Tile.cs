@@ -35,7 +35,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
             DustType = ModContent.DustType<Dusts.DoomDust>();
             AdjTiles = new int[] { TileID.Chandeliers };
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-
+            RegisterItemDrop(ModContent.ItemType<DoomChandelier>());
         }
         public override void HitWire(int i, int j)
         {

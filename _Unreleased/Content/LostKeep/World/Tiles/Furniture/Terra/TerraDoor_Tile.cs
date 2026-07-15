@@ -48,7 +48,8 @@ public class TerraDoorClosed_Tile : ModTile
 		TileID.Sets.DisableSmartCursor[Type] = true;
 		AdjTiles = new int[1] { 10 };
         TileID.Sets.OpenDoorID[Type] = ModContent.TileType<TerraDoorOpen_Tile>();
-	}
+        RegisterItemDrop(ModContent.ItemType<TerraDoor>());
+    }
 
 	public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
 	{
@@ -119,6 +120,7 @@ public class TerraDoorOpen_Tile : ModTile
         TileID.Sets.DisableSmartCursor[Type] = true;
         base.AdjTiles = new int[1] { 11 };
         TileID.Sets.CloseDoorID[Type] = ModContent.TileType<TerraDoorClosed_Tile>();
+        RegisterItemDrop(ModContent.ItemType<TerraDoor>());
     }
 
     public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)

@@ -39,7 +39,8 @@ public class KeepLamp_Tile : ModTile
 		AddMapEntry(new Color(30, 150, 12), val);
 		base.DustType = DustID.Stone;
 		AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-	}
+        RegisterItemDrop(ModContent.ItemType<KeepLamp>());
+    }
 
 	public override void HitWire(int i, int j)
 	{
