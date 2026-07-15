@@ -20,7 +20,6 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
         {
             Item.width = 35;
             Item.height = 35;
-            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Pink;
             Item.value = Item.sellPrice(0, 15, 0, 0);
 

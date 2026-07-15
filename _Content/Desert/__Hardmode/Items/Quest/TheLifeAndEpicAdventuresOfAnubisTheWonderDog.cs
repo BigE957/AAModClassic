@@ -20,7 +20,6 @@ give you something for it."); */
         public override void SetDefaults()
         {
             Item.questItem = true;
-            Item.maxStack = Item.CommonMaxStack;
             Item.width = 28;
             Item.height = 30;
             Item.rare = ItemRarityID.Quest;

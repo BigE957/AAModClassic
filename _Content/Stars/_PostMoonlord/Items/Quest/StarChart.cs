@@ -20,7 +20,6 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Quest
         {
             Item.width = 10;
             Item.height = 10;
-            Item.maxStack = Item.CommonMaxStack;
             Item.value = 10000;
             Item.rare = ItemRarityID.Purple;
         }

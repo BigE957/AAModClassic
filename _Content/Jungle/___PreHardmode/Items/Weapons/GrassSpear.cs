@@ -15,7 +15,6 @@ namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Weapons
             Item.width = 132;
             Item.height = 132;
             Item.scale = 1.1f;
-            Item.maxStack = Item.CommonMaxStack;
             Item.useTime = 24;
             Item.useAnimation = 24;
             Item.knockBack = 4.7f;

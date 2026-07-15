@@ -19,7 +19,6 @@ namespace AAModClassic._Content.Corruption.___PreHardmode.Items.Weapons
             Item.width = 124;
             Item.height = 124;
             Item.scale = 1.1f;
-            Item.maxStack = Item.CommonMaxStack;
             Item.useTime = 20;
             Item.useAnimation = 20;
             Item.knockBack = 4.5f;

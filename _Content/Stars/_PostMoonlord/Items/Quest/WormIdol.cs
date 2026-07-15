@@ -21,7 +21,6 @@ It looks like it hasn't been touched in years"); */
         {
             Item.width = 16;
             Item.height = 16;
-            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Purple;
         }
 

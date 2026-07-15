@@ -22,7 +22,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechn
 
 		public override void SetDefaults()
 		{
-			Item.maxStack = 999;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.consumable = true;
 			Item.width = 36;
 			Item.height = 32;

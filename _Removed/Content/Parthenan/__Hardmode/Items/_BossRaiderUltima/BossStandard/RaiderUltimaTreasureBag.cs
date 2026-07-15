@@ -29,7 +29,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUl
 
 		public override void SetDefaults()
 		{
-			Item.maxStack = 999;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.consumable = true;
 			Item.width = 36;
 			Item.height = 32;

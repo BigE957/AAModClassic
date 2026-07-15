@@ -26,7 +26,6 @@ You must have at least 2 open slots for the first summon"); */
         {
             Item.width = 45;
             Item.height = 18;
-            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
             Item.value = Item.sellPrice(0, 20, 0, 0);
             Item.useStyle = ItemUseStyleID.Swing;

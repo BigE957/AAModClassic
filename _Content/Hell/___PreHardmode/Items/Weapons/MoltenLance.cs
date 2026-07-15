@@ -16,7 +16,6 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Weapons
             Item.width = 112;
             Item.height = 112;
             Item.scale = 1.1f;
-            Item.maxStack = Item.CommonMaxStack;
             Item.useTime = 21;
             Item.useAnimation = 21;
             Item.knockBack = 4.4f;

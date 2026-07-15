@@ -13,7 +13,6 @@ namespace AAModClassic._Content._Misc.___PreHardmode.Items.Weapons
         {
             Item.width = 35;
             Item.height = 54;
-            Item.maxStack = Item.CommonMaxStack;
             Item.value = 10000;
             Item.rare = ItemRarityID.Orange;
 			Item.damage = 20;                        
