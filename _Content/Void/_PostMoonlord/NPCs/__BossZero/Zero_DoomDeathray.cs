@@ -23,6 +23,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
 		{
             // DisplayName.SetDefault("Doomray");
 
+            ProjectileID.Sets.DrawScreenCheckFluff[Type] = 10000;
+
             Body = ModContent.Request<Texture2D>(Texture + "_Body");
             Tail = ModContent.Request<Texture2D>(Texture + "_Tail");
         }

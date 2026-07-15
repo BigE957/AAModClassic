@@ -23,6 +23,8 @@ namespace AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories
             Main.RegisterItemAnimation(Type, new DrawAnimationVertical(4, 13));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
             ItemID.Sets.AnimatesAsSoul[Type] = true;
+
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(500, 20f, 3f);
         }
         public override void SetDefaults()
         {
@@ -84,11 +86,13 @@ namespace AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories
             constantAscend = 0.3f;
         }
 
+        /*
         public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
         {
             speed = 20f;
             acceleration *= 3f;
         }
+        */
 
         public override bool CanAccessoryBeEquippedWith(Item equippedItem, Item incomingItem, Player player)
         {

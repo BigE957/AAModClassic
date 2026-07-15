@@ -4,6 +4,7 @@ using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -22,6 +23,8 @@ namespace AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories
 The snap has a 5 minute cooldown
 All effects of the infinity stones
 'Perfectly Balanced, as all things should be'");*/
+
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(500, 20f, 3f);
         }
 
         public bool death;
@@ -75,11 +78,13 @@ All effects of the infinity stones
             constantAscend = 0.3f;
         }
 
+        /*
         public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
         {
             speed = 20f;
             acceleration *= 3f;
         }
+        */
 
         public override void AddRecipes()
         {

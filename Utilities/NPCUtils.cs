@@ -13,6 +13,8 @@ namespace AAModClassic.Utilities
     {
         /// <summary>
         /// Clones the given NPC's loot except anything input and adds it to the given loot pool.
+        /// <br/>
+        /// Thank you to Boatsoon for making this awesomesauce method
         /// </summary>
         /// <param name="npcToClone">The ID of the npc whose loot is to be cloned.</param>
         /// <param name="itemIdsToExclude">The items present in the former NPC's lootpool you do not wish to clone.</param>
