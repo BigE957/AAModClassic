@@ -23,6 +23,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
         {
             // DisplayName.SetDefault("Mire Deathray");
 
+            ProjectileID.Sets.DrawScreenCheckFluff[Type] = 10000;
+
             Body = ModContent.Request<Texture2D>(Texture + "_Body");
             Tail = ModContent.Request<Texture2D>(Texture + "_Tail");
         }

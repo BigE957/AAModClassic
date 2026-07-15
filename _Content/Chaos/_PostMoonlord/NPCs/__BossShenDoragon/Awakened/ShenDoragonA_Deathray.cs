@@ -23,6 +23,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
         {
             // DisplayName.SetDefault("Discordian Deathray");
 
+            ProjectileID.Sets.DrawScreenCheckFluff[Type] = 10000;
+
             Body = ModContent.Request<Texture2D>(Texture + "_Body");
             Tail = ModContent.Request<Texture2D>(Texture + "_Tail");
         }

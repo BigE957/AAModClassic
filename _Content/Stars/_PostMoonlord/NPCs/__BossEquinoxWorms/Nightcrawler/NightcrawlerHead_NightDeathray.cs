@@ -24,6 +24,8 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nigh
 		{
             // DisplayName.SetDefault("Night Deathray");
 
+            ProjectileID.Sets.DrawScreenCheckFluff[Type] = 10000;
+
             Body = ModContent.Request<Texture2D>(Texture + "_Body");
             Tail = ModContent.Request<Texture2D>(Texture + "_Tail");
         }

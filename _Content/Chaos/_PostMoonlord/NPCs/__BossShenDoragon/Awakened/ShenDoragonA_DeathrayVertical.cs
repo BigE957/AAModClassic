@@ -25,6 +25,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
         {
             // DisplayName.SetDefault("Phantasmal Deathray");
 
+            ProjectileID.Sets.DrawScreenCheckFluff[Type] = 10000;
+
             Body = ModContent.Request<Texture2D>(Texture + "_Body");
             Tail = ModContent.Request<Texture2D>(Texture + "_Tail");
         }
