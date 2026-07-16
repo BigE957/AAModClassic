@@ -1021,13 +1021,13 @@ namespace AAModClassic.Globals
 
                     if (Main.hardMode)
                     {
-                        pool.Add(ModContent.NPCType<MagmaSwimmer>(), SpawnCondition.WaterCritter.Chance * 0.2f);
-                        pool.Add(ModContent.NPCType<BlazePhoenix>(), .1f);
+                        pool.Add(ModContent.NPCType<MagmaSwimmer>(), SpawnCondition.WaterCritter.Chance * (ContentReplacementSystem.NeedToReplaceContent ? 2f : 0.2f));
+                        pool.Add(ModContent.NPCType<BlazePhoenix>(), ContentReplacementSystem.NeedToReplaceContent ? 1f : .1f);
                     }
 
                     if (AAWorld.downedSisters)
                     {
-                        pool.Add(ModContent.NPCType<BlazeClaw>(), .05f);
+                        pool.Add(ModContent.NPCType<BlazeClaw>(), ContentReplacementSystem.NeedToReplaceContent ? 0.5f : .05f);
                     }
                 }
                 else if (spawnInfo.Player.position.Y > (Main.worldSurface * 16.0))
@@ -1042,25 +1042,25 @@ namespace AAModClassic.Globals
 
                     if (Main.hardMode)
                     {
-                        pool.Add(ModContent.NPCType<MagmaSwimmer>(), SpawnCondition.WaterCritter.Chance * 0.2f);
-                        pool.Add(ModContent.NPCType<WyrmHead>(), .008f);
-                        pool.Add(ModContent.NPCType<ChaoticDawn>(), .01f);
+                        pool.Add(ModContent.NPCType<MagmaSwimmer>(), SpawnCondition.WaterCritter.Chance * (ContentReplacementSystem.NeedToReplaceContent ? 2f : 0.2f));
+                        pool.Add(ModContent.NPCType<WyrmHead>(), ContentReplacementSystem.NeedToReplaceContent ? 0.08f : .008f);
+                        pool.Add(ModContent.NPCType<ChaoticDawn>(), ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f);
 
                         if (spawnInfo.Player.ZoneSnow)
                         {
-                            pool.Add(ModContent.NPCType<PigronInferno>(), .01f);
+                            pool.Add(ModContent.NPCType<PigronInferno>(), ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f);
                         }
 
                         if (spawnInfo.Player.ZoneUndergroundDesert)
                         {
-                            pool.Add(ModContent.NPCType<InfernalGhoul>(), .1f);
+                            pool.Add(ModContent.NPCType<InfernalGhoul>(), ContentReplacementSystem.NeedToReplaceContent ? 1f : .1f);
                         }
                     }
                 }
 
                 if (NPC.downedMoonlord)
                 {
-                    pool.Add(ModContent.NPCType<AncientLungHead>(), .01f);
+                    pool.Add(ModContent.NPCType<AncientLungHead>(), ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f);
                 }
             }
 
@@ -1081,14 +1081,14 @@ namespace AAModClassic.Globals
 
                     if (Main.hardMode)
                     {
-                        pool.Add(ModContent.NPCType<FogAngler>(), SpawnCondition.WaterCritter.Chance * 0.05f);
+                        pool.Add(ModContent.NPCType<FogAngler>(), SpawnCondition.WaterCritter.Chance * (ContentReplacementSystem.NeedToReplaceContent ? 0.5f : 0.05f));
                         pool.Add(ModContent.NPCType<Toxitoad>(), .005f);
-                        pool.Add(ModContent.NPCType<Kappa>(), .025f);
+                        pool.Add(ModContent.NPCType<Kappa>(), ContentReplacementSystem.NeedToReplaceContent ? 1f : .025f);
                     }
 
                     if (AAWorld.downedSisters)
                     {
-                        pool.Add(ModContent.NPCType<AbyssClaw>(), .01f);
+                        pool.Add(ModContent.NPCType<AbyssClaw>(), ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f);
                     }
                 }
                 else if (spawnInfo.Player.position.Y > (Main.worldSurface * 16.0))
@@ -1103,23 +1103,23 @@ namespace AAModClassic.Globals
 
                     if (Main.hardMode)
                     {
-                        pool.Add(ModContent.NPCType<FogAngler>(), SpawnCondition.WaterCritter.Chance * 0.1f);
-                        pool.Add(ModContent.NPCType<Miresquito>(), .025f);
-                        pool.Add(ModContent.NPCType<ChaoticTwilight>(), .005f);
+                        pool.Add(ModContent.NPCType<FogAngler>(), SpawnCondition.WaterCritter.Chance * (ContentReplacementSystem.NeedToReplaceContent ? 1f : 0.1f));
+                        pool.Add(ModContent.NPCType<Miresquito>(), ContentReplacementSystem.NeedToReplaceContent ? 0.25f : .025f);
+                        pool.Add(ModContent.NPCType<ChaoticTwilight>(), ContentReplacementSystem.NeedToReplaceContent ? 0.05f : .005f);
 
                         if (spawnInfo.Player.ZoneSnow)
-                            pool.Add(ModContent.NPCType<PigronMire>(), .005f);
+                            pool.Add(ModContent.NPCType<PigronMire>(), ContentReplacementSystem.NeedToReplaceContent ? 0.05f : .005f);
 
                         if (spawnInfo.Player.ZoneUndergroundDesert)
-                            pool.Add(ModContent.NPCType<ShadowGhoul>(), .025f);
+                            pool.Add(ModContent.NPCType<ShadowGhoul>(), ContentReplacementSystem.NeedToReplaceContent ? 0.25f : .025f);
                     }
                 }
 
                 if (NPC.downedMoonlord)
-                    pool.Add(ModContent.NPCType<Soulsucker>(), .01f);
+                    pool.Add(ModContent.NPCType<Soulsucker>(), ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f);
 
                 if (!AAWorld.downedSisters && NPCExtensions.BeenKilled<HydraBody>() && !NPC.AnyNPCs(ModContent.NPCType<HarukaShadow>()))
-                    pool.Add(ModContent.NPCType<HarukaShadow>(), .00005f);
+                    pool.Add(ModContent.NPCType<HarukaShadow>(), ContentReplacementSystem.NeedToReplaceContent ? 0.0005f : .00005f);
             }
 
             if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneVoid)
