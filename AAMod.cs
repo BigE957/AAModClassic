@@ -8,6 +8,7 @@ using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA.Skies;
 using AAModClassic._Content.Acropolis.World.Tiles;
 using AAModClassic._Content.BloodMoon.___PreHardmode.Items.Currency;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
+using AAModClassic._Content.Chaos.___PreHardmode.Items.Tools;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;

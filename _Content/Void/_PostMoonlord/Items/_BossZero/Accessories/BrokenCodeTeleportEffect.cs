@@ -57,7 +57,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
                             NetMessage.SendData(MessageID.TeleportEntity, -1, -1, null, 0, Player.whoAmI, vector32.X, vector32.Y, 1, 0, 0);
                             SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Glitch"));
                             CodeCD = 600;
-                            Player.AddBuff(ModContent.BuffType<BrokenCode_Glitched>(), 300);
+                            Player.AddBuff(ModContent.BuffType<BrokenCodeTeleportEffect_Glitched>(), 300);
                         }
                     }
                 }

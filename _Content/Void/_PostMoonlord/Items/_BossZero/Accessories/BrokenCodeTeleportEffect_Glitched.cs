@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
 {
-    public class BrokenCode_Glitched : ModBuff
+    public class BrokenCodeTeleportEffect_Glitched : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{

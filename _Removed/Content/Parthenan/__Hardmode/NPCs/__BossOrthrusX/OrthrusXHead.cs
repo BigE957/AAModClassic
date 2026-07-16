@@ -178,7 +178,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                             }
                         }
                     }
-                    
+                   
                     if (NPC.localAI[1] >= 200) //pick random spot to move head to
                     {
                         NPC.localAI[1] = 0;

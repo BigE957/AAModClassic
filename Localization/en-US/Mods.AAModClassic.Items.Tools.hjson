@@ -337,3 +337,13 @@ GravitronCentrifugeOff: {
 		Effects are currently inactive, Right click to reactivate
 		'''
 }
+
+TheGripsOfChaos: {
+	DisplayName: The Grips of Chaos
+	Tooltip:
+		'''
+		Fires 2 different hooks depending on which one is already out
+		Red has a longer range
+		Blue pulls in/retracts quicker
+		'''
+}
