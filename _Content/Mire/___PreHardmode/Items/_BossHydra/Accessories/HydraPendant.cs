@@ -27,6 +27,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.Accessories
         public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Generic) += .07f;
+            damageMap.GetAttackSpeed(DamageClass.Generic) *= 1.15f;
         }
 
         public override bool CanEquipAccessory(Player player, int slot, bool modded)/* tModPorter Suggestion: Consider using new hook CanAccessoryBeEquippedWith */

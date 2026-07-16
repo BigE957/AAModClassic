@@ -1192,7 +1192,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
                         string increaseOrDecreasePath = Language.GetTextValue($"{rootPath}.{statModifierPath}.{increaseOrDecrease}");
                         string damageTypePath = Language.GetTextValue($"{rootPath}.ClassGlobalStats.{currentClass.Name}");
                         if (currentClass == DamageClass.Generic)
-                            damageTypePath = "attack";
+                            damageTypePath = "attack ";
 
                         float damageToDisplay = damageMap.GetAttackSpeed(currentClass);
                         if (damageToDisplay > 1)
