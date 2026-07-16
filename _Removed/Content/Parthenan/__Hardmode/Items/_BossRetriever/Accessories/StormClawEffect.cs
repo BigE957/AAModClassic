@@ -16,33 +16,10 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetrieve
     {
         public override void DoEffect(Player player)
         {
-            player.GetModPlayer<StormClawPlayer>().effect = true;
-        }
-    }
-
-    public class StormClawPlayer : EquipmentEffectPlayer
-    {
-        public override float UseTimeMultiplier(Item item)
-        {
-            if (!effect)
-                return 1f;
-
-            // Only speed up manual-swing weapons
-            if (item.autoReuse || item.damage <= -1)
-                return 1f;
-
-            float multiplier = 2f;
-
-            // Keep useTime >= 1 tick
-            multiplier = Math.Min(multiplier, item.useTime);
-
-            // Keep useAnimation >= 2 ticks
-            multiplier = Math.Min(multiplier, item.useAnimation / 2f);
-
-            // Never let it go below 1
-            multiplier = Math.Max(multiplier, 1f);
-
-            return multiplier;
+            if (!player.HeldItem.autoReuse && player.HeldItem.damage > -1 && !Main.SettingsEnabled_AutoReuseAllItems)
+            {
+                player.GetAttackSpeed(DamageClass.Generic) *= 2;
+            }
         }
     }
 }
