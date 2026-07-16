@@ -190,7 +190,6 @@ namespace AAModClassic
         #endregion
 
         #region Accessory bools
-        public bool HydraPendant;
         public int AbilityCD = 180;
         public bool DragonShell;
         public bool RStar;
@@ -385,7 +384,6 @@ namespace AAModClassic
 
         private void ResetAccessoryEffect()
         {
-            HydraPendant = false;
             AshCurse = !Main.dayTime && !AAWorld.downedAkuma;
             DiscordShredder = false;
             RStar = false;
@@ -1896,31 +1894,6 @@ namespace AAModClassic
                     }
                 }
             }
-        }
-
-        public override float UseTimeMultiplier(Item item)
-        {
-            float multiplier = 1f;
-
-            if (item.damage > 0)
-            {
-                if (HydraPendant)
-                {
-                    multiplier *= 1.15f;
-                }
-
-                while (item.useTime / multiplier < 1)
-                {
-                    multiplier -= .1f;
-                }
-
-                while (item.useAnimation / multiplier < 2)
-                {
-                    multiplier -= .1f;
-                }
-            }
-
-            return multiplier;
         }
 
         public override void ProcessTriggers(TriggersSet triggersSet)
