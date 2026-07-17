@@ -341,10 +341,10 @@ DynaskullJavelin_Proj.DisplayName: Dynaskull Javelin
 FossilBoneslinger_AmberArrow.DisplayName: Amber Arrow
 DesertDjinn_Djinnado.DisplayName: Djinnado
 Legendscribe_Judgement.DisplayName: Judgement
-Djinn_BurstBlue.DisplayName: Djinn Burst
-Djinn_BurstRed.DisplayName: Djinn Burst
-Djinn_MagicBlastBlue.DisplayName: Magic Blast
-Djinn_MagicBlastRed.DisplayName: Magic Blast
+DustDjinn_BurstBlue.DisplayName: Djinn Burst
+DustDjinn_BurstRed.DisplayName: Djinn Burst
+DustDjinn_MagicBlastBlue.DisplayName: Magic Blast
+DustDjinn_MagicBlastRed.DisplayName: Magic Blast
 ArtifactOfJudgement_EyeOfJudgement.DisplayName: Eye of Judgement
 DesertStaff_DesertBlast.DisplayName: Desert Blast
 DesertStaff_FragBlast.DisplayName: Desert Staff_ Frag Blast
@@ -903,9 +903,7 @@ SistersTitle.DisplayName: Sisters Title
 Title.DisplayName: Title
 InfinityGauntletEffect_Snap.DisplayName: Snap
 ProtocolR_RaiderRocket.DisplayName: Raider Rocket
-DustDjinn_BurstBlue.DisplayName: Dust Djinn_ Burst Blue
-DustDjinn_BurstRed.DisplayName: Dust Djinn_ Burst Red
-DustDjinn_MagicBlastBlue.DisplayName: Dust Djinn_ Magic Blast Blue
-DustDjinn_MagicBlastRed.DisplayName: Dust Djinn_ Magic Blast Red
-TheGripsOfChaos_HookInferno.DisplayName: Grip
-TheGripsOfChaos_HookMire.DisplayName: Grip
+TheGripsOfChaos_HookInferno.DisplayName: Grip of Chaos
+TheGripsOfChaos_HookMire.DisplayName: Grip of Chaos
+DragonsGrip_Hook.DisplayName: Dragon's Grip
+HydraBite_Hook.DisplayName: Hydra Bite

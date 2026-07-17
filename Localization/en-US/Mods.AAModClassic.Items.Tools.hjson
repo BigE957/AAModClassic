@@ -367,3 +367,13 @@ LivingBogwoodWand: {
 	DisplayName: Living Bogwood Wand
 	Tooltip: "Places living bogwood"
 }
+
+DragonsGrip: {
+	DisplayName: Dragon's Grip
+	Tooltip: ""
+}
+
+HydraBite: {
+	DisplayName: Hydra Bite
+	Tooltip: ""
+}

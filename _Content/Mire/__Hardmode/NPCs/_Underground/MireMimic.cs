@@ -1,4 +1,5 @@
 using AAModClassic._Content.Mire.__Hardmode.Items.Accessories;
+using AAModClassic._Content.Mire.__Hardmode.Items.Tools;
 using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Mire.World.Biomes;
 using Microsoft.Xna.Framework;
@@ -58,9 +59,15 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<BotchedBand>(), ModContent.ItemType<BackScratcher>(), ModContent.ItemType<Bubbleshot>()));
+            LeadingConditionRule notUnofficialRule = new(new NotUnofficial());
+
+            notUnofficialRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<BotchedBand>(), ModContent.ItemType<BackScratcher>(), ModContent.ItemType<Bubbleshot>()));
+
+            npcLoot.Add(notUnofficialRule);
 
             LeadingConditionRule unofficialRule = new(new Unofficial());
+
+            notUnofficialRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<BotchedBand>(), ModContent.ItemType<BackScratcher>(), ModContent.ItemType<Bubbleshot>(), ModContent.ItemType<HydraBite>()));
 
             unofficialRule.OnSuccess(ItemDropRule.Common(ItemID.GreaterHealingPotion, 1, 5, 10));
 
