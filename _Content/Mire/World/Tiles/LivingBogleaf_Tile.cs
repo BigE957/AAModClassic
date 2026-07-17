@@ -16,6 +16,7 @@ namespace AAModClassic._Content.Mire.World.Tiles
             Main.tileBlockLight[Type] = true;  //true for block to emit light
             Main.tileLighted[Type] = false;
             DustType = ModContent.DustType<Dusts.BogleafDust>();
+            HitSound = SoundID.Grass;
             //RegisterItemDrop(Mod.Find<ModItem>("").Type);   
             AddMapEntry(new Color(70, 0, 127));
 			MinPick = 0;

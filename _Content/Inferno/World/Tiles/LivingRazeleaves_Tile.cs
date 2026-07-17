@@ -1,3 +1,4 @@
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -15,8 +16,8 @@ namespace AAModClassic._Content.Inferno.World.Tiles
             Main.tileMerge[TileID.Mud][Type] = true;
             Main.tileBlockLight[Type] = true;  //true for block to emit light
             Main.tileLighted[Type] = false;
-            DustType = ModContent.DustType<Dusts.RazeleafDust>();
-            //RegisterItemDrop(Mod.Find<ModItem>("").Type);   
+            DustType = ModContent.DustType<RazeleafDust>();
+            HitSound = SoundID.Grass;
             AddMapEntry(new Color(127, 57, 0));
             MinPick = 0;
         }
