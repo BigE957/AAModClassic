@@ -34,12 +34,13 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         {
             for (int i = 0; i < Projectile.oldPos.Length; i++)
             {
-                projHitbox.X = (int)Projectile.oldPos[i].X;
-                projHitbox.Y = (int)Projectile.oldPos[i].Y;
-                if (projHitbox.Intersects(targetHitbox))
-                {
+                bool hit;
+                if (i == 0)
+                    hit = Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), Projectile.Center, Projectile.oldPos[0] + new Vector2(8, 8));
+                else
+                    hit = Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), Projectile.oldPos[i] + new Vector2(8, 8), Projectile.oldPos[i - 1] + new Vector2(8, 8));
+                if (hit)
                     return true;
-                }
             }
             return base.Colliding(projHitbox, targetHitbox);
         }
