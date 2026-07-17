@@ -66,7 +66,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Pets
                 num149 = 4;
             }
             float num150 = (float)Math.Sqrt(num147 * num147 + num148 * num148);
-            if (num150 > 800f)
+            if (num150 > 1000f)
             {
                 Projectile.position.X = Main.player[Projectile.owner].position.X + Main.player[Projectile.owner].width / 2 - Projectile.width / 2;
                 Projectile.position.Y = Main.player[Projectile.owner].position.Y + Main.player[Projectile.owner].height / 2 - Projectile.height / 2;
