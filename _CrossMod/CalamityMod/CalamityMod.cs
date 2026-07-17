@@ -23,6 +23,11 @@ namespace AAModClassic._CrossMod.CalamityMod
                 Calamity = null;
         }
 
+        public override void AddRecipes()
+        {
+            if (IsEnabled)
+                rogueClass = Calamity.Find<DamageClass>("RogueDamageClass");
+        }
         public override void PostSetupContent()
         {
             if (Calamity != null)
@@ -55,9 +60,9 @@ namespace AAModClassic._CrossMod.CalamityMod
         public static bool IsRevengance => Calamity != null && (bool)Calamity.Call("GetDifficultyActive", "revengeance");
         public static bool IsDeath => Calamity != null && (bool)Calamity.Call("GetDifficultyActive", "death");
 
-        private static readonly DamageClass rogueClass = Calamity?.Find<DamageClass>("RogueDamageClass");
-        public static DamageClass RogueClass => rogueClass;
-        
+        private static DamageClass rogueClass = null;
+        public static DamageClass RogueClass => rogueClass ?? (rogueClass = Calamity.Find<DamageClass>("RogueDamageClass"));
+
         public static object Call(params object[] args) => Calamity?.Call(args);
         
         public static int GetModItem(string name)
