@@ -62,16 +62,15 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
 
             timecount ++;
 
-            for(int i = 0; i<1000; i++)
+            foreach(Projectile p in Main.ActiveProjectiles)
             {
-                if(Main.projectile[i].friendly && !Main.projectile[i].minion && Main.projectile[i].Hitbox.Intersects(Projectile.Hitbox))
+                if(p.friendly && !p.minion && p.damage > 0 && p.Hitbox.Intersects(Projectile.Hitbox))
+                    p.Kill();
+                
+                if(p.type == ModContent.ProjectileType<AbyssGrip_AbyssalBomb>() && proj == 0)
                 {
-                    Main.projectile[i].Kill();
-                }
-                if(Main.projectile[i].type == ModContent.ProjectileType<AbyssGrip_AbyssalBomb>() && proj == 0)
-                {
-                    Center = Main.projectile[i].Center;
-                    proj = Main.projectile[i].whoAmI;
+                    Center = p.Center;
+                    proj = p.whoAmI;
                 }
             }
 
