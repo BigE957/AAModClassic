@@ -71,7 +71,7 @@ namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
                     {
                         Vector2 dir = (startAngle + deltaAngle * (i + i * i) / 2f + 32f * i).ToRotationVector2();
                         if (Main.rand.NextBool(8))
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + dir * 48, dir * 6, ModContent.ProjectileType<RajahCarrot>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + dir * 48, dir * 6, ModContent.ProjectileType<CarrotFarmer_FarmedCarrot>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
                     }
                 }
                 Projectile.ai[1] = 0;
