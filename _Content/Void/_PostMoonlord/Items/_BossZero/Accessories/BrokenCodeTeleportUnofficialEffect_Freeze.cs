@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
 {
-    public class BrokenCode_Freeze : ModBuff
+    public class BrokenCodeTeleportUnofficialEffect_Freeze : ModBuff
 	{
 		public override void SetStaticDefaults()
 		{

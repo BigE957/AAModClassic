@@ -9,6 +9,7 @@ using Terraria.Audio;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
+using AAModClassic.UI.World;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 {
@@ -142,7 +143,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                 {
                     NPC.localAI[1]++;
                     internalAI[0]++;
-                    if (!redHead && (Reticle == null || Reticle.NPC.type != ModContent.NPCType<OrthrusXHead_OrthrusReticle>() || Reticle.NPC.active == false) && internalAI[0] % 300 >= 150)
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && !redHead && (Reticle == null || Reticle.NPC.type != ModContent.NPCType<OrthrusXHead_OrthrusReticle>() || Reticle.NPC.active == false) && internalAI[0] % 300 >= 150)
                     {
                         NPC npc = NPC.NewNPCDirect(NPC.GetSource_FromThis(), (int)targetPlayer.Center.X, (int)targetPlayer.Center.Y, ModContent.NPCType<OrthrusXHead_OrthrusReticle>(), 0);
                         Reticle = npc.ModNPC as OrthrusXHead_OrthrusReticle;
@@ -172,11 +173,12 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                             if (internalAI[0] % 300 == 0)
                             {
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X, dir.Y, ModContent.ProjectileType<OrthrusXHead_ShockingBreath>(), 20, 0f, -1);
-                                Reticle.NPC.active = false;
+                                if (Reticle != null)
+                                    Reticle.NPC.active = false;
                             }
                         }
                     }
-                    
+                   
                     if (NPC.localAI[1] >= 200) //pick random spot to move head to
                     {
                         NPC.localAI[1] = 0;
