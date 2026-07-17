@@ -337,3 +337,43 @@ GravitronCentrifugeOff: {
 		Эффекты в данный момент неактивны, нажмите ПКМ, чтобы активировать
 		'''
 }
+
+TheGripsOfChaos: {
+    DisplayName: Длани хаоса
+    Tooltip:
+        '''
+        Выпускает 2 разных крюка в зависимости от того, какой из них уже был выпущен
+        Красный длиннее
+        Синий быстрее выпускается и притягивается
+        '''
+}
+
+LivingRazeleafWand: {
+    DisplayName: Ветвь живой листвы выжженного дерева
+    Tooltip: "Размещает листья выжженного дерева"
+}
+
+LivingRazewoodWand: {
+    DisplayName: Ветвь живого выжженного дерева
+    Tooltip: "Размещает живое выжженное дерево"
+}
+
+LivingBogleafWand: {
+    DisplayName: Ветвь живой листвы болотного дерева
+    Tooltip: "Размещает листья болотного дерева"
+}
+
+LivingBogwoodWand: {
+    DisplayName: Ветвь живого болотного дерева
+    Tooltip: "Размещает живое болотное дерево"
+}
+
+DragonsGrip: {
+    DisplayName: Длань дракона
+    Tooltip: ""
+}
+
+HydraBite: {
+    DisplayName: Укус гидры
+    Tooltip: ""
+}
