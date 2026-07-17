@@ -50,6 +50,11 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration
             recipe.AddIngredient(ModContent.ItemType<OuroborosWoodWall>(), 4);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
+
+            Recipe recipe2 = CreateRecipe();
+            recipe2.AddIngredient(ModContent.ItemType<OuroborosWoodPlatform>(), 2);
+            recipe2.AddTile(TileID.WorkBenches);
+            recipe2.Register();
         }
     }
 }
