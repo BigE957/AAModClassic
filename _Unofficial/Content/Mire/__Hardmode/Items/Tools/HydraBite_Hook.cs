@@ -14,7 +14,7 @@ namespace AAModClassic._Unofficial.Content.Mire.__Hardmode.Items.Tools
     {
         private static Asset<Texture2D> chainTexture;
 
-        private Color GlowColor = Color.Green;
+        private Color GlowColor = Color.Black;
 
         public override void Load()
         {
@@ -34,27 +34,15 @@ namespace AAModClassic._Unofficial.Content.Mire.__Hardmode.Items.Tools
         public override void OnSpawn(IEntitySource source)
         {
             int color = Main.rand.Next(6);
-            switch (color)
+            GlowColor = color switch
             {
-                case 0:
-                    GlowColor = Color.Green;
-                    break;
-                case 1:
-                    GlowColor = Color.Orange;
-                    break;
-                case 2:
-                    GlowColor = Color.Purple;
-                    break;
-                case 3:
-                    GlowColor = Color.Blue;
-                    break;
-                case 4:
-                    GlowColor = Color.Yellow;
-                    break;
-                case 5:
-                    GlowColor = Color.Red;
-                    break;
-            }
+                1 => Color.Orange,
+                2 => Color.Purple,
+                3 => Color.Blue,
+                4 => Color.Yellow,
+                5 => Color.Red,
+                _ => Color.Green,
+            };
         }
 
         public override float GrappleRange()
@@ -102,6 +90,14 @@ namespace AAModClassic._Unofficial.Content.Mire.__Hardmode.Items.Tools
                     chainTexture.Size() * 0.5f, 1f, SpriteEffects.None, 0);
             }
             // Stop vanilla from drawing the default chain.
+            return false;
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            Main.EntitySpriteDraw(TextureAssets.Projectile[Type].Value, Projectile.Center - Main.screenPosition, null, lightColor, Projectile.rotation, TextureAssets.Projectile[Type].Size() * 0.5f, Projectile.scale, 0);
+            Asset<Texture2D> glow = ModContent.Request<Texture2D>(Texture + "_Glow");
+            Main.EntitySpriteDraw(glow.Value, Projectile.Center - Main.screenPosition, null, GlowColor, Projectile.rotation, glow.Size() * 0.5f, Projectile.scale, 0);
             return false;
         }
     }
