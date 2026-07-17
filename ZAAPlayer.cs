@@ -1325,10 +1325,10 @@ namespace AAModClassic
             {
                 return;
             }
-
+            
             if ((player.GetModPlayer<ZAAPlayer>().ZoneInferno || player.GetModPlayer<ZAAPlayer>().ZoneRisingSunPagoda) && player.GetModPlayer<ZAAPlayer>().AshCurse)
             {
-                if (!(player.ZoneSkyHeight || player.ZoneOverworldHeight))
+                if (Main.LocalPlayer.position.Y < Main.worldSurface * 16)
                 {
                     player.AddBuff(ModContent.BuffType<BurningAsh_Buff>(), 5);
                 }
