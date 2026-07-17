@@ -8,8 +8,10 @@ using Terraria.ModLoader;
 namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
 {
     public class AuroraScythe_Holdout : ModProjectile
-    { 
-		public override void SetDefaults()
+    {
+        public override bool IsLoadingEnabled(Mod mod) => ThoriumMod.IsEnabled;
+
+        public override void SetDefaults()
 		{
 			Projectile.width = 130;
 			Projectile.height = 128;

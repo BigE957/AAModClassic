@@ -12,6 +12,8 @@ namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
 {
     public class HydrasFury : CrossoverItem, ILocalizedModType
     {
+        public override bool IsLoadingEnabled(Mod mod) => ThoriumMod.IsEnabled;
+
         public new string LocalizationCategory => "Items.Weapons.CrossMod.Healer";
         public override string CrossoverModName => "ThoriumMod";
 

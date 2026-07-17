@@ -6,6 +6,8 @@ namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
 {
     public class CarrotFarmer_FarmedCarrot : ModProjectile
 	{
+        public override bool IsLoadingEnabled(Mod mod) => ThoriumMod.IsEnabled;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Farmed Carrot");

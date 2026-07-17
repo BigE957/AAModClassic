@@ -8,9 +8,10 @@ using Terraria.ModLoader;
 namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
 {
     public class DragonsClaw_Holdout : ModProjectile
-	{	
+	{
+        public override bool IsLoadingEnabled(Mod mod) => ThoriumMod.IsEnabled;
 
-		public override void SetDefaults()
+        public override void SetDefaults()
 		{
 			Projectile.width = 138;
 			Projectile.height = 138;
