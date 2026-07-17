@@ -252,7 +252,15 @@ namespace AAModClassic._CrossMod
     {
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
-            base.ModifyNPCLoot(npc, npcLoot);
+            ReplacementUtils.Modernize(npcLoot);
+        }
+    }
+
+    public class ReplacementGlobalItem : GlobalItem
+    {
+        public override void ModifyItemLoot(Item item, ItemLoot itemLoot)
+        {
+            ReplacementUtils.Modernize(itemLoot);
         }
     }
 
