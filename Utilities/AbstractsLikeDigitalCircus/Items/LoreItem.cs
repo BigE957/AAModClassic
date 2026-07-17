@@ -13,6 +13,8 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
     {
         public new string LocalizationCategory => "Items.Lore.Calamity";
 
+        public override bool IsLoadingEnabled(Mod mod) => CalamityMod.IsEnabled;
+
         public override void SetStaticDefaults()
         {
             ItemID.Sets.ItemNoGravity[Type] = true;
