@@ -337,3 +337,4 @@ Oblivion.DisplayName: Oblivion
 TerraSerpentBody.DisplayName: "{$NPCs.TerraSerpentHead.DisplayName}"
 TerraSerpentHead.DisplayName: Terra Serpent
 TerraSerpentTail.DisplayName: "{$NPCs.TerraSerpentHead.DisplayName}"
+CthulhuUnofficial.DisplayName: Cthulhu Unofficial

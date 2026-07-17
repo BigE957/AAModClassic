@@ -6,6 +6,10 @@ namespace AAModClassic.Utilities;
 
 public static class CollisionUtils
 {
+    public static Vector2? RayCast(Vector2 startPosition, float rayAngle, float maxDist, out float distanceMoved)
+    {
+        return RayCast(startPosition, rayAngle.ToRotationVector2(), maxDist, out distanceMoved);
+    }
     public static Vector2? RayCast(Vector2 startPosition, Vector2 rayDirection, float maxDist, out float distanceMoved)
     {
         distanceMoved = 0f;
