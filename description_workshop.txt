@@ -79,6 +79,7 @@ Developers and Contributors behind this port:
 Credit of course to the original team behind the mod:
 [list]
 [*] Beg
+[*] Blazen
 [*] Charlie Debnam
 [*] Chinzilla00
 [*] Dan Yami
