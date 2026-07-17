@@ -662,8 +662,11 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
                 int p = NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaDefeat>(), 0, 0, 0, 1);
                 Main.npc[p].Center = NPC.Center;
 
-                TileProtectionSystem.UnprotectTiles(ModContent.TileType<SkymarbleBrick_Tile>(), ModContent.TileType<SkycrystalBrick_Tile>(), ModContent.TileType<SkyCrystal_Tile>());
-                TileProtectionSystem.UnprotectWalls(ModContent.WallType<AcropolisBrickWall_Wall>(), ModContent.WallType<AcropolisPillarWall_Wall>());
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                {
+                    TileProtectionSystem.UnprotectTiles(ModContent.TileType<SkymarbleBrick_Tile>(), ModContent.TileType<SkycrystalBrick_Tile>(), ModContent.TileType<SkyCrystal_Tile>());
+                    TileProtectionSystem.UnprotectWalls(ModContent.WallType<AcropolisBrickWall_Wall>(), ModContent.WallType<AcropolisPillarWall_Wall>());
+                }
             }
             else
             {
