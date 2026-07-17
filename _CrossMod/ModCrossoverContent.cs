@@ -1,34 +1,19 @@
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using System;
-using System.Reflection;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._CrossMod
 {
-    public abstract class CrossoverItem : BaseAAItem
+    public abstract class CrossoverItem : ModItem
     {
-        public string crossoverModName = "(N/A)";
+        public virtual string CrossoverModName => null;
 
-        public override void ModifyTooltips(List<TooltipLine> list)
-        {
-            if (!ModLoader.TryGetMod(crossoverModName, out _))
-            {
-                TooltipLine error = new TooltipLine(Mod, "Error", "WARNING: ITEM WILL NOT FUNCTION WITHOUT " + crossoverModName.ToUpper() + " ENABLED!")
-                {
-                    OverrideColor = new Color(255, 50, 50)
-                };
-                list.Add(error);
-            }
-        }
+        public override bool IsLoadingEnabled(Mod mod) => ModLoader.HasMod(CrossoverModName);
     }
 
     public class ModSupportPlayer : ModPlayer
     {
-        private static Mod Redeption = null;
-        private static Mod Thorium = null;
+        public static Mod Redeption = null;
+        public static Mod Thorium = null;
 
         public override void Load()
         {

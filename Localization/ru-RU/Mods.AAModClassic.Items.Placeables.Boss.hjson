@@ -1,0 +1,323 @@
+Trophy: {
+	InfernoGripTrophy: {
+		DisplayName: Трофей Длани Инферно
+		Tooltip: ""
+	}
+
+	BroodmotherTrophy: {
+		DisplayName: Трофей Матери выводка
+		Tooltip: ""
+	}
+
+	DaybringerTrophy: {
+		DisplayName: Трофей Вестницы дня
+		Tooltip: ""
+	}
+
+	NightcrawlerTrophy: {
+		DisplayName: Трофей Ползуна ночи
+		Tooltip: ""
+	}
+
+	OrthrusXTrophy: {
+		DisplayName: Трофей Орфа X
+		Tooltip: ""
+	}
+
+	RaiderUltimaTrophy: {
+		DisplayName: Трофей Налётчицы Ультимы
+		Tooltip: ""
+	}
+
+	RetrieverTrophy: {
+		DisplayName: Трофей Ретривера
+		Tooltip: ""
+	}
+
+	TechnoTruffleTrophy: {
+		DisplayName: Трофей Техно-трюфеля
+		Tooltip: ""
+	}
+
+	InfinityZeroTrophy: {
+		DisplayName: Трофей Безграничного Зиро
+		Tooltip: ""
+	}
+
+	AthenaTrophy: {
+		DisplayName: Трофей Афины
+		Tooltip: ""
+	}
+
+	AthenaATrophy: {
+		DisplayName: Трофей Олимпийской Афины
+		Tooltip: ""
+	}
+
+	RajahRabbitTrophy: {
+		DisplayName: Трофей Кролика-Раджи
+		Tooltip: ""
+	}
+
+	MireGripTrophy: {
+		DisplayName: Трофей Длани Трясины
+		Tooltip: ""
+	}
+
+	ShenDoragonATrophy: {
+		DisplayName: Трофей Пробуждённого Шэня Доракона
+		Tooltip: ""
+	}
+
+	ShenDoragonTrophy: {
+		DisplayName: Трофей Шэня Доракона
+		Tooltip: ""
+	}
+
+	AsheTrophy: {
+		DisplayName: Трофей Эш
+		Tooltip: ""
+	}
+
+	HarukaTrophy: {
+		DisplayName: Трофей Харуки
+		Tooltip: ""
+	}
+
+	DesertDjinnTrophy: {
+		DisplayName: Трофей Пустынного Джинна
+		Tooltip: ""
+	}
+
+	AnubisTrophy: {
+		DisplayName: Трофей Анубиса
+		Tooltip: ""
+	}
+
+	AnubisATrophy: {
+		DisplayName: Трофей Отвергнутого Анубиса
+		Tooltip: ""
+	}
+
+	FeudalFungusTrophy: {
+		DisplayName: Трофей Грибного феодала
+		Tooltip: ""
+	}
+
+	TruffleToadTrophy: {
+		DisplayName: Трофей Трюфельной жабы
+		Tooltip: ""
+	}
+
+	GreedTrophy: {
+		DisplayName: Трофей Алчности
+		Tooltip: ""
+	}
+
+	GreedATrophy: {
+		DisplayName: Трофей Короля червей, Алчности
+		Tooltip: ""
+	}
+
+	AkumaATrophy: {
+		DisplayName: Трофей Они Акумы
+		Tooltip: ""
+	}
+
+	AkumaTrophy: {
+		DisplayName: Трофей Акумы
+		Tooltip: ""
+	}
+
+	HydraTrophy: {
+		DisplayName: Трофей Гидры
+		Tooltip: ""
+	}
+
+	YamataATrophy: {
+		DisplayName: Трофей Яматы-но Ороти
+		Tooltip: ""
+	}
+
+	YamataTrophy: {
+		DisplayName: Трофей Яматы
+		Tooltip: ""
+	}
+
+	MushroomMonarchTrophy: {
+		DisplayName: Трофей Грибного монарха
+		Tooltip: ""
+	}
+
+	SubzeroSerpentTrophy: {
+		DisplayName: Трофей Морозной змеи
+		Tooltip: ""
+	}
+
+	SagittariusTrophy: {
+		DisplayName: Трофей Сагиттариуса
+		Tooltip: ""
+	}
+
+	ZeroATrophy: {
+		DisplayName: Трофей Зиро-протокола
+		Tooltip: ""
+	}
+
+	ZeroTrophy: {
+		DisplayName: Трофей Зиро
+		Tooltip: ""
+	}
+
+	SoulOfCthulhuTrophy: {
+		DisplayName: Трофей Души Ктулху
+		Tooltip: ""
+	}
+}
+
+Relic: {
+	AthenaRelic: {
+		DisplayName: Реликвия Афины
+		Tooltip: ""
+	}
+
+	AthenaARelic: {
+		DisplayName: Реликвия Олимпийской Афины
+		Tooltip: ""
+	}
+
+	RajahRabbitRelic: {
+		DisplayName: Реликвия Кролика-Раджи
+		Tooltip: ""
+	}
+
+	RajahRabbitARelic: {
+		DisplayName: Реликвия Заступника Невинных
+		Tooltip: ""
+	}
+
+	GripsOfChaosRelic: {
+		DisplayName: Реликвия Дланей хаоса
+		Tooltip: ""
+	}
+
+	ShenDoragonRelic: {
+		DisplayName: Реликвия Шэня Доракона
+		Tooltip: ""
+	}
+
+	SistersOfDiscordRelic: {
+		DisplayName: Реликвия Сестёр Раздора
+		Tooltip: ""
+	}
+
+	DesertDjinnRelic: {
+		DisplayName: Реликвия Пустынного Джинна
+		Tooltip: ""
+	}
+
+	AnubisRelic: {
+		DisplayName: Реликвия Анубиса
+		Tooltip: ""
+	}
+
+	AnubisARelic: {
+		DisplayName: Реликвия Отвергнутого судьи, Анубиса
+		Tooltip: ""
+	}
+
+	FeudalFungusRelic: {
+		DisplayName: Реликвия Грибного феодала
+		Tooltip: ""
+	}
+
+	TruffleToadRelic: {
+		DisplayName: Реликвия Трюфельной жабы
+		Tooltip: ""
+	}
+
+	GreedRelic: {
+		DisplayName: Реликвия Алчности
+		Tooltip: ""
+	}
+
+	GreedARelic: {
+		DisplayName: Реликвия Короля червей, Алчности
+		Tooltip: ""
+	}
+
+	BroodmotherRelic: {
+		DisplayName: Реликвия Матери выводка
+		Tooltip: ""
+	}
+
+	AkumaRelic: {
+		DisplayName: Реликвия Акумы
+		Tooltip: ""
+	}
+
+	HydraRelic: {
+		DisplayName: Реликвия Гидры
+		Tooltip: ""
+	}
+
+	YamataRelic: {
+		DisplayName: Реликвия Яматы
+		Tooltip: ""
+	}
+
+	MushroomMonarchRelic: {
+		DisplayName: Реликвия Грибного монарха
+		Tooltip: ""
+	}
+
+	SubzeroSerpentRelic: {
+		DisplayName: Реликвия Морозной змеи
+		Tooltip: ""
+	}
+
+	EquinoxWormsRelic: {
+		DisplayName: Реликвия Червей Равноденствия
+		Tooltip: ""
+	}
+
+	SagittariusRelic: {
+		DisplayName: Реликвия Сагиттариуса
+		Tooltip: ""
+	}
+
+	ZeroRelic: {
+		DisplayName: Реликвия Зиро
+		Tooltip: ""
+	}
+
+	OrthrusXRelic: {
+		DisplayName: Реликвия Орфа X
+		Tooltip: ""
+	}
+
+	RaiderUltimaRelic: {
+		DisplayName: Реликвия Налётчицы Ультимы
+		Tooltip: ""
+	}
+
+	RetrieverRelic: {
+		DisplayName: Реликвия Ретривера
+		Tooltip: ""
+	}
+
+	TechnoTruffleRelic: {
+		DisplayName: Реликвия Техно-трюфеля
+		Tooltip: ""
+	}
+
+	SoulOfCthulhuRelic: {
+		DisplayName: Реликвия Души Ктулху
+		Tooltip: ""
+	}
+
+	InfinityZeroRelic: {
+		DisplayName: Реликвия Безграничного Зиро
+		Tooltip: ""
+	}
+}

@@ -1,0 +1,943 @@
+Aves: {
+	AvesWings: {
+		DisplayName: Утиные бас-бустеры
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+
+	AvesChestplate: {
+		DisplayName: Рубашка DJ Утки
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+
+	AvesHelmet: {
+		DisplayName: Маска DJ Утки
+		Tooltip:
+			'''
+			Кряк
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+
+	AvesLeggings: {
+		DisplayName: Штаны DJ Утки
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+}
+
+Masks: {
+	AthenaAMask: {
+		DisplayName: Маска Олимпийской Афины
+		Tooltip: ""
+	}
+
+	InfernoGripMask: {
+		DisplayName: Маска Длани Инферно
+		Tooltip: ""
+	}
+
+	DaybringerMask: {
+		DisplayName: Маска Вестницы дня
+		Tooltip: ""
+	}
+
+	NightcrawlerMask: {
+		DisplayName: Маска Ползуна ночи
+		Tooltip: ""
+	}
+
+	BlueOrthrusXMask: {
+		DisplayName: Синяя маска Орфа X
+		Tooltip: ""
+	}
+
+	RedOrthrusXMask: {
+		DisplayName: Красная маска Орфа X
+		Tooltip: ""
+	}
+
+	RetrieverMask: {
+		DisplayName: Маска Ретривера
+		Tooltip: ""
+	}
+
+	TechnoTruffleMask: {
+		DisplayName: Маска Техно-трюфеля
+		Tooltip: ""
+	}
+
+	AthenaMask: {
+		DisplayName: Маска Афины
+		Tooltip: ""
+	}
+
+	RajahRabbitMask: {
+		DisplayName: Маска Кролика-Раджи
+		Tooltip: ""
+	}
+
+	MireGripMask: {
+		DisplayName: Маска Длани Трясины
+		Tooltip: ""
+	}
+
+	ShenDoragonAMask: {
+		DisplayName: Маска Пробуждённого Шэня Доракона
+		Tooltip: ""
+	}
+
+	ShenDoragonMask: {
+		DisplayName: Маска Шэня Доракона
+		Tooltip: ""
+	}
+
+	DesertDjinnMask: {
+		DisplayName: Маска Пустынного Джинна
+		Tooltip: ""
+	}
+
+	AnubisMask: {
+		DisplayName: Маска Анубиса
+		Tooltip: ""
+	}
+
+	AnubisAMask: {
+		DisplayName: Маска Отвергнутого Анубиса
+		Tooltip: ""
+	}
+
+	FeudalFungusMask: {
+		DisplayName: Маска Грибного феодала
+		Tooltip: ""
+	}
+
+	TruffleToadMask: {
+		DisplayName: Маска Трюфельной жабы
+		Tooltip: ""
+	}
+
+	GreedMask: {
+		DisplayName: Маска Алчности
+		Tooltip: ""
+	}
+
+	GreedAMask: {
+		DisplayName: Маска Короля червей, Алчности
+		Tooltip: ""
+	}
+
+	BroodmotherMask: {
+		DisplayName: Маска Матери выводка
+		Tooltip: ""
+	}
+
+	AkumaAMask: {
+		DisplayName: Маска Они Акумы
+		Tooltip: ""
+	}
+
+	AkumaMask: {
+		DisplayName: Маска Акумы
+		Tooltip: ""
+	}
+
+	HydraMask1: {
+		DisplayName: Маска Гидры
+		Tooltip: ""
+	}
+
+	HydraMask2: {
+		DisplayName: Маска Гидры
+		Tooltip: ""
+	}
+
+	HydraMask3: {
+		DisplayName: Маска Гидры
+		Tooltip: ""
+	}
+
+	YamataAMask: {
+		DisplayName: Маска Яматы-но Ороти
+		Tooltip: ""
+	}
+
+	YamataMask: {
+		DisplayName: Маска Яматы
+		Tooltip: ""
+	}
+
+	MushroomMonarchMask: {
+		DisplayName: Маска Грибного монарха
+		Tooltip: ""
+	}
+
+	SubzeroSerpentMask: {
+		DisplayName: Маска Морозной змеи
+		Tooltip: ""
+	}
+
+	SagittariusMask: {
+		DisplayName: Маска Сагиттариуса
+		Tooltip: ""
+	}
+
+	ZeroMask: {
+		DisplayName: Маска Зиро
+		Tooltip: ""
+	}
+
+	RajahRabbitAMask: {
+		DisplayName: Маска Заступника невинных
+		Tooltip: ""
+	}
+
+	AsheMask: {
+		DisplayName: Маска Эш
+		Tooltip: ""
+	}
+
+	HarukaMask: {
+		DisplayName: Маска Харуки
+		Tooltip: ""
+	}
+
+	RaiderUltimaMask: {
+		DisplayName: Маска Налётчицы Ультимы
+		Tooltip: ""
+	}
+
+	SoulOfCthulhuAMask: {
+		DisplayName: Маска Космического Бедствия
+		Tooltip: ""
+	}
+
+	SoulOfCthulhuMask: {
+		DisplayName: Маска Души Ктулху
+		Tooltip: ""
+	}
+
+	InfinityZeroMask: {
+		DisplayName: Маска Безграничного Зиро
+		Tooltip: ""
+	}
+
+	ZeroAMask: {
+		DisplayName: Маска Зиро-протокола
+		Tooltip: ""
+	}
+
+	OrthrusXMask: {
+		DisplayName: Маска Орфа X
+		Tooltip: ""
+	}
+}
+
+Pets: {
+	ScorchedEgg: {
+		DisplayName: Опалённое яйцо
+		Tooltip: Что же вылупится из этого яйца?
+	}
+
+	Seashroom: {
+		DisplayName: Морской гриб
+		Tooltip: Пахнет рыбой
+	}
+
+	CyberneticEgg: {
+		DisplayName: Кибернетическое яйцо
+		Tooltip: Что же вылупится из этого... стоп, мы это уже проходили?
+	}
+
+	CerberusWhistle: {
+		DisplayName: Свисток Аида
+		Tooltip: Призывает сторожевого пса самого короля подземного мира
+	}
+
+	K9Collar: {
+		DisplayName: Ошейник K9
+		Tooltip: Призывает роботизированного приятеля
+	}
+
+	MoonBeeInAJar: {
+		DisplayName: Лунная пчела в банке
+		Tooltip: Призывает Лунамини
+	}
+
+	MudFishBall: {
+		DisplayName: Шар из илистой рыбы
+		Tooltip: Похоже, внутри уже что-то есть
+	}
+
+	RoyalStar: {
+		DisplayName: Королевская звезда
+		Tooltip: Призывает очень милую кошечку
+	}
+
+	ShinyFishBall: {
+		DisplayName: Блестящий рыбный шар
+		Tooltip: Похоже, внутри уже что-то есть
+	}
+
+	PaperBomb: {
+		DisplayName: Бумажная бомба
+		Tooltip: ""
+	}
+
+	DragonSoul: {
+		DisplayName: Душа дракона
+		Tooltip:
+			'''
+			Призывает душу дракона
+			Горячая на ощупь, но успокаивающая...
+			'''
+	}
+
+	GlowingMossBall: {
+		DisplayName: Светящийся моховой шар
+		Tooltip:
+			'''
+			Призывает светящийся моховой шар
+			Не спрашивай, что заставляет его светиться, поверь мне
+			'''
+	}
+
+	ZeroCore: {
+		DisplayName: Ядро Зиро
+		Tooltip: Призывает облегчённую версию ЗИРО для обнаружения существ
+	}
+}
+
+BigE: {
+	BigEWings: {
+		DisplayName: Эффективные подъёмники
+		Tooltip:
+			'''
+			Зажмите вниз и прыжок, чтобы парить длительное время
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+
+	Shiny: {
+		BigEWingsS: {
+			DisplayName: Эффективные подъёмники
+			Tooltip:
+				'''
+				Зажмите вниз и прыжок, чтобы парить длительное время
+				«Отлично подходит для подражания разработчикам Ancients Awakened!»
+				'''
+		}
+	}
+
+	LittleE: {
+		DisplayName: Маленькая Е
+		Tooltip: «Это моя маленькая версия, {0}. Я хочу, чтобы она была у тебя».
+	}
+
+	LittleES: {
+		DisplayName: КАЛамити
+		Tooltip: «Чувак, тебе нравится Calamity Mod? {0}, бро, я знал, что ты мне нравишься, чувак. Иди сюда, давай обнимемся. Давай, брат, обнимемся».
+	}
+}
+
+Blazen: {
+	BlazenWings: {
+		DisplayName: Тактический штурмовой ускоритель
+		Tooltip:
+			'''
+			Зажмите вверх, чтобы взлететь быстрее
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+
+	BlazenChestplate: {
+		DisplayName: Тактическая штурмовая броня
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+
+	BlazenHelmet: {
+		DisplayName: Тактический штурмовой шлем
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+
+	BlazenLeggings: {
+		DisplayName: Тактические штурмовые ботинки
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+}
+
+Charlie: {
+	CharlieWings: {
+		DisplayName: Крылья Мрачного Кошмара
+		Tooltip:
+			'''
+			Зажмите вниз и прыжок, чтобы парить длительное время
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+
+	CharlieChestplate: {
+		DisplayName: Плащ Призрака
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+
+	CharlieHelmet: {
+		DisplayName: Капюшон Призрака
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+
+	CharlieLeggings: {
+		DisplayName: Ботинки Призрака
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+}
+
+Gibs: {
+	GibsWings: {
+		DisplayName: Реактивный ускоритель Ревенанта
+		Tooltip:
+			'''
+			Зажмите вниз и прыжок, чтобы парить длительное время
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+
+	GibsChestplate: {
+		DisplayName: Нагрудник Ревенанта
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+
+	GibsHelmet: {
+		DisplayName: Череп Ревенанта
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+
+	GibsLeggings: {
+		DisplayName: Поножи Ревенанта
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+}
+
+Grox: {
+	GroxWings: {
+		DisplayName: Небесные паруса Злого Пирата
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+
+	GroxChestplate: {
+		DisplayName: Нагрудник Злого Пирата
+		Tooltip:
+			'''
+			Ненависть к рыбам, не умеющим программировать, исходит от этого нагрудника.
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+
+	GroxHelmet: {
+		DisplayName: Капюшон Злого Пирата
+		Tooltip:
+			'''
+			Ненависть к рыбам, не умеющим программировать, исходит от этого капюшона.
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+
+	GroxLeggings: {
+		DisplayName: Поножи Злого Пирата
+		Tooltip:
+			'''
+			Ненависть к рыбам, не умеющим программировать, исходит от этих ботинок.
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+}
+
+Moon: {
+	MoonWings: {
+		DisplayName: Лунные осиные крылья
+		Tooltip:
+			'''
+			Зажмите вниз и прыжок, чтобы парить длительное время
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+
+	MoonChestplate: {
+		DisplayName: Лунное одеяние
+		Tooltip:
+			'''
+			Одеяние легендарного лунного мага
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+
+	Shiny: {
+		MoonChestplateS: {
+			DisplayName: Лунное одеяние
+			Tooltip:
+				'''
+				Одеяние легендарного лунного мага
+				«Отлично подходит для подражания разработчикам Ancients Awakened!»
+				'''
+		}
+
+		MoonHelmetS: {
+			DisplayName: Лунный капюшон
+			Tooltip:
+				'''
+				Капюшон легендарного лунного мага
+				«Отлично подходит для подражания разработчикам Ancients Awakened!»
+				'''
+		}
+
+		MoonLeggingsS: {
+			DisplayName: Лунные ботинки
+			Tooltip:
+				'''
+				Ботинки легендарного лунного мага
+				«Отлично подходит для подражания разработчикам Ancients Awakened!»
+				'''
+		}
+	}
+
+	MoonHelmet: {
+		DisplayName: Лунный капюшон
+		Tooltip:
+			'''
+			Капюшон легендарного лунного мага
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+
+	MoonLeggings: {
+		DisplayName: Лунные ботинки
+		Tooltip:
+			'''
+			Ботинки легендарного лунного мага
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+}
+
+Anarchy: {
+	AnarchyChestplate: {
+		DisplayName: Нетронутый нагрудник
+		Tooltip:
+			'''
+			«Отлично подходит для подражания контрибьюторам Ancients Awakened!»
+			К слову, Анархия заспрайтил это сам.
+			'''
+	}
+
+	AnarchyHelmet: {
+		DisplayName: Нетронутый шлем
+		Tooltip:
+			'''
+			«Отлично подходит для подражания контрибьюторам Ancients Awakened!»
+			К слову, Анархия заспрайтил это сам.
+			'''
+	}
+
+	AnarchyLeggings: {
+		DisplayName: Нетронутые поножи
+		Tooltip:
+			'''
+			«Отлично подходит для подражания контрибьюторам Ancients Awakened!»
+			К слову, Анархия заспрайтил это сам.
+			'''
+	}
+}
+
+Apawn: {
+	ApawnChestplate: {
+		DisplayName: Нагрудник Аpawn
+		Tooltip: Отлично подходит для подражания тестерам Ancients Awakened!
+	}
+
+	ApawnHelmet: {
+		DisplayName: Визор Аpawn
+		Tooltip: Отлично подходит для подражания тестерам Ancients Awakened!
+	}
+
+	ApawnLeggings: {
+		DisplayName: Поножи Аpawn
+		Tooltip: Отлично подходит для подражания тестерам Ancients Awakened!
+	}
+}
+
+Beg: {
+	BegChestplate: {
+		DisplayName: Рубашка Странной Лошади
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+
+	BegHelmet: {
+		DisplayName: Маска Странной Лошади
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+
+	BegLeggings: {
+		DisplayName: Копыта Странной Лошади
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+}
+
+CC: {
+	CCChestplate: {
+		DisplayName: Роба Ужасного Культиста
+		Tooltip:
+			'''
+			Роба безумного энтузиаста-ящера
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+
+	Shiny: {
+		CCChestplateS: {
+			DisplayName: Роба Ужасного Культиста
+			Tooltip:
+				'''
+				Роба безумного энтузиаста-ящера
+				«Отлично подходит для подражания разработчикам Ancients Awakened!»
+				'''
+		}
+
+		CCHelmetS: {
+			DisplayName: Маска Ужасного Культиста
+			Tooltip:
+				'''
+				Маска безумного энтузиаста-ящера
+				«Отлично подходит для подражания разработчикам Ancients Awakened!»
+				'''
+		}
+	}
+
+	CCHelmet: {
+		DisplayName: Маска Ужасного Культиста
+		Tooltip:
+			'''
+			Маска безумного энтузиаста-ящера
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+}
+
+Cerberus: {
+	CerberusChestplate: {
+		DisplayName: Роба Взывателя
+		Tooltip:
+			'''
+			Зачарованная роба Алистера «Мега Териона»
+			Отлично подходит для подражания разработчикам Ancients Awakened!
+			'''
+	}
+
+	CerberusHelmet: {
+		DisplayName: Капюшон Взывателя
+		Tooltip:
+			'''
+			Зачарованный капюшон Алистера «Мега Териона»
+			Отлично подходит для подражания разработчикам Ancients Awakened!
+			'''
+	}
+
+	CerberusLeggings: {
+		DisplayName: Ботинки Взывателя
+		Tooltip:
+			'''
+			Зачарованные ботинки Алистера «Мега Териона»
+			Отлично подходит для подражания разработчикам Ancients Awakened!
+			'''
+	}
+}
+
+Delly: {
+	DellyChestplate: {
+		DisplayName: Теневая рубашка
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+
+	DellyHelmet: {
+		DisplayName: Теневой парик
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+
+	DellyLeggings: {
+		DisplayName: Теневые ботинки
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+}
+
+Fargo: {
+	FargoChestplate: {
+		DisplayName: Щегольской беличий костюм
+		Tooltip:
+			'''
+			soonTM
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+
+	FargoHelmet: {
+		DisplayName: Щегольской беличий цилиндр
+		Tooltip:
+			'''
+			soonTM
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+
+	FargoLeggings: {
+		DisplayName: Щегольские беличьи брюки
+		Tooltip:
+			'''
+			soonTM
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+}
+
+Fazer: {
+	FazerChestplate: {
+		DisplayName: Пушистый лисий свитер
+		Tooltip: Отлично подходит для подражания контрибьюторам Ancients Awakened!
+	}
+
+	FazerHelmet: {
+		DisplayName: Пушистый лисий парик
+		Tooltip: Отлично подходит для подражания контрибьюторам Ancients Awakened!
+	}
+
+	FazerLeggings: {
+		DisplayName: Пушистые лисьи штаны
+		Tooltip: Отлично подходит для подражания контрибьюторам Ancients Awakened!
+	}
+}
+
+Hallam: {
+	HallamChestplate: {
+		DisplayName: Элегантный смокинг Халлама
+		Tooltip:
+			'''
+			Этот смокинг соткан из поистине натуральной ткани
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+
+	Shiny: {
+		HallamChestplateS: {
+			DisplayName: Элегантный смокинг Халлама
+			Tooltip:
+				'''
+				Этот смокинг соткан из поистине натуральной ткани
+				«Отлично подходит для подражания разработчикам Ancients Awakened!»
+				'''
+		}
+
+		HallamHelmetS: {
+			DisplayName: Щегольской цилиндр Халлама
+			Tooltip:
+				'''
+				Надев это, невозможно не почувствовать себя элегантным
+				«Отлично подходит для подражания разработчикам Ancients Awakened!»
+				'''
+		}
+
+		HallamLeggingsS: {
+			DisplayName: Модные брюки Халлама
+			Tooltip:
+				'''
+				Эти штаны стоят больше чем вся твоя жизнь
+				«Отлично подходит для подражания разработчикам Ancients Awakened!»
+				'''
+		}
+	}
+
+	HallamHelmet: {
+		DisplayName: Щегольской цилиндр Халлама
+		Tooltip:
+			'''
+			Надев это, невозможно не почувствовать себя элегантным
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+
+	HallamLeggings: {
+		DisplayName: Модные брюки Халлама
+		Tooltip:
+			'''
+			Эти штаны стоят больше чем вся твоя жизнь
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+}
+
+Maskano: {
+	MaskanoChestplate: {
+		DisplayName: Нагрудник Повелителя Масок
+		Tooltip: Отлично подходит для подражания контрибьюторам Ancients Awakened!
+	}
+
+	MaskanoHelmet: {
+		DisplayName: Маска
+		Tooltip: Отлично подходит для подражания контрибьюторам Ancients Awakened!
+	}
+
+	MaskanoLeggings: {
+		DisplayName: Ботинки Повелителя Масок
+		Tooltip: Отлично подходит для подражания контрибьюторам Ancients Awakened!
+	}
+}
+
+Mikpin: {
+	MikpinChestplate: {
+		DisplayName: Кицунэ-платье
+		Tooltip: Отлично подходит для подражания тестерам Ancients Awakened!
+	}
+
+	MikpinHelmet: {
+		DisplayName: Кицунэ-парик
+		Tooltip: Отлично подходит для подражания тестерам Ancients Awakened!
+	}
+
+	MikpinLeggings: {
+		DisplayName: Кицунэ-штаны
+		Tooltip: Отлично подходит для подражания тестерам Ancients Awakened!
+	}
+}
+
+Pluto: {
+	PlutoChestplate: {
+		DisplayName: Нагрудник Внешнего Бога
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+
+	Shiny: {
+		PlutoChestplateS: {
+			DisplayName: Нагрудник Внешнего Бога
+			Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+		}
+
+		PlutoHelmetS: {
+			DisplayName: Маска Внешнего Бога
+			Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+		}
+	}
+
+	PlutoHelmet: {
+		DisplayName: Маска Внешнего Бога
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+
+	PlutoLeggings: {
+		DisplayName: Поножи Внешнего Бога
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+}
+
+Shox: {
+	ShoxChestplate: {
+		DisplayName: Нагрудник Шокового Лорда
+		Tooltip: Отлично подходит для подражания контрибьюторам Ancients Awakened!
+	}
+
+	ShoxHelmet: {
+		DisplayName: Визор Шокового Лорда
+		Tooltip: Отлично подходит для подражания контрибьюторам Ancients Awakened!
+	}
+
+	ShoxLeggings: {
+		DisplayName: Ботинки Шокового Лорда
+		Tooltip: Отлично подходит для подражания контрибьюторам Ancients Awakened!
+	}
+}
+
+Tails: {
+	TailsChestplate: {
+		DisplayName: Телный костюм Тейлза
+		Tooltip:
+			'''
+			Костюм, напоминающий одного двухвостого лиса.
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+
+	TailsHelmet: {
+		DisplayName: Шлем Тейлза
+		Tooltip:
+			'''
+			Шлем, напоминающий одного двухвостого лиса.
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+
+	TailsLeggings: {
+		DisplayName: Поножи Тейлза
+		Tooltip:
+			'''
+			Поножи, напоминающие одного двухвостого лиса.
+			«Отлично подходит для подражания разработчикам Ancients Awakened!»
+			'''
+	}
+}
+
+Tied: {
+	TiedChestplate: {
+		DisplayName: Нагрудник Tied
+		Tooltip: ""
+	}
+
+	TiedHelmet: {
+		DisplayName: Жуткий череп
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+
+	TiedLeggings: {
+		DisplayName: Жуткие брюки
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+}
+
+Universe: {
+	UniverseChestplate: {
+		DisplayName: Роба Проклятого Жнеца
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+
+	UniverseHelmet: {
+		DisplayName: Капюшон Проклятого Жнеца
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+
+	UniverseLeggings: {
+		DisplayName: Ботинки Проклятого Жнеца
+		Tooltip: Отлично подходит для подражания разработчикам Ancients Awakened!
+	}
+}
+
+VoidEye: {
+	VoidEyeChestplate: {
+		DisplayName: Нагрудник Ока Бездны
+		Tooltip: Отлично подходит для подражания контрибьюторам Ancients Awakened!
+	}
+
+	VoidEyeHelmet: {
+		DisplayName: Маска Ока Бездны
+		Tooltip: Отлично подходит для подражания контрибьюторам Ancients Awakened!
+	}
+
+	VoidEyeLeggings: {
+		DisplayName: Ботинки Ока Бездны
+		Tooltip: Отлично подходит для подражания контрибьюторам Ancients Awakened!
+	}
+}
+
+HappySunSticker: {
+	DisplayName: Наклейка счастливого солнышка
+	Tooltip: ":D"
+}
+
+Ohno: {
+	Ono: {
+		DisplayName: кака
+		Tooltip: кака
+	}
+}

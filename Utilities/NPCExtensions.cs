@@ -54,5 +54,21 @@ namespace AAModClassic.Utilities
                 NetMessage.SendData(MessageID.UniqueTownNPCInfoSyncRequest, -1, -1, null, npc.whoAmI);
             }
         }
+
+        /// <summary>
+        /// Copy of NPC.CanBeChasedBy without the active check. Use in contexts where the NPC might not be active anymore (such as OnHitNPC).
+        /// </summary>
+        /// <param name="npc">The NPC.</param>
+        /// <param name="attacker">The attacker (unused).</param>
+        /// <param name="ignoreDontTakeDamage">If dontTakeDamage should be ignored.</param>
+        /// <returns>True if chaseable, max life &gt; 5, not friendly, and can take damage.</returns>
+        public static bool IsHostile(this NPC npc, bool ignoreDontTakeDamage = false)
+        {
+            if (!npc.friendly && npc.lifeMax > 5 && npc.chaseable && (!npc.dontTakeDamage || ignoreDontTakeDamage))
+            {
+                return !npc.immortal;
+            }
+            return false;
+        }
     }
 }

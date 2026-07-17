@@ -118,8 +118,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) //force a kill to prevent 'ghosting'
                 {
-                    NPC.life = 0;
-                    NPC.checkDead();
+                    NPC.active = false;
                     NPC.netUpdate = true;
                 }
                 return;
@@ -133,8 +132,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) //force a kill to prevent 'ghosting'
                 {
-                    NPC.life = 0;
-                    NPC.checkDead();
+                    NPC.active = false;
                     NPC.netUpdate = true;
                 }
                 return;

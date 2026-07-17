@@ -60,12 +60,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                 Projectile.velocity = Projectile.oldVelocity;
             }
 
-            for(int i = 0; i<1000; i++)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
-                if(Main.projectile[i].friendly && !Main.projectile[i].minion && Main.projectile[i].Hitbox.Intersects(Projectile.Hitbox))
-                {
-                    Main.projectile[i].Kill();
-                }
+                if (p.friendly && !p.minion && p.damage > 0 && p.Hitbox.Intersects(Projectile.Hitbox))
+                    p.Kill();
             }
         }
 

@@ -20,24 +20,114 @@ namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
             Projectile.width = 160;
             Projectile.height = 156;
             Projectile.aiStyle = 0;
-            Projectile.penetrate = -1;
+            Projectile.light = 0.2f;
+            Projectile.friendly = true;
             Projectile.tileCollide = false;
             Projectile.ownerHitCheck = true;
             Projectile.ignoreWater = true;
+            Projectile.penetrate = -1;
             Projectile.timeLeft = 26;
-            AIType = ProjectileID.Bullet;
+            Projectile.usesIDStaticNPCImmunity = true;
+            Projectile.idStaticNPCHitCooldown = 10;
+            Projectile.DamageType = ThoriumMod.HealerClass;
         }
 
-        public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
-        {
-            projHitbox.Width += 16;
-            projHitbox.Height += 16;
+        public static Vector2 DustOffset => new Vector2(-12, 48);
+        public static float SpinSpeed => 0.3f;
+        public static int DustCount => 5;
+        public static float DustScale => 0.8f;
+        public static int DustAlpha => 180;
 
-            return projHitbox.Intersects(targetHitbox);
+        public override void AI()
+        {
+            Player player = Main.player[Projectile.owner];
+            if (player.dead)
+            {
+                Projectile.Kill();
+                return;
+            }
+            Projectile projectile = Projectile;
+            projectile.rotation += player.direction * player.gravDir * SpinSpeed;
+            Projectile.spriteDirection = player.direction;
+            player.heldProj = Projectile.whoAmI;
+            Projectile.Center = player.Center;
+            Projectile.gfxOffY = player.gfxOffY;
+            SpawnDust();
+
+            Projectile.ai[1]++;
+            if (Projectile.ai[1] >= 16)
+            {
+                for (int u = 0; u < 10; u++)
+                {
+                    int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.CarrotDust>(), Main.rand.Next((int)-5f, (int)5f), Main.rand.Next((int)-5f, (int)5f), 0);
+                    Main.dust[dust].noGravity = true;
+                }
+                float spread = 12f * 0.0174f;
+                float startAngle = MathF.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
+                float deltaAngle = spread / 30f;
+                if (Projectile.owner == Main.myPlayer)
+                {
+                    for (int i = 0; i < 30; i++)
+                    {
+                        Vector2 dir = (startAngle + deltaAngle * (i + i * i) / 2f + 32f * i).ToRotationVector2();
+                        if (Main.rand.NextBool(8))
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + dir * 48, dir * 6, ModContent.ProjectileType<CarrotFarmer_FarmedCarrot>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                    }
+                }
+                Projectile.ai[1] = 0;
+            }
+
+            if (projectile.timeLeft < 8)
+            {
+                projectile.alpha += 32;
+                if (projectile.alpha > 255)
+                {
+                    projectile.alpha = 255;
+                }
+            }
+        }
+
+        private void SpawnDust()
+        {
+            int scythes = 2;
+            int type = ModContent.DustType<Dusts.CarrotDust>();
+            Vector2 dustCenter = new Vector2(Projectile.width, -Projectile.height) / 2f + DustOffset;
+            if (scythes <= 0 || DustCount <= 0 || type <= -1)
+                return;
+
+            for (int scytheIndex = 0; scytheIndex < scythes; scytheIndex++)
+            {
+                float offset = scytheIndex * MathHelper.TwoPi / scythes;
+                float rot = Projectile.rotation;
+                Vector2 rotationOffset = dustCenter;
+                if (Projectile.spriteDirection < 0)
+                    rotationOffset.X = 0f - rotationOffset.X;
+
+                float myRot = rot + offset;
+                rotationOffset = rotationOffset.RotatedBy(myRot);
+                Vector2 rotationCenter = Projectile.Center + new Vector2(0f, Projectile.gfxOffY) + rotationOffset;
+                for (int j = 0; j < DustCount; j++)
+                {
+                    Vector2 velocity = (myRot + MathHelper.PiOver2 + Main.rand.NextFloat(-MathHelper.Pi / 16f, MathHelper.Pi / 16f)).ToRotationVector2() * 10 * SpinSpeed;
+                    Dust dust = Dust.NewDustPerfect(rotationCenter, type, velocity, DustAlpha, Scale: DustScale);
+                    dust.noGravity = true;
+                    dust.noLight = true;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Flag checked when the projectile has scythe charges and a suitable NPC is hit, then set to false
+        /// </summary>
+        public bool CanGiveScytheCharge
+        {
+            get { return (Projectile.localAI[0] == 0f); }
+            set { Projectile.localAI[0] = (value ? 0f : 1f); }
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
+            CanGiveScytheCharge = ThoriumMod.TryGainSoulEssence(Main.player[Projectile.owner], target, 1, CanGiveScytheCharge);
             target.immune[Projectile.owner] = 8;
         }
 
@@ -51,202 +141,6 @@ namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
             else
             {
                 modifiers.HitDirectionOverride = 1;
-            }
-        }
-
-        public override void AI()
-        {
-            Player player = Main.player[Projectile.owner];
-
-            if (player.dead)
-            {
-                Projectile.Kill();
-            }
-
-            if (player.direction > 0)
-            {
-                Projectile.rotation += 0.35f;
-                Projectile.spriteDirection = 1;
-            }
-            else
-            {
-                Projectile.rotation -= 0.35f;
-                Projectile.spriteDirection = -1;
-            }
-
-            player.heldProj = Projectile.whoAmI;
-            Projectile.position.X = player.Center.X - 80;
-            Projectile.position.Y = player.Center.Y - 73;
-
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, ModContent.ProjectileType<CarrotFarmerDamage>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, ModContent.ProjectileType<CarrotFarmerDamage>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-
-            if (Projectile.timeLeft == 13)
-            {
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, ModContent.ProjectileType<CarrotFarmerDamage2>(), (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, ModContent.ProjectileType<CarrotFarmerDamage2>(), (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
-            }
-
-            if (Projectile.timeLeft < 8)
-            {
-                Projectile.alpha -= 28;
-            }
-
-            Projectile.ai[1]++;
-            if (Projectile.ai[1] >= 16)
-            {
-                for (int u = 0; u < 10; u++)
-                {
-                    int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.CarrotDust>(), Main.rand.Next((int)-5f, (int)5f), Main.rand.Next((int)-5f, (int)5f), 0);
-                    Main.dust[dust].noGravity = true;
-                }
-                float spread = 12f * 0.0174f;
-                double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
-                double deltaAngle = spread / 30f;
-                double offsetAngle;
-                int i;
-                if (Projectile.owner == Main.myPlayer)
-                {
-                    for (i = 0; i < 30; i++)
-                    {
-                        offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                        if (Main.rand.NextBool(15))
-                        {
-                            int ProjID = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), ModContent.ProjectileType<RajahCarrot>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-                        }
-                        if (Main.rand.NextBool(15))
-                        {
-                            int ProjID = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 6f), (float)(-Math.Cos(offsetAngle) * 6f), ModContent.ProjectileType<RajahCarrot>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-                        }
-                    }
-                }
-                Projectile.ai[1] = -0;
-            }
-        }
-    }
-
-    public class CarrotFarmerDamage : ModProjectile
-    {
-        public override string Texture => AssetDirectory.General.Nothing;
-        public override void SetDefaults()
-        {
-            Projectile.width = 160;
-            Projectile.height = 156;
-            Projectile.aiStyle = 0;
-            Projectile.friendly = true;
-            Projectile.tileCollide = false;
-            Projectile.ownerHitCheck = true;
-            Projectile.ignoreWater = true;
-            Projectile.penetrate = -1;
-            Projectile.timeLeft = 8;
-            AIType = ProjectileID.Bullet;
-        }
-
-        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
-        {
-            Player player = Main.player[Projectile.owner];
-            if (Main.rand.Next(100) <= player.GetModPlayer<ModSupportPlayer>().Thorium_radiantCrit)
-            {
-                modifiers.SetCrit();
-            }
-        }
-
-        public override void AI()
-        {
-            Player player = Main.player[Projectile.owner];
-
-            Projectile.position.X = player.Center.X - Projectile.width / 2f;
-            Projectile.position.Y = player.Center.Y - Projectile.height / 2f;
-        }
-    }
-
-    public class CarrotFarmerDamage2 : ModProjectile
-    {
-        public override string Texture => AssetDirectory.General.Nothing;
-        public override void SetDefaults()
-        {
-            Projectile.width = 130;
-            Projectile.height = 128;
-            Projectile.aiStyle = 0;
-            Projectile.friendly = true;
-            Projectile.tileCollide = false;
-            Projectile.ownerHitCheck = true;
-            Projectile.ignoreWater = true;
-            Projectile.penetrate = 1;
-            Projectile.timeLeft = 4;
-            AIType = ProjectileID.Bullet;
-        }
-
-        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
-        {
-            Player player = Main.player[Projectile.owner];
-            if (Main.rand.Next(100) <= player.GetModPlayer<ModSupportPlayer>().Thorium_radiantCrit)
-            {
-                modifiers.SetCrit();
-            }
-        }
-
-        public override void AI()
-        {
-            Player player = Main.player[Projectile.owner];
-
-            Projectile.position.X = player.Center.X - Projectile.width / 2f;
-            Projectile.position.Y = player.Center.Y - Projectile.height / 2f;
-        }
-    }
-
-
-    public class CarrotFarmerEffect : ModProjectile
-    {
-        public override string Texture => AssetDirectory.General.Nothing;
-        public override void SetDefaults()
-        {
-            Projectile.width = 8;
-            Projectile.height = 8;
-            Projectile.aiStyle = -1;
-            Projectile.tileCollide = false;
-            Projectile.ownerHitCheck = true;
-            Projectile.ignoreWater = true;
-            Projectile.penetrate = -1;
-            Projectile.timeLeft = 24;
-        }
-
-        public static Vector2 RotateVector(Vector2 origin, Vector2 vecToRot, float rot)
-        {
-            float newPosX = (float)(Math.Cos(rot) * (vecToRot.X - origin.X) - Math.Sin(rot) * (vecToRot.Y - origin.Y) + origin.X);
-            float newPosY = (float)(Math.Sin(rot) * (vecToRot.X - origin.X) + Math.Cos(rot) * (vecToRot.Y - origin.Y) + origin.Y);
-            return new Vector2(newPosX, newPosY);
-        }
-
-        public Vector2 rotVec = new Vector2(0, 65);
-        public float rot = 0f;
-
-        public override void AI()
-        {
-            Player player = Main.player[Projectile.owner];
-
-            if (player.direction > 0)
-            {
-                rot += 0.20f;
-            }
-            else
-            {
-                rot -= 0.20f;
-            }
-
-            Projectile.Center = player.Center + new Vector2(-8f, -8f) + RotateVector(default, rotVec, rot + Projectile.ai[0] * (6.28f / 2));
-
-            for (int m = 0; m < 5; m++)
-            {
-                float velX = Projectile.velocity.X / 3f * m;
-                float velY = Projectile.velocity.Y / 3f * m;
-                int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.CarrotDust>(), 0, 0, 0);
-                Main.dust[dustID].position.X = Projectile.Center.X - velX;
-                Main.dust[dustID].position.Y = Projectile.Center.Y - velY;
-                Main.dust[dustID].velocity *= 0f;
-                Main.dust[dustID].alpha = 180;
-                Main.dust[dustID].noGravity = true;
-                Main.dust[dustID].scale = 0.8f;
             }
         }
     }

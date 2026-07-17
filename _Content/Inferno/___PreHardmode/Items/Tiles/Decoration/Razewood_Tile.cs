@@ -13,7 +13,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration
             Main.tileLighted[Type] = true;
             Main.tileBlockLight[Type] = true;
             RegisterItemDrop(ModContent.ItemType<Razewood>());   
-            AddMapEntry(new Color(20f, 20f, 20f));
+            AddMapEntry(new Color(118, 15, 35));
             DustType = ModContent.DustType<Dusts.RazewoodDust>();
         }
     }

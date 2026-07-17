@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -104,29 +105,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.Items.Tools
 
         public override bool PreDrawExtras()
         {
-            Vector2 playerCenter = Main.LocalPlayer.MountedCenter;
-            Vector2 center = Projectile.Center;
-            Vector2 directionToPlayer = playerCenter - Projectile.Center;
-            float chainRotation = directionToPlayer.ToRotation() - MathHelper.PiOver2;
-            float distanceToPlayer = directionToPlayer.Length();
-
-            while (distanceToPlayer > 20f && !float.IsNaN(distanceToPlayer))
-            {
-                directionToPlayer /= distanceToPlayer; // get unit vector
-                directionToPlayer *= chainTexture.Height(); // multiply by chain link length
-
-                center += directionToPlayer; // update draw position
-                directionToPlayer = playerCenter - center; // update distance
-                distanceToPlayer = directionToPlayer.Length();
-
-                Color drawColor = Lighting.GetColor((int)center.X / 16, (int)(center.Y / 16));
-
-                // Draw chain
-                Main.EntitySpriteDraw(chainTexture.Value, center - Main.screenPosition,
-                    chainTexture.Value.Bounds, drawColor, chainRotation,
-                    chainTexture.Size() * 0.5f, 1f, SpriteEffects.None, 0);
-            }
-            // Stop vanilla from drawing the default chain.
+            DrawingUtils.DrawGrapplingHookChain(Projectile, chainTexture);
             return false;
         }
     }

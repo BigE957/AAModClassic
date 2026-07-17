@@ -1,0 +1,71 @@
+RandomWorldName_Composition: {
+	// 9: "{Noun}'s {Location}"
+	// 10: "{Adjective} {Noun}"
+}
+
+RandomWorldName_Adjective: {
+	// Discordian1: Discordian
+	// Discordian2: Discordian
+	// Discordian3: Discordian
+	// Discordian4: Discordian
+	// Entropion1: Entropion
+	// Entropion2: Entropion
+	// Entropion3: Entropion
+	// Entropion4: Entropion
+	// Olympian1: Olympian
+	// Olympian2: Olympian
+	// Olympian3: Olympian
+	// Olympian4: Olympian
+	// Draconian1: Draconian
+	// Draconian2: Draconian
+	// Draconian3: Draconian
+	// Draconian4: Draconian
+	// Gilded1: Gilded
+	// Gilded2: Gilded
+	// Gilded3: Gilded
+	// Gilded4: Gilded
+	// Awakened1: Awakened
+	// Awakened2: Awakened
+	// Awakened3: Awakened
+	// Awakened4: Awakened
+	// Awakened5: Awakened
+	// Awakened6: Awakened
+	// Chungus: Chungus
+}
+
+RandomWorldName_Location: {
+	// Inferno1: Inferno
+	// Inferno2: Inferno
+	// Inferno3: Inferno
+	// Inferno4: Inferno
+	// Chaos1: Chaos
+	// Chaos2: Chaos
+	// Chaos3: Chaos
+	// Chaos4: Chaos
+	// Pagoda: Pagoda
+}
+
+RandomWorldName_Noun: {
+	// Akuma: Akuma
+	// Yamata: Yamata
+	// Shen: Shen Doragon
+	// Rajah: Rajah Rabbit
+	// Zero: Zero
+	// Enigma: Enigma
+	// Monarch: Monarch
+	// Legendscribe: Legendscribe
+	// Doomsayer: Doomsayer
+	// Glutton: Glutton
+	// Seraph: Seraph
+	// Hydra: Hydra
+	// Discord1: Discord
+	// Discord2: Discord
+	// Discord3: Discord
+	// Discord4: Discord
+	// Ancient1: Ancient
+	// Ancient2: Ancient
+	// Ancient3: Ancient
+	// Ancient4: Ancient
+	// Ancient5: Ancient
+	// Ancient6: Ancient
+}

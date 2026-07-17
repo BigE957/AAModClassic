@@ -1,0 +1,254 @@
+BroodmotherBox: {
+	DisplayName: Музыкальная шкатулка (Матерь выводка)
+	Tooltip: Проигрывает «Blazing Fury» за авторством: SpectralAves
+}
+
+EquinoxBox: {
+	DisplayName: Музыкальная шкатулка (Черви Равноденствия)
+	Tooltip: Проигрывает «Celestial Cyclone» за авторством: ProduceVGM
+}
+
+InfinityZeroBox: {
+	DisplayName: Музыкальная шкатулка (Безграничный Зиро)
+	Tooltip: Проигрывает «Infinitum» за авторством: MaestroVGM
+}
+
+AthenaBox: {
+	DisplayName: Музыкальная шкатулка (Афина)
+	Tooltip: Проигрывает «Magisaint» за авторством: ENNWAY
+}
+
+AcropolisBox: {
+	DisplayName: Музыкальная шкатулка (Акрополь)
+	Tooltip: Проигрывает «Palace in the Sky» за авторством: ENNWAY
+}
+
+AthenaAwakenedBox: {
+	DisplayName: Музыкальная шкатулка (Олимпийская Афина)
+	Tooltip: Проигрывает «Goddess of Those Winged» за авторством: ENNWAY
+}
+
+RajahBox: {
+	DisplayName: Музыкальная шкатулка (Кролик-Раджа)
+	Tooltip: Проигрывает «JUSTICE» за авторством: SpectralAves
+}
+
+RajahAwakenedBox: {
+	DisplayName: Музыкальная шкатулка (Заступник Невинных)
+	Tooltip: Проигрывает «Black Knife» за авторством: Toby Fox
+}
+
+GripsBox: {
+	DisplayName: Музыкальная шкатулка (Длани хаоса)
+	Tooltip: Проигрывает «Twin Terror» за авторством: SpectralAves
+}
+
+ShenAwakenedBox: {
+	DisplayName: Музыкальная шкатулка (Пробуждённый Шэнь Доракон)
+	Tooltip: Проигрывает «Discordant Coda» за авторством: MaestroVGM
+}
+
+ShenBox: {
+	DisplayName: Музыкальная шкатулка (Шэнь Доракон)
+	Tooltip: Проигрывает «Wings of Duality» за авторством: MaestroVGM
+}
+
+SistersBox: {
+	DisplayName: Музыкальная шкатулка (Сёстры Раздора)
+	Tooltip: Проигрывает «United» за авторством: MaestroVGM
+}
+
+ChaosPreShenBox: {
+	DisplayName: Музыкальная шкатулка (Дремлющий дракон)
+	Tooltip: Проигрывает «Condemned» за авторством: MaestroVGM
+}
+
+DjinnBox: {
+	DisplayName: Музыкальная шкатулка (Пустынный Джинн)
+	Tooltip: Проигрывает «The Dust Bowl» за авторством: Tyeski
+}
+
+AnubisBox: {
+	DisplayName: Музыкальная шкатулка (Анубис)
+	Tooltip: Проигрывает «Strings of Judgement» за авторством: Tyeski
+}
+
+AnubisAwakenedBox: {
+	DisplayName: Музыкальная шкатулка (Отвергнутый Анубис)
+	Tooltip: Проигрывает «Purgatorium» за авторством: Tyeski
+}
+
+FungusBox: {
+	DisplayName: Музыкальная шкатулка (Грибной феодал)
+	Tooltip: Проигрывает «Bioluminescent Beatdown» за авторством: SpectralAves
+}
+
+TruffleToadBox: {
+	DisplayName: Музыкальная шкатулка (Трюфельная жаба)
+	Tooltip: Проигрывает «TODESTOOL» за авторством: SpectralAves
+}
+
+GreedBox: {
+	DisplayName: Музыкальная шкатулка (Алчность)
+	Tooltip: Проигрывает «Gold Digger» за авторством: Tyeski
+}
+
+HoardBox: {
+	DisplayName: Музыкальная шкатулка (Сокровищница)
+	Tooltip: Проигрывает «Cove» за авторством: Tyeski
+}
+
+GreedAwakenedBox: {
+	DisplayName: Музыкальная шкатулка (Король червей Алчность)
+	Tooltip: Проигрывает «Ira De Riquezas Perdidas» за авторством: Tyeski
+}
+
+InfernoNightBox: {
+	DisplayName: Музыкальная шкатулка (Инферно - Ночь)
+	Tooltip: Проигрывает «Emberstorm» за авторством: ProduceVGM
+}
+
+InfernoSurfaceBox: {
+	DisplayName: Музыкальная шкатулка (Инферно)
+	Tooltip: Проигрывает «Scorched Earth» за авторством: ProduceVGM
+}
+
+InfernoUndergroundBox: {
+	DisplayName: Музыкальная шкатулка (Подземное Инферно)
+	Tooltip: Проигрывает «Inner Mantle» за авторством: ProduceVGM
+}
+
+AkumaAwakenedBox: {
+	DisplayName: Музыкальная шкатулка (Они Акума)
+	Tooltip: Проигрывает «Dawn of the Dragon» за авторством: Tyeski
+}
+
+AkumaBox: {
+	DisplayName: Музыкальная шкатулка (Акума)
+	Tooltip: Проигрывает «Trial By Fire» за авторством: Saucecoie
+}
+
+InfernoPagodaBox: {
+	DisplayName: Музыкальная шкатулка (Пагода восходящего солнца)
+	Tooltip: Проигрывает «Scorched Tower» за авторством: Rockwizard
+}
+
+HydraBox: {
+	DisplayName: Музыкальная шкатулка (Гидра)
+	Tooltip: Проигрывает «RAW Abyssal Wrath» за авторством: SpectralAves
+}
+
+MireDayBox: {
+	DisplayName: Музыкальная шкатулка (Трясина - День)
+	Tooltip: Проигрывает «Through the Toxic Mist» за авторством: ProduceVGM
+}
+
+MireSurfaceBox: {
+	DisplayName: Музыкальная шкатулка (Трясина)
+	Tooltip: Проигрывает «Secluded Swamp» за авторством: ProduceVGM
+}
+
+MireUndergroundBox: {
+	DisplayName: Музыкальная шкатулка (Подземная Трясина)
+	Tooltip: Проигрывает «Creepy Crawlers» за авторством: ProduceVGM
+}
+
+YamataAwakenedBox: {
+	DisplayName: Музыкальная шкатулка (Ямата-но Ороти)
+	Tooltip: Проигрывает «Abyssal Nightmare» за авторством: Tyeski
+}
+
+YamataBox: {
+	DisplayName: Музыкальная шкатулка (Ямата)
+	Tooltip: Проигрывает «Crescent of Madness» за авторством: Saucecoie
+}
+
+MireLakeBox: {
+	DisplayName: Музыкальная шкатулка (Озеро восходящей луны)
+	Tooltip: Проигрывает «Lake of Souls» за авторством: Rockwizard
+}
+
+MonarchBox: {
+	DisplayName: Музыкальная шкатулка (Грибной монарх)
+	Tooltip: Проигрывает «Fungal Face-off» за авторством: SpectralAves
+}
+
+MushroomSurfaceBox: {
+	DisplayName: Музыкальная шкатулка (Пустоши красных грибов)
+	Tooltip: Проигрывает «Overgrowth» за авторством: SpectralAves
+}
+
+SubzeroBox: {
+	DisplayName: Музыкальная шкатулка (Морозная змея)
+	Tooltip: Проигрывает «Glacial Grace» за авторством: ProduceVGM
+}
+
+StarsBox: {
+	DisplayName: Музыкальная шкатулка (Неземные звёзды)
+	Tooltip: Проигрывает «Scattered Stars» за авторством: ProduceVGM
+}
+
+TerrariumBox: {
+	DisplayName: Музыкальная шкатулка (Террариум)
+	Tooltip: Проигрывает «Resting Place» за авторством: ProduceVGM
+}
+
+SagittariusBox: {
+	DisplayName: Музыкальная шкатулка (Сагиттариус)
+	Tooltip: Проигрывает «Event Horizon» за авторством: SpectralAves
+}
+
+VoidBox: {
+	DisplayName: Музыкальная шкатулка (Пустота)
+	Tooltip: Проигрывает «Waste» за авторством: ProduceVGM
+}
+
+ZeroAwakenedBox: {
+	DisplayName: Музыкальная шкатулка (Зиро-протокол)
+	Tooltip: Проигрывает «Doomsday Arrives» за авторством: Saucecoie
+}
+
+ZeroBox: {
+	DisplayName: Музыкальная шкатулка (Зиро)
+	Tooltip: Проигрывает «Clockwork Catastrophe» за авторством: SpectralAves
+}
+
+VoidPostMLBox: {
+	DisplayName: Музыкальная шкатулка (Пустота - Активация)
+	Tooltip: Проигрывает «Inanis» за авторством: ProduceVGM
+}
+
+VoidPreIZBox: {
+	DisplayName: Музыкальная шкатулка (Дремлющий гигант)
+	Tooltip: Проигрывает «Sleeping Giant» за авторством: Cosmoptera
+}
+
+SiegeBox: {
+	DisplayName: Музыкальная шкатулка (Осадные модули)
+	Tooltip: Проигрывает «Controlled Chaos» за авторством: ProduceVGM
+}
+
+ParthenanBox: {
+	DisplayName: Музыкальная шкатулка (Парфенан)
+	Tooltip: Проигрывает «Maelstrom» за авторством: Tyeski
+}
+
+SunkenShipBox: {
+	DisplayName: Музыкальная шкатулка (Затонувший корабль)
+	Tooltip: Проигрывает «Rift-Torn Ruins» за авторством: Cosmoptera
+}
+
+SoulOfCthulhuBox: {
+	DisplayName: Музыкальная шкатулка (Душа Ктулху)
+	Tooltip: Проигрывает «Recondite Rhapsody (Calm)» за авторством: MaestroVGM
+}
+
+SunkenShipPreSoCBox: {
+	DisplayName: Музыкальная шкатулка (Дремлющее проклятие)
+	Tooltip: Проигрывает «Sleeping Curse» за авторством: ProduceVGM
+}
+
+CthulhuBox: {
+	DisplayName: Музыкальная шкатулка (Ктулху)
+	Tooltip: Проигрывает «Recondite Rhapsody (Combat)» за авторством: MaestroVGM
+}
