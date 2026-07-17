@@ -54,7 +54,9 @@ namespace AAModClassic._CrossMod.CalamityMod
         public static bool IsEnabled => Calamity != null;
         public static bool IsRevengance => Calamity != null && (bool)Calamity.Call("GetDifficultyActive", "revengeance");
         public static bool IsDeath => Calamity != null && (bool)Calamity.Call("GetDifficultyActive", "death");
-        public static DamageClass RogueClass => Calamity?.Find<DamageClass>("RogueDamageClass");
+
+        private static readonly DamageClass rogueClass = Calamity?.Find<DamageClass>("RogueDamageClass");
+        public static DamageClass RogueClass => rogueClass;
         
         public static object Call(params object[] args) => Calamity?.Call(args);
         

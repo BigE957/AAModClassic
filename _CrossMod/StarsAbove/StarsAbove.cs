@@ -22,70 +22,70 @@ namespace AAModClassic._CrossMod.StarsAbove
 
         public override void PostSetupContent()
         {
-            if (ModLoader.TryGetMod("StarsAbove", out var tsa) && tsa.TryFind<ModPlayer>("StarsAbovePlayer", out ModPlayer tsaPlayer))
+            if (ModLoader.TryGetMod("StarsAbove", out Tsa) && Tsa.TryFind<ModPlayer>("StarsAbovePlayer", out ModPlayer tsaPlayer))
             {
-                Tsa = tsa;
-                var field = tsaPlayer.GetType().GetField("chosenStarfarer", BindingFlags.Instance | BindingFlags.Public);
+                Type tsaPlayerType = tsaPlayer.GetType();
+                var field = tsaPlayerType.GetField("chosenStarfarer", BindingFlags.Instance | BindingFlags.Public);
                 if (field != null)
                     tsaPlayerFieldInfo.Add("chosenStarfarer", field);
                 else
                     return;
 
-                field = tsaPlayer.GetType().GetField("starfarerPromptCooldown", BindingFlags.Instance | BindingFlags.Public);
+                field = tsaPlayerType.GetField("starfarerPromptCooldown", BindingFlags.Instance | BindingFlags.Public);
                 if (field != null)
                     tsaPlayerFieldInfo.Add("starfarerPromptCooldown", field);
                 else
                     return;
 
-                field = tsaPlayer.GetType().GetField("disablePrompts", BindingFlags.Static | BindingFlags.Public);
+                field = tsaPlayerType.GetField("disablePrompts", BindingFlags.Static | BindingFlags.Public);
                 if (field != null)
                     tsaPlayerFieldInfo.Add("disablePrompts", field);
                 else
                     return;
 
-                field = tsaPlayer.GetType().GetField("starfarerPromptActiveTimer", BindingFlags.Instance | BindingFlags.Public);
+                field = tsaPlayerType.GetField("starfarerPromptActiveTimer", BindingFlags.Instance | BindingFlags.Public);
                 if (field != null)
                     tsaPlayerFieldInfo.Add("starfarerPromptActiveTimer", field);
                 else
                     return;
 
-                field = tsaPlayer.GetType().GetField("promptExpression", BindingFlags.Instance | BindingFlags.Public);
+                field = tsaPlayerType.GetField("promptExpression", BindingFlags.Instance | BindingFlags.Public);
                 if (field != null)
                     tsaPlayerFieldInfo.Add("promptExpression", field);
                 else
                     return;
 
-                field = tsaPlayer.GetType().GetField("animatedPromptDialogue", BindingFlags.Instance | BindingFlags.Public);
+                field = tsaPlayerType.GetField("animatedPromptDialogue", BindingFlags.Instance | BindingFlags.Public);
                 if (field != null)
                     tsaPlayerFieldInfo.Add("animatedPromptDialogue", field);
                 else
                     return;
 
-                field = tsaPlayer.GetType().GetField("promptDialogueScrollNumber", BindingFlags.Instance | BindingFlags.Public);
+                field = tsaPlayerType.GetField("promptDialogueScrollNumber", BindingFlags.Instance | BindingFlags.Public);
                 if (field != null)
                     tsaPlayerFieldInfo.Add("promptDialogueScrollNumber", field);
                 else
                     return;
 
-                field = tsaPlayer.GetType().GetField("promptDialogueScrollTimer", BindingFlags.Instance | BindingFlags.Public);
+                field = tsaPlayerType.GetField("promptDialogueScrollTimer", BindingFlags.Instance | BindingFlags.Public);
                 if (field != null)
                     tsaPlayerFieldInfo.Add("promptDialogueScrollTimer", field);
                 else
                     return;
 
-                field = tsaPlayer.GetType().GetField("promptMoveIn", BindingFlags.Instance | BindingFlags.Public);
+                field = tsaPlayerType.GetField("promptMoveIn", BindingFlags.Instance | BindingFlags.Public);
                 if (field != null)
                     tsaPlayerFieldInfo.Add("promptMoveIn", field);
                 else
                     return;
 
-                field = tsaPlayer.GetType().GetField("promptIsActive", BindingFlags.Instance | BindingFlags.Public);
+                field = tsaPlayerType.GetField("promptIsActive", BindingFlags.Instance | BindingFlags.Public);
                 if (field != null)
                     tsaPlayerFieldInfo.Add("promptIsActive", field);
                 else
                     return;
 
-                field = tsaPlayer.GetType().GetField("promptDialogue", BindingFlags.Instance | BindingFlags.Public);
+                field = tsaPlayerType.GetField("promptDialogue", BindingFlags.Instance | BindingFlags.Public);
                 if (field != null)
                     tsaPlayerFieldInfo.Add("promptDialogue", field);
                 else
@@ -93,19 +93,19 @@ namespace AAModClassic._CrossMod.StarsAbove
 
                 Initialized = true;
 
-                MethodInfo method = tsaPlayer.GetType().GetMethod("VoiceExplore", BindingFlags.Instance | BindingFlags.NonPublic);
+                MethodInfo method = tsaPlayerType.GetMethod("VoiceExplore", BindingFlags.Instance | BindingFlags.NonPublic);
                 if (method != null)
                     tsaPlayerVoicelines.Add("VoiceExplore", method);
 
-                method = tsaPlayer.GetType().GetMethod("BossVoiceSuprise", BindingFlags.Instance | BindingFlags.NonPublic);
+                method = tsaPlayerType.GetMethod("BossVoiceSuprise", BindingFlags.Instance | BindingFlags.NonPublic);
                 if (method != null)
                     tsaPlayerVoicelines.Add("BossVoiceSuprise", method);
 
-                method = tsaPlayer.GetType().GetMethod("BossVoiceNeutral", BindingFlags.Instance | BindingFlags.NonPublic);
+                method = tsaPlayerType.GetMethod("BossVoiceNeutral", BindingFlags.Instance | BindingFlags.NonPublic);
                 if (method != null)
                     tsaPlayerVoicelines.Add("BossVoiceNeutral", method);
 
-                method = tsaPlayer.GetType().GetMethod("BossVoiceAngry", BindingFlags.Instance | BindingFlags.NonPublic);
+                method = tsaPlayerType.GetMethod("BossVoiceAngry", BindingFlags.Instance | BindingFlags.NonPublic);
                 if (method != null)
                     tsaPlayerVoicelines.Add("BossVoiceAngry", method);
             }
