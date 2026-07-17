@@ -44,16 +44,11 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs._BossCt
             NPC.knockBackResist = 0f;
         }
 
-        // X,Y = on-screen target position. Z = 0..1 "outstretch toward camera".
-        // Z=0 is fully in-plane (original behavior). Z=1 is maximum reach at the viewer.
         public Vector3 LeftHand = Vector3.Zero;
         public Vector3 RightHand = Vector3.Zero;
 
-        #region Attack timer (demo punch cycle)
+        #region emo punch cycle
 
-        // Simple windup -> thrust -> hold -> retract cycle to exercise the Z pipeline.
-        // Both arms share this timer for the test; give each arm its own timer/offset
-        // later if you want staggered or alternating punches.
         private const int WindupTime = 40;
         private const int ThrustTime = 14;
         private const int HoldTime = 16;
@@ -61,21 +56,12 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs._BossCt
         private const int CycleLength = WindupTime + ThrustTime + HoldTime + RetractTime;
 
         public int ArmAttackTimer = 0;
-
-        // IMPORTANT: each arm swings along a FIXED direction from its shoulder.
-        // Only the reach (distance along that line) and Z change over the cycle.
-        // This keeps the arm's angle-sweep narrow and one-sided instead of arcing
-        // across the body, and lets us pick reach values that stay well inside the
-        // two-bone envelope (never forcing a tight elbow fold).
         private static readonly Vector2 LeftArmDirection = Vector2.Normalize(new Vector2(-180, 20));
         private static readonly Vector2 RightArmDirection = Vector2.Normalize(new Vector2(180, 20));
 
-        // Bone lengths are 220 (upper) + 200 (forearm) = 420 max reach, ~20px min reach.
-        // Keep every stage comfortably inside that range with margin at both ends.
-        private static float RestReach => 181f;   // matches the original resting arm pose
-        private static float WindupReach => 140f;  // pulled in slightly to "cock" the punch
-        private static float PunchReach => 240f;   // extended out; combined with Z this nears
-                                                 // full extension without hitting the 420 limit
+        private static float RestReach => 181f;
+        private static float WindupReach => 140f;
+        private static float PunchReach => 240f;
 
         private static float EaseInQuad(float t) => t * t;
         private static float EaseOutQuad(float t) => 1f - (1f - t) * (1f - t);
