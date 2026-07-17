@@ -52,7 +52,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.noGravity = true;
             NPC.aiStyle = -1;
             NPC.boss = true;
-            NPC.chaseable = false;
             NPC.scale *= 1.2f;
             NPC.HitSound = SoundID.NPCHit54;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
