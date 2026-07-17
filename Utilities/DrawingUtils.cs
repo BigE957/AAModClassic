@@ -2,6 +2,7 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -369,6 +370,39 @@ namespace AAModClassic.Utilities
             spriteBatch.Draw(headTexture, npc.position + new Vector2(startX + headOffset, MathF.Sin((wormTimer - headSpeedOffset) * animationSpeed) * range + startY), npc.frame, npc.GetAlpha(drawColor), npc.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer - headSpeedOffset) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, npc.frame.Size() * 0.5f, npc.scale, fx, 0f);
 
             return false;
+        }
+    
+        public static void DrawGrapplingHookChain(Projectile proj, Asset<Texture2D> chainTexture)
+        {
+            Vector2 playerCenter = Main.player[proj.owner].MountedCenter;
+            Vector2 center = proj.Center;
+            Vector2 directionToPlayer = playerCenter - proj.Center;
+            float chainRotation = directionToPlayer.ToRotation() - MathHelper.PiOver2;
+            float distanceToPlayer = directionToPlayer.Length();
+
+            Color drawColor = Lighting.GetColor((int)center.X / 16, (int)(center.Y / 16));
+            
+            // Draw initial chain
+            Main.EntitySpriteDraw(chainTexture.Value, center - Main.screenPosition,
+                chainTexture.Value.Bounds, drawColor, chainRotation,
+                chainTexture.Size() * 0.5f, 1f, SpriteEffects.None, 0);
+
+            while (distanceToPlayer > 20f && !float.IsNaN(distanceToPlayer))
+            {
+                directionToPlayer /= distanceToPlayer; // get unit vector
+                directionToPlayer *= chainTexture.Height(); // multiply by chain link length
+
+                center += directionToPlayer; // update draw position
+                directionToPlayer = playerCenter - center; // update distance
+                distanceToPlayer = directionToPlayer.Length();
+
+                drawColor = Lighting.GetColor((int)center.X / 16, (int)(center.Y / 16));
+
+                // Draw chain
+                Main.EntitySpriteDraw(chainTexture.Value, center - Main.screenPosition,
+                    chainTexture.Value.Bounds, drawColor, chainRotation,
+                    chainTexture.Size() * 0.5f, 1f, SpriteEffects.None, 0);
+            }
         }
     }
 

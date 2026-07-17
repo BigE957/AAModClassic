@@ -1,4 +1,5 @@
-﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -67,37 +68,16 @@ namespace AAModClassic._Unofficial.Content.Mire.__Hardmode.Items.Tools
 
         public override bool PreDrawExtras()
         {
-            Vector2 playerCenter = Main.LocalPlayer.MountedCenter;
-            Vector2 center = Projectile.Center;
-            Vector2 directionToPlayer = playerCenter - Projectile.Center;
-            float chainRotation = directionToPlayer.ToRotation() - MathHelper.PiOver2;
-            float distanceToPlayer = directionToPlayer.Length();
-
-            while (distanceToPlayer > 20f && !float.IsNaN(distanceToPlayer))
-            {
-                directionToPlayer /= distanceToPlayer; // get unit vector
-                directionToPlayer *= chainTexture.Height(); // multiply by chain link length
-
-                center += directionToPlayer; // update draw position
-                directionToPlayer = playerCenter - center; // update distance
-                distanceToPlayer = directionToPlayer.Length();
-
-                Color drawColor = Lighting.GetColor((int)center.X / 16, (int)(center.Y / 16));
-
-                // Draw chain
-                Main.EntitySpriteDraw(chainTexture.Value, center - Main.screenPosition,
-                    chainTexture.Value.Bounds, drawColor, chainRotation,
-                    chainTexture.Size() * 0.5f, 1f, SpriteEffects.None, 0);
-            }
-            // Stop vanilla from drawing the default chain.
+            DrawingUtils.DrawGrapplingHookChain(Projectile, chainTexture);
             return false;
         }
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Main.EntitySpriteDraw(TextureAssets.Projectile[Type].Value, Projectile.Center - Main.screenPosition, null, lightColor, Projectile.rotation, TextureAssets.Projectile[Type].Size() * 0.5f, Projectile.scale, 0);
+            Vector2 drawPos = Projectile.Center - Main.screenPosition - Projectile.rotation.ToRotationVector2();
+            Main.EntitySpriteDraw(TextureAssets.Projectile[Type].Value, drawPos, null, lightColor, Projectile.rotation, TextureAssets.Projectile[Type].Size() * 0.5f, Projectile.scale, 0);
             Asset<Texture2D> glow = ModContent.Request<Texture2D>(Texture + "_Glow");
-            Main.EntitySpriteDraw(glow.Value, Projectile.Center - Main.screenPosition, null, GlowColor, Projectile.rotation, glow.Size() * 0.5f, Projectile.scale, 0);
+            Main.EntitySpriteDraw(glow.Value, drawPos, null, GlowColor, Projectile.rotation, glow.Size() * 0.5f, Projectile.scale, 0);
             return false;
         }
     }
