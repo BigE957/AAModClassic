@@ -347,3 +347,23 @@ TheGripsOfChaos: {
 		Blue pulls in/retracts quicker
 		'''
 }
+
+LivingRazeleafWand: {
+	DisplayName: Living Razeleaf Wand
+	Tooltip: "Placed razewood leaves"
+}
+
+LivingRazewoodWand: {
+	DisplayName: Living Razewood Wand
+	Tooltip: "Places living razewood"
+}
+
+LivingBogleafWand: {
+	DisplayName: Living Bogleaf Wand
+	Tooltip: "Places bogwood leaves"
+}
+
+LivingBogwoodWand: {
+	DisplayName: Living Bogwood Wand
+	Tooltip: "Places living bogwood"
+}
