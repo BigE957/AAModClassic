@@ -1,0 +1,544 @@
+﻿APageOfTheRuneBookEffect_Buff: {
+    DisplayName: Руна
+    Description: Руны сражается за вас
+}
+PrettyPony_Buff: {
+    DisplayName: Милая пони
+    Description: Это лошадь
+}
+CerberusWhistle_Buff: {
+    DisplayName: Цербер
+    Description: «Ой, да он не такой уж и страшный!»
+}
+K9Collar_Buff: {
+    DisplayName: Модуль K9
+    Description: Гав
+}
+MoonBeeInAJar_Buff: {
+    DisplayName: Лунамини
+    Description: Маленькая лунная пчела следует за вами
+}
+MudFishBall_Buff: {
+    DisplayName: Мадкип
+    Description: Поймать их всех!
+}
+RoyalStar_Buff: {
+    DisplayName: Королевский котёнок
+    Description: «Она такая милая!»
+}
+ShinyFishBall_Buff: {
+    DisplayName: Блестящий мадкип
+    Description: Поймать их всех!
+}
+AleisterStaff_BeBanished: {
+    DisplayName: Изгнание
+    Description: Вы отмечены магией Инвокера
+}
+AleisterStaff_InvokerOfMadness: {
+    DisplayName: Инвокер безумия
+    Description: Безумный Инвокер
+}
+ConflagrateStaff_Buff: {
+    DisplayName: Воспламенённый конструкт
+    Description: Воспламенённый конструкт сражается за вас
+}
+MagicAcorn_Buff: {
+    DisplayName: Белка
+    Description: Бросается орехами
+}
+ScytheOfTheGrimReaper_ReaperScytheImmunity: {
+    DisplayName: Неуязвимость косы жнеца
+    Description: Вы невосприимчивы к урону и наносите значительно увеличенный урон ближнего боя
+}
+ScytheOfTheGrimReaper_ReaperScytheImmunityCooldown: {
+    DisplayName: Перезарядка неуязвимости косы жнеца
+    Description: Сейчас вы не можете использовать рывок оружия
+}
+SockStaff_Buff: {
+    DisplayName: Носок
+    Description: Носок сражается за вас
+}
+PrinceFishron_Buff: {
+    DisplayName: Принц Рыброн
+    Description: Наследник Рыброна
+}
+FishnadoStaff_Buff: {
+    DisplayName: Рыбанадо
+    Description: Рыбанадо сражается за вас
+}
+TheBookOfRunesEffect_Buff: {
+    DisplayName: Руна
+    Description: Рруны сражается за вас
+}
+TheBookOfTheLaw_InvokedCaligula: {
+    DisplayName: Призванный Калигула
+    Description: Ваша когтистая атака безумно разит врагов и исцеляет вас
+}
+ConflagrateScythe_Buff: {
+    DisplayName: Миньон Эндера EX
+    Description: Терра-конструкт сражается за вас
+}
+OmenStaff_Buff: {
+    DisplayName: Ворон
+    Description: Злобный ворон сражается за вас
+}
+PerfectChaosRitual_Buff: {
+    DisplayName: Сяо Доракон
+    Description: Маленький дракон хаоса сражается за вас
+}
+SoccOnAStick_Buff: {
+    DisplayName: Носок
+    Description: Носок
+}
+TartarusReaper_CursedHellfire: {
+    DisplayName: Проклятый адский огонь
+    Description: Ваша плоть и кровь сгорают дотла
+}
+LuckyCracker_CrasyLucky: {
+    DisplayName: Везучий?
+    Description: Вы чувствуете, как мир вокруг становится странным
+}
+LuckyCalming: {
+    DisplayName: Везучее успокоение
+    Description: Снижает агрессию врагов
+}
+LuckyEndurance: {
+    DisplayName: Везучая выносливость
+    Description:
+        '''
+        Снижает получаемый урон на 10%
+        Увеличивает вашу защиту на 10%
+        '''
+}
+LuckyIronskin: {
+    DisplayName: Везучая железная кожа
+    Description: Увеличивает защиту на 9
+}
+LuckyLifeforce: {
+    DisplayName: Везучая жизненная сила
+    Description: Увеличивает максимальное здоровье на 21%
+}
+LuckyRage: {
+    DisplayName: Везучая ярость
+    Description: Увеличивает шанс критического удара на 11%
+}
+LuckyRegeneration: {
+    DisplayName: Везучая регенерация
+    Description: Обеспечивает регенерацию здоровья
+}
+LuckySummoning: {
+    DisplayName: Везучий призыв
+    Description: Увеличивает максимальное количество миньонов и турелей
+}
+LuckySwiftness: {
+    DisplayName: Везучая стремительность
+    Description: Увеличивает скорость передвижения на 26%
+}
+LuckyThorns: {
+    DisplayName: Везучие шипы
+    Description: Атакующие также получают урон
+}
+LuckyWrath: {
+    DisplayName: Везучий гнев
+    Description: Увеличивает урон на 11%
+}
+RoninPotion_Buff: {
+    DisplayName: Ронин
+    Description: Вы не будете получать урон
+}
+PaperBomb_Buff: {
+    DisplayName: Бумер
+    Description: Пока не взрывается... Пока что
+}
+InfinityOverload_Buff: {
+    DisplayName: Перегрузка элементами
+    Description: Стихии обрушиваются на само ваше существо
+}
+SeraphHarp_Buff: {
+    DisplayName: Серафим
+    Description: Маленький, но злобный
+}
+GoddessHarp_Buff: {
+    DisplayName: Афина
+    Description: «Я помогу тебе, но однажды всё равно отлуплю»
+}
+CottonCane_Buff: {
+    DisplayName: Кролёт-солдат
+    Description: Кролёт сражается за вас
+}
+RajahsRage_Buff: {
+    DisplayName: Королевский кролик
+    Description: Королевский кролик сражается за вас
+}
+ChampionHelmetMageSetEffect_ChampionBoost1: {
+    DisplayName: Усиление заступника
+    Description: Характеристики увеличены
+}
+ChampionHelmetMageSetEffect_ChampionBoost2: {
+    DisplayName: Усиление заступника
+    Description: Характеристики увеличены
+}
+ChampionHelmetMageSetEffect_ChampionBoost3: {
+    DisplayName: Усиление заступника
+    Description: Характеристики увеличены
+}
+ChampionHelmetMeleeSetEffect_DefendersRage: {
+    DisplayName: Ярость защитника
+    Description: Заступник Террарии никогда не отступает
+}
+ChampionHelmetMeleeSetEffect_RajahsRage: {
+    DisplayName: Ярость Раджи
+    Description: Заступник Террарии никогда не отступает
+}
+ChampionHelmetRangedSetEffect_RABITUnitReloadProtocol: {
+    DisplayName: Протокол перезарядки модуля R.A.B.I.T.
+    Description: ПЕРЕЗАРЯДКА. ПРЕДОСТАВЛЕНА КОМПЕНСАЦИЯ УРОНА
+}
+ChampionHelmetSummonerSetEffect_Buff: {
+    DisplayName: Барон Кролик
+    Description: Барон Кролик защищает вас
+}
+ClawBaton_Buff: {
+    DisplayName: Длани хаоса
+    Description: Коготь хаоса сражается за вас
+}
+ChaosHelmetMageSetEffect_ChaoticFury: {
+    DisplayName: Хаотическая ярость
+    Description: Ваши магические способности значительно увеличены
+}
+ChaosHelmetSummonerSetEffect_Buff: {
+    DisplayName: Дух дракона
+    Description: Дух дракона сражается за вас
+}
+ChaosRitual_Buff: {
+    DisplayName: Конструкт хаоса
+    Description: Конструкт хаоса сражается за вас
+}
+FuryWitchsHelmetSetHotkeyEffect_AsheFlame: {
+    DisplayName: Пламя Эш
+    Description: Вы получаете силу пламени Инферно
+}
+FuryWitchsHelmetSetHotkeyEffect_AsheFlameCooldown: {
+    DisplayName: Перезарядка пламени Эш
+    Description: Какое-то время вы не можете использовать пламя
+}
+FuryWitchsHelmetSetMinionEffect_Buff: {
+    DisplayName: Душа пламени
+    Description: Чем вы слабее, тем сильнее она сражается
+}
+MidnightAssassinHelmetSetEffect_AssassinHurt: {
+    DisplayName: Рана ассасина
+    Description: ""
+}
+FlameVortexStaff_Buff: {
+    DisplayName: Орбитальные сферы
+    Description: Вокруг вас вращаются языки пламени, усиливая вас
+}
+ChaosBaton_Buff: {
+    DisplayName: Коготь раздора
+    Description: Коготь раздора сражается за вас
+}
+DiscordianInferno_Buff: {
+    DisplayName: Раздорное инферно
+    Description: Ваша душа раздирает саму себя
+}
+DemoniteStaff_Buff: {
+    DisplayName: Демонитовый пожиратель
+    Description: Пожиратель сражается за вас
+}
+CrimeraStaff_Buff: {
+    DisplayName: Багротановая кримера
+    Description: Кримера сражается за вас
+}
+SandScepter_Buff: {
+    DisplayName: Пыльный дьявол
+    Description: Пыльный дьявол сражается за вас
+}
+DynaskullJavelin_DynaEnergyBuff: {
+    DisplayName: Дина-энергия
+    Description: ""
+}
+ArtifactOfJudgement_Buff: {
+    DisplayName: Око Правосудия
+    Description:
+        '''
+        Око Правосудия защищает вас
+        Урон и скорость увеличены
+        '''
+}
+PrimevalJavelin_DynaEnergy: {
+    DisplayName: Дина-энергия
+    Description: ""
+}
+ArtifactOfGuilt_Buff: {
+    DisplayName: Око Отвергнутого
+    Description:
+        '''
+        Око Отвергнутого защищает вас
+        Урон и скорость увеличены
+        '''
+}
+Lifeline_Forsaken: {
+    DisplayName: Отвергнутый
+    Description: Вы отвергнуты
+}
+Lifeline_ForsakenWeak: {
+    DisplayName: Отвергнутое ослабление
+    Description: Ослабляет контактный урон врага
+}
+SkullWand_Buff: {
+    DisplayName: Водный череп
+    Description: Череп темницы сражается за вас
+}
+Shroomed_Buff: {
+    DisplayName: ГРИБАНУТЫЙ
+    Description: Вас грибануло
+}
+HallowStaff_Buff: {
+    DisplayName: Освящённая призма
+    Description: Призма сражается за вас
+}
+TrueHallowStaff_Buff: {
+    DisplayName: Истинная освящённая призма
+    Description: Радужная призма сражается за вас
+}
+DemonHelmetSetEffect_Buff: {
+    DisplayName: Повелитель демонов
+    Description: Вы командуете маленьким бесом, который следует за вами
+}
+DemonStaff_Buff: {
+    DisplayName: Демон-приятель
+    Description: Демон сражается за вас
+}
+DevilStaff_Buff: {
+    DisplayName: Слуга-дьявол
+    Description: Дьявол сражается за вас
+}
+CharmOfDesire_Desire: {
+    DisplayName: Желание
+    Description: БОЛЬШЕ МОНЕТ, БОЛЬШЕ СИЛЫ!!!
+}
+Earthbreaker_Falling: {
+    DisplayName: Падение
+    Description: ""
+}
+ScorchedEgg_Buff: {
+    DisplayName: Мини-выводок
+    Description: Малыш
+}
+DragonSoul_Buff: {
+    DisplayName: Душа дракона
+    Description: Пылает яростью дракона
+}
+FireStaff_Buff: {
+    DisplayName: Малый феникс
+    Description: Малый феникс сражается за вас
+}
+FlaskOfDragonfire_Buff: {
+    DisplayName: Пропитка оружия: драконье пламя
+    Description: Атаки ближнего боя накладывают дебафф «Драконье пламя»
+}
+DragonsPike_Buff: {
+    DisplayName: Пламенный дракон
+    Description: Дракон сражается за вас
+}
+LungMinion_Buff: {
+    DisplayName: Древний Лун
+    Description: Древний дракон сражается за вас
+}
+AkumaAHead_ScorchingPain: {
+    DisplayName: Опаляющая боль
+    Description: Дебаффы огня наносят вам двойной урон
+}
+BurningAsh_Buff: {
+    DisplayName: Пылающий пепел
+    Description: Пепел плавит вашу кожу
+}
+DragonFire_Buff: {
+    DisplayName: Драконье пламя
+    Description: Ваш наносимый урон снижен
+}
+GlowingMossBall_Buff: {
+    DisplayName: Светящийся моховой шар
+    Description: Не спрашивай, что заставляет его светиться. Поверь мне
+}
+HydraBody_Hunted: {
+    DisplayName: Загнанный
+    Description:
+        '''
+        Вас преследует абиссальное создание
+        Время полёта и скорость бега снижены
+        '''
+}
+FlaskOfHydratoxin_Buff: {
+    DisplayName: Пропитка оружия: гидратоксин
+    Description: Атаки ближнего боя накладывают дебафф «Гидратоксин»
+}
+YamataABody_TrueAbyssalGravity: {
+    DisplayName: Истинная абиссальная гравитация
+    Description: «ААААААААААААААААААААААААААААААААААААА»
+}
+YamataBody_AbyssalGravity: {
+    DisplayName: Абиссальная гравитация
+    Description: «ТЫ НЕ УЙДЁШЬ ОТ МЕНЯ, МЕЛЮЗГА!»
+}
+Clueless_Buff: {
+    DisplayName: Туман
+    Description: Вы ничего не видите
+}
+HydraToxin_Buff: {
+    DisplayName: Гидратоксин
+    Description: Чем дольше он в вас, тем быстрее гниёт и разъедает
+}
+Moonraze_Buff: {
+    DisplayName: Лунное разрушение
+    Description: Испепелены лунными лучами
+}
+AquaintedWithWater_Buff: {
+    DisplayName: Сродство с водой
+    Description: Ваши магические способности немного увеличены
+}
+Atlantean_Buff: {
+    DisplayName: Атлантическая сила
+    Description: Ваши магические способности увеличены
+}
+Seashroom_Buff: {
+    DisplayName: Шаркрон
+    Description: Он не кусается... сильно...
+}
+SnakeStaff_Buff: {
+    DisplayName: Снежная змея
+    Description: Снежная змея сражается за вас
+}
+StarHelmetRangedPlayer_DarkmatterSphere_DarkCurse_Buff: {
+    DisplayName: Тёмное проклятие
+    Description: Вы наносите значительно меньше урона!
+}
+StarHelmetRangedPlayer_DarkmatterSphere_DarkLock_Buff: {
+    DisplayName: Тёмная блокировка
+    Description: Вы скованы тьмой!
+}
+StarHelmetRangedPlayer_SunSiphon_ManaOverload: {
+    DisplayName: Перегрузка маной
+    Description: Удвоенная скорость магической атаки
+}
+RadiumInferno_Buff: {
+    DisplayName: Лучезарнитное инферно
+    Description: Стремительно истощает здоровье
+}
+TerraHelmetMageSetEffect_TerraRoseCooldown: {
+    DisplayName: Перезарядка терра-розы
+    Description: Невозможно посадить розы в данный момент...
+}
+TerraHelmetSummonerSetEffect_Buff: {
+    DisplayName: Терра-кристалл
+    Description: Стреляет сферами по ближайшим врагам при желании
+}
+TerraStaff_Buff: {
+    DisplayName: Терра-волшебник
+    Description: Магия
+}
+TerraGauntlet_Buff: {
+    DisplayName: Терра-миньоны
+    Description: Сонм конструктов единства в вашем распоряжении
+}
+Terrablaze_Buff: {
+    DisplayName: Терра-пламя
+    Description: Получаемый урон увеличен
+}
+TerrasGuidance_Buff: {
+    DisplayName: Направление Терры
+    Description: Ваши ноги светятся силой Террариума, предотвращая урон от падения
+}
+SagittariusShield_ShieldsUp: {
+    DisplayName: Щиты подняты
+    Description: Они не могут войти, но и ваше оружие не может выйти
+}
+SagittariusCore_Buff: {
+    DisplayName: Орбитальный дрон Сагиттариуса
+    Description: Ррбитальный дрон сражается за вас
+}
+DoomiteHelmetSetEffect_Buff: {
+    DisplayName: Искатель-разведчик
+    Description: Искатель сражается за вас
+}
+DoomiteRadio_Buff: {
+    DisplayName: Гибельнитовый радиозонд
+    Description: Гибельнитовый радиозонд сражается за вас
+}
+DoomiteSignal_Buff: {
+    DisplayName: Гибельнитовый зонд
+    Description: Гибельнитовый зонд сражается за вас
+}
+VoidProbeControlUnit_Buff: {
+    DisplayName: Мини-зонд
+    Description: Ппустотный зонд сражается за вас
+}
+OverloadedDoomiteRadio_Buff: {
+    DisplayName: Пустотный разведчик
+    Description: Пустотный разведчик сражается за вас
+}
+BrokenCode_Freeze: {
+    DisplayName: Заморозка
+    Description: Диспетчер задач тут не поможет
+}
+BrokenCode_FreezeCooldown: {
+    DisplayName: Перезарядка заморозки
+    Description: По крайней мере, голова всё ещё при вас!
+}
+BrokenCode_Glitched: {
+    DisplayName: Глюк
+    Description: Ваша голова примерно в трёх метрах перед вами
+}
+ZeroCore_Buff: {
+    DisplayName: ЗИРО лайт
+    Description: СИСТЕМЫ ОБНАРУЖЕНИЯ ЖИЗНИ АКТИВИРОВАНЫ
+}
+DoomPortal_Buff: {
+    DisplayName: ПР0Т0К0Л СУДН0Г0 ДНЯ
+    Description: Малый ПР0Т0К0Л ЗИРО сражается за вас
+}
+CyberneticEgg_Buff: {
+    DisplayName: Мини-налётчик
+    Description: Маленький бот
+}
+CyberBaton_Buff: {
+    DisplayName: Кибер-коготь
+    Description: Кибер-коготь сражается за вас
+}
+DapperAcorn_Buff: {
+    DisplayName: Щегольская белка
+    Description: Теперь в забавных шляпах
+}
+RealityBent_Buff: {
+    DisplayName: Искривление разломом
+    Description: Пространство вокруг вас искажается
+}
+InfinityScorch_Buff: {
+    DisplayName: Ожог бесконечности
+    Description: Ваше здоровье сгорает
+}
+LockedOn_Buff: {
+    DisplayName: На прицеле
+    Description: ""
+}
+BrokenArmor_Buff: {
+    DisplayName: Сломанная броня
+    Description: ""
+}
+Electrified_Buff: {
+    DisplayName: Наэлектризованность
+    Description: ""
+}
+Impaled_Buff: {
+    DisplayName: Пронзён
+    Description: «Ай!»
+}
+SpearStuck_Buff: {
+    DisplayName: Пробит копьём
+    Description: В вас застряло копьё. Ай
+}
+InfinityGauntletEffect_InfinityBurnout: {
+    DisplayName: Выгорание бесконечности
+    Description: Целились не в голову
+}

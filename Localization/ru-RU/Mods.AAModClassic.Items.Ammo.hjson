@@ -1,0 +1,121 @@
+EnergyCell: {
+	DisplayName: Энергоячейка
+	Tooltip: ""
+}
+
+ReaperArrow: {
+	DisplayName: Стрела жнеца
+	Tooltip: Может проходить сквозь стены
+}
+
+DragonArrow: {
+	DisplayName: Стрела дракона
+	Tooltip: Имеет повышенное отбрасывание в сравнении с другими стрелами
+}
+
+DaybreakArrow: {
+	DisplayName: Рассветная стрела
+	Tooltip:
+		'''
+		Опаляет свою цель жаром палящего солнца
+		Накладывает дебафф «Рассвет»
+		Не расходуется
+		'''
+}
+
+EventideArrow: {
+	DisplayName: Сумеречная стрела
+	Tooltip:
+		'''
+		Ослепляет свою цель тьмой безлунной ночи
+		Накладывает дебафф «Лунное разрушение»
+		Не расходуется
+		'''
+}
+
+TerraArrow: {
+	DisplayName: Терра-стрела
+	Tooltip:
+		'''
+		Самонаводится на врагов
+		Не расходуется
+		'''
+}
+
+SingularityArrow: {
+	DisplayName: Стрела сингулярности
+	Tooltip:
+		'''
+		Единственное, что быстрее света, - это пустота, что его поглощает
+		Не расходуется
+		'''
+}
+
+UnstablePowerCell: {
+	DisplayName: Нестабильная силовая ячейка
+	Tooltip:
+		'''
+		Действует как пуля
+		Не расходуется
+		'''
+}
+
+M79Round: {
+	DisplayName: Патрон M79
+	Tooltip: ""
+}
+
+ChaosArrow: {
+	DisplayName: Стрела хаоса
+	Tooltip: Накладывает случайный дебафф при попадании
+}
+
+DragonfireArrow: {
+	DisplayName: Стрела драконьего пламени
+	Tooltip: Накладывает дебафф «Драконье пламя» при попадании
+}
+
+DragonfireBullet: {
+	DisplayName: Пуля драконьего пламени
+	Tooltip: ""
+}
+
+DragonfireDart: {
+	DisplayName: Дротик драконьего пламени
+	Tooltip: ""
+}
+
+DaybreakBullet: {
+	DisplayName: Рассветная пуля
+	Tooltip: ""
+}
+
+HydratoxinArrow: {
+	DisplayName: Гидратоксиновая стрела
+	Tooltip: Накладывает дебафф «Гидратоксин» при попадании
+}
+
+HydratoxinBullet: {
+	DisplayName: Гидратоксиновая пуля
+	Tooltip: ""
+}
+
+HydratoxinDart: {
+	DisplayName: Гидратоксиновый дротик
+	Tooltip: ""
+}
+
+EventideBullet: {
+	DisplayName: Сумеречная пуля
+	Tooltip: ""
+}
+
+DarkmatterArrow: {
+	DisplayName: Стрела из тёмной материи
+	Tooltip: ""
+}
+
+RadiumArrow: {
+	DisplayName: Лучезарнитная стрела
+	Tooltip: ""
+}

@@ -1,0 +1,268 @@
+StripemansLucky: ""
+Olympian:
+	'''
+	60% increased Melee Crit Chance
+	60% increased Ranged Crit Chance
+	60% increased Magic Crit Chance
+	60% increased Throwing Crit Chance
+
+	'''
+HoppingHoodlum: ""
+ChampionMage: ""
+ChampionMage_CarrotBooster: ""
+ChampionMelee: ""
+ChampionRanged: ""
+ChampionSummoner: ""
+ChaosMage:
+	'''
+	Ignore Water Enabled
+	Acc Flipper Enabled
+
+	'''
+ChaosMelee:
+	'''
+	10% increased Melee Attack Speed
+	4 Aggro
+
+	'''
+ChaosRanged:
+	'''
+	25% increased Ranged Damage
+	Ammo Cost75 Enabled
+	Detect Creature Enabled
+	Night Vision Enabled
+
+	'''
+ChaosSummoner:
+	'''
+	4 Max Minions
+
+	'''
+FuryWitchs:
+	'''
+	20% increased Magic Damage
+	20% increased Summon Damage
+	4 Max Minions
+
+	'''
+MidnightAssassin:
+	'''
+	30% increased Melee Attack Speed
+
+	'''
+ChaosSlayerMage: ""
+ChaosSlayerMelee: ""
+ChaosSlayerRanged: ""
+ChaosSlayerSummoner: ""
+Nights:
+	'''
+	Panic Enabled
+	22% increased Move Speed
+
+	'''
+Fleshrend:
+	'''
+	Crimson Regen Enabled
+
+	'''
+Dynaskull: ""
+Deathly:
+	'''
+	Ammo Cost80 Enabled
+
+	'''
+GlowingMushium: ""
+GoblinSlayers: ""
+Demon: ""
+Imp: ""
+StoneSoldier:
+	'''
+	Discount Available Enabled
+	Has Lucky Coin Enabled
+	Gold Ring Enabled
+
+	'''
+Blazing:
+	'''
+	4 Aggro
+
+	'''
+Kindled:
+	'''
+	2% increased Endurance
+
+	'''
+Razewood: ""
+DraconianSun: ""
+Tribal:
+	'''
+	Mana Flower Enabled
+
+	'''
+ChlorophyteSummoner:
+	'''
+	6 Max Minions
+
+	'''
+ChlorophyteSummoner2:
+	'''
+	6 Max Minions
+
+	'''
+Abyssal:
+	'''
+	Ammo Cost80 Enabled
+
+	'''
+Bogwood: ""
+Depth:
+	'''
+	Ammo Cost80 Enabled
+	Night Vision Enabled
+
+	'''
+DreadMoon: ""
+Atlantean: ""
+Ocean: ""
+Mushium:
+	'''
+	P Stone Enabled
+
+	'''
+Raider:
+	'''
+	No Knockback Enabled
+
+	'''
+Viking:
+	'''
+	4% increased Endurance
+
+	'''
+DarkmatterMage:
+	'''
+	Armor Effect Draw Shadow Lokis Enabled
+
+	'''
+DarkmatterMelee:
+	'''
+	Armor Effect Draw Shadow Lokis Enabled
+
+	'''
+DarkmatterRanged:
+	'''
+	Armor Effect Draw Shadow Lokis Enabled
+
+	'''
+DarkmatterSummoner:
+	'''
+	Armor Effect Draw Shadow Lokis Enabled
+
+	'''
+RadiumMage: ""
+RadiumMelee: ""
+RadiumRanged: ""
+RadiumSummoner: ""
+TerraMage:
+	'''
+	Mana Flower Enabled
+
+	'''
+TerraMelee:
+	'''
+	28% increased Melee Attack Speed
+
+	'''
+TerraRanged:
+	'''
+	20% increased Ranged Crit Chance
+
+	'''
+TerraSummoner: ""
+Biomite:
+	'''
+	20 Mana Max2
+
+	'''
+AdamantiteSummoner:
+	'''
+	4 Max Minions
+	Armor Effect Draw Shadow Enabled
+	Armor Effect Draw Outlines Enabled
+
+	'''
+CobaltSummoner:
+	'''
+	2 Max Minions
+	Armor Effect Draw Shadow Enabled
+	Armor Effect Draw Outlines Enabled
+
+	'''
+MythrilSummoner:
+	'''
+	3 Max Minions
+
+	'''
+OrichalcumSummoner:
+	'''
+	On Hit Petal Enabled
+	2 Max Minions
+
+	'''
+PalladiumSummoner:
+	'''
+	1 Max Minions
+
+	'''
+TitaniumSummoner:
+	'''
+	On Hit Dodge Enabled
+	4 Max Minions
+
+	'''
+DarkDoomite:
+	'''
+	2 Max Minions
+
+	'''
+Doomite:
+	'''
+	1 Max Minions
+
+	'''
+Oroboros: ""
+DoomsdayMage: ""
+DoomsdaySummoner:
+	'''
+	5 Max Minions
+
+	'''
+FulguriteMage: ""
+FulguriteMelee:
+	'''
+	20% increased Melee Attack Speed
+	20% increased Move Speed
+
+	'''
+FulguriteRanged:
+	'''
+	Ammo Cost75 Enabled
+
+	'''
+TerraMageTest: ""
+InfinitySlayer:
+	'''
+
+	You can see all life around you
+	You can see all potential threats around you
+	Your attacks scorch your enemies with the fires of infinity
+	'''
+ChampionMageSetEffect_CarrotBooster: ""
+HallowedSummoner:
+	'''
+	6 Max Minions
+	Armor Effect Draw Shadow Enabled
+	Armor Effect Draw Outlines Enabled
+
+	'''
+Ouroboros: ""

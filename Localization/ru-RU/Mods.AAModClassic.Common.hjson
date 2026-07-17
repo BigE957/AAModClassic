@@ -1,0 +1,347 @@
+#InvokerInfo
+
+InvokerBookEX1:
+	'''
+	Теперь вы можете управлять истинной способностью Взывателя
+	Когда вы держите Посох Взывателя, душа мёртвого врага будет исцелять вас
+	Вы можете высвободить душу мёртвого врага для нанесения урона
+	'''
+InvokerBookEX2:
+	'''
+
+	Записка Алистера:
+	Мне нужны более мощные души, дракон, огромный кролик, загадочная машина, ещё, ещё! Уничтожь их!
+	'''
+InvokerBookEX3:
+	'''
+
+	Нажмите ЛКМ, чтобы использовать книгу. Призывает Калигулу.
+	'''
+InvokerStaff1:
+	'''
+	Странно. Как же странно.
+	Махающее оружие наносит урон призывателя?
+	Серьёзно?
+	Легендарное оружие.  -Цербер
+	'''
+InvokerStaff2:
+	'''
+	Нажмите ЛКМ, чтобы выстрелить снарядом взывателя
+	Нажмите ПКМ, чтобы изгнать всех врагов в соответствии с вашим базовым уроном изгнания
+	Изгнание врагов может исцелять вас в зависимости от их максимального запаса здоровья
+	   Но какой ценой?
+	Легендарное оружие.  -Цербер
+	'''
+InvokerDamage1: ед. урона изгнания
+InvokerDamage2: ед. урона призывателя
+CaligulaSoul: Мощная кража души!
+
+#Items
+
+InfinityGauntlet: {
+	SoulStoneStatus: Камень души материализуется в ваших руках...
+	SnapStatus: Безупречный баланс, эталон гармонии...
+}
+
+DemiseEXInfo: Душа поражённого врага взрывается
+RajahSPTooltipMelee: Ближний бой
+RajahSPTooltipRanged: Стрелковый
+RajahSPTooltipMagic: Магический
+RajahSPTooltipSummoning: Призывной
+RajahSPTooltipThrowing: Метательный
+RajahSPDamageInfo: Урон
+RajahSPDamageBoost: Текущее усиление урона: +
+RajahSPSpeedBoost: Текущее усиление скорости: +
+RajahSPDamageResistance: Текущее сопротивление урону: +
+#CurrencyItems
+
+PlayerBuyPrice: Стоимость покупки:
+AncientCoin: древняя монета
+AncientCoins: древних монет
+BloodRune: кровавая руна
+BloodRunes: кровавых рун
+ChristmasCheer: рождественское настроение
+ChristmasCheers: рождественского настроения
+GoblinSoul: душа гоблина
+GoblinSouls: душ гоблина
+HalloweenTreat: хэллоуинское угощение
+HalloweenTreats: хэллоуинских угощений
+MartianCredit: марсианская кредитка
+MartianCredits: марсианских кредиток
+MonsterSoul: душа монстра
+MonsterSouls: душ монстра
+PirateBooty: пиратское добро
+PirateBooties: пиратского добра
+#GoblinSlayerShop
+
+GoblinSlayerShopChangeShopType: Поменять тип магазина
+GoblinSlayerShopGoblinLoot: Добыча с гоблинов
+GoblinSlayerShopBloodMoonLoot: Добыча с кровавой луны
+GoblinSlayerShopOldOneArmyLoot: Добыча с армии старца
+GoblinSlayerShopPirateLoot: Добыча с пиратов
+GoblinSlayerShopEclipseLoot: Добыча с затмения
+GoblinSlayerShopHalloweenLoot: Добыча с хэллоуина
+GoblinSlayerShopChristmasLoot: Добыча с рождества
+GoblinSlayerShopMartianLoot: Добыча с марсиан
+#AAModClassic.Tiles.RazewoodF
+
+RazewoodClockGetTime: Возможно, делать часы из обгоревшего дерева было не лучшей идеей. Они даже не работают.
+#lockedchest
+
+InfernoChest_Locked: Запертый сундук инферно
+MireChest_Locked: Запертый сундук трясины
+DoomsdayChest_Locked: Запертый сундук судного дня
+GreedChest_Locked: Запертый сундук алчности
+#TownNPCName
+
+GoblinSlayerName: Убийца гоблинов
+#BossName
+
+MushroomMonarch: Грибной монарх
+FeudalFungus: Грибной феодал
+Broodmother: Матерь выводка
+Hydra: Гидра
+GripsofChaos: Длани хаоса
+SubzeroSerpent: Морозная змея
+TruffleToad: Трюфельная жаба
+Sagittarius: Сагиттариус
+Skeletron: Скелетрон
+RajahRabbit: Кролик-Раджа
+DesertDjinn: Пустынный Джинн
+Plantera: Плантера
+Athena: Афина
+Greed: Алчность
+Akuma: Акума, Драконический демон
+AkumaA: Они Акума
+Yamata: Ямата, Ужасающий кошмар
+YamataA: Ямата-но Ороти
+ShenDoragon: Шэнь Доракон; Вестник раздора
+SupremeRajah: Кролик-Раджа
+#AAPlayerChat
+
+WorldgenReminderInfo1: Эй, эм... дитя? Поправь меня, если я не прав, но, кажется, твой мир сгенерировался без контента Ancients Awakened. На твоём месте я бы создал новый.
+WorldgenReminderInfo2: ИМБЕЦИЛ! ТЫ НЕ СГЕНЕРИРОВАЛ КОНТЕНТ ANCIENTS AWAKENED! БЫСТРО СОЗДАЙ НОВЫЙ МИР, СУКА! ААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААА
+WorldgenReminderInfo3: 0ШИБКА. В ЭТ0М МИРЕ НЕ 0БНАРУЖЕН К0НТЕНТ AAM0D.TM0D. П0ЖАЛУЙСТА, С0ЗДАЙТЕ Н0ВЫЙ МИР.
+WorldgenReminderInfo4: ЭЙ! Ты не сгенерировал контент Ancients Awakened в этом мире! Создай новый мир, пока я не отправил тебя на Марс!
+WorldgenReminderInfo5: Эй, эм... Я не вижу контента Ancients Awakened в этом мире. Может, стоит создать новый мир или типа того...
+WorldgenReminderInfo6: Эй. Ты. Межпространственное существо. Возможно, ты забыл создать новый мир после установки мода. Создай новый мир, если хочешь получить весь контент мода.
+WorldgenReminderInfo7: Создай... новый мир.... или грибезумец... раздавит... мелкого террарийца...
+WorldgenReminderInfo8: ...Террариец. Твой мир не содержит контента Ancients Awakened, если мои старые глаза не обманывают меня. Создание нового мира было бы оптимальным решением.
+WorldgenReminderInfo9: Землеходец!.. В этом мире нет контента Ancients Awakened! Создай новый мир, если ты действительно собрался играть в этот мод... идиот...
+NewAAInfo1: Эй, дитя, ты знал, что можешь играть в более новую версию Ancients Awakened? По-моему, тебе стоит её проверить.
+NewAAInfo2: БЕЗМОЗГЛЫЙ ЗАСРАНЕЦ! ДА ТЫ, НАВЕРНОЕ, ДАЖЕ НЕ ЗНАЕШЬ, ЧТО МОЖЕШЬ ИГРАТЬ В БОЛЕЕ НОВУЮ ВЕРСИЮ ANCIENTS AWAKENED, ИДИОТ!
+NewAAInfo3: ПРЕДУПРЕЖДЕНИЕ. AAM0D.TM0D НЕ 0БНАРУЖЕН. П0ЖАЛУЙСТА, УСТАН0ВИТЕ.
+NewAAInfo4: ЭЙ, ТЫ! Не забудь заценить новую версию Ancients Awakened, а не то!
+NewAAInfo5: Эй, эм... Не уверен, знаешь ли ты, но существует более новая версия Ancients Awakened. Может, попробуешь? Или типа того...
+NewAAInfo6: Межпространственное существо. На случай, если ты ещё не знал, есть более новая версия Ancients Awakened, в которую можно играть. Глянь, когда будет возможность.
+NewAAInfo7: Возьми... новый.... Ancients Awakened.... или грибезумец... раздавит... мелкого террарийца...
+NewAAInfo8: ...Террариец. Я слышал о более новой версии Ancients Awakened, в которую ты мог бы поиграть. Возможно, было бы мудро опробовать её.
+NewAAInfo9: Землеходец! Знай же, что ты можешь играть в более новую версию Ancients Awakened. Ты будешь идиотом, если не опробуешь её!
+#AAWorldChangeInfo
+
+downedEquinoxInfo: Дары неземных созданий мерцают в атмосфере...
+downedEquinoxInfoFailure: На небесах достаточно звёзд, дитя.
+downedMoonlordInfo1: Древние готовы к пробуждению!
+downedMoonlordInfo2: Эссенция Лунного Лорда мерцает глубоко под землёй...
+downedMechBossAnyInfo: Вы на долю секунды замечаете, как пещеры озаряются ярким светом...
+downedSiegeUnitAnyInfo: Раскат грома эхом пронизывает пещеры...
+downedSistersInfo: Хаотическая энергия нарастает в недрах этого мира...
+downedBoss2Info1: До ваших ушей доносится гул гармонии, исходящий из Террариума...
+downedBoss3Info1: Ветра пустыни усиливаются...
+downedBoss3Info2: Зимние склоны грохочут...
+downedBoss3Info3: Останки древнего прошлого вспыхивают энергией!
+downedMechBossInfo1: Эй, малыш, это Анубис, как слышно? Сделай одолжение - встреться со мной в городе, нам нужно кое о чём поговорить.
+downedMechBossInfo2: Приспешники тёмного солнца наделены героическими реликвиями...
+downedAllAncientsInfo1: Хаос назревает в атмосфере...
+downedAllAncientsInfo2: Потусторонний туман окутывает затерянный затонувший корабль...
+hardModeInfo: На волю выпущены древние духи ярости и гнева.
+#AAWorldBuild
+
+AAWorldBuildAltars: Размещение алтарей хаоса...
+AAWorldBuildChaos: Распространение хаоса...
+AAWorldBuildInferno: Порождение знойного Инферно...
+AAWorldBuildMire: Порождение затопленной Трясины...
+AAWorldBuildTerrarium: Построение Террариума...
+AAWorldBuildLostKeep: Запрятывание Цитадели Героев...
+AAWorldBuildAcropolis: Размещение парящего Акрополя...
+AAWorldBuildHoard: Запрятывание несметных богатств...
+AAWorldBuildEquinoxAlt: Уравнивание солнца и луны...
+
+RecipeGroups: {
+	Ore: {
+		Copper: медная руда
+		Iron: железная руда
+		Silver: серебряная руда
+		Gold: золотая руда
+		Evil: руда зла
+		Chaos: руда хаоса
+		EvilOrChaos: руда зла или хаоса
+		Cobalt: кобальтовая руда
+		Mythril: мифриловая руда
+		Adamantite: адамантитовая руда
+		Hallowed: освящённая руда
+	}
+
+	Bars: {
+		Copper: медный слиток
+		Iron: железный слиток
+		Silver: серебряный слиток
+		Gold: золотой слиток
+		Evil: слиток зла
+		Chaos: слиток хаоса
+		EvilOrChaos: слиток зла или хаоса
+		Cobalt: кобальтовый слиток
+		Mythril: мифриловый слиток
+		Adamantite: адамантитовый слиток
+		Hallowed: освящённый слиток
+	}
+
+	Materials: {
+		ShinyCharm: сияющий амулет
+		ChaosClaw: коготь хаоса
+		Evil: материал зла
+		Chaos: материал хаоса
+		EvilOrChaos: материал зла или хаоса
+		HardmodeEvil: материал хардмодного зла
+		HardmodeChaos: материал хардмодного хаоса
+		HardmodeEvilOrChaos: материал хардмодного зла или хаоса
+		EarlyAncient: ранний древний материал
+		LateAncient: поздний древний материал
+		Superancient: сверхдревний материал
+	}
+
+	CraftingStations: {
+		Altar: алтарь
+		HardmodeAnvil: хардмодная наковальня
+		HardmodeForge: хардмодная кузня
+		CelestialCraftingStation: неземная станция изготовления
+		AncientCraftingStation: древняя станция изготовления
+	}
+
+	Weapons.EvilStaff: посох зла
+
+	Armor: {
+		TerraChestplate: терра-нагрудник
+		TerraLeggings: терра-поножи
+		ChaosChestplate: нагрудник хаоса
+		ChaosLeggings: поножи хаоса
+		RadiumHelmet: лучезарнитный шлем
+		DarkmatterHelmet: шлем из тёмной материи
+	}
+
+	Misc.DevBag: Мешок разраб.
+}
+
+NPCarrive: приходит!
+#GlobalNPCSInfo
+
+BosshasAwoken: пробуждается!
+#BossSummonedInfo
+
+BosshaveAwoken: пробуждается!
+RajahGlobalInfo1: Те, кто убивает невинных, должны быть НАКАЗАНЫ!
+RajahGlobalInfo2: "ТЫ СОВЕРШИЛ НЕПРОСТИТЕЛЬНЫЙ ГРЕХ! Я СОТРУ ТЕБЯ С ЭТОГО БРЕННОГО МИРА! ГОТОВЬСЯ К ИСТИННОЙ БОЛИ И НАКАЗАНИЮ, "
+RajahGlobalInfo3: Глаза разгневанного существа устремлены на вас...
+ChaosRuneYamataFalse: Образ пылающего демона мелькает в вашем сознании...
+ChaosRuneAkumaFalse: Образ 7-главого ужаса мелькает в вашем сознании...
+ChaosRuneFalse: ХА! Я БЫ МЕЧТАЛ, чтобы нас было двое, чтобы втоптать тебя в землю!
+ChaosRuneTrue1: Шэнь Доракон пробуждается!
+ChaosRuneTrue2: Сразу к самому интересному? Ты мне нравишься, дитя.
+ChaosSigilFalse1: Только синяя половина сигила светится...
+ChaosSigilFalse2: Только красная половина сигила светится...
+ChaosSigilFalse3: ХА! Я БЫ МЕЧТАЛ, чтобы нас было двое, чтобы втоптать тебя в землю!
+ChaosSigilFalse4: Сигил хаоса светится, и образы пьедесталов хаоса мелькают в вашем сознании
+ChaosSigilFalse5: Сигил ничего не делает...
+ChaosSigilTrue1: Большая ошибка, дитя...
+ChaosSigilTrue2: Хмпф... опять? Ладно, давай просто покончим с этим.
+// ConfusingMushroomFalse1: The mushroom glows, and the smell of it makes you feel loopy.
+ConfusingMushroomFalse2: Грибной феодал продолжает пытаться вас атаковать
+CuriousClawFalse1: Длани хаоса уже здесь!
+CuriousClawFalse2: Коготь безвольно лежит в вашей руке. Гадость.
+Grips.GripsofChaosAwoken: Длани хаоса пробуждаются!
+DiamondCarrotRajahText1: РОКОВАЯ ОШИБКА, ТЕРРАРИЕЦ!
+DiamondCarrotRajahText2: "Покажи, на что ты способен, "
+DjinnLampDesertFalse1: Лампа мерцает в лунном свете, но ничего не делает
+DjinnLampDesertFalse2: Никакое натирание лампы не спасёт тебя здесь
+DraconianDayTimeFalse: Боже, дитя. Дракону же можно хоть немного поспать? Приходи утром.
+DraconianRuneFalse1: Образ опалённой башни на пике Инферно мелькает в вашем сознании
+DraconianRuneFalse2: Эй, дитя, эта руна работает только один раз, понимаешь?
+DraconianRuneInfernoFalse: Эту руну можно использовать только в Инферно, дитя.
+DraconianRuneTrue1: Воздух вокруг вас стремительно нагревается...
+DraconianRuneTrue2: Сразу к делу, я смотрю? Ну ладно, готовься к аду!..
+DraconianSigilFalse: Эй, дитя, этот сигил работает только один раз, понимаешь?
+DraconianSigilInfernoFalse: Этот сигил можно использовать только в Инферно, дитя.
+DraconianSignalTrue1: Хех, надеюсь, ты готов ощутить ярость пылающего солнца, дитя.
+DraconianSignalTrue2: Вернулся за добавкой, дитя? Тебе что, заняться нечем? Ты уже победил меня однажды. Ладно, но я не буду поддаваться.
+DragonBellDayTimeFalse: Звон колокола проходит мимо ушей. Драконы сейчас спят.
+DragonBellFalse1: Матерь выводка уже призвана
+DragonBellFalse2: Звон колокола проходит мимо ушей. Драконов здесь нет.
+DreadRuneTrue1: Ямата пробуждается!
+DreadRuneTrue2: Да-да, я понял, моя первая фаза раздражает. Давай просто покончим с этим!..
+DreadTimeFalse: НЕТ! Я НЕ ХОЧУ СРАЖАТЬСЯ СЕЙЧАС! МНЕ НУЖЕН СОН! ПРИХОДИ НОЧЬЮ!
+DreadFalse1: Образ странного дерева в сердце Трясины мелькает в вашем сознании
+DreadFalse2: ЧТО ТЫ, МАТЬ ТВОЮ, ДЕЛАЕШЬ?! Я УЖЕ ЗДЕСЬ!!!
+DreadMireFalse: Эй, далбоящер! Трясина в той стороне!
+DreadSigilTrue1: Ты СМЕЕШЬ войти на мою территорию, Террариец?! НЙЕХЕХЕХЕ!.. Зря, ой как зря!..
+DreadSigilTrue2: Вернулся за добавкой?!.. На этот раз тебе не повезёт, щенок!..
+DreadSigilMireFalse: Ты ДОЛЖЕН использовать этот сигил на алтаре в центре Трясины! Поверь мне, ничего плохого не случится!
+EquinoxWormawoken: Черви Равноденствия пробуждаются!
+SistersDownedInfo1: Опять?!.. Ты ничему не научился с прошлого раза? Ну что ж, я с радостью разнесу тебя в клочья!
+SistersDownedInfo2: Как хочешь, давай просто покончим с этим.
+SistersInfo1: *Вздох*... И снова...
+SistersInfo2: НА ЭТОТ РАЗ Я НЕ ПРОИГРАЮ! Ты почувствуешь вкус поражения, мерзкий теплокровный!
+HydraChowTimeFalse: Но никто не пришёл...
+HydraChowFalse1: Гидра хочет отведать этой еды.
+HydraChowFalse2: Но никто не пришёл... Теперь ты выглядишь глупо, держа эту вонючую кучу грязи.
+InterestingClawFalse1: Длани хаоса уже здесь!
+InterestingClawFalse2: Коготь безвольно лежит в вашей руке. Гадость.
+IntimidatingMushroomFalse1: Гриб просто пялится на вас, и от одного взгляда на него у вас мурашки по коже.
+IntimidatingMushroomFalse2: Грибной монарх продолжает пытаться вас растоптать
+LifescannerFalse: Анализатор жизни ничего не делает.
+ScepterBossFalse1: Вы размахиваете посохом, как психопат. Ничего не происходит.
+ScepterBossFalse2: А... ты что делаешь?
+SubzeroCrystalSnowZoneFalse: Внутри кристалла видно изображение ближайших покрытых снегом земель
+SubzeroCrystalFalse: Морозная змея продолжает атаковать
+ToadstoolFalse1: Жаборовик квакает?..
+ToadstoolFalse2: Трюфельная жаба квакает
+ZeroUnitFalse: 0ШИБКА. М0ДУЛЬ ЗИР0 УЖЕ АКТИВЕН. П0ВТ0РИТЕ П03ЖЕ.
+ZeroUnitVoidZoneFalse: 0ШИБКА. PLAYER.GETM0DPLAYER<AAPLAYER>(M0D).Z0NEV0ID == FALSE. П0ВТ0РИТЕ П03ЖЕ.
+ZeroUnitRuneTrue: ПР0Т0К0Л СУДН0Г0 ДНЯ АКТИВИР0ВАН ВРУЧНУЮ. СИСТЕМЫ УНИЧТ0ЖЕНИЯ НА П0ЛН0Й М0ЩН0СТИ
+ZeroTesseractTrue: М0ДУЛЬ ЗИР0 АКТИВИР0ВАН. ЗАПУСК ПР0Т0К0ЛА «ВЕСТНИК СМЕРТИ».
+ZeroTesseractDownedTrue: ЦЕЛЬ 3АХВАЧЕНА. НЕВ0ЗМ0ЖН0СТЬ УНИЧТ0ЖИТЬ ТЕБЯ НА ЭТ0Т РА3 ИСКЛЮЧЕНА, ТЕРРАРИЕЦ.
+RoyalRabbitSummoned1: Те, кто убивает невинных, должны быть НАКАЗАНЫ!
+RoyalRabbitSummoned2: "ТЫ ПОПЛАТИШЬСЯ ЗА СВОИ ГРЕХИ, "
+ScrapHeapFalse1: При использовании вы чувствуете статический разряд. Может, оно пытается послать сигнал?
+ScrapHeapFalse2: Орф хочет съесть это И ТЕБЯ
+CyberneticClawFalse1: Коготь безвольно лежит в вашей руке.
+CyberneticClawFalse2: Ретривер всё ещё пытается вас схватить!
+CyberneticBellFalse1: Колокол звонит, но ничего не происходит.
+CyberneticBellFalse2: Налётчица слышит колокол и продолжает пытаться вас убить!
+CyberneticShroomFalse1: Хватит размахивать этим металлическим грибом как психопат.
+CyberneticShroomFalse2: Техно-трюфель существует.
+CursedCompassFalse: Проклятия, заключённые в компасе, стенают в присутствии своего создателя.
+MassShroomInitiated: Настало время грибной давки!
+GlowingMassShroomInitiated: Вас атакует куча грибов!
+GlowingMassShroomFalse: Хватит размахивать связкой грибов посреди ничего, как психопат.
+
+Conditions: {
+	Release: В мирах с нереализованным контентом
+	DownedRajah: После поражения Кролика-Раджи
+	InSunkenShipPreSoC: Вблизи затонувшего корабля после поражения всех древних
+	IsMaster: В режиме Мастера
+	Unofficial: В мирах с неофициальным контентом
+	NotUnofficial: В мирах с НЕ неофициальным контентом
+	PostLateAncientsAndRemovedWorld: После поздних древних
+	SpawnedByTruffleToad: Если Трюфельная жаба не призвана
+	SpawnedByGrips: Если Длани хаоса не призваны
+	InAnyInferno: В Инферно
+	InAnyMire: В Трясине
+	InAnyRedMushroom: В пустошах красных грибов
+	InAnyVoid: В Пустоте
+	// SpawnedBySubzeroSerpent: If Subzero Serpent is not currently alive
+	// PostLateAncientsAndRemovedWorldAndExpert: If the Equinox Worms have been defeated
+	// OneMechDefeated: If one mechanical boss has been defeated
+	// SkeletronDefeated: If Skeletron has been defeated
+	// GolemDefeated: If Golem has been defeated
+	// GoblinsDefeated: If the Goblin Army has been defeated
+}

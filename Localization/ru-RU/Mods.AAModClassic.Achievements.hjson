@@ -1,0 +1,248 @@
+//Boss Kills
+MushroomMonarchKilled: {
+	FriendlyName: Это мой гриб
+	Description: Свергните Грибного монарха - грибовидного мерзавца с самопровозглашённым титулом.
+}
+
+FeudalFungusKilled: {
+	FriendlyName: Я его ем
+	Description: Сразите Грибного феодала - грибовидного мерзавца со злым нравом.
+}
+
+GripsOfChaosKilled: {
+	FriendlyName: Руки-загребуки
+	Description: Одолейте Длани хаоса - пагубных пятипалых существ с жаждой хаоса.
+}
+
+TruffleToadKilled: {
+	FriendlyName: Вот и квакнулась!
+	Description: Сразите Трюфельную жабу - удивительно проворную грибовидную бестию.
+}
+
+BroodmotherKilled: {
+	FriendlyName: Прах к праху
+	Description: Одолейте Матерь выводка - дракониху, рождённую из раскалённой ярости.
+}
+
+HydraKilled: {
+	FriendlyName: Одна голова хорошо, а три лучше
+	Description: Обезглавьте Гидру - яростную бестию, обитающую в Трясине.
+}
+
+DesertDjinnKilled: {
+	FriendlyName: Билли Джинн
+	Description: Пересильте Пустынного Джинна - мускулистого силача, бродящего по песчаным пустошам.
+}
+
+SubzeroSerpentKilled: {
+	FriendlyName: Below Zero
+	Description: Растопите Морозную змею - ползучую тварь, обитающую в ледяной тундре.
+}
+
+SagittariusKilled: {
+	FriendlyName: Тыгыдык
+	Description: Уничтожьте Сагиттариуса - машину, превращённую в троянского коня тёмной волей Пустоты.
+}
+
+AkumaKilled: {
+	FriendlyName: Как убить дракона
+	Description: Испепелите Акуму - драконического демона, оставив от неё лишь пепел.
+}
+
+AnubisKilled: {
+	FriendlyName: Первый шаг
+	Description: Превзойдите Анубиса Легендописца в дружеском спарринге.
+}
+
+BiomiteCoreKilled: {
+	FriendlyName: Ядро мира
+	Description: Преодолейте Биомитовое ядро - тренировочный защитный механизм Цитадели.
+}
+
+AthenaKilled: {
+	FriendlyName: Закон Божий
+	Description: Одолейте Афину - проницательную Королеву Серафимов.
+}
+
+ChampionRajahKilled: {
+	FriendlyName: Кто подставил кролика Раджу?
+	Description: Примиритесь с самим Прыгучим Карателем и унаследуйте его титул «Заступник невинных».
+}
+
+EquinoxWormsKilled: {
+	FriendlyName: Made In Heaven
+	Description: Пройдите испытание Червей Равноденствия, заслужив их благословение.
+}
+
+GreedKilled: {
+	FriendlyName: Жадность червя сгубила
+	Description: Одолейте жадного червя - Алчность, и завладейте его кладом.
+}
+
+InfinityZeroKilled: {
+	FriendlyName: Фатальная 0шибка
+	Description: Уничт0жьте Безграничн0г0 Зир0, не 0ставив ни 0дной игрушки Забвения нетр0нутой.
+}
+
+PreEquinoxAncientsKilled: {
+	FriendlyName: Пробуждённые
+	Description: Одолейте Анубиса, Афину и Алчность на пике их могущества.
+}
+
+RajahKilled: {
+	FriendlyName: Кроличий сезон
+	Description: Бросьте вызов Кролику-Радже и выживете, чтобы поведать эту историю.
+}
+
+ShenDoragonKilled: {
+	FriendlyName: Through the Mire and the Flames
+	Description: Уничтожьте Шеня Доракона, положив конец его нескончаемому хаосу.
+}
+
+SiegeMechsKilled: {
+	FriendlyName: Ведро с болтами
+	Description: Одолейте три ночные угрозы: Ретривера, Орфа X, и Налётчицу Ультиму.
+}
+
+SistersOfDiscordKilled: {
+	FriendlyName: Вмешательство раздора
+	Description: Отправьте Сестёр Раздора плакаться своим папочкам.
+}
+
+SoulOfCthulhuKilled: {
+	FriendlyName: Кораблекрушение
+	Description: Изгоните Душу Ктулху, не дав её Космическому бедствию поглотить мир.
+}
+
+StormingSiege: {
+	FriendlyName: Металлопокалипсис
+	Description: Одолейте Ретривера, Орфа X и Налётчицу Ультиму одновременно.
+}
+
+TechnoTruffleKilled: {
+	FriendlyName: Грибочек на торте
+	Description: Уничтожьте Техно-трюфеля - грибовидную ошибку машиностроения.
+}
+
+YamataKilled: {
+	FriendlyName: Головоломка
+	Description: Отсеките множество голов Яматы - воплощения ужаса.
+}
+
+ZeroKilled: {
+	FriendlyName: System.DivideByZeroException
+	Description: Выведите из стр0я основной Зир0-юнит Пуст0ты, и навлеките на себя гнев куда б0лее страшн0й угр0зы...
+}
+
+AllBossesKilled: {
+	FriendlyName: Ну и кто теперь Пробуждённый?
+	Description: Одолейте всех боссов в Ancients Awakened: Classic.
+}
+
+//Ores Mined
+ChaosOreMined: {
+	FriendlyName: Контролируемый хаос
+	Description: Добудьте испепельнит или абиссальнит - хаотические руды, сформировавшиеся в глубине пещер.
+}
+
+CelestialOreMined: {
+	FriendlyName: Квинтэссенция
+	Description: Добудьте лучезарнит или тёмную материю - руды, сформировавшиеся в глубине космоса.
+}
+
+TierThreeChaosOreMined: {
+	FriendlyName: Допотопье
+	Description: Добудьте рассветный испепельнит или сумеречный абиссальнит - изначальные формы ранее существовавших руд, обнаруженные в Инферно и Трясине.
+}
+
+ApocalyptiteOreMined: {
+	FriendlyName: Апокалипсис сегодня
+	Description: Добудьте апокалиптит - нестабильную руду, сформировавшуюся под влиянием деструктивной энергии Пустоты.
+}
+
+//Items Obtained
+LuckyArmorEquipped: {
+	FriendlyName: Фармила
+	Description: Экипируйте полный комплект брони везучего полосатика, позволяющий вам копать, рыбачить и фармить как никто другой.
+}
+
+MadnessPotionCrafted: {
+	FriendlyName: Равноценный обмен
+	Description: Обменяйте гриб безумия у Грибочеловека на радужный гриб и изготовьте из него зелье.
+}
+
+ChaosCrafted: {
+	FriendlyName: Немезида
+	Description: Заполучите Хаос - меч, выкованный из лучших клинков ярости и гнева.
+}
+
+TerratoolCrafted: {
+	FriendlyName: Мультитул
+	Description: Заполучите Терра-инструмент - кирку, топор и молот в одном наборе.
+}
+
+DragonstrideBootsCrafted: {
+	FriendlyName: Дракон в сапогах
+	Description: Создайте Дракоходы и промчитесь по миру на полной скорости!
+}
+
+TimecallerCrafted: {
+	FriendlyName: Агент времени
+	Description: Создайте Взыватель ко времени, позволяющий вам управлять временем по своему желанию.
+}
+
+EXSoulCrafted: {
+	FriendlyName: Крайние меры
+	Description: Улучшите оружие с помощью Души EX. Теперь вы на шаг впереди всех!
+}
+
+InfinityCoreCrafted: {
+	FriendlyName: Божественная кузня
+	Description: Создайте Ядро безграничности - совершенную станцию для изготовления.
+}
+
+//Discovery
+RedMushroomDiscovered: {
+	FriendlyName: Спорные земли
+	Description: Наткнитесь на пустоши красных грибов или сделайте их самостоятельно, используя мешок спор
+}
+
+TerrariumDiscovered: {
+	FriendlyName: Сердце природы
+	Description: Наткнитесь на Террариум - кристаллический шар, излучающий природную энергию.
+}
+
+VoidDiscovered: {
+	FriendlyName: Пустышка
+	Description: Наткнитесь на Пустоту - зловещее скопление островов, висящих низко на орбите земли.
+}
+
+MushmanEncountered: {
+	FriendlyName: Теперь их стало уже двое!
+	Description: Постройте дом в пустошах красных грибов и дождитесь прихода Грибочеловека.
+}
+
+AcropolisDiscovered: {
+	FriendlyName: Гора Олимп
+	Description: Наткнитесь на Акрополь - дом Королевы Серафимов и её сородичей.
+}
+
+HoardDiscovered: {
+	FriendlyName: В плену ненужных вещей
+	Description: Наткнитесь на Сокровищницу - пещеру Короля Червей, захламлённую украденным добром.
+}
+
+GreedChestOpened: {
+	FriendlyName: Клептомания
+	Description: Получите ключ, выпадающий из Расхитителей в Сокровищнице и откройте один из сундуков их короля.
+}
+
+EquinoxAltarDiscovered: {
+	FriendlyName: Эквилибриум
+	Description: Найдите высоко в облаках Алтарь Равноденствия.
+}
+
+AllBiomesDiscovered: {
+	FriendlyName: Кругосветка
+	Description: Наткнитесь на каждый биом и структуру в Ancients Awakened: Classic.
+}

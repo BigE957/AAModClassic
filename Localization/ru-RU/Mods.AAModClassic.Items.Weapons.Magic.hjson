@@ -1,0 +1,475 @@
+Ethereal: {
+	DisplayName: Эфирность
+	Tooltip: «Если попадёт не в те руки, сможет нанести разрушительный урон, так что не давайте его мне» - TheRedstoneBro
+}
+
+PoniumStaff: {
+	DisplayName: Посох пониума
+	Tooltip: «Это самый а*****ый РЕЕЕЕЕЕ, что я когда-либо видел» - Beg
+}
+
+DuckstepREMIX: {
+	DisplayName: Дакстеп R.E.M.I.X.
+	Tooltip: Дакстеп-пушка EX
+}
+
+Light: {
+	DisplayName: Света
+	Tooltip: Эфирность EX
+}
+
+NovaFlare: {
+	DisplayName: Вспышка новой
+	Tooltip:
+		'''
+		Выпускает самонаводящиеся вспышки с неба
+		Лунная вспышка EX
+		'''
+}
+
+PrismeowSpectrum: {
+	DisplayName: Спектр призмявки
+	Tooltip:
+		'''
+		Призывает легендарную радужную кошку в позиции курсора
+		Выпускает радужные заряды, движущиеся в направлении вашего курсора
+		Предупреждение: ИСПОЛЬЗОВАНИЕ ЭТОГО ВЫЗОВЕТ ЛАГИ В ИГРЕ!
+		Призмявка EX
+		'''
+}
+
+Prismeow: {
+	DisplayName: Призмявка
+	Tooltip:
+		'''
+		Выпускает радужных кошек
+		«Матерь божья»
+		- Hallam
+		'''
+}
+
+TrueTerraRose: {
+	DisplayName: Истинная терра-роза
+	Tooltip:
+		'''
+		Говорят, этим посохом пользовался сам легендарный герой
+		Снаряды взрываются при попадании
+		Снаряды проходят сквозь стены
+		Нажмите ПКМ, чтобы выпустить пронзающую розу
+		Терра-роза EX
+		'''
+}
+
+MeteorStrike: {
+	DisplayName: Метеоритный удар
+	Tooltip:
+		'''
+		Выпускает шквал метеоров в ваших врагов
+		Попадание по врагам вызывает меньший, но более разрушительный взрыв
+		Попадание по блоку вызывает больший, но менее разрушительный снаряд
+		Накладывает дебафф «Раздорное инферно»
+		'''
+}
+
+Daystorm: {
+	DisplayName: День сурка
+	Tooltip:
+		'''
+		Испепеляет ваших врагов в шторме опаляющего огненного безумия
+		«А если завтра не наступит? Сегодня, например, его не было»
+		'''
+}
+
+BogBomb: {
+	DisplayName: Болотная бомба
+	Tooltip: Выпускает взрывную бомбу, накладывающую дебафф «Яд»
+}
+
+AbyssalBomb: {
+	DisplayName: Бомба бездны
+	Tooltip:
+		'''
+		Выпускает взрывные духовные бомбы
+		Небольшой шанс выпустить пробуждённую бомбу, взрывающуюся душами бездны
+		'''
+}
+
+TerraRose: {
+	DisplayName: Терра-роза
+	Tooltip:
+		'''
+		Говорят, этим посохом пользовался сам легендарный герой
+		Снаряды проходят сквозь стены
+		Нажмите ПКМ, чтобы выпустить пронзающую розу
+		'''
+}
+
+NovaFocus: {
+	DisplayName: Фокус новой
+	Tooltip: Выпускает безумно мощный луч смерти
+}
+
+Nova: {
+	DisplayName: Новая
+	Tooltip: Выпускает взрывной энергетический заряд, вызывающий расширяющийся взрыв
+}
+
+VoidStar: {
+	DisplayName: Пустотная звезда
+	Tooltip: Выпускает тёмный вращающийся вихрь, самонаводящийся на врагов
+}
+
+TotalDestruction: {
+	DisplayName: Тотальное уничтожение
+	Tooltip: Уничтожает всё перед вами разрушительным лазером
+}
+
+PineBreaker: {
+	DisplayName: Соснатель
+	Tooltip:
+		'''
+		«Фу. Яйца»
+		- Planterror
+		'''
+}
+
+DuckstepLauncher: {
+	DisplayName: Дакстеп-пушка
+	Tooltip:
+		'''
+		«Кряк.»
+		- Aves
+		'''
+}
+
+Placeholder: {
+	DisplayName: Плейсхолдер
+	Tooltip:
+		'''
+		«Скоро SoonTM отойдут в мир иной. Очень скоро»
+		- Fargo
+		'''
+}
+
+SkrallStaff: {
+	DisplayName: Посох Скралла
+	Tooltip:
+		'''
+		Алмаз из Скраллополиса, насаженный на палку
+		Магия в палке, а алмаз - так, понты
+		- Kingskrall
+		'''
+}
+
+UmbralReaper: {
+	DisplayName: Теневой жнец
+	Tooltip:
+		'''
+		Нажмите ЛКМ, чтобы выпустить самонаводящиеся копья
+		Нажмите ПКМ, чтобы выпустить волну энергии пустоты
+		«Да не дрокал я на Валькирию»
+		- CMD
+		'''
+}
+
+SoapBlaster: {
+	DisplayName: Мыльница
+	Tooltip: Быстро выпускает наносящие урон пузыри
+}
+
+UltibladeTyphoon: {
+	DisplayName: Тайфун бритвоклинков
+	Tooltip:
+		'''
+		Выпускает 3 быстрых самонаводящихся бритвенных колеса
+		Бритвенный тайфун EX
+		«Заставь меня сиять, дядя»
+		'''
+}
+
+HiveArtillery: {
+	DisplayName: Улебой
+	Tooltip:
+		'''
+		Выпускает десятки устрашающих пчёл
+		Пчёлы игнорируют кадры неуязвимости врагов
+		Пчеломёт EX
+		'''
+}
+
+PoniumUltiscepter: {
+	DisplayName: Ультискипетр пониума
+	Tooltip: Посох пониума EX
+}
+
+Spectrum: {
+	DisplayName: Спектр
+	Tooltip:
+		'''
+		Фокусирует разрушительный луч света
+		Последняя призма EX
+		'''
+}
+
+StarburstWand: {
+	DisplayName: Палочка звёздной вспышки
+	Tooltip:
+		'''
+		Удерживайте для зарядки жезла
+		Палочка для розжига EX
+		'''
+}
+
+SubzeroStormStaff: {
+	DisplayName: Посох морозного шторма
+	Tooltip: Посох метели EX
+}
+
+FlamingGelWand: {
+	DisplayName: Гелиевая палочка для розжига
+	Tooltip: Выпускает горящий гель
+}
+
+Gong: {
+	DisplayName: Гонг
+	Tooltip: ""
+}
+
+ManaBlade: {
+	DisplayName: Клинок маны
+	Tooltip: Выпускает самонаводящиеся снаряды ценой маны
+}
+
+TrueGong: {
+	DisplayName: Истинный гонг
+	Tooltip: БОЛЬШОЙ БАДА-БУМ
+}
+
+AncientArcanum: {
+	DisplayName: Древний арканум
+	Tooltip: Выпускает самонаводящийся миниатюрный квазар, взрывающийся при попадании во врага
+}
+
+GaleOfWings: {
+	DisplayName: Крылатый порыв
+	Tooltip: ""
+}
+
+GaleForce: {
+	DisplayName: Силовой порыв
+	Tooltip: ""
+}
+
+RoyalScepter: {
+	DisplayName: Королевский скипетр
+	Tooltip: Выпускает три моркови веером
+}
+
+RabbitsWrath: {
+	DisplayName: Кроличий гнев
+	Tooltip: Обрушивает на врагов острую как бритва морковь
+}
+
+RoyalStaff: {
+	DisplayName: Королевский посох
+	Tooltip:
+		'''
+		Выпускает пять золотых морковок веером
+		Королевский скипетр EX
+		'''
+}
+
+AshRain: {
+	DisplayName: Прах деда
+	Tooltip:
+		'''
+		Выпускает огненный шар, взрывающийся при попадании или через некоторое время
+		Нажмите ПКМ, чтобы взорвать огненные шары
+		'''
+}
+
+FuryFlame: {
+	DisplayName: Яростное пламя
+	Tooltip: Позволяет вам обрушивать на врагов взрывное пламя
+}
+
+SandLamp: {
+	DisplayName: Песчаная лампа
+	Tooltip: ""
+}
+
+DesertStaff: {
+	DisplayName: Пустынный посох
+	Tooltip: Выпускает зачарованный песчаный заряд, взрывающийся при попадании на отскакивающие шары
+}
+
+TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition: {
+	DisplayName: Особое издание «Жизни и эпических приключений чудо-пса Анубиса»
+	Tooltip: ""
+}
+
+ForsakenStaff: {
+	DisplayName: Посох отвергнутого
+	Tooltip: Выпускает 2 самонаводящихся заряда энергии отвергнутого, взрывающихся искрами
+}
+
+MushrockStaff: {
+	DisplayName: Грибокаменный посох
+	Tooltip: ""
+}
+
+CrystalTome: {
+	DisplayName: Кристальный переплёт
+	Tooltip: Выпускает кристаллы, разбивающиеся на осколки
+}
+
+GoldDigger: {
+	DisplayName: Золотокоп
+	Tooltip:
+		'''
+		Выпускает снаряд, который при столкновении с блоком создаёт фонтан монет
+		Одновременно может быть активен только 1 фонтан
+		'''
+}
+
+OreStaff: {
+	DisplayName: Рудный посох
+	Tooltip: ""
+}
+
+BlazePike: {
+	DisplayName: Пылающая пика
+	Tooltip: Очень горячая на ощупь
+}
+
+BlazingBreath: {
+	DisplayName: Пылающее дыхание
+	Tooltip: ""
+}
+
+Volley: {
+	DisplayName: Залп
+	Tooltip: Выпускает три огненных шара равномерным веером
+}
+
+Fireblast: {
+	DisplayName: Огнеудар
+	Tooltip: Выпускает взрывной заряд драконьего пламени
+}
+
+Sunstorm: {
+	DisplayName: Восходящее солнце
+	Tooltip:
+		'''
+		Призывает вращающиеся огненные шары, самонаводящиеся на врагов через некоторое время
+		Зажмите ПКМ, чтобы выпустить их и нацелить вручную
+		'''
+}
+
+MagicFlower: {
+	DisplayName: Магический цветок
+	Tooltip: Миласька
+}
+
+ManaRose: {
+	DisplayName: Роза маны
+	Tooltip:
+		'''
+		Длинная и волшебная
+		Нажмите ПКМ, чтобы выпустить пронзающую розу
+		'''
+}
+
+TrueManaRose: {
+	DisplayName: Истинная роза маны
+	Tooltip:
+		'''
+		Прелестная розочка
+		Нажмите ПКМ, чтобы выпустить пронзающую розу
+		'''
+}
+
+MadnessStaff: {
+	DisplayName: Посох безумия
+	Tooltip: ""
+}
+
+GunkWand: {
+	DisplayName: Пачкалочка
+	Tooltip: ""
+}
+
+SludgeShot: {
+	DisplayName: Грязестрел
+	Tooltip: Фу! Он мшистый!
+}
+
+VenomSpray: {
+	DisplayName: Выплеск яда
+	Tooltip: ""
+}
+
+Depthsprayer: {
+	DisplayName: Глубинный выплёскиватель
+	Tooltip: Покрывает врагов гидратоксином
+}
+
+Toxifang: {
+	DisplayName: Токсиклык
+	Tooltip: Выпускает токсичные клыки
+}
+
+AtlanteanTrident: {
+	DisplayName: Атлантиевый трезубец
+	Tooltip: Выпускает тройной выстрел водяных зарядов
+}
+
+OceanTrident: {
+	DisplayName: Океанический трезубец
+	Tooltip: Очень скользкий
+}
+
+ElectricityShard: {
+	DisplayName: Электрический осколок
+	Tooltip: Выпускает искры равномерным веером
+}
+
+DragonStaff: {
+	DisplayName: Драконий посох
+	Tooltip: Выпускает драконью чешую
+}
+
+Icicle: {
+	DisplayName: Сосулька
+	Tooltip: Выпускает кристаллы, разбивающиеся на осколки
+}
+
+StarStaff: {
+	DisplayName: Звёздный посох
+	Tooltip: ""
+}
+
+TerraFocus: {
+	DisplayName: Терра-фокус
+	Tooltip: Выпускает заряды терра-магии в ваших врагов
+}
+
+NeutronRod: {
+	DisplayName: Нейтронный жезл
+	Tooltip: Выпускает вращающиеся звёзды, отскакивающие от стен
+}
+
+DoomStaff: {
+	DisplayName: Жезл гибели
+	Tooltip: ""
+}
+
+GalacticStormspike: {
+	DisplayName: Галактический луч
+	Tooltip: Выпускает ветвящийся луч тёмного электричества
+}
+
+SquidStorm: {
+	DisplayName: Игра в кальмара
+	Tooltip: Выпускает щупальца из глубин Р'льеха
+}

@@ -1,0 +1,460 @@
+AleisterBook: {
+	DisplayName: Книга Алистера
+	Tooltip:
+		'''
+		Легендарная книга Мега Териона
+		Увеличивает урон призывателя на 10%
+		Увеличивает максимальное количество миньонов на 2
+		Может, ты сможешь сделать его сильнее..?
+		  На обложке есть записка: 
+		  Мне нужны более мощные души, *****,*********,**********
+		'''
+}
+
+TheBookOfTheLaw: {
+	DisplayName: Книга закона
+	Tooltip:
+		'''
+		Легендарная книга Мега Териона
+		Увеличивает урон призывателя на 30%
+		Увеличивает максимальное количество миньонов на 2
+		Включает в себя эффекты от всех использованных для создания компонентов
+
+		'''
+}
+
+DemonGauntlet: {
+	DisplayName: Демоническая рукавица
+	Tooltip: ""
+}
+
+Equinox: {
+	DisplayName: Равноденствие
+	Tooltip: «Идеальный баланс»
+}
+
+Duality: {
+	DisplayName: Двойственность
+	Tooltip: «Этот древний талисман источает хаос»
+}
+
+DragontamersCloak: {
+	DisplayName: Плащ укротителя драконов
+	Tooltip: ""
+}
+
+Lantern: {
+	DisplayName: Фонарь
+	Tooltip: ""
+}
+
+TaiyangBaolei: {
+	DisplayName: Тайян Баолей
+	Tooltip: ""
+}
+
+EnergyConduit: {
+	DisplayName: Энергетический проводник
+	Tooltip: ""
+}
+
+Naitokurosu: {
+	DisplayName: Найтокуросу
+	Tooltip: ""
+}
+
+DarkVoid: {
+	DisplayName: Тёмная пустота
+	Tooltip: «Тёмная и мрачная»
+}
+
+RadiantStar: {
+	DisplayName: Лучезарная звезда
+	Tooltip: «Блестяще»
+}
+
+DarkmatterWings: {
+	DisplayName: Ускоритель тёмной материи
+	Tooltip: ""
+}
+
+StormCharm: {
+	DisplayName: Штормовой амулет
+	Tooltip: ""
+}
+
+StormRiot: {
+	DisplayName: Штормовой щит бунтаря
+	Tooltip: ""
+}
+
+StormPendant: {
+	DisplayName: Штормовое ожерелье
+	Tooltip: ""
+}
+
+HoloCape: {
+	DisplayName: Голографический плащ
+	Tooltip: ""
+}
+
+StormClaw: {
+	DisplayName: Штормовой коготь
+	Tooltip: ""
+}
+
+APageOfTheRuneBook: {
+	DisplayName: Страница из книги рун
+	Tooltip: ""
+}
+
+EmperorFishronWings: {
+	DisplayName: Крылья Императора Рыброна
+	Tooltip: ""
+}
+
+TheBookOfRunes: {
+	DisplayName: Книга рун
+	Tooltip: ""
+}
+
+BulwarkOfChaos: {
+	DisplayName: Оплот хаоса
+	Tooltip: ""
+}
+
+FireFrostMedallion: {
+	DisplayName: Ледопламенный медальон
+	Tooltip: ""
+}
+
+CursedEyeOfTheSoulBinder: {
+	DisplayName: Душесвязное око
+	Tooltip: ""
+}
+
+OlympianWings: {
+	DisplayName: Олимпийские крылья
+	Tooltip: ""
+}
+
+SeraphHarp: {
+	DisplayName: Арфа Серафима
+	Tooltip: ""
+}
+
+GoddessHarp: {
+	DisplayName: Арфа Богини
+	Tooltip: ""
+}
+
+RabbitcopterWings: {
+	DisplayName: Уши Кролёта
+	Tooltip: «Да, так заячьи уши не работают, но кому какая разница как они работают?»
+}
+
+RajahRabbitsSashOfVengeance: {
+	DisplayName: Пояс мести Кролика-Раджи
+	Tooltip: ""
+}
+
+RajahRabbitsCloakOfSupremacy: {
+	DisplayName: Пояс господства Кролика-Раджи
+	Tooltip: «Заступник невиновных признал вас достойным преемником»
+}
+
+ClawOfChaos: {
+	DisplayName: Коготь хаоса
+	Tooltip: ""
+}
+
+ChaosWings: {
+	DisplayName: Хаотические крылья
+	Tooltip: ""
+}
+
+DragonstrideBoots: {
+	DisplayName: Дракоходы
+	Tooltip: ""
+}
+
+HeartOfPassion: {
+	DisplayName: Сердце страсти
+	Tooltip: ""
+}
+
+HeartOfSorrow: {
+	DisplayName: Сердце скорби
+	Tooltip: ""
+}
+
+WingsOfChaos: {
+	DisplayName: Крылья хаоса
+	Tooltip: ""
+}
+
+SandstormMedallion: {
+	DisplayName: Медальон песчаной бури
+	Tooltip: ""
+}
+
+VultureWings: {
+	DisplayName: Крылья стервятника
+	Tooltip: ""
+}
+
+ArtifactOfJudgement: {
+	DisplayName: Артефакт судьи
+	Tooltip: ""
+}
+
+ArtifactOfGuilt: {
+	DisplayName: Артефакт вины
+	Tooltip: ""
+}
+
+PalladiumShield: {
+	DisplayName: Палладиевый щит
+	Tooltip: ""
+}
+
+GlowingTruffle: {
+	DisplayName: Светящийся трюфель
+	Tooltip: «Не облизывай его»
+}
+
+TruffleLegs: {
+	DisplayName: Трюфельные лапки
+	Tooltip: ""
+}
+
+CharmOfDesire: {
+	DisplayName: Амулет желаний
+	Tooltip: ""
+}
+
+TalismanOfDesire: {
+	DisplayName: Талисман желаний
+	Tooltip: ""
+}
+
+DragonsGuard: {
+	DisplayName: Драконий оплот
+	Tooltip: ""
+}
+
+MagmancerWings: {
+	DisplayName: Крылья Магмаманта
+	Tooltip: ""
+}
+
+OrnateBand: {
+	DisplayName: Изящный браслет
+	Tooltip: ""
+}
+
+DraconianWings: {
+	DisplayName: Крылья драконьего солнца
+	Tooltip: ""
+}
+
+HydraPendant: {
+	DisplayName: Ожерелье Гидры
+	Tooltip: ""
+}
+
+AshProofVest0: {
+	DisplayName: Пепельнозащитный жилет
+	Tooltip:
+		'''
+		{$Accessories.AshProofVest3.SharedFlavorText}
+		Состояние жилета: Ashes in the wind... (Пепел на ветру...)
+		'''
+}
+
+AshProofVest1: {
+	DisplayName: Пепельнозащитный жилет
+	Tooltip:
+		'''
+		{$Accessories.AshProofVest3.SharedFlavorText}
+		Состояние жилета: Going going gone (Почти, почти, всё)
+		'''
+}
+
+AshProofVest2: {
+	DisplayName: Пепельнозащитный жилет
+	Tooltip:
+		'''
+		{$Accessories.AshProofVest3.SharedFlavorText}
+		Состояние жилета: Seen better days (Бывало и лучше)
+		'''
+}
+
+AshProofVest3: {
+	SharedFlavorText: Слишком долгое пребывание в огненной буре повредит этот аксессуар и приведёт к его разрушению...
+	DisplayName: Пепельнозащитный жилет
+	Tooltip:
+		'''
+		{$Accessories.AshProofVest3.SharedFlavorText}
+		Состояние жилета: Good as new (Как новый)
+		'''
+}
+
+ShadowBand: {
+	DisplayName: Теневой нарукавник
+	Tooltip: ""
+}
+
+AquamancerWings: {
+	DisplayName: Крылья Акваманта
+	Tooltip: ""
+}
+
+BlackLotusEmblem: {
+	DisplayName: Эмблема чёрного лотоса
+	Tooltip: ""
+}
+
+BotchedBand: {
+	DisplayName: Изуродованный браслет
+	Tooltip: ""
+}
+
+DreadMoonWings: {
+	DisplayName: Крылья ужасающей луны
+	Tooltip: ""
+}
+
+OldOneCharm: {
+	DisplayName: Амулет старца
+	Tooltip: ""
+}
+
+HeartyTruffle: {
+	DisplayName: Ядрёный трюфель
+	Tooltip: «Не ешь его»
+}
+
+ArcticMedallion: {
+	DisplayName: Арктический медальон
+	Tooltip: ""
+}
+
+RadiumWings: {
+	DisplayName: Лучезарнитные крылья
+	Tooltip: ""
+}
+
+TerraWings: {
+	DisplayName: Терра-крылья
+	Tooltip: ""
+}
+
+SagittariusShield: {
+	DisplayName: Щит Сагиттариуса
+	Tooltip: ""
+}
+
+BrokenCode: {
+	DisplayName: Поломанный код
+	Tooltip: «Ты неважно выглядишь»
+}
+
+ZeroWings: {
+	DisplayName: Ранец Зир0
+	Tooltip: ""
+}
+
+DragonSerpentNecklace: {
+	DisplayName: Ожерелье драконического змея
+	Tooltip: ""
+}
+
+MadnessTruffle: {
+	DisplayName: Трюфель безумия
+	Tooltip: «Знаешь что? Не смей даже нюхать его»
+}
+
+HeartOfAnarchy: {
+	DisplayName: Сердце анархии
+	Tooltip: «В этом старинном фарфоре в унисон бьются сестринские сердца»
+}
+
+MetallicTruffle: {
+	DisplayName: Металлический трюфель
+	Tooltip: «Не кусай его»
+}
+
+AnkhNecklace: {
+	DisplayName: Ожерелье анха
+	Tooltip: ""
+}
+
+AnkhScarf: {
+	DisplayName: Шарф анха
+	Tooltip: ""
+}
+
+AnkhTablet: {
+	DisplayName: Табличка анха
+	Tooltip: ""
+}
+
+DwarvenGauntlet: {
+	DisplayName: Карликовая перчатка
+	Tooltip: «Ладно. Я сделаю это сам»
+}
+
+MindStone: {
+	DisplayName: Камень разума
+	Tooltip: «Тут ведь чистая математика»
+}
+
+PowerStone: {
+	DisplayName: Камень силы
+	Tooltip: «Когда выстраиваешь баланс во вселенной, обычно не до веселья»
+}
+
+RealityStone: {
+	DisplayName: Камень реальности
+	Tooltip: «Реальность часто разочаровывает. Так было раньше. Теперь — реальность может быть такой, какой я захочу»
+}
+
+SoulStone: {
+	DisplayName: Камень души
+	Tooltip: «Сегодня я потерял больше, чем ты можешь себе представить»
+}
+
+TimeStone: {
+	DisplayName: Камень времени
+	Tooltip:
+		'''
+		Используя как предмет можно останавливать и возобновлять время
+		«Бойтесь этого. Бегите от этого. Судья всё равно настигнет вас»
+		'''
+}
+
+SpaceStone: {
+	DisplayName: Камень космоса
+	Tooltip:
+		'''
+		Нажмите горячую клавишу «Разлом», чтобы вернуться домой
+		Нажмите горячую клавишу «Возврат в разлом», чтобы вернуться к месту последнего разлома
+		«Но это… вызывает улыбку на моём лице»
+		'''
+}
+
+InfinityGauntlet: {
+	DisplayName: Перчатка бесконечности
+	Tooltip: Безупречный баланс, эталон гармонии
+}
+
+KappaFins: {
+	DisplayName: Плавники Каппы
+	Tooltip: ""
+}
+
+KappaGear: {
+	DisplayName: Снаряжение Каппы
+	Tooltip: ""
+}

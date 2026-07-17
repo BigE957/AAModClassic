@@ -1,0 +1,339 @@
+GlobalNPCInfo.NPCarrive: " пробуждается!"
+
+EnemyChat: {
+	SeraphChat1: О-о-й, ты такой скучняшка! Тру-у-уси-и-ишка..!
+	SeraphChat2: Ха-ха-ха! Сбегаешь как и все эти бесхребетные землеходцы, коим ты и являешься!
+	SeraphChat3: Как скучно.
+	SeraphChat4: Ну вернись! Мне было так весело пинать тебя..!
+	SeraphChat5: О-о-й, ну что ты, землеходец-младший. Ну заплачь!
+	SeraphKillChat1: У-у-упс. Сдохли. Как так то..!
+	SeraphKillChat2: Ха! Моя взяла!
+	SeraphKillChat3: Было весело! Возвращайся, когда перестанешь отсасывать!, соплежуй!
+	SeraphKillChat4: И НЕ ПРИХОДИ СЮДА БОЛЬШЕ..!
+	SeraphKillChat5: Ну-у-у, не впечатлил... Ты просто жалок!
+	SeraphHurtChat1: АЙ СУ..! Слышь, НАГЛЕЦ! АФИНА-А-А-А-А-А-А-А-А-А-А-А-А!!!
+	SeraphHurtChat2: СЛЫШЬ! Я же просто играл! Вот щас-щас, погоди, Афина КАК УЗНАЕТ, А!
+	SeraphHurtChat3: НУ ВСЁ, хватит с тебя! Ох, э- АФИ-И-И-И-И-И-И-ИНА-А-А-А-А-А-А-А!
+	SeraphHurtChat4: БОЛЬНО МАТЬ ТВ..! МХВУУУУ-УУУ-УУУ АФИНА-А-А-А-А-А ЗЕМЛЕХОДЕЦ МЕНЯ ОБИЖАЕТ!
+	SeraphHurtChat5: *АХ*! Ты мне платье порвал..! Я щас Афину позову..!
+	SeraphAthenaRunChat1: Всё, с тебя хватит...!
+	SeraphAthenaRunChat2: Я, пожалуй, пойду...
+	SeraphAthenaRunChat3: Щас ты получишь!
+	SeraphAthenaRunChat4: Что будет дальше - уже не моя проблема.
+	SeraphAthenaRunChat5: Да! Съел?!
+	AthenaChat1: ...боже...эти мелкие плаксы--
+	AthenaChat2: У меня нет на это времени..!
+}
+
+Athena.DisplayName: Афина
+AthenaDefeat.DisplayName: Побеждённая Афина
+AthenaFlee.DisplayName: Афина
+OwlRune.DisplayName: Руна совы
+SeraphA.DisplayName: Серафим-страж
+Seraph.DisplayName: Серафим
+SeraphHurt.DisplayName: Раненый серафим
+AthenaA.DisplayName: Олимпийская Афина
+AthenaCloneDark.DisplayName: Клон Афины
+AthenaCloneLight.DisplayName: Клон Афины
+ChargedOwlRune.DisplayName: Заряженная руна совы
+SeraphHerald.DisplayName: Серафим-глашатай
+BunnyBrawler.DisplayName: Кролик-боец
+RabbitcopterSoldier.DisplayName: Кролёт-солдат
+RabidRabbit.DisplayName: Бешекроль
+RajahRabbit.DisplayName: Кролик-Раджа
+RoyalRabbit_NPC.DisplayName: Королевский кролик
+RajahRabbitA.DisplayName: Кролик-Раджа; Заступник невинных
+RajahRabbitADefeat.DisplayName: Кролик-Раджа
+SupremeBunnyBrawler.DisplayName: Высший кролик-боец
+SupremeRabbitcopterSoldier.DisplayName: Высший кролёт-солдат
+SupremeRabidRabbit.DisplayName: Высший бешекроль
+GripOfChaosInferno.DisplayName: Длань Инферно
+GripOfChaosMire.DisplayName: Длань Трясины
+ChaosDragon.DisplayName: Дракон хаоса
+ShenDoragonA.DisplayName: Пробуждённый Шэнь Доракон
+ShenDoragon.DisplayName: Шэнь Доракон; Вестник Раздора
+AbyssGrip.DisplayName: Длань гнева бездны
+BlazeGrip.DisplayName: Длань пылающей ярости
+ShenDoragon_Hitbox.DisplayName: Шэнь Доракон; Вестник Раздора
+ShenDoragonDeath.DisplayName: Погибель Раздора
+ShenDoragonDefeat.DisplayName: Побеждённый Раздор
+ShenDoragonSpawn.DisplayName: Раздор
+ShenDoragonTransition.DisplayName: Пробуждённый Раздор
+FuryAshe.DisplayName: Разъярённая Эш
+FuryAsheVanish.DisplayName: Эш Акума
+FuryFlameVortex.DisplayName: Пламя вихря
+ShenlingBody1.DisplayName: Змей Раздора
+ShenlingBody2.DisplayName: Змей Раздора
+ShenlingHead.DisplayName: Змей Раздора
+ShenlingTail.DisplayName: Змей Раздора
+WrathHaruka.DisplayName: Разгневанная Харука
+WrathHarukaClone.DisplayName: Разгневанная Харука
+WrathHarukaVanish.DisplayName: Разгневанная Харука
+AHDeath.DisplayName: Побеждённые сёстры
+AHSpawn.DisplayName: Сёстры Раздора
+Ashe.DisplayName: Эш Акума
+AshenDragonArms.DisplayName: Пепельный дракон
+AshenDragonBody1.DisplayName: Пепельный дракон
+AshenDragonBody2.DisplayName: Пепельный дракон
+AshenDragonBody3.DisplayName: Пепельный дракон
+AshenDragonHead.DisplayName: Пепельный дракон
+AshenDragonTail.DisplayName: Пепельный дракон
+AsheRune.DisplayName: Руна Эш
+AsheSpawn.DisplayName: Эш Акума
+AsheVanish.DisplayName: Эш Акума
+FlameVortex.DisplayName: Пламя вихря
+Haruka.DisplayName: Харука Ямата
+HarukaClone.DisplayName: Харука Ямата
+HarukaFall.DisplayName: Харука Ямата
+HarukaSpawn.DisplayName: Харука Ямата
+HarukaVanish.DisplayName: Харука Ямата
+DesertDjinn.DisplayName: Пустынный Джинн
+// DustDjinn.DisplayName: Dust Djinn
+Anubis.DisplayName: Анубис Легендописец
+EyeSentry.DisplayName: Глаз-страж
+HorusHawk.DisplayName: Сокол Гора
+Locust.DisplayName: Саранча
+MinionRitual.DisplayName: Ритуал миньонов
+Scarab.DisplayName: Скарабей
+UraeusBody.DisplayName: Урей
+UraeusHead.DisplayName: Голова Урея
+UraeusTail.DisplayName: Урей
+AnubisA.DisplayName: Анубис; Отвергнутый судья
+AnubisForsakenTransition.DisplayName: Анубис Легендописец
+CursedLocust.DisplayName: Проклятая саранча
+// CursedMinionRitual.DisplayName: Cursed Ritual
+CursedScarab.DisplayName: Проклятый скарабей
+ForsakenSun.DisplayName: Отвергнутое солнце
+HorusSentry.DisplayName: Страж Гора
+Naddaha.DisplayName: Наддаха
+FeudalFungus.DisplayName: Грибной феодал
+FeudalFungus_FungalSpore.DisplayName: Грибная спора
+FeudalFungus_FungusFlier.DisplayName: Гриболетун
+FeudalFungusAsleep.DisplayName: Огроменный светящийся гриб
+FeudalFungusWakeUp.DisplayName: Огроменный светящийся гриб...?
+GlowingMushling.DisplayName: Светящийся грибёнок
+GregariousGlowshrooms.DisplayName: Кучка светящихся грибов
+LuminousAccordyceps.DisplayName: Блестящий аккордицепс
+TruffleToad.DisplayName: Трюфельная жаба
+TinyToad.DisplayName: Жабка
+FatPixie.DisplayName: Толстая пикси
+GreedBody.DisplayName: Алчность
+GreedHead.DisplayName: Алчность
+GreedTransition.DisplayName: Искра Алчности
+OreConstruct.DisplayName: Рудный конструкт
+SparkOfDesire.DisplayName: Искра желаний
+ScavengerBody.DisplayName: Расхититель
+ScavengerHead.DisplayName: Расхититель
+ScavengerTail.DisplayName: Расхититель
+GreedABody.DisplayName: Король червей, Алчность
+GreedAHead.DisplayName: Король червей, Алчность
+SingularityOfDesire.DisplayName: Сингулярность желаний
+Broodmini.DisplayName: Мини-выводок
+Broodmother.DisplayName: Матерь выводка
+DragonEgg.DisplayName: Яйцо драконихи
+InfernalSlime.DisplayName: Инфернальный слизень
+DragonClaw_NPC.DisplayName: Коготь драконихи
+FlameBrute.DisplayName: Пламенный громила
+Singemander.DisplayName: Палямандра
+WyrmlingBody.DisplayName: Змеевичок
+WyrmlingHead.DisplayName: Змеевичок
+WyrmlingTail1.DisplayName: Змеевичок
+WyrmlingTail2.DisplayName: Змеевичок
+BlazePhoenix.DisplayName: Пылающий феникс
+InfernalGhoul.DisplayName: Инфернальный гуль
+PigronInferno.DisplayName: Свинрон
+ChaoticDawn.DisplayName: Хаотический рассвет
+InfernoMimic.DisplayName: Мимик инферно
+WyrmBody1.DisplayName: Змей
+WyrmBody2.DisplayName: Змей
+WyrmBody3.DisplayName: Змей
+WyrmBody4.DisplayName: Змей
+WyrmHead.DisplayName: Змей
+MagmaSwimmer.DisplayName: Магмовый пловец
+AkumaBody.DisplayName: Акума, Драконический демон
+AkumaHead.DisplayName: Акума; Драконический демон
+AkumaTransition.DisplayName: Душа ярости
+AkumaABody.DisplayName: Они Акума
+AkumaAHead.DisplayName: Они Акума
+AwakenedLungBody.DisplayName: Пробуждённый Лун
+AwakenedLungHead.DisplayName: Пробуждённый Лун
+AwakenedLungTail.DisplayName: Пробуждённый Лун
+BlazeClaw.DisplayName: Пылающий коготь
+AncientLungBody.DisplayName: Древний Лун
+AncientLungHead.DisplayName: Древний Лун
+AncientLungTail.DisplayName: Древний Лун
+MadnessBat.DisplayName: Безумный летун
+MadnessSlime.DisplayName: Безумный слизень
+HarukaShadowPostHydra.DisplayName: ...
+HarukaShadow.DisplayName: ...
+HydraBody.DisplayName: Гидра
+HydraHead1.DisplayName: Гидра
+HydraHead2.DisplayName: Гидра
+HydraHead3.DisplayName: Гидра
+HydraHead4.DisplayName: Гидра
+HydraHead5.DisplayName: Гидра
+HydraHead6.DisplayName: Гидра
+HydraHead7.DisplayName: Гидра
+HydraHead8.DisplayName: Гидра
+HydraHead9.DisplayName: Гидра
+MurkySlime.DisplayName: Мутный слизень
+HydraClaw_NPC.DisplayName: Коготь гидры
+Mosster.DisplayName: Мохстр
+Newt.DisplayName: Тритон
+Skulker.DisplayName: Скрытень
+Kappa.DisplayName: Каппа
+Toxitoad.DisplayName: Токсижаба
+ShadowGhoul.DisplayName: Теневой гуль
+PigronMire.DisplayName: Свинрон
+ChaoticTwilight.DisplayName: Хаотический закат
+MireMimic.DisplayName: Мимик трясины
+Miresquito.DisplayName: Комар трясины
+FogAngler.DisplayName: Мглистый удильщик
+MireSoul.DisplayName: Душа трясины
+YamataABody.DisplayName: Ямата
+YamataAHead.DisplayName: Ямата-но Ороти
+YamataAHeadFake.DisplayName: Ямата-но Ороти
+YamataBody.DisplayName: Ямата
+YamataHead.DisplayName: Ямата
+YamataHeadFake1.DisplayName: Ямата
+YamataHeadFake2.DisplayName: Ямата
+YamataTransition.DisplayName: Дух гнева
+AbyssClaw.DisplayName: Коготь бездны
+Soulsucker.DisplayName: Душесос
+Mushling.DisplayName: Грибёнок
+MushroomMonarch.DisplayName: Грибной монарх
+MushroomMonarchAsleep.DisplayName: Огроменный гриб
+MushroomMonarchWakeUp.DisplayName: Огроменный гриб...?
+FungusFrog.DisplayName: Грибная лягушка
+Mushbug.DisplayName: Грибожук
+MushroomCrab.DisplayName: Грибной краб
+MushroomJelly.DisplayName: Грибная медуза
+MushroomZombie.DisplayName: Грибной зомби
+MushroomZombie2.DisplayName: Грибной зомби
+ElderDragon.DisplayName: Доисторический дракон
+IceCrystal.DisplayName: Ледяной кристалл
+SubzeroSerpentBody.DisplayName: "{$NPCs.SubzeroSerpentHead.DisplayName}"
+SubzeroSerpentHead.DisplayName: Морозная змея
+SubzeroSerpentTail.DisplayName: "{$NPCs.SubzeroSerpentHead.DisplayName}"
+SnowSerpentBody.DisplayName: Снежная змея
+SnowSerpentHead.DisplayName: Снежная змея
+SnowSerpentTail.DisplayName: Снежная змея
+DaybringerBody.DisplayName: Вестница дня
+DaybringerHead.DisplayName: Вестница дня
+DaybringerTail.DisplayName: Вестница дня
+Equiprobe.DisplayName: Зонд равноденствия
+NightCloud.DisplayName: Ночное облако
+NightcrawlerBody.DisplayName: Ползун ночи
+NightcrawlerHead.DisplayName: Ползун ночи
+NightcrawlerTail.DisplayName: Ползун ночи
+SunWatcher.DisplayName: Солнечный наблюдатель
+NightGuard.DisplayName: Ночной страж
+DBPortal.DisplayName: Мерцающее солнце
+NCPortal.DisplayName: Облитая тьмой луна
+WormSpawn.DisplayName: Небесный голос
+PurityCrawler.DisplayName: Ползун непорочности
+PuritySphere.DisplayName: Сфера непорочности
+PuritySquid.DisplayName: Кальмар непорочности
+PurityWeaverBody.DisplayName: Терра-ткач
+PurityWeaverHead.DisplayName: Ткач непорочности
+PurityWeaverTail.DisplayName: Терра-ткач
+TerraDeadshot.DisplayName: Терра-стрелок
+TerraKnight.DisplayName: Терра-рыцарь
+TerraSquire.DisplayName: Терра-оруженосец
+TerraWarlock.DisplayName: Терра-колдун
+TerraCrawler.DisplayName: Терра-ползун
+TerraSphere.DisplayName: Терра-сфера
+TerraSquid.DisplayName: Терра-кальмар
+TerraWeaverBody.DisplayName: Терра-ткач
+TerraWeaverHead.DisplayName: Терра-ткач
+TerraWeaverTail.DisplayName: Терра-ткач
+TerraWizard.DisplayName: Терра-волшебник
+UnityProbe.DisplayName: Юнити-зонд
+UnityWatcher.DisplayName: Юнити-наблюдатель
+Sagittarius.DisplayName: Сагиттариус
+ShadowScout.DisplayName: Теневой разведчик
+StoneSearcher.DisplayName: Каменный искатель
+ZeroDeactivated.DisplayName: Загадочная машина
+VoidScout.DisplayName: Пустотный разведчик
+Vortex.DisplayName: Вихрь
+NullZP.DisplayName: Нуль
+Null.DisplayName: Нуль
+ZeroA.DisplayName: ЗИРО-ПРОТОКОЛ
+ZeroEcho.DisplayName: 3ХО
+ZeroMini.DisplayName: САМООРГАНИЗАЦИЯ ЗИРО
+ZeroTransition.DisplayName: Сломанный разлом
+Zero.DisplayName: Зиро
+ZeroBrokenWeapon.DisplayName: Сломанное оружие
+ZeroGenocideCannon.DisplayName: Пушка геноцида
+ZeroGigataser.DisplayName: Гигашокер
+ZeroNeutralizer.DisplayName: Нейтрализатор
+ZeroNovaFocus.DisplayName: Фокус Новой
+ZeroOmegaVolley.DisplayName: Омега-залп
+ZeroRealityCannon.DisplayName: Пушка реальности
+ZeroRiftShredder.DisplayName: Кромсатель разлома
+ZeroVoidStar.DisplayName: Пустотная звезда
+Searcher.DisplayName: Искатель
+OrthrusXBody.DisplayName: Орф X
+OrthrusXHead.DisplayName: Орф X
+OrthrusXHead_OrthrusReticle.DisplayName: Прицел Орфа
+RaiderEgg.DisplayName: Яйцо налётчицы
+RaiderUltima.DisplayName: Налётчица Ультима
+RaiderUltima_RaiderRocket.DisplayName: Ракета Налётчицы
+Raidmini.DisplayName: Мини-налётчик
+Retriever.DisplayName: Ретривер
+CyberClaw.DisplayName: Кибер-коготь
+AmbientSoulOfCthulhu.DisplayName: ???
+OlympianDragon.DisplayName: Олимпийский дракон
+AnubisUnreleased.DisplayName: Анубис Легендописец
+AnubisCircle.DisplayName: Круг Анубиса
+BiomiteCore.DisplayName: Биомитовое ядро
+TechnoTruffle.DisplayName: Техно-трюфель
+TruffleProbe.DisplayName: Зонд трюфеля
+Truffling.DisplayName: Трюфлик
+DimensionDiver.DisplayName: Ныряльщик впадины
+RiftShark.DisplayName: Акула впадины
+Cthulhu.DisplayName: Ктулху, Космическое бедствие
+DeityBrain.DisplayName: Лху'Кту
+EyeOfAzathoth.DisplayName: Око Азатота
+DeityEater.DisplayName: Кром Круах
+DeityEaterBody.DisplayName: Кром Круах
+DeityEaterTail.DisplayName: Кром Круах
+DeityEye.DisplayName: Кьяэгха
+DeityLeviathan.DisplayName: Мерзкоспрут
+DeityShark.DisplayName: Божественная акула
+DeityShark2.DisplayName: Божественная акула
+LeviathanBubble.DisplayName: Пузырь левиафана
+DeityRose.DisplayName: Эй'лор
+DeityRoseClaws.DisplayName: Щупальце эй'лора
+DeityRoseHook.DisplayName: Коготь эй'лора
+DeityRoseSpore.DisplayName: Спора эй'лора
+ShadowUrchin.DisplayName: Теневой ёж
+DeitySkull.DisplayName: Ран-Тегот
+DeitySkull_Hand.DisplayName: Коготь тегота
+DeitySkull_Hand1.DisplayName: Коготь тегота
+DeitySkull_Hand2.DisplayName: Коготь тегота
+DeitySkull_Hand3.DisplayName: Коготь тегота
+DeitySkull_Hand4.DisplayName: Коготь тегота
+DeitySkull_Hand5.DisplayName: Коготь тегота
+CthulhuPortal.DisplayName: Тёмный портал
+CthulhuSpawn.DisplayName: Квантовый портал
+DeityDragon.DisplayName: Псиверна
+DeityDragon_Arms.DisplayName: Псиверна
+DeityDragon_Body1.DisplayName: Псиверна
+DeityDragon_Body2.DisplayName: Псиверна
+DeityDragon_Body3.DisplayName: Псиверна
+DeityDragon_Tail.DisplayName: Псиверна
+Portal.DisplayName: Портал разлома
+RiftVision.DisplayName: Видение разлома
+SoulOfCthulhu.DisplayName: Душа Ктулху
+UDUNFUKED.DisplayName: Тень Лавкрафтийца
+TrenchSquid.DisplayName: Кальмар впадины
+InfinityCore.DisplayName: Безграничный Зиро
+InfinityZero.DisplayName: Безграничный Зиро; Механический злыдень
+InfinityZeroHand1.DisplayName: Скованный Зиро
+InfinityZeroHand2.DisplayName: Скованный Зиро
+InfinityZeroSpawn1.DisplayName: Смерть
+Oblivion.DisplayName: Забвение
+TerraSerpentBody.DisplayName: Терра-змей
+TerraSerpentHead.DisplayName: Терра-змей
+TerraSerpentTail.DisplayName: Терра-змей

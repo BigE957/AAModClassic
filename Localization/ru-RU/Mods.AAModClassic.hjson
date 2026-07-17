@@ -1,0 +1,73 @@
+Keybinds: {
+	Rifthotkey: Разлом
+	RiftReturnhotkey: Обратно в разлом
+	AccessoryAbilityKey: Способность аксессуара
+	ArmorAbilityKey: Способность брони
+
+	Mods: {
+		AAModClassic: {
+			Keybinds: {
+				InfinityHotKey.DisplayName: Щелчок
+				Rifthotkey.DisplayName: Разлом
+				RiftReturnhotkey.DisplayName: Обратно в разлом
+				AccessoryAbilityKey.DisplayName: Способность аксессуара
+				ArmorAbilityKey.DisplayName: Способность брони
+				TimeStoneKey.DisplayName: Камень времени
+			}
+		}
+	}
+}
+
+Configs: {
+	AAConfigClient: {
+		DisplayName: Клиентская конфигурация
+
+		NoAATownNPC: {
+			Label: Отключить НИПов AA
+			Tooltip: Отключает появление городских НИПов из этого мода, чтобы другие появлялись быстрее. Не влияет на Анубиса - он нужен для прохождения
+		}
+
+		NoBossDialogue: {
+			Label: Отключить диалоги боссов
+			Tooltip: Убирает диалоги боссов, чтобы не засорять чат. Анимации с репликами проходят немного быстрее
+		}
+
+		DisableNewAAReminderMessage: {
+			Label: Отключить напоминание о новой версии AA
+			Tooltip: Убирает сообщение при входе в мир, советующее попробовать Ancients Awakened [BETA]
+		}
+
+		EnableContentReplacement: {
+			Label: Включить замену контента
+			Tooltip: ""
+		}
+
+		AncientIntroText: {
+			Label: Карточки с именами боссов
+			Tooltip: Включает или отключает титульные карточки, показываемые при призыве некоторых поздних боссов
+		}
+
+		DisableAnticheat: {
+			Label: Отключить античит
+			Tooltip: Отключает некоторые античит-функции мода
+		}
+
+		DisablePinchThemes: {
+			Label: Отключить темы критического состояния
+			Tooltip: Отключает музыкальную тему, звучащую, когда у финальных боссов остаётся мало здоровья
+		}
+
+		HideIdentifiableInfo: {
+			Label: Скрыть личную информацию
+			Tooltip: Отключает диалоги, ломающие четвёртую стену, которые используют личную информацию
+		}
+	}
+}
+
+WorldBuild: {
+	Info1: Размещение алтарей хаоса...
+	Info2: Распространение хаоса...
+	Info3: Порождение знойного Инферно...
+	Info4: Порождение затопленной Трясины...
+	Info5: Построение Террариума...
+}

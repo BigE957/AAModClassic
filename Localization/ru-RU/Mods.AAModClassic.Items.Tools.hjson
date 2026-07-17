@@ -1,0 +1,339 @@
+DarkmatterJackhammer: {
+	DisplayName: Отбойный молот из тёмной материи
+	Tooltip: ""
+}
+
+DarkmatterPitchet: {
+	DisplayName: Киркосекира из тёмной материи
+	Tooltip: ""
+}
+
+Terratool: {
+	DisplayName: Терра-инструмент
+	Tooltip:
+		'''
+		Нажмите ПКМ, чтобы сменить тип инструмента
+		Одновременно может быть активно не более 2 типов инструментов
+		'''
+}
+
+DoomiteMiningLaser: {
+	DisplayName: Гибельнитовый шахтёрский лазер
+	Tooltip: Добывает руду антиматериальным лазером
+}
+
+FulguritePitchet: {
+	DisplayName: Фульгуритовая киркосекира
+	Tooltip: ""
+}
+
+ExtravagantTerratool: {
+	DisplayName: Экстравагантный терра-инструмент
+	Tooltip:
+		'''
+		Нажмите ПКМ, чтобы сменить тип инструмента
+		Одновременно может быть активно не более 2 типов инструментов
+		'''
+}
+
+GroviteTerratool: {
+	DisplayName: Рощевитовый терра-инструмент
+	Tooltip:
+		'''
+		Нажмите ПКМ, чтобы сменить тип инструмента
+		Одновременно может быть активно не более 2 типов инструментов
+		'''
+}
+
+Terraformer: {
+	DisplayName: Терраформатор
+	Tooltip:
+		'''
+		Нажмите ПКМ, чтобы сменить тип инструмента
+		Одновременно может быть активно не более 2 типов инструментов
+		Терра-инструмент EX
+		'''
+}
+
+ChaosTerratool: {
+	DisplayName: Терра-инструмент хаоса
+	Tooltip:
+		'''
+		Нажмите ПКМ, чтобы сменить тип инструмента
+		Одновременно может быть активно не более 2 типов инструментов
+		'''
+}
+
+Timecaller: {
+	DisplayName: Взыватель ко времени
+	Tooltip:
+		'''
+		Вызывает грядущий рассвет/закат
+		Не расходуется
+		'''
+}
+
+DiscordianTerratool: {
+	DisplayName: Раздорнитовый терра-инструмент
+	Tooltip:
+		'''
+		Нажмите ПКМ, чтобы сменить тип инструмента
+		Одновременно может быть активно не более 2 типов инструментов
+		'''
+}
+
+Nightaxe: {
+	DisplayName: Кирка ночи
+	Tooltip: ""
+}
+
+TrueNightaxe: {
+	DisplayName: Истинная кирка ночи
+	Tooltip: ""
+}
+
+Scalpel: {
+	DisplayName: Скальпель
+	Tooltip: ""
+}
+
+TrueScalpel: {
+	DisplayName: Истинный скальпель
+	Tooltip: ""
+}
+
+Excavator: {
+	DisplayName: Экскаватор
+	Tooltip: ""
+}
+
+Toothpick: {
+	DisplayName: Зубочистка
+	Tooltip: ""
+}
+
+GlowingMushmallet: {
+	DisplayName: Светящийся шляпкотрошитель
+	Tooltip: ""
+}
+
+GlowingMushpick: {
+	DisplayName: Светящееся грибокайло
+	Tooltip: ""
+}
+
+UnityPickaxe: {
+	DisplayName: Юнити-кирка
+	Tooltip: Может добывать мифрил и орихалк
+}
+
+MINEer: {
+	DisplayName: РУДО-коп
+	Tooltip: Быстрее добывает руду
+}
+
+Unearther: {
+	DisplayName: Недрокоп
+	Tooltip: Добывает руду ещё быстрее
+}
+
+DragonDigger: {
+	DisplayName: Дракопатель
+	Tooltip: Драконы на самом деле не умеют копать, но неважно
+}
+
+Stonebreaker: {
+	DisplayName: Каменолом
+	Tooltip: ""
+}
+
+PerfectStonebreaker: {
+	DisplayName: Превосходный каменолом
+	Tooltip: ""
+}
+
+ScorchShark: {
+	DisplayName: Опаляющая акула
+	Tooltip: ""
+}
+
+Suncaller: {
+	DisplayName: Взыватель солнца
+	Tooltip:
+		'''
+		Вызывает утреннее солнце
+		Не расходуется
+		'''
+}
+
+DraconianTerratool: {
+	DisplayName: Драконический терра-инструмент
+	Tooltip:
+		'''
+		Нажмите ПКМ, чтобы сменить тип инструмента
+		Одновременно может быть активно не более 2 типов инструментов
+		+20 к дальности
+		'''
+}
+
+Grasscutter: {
+	DisplayName: Садовник
+	Tooltip: ""
+}
+
+MadnessAxe: {
+	DisplayName: Топор безумия
+	Tooltip: ""
+}
+
+MadnessHammer: {
+	DisplayName: Молот безумия
+	Tooltip: ""
+}
+
+MadnessPickaxe: {
+	DisplayName: Кирка безумия
+	Tooltip: ""
+}
+
+HydraTuneller: {
+	DisplayName: Гидрорытник
+	Tooltip: Ладно, это уже смешно. Гидры не пользуются бурами
+}
+
+ShadowDrill: {
+	DisplayName: Теневой бур
+	Tooltip: Добывает вещи вращающейся... зелёной штукой, наверное?
+}
+
+DepthDigger: {
+	DisplayName: Глубинный копатель
+	Tooltip: ""
+}
+
+Mooncaller: {
+	DisplayName: Взыватель луны
+	Tooltip:
+		'''
+		Вызывает вечернюю луну
+		Не расходуется
+		'''
+}
+
+PerfectShadowDrill: {
+	DisplayName: Превосходный теневой бур
+	Tooltip: Вот это уже другое дело
+}
+
+DreadTerratool: {
+	DisplayName: Ужасающий терра-инструмент
+	Tooltip:
+		'''
+		Нажмите ПКМ, чтобы сменить тип инструмента
+		Одновременно может быть активно не более 2 типов инструментов
+		'''
+}
+
+CoralAxe: {
+	DisplayName: Коралловый топор
+	Tooltip: топор, сделанный из океана
+}
+
+CoralPickaxe: {
+	DisplayName: Коралловая кирка
+	Tooltip: Потому что синяя кирка - скучное название
+}
+
+Mushmallet: {
+	DisplayName: Шляпкотрошитель
+	Tooltip: ""
+}
+
+Mushpick: {
+	DisplayName: Грибокайло
+	Tooltip: ""
+}
+
+DragonPickaxe: {
+	DisplayName: Дракирка
+	Tooltip: ""
+}
+
+Icepick: {
+	DisplayName: Ледокайло
+	Tooltip: ""
+}
+
+RadiumHammaxe: {
+	DisplayName: Лучезарнитный молотопор
+	Tooltip: ""
+}
+
+Starminer: {
+	DisplayName: Звездокоп
+	Tooltip: ""
+}
+
+RiftMirror: {
+	DisplayName: Зеркало разлома
+	Tooltip:
+		'''
+		Нажатие горячей клавиши «Разлом» возвращает вас домой
+		Нажатие горячей клавиши «Возврат в разлом» переносит вас обратно к последнему местоположению разлома
+		'''
+}
+
+CodeMagnet: {
+	DisplayName: Магнит бинарного кода
+	Tooltip:
+		'''
+		Притягивает предметы, перемещая их код ближе к вам
+		Нажмите ПКМ, чтобы отключить эффекты
+		'''
+}
+
+CodeMagnetOff: {
+	DisplayName: Магнит бинарного кода
+	Tooltip:
+		'''
+		Притягивает предметы, перемещая их код ближе к вам
+		Эффекты в данный момент неактивны, нажмите ПКМ, чтобы активировать
+		'''
+}
+
+DoomiteJacksaw: {
+	DisplayName: Гибельнитовый молотопил
+	Tooltip: Создан для абсолютного уничтожения деревьев и стен!
+}
+
+DoomsdayTerratool: {
+	DisplayName: Терра-инструмент судного дня
+	Tooltip:
+		'''
+		Нажмите ПКМ, чтобы сменить тип инструмента
+		Одновременно может быть активно не более 2 типов инструментов
+		'''
+}
+
+ShatteredMirror: {
+	DisplayName: Расколотое зеркало
+	Tooltip: Давно забытая безделушка, нуждающаяся в починке
+}
+
+GravitronCentrifuge: {
+	DisplayName: Гравитронная центрифуга
+	Tooltip:
+		'''
+		Создаёт мощную центробежную силу, обеспечивая нормализацией гравитации в космосе
+		Нажмите ПКМ, чтобы отключить эффекты
+		'''
+}
+
+GravitronCentrifugeOff: {
+	DisplayName: Гравитронная центрифуга (неактивная)
+	Tooltip:
+		'''
+		Создаёт мощную центробежную силу, обеспечивая нормализацией гравитации в космосе
+		Эффекты в данный момент неактивны, нажмите ПКМ, чтобы активировать
+		'''
+}
