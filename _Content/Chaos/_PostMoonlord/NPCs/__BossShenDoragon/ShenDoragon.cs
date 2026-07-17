@@ -1232,8 +1232,16 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
         public override void Unload()
         {
-            _bodyEffect?.Dispose();
-            _bodyEffect = null;
+            try
+            {
+                if (_bodyEffect != null && !_bodyEffect.IsDisposed)
+                    _bodyEffect.Dispose();
+            }
+            catch { }
+            finally
+            {
+                _bodyEffect = null;
+            }
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
