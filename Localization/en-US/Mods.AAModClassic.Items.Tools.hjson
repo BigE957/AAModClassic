@@ -350,22 +350,22 @@ TheGripsOfChaos: {
 
 LivingRazeleafWand: {
 	DisplayName: Living Razeleaf Wand
-	Tooltip: "Placed razewood leaves"
+	Tooltip: Placed razewood leaves
 }
 
 LivingRazewoodWand: {
 	DisplayName: Living Razewood Wand
-	Tooltip: "Places living razewood"
+	Tooltip: Places living razewood
 }
 
 LivingBogleafWand: {
 	DisplayName: Living Bogleaf Wand
-	Tooltip: "Places bogwood leaves"
+	Tooltip: Places bogwood leaves
 }
 
 LivingBogwoodWand: {
 	DisplayName: Living Bogwood Wand
-	Tooltip: "Places living bogwood"
+	Tooltip: Places living bogwood
 }
 
 DragonsGrip: {

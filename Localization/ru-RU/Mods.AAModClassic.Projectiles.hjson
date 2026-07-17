@@ -341,10 +341,10 @@ DynaskullJavelin_Proj.DisplayName: Диночерепное метательно
 FossilBoneslinger_AmberArrow.DisplayName: Янтарная стрела
 DesertDjinn_Djinnado.DisplayName: Джиннадо
 Legendscribe_Judgement.DisplayName: Правосудие
-Djinn_BurstBlue.DisplayName: Взрыв джинна (синий)
-Djinn_BurstRed.DisplayName: Взрыв джинна (красный)
-Djinn_MagicBlastBlue.DisplayName: Магический взрыв (синий)
-Djinn_MagicBlastRed.DisplayName: Магический взрыв (красный)
+DustDjinn_BurstBlue.DisplayName: Dust Djinn_ Burst Blue
+DustDjinn_BurstRed.DisplayName: Dust Djinn_ Burst Red
+DustDjinn_MagicBlastBlue.DisplayName: Dust Djinn_ Magic Blast Blue
+DustDjinn_MagicBlastRed.DisplayName: Dust Djinn_ Magic Blast Red
 ArtifactOfJudgement_EyeOfJudgement.DisplayName: Око правосудия
 DesertStaff_DesertBlast.DisplayName: Пустынный взрыв
 DesertStaff_FragBlast.DisplayName: Осколочный взрыв
@@ -903,7 +903,7 @@ SistersTitle.DisplayName: Титул сестёр
 Title.DisplayName: Титул
 InfinityGauntletEffect_Snap.DisplayName: Щелчок
 ProtocolR_RaiderRocket.DisplayName: Raider Rocket
-DustDjinn_BurstBlue.DisplayName: Dust Djinn_ Burst Blue
-DustDjinn_BurstRed.DisplayName: Dust Djinn_ Burst Red
-DustDjinn_MagicBlastBlue.DisplayName: Dust Djinn_ Magic Blast Blue
-DustDjinn_MagicBlastRed.DisplayName: Dust Djinn_ Magic Blast Red
+// TheGripsOfChaos_HookInferno.DisplayName: Grip of Chaos
+// TheGripsOfChaos_HookMire.DisplayName: Grip of Chaos
+// DragonsGrip_Hook.DisplayName: Dragon's Grip
+// HydraBite_Hook.DisplayName: Hydra Bite

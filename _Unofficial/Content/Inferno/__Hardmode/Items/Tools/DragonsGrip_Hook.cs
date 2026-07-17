@@ -3,18 +3,15 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Mire.__Hardmode.Items.Tools
+namespace AAModClassic._Unofficial.Content.Inferno.__Hardmode.Items.Tools
 {
-    public class HydraBite_Hook : ModProjectile
+    public class DragonsGrip_Hook : ModProjectile
     {
         private static Asset<Texture2D> chainTexture;
-
-        private Color GlowColor = Color.Green;
 
         public override void Load()
         {
@@ -29,32 +26,6 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Tools
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(ProjectileID.IlluminantHook);
-        }
-
-        public override void OnSpawn(IEntitySource source)
-        {
-            int color = Main.rand.Next(6);
-            switch (color)
-            {
-                case 0:
-                    GlowColor = Color.Green;
-                    break;
-                case 1:
-                    GlowColor = Color.Orange;
-                    break;
-                case 2:
-                    GlowColor = Color.Purple;
-                    break;
-                case 3:
-                    GlowColor = Color.Blue;
-                    break;
-                case 4:
-                    GlowColor = Color.Yellow;
-                    break;
-                case 5:
-                    GlowColor = Color.Red;
-                    break;
-            }
         }
 
         public override float GrappleRange()
@@ -105,4 +76,5 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Tools
             return false;
         }
     }
+
 }

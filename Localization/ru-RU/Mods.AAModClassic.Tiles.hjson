@@ -1,20 +1,22 @@
 TilesInfo: {
-    Spawnpointremoved: Точка возрождения убрана!
-    Spawnpointset: Точка возрождения установлена!
-    EnderMemoryInfo: В память о давно потерянном друге, всё ещё живущем в наших сердцах
-    DragonEgg1: Звук разбивающегося яйца эхом разносится по вулкану...
-    DragonEgg2: Вы слышите рёв вдалеке...
-    DragonEgg3: Вы слышите усталый, тихий рёв, а затем... храп..?
-    HydraPod1: Содержимое вытекает из сломанного кокона. Гадость
-    HydraPod2: Вы слышите шипение где-то поблизости...
-    HydraPod3: Вы слышите шипение, но оно удаляется в туман...
+	Spawnpointremoved: Точка возрождения убрана!
+	Spawnpointset: Точка возрождения установлена!
+	EnderMemoryInfo: В память о давно потерянном друге, всё ещё живущем в наших сердцах
+	DragonEgg1: Звук разбивающегося яйца эхом разносится по вулкану...
+	DragonEgg2: Вы слышите рёв вдалеке...
+	DragonEgg3: Вы слышите усталый, тихий рёв, а затем... храп..?
+	HydraPod1: Содержимое вытекает из сломанного кокона. Гадость
+	HydraPod2: Вы слышите шипение где-то поблизости...
+	HydraPod3: Вы слышите шипение, но оно удаляется в туман...
 }
+
 GreedChest: {
-    MapEntry: Сундук Алчности
-    GreedChest1: Земля под вами слегка дрожит...
-    GreedChest2: Вы слышите крик, эхом разносящийся по пещерам...
-    GreedChest3: РУКИ ПРОЧЬ ОТ МОЕГО ДОБРА, ВОРОНА ТРЕКЛЯТАЯ!!!
+	MapEntry: Сундук Алчности
+	GreedChest1: Земля под вами слегка дрожит...
+	GreedChest2: Вы слышите крик, эхом разносящийся по пещерам...
+	GreedChest3: РУКИ ПРОЧЬ ОТ МОЕГО ДОБРА, ВОРОНА ТРЕКЛЯТАЯ!!!
 }
+
 AvesInABox_Tile.MapEntry: Авес в коробке
 DevStatue_Tile.MapEntry: Статуя
 AleisterBook_Tile.MapEntry: Книга Алистера
@@ -55,10 +57,12 @@ RazewoodCandle_Tile.MapEntry: Выжженная свеча
 RazewoodChair_Tile.MapEntry: Выжженный стул
 RazewoodChandelier_Tile.MapEntry: Выжженная люстра
 RazewoodChest_Tile.MapEntry: Выжженный сундук
+
 RazewoodClock_Tile: {
-    MapEntry: Выжженные часы
-    FlavorText: Возможно, делать часы из обгоревшего дерева было не лучшей идеей. Они даже не работают.
+	MapEntry: Выжженные часы
+	FlavorText: Возможно, делать часы из обгоревшего дерева было не лучшей идеей. Они даже не работают.
 }
+
 RazewoodCouch_Tile.MapEntry: Выжженный диван
 RazewoodDoorClosed_Tile.MapEntry: Выжженная дверь
 RazewoodDoorOpen_Tile.MapEntry: Выжженная дверь
@@ -138,13 +142,16 @@ DoomCandle_Tile.MapEntry: Гибельная свеча
 DoomChair_Tile.MapEntry: Гибельный стул
 DoomChandelier_Tile.MapEntry: Гибельная люстра
 DoomChest_Tile.MapEntry: Гибельный сундук
+
 DoomClock_Tile: {
-    MapEntry: Часы обратного отсчёта
-    FlavorText: {
-        PreZero: Часы отсчитывают время до чего-то... вы, правда, не знаете, до чего. Число сейчас настолько большое, что вы даже не знаете, как оно называется.
-        PostZero: Часы показывают одну цифру: 0
-    }
+	MapEntry: Часы обратного отсчёта
+
+	FlavorText: {
+		PreZero: Часы отсчитывают время до чего-то... вы, правда, не знаете, до чего. Число сейчас настолько большое, что вы даже не знаете, как оно называется.
+		PostZero: Часы показывают одну цифру: 0
+	}
 }
+
 DoomCouch_Tile.MapEntry: Гибельный диван
 DoomDoorClosed_Tile.MapEntry: Гибельная дверь
 DoomDoorOpen_Tile.MapEntry: Гибельная дверь

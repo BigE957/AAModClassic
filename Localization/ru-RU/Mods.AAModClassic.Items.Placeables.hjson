@@ -785,3 +785,8 @@ LivingDragonFireBlock: {
 	DisplayName: Живой блок драконьего пламени
 	Tooltip: ""
 }
+
+ScorchedDynastyWoodWall: {
+	// DisplayName: Scorched Dynasty Wood Wall
+	// Tooltip: ""
+}
