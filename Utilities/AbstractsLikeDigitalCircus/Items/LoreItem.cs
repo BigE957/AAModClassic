@@ -1,4 +1,5 @@
-﻿using AAModClassic._CrossMod.CalamityMod;
+﻿using AAModClassic._CrossMod;
+using AAModClassic._CrossMod.CalamityMod;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
 {
-    public abstract class LoreItem : ModItem, ILocalizedModType
+    public abstract class LoreItem : CrossoverItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Lore.Calamity";
 
-        public override bool IsLoadingEnabled(Mod mod) => CalamityMod.IsEnabled;
+        public override string CrossoverModName => "CalamityMod";
 
         public override void SetStaticDefaults()
         {

@@ -1,3 +1,4 @@
+using AAModClassic._CrossMod.Thorium;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -5,7 +6,7 @@ namespace AAModClassic._CrossMod
 {
     public abstract class CrossoverItem : ModItem
     {
-        public virtual string CrossoverModName => null;
+        public abstract string CrossoverModName { get; }
 
         public override bool IsLoadingEnabled(Mod mod) => ModLoader.HasMod(CrossoverModName);
     }
@@ -13,14 +14,11 @@ namespace AAModClassic._CrossMod
     public class ModSupportPlayer : ModPlayer
     {
         public static Mod Redeption = null;
-        public static Mod Thorium = null;
 
         public override void Load()
         {
             if (!ModLoader.TryGetMod("Redemption", out Redeption))
                 Redeption = null;
-            if (!ModLoader.TryGetMod("ThoriumMod", out Thorium))
-                Thorium = null;
         }
 
         #region Thorium
@@ -28,18 +26,18 @@ namespace AAModClassic._CrossMod
         {
             get
             {
-                if (Thorium != null)
+                if (ThoriumMod.IsEnabled)
                 {
-                    float? boost = (float?)Thorium.Call("GetRadiantBoost", Player.whoAmI);
+                    float? boost = (float?)ThoriumMod.Call("GetRadiantBoost", Player.whoAmI);
                     if (boost != null) return (float)boost;
                 }
                 return 1f;
             }
             set
             {
-                if (Thorium != null)
+                if (ThoriumMod.IsEnabled)
                 {
-                    Thorium.Call("SetRadiantBoost", Player.whoAmI, value);
+                    ThoriumMod.Call("SetRadiantBoost", Player.whoAmI, value);
                 }
             }
         }
@@ -47,18 +45,18 @@ namespace AAModClassic._CrossMod
         {
             get
             {
-                if (Thorium != null)
+                if (ThoriumMod.IsEnabled)
                 {
-                    int? boost = (int?)Thorium.Call("GetRadiantCrit", Player.whoAmI);
+                    int? boost = (int?)ThoriumMod.Call("GetRadiantCrit", Player.whoAmI);
                     if (boost != null) return (int)boost;
                 }
                 return 0;
             }
             set
             {
-                if (Thorium != null)
+                if (ThoriumMod.IsEnabled)
                 {
-                    Thorium.Call("SetRadiantCrit", Player.whoAmI, value);
+                    ThoriumMod.Call("SetRadiantCrit", Player.whoAmI, value);
                 }
             }
         }
@@ -66,18 +64,18 @@ namespace AAModClassic._CrossMod
         {
             get
             {
-                if (Thorium != null)
+                if (ThoriumMod.IsEnabled)
                 {
-                    int? boost = (int?)Thorium.Call("GetHealBonus", Player.whoAmI);
+                    int? boost = (int?)ThoriumMod.Call("GetHealBonus", Player.whoAmI);
                     if (boost != null) return (int)boost;
                 }
                 return 0;
             }
             set
             {
-                if (Thorium != null)
+                if (ThoriumMod.IsEnabled)
                 {
-                    Thorium.Call("SetHealBonus", Player.whoAmI, value);
+                    ThoriumMod.Call("SetHealBonus", Player.whoAmI, value);
                 }
             }
         }
