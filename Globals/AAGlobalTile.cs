@@ -322,6 +322,12 @@ namespace AAModClassic.Globals
             tag["ProtectedWallList"] = UnbreakableWalls.ToList();
         }
 
+        public override void ClearWorld()
+        {
+            UnbreakableTiles.Clear();
+            UnbreakableWalls.Clear();
+        }
+
         public override void LoadWorldData(TagCompound tag)
         {
             UnbreakableTiles.Clear();
