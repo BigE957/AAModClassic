@@ -160,7 +160,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 
             npcLoot.Add(masterMode);
 
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ZeroTrophy>(), 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ZeroATrophy>(), 10));
 
             LeadingConditionRule firstKill = new(new FirstTimeKillingZeroP());
 
