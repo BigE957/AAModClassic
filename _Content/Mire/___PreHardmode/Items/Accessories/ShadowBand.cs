@@ -1,4 +1,5 @@
-﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.UI.World;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
@@ -27,7 +28,10 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Accessories
 
         public override void RegisterEquipEffects()
         {
-            AddEffect(new MovementSpeedEffect(0.15f));
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddEffect(new MovementSpeedEffect(0.15f));
+            else
+                AddEffect<ShadowBandUnofficialEffect>();
         }
     }
 }

@@ -673,3 +673,8 @@ InfinityGauntletEffect_InfinityBurnout: {
 	DisplayName: Infinity Burnout
 	Description: They didn't go for the head.
 }
+
+ShadowBandUnofficialEffect_ShadowStealth: {
+	DisplayName: Shadow Band Unofficial Effect_ Shadow Stealth
+	Description: Mods.AAModClassic.Buffs.ShadowBandUnofficialEffect_ShadowStealth.Description
+}

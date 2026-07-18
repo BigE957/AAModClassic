@@ -485,4 +485,10 @@ Effect: {
 		Перезарядка щелчка - 5 минут
 		'''
 	DemonHelmetSetEffect: Верный слуга-бес будет сражаться за вас, независимо от сезона и условий
+	/* ShadowBandUnofficialEffect:
+		'''
+		While out of combat, gain 40% increased movement speed
+		Being out of combat is defined as not dealing any damage and
+		not taking more than 5% of your health in a single hit
+		''' */
 }

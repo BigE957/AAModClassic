@@ -673,3 +673,8 @@ InfinityGauntletEffect_InfinityBurnout: {
 	DisplayName: Выгорание бесконечности
 	Description: Целились не в голову
 }
+
+ShadowBandUnofficialEffect_ShadowStealth: {
+	// DisplayName: Shadow Band Unofficial Effect_ Shadow Stealth
+	// Description: Mods.AAModClassic.Buffs.ShadowBandUnofficialEffect_ShadowStealth.Description
+}
