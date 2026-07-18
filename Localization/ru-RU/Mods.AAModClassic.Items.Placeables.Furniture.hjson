@@ -542,102 +542,102 @@ Terra: {
 
 RedMushroom: {
 	RedmushBed: {
-		// DisplayName: Redmush Bed
+		// DisplayName: Mushroom Bed
 		// Tooltip: ""
 	}
 
 	RedmushBench: {
-		// DisplayName: Redmush Bench
+		// DisplayName: Mushroom Bench
 		// Tooltip: ""
 	}
 
 	RedmushBookcase: {
-		// DisplayName: Redmush Bookcase
+		// DisplayName: Mushroom Bookcase
 		// Tooltip: ""
 	}
 
 	RedmushCandelabra: {
-		// DisplayName: Redmush Candelabra
+		// DisplayName: Mushroom Candelabra
 		// Tooltip: ""
 	}
 
 	RedmushCandle: {
-		// DisplayName: Redmush Candle
+		// DisplayName: Mushroom Candle
 		// Tooltip: ""
 	}
 
 	RedmushChair: {
-		// DisplayName: Redmush Chair
+		// DisplayName: Mushroom Chair
 		// Tooltip: ""
 	}
 
 	RedmushChandelier: {
-		// DisplayName: Redmush Chandelier
+		// DisplayName: Mushroom Chandelier
 		// Tooltip: ""
 	}
 
 	RedmushChest: {
-		// DisplayName: Redmush Chest
+		// DisplayName: Mushroom Chest
 		// Tooltip: ""
 	}
 
 	RedmushClock: {
-		// DisplayName: Redmush Clock
+		// DisplayName: Mushroom Clock
 		// Tooltip: ""
 	}
 
 	RedmushCouch: {
-		// DisplayName: Redmush Couch
+		// DisplayName: Mushroom Couch
 		// Tooltip: ""
 	}
 
 	RedmushDoor: {
-		// DisplayName: Redmush Door
+		// DisplayName: Mushroom Door
 		// Tooltip: ""
 	}
 
 	RedmushDresser: {
-		// DisplayName: Redmush Dresser
+		// DisplayName: Mushroom Dresser
 		// Tooltip: ""
 	}
 
 	RedmushLamp: {
-		// DisplayName: Redmush Lamp
+		// DisplayName: Mushroom Lamp
 		// Tooltip: ""
 	}
 
 	RedmushLantern: {
-		// DisplayName: Redmush Lantern
+		// DisplayName: Mushroom Lantern
 		// Tooltip: ""
 	}
 
 	RedmushPiano: {
-		// DisplayName: Redmush Piano
+		// DisplayName: Mushroom Piano
 		// Tooltip: ""
 	}
 
 	RedmushSink: {
-		// DisplayName: Redmush Sink
+		// DisplayName: Mushroom Sink
 		// Tooltip: ""
 	}
 
 	RedmushTable: {
-		// DisplayName: Redmush Table
+		// DisplayName: Mushroom Table
 		// Tooltip: ""
 	}
 
 	RedmushToilet: {
-		// DisplayName: Redmush Toilet
+		// DisplayName: Mushroom Toilet
 		// Tooltip: ""
 	}
 
 	RedmushTub: {
-		// DisplayName: Redmush Tub
+		// DisplayName: Mushroom Tub
 		// Tooltip: ""
 	}
 
 	RedmushWorkbench: {
-		// DisplayName: Redmush Workbench
+		// DisplayName: Mushroom Workbench
 		// Tooltip: ""
 	}
 }
