@@ -177,7 +177,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapo
                     Projectile.velocity.Y = -0.1f;
                 }
             }
-            shoot += 1f;
+            
             if (shoot % 30f == 0f && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 int[] array4 = new int[5];
