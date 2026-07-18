@@ -61,6 +61,7 @@ Ancients Awakened: Classic включает в себя контент из ор
 [list]
 [*] Big E
 [*] CaligulasAquarium
+[*] EIGHT
 [*] EduaRRdo
 [*] MaestroVGM
 [*] Memeisseur
