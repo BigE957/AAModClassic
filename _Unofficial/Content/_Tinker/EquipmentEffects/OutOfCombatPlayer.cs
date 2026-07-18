@@ -24,13 +24,11 @@ namespace AAModClassic._Unofficial.Content._Tinker.EquipmentEffects
         public List<Action> OutOfCombatEffectsToPerform = new();
 
         public bool IsOutOfCombat;
-        private bool _doOutOfCombatVisuals;
 
         public int OutOfCombatThresholdModifier;
         private int _outOfCombatTimer = 0;
         private int _outOfCombatThreshold;
         private const int _OUTOFCOMBATHRESHOLDBASE = 8 * 60;
-
 
         public override void ResetEffects()
         {
@@ -46,7 +44,6 @@ namespace AAModClassic._Unofficial.Content._Tinker.EquipmentEffects
             if (_outOfCombatTimer > _outOfCombatThreshold)
             {
                 IsOutOfCombat = true;
-                _doOutOfCombatVisuals = true;
             }
 
             if (IsOutOfCombat)
