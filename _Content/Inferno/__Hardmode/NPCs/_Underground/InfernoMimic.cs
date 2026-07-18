@@ -4,6 +4,7 @@ using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Mire.__Hardmode.Items.Accessories;
 using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
 using AAModClassic._CrossMod.Thorium.Weapons.Healer;
+using AAModClassic._Unofficial.Content.Inferno.__Hardmode.Items.Tools;
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -72,7 +73,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
 
             LeadingConditionRule unofficialRule = new(new Unofficial());
 
-            unofficialRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<OrnateBand>(), ModContent.ItemType<SunHalberd>(), ModContent.ItemType<DragonsClaw>()));
+            unofficialRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<OrnateBand>(), ModContent.ItemType<SunHalberd>(), ModContent.ItemType<DragonsGrip>()));
 
             unofficialRule.OnSuccess(ItemDropRule.Common(ItemID.GreaterHealingPotion, 1, 5, 10));
 

@@ -67,7 +67,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
 
             LeadingConditionRule unofficialRule = new(new Unofficial());
 
-            notUnofficialRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<BotchedBand>(), ModContent.ItemType<BackScratcher>(), ModContent.ItemType<Bubbleshot>(), ModContent.ItemType<HydraBite>()));
+            unofficialRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<BotchedBand>(), ModContent.ItemType<BackScratcher>(), ModContent.ItemType<Bubbleshot>(), ModContent.ItemType<HydraBite>()));
 
             unofficialRule.OnSuccess(ItemDropRule.Common(ItemID.GreaterHealingPotion, 1, 5, 10));
 
