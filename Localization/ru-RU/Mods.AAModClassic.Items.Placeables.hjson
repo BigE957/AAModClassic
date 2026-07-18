@@ -790,3 +790,13 @@ ScorchedDynastyWoodWall: {
 	// DisplayName: Scorched Dynasty Wood Wall
 	// Tooltip: ""
 }
+
+RedmushPlatform: {
+	// DisplayName: Redmush Platform
+	// Tooltip: ""
+}
+
+RedmushWall: {
+	// DisplayName: Redmush Wall
+	// Tooltip: ""
+}

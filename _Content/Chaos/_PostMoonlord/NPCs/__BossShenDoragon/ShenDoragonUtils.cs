@@ -61,7 +61,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             if (chaosType != null)
                 proj.Chaos = (ChaosType)chaosType;
             else if (npc.type == ModContent.NPCType<ShenDoragon>())
-                proj.Chaos = npc.spriteDirection == 1 ? ChaosType.Inferno : ChaosType.Mire;
+                proj.Chaos = npc.spriteDirection == 1 ? ChaosType.Mire : ChaosType.Inferno;
             else if (npc.type == ModContent.NPCType<ShenDoragonA>())
                 proj.Chaos = ChaosType.Discord;
             else
