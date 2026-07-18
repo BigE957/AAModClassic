@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
+using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Accessories;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.Items.Materials;
@@ -59,7 +60,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Boss
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ChampionPlate>(), 1, 15, 31));
 
-            int[] lootTable = { ModContent.ItemType<Excalihare>(), ModContent.ItemType<FluffyFury>(), ModContent.ItemType<RabbitsWrath>(), ModContent.ItemType<BaneOfTheSlaughterer>(), ModContent.ItemType<RPG>(), ModContent.ItemType<RoyalStaff>(), ModContent.ItemType<TheAvenger>() };
+            int[] lootTable = { ModContent.ItemType<Excalihare>(), ModContent.ItemType<FluffyFury>(), ModContent.ItemType<RabbitsWrath>(), ModContent.ItemType<BaneOfTheSlaughterer>(), ModContent.ItemType<RPG>(), ModContent.ItemType<RoyalStaff>(), ModContent.ItemType<TheAvenger>(), ModContent.ItemType<RajahsRage>() };
 
             itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
         }
