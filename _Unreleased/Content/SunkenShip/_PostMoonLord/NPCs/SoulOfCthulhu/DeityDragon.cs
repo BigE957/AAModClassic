@@ -17,6 +17,13 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             // DisplayName.SetDefault("Psyvern");
             Main.npcFrameCount[NPC.type] = 3;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 16,
+                Position = new Vector2(48, 24),
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
         public override void SetDefaults()
         {
@@ -367,12 +374,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             if (NPC.IsABestiaryIconDummy)
             {
-                NPCID.Sets.NPCBestiaryDrawModifiers value = new()
-                {
-                    PortraitPositionXOverride = 16,
-                    Position = new Vector2(48, 24),
-                };
-                NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
                 Texture2D[] textures = [TextureAssets.Npc[ModContent.NPCType<DeityDragon_Body1>()].Value, TextureAssets.Npc[ModContent.NPCType<DeityDragon_Body1>()].Value, TextureAssets.Npc[ModContent.NPCType<DeityDragon_Arms>()].Value, TextureAssets.Npc[ModContent.NPCType<DeityDragon_Body1>()].Value, TextureAssets.Npc[ModContent.NPCType<DeityDragon_Body1>()].Value];
                 return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, TextureAssets.Npc[Type].Value, textures, 4, 32, 0.25f, Vector2.Zero, 2, 10, headOffset: -22, flip: true);
             }
