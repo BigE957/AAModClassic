@@ -64,6 +64,7 @@ Developers and Contributors behind this port:
 [*] Big E
 [*] CaligulasAquarium
 [*] DiamondWalker
+[*] EIGHT
 [*] EduaRRdo
 [*] ERMUDO
 [*] MaestroVGM
