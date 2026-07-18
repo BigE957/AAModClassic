@@ -539,3 +539,105 @@ Terra: {
 		Tooltip: ""
 	}
 }
+
+RedMushroom: {
+	RedmushBed: {
+		// DisplayName: Redmush Bed
+		// Tooltip: ""
+	}
+
+	RedmushBench: {
+		// DisplayName: Redmush Bench
+		// Tooltip: ""
+	}
+
+	RedmushBookcase: {
+		// DisplayName: Redmush Bookcase
+		// Tooltip: ""
+	}
+
+	RedmushCandelabra: {
+		// DisplayName: Redmush Candelabra
+		// Tooltip: ""
+	}
+
+	RedmushCandle: {
+		// DisplayName: Redmush Candle
+		// Tooltip: ""
+	}
+
+	RedmushChair: {
+		// DisplayName: Redmush Chair
+		// Tooltip: ""
+	}
+
+	RedmushChandelier: {
+		// DisplayName: Redmush Chandelier
+		// Tooltip: ""
+	}
+
+	RedmushChest: {
+		// DisplayName: Redmush Chest
+		// Tooltip: ""
+	}
+
+	RedmushClock: {
+		// DisplayName: Redmush Clock
+		// Tooltip: ""
+	}
+
+	RedmushCouch: {
+		// DisplayName: Redmush Couch
+		// Tooltip: ""
+	}
+
+	RedmushDoor: {
+		// DisplayName: Redmush Door
+		// Tooltip: ""
+	}
+
+	RedmushDresser: {
+		// DisplayName: Redmush Dresser
+		// Tooltip: ""
+	}
+
+	RedmushLamp: {
+		// DisplayName: Redmush Lamp
+		// Tooltip: ""
+	}
+
+	RedmushLantern: {
+		// DisplayName: Redmush Lantern
+		// Tooltip: ""
+	}
+
+	RedmushPiano: {
+		// DisplayName: Redmush Piano
+		// Tooltip: ""
+	}
+
+	RedmushSink: {
+		// DisplayName: Redmush Sink
+		// Tooltip: ""
+	}
+
+	RedmushTable: {
+		// DisplayName: Redmush Table
+		// Tooltip: ""
+	}
+
+	RedmushToilet: {
+		// DisplayName: Redmush Toilet
+		// Tooltip: ""
+	}
+
+	RedmushTub: {
+		// DisplayName: Redmush Tub
+		// Tooltip: ""
+	}
+
+	RedmushWorkbench: {
+		// DisplayName: Redmush Workbench
+		// Tooltip: ""
+	}
+}

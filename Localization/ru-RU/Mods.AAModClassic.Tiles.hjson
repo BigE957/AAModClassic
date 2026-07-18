@@ -220,3 +220,24 @@ MirePylon_Tile.MapEntry: Пилон Трясины
 RedMushroomPylon_Tile.MapEntry: Пилон пустошей красных грибов
 VoidPylon_Tile.MapEntry: Пилон Пустоты
 FulguriteShard_Tile.MapEntry: Фульгуритовый осколок
+// RedmushBed_Tile.MapEntry: Redmush Bed_ Tile
+// RedmushBench_Tile.MapEntry: Redmush Bench_ Tile
+// RedmushBookcase_Tile.MapEntry: Redmush Bookcase_ Tile
+// RedmushCandelabra_Tile.MapEntry: Redmush Candelabra_ Tile
+// RedmushCandle_Tile.MapEntry: Redmush Candle_ Tile
+// RedmushChair_Tile.MapEntry: Redmush Chair_ Tile
+// RedmushChandelier_Tile.MapEntry: Redmush Chandelier_ Tile
+// RedmushChest_Tile.MapEntry: Redmush Chest_ Tile
+// RedmushClock_Tile.MapEntry: Redmush Clock_ Tile
+// RedmushCouch_Tile.MapEntry: Redmush Couch_ Tile
+// RedmushDoorClosed_Tile.MapEntry: Redmush Door Closed_ Tile
+// RedmushDoorOpen_Tile.MapEntry: Redmush Door Open_ Tile
+// RedmushDresser_Tile.MapEntry: Redmush Dresser_ Tile
+// RedmushLamp_Tile.MapEntry: Redmush Lamp_ Tile
+// RedmushLantern_Tile.MapEntry: Redmush Lantern_ Tile
+// RedmushPiano_Tile.MapEntry: Redmush Piano_ Tile
+// RedmushSink_Tile.MapEntry: Redmush Sink_ Tile
+// RedmushTable_Tile.MapEntry: Redmush Table_ Tile
+// RedmushToilet_Tile.MapEntry: Redmush Toilet_ Tile
+// RedmushTub_Tile.MapEntry: Redmush Tub_ Tile
+// RedmushWorkbench_Tile.MapEntry: Redmush Workbench_ Tile
