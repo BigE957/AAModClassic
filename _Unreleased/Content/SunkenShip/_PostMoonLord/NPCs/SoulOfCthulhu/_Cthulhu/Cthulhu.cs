@@ -32,7 +32,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
     [AutoloadBossHead]
     public class Cthulhu : ModNPC
     {
-        public override string BossHeadTexture => "AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/SoulOfCthulhu_Head_Boss";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Cthulhu, Cosmic Calamity");
