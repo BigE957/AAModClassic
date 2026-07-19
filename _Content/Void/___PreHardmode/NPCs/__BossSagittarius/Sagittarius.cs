@@ -230,7 +230,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
                 for (int num242 = 0; num242 < 5; num242++)
                 {
                     int num243 = Dust.NewDust(SparkPos, 0, 0, DustID.GemRuby, SparkSpeed.X, SparkSpeed.Y, 0, default, 1f);
-                    Main.dust[num243].scale = 0.5f;
+                    //Main.dust[num243].scale = 0.5f;
                     //Main.dust[num243].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                 }
 
@@ -428,21 +428,21 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
                 int height3 = num84;
                 for (int num85 = 0; num85 < 3; num85++)
                 {
-                    int num86 = Dust.NewDust(position, num84, height3, DustID.Electric, 0f, 0f, 100, default, 1.5f);
-                    Main.dust[num86].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
+                    int num86 = Dust.NewDust(position, num84, height3, DustID.GemRuby, 0f, 0f, 100, default, 1.5f);
+                    //Main.dust[num86].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                     Main.dust[num86].position = NPC.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f;
                 }
                 for (int num87 = 0; num87 < 7; num87++)
                 {
-                    int num88 = Dust.NewDust(position, num84, height3, DustID.Electric, 0, 0, 100, new Color(), 2f);
-                    Main.dust[num88].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
+                    int num88 = Dust.NewDust(position, num84, height3, DustID.GemRuby, 0, 0, 100, new Color(), 2f);
+                    //Main.dust[num88].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                     Main.dust[num88].position = NPC.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f;
                     Main.dust[num88].noGravity = true;
                     Main.dust[num88].noLight = true;
                     Main.dust[num88].velocity *= 3f;
                     Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * (2f + Main.rand.NextFloat() * 4f);
-                    num88 = Dust.NewDust(position, num84, height3, DustID.Electric, 0, 0, 100, new Color(), 2f);
-                    Main.dust[num88].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
+                    num88 = Dust.NewDust(position, num84, height3, DustID.GemRuby, 0, 0, 100, new Color(), 2f);
+                    //Main.dust[num88].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                     Main.dust[num88].position = NPC.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f;
                     Main.dust[num88].velocity *= 2f;
                     Main.dust[num88].noGravity = true;
@@ -453,8 +453,8 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
                 }
                 for (int num89 = 0; num89 < 5; num89++)
                 {
-                    int num90 = Dust.NewDust(position, num84, height3, DustID.Electric, 0, 0, 100, new Color(), 2f);
-                    Main.dust[num90].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
+                    int num90 = Dust.NewDust(position, num84, height3, DustID.GemRuby, 0, 0, 100, new Color(), 2f);
+                    //Main.dust[num90].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                     Main.dust[num90].position = NPC.Center + Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f;
                     Main.dust[num90].noGravity = true;
                     Main.dust[num90].noLight = true;
@@ -463,8 +463,8 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
                 }
                 for (int num91 = 0; num91 < 15; num91++)
                 {
-                    int num92 = Dust.NewDust(position, num84, height3, DustID.Electric, 0, 0, 100, new Color(), 2f);
-                    Main.dust[num92].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
+                    int num92 = Dust.NewDust(position, num84, height3, DustID.GemRuby, 0, 0, 100, new Color(), 2f);
+                    //Main.dust[num92].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                     Main.dust[num92].position = NPC.Center + Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f;
                     Main.dust[num92].noGravity = true;
                     Main.dust[num92].velocity *= 3f;
@@ -475,9 +475,9 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
             {
                 for (int num242 = 0; num242 < 3; num242++)
                 {
-                    int num243 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Electric, -2.5f * hit.HitDirection, -2.5f, 0, default, 1f);
+                    int num243 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemRuby, -2.5f * hit.HitDirection, -2.5f, 0, default, 1f);
                     Main.dust[num243].scale = 0.5f;
-                    Main.dust[num243].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
+                    //Main.dust[num243].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                 }
             }
         }
