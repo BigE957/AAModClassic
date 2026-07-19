@@ -130,28 +130,20 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
         public float[] internalAI = new float[5];
         public override void SendExtraAI(BinaryWriter writer)
         {
-            base.SendExtraAI(writer);
-            if (Main.netMode == NetmodeID.Server || Main.dedServ)
-            {
-                writer.Write(internalAI[0]);
-                writer.Write(internalAI[1]);
-                writer.Write(internalAI[2]);
-                writer.Write(internalAI[3]);
-                writer.Write(internalAI[4]);
-            }
+            writer.Write(internalAI[0]);
+            writer.Write(internalAI[1]);
+            writer.Write(internalAI[2]);
+            writer.Write(internalAI[3]);
+            writer.Write(internalAI[4]);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            base.ReceiveExtraAI(reader);
-            if (Main.netMode == NetmodeID.MultiplayerClient)
-            {
-                internalAI[0] = reader.Read();
-                internalAI[1] = reader.Read();
-                internalAI[2] = reader.Read();
-                internalAI[3] = reader.Read();
-                internalAI[4] = reader.Read();
-            }
+            internalAI[0] = reader.ReadSingle();
+            internalAI[1] = reader.ReadSingle();
+            internalAI[2] = reader.ReadSingle();
+            internalAI[3] = reader.ReadSingle();
+            internalAI[4] = reader.ReadSingle();
         }
 
         public override void AI()
@@ -218,7 +210,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                         int segment = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), type, NPC.whoAmI, 0f, previousSegment, 0, NPC.whoAmI, 255);
                         Main.npc[segment].realLife = NPC.whoAmI;
                         NPC.ai[0] = segment;
-                        NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, segment, 0f, 0f, 0f, 0, 0, 0);
+                        NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, segment);
                         previousSegment = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? segment : (NPC.whoAmI = segment);
                     }
                     internalAI[4] = 1;
@@ -739,7 +731,8 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                     if (attackTimer == 20 || attackTimer == 50 || attackTimer == 79)
                     {
                         int p = BaseAI.FireProjectile(Main.player[NPC.target].Center, NPC, ModContent.ProjectileType<SubzeroSerpent_IceBall>(), damage, 3, 14f, 0, 0, -1);
-                        ((SubzeroSerpent_IceBall)Main.projectile[p].ModProjectile).BiomeType = BiomeType; 
+                        if(p != -1)
+                            ((SubzeroSerpent_IceBall)Main.projectile[p].ModProjectile).BiomeType = BiomeType; 
                         NPC.netUpdate = true;
                     }
                     if (attackTimer >= 80)
@@ -800,7 +793,9 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             {
                 for (int i = 0; i < 3 - NPC.CountNPCS(ModContent.NPCType<SnowSerpentHead>()); i++)
                 {
-                    AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<SnowSerpentHead>(), false, 0, 0, "Snake", false);
+                    NPC n = NPC.NewNPCDirect(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<SnowSerpentHead>());
+                    (n.ModNPC as SnowSerpentHead).WasSpawnedBySubzeroSerpent = true;
+                    n.netUpdate = true;
                 }
                 internalAI[3] = 0;
             }

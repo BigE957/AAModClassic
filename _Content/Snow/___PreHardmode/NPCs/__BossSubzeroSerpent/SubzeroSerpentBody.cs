@@ -55,7 +55,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 
         public override void AI()
         {
-            if (!Main.npc[NPC.realLife].active)
+            if (!NPC.AnyNPCs(ModContent.NPCType<SubzeroSerpentHead>()))
             {
                 NPC.active = false;
                 return;

@@ -50,9 +50,11 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             NPC.dontCountMe = true;
         }
 
+        bool graceFrame = false;
+
         public override void AI()
         {
-            if (NPC.realLife == -1 || !Main.npc[NPC.realLife].active)
+            if (!NPC.AnyNPCs(ModContent.NPCType<SubzeroSerpentHead>()))
             {
                 NPC.active = false;
                 return;

@@ -629,12 +629,6 @@ namespace AAModClassic.Globals
 							int newnpcID = NPC.NewNPC(npc.GetSource_FromThis(), (int)(npc.Center.X), (int)(npc.Center.Y), npcType, npc.whoAmI, ai0, ai1, ai2, ai3);
 							Main.npc[npcID].ai[0] = newnpcID;
 							Main.npc[npcID].netUpdate = true;
-							//Main.npc[newnpcID].ai[3] = (float)npc.whoAmI;
-							//Main.npc[newnpcID].realLife = npc.whoAmI;
-							//Main.npc[newnpcID].ai[1] = (float)npcID;
-							//Main.npc[npcID].ai[0] = (float)newnpcID;
-							//Main.npc[newnpcID].netUpdate = true;
-							//NetMessage.SendData(23, -1, -1, NetworkText.FromLiteral(""), newnpcID, 0f, 0f, 0f, 0);
 							npcID = newnpcID;
 						}
 					}else //spawn pieces

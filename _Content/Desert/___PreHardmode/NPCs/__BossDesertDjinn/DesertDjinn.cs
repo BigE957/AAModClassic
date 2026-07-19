@@ -310,7 +310,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
         int Frame = 0;
         public override void FindFrame(int frameHeight)
         {
-            NPC.frame.Width = TextureAssets.Npc[NPC.type].Value.Width / 3;
+            NPC.frame.Width = TextureAssets.Npc[NPC.type].Width() / 3;
             if (NPC.IsABestiaryIconDummy)
             {
                 NPC.frame.X = 0;
