@@ -457,7 +457,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 modifiers.FinalDamage /= 2;
                 modifiers.DisableCrit();
             }
-            if (projectile.penetrate == -1 && !projectile.minion)
+            if (projectile.penetrate == -1 && !projectile.minion && Main.player[projectile.owner].heldProj != projectile.whoAmI)
             {
                 projectile.damage = (int)(projectile.damage * 0.2f);
             }
