@@ -415,11 +415,14 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SagBodyGore").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SagHeadGore").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SagLegGore").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SagLegGore").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SagNeckGore").Type, 1f); 
+                if (!Main.dedServ)
+                {
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SagBodyGore").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SagHeadGore").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SagLegGore").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SagLegGore").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SagNeckGore").Type, 1f);
+                }
                 Vector2 position = NPC.Center + Vector2.One * -20f;
                 int num84 = 40;
                 int height3 = num84;

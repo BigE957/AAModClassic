@@ -189,7 +189,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 if (NPC.ai[3] == 520)
                 {
                     Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2(0, 0), ModContent.ProjectileType<CthulhuDeath>(), 0, 0);
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("CthulhuGore").Type, 1.2f);
+                    if(!Main.dedServ)
+                        Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("CthulhuGore").Type, 1.2f);
                     NPC.dontTakeDamage = false;
                     if(Main.netMode != NetmodeID.MultiplayerClient)
                         NPC.StrikeInstantKill();

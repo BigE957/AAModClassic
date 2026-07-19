@@ -424,14 +424,16 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
 			if (NPC.life <= 0)
 			{
-				float randomSpread = Main.rand.Next(-50, 50) / 100;
+                if (!Main.dedServ)
+                {
+                    float randomSpread = Main.rand.Next(-50, 50) / 100;
+                    Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore1").Type, 1.4f);
+                    Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore2").Type, 1.4f);
+                    Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore3").Type, 1.4f);
+                    Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore4").Type, 1.4f);
+                    Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore5").Type, 1.4f);
+                }
 
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore1").Type, 1.4f);
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore2").Type, 1.4f);
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore3").Type, 1.4f);
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore4").Type, 1.4f);
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore5").Type, 1.4f);
-				
                 NPC.position.X = NPC.position.X + NPC.width / 2;
 				NPC.position.Y = NPC.position.Y + NPC.height / 2;
 				NPC.width = 400;

@@ -155,23 +155,23 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
                 if (Main.netMode != NetmodeID.MultiplayerClient && checkOver)
                 {
                     NPC.ai[3] = 0;
-                    for (int i = 0; i < 200; i++)
+                    foreach(NPC n in Main.ActiveNPCs)
                     {
                         if (NPC.type == ModContent.NPCType<GripOfChaosMire>())
                         {
-                            if (Main.npc[i].type == ModContent.NPCType<GripOfChaosInferno>())
+                            if (n.type == ModContent.NPCType<GripOfChaosInferno>())
                             {
-                                Main.npc[i].ai[0] = 1;
-                                Main.npc[i].ai[3] = 0;
+                                n.ai[0] = 1;
+                                n.ai[3] = 0;
                                 break;
                             }
                         }
                         if (NPC.type == ModContent.NPCType<GripOfChaosInferno>())
                         {
-                            if (Main.npc[i].type == ModContent.NPCType<GripOfChaosMire>())
+                            if (n.type == ModContent.NPCType<GripOfChaosMire>())
                             {
-                                Main.npc[i].ai[0] = 1;
-                                Main.npc[i].ai[3] = 0;
+                                n.ai[0] = 1;
+                                n.ai[3] = 0;
                                 break;
                             }
                         }
@@ -196,14 +196,12 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
 				BaseAI.LookAt(targetPlayer.Center, NPC, 0, 0f, 0.1f, false);
                 
             }
-            else
-			if(NPC.ai[0] == 2) //dive down
-			{
-                
+            else if(NPC.ai[0] == 2) //dive down
+			{              
                 moveSpeed = 9f;
 				Vector2 targetCenter = new Vector2(NPC.ai[1], NPC.ai[2]);
                 
-                    Vector2 point = targetCenter - offsetBasePoint + new Vector2(0f, 250f);
+                Vector2 point = targetCenter - offsetBasePoint + new Vector2(0f, 250f);
 				MoveToPoint(point);
 				if(Main.netMode != NetmodeID.MultiplayerClient && Vector2.Distance(NPC.Center, point) < 10f && internalAI[1] == 0 && internalAI[2] == 0 || internalAI[2] >= 60)
 				{
@@ -215,8 +213,8 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
 					NPC.netUpdate = true;
 				}
                 
-			}else
-			if(NPC.ai[0] == 3) //dive up
+			}
+            else if(NPC.ai[0] == 3) //dive up
 			{
                 Player player = Main.player[NPC.target];
                 Rectangle rectangle1 = new Rectangle((int)player.position.X, (int)player.position.Y, player.width, player.height);

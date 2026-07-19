@@ -4,7 +4,6 @@ using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Achievements;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -44,7 +43,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
 
         public override void HitEffect(NPC.HitInfo hit)
         {
-            if (NPC.life <= 0) //this make so when the npc has 0 life(dead) he will spawn this
+            if (NPC.life <= 0 && !Main.dedServ) //this make so when the npc has 0 life(dead) he will spawn this
             {
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("InfernoGripGore1").Type, 1f);
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("InfernoGripGore2").Type, 1f);

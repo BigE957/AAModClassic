@@ -166,8 +166,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 {
                     SoundEngine.PlaySound(SoundID.NPCHit1, NPC.position);
                     NPC.localAI[2] = 1f;
-                    Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeityBrain1").Type, 1f);
-                    Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeityBrain2").Type, 1f);
+                    if (!Main.dedServ)
+                    {
+                        Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeityBrain1").Type, 1f);
+                        Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeityBrain2").Type, 1f);
+                    }
                     for (int num766 = 0; num766 < 20; num766++)
                     {
                         Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), (float)Main.rand.Next(-30, 31) * 0.2f, (float)Main.rand.Next(-30, 31) * 0.2f, 0, default(Color), 1f);

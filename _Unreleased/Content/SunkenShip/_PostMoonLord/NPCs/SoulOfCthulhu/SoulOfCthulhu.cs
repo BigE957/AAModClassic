@@ -629,7 +629,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
         public override void HitEffect(NPC.HitInfo hit)
         {
-            if (NPC.life <= 0)
+            if (NPC.life <= 0 && !Main.dedServ)
             {
                 Vector2 baseVelocity = NPC.velocity * Main.rand.NextFloat();
                 Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, baseVelocity + Vector2.UnitX * 2f, Mod.Find<ModGore>("SoCGore1").Type, 1.4f);

@@ -46,8 +46,11 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
                     -Projectile.velocity.Y * 0.2f, 100, default);
                 Main.dust[num469].velocity *= 2f;
             }
-            Gore.NewGore(Projectile.GetSource_Death(), Projectile.Center, -Projectile.oldVelocity * 0.2f, 704, 1f);
-            Gore.NewGore(Projectile.GetSource_Death(), Projectile.Center, -Projectile.oldVelocity * 0.2f, 705, 1f);
+            if (!Main.dedServ)
+            {
+                Gore.NewGore(Projectile.GetSource_Death(), Projectile.Center, -Projectile.oldVelocity * 0.2f, 704, 1f);
+                Gore.NewGore(Projectile.GetSource_Death(), Projectile.Center, -Projectile.oldVelocity * 0.2f, 705, 1f);
+            }
             if (Projectile.owner == Main.myPlayer)
             {
                 int num319 = Main.rand.Next(20, 31);

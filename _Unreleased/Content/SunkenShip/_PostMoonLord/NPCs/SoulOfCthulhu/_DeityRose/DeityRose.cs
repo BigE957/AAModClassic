@@ -450,9 +450,12 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 }
                 if (NPC.localAI[2] == 0f)
                 {
-                    Gore.NewGore(NPC.GetSource_FromThis(), new Vector2(NPC.position.X + Main.rand.Next(NPC.width), NPC.position.Y + Main.rand.Next(NPC.height)), NPC.velocity, 378, NPC.scale);
-                    Gore.NewGore(NPC.GetSource_FromThis(), new Vector2(NPC.position.X + Main.rand.Next(NPC.width), NPC.position.Y + Main.rand.Next(NPC.height)), NPC.velocity, 379, NPC.scale);
-                    Gore.NewGore(NPC.GetSource_FromThis(), new Vector2(NPC.position.X + Main.rand.Next(NPC.width), NPC.position.Y + Main.rand.Next(NPC.height)), NPC.velocity, 380, NPC.scale);
+                    if (!Main.dedServ)
+                    {
+                        Gore.NewGore(NPC.GetSource_FromThis(), new Vector2(NPC.position.X + Main.rand.Next(NPC.width), NPC.position.Y + Main.rand.Next(NPC.height)), NPC.velocity, 378, NPC.scale);
+                        Gore.NewGore(NPC.GetSource_FromThis(), new Vector2(NPC.position.X + Main.rand.Next(NPC.width), NPC.position.Y + Main.rand.Next(NPC.height)), NPC.velocity, 379, NPC.scale);
+                        Gore.NewGore(NPC.GetSource_FromThis(), new Vector2(NPC.position.X + Main.rand.Next(NPC.width), NPC.position.Y + Main.rand.Next(NPC.height)), NPC.velocity, 380, NPC.scale);
+                    }
                     NPC.localAI[2] = 1f;
                 }
                 NPC.localAI[1] += 1f;

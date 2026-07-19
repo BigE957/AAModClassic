@@ -30,7 +30,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
 
         public override void HitEffect(NPC.HitInfo hit)
         {
-            if (NPC.life <= 0)
+            if (NPC.life <= 0 && !Main.dedServ)
             {
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("WyrmlingGore4").Type, 1f);
             }

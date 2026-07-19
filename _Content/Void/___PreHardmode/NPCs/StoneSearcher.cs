@@ -47,7 +47,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
                 Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, isDead ? 2f : 1.1f);
             }
 
-            if (NPC.life <= 0)
+            if (isDead <= 0 && !Main.dedServ)
             {
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SearcherGore1").Type, 1f);
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SearcherGore2").Type, 1f);

@@ -50,43 +50,43 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Ammo
 				dust.velocity *= 3f;
 				num3 = num731;
 			}
-			for (int num733 = 0; num733 < 2; num733 = num3 + 1)
-			{
-				float scaleFactor9 = 0.4f;
-				if (num733 == 1)
+			if(!Main.dedServ)
+				for (int num733 = 0; num733 < 2; num733 = num3 + 1)
 				{
-					scaleFactor9 = 0.8f;
+					float scaleFactor9 = 0.4f;
+					if (num733 == 1)
+						scaleFactor9 = 0.8f;
+					
+					int num734 = Gore.NewGore(Projectile.GetSource_Death(), new Vector2(Projectile.position.X, Projectile.position.Y), default, Main.rand.Next(61, 64), 1f);
+					Gore gore = Main.gore[num734];
+					gore.velocity *= scaleFactor9;
+					Gore var_503_191DA_cp_0_cp_0 = Main.gore[num734];
+					var_503_191DA_cp_0_cp_0.velocity.X += 1f;
+					Gore var_503_1920A_cp_0_cp_0 = Main.gore[num734];
+					var_503_1920A_cp_0_cp_0.velocity.Y += 1f;
+					num734 = Gore.NewGore(Projectile.GetSource_Death(), new Vector2(Projectile.position.X, Projectile.position.Y), default, Main.rand.Next(61, 64), 1f);
+					gore = Main.gore[num734];
+					gore.velocity *= scaleFactor9;
+					Gore var_503_192A4_cp_0_cp_0 = Main.gore[num734];
+					var_503_192A4_cp_0_cp_0.velocity.X -= 1f;
+					Gore var_503_192D4_cp_0_cp_0 = Main.gore[num734];
+					var_503_192D4_cp_0_cp_0.velocity.Y += 1f;
+					num734 = Gore.NewGore(Projectile.GetSource_Death(), new Vector2(Projectile.position.X, Projectile.position.Y), default, Main.rand.Next(61, 64), 1f);
+					gore = Main.gore[num734];
+					gore.velocity *= scaleFactor9;
+					Gore var_503_1936E_cp_0_cp_0 = Main.gore[num734];
+					var_503_1936E_cp_0_cp_0.velocity.X += 1f;
+					Gore var_503_1939E_cp_0_cp_0 = Main.gore[num734];
+					var_503_1939E_cp_0_cp_0.velocity.Y -= 1f;
+					num734 = Gore.NewGore(Projectile.GetSource_Death(), new Vector2(Projectile.position.X, Projectile.position.Y), default, Main.rand.Next(61, 64), 1f);
+					gore = Main.gore[num734];
+					gore.velocity *= scaleFactor9;
+					Gore var_503_19438_cp_0_cp_0 = Main.gore[num734];
+					var_503_19438_cp_0_cp_0.velocity.X -= 1f;
+					Gore var_503_19468_cp_0_cp_0 = Main.gore[num734];
+					var_503_19468_cp_0_cp_0.velocity.Y -= 1f;
+					num3 = num733;
 				}
-				int num734 = Gore.NewGore(Projectile.GetSource_Death(), new Vector2(Projectile.position.X, Projectile.position.Y), default, Main.rand.Next(61, 64), 1f);
-				Gore gore = Main.gore[num734];
-				gore.velocity *= scaleFactor9;
-				Gore var_503_191DA_cp_0_cp_0 = Main.gore[num734];
-				var_503_191DA_cp_0_cp_0.velocity.X += 1f;
-				Gore var_503_1920A_cp_0_cp_0 = Main.gore[num734];
-				var_503_1920A_cp_0_cp_0.velocity.Y += 1f;
-				num734 = Gore.NewGore(Projectile.GetSource_Death(), new Vector2(Projectile.position.X, Projectile.position.Y), default, Main.rand.Next(61, 64), 1f);
-				gore = Main.gore[num734];
-				gore.velocity *= scaleFactor9;
-				Gore var_503_192A4_cp_0_cp_0 = Main.gore[num734];
-				var_503_192A4_cp_0_cp_0.velocity.X -= 1f;
-				Gore var_503_192D4_cp_0_cp_0 = Main.gore[num734];
-				var_503_192D4_cp_0_cp_0.velocity.Y += 1f;
-				num734 = Gore.NewGore(Projectile.GetSource_Death(), new Vector2(Projectile.position.X, Projectile.position.Y), default, Main.rand.Next(61, 64), 1f);
-				gore = Main.gore[num734];
-				gore.velocity *= scaleFactor9;
-				Gore var_503_1936E_cp_0_cp_0 = Main.gore[num734];
-				var_503_1936E_cp_0_cp_0.velocity.X += 1f;
-				Gore var_503_1939E_cp_0_cp_0 = Main.gore[num734];
-				var_503_1939E_cp_0_cp_0.velocity.Y -= 1f;
-				num734 = Gore.NewGore(Projectile.GetSource_Death(), new Vector2(Projectile.position.X, Projectile.position.Y), default, Main.rand.Next(61, 64), 1f);
-				gore = Main.gore[num734];
-				gore.velocity *= scaleFactor9;
-				Gore var_503_19438_cp_0_cp_0 = Main.gore[num734];
-				var_503_19438_cp_0_cp_0.velocity.X -= 1f;
-				Gore var_503_19468_cp_0_cp_0 = Main.gore[num734];
-				var_503_19468_cp_0_cp_0.velocity.Y -= 1f;
-				num3 = num733;
-			}
 		}
     }
 }

@@ -80,7 +80,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs._Surface._Night
 
         public override void HitEffect(NPC.HitInfo hit)
         {
-            if (NPC.life <= 0)          //this make so when the npc has 0 life(dead) he will spawn this
+            if (NPC.life <= 0 && !Main.dedServ)          //this make so when the npc has 0 life(dead) he will spawn this
             {
                 for (int i = 0; i < 5; i++)
                 {

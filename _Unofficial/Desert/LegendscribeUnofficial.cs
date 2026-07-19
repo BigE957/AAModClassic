@@ -430,7 +430,7 @@ namespace AAModClassic._Unofficial.Desert
                                 Main.dust[num173].velocity /= 2f;
                                 Main.dust[num173].scale = 0.8f;
                             }
-                            if (Main.rand.Next(30) == 0)
+                            if (!Main.dedServ && Main.rand.NextBool(30))
                             {
                                 int num174 = Gore.NewGore(NPC.GetSource_FromThis(), NPC.Center + Vector2.UnitX * -NPC.direction * 8f, Vector2.Zero, Main.rand.Next(580, 583));
                                 Main.gore[num174].velocity /= 2f;

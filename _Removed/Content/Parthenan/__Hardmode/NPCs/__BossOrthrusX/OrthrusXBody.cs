@@ -123,7 +123,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 
         public override void HitEffect(NPC.HitInfo hit)
         {
-            if (NPC.life <= 0)          //this make so when the npc has 0 life(dead) he will spawn this
+            if (NPC.life <= 0 && !Main.dedServ)          //this make so when the npc has 0 life(dead) he will spawn this
             {
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("OrthrusBodyGore1").Type, 1f);
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("OrthrusBodyGore2").Type, 1f);

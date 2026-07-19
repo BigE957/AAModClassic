@@ -453,8 +453,11 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
                                 int num624 = Dust.NewDust(new Vector2(NPC.position.X - 20f, NPC.position.Y + NPC.height), NPC.width + 20, 4, DustID.Smoke, 0f, 0f, 100, default, 1.5f);
                                 Main.dust[num624].velocity *= 0.2f;
                             }
-                            int num625 = Gore.NewGore(NPC.GetSource_FromThis(), new Vector2(num622 - 20, NPC.position.Y + NPC.height - 8f), default, Main.rand.Next(61, 64), 1f);
-                            Main.gore[num625].velocity *= 0.4f;
+                            if (!Main.dedServ)
+                            {
+                                int num625 = Gore.NewGore(NPC.GetSource_FromThis(), new Vector2(num622 - 20, NPC.position.Y + NPC.height - 8f), default, Main.rand.Next(61, 64), 1f);
+                                Main.gore[num625].velocity *= 0.4f;
+                            }
                         }
                         for (int a = 0; a < 4; a++)
                         {
@@ -845,17 +848,18 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
                                     Main.dust[num538].noGravity = true;
                                     num = num537;
                                 }
-                                for (int num539 = 0; num539 < 4; num539 = num + 1)
-                                {
-                                    int num540 = Gore.NewGore(NPC.GetSource_FromThis(), vector68 + new Vector2(50 * Main.rand.Next(100) / 100f, 50 * Main.rand.Next(100) / 100f) - Vector2.One * 10f, default, Main.rand.Next(61, 64), 1f);
-                                    Gore gore = Main.gore[num540];
-                                    gore.velocity *= 0.3f;
-                                    Gore gore2 = Main.gore[num540];
-                                    gore2.velocity.X = gore2.velocity.X + Main.rand.Next(-10, 11) * 0.05f;
-                                    Gore gore3 = Main.gore[num540];
-                                    gore3.velocity.Y = gore3.velocity.Y + Main.rand.Next(-10, 11) * 0.05f;
-                                    num = num539;
-                                }
+                                if(!Main.dedServ)
+                                    for (int num539 = 0; num539 < 4; num539 = num + 1)
+                                    {
+                                        int num540 = Gore.NewGore(NPC.GetSource_FromThis(), vector68 + new Vector2(50 * Main.rand.Next(100) / 100f, 50 * Main.rand.Next(100) / 100f) - Vector2.One * 10f, default, Main.rand.Next(61, 64), 1f);
+                                        Gore gore = Main.gore[num540];
+                                        gore.velocity *= 0.3f;
+                                        Gore gore2 = Main.gore[num540];
+                                        gore2.velocity.X = gore2.velocity.X + Main.rand.Next(-10, 11) * 0.05f;
+                                        Gore gore3 = Main.gore[num540];
+                                        gore3.velocity.Y = gore3.velocity.Y + Main.rand.Next(-10, 11) * 0.05f;
+                                        num = num539;
+                                    }
                             }
                             for (int num541 = 0; num541 < 5; num541 = num + 1)
                             {
