@@ -351,7 +351,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
 
                     foreach (Player p in Main.ActivePlayers)
                     {
-                        if (firstInShip == -1 && p.GetModPlayer<AAPlayer_Unreleased>().ZoneShip)
+                        if (firstInShip == -1 && p.GetModPlayer<ZAAPlayer>().ZoneShip)
                         {
                             firstInShip = p.whoAmI;
                         }
@@ -367,7 +367,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
                         AAWorld_Unreleased.Compass = true;
                         Leave = false;
                         Player thief = Main.player[firstWithCompass];
-                        if (thief.GetModPlayer<AAPlayer_Unreleased>().ZoneShip)
+                        if (thief.GetModPlayer<ZAAPlayer>().ZoneShip)
                         {
                             Vector2 spawnPos = thief.Center + (Vector2.UnitY.RotatedBy(Main.rand.NextFloat(-MathHelper.PiOver2, MathHelper.PiOver2)) * 800);
                             int n = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<UDUNFUKED>());

@@ -17,10 +17,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.World.Biomes
         public override string MapBackground => "AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/Backgrounds/ParthenonMap";
         public override string BackgroundPath => "AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/Backgrounds/ParthenonMap";
 
-        public override bool IsBiomeActive(Player player)
-        {
-            return player.GetModPlayer<ZAAPlayer>().ZoneStorm = AAWorld_Unreleased.StormTiles >= 1;
-        }
+        public override bool IsBiomeActive(Player player) => AAWorld_Unreleased.StormTiles >= 1;
 
         public override void SpecialVisuals(Player player, bool isActive)
         {

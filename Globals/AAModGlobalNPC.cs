@@ -609,7 +609,7 @@ namespace AAModClassic.Globals
 
             LeadingConditionRule terraPrismCondition = new(new LambdaDropRuleCondition((info) =>
             {
-                return !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && NPC.downedPlantBoss && info.player.GetModPlayer<ZAAPlayer>().Terrarium;
+                return !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && NPC.downedPlantBoss && info.player.GetModPlayer<ZAAPlayer>().ZoneTerrarium;
             }, false));
 
             terraPrismCondition.OnSuccess(ItemDropRule.Common(ModContent.ItemType<TerraPrism>(), 100), true);
@@ -1150,7 +1150,7 @@ namespace AAModClassic.Globals
                 }
             }
 
-            if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().Terrarium)
+            if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneTerrarium)
             {
                 ClearPoolWithExceptions(pool);
 
@@ -1216,7 +1216,7 @@ namespace AAModClassic.Globals
                 }
             }
 
-            if (spawnInfo.Player.GetModPlayer<AAPlayer_Unreleased>().ZoneShip)
+            if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneShip)
             {
                 ClearPoolWithExceptions(pool);
 

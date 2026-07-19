@@ -13,6 +13,7 @@ using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
 using AAModClassic._Content._Tinker.___PreHardmode.Items.Armor;
 using AAModClassic._Content._Tinker.__Hardmode.Items.Accessories;
 using AAModClassic._Content._Tinker._PostMoonlord.Items.Accessories;
+using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic._Content.Bunny._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Armor;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor;
@@ -24,6 +25,7 @@ using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
 using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Accessories;
 using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
 using AAModClassic._Content.Hell.___PreHardmode.Items.Tiles.Decoration;
+using AAModClassic._Content.Hoard.World.Biomes;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Quest;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Consumables;
@@ -34,6 +36,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Quest;
 using AAModClassic._Content.Mire.__Hardmode.Items.Consumables;
@@ -44,9 +47,12 @@ using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Mire.Buffs;
+using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._Content.RedMushroom.World.Biomes;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
+using AAModClassic._Content.Stars.World.Biomes;
 using AAModClassic._Content.SunkenShip.__PreHardmode.Items.Tools;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Accessories;
@@ -55,7 +61,10 @@ using AAModClassic._Content.Void.___PreHardmode.Items.Quest;
 using AAModClassic._Content.Void.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
+using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Unofficial.Content._Dev.__Hardmode.Items.Consumables;
+using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
+using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic._Unreleased.Content.Void.Buffs;
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
@@ -141,23 +150,23 @@ namespace AAModClassic
         #endregion
 
         #region Biome bools.
-        public bool ZoneMire = false;
-        public bool ZoneInferno = false;
-        public bool ZoneVoid = false;
-        public bool ZoneMush = false;
-        public bool ZoneStorm = false;
-        public bool ZoneRisingSunPagoda = false;
-        public bool ZoneRisingMoonLake = false;
-        public bool ZoneShip = false;
+        public bool ZoneMire => Player.InModBiome<MireBiome>();
+        public bool ZoneInferno => Player.InModBiome<InfernoBiome>();
+        public bool ZoneVoid => Player.InModBiome<VoidBiome>();
+        public bool ZoneMush => Player.InModBiome<RedMushroomBiome>();
+        public bool ZoneStorm => Player.InModBiome<ParthenanBiome>();
+        public bool ZoneRisingSunPagoda => Player.InModBiome<RisingSunPagodaBiome>();
+        public bool ZoneRisingMoonLake => Player.InModBiome<RisingMoonLakeBiome>();
+        public bool ZoneShip => Player.InModBiome<SunkenShipBiome>();
+        public bool ZoneTerrarium => Player.InModBiome<SunkenShipBiome>();
+        public bool ZoneStars => Player.InModBiome<StarsBiome>();
+        public bool ZoneHoard => Player.InModBiome<HoardBiome>();
+        public bool ZoneAcropolis => Player.InModBiome<AcropolisBiome>();
         public bool VoidUnit = false;
         public bool SunAltar = false;
         public bool MoonAltar = false;
         public bool AkumaAltar = false;
         public bool YamataAltar = false;
-        public bool Terrarium = false;
-        public bool ZoneStars = false;
-        public bool ZoneHoard = false;
-        public bool ZoneAcropolis = false;
         public bool AshCurse;
         public int VoidGrav = 0;
         public static int Ashes = 0;
@@ -443,95 +452,8 @@ namespace AAModClassic
         public override void Initialize()
         {
             AbilityCD = 0;
-            ZoneInferno = false;
-            ZoneMire = false;
-            ZoneMush = false;
-            ZoneStorm = false;
-            ZoneVoid = false;
-            ZoneRisingMoonLake = false;
-            ZoneRisingSunPagoda = false;
-            ZoneShip = false;
-            ZoneStars = false;
-            ZoneHoard = false;
-            ZoneAcropolis = false;
             WorldgenReminder = false;
             NewAAReminder = false;
-        }
-
-        #endregion
-
-        #region Biomes
-
-        public bool CustomBiomesMatch(Player other)
-        {
-            ZAAPlayer modOther = other.GetModPlayer<ZAAPlayer>();
-            return ZoneMire == modOther.ZoneMire &&
-                ZoneInferno == modOther.ZoneInferno &&
-                ZoneVoid == modOther.ZoneVoid &&
-                ZoneMush == modOther.ZoneMush &&
-                Terrarium == modOther.Terrarium &&
-                ZoneStorm == modOther.ZoneStorm &&
-                ZoneShip == modOther.ZoneShip &&
-                ZoneStars == modOther.ZoneStars &&
-                ZoneHoard == modOther.ZoneHoard &&
-                ZoneAcropolis == modOther.ZoneAcropolis;
-        }
-
-        public void CopyCustomBiomesTo(Player other)
-        {
-            ZAAPlayer modOther = other.GetModPlayer<ZAAPlayer>();
-            modOther.ZoneInferno = ZoneInferno;
-            modOther.ZoneMire = ZoneMire;
-            modOther.ZoneVoid = ZoneVoid;
-            modOther.ZoneMush = ZoneMush;
-            modOther.Terrarium = Terrarium;
-            modOther.ZoneStorm = ZoneStorm;
-            modOther.ZoneRisingMoonLake = ZoneRisingMoonLake;
-            modOther.ZoneRisingSunPagoda = ZoneRisingSunPagoda;
-            modOther.ZoneShip = ZoneShip;
-            modOther.ZoneStars = ZoneStars;
-            modOther.ZoneHoard = ZoneHoard;
-            modOther.ZoneAcropolis = ZoneAcropolis;
-        }
-
-        public void SendCustomBiomes(BinaryWriter bb)
-        {
-            BitsByte zoneByte = 0;
-            zoneByte[0] = ZoneInferno;
-            zoneByte[1] = ZoneMire;
-            zoneByte[2] = ZoneVoid;
-            zoneByte[3] = ZoneMush;
-            zoneByte[4] = Terrarium;
-            zoneByte[5] = ZoneStorm;
-            zoneByte[6] = ZoneRisingSunPagoda;
-            zoneByte[7] = ZoneRisingMoonLake;
-            bb.Write(zoneByte);
-
-            BitsByte zoneByte2 = 0;
-            zoneByte2[0] = ZoneShip;
-            zoneByte2[1] = ZoneStars;
-            zoneByte2[2] = ZoneHoard;
-            zoneByte2[3] = ZoneAcropolis;
-            bb.Write(zoneByte2);
-        }
-
-        public void ReceiveCustomBiomes(BinaryReader bb)
-        {
-            BitsByte zoneByte = bb.ReadByte();
-            ZoneInferno = zoneByte[0];
-            ZoneMire = zoneByte[1];
-            ZoneVoid = zoneByte[2];
-            ZoneMush = zoneByte[3];
-            Terrarium = zoneByte[4];
-            ZoneStorm = zoneByte[5];
-            ZoneRisingSunPagoda = zoneByte[6];
-            ZoneRisingMoonLake = zoneByte[7];
-
-            BitsByte zoneByte2 = bb.ReadByte();
-            ZoneShip = zoneByte2[0];
-            ZoneStars = zoneByte2[1];
-            ZoneHoard = zoneByte2[2];
-            ZoneAcropolis = zoneByte2[3];
         }
 
         #endregion
@@ -928,7 +850,7 @@ namespace AAModClassic
                 }
             }
 
-            if (AAWorld.ModContentGenerated || ZoneInferno || ZoneMire || ZoneVoid || Terrarium || ZoneMush)
+            if (AAWorld.ModContentGenerated || ZoneInferno || ZoneMire || ZoneVoid || ZoneTerrarium || ZoneMush)
             {
                 AAWorld.ModContentGenerated = true;
                 WorldgenReminder = true;
@@ -1047,7 +969,7 @@ namespace AAModClassic
                 }
             }
 
-            if (Terrarium)
+            if (ZoneTerrarium)
             {
                 Player.AddBuff(ModContent.BuffType<TerrasGuidance_Buff>(), 2);
                 Player.AddBuff(BuffID.DryadsWard, 2);

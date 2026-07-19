@@ -35,7 +35,7 @@ namespace AAModClassic._Content.Void.World.Biomes
             bool active = (AAWorld.voidTiles > 20 && player.ZoneSkyHeight) || (AAWorld.voidTiles > 100 && !player.ZoneSkyHeight) || BaseAI.GetNPC(player.Center, ModContent.NPCType<Zero>(), 5000) != -1 || BaseAI.GetNPC(player.Center, ModContent.NPCType<ZeroA>(), 5000) != -1;
             if (active && player.whoAmI == Main.myPlayer)
                 VoidDiscovered.Condition.Complete();
-            return player.GetModPlayer<ZAAPlayer>().ZoneVoid = active;
+            return active;
         }
 
         public override void SpecialVisuals(Player player, bool isActive)

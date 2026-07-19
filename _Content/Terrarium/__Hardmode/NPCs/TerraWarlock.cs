@@ -54,7 +54,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
         public override void PostAI()
         {
             Player player = Main.LocalPlayer;
-            if (!player.GetModPlayer<ZAAPlayer>().Terrarium)
+            if (!player.GetModPlayer<ZAAPlayer>().ZoneTerrarium)
             {
                 //NPC.life = 0;
             }

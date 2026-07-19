@@ -12,7 +12,7 @@ namespace AAModClassic._Content.Hoard.World.Biomes
             bool active = AAWorld.HoardTiles > 1 && (player.ZoneDirtLayerHeight || player.ZoneRockLayerHeight) && !player.GetModPlayer<ZAAPlayer>().ZoneStars;
             if (active && player.whoAmI == Main.myPlayer)
                 HoardDiscovered.Condition.Complete();
-            return player.GetModPlayer<ZAAPlayer>().ZoneHoard = active;
+            return active;
         }
 
         public override int Music => Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneStars ? -1 : MusicManagementSystem.MusicSlots["Hoard"];

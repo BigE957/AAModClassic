@@ -170,7 +170,7 @@ public class DiscordSystem : ModSystem
         if (aaPlayer.ZoneInferno) return "In The Inferno";
         if (aaPlayer.ZoneMire) return "In The Mire";
         if (aaPlayer.ZoneVoid) return "Lost in The Void";
-        if (aaPlayer.Terrarium) return "In The Terrarium";
+        if (aaPlayer.ZoneTerrarium) return "In The Terrarium";
         if (player.ZoneUnderworldHeight) return "In The Underworld";
         if (player.ZoneDungeon) return "In The Dungeon";
         if (player.ZoneJungle) return "Exploring The Jungle";
