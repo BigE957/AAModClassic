@@ -757,26 +757,29 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                 {
                     attackTimer++;
 
-                    if ((attackTimer == 8 || attackTimer == 16 || attackTimer == 24 || attackTimer == 32 || attackTimer == 40 || attackTimer == 48 || attackTimer == 56 || attackTimer == 64 || attackTimer == 72 || attackTimer == 79) && !NPC.HasBuff(BuffID.Wet))
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        for (int i = 0; i < 5; ++i)
+                        if ((attackTimer == 8 || attackTimer == 16 || attackTimer == 24 || attackTimer == 32 || attackTimer == 40 || attackTimer == 48 || attackTimer == 56 || attackTimer == 64 || attackTimer == 72 || attackTimer == 79) && !NPC.HasBuff(BuffID.Wet))
                         {
-                            float num433 = 6f;
-                            Vector2 PlayerDistance = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
-                            float PlayerPosX = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2 - PlayerDistance.X;
-                            float PlayerPosY = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2 - PlayerDistance.Y;
-                            float PlayerPos = (float)Math.Sqrt(PlayerPosX * PlayerPosX + PlayerPosY * PlayerPosY);
-                            PlayerPos = num433 / PlayerPos;
-                            PlayerPosX *= PlayerPos;
-                            PlayerPosY *= PlayerPos;
-                            PlayerPosY += Main.rand.Next(-40, 41) * 0.01f;
-                            PlayerPosX += Main.rand.Next(-40, 41) * 0.01f;
-                            PlayerPosY += NPC.velocity.Y * 0.5f;
-                            PlayerPosX += NPC.velocity.X * 0.5f;
-                            PlayerDistance.X -= PlayerPosX * 1f;
-                            PlayerDistance.Y -= PlayerPosY * 1f;
-                            Projectile p = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), PlayerDistance, NPC.velocity * 1.5f, ModContent.ProjectileType<SubzeroSerpentHead_SerpentBreath>(), damage, 0, Main.myPlayer, 0);
-                            ((SubzeroSerpentHead_SerpentBreath)p.ModProjectile).BiomeType = BiomeType;
+                            for (int i = 0; i < 5; ++i)
+                            {
+                                float num433 = 6f;
+                                Vector2 PlayerDistance = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+                                float PlayerPosX = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2 - PlayerDistance.X;
+                                float PlayerPosY = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2 - PlayerDistance.Y;
+                                float PlayerPos = (float)Math.Sqrt(PlayerPosX * PlayerPosX + PlayerPosY * PlayerPosY);
+                                PlayerPos = num433 / PlayerPos;
+                                PlayerPosX *= PlayerPos;
+                                PlayerPosY *= PlayerPos;
+                                PlayerPosY += Main.rand.Next(-40, 41) * 0.01f;
+                                PlayerPosX += Main.rand.Next(-40, 41) * 0.01f;
+                                PlayerPosY += NPC.velocity.Y * 0.5f;
+                                PlayerPosX += NPC.velocity.X * 0.5f;
+                                PlayerDistance.X -= PlayerPosX * 1f;
+                                PlayerDistance.Y -= PlayerPosY * 1f;
+                                Projectile p = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), PlayerDistance, NPC.velocity * 1.5f, ModContent.ProjectileType<SubzeroSerpentHead_SerpentBreath>(), damage, 0, Main.myPlayer, 0);
+                                ((SubzeroSerpentHead_SerpentBreath)p.ModProjectile).BiomeType = BiomeType;
+                            }
                         }
                     }
                     if (attackTimer >= 80)
