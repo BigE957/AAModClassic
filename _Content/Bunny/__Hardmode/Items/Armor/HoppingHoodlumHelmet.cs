@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
 using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
 using AAModClassic.Globals;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
@@ -45,7 +46,10 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items.Armor
         {
             damageMap.GetDamage(DamageClass.Melee) += .18f;
             damageMap.GetDamage(DamageClass.Summon) += .18f;
-            AddEffect(new AggroEffect(2));
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddEffect(new AggroEffect(200));
+            else
+                AddEffect(new AggroEffect(2));
 
             AddSetEffect<HoppingHoodlumHelmetSetEffect>();
         }

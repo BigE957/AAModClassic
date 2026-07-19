@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Dungeon.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
@@ -43,7 +44,10 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
             AddEffect<NightOwlEffect>();
 
             setDamageMap.GetCritChance(DamageClass.Ranged) += 20;
-            AddSetEffect(new AggroEffect(-5));
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddSetEffect(new AggroEffect(-500));
+            else
+                AddSetEffect(new AggroEffect(-5));
             AddSetEffect<TerraHelmetRangedSetEffect>();
         }
 

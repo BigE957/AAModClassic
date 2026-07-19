@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Globals;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
@@ -88,7 +89,10 @@ namespace AAModClassic._Content._Tinker.__Hardmode.Items.Accessories
             damageMap.GetDamage(DamageClass.Melee) += 0.14f;
             damageMap.GetAttackSpeed(DamageClass.Melee) += 0.1f;
             damageMap.GetKnockback(DamageClass.Melee) += 2f;
-            AddEffect(new AggroEffect(5));
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddEffect(new AggroEffect(500));
+            else
+                AddEffect(new AggroEffect(5));
             int buff = WorldGen.crimson ? BuffID.Ichor : BuffID.CursedInferno;
             AddEffect(new AttacksInflictBuffEffect(DamageClass.Melee, (buff, 100)));
             AddEffect<DemonGauntletEffect>();

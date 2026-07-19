@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
@@ -31,7 +32,10 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items.Armor
             damageMap.GetCritChance(DamageClass.Melee) += 9;
             AddEffect(new MovementSpeedEffect(0.10f));
             AddEffect(new MaxMinionSlotEffect(1));
-            AddEffect(new AggroEffect(2));
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddEffect(new AggroEffect(200));
+            else
+                AddEffect(new AggroEffect(2));
         }
 
         public override void AddRecipes()

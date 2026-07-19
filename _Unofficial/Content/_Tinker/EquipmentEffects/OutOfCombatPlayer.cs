@@ -21,12 +21,16 @@ namespace AAModClassic._Unofficial.Content._Tinker.EquipmentEffects
 {
     public class OutOfCombatPlayer : ModPlayer
     {
-        public List<Action> OutOfCombatEffectsToPerform = new();
+        public List<Action> OutOfCombatEffectsToPerform;
 
         public bool IsOutOfCombat;
 
         public int OutOfCombatThresholdModifier;
         private int _outOfCombatTimer = 0;
+        public int OutOfCombatTimer
+        {
+            get { return _outOfCombatTimer; }
+        }
         private int _outOfCombatThreshold;
         private const int _OUTOFCOMBATHRESHOLDBASE = 8 * 60;
 

@@ -4,6 +4,7 @@ using AAModClassic._Content.Inferno.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Armor;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
@@ -36,7 +37,10 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
             damageMap.GetDamage(DamageClass.Melee) += .25f;
 
             setDamageMap.GetAttackSpeed(DamageClass.Melee) += .10f;
-            AddSetEffect(new AggroEffect(5));
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddSetEffect(new AggroEffect(500));
+            else
+                AddSetEffect(new AggroEffect(5));
             AddSetEffect<DragonsGuardEffect>();
             AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Melee, (ModContent.BuffType<DragonFire_Buff>(), 180), (ModContent.BuffType<HydraToxin_Buff>(), 180)));
         }

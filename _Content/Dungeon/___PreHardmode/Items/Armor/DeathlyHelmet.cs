@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
@@ -36,7 +37,10 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Armor
         {
             damageMap.GetDamage(DamageClass.Ranged) += 0.09f;
 
-            AddSetEffect(new AggroEffect(-5));
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddSetEffect(new AggroEffect(-500));
+            else
+                AddSetEffect(new AggroEffect(-5));
             AddSetEffect<AmmoCost80Effect>();
         }
 

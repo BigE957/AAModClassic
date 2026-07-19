@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
@@ -40,7 +41,10 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
             AddEffect(new MaxRunSpeedEffect(0.35f));
 
             AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Ranged, (BuffID.Poisoned, 180)));
-            AddSetEffect(new AggroEffect(-3));
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddSetEffect(new AggroEffect(-300));
+            else
+                AddSetEffect(new AggroEffect(-3));
             AddSetEffect<AmmoCost80Effect>();
 
         }

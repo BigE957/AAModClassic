@@ -1,10 +1,11 @@
-﻿using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
 {
@@ -39,7 +40,10 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
             AddEffect(new MovementSpeedEffect(0.25f));
 
             AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Ranged, (BuffID.Poisoned, 180)));
-            AddSetEffect(new AggroEffect(-3));
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddSetEffect(new AggroEffect(-300));
+            else
+                AddSetEffect(new AggroEffect(-3));
             AddSetEffect<AmmoCost80Effect>();
         }
 

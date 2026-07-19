@@ -2,6 +2,7 @@ using AAModClassic._Content._Tinker.__Hardmode.Items.Accessories;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Accessories;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
@@ -40,7 +41,10 @@ Having this gauntlet allows you to handle the infinity stones without overloadin
         {
             damageMap.GetDamage(DamageClass.Melee) += 0.18f;
             damageMap.GetAttackSpeed(DamageClass.Melee) += 0.12f;
-            AddEffect(new AggroEffect(8));
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddEffect(new AggroEffect(800));
+            else
+                AddEffect(new AggroEffect(8));
             AddEffect<DwarvenGauntletEffect>();
         }
 

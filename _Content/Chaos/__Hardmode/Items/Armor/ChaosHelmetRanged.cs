@@ -3,6 +3,7 @@ using AAModClassic._Content.Desert.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Mire.Buffs;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
@@ -36,7 +37,10 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
             damageMap.GetCritChance(DamageClass.Ranged) += 24;
 
             setDamageMap.GetDamage(DamageClass.Ranged) += .25f;
-            AddSetEffect(new AggroEffect(-7));
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddSetEffect(new AggroEffect(-700));
+            else
+                AddSetEffect(new AggroEffect(-7));
             AddSetEffect<AmmoCost75Effect>();
             AddSetEffect<NightOwlEffect>();
             AddSetEffect<HunterEffect>();

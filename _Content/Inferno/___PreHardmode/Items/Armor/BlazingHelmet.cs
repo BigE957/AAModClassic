@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Globals;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
@@ -39,7 +40,10 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
             damageMap.GetDamage(DamageClass.Melee) += 0.03f;
             AddEffect(new EnduranceEffect(0.01f));
             
-            AddSetEffect(new AggroEffect(4));
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddSetEffect(new AggroEffect(400));
+            else
+                AddSetEffect(new AggroEffect(4));
             AddSetEffect<MagmaStoneEffect>();
             AddSetEffect(new EmitLightFromPlayerEffect(AAColor.Lantern.R / 255, AAColor.Lantern.G / 255 * 0.95f, AAColor.Lantern.B / 255 * 0.8f));
         }
