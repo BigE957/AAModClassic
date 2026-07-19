@@ -39,7 +39,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Armor
 
         public override void RegisterEquipEffects()
         {
-            damageMap.GetDamage(DamageClass.Magic) += .50f;
+            damageMap.GetDamage(DamageClass.Summon) += .50f;
 
             AddSetEffect(new MaxMinionSlotEffect(5));
             AddSetEffect<HunterEffect>();
