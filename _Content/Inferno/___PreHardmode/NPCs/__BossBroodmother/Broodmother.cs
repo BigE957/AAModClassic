@@ -97,9 +97,9 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
                     }
                 }
             }
-            NPC.frame.Width = TextureAssets.Npc[NPC.type].Value.Width / 2;
+            NPC.frame.Width = TextureAssets.Npc[NPC.type].Width() / 2; //412
             if (FrameTex >= 1)
-                NPC.frame.X = TextureAssets.Npc[NPC.type].Value.Width / 2;
+                NPC.frame.X = TextureAssets.Npc[NPC.type].Width() / 2; //412
             else
                 NPC.frame.X = 0;
 
