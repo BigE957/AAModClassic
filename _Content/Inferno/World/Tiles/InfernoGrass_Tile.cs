@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles
             {
                 if (WorldGen.IsFitToPlaceFlowerIn(i, j, TileID.Plants))
                 {
-                    if (Main.tile[i, j - 1].WallType >= 0 && WallID.Sets.AllowsPlantsToGrow[Main.tile[i, j - 1].WallType] && Main.tile[i, j].WallType >= 0 && Main.tile[i, j].WallType < WallLoader.WallCount && WallID.Sets.AllowsPlantsToGrow[Main.tile[i, j].WallType])
+                    if (Main.tile[i, j - 1].WallType >= WallID.None && WallID.Sets.AllowsPlantsToGrow[Main.tile[i, j - 1].WallType] && Main.tile[i, j].WallType >= WallID.None && Main.tile[i, j].WallType < WallLoader.WallCount && WallID.Sets.AllowsPlantsToGrow[Main.tile[i, j].WallType])
                     {
                         if (WorldGen.genRand.NextBool(50) || WorldGen.genRand.NextBool(40)) 
                         {

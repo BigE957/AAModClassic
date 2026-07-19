@@ -25,7 +25,7 @@ Allows you to detect the souls of creatures, detect valuable resources, and see 
             Item.width = 20;
             Item.height = 18;
             Item.value = Item.sellPrice(0, 0, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
             Item.prefix = 0;
         }
