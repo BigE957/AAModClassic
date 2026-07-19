@@ -15,6 +15,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudal
             // Tooltip.SetDefault("Plays 'Bioluminescent Beatdown' by SpectralAves");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
 
         public override void SetDefaults()

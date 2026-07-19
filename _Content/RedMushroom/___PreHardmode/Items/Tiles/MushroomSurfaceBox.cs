@@ -14,6 +14,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles
             // Tooltip.SetDefault("Plays 'Overgrowth' by SpectralAves");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
 
         public override void SetDefaults()
