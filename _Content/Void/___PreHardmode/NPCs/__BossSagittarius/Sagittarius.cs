@@ -229,9 +229,9 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
 
                 for (int num242 = 0; num242 < 5; num242++)
                 {
-                    int num243 = Dust.NewDust(SparkPos, 0, 0, DustID.Electric, SparkSpeed.X, SparkSpeed.Y, 0, default, 1f);
+                    int num243 = Dust.NewDust(SparkPos, 0, 0, DustID.GemRuby, SparkSpeed.X, SparkSpeed.Y, 0, default, 1f);
                     Main.dust[num243].scale = 0.5f;
-                    Main.dust[num243].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
+                    //Main.dust[num243].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
                 }
 
                 if (!lowHealth && Main.netMode != NetmodeID.MultiplayerClient)
