@@ -60,15 +60,16 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 				Main.dust[num338].velocity *= 2f;
 				Main.dust[num338].noGravity = true;
 			}
-			for (int num339 = 0; num339 < 2; num339++)
-			{
-				int num340 = Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position + new Vector2(Projectile.width * Main.rand.Next(100) / 100f, Projectile.height * Main.rand.Next(100) / 100f) - Vector2.One * 10f, default, Main.rand.Next(61, 64), 1f);
-				Main.gore[num340].velocity *= 0.3f;
-				Gore expr_B4D2_cp_0 = Main.gore[num340];
-				expr_B4D2_cp_0.velocity.X += Main.rand.Next(-10, 11) * 0.05f;
-				Gore expr_B502_cp_0 = Main.gore[num340];
-				expr_B502_cp_0.velocity.Y += Main.rand.Next(-10, 11) * 0.05f;
-			}
+			if(!Main.dedServ)
+				for (int num339 = 0; num339 < 2; num339++)
+				{
+					int num340 = Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position + new Vector2(Projectile.width * Main.rand.Next(100) / 100f, Projectile.height * Main.rand.Next(100) / 100f) - Vector2.One * 10f, default, Main.rand.Next(61, 64), 1f);
+					Main.gore[num340].velocity *= 0.3f;
+					Gore expr_B4D2_cp_0 = Main.gore[num340];
+					expr_B4D2_cp_0.velocity.X += Main.rand.Next(-10, 11) * 0.05f;
+					Gore expr_B502_cp_0 = Main.gore[num340];
+					expr_B502_cp_0.velocity.Y += Main.rand.Next(-10, 11) * 0.05f;
+				}
 			if (Projectile.owner == Main.myPlayer)
 			{
 				Projectile.localAI[1] = -1f;

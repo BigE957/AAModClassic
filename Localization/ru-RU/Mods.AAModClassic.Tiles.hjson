@@ -26,14 +26,14 @@ CrystalChandelier_Tile.MapEntry: Хрустальная люстра
 EnderMemory_Tile.MapEntry: Вечная память
 FurnitureDynamo_Tile.MapEntry: Динамо-мебель
 SkyCrystal_Tile.MapEntry: Небесный кристалл
-AcropolisAltar_Tile.MapEntry: Совиный алтарь
+AcropolisAltar_Tile.MapEntry: Алтарь Совы
 RoyalRabbitCage_Tile.MapEntry: Клетка королевского кролика
 RitualAltar_Tile.MapEntry: Ритуальный алтарь
 DiscordianTorch_Tile.MapEntry: Раздорнитовый факел
 AnyAncientCraftingStation_Tile.MapEntry: Древняя станция изготовления
 ChaosCrucible_Tile.MapEntry: Горнило хаоса
 ChaosAltarSafe_Tile.MapEntry: Алтарь хаоса
-DynaskullFossil_Tile.MapEntry: Окаменелость диночерепа
+DynaskullFossil_Tile.MapEntry: Диночерепная окаменелость
 EvilAltarSafe_Tile.MapEntry: Алтарь зла
 HallowedOre_Tile.MapEntry: Освящённая руда
 ThixxieBanner_Tile.MapEntry: Знамя Тикси
@@ -46,7 +46,7 @@ HaphestusForge_Tile.MapEntry: Кузня Гефеста
 HellstoneAnvil_Tile.MapEntry: Наковальня из адского камня
 Throne_Tile.MapEntry: Трон зла
 CovetiteOre_Tile.MapEntry: Жажданитовая руда
-GreedAltar_Tile.MapEntry: Алтарь желаний
+GreedAltar_Tile.MapEntry: Алтарь Желаний
 GreedChest_Tile.MapEntry: Сундук Алчности
 GreedLantern_Tile.MapEntry: Каменный фонарь
 IncineriteOre_Tile.MapEntry: Испепельнит
@@ -213,7 +213,12 @@ KeepDoor1_Tile.MapEntry: Дверь цитадели
 KeepDoor2_Tile.MapEntry: Дверь цитадели
 KeepDoor2S_Tile.MapEntry: Дверь цитадели
 KeepDoor3_Tile.MapEntry: Дверь цитадели
-TerraStatue_Tile.MapEntry: Статуя павшего героя
+
+TerraStatue_Tile: {
+	MapEntry: Статуя павшего героя
+	// FlavorText: The Hero who saved us all from the brink of chaos
+}
+
 SunkenChest_Tile.MapEntry: Затонувший сундук
 InfernoPylon_Tile.MapEntry: Пилон Инферно
 MirePylon_Tile.MapEntry: Пилон Трясины

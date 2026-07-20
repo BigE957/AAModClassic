@@ -396,7 +396,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             if (NPC.IsABestiaryIconDummy)
                 return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, TextureAssets.Npc[Type].Value, TextureAssets.Npc[ModContent.NPCType<ShenlingBody2>()].Value, TextureAssets.Npc[ModContent.NPCType<ShenlingBody1>()].Value, 7, 16, 0.25f, Vector2.Zero, 2, 10, -18, flip: true);
 
-            Vector2 drawOrigin = new Vector2(TextureAssets.Npc[NPC.type].Value.Width * 0.5f, NPC.height * 0.5f);
+            Vector2 drawOrigin = new Vector2(TextureAssets.Npc[NPC.type].Width() * 0.5f, NPC.height * 0.5f);
             for (int k = 0; k < NPC.oldPos.Length; k++)
             {
                 Texture2D Trail = TextureAssets.Npc[NPC.type].Value;

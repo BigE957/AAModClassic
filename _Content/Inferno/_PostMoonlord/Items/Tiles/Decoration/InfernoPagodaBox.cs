@@ -17,6 +17,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Tiles.Decoration
             // Tooltip.SetDefault("Plays 'Scorched Tower' by Rockwizard");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
 
         

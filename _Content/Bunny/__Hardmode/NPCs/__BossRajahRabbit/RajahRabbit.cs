@@ -390,8 +390,11 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                                 Main.dust[num624].velocity *= 0.2f;
                             }
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), num622 - 20, NPC.position.Y + NPC.height - 8f, 0, 0, ModContent.ProjectileType<RajahRabbit_Stomp>(), damage, 6, Main.myPlayer, 0, 0);
-                            int num625 = Gore.NewGore(NPC.GetSource_FromThis(), new Vector2(num622 - 20, NPC.position.Y + NPC.height - 8f), default, Main.rand.Next(61, 64), 1f);
-                            Main.gore[num625].velocity *= 0.4f;
+                            if (!Main.dedServ)
+                            {
+                                int num625 = Gore.NewGore(NPC.GetSource_FromThis(), new Vector2(num622 - 20, NPC.position.Y + NPC.height - 8f), default, Main.rand.Next(61, 64), 1f);
+                                Main.gore[num625].velocity *= 0.4f;
+                            }
                         }
                     }
                     NPC.noTileCollide = false;
@@ -883,8 +886,11 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                             int num624 = Dust.NewDust(new Vector2(NPC.position.X - 20f, NPC.position.Y + NPC.height), NPC.width + 20, 4, DustID.Smoke, 0f, 0f, 100);
                             Main.dust[num624].velocity *= 0.2f;
                         }
-                        int num625 = Gore.NewGore(NPC.GetSource_Death(), new Vector2(num622 - 20, NPC.position.Y + NPC.height - 8f), default, Main.rand.Next(61, 64), 1f);
-                        Main.gore[num625].velocity *= 0.4f;
+                        if (!Main.dedServ)
+                        {
+                            int num625 = Gore.NewGore(NPC.GetSource_Death(), new Vector2(num622 - 20, NPC.position.Y + NPC.height - 8f), default, Main.rand.Next(61, 64), 1f);
+                            Main.gore[num625].velocity *= 0.4f;
+                        }
                     }
                 }
                 else
@@ -1164,7 +1170,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 }
             }
 
-            int rajahFrameWidth = TextureAssets.Npc[NPC.type].Value.Width / 4;
+            int rajahFrameWidth = TextureAssets.Npc[NPC.type].Width() / 4;
             NPC.frame.Width = rajahFrameWidth;
             int currentHorizFrameOffset = 0;
             if (IsRoaring)
@@ -1183,9 +1189,12 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         {
             if (isSupreme)
             {
-                Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("SupremeRajahHelmet1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("SupremeRajahHelmet2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("SupremeRajahHelmet3").Type, 1f);
+                if (!Main.dedServ)
+                {
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("SupremeRajahHelmet1").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("SupremeRajahHelmet2").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("SupremeRajahHelmet3").Type, 1f);
+                }
                 if (!NPCExtensions.BeenKilled<RajahRabbitA>(true))
                 {
                     int n = NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<RajahRabbitADefeat>());

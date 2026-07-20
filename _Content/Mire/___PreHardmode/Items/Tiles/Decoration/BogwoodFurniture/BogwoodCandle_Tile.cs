@@ -48,7 +48,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwo
         }
         public override bool RightClick(int i, int j)
         {
-            Main.player[Main.myPlayer].PickTile(i, j, 100);
+            Main.LocalPlayer.PickTile(i, j, 100);
             return true;
         }
         public override void NumDust(int i, int j, bool fail, ref int num)

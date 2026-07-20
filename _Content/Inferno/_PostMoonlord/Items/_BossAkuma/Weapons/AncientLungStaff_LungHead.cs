@@ -50,7 +50,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
         public override bool PreDraw(ref Color lightColor)
         {
             Texture2D texture2D13 = TextureAssets.Projectile[Projectile.type].Value;
-            int num214 = TextureAssets.Projectile[Projectile.type].Value.Height / Main.projFrames[Projectile.type];
+            int num214 = TextureAssets.Projectile[Projectile.type].Height() / Main.projFrames[Projectile.type];
             if(flaming) Projectile.frame = 1;
             else Projectile.frame = 0;
             int y6 = num214 * Projectile.frame;

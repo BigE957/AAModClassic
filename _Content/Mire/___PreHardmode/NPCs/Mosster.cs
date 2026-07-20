@@ -49,7 +49,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
 
         public override void HitEffect(NPC.HitInfo hit)
         {
-            if (NPC.life <= 0)
+            if (NPC.life <= 0 && !Main.dedServ)
             {
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MossterGoreBackArm").Type, 1f);
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MossterGoreBackLeg").Type, 1f);

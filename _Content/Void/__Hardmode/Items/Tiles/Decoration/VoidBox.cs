@@ -21,6 +21,7 @@ namespace AAModClassic._Content.Void.__Hardmode.Items.Tiles.Decoration
             // Tooltip.SetDefault(@"Plays 'Waste' by ProduceVGM");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
 
         public override void SetDefaults()

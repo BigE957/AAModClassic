@@ -92,7 +92,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
         int Frame = 0;
         public override void FindFrame(int frameHeight)
         {
-            int frameWidth = TextureAssets.Npc[NPC.type].Value.Width / 2;
+            int frameWidth = TextureAssets.Npc[NPC.type].Width() / 2;
             NPC.frame.Width = frameWidth;
 
             if (NPC.frameCounter++ > 3)

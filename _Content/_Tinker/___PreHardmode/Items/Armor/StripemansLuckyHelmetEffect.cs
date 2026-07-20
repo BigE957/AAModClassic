@@ -76,7 +76,7 @@ namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor
             int result = 0;
             int stack = 1;
 
-            if (Main.player[Main.myPlayer].GetModPlayer<StripemansLuckyHelmetPlayer>().effect)
+            if (Main.LocalPlayer.GetModPlayer<StripemansLuckyHelmetPlayer>().effect)
             {
                 if (extractType == ItemID.DesertFossil || extractType == ItemID.SlushBlock || extractType == ItemID.SiltBlock)
                 {
@@ -669,7 +669,7 @@ namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor
     {
         public override void Drop(int i, int j, int type)
         {
-            if (Main.player[Main.myPlayer].GetModPlayer<StripemansLuckyHelmetPlayer>().effect)
+            if (Main.LocalPlayer.GetModPlayer<StripemansLuckyHelmetPlayer>().effect)
             {
                 if (TileID.Sets.Conversion.Stone[type])
                 {
@@ -686,7 +686,7 @@ namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor
             foreach (int itemtype in AALuckyConfig.LuckyOre.Keys)
             {
                 float chance = AALuckyConfig.LuckyOre[itemtype];
-                chance -= Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].pick;
+                chance -= Main.LocalPlayer.inventory[Main.LocalPlayer.selectedItem].pick;
                 chance = chance / ChanceBalance * 100f;
                 if (chance < 100 && !(itemtype == ItemID.DemoniteOre || itemtype == ItemID.CrimtaneOre || itemtype == ModContent.ItemType<AbyssiumOre>() || itemtype == ModContent.ItemType<IncineriteOre>() || itemtype == ModContent.ItemType<ApocalyptiteOre>()))
                 {

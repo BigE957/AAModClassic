@@ -16,7 +16,7 @@ namespace AAModClassic.Globals
         private static readonly List<AAPacket> instances = [];
         private static readonly Dictionary<Type, byte> typeToId = [];
 
-        public override void Load()
+        public override void PostSetupContent()
         {
             var packets = Mod.GetContent<AAPacket>();
 
@@ -37,6 +37,8 @@ namespace AAModClassic.Globals
         public static void HandlePacket(BinaryReader bb, int sender)
         {
             byte msg = bb.ReadByte();
+
+            AAMod.instance.Logger.Info($"[AANet] Received msg id {msg} from {sender}");
 
             if (msg >= instances.Count)
             {
@@ -65,8 +67,11 @@ namespace AAModClassic.Globals
 
         public static void SendNetMessageClient<T>(int client, params object[] param) where T : AAPacket
         {
-            if (!typeToId.TryGetValue(typeof(T), out byte msg)) 
+            if (!typeToId.TryGetValue(typeof(T), out byte msg))
+            {
+                AAMod.instance.Logger.Warn($"[AANet] No packet ID registered for {typeof(T).Name}");
                 return;
+            }
 
             try
             {
@@ -118,7 +123,7 @@ namespace AAModClassic.Globals
         }
     }
 
-    public class SummonNPCFromClient : AAPacket
+    public sealed class SummonNPCFromClient : AAPacket
     {
         protected override void Write(BinaryWriter w, object[] args)
         {
@@ -148,7 +153,7 @@ namespace AAModClassic.Globals
         }
     }
 
-    public class UpdateLovecraftianCount : AAPacket
+    public sealed class UpdateLovecraftianCount : AAPacket
     {
         protected override void Write(BinaryWriter w, object[] args)
         {

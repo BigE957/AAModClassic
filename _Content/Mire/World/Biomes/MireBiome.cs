@@ -26,11 +26,7 @@ namespace AAModClassic._Content.Mire.World.Biomes
 
         public override string BackgroundPath => "AAModClassic/_Content/Mire/World/Biomes/Backgrounds/MireBiome_MapBG";
 
-        public override bool IsBiomeActive(Player player)
-        {
-            bool active = (AAWorld.mireTiles > 100) || BaseAI.GetNPC(player.Center, ModContent.NPCType<YamataBody>(), 5000) != -1 || BaseAI.GetNPC(player.Center, ModContent.NPCType<YamataABody>(), 5000) != -1;
-            return player.GetModPlayer<ZAAPlayer>().ZoneMire = active;
-        }
+        public override bool IsBiomeActive(Player player) => AAWorld.mireTiles > 100 || BaseAI.GetNPC(player.Center, ModContent.NPCType<YamataBody>(), 5000) != -1 || BaseAI.GetNPC(player.Center, ModContent.NPCType<YamataABody>(), 5000) != -1;
 
         public override void SpecialVisuals(Player player, bool isActive)
         {

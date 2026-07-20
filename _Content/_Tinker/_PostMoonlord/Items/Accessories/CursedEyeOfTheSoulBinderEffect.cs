@@ -48,11 +48,12 @@ namespace AAModClassic._Content._Tinker._PostMoonlord.Items.Accessories
                 return;
             }
             int num2 = 1000;
-            if (Main.player[Main.myPlayer].ghostDmg > num2)
+            if (Main.LocalPlayer.ghostDmg > num2)
             {
                 return;
             }
-            Main.player[Main.myPlayer].ghostDmg += num;
+
+            Main.LocalPlayer.ghostDmg += num;
             int[] array = new int[200];
             int num3 = 0;
             int num4 = 0;

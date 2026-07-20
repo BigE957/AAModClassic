@@ -31,7 +31,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
     [AutoloadBossHead]
     public class Cthulhu : ModNPC
     {
-        public override string BossHeadTexture => "AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/SoulOfCthulhu_Head_Boss";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Cthulhu, Cosmic Calamity");
@@ -67,26 +66,18 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public float[] customAI = new float[4];
         public override void SendExtraAI(BinaryWriter writer)
         {
-            base.SendExtraAI(writer);
-            if ((Main.netMode == NetmodeID.Server || Main.dedServ))
-            {
-                writer.Write((short)customAI[0]);
-                writer.Write((short)customAI[1]);
-                writer.Write((short)customAI[2]);
-                writer.Write((short)customAI[3]);
-            }
+            writer.Write(customAI[0]);
+            writer.Write(customAI[1]);
+            writer.Write(customAI[2]);
+            writer.Write(customAI[3]);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            base.ReceiveExtraAI(reader);
-            if (Main.netMode == NetmodeID.MultiplayerClient)
-            {
-                customAI[0] = reader.ReadSingle();
-                customAI[1] = reader.ReadSingle();
-                customAI[2] = reader.ReadSingle();
-                customAI[3] = reader.ReadSingle();
-            }
+            customAI[0] = reader.ReadSingle();
+            customAI[1] = reader.ReadSingle();
+            customAI[2] = reader.ReadSingle();
+            customAI[3] = reader.ReadSingle();
         }
 
         public int BoomTimer = 0;
@@ -189,7 +180,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 if (NPC.ai[3] == 520)
                 {
                     Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2(0, 0), ModContent.ProjectileType<CthulhuDeath>(), 0, 0);
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("CthulhuGore").Type, 1.2f);
+                    if(!Main.dedServ)
+                        Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("CthulhuGore").Type, 1.2f);
                     NPC.dontTakeDamage = false;
                     if(Main.netMode != NetmodeID.MultiplayerClient)
                         NPC.StrikeInstantKill();

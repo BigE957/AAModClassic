@@ -153,17 +153,17 @@ Radium: {
 
 Biomite: {
 	BiomiteChestplate: {
-		DisplayName: Биомитный кристальный нагрудник
+		DisplayName: Биомитовый кристальный нагрудник
 		Tooltip: ""
 	}
 
 	BiomiteHelmet: {
-		DisplayName: Биомитный шлем
+		DisplayName: Биомитовый шлем
 		Tooltip: ""
 	}
 
 	BiomiteLeggings: {
-		DisplayName: Биомитные поножи
+		DisplayName: Биомитовые поножи
 		Tooltip: ""
 	}
 }

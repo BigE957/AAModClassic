@@ -154,15 +154,15 @@ namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor
                             }
                             else if (Main.rand.NextBool(3) && Main.player[projectile.owner].GetModPlayer<ZAAPlayer>().ZoneInferno)
                             {
-                                itemtype = Main.hardMode ? ModContent.ItemType<InfernoCrate>() : ModContent.ItemType<DaybreakCrate>();
+                                itemtype = Main.hardMode ? ModContent.ItemType<DaybreakCrate>() : ModContent.ItemType<InfernoCrate>();
                             }
                             else if (Main.rand.NextBool(3) && Main.player[projectile.owner].GetModPlayer<ZAAPlayer>().ZoneMire)
                             {
-                                itemtype = Main.hardMode ? ModContent.ItemType<MireCrate>() : ModContent.ItemType<EventideCrate>();
+                                itemtype = Main.hardMode ? ModContent.ItemType<EventideCrate>() : ModContent.ItemType<MireCrate>();
                             }
                             else if (Main.rand.NextBool(3) && Main.player[projectile.owner].GetModPlayer<ZAAPlayer>().ZoneVoid)
                             {
-                                itemtype = Main.hardMode ? ModContent.ItemType<VoidCrate>() : ModContent.ItemType<NullCrate>();
+                                itemtype = Main.hardMode ? ModContent.ItemType<NullCrate>() : ModContent.ItemType<VoidCrate>();
                             }
                             else if (Main.rand.NextBool(3) && Main.player[projectile.owner].GetModPlayer<ZAAPlayer>().ZoneHoard)
                             {

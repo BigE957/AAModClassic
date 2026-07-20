@@ -73,7 +73,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Armor
 				player.buffImmune[BuffID.Poisoned] = true;
 				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor6");
 			}
-			if (player.GetModPlayer<ZAAPlayer>().Terrarium)
+			if (player.GetModPlayer<ZAAPlayer>().ZoneTerrarium)
 			{
 				player.statDefense += 5;
 				set += Language.GetTextValue("Mods.AAModClassic.Items.BiomiteArmor.BiomiteArmor7");

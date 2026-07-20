@@ -387,7 +387,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
 
         public override void HitEffect(NPC.HitInfo hit)
         {
-            if (NPC.life <= 0)
+            if (NPC.life <= 0 && !Main.dedServ)
             {
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("HydraGoreHead").Type, 1f);
             }

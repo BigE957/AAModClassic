@@ -115,8 +115,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
             double Realdamage = modifiers.GetDamage(Projectile.damage, false);
-
-            Main.player[Main.myPlayer].dpsDamage += (int)Realdamage;
+            Main.LocalPlayer.dpsDamage += (int)Realdamage;
             bool crit = true;
             Color damagecolor = crit ? CombatText.DamagedHostileCrit : CombatText.DamagedHostile;
             CombatText.NewText(new Rectangle((int)target.position.X, (int)target.position.Y, target.width, target.height), damagecolor, (int)Realdamage, false, false);

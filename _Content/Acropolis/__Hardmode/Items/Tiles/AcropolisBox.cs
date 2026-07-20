@@ -15,6 +15,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items.Tiles
             // Tooltip.SetDefault(@"Plays 'Palace in the Sky' by ENNWAY");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
 
         public override void SetDefaults()

@@ -289,7 +289,7 @@ CrucibleScale: {
 
 DaybreakIncineriteBar: {
 	DisplayName: Рассветный испепельнит
-	Tooltip: Яркий, как сияющее солнце
+	Tooltip: Яркий, словно сияющее солнце
 }
 
 DaybreakIncineriteOre: {
@@ -453,7 +453,7 @@ DoomiteBar: {
 }
 
 DoomiteScrap: {
-	DisplayName: Гибельнитовый обломок
+	DisplayName: Гибельнитовый лом
 	Tooltip:
 		'''
 		Он ничего не стоит

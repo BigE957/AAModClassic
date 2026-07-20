@@ -196,11 +196,12 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Snow
                 Main.dust[num592].velocity *= 2f;
                 Main.dust[num592].noGravity = true;
             }
-            for (int num593 = 0; num593 < 4; num593++)
-            {
-                int num594 = Gore.NewGore(NPC.GetSource_OnHurt(null), new Vector2(NPC.position.X, NPC.position.Y + NPC.height / 2 - 10f), new Vector2(hit.HitDirection, 0f), 99, NPC.scale);
-                Main.gore[num594].velocity *= 0.3f;
-            }
+            if(!Main.dedServ)
+                for (int num593 = 0; num593 < 4; num593++)
+                {
+                    int num594 = Gore.NewGore(NPC.GetSource_OnHurt(null), new Vector2(NPC.position.X, NPC.position.Y + NPC.height / 2 - 10f), new Vector2(hit.HitDirection, 0f), 99, NPC.scale);
+                    Main.gore[num594].velocity *= 0.3f;
+                }
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

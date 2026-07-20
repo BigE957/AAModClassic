@@ -155,15 +155,16 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 Main.dust[num195].velocity *= 2f;
                 Main.dust[num195].noGravity = true;
             }
-            for (int num196 = 0; num196 < 1; num196++)
-            {
-                int num197 = Gore.NewGore(Projectile.GetSource_Death(), Projectile.position + new Vector2((float)(Projectile.width * Main.rand.Next(100)) / 100f, (float)(Projectile.height * Main.rand.Next(100)) / 100f) - Vector2.One * 10f, default(Vector2), Main.rand.Next(61, 64), 1f);
-                Main.gore[num197].velocity *= 0.3f;
-                Gore expr_6EC5_cp_0 = Main.gore[num197];
-                expr_6EC5_cp_0.velocity.X = expr_6EC5_cp_0.velocity.X + (float)Main.rand.Next(-10, 11) * 0.05f;
-                Gore expr_6EF5_cp_0 = Main.gore[num197];
-                expr_6EF5_cp_0.velocity.Y = expr_6EF5_cp_0.velocity.Y + (float)Main.rand.Next(-10, 11) * 0.05f;
-            }
+            if(!Main.dedServ)
+                for (int num196 = 0; num196 < 1; num196++)
+                {
+                    int num197 = Gore.NewGore(Projectile.GetSource_Death(), Projectile.position + new Vector2((float)(Projectile.width * Main.rand.Next(100)) / 100f, (float)(Projectile.height * Main.rand.Next(100)) / 100f) - Vector2.One * 10f, default(Vector2), Main.rand.Next(61, 64), 1f);
+                    Main.gore[num197].velocity *= 0.3f;
+                    Gore expr_6EC5_cp_0 = Main.gore[num197];
+                    expr_6EC5_cp_0.velocity.X = expr_6EC5_cp_0.velocity.X + (float)Main.rand.Next(-10, 11) * 0.05f;
+                    Gore expr_6EF5_cp_0 = Main.gore[num197];
+                    expr_6EF5_cp_0.velocity.Y = expr_6EF5_cp_0.velocity.Y + (float)Main.rand.Next(-10, 11) * 0.05f;
+                }
             Projectile.Damage();
         }
     }

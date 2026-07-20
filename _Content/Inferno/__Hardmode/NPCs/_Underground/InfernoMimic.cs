@@ -55,7 +55,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
 
         public override void HitEffect(NPC.HitInfo hit)
 		{
-			if (NPC.life <= 0)
+			if (NPC.life <= 0 && !Main.dedServ)
 			{
 				Gore.NewGore(NPC.GetSource_Death(), NPC.position, Vector2.Zero, 13);
 				Gore.NewGore(NPC.GetSource_Death(), NPC.position, Vector2.Zero, 12);

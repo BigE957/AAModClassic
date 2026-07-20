@@ -18,6 +18,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Boss
             // Tooltip.SetDefault(@"Plays 'Celestial Cyclone' by ProduceVGM");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
 
         public override void SetDefaults()

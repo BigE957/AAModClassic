@@ -4,11 +4,13 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
+using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
 {
@@ -162,7 +164,21 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
                 Main.dust[d2].velocity *= 0.6f;
             }
         }
-        
+
+        public override void SendExtraAI(BinaryWriter writer)
+        {
+            writer.Write(staPos.X);
+            writer.Write(staPos.Y);
+            writer.Write(endPos.X);
+            writer.Write(endPos.Y);
+        }
+
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+            staPos = new Vector2(reader.ReadSingle(), reader.ReadSingle());
+            endPos = new Vector2(reader.ReadSingle(), reader.ReadSingle());
+        }
+
         public override bool PreDraw(ref Color lightColor)
         {
             Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;

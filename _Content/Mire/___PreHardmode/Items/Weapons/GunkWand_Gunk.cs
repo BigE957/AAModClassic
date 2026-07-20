@@ -68,8 +68,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
 
         public override bool PreDraw(ref Color lightColor)
         {
-            int width = TextureAssets.Projectile[Projectile.type].Value.Width;
-            int height = TextureAssets.Projectile[Projectile.type].Value.Height;
+            int width = TextureAssets.Projectile[Projectile.type].Width();
+            int height = TextureAssets.Projectile[Projectile.type].Height();
 
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, width, height / 3, 0, 0);
 
