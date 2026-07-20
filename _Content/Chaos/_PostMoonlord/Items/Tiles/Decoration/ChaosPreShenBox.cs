@@ -20,6 +20,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Decoration
             // Tooltip.SetDefault(@"Plays 'Condemned' by MaestroVGM");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
 
         public override void SetDefaults()

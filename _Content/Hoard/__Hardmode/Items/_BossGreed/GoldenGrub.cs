@@ -73,13 +73,14 @@ Can only be used in Greed's Hoard at the Altar of Desire
 
         public override bool? UseItem(Player player)
         {
-            Vector2 spawnPos = player.Center + Vector2.UnitY * 600;
-            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedAHead>(), true, spawnPos, ModContent.GetInstance<GreedAHead>().DisplayName.Value, false);
-            int b = Projectile.NewProjectile(NPC.GetBossSpawnSource(player.whoAmI), spawnPos.X, spawnPos.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
-
             if (Main.netMode != NetmodeID.MultiplayerClient)
-                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.AwakenedSummon"), Color.Goldenrod);
+            {
+                Vector2 spawnPos = player.Center + Vector2.UnitY * 600;
+                AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedAHead>(), true, spawnPos, ModContent.GetInstance<GreedAHead>().DisplayName.Value, false);
+                Projectile.NewProjectile(NPC.GetBossSpawnSource(player.whoAmI), spawnPos.X, spawnPos.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
 
+                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.AwakenedSummon"), Color.Goldenrod);
+            }
             return true;
         }
 

@@ -15,6 +15,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.BossStandard
             // Tooltip.SetDefault("Plays 'Gold Digger' by Tyeski");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
 
         public override void SetDefaults()

@@ -99,30 +99,22 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public override void SendExtraAI(BinaryWriter writer)
         {
-            base.SendExtraAI(writer);
-            if (Main.netMode == NetmodeID.Server || Main.dedServ)
-            {
-                writer.Write(chargingCounter);
-                writer.Write(chargeUpCounter);
-                writer.Write(chargeCounter);
-                writer.Write(goalOffset.X);
-                writer.Write(goalOffset.Y);
-                writer.Write(shouldCharge);				
-            }
+            writer.Write(chargingCounter);
+            writer.Write(chargeUpCounter);
+            writer.Write(chargeCounter);
+            writer.Write(goalOffset.X);
+            writer.Write(goalOffset.Y);
+            writer.Write(shouldCharge);				
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            base.ReceiveExtraAI(reader);
-            if (Main.netMode == NetmodeID.MultiplayerClient)
-            {
-                chargingCounter = reader.ReadInt32();
-                chargeUpCounter = reader.ReadInt32();
-                chargeCounter = reader.ReadInt32();
-                goalOffset.X = reader.ReadSingle();
-                goalOffset.Y = reader.ReadSingle();
-                shouldCharge = reader.ReadBoolean();				
-            }
+            chargingCounter = reader.ReadInt32();
+            chargeUpCounter = reader.ReadInt32();
+            chargeCounter = reader.ReadInt32();
+            goalOffset.X = reader.ReadSingle();
+            goalOffset.Y = reader.ReadSingle();
+            shouldCharge = reader.ReadBoolean();				
         }
 
         private int ZeroShot = 0;

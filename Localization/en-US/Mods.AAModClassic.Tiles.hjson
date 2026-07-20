@@ -217,10 +217,36 @@ KeepDoor1_Tile.MapEntry: Keep Door
 KeepDoor2_Tile.MapEntry: Keep Door
 KeepDoor2S_Tile.MapEntry: Keep Door
 KeepDoor3_Tile.MapEntry: Keep Door
-TerraStatue_Tile.MapEntry: Lost Hero Statue
+
+TerraStatue_Tile: {
+	MapEntry: Lost Hero Statue
+	FlavorText: The Hero who saved us all from the brink of chaos
+}
+
 SunkenChest_Tile.MapEntry: Sunken Chest
 InfernoPylon_Tile.MapEntry: Inferno Pylon
 MirePylon_Tile.MapEntry: Mire Pylon
 RedMushroomPylon_Tile.MapEntry: Red Mushroom Pylon
 VoidPylon_Tile.MapEntry: Void Pylon
 FulguriteShard_Tile.MapEntry: Fulgurite Shard
+RedmushBed_Tile.MapEntry: Mushroom Bed
+RedmushBench_Tile.MapEntry: Mushroom Bench
+RedmushBookcase_Tile.MapEntry: Mushroom Bookcase
+RedmushCandelabra_Tile.MapEntry: Mushroom Candelabra
+RedmushCandle_Tile.MapEntry: Mushroom Candle
+RedmushChair_Tile.MapEntry: Mushroom Chair
+RedmushChandelier_Tile.MapEntry: Mushroom Chandelier
+RedmushChest_Tile.MapEntry: Mushroom Chest
+RedmushClock_Tile.MapEntry: Mushroom Clock
+RedmushCouch_Tile.MapEntry: Mushroom Couch
+RedmushDoorClosed_Tile.MapEntry: Mushroom Door Closed
+RedmushDoorOpen_Tile.MapEntry: Mushroom Door Open
+RedmushDresser_Tile.MapEntry: Mushroom Dresser
+RedmushLamp_Tile.MapEntry: Mushroom Lamp
+RedmushLantern_Tile.MapEntry: Mushroom Lantern
+RedmushPiano_Tile.MapEntry: Mushroom Piano
+RedmushSink_Tile.MapEntry: Mushroom Sink
+RedmushTable_Tile.MapEntry: Mushroom Table
+RedmushToilet_Tile.MapEntry: Mushroom Toilet
+RedmushTub_Tile.MapEntry: Mushroom Tub
+RedmushWorkbench_Tile.MapEntry: Mushroom Workbench

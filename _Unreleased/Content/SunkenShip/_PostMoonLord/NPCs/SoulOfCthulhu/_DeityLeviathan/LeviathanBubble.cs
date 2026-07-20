@@ -123,7 +123,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 {
                     return;
                 }
-                num = TextureAssets.Npc[NPC.type].Value.Height / Main.npcFrameCount[NPC.type];
+                num = TextureAssets.Npc[NPC.type].Height() / Main.npcFrameCount[NPC.type];
             }
             NPC.frame.Y = num;
         }

@@ -41,11 +41,7 @@ namespace AAModClassic._Content.Inferno.World.Biomes
                 BackgroundTopY = field;
         }
 
-        public override bool IsBiomeActive(Player player)
-        {
-            bool active = AAWorld.infernoTiles > 100 || BaseAI.GetNPC(player.Center, ModContent.NPCType<AkumaHead>(), 5000) != -1 || BaseAI.GetNPC(player.Center, ModContent.NPCType<AkumaAHead>(), 5000) != -1;
-            return player.GetModPlayer<ZAAPlayer>().ZoneInferno = active;
-        }
+        public override bool IsBiomeActive(Player player) => AAWorld.infernoTiles > 100 || BaseAI.GetNPC(player.Center, ModContent.NPCType<AkumaHead>(), 5000) != -1 || BaseAI.GetNPC(player.Center, ModContent.NPCType<AkumaAHead>(), 5000) != -1;
 
         public override void SpecialVisuals(Player player, bool isActive)
         {

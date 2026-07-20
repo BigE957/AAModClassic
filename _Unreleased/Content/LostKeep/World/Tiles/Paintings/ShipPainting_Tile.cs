@@ -31,7 +31,7 @@ public class ShipPainting_Tile : ModTile
 	{
 		if (Main.netMode != NetmodeID.Server)
 		{
-			BaseUtility.Chat("'That ship...I still don't understand what those creatures infesting it are...'", Color.SlateBlue, sync: false);
+			BaseUtility.Chat(Language.GetTextValue($"Mods.AAModClassic.Items.Placeables.{Name.Replace("_Tile", "")}.Tooltip"), Color.SlateBlue, sync: false);
 		}
 		return true;
 	}

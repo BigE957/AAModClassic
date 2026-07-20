@@ -36,7 +36,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
         }
         public override void AI()
         {
-            Color color = BaseUtility.MultiLerpColor(Main.player[Main.myPlayer].miscCounter % 100 / 100f, BaseDrawing.GetLightColor(Projectile.position), BaseDrawing.GetLightColor(Projectile.position), Color.Violet, BaseDrawing.GetLightColor(Projectile.position), Color.Violet, BaseDrawing.GetLightColor(Projectile.position));
+            Color color = BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, BaseDrawing.GetLightColor(Projectile.position), BaseDrawing.GetLightColor(Projectile.position), Color.Violet, BaseDrawing.GetLightColor(Projectile.position), Color.Violet, BaseDrawing.GetLightColor(Projectile.position));
 
             Lighting.AddLight((int)(Projectile.Center.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, color.R / 255, color.G / 255, color.B / 255);
             if (++Projectile.frameCounter >= 4)
@@ -56,7 +56,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             Texture2D glowTex = Glowmask1.Value;
             Texture2D glowTex1 = Glowmask2.Value;
             
-            Color color = BaseUtility.MultiLerpColor(Main.player[Main.myPlayer].miscCounter % 100 / 100f, BaseDrawing.GetLightColor(Projectile.position), BaseDrawing.GetLightColor(Projectile.position), Color.Violet, BaseDrawing.GetLightColor(Projectile.position), Color.Violet, BaseDrawing.GetLightColor(Projectile.position));
+            Color color = BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, BaseDrawing.GetLightColor(Projectile.position), BaseDrawing.GetLightColor(Projectile.position), Color.Violet, BaseDrawing.GetLightColor(Projectile.position), Color.Violet, BaseDrawing.GetLightColor(Projectile.position));
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, 66, 98);
 
             BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, lightColor, true);

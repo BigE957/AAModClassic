@@ -350,7 +350,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
                     Main.spriteBatch.Draw(TextureAssets.Item[oreType].Value,
                         projectile.position - Main.screenPosition,
                         null, lightColor, projectile.rotation,
-                        new Vector2(TextureAssets.Item[oreType].Value.Width * 0.5f, projectile.height * 0.5f),
+                        new Vector2(TextureAssets.Item[oreType].Width() * 0.5f, projectile.height * 0.5f),
                         projectile.scale, SpriteEffects.None, 0f);
                 }
             ));
@@ -583,7 +583,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
                 extraDraw: (Projectile projectile, Color lightColor) =>
                 {
                     int oreType = (int)projectile.ai[1];
-                    Main.spriteBatch.Draw(TextureAssets.Item[oreType].Value, projectile.position - Main.screenPosition, null, lightColor, projectile.rotation, new Vector2(TextureAssets.Item[oreType].Value.Width * 0.5f, projectile.height * 0.5f), projectile.scale, SpriteEffects.None, 0f);
+                    Main.spriteBatch.Draw(TextureAssets.Item[oreType].Value, projectile.position - Main.screenPosition, null, lightColor, projectile.rotation, new Vector2(TextureAssets.Item[oreType].Width() * 0.5f, projectile.height * 0.5f), projectile.scale, SpriteEffects.None, 0f);
                 }
             ));
         }
@@ -672,7 +672,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
                 extraDraw: (Projectile projectile, Color lightColor) =>
                 {
                     int oreType = (int)projectile.ai[1];
-                    Main.spriteBatch.Draw(TextureAssets.Item[oreType].Value, projectile.position - Main.screenPosition, null, lightColor, projectile.rotation, new Vector2(TextureAssets.Item[oreType].Value.Width * 0.5f, projectile.height * 0.5f), projectile.scale, SpriteEffects.None, 0f);
+                    Main.spriteBatch.Draw(TextureAssets.Item[oreType].Value, projectile.position - Main.screenPosition, null, lightColor, projectile.rotation, new Vector2(TextureAssets.Item[oreType].Width() * 0.5f, projectile.height * 0.5f), projectile.scale, SpriteEffects.None, 0f);
                 }
             ));
 
@@ -897,7 +897,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
                 extraDraw: (Projectile projectile, Color lightColor) =>
                 {
                     int oreType = (int)projectile.ai[1];
-                    Main.spriteBatch.Draw(TextureAssets.Item[oreType].Value, projectile.position - Main.screenPosition, null, lightColor, projectile.rotation, new Vector2(TextureAssets.Item[oreType].Value.Width * 0.5f, projectile.height * 0.5f), projectile.scale, SpriteEffects.None, 0f);
+                    Main.spriteBatch.Draw(TextureAssets.Item[oreType].Value, projectile.position - Main.screenPosition, null, lightColor, projectile.rotation, new Vector2(TextureAssets.Item[oreType].Width() * 0.5f, projectile.height * 0.5f), projectile.scale, SpriteEffects.None, 0f);
                 }
             ));
 
@@ -1383,7 +1383,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Vector2 drawOrigin = new(TextureAssets.Item[(int)Projectile.ai[1]].Value.Width * 0.5f, Projectile.height * 0.5f);
+            Vector2 drawOrigin = new(TextureAssets.Item[(int)Projectile.ai[1]].Width() * 0.5f, Projectile.height * 0.5f);
 
             for (int k = 0; k < 3; k++)
             {
@@ -1520,7 +1520,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Vector2 drawOrigin = new(TextureAssets.Item[(int)Projectile.ai[1]].Value.Width * 0.5f, Projectile.height * 0.5f);
+            Vector2 drawOrigin = new(TextureAssets.Item[(int)Projectile.ai[1]].Width() * 0.5f, Projectile.height * 0.5f);
 
             for (int k = 0; k < 3; k++)
             {

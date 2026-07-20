@@ -1,4 +1,5 @@
-﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoration.Furniture;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -36,6 +37,16 @@ namespace AAModClassic._Content.RedMushroom.World.Tiles
             recipe.AddIngredient(ItemID.Mushroom, 3);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
+
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<RedmushPlatform>(), 2)
+            .AddTile(TileID.WorkBenches)
+            .Register();
+
+            CreateRecipe()
+            .AddIngredient(ModContent.ItemType<RedmushWall>(), 4)
+            .AddTile(TileID.WorkBenches)
+            .Register();
         }
 
     }

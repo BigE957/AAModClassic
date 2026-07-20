@@ -150,51 +150,53 @@ namespace AAModClassic._Unreleased._Aggregate.soc.weapons
                 dust2.fadeIn = 1.1f;
                 dust2.noGravity = true;
             }
-            for (int l = 0; l < 1; l++)
+            if (!Main.dedServ)
             {
-                if (Main.rand.NextBool(5))
+                for (int l = 0; l < 1; l++)
                 {
-                    Gore gore = Gore.NewGoreDirect(Projectile.GetSource_FromThis(), Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
+                    if (Main.rand.NextBool(5))
                     {
-                        1007,
-                        1008,
-                        1008
-                    }), 1f);
-                    gore.timeLeft = 60;
-                    gore.alpha = 50;
-                    Gore expr_5FA_cp_0 = gore;
-                    expr_5FA_cp_0.velocity.X = expr_5FA_cp_0.velocity.X + Projectile.velocity.X;
+                        Gore gore = Gore.NewGoreDirect(Projectile.GetSource_FromThis(), Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
+                        {
+                            1007,
+                            1008,
+                            1008
+                        }), 1f);
+                        gore.timeLeft = 60;
+                        gore.alpha = 50;
+                        Gore expr_5FA_cp_0 = gore;
+                        expr_5FA_cp_0.velocity.X = expr_5FA_cp_0.velocity.X + Projectile.velocity.X;
+                    }
                 }
-            }
-            for (int m = 0; m < 1; m++)
-            {
-                if (Main.rand.NextBool(7))
+                for (int m = 0; m < 1; m++)
                 {
-                    Gore gore2 = Gore.NewGoreDirect(Projectile.GetSource_FromThis(), Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
+                    if (Main.rand.NextBool(7))
                     {
+                        Gore gore2 = Gore.NewGoreDirect(Projectile.GetSource_FromThis(), Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
+                        {
                         1007,
                         1008,
                         1008
-                    }), 1f);
-                    gore2.timeLeft = 0;
-                    gore2.alpha = 80;
+                        }), 1f);
+                        gore2.timeLeft = 0;
+                        gore2.alpha = 80;
+                    }
                 }
-            }
-            for (int n = 0; n < 1; n++)
-            {
-                if (Main.rand.NextBool(7))
+                for (int n = 0; n < 1; n++)
                 {
-                    Gore gore3 = Gore.NewGoreDirect(Projectile.GetSource_FromThis(), Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
+                    if (Main.rand.NextBool(7))
                     {
+                        Gore gore3 = Gore.NewGoreDirect(Projectile.GetSource_FromThis(), Projectile.TopLeft + Main.rand.NextVector2Square(0f, 1f) * Projectile.Size, new Vector2(Projectile.velocity.X * 1.5f, -Main.rand.NextFloat() * 16f), Utils.SelectRandom(Main.rand, new int[]
+                        {
                         1007,
                         1008,
                         1008
-                    }), 1f);
-                    gore3.timeLeft = 0;
-                    gore3.alpha = 80;
+                        }), 1f);
+                        gore3.timeLeft = 0;
+                        gore3.alpha = 80;
+                    }
                 }
             }
         }
-
     }
 }

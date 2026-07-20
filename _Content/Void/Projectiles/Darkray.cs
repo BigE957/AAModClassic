@@ -24,7 +24,7 @@ namespace AAModClassic._Content.Void.Projectiles
         public override bool PreDraw(ref Color lightColor)
         {
             //Redraw the projectile with the color not influenced by light
-            Vector2 drawOrigin = new Vector2(TextureAssets.Projectile[Projectile.type].Value.Width * 0.5f, Projectile.height * 0.5f);
+            Vector2 drawOrigin = new Vector2(TextureAssets.Projectile[Projectile.type].Width() * 0.5f, Projectile.height * 0.5f);
             //TODO: Fix later
             /*
             for (int k = 0; k < Projectile.oldPos.Length; k++)

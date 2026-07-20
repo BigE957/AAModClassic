@@ -140,8 +140,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
         {
             if (Main.expertMode)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    Projectile.NewProjectile(NPC.GetSource_Death(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, 0f), ModContent.ProjectileType<ZeroDeath1>(), 0, 0);
+                Projectile.NewProjectile(NPC.GetSource_Death(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, 0f), ModContent.ProjectileType<ZeroDeath1>(), 0, 0);
 
                 if (NPC.playerInteraction[Main.myPlayer])
                     ZeroKilled.Condition.Complete();
@@ -160,7 +159,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 
             npcLoot.Add(masterMode);
 
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ZeroTrophy>(), 10));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ZeroATrophy>(), 10));
 
             LeadingConditionRule firstKill = new(new FirstTimeKillingZeroP());
 
@@ -246,7 +245,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 
         public override void FindFrame(int frameHeight)
         {
-            int frameWidth = TextureAssets.Npc[NPC.type].Value.Width / 2;
+            int frameWidth = TextureAssets.Npc[NPC.type].Width() / 2;
             NPC.frame.Width = frameWidth;
 
             if (NPC.frameCounter++ > 3)

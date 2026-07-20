@@ -15,6 +15,7 @@ namespace AAModClassic._Unofficial.Content.Parthenan.___PreHardmode.Items
             // Tooltip.SetDefault(@"Plays 'Maelstrom' by Tyeski");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
 
         public override void SetDefaults()

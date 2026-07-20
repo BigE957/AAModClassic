@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Armor
     {
         public override void Drop(int i, int j, int type)
         {
-            if (Main.player[Main.myPlayer].GetModPlayer<AncientGoldChestplatePlayer>().effect)
+            if (Main.LocalPlayer.GetModPlayer<AncientGoldChestplatePlayer>().effect)
             {
                 if (TileID.Sets.Conversion.Stone[type] && Main.rand.NextBool(50))
                 {

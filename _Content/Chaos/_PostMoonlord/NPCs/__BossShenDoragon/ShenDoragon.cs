@@ -220,7 +220,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
         {
             writer.Write(FleeTimer[0]);
             writer.Write(AttackPosition.X);
-            writer.Write(AttackPosition.X);
+            writer.Write(AttackPosition.Y);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
@@ -363,7 +363,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         if (IsAwakened && Main.netMode != NetmodeID.MultiplayerClient)
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX.RotatedBy(NPC.ai[3]), ModContent.ProjectileType<ShenDoragonA_Deathray>(), 40, 0f, -1, 0, NPC.whoAmI);
                     }
-                    else if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.ai[2] > 180 && NPC.ai[2] % 3 == 0)
+                    else if(!Main.dedServ && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.ai[2] > 180 && NPC.ai[2] % 3 == 0)
                     {
                         RandomizedFrameParticle lightning = telegraphParticles.RequestParticle();
                         Main.instance.LoadProjectile(ProjectileID.ScytheWhipProj);
@@ -693,9 +693,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     float rotAngle = MathHelper.Pi / 48f * NPC.ai[1];
                     float radius = 720;
                     NPC.Center = AttackPosition + Vector2.UnitX.RotatedBy(rotAngle) * NPC.ai[2] * radius;
+                    NPC.velocity = Vector2.Zero;
+                    NPC.netOffset = Vector2.Zero;
                     //NPC.velocity -= NPC.velocity.RotatedBy(MathHelper.Pi / 2f) * NPC.velocity.Length() / NPC.ai[3];
                     //NPC.velocity = NPC.velocity.ClampMagnitude(0f, 16f);
-
                     rotAngle += MathHelper.PiOver2 * NPC.ai[2];
 
                     if (NPC.ai[1] % (IsAwakened ? 2 : 6) == 0)

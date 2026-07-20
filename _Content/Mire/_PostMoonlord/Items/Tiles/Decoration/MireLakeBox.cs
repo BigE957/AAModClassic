@@ -15,6 +15,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Tiles.Decoration
             // Tooltip.SetDefault("Plays 'Lake of Souls' by Rockwizard");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
 
         public override void SetDefaults()

@@ -67,7 +67,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
             }
             if (Projectile.localAI[0] == 0f)
             {
-                SoundEngine.PlaySound(SoundID.Zombie104, new Vector2(Main.player[Main.myPlayer].Center.X, Main.player[Main.myPlayer].Center.Y));
+                SoundEngine.PlaySound(SoundID.Zombie104, new Vector2(Main.LocalPlayer.Center.X, Main.LocalPlayer.Center.Y));
             }
             float num801 = 5f;
             Projectile.localAI[0] += 1f;

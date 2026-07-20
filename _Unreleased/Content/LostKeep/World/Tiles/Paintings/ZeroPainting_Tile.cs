@@ -31,7 +31,7 @@ public class ZeroPainting_Tile : ModTile
 	{
 		if (Main.netMode != NetmodeID.Server)
 		{
-			BaseUtility.Chat("'That thing...I don't know what it is, but it just...gives me the chills.'", Color.Red, sync: false);
+			BaseUtility.Chat(Language.GetTextValue($"Mods.AAModClassic.Items.Placeables.{Name.Replace("_Tile", "")}.Tooltip"), Color.Red, sync: false);
 		}
 		return true;
 	}

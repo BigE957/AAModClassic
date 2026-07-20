@@ -2,6 +2,12 @@
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using Terraria;
+using Terraria.GameContent;
+using Terraria.ID;
+using Terraria.Localization;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
 {

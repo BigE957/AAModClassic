@@ -40,7 +40,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
         public override void HitEffect(NPC.HitInfo hit)
         {
 			bool isDead = NPC.life <= 0;
-            if (isDead)
+            if (isDead && !Main.dedServ)
             {
 				for(int m = 0; m < 4; m++)
 				{

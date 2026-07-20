@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Terraria;
 using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Vanilla.Facsimiles._1._3._5._3
@@ -16,7 +17,7 @@ namespace AAModClassic._Vanilla.Facsimiles._1._3._5._3
         {
             Projectile.width = 32;
             Projectile.height = 34;
-            Projectile.aiStyle = 14;
+            Projectile.aiStyle = ProjAIStyleID.GroundProjectile;
             Projectile.friendly = true;
             Projectile.penetrate = 6;
             //Projectile.magic = true; //yucky you

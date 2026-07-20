@@ -129,7 +129,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 modifiers.FinalDamage *= 0.5f;
                 modifiers.DisableCrit();
             }
-            if (projectile.penetrate == -1 && !projectile.minion)
+            if (projectile.penetrate == -1 && !projectile.minion && Main.player[projectile.owner].heldProj != projectile.whoAmI)
             {
                 projectile.damage = (int)(projectile.damage * 0.2f);
             }

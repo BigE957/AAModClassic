@@ -273,18 +273,21 @@ namespace AAModClassic._Content._Misc._PostMoonlord.Items.Weapons
 				dust.velocity *= 3f;
 				num3 = num101;
 			}
-			for (int num103 = 0; num103 < 2; num103 = num3 + 1)
-			{
-				int num104 = Gore.NewGore(Projectile.GetSource_Death(), Projectile.position + new Vector2(Projectile.width * Main.rand.Next(100) / 100f, Projectile.height * Main.rand.Next(100) / 100f) - Vector2.One * 10f, default, Main.rand.Next(61, 64), 1f);
-				Main.gore[num104].position = Projectile.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * Projectile.width / 2f;
-				Gore gore = Main.gore[num104];
-				gore.velocity *= 0.3f;
-				Gore expr_3C56_cp_0_cp_0 = Main.gore[num104];
-				expr_3C56_cp_0_cp_0.velocity.X += Main.rand.Next(-10, 11) * 0.05f;
-				Gore expr_3C81_cp_0_cp_0 = Main.gore[num104];
-				expr_3C81_cp_0_cp_0.velocity.Y += Main.rand.Next(-10, 11) * 0.05f;
-				num3 = num103;
-			}
+
+			if(!Main.dedServ)
+				for (int num103 = 0; num103 < 2; num103 = num3 + 1)
+				{
+					int num104 = Gore.NewGore(Projectile.GetSource_Death(), Projectile.position + new Vector2(Projectile.width * Main.rand.Next(100) / 100f, Projectile.height * Main.rand.Next(100) / 100f) - Vector2.One * 10f, default, Main.rand.Next(61, 64), 1f);
+					Main.gore[num104].position = Projectile.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * Projectile.width / 2f;
+					Gore gore = Main.gore[num104];
+					gore.velocity *= 0.3f;
+					Gore expr_3C56_cp_0_cp_0 = Main.gore[num104];
+					expr_3C56_cp_0_cp_0.velocity.X += Main.rand.Next(-10, 11) * 0.05f;
+					Gore expr_3C81_cp_0_cp_0 = Main.gore[num104];
+					expr_3C81_cp_0_cp_0.velocity.Y += Main.rand.Next(-10, 11) * 0.05f;
+					num3 = num103;
+				}
+
 			if (Main.myPlayer == Projectile.owner)
 			{
                 foreach (Projectile p in Main.ActiveProjectiles)

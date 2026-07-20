@@ -18,7 +18,7 @@ namespace AAModClassic._Content.RedMushroom.World.Biomes
             bool active = AAWorld.mushTiles > 100;
             if (active && player.whoAmI == Main.myPlayer)
                 RedMushroomDiscovered.Condition.Complete();
-            return player.GetModPlayer<ZAAPlayer>().ZoneMush = active;
+            return active;
         }
 
         public override int Music => MusicManagementSystem.MusicSlots["Mushroom_Surface"];

@@ -25,7 +25,7 @@ namespace AAModClassic.Base.BaseMod.Base
 		 */
 		public static void SetStyleBoss(Player player, Item item, bool useItemHitbox = false, bool center = false)
 		{
-			Rectangle hitbox = (useItemHitbox || Main.netMode == NetmodeID.Server || Main.dedServ ? item.Hitbox : new Rectangle(0, 0, TextureAssets.Item[item.type].Value.Width, TextureAssets.Item[item.type].Value.Height));
+			Rectangle hitbox = (useItemHitbox || Main.netMode == NetmodeID.Server || Main.dedServ ? item.Hitbox : new Rectangle(0, 0, TextureAssets.Item[item.type].Width(), TextureAssets.Item[item.type].Height()));
 			player.itemRotation = 0f;
 			player.itemLocation.X = player.position.X + (float)player.width * 0.5f + ((center ? 0f : (float)hitbox.Width * 0.5f) - 9f - player.itemRotation * 14f * (float)player.direction - 4f) * (float)player.direction;
 			player.itemLocation.Y = player.position.Y + (float)hitbox.Height * 0.5f + 4f;

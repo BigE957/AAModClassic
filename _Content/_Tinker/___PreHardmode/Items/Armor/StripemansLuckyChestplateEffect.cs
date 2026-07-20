@@ -199,7 +199,7 @@ namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor
         {
             if (type == TileID.Pots)
             {
-                if (Main.player[Main.myPlayer].GetModPlayer<StripemansLuckyChestplatePlayer>().effect)
+                if (Main.LocalPlayer.GetModPlayer<StripemansLuckyChestplatePlayer>().effect)
                 {
                     PotsDropMethod(i, j);
                 }
@@ -208,7 +208,7 @@ namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor
 
         public override void RandomUpdate(int i, int j, int type)
         {
-            if (Main.player[Main.myPlayer].GetModPlayer<StripemansLuckyChestplatePlayer>().effect)
+            if (Main.LocalPlayer.GetModPlayer<StripemansLuckyChestplatePlayer>().effect)
             {
                 if (Main.rand.NextBool(800) && j >= GenVars.worldSurfaceLow)
                 {
@@ -398,7 +398,7 @@ namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor
                 }
                 else if (j < Main.rockLayer)
                 {
-                    if (Main.player[Main.myPlayer].ZoneJungle)
+                    if (Main.LocalPlayer.ZoneJungle)
                     {
                         int rand2 = WorldGen.genRand.Next(3);
                         if (rand2 == 0)
@@ -426,7 +426,7 @@ namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor
                             }
                         }
                     }
-                    else if (Main.player[Main.myPlayer].ZoneSnow)
+                    else if (Main.LocalPlayer.ZoneSnow)
                     {
                         if (WorldGen.genRand.NextBool(2))
                         {

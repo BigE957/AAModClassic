@@ -69,7 +69,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 
         public override bool CanUseItem(Player player)
         {
-            if (!AAWorld.downedAllAncients || !player.GetModPlayer<AAPlayer_Unreleased>().ZoneShip)
+            if (!AAWorld.downedAllAncients || !player.GetModPlayer<ZAAPlayer>().ZoneShip)
                 return false;
 
             bool anyCthulhus = false;
@@ -133,7 +133,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
         {
             Recipe r = CreateRecipe();
             r.AddIngredient(ItemID.Compass);
-            r.AddCondition(new Condition("Mods.AAModClassic.Common.Conditions.InSunkenShipPreSoC", () => Main.LocalPlayer.GetModPlayer<AAPlayer_Unreleased>().ZoneShip && AAWorld.downedAllAncients));
+            r.AddCondition(new Condition("Mods.AAModClassic.Common.Conditions.InSunkenShipPreSoC", () => Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneShip && AAWorld.downedAllAncients));
             r.Register();
         }
     }
