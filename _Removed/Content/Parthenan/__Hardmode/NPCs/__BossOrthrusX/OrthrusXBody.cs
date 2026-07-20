@@ -23,10 +23,11 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
     [AutoloadBossHead]
     public class OrthrusXBody : YamataBoss
 	{
-        public OrthrusXHead HeadBlue;
-        public OrthrusXHead HeadRed;
-        public int[] Heads = null;
-        public bool HeadsSpawned = false;
+        public OrthrusXHead HeadBlue => blueIndex != -1 && Main.npc[blueIndex].active && Main.npc[blueIndex].ModNPC is OrthrusXHead head ? head : null;
+        private short blueIndex = -1;
+        public OrthrusXHead HeadRed => redIndex != -1 && Main.npc[redIndex].active && Main.npc[redIndex].ModNPC is OrthrusXHead head ? head : null;
+        private short redIndex = -1;
+        private bool headsSpawned = false;
 
         public static Asset<Texture2D> Glowmask1;
         public static Asset<Texture2D> Glowmask2;
@@ -38,22 +39,20 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 
         public override void SendExtraAI(BinaryWriter writer)
         {
-            base.SendExtraAI(writer);
-            if (Main.netMode == NetmodeID.Server || Main.dedServ)
-            {
-                writer.Write(internalAI[0]);
-                writer.Write(internalAI[1]);
-            }
+            writer.Write(internalAI[0]);
+            writer.Write(internalAI[1]);
+            writer.Write(headsSpawned);
+            writer.Write(blueIndex);
+            writer.Write(redIndex);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            base.ReceiveExtraAI(reader);
-            if (Main.netMode == NetmodeID.MultiplayerClient)
-            {
-                internalAI[0] = reader.ReadSingle();
-                internalAI[1] = reader.ReadSingle();
-            }
+            internalAI[0] = reader.ReadSingle();
+            internalAI[1] = reader.ReadSingle();
+            headsSpawned = reader.ReadBoolean();
+            blueIndex = reader.ReadInt16();
+            redIndex = reader.ReadInt16();
         }
 
         public override void SetStaticDefaults()
@@ -159,45 +158,45 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             npcLoot.Add(notExpertRule);
         }
 
-        public Player playerTarget = null;
-        public static int AISTATE_TURRET = 0, AISTATE_FLY = 1, AISTATE_RUNAWAY = 2;
+        public const int AISTATE_TURRET = 0, AISTATE_FLY = 1, AISTATE_RUNAWAY = 2;
         public float[] internalAI = new float[2];
 
         //clientside stuff
-		public int fWidth = 200;
-		public int fHeight = 102;
+		public const int fWidth = 200;
+		public const int fHeight = 102;
 
         public Color color;
 
 		public void HandleHeads()
 		{
             if (HeadBlue is OrthrusXHead)
-                HeadsSpawned = false;
+                headsSpawned = false;
             if (HeadBlue == null || HeadRed == null)
-                HeadsSpawned = false;
+                headsSpawned = false;
 
-            if (!HeadsSpawned)
+            if (!headsSpawned)
             {
-                if (HeadBlue == null)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    NPC npc = NPC.NewNPCDirect(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<OrthrusXHead>(), 0);
-                    HeadBlue = npc.ModNPC as OrthrusXHead;
-                    HeadBlue.NPC.ai[0] = NPC.whoAmI;
+                    if (HeadBlue == null)
+                    {
+                        NPC npc = NPC.NewNPCDirect(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<OrthrusXHead>(), 0);
+                        blueIndex = (short)npc.whoAmI;
+                        HeadBlue.NPC.ai[0] = NPC.whoAmI;
+                        HeadBlue.NPC.netUpdate = true;
+                    }
+                    if (HeadRed == null)
+                    {
+                        NPC npc = NPC.NewNPCDirect(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<OrthrusXHead>(), 0);
+                        redIndex = (short)npc.whoAmI;
+                        HeadRed.NPC.ai[0] = NPC.whoAmI;
+                        HeadRed.redHead = true;
+                        HeadRed.NPC.netUpdate = true;
+                    }
                 }
-                if (HeadRed == null)
-                {
-                    NPC npc = NPC.NewNPCDirect(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<OrthrusXHead>(), 0);
-                    HeadRed = npc.ModNPC as OrthrusXHead;
-                    HeadRed.NPC.ai[0] = NPC.whoAmI;
-                    HeadRed.redHead = true;
-                }
-
-                HeadBlue.NPC.netUpdate = true;
-                HeadRed.NPC.netUpdate = true;
-                HeadsSpawned = true;
+                headsSpawned = true;
             }
         }
-		
 		
         public override void AI()
         {

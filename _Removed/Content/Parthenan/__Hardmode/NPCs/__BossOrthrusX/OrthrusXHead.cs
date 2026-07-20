@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 using Terraria.ID;
-using Terraria.Audio;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
@@ -19,22 +18,18 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
         public float[] internalAI = new float[2];
         public override void SendExtraAI(BinaryWriter writer)
         {
-            base.SendExtraAI(writer);
-            if (Main.netMode == NetmodeID.Server || Main.dedServ)
-            {
-                writer.Write(internalAI[0]);
-                writer.Write(internalAI[1]);
-            }
+            writer.Write(internalAI[0]);
+            writer.Write(internalAI[1]);
+            writer.Write(reticalIndex);
+            writer.Write(redHead);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            base.ReceiveExtraAI(reader);
-            if (Main.netMode == NetmodeID.MultiplayerClient)
-            {
-                internalAI[0] = reader.ReadSingle();
-                internalAI[1] = reader.ReadSingle();
-            }
+            internalAI[0] = reader.ReadSingle();
+            internalAI[1] = reader.ReadSingle();
+            reticalIndex = reader.ReadInt16();
+            redHead = reader.ReadBoolean();
         }
         public override void SetStaticDefaults()
         {
@@ -85,31 +80,31 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             Body?.NPC.StrikeInstantKill();
         }
 
-        public OrthrusXBody Body => bodyNPC != null && bodyNPC.ModNPC is OrthrusXBody ? (OrthrusXBody)bodyNPC.ModNPC : null;
-        public NPC bodyNPC = null;
-        public OrthrusXHead_OrthrusReticle Reticle = null;
+        public OrthrusXBody Body => BodyNPC != null && BodyNPC.ModNPC is OrthrusXBody body ? body : null;
+        public NPC BodyNPC => Main.npc[(int)NPC.ai[0]];
+        public OrthrusXHead_OrthrusReticle Reticle { 
+            get 
+            {
+                return reticalIndex == -1 || Main.npc[reticalIndex].ModNPC is not OrthrusXHead_OrthrusReticle ? null : 
+                       Main.npc[reticalIndex].ModNPC as OrthrusXHead_OrthrusReticle;
+            } 
+            set 
+            {
+                reticalIndex = (short)value.NPC.whoAmI;
+            } 
+        }
+        private short reticalIndex = -1;
         public bool redHead = false;
-        public int damage = 0;
 
-        public int distFromBodyX = 60; //how far from the body to centeralize the movement points. (X coord)
-        public int distFromBodyY = 90; //how far from the body to centeralize the movement points. (Y coord)
-        public int movementVariance = 40; //how far from the center point to move.
+        public const int distFromBodyX = 60; //how far from the body to centeralize the movement points. (X coord)
+        public const int distFromBodyY = 90; //how far from the body to centeralize the movement points. (Y coord)
+        public const int movementVariance = 40; //how far from the center point to move.
 
         public override void AI()
         {
             NPC.TargetClosest();
             
-            if (bodyNPC == null)
-            {
-                NPC npcBody = Main.npc[(int)NPC.ai[0]];
-                if (npcBody.type == ModContent.NPCType<OrthrusXBody>())
-                {
-                    bodyNPC = npcBody;
-                }
-            }
-			if(bodyNPC == null)
-				return;
-            if (!bodyNPC.active)
+            if (BodyNPC == null || !BodyNPC.active)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) //force a kill to prevent 'ghosting'
                 {
@@ -119,10 +114,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                 return;
             }
 
-            NPC.realLife = bodyNPC.whoAmI;
+            NPC.realLife = BodyNPC.whoAmI;
             NPC.timeLeft = 100;
-
-            damage = 20;
 
             Player targetPlayer = Main.player[NPC.target];
             if (!targetPlayer.active || targetPlayer.dead || Main.dayTime) //fleeing
@@ -147,11 +140,14 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                     internalAI[0]++;
                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && !redHead && (Reticle == null || Reticle.NPC.type != ModContent.NPCType<OrthrusXHead_OrthrusReticle>() || Reticle.NPC.active == false) && internalAI[0] % 300 >= 150)
                     {
-                        NPC npc = NPC.NewNPCDirect(NPC.GetSource_FromThis(), (int)targetPlayer.Center.X, (int)targetPlayer.Center.Y, ModContent.NPCType<OrthrusXHead_OrthrusReticle>(), 0);
-                        Reticle = npc.ModNPC as OrthrusXHead_OrthrusReticle;
-                        Reticle.NPC.netUpdate = true;
-                        Reticle.NPC.ai[0] = NPC.whoAmI;
-                        Reticle.NPC.target = NPC.target;
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                        {
+                            NPC npc = NPC.NewNPCDirect(NPC.GetSource_FromThis(), (int)targetPlayer.Center.X, (int)targetPlayer.Center.Y, ModContent.NPCType<OrthrusXHead_OrthrusReticle>(), 0);
+                            Reticle = npc.ModNPC as OrthrusXHead_OrthrusReticle;
+                            Reticle.NPC.netUpdate = true;
+                            Reticle.NPC.ai[0] = NPC.whoAmI;
+                            Reticle.NPC.target = NPC.target;
+                        }
                         NPC.netUpdate = true;
                     }
 
@@ -166,15 +162,16 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                             dir *= 12f;
                             if (internalAI[0] % 10 == 0)
                             {
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X, dir.Y, ModContent.ProjectileType<OrthrusXHead_Spark>(), 20, 0f, -1);
-
+                                if (Main.netMode != NetmodeID.MultiplayerClient)
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X, dir.Y, ModContent.ProjectileType<OrthrusXHead_Spark>(), 20, 0f, -1);
                             }
                         }
                         else
                         {
                             if (internalAI[0] % 300 == 0)
                             {
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X, dir.Y, ModContent.ProjectileType<OrthrusXHead_ShockingBreath>(), 20, 0f, -1);
+                                if (Main.netMode != NetmodeID.MultiplayerClient)
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X, dir.Y, ModContent.ProjectileType<OrthrusXHead_ShockingBreath>(), 20, 0f, -1);
                                 if (Reticle != null)
                                     Reticle.NPC.active = false;
                             }
@@ -189,7 +186,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                         NPC.netUpdate = true;
                     }
                 }
-                Vector2 nextTarget = bodyNPC.Center + new Vector2(redHead ? -distFromBodyX : distFromBodyX, -distFromBodyY) + new Vector2(NPC.ai[2], NPC.ai[3]);
+                Vector2 nextTarget = BodyNPC.Center + new Vector2(redHead ? -distFromBodyX : distFromBodyX, -distFromBodyY) + new Vector2(NPC.ai[2], NPC.ai[3]);
                 if (Vector2.Distance(nextTarget, NPC.Center) < 40f)
                 {
                     NPC.velocity *= 0.9f;
@@ -201,13 +198,13 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                     NPC.velocity = Vector2.Normalize(nextTarget - NPC.Center);
                     NPC.velocity *= 5f;
                 }
-                NPC.position += bodyNPC.oldPos[0] - bodyNPC.position;
-                NPC.position += bodyNPC.velocity;
+                NPC.position += BodyNPC.oldPos[0] - BodyNPC.position;
+                NPC.position += BodyNPC.velocity;
             }
             else
             {
                 NPC.velocity = default;
-                NPC.position += bodyNPC.velocity;
+                NPC.position += BodyNPC.velocity;
             }
             NPC.position += Body.NPC.position - Body.NPC.oldPosition;
             NPC.rotation = 1.57f;

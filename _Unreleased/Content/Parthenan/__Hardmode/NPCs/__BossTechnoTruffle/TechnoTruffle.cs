@@ -151,7 +151,8 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             if (Main.dayTime)
             {
                 NPC.active = false;
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, 0f), ModContent.ProjectileType<TechnoTruffle_BookIt>(), 0, 0);
+                if(Main.netMode != NetmodeID.MultiplayerClient)
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, 0f), ModContent.ProjectileType<TechnoTruffle_BookIt>(), 0, 0);
                 return;
             }
             if (Main.player[NPC.target].dead)
@@ -160,7 +161,8 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
                 if (Main.player[NPC.target].dead)
                 {
                     NPC.active = false;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, 0f), ModContent.ProjectileType<TechnoTruffle_BookIt>(), 0, 0);
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, 0f), ModContent.ProjectileType<TechnoTruffle_BookIt>(), 0, 0);
                     return;
                 }
             }
@@ -282,7 +284,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
                     NPC.direction = NPC.Center.X > MovePoint.X ? -1 : 1;
                     MoveToPoint(MovePoint);
                     NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 1.57f;
-                    Lighting.AddLight((int)(NPC.Center.X + NPC.width / 2) / 16, (int)(NPC.position.Y + NPC.height / 2) / 16, Color.LightCyan.R / 255, Color.LightCyan.G / 255, Color.LightCyan.B / 255);
+                    Lighting.AddLight((int)(NPC.Center.X) / 16, (int)(NPC.position.Y) / 16, Color.LightCyan.R / 255f, Color.LightCyan.G / 255f, Color.LightCyan.B / 255f);
                     if (Main.netMode != NetmodeID.MultiplayerClient && 
                         (Math.Abs(NPC.velocity.X) < 0.05f || 
                         (NPC.direction == 1 && NPC.Center.X > MovePoint.X) || 
@@ -371,7 +373,8 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
                     int attack = Main.rand.Next(4);
                     internalAI[1] = Main.rand.Next(3);
                     internalAI[0] = 0;
-                    FungusAttack(attack);
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        FungusAttack(attack);
                     NPC.netUpdate = true;
                 }
 
@@ -398,7 +401,8 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
         public void FireMagic(NPC npc, Vector2 velocity)
         {
             Player player = Main.player[npc.target];
-            BaseAI.ShootPeriodic(npc, player.position, player.width, player.height, ModContent.ProjectileType<TechnoTruffle_TruffleShot>(), ref shootAI[0], 5, (int)(npc.damage * (Main.expertMode ? 0.25f : 0.5f)), 8f, true, new Vector2(20f, 15f));
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+                BaseAI.ShootPeriodic(npc, player.position, player.width, player.height, ModContent.ProjectileType<TechnoTruffle_TruffleShot>(), ref shootAI[0], 5, (int)(npc.damage * (Main.expertMode ? 0.25f : 0.5f)), 8f, true, new Vector2(20f, 15f));
             npc.netUpdate = true;
         }
 
@@ -406,7 +410,8 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
         {
             if (NPC.life <= 0)          //this make so when the npc has 0 life(dead) he will spawn this
             {
-                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.velocity, ModContent.ProjectileType<TechnoTruffle_BookIt>(), 0, 0, -1, NPC.scale);
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.velocity, ModContent.ProjectileType<TechnoTruffle_BookIt>(), 0, 0, -1, NPC.scale);
             }
         }
 
