@@ -172,8 +172,6 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                             {
                                 if (Main.netMode != NetmodeID.MultiplayerClient)
                                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X, dir.Y, ModContent.ProjectileType<OrthrusXHead_ShockingBreath>(), 20, 0f, -1);
-                                if (Reticle != null)
-                                    Reticle.NPC.active = false;
                             }
                         }
                     }

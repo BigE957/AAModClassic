@@ -42,7 +42,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 
         public override void AI()
         {
-            if (Main.npc[(int)NPC.ai[0]].ModNPC is not OrthrusXHead orthrus)
+            if (!Main.npc[(int)NPC.ai[0]].active || Main.npc[(int)NPC.ai[0]].ModNPC is not OrthrusXHead orthrus)
             {
                 NPC.active = false;
                 return;
@@ -72,8 +72,11 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             if (orthrus.internalAI[0] % 300 > 240)
             {
                 NPC.velocity *= 0;
-                NPC.netUpdate = true;
+                if (orthrus.internalAI[0] % 300 == 240)
+                    NPC.netUpdate = true;
             }
+            else if (orthrus.internalAI[0] % 300 < 150)
+                NPC.active = false;
             else
             {
                 NPC.Center = player.Center;
