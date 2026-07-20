@@ -18,14 +18,9 @@ MireBiome: {
 	TownNPCDialogueName: the Mire
 }
 
-RisingMoonLakeBiomeZone: {
+RisingMoonLakeBiome: {
 	DisplayName: The Rising Moon Lake
 	TownNPCDialogueName: the Rising Moon Lake
-}
-
-RisingMoonLakeBiome: {
-	DisplayName: Rising Moon Lake Biome
-	TownNPCDialogueName: the Rising Moon Lake Biome
 }
 
 RisingSunPagodaBiome: {
