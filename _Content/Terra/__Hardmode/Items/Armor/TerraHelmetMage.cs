@@ -43,13 +43,13 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
             damageMap.GetDamage(DamageClass.Magic) += 0.17f;
             damageMap.GetCritChance(DamageClass.Magic) += 15;
             AddEffect(new MaxManaEffect(100));
-            AddEffect(new ManaCostEffect(0.3f));
+            AddEffect(new ManaCostEffect(-0.3f));
 
             AddSetEffect<ManaFlowerEffect>();
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 AddSetEffect(new ManaCostMultiplierEffect(0.60f));
             else
-                AddSetEffect(new ManaCostEffect(0.40f));
+                AddSetEffect(new ManaCostEffect(-0.40f));
             AddSetEffect<TerraHelmetMageSetEffect>();
         }
 

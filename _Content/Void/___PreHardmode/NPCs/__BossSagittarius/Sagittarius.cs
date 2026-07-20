@@ -6,7 +6,6 @@ using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -497,7 +496,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
 
             npcLoot.AddLoreItemDrop<Sagittarius>(ModContent.ItemType<SagittariusLore>());
 
-            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SagittariusRelic>()));
 

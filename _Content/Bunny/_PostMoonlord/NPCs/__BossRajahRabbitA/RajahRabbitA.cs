@@ -5,7 +5,7 @@ using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.Items.Materials;
 using AAModClassic._Unofficial.Content.Bunny._PostMoonlord.Items._RajahA.BossStandard;
 using AAModClassic.Music;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using AAModClassic.Utilities;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -62,7 +62,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<RajahRabbitATreasureBag>()));
 
-            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RajahRabbitARelic>()));
 
@@ -70,7 +70,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RajahRabbitTrophy>(), 10));
 
-            LeadingConditionRule unofficialRule = new(new AAConditions.UnofficialNotExpert());
+            LeadingConditionRule unofficialRule = new(new ItemDropRuleConditionUtils.UnofficialNotExpert());
 
             unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RajahRabbitAMask>(), 7));
 

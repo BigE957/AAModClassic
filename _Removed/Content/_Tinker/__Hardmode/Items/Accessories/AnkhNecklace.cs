@@ -27,7 +27,7 @@ Grants immunity to most debuffs
         public override void RegisterEquipEffects()
         {
             AddEffect<AnkhShieldEffect>();
-            AddEffect(new ManaCostEffect(0.10f));
+            AddEffect(new ManaCostEffect(-0.10f));
         }
 
         public override void AddRecipes()

@@ -39,6 +39,8 @@ ClassGlobalStats: {
 		Reduced: снижает
 		More: большей
 		Less: меньшей
+		// Faster: faster
+		// Slower: slower
 		Damage: урон
 		Knockback: отбрасывание
 		CritSameAsDamageAdditive: " и шанс критического удара"
@@ -485,5 +487,15 @@ Effect: {
 		Перезарядка щелчка - 5 минут
 		'''
 	DemonHelmetSetEffect: Верный слуга-бес будет сражаться за вас, независимо от сезона и условий
-	// ShadowBandUnofficialEffect: While out of combat, gain 40% increased movement speed
+	// ShadowBandUnofficialEffect: While out of combat, gain 40% increased movement speed and decreased aggro
+	// DragonstrideBootsUnofficialEffect: While out of combat, gain 28% increased movement speed
+	// MendingBandEffect: While out of combat, your regeneration is increased by 3
+	/* CuringBandEffect:
+		'''
+		While out of combat, your regeneration is increased by 3
+		Debuffs wear off faster while out of combat
+		''' */
+	// ShadowFlowerEffect: While out of combat, you heal {0} mana per second
+	// AdjustOutOfCombatTimeEffect: You exit combat {0} seconds {1}
+	// FracturedAnkhEffect: Ails you with most debuffs
 }

@@ -1,7 +1,7 @@
 ﻿using AAModClassic._Unofficial.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard;
 using AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossSoulOfCthulhu.BossStandard;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using AAModClassic.Utilities;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -53,7 +53,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            LeadingConditionRule unofficialRule = new(new AAConditions.Unofficial());
+            LeadingConditionRule unofficialRule = new(new ItemDropRuleConditionUtils.Unofficial());
 
             unofficialRule.OnSuccess(ItemDropRule.OneFromOptions(7, ModContent.ItemType<SoulOfCthulhuMask>(), ModContent.ItemType<SoulOfCthulhuAMask>()));
 

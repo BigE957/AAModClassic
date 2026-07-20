@@ -6,7 +6,6 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -566,7 +565,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
 
             npcLoot.AddLoreItemDrop<DesertDjinn>(ModContent.ItemType<DesertDjinnLore>());
 
-            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DesertDjinnRelic>()));
 

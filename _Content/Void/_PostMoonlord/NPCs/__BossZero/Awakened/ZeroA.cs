@@ -14,7 +14,6 @@ using AAModClassic.UI.Core;
 using AAModClassic.UI.Titles;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -30,7 +29,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
+using static AAModClassic.Utilities.ItemDropRuleConditionUtils;
 
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 {
@@ -154,7 +153,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 
             npcLoot.AddLoreItemDrop<ZeroA>(ModContent.ItemType<ZeroLore>());
 
-            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ZeroRelic>()));
 

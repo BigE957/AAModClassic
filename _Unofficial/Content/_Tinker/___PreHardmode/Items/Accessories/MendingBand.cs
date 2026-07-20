@@ -1,11 +1,14 @@
-﻿using AAModClassic.UI.World;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
+using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Mire.___PreHardmode.Items.Accessories
+namespace AAModClassic._Unofficial.Content._Tinker.___PreHardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.HandsOn)]
     public class MendingBand : EquipAbstract, ILocalizedModType
@@ -28,7 +31,17 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Accessories
 
         public override void RegisterEquipEffects()
         {
-            AddEffect<ShadowBandUnofficialEffect>();
+            AddEffect<MendingBandEffect>();
+        }
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<ShadowBand>());
+            recipe.AddIngredient(ItemID.BandofRegeneration);
+            recipe.AddTile(TileID.TinkerersWorkbench);
+            recipe.AddCondition(ConditionUtils.Unofficial);
+            recipe.Register();
         }
     }
 }

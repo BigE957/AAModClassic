@@ -9,7 +9,6 @@ using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -24,7 +23,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
+using static AAModClassic.Utilities.ItemDropRuleConditionUtils;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 {
@@ -634,7 +633,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 
             npcLoot.AddLoreItemDrop<AkumaAHead>(ModContent.ItemType<AkumaLore>());
 
-            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AkumaRelic>()));
 

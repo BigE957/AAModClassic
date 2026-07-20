@@ -7,7 +7,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
+using static AAModClassic.Utilities.ItemDropRuleConditionUtils;
 
 namespace AAModClassic._Content.Sky.__Hardmode.NPCs
 {

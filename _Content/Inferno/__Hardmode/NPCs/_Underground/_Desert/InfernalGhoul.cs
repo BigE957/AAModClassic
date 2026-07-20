@@ -7,14 +7,13 @@ using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic.UI.World;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI;
 using static AAModClassic._Content.Inferno.___PreHardmode.NPCs.DragonClaw_NPC;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
+using static AAModClassic.Utilities.ItemDropRuleConditionUtils;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Desert
 {

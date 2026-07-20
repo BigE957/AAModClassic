@@ -59,7 +59,7 @@ All effects of the infinity stones
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 AddEffect(new ManaCostMultiplierEffect(0.50f));
             else
-                AddEffect(new ManaCostEffect(0.50f));
+                AddEffect(new ManaCostEffect(-0.50f));
             AddEffect(new AttacksInflictBuffEffect(null, (BuffID.Chilled, 1200))); // real effect of hte item just undocumented
             AddEffect<TimeStoneRespawnEffect>();
             AddEffect<TimeStoneTimeStopEffect>();

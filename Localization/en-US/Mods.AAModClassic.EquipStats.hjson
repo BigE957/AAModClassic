@@ -39,6 +39,8 @@ ClassGlobalStats: {
 		Reduced: reduced
 		More: more
 		Less: less
+		Faster: faster
+		Slower: slower
 		Damage: damage
 		Knockback: knockback
 		CritSameAsDamageAdditive: " & critical strike chance"
@@ -486,5 +488,15 @@ Effect: {
 		The snap has a 5 minute cooldown
 		'''
 	DemonHelmetSetEffect: A loyal imp servant will fight for you, no matter the season or condition
-	ShadowBandUnofficialEffect: While out of combat, gain 40% increased movement speed
+	ShadowBandUnofficialEffect: While out of combat, gain 40% increased movement speed and decreased aggro
+	DragonstrideBootsUnofficialEffect: While out of combat, gain 28% increased movement speed
+	MendingBandEffect: While out of combat, your regeneration is increased by 3
+	CuringBandEffect:
+		'''
+		While out of combat, your regeneration is increased by 3
+		Debuffs wear off faster while out of combat
+		'''
+	ShadowFlowerEffect: While out of combat, you heal {0} mana per second
+	AdjustOutOfCombatTimeEffect: You exit combat {0} seconds {1}
+	FracturedAnkhEffect: Ails you with most debuffs
 }

@@ -18,6 +18,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Accessories
         public override void Update(Player player, ref int index)
         {
             base.Update(player, ref index);
+            player.aggro -= 200;
             player.moveSpeed += 0.40f;
         }
     }

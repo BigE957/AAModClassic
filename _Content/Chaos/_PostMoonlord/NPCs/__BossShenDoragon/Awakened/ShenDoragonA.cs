@@ -8,7 +8,6 @@ using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Music;
 using AAModClassic.UI.Core.BestiaryBackgrounds;
 using AAModClassic.Utilities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -62,7 +61,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
 
             expert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EXSoul>()));
 
-            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ShenDoragonRelic>()));
 

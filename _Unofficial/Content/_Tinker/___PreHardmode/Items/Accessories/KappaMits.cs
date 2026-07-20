@@ -3,6 +3,7 @@ using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using System;
@@ -11,10 +12,10 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unofficial.Content.Mire.___PreHardmode.Items.Accessories
+namespace AAModClassic._Unofficial.Content._Tinker.___PreHardmode.Items.Accessories
 {
-    [AutoloadEquip(EquipType.Shoes, EquipType.HandsOn, EquipType.HandsOff)]
-    public class KappaGear : EquipAbstract, ILocalizedModType
+    [AutoloadEquip(EquipType.HandsOff, EquipType.HandsOn)]
+    public class KappaMits : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
 
@@ -22,25 +23,24 @@ namespace AAModClassic._Unofficial.Content.Mire.___PreHardmode.Items.Accessories
         {
             Item.width = 34;
             Item.height = 32;
-            Item.value = Item.sellPrice(0, 2, 0, 0);
+            Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Pink;
             Item.accessory = true;
         }
 
         public override void RegisterEquipEffects()
         {
-            AddEffect(new MovementSpeedEffect(0.15f));
-            AddEffect<FlipperEffect>();
+            AddEffect<ShadowBandUnofficialEffect>();
             AddEffect(new MasterNinjaMobilityEffect(false, true));
         }
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<KappaFins>());
+            recipe.AddIngredient(ModContent.ItemType<ShadowBand>());
             recipe.AddIngredient(ItemID.TigerClimbingGear);
             recipe.AddTile(TileID.TinkerersWorkbench);
-            recipe.AddCondition(Language.GetOrRegister("Mods.AAModClassic.Common.Conditions.Unofficial"), () => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial));
+            recipe.AddCondition(ConditionUtils.Unofficial);
             recipe.Register();
         }
     }

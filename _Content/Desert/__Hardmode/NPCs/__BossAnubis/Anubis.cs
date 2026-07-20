@@ -8,7 +8,6 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using System.IO;
 using Terraria;
@@ -488,7 +487,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 
             npcLoot.AddLoreItemDrop<Anubis>(ModContent.ItemType<AnubisLore>());
 
-            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AnubisRelic>()));
 

@@ -74,7 +74,7 @@ The power of discordian rage radiates from this hood"); */
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 AddEffect(new ManaCostMultiplierEffect(0.70f));
             else
-                AddEffect(new ManaCostEffect(0.30f));
+                AddEffect(new ManaCostEffect(-0.30f));
             AddEffect(new MaxManaEffect(150));
 
             AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Magic, (ModContent.BuffType<DiscordianInferno_Buff>(), 300)));

@@ -1,5 +1,6 @@
 using AAModClassic._Unofficial.Content.SunkenShip.___PreHardmode.Items;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
@@ -42,7 +43,7 @@ Pressing the rift return hotkey brings you back to your most recent rift locatio
             recipe2.AddIngredient(ItemID.Bone, 15);
             recipe2.AddIngredient(ItemID.ShadowScale, 15);
             recipe2.AddTile(TileID.DemonAltar);
-            recipe2.AddCondition(Language.GetOrRegister("Mods.AAModClassic.Common.Conditions.Unofficial"), () => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial));
+            recipe2.AddCondition(ConditionUtils.Unofficial);
             recipe2.Register();
 
             Recipe recipe3 = CreateRecipe();
@@ -51,7 +52,7 @@ Pressing the rift return hotkey brings you back to your most recent rift locatio
             recipe3.AddIngredient(ItemID.Bone, 15);
             recipe3.AddIngredient(ItemID.TissueSample, 15);
             recipe3.AddTile(TileID.DemonAltar);
-            recipe3.AddCondition(Language.GetOrRegister("Mods.AAModClassic.Common.Conditions.Unofficial"), () => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial));
+            recipe3.AddCondition(ConditionUtils.Unofficial);
             recipe3.Register();
         }
     }

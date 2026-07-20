@@ -6,8 +6,8 @@ using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Tools;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossZero.BossStandard;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -90,13 +90,13 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
         {
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ZeroCore>(), 10));
 
-            LeadingConditionRule notUnofficialRule = new(new AAConditions.NotUnofficial());
+            LeadingConditionRule notUnofficialRule = new(new ItemDropRuleConditionUtils.NotUnofficial());
 
             notUnofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ZeroMask>(), 7));
 
             itemLoot.Add(notUnofficialRule);
 
-            LeadingConditionRule unofficialRule = new(new AAConditions.Unofficial());
+            LeadingConditionRule unofficialRule = new(new ItemDropRuleConditionUtils.Unofficial());
 
             unofficialRule.OnSuccess(ItemDropRule.OneFromOptions(7, ModContent.ItemType<ZeroMask>(), ModContent.ItemType<ZeroAMask>()));
 

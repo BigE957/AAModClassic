@@ -15,7 +15,6 @@ using AAModClassic.Music;
 using AAModClassic.UI.Core;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -296,13 +295,13 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             npcLoot.AddLoreItemDrop<InfinityZero>(ModContent.ItemType<InfinityZeroLore>());
 
-            LeadingConditionRule unofficialRule = new(new AAConditions.UnofficialNotExpert());
+            LeadingConditionRule unofficialRule = new(new ItemDropRuleConditionUtils.UnofficialNotExpert());
 
             unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<InfinityZeroMask>(), 7));
 
             npcLoot.Add(unofficialRule);
 
-            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<InfinityZeroRelic>()));
 

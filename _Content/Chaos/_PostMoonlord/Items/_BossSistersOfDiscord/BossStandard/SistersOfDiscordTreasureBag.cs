@@ -2,8 +2,8 @@
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Unofficial.Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -116,7 +116,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            LeadingConditionRule unofficialRule = new(new AAConditions.Unofficial());
+            LeadingConditionRule unofficialRule = new(new ItemDropRuleConditionUtils.Unofficial());
 
             unofficialRule.OnSuccess(ItemDropRule.OneFromOptions(7, ModContent.ItemType<AsheMask>(), ModContent.ItemType<HarukaMask>()));
 

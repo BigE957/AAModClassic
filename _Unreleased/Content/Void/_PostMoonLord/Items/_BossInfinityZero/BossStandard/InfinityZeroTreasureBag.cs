@@ -1,6 +1,6 @@
 ﻿using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossInfinityZero.BossStandard;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Weapons;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using AAModClassic.Utilities;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -51,7 +51,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            LeadingConditionRule unofficialRule = new(new AAConditions.UnofficialNotExpert());
+            LeadingConditionRule unofficialRule = new(new ItemDropRuleConditionUtils.UnofficialNotExpert());
 
             unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<InfinityZeroMask>(), 7));
 

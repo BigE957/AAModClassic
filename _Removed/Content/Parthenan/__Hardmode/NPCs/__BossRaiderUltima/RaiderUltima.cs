@@ -5,7 +5,7 @@ using AAModClassic._Unofficial.Content.Parthenan.__Hardmode.Items._BossRaiderUlt
 using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -108,13 +108,13 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<RaiderUltimaTreasureBag>()));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RaiderUltimaTrophy>(), 10));
 
-            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RaiderUltimaRelic>()));
 
             npcLoot.Add(masterMode);
 
-            LeadingConditionRule unofficialRule = new(new AAConditions.UnofficialNotExpert());
+            LeadingConditionRule unofficialRule = new(new ItemDropRuleConditionUtils.UnofficialNotExpert());
 
             unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RaiderUltimaMask>(), 7));
 

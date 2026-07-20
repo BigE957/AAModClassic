@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
 using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Unofficial.Content._Tinker.EquipmentEffects;
@@ -12,7 +13,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Mire.___PreHardmode.Items.Accessories
+namespace AAModClassic._Unofficial.Content._Tinker.___PreHardmode.Items.Accessories
 {
     public class MendingBandEffect : EquipmentEffectData
     {

@@ -6,8 +6,8 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.Pets;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic._Unofficial.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -58,7 +58,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUl
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            LeadingConditionRule unofficialRule = new(new AAConditions.Unofficial());
+            LeadingConditionRule unofficialRule = new(new ItemDropRuleConditionUtils.Unofficial());
 
             unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RaiderUltimaMask>(), 7));
 

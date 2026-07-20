@@ -3,6 +3,7 @@ using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using System;
@@ -11,7 +12,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unofficial.Content.Mire.___PreHardmode.Items.Accessories
+namespace AAModClassic._Unofficial.Content._Tinker.___PreHardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.Shoes)]
     public class KappaFins : EquipAbstract, ILocalizedModType
@@ -29,7 +30,7 @@ namespace AAModClassic._Unofficial.Content.Mire.___PreHardmode.Items.Accessories
 
         public override void RegisterEquipEffects()
         {
-            AddEffect(new MovementSpeedEffect(0.15f));
+            AddEffect<ShadowBandUnofficialEffect>();
             AddEffect<FlipperEffect>();
         }
 
@@ -39,7 +40,7 @@ namespace AAModClassic._Unofficial.Content.Mire.___PreHardmode.Items.Accessories
             recipe.AddIngredient(ModContent.ItemType<ShadowBand>());
             recipe.AddIngredient(ItemID.Flipper);
             recipe.AddTile(TileID.TinkerersWorkbench);
-            recipe.AddCondition(Language.GetOrRegister("Mods.AAModClassic.Common.Conditions.Unofficial"), () => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial));
+            recipe.AddCondition(ConditionUtils.Unofficial);
             recipe.Register();
         }
     }

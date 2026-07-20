@@ -42,7 +42,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 AddEffect(new ManaCostMultiplierEffect(0.70f));
             else
-                AddEffect(new ManaCostEffect(0.20f));
+                AddEffect(new ManaCostEffect(-0.20f));
             AddEffect(new MaxMinionSlotEffect(2));
             AddEffect(new MaxManaEffect(120));
 

@@ -64,7 +64,7 @@ namespace AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 AddEffect(new ManaCostMultiplierEffect(0.50f));
             else
-                AddEffect(new ManaCostEffect(0.50f));
+                AddEffect(new ManaCostEffect(-0.50f));
         }
 
         public override bool CanAccessoryBeEquippedWith(Item equippedItem, Item incomingItem, Player player)

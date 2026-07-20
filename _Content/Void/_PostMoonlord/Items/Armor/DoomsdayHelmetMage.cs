@@ -46,7 +46,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Armor
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 AddSetEffect(new ManaCostMultiplierEffect(0.70f));
             else
-                AddSetEffect(new ManaCostEffect(0.80f));
+                AddSetEffect(new ManaCostEffect(-0.80f));
             AddSetEffect<HunterEffect>();
 			AddSetEffect<NightOwlEffect>();
 			AddSetEffect(new AttacksInflictBuffEffect(DamageClass.Magic, (BuffID.BrokenArmor, 1000)));

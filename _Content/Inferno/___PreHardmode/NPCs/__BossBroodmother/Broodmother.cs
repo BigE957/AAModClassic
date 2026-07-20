@@ -10,7 +10,6 @@ using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -146,7 +145,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
 
             npcLoot.AddLoreItemDrop<Broodmother>(ModContent.ItemType<BroodmotherLore>());
 
-            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<BroodmotherRelic>()));
 

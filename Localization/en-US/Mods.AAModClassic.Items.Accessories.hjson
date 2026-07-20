@@ -463,3 +463,28 @@ KappaGear: {
 	DisplayName: Kappa Gear
 	Tooltip: ""
 }
+
+CuringBand: {
+	DisplayName: Curing Band
+	Tooltip: ""
+}
+
+MendingBand: {
+	DisplayName: Mending Band
+	Tooltip: ""
+}
+
+ShadowFlower: {
+	DisplayName: Shadow Flower
+	Tooltip: ""
+}
+
+KappaMits: {
+	DisplayName: Kappa Mits
+	Tooltip: ""
+}
+
+FracturedAnkh: {
+	DisplayName: Fractured Ankh
+	Tooltip: "'Cursed?'"
+}

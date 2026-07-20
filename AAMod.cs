@@ -54,6 +54,7 @@ using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._CrossMod;
+using AAModClassic._Unofficial.Content._Tinker.__Hardmode.Items.Accessories;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Weapons;
 using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
@@ -586,6 +587,7 @@ namespace AAModClassic
             On_Player.GetPickaxeDamage += ModifyLuminitePickaxePower;
 
             BrokenCodeTeleportUnofficialEdits.ApplyEdits();
+            CuringBandEffectEdits.ApplyEdits();
         }
 
         private int ModifyLuminitePickaxePower(On_Player.orig_GetPickaxeDamage orig, Player self, int x, int y, int pickPower, int hitBufferIndex, Tile tileTarget)

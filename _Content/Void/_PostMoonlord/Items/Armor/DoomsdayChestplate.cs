@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Armor
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 AddEffect(new ManaCostMultiplierEffect(0.75f));
             else
-                AddEffect(new ManaCostEffect(0.25f));
+                AddEffect(new ManaCostEffect(-0.25f));
             AddEffect(new MaxManaEffect(50));
         }
 

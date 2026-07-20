@@ -10,9 +10,9 @@ using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.Localization;
 
-namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
+namespace AAModClassic.Utilities
 {
-    public class AAConditions
+    public class ItemDropRuleConditionUtils
     {
         public class Unofficial : IItemDropRuleCondition, IProvideItemConditionDescription
         {

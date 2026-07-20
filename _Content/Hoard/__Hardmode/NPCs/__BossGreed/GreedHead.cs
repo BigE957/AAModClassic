@@ -10,7 +10,6 @@ using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -518,7 +517,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
 
             npcLoot.AddLoreItemDrop<GreedHead>(ModContent.ItemType<GreedLore>());
 
-            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GreedRelic>()));
 

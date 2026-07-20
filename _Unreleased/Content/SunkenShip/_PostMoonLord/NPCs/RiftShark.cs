@@ -10,7 +10,7 @@ using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
+using static AAModClassic.Utilities.ItemDropRuleConditionUtils;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
 {

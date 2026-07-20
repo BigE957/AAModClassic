@@ -8,7 +8,6 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using System.IO;
@@ -388,7 +387,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<MushroomMonarchTreasureBag>()));
 
-            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<MushroomMonarchRelic>()));
 

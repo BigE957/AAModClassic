@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Mire.___PreHardmode.Items.Accessories
+namespace AAModClassic._Unofficial.Content._Tinker.___PreHardmode.Items.Accessories
 {
     public class MendingBandEffect_MendingStealth : ModBuff
 	{
@@ -18,7 +18,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Accessories
         public override void Update(Player player, ref int index)
         {
             base.Update(player, ref index);
-            player.aggro -= 10;
+            player.aggro -= 200;
             player.lifeRegen += 6;
         }
     }

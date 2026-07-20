@@ -678,3 +678,18 @@ ShadowBandUnofficialEffect_ShadowStealth: {
 	// DisplayName: Shadow Stealth
 	// Description: You're as swift as a shadow
 }
+
+CuringBandEffect_CuringStealth: {
+	// DisplayName: Curing Stealth
+	// Description: Everything's gonna be okay
+}
+
+MendingBandEffect_MendingStealth: {
+	// DisplayName: Mending Stealth
+	// Description: Your wounds are mending
+}
+
+DragonstrideBootsUnofficialEffect_Dragonstride: {
+	// DisplayName: Dragonstride
+	// Description: Your strides are like a dragons
+}

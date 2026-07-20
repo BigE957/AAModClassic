@@ -75,7 +75,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 AddEffect(new ManaCostMultiplierEffect(0.85f));
             else
-                AddEffect(new ManaCostEffect(0.15f));
+                AddEffect(new ManaCostEffect(-0.15f));
 
             AddSetEffect<DarkmatterHelmetMageSetEffect>();
             AddSetEffect<DrawShadowLokisEffect>();

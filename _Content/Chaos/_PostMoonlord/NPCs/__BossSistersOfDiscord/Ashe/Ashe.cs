@@ -12,7 +12,6 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -599,7 +598,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AsheTrophy>(), 10));
 
-            LeadingConditionRule unofficialRule = new(new AAConditions.UnofficialNotExpert());
+            LeadingConditionRule unofficialRule = new(new ItemDropRuleConditionUtils.UnofficialNotExpert());
 
             unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AsheMask>(), 7));
 

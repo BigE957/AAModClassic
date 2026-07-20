@@ -42,7 +42,7 @@ Increases maximum mana by 20"); */
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 AddSetEffect(new ManaCostMultiplierEffect(0.70f));
             else
-                AddSetEffect(new ManaCostEffect(0.30f));
+                AddSetEffect(new ManaCostEffect(-0.30f));
             AddSetEffect<ManaFlowerEffect>();
         }
 

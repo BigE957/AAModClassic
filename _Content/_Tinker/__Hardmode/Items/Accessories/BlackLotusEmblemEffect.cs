@@ -11,7 +11,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Content.Mire.__Hardmode.Items.Accessories
+namespace AAModClassic._Content._Tinker.__Hardmode.Items.Accessories
 {
     public class BlackLotusEmblemEffect : EquipmentEffectData
     {

@@ -6,6 +6,7 @@ using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.Accessories;
 using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle.Accessories;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -43,7 +44,7 @@ namespace AAModClassic._Unreleased.Content.Inferno.__Hardmode.Items.Tiles.Decora
             recipe.AddIngredient(ItemID.LivingFireBlock, 20);
             recipe.AddIngredient(ModContent.ItemType<DragonFire>());
             recipe.AddTile(TileID.CrystalBall);
-            recipe.AddCondition(Language.GetOrRegister("Mods.AAModClassic.Common.Conditions.Unofficial"), () => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial));
+            recipe.AddCondition(ConditionUtils.Unofficial);
             recipe.SortAfterFirstRecipesOf(ItemID.LivingUltrabrightFireBlock);
             recipe.Register();
         }

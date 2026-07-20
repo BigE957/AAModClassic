@@ -41,7 +41,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Armor
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 AddSetEffect(new ManaCostMultiplierEffect(0.80f));
             else
-                AddSetEffect(new ManaCostEffect(0.30f));
+                AddSetEffect(new ManaCostEffect(-0.30f));
             AddSetEffect<FulguriteHelmetSetEffect>();
         }
 

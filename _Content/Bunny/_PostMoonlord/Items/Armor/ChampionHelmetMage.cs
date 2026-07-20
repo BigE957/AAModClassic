@@ -55,7 +55,7 @@ The armor of a champion feared across the land"); */
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 AddEffect(new ManaCostMultiplierEffect(0.75f));
             else 
-                AddEffect(new ManaCostEffect(0.25f));
+                AddEffect(new ManaCostEffect(-0.25f));
 
             AddSetEffect<ChampionHelmetMageSetEffect>();
             AddSetEffect<ChampionHelmetMageSetDescEffect>();

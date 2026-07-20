@@ -11,7 +11,6 @@ using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using AAModClassic.Utilities.Components;
 using Microsoft.Xna.Framework;
@@ -30,7 +29,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using static AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.AkumaAHead;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
+using static AAModClassic.Utilities.ItemDropRuleConditionUtils;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 {
@@ -252,7 +251,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 
             npcLoot.AddLoreItemDrop<YamataABody>(ModContent.ItemType<YamataLore>());
 
-            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
+            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<YamataRelic>()));
 
