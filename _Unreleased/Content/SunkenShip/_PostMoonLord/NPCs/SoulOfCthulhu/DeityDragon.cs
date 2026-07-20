@@ -377,7 +377,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 Texture2D[] textures = [TextureAssets.Npc[ModContent.NPCType<DeityDragon_Body1>()].Value, TextureAssets.Npc[ModContent.NPCType<DeityDragon_Body1>()].Value, TextureAssets.Npc[ModContent.NPCType<DeityDragon_Arms>()].Value, TextureAssets.Npc[ModContent.NPCType<DeityDragon_Body1>()].Value, TextureAssets.Npc[ModContent.NPCType<DeityDragon_Body1>()].Value];
                 return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, TextureAssets.Npc[Type].Value, textures, 4, 32, 0.25f, Vector2.Zero, 2, 10, headOffset: -22, flip: true);
             }
-            Vector2 drawOrigin = new Vector2(TextureAssets.Npc[NPC.type].Value.Width * 0.5f, NPC.height * 0.5f);
+            Vector2 drawOrigin = new Vector2(TextureAssets.Npc[NPC.type].Width() * 0.5f, NPC.height * 0.5f);
             for (int k = 0; k < NPC.oldPos.Length; k++)
             {
                 Texture2D Trail = TextureAssets.Npc[NPC.type].Value;

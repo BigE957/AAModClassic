@@ -72,10 +72,10 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 				if (NPC.frameCounter >= 7)
 				{
 					NPC.frameCounter = 0;
-					NPC.frame.Y += TextureAssets.Npc[NPC.type].Value.Height / 4 ;
+					NPC.frame.Y += TextureAssets.Npc[NPC.type].Height() / 4 ;
 				}
 
-				if (NPC.frame.Y > TextureAssets.Npc[NPC.type].Value.Height / 4 * 3)
+				if (NPC.frame.Y > TextureAssets.Npc[NPC.type].Height() / 4 * 3)
 				{
 					NPC.frame.Y = 0 ;
 				}

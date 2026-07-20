@@ -54,6 +54,15 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             glowTex = ModContent.Request<Texture2D>(Texture + "_Glow");
             Main.npcFrameCount[NPC.type] = 4;
             NPCID.Sets.BossBestiaryPriority.Add(Type);
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Position = new(0, 262),
+                PortraitPositionYOverride = 240,
+                Scale = 2f, // whenever we properly upscale the sprite this should just be 1x
+                PortraitScale = 2f // ditto
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 		public override void SetDefaults()
 		{
@@ -532,15 +541,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public override void FindFrame(int frameHeight)
         {
-            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
-            {
-                Position = new(0, 262),
-                PortraitPositionYOverride = 240,
-                Scale = 2f, // whenever we properly upscale the sprite this should just be 1x
-                PortraitScale = 2f // ditto
-            };
-            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
-
             bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
             NPC.frame.Height = unofficial ? 455 : frameHeight;
             if (!NPC.IsABestiaryIconDummy && roarTimer > -1)

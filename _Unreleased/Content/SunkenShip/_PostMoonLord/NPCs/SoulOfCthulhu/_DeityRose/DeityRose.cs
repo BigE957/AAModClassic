@@ -81,7 +81,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override void FindFrame(int frameHeight)
         {
             NPC.frameCounter += 1.0;
-            int num = TextureAssets.Npc[NPC.type].Value.Height / Main.npcFrameCount[NPC.type];
+            int num = TextureAssets.Npc[NPC.type].Height() / Main.npcFrameCount[NPC.type];
             if (NPC.frameCounter > 6.0)
             {
                 NPC.frameCounter = 0.0;

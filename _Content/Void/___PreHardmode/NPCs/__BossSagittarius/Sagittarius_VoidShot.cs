@@ -83,7 +83,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
                     Projectile.frame = 0;
                 }
             }
-            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 5, 0, 0);
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Width(), TextureAssets.Projectile[Projectile.type].Height() / 5, 0, 0);
             Sagittarius_NovaStar.DrawAfterimage(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.oldPos, Projectile.scale, Projectile.rotation, Projectile.direction, 5, frame, 1.2f, 1f, 4, true, 0, 0, true, Color.White);
             BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 5, frame, Color.White, true);
             return false;

@@ -67,7 +67,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         {
             Color newLightColor = new Color(Math.Max(0, Color.Purple.R + Math.Min(0, -Projectile.alpha + 20)), Math.Max(0, Color.Purple.G + Math.Min(0, -Projectile.alpha + 20)), Math.Max(0, Color.Purple.B + Math.Min(0, -Projectile.alpha + 20)));
             BaseDrawing.AddLight(Projectile.Center, newLightColor);
-            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height / 3, 0, 2);
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Width(), TextureAssets.Projectile[Projectile.type].Height() / 3, 0, 2);
             BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, Projectile.GetAlpha(Color.White), true);
             return false;
         }

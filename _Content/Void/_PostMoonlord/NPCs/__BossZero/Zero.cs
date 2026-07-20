@@ -323,7 +323,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
 
         public override void FindFrame(int frameHeight)
         {
-            int frameWidth = TextureAssets.Npc[NPC.type].Value.Width / 4;
+            int frameWidth = TextureAssets.Npc[NPC.type].Width() / 4;
             NPC.frame.Width = frameWidth;
 
             if (NPC.IsABestiaryIconDummy)
@@ -431,7 +431,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
                 NPC.frame.X = frameWidth * 2;
                 if (NPC.ai[1] == 3 && NPC.ai[3] != 3)
                 {
-                    NPC.frame.Y = TextureAssets.Npc[NPC.type].Value.Height - NPC.frame.Y;
+                    NPC.frame.Y = TextureAssets.Npc[NPC.type].Height() - NPC.frame.Y;
                 }
             }
             else if (NPC.ai[1] == 2 && NPC.ai[2] < 5)
