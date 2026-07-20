@@ -363,7 +363,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         if (IsAwakened && Main.netMode != NetmodeID.MultiplayerClient)
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX.RotatedBy(NPC.ai[3]), ModContent.ProjectileType<ShenDoragonA_Deathray>(), 40, 0f, -1, 0, NPC.whoAmI);
                     }
-                    else if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.ai[2] > 180 && NPC.ai[2] % 3 == 0)
+                    else if(!Main.dedServ && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.ai[2] > 180 && NPC.ai[2] % 3 == 0)
                     {
                         RandomizedFrameParticle lightning = telegraphParticles.RequestParticle();
                         Main.instance.LoadProjectile(ProjectileID.ScytheWhipProj);
