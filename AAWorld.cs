@@ -129,6 +129,7 @@ namespace AAModClassic
         private Vector2 InfernoCenter = -Vector2.One;
         private Vector2 MireCenter = -Vector2.One;
         public static Vector2 shipPos = new(0, 0);
+        public static Point acropolisPos = Point.Zero;
         public string nums = "1234567890";
         public static bool ModContentGenerated;
 
@@ -268,6 +269,8 @@ namespace AAModClassic
             squid14 = 0;
             squid15 = 0;
             squid16 = 0;
+
+            acropolisPos = Point.Zero;
         }
 
         public static int Raycast(int x, int y)
@@ -341,6 +344,8 @@ namespace AAModClassic
             tag.Add("Bunny", RabbitKills);
             tag.Add("Egg", SmashDragonEgg);
             tag.Add("Pod", SmashHydraPod);
+
+            tag.Add("acropolisPos", acropolisPos);
         }
 
         public override void LoadWorldData(TagCompound tag)
@@ -407,6 +412,8 @@ namespace AAModClassic
             SmashDragonEgg = tag.GetInt("Egg");
             SmashHydraPod = tag.GetInt("Pod");
 
+            acropolisPos = tag.Get<Point>("acropolisPos");
+
             TerrariumEnemies = NPC.downedBoss2;
             previousDownedAllAncients = downedAllAncients;
             AMessage = NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3;
@@ -458,6 +465,9 @@ namespace AAModClassic
             writer.Write(RabbitKills);
             writer.Write(SmashDragonEgg);
             writer.Write(SmashHydraPod);
+
+            writer.Write(acropolisPos.X);
+            writer.Write(acropolisPos.Y);
         }
 
         public override void NetReceive(BinaryReader reader)
@@ -504,6 +514,8 @@ namespace AAModClassic
             RabbitKills = reader.ReadInt32();
             SmashHydraPod = reader.ReadInt32();
             SmashDragonEgg = reader.ReadInt32();
+
+            acropolisPos = new(reader.ReadInt32(), reader.ReadInt32());
         }
         #endregion
 

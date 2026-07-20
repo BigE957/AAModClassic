@@ -15,6 +15,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Bos
             // Tooltip.SetDefault(@"Plays 'The Dust Bowl' by Tyeski");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
 
         public override void SetDefaults()

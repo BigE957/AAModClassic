@@ -15,6 +15,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard
             // Tooltip.SetDefault(@"Plays 'Strings of Judgement' by Tyeski");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
 
         public override void SetDefaults()

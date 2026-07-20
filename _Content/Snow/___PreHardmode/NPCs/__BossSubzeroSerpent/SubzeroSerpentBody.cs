@@ -55,7 +55,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 
         public override void AI()
         {
-            if (!Main.npc[NPC.realLife].active)
+            if (!NPC.AnyNPCs(ModContent.NPCType<SubzeroSerpentHead>()))
             {
                 NPC.active = false;
                 return;
@@ -434,7 +434,8 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                     Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.SnowDustLight>(), hit.HitDirection, -1f, 0, default, 1f);
                 }
 
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SZSGoreBody").Type, 1f);
+                if(!Main.dedServ)
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SZSGoreBody").Type, 1f);
             }
         }
     }

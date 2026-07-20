@@ -837,7 +837,7 @@ namespace AAModClassic._Unofficial
 
         public void AddProgress(int amount = 1, bool setValue = false, bool fromPacket = false)
         {
-            bool wasComplete = IsComplete;
+            //bool wasComplete = IsComplete;
 
             if (setValue)
             {

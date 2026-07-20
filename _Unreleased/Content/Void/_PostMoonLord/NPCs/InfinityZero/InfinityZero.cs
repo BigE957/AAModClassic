@@ -54,6 +54,15 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             glowTex = ModContent.Request<Texture2D>(Texture + "_Glow");
             Main.npcFrameCount[NPC.type] = 4;
             NPCID.Sets.BossBestiaryPriority.Add(Type);
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                Position = new(0, 262),
+                PortraitPositionYOverride = 240,
+                Scale = 2f, // whenever we properly upscale the sprite this should just be 1x
+                PortraitScale = 2f // ditto
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 		public override void SetDefaults()
 		{
@@ -101,26 +110,18 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         public float[] customAI = new float[4];
         public override void SendExtraAI(BinaryWriter writer)
         {
-            base.SendExtraAI(writer);
-            if (Main.netMode == NetmodeID.Server || Main.dedServ)
-            {
-                writer.Write((short)customAI[0]);
-                writer.Write((short)customAI[1]);
-                writer.Write((short)customAI[2]);
-                writer.Write((short)customAI[3]);				
-            }
+            writer.Write(customAI[0]);
+            writer.Write(customAI[1]);
+            writer.Write(customAI[2]);
+            writer.Write(customAI[3]);				
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            base.ReceiveExtraAI(reader);
-            if (Main.netMode == NetmodeID.MultiplayerClient)
-            {
-                customAI[0] = reader.ReadSingle();
-                customAI[1] = reader.ReadSingle();
-                customAI[2] = reader.ReadSingle();
-                customAI[3] = reader.ReadSingle();				
-            }
+            customAI[0] = reader.ReadSingle();
+            customAI[1] = reader.ReadSingle();
+            customAI[2] = reader.ReadSingle();
+            customAI[3] = reader.ReadSingle();				
         }
         public int roarTimer = 200;
 		public bool[] roared = new bool[3];
@@ -424,14 +425,16 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
 			if (NPC.life <= 0)
 			{
-				float randomSpread = Main.rand.Next(-50, 50) / 100;
+                if (!Main.dedServ)
+                {
+                    float randomSpread = Main.rand.Next(-50, 50) / 100;
+                    Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore1").Type, 1.4f);
+                    Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore2").Type, 1.4f);
+                    Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore3").Type, 1.4f);
+                    Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore4").Type, 1.4f);
+                    Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore5").Type, 1.4f);
+                }
 
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore1").Type, 1.4f);
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore2").Type, 1.4f);
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore3").Type, 1.4f);
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore4").Type, 1.4f);
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, NPC.velocity * randomSpread * Main.rand.NextFloat(), Mod.Find<ModGore>("IZGore5").Type, 1.4f);
-				
                 NPC.position.X = NPC.position.X + NPC.width / 2;
 				NPC.position.Y = NPC.position.Y + NPC.height / 2;
 				NPC.width = 400;
@@ -530,15 +533,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public override void FindFrame(int frameHeight)
         {
-            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
-            {
-                Position = new(0, 262),
-                PortraitPositionYOverride = 240,
-                Scale = 2f, // whenever we properly upscale the sprite this should just be 1x
-                PortraitScale = 2f // ditto
-            };
-            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
-
             bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
             NPC.frame.Height = unofficial ? 455 : frameHeight;
             if (!NPC.IsABestiaryIconDummy && roarTimer > -1)

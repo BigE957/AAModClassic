@@ -82,7 +82,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
                     Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemID.GoldCoin);       //Main.rand.Next part is the length of the buff, so 8.3 seconds to 16.6 seconds
                 }
             }
-            if (NPC.life <= 0)
+            if (NPC.life <= 0 && !Main.dedServ)
             {
 
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ToxitoadGoreHead").Type, 1f);

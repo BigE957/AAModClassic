@@ -137,7 +137,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override bool PreDraw(ref Color lightColor)
         {
         	Texture2D texture2D13 = TextureAssets.Projectile[Projectile.type].Value;
-			int num214 = TextureAssets.Projectile[Projectile.type].Value.Height / Main.projFrames[Projectile.type];
+			int num214 = TextureAssets.Projectile[Projectile.type].Height() / Main.projFrames[Projectile.type];
 			int y6 = num214 * Projectile.frame;
 			Main.spriteBatch.Draw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Rectangle?(new Rectangle(0, y6, texture2D13.Width, num214)), Projectile.GetAlpha(lightColor), Projectile.rotation, new Vector2(texture2D13.Width / 2f, num214 / 2f), Projectile.scale, SpriteEffects.None, 0f);
 			return false;

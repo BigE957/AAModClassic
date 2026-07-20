@@ -16,6 +16,7 @@ namespace AAModClassic._Removed.Content.Parthenan
             // Tooltip.SetDefault(@"Plays 'Controlled Chaos' by ProduceVGM");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
 
         public override void SetDefaults()

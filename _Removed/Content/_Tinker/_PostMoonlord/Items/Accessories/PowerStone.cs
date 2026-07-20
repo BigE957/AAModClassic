@@ -27,7 +27,7 @@ namespace AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories
             Item.width = 66;
             Item.height = 78;
             Item.value = Item.sellPrice(0, 0, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
             Item.prefix = 0;
         }

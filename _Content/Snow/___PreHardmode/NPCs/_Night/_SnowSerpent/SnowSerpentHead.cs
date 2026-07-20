@@ -7,6 +7,7 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.IO;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -76,8 +77,14 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
         public override void AI()
         {
             Player player = Main.player[NPC.target];
-			AAAI.AIWorm(NPC, new int[]{ ModContent.NPCType<SnowSerpentHead>(), ModContent.NPCType<SnowSerpentBody>(), ModContent.NPCType<SnowSerpentTail>() }, 9, 8f, 12f, 0.1f, false, false);
+			AAAI.AIWorm(NPC, [ModContent.NPCType<SnowSerpentHead>(), ModContent.NPCType<SnowSerpentBody>(), ModContent.NPCType<SnowSerpentTail>()], 9, 8f, 12f, 0.1f, false, false);
             
+            if(NPC.realLife != -1)
+            {
+                if (!Main.npc[(int)NPC.ai[1]].active)
+                    NPC.active = false;
+            }
+
             if (NPC.velocity.X < 0f)
             {
                 NPC.spriteDirection = 1;
@@ -116,25 +123,26 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
             }
         }
 
-        public override bool PreKill()
+        public override void SendExtraAI(BinaryWriter writer)
         {
-            if (NPC.AnyNPCs(ModContent.NPCType<SubzeroSerpentHead>()))
-            {
-                return false;
-            }
-            return base.PreKill();
+            writer.Write(WasSpawnedBySubzeroSerpent);
+        }
+
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+            WasSpawnedBySubzeroSerpent = reader.ReadBoolean();
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            LeadingConditionRule spawnedBySerpent = new(new SpawnedBySubzeroSerpent());
+            LeadingConditionRule spawnedBySerpent = new(new NotSpawnedBySubzeroSerpent());
 
             spawnedBySerpent.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SubzeroCrystal>(), 4));
 
             npcLoot.Add(spawnedBySerpent);
         }
 
-        public class SpawnedBySubzeroSerpent : IItemDropRuleCondition, IProvideItemConditionDescription
+        public class NotSpawnedBySubzeroSerpent : IItemDropRuleCondition, IProvideItemConditionDescription
         {
             public bool CanDrop(DropAttemptInfo info)
             {

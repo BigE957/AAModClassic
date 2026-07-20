@@ -144,7 +144,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 				spriteEffects = SpriteEffects.FlipHorizontally;
 			}
         	Texture2D texture2D14 = TextureAssets.Projectile[Projectile.type].Value;
-			int num215 = TextureAssets.Projectile[Projectile.type].Value.Height / Main.projFrames[Projectile.type];
+			int num215 = TextureAssets.Projectile[Projectile.type].Height() / Main.projFrames[Projectile.type];
 			int y7 = num215 * Projectile.frame;
 			Vector2 vector27 = (Projectile.position + new Vector2(Projectile.width, Projectile.height) / 2f + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition).Floor();
 			float scale5 = 1f;

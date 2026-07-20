@@ -136,7 +136,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             Vector2 vector33 = -Vector2.UnitY.RotatedBy(num244, default);
             float scale6 = 0.75f + vector33.Y * 0.25f;
             float scale7 = 0.8f - vector33.Y * 0.2f;
-            int num246 = TextureAssets.Projectile[Projectile.type].Value.Height / Main.projFrames[Projectile.type];
+            int num246 = TextureAssets.Projectile[Projectile.type].Height() / Main.projFrames[Projectile.type];
             int y10 = num246 * Projectile.frame;
             Vector2 position15 = Projectile.position + new Vector2(Projectile.width, Projectile.height) / 2f + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition;
             SpriteEffects spriteEffects = Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;

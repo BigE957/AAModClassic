@@ -15,6 +15,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMo
             // Tooltip.SetDefault(@"Plays 'Fungal Face-off' by SpectralAves");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
 
         public override void SetDefaults()

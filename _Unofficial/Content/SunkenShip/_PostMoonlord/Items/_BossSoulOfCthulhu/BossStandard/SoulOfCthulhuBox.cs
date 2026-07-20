@@ -17,6 +17,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossS
             // Tooltip.SetDefault(@"Plays 'Wheel Of Misfortune' by ProduceVGM");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
 
         public override void SetDefaults()

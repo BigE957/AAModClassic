@@ -104,25 +104,24 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
                         }
                     }
                 }
-                if (Main.netMode != NetmodeID.MultiplayerClient)
+
+                NPC.ai[0]++;
+                if (NPC.ai[0] == 180)
                 {
-                    NPC.ai[0]++;
-                    if (NPC.ai[0] == 180)
-                    {
-                        NPC.netUpdate = true;
-                    }
-                    else
-                    if (NPC.ai[0] >= 600 && !NPC.AnyNPCs(ModContent.NPCType<AkumaAHead>()))
+                    NPC.netUpdate = true;
+                }
+                else if (NPC.ai[0] >= 600 && !NPC.AnyNPCs(ModContent.NPCType<AkumaAHead>()))
+                {
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<AkumaAHead>(), false, NPC.Center, "", false);
-                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AkumaTransition4"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AkumaTransition4"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
 
                         int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
                         Main.projectile[b].Center = NPC.Center;
-
-                        NPC.netUpdate = true;
-                        NPC.active = false;
                     }
+                    NPC.netUpdate = true;
+                    NPC.active = false;
                 }
                 return false;
             }
@@ -180,43 +179,47 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 					}
 				}
 			}
-			if(Main.netMode != NetmodeID.MultiplayerClient)
+
+			NPC.ai[0]++;	
+			if(NPC.ai[0] == 300)
 			{
-				NPC.ai[0]++;	
-				if(NPC.ai[0] == 300)
-				{
-					NPC.netUpdate = true;
-				}else
-				if (NPC.ai[0] == 300)
-				{
-					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.1"), new Color(180, 41, 32));
-					NPC.netUpdate = true;
-				}else
-				if (NPC.ai[0] == 525)
-				{
-					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.2"), new Color(180, 41, 32));
-				}else
-				if(NPC.ai[0] == 750) //sync so the color transition occurs
+				NPC.netUpdate = true;
+			}
+            else if (NPC.ai[0] == 300)
+			{
+				if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.1"), new Color(180, 41, 32));
+				NPC.netUpdate = true;
+			}
+            else if (NPC.ai[0] == 525)
+			{
+				if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.2"), new Color(180, 41, 32));
+			}
+            else if(NPC.ai[0] == 750) //sync so the color transition occurs
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.6"), new Color(175, 75, 255));
+                NPC.netUpdate = true;
+			}
+            else if (NPC.ai[0] == 976)
+			{
+				if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.3"), Color.DeepSkyBlue);
+			}
+            else if (NPC.ai[0] >= 1200 && !NPC.AnyNPCs(ModContent.NPCType<AkumaAHead>()))
+			{
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.6"), new Color(175, 75, 255));
-                    NPC.netUpdate = true;
-				}else
-				if (NPC.ai[0] == 976)
-				{
-					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.3"), Color.DeepSkyBlue);
-				}else
-				if (NPC.ai[0] >= 1200 && !NPC.AnyNPCs(ModContent.NPCType<AkumaAHead>()))
-				{
-					AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<AkumaAHead>(), false, NPC.Center, "", false);
-					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.4"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
-					if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.5"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
+                    AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<AkumaAHead>(), false, NPC.Center, "", false);
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.4"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.5"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
 
                     int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
                     Main.projectile[b].Center = NPC.Center;
-
-                    NPC.netUpdate = true;
-					NPC.active = false;
-				}
+                }
+                NPC.netUpdate = true;
+				NPC.active = false;
 			}
         }
 

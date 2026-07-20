@@ -62,7 +62,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStan
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<RajahRabbitsSashOfVengeance>()));
 
-            List<int> lootTable = [ModContent.ItemType<BaneOfTheBunny>(), ModContent.ItemType<Bunzooka>(), ModContent.ItemType<RoyalScepter>(), ModContent.ItemType<ThePunisher>(), ModContent.ItemType<RabbitcopterWings>()];
+            List<int> lootTable = [ModContent.ItemType<BaneOfTheBunny>(), ModContent.ItemType<Bunzooka>(), ModContent.ItemType<RoyalScepter>(), ModContent.ItemType<ThePunisher>(), ModContent.ItemType<CottonCane>(), ModContent.ItemType<RabbitcopterWings>()];
             if (ModLoader.TryGetMod("ThoriumMod", out _))
                 lootTable.Add(ModContent.ItemType<CarrotFarmer>());
 

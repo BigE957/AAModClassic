@@ -1,3 +1,4 @@
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
@@ -32,6 +33,16 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
 
         public override void AI()
         {
+            NPC target = Projectile.FindTargetWithinRange(1000);
+            if(target != null)
+            {
+                float speed = Projectile.velocity.Length();
+                float currDir = Projectile.velocity.ToRotation();
+                float goalDir = (target.Center - Projectile.Center).ToRotation();
+
+                Projectile.velocity = currDir.AngleTowards(goalDir, MathHelper.Pi / 60f).ToRotationVector2() * speed;
+            }
+
             Projectile.localAI[0] += 1f;
             if (Projectile.localAI[0] > 9f)
             {

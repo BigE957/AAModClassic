@@ -17,7 +17,7 @@ public class TerraStatue_Tile : ModTile
 		Main.tileSolidTop[Type] = false;
 		Main.tileFrameImportant[Type] = true;
 		Main.tileNoAttach[Type] = true;
-		base.DustType = DustID.Gold;
+		DustType = DustID.Gold;
 		Main.tileLavaDeath[Type] = false;
 		TileObjectData.newTile.Width = 4;
 		TileObjectData.newTile.Height = 5;
@@ -47,7 +47,7 @@ public class TerraStatue_Tile : ModTile
 
 	public override bool RightClick(int i, int j)
 	{
-		BaseUtility.Chat("The Hero who saved us all from the brink of chaos", Color.LawnGreen);
-		return true;
+        Main.NewText(Language.GetTextValue("Mods.AAModClassic.Tiles.TerraStatue_Tile.FlavorText"), 200, 0, 0);
+        return true;
 	}
 }

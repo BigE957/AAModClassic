@@ -732,36 +732,42 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
 				{
 					spawnedGore = true;
 					bool isHead = NPC.type == ModContent.NPCType<DaybringerHead>() || NPC.type == ModContent.NPCType<NightcrawlerHead>();
-					bool isBody = NPC.type == ModContent.NPCType<DaybringerBody>() || NPC.type == ModContent.NPCType<NightcrawlerBody>();						
-					if(nightcrawler)
-					{
-						if(isHead)
-						{
-							Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("NCGore1").Type, 1f);	
-							Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("NCGore2").Type, 1f);						
-						}else
-						if(isBody)
-						{
-							Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("NCGore3").Type, 1f);							
-						}else
-						{
-							Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("NCGore4").Type, 1f);						
-						}
-					}else
-					{
-						if(isHead)
-						{
-							Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("DBGore1").Type, 1f);	
-							Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("DBGore2").Type, 1f);						
-						}else
-						if(isBody)
-						{
-							Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("DBGore3").Type, 1f);							
-						}else
-						{
-							Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("DBGore4").Type, 1f);						
-						}					
-					}
+					bool isBody = NPC.type == ModContent.NPCType<DaybringerBody>() || NPC.type == ModContent.NPCType<NightcrawlerBody>();
+                    if (!Main.dedServ)
+                    {
+                        if (nightcrawler)
+                        {
+                            if (isHead)
+                            {
+                                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("NCGore1").Type, 1f);
+                                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("NCGore2").Type, 1f);
+                            }
+                            else if (isBody)
+                            {
+                                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("NCGore3").Type, 1f);
+                            }
+                            else
+                            {
+                                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("NCGore4").Type, 1f);
+                            }
+                        }
+                        else
+                        {
+                            if (isHead)
+                            {
+                                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("DBGore1").Type, 1f);
+                                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("DBGore2").Type, 1f);
+                            }
+                            else if (isBody)
+                            {
+                                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("DBGore3").Type, 1f);
+                            }
+                            else
+                            {
+                                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("DBGore4").Type, 1f);
+                            }
+                        }
+                    }
 					for (int k = 0; k < 15; k++)
 					{
 						Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType, hit.HitDirection, -1f, 0, default, 1.5f);

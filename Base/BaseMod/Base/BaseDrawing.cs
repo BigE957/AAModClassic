@@ -13,35 +13,6 @@ using Terraria.ID;
 
 namespace AAModClassic.Base.BaseMod.Base
 {
-    public class InterfaceLayer
-    {
-        public string name;
-        public Action<InterfaceLayer, SpriteBatch> drawAction;
-        public GameInterfaceLayer listItem;
-
-        public bool visible
-        {
-            get
-            {
-                return (listItem == null ? false : listItem.Active);
-            }
-            set
-            {
-                if (listItem != null) listItem.Active = value;
-            }
-        }
-
-        public InterfaceLayer(string n, Action<InterfaceLayer, SpriteBatch> action)
-        {
-            name = n;
-            drawAction = action;
-        }
-
-        public void Draw()
-        {
-            drawAction(this, Main.spriteBatch);
-        }
-    }
     public class BaseDrawing
     {
         //public static ShaderContext shaderContext = new ShaderContext();
@@ -80,7 +51,7 @@ namespace AAModClassic.Base.BaseMod.Base
          */
         public static Color GetNPCColor(NPC npc, Vector2? position = null, bool effects = true, float shadowOverride = 0f)
         {
-            return npc.GetAlpha(BuffEffects(npc, GetLightColor(position != null ? (Vector2)position : npc.Center), (shadowOverride != 0f ? shadowOverride : 0f), effects, npc.poisoned, npc.onFire, npc.onFire2, Main.player[Main.myPlayer].detectCreature, false, false, false, npc.venom, npc.midas, npc.ichor, npc.onFrostBurn, false, false, npc.dripping, npc.drippingSlime, npc.loveStruck, npc.stinky));
+            return npc.GetAlpha(BuffEffects(npc, GetLightColor(position != null ? (Vector2)position : npc.Center), (shadowOverride != 0f ? shadowOverride : 0f), effects, npc.poisoned, npc.onFire, npc.onFire2, Main.LocalPlayer.detectCreature, false, false, false, npc.venom, npc.midas, npc.ichor, npc.onFrostBurn, false, false, npc.dripping, npc.drippingSlime, npc.loveStruck, npc.stinky));
         }
 
         /*
@@ -697,7 +668,7 @@ namespace AAModClassic.Base.BaseMod.Base
                 {
                     ((SpriteBatch)sb).End();
                     ((SpriteBatch)sb).Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise, default, Main.GameViewMatrix.TransformationMatrix);
-                    GameShaders.Armor.ApplySecondary(shader, Main.player[Main.myPlayer], null);
+                    GameShaders.Armor.ApplySecondary(shader, Main.LocalPlayer, null);
                 }
                 ((SpriteBatch)sb).Draw(texture, GetDrawPosition(position, origin, width, height, texture.Width, texture.Height, frame, framecount, framecountX, scale, drawCentered), frame, lightColor, rotation, origin, scale, direction == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
                 if (applyDye)

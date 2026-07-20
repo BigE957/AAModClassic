@@ -32,20 +32,21 @@ namespace AAModClassic._CrossMod.CalamityMod
         {
             if (Calamity != null)
             {
-                astralDust = Calamity.Find<ModDust>("AstralChunkDust").Type;
+                if(!Main.dedServ)
+                    astralDust = Calamity.Find<ModDust>("AstralChunkDust").Type;
 
-                Calamity.Call(FilePathUtils.TexturePath<SpearStuck_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().Spear);
-                Calamity.Call(FilePathUtils.TexturePath<Impaled_Buff>(), (NPC npc) => npc.HasBuff<Impaled_Buff>());
-                Calamity.Call(FilePathUtils.TexturePath<Electrified_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().Electrified);
-                Calamity.Call(FilePathUtils.TexturePath<BrokenArmor_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().BrokenArmor);
-                Calamity.Call(FilePathUtils.TexturePath<InfinityScorch_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().InfinityScorch);
-                Calamity.Call(FilePathUtils.TexturePath<RealityBent_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().riftBent);
-                Calamity.Call(FilePathUtils.TexturePath<Terrablaze_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().terraBlaze);
-                Calamity.Call(FilePathUtils.TexturePath<RadiumInferno_Buff>(), (NPC npc) => npc.HasBuff<RadiumInferno_Buff>());
-                Calamity.Call(FilePathUtils.TexturePath<Moonraze_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().Moonraze);
-                Calamity.Call(FilePathUtils.TexturePath<HydraToxin_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().Hydratoxin);
-                Calamity.Call(FilePathUtils.TexturePath<DragonFire_Buff>(), (NPC npc) => npc.HasBuff<DragonFire_Buff>());
-                Calamity.Call(FilePathUtils.TexturePath<DiscordianInferno_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().DiscordInferno);
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<SpearStuck_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().Spear);
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<Impaled_Buff>(), (NPC npc) => npc.HasBuff<Impaled_Buff>());
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<Electrified_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().Electrified);
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<BrokenArmor_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().BrokenArmor);
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<InfinityScorch_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().InfinityScorch);
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<RealityBent_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().riftBent);
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<Terrablaze_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().terraBlaze);
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<RadiumInferno_Buff>(), (NPC npc) => npc.HasBuff<RadiumInferno_Buff>());
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<Moonraze_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().Moonraze);
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<HydraToxin_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().Hydratoxin);
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<DragonFire_Buff>(), (NPC npc) => npc.HasBuff<DragonFire_Buff>());
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<DiscordianInferno_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().DiscordInferno);
             }
         }
 

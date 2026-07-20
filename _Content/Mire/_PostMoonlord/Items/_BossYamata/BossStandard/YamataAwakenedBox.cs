@@ -17,6 +17,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandar
             // Tooltip.SetDefault(@"Plays 'Abyssal Nightmare' by Tyeski");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)

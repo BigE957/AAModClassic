@@ -64,47 +64,36 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
                 }
             }
 
-            if (Main.netMode != NetmodeID.MultiplayerClient)
+            NPC.ai[0]++;
+
+            if (NPC.ai[0] == 175)
             {
-                NPC.ai[0]++;
-
-                if (NPC.ai[0] == 175)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                    {
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Transition.1"), Color.Goldenrod);
-                    }
-                    Music = MusicManagementSystem.MusicSlots["Greed_Awakened"];
-
-                    NPC.netUpdate = true;
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Transition.1"), Color.Goldenrod);
                 }
-                else if (NPC.ai[0] == 350)
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                    {
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Transition.2"), Color.Goldenrod);
-                    }
-                }
-                else if (NPC.ai[0] == 500)
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                    {
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Transition.3"), Color.Goldenrod);
-                    }
+                Music = MusicManagementSystem.MusicSlots["Greed_Awakened"];
+            }
+            else if (NPC.ai[0] == 350)
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Transition.2"), Color.Goldenrod);
+            }
+            else if (NPC.ai[0] == 500)
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Transition.3"), Color.Goldenrod);
+            }
+            else if (NPC.ai[0] >= 610)
+            {
+                AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedAHead>(), true, NPC.Center, ModContent.GetInstance<GreedAHead>().DisplayName.Value, false);
+                int b = Projectile.NewProjectile(NPC.GetBossSpawnSource(player.whoAmI), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
 
-                    NPC.netUpdate = true;
-                }
-                else if (NPC.ai[0] >= 610)
-                {
-                    AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedAHead>(), true, NPC.Center, ModContent.GetInstance<GreedAHead>().DisplayName.Value, false);
-                    int b = Projectile.NewProjectile(NPC.GetBossSpawnSource(player.whoAmI), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Transition.4"), Color.Goldenrod);
 
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Transition.4"), Color.Goldenrod);
-
-                    NPC.netUpdate = true;
-                    NPC.active = false;
-                }
+                NPC.netUpdate = true;
+                NPC.active = false;
             }
         }
 

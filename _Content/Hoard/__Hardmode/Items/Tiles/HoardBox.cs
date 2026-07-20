@@ -15,6 +15,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items.Tiles
             // Tooltip.SetDefault(@"Plays 'Cove' by Tyeski");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
 
         public override void SetDefaults()

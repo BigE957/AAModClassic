@@ -47,7 +47,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Armor
                 DumbBullshit.Add(Language.GetTextValue($"{Description}.Mire"));
             }
 
-            if (player.GetModPlayer<ZAAPlayer>().Terrarium)
+            if (player.GetModPlayer<ZAAPlayer>().ZoneTerrarium)
             {
                 player.statDefense += 5;
                 DumbBullshit.Add(Language.GetTextValue($"{Description}.Terrarium"));

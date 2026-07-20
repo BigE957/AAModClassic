@@ -56,12 +56,12 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override void AI()
         {
             Player player = Main.player[NPC.target];
-            AAPlayer_Unreleased modPlayer = player.GetModPlayer<AAPlayer_Unreleased>();
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (player == null || player.dead || !player.active || !modPlayer.ZoneShip)
             { 
                 NPC.TargetClosest(true);
                 player = Main.player[NPC.target];
-                modPlayer = player.GetModPlayer<AAPlayer_Unreleased>();
+                modPlayer = player.GetModPlayer<ZAAPlayer>();
             }
 
             if (Main.player[NPC.target].dead || Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000.0 || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000.0)

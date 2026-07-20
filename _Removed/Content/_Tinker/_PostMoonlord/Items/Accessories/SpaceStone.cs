@@ -24,7 +24,7 @@ You are immune to the Chaos State Debuff
             Item.width = 22;
             Item.height = 24;
             Item.value = Item.sellPrice(0, 0, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
             Item.prefix = 0;
         }
