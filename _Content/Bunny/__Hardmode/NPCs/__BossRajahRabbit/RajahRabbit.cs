@@ -1171,7 +1171,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 }
             }
 
-            int rajahFrameWidth = TextureAssets.Npc[NPC.type].Value.Width / 4;
+            int rajahFrameWidth = TextureAssets.Npc[NPC.type].Width() / 4;
             NPC.frame.Width = rajahFrameWidth;
             int currentHorizFrameOffset = 0;
             if (IsRoaring)
