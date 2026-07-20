@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -28,7 +29,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
             }
             else
             {
-                BaseDrawing.DrawTileTexture(spriteBatch, ModContent.Request<Texture2D>("AAModClassic/Tiles/Bricks/DarkmatterBrick").Value, x, y, true, false, false);
+                BaseDrawing.DrawTileTexture(spriteBatch, ModContent.Request<Texture2D>(FilePathUtils.TexturePath<DarkmatterBrick_Tile>()).Value, x, y, true, false, false);
             }
             return false;
         }
