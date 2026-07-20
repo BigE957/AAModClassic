@@ -215,10 +215,10 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public float[] customAI = new float[4];
         public override void SendExtraAI(BinaryWriter writer)
         {
-            writer.Write((short)customAI[0]);
-            writer.Write((short)customAI[1]);
-            writer.Write((short)customAI[2]);
-            writer.Write((short)customAI[3]);
+            writer.Write(customAI[0]);
+            writer.Write(customAI[1]);
+            writer.Write(customAI[2]);
+            writer.Write(customAI[3]);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
