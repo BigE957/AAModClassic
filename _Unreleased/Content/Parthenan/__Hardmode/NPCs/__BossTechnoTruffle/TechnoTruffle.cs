@@ -141,7 +141,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             NPC.dontTakeDamage = NPC.AnyNPCs(ModContent.NPCType<TruffleProbe>());
             NPC.TargetClosest();
             Player player = Main.player[NPC.target];
-            Color color = BaseUtility.MultiLerpColor(Main.player[Main.myPlayer].miscCounter % 100 / 100f, BaseDrawing.GetLightColor(NPC.position), BaseDrawing.GetLightColor(NPC.position), Color.Violet, BaseDrawing.GetLightColor(NPC.position), Color.Violet, BaseDrawing.GetLightColor(NPC.position));
+            Color color = BaseUtility.MultiLerpColor(Main.player[Main.myPlayer].miscCounter % 100 / 100f, Lighting.GetColor(NPC.Center.ToTileCoordinates()), Lighting.GetColor(NPC.Center.ToTileCoordinates()), Color.Violet, Lighting.GetColor(NPC.Center.ToTileCoordinates()), Color.Violet, Lighting.GetColor(NPC.Center.ToTileCoordinates()));
 
             Lighting.AddLight((int)(NPC.Center.X + NPC.width / 2) / 16, (int)(NPC.position.Y + NPC.height / 2) / 16, color.R / 255, color.G / 255, color.B / 255);
 
