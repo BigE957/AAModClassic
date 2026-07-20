@@ -1,6 +1,8 @@
 ﻿using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
+using AAModClassic._Unofficial.Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -66,6 +68,8 @@ namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard
             int[] lootTable = { ModContent.ItemType<Judgment>(), ModContent.ItemType<NeithsString>(), ModContent.ItemType<DesertStaff>(), ModContent.ItemType<JackalsWrath>(), ModContent.ItemType<Sandthrower>(), ModContent.ItemType<SentryOfTheEye>() };
 
             itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
+
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<FracturedAnkh>(), 4));
         }
     }
 }

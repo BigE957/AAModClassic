@@ -5,6 +5,7 @@ using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
 using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
+using AAModClassic._Unofficial.Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis.Runes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
@@ -846,6 +847,12 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
             int[] lootTable = { ModContent.ItemType<Judgment>(), ModContent.ItemType<NeithsString>(), ModContent.ItemType<DesertStaff>(), ModContent.ItemType<JackalsWrath>(), ModContent.ItemType<Sandthrower>(), ModContent.ItemType<SentryOfTheEye>() };
 
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+            LeadingConditionRule unofficialRule = new(new ItemDropRuleConditionUtils.Unofficial());
+
+            unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<FracturedAnkh>(), 4));
+
+            notExpertRule.OnSuccess(unofficialRule);
 
             npcLoot.Add(notExpertRule);
         }
