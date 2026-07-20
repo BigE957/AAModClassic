@@ -676,11 +676,11 @@ namespace AAModClassic
                 if (attempt.rare)
                 {
                     if ((liquidType == 0 || liquidType == 1) && Player.GetModPlayer<ZAAPlayer>().ZoneInferno)
-                        itemDrop = Main.hardMode ? ModContent.ItemType<InfernoCrate>() : ModContent.ItemType<DaybreakCrate>();
+                        itemDrop = Main.hardMode ? ModContent.ItemType<DaybreakCrate>() : ModContent.ItemType<InfernoCrate>();
                     if (liquidType == 0 && Player.GetModPlayer<ZAAPlayer>().ZoneMire)
-                        itemDrop = Main.hardMode ? ModContent.ItemType<MireCrate>() : ModContent.ItemType<EventideCrate>();
+                        itemDrop = Main.hardMode ? ModContent.ItemType<EventideCrate>() : ModContent.ItemType<MireCrate>();
                     if (liquidType == 0 && Player.GetModPlayer<ZAAPlayer>().ZoneVoid)
-                        itemDrop = Main.hardMode ? ModContent.ItemType<VoidCrate>() : ModContent.ItemType<NullCrate>();
+                        itemDrop = Main.hardMode ? ModContent.ItemType<NullCrate>() : ModContent.ItemType<VoidCrate>();
                     if (liquidType == 0 && Player.GetModPlayer<ZAAPlayer>().ZoneHoard)
                         itemDrop = ItemID.GoldenCrate; // intended. greed only likes gold
                 }
