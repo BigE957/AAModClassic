@@ -52,7 +52,6 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
 
         public virtual int DustType => DustID.Torch;
 
-        //TODO: make thise use ExtraTextureDirectory
         public override string Texture => AssetDirectory.Projectiles.FireProj;
 
         public override void OnSpawn(IEntitySource source)
@@ -60,13 +59,15 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
             Projectile.alpha = 255;
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
-                Projectile.extraUpdates = 2;
                 Projectile.Center += Projectile.velocity.SafeNormalize(Vector2.Zero) * 80;
+                Projectile.netUpdate = true;
             }
         }
 
         public override void AI()
         {
+            Projectile.extraUpdates = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 2 : 1;
+
             //Adapted from Vanilla
             Projectile.localAI[0] += 1f;
             int lifeTime = 60;
