@@ -217,7 +217,10 @@ KeepDoor1_Tile.MapEntry: Keep Door
 KeepDoor2_Tile.MapEntry: Keep Door
 KeepDoor2S_Tile.MapEntry: Keep Door
 KeepDoor3_Tile.MapEntry: Keep Door
-TerraStatue_Tile.MapEntry: Lost Hero Statue
+TerraStatue_Tile: {
+	MapEntry: Lost Hero Statue
+	FlavorText: The Hero who saved us all from the brink of chaos
+}
 SunkenChest_Tile.MapEntry: Sunken Chest
 InfernoPylon_Tile.MapEntry: Inferno Pylon
 MirePylon_Tile.MapEntry: Mire Pylon
