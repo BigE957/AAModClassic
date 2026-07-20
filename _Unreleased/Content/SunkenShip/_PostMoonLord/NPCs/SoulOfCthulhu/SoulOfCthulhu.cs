@@ -215,26 +215,18 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public float[] customAI = new float[4];
         public override void SendExtraAI(BinaryWriter writer)
         {
-            base.SendExtraAI(writer);
-            if ((Main.netMode == NetmodeID.Server || Main.dedServ))
-            {
-                writer.Write((short)customAI[0]);
-                writer.Write((short)customAI[1]);
-                writer.Write((short)customAI[2]);
-                writer.Write((short)customAI[3]);
-            }
+            writer.Write((short)customAI[0]);
+            writer.Write((short)customAI[1]);
+            writer.Write((short)customAI[2]);
+            writer.Write((short)customAI[3]);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            base.ReceiveExtraAI(reader);
-            if (Main.netMode == NetmodeID.MultiplayerClient)
-            {
-                customAI[0] = reader.ReadSingle();
-                customAI[1] = reader.ReadSingle();
-                customAI[2] = reader.ReadSingle();
-                customAI[3] = reader.ReadSingle();
-            }
+            customAI[0] = reader.ReadSingle();
+            customAI[1] = reader.ReadSingle();
+            customAI[2] = reader.ReadSingle();
+            customAI[3] = reader.ReadSingle();
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
