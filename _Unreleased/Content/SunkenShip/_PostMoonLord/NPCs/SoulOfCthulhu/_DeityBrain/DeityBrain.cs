@@ -1,6 +1,7 @@
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
@@ -105,7 +106,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                 {
-                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("CthulhuDust").Type, 0f, 0f, 100, default(Color), 2f);
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default(Color), 2f);
                     Main.dust[num935].noGravity = true;
                     Main.dust[num935].noLight = true;
                 }
@@ -134,13 +135,13 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 NPC.localAI[0] = 1f;
                 for (int num761 = 0; num761 < EyeCount; num761++)
                 {
-                    float num762 = NPC.Center.X;
-                    float num763 = NPC.Center.Y;
-                    num762 += (float)Main.rand.Next(-NPC.width, NPC.width);
-                    num763 += (float)Main.rand.Next(-NPC.height, NPC.height);
-                    int num764 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)num762, (int)num763, ModContent.NPCType<EyeOfAzathoth>(), 0, num761);
-                    Main.npc[num764].velocity = new Vector2((float)Main.rand.Next(-30, 31) * 0.1f, (float)Main.rand.Next(-30, 31) * 0.1f);
-                    Main.npc[num764].netUpdate = true;
+                    float x = NPC.Center.X;
+                    float y = NPC.Center.Y;
+                    x += (float)Main.rand.Next(-NPC.width, NPC.width);
+                    y += (float)Main.rand.Next(-NPC.height, NPC.height);
+                    NPC npc = NPC.NewNPCDirect(NPC.GetSource_FromThis(), (int)x, (int)y, ModContent.NPCType<EyeOfAzathoth>(), 0, num761);
+                    npc.velocity = new Vector2((float)Main.rand.Next(-30, 31) * 0.1f, (float)Main.rand.Next(-30, 31) * 0.1f);
+                    npc.netUpdate = true;
                 }
             }
             totalEyes = BaseAI.GetNPCs(NPC.Center, ModContent.NPCType<EyeOfAzathoth>(), 1500f);
