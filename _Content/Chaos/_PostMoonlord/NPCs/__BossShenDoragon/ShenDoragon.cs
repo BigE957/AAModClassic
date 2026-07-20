@@ -220,7 +220,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
         {
             writer.Write(FleeTimer[0]);
             writer.Write(AttackPosition.X);
-            writer.Write(AttackPosition.X);
+            writer.Write(AttackPosition.Y);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
@@ -697,7 +697,6 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     NPC.netOffset = Vector2.Zero;
                     //NPC.velocity -= NPC.velocity.RotatedBy(MathHelper.Pi / 2f) * NPC.velocity.Length() / NPC.ai[3];
                     //NPC.velocity = NPC.velocity.ClampMagnitude(0f, 16f);
-
                     rotAngle += MathHelper.PiOver2 * NPC.ai[2];
 
                     if (NPC.ai[1] % (IsAwakened ? 2 : 6) == 0)
