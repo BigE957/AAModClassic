@@ -1,4 +1,5 @@
-﻿using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items.Tiles;
+using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items.Tiles.Decoration;
 using AAModClassic._Content.Acropolis.World.Tiles;
 using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
@@ -85,6 +86,8 @@ namespace AAModClassic._Content.Acropolis.World.Biomes
                 } while (attempts++ < maxAttempts);
             }
             WorldGenUtils.AddProtectedStructure(new Rectangle(placementPoint.X, placementPoint.Y, AcropolisTexGenAssets.AcropolisTileData.Width, AcropolisTexGenAssets.AcropolisTileData.Height), 20);
+
+            AAWorld.acropolisPos = placementPoint;
 
             Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
             {

@@ -1325,10 +1325,7 @@ namespace AAModClassic.Globals
                     {
                         if (Main.netMode == NetmodeID.SinglePlayer)
                         {
-                            if (Main.netMode != NetmodeID.MultiplayerClient)
-                            {
-                                BaseUtility.Chat(npcName + " " + Language.GetTextValue("Mods.AAModClassic.Common.NPCarrive"), 175, 75, 255, false);
-                            }
+                            BaseUtility.Chat(npcName + " " + Language.GetTextValue("Mods.AAModClassic.Common.NPCarrive"), 175, 75, 255, false);
                         }
                         else if (Main.netMode == NetmodeID.Server)
                         {
@@ -1339,10 +1336,7 @@ namespace AAModClassic.Globals
                     {
                         if (Main.netMode == NetmodeID.SinglePlayer)
                         {
-                            if (Main.netMode != NetmodeID.MultiplayerClient)
-                            {
-                                BaseUtility.Chat(Language.GetTextValue("Announcement.HasAwoken", npcName), 175, 75, 255, false);
-                            }
+                            BaseUtility.Chat(Language.GetTextValue("Announcement.HasAwoken", npcName), 175, 75, 255, false);
                         }
                         else if (Main.netMode == NetmodeID.Server)
                         {
@@ -1356,7 +1350,6 @@ namespace AAModClassic.Globals
             }
             else
             {
-                //I have no idea how to convert this to the standard system so im gonna post this method too lol
                 AANet.SendNetMessage<SummonNPCFromClient>((byte)player.whoAmI, (short)bossType, spawnMessage, (int)npcCenter.X, (int)npcCenter.Y, overrideDisplayName, namePlural);
             }
         }

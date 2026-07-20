@@ -2,6 +2,7 @@ using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
+using AAModClassic._Content.Acropolis.__Hardmode.Items.Tiles;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
@@ -52,8 +53,8 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
             NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
-        public static Point CloudPoint = new Point((int)(Main.maxTilesX * 0.65f), 100);
-        public Vector2 Origin = new Vector2((int)(Main.maxTilesX * 0.65f), 100) * 16;
+        public static Point CloudPoint => AAWorld.acropolisPos;
+        public Vector2 Origin => CloudPoint.ToWorldCoordinates();
         public int damage = 0;
 
         public override void SetDefaults()
@@ -99,42 +100,34 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
 
         public override void SendExtraAI(BinaryWriter writer)
         {
-            base.SendExtraAI(writer);
-            if (Main.netMode == NetmodeID.Server || Main.dedServ)
-            {
-                writer.Write(internalAI[0]);
-                writer.Write(internalAI[1]);
-                writer.Write(internalAI[2]);
-                writer.Write(internalAI[3]);
-                writer.Write(internalAI[4]);
-                writer.Write(internalAI[5]);
-                writer.Write(internalAI[6]);
-                writer.Write(FlyAI[0]);
-                writer.Write(FlyAI[1]);
-                writer.Write(MoveVector2.X);
-                writer.Write(MoveVector2.Y);
-                writer.Write(Seen);
-            }
+            writer.Write(internalAI[0]);
+            writer.Write(internalAI[1]);
+            writer.Write(internalAI[2]);
+            writer.Write(internalAI[3]);
+            writer.Write(internalAI[4]);
+            writer.Write(internalAI[5]);
+            writer.Write(internalAI[6]);
+            writer.Write(FlyAI[0]);
+            writer.Write(FlyAI[1]);
+            writer.Write(MoveVector2.X);
+            writer.Write(MoveVector2.Y);
+            writer.Write(Seen);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            base.ReceiveExtraAI(reader);
-            if (Main.netMode == NetmodeID.MultiplayerClient)
-            {
-                internalAI[0] = reader.ReadSingle();
-                internalAI[1] = reader.ReadSingle();
-                internalAI[2] = reader.ReadSingle();
-                internalAI[3] = reader.ReadSingle();
-                internalAI[4] = reader.ReadSingle();
-                internalAI[5] = reader.ReadSingle();
-                internalAI[6] = reader.ReadSingle();
-                FlyAI[0] = reader.ReadSingle();
-                FlyAI[1] = reader.ReadSingle();
-                MoveVector2.X = reader.ReadSingle();
-                MoveVector2.Y = reader.ReadSingle();
-                Seen = reader.ReadBoolean();
-            }
+            internalAI[0] = reader.ReadSingle();
+            internalAI[1] = reader.ReadSingle();
+            internalAI[2] = reader.ReadSingle();
+            internalAI[3] = reader.ReadSingle();
+            internalAI[4] = reader.ReadSingle();
+            internalAI[5] = reader.ReadSingle();
+            internalAI[6] = reader.ReadSingle();
+            FlyAI[0] = reader.ReadSingle();
+            FlyAI[1] = reader.ReadSingle();
+            MoveVector2.X = reader.ReadSingle();
+            MoveVector2.Y = reader.ReadSingle();
+            Seen = reader.ReadBoolean();
         }
         public override void AI()
         {

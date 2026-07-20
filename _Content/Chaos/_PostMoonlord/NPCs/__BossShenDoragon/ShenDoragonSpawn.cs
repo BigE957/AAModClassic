@@ -151,7 +151,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
             if (NPC.ai[0] >= 1945)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Spawn.First.11"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Spawn.First.11"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                 SummonShen();
                 NPC.active = false;
             }
@@ -224,7 +225,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
         public void SummonShen()
         {
             MusicUtils.InstantSwitchMusic(MusicManagementSystem.MusicSlots["Shen"]);
-            AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], ModContent.NPCType<ShenDoragon>(), false, NPC.Center, "");
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+                AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], ModContent.NPCType<ShenDoragon>(), false, NPC.Center, "");
         }
 
         public static Color GetColorAlpha()
