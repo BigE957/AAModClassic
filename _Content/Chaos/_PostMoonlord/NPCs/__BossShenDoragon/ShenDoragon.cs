@@ -693,6 +693,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     float rotAngle = MathHelper.Pi / 48f * NPC.ai[1];
                     float radius = 720;
                     NPC.Center = AttackPosition + Vector2.UnitX.RotatedBy(rotAngle) * NPC.ai[2] * radius;
+                    NPC.velocity = Vector2.Zero;
+                    NPC.netOffset = Vector2.Zero;
                     //NPC.velocity -= NPC.velocity.RotatedBy(MathHelper.Pi / 2f) * NPC.velocity.Length() / NPC.ai[3];
                     //NPC.velocity = NPC.velocity.ClampMagnitude(0f, 16f);
 
