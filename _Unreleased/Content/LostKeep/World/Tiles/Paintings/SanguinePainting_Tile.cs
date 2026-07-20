@@ -32,7 +32,7 @@ public class SanguinePainting_Tile : ModTile
 		//IL_000d: Unknown result type (might be due to invalid IL or missing references)
 		if (Main.netMode != NetmodeID.Server)
 		{
-			BaseUtility.Chat("'They seem to have taken the term 'face monster' a bit too seriously.'", Color.IndianRed, sync: false);
+			BaseUtility.Chat(Language.GetTextValue($"Mods.AAModClassic.Items.Placeables.{Name.Replace("_Tile", "")}.Tooltip"), Color.IndianRed, sync: false);
 		}
 		return true;
 	}
