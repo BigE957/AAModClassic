@@ -23,11 +23,6 @@ RisingMoonLakeBiomeZone: {
 	TownNPCDialogueName: Озеро восходящей луны
 }
 
-RisingMoonLakeBiome: {
-	// DisplayName: Rising Moon Lake Biome
-	// TownNPCDialogueName: the Rising Moon Lake Biome
-}
-
 RisingSunPagodaBiome: {
 	DisplayName: Пагода восходящего солнца
 	TownNPCDialogueName: Пагода восходящего солнца

@@ -21,8 +21,8 @@ SolarStaff: {
 	DisplayName: Солнечный посох
 	Tooltip:
 		'''
-		Rains fire and fury upon your foes
-		Inflicts Daybroken
+		Обрушает огонь и ярость на ваших врагов
+		Накладывает дебафф «Рассвет»
 		'''
 }
 
@@ -41,7 +41,7 @@ ConflagrateStaff: {
 	Tooltip:
 		'''
 		Призывает крутящегося конструкта разрывать ваших врагов на части
-		«Я думал, небо фиолетовое.»
+		«А я то думал небо фиолетовое»
 		- Ender
 		'''
 }
@@ -139,7 +139,7 @@ ChaosBaton: {
 
 DemoniteStaff: {
 	DisplayName: Демонитовый посох
-	Tooltip: Призываетn пожирателя сражаться за вас
+	Tooltip: Призывает пожирателя сражаться за вас
 }
 
 CrimeraStaff: {

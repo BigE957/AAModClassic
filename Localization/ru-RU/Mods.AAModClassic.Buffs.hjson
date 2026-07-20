@@ -40,12 +40,12 @@ ShinyFishBall_Buff: {
 
 AleisterStaff_BeBanished: {
 	DisplayName: Изгнание
-	Description: Вы отмечены магией Инвокера
+	Description: Вы отмечены магией взывателя
 }
 
 AleisterStaff_InvokerOfMadness: {
-	DisplayName: Инвокер безумия
-	Description: Безумный Инвокер
+	DisplayName: Безумный взыватель
+	Description: Безумный взыватель
 }
 
 ConflagrateStaff_Buff: {
@@ -60,7 +60,7 @@ MagicAcorn_Buff: {
 
 ScytheOfTheGrimReaper_ReaperScytheImmunity: {
 	DisplayName: Неуязвимость косы жнеца
-	Description: Вы невосприимчивы к урону и наносите значительно увеличенный урон ближнего боя
+	Description: Вы невосприимчивы к урону и наносите значительно больше урона в ближнем бою
 }
 
 ScytheOfTheGrimReaper_ReaperScytheImmunityCooldown: {
@@ -85,7 +85,7 @@ FishnadoStaff_Buff: {
 
 TheBookOfRunesEffect_Buff: {
 	DisplayName: Руна
-	Description: Рруны сражается за вас
+	Description: Руна сражается за вас
 }
 
 TheBookOfTheLaw_InvokedCaligula: {
@@ -119,17 +119,17 @@ TartarusReaper_CursedHellfire: {
 }
 
 LuckyCracker_CrasyLucky: {
-	DisplayName: Везучий?
+	DisplayName: Абсолютный везунчик?
 	Description: Вы чувствуете, как мир вокруг становится странным
 }
 
 LuckyCalming: {
-	DisplayName: Везучее успокоение
+	DisplayName: Счастливое успокоение
 	Description: Снижает агрессию врагов
 }
 
 LuckyEndurance: {
-	DisplayName: Везучая выносливость
+	DisplayName: Счастливая выносливость
 	Description:
 		'''
 		Снижает получаемый урон на 10%
@@ -138,58 +138,58 @@ LuckyEndurance: {
 }
 
 LuckyIronskin: {
-	DisplayName: Везучая железная кожа
+	DisplayName: Счастливая железная кожа
 	Description: Увеличивает защиту на 9
 }
 
 LuckyLifeforce: {
-	DisplayName: Везучая жизненная сила
+	DisplayName: Счастливая жизненная сила
 	Description: Увеличивает максимальное здоровье на 21%
 }
 
 LuckyRage: {
-	DisplayName: Везучая ярость
+	DisplayName: Счастливая ярость
 	Description: Увеличивает шанс критического удара на 11%
 }
 
 LuckyRegeneration: {
-	DisplayName: Везучая регенерация
+	DisplayName: Счастливая регенерация
 	Description: Обеспечивает регенерацию здоровья
 }
 
 LuckySummoning: {
-	DisplayName: Везучий призыв
+	DisplayName: Счастливый призыв
 	Description: Увеличивает максимальное количество миньонов и турелей
 }
 
 LuckySwiftness: {
-	DisplayName: Везучая стремительность
+	DisplayName: Счастливая стремительность
 	Description: Увеличивает скорость передвижения на 26%
 }
 
 LuckyThorns: {
-	DisplayName: Везучие шипы
+	DisplayName: Счастливые шипы
 	Description: Атакующие также получают урон
 }
 
 LuckyWrath: {
-	DisplayName: Везучий гнев
+	DisplayName: Счастливый гнев
 	Description: Увеличивает урон на 11%
 }
 
 RoninPotion_Buff: {
 	DisplayName: Ронин
-	Description: Вы не будете получать урон
+	Description: Вы не получаете урон
 }
 
 PaperBomb_Buff: {
 	DisplayName: Бумер
-	Description: Пока не взрывается... Пока что
+	Description: Не взрывается... Пока что
 }
 
 InfinityOverload_Buff: {
 	DisplayName: Перегрузка элементами
-	Description: Стихии обрушиваются на само ваше существо
+	Description: Стихии обрушиваются на само ваше существование
 }
 
 SeraphHarp_Buff: {
@@ -203,7 +203,7 @@ GoddessHarp_Buff: {
 }
 
 CottonCane_Buff: {
-	DisplayName: Кролёт-солдат
+	DisplayName: Кролёт
 	Description: Кролёт сражается за вас
 }
 
@@ -228,7 +228,7 @@ ChampionHelmetMageSetEffect_ChampionBoost3: {
 }
 
 ChampionHelmetMeleeSetEffect_DefendersRage: {
-	DisplayName: Ярость защитника
+	DisplayName: Ярость заступника
 	Description: Заступник Террарии никогда не отступает
 }
 
@@ -238,7 +238,7 @@ ChampionHelmetMeleeSetEffect_RajahsRage: {
 }
 
 ChampionHelmetRangedSetEffect_RABITUnitReloadProtocol: {
-	DisplayName: Протокол перезарядки модуля R.A.B.I.T.
+	DisplayName: Протокол перезарядки модуля К.Р.О.Л.Ь.
 	Description: ПЕРЕЗАРЯДКА. ПРЕДОСТАВЛЕНА КОМПЕНСАЦИЯ УРОНА
 }
 
@@ -248,8 +248,8 @@ ChampionHelmetSummonerSetEffect_Buff: {
 }
 
 ClawBaton_Buff: {
-	DisplayName: Длани хаоса
-	Description: Коготь хаоса сражается за вас
+	DisplayName: Когти хаоса
+	Description: Когти хаоса сражаются за вас
 }
 
 ChaosHelmetMageSetEffect_ChaoticFury: {
@@ -289,7 +289,7 @@ MidnightAssassinHelmetSetEffect_AssassinHurt: {
 
 FlameVortexStaff_Buff: {
 	DisplayName: Орбитальные сферы
-	Description: Вокруг вас вращаются языки пламени, усиливая вас
+	Description: Вокруг вращаются усиливающие вас языки пламени
 }
 
 ChaosBaton_Buff: {
@@ -318,7 +318,7 @@ SandScepter_Buff: {
 }
 
 DynaskullJavelin_DynaEnergyBuff: {
-	DisplayName: Дина-энергия
+	DisplayName: Дино-энергия
 	Description: ""
 }
 
@@ -332,7 +332,7 @@ ArtifactOfJudgement_Buff: {
 }
 
 PrimevalJavelin_DynaEnergy: {
-	DisplayName: Дина-энергия
+	DisplayName: Дино-энергия
 	Description: ""
 }
 
@@ -411,13 +411,13 @@ DragonSoul_Buff: {
 }
 
 FireStaff_Buff: {
-	DisplayName: Малый феникс
-	Description: Малый феникс сражается за вас
+	DisplayName: Маленький феникс
+	Description: Маленький феникс сражается за вас
 }
 
 FlaskOfDragonfire_Buff: {
-	DisplayName: Пропитка оружия: драконье пламя
-	Description: Атаки ближнего боя накладывают дебафф «Драконье пламя»
+	DisplayName: Смазанное оружие: драконье пламя
+	Description: Атаки ближнего боя и хлыстов накладывают дебафф «Драконье пламя»
 }
 
 DragonsPike_Buff: {
@@ -447,31 +447,31 @@ DragonFire_Buff: {
 
 GlowingMossBall_Buff: {
 	DisplayName: Светящийся моховой шар
-	Description: Не спрашивай, что заставляет его светиться. Поверь мне
+	Description: Не спрашивай, что заставляет его светиться. Не стоит
 }
 
 HydraBody_Hunted: {
 	DisplayName: Загнанный
 	Description:
 		'''
-		Вас преследует абиссальное создание
+		Вас преследует создание бездны
 		Время полёта и скорость бега снижены
 		'''
 }
 
 FlaskOfHydratoxin_Buff: {
-	DisplayName: Пропитка оружия: гидратоксин
-	Description: Атаки ближнего боя накладывают дебафф «Гидратоксин»
+	DisplayName: Смазанное оружие: гидратоксин
+	Description: Атаки ближнего боя и хлыстов накладывают дебафф «Гидратоксин»
 }
 
 YamataABody_TrueAbyssalGravity: {
-	DisplayName: Истинная абиссальная гравитация
+	DisplayName: Истинная гравитация бездны
 	Description: «ААААААААААААААААААААААААААААААААААААА»
 }
 
 YamataBody_AbyssalGravity: {
-	DisplayName: Абиссальная гравитация
-	Description: «ТЫ НЕ УЙДЁШЬ ОТ МЕНЯ, МЕЛЮЗГА!»
+	DisplayName: Гравитация бездны
+	Description: «НЕ СБЕЖИШЬ, СУЧЁНЫШ!»
 }
 
 Clueless_Buff: {
@@ -495,12 +495,12 @@ AquaintedWithWater_Buff: {
 }
 
 Atlantean_Buff: {
-	DisplayName: Атлантическая сила
+	DisplayName: Атлантийская сила
 	Description: Ваши магические способности увеличены
 }
 
 Seashroom_Buff: {
-	DisplayName: Шаркрон
+	DisplayName: Акулон
 	Description: Он не кусается... сильно...
 }
 
@@ -555,7 +555,7 @@ Terrablaze_Buff: {
 }
 
 TerrasGuidance_Buff: {
-	DisplayName: Направление Терры
+	DisplayName: Терра-защита
 	Description: Ваши ноги светятся силой Террариума, предотвращая урон от падения
 }
 
@@ -566,7 +566,7 @@ SagittariusShield_ShieldsUp: {
 
 SagittariusCore_Buff: {
 	DisplayName: Орбитальный дрон Сагиттариуса
-	Description: Ррбитальный дрон сражается за вас
+	Description: Орбитальный дрон сражается за вас
 }
 
 DoomiteHelmetSetEffect_Buff: {
@@ -586,7 +586,7 @@ DoomiteSignal_Buff: {
 
 VoidProbeControlUnit_Buff: {
 	DisplayName: Мини-зонд
-	Description: Ппустотный зонд сражается за вас
+	Description: Пустотный зонд сражается за вас
 }
 
 OverloadedDoomiteRadio_Buff: {
@@ -595,22 +595,22 @@ OverloadedDoomiteRadio_Buff: {
 }
 
 BrokenCodeTeleportUnofficialEffect_Freeze: {
-	// DisplayName: Freeze
-	// Description: Task Manager isn't gonna help with this
+	DisplayName: Заморозка
+	Description: Диспетчер задач в этом случае не поможет
 }
 
 BrokenCodeTeleportUnofficialEffect_FreezeCooldown: {
-	// DisplayName: Freeze Cooldown
-	// Description: Atleast your head is still on your body!
+	DisplayName: Перезарядка заморозки
+	Description: По крайней мере, ваша голова всё ещё на месте!
 }
 
 BrokenCodeTeleportEffect_Glitched: {
-	// DisplayName: Glitched
-	// Description: Your head is like 10 feet in front of you
+	DisplayName: Глюк
+	Description: Ваша голова в 10 метрах от вас
 }
 
 ZeroCore_Buff: {
-	DisplayName: ЗИРО лайт
+	DisplayName: ЗИРО-лайт
 	Description: СИСТЕМЫ ОБНАРУЖЕНИЯ ЖИЗНИ АКТИВИРОВАНЫ
 }
 
@@ -640,7 +640,7 @@ RealityBent_Buff: {
 }
 
 InfinityScorch_Buff: {
-	DisplayName: Ожог бесконечности
+	DisplayName: Ожог безграничности
 	Description: Ваше здоровье сгорает
 }
 
