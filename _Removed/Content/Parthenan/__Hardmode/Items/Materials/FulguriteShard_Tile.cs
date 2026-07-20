@@ -12,7 +12,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
 {
     public class FulguriteShard_Tile : ModTile, IGlowmaskTile
     {
-        public Color GlowColor => BaseUtility.MultiLerpColor(Main.player[Main.myPlayer].miscCounter % 100 / 100f, Color.Black, Color.Violet, Color.Black, Color.Violet, Color.Black, Color.Black, Color.Black);
+        public Color GlowColor => BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.Black, Color.Violet, Color.Black, Color.Violet, Color.Black, Color.Black, Color.Black);
 
         public override void SetStaticDefaults()
         {
@@ -30,7 +30,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)
         {
             Tile tile = Main.tile[x, y];
-            Color color = BaseUtility.MultiLerpColor(Main.player[Main.myPlayer].miscCounter % 100 / 100f, Color.Violet, Color.White, Color.White);
+            Color color = BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.Violet, Color.White, Color.White);
             r = color.R / 255f; g = color.G / 255f; b = color.B / 255f;
         }
 

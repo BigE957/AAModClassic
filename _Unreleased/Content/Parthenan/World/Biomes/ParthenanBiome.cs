@@ -203,7 +203,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.World.Biomes
 
         private void UpdateStormSky()
         {
-            ZAAPlayer modPlayer = Main.player[Main.myPlayer].GetModPlayer<ZAAPlayer>();
+            ZAAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<ZAAPlayer>();
             if (AAWorld_Unreleased.StormTiles < 1)
             {
                 return;

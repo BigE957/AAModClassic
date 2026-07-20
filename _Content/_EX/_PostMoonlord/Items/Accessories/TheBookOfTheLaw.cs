@@ -35,7 +35,7 @@ Includes the effects of all the pieces used to make this.
             string text = "";
             text += Language.GetTextValue("Mods.AAModClassic.Common.InvokerBookEX1");
             
-            if(!Main.player[Main.myPlayer].GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().DarkCaligula)
+            if(!Main.LocalPlayer.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().DarkCaligula)
             text += Language.GetTextValue("Mods.AAModClassic.Common.InvokerBookEX2");
             else
             text += Language.GetTextValue("Mods.AAModClassic.Common.InvokerBookEX3");
