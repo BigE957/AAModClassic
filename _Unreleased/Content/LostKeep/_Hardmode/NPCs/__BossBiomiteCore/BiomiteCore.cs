@@ -72,6 +72,8 @@ public class BiomiteCore : ModNPC
     public override void OnSpawn(IEntitySource source)
     {
         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.CoreSpawn"), new Color(175, 75, 255));
+		internalAI[0] = 1;
+		NPC.netUpdate = true;
     }
 
     public override void SendExtraAI(BinaryWriter writer)
@@ -92,10 +94,13 @@ public class BiomiteCore : ModNPC
 
 	public override void AI()
 	{
-		Vector2 val = AAWorld_Unreleased.lostKeepOrigin.ToWorldCoordinates(0, 0);
+        NPC.netOffset = Vector2.Zero;
+
+        Vector2 val = AAWorld_Unreleased.lostKeepOrigin.ToWorldCoordinates(0, 0);
 		Vector2 val2 = val + Vector16(140, 125) + Vector16(5, 4);
 		Vector2 val3 = val + Vector16(106, 129) + Vector16(5, 4);
 		Vector2 val4 = val + Vector16(174, 129) + Vector16(5, 4);
+
 		Vector2 val5 = val + Vector16(113, 151) + Vector16(5, 4);
 		Vector2 val6 = val + Vector16(167, 151) + Vector16(5, 4);
 		Vector2 val7 = val + Vector16(140, 156) + Vector16(5, 4);
@@ -107,7 +112,7 @@ public class BiomiteCore : ModNPC
 		{
 			NPC.dontTakeDamage = true;
 			NPC.Center = val2;
-			NPC.netOffset = Vector2.Zero;
+			NPC.Center = val2;
 			NPC.netUpdate = true;
 			if (internalAI[1] % 10f == 0f)
 			{
@@ -197,7 +202,6 @@ public class BiomiteCore : ModNPC
 						break;
                 }
 				NPC.Center = moveTo;
-				NPC.netOffset = Vector2.Zero;
 				NPC.ai[0] = 0f;
 				NPC.ai[1] = 1f;
 				NPC.ai[3] = Main.rand.Next(1, 17);
@@ -242,16 +246,16 @@ public class BiomiteCore : ModNPC
 						if (Main.netMode != NetmodeID.MultiplayerClient)
 						{
 							int num8 = ((Main.rand.NextBool(2)) ? ModContent.NPCType<UnityProbe>() : ModContent.NPCType<UnityWatcher>());
-							int num9 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + 100, (int)NPC.position.Y, num8, 0, 0f, 0f, 0f, 0f, 255);
+							int num9 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + 100, (int)NPC.position.Y, num8, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
 							Main.npc[num9].Center = new Vector2(NPC.Center.X + 100f, NPC.Center.Y);
 
 							num8 = ((Main.rand.NextBool(2)) ? ModContent.NPCType<UnityProbe>() : ModContent.NPCType<UnityWatcher>());
-							int num10 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 100, (int)NPC.position.Y, num8, 0, 0f, 0f, 0f, 0f, 255);
+							int num10 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 100, (int)NPC.position.Y, num8, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
 							Main.npc[num10].Center = new Vector2(NPC.Center.X - 100f, NPC.Center.Y);
 
 							if (NPC.life < NPC.lifeMax / 2)
 							{
-								int num11 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y + 100, num8, 0, 0f, 0f, 0f, 0f, 255);
+								int num11 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y + 100, num8, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
 								Main.npc[num11].Center = new Vector2(NPC.Center.X, NPC.Center.Y + 100f);
 							}
 						}
@@ -477,8 +481,7 @@ public class BiomiteCore : ModNPC
 		if (NPC.frameCounter > 10.0)
 		{
 			NPC.frameCounter = 0.0;
-			NPC.frame.Y += frameHeight;
-			if (NPC.frame.Y > frameHeight * 7)
+			if (++NPC.frame.Y > 7)
 			{
 				NPC.frame.Y = 0;
 			}
@@ -494,9 +497,10 @@ public class BiomiteCore : ModNPC
 		Texture2D coreShell = CoreFront.Value;
 		Texture2D coreGlow = Glowmask.Value;
 		Rectangle frame = coreShell.Frame(1, 4, 0, frameShell);
-		Rectangle frame2 = coreGlow.Frame(1, 16, 0, (int)NPC.ai[3] - 1);
+        Rectangle frame2 = coreGlow.Frame(1, 16, 0, (int)NPC.ai[3] - 1);
+        Rectangle frame3 = core.Frame(1, 8, 0, NPC.frame.Y);
         spriteBatch.Draw(coreBack, NPC.Center - screenPos, null, drawColor, 0f, coreBack.Size() * 0.5f, 1f, SpriteEffects.None, 0f);
-        spriteBatch.Draw(core, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(GlowColor()), 0f, NPC.frame.Size() * 0.5f, 1f, SpriteEffects.None, 0f);
+        spriteBatch.Draw(core, NPC.Center - screenPos, frame3, GlowColor(), 0f, frame3.Size() * 0.5f, 1f, SpriteEffects.None, 0f);
         spriteBatch.Draw(coreShell, NPC.Center - screenPos, frame, drawColor, 0f, frame.Size() * 0.5f, 1f, SpriteEffects.None, 0f);
         spriteBatch.Draw(coreGlow, NPC.Center - screenPos, frame2, Color.White, 0f, frame2.Size() * 0.5f, 1f, SpriteEffects.None, 0f);
         return false;

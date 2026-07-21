@@ -43,13 +43,7 @@ public class BiomiteCore_Rainbow : ModProjectile
 				if (Projectile.localAI[0] > 4f)
 				{
 					Projectile.localAI[0] = 3f;
-					int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X * 0.001f, Projectile.velocity.Y * 0.001f, ProjectileID.RainbowBack, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 1f);
-					if (p >= 0)
-					{
-						Main.projectile[p].hostile = true;
-                        Main.projectile[p].friendly = false;
-						Main.projectile[p].extraUpdates = 4;
-                    }
+					int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity * 0.001f, ModContent.ProjectileType<BiomiteCore_RainbowBack>(), Projectile.damage, Projectile.knockBack, -1, 0f, 1f);
 				}
 				if (Projectile.timeLeft > num4)
 				{
@@ -148,4 +142,28 @@ public class BiomiteCore_Rainbow : ModProjectile
 		Main.spriteBatch.Draw(tex, new Vector2(Projectile.position.X - Main.screenPosition.X + num3 + num2, Projectile.position.Y - Main.screenPosition.Y + Projectile.height / 2 + Projectile.gfxOffY), (Rectangle?)new Rectangle(0, 0, tex.Width, tex.Height), Projectile.GetAlpha(lightColor), Projectile.rotation, new Vector2(num3, Projectile.height / 2 + num), Projectile.scale, 0, 0f);
 		return false;
 	}
+}
+
+public class BiomiteCore_RainbowBack : ModProjectile
+{
+    public override string Texture => "Terraria/Images/Projectile_251";
+
+    public override void SetDefaults()
+    {
+        Projectile.CloneDefaults(ProjectileID.RainbowBack);
+		Projectile.hostile = true;
+        Projectile.friendly = false;
+		Projectile.extraUpdates = 4;
+    }
+
+    public override Color? GetAlpha(Color lightColor)
+    {
+        if (Projectile.ai[1] == 0f)
+            return Color.Transparent;
+
+        int num = 255 - Projectile.alpha;
+        int num2 = 255 - Projectile.alpha;
+        int num3 = 255 - Projectile.alpha;
+        return new Color(num, num2, num3, 0);
+    }
 }
