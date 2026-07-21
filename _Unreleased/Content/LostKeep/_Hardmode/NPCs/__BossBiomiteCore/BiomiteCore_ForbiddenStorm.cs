@@ -132,7 +132,7 @@ public class BiomiteCore_ForbiddenStorm : ModProjectile
 		}
 		Projectile.velocity = Vector2.Zero;
 		Projectile.localAI[1] += 1f;
-		if (Projectile.localAI[1] == 60f && Projectile.owner == Main.myPlayer)
+		if (Projectile.localAI[1] == 60f && Main.netMode != NetmodeID.MultiplayerClient)
 		{
 			int num4 = 40;
 			if (Main.expertMode)

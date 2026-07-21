@@ -37,7 +37,7 @@ public class BiomiteCore_Rainbow : ModProjectile
 		int num4 = 40;
 		if (Projectile.ai[1] == 0f)
 		{
-			if (Projectile.owner == Main.myPlayer)
+			if (Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				Projectile.localAI[0] += 1f;
 				if (Projectile.localAI[0] > 4f)
