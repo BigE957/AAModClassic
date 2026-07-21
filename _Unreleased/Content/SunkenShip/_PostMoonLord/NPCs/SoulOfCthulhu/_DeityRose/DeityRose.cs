@@ -505,7 +505,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             if (NPC.life > 0)
             {
-                SoulOfCthulhu.ComeBack = true;
+                //SoulOfCthulhu.ComeBack = true;
                 int num440 = 0;
                 while (num440 < hit.Damage / (double)NPC.lifeMax * 100.0)
                 {

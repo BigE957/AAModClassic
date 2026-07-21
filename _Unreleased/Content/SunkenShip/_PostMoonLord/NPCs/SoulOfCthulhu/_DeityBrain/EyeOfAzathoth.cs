@@ -83,7 +83,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             }
             NPC.oldPos[0] = NPC.position;
 
-            int EoACount = ((DeityBrain)brain.ModNPC).EyeCount;
+            int EoACount = DeityBrain.EyeCount;
             bool outer = NPC.ai[0] % 2 == 0;
             rotValue = (NPC.ai[0] * (MathHelper.TwoPi / EoACount)) + (NPC.ai[1] * (outer ? -0.025f : 0.04f));
             //rotValue += 0.05f;
