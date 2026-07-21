@@ -607,133 +607,133 @@ KeepBrick: {
 }
 
 AcropolisPainting: {
-	DisplayName: Картина «Акрополь»
-	Tooltip: ""
+	DisplayName: Дворец в небесах
+	Tooltip: "«Эти серафимы ведут себя как гарпии больше, чем сами гарпии...»"
 }
 
 AkumaPainting: {
-	DisplayName: Картина «Акума»
-	Tooltip: ""
+	DisplayName: Драконический демон
+	Tooltip: "«Пламя ненависти... оно всё ещё бушует в этом демоне...»"
 }
 
 AnubisPainting: {
-	DisplayName: Картина «Анубис»
-	Tooltip: ""
+	DisplayName: Старый друг
+	Tooltip: "«Крепкий орешек, но он меня смешит.»"
 }
 
 CRajahPainting: {
-	DisplayName: Картина «Заступник-Раджа»
-	Tooltip: ""
+	DisplayName: Заступник невинных
+	Tooltip: "«Единственное, что сильнее защитника - это его безграничная ярость.»"
 }
 
 DaedalusPainting: {
-	DisplayName: Картина «Дедал»
-	Tooltip: ""
+	DisplayName: Владыка света
+	Tooltip: "«Поступает правильно... не смотря ни на что.»"
 }
 
 DecayPainting: {
-	DisplayName: Картина «Упадок»
-	Tooltip: ""
+	DisplayName: Надзиратель
+	Tooltip: "«Этот старый призрак... что он замышляет?..»"
 }
 
 FulgurusPainting: {
-	DisplayName: Картина «Фульгурус»
-	Tooltip: ""
+	DisplayName: Громовержец
+	Tooltip: "«Эту не я рисовал, это подарок от фульгурийцев... Они вроде ничего.»"
 }
 
 GreedPainting: {
-	DisplayName: Картина «Алчность»
-	Tooltip: ""
+	DisplayName: Король червей
+	Tooltip: "«В глубине пещер таится целая гора сокровищ, охраняемых змеем... сделанным из них же»"
 }
 
 HotJPainting: {
-	DisplayName: Картина «Сердце джунглей»
-	Tooltip: ""
+	DisplayName: Сердце
+	Tooltip: "«Источник жизни... низведённый до разумной кучи грязи. Бедняжка...»"
 }
 
 IZPainting: {
-	DisplayName: Картина «Безграничный Зиро»
-	Tooltip: ""
+	DisplayName: Око Безграничности
+	Tooltip: "«Оно не перестаёт преследовать меня в кошмарах...»"
 }
 
 JojoBagginsPainting: {
-	DisplayName: Картина «Джо-джо Бэггинс»
-	Tooltip: ""
+	DisplayName: Архитектор
+	Tooltip: "«Странный парень, но зато каким был строителем!»"
 }
 
 KingQueenPainting: {
-	DisplayName: Картина «Король и королева»
-	Tooltip: ""
+	DisplayName: Монархи
+	Tooltip: "«Мам, пап... я скучаю...»"
 }
 
 LuciferPainting: {
-	DisplayName: Картина «Люцифер»
-	Tooltip: ""
+	DisplayName: Король зла
+	Tooltip: "«Яма. Жаркая, тёмная и кровавая. Пожалуй, я откажусь...»"
 }
 
 MushmadPainting: {
-	DisplayName: Картина «Грибезумец»
-	Tooltip: ""
+	DisplayName: Безумие
+	Tooltip: "«Грибы... они повсюду...»"
 }
 
 NKPainting: {
-	DisplayName: Картина «Безымянный рыцарь»
-	Tooltip: ""
+	DisplayName: Павший рыцарь
+	Tooltip: "«Легенды гласят, что она ничем не отличалась от нас... до того момента, пока не умерла и не стала безжалостным стражем темницы.»"
 }
 
 RajahPainting: {
-	DisplayName: Картина «Кролик-Раджа»
-	Tooltip: ""
+	DisplayName: Прыгучий каратель
+	Tooltip: "«Король маленьких и беспомощных созданий, коим он сам, очевидно, не является.»"
 }
 
 SanguinePainting: {
-	DisplayName: Картина «Сангвин»
-	Tooltip: ""
+	DisplayName: Кровь и кости
+	Tooltip: "«Похоже, они восприняли термин „лицемонстр“ слишком буквально.»"
 }
 
 ShenPainting: {
-	DisplayName: Картина «Шэнь Доракон»
-	Tooltip: ""
+	DisplayName: Вестник раздора
+	Tooltip: "«Я запечатал его, но сдерживать хаос вечно... попросту невозможно.»"
 }
 
 ShipPainting: {
-	DisplayName: Картина «Затонувший корабль»
-	Tooltip: ""
+	DisplayName: Мрачный галеон
+	Tooltip: "«Этот корабль... я до сих пор не понимаю, что за создания его заполонили.»"
 }
 
 SoCPainting: {
-	DisplayName: Картина «Душа Ктулху»
-	Tooltip: ""
+	DisplayName: Затонувшая душа
+	Tooltip: "«Потусторонний мерзавец, запечатанный на корабле, что сам же и потопил...»"
 }
 
 TerraPainting: {
-	DisplayName: Картина «Терра»
-	Tooltip: ""
+	DisplayName: Герой
+	Tooltip: "«Меня величают героем, но я чувствую, что сделал недостаточно.»"
 }
 
 UmbraPainting: {
-	DisplayName: Картина «Умбра»
-	Tooltip: ""
+	DisplayName: Паукообразный
+	Tooltip: "«Ненавижу пауков. Особенно этого.»"
 }
 
 ValkyriePainting: {
-	DisplayName: Картина «Валькирия»
-	Tooltip: ""
+	DisplayName: Доблесть
+	Tooltip: "«Надеюсь, ты сможешь найти свою потерянную любовь...»"
 }
 
 WizardPainting: {
-	DisplayName: Картина «Маг хаоса»
-	Tooltip: ""
+	DisplayName: Волшебник
+	Tooltip: "«Мне всё равно, кем ты стал. Я всё ещё надеюсь на тебя.»"
 }
 
 YamataPainting: {
-	DisplayName: Картина «Ямата»
-	Tooltip: ""
+	DisplayName: Семиглавый крикун
+	Tooltip: "«О, Великий Азатот, ДА КОГДА ЖЕ ЭТА ГРЁБАНАЯ ЯЩЕРИЦА УЖЕ ЗАТКНЁТСЯ?!»"
 }
 
 ZeroPainting: {
-	DisplayName: Картина «Зиро»
-	Tooltip: ""
+	DisplayName: "0"
+	Tooltip: "«Эта штука... не знаю, что это, но от одного взгляда неё... у меня бегут мурашки.»"
 }
 
 TerraBrick: {
