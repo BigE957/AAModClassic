@@ -7,6 +7,7 @@ using AAModClassic._Unofficial.Content.Chaos._PostMoonlord.Items._BossSistersOfD
 using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
@@ -241,6 +242,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             NPC.TargetClosest(true);
             Player player = Main.player[NPC.target];
             damage = 70;
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                damage = 40;
 
             int ashe = NPC.CountNPCS(ModContent.NPCType<Ashe.Ashe>());
             bool flag = player.dead || !player.active || Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000f || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000f;
@@ -521,6 +524,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                         float baseSpeed = (float)Math.Sqrt(dir.X * dir.X + dir.Y * dir.Y);
                         double startAngle = Math.Atan2(dir.X, dir.Y) - .1d;
                         double deltaAngle = spread / 6f;
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            deltaAngle = spread / 24f;
                         for (int i = 0; i < 3; i++)
                         {
                             double offsetAngle = startAngle + deltaAngle * i;

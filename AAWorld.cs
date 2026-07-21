@@ -1386,7 +1386,7 @@ namespace AAModClassic
                     {
                         int tilesX = WorldGen.genRand.Next(0, x);
                         int tilesY = WorldGen.genRand.Next((int)(y * .3f), (int)(y * .75f));
-                        if (Main.tile[tilesX, tilesY].TileType == TileID.Stone)
+                        if (Main.tile[tilesX, tilesY].TileType == TileID.Stone) // TODO: make this work with all stone types
                         {
                             WorldGen.OreRunner(tilesX, tilesY, WorldGen.genRand.Next(5, 6), WorldGen.genRand.Next(10, 11), (ushort)ModContent.TileType<DaybreakIncineriteOre_Tile>());
                         }

@@ -1060,7 +1060,7 @@ namespace AAModClassic.Globals
 
                 if (NPC.downedMoonlord)
                 {
-                    pool.Add(ModContent.NPCType<AncientLungHead>(), ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f);
+                    pool.Add(ModContent.NPCType<AncientLungHead>(), ContentReplacementSystem.NeedToReplaceContent || WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 0.1f : .01f);
                 }
             }
 
@@ -1133,7 +1133,7 @@ namespace AAModClassic.Globals
 
                 if (NPC.downedPlantBoss)
                 {
-                    pool.Add(ModContent.NPCType<Vortex>(), 0.002f);
+                    pool.Add(ModContent.NPCType<Vortex>(), WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 0.01f : 0.002f);
                     pool.Add(ModContent.NPCType<VoidScout>(), .005f);
                 }
 

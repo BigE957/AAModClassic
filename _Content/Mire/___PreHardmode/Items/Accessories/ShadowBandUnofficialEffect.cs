@@ -35,22 +35,25 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Accessories
 
         public override void DrawEffects(PlayerDrawSet drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright)
         {
-            if (drawInfo.shadow == 0)
+            if (effect)
             {
-                if (_isOutOfCombatPrevFrame != _isOutOfCombat)
+                if (drawInfo.shadow == 0)
                 {
-                    if (_isOutOfCombat)
+                    if (_isOutOfCombatPrevFrame != _isOutOfCombat)
                     {
-                        for (int i = 0; i < 20; i++)
+                        if (_isOutOfCombat)
                         {
-                            Dust.NewDust(drawInfo.Position, 20, 20, DustID.CrimsonSpray, Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(-20, 20), 0, default, 2);
+                            for (int i = 0; i < 20; i++)
+                            {
+                                Dust.NewDust(drawInfo.Position, 20, 20, DustID.CrimsonSpray, Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(-20, 20), 0, default, 2);
+                            }
                         }
-                    }
-                    else
-                    {
-                        for (int i = 0; i < 20; i++)
+                        else
                         {
-                            Dust.NewDust(drawInfo.Position, 20, 20, DustID.BlueFairy, Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(-20, 20), 0, default, 2);
+                            for (int i = 0; i < 20; i++)
+                            {
+                                Dust.NewDust(drawInfo.Position, 20, 20, DustID.BlueFairy, Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(-20, 20), 0, default, 2);
+                            }
                         }
                     }
                 }
