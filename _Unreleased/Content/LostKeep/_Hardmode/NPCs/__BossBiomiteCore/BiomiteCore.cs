@@ -14,9 +14,11 @@ using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
@@ -28,7 +30,7 @@ public class BiomiteCore : ModNPC
 
 	public int frameShell;
 
-	public float RingRoatation;
+	//public float RingRoatation;
 
     public static Asset<Texture2D> Glowmask;
     public static Asset<Texture2D> CoreBack;
@@ -39,9 +41,12 @@ public class BiomiteCore : ModNPC
 		//DisplayName.SetDefault("Biomite Core");
 		Main.npcFrameCount[NPC.type] = 8;
 
-        Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
-        CoreBack = ModContent.Request<Texture2D>(Texture + "_Back");
-        CoreFront = ModContent.Request<Texture2D>(Texture + "_Front");
+		if (!Main.dedServ)
+		{
+			Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
+			CoreBack = ModContent.Request<Texture2D>(Texture + "_Back");
+			CoreFront = ModContent.Request<Texture2D>(Texture + "_Front");
+		}
         NPCID.Sets.BossBestiaryPriority.Add(Type);
     }
 
@@ -65,28 +70,25 @@ public class BiomiteCore : ModNPC
         SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
     }
 
-	public override void SendExtraAI(BinaryWriter writer)
+    public override void OnSpawn(IEntitySource source)
+    {
+        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.CoreSpawn"), new Color(175, 75, 255));
+    }
+
+    public override void SendExtraAI(BinaryWriter writer)
 	{
-		SendExtraAI(writer);
-		if (Main.netMode == NetmodeID.Server || Main.dedServ)
-		{
-			writer.Write(internalAI[0]);
-			writer.Write(internalAI[1]);
-			writer.Write(internalAI[2]);
-			writer.Write(internalAI[3]);
-		}
+		writer.Write(internalAI[0]);
+		writer.Write(internalAI[1]);
+		writer.Write(internalAI[2]);
+		writer.Write(internalAI[3]);
 	}
 
 	public override void ReceiveExtraAI(BinaryReader reader)
 	{
-		ReceiveExtraAI(reader);
-		if (Main.netMode == NetmodeID.MultiplayerClient)
-		{
-			internalAI[0] = reader.ReadSingle();
-			internalAI[1] = reader.ReadSingle();
-			internalAI[2] = reader.ReadSingle();
-			internalAI[3] = reader.ReadSingle();
-		}
+		internalAI[0] = reader.ReadSingle();
+		internalAI[1] = reader.ReadSingle();
+		internalAI[2] = reader.ReadSingle();
+		internalAI[3] = reader.ReadSingle();
 	}
 
 	public override void AI()
@@ -106,6 +108,8 @@ public class BiomiteCore : ModNPC
 		{
 			NPC.dontTakeDamage = true;
 			NPC.Center = val2;
+			NPC.netOffset = Vector2.Zero;
+			NPC.netUpdate = true;
 			if (internalAI[1] % 10f == 0f)
 			{
 				NPC.ai[3] += 1f;
@@ -131,7 +135,7 @@ public class BiomiteCore : ModNPC
 			{
 				NPC.alpha -= 5;
 			}
-			if (internalAI[1] >= 220f && Main.netMode != NetmodeID.MultiplayerClient)
+			if (internalAI[1] >= 220f)
 			{
 				internalAI[0] += 1f;
 				NPC.dontTakeDamage = false;
@@ -144,21 +148,24 @@ public class BiomiteCore : ModNPC
 			NPC.TargetClosest();
 		}
 		Player player = Main.player[NPC.target];
-		if (player.dead || !((Entity)player).active || NPC.position.X - Main.player[NPC.target].position.X > 6000f || NPC.position.X - Main.player[NPC.target].position.X < -6000f || NPC.position.Y - Main.player[NPC.target].position.Y > 6000f || NPC.position.Y - Main.player[NPC.target].position.Y < -6000f)
+		if (player.dead || !player.active || NPC.Center.DistanceSQ(NPC.Center) > 36000000)
 		{
 			NPC.TargetClosest();
 			player = Main.player[NPC.target];
-			if (player.dead || !((Entity)player).active || NPC.position.X - Main.player[NPC.target].position.X > 6000f || NPC.position.X - Main.player[NPC.target].position.X < -6000f || NPC.position.Y - Main.player[NPC.target].position.Y > 6000f || NPC.position.Y - Main.player[NPC.target].position.Y < -6000f)
+			if (player.dead || !player.active || NPC.Center.DistanceSQ(NPC.Center) > 36000000)
 			{
-				Item.NewItem(NPC.GetSource_GiftOrReward(), new Vector2(val.X + 144f, val.Y + 134f), ModContent.ItemType<TerraPrism>(), 1, false, 0, false, false);
-				((Entity)NPC).active = false;
+				if(Main.netMode != NetmodeID.MultiplayerClient)
+					Item.NewItem(NPC.GetSource_GiftOrReward(), new Vector2(val.X + 144f, val.Y + 134f), ModContent.ItemType<TerraPrism>(), 1, false, 0, false, false);
+				NPC.active = false;
+				return;
 			}
 		}
 		NPC.ai[0] += 1f;
 		if (NPC.ai[1] == 0f)
 		{
 			NPC.dontTakeDamage = true;
-			if (NPC.ai[0] % 15f == 0f)
+            NPC.netUpdate = true;
+            if (NPC.ai[0] % 15f == 0f)
 			{
 				if (frameShell > 0)
 				{
@@ -169,15 +176,15 @@ public class BiomiteCore : ModNPC
 					frameShell = 0;
 				}
 			}
-			if (NPC.ai[0] > 75f && Main.netMode != NetmodeID.MultiplayerClient)
+			if (NPC.ai[0] > 75f)
 			{
 				int num = Main.rand.Next(6);
 				Vector2 center = NPC.Center;
-				Vector2 val8 = center;
+				Vector2 moveTo = center;
 				int iters = 0;
-				while (val8 == center)
+				while (moveTo == center)
 				{
-					val8 = (Vector2)(num switch
+					moveTo = num switch
 					{
 						0 => val2, 
 						1 => val4, 
@@ -185,12 +192,13 @@ public class BiomiteCore : ModNPC
 						3 => val5, 
 						4 => val6, 
 						_ => val7, 
-					});
+					};
 					iters++;
 					if (iters > 100)
 						break;
                 }
-				NPC.Center = val8;
+				NPC.Center = moveTo;
+				NPC.netOffset = Vector2.Zero;
 				NPC.ai[0] = 0f;
 				NPC.ai[1] = 1f;
 				NPC.ai[3] = Main.rand.Next(1, 17);
@@ -204,8 +212,8 @@ public class BiomiteCore : ModNPC
 			{
 				NPC.ai[3] += 1f;
 			}
-			int num2 = (Main.expertMode ? 60 : 90);
-			if (NPC.ai[0] == (float)num2 && Main.netMode != NetmodeID.MultiplayerClient)
+			int num2 = Main.expertMode ? 60 : 90;
+			if (NPC.ai[0] == num2)
 			{
 				NPC.ai[0] = 0f;
 				NPC.ai[1] = 2f;
@@ -229,181 +237,177 @@ public class BiomiteCore : ModNPC
 		{
 			switch ((int)NPC.ai[3])
 			{
-			default:
-				if (NPC.ai[0] > 120f && NPC.CountNPCS(ModContent.NPCType<UnityProbe>()) + NPC.CountNPCS(ModContent.NPCType<UnityWatcher>()) < 5 && Main.netMode != NetmodeID.MultiplayerClient)
-				{
-					int num8 = ((Main.rand.NextBool(2)) ? ModContent.NPCType<UnityProbe>() : ModContent.NPCType<UnityWatcher>());
-					int num9 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + 100, (int)NPC.position.Y, num8, 0, 0f, 0f, 0f, 0f, 255);
-					Main.npc[num9].Center = new Vector2(NPC.Center.X + 100f, NPC.Center.Y);
-
-					num8 = ((Main.rand.NextBool(2)) ? ModContent.NPCType<UnityProbe>() : ModContent.NPCType<UnityWatcher>());
-					int num10 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 100, (int)NPC.position.Y, num8, 0, 0f, 0f, 0f, 0f, 255);
-					Main.npc[num10].Center = new Vector2(NPC.Center.X - 100f, NPC.Center.Y);
-
-					if (NPC.life < NPC.lifeMax / 2)
+				default:
+					if (NPC.ai[0] > 120f && NPC.CountNPCS(ModContent.NPCType<UnityProbe>()) + NPC.CountNPCS(ModContent.NPCType<UnityWatcher>()) < 5)
 					{
-						int num11 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y + 100, num8, 0, 0f, 0f, 0f, 0f, 255);
-						Main.npc[num11].Center = new Vector2(NPC.Center.X, NPC.Center.Y + 100f);
-					}
-					NPC.ai[0] = 0f;
-					NPC.ai[1] = 0f;
-					NPC.ai[3] = 0f;
-				}
-				break;
-			case 2:
-				if (NPC.ai[0] % 198f == 0f)
-				{
-					Sandstorm();
-				}
-				break;
-			case 3:
-				if (NPC.ai[0] % 91f == 0f)
-				{
-					for (int m = 0; m < 8; m++)
-					{
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 5f * (float)Math.Sin((double)m * (Math.PI / 4.0)), 5f * (float)Math.Cos((double)m * (Math.PI / 4.0)), ProjectileID.CursedFlameHostile, 50, 1f, Main.myPlayer, -1f, 0f);
-					}
-				}
-				break;
-			case 5:
-			{
-				NPC.rotation += 0.01f;
-				Vector2 val11 = NPC.rotation.ToRotationVector2();
-				if (NPC.ai[0] % 6f == 0f)
-				{
-					SoundEngine.PlaySound(SoundID.Item34, NPC.position);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, val11.X * 5f, val11.Y, ModContent.ProjectileType<BiomiteCore_FireBreath>(), 20, 0f, Main.myPlayer, 0f, 0f);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f - val11.X, 0f - val11.Y, ModContent.ProjectileType<BiomiteCore_FireBreath>(), 20, 0f, Main.myPlayer, 0f, 0f);
-				}
-				break;
-			}
-			case 7:
-				if (NPC.ai[0] % 60f == 0f)
-				{
-					int num14 = Main.rand.Next(3, 7);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 5f, (float)num14, ModContent.ProjectileType<BiomiteCore_HellfireBlast>(), 50, 1f, Main.myPlayer, -1f, 0f);
-					num14 = Main.rand.Next(3, 7);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, -5f, (float)(-num14), ModContent.ProjectileType<BiomiteCore_HellfireBlast>(), 50, 1f, Main.myPlayer, -1f, 0f);
-					num14 = Main.rand.Next(3, 7);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 5f, (float)(-num14), ModContent.ProjectileType<BiomiteCore_HellfireBlast>(), 50, 1f, Main.myPlayer, -1f, 0f);
-					num14 = Main.rand.Next(3, 7);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, -5f, (float)num14, ModContent.ProjectileType<BiomiteCore_HellfireBlast>(), 50, 1f, Main.myPlayer, -1f, 0f);
-				}
-				break;
-			case 8:
-			{
-				Vector2 val12 = NPC.Center - new Vector2(125f, 100f);
-				for (int k = 0; k < 10; k++)
-				{
-					Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), 250, 2, (Main.rand.NextBool(3)) ? 1 : 0);
-				}
-				if (NPC.ai[0] % 45f == 0f)
-				{
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(val12.X + (float)Main.rand.Next(250), val12.Y), Vector2.Zero, ModContent.ProjectileType<BiomiteCore_Boulder>(), 12, 0f, Main.myPlayer, 0f, 0f);
-				}
-				break;
-			}
-			case 10:
-				if (NPC.ai[0] % 198f == 0f)
-				{
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(4f, 4f), ModContent.ProjectileType<BiomiteCore_GlacierBomb>(), 12, 0f, Main.myPlayer, 0f, 0f);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-4f, 4f), ModContent.ProjectileType<BiomiteCore_GlacierBomb>(), 12, 0f, Main.myPlayer, 0f, 0f);
-				}
-				break;
-			case 11:
-				if (NPC.ai[0] % 61f == 0f)
-				{
-					for (int l = 0; l < 6; l++)
-					{
-						Vector2 val13 = Main.player[NPC.target].Center - NPC.Center;
-						val13.Y -= Math.Abs(val13.X) * 0.2f;
-						val13.Normalize();
-						val13 *= 8f;
-						val13 += NPC.velocity / 3f;
-						val13.X += (float)Main.rand.Next(-20, 21) * 0.08f;
-						val13.Y += (float)Main.rand.Next(-20, 21) * 0.08f;
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, val13, ProjectileID.GoldenShowerHostile, 40, 0f, Main.myPlayer, 0f, 0f);
-					}
-				}
-				break;
-			case 12:
-				if (NPC.ai[0] % 20f == 0f)
-				{
-					int num6 = 6;
-					int num7 = 0;
-					if (Main.rand.NextBool(2))
-					{
-						num7 = 6;
-					}
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)num6, (float)num7, ProjectileID.Skull, 50, 1f, Main.myPlayer, -1f, 0f);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(-num6), (float)(-num7), ProjectileID.Skull, 50, 1f, Main.myPlayer, -1f, 0f);
-					if (num7 != 0)
-					{
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)num6, (float)(-num7), ProjectileID.Skull, 50, 1f, Main.myPlayer, -1f, 0f);
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(-num6), (float)num7, ProjectileID.Skull, 50, 1f, Main.myPlayer, -1f, 0f);
-					}
-				}
-				break;
-			case 15:
-				if (NPC.ai[0] % 120f == 0f)
-				{
-					int num12 = 6;
-					int num13 = 0;
-					if (Main.rand.NextBool(2))
-					{
-						num13 = 6;
-					}
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)num12, (float)num13, ModContent.ProjectileType<BiomiteCore_Rainbow>(), 50, 1f, Main.myPlayer, -1f, 0f);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(-num12), (float)(-num13), ModContent.ProjectileType<BiomiteCore_Rainbow>(), 50, 1f, Main.myPlayer, -1f, 0f);
-					if (num13 != 0)
-					{
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)num12, (float)(-num13), ModContent.ProjectileType<BiomiteCore_Rainbow>(), 50, 1f, Main.myPlayer, -1f, 0f);
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(-num12), (float)num13, ModContent.ProjectileType<BiomiteCore_Rainbow>(), 50, 1f, Main.myPlayer, -1f, 0f);
-					}
-				}
-				break;
-			case 16:
-			{
-				if (NPC.ai[0] % 60f != 0f || Main.netMode == NetmodeID.MultiplayerClient)
-				{
-					break;
-				}
-				int[] array = new int[5];
-				Vector2[] array2 = (Vector2[])(object)new Vector2[5];
-				int num3 = 0;
-				float num4 = 2000f;
-				for (int i = 0; i < 255; i++)
-				{
-					if (!((Entity)Main.player[i]).active || Main.player[i].dead)
-					{
-						continue;
-					}
-					Vector2 center2 = Main.player[i].Center;
-					if (Vector2.Distance(center2, NPC.Center) < num4 && Collision.CanHit(NPC.Center, 1, 1, center2, 1, 1))
-					{
-						array[num3] = i;
-						array2[num3] = center2;
-						if (++num3 >= array2.Length)
+						if (Main.netMode != NetmodeID.MultiplayerClient)
 						{
-							break;
+							int num8 = ((Main.rand.NextBool(2)) ? ModContent.NPCType<UnityProbe>() : ModContent.NPCType<UnityWatcher>());
+							int num9 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + 100, (int)NPC.position.Y, num8, 0, 0f, 0f, 0f, 0f, 255);
+							Main.npc[num9].Center = new Vector2(NPC.Center.X + 100f, NPC.Center.Y);
+
+							num8 = ((Main.rand.NextBool(2)) ? ModContent.NPCType<UnityProbe>() : ModContent.NPCType<UnityWatcher>());
+							int num10 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X - 100, (int)NPC.position.Y, num8, 0, 0f, 0f, 0f, 0f, 255);
+							Main.npc[num10].Center = new Vector2(NPC.Center.X - 100f, NPC.Center.Y);
+
+							if (NPC.life < NPC.lifeMax / 2)
+							{
+								int num11 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y + 100, num8, 0, 0f, 0f, 0f, 0f, 255);
+								Main.npc[num11].Center = new Vector2(NPC.Center.X, NPC.Center.Y + 100f);
+							}
+						}
+						NPC.ai[0] = 0f;
+						NPC.ai[1] = 0f;
+						NPC.ai[3] = 0f;
+					}
+					break;
+				case 2:
+					if (NPC.ai[0] % 198f == 0f)
+					{
+						Sandstorm();
+					}
+					break;
+				case 3:
+					if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[0] % 91f == 0f)
+						for (int m = 0; m < 8; m++)
+						{
+							Vector2 velocity = (m * MathHelper.PiOver4).ToRotationVector2() * 5f;
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ProjectileID.CursedFlameHostile, 50, 1f, -1, -1f, 0f);
+						}
+					break;
+				case 5:
+					NPC.rotation += 0.01f;
+					Vector2 val11 = NPC.rotation.ToRotationVector2();
+					if (NPC.ai[0] % 6f == 0f)
+					{
+						SoundEngine.PlaySound(SoundID.Item34, NPC.position);
+						if (Main.netMode != NetmodeID.MultiplayerClient)
+						{
+							Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, val11.X * 5f, val11.Y, ModContent.ProjectileType<BiomiteCore_FireBreath>(), 20, 0f, -1, 0f, 0f);
+							Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f - val11.X, 0f - val11.Y, ModContent.ProjectileType<BiomiteCore_FireBreath>(), 20, 0f, -1, 0f, 0f);
 						}
 					}
-				}
-				for (int j = 0; j < num3; j++)
-				{
-					Vector2 val9 = array2[j] - NPC.Center;
-					float num5 = Main.rand.Next(100);
-					Vector2 val10 = Vector2.Normalize(val9.RotatedByRandom(0.7853981852531433)) * 14f;
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, val10.X, val10.Y, ModContent.ProjectileType<ChargedOwlRune_OlympianStorm>(), 40, 0f, Main.myPlayer, val9.ToRotation(), num5);
-				}
-				break;
-			}
-			case 4:
-			case 6:
-			case 9:
-			case 13:
-			case 14:
-				break;
+					break;
+				case 7:
+                    if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[0] % 60f == 0f)
+					{
+						int num14 = Main.rand.Next(3, 7);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 5f, (float)num14, ModContent.ProjectileType<BiomiteCore_HellfireBlast>(), 50, 1f, -1, -1f, 0f);
+						num14 = Main.rand.Next(3, 7);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, -5f, (float)(-num14), ModContent.ProjectileType<BiomiteCore_HellfireBlast>(), 50, 1f, -1, -1f, 0f);
+						num14 = Main.rand.Next(3, 7);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 5f, (float)(-num14), ModContent.ProjectileType<BiomiteCore_HellfireBlast>(), 50, 1f, -1, -1f, 0f);
+						num14 = Main.rand.Next(3, 7);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, -5f, (float)num14, ModContent.ProjectileType<BiomiteCore_HellfireBlast>(), 50, 1f, -1, -1f, 0f);
+					}
+					break;
+				case 8:
+					Vector2 val12 = NPC.Center - new Vector2(125f, 100f);
+					for (int k = 0; k < 10; k++)
+						Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), 250, 2, (Main.rand.NextBool(3)) ? 1 : 0);
+
+                    if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[0] % 45f == 0f)
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(val12.X + (float)Main.rand.Next(250), val12.Y), Vector2.Zero, ModContent.ProjectileType<BiomiteCore_Boulder>(), 12, 0f, -1, 0f, 0f);
+
+					break;
+				case 10:
+                    if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[0] % 198f == 0f)
+					{
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(4f, 4f), ModContent.ProjectileType<BiomiteCore_GlacierBomb>(), 12, 0f, -1, 0f, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-4f, 4f), ModContent.ProjectileType<BiomiteCore_GlacierBomb>(), 12, 0f, -1, 0f, 0f);
+					}
+					break;
+				case 11:
+                    if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[0] % 61f == 0f)
+					{
+						for (int l = 0; l < 6; l++)
+						{
+							Vector2 val13 = Main.player[NPC.target].Center - NPC.Center;
+							val13.Y -= Math.Abs(val13.X) * 0.2f;
+							val13.Normalize();
+							val13 *= 8f;
+							val13 += NPC.velocity / 3f;
+							val13.X += (float)Main.rand.Next(-20, 21) * 0.08f;
+							val13.Y += (float)Main.rand.Next(-20, 21) * 0.08f;
+							Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, val13, ProjectileID.GoldenShowerHostile, 40, 0f, -1, 0f, 0f);
+						}
+					}
+					break;
+				case 12:
+                    if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[0] % 20f == 0f)
+					{
+						int num6 = 6;
+						int num7 = 0;
+						if (Main.rand.NextBool(2))
+						{
+							num7 = 6;
+						}
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)num6, (float)num7, ProjectileID.Skull, 50, 1f, -1, -1f, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(-num6), (float)(-num7), ProjectileID.Skull, 50, 1f, -1, -1f, 0f);
+						if (num7 != 0)
+						{
+							Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)num6, (float)(-num7), ProjectileID.Skull, 50, 1f, -1, -1f, 0f);
+							Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(-num6), (float)num7, ProjectileID.Skull, 50, 1f, -1, -1f, 0f);
+						}
+					}
+					break;
+				case 15:
+                    if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[0] % 120f == 0f)
+					{
+						int num12 = 6;
+						int num13 = 0;
+						if (Main.rand.NextBool(2))
+						{
+							num13 = 6;
+						}
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(num12, num13), ModContent.ProjectileType<BiomiteCore_Rainbow>(), 50, 1f, -1, -1f, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-num12, -num13), ModContent.ProjectileType<BiomiteCore_Rainbow>(), 50, 1f, -1, -1f, 0f);
+						if (num13 != 0)
+						{
+							Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(num12, -num13), ModContent.ProjectileType<BiomiteCore_Rainbow>(), 50, 1f, -1, -1f, 0f);
+							Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-num12, num13), ModContent.ProjectileType<BiomiteCore_Rainbow>(), 50, 1f, -1, -1f, 0f);
+						}
+					}
+					break;
+				case 16:
+					if (NPC.ai[0] % 60f != 0f || Main.netMode == NetmodeID.MultiplayerClient)
+						break;
+					
+					int[] array = new int[5];
+					Vector2[] targetArray = new Vector2[5];
+					int targetCount = 0;
+					float maxDist = 2000f;
+					foreach(Player p in Main.ActivePlayers)
+					{
+						if (p.dead)
+							continue;
+						
+						Vector2 center2 = p.Center;
+						if (Vector2.Distance(center2, NPC.Center) < maxDist && Collision.CanHit(NPC.Center, 1, 1, center2, 1, 1))
+						{
+							array[targetCount] = p.whoAmI;
+							targetArray[targetCount] = center2;
+							targetCount++;
+
+                        }
+
+                        if (targetCount >= targetArray.Length)
+							break;                 
+					}
+					for (int j = 0; j < targetCount; j++)
+					{
+						Vector2 dir = targetArray[j] - NPC.Center;
+						float randSeed = Main.rand.Next(100);
+						Vector2 velocity = Vector2.Normalize(dir.RotatedByRandom(0.7853981852531433)) * 14f;
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<ChargedOwlRune_OlympianStorm>(), 40, 0f, -1, dir.ToRotation(), randSeed);
+					}
+					break;
+				case 4:
+				case 6:
+				case 9:
+				case 13:
+				case 14:
+					break;
 			}
 			int num15 = ((NPC.life < (int)((float)NPC.lifeMax * 0.66f)) ? 220 : ((NPC.life < NPC.lifeMax / 3) ? 260 : 300));
 			if (NPC.ai[0] > (float)num15)
@@ -445,10 +449,9 @@ public class BiomiteCore : ModNPC
 				}
 			}
 		}
-		foreach (Point item2 in list)
-		{
-			Projectile.NewProjectile(NPC.GetSource_FromThis(), (float)(item2.X * 16), (float)(item2.Y * 16), 0f, 0f, ModContent.ProjectileType<BiomiteCore_ForbiddenStorm>(), 0, 0f, Main.myPlayer, 0f, 0f);
-		}
+		if(Main.netMode != NetmodeID.MultiplayerClient)
+			foreach (Point item2 in list)
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), (float)(item2.X * 16), (float)(item2.Y * 16), 0f, 0f, ModContent.ProjectileType<BiomiteCore_ForbiddenStorm>(), 0, 0f, -1, 0f, 0f);
 	}
 
     public override void HitEffect(NPC.HitInfo hit)
@@ -483,10 +486,7 @@ public class BiomiteCore : ModNPC
 		}
 	}
 
-	public static Vector2 Vector16(int x, int y)
-	{
-		return new Vector2((float)(x * 16), (float)(y * 16));
-	}
+	public static Vector2 Vector16(int x, int y) => new(x * 16, y * 16);
 
     public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
     {
@@ -494,10 +494,9 @@ public class BiomiteCore : ModNPC
 		Texture2D core = TextureAssets.Npc[Type].Value;
 		Texture2D coreShell = CoreFront.Value;
 		Texture2D coreGlow = Glowmask.Value;
-		Rectangle frame = BaseDrawing.GetFrame(frameShell, 156, 128, 0, 0);
-		Rectangle frame2 = BaseDrawing.GetFrame((int)NPC.ai[3] - 1, 156, 128, 0, 0);
-		Rectangle frame3 = BaseDrawing.GetFrame(0, 156, 128, 0, 0);
-        spriteBatch.Draw(coreBack, NPC.Center - screenPos, frame3, drawColor, 0f, frame3.Size() * 0.5f, 1f, SpriteEffects.None, 0f);
+		Rectangle frame = coreShell.Frame(1, 4, 0, frameShell);
+		Rectangle frame2 = coreGlow.Frame(1, 16, 0, (int)NPC.ai[3] - 1);
+        spriteBatch.Draw(coreBack, NPC.Center - screenPos, null, drawColor, 0f, coreBack.Size() * 0.5f, 1f, SpriteEffects.None, 0f);
         spriteBatch.Draw(core, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(GlowColor()), 0f, NPC.frame.Size() * 0.5f, 1f, SpriteEffects.None, 0f);
         spriteBatch.Draw(coreShell, NPC.Center - screenPos, frame, drawColor, 0f, frame.Size() * 0.5f, 1f, SpriteEffects.None, 0f);
         spriteBatch.Draw(coreGlow, NPC.Center - screenPos, frame2, Color.White, 0f, frame2.Size() * 0.5f, 1f, SpriteEffects.None, 0f);
@@ -506,25 +505,25 @@ public class BiomiteCore : ModNPC
 
 	public Color GlowColor()
 	{
-		return (Color)((int)NPC.ai[3] switch
+		return (int)NPC.ai[3] switch
 		{
-			1 => Color.Green, 
-			2 => Color.Yellow, 
-			3 => new Color(104, 90, 144), 
-			4 => Color.DarkGreen, 
-			5 => Color.OrangeRed, 
-			6 => Color.MediumSlateBlue, 
-			7 => Color.DarkOrange, 
-			8 => Color.Sienna, 
-			9 => new Color(50, 50, 60), 
-			10 => Color.White, 
-			11 => Color.Red, 
-			12 => Color.DarkSlateBlue, 
-			13 => Color.Indigo, 
-			14 => Color.Blue, 
-			15 => Color.Fuchsia, 
-			16 => Color.DeepSkyBlue, 
-			_ => Color.Green, 
-		});
+			1 => Color.Green,
+			2 => Color.Yellow,
+			3 => new Color(104, 90, 144),
+			4 => Color.DarkGreen,
+			5 => Color.OrangeRed,
+			6 => Color.MediumSlateBlue,
+			7 => Color.DarkOrange,
+			8 => Color.Sienna,
+			9 => new Color(50, 50, 60),
+			10 => Color.White,
+			11 => Color.Red,
+			12 => Color.DarkSlateBlue,
+			13 => Color.Indigo,
+			14 => Color.Blue,
+			15 => Color.Fuchsia,
+			16 => Color.DeepSkyBlue,
+			_ => Color.Green,
+		};
 	}
 }

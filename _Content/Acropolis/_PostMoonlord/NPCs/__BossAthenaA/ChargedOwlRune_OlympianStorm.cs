@@ -127,7 +127,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
             {
                 Projectile.frameCounter = 0;
                 float num855 = Projectile.velocity.Length();
-                UnifiedRandom unifiedRandom = new UnifiedRandom((int)Projectile.ai[1]);
+                UnifiedRandom unifiedRandom = new((int)Projectile.ai[1]);
                 int num856 = 0;
                 Vector2 spinningpoint2 = -Vector2.UnitY;
                 Vector2 vector85;

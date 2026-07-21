@@ -1,4 +1,5 @@
 using AAModClassic._Content._Misc.__Hardmode.Items.Materials;
+using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
 using AAModClassic.Base.BaseMod.Base;
@@ -72,9 +73,10 @@ public class CoreActivator_Tile : ModTile
 				if (item != null && item.type == num && item.stack >= 1)
 				{
 					item.stack--;
-					SpawnBoss(localPlayer, ModContent.NPCType<BiomiteCore>(), localPlayer.Center);
-				}
-			}
+                    AAModGlobalNPC.SpawnBoss(localPlayer, ModContent.NPCType<BiomiteCore>(), false, localPlayer.Center);
+
+                }
+            }
 		}
 		return true;
 	}
@@ -92,25 +94,6 @@ public class CoreActivator_Tile : ModTile
 		else
 		{
 			frame = 0;
-		}
-	}
-
-	public static void SpawnBoss(Player player, int bossType, Vector2 Pos = default(Vector2))
-	{
-		Vector2 val = Pos + new Vector2((float)((MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * (float)Main.rand.Next(2) != 0f) ? 1 : (-1)), -800f);
-		if (Main.netMode != NetmodeID.MultiplayerClient)
-		{
-			if (!NPC.AnyNPCs(bossType))
-			{
-				int num = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)val.X, (int)val.Y, bossType, 0, 0f, 0f, 0f, 0f, 255);
-				Main.npc[num].Center = val;
-				Main.npc[num].netUpdate = true;
-				BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.CoreSpawn"), 175, 75, byte.MaxValue, sync: false);
-			}
-		}
-		else
-		{
-			AANet.SendNetMessage<SummonNPCFromClient>((byte)player.whoAmI, (short)bossType, true, (int)val.X, (int)val.Y, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.CoreSpawn"), false);
 		}
 	}
 
