@@ -429,6 +429,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
             if (where == 0)
             {
                 NPC.Center = CloudPick();
+                NPC.netOffset = Vector2.Zero;
             }
             else if (where == 1)
             {
@@ -436,10 +437,12 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
                 targetPos.X += 500 * (NPC.Center.X < targetPos.X ? 1 : -1);
                 targetPos.Y -= 200;
                 NPC.position = targetPos;
+                NPC.netOffset = Vector2.Zero;
             }
             else
             {
                 NPC.position = new Vector2(Origin.X + 79 * 16, Origin.Y + 79 * 16);
+                NPC.netOffset = Vector2.Zero;
             }
 
             position = NPC.Center + Vector2.One * -20f;
