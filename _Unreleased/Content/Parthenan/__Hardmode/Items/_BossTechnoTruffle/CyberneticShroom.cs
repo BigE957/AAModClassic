@@ -21,6 +21,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechn
         public override void SetStaticDefaults()
         {
             ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+            Item.ResearchUnlockCount = 3;
 
             // DisplayName.SetDefault("Cybernetic Shroom");
             /* Tooltip.SetDefault(@"Summons the Techno Truffle
