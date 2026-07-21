@@ -49,25 +49,32 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             ]);
         }
 
-        public InfinityZero Body = null;
-		public int handType = 0; //0 == left top, 1 == left middle, 2 == left bottom, 3 == right top, 4 == right middle, 5 == right bottom
+        private int DamageIdle => Body.NPC.life <= Body.NPC.lifeMax / 10 ? 350 : Body.NPC.life <= Body.NPC.lifeMax / 2 ? 250 : 200;
+        private int DamageCharging => Body.NPC.life <= Body.NPC.lifeMax / 10 ? 500 : Body.NPC.life <= Body.NPC.lifeMax / 2 ? 350 : 300;
+
+        private const int DistFromBodyX = 200;
+        private const int DistFromBodyY = 150;
+        private const int MovementVariance = 60;
+        private const int ChargeTime = 100;
+
+        InfinityZero Body => BodyNPC != null && BodyNPC.ModNPC is InfinityZero body ? body : null;
+        public NPC BodyNPC => Main.npc[(int)NPC.ai[0]];
+
+		public byte handType => (byte)NPC.ai[1]; //0 == left top, 1 == left middle, 2 == left bottom, 3 == right top, 4 == right middle, 5 == right bottom
 		public bool leftHand = true;
         public bool RepairMode = false;
-
-        public static int damageIdle = 200;
-		public static int damageCharging = 300;
 
         private bool ChargeAttack //actually charging the player
 		{
 			get
 			{
-				return NPC.ai[1] == 1;
+				return NPC.ai[2] == 1;
 			}
 			set
 			{
-				float oldValue = NPC.ai[1];
-				NPC.ai[1] = value ? 1f : 0f;
-				if(NPC.ai[1] != oldValue) NPC.netUpdate = true;
+				float oldValue = NPC.ai[2];
+				NPC.ai[2] = value ? 1f : 0f;
+				if(NPC.ai[2] != oldValue) NPC.netUpdate = true;
 			}
 		}
         private bool Charging //preparing to charge the player
@@ -84,24 +91,21 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 			}
 		}
 
-        private static int DistFromBodyX => 200;
-        private static int DistFromBodyY => 150;
-        private static int MovementVariance => 60;
-        private static int ChargeTime => 100;
-
-        private int chargeUpCounter = 0;
-        private Vector2 goalOffset = Vector2.Zero;
-        private int chargeCounter = 0;
-        private bool shouldCharge = false;
-
-        private Vector2 startPosition = Vector2.Zero;
         private int chargingCounter = 0;
+        private int chargeUpCounter = 0;
+        private int chargeCounter = 0;
+        private int ZeroShot = 0;
+        private Vector2 goalOffset = Vector2.Zero;
+        private bool shouldCharge = false;
 
         public override void SendExtraAI(BinaryWriter writer)
         {
+            writer.Write(leftHand);
+            writer.Write(RepairMode);
             writer.Write(chargingCounter);
             writer.Write(chargeUpCounter);
             writer.Write(chargeCounter);
+            writer.Write(ZeroShot);
             writer.Write(goalOffset.X);
             writer.Write(goalOffset.Y);
             writer.Write(shouldCharge);				
@@ -109,15 +113,17 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
+            leftHand = reader.ReadBoolean();
+            RepairMode = reader.ReadBoolean();
             chargingCounter = reader.ReadInt32();
             chargeUpCounter = reader.ReadInt32();
             chargeCounter = reader.ReadInt32();
+            ZeroShot = reader.ReadInt32();
             goalOffset.X = reader.ReadSingle();
             goalOffset.Y = reader.ReadSingle();
             shouldCharge = reader.ReadBoolean();				
         }
 
-        private int ZeroShot = 0;
 
         public override bool CheckActive() => false;
         
@@ -137,7 +143,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             if (ZeroShot >= aiTimerShoot)
             {
                 ZeroShot = 0;
-                if (!ChargeAttack || !RepairMode)
+                if (Main.netMode != NetmodeID.MultiplayerClient && (!ChargeAttack || !RepairMode))
                 {
                     Vector2 velocity = player.Center - NPC.Center;
                     float speed = 6f / velocity.Length();
@@ -168,12 +174,17 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
             if (Body == null)
 			{
-				NPC npcBody = Main.npc[(int)NPC.ai[0]];
-				if(npcBody.type == ModContent.NPCType<InfinityZero>())
-				{
-					Body = (InfinityZero)npcBody.ModNPC;
-				}
-				handType = (int)NPC.ai[1];
+                NPC.ai[0] = NPC.FindFirstNPC(ModContent.NPCType<InfinityZero>());
+                if(NPC.ai[0] == -1)
+                {
+                    if (Main.netMode != NetmodeID.MultiplayerClient) //force a kill to prevent 'ghost hands'
+                    {
+                        NPC.life = 0;
+                        NPC.checkDead();
+                        NPC.netUpdate = true;
+                    }
+                    return;
+                }
 				NPC.localAI[3] = 30 * handType; //so they start at different rotation points
                 goalOffset = GetVariance(false);
 				NPC.netUpdate = true;
@@ -206,7 +217,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
                 if (chargeCounter >= 150 && !shouldCharge) //pick random spot to move head to
 				{
-					NPC.damage = damageIdle;
+					NPC.damage = DamageIdle;
                     goalOffset = GetVariance();
                     ChargeAttack = false;
 					chargeCounter = 0;
@@ -227,7 +238,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 							diff = GetVariance(false);
 						}else
 						{
-							NPC.damage = damageCharging;
+							NPC.damage = DamageCharging;
                             if(unofficial)
                                 NPC.velocity = NPC.DirectionTo(targetPlayer.Center) * (RepairMode ? 24 : 36f);
 						}
@@ -417,10 +428,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 //npc.frameCounter = 0;
             }
         }
-        
-		public override bool PreKill()
-        {
-            return false;
-        }
+
+        public override bool PreKill() => false;
     }
 }
