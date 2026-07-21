@@ -269,7 +269,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
                         CombatText.NewText(NPC.Hitbox, Color.ForestGreen, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Warning"), true);
                     }
 
-                    if (NPC.ai[1] == 10)
+                    if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[1] == 10)
                     {
                         if (Main.rand.NextBool(2) && NPC.life < NPC.lifeMax * (2/3))
                         {
@@ -443,23 +443,27 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
                             }
                             return;
                         }
-                        if (NPC.ai[1] == 40)
+
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
-                            int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<AnubisA_BlockVertical>(), 27, 7, -1, 0, 0);
-                            int r = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<AnubisA_BlockVertical>(), 27, 7, -1, 1, 0);
-                            Main.projectile[l].ai[1] = r;
-                            Main.projectile[l].Center = player.Center + new Vector2(-800, 0);
-                            Main.projectile[r].ai[1] = l;
-                            Main.projectile[r].Center = player.Center + new Vector2(800, 0);
-                        }
-                        if (NPC.ai[1] == 80)
-                        {
-                            int u = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, -800), Vector2.Zero, ModContent.ProjectileType<AnubisA_BlockHorizontal>(), 27, 7, -1, 0, 0);
-                            int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, 800), Vector2.Zero, ModContent.ProjectileType<AnubisA_BlockHorizontal>(), 27, 7, -1, 1, 0);
-                            Main.projectile[u].ai[1] = d;
-                            Main.projectile[u].Center = player.Center + new Vector2(0, -800);
-                            Main.projectile[d].ai[1] = u;
-                            Main.projectile[d].Center = player.Center + new Vector2(0, 800);
+                            if (NPC.ai[1] == 40)
+                            {
+                                int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<AnubisA_BlockVertical>(), 27, 7, -1, 0, 0);
+                                int r = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<AnubisA_BlockVertical>(), 27, 7, -1, 1, 0);
+                                Main.projectile[l].ai[1] = r;
+                                Main.projectile[l].Center = player.Center + new Vector2(-800, 0);
+                                Main.projectile[r].ai[1] = l;
+                                Main.projectile[r].Center = player.Center + new Vector2(800, 0);
+                            }
+                            if (NPC.ai[1] == 80)
+                            {
+                                int u = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, -800), Vector2.Zero, ModContent.ProjectileType<AnubisA_BlockHorizontal>(), 27, 7, -1, 0, 0);
+                                int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, 800), Vector2.Zero, ModContent.ProjectileType<AnubisA_BlockHorizontal>(), 27, 7, -1, 1, 0);
+                                Main.projectile[u].ai[1] = d;
+                                Main.projectile[u].Center = player.Center + new Vector2(0, -800);
+                                Main.projectile[d].ai[1] = u;
+                                Main.projectile[d].Center = player.Center + new Vector2(0, 800);
+                            }
                         }
                     }
                     else
@@ -485,28 +489,31 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
                             }
                             return;
                         }
-                        if (NPC.ai[1] % 30 == 0 && NPC.ai[1] <= 240)
+
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
-                            if (Main.rand.NextBool(2))
+                            if (NPC.ai[1] % 30 == 0 && NPC.ai[1] <= 240)
                             {
-                                int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<AnubisA_BlockVertical>(), 27, 7, -1, 0, 0);
-                                int r = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<AnubisA_BlockVertical>(), 27, 7, -1, 1, 0);
-                                Main.projectile[l].ai[1] = r;
-                                Main.projectile[l].Center = player.Center + new Vector2(-800, 0);
-                                Main.projectile[r].ai[1] = l;
-                                Main.projectile[r].Center = player.Center + new Vector2(800, 0);
-                            }
-                            else
-                            {
-                                int u = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, -800), Vector2.Zero, ModContent.ProjectileType<AnubisA_BlockHorizontal>(), 27, 7, -1, 0, 0);
-                                int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, 800), Vector2.Zero, ModContent.ProjectileType<AnubisA_BlockHorizontal>(), 27, 7, -1, 1, 0);
-                                Main.projectile[u].ai[1] = d;
-                                Main.projectile[u].Center = player.Center + new Vector2(0, -800);
-                                Main.projectile[d].ai[1] = u;
-                                Main.projectile[d].Center = player.Center + new Vector2(0, 800);
+                                if (Main.rand.NextBool(2))
+                                {
+                                    int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-800, 0), Vector2.Zero, ModContent.ProjectileType<AnubisA_BlockVertical>(), 27, 7, -1, 0, 0);
+                                    int r = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(800, 0), Vector2.Zero, ModContent.ProjectileType<AnubisA_BlockVertical>(), 27, 7, -1, 1, 0);
+                                    Main.projectile[l].ai[1] = r;
+                                    Main.projectile[l].Center = player.Center + new Vector2(-800, 0);
+                                    Main.projectile[r].ai[1] = l;
+                                    Main.projectile[r].Center = player.Center + new Vector2(800, 0);
+                                }
+                                else
+                                {
+                                    int u = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, -800), Vector2.Zero, ModContent.ProjectileType<AnubisA_BlockHorizontal>(), 27, 7, -1, 0, 0);
+                                    int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, 800), Vector2.Zero, ModContent.ProjectileType<AnubisA_BlockHorizontal>(), 27, 7, -1, 1, 0);
+                                    Main.projectile[u].ai[1] = d;
+                                    Main.projectile[u].Center = player.Center + new Vector2(0, -800);
+                                    Main.projectile[d].ai[1] = u;
+                                    Main.projectile[d].Center = player.Center + new Vector2(0, 800);
+                                }
                             }
                         }
-
                     }
                     break;
 
@@ -534,49 +541,52 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
                         }
                         return;
                     }
-                    if (NPC.ai[1] == 120)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        if (NPC.life > NPC.lifeMax / 2)
+                        if (NPC.ai[1] == 120)
                         {
-                            int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-250, 0), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
-                            Main.projectile[l].Center = player.Center + new Vector2(-250, 0);
-                            Kaboom(Main.projectile[l]);
-                            int r = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(250, 0), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
-                            Main.projectile[r].Center = player.Center + new Vector2(250, 0);
-                            Kaboom(Main.projectile[r]);
-                            int u = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, -250), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
-                            Main.projectile[u].Center = player.Center + new Vector2(0, -250);
-                            Kaboom(Main.projectile[u]);
-                            int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, 250), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
-                            Main.projectile[d].Center = player.Center + new Vector2(0, 250);
-                            Kaboom(Main.projectile[d]);
-                        }
-                        else
-                        {
-                            int a = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-250, 0), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
-                            Main.projectile[a].Center = player.Center + new Vector2(-250, 0);
-                            Kaboom(Main.projectile[a]);
-                            int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(250, 0), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
-                            Main.projectile[b].Center = player.Center + new Vector2(250, 0);
-                            Kaboom(Main.projectile[b]);
-                            int c = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, -250), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
-                            Main.projectile[c].Center = player.Center + new Vector2(0, -250);
-                            Kaboom(Main.projectile[c]);
-                            int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, 250), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
-                            Main.projectile[d].Center = player.Center + new Vector2(0, 250);
-                            Kaboom(Main.projectile[d]);
-                            int e = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-200, 200), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
-                            Main.projectile[e].Center = player.Center + new Vector2(-200, 200);
-                            Kaboom(Main.projectile[e]);
-                            int f = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(200, 200), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
-                            Main.projectile[f].Center = player.Center + new Vector2(200, 200);
-                            Kaboom(Main.projectile[f]);
-                            int g = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(200, -200), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
-                            Main.projectile[g].Center = player.Center + new Vector2(200, -200);
-                            Kaboom(Main.projectile[g]);
-                            int h = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-200, -200), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
-                            Main.projectile[h].Center = player.Center + new Vector2(-200, -200);
-                            Kaboom(Main.projectile[h]);
+                            if (NPC.life > NPC.lifeMax / 2)
+                            {
+                                int l = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-250, 0), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
+                                Main.projectile[l].Center = player.Center + new Vector2(-250, 0);
+                                Kaboom(Main.projectile[l]);
+                                int r = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(250, 0), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
+                                Main.projectile[r].Center = player.Center + new Vector2(250, 0);
+                                Kaboom(Main.projectile[r]);
+                                int u = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, -250), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
+                                Main.projectile[u].Center = player.Center + new Vector2(0, -250);
+                                Kaboom(Main.projectile[u]);
+                                int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, 250), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
+                                Main.projectile[d].Center = player.Center + new Vector2(0, 250);
+                                Kaboom(Main.projectile[d]);
+                            }
+                            else
+                            {
+                                int a = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-250, 0), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
+                                Main.projectile[a].Center = player.Center + new Vector2(-250, 0);
+                                Kaboom(Main.projectile[a]);
+                                int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(250, 0), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
+                                Main.projectile[b].Center = player.Center + new Vector2(250, 0);
+                                Kaboom(Main.projectile[b]);
+                                int c = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, -250), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
+                                Main.projectile[c].Center = player.Center + new Vector2(0, -250);
+                                Kaboom(Main.projectile[c]);
+                                int d = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(0, 250), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
+                                Main.projectile[d].Center = player.Center + new Vector2(0, 250);
+                                Kaboom(Main.projectile[d]);
+                                int e = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-200, 200), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
+                                Main.projectile[e].Center = player.Center + new Vector2(-200, 200);
+                                Kaboom(Main.projectile[e]);
+                                int f = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(200, 200), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
+                                Main.projectile[f].Center = player.Center + new Vector2(200, 200);
+                                Kaboom(Main.projectile[f]);
+                                int g = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(200, -200), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
+                                Main.projectile[g].Center = player.Center + new Vector2(200, -200);
+                                Kaboom(Main.projectile[g]);
+                                int h = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position + new Vector2(-200, -200), Vector2.Zero, ModContent.ProjectileType<AnubisA_ForsakenFireball>(), 27, 7, -1);
+                                Main.projectile[h].Center = player.Center + new Vector2(-200, -200);
+                                Kaboom(Main.projectile[h]);
+                            }
                         }
                     }
                     break;
@@ -746,6 +756,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
             }
 
             NPC.position = new Vector2(targetPos.X + posX, targetPos.Y - posY);
+            NPC.netOffset = Vector2.Zero;
             int pieCut = 20;
             SoundEngine.PlaySound(SoundID.Item14, NPC.position);
             for (int m = 0; m < pieCut; m++)
@@ -859,6 +870,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
             targetPos.X += 300 * (NPC.Center.X < targetPos.X ? 1 : -1);
             targetPos.Y -= 300;
             NPC.position = targetPos;
+            NPC.netOffset = Vector2.Zero;
 
             int pieCut = 20;
             for (int m = 0; m < pieCut; m++)

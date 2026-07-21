@@ -2,6 +2,7 @@ using System.IO;
 //using AAModClassic.NPCs.Bosses.Core;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
 
@@ -18,16 +19,11 @@ public class CoreWorld : ModSystem
 
 	public override void NetSend(BinaryWriter writer)
 	{
-		BitsByte bitsByte = default(BitsByte);
-		bitsByte[0] = PedestalActive;
-		bitsByte[1] = PrismCharged;
-		writer.Write(bitsByte);
+		writer.WriteFlags(PedestalActive, PrismCharged);
 	}
 
 	public override void NetReceive(BinaryReader reader)
 	{
-		BitsByte bitsByte = reader.ReadByte();
-		PedestalActive = bitsByte[0];
-		PrismCharged = bitsByte[1];
+		reader.ReadFlags(out PedestalActive, out PrismCharged);
 	}
 }

@@ -2,10 +2,7 @@
 using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
-using AAModClassic._Unofficial.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard;
 using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossInfinityZero.BossStandard;
-using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
-using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.BossStandard;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Weapons;
@@ -28,23 +25,13 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
 	[AutoloadBossHead]
 	public class InfinityZero : ModNPC
 	{
-        public NPC Zero1;
-        public NPC Zero2;
-        public NPC Zero3;
-        public NPC Zero4;
-        public NPC Zero5;
-        public NPC Zero6;
-        public NPC Core;
-        public bool ZerosSpawned = false;
-        public bool Reseting = false;
-        public Vector2 topVisualOffset = default;
-
         public static Asset<Texture2D> glowTex;
 
         public override void SetStaticDefaults()
@@ -107,12 +94,60 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         }
 
         public float[] customAI = new float[4];
+        public NPC Zero1 => zeroIndex1 == -1 ? null : Main.npc[zeroIndex1];
+        private short zeroIndex1 = -1;
+        public NPC Zero2 => zeroIndex2 == -1 ? null : Main.npc[zeroIndex2];
+        private short zeroIndex2 = -1;
+        public NPC Zero3 => zeroIndex3 == -1 ? null : Main.npc[zeroIndex3];
+        private short zeroIndex3 = -1;
+        public NPC Zero4 => zeroIndex4 == -1 ? null : Main.npc[zeroIndex4];
+        private short zeroIndex4 = -1;
+        public NPC Zero5 => zeroIndex5 == -1 ? null : Main.npc[zeroIndex5];
+        private short zeroIndex5 = -1;
+        public NPC Zero6 => zeroIndex6 == -1 ? null : Main.npc[zeroIndex6];
+        private short zeroIndex6 = -1;
+        //public NPC Core;
+
+        private int testime = 60;
+        public int CoreTimer = 600;
+
+        public bool ZerosSpawned = false;
+        public bool Reseting = false;
+        public bool quarterHealth = false;
+        public bool threeQuarterHealth = false;
+        public bool HalfHealth = false;
+        public bool tenthHealth = false;
+        public bool OpenCore = false;
+        public bool FirstCoreLine = false;
+
+        //Server Side
+        private int StormTimer = 0;
+
+        //Client Side
+        public int roarTimer = 200;
+        public float auraPercent = 0f;
+        public bool auraDirection = true;
+        private int CoreFrame = 2;
+        public bool[] roared = new bool[3];
+
         public override void SendExtraAI(BinaryWriter writer)
         {
             writer.Write(customAI[0]);
             writer.Write(customAI[1]);
             writer.Write(customAI[2]);
-            writer.Write(customAI[3]);				
+            writer.Write(customAI[3]);
+
+            writer.Write(zeroIndex1);
+            writer.Write(zeroIndex2);
+            writer.Write(zeroIndex3);
+            writer.Write(zeroIndex4);
+            writer.Write(zeroIndex5);
+            writer.Write(zeroIndex6);
+
+            writer.Write(testime);
+            writer.Write(CoreTimer);
+
+            writer.WriteFlags(ZerosSpawned, Reseting, tenthHealth, OpenCore, FirstCoreLine, quarterHealth, threeQuarterHealth, HalfHealth);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
@@ -120,28 +155,38 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             customAI[0] = reader.ReadSingle();
             customAI[1] = reader.ReadSingle();
             customAI[2] = reader.ReadSingle();
-            customAI[3] = reader.ReadSingle();				
+            customAI[3] = reader.ReadSingle();
+
+            zeroIndex1 = reader.ReadInt16();
+            zeroIndex2 = reader.ReadInt16();
+            zeroIndex3 = reader.ReadInt16();
+            zeroIndex4 = reader.ReadInt16();
+            zeroIndex5 = reader.ReadInt16();
+            zeroIndex6 = reader.ReadInt16();
+
+            testime = reader.ReadInt32();
+            CoreTimer = reader.ReadInt32();
+
+            reader.ReadFlags(out ZerosSpawned, out Reseting, out tenthHealth, out OpenCore, out FirstCoreLine, out quarterHealth, out threeQuarterHealth, out HalfHealth);
         }
-        public int roarTimer = 200;
-		public bool[] roared = new bool[3];
-        private int testime = 60;
-        private int StormTimer = 0;
+
         public override void AI()
 		{
             NPC.timeLeft = 200;
             if (testime > 0)
-            {
                 testime--;
-            }
 
-            StormTimer++;
-            if (StormTimer >= 750)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                StormTimer = 0;
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, NPC.velocity.X * 2f, NPC.velocity.Y * 2f, ModContent.ProjectileType<InfinityZero_InfinityStorm>(), 0, 0, -1);
+                StormTimer++;
+                if (StormTimer >= 750)
+                {
+                    StormTimer = 0;
+                    Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, NPC.velocity.X * 2f, NPC.velocity.Y * 2f, ModContent.ProjectileType<InfinityZero_InfinityStorm>(), 0, 0, -1);
+                }
             }
 
-            if (Main.netMode != NetmodeID.Server)
+            if (!Main.dedServ)
 			{
 				int ThreeQuartersHealth = NPC.lifeMax * (int).75f;
 				int HalfHealth = NPC.lifeMax * (int).5f;
@@ -239,43 +284,43 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     int latestNPC;
 
                     latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand2>(), NPC.whoAmI, NPC.whoAmI, 3);
-                    Zero4 = Main.npc[latestNPC];
+                    zeroIndex4 = (short)latestNPC;
                     latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand1>(), latestNPC, NPC.whoAmI, 0);
-                    Zero1 = Main.npc[latestNPC];
+                    zeroIndex1 = (short)latestNPC;
 
                     latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand2>(), latestNPC, NPC.whoAmI, 4);
-                    Zero5 = Main.npc[latestNPC];
+                    zeroIndex5 = (short)latestNPC;
                     latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand1>(), latestNPC, NPC.whoAmI, 1);
-                    Zero2 = Main.npc[latestNPC];
+                    zeroIndex2 = (short)latestNPC;
 
                     latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand2>(), latestNPC, NPC.whoAmI, 5);
-                    Zero6 = Main.npc[latestNPC];
+                    zeroIndex6 = (short)latestNPC;
                     latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand1>(), latestNPC, NPC.whoAmI, 2);
-                    Zero3 = Main.npc[latestNPC];
+                    zeroIndex3 = (short)latestNPC;
 
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityCore>(), 0, NPC.whoAmI);
-                    Main.npc[latestNPC].realLife = NPC.whoAmI;
-                    Core = Main.npc[latestNPC];
+                    //latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityCore>(), 0, NPC.whoAmI);
+                    //Main.npc[latestNPC].realLife = NPC.whoAmI;
+                    //Core = Main.npc[latestNPC];
                 }
                 ZerosSpawned = true;
+                NPC.netUpdate = true;
             }
             
             if (testime == 0 && (Zero1 == null || Zero2 == null || Zero3 == null || Zero4 == null || Zero5 == null || Zero6 == null || !Zero1.active || !Zero2.active || !Zero3.active || !Zero4.active || !Zero5.active || !Zero6.active))
             {
                 Reseting = true;
                 testime = 60;
+                NPC.netUpdate = true;
             }
             if ((Zero1 == null || !Zero1.active) && (Zero2 == null || !Zero2.active) && (Zero3 == null || !Zero3.active) && (Zero4 == null || !Zero4.active) && (Zero5 == null || !Zero5.active) && (Zero6 == null || !Zero6.active))
             {
                 ZerosSpawned = false;
+                NPC.netUpdate = true;
             }
         }
 
-        public bool Dead = false;
-
         public override void OnKill()
 		{
-            Dead = true;
             NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Oblivion>(), 0, 0);
             ZAAPlayer.IZKills += 1;
         }
@@ -326,15 +371,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 			potionType = ModContent.ItemType<GrandHealingPotion>();
         }
 		
-		private void ModifyHit(ref int damage)
-		{
-            damage = (int)(damage * 0.6f);
-            if (damage >= 800)
-            {
-                damage = 800;
-            }
-        }
-		
 		public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
 		{
 			scale = 3f;
@@ -346,15 +382,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 			return false;
 		}
 		
-
-        public bool quarterHealth = false;
-        public bool threeQuarterHealth = false;
-        public bool HalfHealth = false;
-        public bool tenthHealth = false;
-        public bool OpenCore = false;
-        public bool FirstCoreLine = false;
-        public int CoreTimer = 600;
-
         public override void HitEffect(NPC.HitInfo hit)
 		{
             if (OpenCore)
@@ -368,30 +395,30 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             if (NPC.life <= NPC.lifeMax / 4 * 3 && threeQuarterHealth == false)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.75"), new Color(158, 3, 32));
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.75"), new Color(158, 3, 32));
                 threeQuarterHealth = true;
                 roarTimer = 200;
             }
             if (NPC.life <= NPC.lifeMax / 2 && HalfHealth == false)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.50"), new Color(158, 3, 32));
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.50"), new Color(158, 3, 32));
                 HalfHealth = true;
-                InfinityZeroHand1.damageIdle = 250;
-                InfinityZeroHand1.damageCharging = 350;
                 roarTimer = 200;
             }
             if (NPC.life <= NPC.lifeMax / 4 && quarterHealth == false)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.25"), new Color(158, 3, 32));
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.25"), new Color(158, 3, 32));
                 quarterHealth = true;
                 roarTimer = 200;
             }
             if (NPC.life <= NPC.lifeMax / 10 && !tenthHealth)
             {
                 tenthHealth = true;
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.10"), new Color(158, 3, 32));
-                InfinityZeroHand1.damageIdle = 350;
-                InfinityZeroHand1.damageCharging = 500;
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.10"), new Color(158, 3, 32));
                 roarTimer = 200;
             }
             if (NPC.ai[3] == 6)
@@ -405,7 +432,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 }
                 if (CoreTimer <= 0)
                 {
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Zeroes.Revived"), new Color(158, 3, 32));
+                    if(Main.netMode != NetmodeID.MultiplayerClient)
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Zeroes.Revived"), new Color(158, 3, 32));
                     NPC.ai[3] = 0;
                     OpenCore = false;
                     CoreTimer = 600;
@@ -470,21 +498,12 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
         }
 
-        public static Color infinityGlowRed = new Color(233, 53, 53);
-        public static Color GetGlowAlpha(bool aura)
-        {
-            return (aura ? infinityGlowRed : Color.White) * (Main.mouseTextColor / 255f);
-        }
+        public static readonly Color infinityGlowRed = new(233, 53, 53);
 
-        public static Color GetRedAlpha()
-        {
-            return new Color(233, 53, 53) * (Main.mouseTextColor / 255f);
-        }
+        public static Color GetGlowAlpha(bool aura) => (aura ? infinityGlowRed : Color.White) * (Main.mouseTextColor / 255f);
 
-        public float auraPercent = 0f;
-        public bool auraDirection = true;
-        public bool saythelinezero = false;
-		
+        public static Color GetRedAlpha() => new Color(233, 53, 53) * (Main.mouseTextColor / 255f);
+
 		public static Vector2 GetConnectionPoint(int handType)
 		{
 			float offsetX = 0, offsetY = 0;
@@ -527,8 +546,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             else
                 NPC.hide = false;
         }
-
-        private int CoreFrame = 2;
 
         public override void FindFrame(int frameHeight)
         {
@@ -598,8 +615,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
 
             bool unofficialWorld = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
-            if(!unofficialWorld)
-                DrawCore(spriteBatch, ModContent.GetInstance<InfinityCore>().Texture, Core, AAColor.Oblivion, false);
+            //if(!unofficialWorld)
+            //    DrawCore(spriteBatch, ModContent.GetInstance<InfinityCore>().Texture, Core, AAColor.Oblivion, false);
 
             string respritePath = Texture + "_Resprite";
             Texture2D texture = !unofficialWorld ? TextureAssets.Npc[NPC.type].Value : ModContent.Request<Texture2D>(respritePath).Value;
@@ -671,7 +688,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             if (Zero != null && Zero.active && Zero.ModNPC != null && (Zero.ModNPC is InfinityZeroHand1 || Zero.ModNPC is InfinityZeroHand2))
             {
 				InfinityZeroHand1 handNPC = (InfinityZeroHand1)Zero.ModNPC;
-                Vector2 start = new Vector2(NPC.Center.X, NPC.Center.Y) + GetConnectionPoint(handNPC.handType);
+                Vector2 start = new Vector2(NPC.Center.X, NPC.Center.Y) + GetConnectionPoint(handNPC.HandType);
                 Vector2 end = Zero.Center;
                 if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 {
@@ -680,10 +697,10 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
                     Vector2 direction = end - start;
                     float curveIntensity = MathHelper.Clamp(8000f / direction.Length(), 0f, 200f);
-                    float intensityDelta = MathHelper.Clamp(curveIntensity - currentCurveIntensities[handNPC.handType], -30, 30);
-                    currentCurveIntensities[handNPC.handType] = currentCurveIntensities[handNPC.handType] + intensityDelta;
+                    float intensityDelta = MathHelper.Clamp(curveIntensity - currentCurveIntensities[handNPC.HandType], -30, 30);
+                    currentCurveIntensities[handNPC.HandType] = currentCurveIntensities[handNPC.HandType] + intensityDelta;
 
-                    Vector2 perpindicular = Vector2.UnitY * currentCurveIntensities[handNPC.handType];
+                    Vector2 perpindicular = Vector2.UnitY * currentCurveIntensities[handNPC.HandType];
 
                     Vector2 controlPoint1 = start + (direction * 0.25f) + perpindicular;
                     Vector2 controlPoint2 = start + (direction * 0.75f) + perpindicular;

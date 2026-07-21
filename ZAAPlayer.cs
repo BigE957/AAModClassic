@@ -55,6 +55,7 @@ using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcra
 using AAModClassic._Content.Stars.World.Biomes;
 using AAModClassic._Content.SunkenShip.__PreHardmode.Items.Tools;
 using AAModClassic._Content.Terrarium.Buffs;
+using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Accessories;
 using AAModClassic._Content.Void.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Void.___PreHardmode.Items.Quest;
@@ -158,7 +159,7 @@ namespace AAModClassic
         public bool ZoneRisingSunPagoda => Player.InModBiome<RisingSunPagodaBiome>();
         public bool ZoneRisingMoonLake => Player.InModBiome<RisingMoonLakeBiome>();
         public bool ZoneShip => Player.InModBiome<SunkenShipBiome>();
-        public bool ZoneTerrarium => Player.InModBiome<SunkenShipBiome>();
+        public bool ZoneTerrarium => Player.InModBiome<TerrariumBiome>();
         public bool ZoneStars => Player.InModBiome<StarsBiome>();
         public bool ZoneHoard => Player.InModBiome<HoardBiome>();
         public bool ZoneAcropolis => Player.InModBiome<AcropolisBiome>();
@@ -168,9 +169,7 @@ namespace AAModClassic
         public bool AkumaAltar = false;
         public bool YamataAltar = false;
         public bool AshCurse;
-        public int VoidGrav = 0;
         public static int Ashes = 0;
-        public int CthulhuCountdown = 10800;
         #endregion
 
         #region Armor bools.
@@ -969,7 +968,7 @@ namespace AAModClassic
                 }
             }
 
-            if (ZoneTerrarium)
+            if (Player.GetModPlayer<ZAAPlayer>().ZoneTerrarium)
             {
                 Player.AddBuff(ModContent.BuffType<TerrasGuidance_Buff>(), 2);
                 Player.AddBuff(BuffID.DryadsWard, 2);

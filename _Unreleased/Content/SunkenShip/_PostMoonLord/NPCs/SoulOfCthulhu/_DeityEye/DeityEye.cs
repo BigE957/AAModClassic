@@ -19,8 +19,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
     [AutoloadBossHead]
     public class DeityEye : ModNPC
     {
-        public bool HeadsSpawned = false;
-
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Cyaegha");
@@ -82,10 +80,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             }
         }
 
-        public override bool PreKill()
-        {
-            return false;
-        }
+        public override bool PreKill() => false;
 
         public override void FindFrame(int frameHeight)
         {

@@ -55,12 +55,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
         public override void SendExtraAI(BinaryWriter writer)
         {
-            writer.Write((short)NPC.localAI[0]);
+            writer.Write(NPC.localAI[0]);
+            writer.Write(HandTimer);
         }
     
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            NPC.localAI[0] = reader.ReadInt16();
+            NPC.localAI[0] = reader.ReadSingle();
+            HandTimer = reader.ReadInt32();
         }
 
         public override void HitEffect(NPC.HitInfo hit)

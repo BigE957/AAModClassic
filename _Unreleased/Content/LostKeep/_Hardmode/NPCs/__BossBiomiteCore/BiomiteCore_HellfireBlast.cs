@@ -43,7 +43,8 @@ public class BiomiteCore_HellfireBlast : ModProjectile
 			Main.dust[num].noGravity = true;
 		}
 		SoundEngine.PlaySound(SoundID.Item124);
-		Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, new Vector2(0f, 0f), ModContent.ProjectileType<BiomiteCore_HellfireBoom>(), Projectile.damage, 2f, 255, 0f, 0f);
+        if (Main.netMode != NetmodeID.MultiplayerClient)
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, new Vector2(0f, 0f), ModContent.ProjectileType<BiomiteCore_HellfireBoom>(), Projectile.damage, 2f, 255, 0f, 0f);
 	}
 
 	public override bool PreDraw(ref Color lightColor)

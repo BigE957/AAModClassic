@@ -60,8 +60,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             SpawnModBiomes = [ModContent.GetInstance<SunkenShipBiome>().Type];
         }
 
-
-        public float[] shootAI = new float[4];
+        //public float[] shootAI = new float[4];
 
         public float[] customAI = new float[4];
         public override void SendExtraAI(BinaryWriter writer)
@@ -80,9 +79,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             customAI[3] = reader.ReadSingle();
         }
 
-        public int BoomTimer = 0;
-        public int Speechtimer = 0;
+        //public int Speechtimer = 0;
 
+        //Client Side
         public float ShieldScale = 0;
         public float ShieldRotation = 0;
 
@@ -130,51 +129,53 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             if (NPC.ai[1] == 1f)
             {
                 NPC.dontTakeDamage = true;
-                BoomTimer++;
                 NPC.ai[3]++;
-                if (BoomTimer == 60)
+                if (NPC.ai[3] % 60 == 0)
                 {
                     Projectile.NewProjectile(NPC.GetSource_Death(), Explosion, new Vector2(0, 0), ModContent.ProjectileType<CthulhuDeathBoom>(), 0, 0);
-                    BoomTimer = 0;
-                }
-                if (NPC.ai[3] == 40)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.1"), Color.DarkCyan);
                 }
 
-                if (NPC.ai[3] == 100)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.2"), Color.DarkCyan);
-                }
+                    if (NPC.ai[3] == 40)
+                    {
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.1"), Color.DarkCyan);
+                    }
 
-                if (NPC.ai[3] == 160)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.3"), Color.DarkCyan);
-                }
+                    if (NPC.ai[3] == 100)
+                    {
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.2"), Color.DarkCyan);
+                    }
 
-                if (NPC.ai[3] == 220)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.4"), Color.DarkCyan);
-                }
+                    if (NPC.ai[3] == 160)
+                    {
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.3"), Color.DarkCyan);
+                    }
 
-                if (NPC.ai[3] == 280)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.5"), Color.DarkCyan);
-                }
+                    if (NPC.ai[3] == 220)
+                    {
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.4"), Color.DarkCyan);
+                    }
 
-                if (NPC.ai[3] == 340)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.6"), Color.DarkCyan);
-                }
+                    if (NPC.ai[3] == 280)
+                    {
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.5"), Color.DarkCyan);
+                    }
 
-                if (NPC.ai[3] == 400)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.7"), Color.DarkCyan);
-                }
+                    if (NPC.ai[3] == 340)
+                    {
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.6"), Color.DarkCyan);
+                    }
 
-                if (NPC.ai[3] == 460)
-                {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.8"), Color.DarkCyan);
+                    if (NPC.ai[3] == 400)
+                    {
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.7"), Color.DarkCyan);
+                    }
+
+                    if (NPC.ai[3] == 460)
+                    {
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.8"), Color.DarkCyan);
+                    }
                 }
 
                 if (NPC.ai[3] == 520)
@@ -183,8 +184,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     if(!Main.dedServ)
                         Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("CthulhuGore").Type, 1.2f);
                     NPC.dontTakeDamage = false;
-                    if(Main.netMode != NetmodeID.MultiplayerClient)
-                        NPC.StrikeInstantKill();
+                    NPC.StrikeInstantKill();
                 }
                 return;
             }
@@ -194,9 +194,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             if (NPC.life < EyeSummon && NPC.ai[2] == 0)
             {
                 NPC.ai[2] = 1;
-                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Eye"), Color.DarkCyan);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Eye"), Color.DarkCyan);
                     NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<DeityEye>());
                 }
             }
@@ -205,9 +205,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             if (NPC.life < EaterSummon && NPC.ai[2] == 1)
             {
                 NPC.ai[2] = 2;
-                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Eater"), Color.DarkCyan);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Eater"), Color.DarkCyan);
                     NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<DeityEater>());
                 }
             }
@@ -215,9 +215,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             if (NPC.life < BrainSummon && NPC.ai[2] == 2)
             {
                 NPC.ai[2] = 3;
-                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Brain"), Color.DarkCyan);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Brain"), Color.DarkCyan);
                     NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<DeityBrain>());
                 }
             }
@@ -225,9 +225,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             if (NPC.life < SkullSummon && NPC.ai[2] == 3)
             {
                 NPC.ai[2] = 4;
-                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Skull"), Color.DarkCyan);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Skull"), Color.DarkCyan);
                     NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<DeitySkull>());
                 }
             }
@@ -235,9 +235,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             if (NPC.life < RoseSummon && NPC.ai[2] == 4)
             {
                 NPC.ai[2] = 5;
-                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Rose"), Color.DarkCyan);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Rose"), Color.DarkCyan);
                     NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<DeityRose>());
                 }
             }
@@ -245,9 +245,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             if (NPC.life < LeviathanSummon && NPC.ai[2] == 5)
             {
                 NPC.ai[2] = 6;
-                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Leviathan"), Color.DarkCyan);
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Summoning.Leviathan"), Color.DarkCyan);
                     NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<DeityLeviathan>());
                 }
             }
@@ -259,7 +259,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 if (NPC.ai[2] == 6)
                 {
                     NPC.ai[2] = 7;
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.LastStand"), Color.DarkCyan);
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.LastStand"), Color.DarkCyan);
                 }
             }
         }
@@ -267,7 +268,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override void OnKill()
         {
             if (!Main.expertMode)
-                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.Cheater"), Color.DarkCyan);
+                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.Cheater"), Color.DarkCyan);
             else if (NPC.playerInteraction[Main.myPlayer])
                 SoulOfCthulhuKilled.Condition.Complete();
         }

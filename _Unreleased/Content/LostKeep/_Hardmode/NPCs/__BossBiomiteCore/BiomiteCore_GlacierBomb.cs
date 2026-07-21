@@ -36,6 +36,7 @@ public class BiomiteCore_GlacierBomb : ModProjectile
 		int num2 = 48;
 		
 		SoundEngine.PlaySound(SoundID.Item50, Projectile.position);
-		Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center + new Vector2(0f, -num2), Vector2.Zero, num, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+        if (Main.netMode != NetmodeID.MultiplayerClient)
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center + new Vector2(0f, -num2), Vector2.Zero, num, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
 	}
 }

@@ -216,7 +216,7 @@ KeepDoor3_Tile.MapEntry: Дверь цитадели
 
 TerraStatue_Tile: {
 	MapEntry: Статуя павшего героя
-	// FlavorText: The Hero who saved us all from the brink of chaos
+	FlavorText: Герой, спасший нас всех от неминуемого хаоса
 }
 
 SunkenChest_Tile.MapEntry: Затонувший сундук
@@ -235,8 +235,8 @@ FulguriteShard_Tile.MapEntry: Фульгуритовый осколок
 // RedmushChest_Tile.MapEntry: Mushroom Chest
 // RedmushClock_Tile.MapEntry: Mushroom Clock
 // RedmushCouch_Tile.MapEntry: Mushroom Couch
-// RedmushDoorClosed_Tile.MapEntry: Mushroom Door Closed
-// RedmushDoorOpen_Tile.MapEntry: Mushroom Door Open
+// RedmushDoorClosed_Tile.MapEntry: Mushroom Door
+// RedmushDoorOpen_Tile.MapEntry: Mushroom Door
 // RedmushDresser_Tile.MapEntry: Mushroom Dresser
 // RedmushLamp_Tile.MapEntry: Mushroom Lamp
 // RedmushLantern_Tile.MapEntry: Mushroom Lantern

@@ -10,8 +10,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 {
     public class LeviathanBubble : ModNPC
 	{
-        public bool HeadsSpawned = false;
-
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Leviathan Bubble");

@@ -43,7 +43,7 @@ Infinity Zero: " + IZHP;
             player.buffTime[buffIndex] = 60;
             player.GetModPlayer<ZAAPlayer>().LockedOn = true;
 
-            if (IZ && Inf != null && (!Inf.NPC.active || Inf.Dead))
+            if (IZ && (Inf == null || !Inf.NPC.active))
             {
             	IZ = false;
             	player.GetModPlayer<ZAAPlayer>().InfZ = false;     		
