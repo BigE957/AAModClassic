@@ -61,8 +61,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             SpawnModBiomes = [ModContent.GetInstance<SunkenShipBiome>().Type];
         }
 
-
-        public float[] shootAI = new float[4];
+        //public float[] shootAI = new float[4];
 
         public float[] customAI = new float[4];
         public override void SendExtraAI(BinaryWriter writer)
@@ -81,9 +80,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             customAI[3] = reader.ReadSingle();
         }
 
-        public int BoomTimer = 0;
-        public int Speechtimer = 0;
+        //public int Speechtimer = 0;
 
+        //Client Side
         public float ShieldScale = 0;
         public float ShieldRotation = 0;
 
@@ -131,12 +130,10 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             if (NPC.ai[1] == 1f)
             {
                 NPC.dontTakeDamage = true;
-                BoomTimer++;
                 NPC.ai[3]++;
-                if (BoomTimer == 60)
+                if (NPC.ai[3] % 60 == 0)
                 {
                     Projectile.NewProjectile(NPC.GetSource_Death(), Explosion, new Vector2(0, 0), ModContent.ProjectileType<CthulhuDeathBoom>(), 0, 0);
-                    BoomTimer = 0;
                 }
 
                 if (Main.netMode != NetmodeID.MultiplayerClient)

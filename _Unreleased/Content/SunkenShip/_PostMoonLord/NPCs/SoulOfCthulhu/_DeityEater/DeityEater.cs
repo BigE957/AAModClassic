@@ -21,11 +21,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 {
     [AutoloadBossHead]
     public class DeityEater : ModNPC
-    {
-        //public override string Texture { get { return "AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/Bosses/DeityEater"; } }
-        
-        public int fireTimer = 0;
-
+    {        
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Crom Cruach");
@@ -73,23 +69,25 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.lifeMax = NPC.lifeMax;
         }
 
-        private bool fireAttack;
+        private bool FireAttack { get => NPC.ai[3] == 1; set => NPC.ai[3] = (value ? 1 : 0); }
+        public ref float FireTimer => ref NPC.ai[2];
+
         public override bool PreAI()
         {
             Player player = Main.player[NPC.target];
             float dist = NPC.Distance(player.Center);
-            fireTimer++;
-            if (fireTimer >= 240 && fireAttack == false)
+            FireTimer++;
+            if (FireTimer >= 240 && FireAttack == false)
             {
-                fireAttack = true;
+                FireAttack = true;
 
-                fireTimer = 0;
+                FireTimer = 0;
             }
-            if (fireAttack == true)
+            if (FireAttack == true)
             {
                 SoundEngine.PlaySound(SoundID.Item34, NPC.position);
                 int proj2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + Main.rand.Next(-20, 20), NPC.Center.Y + Main.rand.Next(-20, 20), NPC.velocity.X * 1.6f, NPC.velocity.Y * 1.6f, ModContent.ProjectileType<DeityEye_DeityFlames>(), 30, 0, -1);
-                fireAttack = false;
+                FireAttack = false;
 
             }
             if (NPC.alpha != 0)

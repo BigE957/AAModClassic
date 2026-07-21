@@ -23,8 +23,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override string BossHeadTexture => "AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/_DeityEater/DeityEater_Head_Boss";
         //public override string Texture { get { return "AAMod/NPCs/Bosses/SoC/Bosses/DeityEater"; } }
 
-        public int fireTimer = 0;
-
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Lu'Kthu");
@@ -92,8 +90,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         }
 
 
-        public int EyeCount = 15;
-        public int[] totalEyes = null;
+        public static int EyeCount => Main.expertMode ? 20 : 15;
+        //public int[] totalEyes = null;
+        //public int fireTimer = 0;
+
+        //Client Side
         public bool spawnAlpha = false;
 
         public override void AI()
@@ -107,14 +108,18 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     Main.dust[num935].noLight = true;
                 }
             }
-            if (spawnAlpha == false)
+
+            if (!Main.dedServ)
             {
-                NPC.alpha -= 12;
-            }
-            if (NPC.alpha < 0 && spawnAlpha == false)
-            {
-                NPC.alpha = 0;
-                spawnAlpha = true;
+                if (spawnAlpha == false)
+                {
+                    NPC.alpha -= 12;
+                }
+                if (NPC.alpha < 0 && spawnAlpha == false)
+                {
+                    NPC.alpha = 0;
+                    spawnAlpha = true;
+                }
             }
 
             AAModGlobalNPC.Brain = NPC.whoAmI;
@@ -125,7 +130,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 Music = 0;
             }
-            EyeCount = (Main.expertMode ? 20 : 15);
             if (Main.netMode != NetmodeID.MultiplayerClient && NPC.localAI[0] == 0f)
             {
                 NPC.localAI[0] = 1f;
@@ -140,7 +144,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     npc.netUpdate = true;
                 }
             }
-            totalEyes = BaseAI.GetNPCs(NPC.Center, ModContent.NPCType<EyeOfAzathoth>(), 1500f);
+            //totalEyes = BaseAI.GetNPCs(NPC.Center, ModContent.NPCType<EyeOfAzathoth>(), 1500f);
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {

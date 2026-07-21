@@ -197,22 +197,25 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             }
         }
 
-        public bool LeaveLine = false;
-        public bool Leviathan = false;
-        public bool Summon = false;
+        public float[] customAI = new float[4];
 
+        //public bool LeaveLine = false;
+        //public bool Leviathan = false;
+
+        //public float morphTimer = 0;
+        //public bool Morphed = false;
+        //public static bool ComeBack = false;
+        //public int ReturnTimer = 100;
+
+        //Client Side
+        public bool Summon = false;
         public float Rotation = 0;
-        public float AlphaTimer = 0;
+        //public float AlphaTimer = 0;
         public float alpha = 255;
         public float scale = 0;
         public float RingRotation = 0;
-        public float morphTimer = 0;
-        public float RiftSpin = 0;
-        public bool Morphed = false;
-        public static bool ComeBack = false;
-        public int ReturnTimer = 100;
+        public float RiftSpin = 0;     
 
-        public float[] customAI = new float[4];
         public override void SendExtraAI(BinaryWriter writer)
         {
             writer.Write(customAI[0]);
