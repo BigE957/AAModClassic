@@ -1,5 +1,4 @@
-﻿using AAModClassic.UI.World;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.ID;
@@ -22,15 +21,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Accessories
 
         public override void RegisterEquipEffects()
         {
-            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-            {
-                AddEffect(new MaxLifeEffect(200));
-                AddEffect(new LifeRegenEffect(2));
-            }
-            else
-            {
-                AddEffect(new MaxLifeEffect(50));
-            }
+            AddEffect(new MaxLifeEffect(50));
         }
 
         public override void SetStaticDefaults()
