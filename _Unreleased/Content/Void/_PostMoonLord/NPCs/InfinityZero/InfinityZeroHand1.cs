@@ -60,7 +60,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         InfinityZero Body => BodyNPC != null && BodyNPC.ModNPC is InfinityZero body ? body : null;
         public NPC BodyNPC => Main.npc[(int)NPC.ai[0]];
 
-		public byte handType => (byte)NPC.ai[1]; //0 == left top, 1 == left middle, 2 == left bottom, 3 == right top, 4 == right middle, 5 == right bottom
+		public byte HandType => (byte)NPC.ai[1]; //0 == left top, 1 == left middle, 2 == left bottom, 3 == right top, 4 == right middle, 5 == right bottom
 		public bool leftHand = true;
         public bool RepairMode = false;
 
@@ -185,7 +185,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     }
                     return;
                 }
-				NPC.localAI[3] = 30 * handType; //so they start at different rotation points
+				NPC.localAI[3] = 30 * HandType; //so they start at different rotation points
                 goalOffset = GetVariance(false);
 				NPC.netUpdate = true;
 			}
@@ -327,7 +327,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         public Vector2 GetVariance(bool random = true)
 		{
 			float offsetX = 0, offsetY = 0;
-			switch(handType)
+			switch(HandType)
 			{
 				case 0: 
                     offsetX = -DistFromBodyX - 100; 

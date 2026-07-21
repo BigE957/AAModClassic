@@ -689,7 +689,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             if (Zero != null && Zero.active && Zero.ModNPC != null && (Zero.ModNPC is InfinityZeroHand1 || Zero.ModNPC is InfinityZeroHand2))
             {
 				InfinityZeroHand1 handNPC = (InfinityZeroHand1)Zero.ModNPC;
-                Vector2 start = new Vector2(NPC.Center.X, NPC.Center.Y) + GetConnectionPoint(handNPC.handType);
+                Vector2 start = new Vector2(NPC.Center.X, NPC.Center.Y) + GetConnectionPoint(handNPC.HandType);
                 Vector2 end = Zero.Center;
                 if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 {
@@ -698,10 +698,10 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
                     Vector2 direction = end - start;
                     float curveIntensity = MathHelper.Clamp(8000f / direction.Length(), 0f, 200f);
-                    float intensityDelta = MathHelper.Clamp(curveIntensity - currentCurveIntensities[handNPC.handType], -30, 30);
-                    currentCurveIntensities[handNPC.handType] = currentCurveIntensities[handNPC.handType] + intensityDelta;
+                    float intensityDelta = MathHelper.Clamp(curveIntensity - currentCurveIntensities[handNPC.HandType], -30, 30);
+                    currentCurveIntensities[handNPC.HandType] = currentCurveIntensities[handNPC.HandType] + intensityDelta;
 
-                    Vector2 perpindicular = Vector2.UnitY * currentCurveIntensities[handNPC.handType];
+                    Vector2 perpindicular = Vector2.UnitY * currentCurveIntensities[handNPC.HandType];
 
                     Vector2 controlPoint1 = start + (direction * 0.25f) + perpindicular;
                     Vector2 controlPoint2 = start + (direction * 0.75f) + perpindicular;
