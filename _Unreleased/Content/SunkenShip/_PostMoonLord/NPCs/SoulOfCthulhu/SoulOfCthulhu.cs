@@ -575,12 +575,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 }
                 if (NPC.ai[1] == 3f)
                 {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Kill"), Color.DarkCyan);
+                    if(Main.netMode != NetmodeID.MultiplayerClient)
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Kill"), Color.DarkCyan);
                     NPC.ai[1] = 5f;
                 }
                 if (NPC.ai[1] == 4f)
                 {
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Despawn"), Color.DarkCyan);
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Despawn"), Color.DarkCyan);
                     NPC.ai[1] = 5f;
                 }
                 if (NPC.ai[1] == 5f)
