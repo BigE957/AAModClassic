@@ -239,8 +239,8 @@ RedmushChandelier_Tile.MapEntry: Mushroom Chandelier
 RedmushChest_Tile.MapEntry: Mushroom Chest
 RedmushClock_Tile.MapEntry: Mushroom Clock
 RedmushCouch_Tile.MapEntry: Mushroom Couch
-RedmushDoorClosed_Tile.MapEntry: Mushroom Door Closed
-RedmushDoorOpen_Tile.MapEntry: Mushroom Door Open
+RedmushDoorClosed_Tile.MapEntry: Mushroom Door
+RedmushDoorOpen_Tile.MapEntry: Mushroom Door
 RedmushDresser_Tile.MapEntry: Mushroom Dresser
 RedmushLamp_Tile.MapEntry: Mushroom Lamp
 RedmushLantern_Tile.MapEntry: Mushroom Lantern
