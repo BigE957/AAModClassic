@@ -169,9 +169,7 @@ namespace AAModClassic
         public bool AkumaAltar = false;
         public bool YamataAltar = false;
         public bool AshCurse;
-        public int VoidGrav = 0;
         public static int Ashes = 0;
-        public int CthulhuCountdown = 10800;
         #endregion
 
         #region Armor bools.
