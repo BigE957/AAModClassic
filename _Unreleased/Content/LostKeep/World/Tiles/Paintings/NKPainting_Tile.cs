@@ -32,7 +32,7 @@ public class NKPainting_Tile : ModTile
 		//IL_000d: Unknown result type (might be due to invalid IL or missing references)
 		if (Main.netMode != NetmodeID.Server)
 		{
-			BaseUtility.Chat("'Legends say this ruthless dungeon guard was once like us before she died...'", Color.DarkCyan, sync: false);
+			BaseUtility.Chat(Language.GetTextValue($"Mods.AAModClassic.Items.Placeables.{Name.Replace("_Tile", "")}.Tooltip"), Color.DarkCyan, sync: false);
 		}
 		return true;
 	}

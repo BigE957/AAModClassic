@@ -45,6 +45,7 @@ Developers and Contributors behind this port:
 - Big E
 - CaligulasAquarium
 - DiamondWalker
+- EIGHT
 - ERMUDO
 - EduaRRdo
 - MaestroVGM
@@ -56,8 +57,14 @@ Developers and Contributors behind this port:
 - SpectralAves
 - SulfurInASea
 
+Huge thanks to the Translation Teams:
+- Russian
+	- Arick 
+	- Waitti
+
 Credit of course to the original team behind the mod:
 - Beg
+- Blazen
 - Charlie Debnam
 - Chinzilla00
 - Dan Yami

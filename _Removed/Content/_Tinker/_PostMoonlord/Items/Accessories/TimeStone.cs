@@ -33,7 +33,7 @@ Using the Time stone like an item stops/resumes time.
             Item.width = 54;
             Item.height = 52;
             Item.value = Item.sellPrice(0, 0, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
             Item.consumable = false;
             Item.prefix = 0;

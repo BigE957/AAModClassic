@@ -44,7 +44,7 @@ public class TerraCandle_Tile : ModTile
 
 	public override bool RightClick(int i, int j)
 	{
-		Main.player[Main.myPlayer].PickTile(i, j, 100);
+        Main.LocalPlayer.PickTile(i, j, 100);
 		return true;
 	}
 

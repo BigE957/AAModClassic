@@ -9,203 +9,101 @@ namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
 {
     public class HydrasFury_Holdout : ModProjectile
 	{
-		public override void SetDefaults()
+        public override bool IsLoadingEnabled(Mod mod) => ThoriumMod.IsEnabled;
+
+        public override void SetDefaults()
 		{
 			Projectile.width = 130;
 			Projectile.height = 130;
-			Projectile.aiStyle = 0;
-			Projectile.penetrate = -1;
-			Projectile.light = 0.2f;
-			Projectile.tileCollide = false;
-			Projectile.ownerHitCheck = true;
-			Projectile.ignoreWater = true;
-			Projectile.timeLeft = 26;
-			AIType = ProjectileID.Bullet;
-		}
-		
-		public override void AI()
-		{
-			Player player = Main.player[Projectile.owner];	
-			
-			Projectile.ai[0]++;
-			
-			if (player.dead)
-			{
-				Projectile.Kill();
-				return;
-			}
-			
-			if (player.direction > 0)
-			{
-				Projectile.rotation += 0.45f;
-				Projectile.spriteDirection = 1;
-			}
-			else
-			{
-				Projectile.rotation -= 0.45f;
-				Projectile.spriteDirection = -1;
-			}
-			
-			Projectile.position.X = player.Center.X - Projectile.width / 2f;
-			Projectile.position.Y = player.Center.Y - Projectile.height / 2f;
-			
-			Projectile.NewProjectile(Projectile.GetSource_FromThis(),Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, ModContent.ProjectileType<HydrasFuryDamage>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, ModContent.ProjectileType<HydrasFuryDamage>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-			
-			if (Projectile.timeLeft == 13)
-			{
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + 20, Projectile.Center.Y, -15f, 0f, ModContent.ProjectileType<HydrasFuryDamage2>(), (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 20, Projectile.Center.Y, 15f, 0f, ModContent.ProjectileType<HydrasFuryDamage2>(), (int)(Projectile.damage * .35), Projectile.knockBack, Projectile.owner, 0f, 0f);
-			}
-			
-			if (Projectile.timeLeft < 8)
-			{
-				Projectile.alpha = 100;
-			}
-			if (Projectile.timeLeft < 6)
-			{
-				Projectile.alpha = 140;
-			}
-			if (Projectile.timeLeft < 4)
-			{
-				Projectile.alpha = 180;
-			}
-			if (Projectile.timeLeft < 2)
-			{
-				Projectile.alpha = 220;
-			}
-		}
-	}
-
-    public class HydrasFuryDamage : ModProjectile
-    {
-        public override string Texture => AssetDirectory.General.Nothing;
-        public override void SetDefaults()
-        {
-            Projectile.width = 130;
-            Projectile.height = 130;
             Projectile.aiStyle = 0;
+            Projectile.light = 0.2f;
             Projectile.friendly = true;
             Projectile.tileCollide = false;
             Projectile.ownerHitCheck = true;
             Projectile.ignoreWater = true;
             Projectile.penetrate = -1;
-            Projectile.timeLeft = 8;
-            AIType = ProjectileID.Bullet;
+            Projectile.timeLeft = 26;
+            Projectile.usesIDStaticNPCImmunity = true;
+            Projectile.idStaticNPCHitCooldown = 10;
+            Projectile.DamageType = ThoriumMod.HealerClass;
+        }
+
+        public static Vector2 DustOffset => new Vector2(-12, 48);
+        public static float SpinSpeed => 0.45f;
+        public static int DustCount => 3;
+        public static float DustScale => 0.8f;
+        public static int DustAlpha => 180;
+
+        public override void AI()
+        {
+            Player player = Main.player[Projectile.owner];
+            if (player.dead)
+            {
+                Projectile.Kill();
+                return;
+            }
+            Projectile projectile = Projectile;
+            projectile.rotation += player.direction * player.gravDir * SpinSpeed;
+            Projectile.spriteDirection = player.direction;
+            player.heldProj = Projectile.whoAmI;
+            Projectile.Center = player.Center;
+            Projectile.gfxOffY = player.gfxOffY;
+            SpawnDust();
+
+            if (projectile.timeLeft < 10)
+            {
+                projectile.alpha += 30;
+                if (projectile.alpha > 255)
+                {
+                    projectile.alpha = 255;
+                }
+            }
+        }
+
+        private void SpawnDust()
+        {
+            int scythes = 2;
+            int type = ModContent.DustType<Dusts.AcidDust>();
+            Vector2 dustCenter = new Vector2(Projectile.width, -Projectile.height) / 2f + DustOffset;
+            if (scythes <= 0 || DustCount <= 0 || type <= -1)
+                return;
+
+            for (int scytheIndex = 0; scytheIndex < scythes; scytheIndex++)
+            {
+                float offset = scytheIndex * MathHelper.TwoPi / scythes;
+                float rot = Projectile.rotation;
+                Vector2 rotationOffset = dustCenter;
+                if (Projectile.spriteDirection < 0)
+                    rotationOffset.X = 0f - rotationOffset.X;
+
+                float myRot = rot + offset;
+                rotationOffset = rotationOffset.RotatedBy(myRot);
+                Vector2 rotationCenter = Projectile.Center + new Vector2(0f, Projectile.gfxOffY) + rotationOffset;
+                for (int j = 0; j < DustCount; j++)
+                {
+                    Vector2 velocity = (myRot + MathHelper.PiOver2 + Main.rand.NextFloat(-MathHelper.Pi / 16f, MathHelper.Pi / 16f)).ToRotationVector2() * 10 * SpinSpeed;
+                    Dust dust = Dust.NewDustPerfect(rotationCenter, type, velocity, DustAlpha, Scale: DustScale);
+                    dust.noGravity = true;
+                    dust.noLight = true;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Flag checked when the projectile has scythe charges and a suitable NPC is hit, then set to false
+        /// </summary>
+        public bool CanGiveScytheCharge
+        {
+            get { return (Projectile.localAI[0] == 0f); }
+            set { Projectile.localAI[0] = (value ? 0f : 1f); }
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
+            CanGiveScytheCharge = ThoriumMod.TryGainSoulEssence(Main.player[Projectile.owner], target, 1, CanGiveScytheCharge);
             if (Main.rand.NextBool(2))
             {
                 target.AddBuff(BuffID.Poisoned, 200, false);
-            }
-        }
-
-        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
-        {
-            Player player = Main.player[Projectile.owner];
-            if (Main.rand.Next(100) <= player.GetModPlayer<ModSupportPlayer>().Thorium_radiantCrit)
-            {
-                modifiers.SetCrit();
-            }
-        }
-
-        public override void AI()
-        {
-            Player player = Main.player[Projectile.owner];
-
-            Projectile.position.X = player.Center.X - Projectile.width / 2f;
-            Projectile.position.Y = player.Center.Y - Projectile.height / 2f;
-        }
-    }
-    public class HydrasFuryDamage2 : ModProjectile
-    {
-        public override string Texture => AssetDirectory.General.Nothing;
-        public override void SetDefaults()
-        {
-            Projectile.width = 130;
-            Projectile.height = 130;
-            Projectile.aiStyle = 0;
-            Projectile.friendly = true;
-            Projectile.tileCollide = false;
-            Projectile.ownerHitCheck = true;
-            Projectile.ignoreWater = true;
-            Projectile.penetrate = 1;
-            Projectile.timeLeft = 4;
-            AIType = ProjectileID.Bullet;
-        }
-
-        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
-        {
-            Player player = Main.player[Projectile.owner];
-            if (Main.rand.Next(100) <= player.GetModPlayer<ModSupportPlayer>().Thorium_radiantCrit)
-            {
-                modifiers.SetCrit();
-            }
-        }
-
-        public override void AI()
-        {
-            Player player = Main.player[Projectile.owner];
-
-            Projectile.position.X = player.Center.X - Projectile.width / 2f;
-            Projectile.position.Y = player.Center.Y - Projectile.height / 2f;
-        }
-    }
-    public class HydrasFuryEffect : ModProjectile
-    {
-        public static Color lightColor = new Color(41, 60, 103);
-        public override string Texture => AssetDirectory.General.Nothing;
-
-        public override void SetDefaults()
-        {
-            Projectile.width = 8;
-            Projectile.height = 8;
-            Projectile.aiStyle = -1;
-            Projectile.tileCollide = false; Projectile.ownerHitCheck = true;
-            Projectile.ignoreWater = true;
-            Projectile.penetrate = -1;
-            Projectile.timeLeft = 24;
-        }
-
-        public static Vector2 RotateVector(Vector2 origin, Vector2 vecToRot, float rot)
-        {
-            float newPosX = (float)(Math.Cos(rot) * (vecToRot.X - origin.X) - Math.Sin(rot) * (vecToRot.Y - origin.Y) + origin.X);
-            float newPosY = (float)(Math.Sin(rot) * (vecToRot.X - origin.X) + Math.Cos(rot) * (vecToRot.Y - origin.Y) + origin.Y);
-            return new Vector2(newPosX, newPosY);
-        }
-
-        public Vector2 rotVec = new Vector2(0, 65);
-        public float rot = 0f;
-
-        public override void AI()
-        {
-            Player player = Main.player[Projectile.owner];
-
-            if (player.direction > 0)
-            {
-                rot += 0.20f;
-            }
-            else
-            {
-                rot -= 0.20f;
-            }
-
-            Projectile.Center = player.Center + new Vector2(-8f, -8f) + RotateVector(default, rotVec, rot + Projectile.ai[0] * (6.28f / 2));
-
-            for (int m = 0; m < 3; m++)
-            {
-                float velX = Projectile.velocity.X / 3f * m;
-                float velY = Projectile.velocity.Y / 3f * m;
-                int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AcidDust>(), 0, 0, 0);
-                //int dustID = Dust.NewDust(projectile.position, projectile.width, projectile.height, 55, 0f, 0f, 0, default, 1.2f);
-                Main.dust[dustID].position.X = Projectile.Center.X - velX;
-                Main.dust[dustID].position.Y = Projectile.Center.Y - velY;
-                Main.dust[dustID].velocity *= 0f;
-                Main.dust[dustID].alpha = 180;
-                Main.dust[dustID].noGravity = true;
-                Main.dust[dustID].scale = 0.8f;
             }
         }
     }

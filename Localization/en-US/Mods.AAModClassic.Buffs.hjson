@@ -1,4 +1,4 @@
-﻿APageOfTheRuneBookEffect_Buff: {
+APageOfTheRuneBookEffect_Buff: {
 	DisplayName: Rune
 	Description: Summons runes to fight for you
 }
@@ -594,17 +594,17 @@ OverloadedDoomiteRadio_Buff: {
 	Description: Summons a Void Scout to fight for you
 }
 
-BrokenCode_Freeze: {
+BrokenCodeTeleportUnofficialEffect_Freeze: {
 	DisplayName: Freeze
 	Description: Task Manager isn't gonna help with this
 }
 
-BrokenCode_FreezeCooldown: {
+BrokenCodeTeleportUnofficialEffect_FreezeCooldown: {
 	DisplayName: Freeze Cooldown
 	Description: Atleast your head is still on your body!
 }
 
-BrokenCode_Glitched: {
+BrokenCodeTeleportEffect_Glitched: {
 	DisplayName: Glitched
 	Description: Your head is like 10 feet in front of you
 }
@@ -672,4 +672,4 @@ SpearStuck_Buff: {
 InfinityGauntletEffect_InfinityBurnout: {
 	DisplayName: Infinity Burnout
 	Description: They didn't go for the head.
-}
+}

@@ -46,13 +46,13 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Pets
 
         public override bool PreDraw(ref Color lightColor)
         {
-            float num149 = (TextureAssets.Projectile[Projectile.type].Value.Width - Projectile.width) * 0.5f + Projectile.width * 0.5f;
+            float num149 = (TextureAssets.Projectile[Projectile.type].Width() - Projectile.width) * 0.5f + Projectile.width * 0.5f;
 
             SpriteEffects spriteEffects = Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
 
             int y15 = 40 * Projectile.frame;
 
-            Main.spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, new Vector2(Projectile.position.X - Main.screenPosition.X + num149 + -18, Projectile.position.Y - Main.screenPosition.Y + Projectile.height / 2 + Projectile.gfxOffY), new Rectangle?(new Rectangle(0, y15, TextureAssets.Projectile[Projectile.type].Value.Width, 40 - 1)), Projectile.GetAlpha(lightColor), Projectile.rotation, new Vector2(num149, Projectile.height / 2 + 8), Projectile.scale, spriteEffects, 0f);
+            Main.spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, new Vector2(Projectile.position.X - Main.screenPosition.X + num149 + -18, Projectile.position.Y - Main.screenPosition.Y + Projectile.height / 2 + Projectile.gfxOffY), new Rectangle?(new Rectangle(0, y15, TextureAssets.Projectile[Projectile.type].Width(), 40 - 1)), Projectile.GetAlpha(lightColor), Projectile.rotation, new Vector2(num149, Projectile.height / 2 + 8), Projectile.scale, spriteEffects, 0f);
 
             return false;
         }

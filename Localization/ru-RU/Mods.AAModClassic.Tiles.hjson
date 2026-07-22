@@ -1,0 +1,248 @@
+TilesInfo: {
+	Spawnpointremoved: Точка возрождения убрана!
+	Spawnpointset: Точка возрождения установлена!
+	EnderMemoryInfo: В память о давно потерянном друге, всё ещё живущем в наших сердцах
+	DragonEgg1: Звук разбивающегося яйца эхом разносится по вулкану...
+	DragonEgg2: Вы слышите рёв вдалеке...
+	DragonEgg3: Вы слышите усталый, тихий рёв, а затем... храп..?
+	HydraPod1: Содержимое вытекает из сломанного кокона. Гадость
+	HydraPod2: Вы слышите шипение где-то поблизости...
+	HydraPod3: Вы слышите шипение, но оно удаляется в туман...
+}
+
+GreedChest: {
+	MapEntry: Сундук Алчности
+	GreedChest1: Земля под вами слегка дрожит...
+	GreedChest2: Вы слышите крик, эхом разносящийся по пещерам...
+	GreedChest3: РУКИ ПРОЧЬ ОТ МОЕГО ДОБРА, ВОРОНА ТРЕКЛЯТАЯ!!!
+}
+
+AvesInABox_Tile.MapEntry: Авес в коробке
+DevStatue_Tile.MapEntry: Статуя
+AleisterBook_Tile.MapEntry: Книга Алистера
+CCBag_Tile.MapEntry: Картонная коробка
+CerberusBag_Tile.MapEntry: Конура Цербера
+CrystalChandelier_Tile.MapEntry: Хрустальная люстра
+EnderMemory_Tile.MapEntry: Вечная память
+FurnitureDynamo_Tile.MapEntry: Динамо-мебель
+SkyCrystal_Tile.MapEntry: Небесный кристалл
+AcropolisAltar_Tile.MapEntry: Алтарь Совы
+RoyalRabbitCage_Tile.MapEntry: Клетка королевского кролика
+RitualAltar_Tile.MapEntry: Ритуальный алтарь
+DiscordianTorch_Tile.MapEntry: Раздорнитовый факел
+AnyAncientCraftingStation_Tile.MapEntry: Древняя станция изготовления
+ChaosCrucible_Tile.MapEntry: Горнило хаоса
+ChaosAltarSafe_Tile.MapEntry: Алтарь хаоса
+DynaskullFossil_Tile.MapEntry: Диночерепная окаменелость
+EvilAltarSafe_Tile.MapEntry: Алтарь зла
+HallowedOre_Tile.MapEntry: Освящённая руда
+ThixxieBanner_Tile.MapEntry: Знамя Тикси
+HallowedAnvil_Tile.MapEntry: Освящённая наковальня
+HallowedForge_Tile.MapEntry: Освящённая кузня
+PaladinsSmeltery_Tile.MapEntry: Плавильня паладина
+TruePaladinsSmeltery_Tile.MapEntry: Истинная плавильня паладина
+FatPixie_Banner_Tile.MapEntry: Знамя толстой пикси
+HaphestusForge_Tile.MapEntry: Кузня Гефеста
+HellstoneAnvil_Tile.MapEntry: Наковальня из адского камня
+Throne_Tile.MapEntry: Трон зла
+CovetiteOre_Tile.MapEntry: Жажданитовая руда
+GreedAltar_Tile.MapEntry: Алтарь Желаний
+GreedChest_Tile.MapEntry: Сундук Алчности
+GreedLantern_Tile.MapEntry: Каменный фонарь
+IncineriteOre_Tile.MapEntry: Испепельнит
+RazewoodBed_Tile.MapEntry: Выжженная кровать
+RazewoodBookshelf_Tile.MapEntry: Выжженный книжный шкаф
+RazewoodCandelabra_Tile.MapEntry: Выжженный канделябр
+RazewoodCandle_Tile.MapEntry: Выжженная свеча
+RazewoodChair_Tile.MapEntry: Выжженный стул
+RazewoodChandelier_Tile.MapEntry: Выжженная люстра
+RazewoodChest_Tile.MapEntry: Выжженный сундук
+
+RazewoodClock_Tile: {
+	MapEntry: Выжженные часы
+	FlavorText: Возможно, делать часы из обгоревшего дерева было не лучшей идеей. Они даже не работают.
+}
+
+RazewoodCouch_Tile.MapEntry: Выжженный диван
+RazewoodDoorClosed_Tile.MapEntry: Выжженная дверь
+RazewoodDoorOpen_Tile.MapEntry: Выжженная дверь
+RazewoodDresser_Tile.MapEntry: Выжженный комод
+RazewoodLamp_Tile.MapEntry: Выжженная лампа
+RazewoodLantern_Tile.MapEntry: Выжженный фонарь
+RazewoodPiano_Tile.MapEntry: Выжженное пианино
+RazewoodSink_Tile.MapEntry: Выжженная раковина
+RazewoodTable_Tile.MapEntry: Выжженный стол
+RazewoodTub_Tile.MapEntry: Выжженная ванна
+RazewoodWorkbench_Tile.MapEntry: Выжженный верстак
+DragonfireTorch_Tile.MapEntry: Факел драконьего пламени
+SharpeningLavaFish_Tile.MapEntry: Точёный лавобрюх
+DaybreakIncineriteOre_Tile.MapEntry: Рассветная испепельнитовая руда
+DaybreakTorch_Tile.MapEntry: Рассветный факел
+InfernoChest_Tile.MapEntry: Сундук Инферно
+DragonAltarUnsafe_Tile.MapEntry: Драконий алтарь
+DragonEgg_Tile.MapEntry: Яйцо дракона
+RazewoodPalmSapling_Tile.MapEntry: Саженец выжженной пальмы
+RazewoodSapling_Tile.MapEntry: Саженец выжженного дерева
+AbyssiumOre_Tile.MapEntry: Абиссальнит
+BogwoodBathtub_Tile.MapEntry: Болотная ванна
+BogwoodBed_Tile.MapEntry: Болотная кровать
+BogwoodBench_Tile.MapEntry: Болотный диван
+BogwoodBookshelf_Tile.MapEntry: Болотный книжный шкаф
+BogwoodCandelabra_Tile.MapEntry: Болотный канделябр
+BogwoodCandle_Tile.MapEntry: Болотная свеча
+BogwoodChair_Tile.MapEntry: Болотный стул
+BogwoodChandelier_Tile.MapEntry: Болотная люстра
+BogwoodChest_Tile.MapEntry: Болотный сундук
+BogwoodClock_Tile.MapEntry: Болотные часы
+BogwoodCouch_Tile.MapEntry: Болотный диван
+BogwoodDoorClosed_Tile.MapEntry: Болотная дверь
+BogwoodDoorOpen_Tile.MapEntry: Болотная дверь
+BogwoodDresser_Tile.MapEntry: Болотный комод
+BogwoodLamp_Tile.MapEntry: Болотная лампа
+BogwoodLantern_Tile.MapEntry: Болотный фонарь
+BogwoodPiano_Tile.MapEntry: Болотное пианино
+BogwoodSink_Tile.MapEntry: Болотная раковина
+BogwoodTable_Tile.MapEntry: Болотный стол
+BogwoodWorkbench_Tile.MapEntry: Болотный верстак
+BogtoxinTorch_Tile.MapEntry: Факел болотоксина
+ToxinMonkfish_Tile.MapEntry: Токсичный удильщик
+EventideAbyssiumOre_Tile.MapEntry: Сумеречная абиссальнитовая руда
+EventideTorch_Tile.MapEntry: Сумеречный факел
+MireChest_Tile.MapEntry: Сундук Трясины
+AbyssAltarUnsafe_Tile.MapEntry: Алтарь бездны
+HydraPod_Tile.MapEntry: Кокон гидры
+BogwoodPalmTreeSapling_Tile.MapEntry: Саженец болотной пальмы
+BogwoodSapling_Tile.MapEntry: Саженец болотного дерева
+VikingRelic_Tile.MapEntry: Реликвия викингов
+RadiumOre_Tile.MapEntry: Лучезарнитная руда
+QuantumFusionAccelerator_Tile.MapEntry: Ускоритель квантового синтеза
+RadiantArcanum_Tile.MapEntry: Лучезарный арканум
+GravAltar_Tile.MapEntry: Алтарь силы
+StarAltar_Tile.MapEntry: Алтарь звёзд
+WormAltar_Tile.MapEntry: Алтарь равновесия
+TerraCore_Tile.MapEntry: Ядро Террарии
+TerraPrismStation_Tile.MapEntry: Ядро Безграничности
+PrismOre_Tile.MapEntry: Призменная руда
+OuroborosWoodBathtub_Tile.MapEntry: Уроборосовая ванна
+OuroborosWoodBed_Tile.MapEntry: Уроборосовая кровать
+OuroborosWoodBookcase_Tile.MapEntry: Уроборосовый книжный шкаф
+OuroborosWoodChair_Tile.MapEntry: Уроборосовый стул
+OuroborosWoodChest_Tile.MapEntry: Уроборосовый сундук
+OuroborosWoodClock_Tile.MapEntry: Уроборосовые часы
+OuroborosWoodDoorClosed_Tile.MapEntry: Уроборосовая дверь
+OuroborosWoodDoorOpen_Tile.MapEntry: Уроборосовая дверь
+OuroborosWoodLantern_Tile.MapEntry: Уроборосовый фонарь
+OuroborosWoodWorkbench_Tile.MapEntry: Уроборосовый верстак
+ApocalyptiteOre_Tile.MapEntry: Апокалиптит
+DoomBathtub_Tile.MapEntry: Гибельная ванна
+DoomBed_Tile.MapEntry: Гибельная кровать
+DoomBookcase_Tile.MapEntry: Гибельный книжный шкаф
+DoomCandelabra_Tile.MapEntry: Гибельный канделябр
+DoomCandle_Tile.MapEntry: Гибельная свеча
+DoomChair_Tile.MapEntry: Гибельный стул
+DoomChandelier_Tile.MapEntry: Гибельная люстра
+DoomChest_Tile.MapEntry: Гибельный сундук
+
+DoomClock_Tile: {
+	MapEntry: Часы обратного отсчёта
+
+	FlavorText: {
+		PreZero: Часы отсчитывают время до чего-то... вы, правда, не знаете, до чего. Число сейчас настолько большое, что вы даже не знаете, как оно называется.
+		PostZero: Часы показывают одну цифру: 0
+	}
+}
+
+DoomCouch_Tile.MapEntry: Гибельный диван
+DoomDoorClosed_Tile.MapEntry: Гибельная дверь
+DoomDoorOpen_Tile.MapEntry: Гибельная дверь
+DoomDresser_Tile.MapEntry: Гибельный комод
+DoomLamp_Tile.MapEntry: Гибельная лампа
+DoomLantern_Tile.MapEntry: Гибельный фонарь
+DoomPiano_Tile.MapEntry: Гибельное пианино
+DoomSink_Tile.MapEntry: Гибельная раковина
+DoomTable_Tile.MapEntry: Гибельный стол
+DoomWorkbench_Tile.MapEntry: Гибельный верстак
+BinaryReassembler_Tile.MapEntry: Бинарный рекомбинатор
+DoomsdayChest_Tile.MapEntry: Сундук судного дня
+OuroborosSapling_Tile.MapEntry: Саженец уроборосового дерева
+AncientDataBank_Tile.MapEntry: Древний банк данных
+DataBank_Tile.MapEntry: Банк данных
+StormChest_Tile.MapEntry: Штормовой сундук
+Core_Tile.MapEntry: Биомитовая ячейка
+CoreActivator_Tile.MapEntry: Двигатель ядра
+CoreDoor_Tile.MapEntry: Запечатанная дверь
+KeepBath_Tile.MapEntry: Ванна цитадели
+KeepBed_Tile.MapEntry: Кровать цитадели
+KeepBookcase_Tile.MapEntry: Книжный шкаф цитадели
+KeepCandelabra_Tile.MapEntry: Канделябр цитадели
+KeepCandle_Tile.MapEntry: Свеча цитадели
+KeepChair_Tile.MapEntry: Стул цитадели
+KeepChandelier_Tile.MapEntry: Люстра цитадели
+KeepClock_Tile.MapEntry: Часы цитадели
+KeepCouch_Tile.MapEntry: Диван цитадели
+KeepDoorClosed_Tile.MapEntry: Дверь цитадели
+KeepDoorOpen_Tile.MapEntry: Дверь цитадели
+KeepDresser_Tile.MapEntry: Комод цитадели
+KeepLamp_Tile.MapEntry: Лампа цитадели
+KeepLantern_Tile.MapEntry: Фонарь цитадели
+KeepPiano_Tile.MapEntry: Пианино цитадели
+KeepSink_Tile.MapEntry: Раковина цитадели
+KeepTable_Tile.MapEntry: Стол цитадели
+KeepWorkbench_Tile.MapEntry: Верстак цитадели
+SpiralStairs_Tile.MapEntry: Винтовая лестница
+TerraBath_Tile.MapEntry: Терра-ванна
+TerraBed_Tile.MapEntry: Терра-кровать
+TerraBookcase_Tile.MapEntry: Терра-книжный шкаф
+TerraCandelabra_Tile.MapEntry: Терра-канделябр
+TerraCandle_Tile.MapEntry: Терра-свеча
+TerraChair_Tile.MapEntry: Терра-стул
+TerraChandelier_Tile.MapEntry: Терра-люстра
+TerraChest_Tile.MapEntry: Терра-сундук
+TerraClock_Tile.MapEntry: Терра-часы
+TerraCouch_Tile.MapEntry: Терра-диван
+TerraDoorClosed_Tile.MapEntry: Терра-дверь
+TerraDoorOpen_Tile.MapEntry: Терра-дверь
+TerraDresser_Tile.MapEntry: Терра-комод
+TerraLamp_Tile.MapEntry: Терра-лампа
+TerraLantern_Tile.MapEntry: Терра-фонарь
+TerraPiano_Tile.MapEntry: Терра-пианино
+TerraSink_Tile.MapEntry: Терра-раковина
+TerraTable_Tile.MapEntry: Терра-стол
+TerraWorkbench_Tile.MapEntry: Терра-верстак
+KeepDoor1_Tile.MapEntry: Дверь цитадели
+KeepDoor2_Tile.MapEntry: Дверь цитадели
+KeepDoor2S_Tile.MapEntry: Дверь цитадели
+KeepDoor3_Tile.MapEntry: Дверь цитадели
+
+TerraStatue_Tile: {
+	MapEntry: Статуя павшего героя
+	FlavorText: Герой, спасший нас всех от неминуемого хаоса
+}
+
+SunkenChest_Tile.MapEntry: Затонувший сундук
+InfernoPylon_Tile.MapEntry: Пилон Инферно
+MirePylon_Tile.MapEntry: Пилон Трясины
+RedMushroomPylon_Tile.MapEntry: Пилон пустошей красных грибов
+VoidPylon_Tile.MapEntry: Пилон Пустоты
+FulguriteShard_Tile.MapEntry: Фульгуритовый осколок
+// RedmushBed_Tile.MapEntry: Mushroom Bed
+// RedmushBench_Tile.MapEntry: Mushroom Bench
+// RedmushBookcase_Tile.MapEntry: Mushroom Bookcase
+// RedmushCandelabra_Tile.MapEntry: Mushroom Candelabra
+// RedmushCandle_Tile.MapEntry: Mushroom Candle
+// RedmushChair_Tile.MapEntry: Mushroom Chair
+// RedmushChandelier_Tile.MapEntry: Mushroom Chandelier
+// RedmushChest_Tile.MapEntry: Mushroom Chest
+// RedmushClock_Tile.MapEntry: Mushroom Clock
+// RedmushCouch_Tile.MapEntry: Mushroom Couch
+// RedmushDoorClosed_Tile.MapEntry: Mushroom Door
+// RedmushDoorOpen_Tile.MapEntry: Mushroom Door
+// RedmushDresser_Tile.MapEntry: Mushroom Dresser
+// RedmushLamp_Tile.MapEntry: Mushroom Lamp
+// RedmushLantern_Tile.MapEntry: Mushroom Lantern
+// RedmushPiano_Tile.MapEntry: Mushroom Piano
+// RedmushSink_Tile.MapEntry: Mushroom Sink
+// RedmushTable_Tile.MapEntry: Mushroom Table
+// RedmushToilet_Tile.MapEntry: Mushroom Toilet
+// RedmushTub_Tile.MapEntry: Mushroom Tub
+// RedmushWorkbench_Tile.MapEntry: Mushroom Workbench

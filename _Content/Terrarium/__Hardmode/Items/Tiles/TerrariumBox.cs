@@ -19,6 +19,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Tiles
             // Tooltip.SetDefault("Plays ‘Resting Place’ by ProduceVGM");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
 
         }
 

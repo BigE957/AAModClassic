@@ -60,12 +60,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                 Projectile.velocity = Projectile.oldVelocity;
             }
 
-            for(int i = 0; i<1000; i++)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
-                if(Main.projectile[i].friendly && !Main.projectile[i].minion && Main.projectile[i].Hitbox.Intersects(Projectile.Hitbox))
-                {
-                    Main.projectile[i].Kill();
-                }
+                if (p.friendly && !p.minion && p.damage > 0 && p.Hitbox.Intersects(Projectile.Hitbox))
+                    p.Kill();
             }
         }
 
@@ -111,7 +109,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                 Projectile.direction = Projectile.velocity.X > 0 ? -1 : 1;
             }
             int red = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
-            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Value.Width, TextureAssets.Projectile[Projectile.type].Value.Height, 0, 2);
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Width(), TextureAssets.Projectile[Projectile.type].Height(), 0, 2);
             BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, red, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 1, frame, Alpha, true);
             return false;
         }

@@ -21,6 +21,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUl
         public override void SetStaticDefaults()
         {
             ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+            Item.ResearchUnlockCount = 3;
 
             // DisplayName.SetDefault("Cybernetic Bell");
             /* Tooltip.SetDefault(@"A carefully tinkered bell
@@ -32,7 +33,7 @@ Can only be used at night"); */
         {
             Item.width = 34;
             Item.height = 38;
-            Item.maxStack = 20;
+            Item.maxStack = Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Green;
             Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.useAnimation = 45;

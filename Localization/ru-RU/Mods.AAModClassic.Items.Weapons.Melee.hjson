@@ -1,0 +1,1125 @@
+BladeOfNight: {
+	DisplayName: Клинок ночи
+	Tooltip: Тёмный меч тёмного создания
+}
+
+Doragonburedo: {
+	DisplayName: Дораконбурэдо
+	Tooltip:
+		'''
+		«Я вынесу всю их тиму»
+		- Jace
+		'''
+}
+
+GentlemansRapier: {
+	DisplayName: Джентльменская рапира
+	Tooltip:
+		'''
+		Выпускает жуткие щегольские цилиндры
+		Нажмите ПКМ, чтобы сделать выпад клинком
+		Нажмите ЛКМ, чтобы взмахнуть клинком
+		«Пугает до усрачки»
+		- Tied
+		'''
+}
+
+Aerodrake: {
+	DisplayName: Аэродрейк
+	Tooltip: Парящий дракон EX
+}
+
+Apocalypse: {
+	DisplayName: Апокалипсис
+	Tooltip:
+		'''
+		Пылающие тыквенные головы движутся в сторону заката, куда души отправляются в загробный мир
+		Клинок всадника EX
+		'''
+}
+
+DraconianFury: {
+	DisplayName: Драконья ярость
+	Tooltip:
+		'''
+		Обрушивает на врагов дождь огня и ярости
+		Накладывает дебафф «Рассвет»
+		Царство огня EX
+		'''
+}
+
+DraculaKnives: {
+	DisplayName: Ножи дракулы
+	Tooltip:
+		'''
+		Быстро метает похищающие здоровье кинжалы
+		Вампирские ножи EX
+		'''
+}
+
+FuryGreatforger: {
+	DisplayName: Великий кователь ярости
+	Tooltip:
+		'''
+		Удары по врагам вызывают взрыв и разлёт искр от них
+		Кователь ярости EX
+		'''
+}
+
+GentlemansLongblade: {
+	DisplayName: Длинный джентльменский клинок
+	Tooltip:
+		'''
+		Выпускает множество жутких щегольских цилиндров
+		Нажмите ПКМ, чтобы сделать выпад клинком
+		Нажмите ЛКМ, чтобы взмахнуть клинком
+		Джентльменская рапира EX
+		'''
+}
+
+Ikari: {
+	DisplayName: Икари
+	Tooltip:
+		'''
+		Высвобождает взрывные лезвия хаоса, чтобы карать ваших врагов
+		Лезвия проходят сквозь блоки
+		Убийца хаоса EX
+		«Полезай в Еву»
+		'''
+}
+
+PerfectChaos: {
+	DisplayName: Совершенный хаос
+	Tooltip: Хаос EX
+}
+
+ScourgeOfTheShadows: {
+	DisplayName: Бич теней
+	Tooltip:
+		'''
+		Отскакивает от блоков до 3 раз
+		Разрушается при попадании во врага
+		Во время полёта и при попадании во врага выпускает маленьких пожирателей
+		Бич искажателя EX
+		'''
+}
+
+ScytheOfEvil: {
+	DisplayName: Коса зла
+	Tooltip:
+		'''
+		Коса самого владыки смерти
+		Накладывает дебаффы «Ихор» и «Проклятое пламя»
+		Коса смерти EX
+		'''
+}
+
+TheLolkat: {
+	DisplayName: Ха-ха-кот
+	Tooltip:
+		'''
+		ЧТО ЭТО ЗНАЧИТ?!?!?!111!!11
+		Мяумур EX
+		'''
+}
+
+TrueTerraBlade: {
+	DisplayName: Истинный терра-клинок
+	Tooltip:
+		'''
+		Выпускает самонаводящиеся снаряды, накладывающие дебафф «Терра-пламя»
+		Терра-клинок EX
+		'''
+}
+
+UltimaShortsword: {
+	DisplayName: Верховный кинжал
+	Tooltip: Медный кинжал EX
+}
+
+Umbra: {
+	DisplayName: Умбра
+	Tooltip:
+		'''
+		Тёмный меч тёмного создания
+		Клинок ночи EX
+		'''
+}
+
+CthulhusBlade: {
+	DisplayName: Клинок Ктулху
+	Tooltip: ""
+}
+
+ChaosSlayer: {
+	DisplayName: Убийца хаоса
+	Tooltip:
+		'''
+		Высвобождает лезвия хаоса, чтобы покарать ваших врагов
+		Лезвия проходят сквозь блоки
+		«Поражает воображение»
+		'''
+}
+
+TrueFleshrendClaymore: {
+	DisplayName: Истинный клеймор плотореза
+	Tooltip:
+		'''
+		Накладывает дебафф «Ихор» на цель
+		Несмотря на название, он не из плоти
+		'''
+}
+
+BlazingDawn: {
+	DisplayName: Пылающий рассвет
+	Tooltip: Зов лучезарного рассвета
+}
+
+FlamingFury: {
+	DisplayName: Пламенная ярость
+	Tooltip: Выкована из зажжённой ярости древних драконов
+}
+
+DraconianDawn: {
+	DisplayName: Драконий рассвет
+	Tooltip: Истинный клинок восходящего солнца
+}
+
+Dragonkite: {
+	DisplayName: Дракозмей
+	Tooltip: ""
+}
+
+Daycrusher: {
+	DisplayName: Безотрадный день
+	Tooltip:
+		'''
+		Обрушивается на врагов с силой солнечной массы
+		Накладывает дебафф «Рассвет»
+		'''
+}
+
+MorningGlory: {
+	DisplayName: Утренняя слава
+	Tooltip: При броске разделяется на 4 дополнительных фантомных пронзающих копья
+}
+
+ReignOfFire: {
+	DisplayName: Царство огня
+	Tooltip:
+		'''
+		Обрушивает на врагов дождь огня и ярости
+		Накладывает дебафф «Рассвет»
+		'''
+}
+
+Solar: {
+	DisplayName: Солнышко
+	Tooltip:
+		'''
+		Вращается со скоростью планеты, обращающейся вокруг солнца
+		Накладывает дебафф «Рассвет»
+		'''
+}
+
+SunPartisan: {
+	DisplayName: Солнечный партизан
+	Tooltip:
+		'''
+		Одно из двух легендарных копий, использованных для разделения времени на день и ночь
+		Накладывает дебафф «Рассвет»
+		'''
+}
+
+AbyssalYari: {
+	DisplayName: Яри бездны
+	Tooltip: Одно из двух легендарных копий, использованных для разделения времени на день и ночь
+}
+
+Crescent: {
+	DisplayName: Полумесяц
+	Tooltip:
+		'''
+		Быстрее света луны
+		Накладывает дебафф «Лунное разрушение»
+		'''
+}
+
+Flairdra: {
+	DisplayName: Вспыхдра
+	Tooltip:
+		'''
+		Стань Гидрой
+		Накладывает дебафф «Лунное разрушение»
+		'''
+}
+
+HydraStabber: {
+	DisplayName: Заточка бездны
+	Tooltip:
+		'''
+		Чрезвычайно быстрая и опасная
+		Накладывает дебафф «Лунное разрушение»
+		'''
+}
+
+ThrowingCrescent: {
+	DisplayName: Метательный полумесяц
+	Tooltip: ""
+}
+
+DragonBlade: {
+	DisplayName: Драконий клинок
+	Tooltip: Выпускает крошечные мечи
+}
+
+DarkmatterSlasher: {
+	DisplayName: Рассекатель из тёмной материи
+	Tooltip: ""
+}
+
+DarkmatterSpinblade: {
+	DisplayName: Вертоклинок из тёмной материи
+	Tooltip: ""
+}
+
+RealityShredders: {
+	DisplayName: Кромсатели реальности
+	Tooltip: Клинки из тёмной материи. Накладывают дебафф «Наэлектризованность»
+}
+
+Void: {
+	DisplayName: Пустота
+	Tooltip: Сделано из чистой тёмной материи
+}
+
+Poppy: {
+	DisplayName: Мак
+	Tooltip: ""
+}
+
+TrueCopperShortsword: {
+	DisplayName: Истинный медный кинжал
+	Tooltip: Сделано чисто ради мемов
+}
+
+StallionsStar: {
+	DisplayName: Звезда Жеребца
+	Tooltip: Вращающийся клинок гибели
+}
+
+RiftShredder: {
+	DisplayName: Кромсатель разлома
+	Tooltip: Выпускает пустотные звёзды, кромсающие саму реальность
+}
+
+TheVortex: {
+	DisplayName: Вихрь
+	Tooltip: Вращается достаточно быстро, чтобы затянуть всех врагов своим гравитационным притяжением
+}
+
+FulguriteTazesaber: {
+	DisplayName: Фульгуритовый шоко-клинок
+	Tooltip: ""
+}
+
+StormJavelin: {
+	DisplayName: Штормовое метательное копьё
+	Tooltip: ""
+}
+
+InfinityBlade: {
+	DisplayName: Клинок Безграничности
+	Tooltip: ""
+}
+
+SagittariusA: {
+	DisplayName: Сагиттариус-А
+	Tooltip: Бросает 6 острых как бритва цепов
+}
+
+FuryForger: {
+	DisplayName: Кователь ярости
+	Tooltip: Удары по врагам вызывают разлёт искр от них
+}
+
+CursedSickle: {
+	DisplayName: Проклятый серп
+	Tooltip:
+		'''
+		Вращает вокруг вас проклятую косу, кромсающую врагов
+		Нажмите ПКМ, чтобы взмахнуть косой над головой и выпустить проклятую косу
+		'''
+}
+
+Demise: {
+	DisplayName: Кончина
+	Tooltip:
+		'''
+		Легендарный меч, которым некогда владел король демонов
+		Нажмите ЛКМ, чтобы высвободить разрушительную демоническую энергию
+		Нажмите ПКМ, чтобы высвободить демонические клинки, падающие с неба
+		'''
+}
+
+ExtravagantLongsword: {
+	DisplayName: Длинный экстравагантный меч
+	Tooltip: ""
+}
+
+ExtravagantLongswordS: {
+	DisplayName: Длинный экстравагантный меч
+	Tooltip: ""
+}
+
+ScytheOfTheGrimReaper: {
+	DisplayName: Коса мрачного жнеца
+	Tooltip:
+		'''
+		Нажмите ЛКМ, чтобы взмахнуть и выпустить самонаводящуюся косу
+		Нажмите ПКМ, чтобы сделать рывок с ударом
+		Вы неуязвимы во время рывка и наносите 10-кратный урон в истинном ближнем бою
+		Перезарядка рывка: 10 секунд
+		«Ну, и много ты Мрачных Жнецов повидал, дружище?»
+		- Gregg
+		'''
+}
+
+SoulSiphon: {
+	DisplayName: Душеотвод
+	Tooltip:
+		'''
+		«Бля буду, ещё раз попросишь меня спеть…»
+		- Charlie
+		'''
+}
+
+TimeTeller: {
+	DisplayName: Хранитель времени
+	Tooltip:
+		'''
+		Урон меняется в зависимости от времени суток
+		Урон максимален в полдень и полночь
+		«Пора подыхать!»
+		- Dallin
+		'''
+}
+
+TitanAxe: {
+	DisplayName: Топор титана
+	Tooltip:
+		'''
+		Нажмите ПКМ, чтобы метнуть топор
+		Нажмите ЛКМ, чтобы взмахнуть топором
+		«Уф, это не гугл»
+		- Welox
+		'''
+}
+
+NoodleSword: {
+	DisplayName: "[РАЗРАБ.] Лоховской меч"
+	Tooltip: Топ-10 имба-оружия в видеоиграх
+}
+
+EmperorFlairon: {
+	DisplayName: Имперский кистенерон
+	Tooltip: Выпускает армаду самонаводящихся пузырей
+}
+
+Axis: {
+	DisplayName: Союз
+	Tooltip:
+		'''
+		Враги, поражённые этим копьём, будут окружены снежинками
+		Северный полюс EX
+		'''
+}
+
+Catastrophe: {
+	DisplayName: Катастрофа
+	Tooltip:
+		'''
+		Всемогущий великий клинок, которым некогда владел повелитель демонов
+		Нажмите ЛКМ, чтобы высвободить разрушительную демоническую энергию
+		Нажмите ПКМ, чтобы высвободить катастрофические клинки, падающие с неба
+		Удары истинного ближнего боя с некоторым шансом мгновенно поглощают душу врага
+		Кончина EX
+		'''
+}
+
+Chronos: {
+	DisplayName: Хронос
+	Tooltip:
+		'''
+		Хранитель времени EX
+		Урон меняется в зависимости от времени суток
+		Урон максимален в полдень и полночь
+		«Время - это большой шар шаткого-ваткого, временного-швременного йо-йо»
+		- Dallin
+		'''
+}
+
+CosmicFury: {
+	DisplayName: Космическая ярость
+	Tooltip:
+		'''
+		Вызывает дождь звёзд с неба
+		Звёзды могут достигать врагов сквозь любые препятствия
+		Звёздный гнев EX
+		'''
+}
+
+ExquisiteExtravagantGreatblade: {
+	DisplayName: Изысканный, Экстравагантный великий клинок
+	Tooltip: Длинный экстравагантный меч EX
+}
+
+ExquisiteExtravagantGreatbladeS: {
+	DisplayName: Изысканный, Экстравагантный великий клинок
+	Tooltip: Длинный экстравагантный меч EX
+}
+
+FinalChaos: {
+	DisplayName: Финальный хаос
+	Tooltip:
+		'''
+		«Я МОГУ ВСЁ»
+		Легендарное оружие
+		'''
+}
+
+PerfectChaosChain: {
+	DisplayName: Цепь совершенного хаоса
+	Tooltip:
+		'''
+		Выпускает вращающийся клинок, кромсающий врагов
+		Цепь хаоса EX
+		'''
+}
+
+PerfectChaosYari: {
+	DisplayName: Яри совершенного хаоса
+	Tooltip: Яри хаоса EX
+}
+
+SlapBone: {
+	DisplayName: Костошлёп
+	Tooltip:
+		'''
+		Малейший шлепок отправит ваших врагов на орбиту!
+		Рукошлёп EX
+		'''
+}
+
+SoulShredder: {
+	DisplayName: Кромсатель душ
+	Tooltip:
+		'''
+		Нажмите ЛКМ, чтобы взмахнуть и выпустить самонаводящуюся косу
+		Нажмите ПКМ, чтобы сделать рывок с ударом
+		Вы неуязвимы во время рывка и наносите 15-кратный урон в истинном ближнем бою
+		Перезарядка рывка: 5 секунд
+		«Ну, и много ты Мрачных Жнецов повидал, дружище?»
+		- Gregg
+		Коса мрачного жнеца EX
+		'''
+}
+
+TartarusReaper: {
+	DisplayName: Тартарийский жнец
+	Tooltip:
+		'''
+		Вращает вокруг вас проклятую косу, кромсающую врагов
+		Нажмите ПКМ, чтобы взмахнуть косой
+		Проклятый серп EX
+		'''
+}
+
+TitanSlayer: {
+	DisplayName: Убийца титанов
+	Tooltip:
+		'''
+		Нажмите ЛКМ, чтобы быстро взмахнуть топором
+		Нажмите ПКМ, чтобы метнуть топор
+		Топор титана EX
+		«Истреблю всех титанов... До единого!»
+		'''
+}
+
+BugSwatter: {
+	DisplayName: Мухобойка
+	Tooltip: Наносит дополнительный урон всяким ползучим тварям
+}
+
+MidasClub: {
+	DisplayName: Дубина Мидаса
+	Tooltip: Бей врагов - получай больше денег
+}
+
+Tizona: {
+	DisplayName: Тисона
+	Tooltip: ""
+}
+
+SkycutterKopis: {
+	DisplayName: Копис-неборез
+	Tooltip: ""
+}
+
+Olympia: {
+	DisplayName: Олимп
+	Tooltip: ""
+}
+
+BloodyMary: {
+	DisplayName: Кровавая мэри
+	Tooltip: ""
+}
+
+BaneOfTheBunny: {
+	DisplayName: Бич кролика
+	Tooltip:
+		'''
+		Нажмите ПКМ, чтобы использовать как копьё
+		Нажмите ЛКМ, чтобы использовать как метательное копьё
+		Метание копий сразу после выпада копьём на короткое время ускоряет бросок
+		'''
+}
+
+ThePunisher: {
+	DisplayName: Каратель
+	Tooltip: ""
+}
+
+BaneOfTheSlaughterer: {
+	DisplayName: Бич палача
+	Tooltip:
+		'''
+		Нажмите ПКМ, чтобы использовать как копьё
+		Нажмите ЛКМ, чтобы использовать как метательное копьё
+		Метание копий сразу после выпада копьём на короткое время ускоряет бросок
+		Бич кролика EX
+		'''
+}
+
+Excalihare: {
+	DisplayName: Зайкалибур
+	Tooltip: ""
+}
+
+TheAvenger: {
+	DisplayName: Мститель
+	Tooltip: Каратель EX
+}
+
+Chaos_Item: {
+	DisplayName: Хаос
+	Tooltip: Гнев и ярость на тех, кто поражён этим раздорным клинком
+}
+
+ChaosChain: {
+	DisplayName: Цепь хаоса
+	Tooltip: Выпускает нестабильную сферу хаотической энергии
+}
+
+ChaosYari: {
+	DisplayName: Яри хаоса
+	Tooltip: ""
+}
+
+Asteroid: {
+	DisplayName: Астероид
+	Tooltip:
+		'''
+		Врезается во врагов с силой астероида, падающего на землю
+		Накладывает дебафф «Раздорное инферно»
+		'''
+}
+
+Timesplitter: {
+	DisplayName: Рассекатель времени
+	Tooltip:
+		'''
+		Говорят, это копьё использовалось, чтобы разделить время на день и ночь
+		Накладывает дебаффы «Рассвет» и «Лунное разрушение»
+		'''
+}
+
+Masamune: {
+	DisplayName: Масамунэ
+	Tooltip:
+		'''
+		Нажмите ЛКМ, чтобы быстро рубить врагов клинком
+		Игнорирует кадры неуязвимости
+		Нажмите ПКМ, чтобы выпустить волну клинка
+		'''
+}
+
+DuskBringer: {
+	DisplayName: Сумрачный вестник
+	Tooltip: ""
+}
+
+FleshrendClaymore: {
+	DisplayName: Клеймор плоти
+	Tooltip: Запятнан кровью ваших павших врагов
+}
+
+CarnalCrusher: {
+	DisplayName: Плотодробитель
+	Tooltip: Критические удары исцеляют вас
+}
+
+IchorSpear: {
+	DisplayName: Ихорное копьё
+	Tooltip: Накладывает дебафф «Ихор» на врага при попадании
+}
+
+Djinnerang: {
+	DisplayName: Джиннаранг
+	Tooltip: ""
+}
+
+SultansScimitar: {
+	DisplayName: Скимитар Султана
+	Tooltip: ""
+}
+
+AmberGreatsword: {
+	DisplayName: Великий янтарный меч
+	Tooltip: ""
+}
+
+AmberSaber: {
+	DisplayName: Янтарная сабля
+	Tooltip: ""
+}
+
+DesertScimitar: {
+	DisplayName: Пустынный скимитар
+	Tooltip: ""
+}
+
+SandScimitar: {
+	DisplayName: Песчаный скимитар
+	Tooltip: ""
+}
+
+JackalsWrath: {
+	DisplayName: Гнев Шакала
+	Tooltip: При взмахе выпускает пронзающий стены возвращающийся фантомный клинок
+}
+
+Judgment: {
+	DisplayName: Правосудие
+	Tooltip: При попадании по врагу вызывает зачарованный песчаный дождь
+}
+
+CrookOfTheSoulJudge: {
+	DisplayName: Посох судьи душ
+	Tooltip:
+		'''
+		Проходит сквозь блоки
+		Каждое попадание посоха исцеляет вас при его возвращении
+		'''
+}
+
+Soulsplitter: {
+	DisplayName: Душегуб
+	Tooltip: При взмахе выпускает трио пронзающих стены возвращающихся фантомных клинков
+}
+
+Verdict: {
+	DisplayName: Вердикт
+	Tooltip:
+		'''
+		При попадании по врагу вызывает зачарованный песчаный дождь
+		Также создаёт 2 фантомных клинка отвергнутого, поражающих врага горизонтально
+		'''
+}
+
+AquaLance: {
+	DisplayName: Аква-копьё
+	Tooltip: ""
+}
+
+BladeOfEvil: {
+	DisplayName: Клинок зла
+	Tooltip:
+		'''
+		Превосходный баланс между искажением и багрянцем
+		Выпускает чередующиеся огненные шары ихора и проклятого пламени
+		'''
+}
+
+ToadTongue: {
+	DisplayName: Жабий язык
+	Tooltip: Притягивает врагов к вам при втягивании
+}
+
+GoblinSlayer: {
+	DisplayName: Убийца гоблинов
+	Tooltip:
+		'''
+		Нажмите ЛКМ, чтобы взмахнуть, и ПКМ, чтобы сделать выпад
+		«Клинок легендарного убийцы гоблинов»
+		'''
+}
+
+IlluminantFlail: {
+	DisplayName: Сияющий цеп
+	Tooltip: ""
+}
+
+MoltenLance: {
+	DisplayName: Раскалённое копьё
+	Tooltip: Делает моментальные шашлычки барбекю!
+}
+
+ScorchedSaw: {
+	DisplayName: Опалённая пила
+	Tooltip: ""
+}
+
+StoneSlammer: {
+	DisplayName: Камнедроб
+	Tooltip: Попадание по воздушной цели всегда является критическим и отбрасывает её в землю
+}
+
+Earthbreaker: {
+	DisplayName: Земледроб
+	Tooltip:
+		'''
+		Попадание по воздушной цели всегда является критическим и отбрасывает её в землю
+		Сотрясающая сила удара также с шансом 50% накладывает дебафф «Смятение» на поражённого врага
+		Если враг ударяется о землю после попадания, он получает урон
+		'''
+}
+
+DragonGlove: {
+	DisplayName: Перчатка дракона
+	Tooltip: ""
+}
+
+Incineration: {
+	DisplayName: Испепелитель
+	Tooltip: Вращающийся ожог
+}
+
+Pyrosphere: {
+	DisplayName: Пиросфера
+	Tooltip: ""
+}
+
+Yogan: {
+	DisplayName: Йоган
+	Tooltip: Поджигает врагов при попадании
+}
+
+Dracorang: {
+	DisplayName: Дракоранг
+	Tooltip: Оставляет недолговечный огненный след
+}
+
+Firestorm: {
+	DisplayName: Огненный шторм
+	Tooltip: При взмахе запускает отскакивающие огненные шары
+}
+
+Ryusei: {
+	DisplayName: Рюсэй
+	Tooltip: Поджигает врагов при попадании огнём и драконьим пламенем
+}
+
+SunHalberd: {
+	DisplayName: Солнечная алебарда
+	Tooltip: Рубит врагов по дуге, затем колет в направлении курсора
+}
+
+DragonShiv: {
+	DisplayName: Драконья заточка
+	Tooltip:
+		'''
+		Медленная, но бьёт как небесное тело
+		Накладывает дебафф «Рассвет»
+		'''
+}
+
+GrassSpear: {
+	DisplayName: Травяное копьё
+	Tooltip: ""
+}
+
+JungleReaper: {
+	DisplayName: Жнец джунглей
+	Tooltip: Это коса. Успокойся, Welox.
+}
+
+MadnessSaber: {
+	DisplayName: Сабля безумия
+	Tooltip: ""
+}
+
+AbyssalTwilight: {
+	DisplayName: Сумеречная бездна
+	Tooltip: Вечный сумрак зовёт
+}
+
+Depthwalker: {
+	DisplayName: Глубиноходец
+	Tooltip: Ходи как гидра
+}
+
+ExilesKatana: {
+	DisplayName: Катана изгнанника
+	Tooltip: Выкована из непреклонной ярости глубин
+}
+
+HydraGlove: {
+	DisplayName: Перчатка гидры
+	Tooltip: ""
+}
+
+HydrasSpear: {
+	DisplayName: Копьё гидры
+	Tooltip: ""
+}
+
+AbyssalArc: {
+	DisplayName: Дуга бездны
+	Tooltip: ""
+}
+
+BackScratcher: {
+	DisplayName: Спиночёс
+	Tooltip: ""
+}
+
+DeathDaggers: {
+	DisplayName: Кинжалы смерти
+	Tooltip: Метает похищающие здоровье кинжалы, накладывающие дебафф «Гидратоксин»
+}
+
+DreadTwilight: {
+	DisplayName: Сумеречный ужас
+	Tooltip: Восходящая луна во плоти
+}
+
+GuardianOfTheDepths: {
+	DisplayName: Страж глубин
+	Tooltip: ""
+}
+
+SwimmingHydra: {
+	DisplayName: Плавгидра
+	Tooltip: ""
+}
+
+Amenomuraku: {
+	DisplayName: Амэномураку
+	Tooltip:
+		'''
+		Использовался для победы над многоголовыми чудовищами бездны
+		Накладывает дебафф «Лунное разрушение»
+		'''
+}
+
+OceanRazor: {
+	DisplayName: Океанская бритва
+	Tooltip: Солёная
+}
+
+SaltwaterSpear: {
+	DisplayName: Копьё соляной воды
+	Tooltip: ""
+}
+
+RomulusTazesaber: {
+	DisplayName: Шоко-сабля Ромула
+	Tooltip: Фульгурийский шоко-клинок, украденный у уважаемого героя
+}
+
+SpookySawblade: {
+	DisplayName: Жуткий пилодиск
+	Tooltip: Одержимый жутким призраком чакрам, самонаводящийся на врагов
+}
+
+Musharang: {
+	DisplayName: Грибиранг
+	Tooltip: ""
+}
+
+Mushmace: {
+	DisplayName: Грибулава
+	Tooltip: ""
+}
+
+CloudEdge: {
+	DisplayName: Облачная грань
+	Tooltip: Выпускает облачные снаряды
+}
+
+TheDragonsBreath: {
+	DisplayName: Дыхание дракона
+	Tooltip: Ему, должно быть, нужно почистить зубы
+}
+
+BlizzardBuster: {
+	DisplayName: Метелом
+	Tooltip: ""
+}
+
+SerpentSpike: {
+	DisplayName: Змеиный шип
+	Tooltip: ""
+}
+
+SubzeroSlasher: {
+	DisplayName: Морозный секатель
+	Tooltip: С некоторым шансом при взмахе выпускает морозный снаряд
+}
+
+GlacierBreaker: {
+	DisplayName: Ледолом
+	Tooltip: Во время полёта цепа роняет сосульки
+}
+
+IceLongsword: {
+	DisplayName: Длинный ледяной меч
+	Tooltip: Швыряет во врагов настоящий лёд вместо того хилого снежка
+}
+
+RaiderLance: {
+	DisplayName: Копьё налётчика
+	Tooltip: ""
+}
+
+VikingPolearm: {
+	DisplayName: Алебарда викинга
+	Tooltip: ""
+}
+
+AsgardianLance: {
+	DisplayName: Асгардское копьё
+	Tooltip: ""
+}
+
+DragonFang: {
+	DisplayName: Драконий клык
+	Tooltip: Нажмите ПКМ, чтобы рубить врагов с грацией валькирии
+}
+
+BreakingDawn: {
+	DisplayName: Крушащий рассвет
+	Tooltip: ""
+}
+
+TerraBroadsword: {
+	DisplayName: Широкий терра-клинок
+	Tooltip: ""
+}
+
+HarmonyShortsword: {
+	DisplayName: Кинжал гармонии
+	Tooltip: ""
+}
+
+AmethystGreatsword: {
+	DisplayName: Великий аметистовый меч
+	Tooltip: ""
+}
+
+AmethystSaber: {
+	DisplayName: Аметистовая сабля
+	Tooltip: ""
+}
+
+DiamondGreatsword: {
+	DisplayName: Великий алмазный меч
+	Tooltip: ""
+}
+
+DiamondSaber: {
+	DisplayName: Алмазная сабля
+	Tooltip: ""
+}
+
+EmeraldGreatsword: {
+	DisplayName: Великий изумрудный меч
+	Tooltip: ""
+}
+
+EmeraldSaber: {
+	DisplayName: Изумрудная сабля
+	Tooltip: ""
+}
+
+PrismaticGreatsword: {
+	DisplayName: Великий призматический меч
+	Tooltip: ""
+}
+
+RubyGreatsword: {
+	DisplayName: Великий рубиновый меч
+	Tooltip: ""
+}
+
+RubySaber: {
+	DisplayName: Рубиновая сабля
+	Tooltip: ""
+}
+
+SapphireGreatsword: {
+	DisplayName: Великий сапфировый меч
+	Tooltip: ""
+}
+
+SapphireSaber: {
+	DisplayName: Сапфировая сабля
+	Tooltip: ""
+}
+
+TopazGreatsword: {
+	DisplayName: Великий топазовый меч
+	Tooltip: ""
+}
+
+TopazSaber: {
+	DisplayName: Топазовая сабля
+	Tooltip: ""
+}
+
+TrueTinShortsword: {
+	DisplayName: Истинный оловянный кинжал
+	Tooltip: Истинный клинок теней
+}
+
+SagittariusLeg: {
+	DisplayName: Нога Сагиттариуса
+	Tooltip: Это кусок металла. Им бьют. Довольно простая концепция.
+}
+
+DoomiteSaber: {
+	DisplayName: Гибельнитовая сабля
+	Tooltip: ""
+}
+
+Executioner: {
+	DisplayName: Палач
+	Tooltip: ""
+}
+
+Voidsaber: {
+	DisplayName: Пустотная сабля
+	Tooltip: ""
+}
+
+EventHorizon: {
+	DisplayName: Горизонт событий
+	Tooltip: ""
+}
+
+RealityAnchor: {
+	DisplayName: Якорь реальности
+	Tooltip: Швыряет таинственный якорь, наносящий удар с силами нескольких измерений
+}

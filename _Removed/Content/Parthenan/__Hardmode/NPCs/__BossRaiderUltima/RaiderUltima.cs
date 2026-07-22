@@ -77,30 +77,29 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
         public float[] internalAI = new float[6];
         public override void SendExtraAI(BinaryWriter writer)
         {
-            base.SendExtraAI(writer);
-            if (Main.netMode == NetmodeID.Server || Main.dedServ)
-            {
-                writer.Write(internalAI[0]);
-                writer.Write(internalAI[1]);
-                writer.Write(internalAI[2]);
-                writer.Write(internalAI[3]);
-                writer.Write(internalAI[4]);
-                writer.Write(internalAI[5]);
-            }
+            writer.Write(internalAI[0]);
+            writer.Write(internalAI[1]);
+            writer.Write(internalAI[2]);
+            writer.Write(internalAI[3]);
+            writer.Write(internalAI[4]);
+            writer.Write(internalAI[5]);
+            writer.Write(projectileTimer);
+            writer.Write(MovePoint.X);
+            writer.Write(MovePoint.Y);
+            writer.Write(SelectPoint);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            base.ReceiveExtraAI(reader);
-            if (Main.netMode == NetmodeID.MultiplayerClient)
-            {
-                internalAI[0] = reader.ReadSingle();
-                internalAI[1] = reader.ReadSingle();
-                internalAI[2] = reader.ReadSingle();
-                internalAI[3] = reader.ReadSingle();
-                internalAI[4] = reader.ReadSingle();
-                internalAI[5] = reader.ReadSingle();
-            }
+            internalAI[0] = reader.ReadSingle();
+            internalAI[1] = reader.ReadSingle();
+            internalAI[2] = reader.ReadSingle();
+            internalAI[3] = reader.ReadSingle();
+            internalAI[4] = reader.ReadSingle();
+            internalAI[5] = reader.ReadSingle();
+            projectileTimer = reader.ReadInt32();
+            MovePoint = new Vector2(reader.ReadSingle(), reader.ReadSingle());
+            SelectPoint = reader.ReadBoolean();
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
@@ -144,29 +143,29 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             {
                 StormingSiegeSystem.KillSiegeMech(2);
 
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore1").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore3").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore4").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore5").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore6").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore7").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGoreJaw").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGoreHorn").Type, 1f);
+                if (!Main.dedServ)
+                {
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore1").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore2").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore3").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore4").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore5").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore6").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGore7").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGoreJaw").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RaiderGoreHorn").Type, 1f);
+                }
             }
         }
 
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
-            if (Main.rand.Next(2) == 0 || Main.expertMode && Main.rand.Next(0) == 0)       //Chances for it to inflict the debuff
-            {
+            if (Main.expertMode || Main.rand.NextBool(2))       //Chances for it to inflict the debuff
                 target.AddBuff(BuffID.Electrified, Main.rand.Next(100, 180));       //Main.rand.Next part is the length of the buff, so 8.3 seconds to 16.6 seconds
-            }
         }
 
-        public int projectileInterval = 300; //how long until you fire projectiles
+        private const int projectileInterval = 300; //how long until you fire projectiles
         private int projectileTimer = 0;
-        public int ProjectileChoice = 0;
 
         public override void FindFrame(int frameHeight)
         {
@@ -201,8 +200,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             return false;
         }
 
-        int MaxMinions = Main.expertMode ? 8 : 5;
-        private float pos = 250;
+        private static int MaxMinions => Main.expertMode ? 8 : 5;
+        private float Pos => NPC.ai[1] == 0 ? -250 : 250;
         public const float AISTATE_RUNAWAY = -1f, AISTATE_FLYABOVEPLAYER = 0f, AISTATE_ROCKETS = 1f, AISTATE_SHOCKBOMB = 2f, AISTATE_CHARGEATPLAYER = 3f, AISTATE_SPAWNEGGS = 4f;
 
         public override void AI()
@@ -210,9 +209,12 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             Player player = Main.player[NPC.target];
 
             int Minions = NPC.CountNPCS(ModContent.NPCType<RaiderEgg>()) + NPC.CountNPCS(ModContent.NPCType<Raidmini>());
-            color = BaseUtility.MultiLerpColor(Main.player[Main.myPlayer].miscCounter % 100 / 100f, BaseDrawing.GetLightColor(NPC.position), BaseDrawing.GetLightColor(NPC.position), Color.Violet, BaseDrawing.GetLightColor(NPC.position), Color.Violet, BaseDrawing.GetLightColor(NPC.position));
 
-            Lighting.AddLight((int)(NPC.Center.X + NPC.width / 2) / 16, (int)(NPC.position.Y + NPC.height / 2) / 16, color.R / 255, color.G / 255, color.B / 255);
+            if (!Main.dedServ)
+            {
+                color = BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Lighting.GetColor(NPC.Center.ToTileCoordinates()), Lighting.GetColor(NPC.Center.ToTileCoordinates()), Color.Violet, Lighting.GetColor(NPC.Center.ToTileCoordinates()), Color.Violet, Lighting.GetColor(NPC.Center.ToTileCoordinates()));
+                Lighting.AddLight((int)(NPC.Center.X) / 16, (int)(NPC.position.Y) / 16, color.R / 255f, color.G / 255f, color.B / 255f);
+            }
 
             NPC.TargetClosest();
             if (Main.player[NPC.target].dead || !Main.player[NPC.target].active)
@@ -274,7 +276,6 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
                     }
                 }
             }
-            pos = NPC.ai[1] == 0 ? -250 : 250;
 
             if (Main.dayTime)
             {
@@ -283,7 +284,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
                 NPC.netUpdate = true;
             }
 
-            Vector2 wantedVelocity = player.Center - new Vector2(pos, 250);
+            Vector2 wantedVelocity = player.Center - new Vector2(Pos, 250);
             MoveToPoint(wantedVelocity);
 
             if (Main.dayTime)

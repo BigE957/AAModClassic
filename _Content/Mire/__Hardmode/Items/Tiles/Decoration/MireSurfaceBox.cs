@@ -15,6 +15,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Tiles.Decoration
             // Tooltip.SetDefault(@"Plays 'Secluded Swamp' by ProduceVGM");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
 
         public override void SetDefaults()

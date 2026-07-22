@@ -75,7 +75,7 @@ namespace AAModClassic
                             "storm" => aap.ZoneStorm,
                             "void" => aap.ZoneVoid,
                             "mush" => aap.ZoneMush,
-                            "terrarium" => aap.Terrarium,
+                            "terrarium" => aap.ZoneTerrarium,
                             _ => false,
                         };
                     case "ReplaceTrack":

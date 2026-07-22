@@ -87,7 +87,14 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             else
                 return false;
 
-            accountID = SteamUser.GetSteamID().GetAccountID().ToString();
+            try
+            {
+                accountID = SteamUser.GetSteamID().GetAccountID().ToString();
+            }
+            catch
+            {
+                return false;
+            }
 
             if (!string.IsNullOrEmpty(steamPath) && !string.IsNullOrEmpty(accountID))
             {

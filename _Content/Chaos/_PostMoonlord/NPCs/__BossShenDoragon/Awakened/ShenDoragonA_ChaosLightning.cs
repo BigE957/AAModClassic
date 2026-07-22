@@ -34,12 +34,16 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
         {
             for (int i = 0; i < Projectile.oldPos.Length; i++)
             {
-                projHitbox.X = (int)Projectile.oldPos[i].X;
-                projHitbox.Y = (int)Projectile.oldPos[i].Y;
-                if (projHitbox.Intersects(targetHitbox))
-                {
+                if(Projectile.oldPos[i] == Vector2.Zero)
+                    continue;
+
+                bool hit;
+                if (i == 0)
+                    hit = Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), Projectile.Center, Projectile.oldPos[0] + new Vector2(8, 8));
+                else
+                    hit = Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), Projectile.oldPos[i - 1] + new Vector2(8, 8), Projectile.oldPos[i] + new Vector2(8, 8));
+                if (hit)
                     return true;
-                }
             }
             return base.Colliding(projHitbox, targetHitbox);
         }
@@ -180,14 +184,14 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
             Texture2D tex3 = TextureAssets.Extra[ExtrasID.CultistLightingArc].Value;
             Projectile.GetAlpha(color25);
             Vector2 scale16 = new Vector2(Projectile.scale) / 2f;
-            for (int num291 = 0; num291 < 3; num291++)
+            for (int i = 0; i < 3; i++)
             {
-                if (num291 == 0)
+                if (i == 0)
                 {
                     scale16 = new Vector2(Projectile.scale) * 0.6f;
                     DelegateMethods.c_1 = Color.DarkMagenta * 0.5f;
                 }
-                else if (num291 == 1)
+                else if (i == 1)
                 {
                     scale16 = new Vector2(Projectile.scale) * 0.4f;
                     DelegateMethods.c_1 = Color.Magenta * 0.5f;
@@ -198,12 +202,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
                     DelegateMethods.c_1 = new Color(255, 255, 255, 0) * 0.5f;
                 }
                 DelegateMethods.f_1 = 1f;
-                for (int num292 = Projectile.oldPos.Length - 1; num292 > 0; num292--)
+                for (int j = Projectile.oldPos.Length - 1; j > 0; j--)
                 {
-                    if (!(Projectile.oldPos[num292] == Vector2.Zero))
+                    if (!(Projectile.oldPos[j] == Vector2.Zero))
                     {
-                        Vector2 start = Projectile.oldPos[num292] + new Vector2(Projectile.width, Projectile.height) / 2f + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition;
-                        Vector2 end2 = Projectile.oldPos[num292 - 1] + new Vector2(Projectile.width, Projectile.height) / 2f + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition;
+                        Vector2 start = Projectile.oldPos[j] + new Vector2(Projectile.width, Projectile.height) / 2f + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition;
+                        Vector2 end2 = Projectile.oldPos[j - 1] + new Vector2(Projectile.width, Projectile.height) / 2f + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition;
                         Utils.DrawLaser(Main.spriteBatch, tex3, start, end2, scale16, new Utils.LaserLineFraming(DelegateMethods.LightningLaserDraw));
                     }
                 }

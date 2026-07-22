@@ -12,6 +12,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
@@ -177,7 +178,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
                         internalAI[0]++;
                         internalAI[1] = 0;
                         NPC.netUpdate = true;
-                        if (NPC.CountNPCS(ModContent.NPCType<SingularityOfDesire>()) < 2)
+                        if (Main.netMode != NetmodeID.MultiplayerClient && NPC.CountNPCS(ModContent.NPCType<SingularityOfDesire>()) < 2)
                         {
                             int A = Main.rand.Next(-600, 600);
                             int tileCheck1 = (int)((player.Center.X + A)/16f);
@@ -201,8 +202,8 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
                         {
                             SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Custom/Quake1") with { Volume = 0.7f, PitchVariance = 0.1f });
                         }
-                        int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X, player.Center.Y - 100, 0f, 0f, ModContent.ProjectileType<GreedAHead_Warning>(), 43, 0, Main.myPlayer, NPC.life > (int)(NPC.lifeMax * 0.5f) ? 0 : 1, 0);
-                        Main.projectile[proj].netUpdate = true;
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X, player.Center.Y - 100, 0f, 0f, ModContent.ProjectileType<GreedAHead_Warning>(), 43, 0, Main.myPlayer, NPC.life > (int)(NPC.lifeMax * 0.5f) ? 0 : 1, 0);
                         NPC.netUpdate = true;
                     }
                     break;
@@ -213,9 +214,8 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
                     {
                         if (Main.rand.NextBool(40))
                         {
-
-                            int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X + Main.rand.Next(-200, 200), player.Center.Y + Main.rand.Next(200, 350), 0f, -4f, ModContent.ProjectileType<GreedAHead_MemoriesOfSomethingGrand>(), 32, 0, Main.myPlayer);
-                            Main.projectile[proj].netUpdate = true;
+                            if (Main.netMode != NetmodeID.MultiplayerClient)
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X + Main.rand.Next(-200, 200), player.Center.Y + Main.rand.Next(200, 350), 0f, -4f, ModContent.ProjectileType<GreedAHead_MemoriesOfSomethingGrand>(), 32, 0, Main.myPlayer);
                         }
                     }
                     if (internalAI[1] > 300)
@@ -249,8 +249,8 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
                     int A = Main.rand.Next(-200, 200) * 6;
                     int B = Main.rand.Next(-200, 200) - 1000;
 
-                    int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X + A, player.Center.Y + B, 0f, 7f, ModContent.ProjectileType<GreedAHead_CovetiteStalagtite>(), 43, 1);
-                    Main.projectile[p].netUpdate = true;
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X + A, player.Center.Y + B, 0f, 7f, ModContent.ProjectileType<GreedAHead_CovetiteStalagtite>(), 43, 1);
                 }
             }
 
@@ -592,7 +592,8 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
 
         public override void OnKill()
         {
-            TileProtectionSystem.UnprotectTiles(ModContent.TileType<GreedStone_Tile>(), ModContent.TileType<GreedBrick_Tile>());
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                TileProtectionSystem.UnprotectTiles(ModContent.TileType<GreedStone_Tile>(), ModContent.TileType<GreedBrick_Tile>());
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

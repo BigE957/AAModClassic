@@ -609,7 +609,7 @@ namespace AAModClassic.Globals
 
             LeadingConditionRule terraPrismCondition = new(new LambdaDropRuleCondition((info) =>
             {
-                return !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && NPC.downedPlantBoss && info.player.GetModPlayer<ZAAPlayer>().Terrarium;
+                return !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && NPC.downedPlantBoss && info.player.GetModPlayer<ZAAPlayer>().ZoneTerrarium;
             }, false));
 
             terraPrismCondition.OnSuccess(ItemDropRule.Common(ModContent.ItemType<TerraPrism>(), 100), true);
@@ -1150,7 +1150,7 @@ namespace AAModClassic.Globals
                 }
             }
 
-            if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().Terrarium)
+            if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneTerrarium)
             {
                 ClearPoolWithExceptions(pool);
 
@@ -1216,7 +1216,7 @@ namespace AAModClassic.Globals
                 }
             }
 
-            if (spawnInfo.Player.GetModPlayer<AAPlayer_Unreleased>().ZoneShip)
+            if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneShip)
             {
                 ClearPoolWithExceptions(pool);
 
@@ -1325,10 +1325,7 @@ namespace AAModClassic.Globals
                     {
                         if (Main.netMode == NetmodeID.SinglePlayer)
                         {
-                            if (Main.netMode != NetmodeID.MultiplayerClient)
-                            {
-                                BaseUtility.Chat(npcName + " " + Language.GetTextValue("Mods.AAModClassic.Common.NPCarrive"), 175, 75, 255, false);
-                            }
+                            BaseUtility.Chat(npcName + " " + Language.GetTextValue("Mods.AAModClassic.Common.NPCarrive"), 175, 75, 255, false);
                         }
                         else if (Main.netMode == NetmodeID.Server)
                         {
@@ -1339,10 +1336,7 @@ namespace AAModClassic.Globals
                     {
                         if (Main.netMode == NetmodeID.SinglePlayer)
                         {
-                            if (Main.netMode != NetmodeID.MultiplayerClient)
-                            {
-                                BaseUtility.Chat(Language.GetTextValue("Announcement.HasAwoken", npcName), 175, 75, 255, false);
-                            }
+                            BaseUtility.Chat(Language.GetTextValue("Announcement.HasAwoken", npcName), 175, 75, 255, false);
                         }
                         else if (Main.netMode == NetmodeID.Server)
                         {
@@ -1356,7 +1350,6 @@ namespace AAModClassic.Globals
             }
             else
             {
-                //I have no idea how to convert this to the standard system so im gonna post this method too lol
                 AANet.SendNetMessage<SummonNPCFromClient>((byte)player.whoAmI, (short)bossType, spawnMessage, (int)npcCenter.X, (int)npcCenter.Y, overrideDisplayName, namePlural);
             }
         }

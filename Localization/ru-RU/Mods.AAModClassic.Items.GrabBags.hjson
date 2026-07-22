@@ -1,0 +1,428 @@
+TreasureBags: {
+	ShenDoragonTreasureBag: {
+		DisplayName: Мешок с сокровищами (Шэнь Доракон)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	AnubisTreasureBag: {
+		DisplayName: Мешок с сокровищами (Анубис)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	AnubisATreasureBag: {
+		DisplayName: Мешок с сокровищами (Отвергнутый судья, Анубис)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	BroodmotherTreasureBag: {
+		DisplayName: Мешок с сокровищами (Матерь выводка)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	AkumaTreasureBag: {
+		DisplayName: Мешок с сокровищами (Акума)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	HydraTreasureBag: {
+		DisplayName: Мешок с сокровищами (Гидра)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	YamataTreasureBag: {
+		DisplayName: Мешок с сокровищами (Ямата)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	ZeroTreasureBag: {
+		DisplayName: Мешок с сокровищами (Зиро)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	OrthrusXTreasureBag: {
+		DisplayName: Мешок с сокровищами (Орф X)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	RaiderUltimaTreasureBag: {
+		DisplayName: Мешок с сокровищами (Налётчица Ультима)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	RetrieverTreasureBag: {
+		DisplayName: Мешок с сокровищами (Ретривер)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	TechnoTruffleTreasureBag: {
+		DisplayName: Мешок с сокровищами (Техно-трюфель)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	InfinityZeroTreasureBag: {
+		DisplayName: Сокровища (Безграничный Зиро)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	AthenaTreasureBag: {
+		DisplayName: Мешок с сокровищами (Афина)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	AthenaATreasureBag: {
+		DisplayName: Мешок с сокровищами (Олимпийская Афина)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	RajahRabbitTreasureBag: {
+		DisplayName: Мешок с сокровищами (Кролик-Раджа)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	RajahRabbitATreasureBag: {
+		DisplayName: Сокровища (Заступник невинных)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	GripsOfChaosTreasureBag: {
+		DisplayName: Мешок с сокровищами (Длани хаоса)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	SistersOfDiscordTreasureBag: {
+		DisplayName: Мешок с сокровищами (Сёстры Раздора)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	DesertDjinnTreasureBag: {
+		DisplayName: Мешок с сокровищами (Пустынный Джинн)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	FeudalFungusTreasureBag: {
+		DisplayName: Мешок с сокровищами (Грибной феодал)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	TruffleToadTreasureBag: {
+		DisplayName: Мешок с сокровищами (Трюфельная жаба)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	GreedTreasureBag: {
+		DisplayName: Мешок с сокровищами (Алчность)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	GreedATreasureBag: {
+		DisplayName: Мешок с сокровищами (Король червей, Алчность)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	MushroomMonarchTreasureBag: {
+		DisplayName: Мешок с сокровищами (Грибной монарх)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	SubzeroSerpentTreasureBag: {
+		DisplayName: Мешок с сокровищами (Морозная змея)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	EquinoxWormsTreasureBag: {
+		DisplayName: Мешок с сокровищами (Черви Равноденствия)
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen}
+			Содержимое зависит от времени суток
+			'''
+	}
+
+	SagittariusTreasureBag: {
+		DisplayName: Мешок с сокровищами (Сагиттариус)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	SoulOfCthulhuTreasureBag: {
+		DisplayName: Сокровища (Душа Ктулху)
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+}
+
+Vanity: {
+	AnarchyBag: {
+		DisplayName: Нетронутая сумка
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen}
+			«Всё необходимое, чтобы косплеить Анархию! Нет, правда, это просто Анархия»
+			К слову, Анархия сделал этот спрайт сам
+			'''
+	}
+
+	ApawnBag: {
+		DisplayName: Яйцо с сюрпризом
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen}
+			«Это пластиковое яйцо. ОЧЕНЬ большое!»
+			'''
+	}
+
+	AvesBag: {
+		DisplayName: Сумка DJ Утки
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить Монохромного Селезня!»
+			'''
+	}
+
+	BegBag: {
+		DisplayName: Странная лошадиная сумка
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить того странного парня-лошадь!»
+			'''
+	}
+
+	BigEBag: {
+		DisplayName: Сумка Большой Буквы
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить Большую Букву!»
+			'''
+	}
+
+	BlazenBag: {
+		DisplayName: Сумка Повелителя грома
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить Повелителя Грома!»
+			'''
+	}
+
+	CCBag: {
+		DisplayName: Картонная коробка Маниака Трясины
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить Ужасающего Фанатика!»
+			'''
+	}
+
+	CerberusBag: {
+		DisplayName: Конура Щенка Цербера
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить Зазывателя Щенков!»
+			'''
+	}
+
+	CharlieBag: {
+		DisplayName: Сумка Жнеца
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить Мрачного Эджлорда!»
+			'''
+	}
+
+	DellyBag: {
+		DisplayName: Сумка Дочери пустоты
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить Владычицу Пустоты!»
+			'''
+	}
+
+	FargoBag: {
+		DisplayName: Беличий цилиндр
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить Мемную Белку!»
+			'''
+	}
+
+	FazerBag: {
+		DisplayName: Мокрая меховая сумка
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить Весёлого Лиса!»
+			'''
+	}
+
+	GibsBag: {
+		DisplayName: Саркофаг Злобного Ревенанта
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить Яростного Ревенанта!»
+			'''
+	}
+
+	GroxBag: {
+		DisplayName: Морской сундук Гровита
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить Злого Кодового Пирата!»
+			'''
+	}
+
+	HallamBag: {
+		DisplayName: Цилиндр Фокусника
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить Безумного Кота!»
+			'''
+	}
+
+	MaskanoBag: {
+		DisplayName: Сумка с масками
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen}
+			«Всё необходимое, чтобы косплеить Повелителя Масок»
+			'''
+	}
+
+	MikpinBag: {
+		DisplayName: Сумка Кицунэ
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить Виабу-Лиса!»
+			'''
+	}
+
+	MoonBag: {
+		DisplayName: Сумка Лунного Насекомого
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить Лунную Пчелу!»
+			'''
+	}
+
+	PlutoBag: {
+		DisplayName: Сумка Внешнего Бога
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить Карликового Бога!»
+			'''
+	}
+
+	ShoxBag: {
+		DisplayName: Заряженная шоковая сумка
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить Шокового Лорда!»
+			'''
+	}
+
+	TailsBag: {
+		DisplayName: Инструментальный ящик Тейлза
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить Чудо-лиса!»
+			'''
+	}
+
+	TiedBag: {
+		DisplayName: Цилиндр Старого Фокусника
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить Щеголеватого Костяного Человека!»
+			'''
+	}
+
+	VoidEyeBag: {
+		DisplayName: Врата Пустоты
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen}
+			«Всё необходимое, чтобы косплеить Тёмного Наблюдателя!»
+			'''
+	}
+
+	DallinBag: {
+		DisplayName: Сумка Лорда Феза
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить Лорда Феза!»
+			'''
+	}
+
+	FuryWitchsBag: {
+		DisplayName: Сумка Эш
+		Tooltip:
+			'''
+			Нажмите ПКМ, чтобы открыть
+			Содержит набор одеяний разъярённой ведьмы
+			'''
+	}
+
+	MidnightAssassinBag: {
+		DisplayName: Шкатулка Харуки
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen}
+			Содержит набор одежды Полуночного ассасина
+			'''
+	}
+
+	PlanterrorBag: {
+		DisplayName: Сумка Ужасного Растения
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen} 
+			«Всё необходимое, чтобы косплеить Ужасное Растение!»
+			'''
+	}
+}
+
+Crates: {
+	InfernoCrate: {
+		DisplayName: Ящик Инферно
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	DaybreakCrate: {
+		DisplayName: Рассветный ящик
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	MireCrate: {
+		DisplayName: Ящик Трясины
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	EventideCrate: {
+		DisplayName: Сумеречный ящик
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	VoidCrate: {
+		DisplayName: Ящик Пустоты
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	NullCrate: {
+		DisplayName: Нулевой ящик
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+}

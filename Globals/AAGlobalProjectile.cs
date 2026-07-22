@@ -1,18 +1,6 @@
-using AAModClassic._Content.Desert.___PreHardmode.Items.Tiles.Decoration;
-using AAModClassic._Content.Hell.___PreHardmode.Items.Tiles.Decoration;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables;
-using AAModClassic._Content.Inferno.World.Tiles;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
-using AAModClassic._Content.Mire.World.Tiles;
-using AAModClassic._Content.RedMushroom.World.Tiles;
-using AAModClassic._Content.Snow.___PreHardmode.Items.Tiles.Decoration;
-using AAModClassic._Content.Void.___PreHardmode.Items.Consumables;
-using AAModClassic._Content.Void.World.Tiles;
-using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -108,64 +96,7 @@ namespace AAModClassic.Globals
 					projectile.damage = damage;
 				}
 			}
-            if (projectile.type == ProjectileID.PureSpray)
-            {
-                Convert((int)(projectile.position.X + (projectile.width / 2)) / 16, (int)(projectile.position.Y + (projectile.height / 2)) / 16);
-            }
-
-            base.PostAI(projectile);
         }
-
-
-        public static void Convert(int i, int j, int size = 4)
-        {
-            for (int k = i - size; k <= i + size; k++)
-            {
-                for (int l = j - size; l <= j + size; l++)
-                {
-                    if (WorldGen.InWorld(k, l, 1) && Math.Abs(k - i) + Math.Abs(l - j) < 6)
-                    {
-                        if (Main.tile[k, l].TileType == ModContent.TileType<InfernoGrass_Tile>() || Main.tile[k, l].TileType == ModContent.TileType<MireGrass_Tile>() || Main.tile[k, l].TileType == ModContent.TileType<Mycelium_Tile>() || Main.tile[k, l].TileType == ModContent.TileType<DoomGrass_Tile>())
-                        {
-                            Main.tile[k, l].TileType = TileID.Grass;
-                            WorldGen.SquareTileFrame(k, l, true);
-                            NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
-                        }
-                        else if (Main.tile[k, l].TileType == ModContent.TileType<Torchstone_Tile>() || Main.tile[k, l].TileType == ModContent.TileType<Depthstone_Tile>() || Main.tile[k, l].TileType == ModContent.TileType<DoomstoneB_Tile>())
-                        {
-                            Main.tile[k, l].TileType = TileID.Stone;
-                            WorldGen.SquareTileFrame(k, l, true);
-                            NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
-                        }
-                        else if (Main.tile[k, l].TileType == ModContent.TileType<Torchsand_Tile>() || Main.tile[k, l].TileType == ModContent.TileType<Depthsand_Tile>())
-                        {
-                            Main.tile[k, l].TileType = TileID.Sand;
-                            WorldGen.SquareTileFrame(k, l, true);
-                            NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
-                        }
-                        else if (Main.tile[k, l].TileType == ModContent.TileType<TorchsandHardened_Tile>() || Main.tile[k, l].TileType == ModContent.TileType<DepthsandHardened_Tile>())
-                        {
-                            Main.tile[k, l].TileType = TileID.HardenedSand;
-                            WorldGen.SquareTileFrame(k, l, true);
-                            NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
-                        }
-                        else if (Main.tile[k, l].TileType == ModContent.TileType<Torchsandstone_Tile>() || Main.tile[k, l].TileType == ModContent.TileType<Depthsandstone_Tile>())
-                        {
-                            Main.tile[k, l].TileType = TileID.Sandstone;
-                            WorldGen.SquareTileFrame(k, l, true);
-                            NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
-                        }
-                        else if (Main.tile[k, l].TileType == ModContent.TileType<Torchice_Tile>() || Main.tile[k, l].TileType == ModContent.TileType<IndigoIce_Tile>())
-                        {
-                            Main.tile[k, l].TileType = TileID.IceBlock;
-                            WorldGen.SquareTileFrame(k, l, true);
-                            NetMessage.SendTileSquare(-1, k, l, 1, TileChangeType.None);
-                        }
-                    }
-                }
-            }
-        }
-
 
         public Vector2 reflectvelocity = Vector2.Zero;
 

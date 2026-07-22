@@ -40,7 +40,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
         {
             if (effect)
             {
-                if (PlayerInput.Triggers.JustPressed.Grapple && !Player.HasBuff<BrokenCode_FreezeCooldown>() && !Player.HasBuff<BrokenCode_Freeze>() && Main.myPlayer == Player.whoAmI)
+                if (PlayerInput.Triggers.JustPressed.Grapple && !Player.HasBuff<BrokenCodeTeleportUnofficialEffect_FreezeCooldown>() && !Player.HasBuff<BrokenCodeTeleportUnofficialEffect_Freeze>() && Main.myPlayer == Player.whoAmI)
                 {
                     Player.immune = true;
                     Player.immuneNoBlink = true;
@@ -48,9 +48,9 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
 
                     Teleport();
 
-                    Player.AddBuff(ModContent.BuffType<BrokenCode_FreezeCooldown>(), BrokenCodeTeleportUnofficialEffect.FREEZECOOLDOWNDURATION);
+                    Player.AddBuff(ModContent.BuffType<BrokenCodeTeleportUnofficialEffect_FreezeCooldown>(), BrokenCodeTeleportUnofficialEffect.FREEZECOOLDOWNDURATION);
                     //Player.AddBuff(ModContent.BuffType<BrokenCode_FreezeCooldown>(), 60);
-                    Player.AddBuff(ModContent.BuffType<BrokenCode_Freeze>(), BrokenCodeTeleportUnofficialEffect.FREEZEDURATION);
+                    Player.AddBuff(ModContent.BuffType<BrokenCodeTeleportUnofficialEffect_Freeze>(), BrokenCodeTeleportUnofficialEffect.FREEZEDURATION);
                     //Player.AddBuff(ModContent.BuffType<BrokenCode_Freeze>(), 20);
                 }
             }
@@ -118,7 +118,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
 
         private static void UpdatePlayer(On_Player.orig_Update orig, Player p, int i)
         {
-            int buff = ModContent.BuffType<BrokenCode_Freeze>();
+            int buff = ModContent.BuffType<BrokenCodeTeleportUnofficialEffect_Freeze>();
 
             if (p.active && p.HasBuff(buff))
             {
@@ -132,7 +132,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
                 if (PlayerInput.Triggers.JustPressed.Grapple && Main.myPlayer == p.whoAmI)
                 {
                     p.GetModPlayer<BrokenCodeTeleportUnofficialPlayer>().Teleport();
-                    p.ClearBuff(ModContent.BuffType<BrokenCode_Freeze>());
+                    p.ClearBuff(ModContent.BuffType<BrokenCodeTeleportUnofficialEffect_Freeze>());
                 }
 
                 return;
@@ -152,7 +152,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
 
         private static void UpdateNPC(On_NPC.orig_UpdateNPC orig, NPC npc, int i)
         {
-            int buff = ModContent.BuffType<BrokenCode_Freeze>();
+            int buff = ModContent.BuffType<BrokenCodeTeleportUnofficialEffect_Freeze>();
             foreach (Player player in Main.ActivePlayers)
             {
                 if (player != null && player.active && player.HasBuff(buff))
@@ -166,7 +166,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
 
         private static void UpdateProj(On_Projectile.orig_Update orig, Projectile proj, int i)
         {
-            int buff = ModContent.BuffType<BrokenCode_Freeze>();
+            int buff = ModContent.BuffType<BrokenCodeTeleportUnofficialEffect_Freeze>();
             foreach (Player player in Main.ActivePlayers)
             {
                 if (player != null && player.active && player.HasBuff(buff))
@@ -180,7 +180,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
 
         private static void UpdateDust(On_Dust.orig_UpdateDust orig)
         {
-            int buff = ModContent.BuffType<BrokenCode_Freeze>();
+            int buff = ModContent.BuffType<BrokenCodeTeleportUnofficialEffect_Freeze>();
             foreach (Player player in Main.ActivePlayers)
             {
                 if (player != null && player.active && player.HasBuff(buff))

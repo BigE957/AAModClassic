@@ -35,18 +35,18 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapo
         {
             for (int i = 0; i < Projectile.oldPos.Length; i++)
             {
-                if (Projectile.oldPos[i].X == 0f && Projectile.oldPos[i].Y == 0f)
-                {
-                    break;
-                }
-                projHitbox.X = (int)Projectile.oldPos[i].X;
-                projHitbox.Y = (int)Projectile.oldPos[i].Y;
-                if (projHitbox.Intersects(targetHitbox))
-                {
+                if (Projectile.oldPos[i] == Vector2.Zero)
+                    continue;
+
+                bool hit;
+                if (i == 0)
+                    hit = Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), Projectile.Center, Projectile.oldPos[0] + new Vector2(8, 8));
+                else
+                    hit = Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), Projectile.oldPos[i - 1] + new Vector2(8, 8), Projectile.oldPos[i] + new Vector2(8, 8));
+                if (hit)
                     return true;
-                }
             }
-            return false;
+            return base.Colliding(projHitbox, targetHitbox);
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity)

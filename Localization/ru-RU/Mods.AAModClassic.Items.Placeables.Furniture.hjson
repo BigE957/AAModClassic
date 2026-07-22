@@ -1,0 +1,643 @@
+Doom: {
+	DoomBathtub: {
+		DisplayName: Гибельная ванна
+		Tooltip: ""
+	}
+
+	DoomBed: {
+		DisplayName: Гибельная кровать
+		Tooltip: ""
+	}
+
+	DoomCandelabra: {
+		DisplayName: Гибельный канделябр
+		Tooltip: ""
+	}
+
+	DoomCandle: {
+		DisplayName: Гибельная свеча
+		Tooltip: ""
+	}
+
+	DoomChair: {
+		DisplayName: Гибельный стул
+		Tooltip: ""
+	}
+
+	DoomChandelier: {
+		DisplayName: Гибельная люстра
+		Tooltip: ""
+	}
+
+	DoomChest: {
+		DisplayName: Гибельный сундук
+		Tooltip: ""
+	}
+
+	DoomClock: {
+		DisplayName: Часы обратного отсчёта
+		Tooltip: ""
+	}
+
+	DoomCouch: {
+		DisplayName: Гибельный диван
+		Tooltip: ""
+	}
+
+	DoomDresser: {
+		DisplayName: Гибельный комод
+		Tooltip: ""
+	}
+
+	DoomLamp: {
+		DisplayName: Гибельная лампа
+		Tooltip: ""
+	}
+
+	DoomLantern: {
+		DisplayName: Гибельный фонарь
+		Tooltip: ""
+	}
+
+	DoomPiano: {
+		DisplayName: Гибельное пианино
+		Tooltip: ""
+	}
+
+	DoomSink: {
+		DisplayName: Гибельная раковина
+		Tooltip: ""
+	}
+
+	DoomTable: {
+		DisplayName: Гибельный стол
+		Tooltip: ""
+	}
+
+	DoomWorkbench: {
+		DisplayName: Гибельный верстак
+		Tooltip: ""
+	}
+
+	DoomBookcase: {
+		DisplayName: Гибельный книжный шкаф
+		Tooltip: ""
+	}
+
+	DoomDoor: {
+		DisplayName: Гибельная дверь
+		Tooltip: ""
+	}
+
+	DoomPlatform: {
+		DisplayName: Гибельная платформа
+		Tooltip: ""
+	}
+}
+
+Razewood: {
+	RazewoodBed: {
+		DisplayName: Выжженная кровать
+		Tooltip: ""
+	}
+
+	RazewoodBookshelf: {
+		DisplayName: Выжженный книжный шкаф
+		Tooltip: ""
+	}
+
+	RazewoodCandelabra: {
+		DisplayName: Выжженный канделябр
+		Tooltip: ""
+	}
+
+	RazewoodCandle: {
+		DisplayName: Выжженная свеча
+		Tooltip: ""
+	}
+
+	RazewoodChair: {
+		DisplayName: Выжженный стул
+		Tooltip: ""
+	}
+
+	RazewoodChandelier: {
+		DisplayName: Выжженная люстра
+		Tooltip: ""
+	}
+
+	RazewoodChest: {
+		DisplayName: Выжженный сундук
+		Tooltip: ""
+	}
+
+	RazewoodClock: {
+		DisplayName: Выжженные часы
+		Tooltip: ""
+	}
+
+	RazewoodCouch: {
+		DisplayName: Выжженный диван
+		Tooltip: ""
+	}
+
+	RazewoodDoor: {
+		DisplayName: Выжженная дверь
+		Tooltip: ""
+	}
+
+	RazewoodDresser: {
+		DisplayName: Выжженный комод
+		Tooltip: ""
+	}
+
+	RazewoodLamp: {
+		DisplayName: Выжженная лампа
+		Tooltip: ""
+	}
+
+	RazewoodLantern: {
+		DisplayName: Выжженный фонарь
+		Tooltip: ""
+	}
+
+	RazewoodPiano: {
+		DisplayName: Выжженное пианино
+		Tooltip: ""
+	}
+
+	RazewoodPlatform: {
+		DisplayName: Выжженная платформа
+		Tooltip: ""
+	}
+
+	RazewoodSink: {
+		DisplayName: Выжженная раковина
+		Tooltip: ""
+	}
+
+	RazewoodTable: {
+		DisplayName: Выжженный стол
+		Tooltip: ""
+	}
+
+	RazewoodTub: {
+		DisplayName: Выжженная ванна
+		Tooltip: ""
+	}
+
+	RazewoodWorkbench: {
+		DisplayName: Выжженный верстак
+		Tooltip: ""
+	}
+}
+
+Bogwood: {
+	BogwoodBathtub: {
+		DisplayName: Болотная ванна
+		Tooltip: ""
+	}
+
+	BogwoodBed: {
+		DisplayName: Болотная кровать
+		Tooltip: ""
+	}
+
+	BogwoodBench: {
+		DisplayName: Болотный диван
+		Tooltip: ""
+	}
+
+	BogwoodBookshelf: {
+		DisplayName: Болотный книжный шкаф
+		Tooltip: ""
+	}
+
+	BogwoodCandelabra: {
+		DisplayName: Болотный канделябр
+		Tooltip: ""
+	}
+
+	BogwoodCandle: {
+		DisplayName: Болотная свеча
+		Tooltip: ""
+	}
+
+	BogwoodChair: {
+		DisplayName: Болотный стул
+		Tooltip: ""
+	}
+
+	BogwoodChandelier: {
+		DisplayName: Болотная люстра
+		Tooltip: ""
+	}
+
+	BogwoodChest: {
+		DisplayName: Болотный сундук
+		Tooltip: ""
+	}
+
+	BogwoodClock: {
+		DisplayName: Болотные часы
+		Tooltip: ""
+	}
+
+	BogwoodCouch: {
+		DisplayName: Болотный диван
+		Tooltip: ""
+	}
+
+	BogwoodDoor: {
+		DisplayName: Болотная дверь
+		Tooltip: ""
+	}
+
+	BogwoodDresser: {
+		DisplayName: Болотный комод
+		Tooltip: ""
+	}
+
+	BogwoodLamp: {
+		DisplayName: Болотная лампа
+		Tooltip: ""
+	}
+
+	BogwoodLantern: {
+		DisplayName: Болотный фонарь
+		Tooltip: ""
+	}
+
+	BogwoodPiano: {
+		DisplayName: Болотное пианино
+		Tooltip: ""
+	}
+
+	BogwoodPlatform: {
+		DisplayName: Болотная платформа
+		Tooltip: ""
+	}
+
+	BogwoodSink: {
+		DisplayName: Болотная раковина
+		Tooltip: ""
+	}
+
+	BogwoodTable: {
+		DisplayName: Болотный стол
+		Tooltip: ""
+	}
+
+	BogwoodWorkbench: {
+		DisplayName: Болотный верстак
+		Tooltip: ""
+	}
+}
+
+OuroborosWood: {
+	OuroborosWoodBathtub: {
+		DisplayName: Уроборосовая ванна
+		Tooltip: ""
+	}
+
+	OuroborosWoodBed: {
+		DisplayName: Уроборосовая кровать
+		Tooltip: ""
+	}
+
+	OuroborosWoodBookcase: {
+		DisplayName: Уроборосовый книжный шкаф
+		Tooltip: ""
+	}
+
+	OuroborosWoodCandle: {
+		DisplayName: Уроборосовая свеча
+		Tooltip: ""
+	}
+
+	OuroborosWoodChair: {
+		DisplayName: Уроборосовый стул
+		Tooltip: ""
+	}
+
+	OuroborosWoodChest: {
+		DisplayName: Уроборосовый сундук
+		Tooltip: ""
+	}
+
+	OuroborosWoodClock: {
+		DisplayName: Уроборосовые часы
+		Tooltip: ""
+	}
+
+	OuroborosWoodDoor: {
+		DisplayName: Уроборосовая дверь
+		Tooltip: ""
+	}
+
+	OuroborosWoodLamp: {
+		DisplayName: Уроборосовая лампа
+		Tooltip: ""
+	}
+
+	OuroborosWoodLantern: {
+		DisplayName: Уроборосовый фонарь
+		Tooltip: ""
+	}
+
+	OuroborosWoodPlatform: {
+		DisplayName: Уроборосовая платформа
+		Tooltip: ""
+	}
+
+	OuroborosWoodWorkbench: {
+		DisplayName: Уроборосовый верстак
+		Tooltip: ""
+	}
+}
+
+Keep: {
+	KeepBath: {
+		DisplayName: Ванна цитадели
+		Tooltip: ""
+	}
+
+	KeepBed: {
+		DisplayName: Кровать цитадели
+		Tooltip: ""
+	}
+
+	KeepBookcase: {
+		DisplayName: Книжный шкаф цитадели
+		Tooltip: ""
+	}
+
+	KeepCandelabra: {
+		DisplayName: Канделябр цитадели
+		Tooltip: ""
+	}
+
+	KeepCandle: {
+		DisplayName: Свеча цитадели
+		Tooltip: ""
+	}
+
+	KeepChair: {
+		DisplayName: Стул цитадели
+		Tooltip: ""
+	}
+
+	KeepChandelier: {
+		DisplayName: Люстра цитадели
+		Tooltip: ""
+	}
+
+	KeepClock: {
+		DisplayName: Часы цитадели
+		Tooltip: ""
+	}
+
+	KeepCouch: {
+		DisplayName: Диван цитадели
+		Tooltip: ""
+	}
+
+	KeepDoor: {
+		DisplayName: Дверь цитадели
+		Tooltip: ""
+	}
+
+	KeepDresser: {
+		DisplayName: Комод цитадели
+		Tooltip: ""
+	}
+
+	KeepLamp: {
+		DisplayName: Лампа цитадели
+		Tooltip: ""
+	}
+
+	KeepLantern: {
+		DisplayName: Фонарь цитадели
+		Tooltip: ""
+	}
+
+	KeepPiano: {
+		DisplayName: Пианино цитадели
+		Tooltip: ""
+	}
+
+	KeepSink: {
+		DisplayName: Раковина цитадели
+		Tooltip: ""
+	}
+
+	KeepTable: {
+		DisplayName: Стол цитадели
+		Tooltip: ""
+	}
+
+	KeepWorkbench: {
+		DisplayName: Верстак цитадели
+		Tooltip: ""
+	}
+
+	SpiralStairs: {
+		DisplayName: Винтовая лестница
+		Tooltip: ""
+	}
+}
+
+Terra: {
+	TerraBath: {
+		DisplayName: Терра-ванна
+		Tooltip: ""
+	}
+
+	TerraBed: {
+		DisplayName: Терра-кровать
+		Tooltip: ""
+	}
+
+	TerraBookcase: {
+		DisplayName: Терра-книжный шкаф
+		Tooltip: ""
+	}
+
+	TerraCandelabra: {
+		DisplayName: Терра-канделябр
+		Tooltip: ""
+	}
+
+	TerraCandle: {
+		DisplayName: Терра-свеча
+		Tooltip: ""
+	}
+
+	TerraChair: {
+		DisplayName: Терра-стул
+		Tooltip: ""
+	}
+
+	TerraChandelier: {
+		DisplayName: Терра-люстра
+		Tooltip: ""
+	}
+
+	TerraChest: {
+		DisplayName: Терра-сундук
+		Tooltip: ""
+	}
+
+	TerraClock: {
+		DisplayName: Терра-часы
+		Tooltip: ""
+	}
+
+	TerraCouch: {
+		DisplayName: Терра-диван
+		Tooltip: ""
+	}
+
+	TerraDoor: {
+		DisplayName: Терра-дверь
+		Tooltip: ""
+	}
+
+	TerraDresser: {
+		DisplayName: Терра-комод
+		Tooltip: ""
+	}
+
+	TerraLamp: {
+		DisplayName: Терра-лампа
+		Tooltip: ""
+	}
+
+	TerraLantern: {
+		DisplayName: Терра-фонарь
+		Tooltip: ""
+	}
+
+	TerraPiano: {
+		DisplayName: Терра-пианино
+		Tooltip: ""
+	}
+
+	TerraSink: {
+		DisplayName: Терра-раковина
+		Tooltip: ""
+	}
+
+	TerraTable: {
+		DisplayName: Терра-стол
+		Tooltip: ""
+	}
+
+	TerraWorkbench: {
+		DisplayName: Терра-верстак
+		Tooltip: ""
+	}
+}
+
+RedMushroom: {
+	RedmushBed: {
+		// DisplayName: Mushroom Bed
+		// Tooltip: ""
+	}
+
+	RedmushBench: {
+		// DisplayName: Mushroom Bench
+		// Tooltip: ""
+	}
+
+	RedmushBookcase: {
+		// DisplayName: Mushroom Bookcase
+		// Tooltip: ""
+	}
+
+	RedmushCandelabra: {
+		// DisplayName: Mushroom Candelabra
+		// Tooltip: ""
+	}
+
+	RedmushCandle: {
+		// DisplayName: Mushroom Candle
+		// Tooltip: ""
+	}
+
+	RedmushChair: {
+		// DisplayName: Mushroom Chair
+		// Tooltip: ""
+	}
+
+	RedmushChandelier: {
+		// DisplayName: Mushroom Chandelier
+		// Tooltip: ""
+	}
+
+	RedmushChest: {
+		// DisplayName: Mushroom Chest
+		// Tooltip: ""
+	}
+
+	RedmushClock: {
+		// DisplayName: Mushroom Clock
+		// Tooltip: ""
+	}
+
+	RedmushCouch: {
+		// DisplayName: Mushroom Couch
+		// Tooltip: ""
+	}
+
+	RedmushDoor: {
+		// DisplayName: Mushroom Door
+		// Tooltip: ""
+	}
+
+	RedmushDresser: {
+		// DisplayName: Mushroom Dresser
+		// Tooltip: ""
+	}
+
+	RedmushLamp: {
+		// DisplayName: Mushroom Lamp
+		// Tooltip: ""
+	}
+
+	RedmushLantern: {
+		// DisplayName: Mushroom Lantern
+		// Tooltip: ""
+	}
+
+	RedmushPiano: {
+		// DisplayName: Mushroom Piano
+		// Tooltip: ""
+	}
+
+	RedmushSink: {
+		// DisplayName: Mushroom Sink
+		// Tooltip: ""
+	}
+
+	RedmushTable: {
+		// DisplayName: Mushroom Table
+		// Tooltip: ""
+	}
+
+	RedmushToilet: {
+		// DisplayName: Mushroom Toilet
+		// Tooltip: ""
+	}
+
+	RedmushTub: {
+		// DisplayName: Mushroom Tub
+		// Tooltip: ""
+	}
+
+	RedmushWorkbench: {
+		// DisplayName: Mushroom Workbench
+		// Tooltip: ""
+	}
+}

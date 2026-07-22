@@ -1,6 +1,10 @@
 using AAModClassic._Content.Inferno.__Hardmode.Items.Accessories;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._Content.Mire.__Hardmode.Items.Accessories;
+using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
+using AAModClassic._CrossMod.Thorium.Weapons.Healer;
+using AAModClassic._Unofficial.Content.Inferno.__Hardmode.Items.Tools;
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -51,7 +55,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
 
         public override void HitEffect(NPC.HitInfo hit)
 		{
-			if (NPC.life <= 0)
+			if (NPC.life <= 0 && !Main.dedServ)
 			{
 				Gore.NewGore(NPC.GetSource_Death(), NPC.position, Vector2.Zero, 13);
 				Gore.NewGore(NPC.GetSource_Death(), NPC.position, Vector2.Zero, 12);
@@ -61,9 +65,15 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<OrnateBand>(), ModContent.ItemType<SunHalberd>()));
+            LeadingConditionRule notUnofficialRule = new(new NotUnofficial());
+
+            notUnofficialRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<OrnateBand>(), ModContent.ItemType<SunHalberd>()));
+
+            npcLoot.Add(notUnofficialRule);
 
             LeadingConditionRule unofficialRule = new(new Unofficial());
+
+            unofficialRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<OrnateBand>(), ModContent.ItemType<SunHalberd>(), ModContent.ItemType<DragonsGrip>()));
 
             unofficialRule.OnSuccess(ItemDropRule.Common(ItemID.GreaterHealingPotion, 1, 5, 10));
 

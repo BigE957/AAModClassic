@@ -197,7 +197,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
                 }
                 else if (!NPC.HasBuff(BuffID.Wet))
                 {
-                    AAAI.BreatheFire(NPC, 35, true, ModContent.ProjectileType<AkumaHead_Breath>(), 2);
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        AAAI.BreatheFire(NPC, 35, true, ModContent.ProjectileType<AkumaHead_Breath>(), 2);
                 }
                 if (attackTimer >= 80)
                 {

@@ -15,6 +15,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandar
             // Tooltip.SetDefault(@"Plays 'RAW Abyssal Wrath' by SpectralAves");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
 
         public override void SetDefaults()

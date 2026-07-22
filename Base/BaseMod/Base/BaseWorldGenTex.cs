@@ -70,8 +70,8 @@ namespace AAModClassic.Base.BaseMod.Base
         public static Dictionary<Color, int> colorToLiquid;
         public static Dictionary<Color, int> colorToSlope;
 
-        public static HashSet<int> unbreakableTileIDs = [];
-        public static HashSet<int> unbreakableWallIDs = [];
+        public HashSet<int> unbreakableTileIDs = [];
+        public HashSet<int> unbreakableWallIDs = [];
 
         public int width, height;
         private readonly TileInfo[,] tileGen;
@@ -172,14 +172,12 @@ namespace AAModClassic.Base.BaseMod.Base
                 };
             }
 
-            if (unbreakableTiles != null)
-                unbreakableTileIDs = unbreakableTiles;
-
-            if (unbreakableWalls != null)
-                unbreakableWallIDs = unbreakableWalls;
-
             int x = 0, y = 0;
             TexGen gen = new(tileData.Width, tileData.Height);
+
+            gen.unbreakableTileIDs = unbreakableTiles ?? [];
+            gen.unbreakableWallIDs = unbreakableWalls ?? [];
+
             for (int m = 0; m < tileData.Length; m++)
             {
                 Color tileColor = tileData[m];

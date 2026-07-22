@@ -1,0 +1,910 @@
+APageOfTheRuneBookEffect_BunnyRune.DisplayName: Руна кролика
+APageOfTheRuneBookEffect_DiscordRune.DisplayName: Руна раздора
+APageOfTheRuneBookEffect_EnergyRune.DisplayName: Руна энергии
+CerberusWhistle_Cerberus.DisplayName: Цербер
+K9Collar_K9Unit.DisplayName: Модуль K9
+MoonBeeInAJar_Lunamini.DisplayName: Лунамини
+MudFishBall_Mudkip.DisplayName: Мадкип
+RoyalStar_RoyalKitten.DisplayName: Королевский котёнок
+ShinyFishBall_ShinyMudkip.DisplayName: Блестящий мадкип
+AleisterStaff_InvokedDamage.DisplayName: Урон призванного
+AleisterStaff_InvokedHeal.DisplayName: Исцеление призванного
+AleisterStaff_InvokedRune.DisplayName: Руна призванного
+AleisterStaff_Proj.DisplayName: Снаряд посоха Алистера
+GameRaider_GameRocket.DisplayName: Ракета GameRaider
+GameRaider_MooBoom.DisplayName: Му-взрыв
+PineBreaker_Pine.DisplayName: Сосна
+BladeOfNight_NightSlash.DisplayName: Ночной разрез
+ConflagrateStaff_ConflagrateConstruct.DisplayName: Воспламенённый конструкт
+CursedSickle_Holdout.DisplayName: Проклятый серп (зарядка)
+CursedSickle_Proj.DisplayName: Проклятый серп
+CursedSickleDamage.DisplayName: Урон проклятого серпа
+CursedSickleDamage2.DisplayName: Урон проклятого серпа 2
+CursedSickleEffect.DisplayName: Эффект проклятого серпа
+Demise_DemiseBlade.DisplayName: Клинок кончины
+Demise_DemiseExplosion.DisplayName: Взрыв кончины
+Demise_DemiseSphere.DisplayName: Сфера кончины
+Doragonburedo_Ryugen.DisplayName: Рюген
+DuckstepLauncher_Duck.DisplayName: Утка
+DuckstepLauncher_Ducksplosion.DisplayName: Утковзрыв
+DuckstepLauncher_DucksplosionAlt.DisplayName: Утковзрыв (альт.)
+Ethereal_Deathray.DisplayName: Эфирный луч
+Ethereal_Holdout.DisplayName: Эфирность (зарядка)
+ExtravagantLongsword_BigBoom.DisplayName: Большой взрыв
+ExtravagantLongsword_BigE.DisplayName: Большая Е
+ExtravagantLongswordS_BigE.DisplayName: Большая Е
+GentlemansRapier_TopHat.DisplayName: Цилиндр
+GibsFemur_AngryFemur.DisplayName: Злая бедренная кость
+MagicAcorn_Acorn.DisplayName: Жёлудь
+MagicAcorn_Squirrel1.DisplayName: Белка
+MagicAcorn_Squirrel2.DisplayName: Белка (2)
+MobianBuster_Holdout.DisplayName: Мобианский крушитель (зарядка)
+MobianBuster_MobianChargedShot.DisplayName: Мобианский заряженный выстрел
+MobianBuster_MobianShot.DisplayName: Мобианский выстрел
+Placeholder_SoonTM.DisplayName: Скоро ТМ
+PoniumStaff_PonyShot.DisplayName: Пони-выстрел
+PoniumStaff_Ponysplosion.DisplayName: Пони-взрыв
+ScytheOfTheGrimReaper_Hitbox.DisplayName: Хитбокс жнеца
+ScytheOfTheGrimReaper_Proj.DisplayName: Коса мрачного жнеца
+SkrallStaff_BigCrystal.DisplayName: Большой кристалл
+SkrallStaff_Crystal.DisplayName: Кристалл
+SockStaff_SockPuppet.DisplayName: Носочная кукла
+SoulSiphon_Heal.DisplayName: Исцеление
+SoulSiphon_Proj.DisplayName: Душеотвод
+StormRifle_ThunderSpark.DisplayName: Грозовая искра
+TimeTeller_Holdout.DisplayName: Хранитель времени (зарядка)
+TimeTeller_Time.DisplayName: Время
+TitanAxe_Proj.DisplayName: Топор титана
+UmbralReaper_VoidSpear.DisplayName: Копьё пустоты
+UmbralReaper_VoidWave.DisplayName: Волна пустоты
+Noodle.DisplayName: "[РАЗРАБ.] Лапша"
+FurySpark.DisplayName: Искра ярости
+EmperorFlairon_Holdout.DisplayName: Имперский кистенерон (зарядка)
+FishnadoStaff_Fishnado.DisplayName: Рыбанадо
+Hurricane_OceanicArrow.DisplayName: Океаническая стрела
+TheBookOfRunesEffect_ChaosRune.DisplayName: Руна хаоса
+TheBookOfRunesEffect_NovaRay.DisplayName: Луч новой
+TheBookOfRunesEffect_TerraRune.DisplayName: Руна терры
+TheBookOfRunesEffect_VoidRune.DisplayName: Руна пустоты
+TheBookOfTheLaw_ClawSlash.DisplayName: Когтящий разрез
+Aerodrake_Aeroslash.DisplayName: Aerodrake_ Aeroslash
+Aerodrake_AeroslashSplit.DisplayName: Осколок аэроразреза
+Apocalypse_Explosion.DisplayName: Взрыв апокалипсиса
+Apocalypse_FlamingJack.DisplayName: Пылающий Джек
+Apocalypse_Heal.DisplayName: Исцеление
+Axis_Holdout.DisplayName: Союз (зарядка)
+Axis_Proj.DisplayName: Выстрел союза
+BlizzardDragonStaff_BlizzardDragon.DisplayName: Метельный дракон
+BlizzardDragonStaff_IceBall.DisplayName: Ледяной шар посоха метельного дракона
+Catastrophe_CatastropheBlade.DisplayName: Клинок катастрофы
+Catastrophe_CatastropheExplosion.DisplayName: Взрыв катастрофы
+Catastrophe_CatastropheSphere.DisplayName: Сфера кончины
+Chronos_Holdout.DisplayName: Хронос (зарядка)
+ConflagrateScythe_ConflagrateConstructEX.DisplayName: Миньон Эндера EX
+CosmicFury_Proj.DisplayName: Космическая ярость
+TartarusReaperDamage.DisplayName: TartarusReaper
+TartarusReaperDamage2.DisplayName: TartarusReaper
+TartarusReaperEffect.DisplayName: TartarusReaper
+DraconianFury_Flamesplosion.DisplayName: Пламенный взрыв
+DraconianFury_Meteor.DisplayName: Метеор драконьей ярости
+EternalTwilight_YamataPhantom.DisplayName: Фантом Яматы вечных сумерек
+ExquisiteExtravagantGreatblade_BiggerE.DisplayName: Большая Е изысканного экстравагантного великого клинка
+ExquisiteExtravagantGreatbladeS_BiggerE.DisplayName: Большая Е изысканного экстравагантного великого клинка (S)
+FinalChaos_Proj.DisplayName: Коса хаоса
+FinalChaos_Scythe.DisplayName: ХАОС ХАОС
+FreedomStar_FreedomChargedShot.DisplayName: Заряженный выстрел свободы
+FreedomStar_FreedomShot.DisplayName: Выстрел свободы
+FreedomStar_Holdout.DisplayName: Звезда свободы (зарядка)
+FreedomStar_PlasmaBall.DisplayName: Плазменный шар
+HiveArtillery_Bee.DisplayName: Пчела улебоя
+HiveArtillery_BeeStrong.DisplayName: Усиленная пчела улебоя
+Ikari_BladeOfAbyssalWrath.DisplayName: Клинок абиссального гнева
+Ikari_BladeOfBlazingFury.DisplayName: Клинок пылающей ярости
+Ikari_BladeOfUnyieldingChaos.DisplayName: Клинок неумолимого хаоса
+Light_Deathray.DisplayName: Свет (луч)
+Light_Holdout.DisplayName: Свет (зарядка)
+OmenStaff_Crow.DisplayName: Ворон
+PerfectChaos_ChaosBeam.DisplayName: Луч хаоса
+PerfectChaos_Explosion.DisplayName: Раздорная ярость
+PerfectChaosBustershot_ChaosShot1.DisplayName: Выстрел хаоса 1
+PerfectChaosBustershot_ChaosShot2.DisplayName: Выстрел хаоса
+PerfectChaosBustershot_ChaosShot3.DisplayName: Выстрел хаоса
+PerfectChaosChain_Holdout.DisplayName: Цепь совершенного хаоса (зарядка)
+PerfectChaosChain_Proj.DisplayName: Пила хаоса
+PerfectChaosJavelin_PerfectChaosBlast.DisplayName: Взрыв совершенного хаоса
+PerfectChaosJavelin_Proj.DisplayName: Метательное копьё совершенного хаоса
+PerfectChaosRitual_ChaosExplosion.DisplayName: Взрыв хаоса
+PerfectChaosRitual_ChaosFireball.DisplayName: Огненный шар Сяо
+PerfectChaosRitual_XiaoDoragon.DisplayName: Сяо Дорагон
+PerfectChaosYari_Holdout.DisplayName: Яри хаоса (зарядка)
+PerfectChaosYari_Proj.DisplayName: Яри совершенного хаоса
+PoniumUltiscepter_PonyShot.DisplayName: Пони-выстрел
+PoniumUltiscepter_Ponysplosion.DisplayName: Пони-взрыв
+PrismeowSpectrum_LegendaryRainbowCat.DisplayName: Легендарная радужная кошка
+ScourgeOfTheShadows_CursedFireball.DisplayName: Проклятый огненный шар
+ScourgeOfTheShadows_Proj.DisplayName: Снаряд бича теней
+ScourgeOfTheShadows_ProjSplit.DisplayName: Осколок снаряда бича теней
+ScytheOfEvil_Holdout.DisplayName: Коса зла (зарядка)
+ScytheOfEvil_Proj.DisplayName: Коса зла
+SharkLauncher_Shark.DisplayName: Акула
+SoccOnAStick_SockDudeFromBaldis.DisplayName: Носочная кукла (Балди)
+SoccOnAStick_SockPuppet.DisplayName: Носочная кукла
+SoulShredder_Proj.DisplayName: Кромсатель душ
+Spectrum_Deathray.DisplayName: Луч спектра
+Spectrum_Holdout.DisplayName: Кристалл (зарядка)
+StarburstWand_Holdout.DisplayName: Палочка звёздной вспышки (зарядка)
+StarburstWand_SparkLarge.DisplayName: Большая искра
+StarburstWand_SparkMedium.DisplayName: Средняя искра
+StarburstWant_SparkLargeExplosion.DisplayName: Взрыв большой искры
+StarburstWant_SparkMediumExplosion.DisplayName: Взрыв средней искры
+SubzeroStormStaff_SubzeroSnowflake.DisplayName: Снежинка посоха морозного шторма
+SupremeHellshot_Hellshot.DisplayName: Адский выстрел высшего адострела
+TartarusReaper_Holdout.DisplayName: Тартарийский жнец (зарядка)
+TartarusReaper_Proj.DisplayName: Снаряд тартарийского жнеца
+ThunderLord_SuperchargedThunderbullet.DisplayName: Сверхзаряженная громовая пуля
+ThunderLord_ThunderBoom.DisplayName: Громовой взрыв
+ThunderLord_Thundershot.DisplayName: Громовой выстрел
+ThunderLord_Thunderstrike.DisplayName: Громовой удар
+TitanSlayer_Proj.DisplayName: Метательный топор убийцы титанов
+TitanSlayer_Slash.DisplayName: Разрез убийцы титанов
+TrueTerraBlade_UnityBeam.DisplayName: Луч единства
+TrueTerraRose_Proj.DisplayName: Терра-роза
+TrueTerraRose_TrueTerraPetal.DisplayName: Истинный лепесток терры
+UltimaShortsword_UltimaShot.DisplayName: Выстрел верховного кинжала
+FlamingGelWand_FlamingGel.DisplayName: Пылающий гель
+EnergyCell_Proj.DisplayName: Лазер
+M79Round_Proj.DisplayName: Патрон M79
+PaperBomb_Boomer.DisplayName: Бумер
+ManaBlade_ManaStar.DisplayName: Звезда маны
+AncientArcanum_Quazar.DisplayName: Квазар
+SeraphHarp_Seraph.DisplayName: Серафим арфы
+DivineWindStone_OwlRune.DisplayName: Руна совы камня божественных ветров
+GaleOfWings_Tornado.DisplayName: Торнадо крылатого порыва
+RazorwindLongbow_WindArrow.DisplayName: Ветряная стрела
+SkycutterKopis_Skyblade.DisplayName: Небесный клинок
+GoddessHarp_Athena.DisplayName: Афина арфы богини
+GoddessHarp_RazorGust.DisplayName: Бритвенный порыв
+GoddessHarp_VarianBurst.DisplayName: Всплеск Вариан
+HurricaneStone_OlympianStorm.DisplayName: Олимпийский шторм
+HurricaneStone_OwlRuneCharged.DisplayName: Заряженная руна совы ураганного камня
+Hurricane.DisplayName: Ураган
+Olympia_Skyrazor.DisplayName: Небесная бритва
+AthenaA_ChargedVarianBurst.DisplayName: Заряженный всплеск Вариан
+AthenaA_RazorGust.DisplayName: Бритвенный порыв
+AthenaA_SwiftwindOrb.DisplayName: Сфера быстрого ветра
+AthenaA_SwiftwindSpear.DisplayName: Копьё быстрого ветра
+AthenaA_VarianBurst.DisplayName: Всплеск Вариан
+ChargedOwlRune_OlympianStorm.DisplayName: Олимпийский шторм
+AthenaGale.DisplayName: Порыв
+AthenaHurricane.DisplayName: Торнадо
+FeatherProjectile.DisplayName: Снаряд-перо
+GaleArrow.DisplayName: Штормовая стрела
+SeraphFeather.DisplayName: Перо серафима
+BaneOfTheBunny_Holdout.DisplayName: Бич кролика (зарядка)
+BaneOfTheBunny_Proj.DisplayName: Бич кролика
+Bunzooka_Raboom.DisplayName: Кроликобум
+Bunzooka_RajahRocket.DisplayName: Ракета Раджи
+CottonCane_RabbitcopterSoldier.DisplayName: Кролёт-солдат
+ThePunisher_Holdout.DisplayName: Каратель (зарядка)
+RajahRabbit_BaneOfTheBunny.DisplayName: Бич кролика
+RajahRabbit_BunnyBattlerSummon.DisplayName: Призыв кролика-бойца
+RajahRabbit_BunnyBrawlerSummon.DisplayName: Призыв кролика-драчуна
+RajahRabbit_Carrot.DisplayName: Морковь
+RajahRabbit_CarrotFarmer.DisplayName: Морковная коса
+RajahRabbit_RabbitcopterSoldierSummon.DisplayName: Призыв кролёта-солдата
+RajahRabbit_Raboom.DisplayName: Кроликобум
+RajahRabbit_RajahRocket.DisplayName: Ракета Раджи
+RajahRabbit_Stomp.DisplayName: Топот
+RajahRabbit_ThePunisher.DisplayName: Каратель
+RajahRabbitBookIt.DisplayName: Кролик-Раджа
+BaneOfTheSlaughterer_Holdout.DisplayName: Бич палача (зарядка)
+BaneOfTheSlaughterer_Proj.DisplayName: Бич палача
+Excalihare_Boom.DisplayName: Зайкалибур (взрыв)
+Excalihare_Proj.DisplayName: Зайкалибур
+FluffyFury_Carrow.DisplayName: Моркровка
+FluffyFury_CarrowSplit.DisplayName: Моркровка (осколок)
+RabbitBeam.DisplayName: Кроличий луч
+RajahsRage_RoyalRabbit.DisplayName: Королевский кролик
+RPG_Bunnysplosion.DisplayName: Кроликовзрыв
+RPG_RajahRocket.DisplayName: Ракета Раджи
+TheAvenger_Holdout.DisplayName: Мститель (зарядка)
+ChampionHelmetRangedSetEffect_Carrot.DisplayName: Морковь
+ChampionHelmetRangedSetEffect_Explosion.DisplayName: Взрыв
+ChampionHelmetRangedSetEffect_RABITDrone.DisplayName: Дрон R.A.B.I.T.
+ChampionHelmetSummonerSetEffect_BaronBunny.DisplayName: Барон Кролик
+ChampionHelmetSummonerSetEffect_BaronsSpear.DisplayName: Копьё барона
+ChampionHelmetSummonerSetEffect_Carrot.DisplayName: Морковь
+RajahRabbitA_BaneOfTheSlaughterer.DisplayName: Бич палача
+RajahRabbitA_Carrow.DisplayName: Моркровка
+RajahRabbitA_CarrowSplit.DisplayName: Моркровка (осколок)
+RajahRabbitA_Excalihare.DisplayName: Зайкалибур
+RajahRabbitA_ExcalihareBoom.DisplayName: Зайкалибур (взрыв)
+RajahRabbitA_GoldenCarrot.DisplayName: Золотая морковь
+RajahRabbitA_Raboom.DisplayName: Кроликобум
+RajahRabbitA_RajahRocket.DisplayName: Ракета Раджи
+RajahRabbitA_TheAvenger.DisplayName: Мститель
+RajahRabbitABookIt.DisplayName: Кролик-Раджа; Заступник невинных
+RajahRabbitALeave.DisplayName: Кролик-Раджа; Заступник невинных
+RajahCarrot.DisplayName: Морковь
+RajahCarrotEX.DisplayName: Морковь (EX)
+ClawBaton_DragonClaw.DisplayName: Коготь дракона
+ClawBaton_Holdout.DisplayName: Когтистая дубина (зарядка)
+ClawBaton_HydraClaw.DisplayName: Коготь гидры
+OrderBottle_Proj.DisplayName: Флакон порядка
+ChaosArrow_Proj.DisplayName: Стрела хаоса
+ChaosHelmetSummonerSetEffect_DragonShot.DisplayName: Дина-бомба
+ChaosHelmetSummonerSetEffect_DragonSpirit.DisplayName: Дух дракона
+OrderSolution_Proj.DisplayName: Раствор порядка
+Chaos_ChaosBeam.DisplayName: Луч хаоса
+ChaosBustershot_ChaosShot1.DisplayName: ДНК
+ChaosChain_Holdout.DisplayName: Цепь хаоса (зарядка)
+ChaosJavelin_ChaosBlast.DisplayName: Взрыв хаоса
+ChaosJavelin_Proj.DisplayName: Метательное копьё хаоса
+ChaosRitual_ChaosConstruct.DisplayName: Конструкт хаоса
+ChaosRitual_ChaosFireball.DisplayName: Огненный шар хаоса
+ChaosYari_Holdout.DisplayName: Яри хаоса (зарядка)
+ChaosYari_Proj.DisplayName: Яри хаоса
+Asteroid_Holdout.DisplayName: Астероид (зарядка)
+Asteroid_Meteorite.DisplayName: Астероид (метеорит)
+ChaosSlayer_BladeOfChaos.DisplayName: Клинок хаоса
+ChaosSlayer_BladeOfFury.DisplayName: Клинок ярости
+ChaosSlayer_BladeOfWrath.DisplayName: Клинок гнева
+DraconicRipper_AkumaTooth.DisplayName: Зуб Акумы
+DraconicRipper_ShenDoragonTooth.DisplayName: Зуб Шэнь Доракона
+DraconicRipper_YamataTooth.DisplayName: Зуб Яматы
+FlamingTwilight_DiscordianInferno.DisplayName: Раздорное инферно
+MeteorStrike_Meteor.DisplayName: Метеоритный удар
+MeteorStrike_MeteorBlue.DisplayName: Метеоритный удар (синий)
+MeteorStrike_MeteorRed.DisplayName: Метеоритный удар (красный)
+Skyfall_Proj.DisplayName: Небопадье
+Skyfall_ProjBlue.DisplayName: Небопадье (синий)
+Skyfall_ProjRed.DisplayName: Небопадье (красный)
+Timesplitter_CosmicBlow.DisplayName: Космический удар
+Timesplitter_Holdout.DisplayName: Рассекатель времени (зарядка)
+FuryWitchsHelmetSetMinionEffect_FlameSoul.DisplayName: Душа пламени
+FuryWitchsHelmetSetMinionEffect_FlameSoulShot.DisplayName: Огонь
+MidnightAssassinHelmetSetEffect_AssassinArrow.DisplayName: Стрела ассасина
+MidnightAssassinHelmetSetEffect_AssassinDagger.DisplayName: Кинжал ассасина
+AbyssalKunai_Proj.DisplayName: Кунай бездны
+AshRain_Ash.DisplayName: Пепел
+AshRain_FireMagic.DisplayName: Огненная магия
+FlameVortexStaff_FireOrbiter.DisplayName: Огненный орбитальный сферы
+FuryFlame_FuryFire.DisplayName: Яростный огонь
+Masamune_Slash.DisplayName: Ночной разрез
+Masamune_Surasshu.DisplayName: Сурассу
+MizuArashi_MizuSpirit.DisplayName: Дух Мидзу
+ChaosBaton_AbyssBall.DisplayName: Шар бездны
+ChaosBaton_AbyssClaw.DisplayName: Коготь бездны
+ChaosBaton_BlazeBall.DisplayName: Пылающий шар
+ChaosBaton_BlazeBlast.DisplayName: Пылающий взрыв
+ChaosBaton_BlazeClaw.DisplayName: Пылающий коготь
+ChaosBaton_Holdout.DisplayName: Дубина хаоса (зарядка)
+ShenDoragonA_ChaosLightning.DisplayName: Молния хаоса
+ShenDoragonA_DeathBoom.DisplayName: Раздорный удар
+ShenDoragonA_Deathray.DisplayName: Раздорный луч смерти
+ShenDoragonA_DeathrayVertical.DisplayName: Фантомный луч смерти
+ShenDoragonA_FireBreath.DisplayName: Огненное дыхание
+AbyssGrip_AbyssalBomb.DisplayName: Абиссальная бомба
+AbyssGrip_Orbiter.DisplayName: Орбитальный дрон абиссальной хватки
+AbyssGrip_Orbiter2.DisplayName: Орбитальный дрон абиссальной хватки 2
+AbyssGrip_Soulsplosion.DisplayName: Взрыв души
+BlazeGrip_Clone.DisplayName: Пылающий коготь Шэня
+BlazeGrip_Deathray.DisplayName: Луч смерти пылающей хватки
+BlazeGrip_Explosion.DisplayName: Взрыв
+BlazeGrip_ScorchBomb.DisplayName: Опаляющая бомба
+ShenDoragon_ChaosFireballAccel.DisplayName: Ускоренный хаотический огненный шар
+ShenDoragon_ChaosFireballFrag.DisplayName: Осколок хаотического огненного шара
+ShenDoragon_ChaosFireballHoming.DisplayName: Самонаводящийся хаотический огненный шар
+ShenDoragon_ChaosFireballSpread.DisplayName: Разброс хаотических огненных шаров
+ShenDoragon_DiscordianInferno.DisplayName: Раздорное инферно
+FuryAshe_Explosion.DisplayName: Яростный дневной огонь
+FuryAshe_FuryFireBomb.DisplayName: Яростная огненная бомба
+FuryFlameVortex_FuryFireBomb.DisplayName: Яростная огненная бомба пламенного вихря
+WrathHaruka_WrathNightSlash.DisplayName: Гневный ночной разрез
+Ashe_BlazingFury.DisplayName: Пылающая ярость
+Ashe_DayfireShot.DisplayName: Выстрел дневного огня
+Ashe_Explosion.DisplayName: Дневной огонь
+Ashe_Fireball.DisplayName: Огненный шар
+Ashe_FireBomb.DisplayName: Огненная бомба
+Ashe_FireBombExplosion.DisplayName: Дневной огонь
+FlameVortex_FireBomb.DisplayName: Огненная бомба пламенного вихря
+Haruka_Arrow.DisplayName: Стрела Харуки
+Haruka_DepthKillingBlast.DisplayName: Глубинный убийственный взрыв
+Haruka_Kunai.DisplayName: Кунай бездны
+Haruka_NightSlash.DisplayName: Ночной разрез
+MagicBoom.DisplayName: Магический взрыв
+MeteorBoom.DisplayName: Метеоритный удар
+MeteorBoomBlue.DisplayName: Метеоритный удар (синий)
+MeteorBoomRed.DisplayName: Метеоритный удар (красный)
+MeteorStrike_Proj.DisplayName: Метеоритный удар
+MeteorStrikeBlue.DisplayName: Метеоритный удар (синий)
+MeteorStrikeRed.DisplayName: Метеоритный удар (красный)
+CorruptionFlask_Proj.DisplayName: Флакон осквернения
+DemoniteStaff_DemonEater.DisplayName: Демонический пожиратель
+DuskBringer_Holdout.DisplayName: DBP (зарядка)
+CrimsonFlask_Proj.DisplayName: Флакон багрянца
+CrimeraStaff_CrimtaneCrimera.DisplayName: Багротановая кримера
+IchorSpear_Holdout.DisplayName: Ихорное копьё (зарядка)
+TrueFleshClaymore_FleshBeam.DisplayName: Луч плоти
+Djinnerang_Proj.DisplayName: Джиннаранг
+Sandagger_Proj.DisplayName: Песчаный кинжал
+SandLamp_Spray.DisplayName: Спрей
+SandScepter_DesertGust.DisplayName: Пустынный порыв
+SandScepter_DustDevil.DisplayName: Пыльный дьявол
+SandstormCrossbow_DesertBoltBlue.DisplayName: Магический взрыв (синий)
+SandstormCrossbow_DesertBoltRed.DisplayName: Магический взрыв (красный)
+SultansScimitar_DesertGust.DisplayName: Пустынный порыв
+AmberGreatsword_AmberBolt.DisplayName: Янтарный заряд
+DesertScimitar_Sand.DisplayName: Песок
+DynaskullJavelin_DynaEnergy.DisplayName: Дина-энергия
+DynaskullJavelin_Proj.DisplayName: Диночерепное метательное копьё
+FossilBoneslinger_AmberArrow.DisplayName: Янтарная стрела
+DesertDjinn_Djinnado.DisplayName: Джиннадо
+Legendscribe_Judgement.DisplayName: Правосудие
+DustDjinn_BurstBlue.DisplayName: Dust Djinn_ Burst Blue
+DustDjinn_BurstRed.DisplayName: Dust Djinn_ Burst Red
+DustDjinn_MagicBlastBlue.DisplayName: Dust Djinn_ Magic Blast Blue
+DustDjinn_MagicBlastRed.DisplayName: Dust Djinn_ Magic Blast Red
+ArtifactOfJudgement_EyeOfJudgement.DisplayName: Око правосудия
+DesertStaff_DesertBlast.DisplayName: Пустынный взрыв
+DesertStaff_FragBlast.DisplayName: Осколочный взрыв
+JackalsWrath_PhantomBlade.DisplayName: Фантомный клинок
+Judgment_EnchantedSand.DisplayName: Зачарованный песок
+NeithsString_JudgementArrow.DisplayName: Стрела правосудия
+NeithsString_MummyArrow.DisplayName: Мумифицирующая стрела
+Sandthrower_Sandstorm.DisplayName: Песчаная буря
+SentryOfTheEye_TheEye.DisplayName: Глаз
+YellowSolution_Proj.DisplayName: Жёлтый раствор
+PrimevalJavelin_Proj.DisplayName: Первобытное метательное копьё
+TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition_BlockHorizontal.DisplayName: Блок «Жизни и эпических приключений чудо-пса Анубиса» (горизонтальный)
+TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition_BlockVertical.DisplayName: Блок «Жизни и эпических приключений чудо-пса Анубиса» (вертикальный)
+Anubis_BlockHorizontal.DisplayName: Блок Анубиса (горизонтальный)
+Anubis_BlockVertical.DisplayName: Блок Анубиса (вертикальный)
+Anubis_EyeSentrySummon.DisplayName: Призыв глаза
+Anubis_Pumpkin.DisplayName: Тыква Анубиса
+Anubis_Runeblast.DisplayName: Рунный взрыв Анубиса
+Anubis_Scepter.DisplayName: Скипетр Анубиса
+Locust_Spit.DisplayName: Плевок
+Runefire.DisplayName: Рунный огонь
+ArtifactOfGuilt_EyeOfTheForsaken.DisplayName: Око отвергнутого
+CrookOfTheSoulJudge_Proj.DisplayName: Посох судьи душ
+CursedFlamefury_ForsakenFlame.DisplayName: Пламя отвергнутого проклятой огненной ярости
+ForsakenStaff_ForsakenFrag.DisplayName: Осколок отвергнутого
+ForsakenStaff_ForsakenStaffBlast.DisplayName: Взрыв посоха отвергнутого
+HorusCane_HorusEye.DisplayName: Глаз Гора
+HorusCane_HorusHawk.DisplayName: Сокол Гора
+Lifeline_EnchancedMummyArrow.DisplayName: Усиленная мумифицирующая стрела
+Lifeline_EnchancedMummyArrowD.DisplayName: Усиленная мумифицирующая стрела (D)
+Lifeline_ForsakenArrow.DisplayName: Стрела отвергнутого
+Soulsplitter_Proj.DisplayName: Душегуб
+Verdict_ForsakenBoom.DisplayName: Взрыв отвергнутого
+Verdict_ForsakenPhantomBlade.DisplayName: Фантомный клинок отвергнутого
+Verdict_ForsakenSand.DisplayName: Песок отвергнутого
+AnubisA_BlockHorizontal.DisplayName: Блок Отвергнутого Анубиса (горизонтальный)
+AnubisA_BlockVertical.DisplayName: Блок Отвергнутого Анубиса (вертикальный)
+AnubisA_CrookOfTheSoulJudge.DisplayName: Посох судьи душ Отвергнутого Анубиса
+AnubisA_CurseFlame.DisplayName: Пламя проклятия
+AnubisA_CurseGlyphs.DisplayName: Глифы проклятия
+AnubisA_DamnedSoul.DisplayName: Проклятая душа
+AnubisA_ForsakenBlast.DisplayName: Взрыв отвергнутого
+AnubisA_ForsakenExplosion.DisplayName: Взрыв отвергнутого
+AnubisA_ForsakenFireball.DisplayName: Огненный шар отвергнутого
+AnubisA_ForsakenSkull.DisplayName: Череп отвергнутого
+AnubisA_HorusSummon.DisplayName: Призыв Гора
+AnubisA_SunSummon.DisplayName: Призыв солнца
+AquaLance_Holdout.DisplayName: APP (зарядка)
+SkullWand_AquaticSkull.DisplayName: Водный череп
+SkullWand_SkullShot.DisplayName: Выстрел черепа
+ReaperArrow_Proj.DisplayName: Стрела жнеца
+TrueDeathlyLongbow_GhastBoom.DisplayName: Призрачный взрыв
+TrueDeathlyLongbow_GhastSkull.DisplayName: Призрачный череп
+BladeOfEvil_FlareOfEvil.DisplayName: Вспышка зла
+FrogLob_ToadGunk.DisplayName: Жабья дрянь
+MushrockStaff_Kashroom.DisplayName: Кашрум
+MushrockStaff_Rock.DisplayName: Камень
+ToadTongue_Holdout.DisplayName: Жабий язык (зарядка)
+GlowingSporeBag_Proj.DisplayName: Мешок светящихся спор
+FeudalFungus_FungusCloud.DisplayName: Грибное облако
+FeudalFungus_SporeBlast.DisplayName: Взрыв спор
+FeudalFungusLeave.DisplayName: Грибной феодал
+TruffleToad_FungusBubble.DisplayName: Грибной пузырь
+TruffleToad_GlowingExplosion.DisplayName: Светящийся взрыв
+TruffleToad_LargeFungusBubble.DisplayName: Жабий пузырь
+TruffleToad_Puffball.DisplayName: Дождевик
+TruffleToad_WaterleafSeed.DisplayName: Семя водолиста
+HallowFlask_Proj.DisplayName: Флакон святыни
+HallowStaff_HallowedPrism.DisplayName: Освящённая призма
+HallowStaff_PrismShot.DisplayName: Выстрел призмы
+IlluminantFlail_Holdout.DisplayName: Сияющий цеп (зарядка)
+TrueHallowStaff_TrueHallowedPrism.DisplayName: Истинная освящённая призма
+TrueHallowStaff_TruePrismShot.DisplayName: Выстрел истинной призмы
+DemonHelmetSetEffect_ImpServant.DisplayName: Слуга-бес
+DemonStaff_DemonServant.DisplayName: Слуга-демон
+DemonStaff_DemonSickle.DisplayName: Серп демона
+Fireball_Explosion.DisplayName: Взрыв огненного шара
+Fireball_Proj.DisplayName: Огненный шар
+MoltenLance_Holdout.DisplayName: MLP (зарядка)
+TheVulcano_FlareOfEvil.DisplayName: Вспышка зла
+TheVulcano_VulcanExplosion.DisplayName: Взрыв Вулкано
+DevilStaff_DevilServant.DisplayName: Слуга-дьявол
+DevilStaff_UnholyTrident.DisplayName: Нечестивый трезубец
+ScorchedSaw_Proj.DisplayName: Опалённая пила
+GoldDigger_Bolt.DisplayName: Заряд золотокопа
+GoldDigger_GoldFountain.DisplayName: Золотой фонтан
+GreedHead_GoldCoin.DisplayName: Золотая монета
+OreConstruct_Nebula.DisplayName: Туманность рудного конструкта
+AFrag.DisplayName: Осколок руды
+DaybreakBlast.DisplayName: Рассветный взрыв
+Earthbreaker_Earthquake.DisplayName: Землетрясение
+GravityAffectedOreChunk.DisplayName: Гравитационный кусок руды
+LuminiteBlast.DisplayName: Люминитовый взрыв
+OreChunk.DisplayName: Кусок руды
+OreSpores.DisplayName: Рудные споры
+OreStaff_OreCluster.DisplayName: Рудный кластер
+GreedAHead_CovetiteStalagtite.DisplayName: Жажданитовый сталактит
+GreedAHead_DesireSpark.DisplayName: Искра желания
+GreedAHead_MemoriesOfSomethingGrand.DisplayName: Воспоминания о чём-то великом
+GreedAHead_PlatinumCoin.DisplayName: Платиновая монета
+GreedAHead_Warning.DisplayName: Предупреждение
+SingularityOfDesire_DesireBeam.DisplayName: Луч желания
+SingularityOfDesire_DesireBlast.DisplayName: Взрыв желания
+GreedGold.DisplayName: Золото
+ScorchedEgg_Broodmini.DisplayName: Мини-выводок
+DragonArrow_Proj.DisplayName: Стрела дракона
+AshJar_Proj.DisplayName: Банка пепла
+Sunpowder_Proj.DisplayName: Солнечный порох
+DragonSoul_DragonSoul.DisplayName: Душа дракона
+Hellfisher_Bobber.DisplayName: Поплавок адского рыбака
+BurningGel_Proj.DisplayName: Горящий гель
+DragonsSpine_Proj.DisplayName: Драконий хребет
+FireStaff_BabyPhoenix.DisplayName: Малый феникс
+Incineration_Holdout.DisplayName: Испепеление (зарядка)
+Pyrosphere_Holdout.DisplayName: Пиросфера (зарядка)
+Volley_Proj.DisplayName: Залп
+Yogan_Holdout.DisplayName: Йоган (зарядка)
+Broodmother_FireBreath.DisplayName: Огненное дыхание матери выводка
+Broodmother_MagmaBall.DisplayName: Магмовый шар
+Broodmother_MagmaExplosion.DisplayName: Магмовый взрыв
+DragonfireArrow_Proj.DisplayName: Стрела драконьего пламени
+DragonfireBullet_Proj.DisplayName: Пуля драконьего пламени
+DragonfireDart_Proj.DisplayName: Дротик драконьего пламени
+OrangeSolution_Proj.DisplayName: Оранжевый раствор
+DraconianDawn_DawnRay.DisplayName: Луч рассвета
+Dracorang_Proj.DisplayName: Дракоранг
+DragonsPike_DragonBody.DisplayName: Дракон (тело)
+DragonsPike_DragonHead.DisplayName: Дракон (голова)
+DragonsPike_DragonTail.DisplayName: Дракон (хвост)
+Fireblast_Proj.DisplayName: Огнеудар
+Ryusei_Holdout.DisplayName: Рюсэй (зарядка)
+SunHalberd_Holdout.DisplayName: Солнечная алебарда (зарядка)
+DaybreakArrow_Proj.DisplayName: Рассветная стрела
+AncientLungStaff_LungBody.DisplayName: Древний Лун (тело)
+AncientLungStaff_LungHead.DisplayName: Древний Лун (голова)
+AncientLungStaff_LungTail.DisplayName: Древний Лун (хвост)
+Dawnstrike_BlastLarge.DisplayName: Большой взрыв
+Dawnstrike_BlastLargeExplosion.DisplayName: Дневной огонь
+Dawnstrike_BlastLargeMiniShrapnel.DisplayName: Дневной огонь (мини-шрапнель)
+Dawnstrike_BlastLargeShrapnel.DisplayName: Шрапнель большого взрыва
+Dawnstrike_BlastMedium.DisplayName: Драконий метеор
+Dawnstrike_BlastSmall.DisplayName: Малый взрыв
+Dawnstrike_Holdout.DisplayName: Рассветный натиск (зарядка)
+Daycrusher_Holdout.DisplayName: Безотрадный день (зарядка)
+Daystorm_Bullet.DisplayName: Пуля дневного шторма
+Daystorm_DaybreakBullet.DisplayName: Рассветная пуля
+MorningGlory_Proj.DisplayName: Утренняя слава
+RadiantDawn_Holdout.DisplayName: Лучезарный рассвет (зарядка)
+ReignOfFire_Meteor.DisplayName: Метеор царства огня
+Solar_Holdout.DisplayName: Солнышко (зарядка)
+SolarStaff_FlamingMeteor.DisplayName: Пылающий метеор
+SolarStaff_SunOrb.DisplayName: Солнечный портал
+SunPartisan_Holdout.DisplayName: Солнечный партизан (зарядка)
+SunPartisan_Proj.DisplayName: Солнечный партизан
+Sunstorm_Fireball.DisplayName: Огненный шар солнечного шторма
+YearOfTheDragon_Proj.DisplayName: Год дракона
+DaybreakBullet_Proj.DisplayName: Антиматерия
+AkumaHead_Boom.DisplayName: Дневной огонь
+AkumaHead_Breath.DisplayName: Дыхание головы Акумы
+AkumaHead_FireBomb.DisplayName: Огненная бомба головы Акумы
+AkumaHead_FireShot.DisplayName: Огненный выстрел головы Акумы
+AkumaHead_Flare.DisplayName: Дневной огонь
+AkumaHead_HomingFireball.DisplayName: Самонаводящийся огненный шар головы Акумы
+AkumaHead_MegaFireBomb.DisplayName: Мега-огненная бомба головы Акумы
+AkumaHead_Meteor.DisplayName: Дневной огонь
+AkumaAFireballFrag.DisplayName: Осколок огненного шара
+AkumaAHead_Boom.DisplayName: Дневной огонь
+AkumaAHead_Breath.DisplayName: Дыхание головы Они Акумы
+AkumaAHead_DayfireExplosion.DisplayName: Дневной огонь
+AkumaAHead_Firebomb.DisplayName: Огненная бомба головы Они Акумы
+AkumaAHead_HomingFireball.DisplayName: Самонаводящийся огненный шар головы Они Акумы
+AkumaAHead_Meteor.DisplayName: Дневной огонь
+AkumaAHead_Rock.DisplayName: Вулканическая порода
+AkumaAHead_SolarDeathray.DisplayName: Солнечный луч смерти
+AkumaAHead_SolarDeathraySmall.DisplayName: Малый солнечный луч смерти
+AsheA.DisplayName: Эш Акума
+AkumaExplosion.DisplayName: Взрыв Акумы
+AkumaExplosionBlue.DisplayName: Взрыв Акумы (синий)
+DragonfireProj.DisplayName: Дыхание дракона
+SolarFlare.DisplayName: Солнечные вспышки
+TorchsandBall.DisplayName: Шар факельного песка
+Fungicide_Proj.DisplayName: Фунгицид
+JungleFlask_Proj.DisplayName: Флакон джунглей
+GrassSpear_GSP.DisplayName: GSP
+JungleReaper_Proj.DisplayName: Жнец джунглей
+ManaRose_Proj.DisplayName: Роза маны
+LimeSolution_Proj.DisplayName: Лаймовый раствор
+SwarmSolution_Proj.DisplayName: Раствор роя
+TrueManaRose_Proj.DisplayName: Истинная роза маны
+TrueManaRose_TrueManaPetal.DisplayName: Лепесток маны
+ManaPetal.DisplayName: Лепесток маны
+MadnessKnife_Proj.DisplayName: Нож безумия
+MadnessStaff_MadnessSphere.DisplayName: Сфера безумия
+DarkwaterFlask_Proj.DisplayName: Флакон тёмной воды
+Moonpowder_Proj.DisplayName: Лунный порох
+GlowingMossBall_Pet.DisplayName: Светящийся мох
+HydraTuneller_Holdout.DisplayName: Гидрорытник (зарядка)
+ShadowDrill_Holdout.DisplayName: Теневой бур (зарядка)
+Depthwalker_Holdout.DisplayName: Глубиноходец (зарядка)
+GunkWand_Gunk.DisplayName: Дрянь
+HydraFang_Proj.DisplayName: Клык гидры
+HydraSpear_Holdout.DisplayName: Копьё гидры (зарядка)
+HydraStaff_BogBomb.DisplayName: Болотная бомба
+HydraStaff_BogBoom.DisplayName: Кислота
+HydraStaff_StoneHydra.DisplayName: Каменная гидра
+MurkyGel_Proj.DisplayName: Мутный гель
+SludgeShot_Proj.DisplayName: Грязестрел
+VenomSpray_Venom.DisplayName: Веном
+HydraHead_HydraBomb.DisplayName: Бомба гидры
+HydraHead_HydraBreath.DisplayName: Дыхание головы гидры
+HydraHead_HydraMist.DisplayName: Туман головы гидры
+HydratoxinArrow_Proj.DisplayName: Стрела гидратоксина
+HydratoxinBullet_Proj.DisplayName: Пуля гидратоксина
+HydratoxinDart_HydratoxinDroplet.DisplayName: Капля гидратоксина
+HydratoxinDart_Proj.DisplayName: Дротик гидратоксина
+IndigoSolution_Proj.DisplayName: Индиговый раствор
+PerfectShadowDrill_Holdout.DisplayName: Превосходный теневой бур (зарядка)
+AbyssalArc_Proj.DisplayName: Абиссальный бумеранг
+AbyssalShadowshot_Shadowshot.DisplayName: Тенестрел бездны
+BogBomb_BogDrop.DisplayName: Болотная капля
+BogBomb_BogOrb.DisplayName: Болотный шар
+Bubbleshot_FuckingBubbles.DisplayName: ЧЁРТОВЫ ПУЗЫРИ
+DeathDaggers_DeathDagger.DisplayName: Кинжал смерти
+DeathDaggers_DeathDaggerHeal.DisplayName: Исцеление
+Depthsprayer_Proj.DisplayName: Глубинный выплёскиватель
+DreadTwilight_TwilightRay.DisplayName: Луч сумерек
+SwimmingHydra_HydraSlash.DisplayName: Разрез гидры
+TheSquirter_Squirt.DisplayName: Струйщик
+Toxifang_Proj.DisplayName: Токсизуб
+Toxifire.DisplayName: Токсичный огонь
+EventideArrow_Proj.DisplayName: Сумеречная стрела
+AbyssalBomb_SoulBomb.DisplayName: Бомба души
+AbyssalBomb_SoulBombSmall.DisplayName: Малая бомба души
+AbyssalBomb_Soulsplosion.DisplayName: Взрыв души
+AbyssalBomb_SoulsplosionSmall.DisplayName: Малый взрыв души
+AbyssalEruption_AcidBall.DisplayName: Шар кислоты
+AbyssalEruption_AcidFlame.DisplayName: Пламя кислоты
+AbyssalEruption_Soulsplosion.DisplayName: Взрыв души
+AbyssalYari_Holdout.DisplayName: Яри бездны (зарядка)
+AbyssalYari_Proj.DisplayName: Яри бездны
+AbyssLash.DisplayName: Абиссальная плеть
+Amenomuraku_PhantomSword.DisplayName: Фантомный меч Амэномураку
+Crescent_Proj.DisplayName: Полумесяц
+Darksprayer_DarkSoul.DisplayName: Тёмная душа
+Darksprayer_Moonblow.DisplayName: Лунный удар
+FallingTwilight_HydraSoul.DisplayName: Душа гидры
+Flairdra_Cyclone.DisplayName: Циклон
+Flairdra_Holdout.DisplayName: Вспыхдра (зарядка)
+MidnightWrath_Proj.DisplayName: Полуночный гнев
+ThrowingCrescent_Proj.DisplayName: Метательный полумесяц
+EventideBullet_Proj.DisplayName: Сумеречная пуля
+EventideBullet_ProjCopy.DisplayName: Сумеречная пуля (копия)
+YamataAHead_AbyssalBomb.DisplayName: Абиссальная бомба головы Яматы
+YamataAHead_HarukaProj.DisplayName: Харука Ямата
+YamataAHead_MireDeathray.DisplayName: Луч смерти Трясины
+YamataAHead_MireDeathraySmall.DisplayName: Малый луч смерти Трясины
+YamataAHead_Soulsplosion.DisplayName: Взрыв души
+YamataAHead_Venom.DisplayName: Веном
+YamataAHead_Venom2.DisplayName: Веном 2
+YamataAHeadFake_AbyssalStorm.DisplayName: Абиссальный шторм
+YamataAHeadFake_AbyssalThunder.DisplayName: Абиссальный гром
+YamataAHeadFake_AbyssalWrath.DisplayName: Абиссальный гнев
+YamataAHeadFake_MireDeathrayWave.DisplayName: Волна луча смерти Трясины
+YamataAHeadFake_MireDeathrayWaveSmall.DisplayName: Малая волна луча смерти Трясины
+YamataAHeadFake_Shockwave.DisplayName: Ударная волна
+YamataHead_AbyssalBomb.DisplayName: Абиссальная бомба головы Яматы
+YamataHead_AbyssalStorm.DisplayName: Абиссальный шторм
+YamataHead_AbyssalStormRain.DisplayName: Дождь абиссального шторма
+YamataHead_AbyssalWrath.DisplayName: Абиссальный гнев
+YamataHead_Shockwave.DisplayName: Ударная волна
+YamataHead_Soulsplosion.DisplayName: Взрыв души
+YamataHead_Venom.DisplayName: Веном
+YamataHead_VenomBlast.DisplayName: Взрыв венома
+AcidBoomProj.DisplayName: Кислота
+AcidProj.DisplayName: Кислота
+HydraSoulProj.DisplayName: Душа гидры
+Depthsand_Proj.DisplayName: Глубинный песок
+OceanWhaler_OceanHarpoon.DisplayName: Океанский гарпун
+SaltwaterSpear_Holdout.DisplayName: Копьё соляной воды (зарядка)
+Seashroom_Sharkron.DisplayName: Шаркрон
+SpookyKnife_Proj.DisplayName: Жуткий нож
+SpookySawblade_Proj.DisplayName: Жуткий бумеранг
+ForestFlask_Proj.DisplayName: Лесной флакон
+DeepGreenSolution_Proj.DisplayName: Тёмно-зелёный раствор
+ElectricityShard_Proj.DisplayName: Электрический осколок
+BrownSolution_Proj.DisplayName: Коричневый раствор
+SporeBag_Proj.DisplayName: Мешок спор
+Musharang_Proj.DisplayName: Грибиранг
+Mushmace_Holdout.DisplayName: Грибулава (зарядка)
+MushroomMonarch_FakeMushroom.DisplayName: Ложный гриб
+MushroomMonarch_RUNAWAY.DisplayName: Грибной монарх (побег)
+Mushman_Throwshroom.DisplayName: Бросок гриба
+CloudEdge_Cloud.DisplayName: Облако
+DragonBlade_TinySword.DisplayName: Крошечный меч
+DragonsMaw_DragonLaser.DisplayName: Драконий лазер
+DragonStaff_DragonScale.DisplayName: Драконья чешуя
+TheDragonsBreath_DragonBreath.DisplayName: Дыхание дракона
+TheDragonsBreath_Holdout.DisplayName: Дыхание дракона (зарядка)
+BlizzardBuster_Proj.DisplayName: BB
+Icicle_IceSpike.DisplayName: Ледяной шип
+SerpentSpike_Proj.DisplayName: Змеиный шип
+Sickleshot_IceArrow.DisplayName: Ледяная стрела
+SnakeStaff_SerpentBody.DisplayName: Снежная змея (тело)
+SnakeStaff_SerpentHead.DisplayName: Снежная змея (голова)
+SnakeStaff_SerpentTail.DisplayName: Древняя змея (хвост)
+SnowflakeShuriken_Proj.DisplayName: SS
+Snowflake.DisplayName: Снежинка Союза
+Sting.DisplayName: Жало
+IceFlask_Proj.DisplayName: Ледяной флакон
+IcemeltFlask_Proj.DisplayName: Флакон ледотая
+GlacierBreaker_Holdout.DisplayName: Ледолом (зарядка)
+GlacierBreaker_IceChunk.DisplayName: Ледяной осколок
+RaiderLance_Holdout.DisplayName: Копьё налётчика (зарядка)
+VikingPolearm_Holdout.DisplayName: Алебарда викинга (зарядка)
+Winterbreak_Proj.DisplayName: Зимолом
+IceCrystal_IceSpike.DisplayName: Ледяной шип
+SubzeroSerpent_IceBall.DisplayName: Ледяной шар
+SubzeroSerpentHead_SerpentBreath.DisplayName: Дыхание головы морозной змеи
+WhiteSolution_Proj.DisplayName: Белый раствор
+AsgardianLance_Holdout.DisplayName: Асгардское копьё (зарядка)
+AsgardianLance_Proj.DisplayName: Асгардское копьё
+DragonFang_ValkyrieSlash.DisplayName: Валькирский разрез
+OdinsBlade_Proj.DisplayName: Клинок Одина
+IceShrapnel.DisplayName: Ледяная шрапнель
+DarkmatterArrow_Proj.DisplayName: Стрела из тёмной материи
+RadiumArrow_Proj.DisplayName: Лучезарнитная стрела
+RadiumHelmetSummonerSetEffect_RadiumBlast.DisplayName: Взрыв лучезарнита миньона
+StarHelmetMagePlayer_DarkLeech.DisplayName: Тёмная пиявка мага
+StarHelmetMagePlayer_SunSiphon.DisplayName: Солнечный сифон мага
+StarHelmetRangedPlayer_DarkmatterSphere.DisplayName: Сфера тёмной материи стрелка
+StarHelmetRangedPlayer_SunSphere.DisplayName: Солнечная сфера стрелка
+WormIdol_Pointer.DisplayName: Указатель
+DarkmatterJackhammer_Holdout.DisplayName: Отбойный молот из тёмной материи (зарядка)
+BreakingDawn_MorningStar.DisplayName: Утренняя звезда
+DarkmatterKunai_Proj.DisplayName: Кунай из тёмной материи
+DarkmatterSlasher_DarkmatterWave.DisplayName: Волна тёмной материи
+DarkmatterSlasher_RealityTear.DisplayName: Разрыв реальности
+DarkmatterSlasher_Slash.DisplayName: Разрез рассекателя из тёмной материи
+DarkmatterSpinblade_EnergyBlade.DisplayName: Энергетический клинок
+DarkmatterSpinblade_Proj.DisplayName: Вертоклинок из тёмной материи
+RealityShredders_Holdout.DisplayName: Кромсатели реальности (зарядка)
+StarStaff_Star1.DisplayName: Звезда звёздного посоха 1
+StarStaff_Star2.DisplayName: Звезда звёздного посоха 2
+Void_Holdout.DisplayName: Пустота (зарядка)
+DaybringerHead_DayDart.DisplayName: Дневная стрелка
+DaybringerHead_DayOrb.DisplayName: Дневной шар
+DaybringerHead_DayRay.DisplayName: Дневной луч
+DaybringerHead_DayStar.DisplayName: Дневная звезда
+DaybringerHead_DaySun.DisplayName: Дневное солнце
+NightcrawlerHead_NightDeathraySmall.DisplayName: Night Deathray
+NightcrawlerHead_NightDeathray.DisplayName: Ночной луч смерти
+NightcrawlerHead_NightLaser.DisplayName: Ночной лазер
+NightcrawlerHead_NightScythe.DisplayName: Ночная коса
+NightcrawlerHead_Nothing.DisplayName: Ничего
+Moonray.DisplayName: Лунный луч
+Sunbeam.DisplayName: Солнечный луч
+Lovecraftian_LovecraftianEye.DisplayName: Глаз Лавкрафтийца
+TerraArrow_Proj.DisplayName: Терра-стрела
+TerraHelmetMageSetEffect_TerraRose.DisplayName: Терра-роза
+TerraHelmetRangedSetEffect_TerraBullet.DisplayName: Терра-пуля
+TerraHelmetSummonerSetEffect_TerraCrystal.DisplayName: Терра-кристалл
+TerraRose_Proj.DisplayName: Терра-роза
+TerraRose_TerraPetal.DisplayName: Лепесток терры
+TerraStaff_MagicBlast.DisplayName: Магический взрыв
+TerraStaff_TerraWizard.DisplayName: Терра-волшебник
+TerraBoom.DisplayName: Терра-взрыв
+TerraSphere.DisplayName: Терра-бомба
+PurityFlask_Proj.DisplayName: Флакон чистоты
+TerraFocus_MagicBlast.DisplayName: Магический взрыв
+TerraGauntlet_SummonBlast.DisplayName: Взрыв призыва
+TerraGauntlet_TerraCrawler.DisplayName: Терра-ползун
+TerraGauntlet_TerraSphere.DisplayName: Терра-сфера
+TerraGauntlet_TerraSquid.DisplayName: Терра-кальмар
+TerraDeadshot_Deadshot.DisplayName: Меткий выстрел
+TerraSphere_SummonBlast.DisplayName: Взрыв призыва
+TerraWizard_MagicBlast.DisplayName: Магический взрыв
+UnityWatcher_Sphere.DisplayName: Сфера
+PurityBlast.DisplayName: Взрыв чистоты
+AmethystGreatsword_AmethystBolt.DisplayName: Аметистовый заряд
+DiamondGreatsword_DiamondBolt.DisplayName: Алмазный заряд
+EmeraldGreatsword_EmeraldBolt.DisplayName: Изумрудный заряд
+PrismaticGreatsword_PrismBolt.DisplayName: Призматический заряд
+RubyGreatsword_RubyBolt.DisplayName: Рубиновый заряд
+SapphireGreatsword_SapphireBolt.DisplayName: Сапфировый заряд
+TopazGreatsword_TopazBolt.DisplayName: Топазовый заряд
+TrueCopperShortsword_Proj.DisplayName: Истинный медный кинжал
+NeutronRod_NovaStar.DisplayName: Звезда новой
+SagittariusCore_Orbiter.DisplayName: Орбитальный дрон
+StallionsStar_Proj.DisplayName: Звезда жеребца
+DoomiteHelmetSetEffect_Searcher.DisplayName: Искатель
+VoidFlask_Proj.DisplayName: Флакон пустоты
+DoomiteJacksaw_Holdout.DisplayName: Гибельнитовый молотопил (зарядка)
+DoomiteMiningLaser_MiningLaser.DisplayName: Шахтёрский лазер
+DoomiteAssaultBlaster_DoomiteVortex.DisplayName: Вихрь
+DoomiteHolobow_HoloArrow.DisplayName: Голографическая стрела
+DoomiteRadio_DoomiteRadioProbe.DisplayName: Радиозонд гибельнита
+DoomiteSaber_DoomShot.DisplayName: Гибельный выстрел
+DoomiteSignal_DoomiteProbe.DisplayName: Гибельнитовый зонд
+DoomStaff_DoomBoom.DisplayName: Гибельный взрыв
+DoomStaff_Proj.DisplayName: Гибель
+Executioner_Holdout.DisplayName: Палач (зарядка)
+Incapacitator_Proj.DisplayName: Парализатор
+VoidProbeControlUnit_MiniProbe.DisplayName: Мини-зонд
+Voidsaber_Holdout.DisplayName: Пустотная сабля (зарядка)
+Sagittarius_Electrobomb.DisplayName: Электробомба
+Sagittarius_Electrosphere.DisplayName: Электросфера
+Sagittarius_NovaStar.DisplayName: Звезда новой
+Sagittarius_RaiderRocket.DisplayName: Ракета налётчика
+Sagittarius_StaticShockHolyShitThatsTheRVPineSong.DisplayName: Статический удар
+Sagittarius_VoidRay.DisplayName: Луч пустоты
+Sagittarius_VoidShot.DisplayName: Выстрел пустоты
+BlackSolution_Proj.DisplayName: Чёрный раствор
+OverloadedDoomiteRadio_VoidScout.DisplayName: Пустотный разведчик
+SingularityCannon_Singularity.DisplayName: Сингулярность
+SingularityCannon_SingularityVortex.DisplayName: Вихрь сингулярности
+SingularityArrow_Proj.DisplayName: Стрела сингулярности
+UnstablePowerCell_Proj.DisplayName: Нестабильная пуля
+ZeroCore_ZeroBab.DisplayName: Малыш Зиро
+BlackHoleBlaster_BlackRocket.DisplayName: Чёрная ракета
+BlackHoleBlaster_RedBullet.DisplayName: Красная пуля
+BlackHoleBlaster_Rocket.DisplayName: Ракета
+BlackHoleBlaster_VoidCyclone.DisplayName: Циклон пустоты
+BrokenZeroWeapon_TeslaShock.DisplayName: Тесла-взрыв
+DoomPortal_D00MPR0T0C0L.DisplayName: ПР0Т0К0Л СУДН0Г0 ДНЯ
+EventHorizon_Holdout.DisplayName: Горизонт событий (зарядка)
+EventHorizon_Holdout_Vortex.DisplayName: Горизонт событий (вихрь)
+GenocideCannon_01010011.DisplayName: Геноцидная пушка 01010011
+GenocideCannon_b00m.DisplayName: Взрыв
+GenocideCannon_GenocideBoom.DisplayName: Геноцидный взрыв
+GenocideCannon_R0CKET.DisplayName: Ракета
+GenocideCannon_VoidRocket.DisplayName: Пустотная ракета
+Genocide.DisplayName: Антиматерия
+Gigataser_Gigatase.DisplayName: Шокерный разряд
+NovaFocus_DoomRay.DisplayName: Гибельный луч
+OmegaVolley_OmegaBlast.DisplayName: Омега-взрыв
+OmegaVolley_OmegaShot.DisplayName: Омега-выстрел
+RealityCannon_RealityLaser.DisplayName: Лазер реальности
+RiftShredder_Rift.DisplayName: Разлом
+RiftShredder_RiftSlash.DisplayName: Разрез разлома
+TheVortex_Holdout.DisplayName: Вихрь (зарядка)
+TheVortex_Proj.DisplayName: Вихрь
+VoidStar_StarVortex.DisplayName: Звёздный вихрь
+ZeroA_b00m.DisplayName: Взрыв
+ZeroA_EchoDeathray.DisplayName: Эхо-взрыв
+ZeroA_EchoGigablast.DisplayName: Эхо-гигавзрыв
+ZeroA_ERROR.DisplayName: 0ШИБКА
+ZeroA_GlitchBlast.DisplayName: Глючный взрыв
+ZeroA_GlitchBomb.DisplayName: Глючная бомба
+ZeroA_GlitchRocket.DisplayName: Ракета
+ZeroA_ProtoStarRay.DisplayName: Луч прото-звезды
+ZeroA_StaticShock.DisplayName: Статический удар
+ZeroA_StaticSphere.DisplayName: Статическая сфера
+ZeroDeath1.DisplayName: Зиро
+ZeroDeath2.DisplayName: Зиро
+Zero_DoomDeathray.DisplayName: Гибельный луч
+Zero_VoidBeam.DisplayName: Луч пустоты
+Zero_VoidRay.DisplayName: Луч пустоты
+ZeroGenocideCannon_GenocideBoom.DisplayName: Геноцидный взрыв
+ZeroGenocideCannon_GenocideRocket.DisplayName: Геноцидная ракета
+ZeroGigataser_TaserShock.DisplayName: Шоковый разряд
+ZeroNeutralizer_SingularityArrow.DisplayName: Стрела сингулярности
+ZeroNovaFocus_NovaRay.DisplayName: Луч новой
+ZeroOmegaVolley_OmegaBullet.DisplayName: Омега-пуля
+ZeroRiftShredder_Rift.DisplayName: Разлом
+ZeroRiftShredder_RiftSlash.DisplayName: Разрез разлома
+ZeroRocket.DisplayName: Пустотная ракета
+ZeroVoidStar_VoidCyclone.DisplayName: Циклон пустоты
+ZeroVoidStar_VoidStorm.DisplayName: Пустотный шторм
+Darkray.DisplayName: Тёмный луч
+DeathBeam.DisplayName: Луч смерти
+DeathLaser.DisplayName: Лазер смерти
+ProbeShot.DisplayName: Выстрел зонда
+AuroraScythe_Holdout.DisplayName: Коса Авроры (зарядка)
+AuroraScytheDamage.DisplayName: Урон косы Авроры
+AuroraScytheDamage2.DisplayName: Урон косы Авроры 2
+AuroraScytheEffect.DisplayName: Эффект косы Авроры
+CarrotFarmer_FarmedCarrot.DisplayName: Выращенная морковь
+CarrotFarmer_Holdout.DisplayName: Морковная коса (зарядка)
+CarrotFarmerDamage.DisplayName: Урон морковной косы
+CarrotFarmerDamage2.DisplayName: Урон морковной косы 2
+CarrotFarmerEffect.DisplayName: Эффект морковной косы
+DragonsClaw_Holdout.DisplayName: Коготь дракона (зарядка целителя)
+DragonsClawDamage.DisplayName: Урон когтя дракона
+DragonsClawDamage2.DisplayName: Урон когтя дракона 2
+DragonsClawEffect.DisplayName: Эффект когтя дракона
+HydrasFury_Holdout.DisplayName: Ярость гидры (зарядка целителя)
+HydrasFuryDamage.DisplayName: Урон ярости гидры
+HydrasFuryDamage2.DisplayName: Урон ярости гидры 2
+HydrasFuryEffect.DisplayName: Эффект ярости гидры
+CyberneticEgg_Raidmini.DisplayName: Мини-налётчик
+FulguriteHelmetSetPlayer_FulguriteRing.DisplayName: Фульгуритовое кольцо
+CyberBaton_CyberClaw.DisplayName: Кибер-коготь
+FulguriteTazerblaster_Taserblast.DisplayName: Шоковый заряд
+StormJavelin_Proj.DisplayName: Штормовое метательное копьё
+OrthrusXHead_ShockingBreath.DisplayName: Шоковое дыхание
+OrthrusXHead_Spark.DisplayName: Искра
+RaiderUltima_RaiderExplosion.DisplayName: Взрыв налётчицы
+RaiderUltima_RaidShock.DisplayName: Шоковый удар налётчицы
+RaiderUltima_RaidSphere.DisplayName: Сфера налётчицы
+RaiderUltima_RocketStrike.DisplayName: Ракетный удар
+Retriever_Shot.DisplayName: Выстрел ретривера
+InfinityBoom.DisplayName: Взрыв бесконечности
+InfinitySphere.DisplayName: Бомба души
+DapperAcorn_DapperSquirrel1.DisplayName: Щегольская белка
+DapperAcorn_DapperSquirrel2.DisplayName: Щегольская белка (2)
+DapperAcorn_Fez.DisplayName: Феска
+DapperAcorn_Fezsplosion.DisplayName: Фесочный взрыв
+DapperAcorn_TopHat.DisplayName: Цилиндр
+Axe.DisplayName: Топор
+HugeAxe.DisplayName: Огромный топор
+BiomiteCore_Boulder.DisplayName: Валун
+BiomiteCore_BoulderChunk.DisplayName: Осколок валуна
+BiomiteCore_FireBreath.DisplayName: Огненное дыхание
+BiomiteCore_ForbiddenStorm.DisplayName: Запретный шторм
+BiomiteCore_Glacier.DisplayName: Ледник
+BiomiteCore_GlacierBomb.DisplayName: Ледниковая бомба
+BiomiteCore_HellfireBlast.DisplayName: Взрыв адского огня
+BiomiteCore_HellfireBoom.DisplayName: Взрыв адского пламени
+BiomiteCore_Rainbow.DisplayName: Радуга
+TechnoTruffle_BookIt.DisplayName: Техно-трюфель
+TechnoTruffle_TruffleShot.DisplayName: Выстрел техно-трюфеля
+CthulhuCannon_CthulhuBomb.DisplayName: Бомба Ктулху
+CthulhuCannon_CthulhuBoom.DisplayName: Взрыв Ктулху
+GalacticStormspike_Stormray.DisplayName: Штормовой луч
+RealityAnchor_Holdout.DisplayName: Якорь реальности (зарядка)
+RealityAnchor_RealityBurst.DisplayName: Всплеск реальности
+SquidStorm_CthulhuTentacle.DisplayName: Щупальце
+DiverShot.DisplayName: Глазной выстрел
+CthulhuDeath.DisplayName: Взрыв реальности
+CthulhuDeathBoom.DisplayName: Разрыв реальности
+CthulhuHurricane.DisplayName: Ураган Ктулху
+CthulhuNuke.DisplayName: Ядерный удар Ктулху
+CthulhuShot.DisplayName: Выстрел Ктулху
+Cthulhusplosion.DisplayName: Разрыв реальности
+CthulhuStrike.DisplayName: Удар реальности
+Watcher.DisplayName: Наблюдатель
+DeityEye_DeityFlames.DisplayName: Божественное пламя
+DeityLeviathan_Leviacane.DisplayName: Левиакана
+DeityLeviathan_Leviacane2.DisplayName: Левиакана 2
+DeityLeviathan_RazorbladeRift.DisplayName: Бритвенный разлом
+DeityRose_Splinter.DisplayName: Осколок Эй'лора
+Annihilator_Annihilation.DisplayName: Аннигиляция
+Annihilator_AnnihilationBurst.DisplayName: Сингулярность
+Genocide_Antimatter.DisplayName: Антиматерия
+InfinityBlade_Rift.DisplayName: Разлом
+Nova_NovaBurst.DisplayName: Всплеск новой
+Nova_Supernova.DisplayName: Сверхновая
+SagittariusA_Proj.DisplayName: Sagittarius-A
+TotalDestruction_Proj.DisplayName: Тотальное уничтожение
+InfinityZero_InfinityBolt.DisplayName: Заряд бесконечности
+InfinityZero_InfinityStorm.DisplayName: Шторм бесконечности
+InfinityZero_InfinityZeroShot.DisplayName: Выстрел безграничного Зиро
+ShockwaveBoom.DisplayName: Взрывная волна
+DummyExplosionTerra.DisplayName: Фиктивный взрыв
+SistersTitle.DisplayName: Титул сестёр
+Title.DisplayName: Титул
+InfinityGauntletEffect_Snap.DisplayName: Щелчок
+ProtocolR_RaiderRocket.DisplayName: Raider Rocket
+// TheGripsOfChaos_HookInferno.DisplayName: Grip of Chaos
+// TheGripsOfChaos_HookMire.DisplayName: Grip of Chaos
+// DragonsGrip_Hook.DisplayName: Dragon's Grip
+// HydraBite_Hook.DisplayName: Hydra Bite
+// BiomiteCore_RainbowBack.DisplayName: Rainbow

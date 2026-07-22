@@ -220,7 +220,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
         {
             writer.Write(FleeTimer[0]);
             writer.Write(AttackPosition.X);
-            writer.Write(AttackPosition.X);
+            writer.Write(AttackPosition.Y);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
@@ -363,7 +363,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         if (IsAwakened && Main.netMode != NetmodeID.MultiplayerClient)
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX.RotatedBy(NPC.ai[3]), ModContent.ProjectileType<ShenDoragonA_Deathray>(), 40, 0f, -1, 0, NPC.whoAmI);
                     }
-                    else if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.ai[2] > 180 && NPC.ai[2] % 3 == 0)
+                    else if(!Main.dedServ && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.ai[2] > 180 && NPC.ai[2] % 3 == 0)
                     {
                         RandomizedFrameParticle lightning = telegraphParticles.RequestParticle();
                         Main.instance.LoadProjectile(ProjectileID.ScytheWhipProj);
@@ -693,9 +693,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     float rotAngle = MathHelper.Pi / 48f * NPC.ai[1];
                     float radius = 720;
                     NPC.Center = AttackPosition + Vector2.UnitX.RotatedBy(rotAngle) * NPC.ai[2] * radius;
+                    NPC.velocity = Vector2.Zero;
+                    NPC.netOffset = Vector2.Zero;
                     //NPC.velocity -= NPC.velocity.RotatedBy(MathHelper.Pi / 2f) * NPC.velocity.Length() / NPC.ai[3];
                     //NPC.velocity = NPC.velocity.ClampMagnitude(0f, 16f);
-
                     rotAngle += MathHelper.PiOver2 * NPC.ai[2];
 
                     if (NPC.ai[1] % (IsAwakened ? 2 : 6) == 0)
@@ -1012,8 +1013,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                             ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Defeat.NotExpert.First"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
-                        TileProtectionSystem.UnprotectTiles(ModContent.TileType<ScorchedDynastyWood_Tile>(), ModContent.TileType<ScorchedPlatform_Tile>(), ModContent.TileType<ScorchedShingles_Tile>());
-                        TileProtectionSystem.UnprotectWalls(ModContent.WallType<ScorchedDynastyWoodWall_Wall>());
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        {
+                            TileProtectionSystem.UnprotectTiles(ModContent.TileType<ScorchedDynastyWood_Tile>(), ModContent.TileType<ScorchedPlatform_Tile>(), ModContent.TileType<ScorchedShingles_Tile>());
+                            TileProtectionSystem.UnprotectWalls(ModContent.WallType<ScorchedDynastyWoodWall_Wall>());
+                        }
                     }
                     else
                     {
@@ -1038,8 +1042,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         MusicUtils.InstantSwitchMusic(MusicManagementSystem.MusicSlots["Shen_Outro"]);
                         NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<ShenDoragonDefeat>());
                     }
-                    TileProtectionSystem.UnprotectTiles(ModContent.TileType<ScorchedDynastyWood_Tile>(), ModContent.TileType<ScorchedPlatform_Tile>(), ModContent.TileType<ScorchedShingles_Tile>());
-                    TileProtectionSystem.UnprotectWalls(ModContent.WallType<ScorchedDynastyWoodWall_Wall>());
+
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                    {
+                        TileProtectionSystem.UnprotectTiles(ModContent.TileType<ScorchedDynastyWood_Tile>(), ModContent.TileType<ScorchedPlatform_Tile>(), ModContent.TileType<ScorchedShingles_Tile>());
+                        TileProtectionSystem.UnprotectWalls(ModContent.WallType<ScorchedDynastyWoodWall_Wall>());
+                    }
 
                     if (NPC.playerInteraction[Main.myPlayer])
                         ShenDoragonKilled.Condition.Complete();
@@ -1225,8 +1233,16 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
         public override void Unload()
         {
-            _bodyEffect?.Dispose();
-            _bodyEffect = null;
+            try
+            {
+                if (_bodyEffect != null && !_bodyEffect.IsDisposed)
+                    _bodyEffect.Dispose();
+            }
+            catch { }
+            finally
+            {
+                _bodyEffect = null;
+            }
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

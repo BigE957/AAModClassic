@@ -1,0 +1,802 @@
+Functional: {
+	ChaosCrucible: {
+		DisplayName: Горнило хаоса
+		Tooltip: Даже хаос требует твёрдой руки и исполинской кузни для работы
+	}
+
+	TruePaladinsSmeltery: {
+		DisplayName: Истинная плавильня паладина
+		Tooltip:
+			'''
+			Кузня высшего порядка, предназначенная лишь для самых достойных кузнецов
+			Выполняет функции большинства необходимых станций изготовления
+			'''
+	}
+
+	HaphestusForge: {
+		DisplayName: Кузня Гефеста
+		Tooltip:
+			'''
+			*Хлопает по верху кузни* «Эта крошка вмещает в себя уйму станций!»
+			Выполняет функции адской кузни, наковальни из адского камня, алхимического стола, демонического алтаря, мастерской изобретателя, а также стола и стула
+			'''
+	}
+
+	DragonAltarSafe: {
+		DisplayName: Драконий алтарь
+		Tooltip: ""
+	}
+
+	QuantumFusionAccelerator: {
+		DisplayName: Ускоритель квантового синтеза
+		Tooltip:
+			'''
+			Разгоняет частицы до скорости звука
+			Позволяет работать с тёмной материей и лучезарнитом
+			'''
+	}
+
+	RadiantArcanum: {
+		DisplayName: Лучезарный арканум
+		Tooltip:
+			'''
+			Загадай желание...
+			Позволяет работать с тёмной материей и лучезарнитом
+			'''
+	}
+
+	BinaryReassembler: {
+		DisplayName: Бинарный рекомбинатор
+		Tooltip: Реальностью ещё никогда не было так легко манипулировать
+	}
+
+	FurnitureDynamo: {
+		DisplayName: Динамо-мебель
+		Tooltip:
+			'''
+			Объединяет все станции для изготовления мебели в одном блоке
+			Теперь вам не придётся загромождать базу двенадцатью станциями!
+			'''
+	}
+
+	CorruptAltar: {
+		DisplayName: Демонический алтарь
+		Tooltip: ""
+	}
+
+	CrimsonAltar: {
+		DisplayName: Багряный алтарь
+		Tooltip: ""
+	}
+
+	HallowedAnvil: {
+		DisplayName: Освящённая наковальня
+		Tooltip: Святые наковаленки!
+	}
+
+	HallowedForge: {
+		DisplayName: Освящённая кузня
+		Tooltip: Удивительно, но эта штука НЕ способна готовить
+	}
+
+	PaladinsSmeltery: {
+		DisplayName: Плавильня паладина
+		Tooltip:
+			'''
+			Эта штука на многое способна
+			Выполняет функции большинства станций хардмода + верстака и тяжёлого верстака
+			'''
+	}
+
+	HellstoneAnvil: {
+		DisplayName: Наковальня из адского камня
+		Tooltip: Разве эта штука должна гореть?
+	}
+
+	SharpeningLavaFish: {
+		DisplayName: Точёный лавобрюх
+		Tooltip: ""
+	}
+
+	AbyssAltarSafe: {
+		DisplayName: Алтарь бездны
+		Tooltip: ""
+	}
+
+	ToxinMonkfish: {
+		DisplayName: Токсичный удильщик
+		Tooltip: ""
+	}
+
+	TerraCore: {
+		DisplayName: Ядро Террарии
+		Tooltip:
+			'''
+			Объединяет большинство станций изготовления в одну
+			Используется для создания древних станций изготовления
+			'''
+	}
+
+	TerraPrismStation: {
+		DisplayName: Ядро Безграничности
+		Tooltip:
+			'''
+			«Мастер на все руки»
+			Объединяет все ванильные станции и станции Ancients Awakened в одну
+			'''
+	}
+
+	InfernoPylon: {
+		DisplayName: Пилон Инферно
+		Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
+	}
+
+	MirePylon: {
+		DisplayName: Пилон Трясины
+		Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
+	}
+
+	RedMushroomPylon: {
+		DisplayName: Пилон пустошей красных грибов
+		Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
+	}
+
+	VoidPylon: {
+		DisplayName: Пилон Пустоты
+		Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
+	}
+}
+
+TerraCrystal: {
+	DisplayName: Терра-кристалл
+	Tooltip: ""
+}
+
+DoomsdayCircuitPlating: {
+	DisplayName: Обшивка судного дня
+	Tooltip: ""
+}
+
+DoomstoneBrick: {
+	DisplayName: Гибельный каменный кирпич
+	Tooltip: ""
+}
+
+VoidUnit: {
+	DisplayName: Рекреационный модуль пустоты
+	Tooltip: ""
+}
+
+AvesInABox: {
+	DisplayName: Авес в коробке
+	Tooltip: ДЕЛАЙ БОЛЬШЕ МУЗЫКАЛЬНЫХ ШКАТУЛОК, ПРОКЛЯТАЯ УТКА
+}
+
+AvesStatue: {
+	DisplayName: Статуя селезня-маэстро
+	Tooltip: ""
+}
+
+BegStatue: {
+	DisplayName: Статуя странной лошади
+	Tooltip: ""
+}
+
+CharlieStatue: {
+	DisplayName: Статуя гитары
+	Tooltip: ""
+}
+
+DallinStatue: {
+	DisplayName: Статуя доктора
+	Tooltip: ""
+}
+
+EnderStatue: {
+	DisplayName: Статуя героя легенды
+	Tooltip: ""
+}
+
+FargoStatue: {
+	DisplayName: Статуя белки в цилиндре
+	Tooltip: ""
+}
+
+FazerStatue: {
+	DisplayName: Статуя Сэмми
+	Tooltip: ""
+}
+
+GroxStatue: {
+	DisplayName: Статуя стража
+	Tooltip: ""
+}
+
+HallamStatue: {
+	DisplayName: Статуя бога радуги
+	Tooltip: ""
+}
+
+KyuuStatue: {
+	DisplayName: Статуя Экскалигрима
+	Tooltip: ""
+}
+
+LCSStatue: {
+	DisplayName: Статуя лжи
+	Tooltip: ""
+}
+
+MoonStatue: {
+	DisplayName: Статуя осы
+	Tooltip: ""
+}
+
+SauceStatue: {
+	DisplayName: Статуя змеи
+	Tooltip: ""
+}
+
+TailsStatue: {
+	DisplayName: Статуя лиса
+	Tooltip: ""
+}
+
+EnderMemory: {
+	DisplayName: Вечная память
+	Tooltip:
+		'''
+		Величественная статуя, воздвигнутая в память о ком-то
+		На постаменте выгравирована мрачная надпись
+		'''
+}
+
+SkycrystalBrick: {
+	DisplayName: Кирпич небесного кристалла
+	Tooltip: ""
+}
+
+SkymarbleBrick: {
+	DisplayName: Кирпич небесного мрамора
+	Tooltip: ""
+}
+
+RoyalRabbitCage: {
+	DisplayName: Клетка королевского кролика
+	Tooltip: ""
+}
+
+RitualAltar: {
+	DisplayName: Ритуальный алтарь
+	Tooltip: Древний алтарь, чьё предназначение затерялось во времени...
+}
+
+DiscordianTorch: {
+	DisplayName: Раздорнитовый факел
+	Tooltip: ""
+}
+
+DesertCrate: {
+	DisplayName: Пустынный ящик
+	Tooltip: «Слишком пыльный, чтобы открыть»
+}
+
+HellCrate: {
+	DisplayName: Адский ящик
+	Tooltip: «Слишком расплавленный, чтобы открыть»
+}
+
+CovetiteBrick: {
+	DisplayName: Жажданитовый кирпич
+	Tooltip: ""
+}
+
+CovetiteBrickWall: {
+	DisplayName: Жажданитовая кирпичная стена
+	Tooltip: ""
+}
+
+GreedBrick: {
+	DisplayName: Алчный кирпич
+	Tooltip: ""
+}
+
+GreedChest: {
+	DisplayName: Сундук Алчности
+	Tooltip: ""
+}
+
+GreedLantern: {
+	DisplayName: Каменный фонарь
+	Tooltip: ""
+}
+
+GreedStone: {
+	DisplayName: Алчный камень
+	Tooltip: ""
+}
+
+IncineriteBrick: {
+	DisplayName: Испепельнитовый кирпич
+	Tooltip: ""
+}
+
+IncineriteBrickWall: {
+	DisplayName: Испепельнитовая кирпичная стена
+	Tooltip: ""
+}
+
+Razewood: {
+	DisplayName: Выжженная древесина
+	Tooltip: ""
+}
+
+RazewoodWall: {
+	DisplayName: Выжженная деревянная стена
+	Tooltip: ""
+}
+
+DragonfireTorch: {
+	DisplayName: Факел драконьего пламени
+	Tooltip: ""
+}
+
+SunAltar: {
+	DisplayName: Алтарь драконьего солнца
+	Tooltip: ""
+}
+
+SunAltarA: {
+	DisplayName: Пробуждённый алтарь солнца
+	Tooltip: ""
+}
+
+DaybreakBrick: {
+	DisplayName: Рассветный кирпич
+	Tooltip: ""
+}
+
+DaybreakBrickWall: {
+	DisplayName: Рассветная кирпичная стена
+	Tooltip: ""
+}
+
+DaybreakTorch: {
+	DisplayName: Рассветный факел
+	Tooltip: ""
+}
+
+InfernoChest: {
+	DisplayName: Сундук Инферно
+	Tooltip: ""
+}
+
+ScorchedDynastyWood: {
+	DisplayName: Опалённая восточная древесина
+	Tooltip: ""
+}
+
+ScorchedDynastyWoodUnsafe: {
+	DisplayName: Опалённая восточная древесина (небезопасная)
+	Tooltip: ""
+}
+
+ScorchedShingles: {
+	DisplayName: Опалённая черепица
+	Tooltip: ""
+}
+
+TorchAsh: {
+	DisplayName: Вулканический пепел
+	Tooltip: ""
+}
+
+Torchice: {
+	DisplayName: Оранжевый лёд
+	Tooltip: ""
+}
+
+Torchsand: {
+	DisplayName: Факельный песок
+	Tooltip: ""
+}
+
+TorchsandHardened: {
+	DisplayName: Затвердевший факельный песок
+	Tooltip: ""
+}
+
+Torchsandstone: {
+	DisplayName: Факельный песчаник
+	Tooltip: ""
+}
+
+Torchstone: {
+	DisplayName: Факельный камень
+	Tooltip: Тёплый на ощупь
+}
+
+AbyssiumBrick: {
+	DisplayName: Абиссальнитовый кирпич
+	Tooltip: ""
+}
+
+Bogwood: {
+	DisplayName: Болотная древесины
+	Tooltip: ""
+}
+
+BogwoodWall: {
+	DisplayName: Болотная деревянная стена
+	Tooltip: ""
+}
+
+BogtoxinTorch: {
+	DisplayName: Факел болотоксина
+	Tooltip: ""
+}
+
+DreadMoonAltar: {
+	DisplayName: Алтарь ужасающей луны
+	Tooltip: ""
+}
+
+DreadMoonAltarA: {
+	DisplayName: Пробуждённый алтарь луны
+	Tooltip: ""
+}
+
+EventideAbyssiumBrick: {
+	DisplayName: Сумеречный кирпич
+	Tooltip: ""
+}
+
+EventideBrickWall: {
+	DisplayName: Сумеречная кирпичная стена
+	Tooltip: ""
+}
+
+EventideTorch: {
+	DisplayName: Сумеречный факел
+	Tooltip: ""
+}
+
+MireChest: {
+	DisplayName: Сундук Трясины
+	Tooltip: ""
+}
+
+Darkmud: {
+	DisplayName: Тёмная грязь
+	Tooltip: ""
+}
+
+Depthsand: {
+	DisplayName: Глубинный песок
+	Tooltip: ""
+}
+
+DepthsandHardened: {
+	DisplayName: Затвердевший глубинный песок
+	Tooltip: ""
+}
+
+Depthsandstone: {
+	DisplayName: Глубинный песчаник
+	Tooltip: ""
+}
+
+Depthstone: {
+	DisplayName: Глубинный камень
+	Tooltip: Сырой
+}
+
+IndigoIce: {
+	DisplayName: Индиговый лёд
+	Tooltip: ""
+}
+
+MushroomBlock: {
+	DisplayName: Грибной блок
+	Tooltip: ""
+}
+
+IceCrate: {
+	DisplayName: Ледяной ящик
+	Tooltip: «Слишком холодный, чтобы открыть»
+}
+
+RelicBrick: {
+	DisplayName: Реликтовый кирпич
+	Tooltip: ""
+}
+
+RelicBrickWall: {
+	DisplayName: Реликтовая кирпичная стена
+	Tooltip: ""
+}
+
+DarkmatterBrick: {
+	DisplayName: Кирпич из тёмной материи
+	Tooltip: ""
+}
+
+DarkmatterBrickWall: {
+	DisplayName: Кирпичная стена из тёмной материи
+	Tooltip: ""
+}
+
+EquinoxBrick: {
+	DisplayName: Кирпич равноденствия
+	Tooltip: Меняется в зависимости от времени суток
+}
+
+EquinoxBrickWall: {
+	DisplayName: Стена из кирпича равноденствия
+	Tooltip: ""
+}
+
+RadiumBrick: {
+	DisplayName: Лучезарнитная кирпич
+	Tooltip: ""
+}
+
+RadiumBrickWall: {
+	DisplayName: Лучезарнитная кирпичная стена
+	Tooltip: ""
+}
+
+PermeableTerraWoodWand: {
+	DisplayName: Ветвь прозрачного терра-дерева
+	Tooltip: Нажмите ПКМ, чтобы переключить режим
+}
+
+TerraLeafWand: {
+	DisplayName: Ветвь терра-листвы
+	Tooltip: ""
+}
+
+TerraWoodWand: {
+	DisplayName: Ветвь терра-дерева
+	Tooltip: Нажмите ПКМ, чтобы переключить режим
+}
+
+OuroborosWood: {
+	DisplayName: Уроборосовая древесина
+	Tooltip: ""
+}
+
+OuroborosWoodWall: {
+	DisplayName: Уроборосовая деревянная стена
+	Tooltip: ""
+}
+
+DoomsdayPlatingWall: {
+	DisplayName: Стена из обшивки судного дня
+	Tooltip: ""
+}
+
+DoomstoneBrickWall: {
+	DisplayName: Кирпичная стена из гибельного камня
+	Tooltip: ""
+}
+
+DoomstoneB: {
+	DisplayName: Гибельный камень
+	Tooltip: ""
+}
+
+Doomstone: {
+	DisplayName: Заряженный гибельный камень
+	Tooltip: ""
+}
+
+DoomsdayChest: {
+	DisplayName: Сундук судного дня
+	Tooltip: ""
+}
+
+DoomitePlatingWall: {
+	DisplayName: Стена из гибельнитовой обшивки
+	Tooltip: ""
+}
+
+KeepBrick: {
+	DisplayName: Кирпич цитадели
+	Tooltip: ""
+}
+
+AcropolisPainting: {
+	DisplayName: Дворец в небесах
+	Tooltip: «Эти серафимы ведут себя как гарпии больше, чем сами гарпии...»
+}
+
+AkumaPainting: {
+	DisplayName: Драконический демон
+	Tooltip: «Пламя ненависти... оно всё ещё бушует в этом демоне...»
+}
+
+AnubisPainting: {
+	DisplayName: Старый друг
+	Tooltip: «Крепкий орешек, но он меня смешит.»
+}
+
+CRajahPainting: {
+	DisplayName: Заступник невинных
+	Tooltip: «Единственное, что сильнее защитника - это его безграничная ярость.»
+}
+
+DaedalusPainting: {
+	DisplayName: Владыка света
+	Tooltip: «Поступает правильно... не смотря ни на что.»
+}
+
+DecayPainting: {
+	DisplayName: Надзиратель
+	Tooltip: «Этот старый призрак... что он замышляет?..»
+}
+
+FulgurusPainting: {
+	DisplayName: Громовержец
+	Tooltip: «Эту не я рисовал, это подарок от фульгурийцев... Они вроде ничего.»
+}
+
+GreedPainting: {
+	DisplayName: Король червей
+	Tooltip: «В глубине пещер таится целая гора сокровищ, охраняемых змеем... сделанным из них же»
+}
+
+HotJPainting: {
+	DisplayName: Сердце
+	Tooltip: «Источник жизни... низведённый до разумной кучи грязи. Бедняжка...»
+}
+
+IZPainting: {
+	DisplayName: Око Безграничности
+	Tooltip: «Оно не перестаёт преследовать меня в кошмарах...»
+}
+
+JojoBagginsPainting: {
+	DisplayName: Архитектор
+	Tooltip: «Странный парень, но зато каким был строителем!»
+}
+
+KingQueenPainting: {
+	DisplayName: Монархи
+	Tooltip: «Мам, пап... я скучаю...»
+}
+
+LuciferPainting: {
+	DisplayName: Король зла
+	Tooltip: «Яма. Жаркая, тёмная и кровавая. Пожалуй, я откажусь...»
+}
+
+MushmadPainting: {
+	DisplayName: Безумие
+	Tooltip: «Грибы... они повсюду...»
+}
+
+NKPainting: {
+	DisplayName: Павший рыцарь
+	Tooltip: «Легенды гласят, что она ничем не отличалась от нас... до того момента, пока не умерла и не стала безжалостным стражем темницы.»
+}
+
+RajahPainting: {
+	DisplayName: Прыгучий каратель
+	Tooltip: «Король маленьких и беспомощных созданий, коим он сам, очевидно, не является.»
+}
+
+SanguinePainting: {
+	DisplayName: Кровь и кости
+	Tooltip: «Похоже, они восприняли термин „лицемонстр“ слишком буквально.»
+}
+
+ShenPainting: {
+	DisplayName: Вестник раздора
+	Tooltip: «Я запечатал его, но сдерживать хаос вечно... попросту невозможно.»
+}
+
+ShipPainting: {
+	DisplayName: Мрачный галеон
+	Tooltip: «Этот корабль... я до сих пор не понимаю, что за создания его заполонили.»
+}
+
+SoCPainting: {
+	DisplayName: Затонувшая душа
+	Tooltip: «Потусторонний мерзавец, запечатанный на корабле, что сам же и потопил...»
+}
+
+TerraPainting: {
+	DisplayName: Герой
+	Tooltip: «Меня величают героем, но я чувствую, что сделал недостаточно.»
+}
+
+UmbraPainting: {
+	DisplayName: Паукообразный
+	Tooltip: «Ненавижу пауков. Особенно этого.»
+}
+
+ValkyriePainting: {
+	DisplayName: Доблесть
+	Tooltip: «Надеюсь, ты сможешь найти свою потерянную любовь...»
+}
+
+WizardPainting: {
+	DisplayName: Волшебник
+	Tooltip: «Мне всё равно, кем ты стал. Я всё ещё надеюсь на тебя.»
+}
+
+YamataPainting: {
+	DisplayName: Семиглавый крикун
+	Tooltip: «О, Великий Азатот, ДА КОГДА ЖЕ ЭТА ГРЁБАНАЯ ЯЩЕРИЦА УЖЕ ЗАТКНЁТСЯ?!»
+}
+
+ZeroPainting: {
+	DisplayName: "0"
+	Tooltip: «Эта штука... не знаю, что это, но от одного взгляда неё... у меня бегут мурашки.»
+}
+
+TerraBrick: {
+	DisplayName: Терра-кирпич
+	Tooltip: ""
+}
+
+RottedDynastyWood: {
+	DisplayName: Прогнившая восточная древесина
+	Tooltip: Мягкое на ощупь
+}
+
+RottedShingles: {
+	DisplayName: Прогнившая черепица
+	Tooltip: ""
+}
+
+SunkenChest: {
+	DisplayName: Затонувший сундук
+	Tooltip: ""
+}
+
+Sticker: {
+	DisplayName: Особая наклейка
+	Tooltip: Ты п0бедил!
+}
+
+AncientDataBank: {
+	DisplayName: Древний банк данных
+	Tooltip: ""
+}
+
+DataBank: {
+	DisplayName: Банк данных
+	Tooltip: ""
+}
+
+StormChest: {
+	DisplayName: Штормовой сундук
+	Tooltip: ""
+}
+
+LivingBogtoxinBlock: {
+	DisplayName: Живой блок болотоксина
+	Tooltip: ""
+}
+
+LivingDragonFireBlock: {
+	DisplayName: Живой блок драконьего пламени
+	Tooltip: ""
+}
+
+ScorchedDynastyWoodWall: {
+	// DisplayName: Scorched Dynasty Wood Wall
+	// Tooltip: ""
+}
+
+RedmushPlatform: {
+	// DisplayName: Mushroom Platform
+	// Tooltip: ""
+}
+
+RedmushWall: {
+	// DisplayName: Mushroom Wall
+	// Tooltip: ""
+}

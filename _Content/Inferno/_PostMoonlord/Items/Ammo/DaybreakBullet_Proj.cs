@@ -51,12 +51,16 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Ammo
                 num567 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 100);
                 Main.dust[num567].velocity *= 2f;
             }
-            int num568 = Gore.NewGore(Projectile.GetSource_Death(), new Vector2(Projectile.position.X - 10f, Projectile.position.Y - 10f), default, Main.rand.Next(61, 64), 1f);
-            Main.gore[num568].velocity *= 0.3f;
-            Gore expr_12836_cp_0 = Main.gore[num568];
-            expr_12836_cp_0.velocity.X += Main.rand.Next(-10, 11) * 0.05f;
-            Gore expr_12866_cp_0 = Main.gore[num568];
-            expr_12866_cp_0.velocity.Y += Main.rand.Next(-10, 11) * 0.05f;
+
+            if (!Main.dedServ)
+            {
+                int num568 = Gore.NewGore(Projectile.GetSource_Death(), new Vector2(Projectile.position.X - 10f, Projectile.position.Y - 10f), default, Main.rand.Next(61, 64), 1f);
+                Main.gore[num568].velocity *= 0.3f;
+                Gore expr_12836_cp_0 = Main.gore[num568];
+                expr_12836_cp_0.velocity.X += Main.rand.Next(-10, 11) * 0.05f;
+                Gore expr_12866_cp_0 = Main.gore[num568];
+                expr_12866_cp_0.velocity.Y += Main.rand.Next(-10, 11) * 0.05f;
+            }
             if (Projectile.owner == Main.myPlayer)
             {
                 Projectile.localAI[1] = -1f;

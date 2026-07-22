@@ -1,0 +1,74 @@
+AcropolisBiome: {
+	DisplayName: Акрополь
+	TownNPCDialogueName: Акрополь
+}
+
+HoardBiome: {
+	DisplayName: Сокровищница
+	TownNPCDialogueName: Сокровищница
+}
+
+InfernoBiome: {
+	DisplayName: Инферно
+	TownNPCDialogueName: Инферно
+}
+
+MireBiome: {
+	DisplayName: Трясина
+	TownNPCDialogueName: Трясина
+}
+
+RisingMoonLakeBiome: {
+	DisplayName: Озеро восходящей луны
+	TownNPCDialogueName: Озеро восходящей луны
+}
+
+RisingSunPagodaBiome: {
+	DisplayName: Пагода восходящего солнца
+	TownNPCDialogueName: Пагода восходящего солнца
+}
+
+TerrariumBiome: {
+	DisplayName: Террариум
+	TownNPCDialogueName: Террариум
+}
+
+VoidBiome: {
+	DisplayName: Пустота
+	TownNPCDialogueName: Пустота
+}
+
+LostKeepBiome: {
+	DisplayName: Затерянная Цитадель
+	TownNPCDialogueName: Затерянная Цитадель
+}
+
+ParthenanBiome: {
+	DisplayName: Парфенан
+	TownNPCDialogueName: Парфенан
+}
+
+RedMushroomBiome: {
+	DisplayName: Пустоши красных грибов
+	TownNPCDialogueName: Пустоши красных грибов
+}
+
+StarsBiome: {
+	DisplayName: Неземные звёзды
+	TownNPCDialogueName: Неземные звёзды
+}
+
+SunkenShipBiome: {
+	DisplayName: Затонувший корабль
+	TownNPCDialogueName: Затонувший корабль
+}
+
+UndergroundInfernoBiome: {
+	DisplayName: Подземное Инферно
+	TownNPCDialogueName: Подземное Инферно
+}
+
+UndergroundMireBiome: {
+	DisplayName: Подземная Трясина
+	TownNPCDialogueName: Подземная Трясина
+}

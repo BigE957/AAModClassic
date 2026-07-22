@@ -35,7 +35,7 @@ namespace AAModClassic.UI.Titles
     {
         public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
         {
-            Titles modPlayer = Main.player[Main.myPlayer].GetModPlayer<Titles>();
+            Titles modPlayer = Main.LocalPlayer.GetModPlayer<Titles>();
             if (modPlayer.text)
             {
                 var textLayer = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Inventory"));
@@ -150,7 +150,7 @@ namespace AAModClassic.UI.Titles
                     break;
             }
 
-            Titles modPlayer2 = Main.player[Main.myPlayer].GetModPlayer<Titles>();
+            Titles modPlayer2 = Main.LocalPlayer.GetModPlayer<Titles>();
             float alpha = modPlayer2.alphaText;
             float alpha2 = modPlayer2.alphaText2;
 

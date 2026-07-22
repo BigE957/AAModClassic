@@ -2,6 +2,7 @@ using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
+using AAModClassic.Globals;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
@@ -108,7 +109,12 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
                     }
                     if (player.GetModPlayer<ZAAPlayer>().ZoneAcropolis)
                     {
-                        AcropolisAltar_Tile.SpawnBoss(player, ModContent.NPCType<Athena>(), player.Center, Language.GetTextValue("Mods.AAModClassic.Common.Athena"), false);
+                        Vector2 npcCenter = player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * Main.rand.Next(2) == 0 ? -1 : 1, -800f);
+                        for (int a = 0; a < 8; a++)
+                            Dust.NewDust(npcCenter, 152, 114, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0);
+
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Athena>(), true, npcCenter, Language.GetTextValue("Mods.AAModClassic.Common.Athena"));
                     }
                     BaseAI.KillNPC(NPC); 
                     NPC.netUpdate = true; 
@@ -128,14 +134,14 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
 
         public static string SeraphBitching()
         {
-            switch (Main.rand.Next(5))
+            return Main.rand.Next(5) switch
             {
-                case 0: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphHurtChat1");
-                case 1: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphHurtChat2");
-                case 2: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphHurtChat3");
-                case 3: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphHurtChat4");
-                default: return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphHurtChat5");
-            }
+                0 => Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphHurtChat1"),
+                1 => Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphHurtChat2"),
+                2 => Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphHurtChat3"),
+                3 => Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphHurtChat4"),
+                _ => Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphHurtChat5"),
+            };
         }
 
 		public override void FindFrame(int frameHeight)

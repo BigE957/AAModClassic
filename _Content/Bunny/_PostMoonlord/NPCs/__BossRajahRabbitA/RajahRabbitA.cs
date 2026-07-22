@@ -80,7 +80,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ChampionPlate>(), 1, 15, 31));
 
-            int[] lootTable = { ModContent.ItemType<Excalihare>(), ModContent.ItemType<FluffyFury>(), ModContent.ItemType<RabbitsWrath>() };
+            int[] lootTable = { ModContent.ItemType<Excalihare>(), ModContent.ItemType<FluffyFury>(), ModContent.ItemType<RabbitsWrath>(), ModContent.ItemType<BaneOfTheSlaughterer>(), ModContent.ItemType<RPG>(), ModContent.ItemType<RoyalStaff>(), ModContent.ItemType<TheAvenger>(), ModContent.ItemType<RajahsRage>() };
 
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 

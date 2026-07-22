@@ -1,0 +1,472 @@
+RainbowMushroom: {
+	DisplayName: Радужный гриб
+	Tooltip: Вы не совсем уверены, то ли он такой разноцветный от природы, то ли вы просто под кайфом
+}
+
+ChampionPlate: {
+	DisplayName: Пластина заступника
+	Tooltip: Выкована из заступния
+}
+
+ChaosScale: {
+	DisplayName: Чешуя хаоса
+	Tooltip: Эта пылающая чешуя источает истинный хаос
+}
+
+DiscordiumBar: {
+	DisplayName: Раздорнит
+	Tooltip: Весь хаос мира, слившийся в единый мощный слиток
+}
+
+IncineriteBar: {
+	DisplayName: Испепельнитовый слиток
+	Tooltip: Осторожно. Он горячий
+}
+
+IncineriteOre: {
+	DisplayName: Испепельнит
+	Tooltip: Эта хрень чертовски горяча. Осторожно
+}
+
+ScorchedScale: {
+	DisplayName: Опалённая чешуя
+	Tooltip: Чешуя свирепого врага
+}
+
+RadiantIncineriteBar: {
+	DisplayName: Лучезарный испепельнитовый слиток
+	Tooltip: Вы едва можете на него смотреть - настолько он яркий
+}
+
+DreadScale: {
+	DisplayName: Чешуя ужаса
+	Tooltip: Вся мощь ужасающей луны прямо в ваших руках...
+}
+
+EventideAbyssiumOre: {
+	DisplayName: Сумеречная абиссальнитовая руда
+	Tooltip: Холодная и влажная, словно вечер в болотистой топи
+}
+
+DarkEnergy: {
+	DisplayName: Тёмная энергия
+	Tooltip: Она поразительно невесомая
+}
+
+ApocalyptiteOre: {
+	DisplayName: Апокалиптит
+	Tooltip: ""
+}
+
+FulguriteBar: {
+	DisplayName: Фульгуритовый слиток
+	Tooltip: Он потрескивает статическим электричеством
+}
+
+FulguriteShard: {
+	DisplayName: Фульгуритовый осколок
+	Tooltip: Ярость тысячи молний пронизывает этот осколок
+}
+
+RealityBar: {
+	DisplayName: Слиток реальности
+	Tooltip: Необузданная, межпространственная энергия
+}
+
+Infinitium: {
+	DisplayName: Слиток Безграничности
+	Tooltip: Сгусток чистой, безграничной злобы
+}
+
+ShinyCharm: {
+	DisplayName: Сияющий амулет
+	Tooltip: Редкий амулет, позволяющий сделать определённое оружие сияющим
+}
+
+ShinyCharmFish: {
+	DisplayName: Рыба-сияющий амулет
+	Tooltip: Разновидность редкой рыбы
+}
+
+EXSoul: {
+	DisplayName: Душа EX
+	Tooltip: Эссенция древней, тайной магии
+}
+
+BiomePrism: {
+	DisplayName: Призма биома
+	Tooltip: Магическая призма, которую можно зачаровать силой биома
+}
+
+M79Parts: {
+	DisplayName: Запчасти для M79
+	Tooltip: ""
+}
+
+BlueAlchemicalMushroom: {
+	DisplayName: Синий алхимический гриб
+	Tooltip: Странно пахнет
+}
+
+BrownAlchemicalMushroom: {
+	DisplayName: Коричневый алхимический гриб
+	Tooltip: Странно пахнет
+}
+
+GrayAlchemicalMushroom: {
+	DisplayName: Серый алхимический гриб
+	Tooltip: Странно пахнет
+}
+
+GreenAlchemicalMushroom: {
+	DisplayName: Зелёный алхимический гриб
+	Tooltip: Странно пахнет
+}
+
+OrangeAlchemicalMushroom: {
+	DisplayName: Оранжевый алхимический гриб
+	Tooltip: Странно пахнет
+}
+
+PinkAlchemicalMushroom: {
+	DisplayName: Розовый алхимический гриб
+	Tooltip: Странно пахнет
+}
+
+PurpleAlchemicalMushroom: {
+	DisplayName: Фиолетовый алхимический гриб
+	Tooltip: Странно пахнет
+}
+
+RedAlchemicalMushroom: {
+	DisplayName: Красный алхимический гриб
+	Tooltip: Странно пахнет
+}
+
+YellowAlchemicalMushroom: {
+	DisplayName: Жёлтый алхимический гриб
+	Tooltip: Странно пахнет
+}
+
+GoddessFeather: {
+	DisplayName: Перо Богини
+	Tooltip: ""
+}
+
+SeraphFeather: {
+	DisplayName: Перо серафима
+	Tooltip: Серебристое перо серафима-гарпии
+}
+
+SkyCrystal: {
+	DisplayName: Небесный кристалл
+	Tooltip: Прекрасный кристалл, в котором, по слухам, заключён кусочек неба
+}
+
+StormSphere: {
+	DisplayName: Штормовая сфера
+	Tooltip: Сверхзаряженная кристаллическая сфера энергии воинов
+}
+
+RajahPelt: {
+	DisplayName: Кроличья шкура
+	Tooltip: Удивительно прочная для меховой шкуры
+}
+
+ChaosPrism: {
+	DisplayName: Призма хаоса
+	Tooltip: Пропитана раздорным пламенем хаоса
+}
+
+ChaosSoul: {
+	DisplayName: Эссенция хаоса
+	Tooltip: Твёрдый раздор, символизирующий смуту и саму анархию
+}
+
+DesertMana: {
+	DisplayName: Пустынная мана
+	Tooltip: ""
+}
+
+DynaskullFossil: {
+	DisplayName: Диночерепная окаменелость
+	Tooltip: Энергия миллионов лет пульсирует в этой древней окаменелости
+}
+
+VultureFeather: {
+	DisplayName: Перо стервятника
+	Tooltip: ""
+}
+
+ForsakenFragment: {
+	DisplayName: Фрагмент отвергнутого
+	Tooltip: ""
+}
+
+SoulFragment: {
+	DisplayName: Фрагмент души
+	Tooltip: ""
+}
+
+GlowingMushium: {
+	DisplayName: Светящийся грибий
+	Tooltip: ""
+}
+
+GlowingMushiumBar: {
+	DisplayName: Слиток светящегося грибия
+	Tooltip: Светиш
+}
+
+HallowedOre: {
+	DisplayName: Освящённая руда
+	Tooltip: Она очень яркая
+}
+
+DevilSilk: {
+	DisplayName: Дьявольская ткань
+	Tooltip: Физический грех; приятна на ощупь, но не лучший материал для долговечного использования
+}
+
+PureEvil: {
+	DisplayName: Чистое зло
+	Tooltip: Настолько коварное, что чувствуешь вину, просто глядя на него
+}
+
+CovetiteCrystal: {
+	DisplayName: Жажданитовый кристалл
+	Tooltip:
+		'''
+		Вы испытываете странное влечение к этому кристаллу,
+		несмотря на то, что он уже у вас
+		'''
+}
+
+StoneShell: {
+	DisplayName: Каменный панцирь
+	Tooltip: Твёрже коренной породы, но легче пемзы
+}
+
+CovetiteBar: {
+	DisplayName: Жажданитовый слиток
+	Tooltip: Он вроде и блестящий, а вроде и нет. Как Алчность на это купился?
+}
+
+CovetiteOre: {
+	DisplayName: Жажданитовая руда
+	Tooltip: Только глупец возжелает её. Теперь ясно, что она забыла у Алчности.
+}
+
+DragonClaw_Item: {
+	DisplayName: Коготь дракона
+	Tooltip: Не уколитесь
+}
+
+DragonScale: {
+	DisplayName: Драконья чешуя
+	Tooltip: ""
+}
+
+SolarMushroom: {
+	DisplayName: Солнечный гриб
+	Tooltip: Растёт только днём
+}
+
+DragonFire: {
+	DisplayName: Пламя дракона
+	Tooltip: Оно очень-очень горячее
+}
+
+SoulOfSmite: {
+	DisplayName: Эссенция воздаяния
+	Tooltip: Эссенция созданий инферно
+}
+
+CrucibleScale: {
+	DisplayName: Чешуя горнила
+	Tooltip: Ярость драконьего солнца исходит от этой чешуи
+}
+
+DaybreakIncineriteBar: {
+	DisplayName: Рассветный испепельнит
+	Tooltip: Яркий, словно сияющее солнце
+}
+
+DaybreakIncineriteOre: {
+	DisplayName: Рассветная испепельнитовая руда
+	Tooltip: Тёплая на ощупь, словно яркое летнее утро
+}
+
+SearingSpark: {
+	DisplayName: Опаляющая искра
+	Tooltip: ""
+}
+
+PlanteraPetal: {
+	DisplayName: Лепесток Плантеры
+	Tooltip: Он очень розовый
+}
+
+MadnessFragment: {
+	DisplayName: Фрагмент безумия
+	Tooltip: ""
+}
+
+AbyssiumBar: {
+	DisplayName: Абиссальнитовый слиток
+	Tooltip: Затвердевшая тьма
+}
+
+AbyssiumOre: {
+	DisplayName: Абиссальнит
+	Tooltip: Весь такой рыхлый. Гадость
+}
+
+BlackLotus: {
+	DisplayName: Чёрный лотос
+	Tooltip: Поговаривают, что за эту штуку могут предложить $160000
+}
+
+LunarMushroom: {
+	DisplayName: Лунный гриб
+	Tooltip: Растёт только ночью
+}
+
+HydraClaw_Item: {
+	DisplayName: Коготь гидры
+	Tooltip: Не уколитесь
+}
+
+HydraHide: {
+	DisplayName: Шкура гидры
+	Tooltip: Шкура свирепого врага
+}
+
+MirePod: {
+	DisplayName: Кокон трясины
+	Tooltip: ""
+}
+
+Bogtoxin: {
+	DisplayName: Болотоксин
+	Tooltip: Чрезвычайно едкий яд
+}
+
+DeepAbyssiumBar: {
+	DisplayName: Глубинный абиссальнитовый слиток
+	Tooltip: Удивительно, что вы вообще его видите - настолько он тёмный
+}
+
+SoulOfSpite: {
+	DisplayName: Эссенция злодеяния
+	Tooltip: Эссенция созданий трясины
+}
+
+EventideAbyssiumBar: {
+	DisplayName: Сумеречный абиссальнит
+	Tooltip: Холодный, словно вечерняя луна
+}
+
+TerrorSoul: {
+	DisplayName: Душа террора
+	Tooltip: ""
+}
+
+Mushium: {
+	DisplayName: Грибий
+	Tooltip: ""
+}
+
+MushiumBar: {
+	DisplayName: Слиток грибия
+	Tooltip: Мякиш
+}
+
+DragonSpirit: {
+	DisplayName: Дух дракона
+	Tooltip: На вкус как яблоко
+}
+
+RelicBar: {
+	DisplayName: Реликтовый слиток
+	Tooltip: ""
+}
+
+SnowMana: {
+	DisplayName: Снежная мана
+	Tooltip: ""
+}
+
+VikingRelic: {
+	DisplayName: Реликвия викингов
+	Tooltip: ""
+}
+
+DarkmatterBar: {
+	DisplayName: Тёмная материя
+	Tooltip: Строительные блоки самой физики
+}
+
+DarkmatterOre: {
+	DisplayName: Руда тёмной материи
+	Tooltip: Кажется невесомой, но всё же обладает какой-то массой
+}
+
+RadiantPhoton: {
+	DisplayName: Лучезарный фотон
+	Tooltip: Осколок небесного космоса
+}
+
+RadiumBar: {
+	DisplayName: Лучезарнитный слиток
+	Tooltip: Он сверкает
+}
+
+RadiumOre: {
+	DisplayName: Лучезарнитная руда
+	Tooltip: Мерцает, словно звёзды в полуночном небе
+}
+
+HeroRelics: {
+	DisplayName: Реликвия героя
+	Tooltip: Осколки разрушенной реликвии
+}
+
+TerraShard: {
+	DisplayName: Терра-осколок
+	Tooltip: ""
+}
+
+TerraPrism: {
+	DisplayName: Терра-призма
+	Tooltip: Пропитана единой гармонией Террарии
+}
+
+Prism: {
+	DisplayName: Призма
+	Tooltip: Сияет всеми цветами радуги
+}
+
+DoomiteBar: {
+	DisplayName: Гибельнитовый слиток
+	Tooltip: От этого слитка исходит тревожная энергия
+}
+
+DoomiteScrap: {
+	DisplayName: Гибельнитовый лом
+	Tooltip:
+		'''
+		Он ничего не стоит
+		...или всё же?
+		'''
+}
+
+ApocalyptitePlate: {
+	DisplayName: Слиток апокалиптита
+	Tooltip: От этого слитка исходит зловещая энергия
+}
+
+UnstableSingularity: {
+	DisplayName: Нестабильная сингулярность
+	Tooltip: Едва стабильна, чтобы удержать в руках
+}

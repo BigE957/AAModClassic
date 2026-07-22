@@ -23,24 +23,30 @@ namespace AAModClassic._CrossMod.CalamityMod
                 Calamity = null;
         }
 
+        public override void AddRecipes()
+        {
+            if (IsEnabled)
+                rogueClass = Calamity.Find<DamageClass>("RogueDamageClass");
+        }
         public override void PostSetupContent()
         {
             if (Calamity != null)
             {
-                astralDust = Calamity.Find<ModDust>("AstralChunkDust").Type;
+                if(!Main.dedServ)
+                    astralDust = Calamity.Find<ModDust>("AstralChunkDust").Type;
 
-                Calamity.Call(FilePathUtils.TexturePath<SpearStuck_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().Spear);
-                Calamity.Call(FilePathUtils.TexturePath<Impaled_Buff>(), (NPC npc) => npc.HasBuff<Impaled_Buff>());
-                Calamity.Call(FilePathUtils.TexturePath<Electrified_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().Electrified);
-                Calamity.Call(FilePathUtils.TexturePath<BrokenArmor_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().BrokenArmor);
-                Calamity.Call(FilePathUtils.TexturePath<InfinityScorch_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().InfinityScorch);
-                Calamity.Call(FilePathUtils.TexturePath<RealityBent_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().riftBent);
-                Calamity.Call(FilePathUtils.TexturePath<Terrablaze_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().terraBlaze);
-                Calamity.Call(FilePathUtils.TexturePath<RadiumInferno_Buff>(), (NPC npc) => npc.HasBuff<RadiumInferno_Buff>());
-                Calamity.Call(FilePathUtils.TexturePath<Moonraze_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().Moonraze);
-                Calamity.Call(FilePathUtils.TexturePath<HydraToxin_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().Hydratoxin);
-                Calamity.Call(FilePathUtils.TexturePath<DragonFire_Buff>(), (NPC npc) => npc.HasBuff<DragonFire_Buff>());
-                Calamity.Call(FilePathUtils.TexturePath<DiscordianInferno_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().DiscordInferno);
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<SpearStuck_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().Spear);
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<Impaled_Buff>(), (NPC npc) => npc.HasBuff<Impaled_Buff>());
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<Electrified_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().Electrified);
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<BrokenArmor_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().BrokenArmor);
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<InfinityScorch_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().InfinityScorch);
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<RealityBent_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().riftBent);
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<Terrablaze_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().terraBlaze);
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<RadiumInferno_Buff>(), (NPC npc) => npc.HasBuff<RadiumInferno_Buff>());
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<Moonraze_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().Moonraze);
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<HydraToxin_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().Hydratoxin);
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<DragonFire_Buff>(), (NPC npc) => npc.HasBuff<DragonFire_Buff>());
+                Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<DiscordianInferno_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().DiscordInferno);
             }
         }
 
@@ -54,8 +60,10 @@ namespace AAModClassic._CrossMod.CalamityMod
         public static bool IsEnabled => Calamity != null;
         public static bool IsRevengance => Calamity != null && (bool)Calamity.Call("GetDifficultyActive", "revengeance");
         public static bool IsDeath => Calamity != null && (bool)Calamity.Call("GetDifficultyActive", "death");
-        public static DamageClass RogueClass => Calamity?.Find<DamageClass>("RogueDamageClass");
-        
+
+        private static DamageClass rogueClass = null;
+        public static DamageClass RogueClass => rogueClass ?? (rogueClass = Calamity.Find<DamageClass>("RogueDamageClass"));
+
         public static object Call(params object[] args) => Calamity?.Call(args);
         
         public static int GetModItem(string name)

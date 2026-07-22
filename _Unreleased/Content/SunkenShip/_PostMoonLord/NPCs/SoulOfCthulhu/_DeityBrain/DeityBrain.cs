@@ -1,8 +1,10 @@
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -20,8 +22,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
     {
         public override string BossHeadTexture => "AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/_DeityEater/DeityEater_Head_Boss";
         //public override string Texture { get { return "AAMod/NPCs/Bosses/SoC/Bosses/DeityEater"; } }
-
-        public int fireTimer = 0;
 
         public override void SetStaticDefaults()
         {
@@ -60,14 +60,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             SpawnModBiomes = [ModContent.GetInstance<SunkenShipBiome>().Type];
         }
 
-        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
-        {
-            NPC.lifeMax = NPC.lifeMax;
-        }
-
         public override void FindFrame(int frameHeight)
         {
-            int num = TextureAssets.Npc[NPC.type].Value.Height / Main.npcFrameCount[NPC.type];
+            int num = TextureAssets.Npc[NPC.type].Height() / Main.npcFrameCount[NPC.type];
             NPC.frameCounter += 1.0;
             if (NPC.frameCounter > 6.0)
             {
@@ -95,8 +90,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         }
 
 
-        public int EyeCount = 15;
-        public int[] totalEyes = null;
+        public static int EyeCount => Main.expertMode ? 20 : 15;
+        //public int[] totalEyes = null;
+        //public int fireTimer = 0;
+
+        //Client Side
         public bool spawnAlpha = false;
 
         public override void AI()
@@ -105,19 +103,23 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                 {
-                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("CthulhuDust").Type, 0f, 0f, 100, default(Color), 2f);
+                    int num935 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 100, default(Color), 2f);
                     Main.dust[num935].noGravity = true;
                     Main.dust[num935].noLight = true;
                 }
             }
-            if (spawnAlpha == false)
+
+            if (!Main.dedServ)
             {
-                NPC.alpha -= 12;
-            }
-            if (NPC.alpha < 0 && spawnAlpha == false)
-            {
-                NPC.alpha = 0;
-                spawnAlpha = true;
+                if (spawnAlpha == false)
+                {
+                    NPC.alpha -= 12;
+                }
+                if (NPC.alpha < 0 && spawnAlpha == false)
+                {
+                    NPC.alpha = 0;
+                    spawnAlpha = true;
+                }
             }
 
             AAModGlobalNPC.Brain = NPC.whoAmI;
@@ -128,22 +130,21 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 Music = 0;
             }
-            EyeCount = (Main.expertMode ? 20 : 15);
             if (Main.netMode != NetmodeID.MultiplayerClient && NPC.localAI[0] == 0f)
             {
                 NPC.localAI[0] = 1f;
                 for (int num761 = 0; num761 < EyeCount; num761++)
                 {
-                    float num762 = NPC.Center.X;
-                    float num763 = NPC.Center.Y;
-                    num762 += (float)Main.rand.Next(-NPC.width, NPC.width);
-                    num763 += (float)Main.rand.Next(-NPC.height, NPC.height);
-                    int num764 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)num762, (int)num763, ModContent.NPCType<EyeOfAzathoth>(), 0, num761);
-                    Main.npc[num764].velocity = new Vector2((float)Main.rand.Next(-30, 31) * 0.1f, (float)Main.rand.Next(-30, 31) * 0.1f);
-                    Main.npc[num764].netUpdate = true;
+                    float x = NPC.Center.X;
+                    float y = NPC.Center.Y;
+                    x += (float)Main.rand.Next(-NPC.width, NPC.width);
+                    y += (float)Main.rand.Next(-NPC.height, NPC.height);
+                    NPC npc = NPC.NewNPCDirect(NPC.GetSource_FromThis(), (int)x, (int)y, ModContent.NPCType<EyeOfAzathoth>(), 0, num761);
+                    npc.velocity = new Vector2((float)Main.rand.Next(-30, 31) * 0.1f, (float)Main.rand.Next(-30, 31) * 0.1f);
+                    npc.netUpdate = true;
                 }
             }
-            totalEyes = BaseAI.GetNPCs(NPC.Center, ModContent.NPCType<EyeOfAzathoth>(), 1500f);
+            //totalEyes = BaseAI.GetNPCs(NPC.Center, ModContent.NPCType<EyeOfAzathoth>(), 1500f);
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
@@ -166,8 +167,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 {
                     SoundEngine.PlaySound(SoundID.NPCHit1, NPC.position);
                     NPC.localAI[2] = 1f;
-                    Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeityBrain1").Type, 1f);
-                    Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeityBrain2").Type, 1f);
+                    if (!Main.dedServ)
+                    {
+                        Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeityBrain1").Type, 1f);
+                        Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DeityBrain2").Type, 1f);
+                    }
                     for (int num766 = 0; num766 < 20; num766++)
                     {
                         Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), (float)Main.rand.Next(-30, 31) * 0.2f, (float)Main.rand.Next(-30, 31) * 0.2f, 0, default(Color), 1f);
@@ -451,13 +455,16 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         }
         public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
         {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                return;
+
             Player player = Main.player[NPC.target];
             if (player.vortexStealthActive && projectile.CountsAsClass(DamageClass.Ranged))
             {
                 modifiers.FinalDamage /= 2;
                 modifiers.DisableCrit();
             }
-            if (projectile.penetrate == -1 && !projectile.minion)
+            if (projectile.penetrate == -1 && !projectile.minion && Main.player[projectile.owner].heldProj != projectile.whoAmI)
             {
                 projectile.damage = (int)(projectile.damage * 0.2f);
             }

@@ -6,6 +6,8 @@ namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
 {
     public class CarrotFarmer_FarmedCarrot : ModProjectile
 	{
+        public override bool IsLoadingEnabled(Mod mod) => ThoriumMod.IsEnabled;
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Farmed Carrot");
@@ -22,23 +24,26 @@ namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
 			Projectile.timeLeft = 600;  
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = true;
-			AIType = ProjectileID.WoodenArrowFriendly;           
-		}
+			AIType = ProjectileID.WoodenArrowFriendly;
+            Projectile.DamageType = ThoriumMod.HealerClass;
+        }
 
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
             Player player = Main.player[Projectile.owner];
+            /*
             if (Main.rand.Next(100) <= player.GetModPlayer<ModSupportPlayer>().Thorium_radiantCrit)
             {
                 modifiers.SetCrit();
             }
+            */
         }
 
         public override void OnKill(int timeleft)
         {
             for (int num468 = 0; num468 < 20; num468++)
             {
-                int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.CarrotDust>(), -Projectile.velocity.X * 0.2f,
+                int num469 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.CarrotDust>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 100);
                 Main.dust[num469].velocity *= 2f;
             }

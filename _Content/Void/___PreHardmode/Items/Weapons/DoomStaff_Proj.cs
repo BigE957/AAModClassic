@@ -54,7 +54,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
                 Main.dust[num469].velocity *= 2f;
             }
             SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Glitch"), Projectile.Center);
-            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<DoomStaff_DoomBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Projectile.velocity, ModContent.ProjectileType<DoomStaff_DoomBoom>(), Projectile.damage, 0, Projectile.owner, 0f, 0f);
         }
     }
 }

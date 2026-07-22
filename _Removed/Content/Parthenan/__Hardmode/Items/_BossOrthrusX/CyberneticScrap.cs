@@ -22,6 +22,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX
         public override void SetStaticDefaults()
         {
             ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+            Item.ResearchUnlockCount = 3;
 
             // DisplayName.SetDefault("Scrap Heap");
             /* Tooltip.SetDefault(@"A bunch of metal garbage
@@ -33,7 +34,7 @@ Can only be used at night"); */
         {
             Item.width = 16;
             Item.height = 16;
-            Item.maxStack = 20;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Green;
             Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.useAnimation = 45;

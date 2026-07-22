@@ -1,6 +1,7 @@
-using Terraria;
-using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
 {
@@ -50,8 +51,8 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
                         int A = Main.rand.Next(-50, 50);
                         int B = Main.rand.Next(-200, 200) - 1000;
 
-                        int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + A, Projectile.Center.Y + B, 0f, 12f, ModContent.ProjectileType<GreedAHead_CovetiteStalagtite>(), 43, 1);
-                        Main.projectile[p].netUpdate = true;
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + A, Projectile.Center.Y + B, 0f, 12f, ModContent.ProjectileType<GreedAHead_CovetiteStalagtite>(), 43, 1);
                     }
                 }
                 else
@@ -61,8 +62,8 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
                         int A = Main.rand.Next(-80, 80);
                         int B = Main.rand.Next(-200, 200) - 1000;
 
-                        int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + A, Projectile.Center.Y + B, 0f, 10f, ModContent.ProjectileType<SingularityOfDesire_DesireBeam>(), 43, 1);
-                        Main.projectile[p].netUpdate = true;
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + A, Projectile.Center.Y + B, 0f, 10f, ModContent.ProjectileType<SingularityOfDesire_DesireBeam>(), 43, 1);
                     }
                 }
             }

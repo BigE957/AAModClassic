@@ -12,9 +12,9 @@ namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
     public class AuroraScythe : CrossoverItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.CrossMod.Healer";
+        public override string CrossoverModName => "ThoriumMod";
         public override void SetStaticDefaults()
 		{
-			crossoverModName = "Thorium";
             // DisplayName.SetDefault("Aurora Scythe");
             /* Tooltip.SetDefault(@"Spins a frostburning scythe around you that shreds through enemies
 Scythes inflict frostburn on contact
@@ -29,8 +29,8 @@ Grants 1 soul essence on direct hit"); */
             Item.value = Item.sellPrice(0, 5, 50, 50);
 
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.useAnimation = 25;
-            Item.useTime = 25;
+            Item.useAnimation = 22;
+            Item.useTime = 22;
             Item.UseSound = SoundID.Item1;
             Item.damage = 24;
             Item.knockBack = 6;
@@ -39,29 +39,9 @@ Grants 1 soul essence on direct hit"); */
 			Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<AuroraScythe_Holdout>();
             Item.shootSpeed = 0.1f;
-		}
-		
-		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-		{
-			for (int k = 0; k < 2; k++)
-			{
-				Projectile.NewProjectile(source, player.Center.X, player.Center.Y, 0f, 0f, ModContent.ProjectileType<AuroraScytheEffect>(), damage, knockback, player.whoAmI, k, 0f);
-			}
-			return true;
-		}
+            Item.DamageType = ThoriumMod.HealerClass;
 
-        public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
-        {
-            damage.Flat *= player.GetModPlayer<ModSupportPlayer>().Thorium_radiantBoost;
         }
-
-        public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers)
-		{
-			if (Main.rand.Next(100) <= player.GetModPlayer<ModSupportPlayer>().Thorium_radiantCrit)
-			{
-                modifiers.SetCrit();
-			}
-		}
 
         public override void UpdateInventory(Player player)
         {
@@ -73,28 +53,29 @@ Grants 1 soul essence on direct hit"); */
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
-            int index = -1, index2 = -1;
+            int index = -1;
             for (int m = 0; m < list.Count; m++)
             {
-                if (list[m].Name.Equals("Damage")) { index = m; continue; }
-                if (list[m].Name.Equals("Tooltip0")) { index2 = m; continue; }		
-				if(index > -1 && index2 > -1) break;
+                if (list[m].Name.Equals("ItemName"))
+                { 
+                    index = m;
+                    break;
+                }		
             }
-            string oldTooltip = list[index].Text;
-            string[] split = oldTooltip.Split(' '); 
-            list.RemoveAt(index);
-            list.Insert(index, new TooltipLine(Mod, "Damage", split[0] + " radiant damage"));
+
+            if (index == -1)
+                return;
+
+            //Thorium doesn't localize this line... For some reason. So I guess we won't either?
             TooltipLine colorLine = new TooltipLine(Mod, "Healer", "-Healer Class-")
             {
                 OverrideColor = new Color(255, 255, 91)
             };
-            list.Insert(index2, colorLine);
-			base.ModifyTooltips(list);
+            list.Insert(index + 1, colorLine);
         }
 
         public override void AddRecipes()
         {
-            if (!ModLoader.TryGetMod("ThoriumMod", out _)) return;
             Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.IceSickle);
             recipe.AddIngredient(ItemID.AdamantiteBar, 8);

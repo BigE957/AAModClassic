@@ -33,7 +33,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
             string text = "";
-			Player player = Main.player[Main.myPlayer];
+			Player player = Main.LocalPlayer;
 			if(!player.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().Thebookoflaw)
 			{
 				text += Language.GetTextValue("Mods.AAModClassic.Common.InvokerStaff1");
@@ -49,7 +49,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 					string[] splitText = tooltipLine.Text.Split(' ');
 					string damageValue = splitText.First();
 					string damageWord = splitText.Last();
-					if(Main.player[Main.myPlayer].GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().Thebookoflaw) 
+					if(Main.LocalPlayer.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().Thebookoflaw) 
 					{
 						tooltipLine.Text = damageValue + " " + Language.GetTextValue("Mods.AAModClassic.Common.InvokerDamage1") + damageWord;
 					}
@@ -157,7 +157,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 
 			if(BanishCount > 70 || npc.alpha >= 250 || npc.scale < 0.05f)
 			{
-				Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, 0f, 0f, ModContent.ProjectileType<AleisterStaff_InvokedHeal>(), 0, 0f, Main.player[Main.myPlayer].whoAmI, Main.player[Main.myPlayer].whoAmI, npc.lifeMax * 0.01f);
+				Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, 0f, 0f, ModContent.ProjectileType<AleisterStaff_InvokedHeal>(), 0, 0f, Main.LocalPlayer.whoAmI, Main.LocalPlayer.whoAmI, npc.lifeMax * 0.01f);
 				
 				if(npc.type == NPCID.MoonLordHead || npc.type == NPCID.MoonLordHand)
 				{
@@ -210,7 +210,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 				}
 			}
 
-			TheBookOfTheLaw_InvokerPlayer InvokerPlayer = Main.player[Main.myPlayer].GetModPlayer<TheBookOfTheLaw_InvokerPlayer>();
+			TheBookOfTheLaw_InvokerPlayer InvokerPlayer = Main.LocalPlayer.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>();
 
 			if(npc.boss)
 			{
@@ -218,7 +218,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 				{
 					InvokerPlayer.nohit = false;
 				}
-				bool flag = (Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type == ModContent.ItemType<AleisterStaff>() || Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type == ItemID.RodofDiscord) && Main.player[Main.myPlayer].GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().SpringInvoker && Main.player[Main.myPlayer].GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().Thebookoflaw;
+				bool flag = (Main.LocalPlayer.inventory[Main.LocalPlayer.selectedItem].type == ModContent.ItemType<AleisterStaff>() || Main.LocalPlayer.inventory[Main.LocalPlayer.selectedItem].type == ItemID.RodofDiscord) && Main.LocalPlayer.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().SpringInvoker && Main.LocalPlayer.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().Thebookoflaw;
 				if(npc.life/npc.lifeMax > 0.95)
 				{
 					CaligulaSoulFight = true;
@@ -248,7 +248,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 				BanishCount ++;
 				if(BanishCount == 1)
 				{
-					Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, 0f, 0f, ModContent.ProjectileType<AleisterStaff_InvokedRune>(), 0, 0f, Main.player[Main.myPlayer].whoAmI, 1f, npc.whoAmI);
+					Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, 0f, 0f, ModContent.ProjectileType<AleisterStaff_InvokedRune>(), 0, 0f, Main.LocalPlayer.whoAmI, 1f, npc.whoAmI);
 					
 					if(npc.type == NPCID.MoonLordHead || npc.type == NPCID.MoonLordHand)
 					{
@@ -256,7 +256,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 						{
 							if(Main.npc[i].type == NPCID.MoonLordCore || Main.npc[i].type == NPCID.MoonLordHead || Main.npc[i].type == NPCID.MoonLordHand)
 							{
-								Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, 0f, 0f, ModContent.ProjectileType<AleisterStaff_InvokedRune>(), 0, 0f, Main.player[Main.myPlayer].whoAmI, 1f, npc.whoAmI);
+								Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, 0f, 0f, ModContent.ProjectileType<AleisterStaff_InvokedRune>(), 0, 0f, Main.LocalPlayer.whoAmI, 1f, npc.whoAmI);
 							}
 						}
 					}
@@ -268,7 +268,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 		
 		public override bool PreKill(NPC npc)
 		{
-			if(Main.player[Main.myPlayer].inventory[Main.player[Main.myPlayer].selectedItem].type == ModContent.ItemType<AleisterStaff>() && Main.player[Main.myPlayer].GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().SpringInvoker && Main.player[Main.myPlayer].GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().Thebookoflaw)
+			if(Main.LocalPlayer.inventory[Main.LocalPlayer.selectedItem].type == ModContent.ItemType<AleisterStaff>() && Main.LocalPlayer.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().SpringInvoker && Main.LocalPlayer.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().Thebookoflaw)
 			{
             	//Main.player[Main.myPlayer].GetModPlayer<InvokerPlayer>().BanishProjClear = true; // Just for test.
 				float nump7 = 4f;
@@ -314,15 +314,15 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 				{
 					num6 = array[Main.rand.Next(num3)];
 				}
-				if(npc.lifeMax >= 1000) Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, 0f, 0f, ModContent.ProjectileType<AleisterStaff_InvokedHeal>(), 0, 0f, Main.player[Main.myPlayer].whoAmI, Main.player[Main.myPlayer].whoAmI, (npc.life > npc.lifeMax? npc.life : npc.lifeMax) * 0.001f);
+				if(npc.lifeMax >= 1000) Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, 0f, 0f, ModContent.ProjectileType<AleisterStaff_InvokedHeal>(), 0, 0f, Main.LocalPlayer.whoAmI, Main.LocalPlayer.whoAmI, (npc.life > npc.lifeMax? npc.life : npc.lifeMax) * 0.001f);
 				if(npc.damage != 0) 
 				{
 					if((npc.realLife >= 0 && npc.realLife == npc.whoAmI) || npc.realLife < 0) 
-						Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, nump8, nump9, ModContent.ProjectileType<AleisterStaff_InvokedDamage>(), npc.damage * 20, 0f, Main.player[Main.myPlayer].whoAmI, num6, 0f);
+						Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, nump8, nump9, ModContent.ProjectileType<AleisterStaff_InvokedDamage>(), npc.damage * 20, 0f, Main.LocalPlayer.whoAmI, num6, 0f);
 				}
-				if(npc.GetGlobalNPC<AleisterStaffGlobalNPC>().CaligulaSoulFight && !Main.player[Main.myPlayer].GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().DarkCaligula && (npc.type == ModContent.NPCType<ZeroA>() || npc.type == ModContent.NPCType<YamataABody>() || npc.type == ModContent.NPCType<AkumaAHead>() || npc.type == ModContent.NPCType<ShenDoragonA>() || npc.type == ModContent.NPCType<RajahRabbitA>()))
+				if(npc.GetGlobalNPC<AleisterStaffGlobalNPC>().CaligulaSoulFight && !Main.LocalPlayer.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().DarkCaligula && (npc.type == ModContent.NPCType<ZeroA>() || npc.type == ModContent.NPCType<YamataABody>() || npc.type == ModContent.NPCType<AkumaAHead>() || npc.type == ModContent.NPCType<ShenDoragonA>() || npc.type == ModContent.NPCType<RajahRabbitA>()))
 				{
-					Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, nump8, nump9, ModContent.ProjectileType<AleisterStaff_InvokedDamage>(), 0, 0f, Main.player[Main.myPlayer].whoAmI, Main.player[Main.myPlayer].whoAmI, npc.type);
+					Projectile.NewProjectile(Projectile.GetSource_None(), npc.Center.X, npc.Center.Y, nump8, nump9, ModContent.ProjectileType<AleisterStaff_InvokedDamage>(), 0, 0f, Main.LocalPlayer.whoAmI, Main.LocalPlayer.whoAmI, npc.type);
 				}
 			}
 			return true;

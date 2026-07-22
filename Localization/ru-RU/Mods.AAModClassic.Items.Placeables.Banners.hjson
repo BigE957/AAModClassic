@@ -1,0 +1,329 @@
+ThixxieBanner: {
+	DisplayName: Знамя Тикси
+	Tooltip: ""
+}
+
+FatPixie_Banner: {
+	DisplayName: Знамя толстой пикси
+	Tooltip: ""
+}
+
+SeraphBanner: {
+	DisplayName: Знамя серафима
+	Tooltip: ""
+}
+
+ChaosDragonBanner: {
+	DisplayName: Знамя дракона хаоса
+	Tooltip: ""
+}
+
+DjinnBanner: {
+	DisplayName: Знамя джинна
+	Tooltip: ""
+}
+
+TinyToadBanner: {
+	DisplayName: Знамя жабки
+	Tooltip: ""
+}
+
+ScavengerBanner: {
+	DisplayName: Знамя расхитителя
+	Tooltip: ""
+}
+
+InfernalSlimeBanner: {
+	DisplayName: Знамя инфернального слизня
+	Tooltip: ""
+}
+
+DragonClawBanner: {
+	DisplayName: Знамя когтя дракона
+	Tooltip: ""
+}
+
+FlameBruteBanner: {
+	DisplayName: Знамя пламенного громилы
+	Tooltip: ""
+}
+
+SingemanderBanner: {
+	DisplayName: Знамя палямандры
+	Tooltip: ""
+}
+
+WyrmlingBanner: {
+	DisplayName: Знамя змеёныша
+	Tooltip: ""
+}
+
+ChaoticDawnBanner: {
+	DisplayName: Знамя хаотического рассвета
+	Tooltip: ""
+}
+
+WyrmBanner: {
+	DisplayName: Знамя змея
+	Tooltip: ""
+}
+
+MagmaSwimmerBanner: {
+	DisplayName: Знамя магмового пловца
+	Tooltip: ""
+}
+
+BlazeClawBanner: {
+	DisplayName: Знамя пылающего когтя
+	Tooltip: ""
+}
+
+AncientLungBanner: {
+	DisplayName: Знамя древнего Луна
+	Tooltip: ""
+}
+
+MadnessBatBanner: {
+	DisplayName: Знамя безумного летуна
+	Tooltip: ""
+}
+
+MadnessSlimeBanner: {
+	DisplayName: Знамя безумного слизня
+	Tooltip: ""
+}
+
+MurkySlimeBanner: {
+	DisplayName: Знамя мутного слизня
+	Tooltip: ""
+}
+
+HydraClawBanner: {
+	DisplayName: Знамя когтя гидры
+	Tooltip: ""
+}
+
+MossterBanner: {
+	DisplayName: Знамя мохстра
+	Tooltip: ""
+}
+
+NewtBanner: {
+	DisplayName: Знамя тритона
+	Tooltip: ""
+}
+
+SkulkerBanner: {
+	DisplayName: Знамя скрытня
+	Tooltip: ""
+}
+
+KappaBanner: {
+	DisplayName: Знамя каппы
+	Tooltip: ""
+}
+
+ToxitoadBanner: {
+	DisplayName: Знамя токсижабы
+	Tooltip: ""
+}
+
+PigronMireBanner: {
+	DisplayName: Знамя свинрона
+	Tooltip: ""
+}
+
+ChaoticTwilightBanner: {
+	DisplayName: Знамя хаотического заката
+	Tooltip: ""
+}
+
+MiresquitoBanner: {
+	DisplayName: Знамя комара трясины
+	Tooltip: ""
+}
+
+FogAnglerBanner: {
+	DisplayName: Знамя мглистого удильщика
+	Tooltip: ""
+}
+
+AbyssClawBanner: {
+	DisplayName: Знамя когтя бездны
+	Tooltip: ""
+}
+
+SoulsuckerBanner: {
+	DisplayName: Знамя душесоса
+	Tooltip: ""
+}
+
+FungusFrogBanner: {
+	DisplayName: Знамя грибной лягушки
+	Tooltip: ""
+}
+
+MushbugBanner: {
+	DisplayName: Знамя грибожука
+	Tooltip: ""
+}
+
+MushroomCrabBanner: {
+	DisplayName: Знамя грибного краба
+	Tooltip: ""
+}
+
+MushroomJellyBanner: {
+	DisplayName: Знамя грибной медузы
+	Tooltip: ""
+}
+
+MushroomZombieBanner: {
+	DisplayName: Знамя грибного зомби
+	Tooltip: ""
+}
+
+SnowSerpentBanner: {
+	DisplayName: Знамя снежной змеи
+	Tooltip: ""
+}
+
+SunWatcherBanner: {
+	DisplayName: Знамя солнечного наблюдателя
+	Tooltip: ""
+}
+
+NightGuardBanner: {
+	DisplayName: Знамя ночного стража
+	Tooltip: ""
+}
+
+PurityCrawlerBanner: {
+	DisplayName: Знамя ползуна непорочности
+	Tooltip: ""
+}
+
+PuritySphereBanner: {
+	DisplayName: Знамя сферы непорочности
+	Tooltip: ""
+}
+
+PuritySquidBanner: {
+	DisplayName: Знамя кальмара непорочности
+	Tooltip: ""
+}
+
+PurityWeaverBanner: {
+	DisplayName: Знамя ткача непорочности
+	Tooltip: ""
+}
+
+TerraDeadshotBanner: {
+	DisplayName: Знамя терра-стрелка
+	Tooltip: ""
+}
+
+TerraKnightBanner: {
+	DisplayName: Знамя терра-рыцаря
+	Tooltip: ""
+}
+
+TerraSquireBanner: {
+	DisplayName: Знамя терра-оруженосца
+	Tooltip: ""
+}
+
+TerraWarlockBanner: {
+	DisplayName: Знамя терра-колдуна
+	Tooltip: ""
+}
+
+TerraCrawlerBanner: {
+	DisplayName: Знамя терра-ползуна
+	Tooltip: ""
+}
+
+TerraSphereBanner: {
+	DisplayName: Знамя терра-сферы
+	Tooltip: ""
+}
+
+TerraSquidBanner: {
+	DisplayName: Знамя терра-кальмара
+	Tooltip: ""
+}
+
+TerraWizardBanner: {
+	DisplayName: Знамя терра-волшебника
+	Tooltip: ""
+}
+
+UnityProbeBanner: {
+	DisplayName: Знамя юнити-зонда
+	Tooltip: ""
+}
+
+UnityWatcherBanner: {
+	DisplayName: Знамя юнити-наблюдателя
+	Tooltip: ""
+}
+
+ShadowScoutBanner: {
+	DisplayName: Знамя теневого разведчика
+	Tooltip: ""
+}
+
+StoneSearcherBanner: {
+	DisplayName: Знамя каменного искателя
+	Tooltip: ""
+}
+
+VoidScoutBanner: {
+	DisplayName: Знамя пустотного разведчика
+	Tooltip: ""
+}
+
+VortexBanner: {
+	DisplayName: Знамя вихря
+	Tooltip: ""
+}
+
+NullBanner: {
+	DisplayName: Знамя нуля
+	Tooltip: ""
+}
+
+SearcherBanner: {
+	DisplayName: Знамя искателя
+	Tooltip: ""
+}
+
+DimensionDiverBanner: {
+	DisplayName: Знамя ныряльщика впадины
+	Tooltip: ""
+}
+
+RiftSharkBanner: {
+	DisplayName: Знамя акулы впадины
+	Tooltip: ""
+}
+
+TrenchSquidBanner: {
+	DisplayName: Знамя кальмара впадины
+	Tooltip: ""
+}
+
+TerraWeaverBanner: {
+	DisplayName: Знамя терра-ткача
+	Tooltip: ""
+}
+
+TerraSerpentBanner: {
+	DisplayName: Знамя терра-змея
+	Tooltip: ""
+}
+
+DustDjinnBanner: {
+	DisplayName: Знамя пыльного джинна
+	Tooltip: ""
+}

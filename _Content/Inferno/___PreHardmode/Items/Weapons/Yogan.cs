@@ -44,13 +44,6 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
 			recipe.AddIngredient(ItemID.Sunfury);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
-			recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<Pyrosphere>());
-            recipe.AddIngredient(ModContent.ItemType<GlacierBreaker>());
-            recipe.AddIngredient(ItemID.BlueMoon);
-			recipe.AddIngredient(ItemID.Sunfury);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
         }
     }
 }

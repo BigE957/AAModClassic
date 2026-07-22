@@ -79,8 +79,8 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
                 if (++NPC.ai[1] >= 80)
                 {
                     SoundEngine.PlaySound(SoundID.DD2_BetsyFireballShot, NPC.position);
-                    int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), npcCenter.X, npcCenter.Y, (float)(Math.Cos(rotation) * Speed * -1), (float)(Math.Sin(rotation) * Speed * -1), type, damage, 0f, 0);
-                    Main.projectile[proj].netUpdate = true;
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), npcCenter.X, npcCenter.Y, (float)(Math.Cos(rotation) * Speed * -1), (float)(Math.Sin(rotation) * Speed * -1), type, damage, 0f, 0);
                     NPC.ai[1] = 0;
                 }
             }
@@ -93,10 +93,12 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
                 if (++NPC.ai[1] >= 120)
                 {
                     SoundEngine.PlaySound(SoundID.DD2_BetsyFireballShot, NPC.position);
-                    int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), npcCenter.X, npcCenter.Y, (float)(Math.Cos(rotation) * Speed * -1), (float)(Math.Sin(rotation) * Speed * -1), type, damage, 0f, 0);
-                    int proj2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), npcCenter.X, npcCenter.Y, (float)(Math.Cos(rotation) * Speed * -1) + 2, (float)(Math.Sin(rotation) * Speed * -1) + 2, type, damage, 0f, 0);
-                    int proj3 = Projectile.NewProjectile(NPC.GetSource_FromThis(), npcCenter.X, npcCenter.Y, (float)(Math.Cos(rotation) * Speed * -1) - 2, (float)(Math.Sin(rotation) * Speed * -1) - 2, type, damage, 0f, 0);
-                    Main.projectile[proj].netUpdate = true;
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), npcCenter.X, npcCenter.Y, (float)(Math.Cos(rotation) * Speed * -1), (float)(Math.Sin(rotation) * Speed * -1), type, damage, 0f, 0);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), npcCenter.X, npcCenter.Y, (float)(Math.Cos(rotation) * Speed * -1) + 2, (float)(Math.Sin(rotation) * Speed * -1) + 2, type, damage, 0f, 0);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), npcCenter.X, npcCenter.Y, (float)(Math.Cos(rotation) * Speed * -1) - 2, (float)(Math.Sin(rotation) * Speed * -1) - 2, type, damage, 0f, 0);
+                    }
                     NPC.ai[1] = 0;
                 }
             }
@@ -109,8 +111,8 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
                 if (++NPC.ai[1] >= 200)
                 {
                     SoundEngine.PlaySound(SoundID.DD2_BetsysWrathShot, NPC.position);
-                    int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), npcCenter.X, npcCenter.Y, (float)(Math.Cos(rotation) * Speed * -1), (float)(Math.Sin(rotation) * Speed * -1), type, damage, 0f, 0);
-                    Main.projectile[proj].netUpdate = true;
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), npcCenter.X, npcCenter.Y, (float)(Math.Cos(rotation) * Speed * -1), (float)(Math.Sin(rotation) * Speed * -1), type, damage, 0f, 0);
                     NPC.ai[1] = 0;
                 }
             }

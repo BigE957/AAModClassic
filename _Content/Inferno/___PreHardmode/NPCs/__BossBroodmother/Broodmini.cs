@@ -41,7 +41,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
         public override void HitEffect(NPC.HitInfo hit)
         {
 			bool isDead = NPC.life <= 0;		
-            if (isDead)          //this make so when the npc has 0 life(dead) he will spawn this
+            if (isDead && !Main.dedServ)          //this make so when the npc has 0 life(dead) he will spawn this
             {
                 //Gore.NewGore(NPC.GetSource_OnHurt(null), NPC.position, NPC.velocity, Mod.Find<ModGore>("BroodminiGore1").Type, 1f);
                 //Gore.NewGore(NPC.GetSource_OnHurt(null), NPC.position, NPC.velocity, Mod.Find<ModGore>("BroodminiGore2").Type, 1f);

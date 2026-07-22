@@ -27,6 +27,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             NPC.timeLeft = 10;
             NPC.alpha = 255;
             NPC.scale *= 10;
+            NPC.damage = 0;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;
@@ -39,13 +40,9 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             return false;
         }
 
-        public NPC orthrus = null;
-
         public override void AI()
         {
-            OrthrusXHead orthrus = Main.npc[(int)NPC.ai[0]].ModNPC as OrthrusXHead;
-
-            if(orthrus == null)
+            if (!Main.npc[(int)NPC.ai[0]].active || Main.npc[(int)NPC.ai[0]].ModNPC is not OrthrusXHead orthrus)
             {
                 NPC.active = false;
                 return;
@@ -58,6 +55,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             if (NPC.target == -1)
             {
                 NPC.TargetClosest();
+                NPC.netUpdate = true;
+                player = Main.player[NPC.target];
             }
 
             if (NPC.alpha > 0)
@@ -73,11 +72,15 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             if (orthrus.internalAI[0] % 300 > 240)
             {
                 NPC.velocity *= 0;
-                NPC.netUpdate = true;
+                if (orthrus.internalAI[0] % 300 == 240)
+                    NPC.netUpdate = true;
             }
+            else if (orthrus.internalAI[0] % 300 < 150)
+                NPC.active = false;
             else
             {
                 NPC.Center = player.Center;
+                NPC.netOffset = Vector2.Zero;
             }
 
             if (NPC.scale > 1f)

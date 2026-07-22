@@ -24,10 +24,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
     {
         private static readonly CthulhuSky_Clouds CthulhuFog = new(false);
 
-        public override bool IsBiomeActive(Player player)
-        {
-            return player.GetModPlayer<AAPlayer_Unreleased>().ZoneShip = AAWorld_Unreleased.ShipTiles > 1;
-        }
+        public override bool IsBiomeActive(Player player) => AAWorld_Unreleased.ShipTiles > 1;
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
@@ -42,7 +39,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
                 NPC.AnyNPCs(ModContent.NPCType<DeityBrain>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<CthulhuPortal>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<Cthulhu>()) ||
-                (Main.LocalPlayer.GetModPlayer<AAPlayer_Unreleased>().ZoneShip && AAWorld.downedAllAncients && !AAWorld_Unreleased.DownedSoC);
+                (Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneShip && AAWorld.downedAllAncients && !AAWorld_Unreleased.DownedSoC);
 
             if (SkyManager.Instance["AAModClassic:CthulhuSky"] != null && ((isActive && useCthulhu) != SkyManager.Instance["AAModClassic:CthulhuSky"].IsActive()))
             {
@@ -211,7 +208,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
                 NPC.AnyNPCs(ModContent.NPCType<DeityBrain>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<CthulhuPortal>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<Cthulhu>()) ||
-                (Main.LocalPlayer.GetModPlayer<AAPlayer_Unreleased>().ZoneShip && AAWorld.downedAllAncients && !AAWorld_Unreleased.DownedSoC);
+                (Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneShip && AAWorld.downedAllAncients && !AAWorld_Unreleased.DownedSoC);
 
             if (!backgroundFog && BasePlayer.HasAccessory(Main.LocalPlayer, ModContent.ItemType<Lantern>(), true, false)) 
                 useCthulhu = false;

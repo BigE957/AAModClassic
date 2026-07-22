@@ -1,0 +1,514 @@
+BossChecklist: {
+	MushroomMonarch: {
+		Name: Грибной монарх
+		Spawn: Используйте {0} днём.
+		Despawn: "[c/F08080:Грибной монарх взлетает к небесам.]"
+	}
+
+	FeudalFungus: {
+		Name: Грибной феодал
+		Spawn: Используйте {0} в подземных грибных пустошах.
+		Despawn: "[c/70FFF3:Грибной феодал уходит из виду.]"
+	}
+
+	GripsOfChaos: {
+		Name: Длани хаоса
+		Spawn: Используйте {0} или {1} ночью.
+		Despawn: "[c/75008C:Длани хаоса улетают прочь, упиваясь победой над вами.]"
+	}
+
+	TruffleToad: {
+		Name: Трюфельная жаба
+		Spawn: Используйте {0} в подземных грибных пустошах.
+		Despawn: "[c/70FFF3:Трюфельная жаба упрыгивает прочь, победоносно квакая.]"
+	}
+
+	Broodmother: {
+		Name: Матерь выводка
+		Spawn: Используйте {0} в Инферно днём.
+		Despawn: "[c/FFA500:Матерь выводка возвращается в пламенные жерла.]"
+	}
+
+	Hydra: {
+		Name: Гидра
+		Spawn: Используйте {0} в Трясине ночью.
+		Despawn: "[c/483D8B:Гидра незаметно возвращается в своё тёмное логово.]"
+	}
+
+	SubzeroSerpent: {
+		Name: Морозная змея
+		Spawn: Используйте {0} в тундре ночью.
+		Despawn: "[c/6495ED:Морозная змея зарывается обратно в снег.]"
+	}
+
+	DesertDjinn: {
+		Name: Пустынный Джинн
+		Spawn: Используйте {0} в пустыне днём.
+		Despawn: "[c/F4A460:Пустынный Джинн язвительно выпендривается перед вами.]"
+	}
+
+	Sagittarius: {
+		Name: Сагиттариус
+		Spawn: Используйте {0} в Пустоте.
+		Despawn: "[c/FF0000:Сагиттариус ускакивает прочь в беспросветную тьму.]"
+	}
+
+	TechnoTruffle: {
+		Name: Техно-трюфель
+		Spawn: Используйте {0} ночью.
+		Despawn: "[c/eb34eb:Техно-трюфель ликвидировал свою цель.]"
+	}
+
+	Retriever: {
+		Name: Ретривер
+		Spawn: Используйте {0} ночью.
+		Despawn: "[c/eb34eb:Ретривер получает свою заслуженную награду.]"
+	}
+
+	OrthrusX: {
+		Name: Орф X
+		Spawn: Используйте {0} ночью.
+		Despawn: "[c/eb34eb:Орф телепортируется на базу.]"
+	}
+
+	RaiderUltima: {
+		Name: Налётчица Ультима
+		Spawn: Используйте {0} ночью.
+		Despawn: "[c/eb34eb:Ультима возвращается на базу.]"
+	}
+
+	Anubis: {
+		Name: Анубис
+		Spawn: Используйте {0} в пустыне.
+		Despawn: "[c/FFD700:Анубис, глумясь над вами, возвращается к своему исходному облику.]"
+	}
+
+	BiomiteCore: {
+		Name: Биомитовое ядро
+		Spawn: Используйте {0} на пьедестале в Затерянной Цитадели.
+		Despawn: "[c/228B22:Гул механизмов Цитадели медленно затихает.]"
+	}
+
+	Athena: {
+		Name: Афина
+		Spawn: Используйте {0} на Алтаре Совы, расположенном в Акрополе. В качестве альтернативы, убейте некоторое количество серафимов там же.
+		Despawn: "[c/008AA6:Афина бранит вас, а затем улетает.]"
+	}
+
+	Greed: {
+		Name: Алчность
+		Spawn: Используйте {0} на Алтаре Желаний в Сокровищнице. В качестве альтернативы, откройте 3 сундука алчности там же.
+		Despawn: "[c/E39F00:Алчность вновь возвращается к своим скупым делам.]"
+	}
+
+	RajahRabbit: {
+		Name: Кролик-Раджа
+		Spawn: Используйте {0} или, если вы отпетый мудак, убейте 100 кроликов.
+		Despawn: "[c/D3D3D3:Прыгучий Каратель свершил своё правосудие.]"
+	}
+
+	ForsakenAnubis: {
+		Name: Отвергнутый Анубис
+		Spawn: Бросьте вызов Легендописцу после поражения Лунного лорда.
+		Despawn: "[c/228B22:Сила Судьи иссякает; его разочарование безмерно.]"
+	}
+
+	AthenaA: {
+		Name: Олимпийская Афина
+		Spawn: Бросьте вызов Афине после того, как докажете свою силу Анубису.
+		Despawn: "[c/008AA6:Богиня, донельзя удовлетворённая, взмывает ввысь.]"
+	}
+
+	GreedA: {
+		Name: Король червей, Алчность
+		Spawn: Бросьте вызов Алчности после того, как докажете свою силу Анубису.
+		Despawn: "[c/E39F00:Стяжатель проскальзывает в свой грот, добавляя в груду ещё одно сокровище.]"
+	}
+
+	EquinoxWorms: {
+		Name: Вестница дня и Ползун ночи
+		Spawn: Используйте {0}.
+		Despawn: "[c/2F1F6C:Пара исчезает среди звёзд, дабы продолжить извечное равноденствие.]"
+	}
+
+	SistersOfDiscord: {
+		Name: Сёстры Раздора
+		Spawn: Используйте {0}.
+		Despawn: "[c/FF00FF:Сёстры улепётывают домой, рассказывать отцам о своей победе.]"
+	}
+
+	Akuma: {
+		Name: Акума
+		Spawn: Используйте {0} в Инферно днём.
+		Despawn: "[c/92251E:Демон возвращается в свою пагоду, ничуть не впечатлённый вашей битвой.]"
+	}
+
+	AkumaA: {
+		Name: Они Акума
+		Spawn: Победите Акуму в режиме «Эксперт» или используйте {0}.
+		Despawn: "[c/00BFFF:Демон уползает в свою пагоду, кипя от ярости из-за вашей битвы.]"
+	}
+
+	Yamata: {
+		Name: Ямата
+		Spawn: Используйте {0} в Трясине ночью.
+		Despawn: "[c/35397E:Изверг удаляется в Озеро Душ, наслаждаться своей победой.]"
+	}
+
+	YamataA: {
+		Name: Ямата-но Ороти
+		Spawn: Победите Ямату в режиме «Эксперт» или используйте {0}.
+		Despawn: "[c/921E44:Изверг ускользает обратно в Озеро Душ, зализывать свои раны.]"
+	}
+
+	Zero: {
+		Name: Зир0
+		Spawn: Исп0льзуйте {0} в Пуст0те.
+		Despawn: "[c/FF0000:Машина исп0лняет пр0т0к0л в0зврата, в0з0бн0вляя св0ё безмолвн0е бдение.]"
+	}
+
+	ZeroP: {
+		Name: Зир0-Пр0т0к0л
+		Spawn: П0бедите Зир0 в режиме «Эксперт» или исп0льзуйте {0}.
+		Despawn: "[c/FF0000:Машина исп0лняет пр0т0к0л рем0нта, в0з0бн0вляя св0ё безм0лвное бдение.]"
+	}
+
+	RajahRabbitR: {
+		Name: Возмездие Кролика-Раджи
+		Spawn: Используйте {0} или убейте 100 кроликов, предварительно убив не менее 1000.
+		Despawn: "[c/D3D3D3:Заступник невинных свершил своё правосудие.]"
+	}
+
+	Shen: {
+		Name: Шэнь Доракон
+		Spawn: Используйте {0}.
+		Despawn: "[c/FF00FF:Хаос всё ещё царит, Вестник Раздора всё ещё жив.]"
+	}
+
+	ShenA: {
+		Name: Пробуждённый Шэнь Доракон
+		Spawn: Победите Шэня Доракона в режиме «Эксперт» или используйте {0}.
+		Despawn: "[c/FF00FF:Несмотря на все ваши усилия, хаос всё ещё царит.]"
+	}
+
+	InfinityZero: {
+		Name: Безграничный Зир0
+		Spawn: Исп0льзуйте {0}.
+		Despawn: "[c/A9A9A9:Директива вып0лнена, механический злыдень ждёт дальнейших указаний.]"
+	}
+
+	SoulOfCthulhu: {
+		Name: Душа Ктулху
+		Spawn: Используйте {0}.
+		Despawn: "[c/00FFFF:Гнев древних богов был свершён, Космическое бедствие вновь погружается в сон.]"
+	}
+
+	Cthulhu: {
+		Name: Ктулху, Космическое бедствие
+		Spawn: Победите Душу Ктулху в режиме «Эксперт».
+		Despawn: "[c/00FFFF:Гнев древних богов был свершён, Космическое бедствие обращает свой взор на Террарию.]"
+	}
+
+	#Despawn Messages
+	DespawnKraken: Цефалопод ныряет в призванный разлом.
+}
+
+MusicDisplay: {
+	ModName: Ancients Awakened: Classic
+
+	SuperancientsPinch: {
+		Author: за авторством: SpectralAves
+		DisplayName: Bygone Battles
+	}
+
+	Broodmother: {
+		Author: за авторством: SpectralAves
+		DisplayName: Blazing Fury
+	}
+
+	ChaosPreShen: {
+		Author: за авторством: MaestroVGM
+		DisplayName: Condemned
+	}
+
+	Djinn: {
+		Author: за авторством: Tyeski
+		DisplayName: The Dust Bowl
+	}
+
+	Acropolis: {
+		Author: за авторством: ENNWAY
+		DisplayName: Palace in the Sky
+	}
+
+	Akuma: {
+		Author: за авторством: Saucecoie
+		DisplayName: Trial за авторством: Fire
+	}
+
+	AkumaAwakened: {
+		Author: за авторством: Tyeski
+		DisplayName: Dawn of the Dragon
+	}
+
+	Anubis: {
+		Author: за авторством: Tyeski
+		DisplayName: Strings of Judgement
+	}
+
+	Equinox: {
+		Author: за авторством: ProduceVGM
+		DisplayName: Celestial Cyclone
+	}
+
+	AnubisAwakened: {
+		Author: за авторством: Tyeski
+		DisplayName: Purgatorium
+	}
+
+	Athena: {
+		Author: за авторством: ENNWAY
+		DisplayName: Magisaint
+	}
+
+	Fungus: {
+		Author: за авторством: SpectralAves
+		DisplayName: Bioluminescent Beatdown
+	}
+
+	AthenaAwakened: {
+		Author: за авторством: ENNWAY
+		DisplayName: Goddess of Those Winged
+	}
+
+	Greed: {
+		Author: за авторством: Tyeski
+		DisplayName: Gold Digger
+	}
+
+	GreedAwakened: {
+		Author: за авторством: Tyeski
+		DisplayName: Ira De Riquezas Perdidas
+	}
+
+	Grips: {
+		Author: за авторством: SpectralAves
+		DisplayName: Twin Terror
+	}
+
+	Hoard: {
+		Author: за авторством: Tyeski
+		DisplayName: Cove
+	}
+
+	Hydra: {
+		Author: за авторством: SpectralAves
+		DisplayName: RAW Abyssal Wrath
+	}
+
+	MireDay: {
+		Author: за авторством: ProduceVGM
+		DisplayName: Through the Toxic Mist
+	}
+
+	MireLake: {
+		Author: за авторством: Rockwizard
+		DisplayName: Lake of Souls
+	}
+
+	InfernoNight: {
+		Author: за авторством: ProduceVGM
+		DisplayName: Emberstorm
+	}
+
+	InfernoPagoda: {
+		Author: за авторством: Rockwizard
+		DisplayName: Scorched Tower
+	}
+
+	MireSurface: {
+		Author: за авторством: ProduceVGM
+		DisplayName: Secluded Swamp
+	}
+
+	InfernoSurface: {
+		Author: за авторством: ProduceVGM
+		DisplayName: Scorched Earth
+	}
+
+	InfernoUnderground: {
+		Author: за авторством: ProduceVGM
+		DisplayName: Inner Mantle
+	}
+
+	MireUnderground: {
+		Author: за авторством: ProduceVGM
+		DisplayName: Creepy Crawlers
+	}
+
+	Monarch: {
+		Author: за авторством: SpectralAves
+		DisplayName: Fungal Face-off
+	}
+
+	MushroomSurface: {
+		Author: за авторством: SpectralAves
+		DisplayName: Overgrowth
+	}
+
+	Rajah: {
+		Author: за авторством: SpectralAves
+		DisplayName: JUSTICE
+	}
+
+	RajahAwakened: {
+		Author: за авторством: Toза авторством: Fox
+		DisplayName: Black Knife
+	}
+
+	Sagittarius: {
+		Author: за авторством: SpectralAves
+		DisplayName: Event Horizon
+	}
+
+	Shen: {
+		Author: за авторством: MaestroVGM
+		DisplayName: Wings of Duality
+	}
+
+	Sisters: {
+		Author: за авторством: MaestroVGM
+		DisplayName: United
+	}
+
+	Stars: {
+		Author: за авторством: ProduceVGM
+		DisplayName: Scattered Stars
+	}
+
+	EquinoxAltar: {
+		Author: за авторством: ProduceVGM
+		DisplayName: Offerings
+	}
+
+	Subzero: {
+		Author: за авторством: ProduceVGM
+		DisplayName: Glacial Grace
+	}
+
+	ShenAwakened: {
+		Author: за авторством: MaestroVGM
+		DisplayName: Discordant Coda
+	}
+
+	SunkenShipPreSoC: {
+		Author: за авторством: ProduceVGM
+		DisplayName: Sleeping Curse
+	}
+
+	SunkenShip: {
+		Author: за авторством: Cosmoptera
+		DisplayName: Rift-Torn Ruins
+	}
+
+	ZeroAwakened: {
+		Author: за авторством: Saucecoie
+		DisplayName: Doomsday Arrives
+	}
+
+	Zero: {
+		Author: за авторством: SpectralAves
+		DisplayName: Clockwork Catastrophe
+	}
+
+	Terrarium: {
+		Author: за авторством: ProduceVGM
+		DisplayName: Resting Place
+	}
+
+	LostKeep: {
+		Author: за авторством: Saucecoie
+		DisplayName: Hall of Memories
+	}
+
+	BiomiteCore: {
+		Author: за авторством: ProduceVGM
+		DisplayName: Restless Spirit
+	}
+
+	TruffleToad: {
+		Author: за авторством: SpectralAves
+		DisplayName: TODESTOOL
+	}
+
+	Void: {
+		Author: за авторством: ProduceVGM
+		DisplayName: Waste
+	}
+
+	VoidPostML: {
+		Author: за авторством: ProduceVGM
+		DisplayName: Inanis
+	}
+
+	VoidPreIZ: {
+		Author: за авторством: Cosmoptera
+		DisplayName: Sleeping Giant
+	}
+
+	Yamata: {
+		Author: за авторством: Saucecoie
+		DisplayName: Crescent of Madness
+	}
+
+	YamataAwakened: {
+		Author: за авторством: Tyeski
+		DisplayName: Abyssal Nightmare
+	}
+
+	Siege: {
+		Author: за авторством: ProduceVGM
+		DisplayName: Controlled Chaos
+	}
+
+	TechnoTruffle: {
+		Author: за авторством: SpectralAves
+		DisplayName: Mechanical Mold Match
+	}
+
+	Parthenan: {
+		Author: за авторством: Tyeski
+		DisplayName: Maelstrom
+	}
+
+	SoulOfCthulhu: {
+		Author: за авторством: MaestroVGM
+		DisplayName: Recondite Rhapsody (Calm)
+	}
+
+	Cthulhu: {
+		Author: за авторством: MaestroVGM
+		DisplayName: Recondite Rhapsody (Combat)
+	}
+
+	InfinityZero: {
+		Author: за авторством: MaestroVGM
+		DisplayName: Infinitum
+	}
+}
+
+CalamityMod: {
+	LoreItemTooltip:
+		'''
+		[c/E3AF40:Шёпот свыше танцует в ваших ушах...]
+		[c/BEBEBE:Удерживайте клавишу «Shift», чтобы прислушаться]
+		'''
+	AwakeningReplacement:
+		'''
+		Мир кишит хаосом. Я поднимаю свой взор и вижу древнюю пыль, осыпающуюся с высоких уступов.
+		Эти величественные крылья... как давно я перестал быть героем, достойным их имени?
+		Кажется, минули уже целые века, хотя я всего лишь моргнул.
+		Взгляни на мои творения, на то, чем они стали... Сплошными руинами. Никто не осмелится искать меня и ступать моим путём.
+		Их ничто не ждёт в этом жестоком мире.
+		'''
+}

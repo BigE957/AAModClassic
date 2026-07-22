@@ -115,16 +115,18 @@ Non-consumable");*/
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
-            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Spawn"), new Color(158, 3, 32));
-            for (int i = 0; i < Main.player.Length; i++)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                Player player2 = Main.player[i];
-                if (player2 != null && player2.active && !player2.dead)
+                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Spawn"), new Color(158, 3, 32));
+                foreach (Player p in Main.ActivePlayers)
                 {
-                    player2.AddBuff(ModContent.BuffType<LockedOn_Buff>(), 60);
+                    if (!p.dead)
+                    {
+                        p.AddBuff(ModContent.BuffType<LockedOn_Buff>(), 60);
+                    }
                 }
+                SpawnBoss(player, "InfinityZeroSpawn1", "Infinity Zero");
             }
-            SpawnBoss(player, "InfinityZeroSpawn1", "Infinity Zero");
 			SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
 		}
@@ -138,14 +140,11 @@ Non-consumable");*/
 
 		public void SpawnBoss(Player player, string name, string displayName)
 		{
-			if (Main.netMode != NetmodeID.MultiplayerClient)
-			{
-				int bossType = Mod.Find<ModNPC>(name).Type;
-				if(NPC.AnyNPCs(bossType)){ return; } //don't spawn if there's already a boss!
-				int npcID = NPC.NewNPC(Item.GetSource_FromThis(), (int)player.Center.X, (int)player.Center.Y, bossType, 0, 0f);
-				Main.npc[npcID].Center = player.Center;
-				Main.npc[npcID].netUpdate2 = true;
-			}
+			int bossType = Mod.Find<ModNPC>(name).Type;
+			if(NPC.AnyNPCs(bossType)){ return; } //don't spawn if there's already a boss!
+			int npcID = NPC.NewNPC(Item.GetSource_FromThis(), (int)player.Center.X, (int)player.Center.Y, bossType, 0, 0f);
+			Main.npc[npcID].Center = player.Center;
+			Main.npc[npcID].netUpdate2 = true;
 		}	
 
 		public override void UseStyle(Player player, Rectangle heldItemFrame) { BaseUseStyle.SetStyleBoss(player, Item, true, true); }

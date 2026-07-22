@@ -44,7 +44,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
 
 		public override void AI()
         {
-			Player player = Main.player[Main.myPlayer];
+			Player player = Main.LocalPlayer;
 			Vector2 vector = player.RotatedRelativePoint(player.MountedCenter, true);
 			float position1 = Main.mouseX + Main.screenPosition.X - vector.X;
 			float position2 = Main.mouseY + Main.screenPosition.Y - vector.Y;
@@ -111,7 +111,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
 		public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
 		{
 			
-			Player player = Main.player[Main.myPlayer];
+			Player player = Main.LocalPlayer;
             //damage = (int)((player.GetModPlayer<InvokerPlayer>().DarkCaligula? 1000 : 500) * (player.minionDamage + player.allDamage));
             modifiers.SetCrit();
 			if(player.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>().DarkCaligula)

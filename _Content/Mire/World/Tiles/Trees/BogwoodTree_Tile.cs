@@ -1,5 +1,11 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration;
+using AAModClassic._Unreleased.Content.Mire.___PreHardmode;
+using AAModClassic.UI.World;
+using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
@@ -16,7 +22,7 @@ namespace AAModClassic._Content.Mire.World.Tiles.Trees
 
         public override int DropWood()
         {
-            return AAMod.instance.Find<ModItem>("Bogwood").Type;
+            return ModContent.ItemType<Bogwood>();
         }
 
         public override Asset<Texture2D> GetTexture()
@@ -37,7 +43,25 @@ namespace AAModClassic._Content.Mire.World.Tiles.Trees
         public override int SaplingGrowthType(ref int style)/* tModPorter Note: _Unreleased. Use ModTree.SaplingGrowthType */
         {
             style = 0;
-            return AAMod.instance.Find<ModTile>("BogwoodSapling_Tile").Type;
+            return ModContent.TileType<BogwoodSapling_Tile>();
+        }
+
+        public override bool Shake(int x, int y, ref bool createLeaves)
+        {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                if (Main.rand.NextBool(300))
+                {
+                    Vector2 offset = this.GetRandomTreePosition(x, y);
+                    Item.NewItem(WorldGen.GetItemSource_FromTreeShake(x, y), new Vector2(x, y) * 16 + offset, ModContent.ItemType<LivingBogwoodWand>(), 1);
+                }
+                else if (Main.rand.NextBool(300))
+                {
+                    Vector2 offset = this.GetRandomTreePosition(x, y);
+                    Item.NewItem(WorldGen.GetItemSource_FromTreeShake(x, y), new Vector2(x, y) * 16 + offset, ModContent.ItemType<LivingBogleafWand>(), 1);
+                }
+            }
+            return true;
         }
     }
 }

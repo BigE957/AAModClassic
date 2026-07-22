@@ -84,12 +84,14 @@ namespace AAModClassic._Content.Inferno.World.Tiles
             if (AAWorld.SmashDragonEgg == 2)
             {
                 AAWorld.SmashDragonEgg--;
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Tiles.TilesInfo.DragonEgg1"), Color.DarkOrange);
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Tiles.TilesInfo.DragonEgg1"), Color.DarkOrange);
             }
             else if (AAWorld.SmashDragonEgg == 1)
             {
                 AAWorld.SmashDragonEgg--;
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Tiles.TilesInfo.DragonEgg2"), Color.DarkOrange);
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Tiles.TilesInfo.DragonEgg2"), Color.DarkOrange);
             }
             else
             {
@@ -101,7 +103,8 @@ namespace AAModClassic._Content.Inferno.World.Tiles
                 }
                 else
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Tiles.TilesInfo.DragonEgg3"), Color.DarkOrange);
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Tiles.TilesInfo.DragonEgg3"), Color.DarkOrange);
                 }
             }
         }

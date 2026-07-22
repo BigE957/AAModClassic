@@ -1,0 +1,907 @@
+ChaosSlayer: {
+	SharedFlavorText: «Сила ярости раздора источается от этих доспехов»
+
+	ChaosSlayerChestplate: {
+		DisplayName: Нагрудник Убийцы Хаоса
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
+	}
+
+	ChaosSlayerHelmetMage: {
+		DisplayName: Капюшон Убийцы Хаоса
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
+	}
+
+	ChaosSlayerHelmetMelee: {
+		DisplayName: Кабуто Убийцы Хаоса
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
+	}
+
+	ChaosSlayerHelmetRanged: {
+		DisplayName: Визор Убийцы Хаоса
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
+	}
+
+	ChaosSlayerHelmetSummoner: {
+		DisplayName: Маска Убийцы Хаоса
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
+	}
+
+	ChaosSlayerLeggings: {
+		DisplayName: Поножи Убийцы Хаоса
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
+	}
+}
+
+Chaos: {
+	ChaosChestplate: {
+		DisplayName: Доу хаоса
+		Tooltip: ""
+	}
+
+	ChaosHelmetMage: {
+		DisplayName: Маска хаоса
+		Tooltip: ""
+	}
+
+	ChaosHelmetMelee: {
+		DisplayName: Кабуто хаоса
+		Tooltip: ""
+	}
+
+	ChaosHelmetRanged: {
+		DisplayName: Фукумэн хаоса
+		Tooltip: ""
+	}
+
+	ChaosHelmetSummoner: {
+		DisplayName: Визор хаоса
+		Tooltip: ""
+	}
+
+	ChaosLeggings: {
+		DisplayName: Поножи хаоса
+		Tooltip: ""
+	}
+}
+
+DraconianSun: {
+	SharedFlavorText: «Пылающая ярость инферно покоится в этих доспехах»
+
+	DraconianSunChestplate: {
+		DisplayName: Дао драконьего солнца
+		Tooltip: "{$Armor.DraconianSun.SharedFlavorText}"
+	}
+
+	DraconianSunLeggings: {
+		DisplayName: Поножи драконьего солнца
+		Tooltip: "{$Armor.DraconianSun.SharedFlavorText}"
+	}
+
+	DraconianSunHelmet: {
+		DisplayName: Кабуто драконьего солнца
+		Tooltip: "{$Armor.DraconianSun.SharedFlavorText}"
+	}
+}
+
+Darkmatter: {
+	SharedFlavorText: «Тёмный, но едва различимый»
+
+	DarkmatterChestplate: {
+		DisplayName: Нагрудник из тёмной материи
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+
+	DarkmatterHelmetMage: {
+		DisplayName: Маска из тёмной материи
+		Tooltip: «Тёмная, но едва различимая»
+	}
+
+	DarkmatterHelmetMelee: {
+		DisplayName: Шлем из тёмной материи
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+
+	DarkmatterHelmetRanged: {
+		DisplayName: Визор из тёмной материи
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+
+	DarkmatterHelmetSummoner: {
+		DisplayName: Головной убор из тёмной материи
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+
+	DarkmatterLeggings: {
+		DisplayName: Поножи из тёмной материи
+		Tooltip: «Тёмные, но едва различимые»
+	}
+}
+
+Radium: {
+	SharedFlavorText: «Сияет светом звёздного ночного неба»
+
+	RadiumChestplate: {
+		DisplayName: Лучезарнитная кираса
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+
+	RadiumHelmetMage: {
+		DisplayName: Лучезарнитная маска
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+
+	RadiumHelmetMelee: {
+		DisplayName: Лучезарнитный шлем
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+
+	RadiumHelmetRanged: {
+		DisplayName: Лучезарнитный головной убор
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+
+	RadiumHelmetSummoner: {
+		DisplayName: Лучезарнитная лицевая маска
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+
+	RadiumLeggings: {
+		DisplayName: Лучезарнитные набедренники
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+}
+
+Biomite: {
+	BiomiteChestplate: {
+		DisplayName: Биомитовый кристальный нагрудник
+		Tooltip: ""
+	}
+
+	BiomiteHelmet: {
+		DisplayName: Биомитовый шлем
+		Tooltip: ""
+	}
+
+	BiomiteLeggings: {
+		DisplayName: Биомитовые поножи
+		Tooltip: ""
+	}
+}
+
+Doomsday: {
+	SharedFlavorText: «Сила разрушать целые планеты заключена в этих доспехах»
+
+	DoomsdayChestplate: {
+		DisplayName: Штурмовой нагрудник судного дня
+		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
+	}
+
+	DoomsdayHelmetMage: {
+		DisplayName: Штурмовой визор судного дня
+		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
+	}
+
+	DoomsdayHelmetSummoner: {
+		DisplayName: Тактический визор судного дня
+		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
+	}
+
+	DoomsdayLeggings: {
+		DisplayName: Штурмовые поножи судного дня
+		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
+	}
+}
+
+InfinitySlayer: {
+	SharedFlavorText: «Безграничная сила и злоба пронизывают эти доспехи»
+
+	InfinitySlayerChestplate: {
+		DisplayName: Нагрудник Безграничного Убийцы
+		Tooltip: "{$Armor.InfinitySlayer.SharedFlavorText}"
+	}
+
+	InfinitySlayerHelmet: {
+		DisplayName: Визор Безграничного Убийцы
+		Tooltip: "{$Armor.InfinitySlayer.SharedFlavorText}"
+	}
+
+	InfinitySlayerLeggings: {
+		DisplayName: Поножи Безграничного Убийцы
+		Tooltip: "{$Armor.InfinitySlayer.SharedFlavorText}"
+	}
+}
+
+StripemansLucky: {
+	StripemansLuckyChestplate: {
+		DisplayName: Рубаха везучего полосатика
+		Tooltip: ""
+	}
+
+	StripemansLuckyHelmet: {
+		DisplayName: Шляпа везучего полосатика
+		Tooltip: ""
+	}
+
+	StripemansLuckyLeggings: {
+		DisplayName: Штаны везучего полосатика
+		Tooltip: ""
+	}
+}
+
+Olympian: {
+	OlympianChestplate: {
+		DisplayName: Олимпийский нагрудник
+		Tooltip: ""
+	}
+
+	OlympianHelmet: {
+		DisplayName: Олимпийский шлем
+		Tooltip: ""
+	}
+
+	OlympianLeggings: {
+		DisplayName: Олимпийские поножи
+		Tooltip: ""
+	}
+}
+
+HoppingHoodlum: {
+	SharedFlavorText: «Братец-кролик»
+
+	HoppingHoodlumChestplate: {
+		DisplayName: Рубаха Прыгучего Карателя
+		Tooltip: "{$Armor.HoppingHoodlum.SharedFlavorText}"
+	}
+
+	HoppingHoodlumHelmet: {
+		DisplayName: Капюшон Прыгучего Карателя
+		Tooltip: "{$Armor.HoppingHoodlum.SharedFlavorText}"
+	}
+
+	HoppingHoodlumLeggings: {
+		DisplayName: Лапы Прыгучего Карателя
+		Tooltip: "{$Armor.HoppingHoodlum.SharedFlavorText}"
+	}
+}
+
+Champion: {
+	SharedFlavorText: «Доспехи заступника, внушающего страх всему миру»
+
+	ChampionChestplate: {
+		DisplayName: Нагрудник Заступника
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+
+	ChampionHelmetMage: {
+		DisplayName: Капюшон Заступника
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+
+	ChampionHelmetMelee: {
+		DisplayName: Шлем Заступника
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+
+	ChampionHelmetRanged: {
+		DisplayName: Маска Заступника
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+
+	ChampionHelmetSummoner: {
+		DisplayName: Головной убор Заступника
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+
+	ChampionLeggings: {
+		DisplayName: Поножи Заступника
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+}
+
+FuryWitchs: {
+	FuryWitchsChestplate: {
+		DisplayName: Ряса разъярённой ведьмы
+		Tooltip: «Роба, пронизанная огненным духом верховной последовательницы дракона»
+	}
+
+	FuryWitchsHelmet: {
+		DisplayName: Капюшон разъярённой ведьмы
+		Tooltip: «Капюшон, пронизанный огненным духом верховной последовательницы дракона»
+	}
+
+	FuryWitchsLeggings: {
+		DisplayName: Ботинки разъярённой ведьмы
+		Tooltip: «Ботинки, пронизанные огненным духом верховной последовательницы дракона»
+	}
+}
+
+MidnightAssassin: {
+	MidnightAssassinChestplate: {
+		DisplayName: Нагрудник полуночного ассасина
+		Tooltip: «Тёмный нагрудник, пропитанный полуночной тенью»
+	}
+
+	MidnightAssassinHelmet: {
+		DisplayName: Капюшон полуночного ассасина
+		Tooltip: «Тёмный капюшон, пропитанный полуночной тенью»
+	}
+
+	MidnightAssassinLeggings: {
+		DisplayName: Ботинки полуночного ассасина
+		Tooltip: «Тёмные ботинки, пропитанные полуночной тенью»
+	}
+}
+
+Nights: {
+	NightsChestplate: {
+		DisplayName: Ночная кольчуга
+		Tooltip: ""
+	}
+
+	NightsHelmet: {
+		DisplayName: Ночной шлем
+		Tooltip: ""
+	}
+
+	NightsLeggings: {
+		DisplayName: Ночные поножи
+		Tooltip: ""
+	}
+}
+
+Fleshrend: {
+	FleshrendChestplate: {
+		DisplayName: Кольчуга плотореза
+		Tooltip: ""
+	}
+
+	FleshrendHelmet: {
+		DisplayName: Шлем плотореза
+		Tooltip: ""
+	}
+
+	FleshrendLeggings: {
+		DisplayName: Поножи плотореза
+		Tooltip: ""
+	}
+}
+
+Dynaskull: {
+	DynaskullChestplate: {
+		DisplayName: Диночерепной наребродник
+		Tooltip: ""
+	}
+
+	DynaskullHelmet: {
+		DisplayName: Диночереп
+		Tooltip: ""
+	}
+
+	DynaskullLeggings: {
+		DisplayName: Диночерепные поножи
+		Tooltip: ""
+	}
+}
+
+Deathly: {
+	DeathlyChestplate: {
+		DisplayName: Мертвенный наребродник
+		Tooltip: ""
+	}
+
+	DeathlyHelmet: {
+		DisplayName: Мертвенный череп
+		Tooltip: ""
+	}
+
+	DeathlyLeggings: {
+		DisplayName: Мертвенные поножи
+		Tooltip: ""
+	}
+}
+
+GlowingMushium: {
+	GlowingMushiumChestplate: {
+		DisplayName: Рубаха из светящегося грибия
+		Tooltip: ""
+	}
+
+	GlowingMushiumHelmet: {
+		DisplayName: Шляпа из светящегося грибия
+		Tooltip: ""
+	}
+
+	GlowingMushiumLeggings: {
+		DisplayName: Штаны из светящегося грибия
+		Tooltip: ""
+	}
+}
+
+GoblinSlayers: {
+	GoblinSlayersChestplate: {
+		DisplayName: Нагрудник убийцы гоблинов
+		Tooltip: Этот нагрудник пронизан безграничной ненавистью к гоблиноидным
+	}
+
+	GoblinSlayersHelmet: {
+		DisplayName: Шлем убийцы гоблинов
+		Tooltip: Этот шлем пронизан безграничной ненавистью к гоблиноидным
+	}
+
+	GoblinSlayersLeggings: {
+		DisplayName: Поножи убийцы гоблинов
+		Tooltip: Эти поножи пронизаны безграничной ненавистью к гоблиноидным
+	}
+}
+
+Hallowed: {
+	HallowedHelmetSummoner: {
+		DisplayName: Освящённая раскраска лица
+		Tooltip: ""
+	}
+}
+
+Demon: {
+	DemonChestplate: {
+		DisplayName: Одеяние демона
+		Tooltip: ""
+	}
+
+	DemonHelmet: {
+		DisplayName: Лик демона
+		Tooltip: ""
+	}
+
+	DemonLeggings: {
+		DisplayName: Копыта демона
+		Tooltip: ""
+	}
+}
+
+Imp: {
+	ImpChestplate: {
+		DisplayName: Одеяние беса
+		Tooltip: ""
+	}
+
+	ImpHelmet: {
+		DisplayName: Лик беса
+		Tooltip: ""
+	}
+
+	ImpLeggings: {
+		DisplayName: Копыта беса
+		Tooltip: ""
+	}
+}
+
+StoneSoldier: {
+	StoneSoldierChestplate: {
+		DisplayName: Нагрудник каменного солдата
+		Tooltip: ""
+	}
+
+	StoneSoldierHelmet: {
+		DisplayName: Шлем каменного солдата
+		Tooltip: ""
+	}
+
+	StoneSoldierLeggings: {
+		DisplayName: Поножи каменного солдата
+		Tooltip: ""
+	}
+}
+
+Blazing: {
+	SharedFlavorText: "{$Armor.Kindled.SharedFlavorText}"
+
+	BlazingChestplate: {
+		DisplayName: Пылающее дао
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+
+	BlazingHelmet: {
+		DisplayName: Пылающее кабуто
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+
+	BlazingLeggings: {
+		DisplayName: Пылающие сангу
+		Tooltip: «Выкованы в пламени пылающего солнца»
+	}
+}
+
+Kindled: {
+	SharedFlavorText: «Выковано в пламени пылающего солнца»
+
+	KindledChestplate: {
+		DisplayName: Воспламенённое дао
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+
+	KindledHelmet: {
+		DisplayName: Воспламенённое кабуто
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+
+	KindledLeggings: {
+		DisplayName: Воспламенённые сангу
+		Tooltip: «Выкованы в пламени пылающего солнца»
+	}
+}
+
+Razewood: {
+	RazewoodChestplate: {
+		DisplayName: Нагрудник из выжженной древесины
+		Tooltip: ""
+	}
+
+	RazewoodHelmet: {
+		DisplayName: Шлем из выжженной древесины
+		Tooltip: ""
+	}
+
+	RazewoodLeggings: {
+		DisplayName: Ботинки из выжженной древесины
+		Tooltip: ""
+	}
+}
+
+Tribal: {
+	TribalChestplate: {
+		DisplayName: Племенной плащ
+		Tooltip: ""
+	}
+
+	TribalHelmet: {
+		DisplayName: Племенная шляпа
+		Tooltip: ""
+	}
+
+	TribalLeggings: {
+		DisplayName: Племенной килт
+		Tooltip: ""
+	}
+}
+
+Chlorophyte: {
+	ChlorophyteHelmetSummoner: {
+		DisplayName: Хлорофитовая раскраска лица
+		Tooltip: ""
+	}
+
+	ChlorophyteHelmetSummoner2: {
+		DisplayName: Терра-раскраска лица
+		Tooltip: ""
+	}
+}
+
+Abyssal: {
+	SharedFlavorText: "{$Armor.Depth.SharedFlavorText}"
+
+	AbyssalChestplate: {
+		DisplayName: Ги бездны
+		Tooltip: «Невесомое, как сама тень»
+	}
+
+	AbyssalHelmet: {
+		DisplayName: Фукумэн бездны
+		Tooltip: "{$Armor.Abyssal.SharedFlavorText}"
+	}
+
+	AbyssalLeggings: {
+		DisplayName: Хакама бездны
+		Tooltip: «Невесомая, как сама тень»
+	}
+}
+
+Bogwood: {
+	BogwoodChestplate: {
+		DisplayName: Нагрудник из болотной древесины
+		Tooltip: ""
+	}
+
+	BogwoodHelmet: {
+		DisplayName: Шлем из болотной древесины
+		Tooltip: ""
+	}
+
+	BogwoodLeggings: {
+		DisplayName: Ботинки из болотной древесины
+		Tooltip: ""
+	}
+}
+
+Depth: {
+	SharedFlavorText: «Невесомый, как сама тень»
+
+	DepthChestplate: {
+		DisplayName: Глубинное ги
+		Tooltip: «Невесомое, как сама тень»
+	}
+
+	DepthHelmet: {
+		DisplayName: Глубинный фукумэн
+		Tooltip: "{$Armor.Depth.SharedFlavorText}"
+	}
+
+	DepthLeggings: {
+		DisplayName: Глубинная хакама
+		Tooltip: «Невесомая, как сама тень»
+	}
+}
+
+DreadMoon: {
+	SharedFlavorText: «Ярость бездонной Трясины заключена в этих доспехах»
+
+	DreadMoonChestplate: {
+		DisplayName: Ги ужасающей луны
+		Tooltip: "{$Armor.DreadMoon.SharedFlavorText}"
+	}
+
+	DreadMoonHelmet: {
+		DisplayName: Фукумэн ужасающей луны
+		Tooltip: "{$Armor.DreadMoon.SharedFlavorText}"
+	}
+
+	DreadMoonLeggings: {
+		DisplayName: Хакама ужасающей луны
+		Tooltip: "{$Armor.DreadMoon.SharedFlavorText}"
+	}
+}
+
+Atlantean: {
+	SharedFlavorText: «Вибрирует с силой Атлантиды»
+
+	AtlanteanChestplate: {
+		DisplayName: Атлантийский нагрудник
+		Tooltip: "{$Armor.Atlantean.SharedFlavorText}"
+	}
+
+	AtlanteanHelmet: {
+		DisplayName: Атлантийский шлем
+		Tooltip: "{$Armor.Atlantean.SharedFlavorText}"
+	}
+
+	AtlanteanLeggings: {
+		DisplayName: Атлантийские поножи
+		Tooltip: "{$Armor.Atlantean.SharedFlavorText}"
+	}
+}
+
+Ocean: {
+	OceanChestplate: {
+		DisplayName: Океанический нагрудник
+		Tooltip: ""
+	}
+
+	OceanHelmet: {
+		DisplayName: Океанический шлем
+		Tooltip: ""
+	}
+
+	OceanLeggings: {
+		DisplayName: Океанические поножи
+		Tooltip: ""
+	}
+}
+
+Mushium: {
+	MushiumChestplate: {
+		DisplayName: Рубаха из грибия
+		Tooltip: ""
+	}
+
+	MushiumHelmet: {
+		DisplayName: Шляпа из грибия
+		Tooltip: ""
+	}
+
+	MushiumLeggings: {
+		DisplayName: Штаны из грибия
+		Tooltip: ""
+	}
+}
+
+Raider: {
+	RaiderChestplate: {
+		DisplayName: Нагрудник налётчика
+		Tooltip: ""
+	}
+
+	RaiderHelmet: {
+		DisplayName: Шлем налётчика
+		Tooltip: ""
+	}
+
+	RaiderLeggings: {
+		DisplayName: Поножи налётчика
+		Tooltip: ""
+	}
+}
+
+Viking: {
+	VikingChestplate: {
+		DisplayName: Нагрудник викинга
+		Tooltip: ""
+	}
+
+	VikingHelmet: {
+		DisplayName: Шлем викинга
+		Tooltip: ""
+	}
+
+	VikingLeggings: {
+		DisplayName: Поножи викинга
+		Tooltip: ""
+	}
+}
+
+Terra: {
+	TerraChestplate: {
+		DisplayName: Терра-нагрудник
+		Tooltip: ""
+	}
+
+	TerraHelmetMage: {
+		DisplayName: Терра-капюшон
+		Tooltip: ""
+	}
+
+	TerraHelmetMelee: {
+		DisplayName: Терра-шлем
+		Tooltip: ""
+	}
+
+	TerraHelmetRanged: {
+		DisplayName: Терра-визор
+		Tooltip: ""
+	}
+
+	TerraHelmetSummoner: {
+		DisplayName: Терра-маска
+		Tooltip: ""
+	}
+
+	TerraLeggings: {
+		DisplayName: Терра-поножи
+		Tooltip: ""
+	}
+
+	TerraHelmetMageTest: {
+		DisplayName: Терра-капюшон
+		Tooltip: ""
+	}
+}
+
+AncientGold: {
+	AncientGoldChestplate: {
+		DisplayName: Древняя золотая кольчуга
+		Tooltip: ""
+	}
+
+	AncientGoldLeggings: {
+		DisplayName: Древние золотые поножи
+		Tooltip: ""
+	}
+}
+
+Adamantite: {
+	AdamantiteHelmetSummoner: {
+		DisplayName: Адамантитовая раскраска лица
+		Tooltip: ""
+	}
+}
+
+Cobalt: {
+	CobaltHelmetSummoner: {
+		DisplayName: Кобальтовая раскраска лица
+		Tooltip: ""
+	}
+}
+
+Mythril: {
+	MythrilHelmetSummoner: {
+		DisplayName: Мифриловая раскраска лица
+		Tooltip: ""
+	}
+}
+
+Orichalcum: {
+	OrichalcumHelmetSummoner: {
+		DisplayName: Орихалковая раскраска лица
+		Tooltip: ""
+	}
+}
+
+Palladium: {
+	PalladiumHelmetSummoner: {
+		DisplayName: Палладиевая раскраска лица
+		Tooltip: ""
+	}
+}
+
+Titanium: {
+	TitaniumHelmetSummoner: {
+		DisplayName: Титановая раскраска лица
+		Tooltip: ""
+	}
+}
+
+DarkDoomite: {
+	DarkDoomiteChestplate: {
+		DisplayName: Тёмный гибельнитовый нагрудник
+		Tooltip: ""
+	}
+
+	DarkDoomiteHelmet: {
+		DisplayName: Тёмный гибельнитовый шлем
+		Tooltip: ""
+	}
+
+	DarkDoomiteLeggings: {
+		DisplayName: Тёмные гибельнитовые поножи
+		Tooltip: ""
+	}
+}
+
+Doomite: {
+	DoomiteChestplate: {
+		DisplayName: Гибельнитовый нагрудник
+		Tooltip: ""
+	}
+
+	DoomiteHelmet: {
+		DisplayName: Гибельнитовый визор
+		Tooltip: ""
+	}
+
+	DoomiteLeggings: {
+		DisplayName: Гибельнитовые поножи
+		Tooltip: ""
+	}
+}
+
+Ouroboros: {
+	OuroborosChestplate: {
+		DisplayName: Нагрудник из уроборосовой древесины
+		Tooltip: ""
+	}
+
+	OuroborosHelmet: {
+		DisplayName: Шлем из уроборосовой древесины
+		Tooltip: ""
+	}
+
+	OuroborosLeggings: {
+		DisplayName: Ботинки из уроборосовой древесины
+		Tooltip: ""
+	}
+}
+
+Fulgurite: {
+	FulguriteChestplate: {
+		DisplayName: Фульгуритовый нагрудник
+		Tooltip: ""
+	}
+
+	FulguriteHelmetMage: {
+		DisplayName: Фульгуритовый головной убор
+		Tooltip: ""
+	}
+
+	FulguriteHelmetMelee: {
+		DisplayName: Фульгуритовый шлем
+		Tooltip: ""
+	}
+
+	FulguriteHelmetRanged: {
+		DisplayName: Фульгуритовый визор
+		Tooltip: ""
+	}
+
+	FulguriteLeggings: {
+		DisplayName: Фульгуритовые поножи
+		Tooltip: ""
+	}
+}

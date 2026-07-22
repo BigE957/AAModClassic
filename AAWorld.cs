@@ -129,6 +129,7 @@ namespace AAModClassic
         private Vector2 InfernoCenter = -Vector2.One;
         private Vector2 MireCenter = -Vector2.One;
         public static Vector2 shipPos = new(0, 0);
+        public static Point acropolisPos = Point.Zero;
         public string nums = "1234567890";
         public static bool ModContentGenerated;
 
@@ -268,6 +269,8 @@ namespace AAModClassic
             squid14 = 0;
             squid15 = 0;
             squid16 = 0;
+
+            acropolisPos = Point.Zero;
         }
 
         public static int Raycast(int x, int y)
@@ -341,6 +344,8 @@ namespace AAModClassic
             tag.Add("Bunny", RabbitKills);
             tag.Add("Egg", SmashDragonEgg);
             tag.Add("Pod", SmashHydraPod);
+
+            tag.Add("acropolisPos", acropolisPos);
         }
 
         public override void LoadWorldData(TagCompound tag)
@@ -407,6 +412,8 @@ namespace AAModClassic
             SmashDragonEgg = tag.GetInt("Egg");
             SmashHydraPod = tag.GetInt("Pod");
 
+            acropolisPos = tag.Get<Point>("acropolisPos");
+
             TerrariumEnemies = NPC.downedBoss2;
             previousDownedAllAncients = downedAllAncients;
             AMessage = NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3;
@@ -458,6 +465,9 @@ namespace AAModClassic
             writer.Write(RabbitKills);
             writer.Write(SmashDragonEgg);
             writer.Write(SmashHydraPod);
+
+            writer.Write(acropolisPos.X);
+            writer.Write(acropolisPos.Y);
         }
 
         public override void NetReceive(BinaryReader reader)
@@ -504,6 +514,8 @@ namespace AAModClassic
             RabbitKills = reader.ReadInt32();
             SmashHydraPod = reader.ReadInt32();
             SmashDragonEgg = reader.ReadInt32();
+
+            acropolisPos = new(reader.ReadInt32(), reader.ReadInt32());
         }
         #endregion
 
@@ -1466,8 +1478,8 @@ namespace AAModClassic
         {
             Main.SceneMetrics.SandTileCount += tileCounts[ModContent.TileType<Torchsand_Tile>()] + tileCounts[ModContent.TileType<Torchsandstone_Tile>()] + tileCounts[ModContent.TileType<TorchsandHardened_Tile>()] + tileCounts[ModContent.TileType<Depthsand_Tile>()] + tileCounts[ModContent.TileType<Depthsandstone_Tile>()] + tileCounts[ModContent.TileType<DepthsandHardened_Tile>()];
             Main.SceneMetrics.SnowTileCount += tileCounts[ModContent.TileType<Torchice_Tile>()] + tileCounts[ModContent.TileType<IndigoIce_Tile>()] + tileCounts[ModContent.TileType<TorchAsh_Tile>()];
-            mireTiles = tileCounts[ModContent.TileType<MireGrass_Tile>()]+ tileCounts[ModContent.TileType<Depthstone_Tile>()] + tileCounts[ModContent.TileType<Depthsand_Tile>()] + tileCounts[ModContent.TileType<Depthsandstone_Tile>()] + tileCounts[ModContent.TileType<DepthsandHardened_Tile>()] + tileCounts[ModContent.TileType<IndigoIce_Tile>()];
-            infernoTiles = tileCounts[ModContent.TileType<InfernoGrass_Tile>()]+ tileCounts[ModContent.TileType<Torchstone_Tile>()] + tileCounts[ModContent.TileType<Torchsand_Tile>()] + tileCounts[ModContent.TileType<Torchsandstone_Tile>()] + tileCounts[ModContent.TileType<TorchsandHardened_Tile>()] + tileCounts[ModContent.TileType<Torchice_Tile>()] + tileCounts[ModContent.TileType<TorchAsh_Tile>()];
+            mireTiles = tileCounts[ModContent.TileType<MireGrass_Tile>()]+ tileCounts[ModContent.TileType<Depthstone_Tile>()] + tileCounts[ModContent.TileType<Depthsand_Tile>()] + tileCounts[ModContent.TileType<Depthsandstone_Tile>()] + tileCounts[ModContent.TileType<DepthsandHardened_Tile>()] + tileCounts[ModContent.TileType<IndigoIce_Tile>()] + tileCounts[ModContent.TileType<LivingBogleaf_Tile>()] + tileCounts[ModContent.TileType<LivingBogwood_Tile>()];
+            infernoTiles = tileCounts[ModContent.TileType<InfernoGrass_Tile>()]+ tileCounts[ModContent.TileType<Torchstone_Tile>()] + tileCounts[ModContent.TileType<Torchsand_Tile>()] + tileCounts[ModContent.TileType<Torchsandstone_Tile>()] + tileCounts[ModContent.TileType<TorchsandHardened_Tile>()] + tileCounts[ModContent.TileType<Torchice_Tile>()] + tileCounts[ModContent.TileType<TorchAsh_Tile>()] + tileCounts[ModContent.TileType<LivingRazeleaves_Tile>()] + tileCounts[ModContent.TileType<LivingRazewood_Tile>()];
             voidTiles = tileCounts[ModContent.TileType<Doomstone_Tile>()] + tileCounts[ModContent.TileType<ApocalyptiteOre_Tile>()] + tileCounts[ModContent.TileType<DoomGrass_Tile>()] + tileCounts[ModContent.TileType<DoomstoneB_Tile>()];
             mushTiles = tileCounts[ModContent.TileType<Mycelium_Tile>() ];
             Main.SceneMetrics.JungleTileCount += mireTiles;

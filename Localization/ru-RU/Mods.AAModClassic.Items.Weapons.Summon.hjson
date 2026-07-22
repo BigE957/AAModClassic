@@ -1,0 +1,268 @@
+ConflagrateScythe: {
+	DisplayName: Воспламеняющая коса
+	Tooltip:
+		'''
+		Призывает крутящегося конструкта разрывать ваших врагов на части
+		Воспламеняющийся посох EX
+		'''
+}
+
+DivineWindStone: {
+	DisplayName: Камень божественных ветров
+	Tooltip: Призывает стража - руну совы
+}
+
+HurricaneStone: {
+	DisplayName: Ураганный камень
+	Tooltip: Призывает стража - заряженную руну совы
+}
+
+SolarStaff: {
+	DisplayName: Солнечный посох
+	Tooltip:
+		'''
+		Обрушает огонь и ярость на ваших врагов
+		Накладывает дебафф «Рассвет»
+		'''
+}
+
+CyberBaton: {
+	DisplayName: Кибер-дубина
+	Tooltip: Призывает кибер-коготь сражаться за вас
+}
+
+AleisterStaff: {
+	DisplayName: Посох Алистера
+	Tooltip: ""
+}
+
+ConflagrateStaff: {
+	DisplayName: Воспламеняющийся посох
+	Tooltip:
+		'''
+		Призывает крутящегося конструкта разрывать ваших врагов на части
+		«А я то думал небо фиолетовое»
+		- Ender
+		'''
+}
+
+MagicAcorn: {
+	DisplayName: Магический жёлудь
+	Tooltip:
+		'''
+		Привлекает белок сражаться за вас, во имя славы
+		«SoonTM»
+		- Fargowilta
+		'''
+}
+
+SockStaff: {
+	DisplayName: Посох носка
+	Tooltip: Призывает носок сражаться за вас
+}
+
+FishnadoStaff: {
+	DisplayName: Посох рыбанадо
+	Tooltip: ""
+}
+
+BlizzardDragonStaff: {
+	DisplayName: Посох пылающего дракона
+	Tooltip:
+		'''
+		Призывает пылающего дракона сражаться за вас
+		Посох гидры EX
+		'''
+}
+
+OmenStaff: {
+	DisplayName: Посох знамения
+	Tooltip:
+		'''
+		Призывает злобного ворона сражаться за вас
+		Посох ворона EX
+		'''
+}
+
+PerfectChaosRitual: {
+	DisplayName: Ритуал совершенного хаоса
+	Tooltip: Призывает маленького дракона хаоса сражаться за вас
+}
+
+SoccOnAStick: {
+	DisplayName: Нососок
+	Tooltip:
+		'''
+		Призывает носочного бога сражаться за вас
+		Может существовать только один носок
+		При использовании повторно будут призываться обычные носки
+		Посох носка EX
+		«Носок на сосок»
+		- Arick
+		'''
+}
+
+CottonCane: {
+	DisplayName: Сахарная трость
+	Tooltip: Призывает кролёта сражаться за вас
+}
+
+RajahsRage: {
+	DisplayName: Месть Раджи
+	Tooltip: Призывает королевского кролика сражаться за вас
+}
+
+ClawBaton: {
+	DisplayName: Когтистая дубина
+	Tooltip: Призывает коготь хаоса сражаться за вас
+}
+
+ChaosRitual: {
+	DisplayName: Ритуал хаоса
+	Tooltip: Призывает конструкта хаоса сражаться за вас
+}
+
+FlameVortexStaff: {
+	DisplayName: Посох пламенного вихря
+	Tooltip:
+		'''
+		Призывает пламенные сферы, увеличивающие ваш урон призывателя
+		Каждая сфера занимает 1 слот под миньонов
+		Для первого призыва необходимо не менее 2 свободных слотов
+		'''
+}
+
+ChaosBaton: {
+	DisplayName: Дубина хаоса
+	Tooltip: Призывает коготь раздора сражаться за вас
+}
+
+DemoniteStaff: {
+	DisplayName: Демонитовый посох
+	Tooltip: Призывает пожирателя сражаться за вас
+}
+
+CrimeraStaff: {
+	DisplayName: Посох кримеры
+	Tooltip: Призывает кримеру сражаться за вас
+}
+
+SandScepter: {
+	DisplayName: Песчаный скипетр
+	Tooltip: Призывает пыльного дьявола сражаться за вас
+}
+
+SentryOfTheEye: {
+	DisplayName: Глазной страж
+	Tooltip: Призывает стража-глаз
+}
+
+HorusCane: {
+	DisplayName: Трость Гора
+	Tooltip: Призывает стража - глаз Гора
+}
+
+SkullWand: {
+	DisplayName: Черепной жезл
+	Tooltip: Призывает череп темницы сражаться за вас
+}
+
+HallowStaff: {
+	DisplayName: Освящённый посох
+	Tooltip: Призывает призму сражаться за вас
+}
+
+TrueHallowStaff: {
+	DisplayName: Истинный освящённый посох
+	Tooltip: Призывает радужную призму сражаться за вас
+}
+
+DemonStaff: {
+	DisplayName: Посох демона
+	Tooltip: Призывает демона сражаться за вас
+}
+
+DevilStaff: {
+	DisplayName: Посох дьявола
+	Tooltip: Призывает дьявола сражаться за вас
+}
+
+FireStaff: {
+	DisplayName: Посох огня
+	Tooltip: Призывает маленького феникса сражаться за вас
+}
+
+DragonsPike: {
+	DisplayName: Драконья пика
+	Tooltip: Призывает огненного дракона сражаться за вас
+}
+
+AncientLungStaff: {
+	DisplayName: Посох древнего луна
+	Tooltip: Призывает древнего луна сражаться за вас
+}
+
+HydraStaff: {
+	DisplayName: Посох гидры
+	Tooltip: Призывает каменную гидру сражаться за вас
+}
+
+SnakeStaff: {
+	DisplayName: Посох змеи
+	Tooltip:
+		'''
+		Призывает снежную змею сражаться за вас
+		Призывает по 2 сегмента за слот
+		'''
+}
+
+TerraStaff: {
+	DisplayName: Терра-посох
+	Tooltip: Призывает терра-волшебника сражаться за вас
+}
+
+TerraGauntlet: {
+	DisplayName: Терра-рукавица
+	Tooltip: Призывает терра-кальмара, терра-сферу, терра-ползуна, или терра-ткача сражаться за вас
+}
+
+SagittariusCore: {
+	DisplayName: Ядро Сагиттариуса
+	Tooltip: Активирует зонды, которые вращаются вокруг вас и защищают от окружающих врагов
+}
+
+DoomiteRadio: {
+	DisplayName: Гибельнитовое радио
+	Tooltip: Призывает гибельнитовый дрон сражаться за вас
+}
+
+DoomiteSignal: {
+	DisplayName: Гибельнитовый сигнал
+	Tooltip: Призывает гибельнитовый зонд сражаться за вас
+}
+
+VoidProbeControlUnit: {
+	DisplayName: Модуль управления пустотным зондом
+	Tooltip: Призывает пустотный зонд сражаться за вас
+}
+
+OverloadedDoomiteRadio: {
+	DisplayName: Перегруженное гибельнитовое радио
+	Tooltip: Призывает пустотного разведчика сражаться за вас
+}
+
+DoomPortal: {
+	DisplayName: Гибельный портал
+	Tooltip: Призывает протокол гибели сражаться за вас
+}
+
+DapperAcorn: {
+	DisplayName: Очаровательный жёлудь
+	Tooltip:
+		'''
+		Привлекает белок сражаться за вас, во имя славы
+		«Мультиплеер = тупо мем»
+		- Fargowilta
+		Магический жёлудь EX
+		'''
+}

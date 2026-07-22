@@ -18,6 +18,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
             // Tooltip.SetDefault("Plays 'Doomsday Arrives' by Saucecoie");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
         }
         public override void SetDefaults()
 		{

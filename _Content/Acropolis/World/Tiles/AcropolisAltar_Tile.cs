@@ -1,17 +1,20 @@
 ﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena;
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
+using AAModClassic._Unofficial;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.IO;
 using Terraria;
 using Terraria.Chat;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 using Terraria.ObjectData;
 
 namespace AAModClassic._Content.Acropolis.World.Tiles
@@ -79,57 +82,18 @@ namespace AAModClassic._Content.Acropolis.World.Tiles
                     if (item != null && item.type == type && item.stack >= 1)
                     {
                         item.stack--;
-                        SpawnBoss(player, ModContent.NPCType<Athena>(), player.Center, Language.GetTextValue("Mods.AAModClassic.Common.Athena"));
+
+                        Vector2 npcCenter = player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * Main.rand.Next(2) == 0 ? -1 : 1, -800f);
+                        for (int a = 0; a < 8; a++)
+                            Dust.NewDust(npcCenter, 152, 114, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0);
+
+                        AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Athena>(), true, npcCenter, Language.GetTextValue("Mods.AAModClassic.Common.Athena"));
+                        break;
                     }
                 }
             }
             return true;
         }
-
-        // SpawnBoss(player, mod.NPCType("MyBoss"), true, 0, 0, "DerpyBoi 2", false);
-        public static void SpawnBoss(Player player, int bossType, Vector2 Pos = default, string name = "", bool seen = true)
-        {
-            Vector2 npcCenter = Pos + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * Main.rand.Next(2) == 0 ? -1 : 1, -800f);
-            for (int a = 0; a < 8; a++)
-            {
-                Dust.NewDust(npcCenter, 152, 114, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0);
-            }
-
-            if (Main.netMode != NetmodeID.MultiplayerClient)
-            {
-                if (NPC.AnyNPCs(bossType))
-                {
-                    return;
-                }
-
-                int npcID = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)npcCenter.X, (int)npcCenter.Y, bossType);
-                Main.npc[npcID].Center = npcCenter;
-                Main.npc[npcID].netUpdate = true;
-
-                ((Athena)Main.npc[npcID].ModNPC).Seen = seen;
-
-                if (Main.netMode == NetmodeID.SinglePlayer)
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                    {
-                        BaseUtility.Chat(Language.GetTextValue("Announcement.HasAwoken", name), 175, 75, 255, false);
-                    }
-                }
-                else if (Main.netMode == NetmodeID.Server)
-                {
-                    ChatHelper.BroadcastChatMessage(
-                        NetworkText.FromKey("Announcement.HasAwoken", new object[] { NetworkText.FromLiteral(name) }),
-                        new Color(175, 75, 255)
-                    );
-                }
-            }
-            else
-            {
-                //I have no idea how to convert this to the standard system so im gonna post this method too lol
-                AANet.SendNetMessage<SummonNPCFromClient>((byte)player.whoAmI, (short)bossType, true, (int)npcCenter.X, (int)npcCenter.Y, name, false);
-            }
-        }
-
 
         public override bool CanKillTile(int i, int j, ref bool blockDamaged)
         {

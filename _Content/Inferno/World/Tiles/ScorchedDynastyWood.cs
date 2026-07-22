@@ -35,6 +35,11 @@ namespace AAModClassic._Content.Inferno.World.Tiles
             recipe.AddIngredient(ItemID.DynastyWood, 1);
             recipe.AddCondition(Condition.NearLava);
             recipe.Register();
+
+            Recipe recipe2 = CreateRecipe();
+            recipe2.AddIngredient(ModContent.ItemType<ScorchedDynastyWoodWall>(), 4);
+            recipe2.AddCondition(Condition.NearLava);
+            recipe2.Register();
         }
     }
 }

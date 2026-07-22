@@ -337,3 +337,43 @@ GravitronCentrifugeOff: {
 		Effects are currently inactive, Right click to reactivate
 		'''
 }
+
+TheGripsOfChaos: {
+	DisplayName: The Grips of Chaos
+	Tooltip:
+		'''
+		Fires 2 different hooks depending on which one is already out
+		Red has a longer range
+		Blue pulls in/retracts quicker
+		'''
+}
+
+LivingRazeleafWand: {
+	DisplayName: Living Razeleaf Wand
+	Tooltip: Placed razewood leaves
+}
+
+LivingRazewoodWand: {
+	DisplayName: Living Razewood Wand
+	Tooltip: Places living razewood
+}
+
+LivingBogleafWand: {
+	DisplayName: Living Bogleaf Wand
+	Tooltip: Places bogwood leaves
+}
+
+LivingBogwoodWand: {
+	DisplayName: Living Bogwood Wand
+	Tooltip: Places living bogwood
+}
+
+DragonsGrip: {
+	DisplayName: Dragon's Grip
+	Tooltip: ""
+}
+
+HydraBite: {
+	DisplayName: Hydra Bite
+	Tooltip: ""
+}

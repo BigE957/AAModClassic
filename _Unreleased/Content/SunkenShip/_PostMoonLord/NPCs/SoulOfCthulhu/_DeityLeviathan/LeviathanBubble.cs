@@ -10,8 +10,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 {
     public class LeviathanBubble : ModNPC
 	{
-        public bool HeadsSpawned = false;
-
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Leviathan Bubble");
@@ -123,7 +121,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 {
                     return;
                 }
-                num = TextureAssets.Npc[NPC.type].Value.Height / Main.npcFrameCount[NPC.type];
+                num = TextureAssets.Npc[NPC.type].Height() / Main.npcFrameCount[NPC.type];
             }
             NPC.frame.Y = num;
         }

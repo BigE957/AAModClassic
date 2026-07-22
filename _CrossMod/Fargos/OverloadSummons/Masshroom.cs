@@ -12,9 +12,12 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._CrossMod.Fargos.OverloadSummons
 {
-    public class Masshroom : BaseAAItem, ILocalizedModType
+    public class Masshroom : CrossoverItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.BossSummon";
+
+        public override string CrossoverModName => "Fargowiltas";
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Masshroom");
@@ -61,21 +64,13 @@ namespace AAModClassic._CrossMod.Fargos.OverloadSummons
             return true;
         }
 
-        public override bool IsLoadingEnabled(Mod mod)/* tModPorter Suggestion: If you return false for the purposes of manual loading, use the [Autoload(false)] attribute on your class instead */
-        {
-            return ModLoader.TryGetMod("Fargowiltas", out _);
-        }
-
         public override void AddRecipes()
         {
-            if (ModLoader.TryGetMod("Fargowiltas", out var fargos))
-            {
-                Recipe recipe = CreateRecipe(1);
-                recipe.AddIngredient(ModContent.ItemType<IntimidatingLookingMushroom>(), 1);
-                recipe.AddIngredient(fargos, "Overloader", 1);
-                recipe.AddTile(TileID.WorkBenches);
-                recipe.Register();
-            }
+            Recipe recipe = CreateRecipe(1);
+            recipe.AddIngredient(ModContent.ItemType<IntimidatingLookingMushroom>(), 1);
+            recipe.AddIngredient(ModLoader.GetMod("Fargowiltas"), "Overloader", 1);
+            recipe.AddTile(TileID.WorkBenches);
+            recipe.Register();
         }
     }
 }

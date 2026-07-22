@@ -63,12 +63,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
 
             if(proj == 0)
             {
-                for(int i = 0; i<1000; i++)
+                foreach (Projectile p in Main.ActiveProjectiles)
                 {
-                    if(Main.projectile[i].type == ModContent.ProjectileType<BlazeGrip_ScorchBomb>())
-                    {
-                        proj = Main.projectile[i].whoAmI;
-                    }
+                    if (p.friendly && !p.minion && p.damage > 0 && p.Hitbox.Intersects(Projectile.Hitbox))
+                        p.Kill();
                 } 
             }
 

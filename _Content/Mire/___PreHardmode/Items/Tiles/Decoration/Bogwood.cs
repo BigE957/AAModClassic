@@ -22,8 +22,6 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<Bogwood_Tile>(); //put your CustomBlock Tile name
-            Item.ammo = Item.type;
-            Item.notAmmo = true;
         }
 
         public override void SetStaticDefaults()
@@ -38,6 +36,11 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration
             recipe.AddIngredient(ModContent.ItemType<BogwoodWall>(), 4);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
+
+            Recipe recipe2 = CreateRecipe();
+            recipe2.AddIngredient(ModContent.ItemType<BogwoodPlatform>(), 2);
+            recipe2.AddTile(TileID.WorkBenches);
+            recipe2.Register();
         }
     }
 }

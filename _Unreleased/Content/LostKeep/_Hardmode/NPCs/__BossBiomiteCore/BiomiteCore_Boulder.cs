@@ -10,7 +10,7 @@ public class BiomiteCore_Boulder : ModProjectile
 {
 	public override void SetDefaults()
 	{
-		Projectile.CloneDefaults(261);
+		Projectile.CloneDefaults(ProjectileID.BoulderStaffOfEarth);
 		Projectile.width = 32;
 		Projectile.height = 32;
 		Projectile.aiStyle = -1;
@@ -49,12 +49,15 @@ public class BiomiteCore_Boulder : ModProjectile
 			dust.fadeIn = 0.5f + Main.rand.NextFloat() * 0.5f;
 		}
 		SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-		for (int i = 0; i < Main.rand.Next(5, 10); i++)
+		if (Main.netMode != NetmodeID.MultiplayerClient)
 		{
-			int num2 = Main.rand.Next(-6, 6);
-			int num3 = -Main.rand.Next(3, 5);
-			int num4 = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position, new Vector2(num2, num3), ModContent.ProjectileType<BiomiteCore_BoulderChunk>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, Main.rand.Next(3));
-			Main.projectile[num4].Center = Projectile.Center - new Vector2(0f, 25f);
+			for (int i = 0; i < Main.rand.Next(5, 10); i++)
+			{
+				int num2 = Main.rand.Next(-6, 6);
+				int num3 = -Main.rand.Next(3, 5);
+				int num4 = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position, new Vector2(num2, num3), ModContent.ProjectileType<BiomiteCore_BoulderChunk>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, Main.rand.Next(3));
+				Main.projectile[num4].Center = Projectile.Center - new Vector2(0f, 25f);
+			}
 		}
 	}
 }

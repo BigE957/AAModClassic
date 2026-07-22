@@ -67,7 +67,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
         }
         public override void HitEffect(NPC.HitInfo hit)
         {
-            if (NPC.life <= 0)
+            if (NPC.life <= 0 && !Main.dedServ)
             {
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, 77, 1f);
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("RoyalRabbit1").Type, 1f);

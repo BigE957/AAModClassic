@@ -1,6 +1,7 @@
 using AAModClassic._Content.Mire.__Hardmode.Items.Accessories;
 using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._Unofficial.Content.Mire.__Hardmode.Items.Tools;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -48,7 +49,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
 
         public override void HitEffect(NPC.HitInfo hit)
 		{
-			if (NPC.life <= 0)
+			if (NPC.life <= 0 && !Main.dedServ)
 			{
 				Gore.NewGore(NPC.GetSource_Death(), NPC.position, Vector2.Zero, 13);
 				Gore.NewGore(NPC.GetSource_Death(), NPC.position, Vector2.Zero, 12);
@@ -58,9 +59,15 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<BotchedBand>(), ModContent.ItemType<BackScratcher>(), ModContent.ItemType<Bubbleshot>()));
+            LeadingConditionRule notUnofficialRule = new(new NotUnofficial());
+
+            notUnofficialRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<BotchedBand>(), ModContent.ItemType<BackScratcher>(), ModContent.ItemType<Bubbleshot>()));
+
+            npcLoot.Add(notUnofficialRule);
 
             LeadingConditionRule unofficialRule = new(new Unofficial());
+
+            unofficialRule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<BotchedBand>(), ModContent.ItemType<BackScratcher>(), ModContent.ItemType<Bubbleshot>(), ModContent.ItemType<HydraBite>()));
 
             unofficialRule.OnSuccess(ItemDropRule.Common(ItemID.GreaterHealingPotion, 1, 5, 10));
 

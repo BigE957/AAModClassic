@@ -153,14 +153,16 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
         public void SummonShen()
         {
             Player player = Main.player[NPC.target];
-            if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Transition.7"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
-            if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Transition.8"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Transition.7"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
+                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Transition.8"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
 
-            int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
-            Main.projectile[b].Center = NPC.Center;
+                int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
+                Main.projectile[b].Center = NPC.Center;
 
-
-            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<ShenDoragonA>(), false, NPC.Center, "Shen Awakened", false);
+                AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<ShenDoragonA>(), false, NPC.Center, "Shen Awakened", false);
+            }
         }
 
         public static Color GetColorAlpha()

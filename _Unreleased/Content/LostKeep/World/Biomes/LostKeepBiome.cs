@@ -8,11 +8,7 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 {
     public class LostKeepBiome : ModBiome
     {
-        public override bool IsBiomeActive(Player player)
-        {
-            player.GetModPlayer<ZAAPlayer>().Terrarium = AAWorld.terraTiles >= 1 || AAWorld.keepTiles >= 1;
-            return AAWorld.keepTiles >= 1;
-        }
+        public override bool IsBiomeActive(Player player) => AAWorld.keepTiles >= 1;
 
         public override int Music => MusicManagementSystem.MusicSlots["LostKeep"];
 

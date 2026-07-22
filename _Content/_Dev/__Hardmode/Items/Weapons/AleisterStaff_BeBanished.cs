@@ -18,7 +18,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
         {
             npc.GetGlobalNPC<AleisterStaffGlobalNPC>().Banished = true;
 
-            TheBookOfTheLaw_InvokerPlayer InvokerPlayer = Main.player[Main.myPlayer].GetModPlayer<TheBookOfTheLaw_InvokerPlayer>();
+            TheBookOfTheLaw_InvokerPlayer InvokerPlayer = Main.LocalPlayer.GetModPlayer<TheBookOfTheLaw_InvokerPlayer>();
             if ((InvokerPlayer.banishing && npc.active && (InvokerPlayer.BanishDamage * InvokerPlayer.BanishDamageMult * InvokerPlayer.BanishLimit > npc.life)) || npc.GetGlobalNPC<AleisterStaffGlobalNPC>().IsBeingBanished)
             {
                 npc.GetGlobalNPC<AleisterStaffGlobalNPC>().IsBeingBanished = true;

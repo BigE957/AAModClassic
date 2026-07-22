@@ -34,18 +34,21 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             return Color.White;
         }
 		
-		int head = -1;
-		int frameWidth = 540;
-		int frameHeight = 50;
+		private int head = -1;
+        private const int frameWidth = 540;
+        private const int frameHeight = 50;
 
         public override bool PreAI()
         {
 			if(head == -1)
 			{
-				int npcID = BaseAI.GetNPC(Projectile.Center, ModContent.NPCType<OrthrusXHead>(), 500f, null);	
-				if(npcID >= 0) head = npcID;
+				int npcID = NPC.FindFirstNPC(ModContent.NPCType<OrthrusXHead>());	
+				if(npcID >= 0)
+                    head = npcID;
 			}
-			if(head == -1) return false;				
+			if(head == -1)
+                return false;	
+            
 			NPC headNPC = Main.npc[head];
 			if(headNPC == null || headNPC.life <= 0 || !headNPC.active || headNPC.type != ModContent.NPCType<OrthrusXHead>()) 
             { 

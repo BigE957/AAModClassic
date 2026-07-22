@@ -20,6 +20,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetrieve
         public override void SetStaticDefaults()
         {
             ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 13; // This helps sort inventory know this is a boss summoning item.
+            Item.ResearchUnlockCount = 3;
 
             // DisplayName.SetDefault("Cybernetic Claw");
             /* Tooltip.SetDefault(@"Summons the Retriever
@@ -30,7 +31,7 @@ Only useable at night"); */
 		{
 			Item.width = 32;
 			Item.height = 24;
-			Item.maxStack = 20;
+			Item.maxStack = Item.CommonMaxStack;
 			Item.rare = ItemRarityID.Green;
             Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.useAnimation = 45;

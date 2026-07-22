@@ -1,6 +1,12 @@
-﻿using AAModClassic._Content.Inferno.World.Tiles;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
+using AAModClassic._Content.Inferno.World.Tiles;
+using AAModClassic._Unreleased.Content.Inferno.___PreHardmode.Items;
+using AAModClassic.UI.World;
+using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
@@ -18,7 +24,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles.Trees
 
         public override int DropWood()
         {
-            return AAMod.instance.Find<ModItem>("Razewood").Type;
+            return ModContent.ItemType<Razewood>();
         }
 
         public override Asset<Texture2D> GetTexture()
@@ -39,7 +45,25 @@ namespace AAModClassic._Content.Inferno.World.Tiles.Trees
         public override int SaplingGrowthType(ref int style)/* tModPorter Note: _Unreleased. Use ModTree.SaplingGrowthType */
         {
             style = 0;
-            return AAMod.instance.Find<ModTile>("RazewoodSapling_Tile").Type;
+            return ModContent.TileType<RazewoodSapling_Tile>();
+        }
+
+        public override bool Shake(int x, int y, ref bool createLeaves)
+        {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                if (Main.rand.NextBool(300))
+                {
+                    Vector2 offset = this.GetRandomTreePosition(x, y);
+                    Item.NewItem(WorldGen.GetItemSource_FromTreeShake(x, y), new Vector2(x, y) * 16 + offset, ModContent.ItemType<LivingRazewoodWand>(), 1);
+                }
+                else if (Main.rand.NextBool(300))
+                {
+                    Vector2 offset = this.GetRandomTreePosition(x, y);
+                    Item.NewItem(WorldGen.GetItemSource_FromTreeShake(x, y), new Vector2(x, y) * 16 + offset, ModContent.ItemType<LivingRazeleafWand>(), 1);
+                }
+            }
+            return true;
         }
     }
 }
