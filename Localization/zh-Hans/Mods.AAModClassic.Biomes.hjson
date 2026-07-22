@@ -18,7 +18,7 @@ MireBiome: {
 	TownNPCDialogueName: 潭渊
 }
 
-RisingMoonLakeBiomeZone: {
+RisingMoonLakeBiome: {
 	DisplayName: 升月之湖
 	TownNPCDialogueName: 升月之湖
 }
