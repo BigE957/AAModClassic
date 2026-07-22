@@ -19,13 +19,8 @@ MireBiome: {
 }
 
 RisingMoonLakeBiome: {
-	DisplayName: Озеро восходящей луны
-	TownNPCDialogueName: Озеро восходящей луны
-}
-
-RisingMoonLakeBiome: {
-	// DisplayName: Rising Moon Lake Biome
-	// TownNPCDialogueName: the Rising Moon Lake Biome
+	// DisplayName: The Rising Moon Lake
+	// TownNPCDialogueName: the Rising Moon Lake
 }
 
 RisingSunPagodaBiome: {

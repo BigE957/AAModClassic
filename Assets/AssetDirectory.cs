@@ -31,6 +31,14 @@ namespace AAModClassic.Assets
             public static readonly string Ritual_Inner2 = FilePath + "Ritual_Inner2";
             public static readonly string Ritual_Outer1 = FilePath + "Ritual_Outer1";
             public static readonly string Ritual_Outer2 = FilePath + "Ritual_Outer2";
+
+            public static readonly string Bloom_Medium = FilePath + "Bloom_Medium";
+
+            public static readonly string LensFlare_Small = FilePath + "LensFlare_Small";
+            public static readonly string LensFlare_SmallBlank = FilePath + "LensFlare_SmallBlank";
+            public static readonly string LensFlare_Medium = FilePath + "LensFlare_Medium";
+
+            public static readonly string HollowCircle_HardEdge = FilePath + "HollowCircle_HardEdge";
         }
 
         public class Items

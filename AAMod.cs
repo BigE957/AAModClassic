@@ -394,6 +394,12 @@ namespace AAModClassic
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/Portal", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/CthulhuSpawn", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/Items/SoulOfCthulhu/Weapons/CthulhuCannon_CthulhuBoom", AssetRequestMode.ImmediateLoad).Value);
+
+                PremultiplyTexture(ModContent.Request<Texture2D>(AssetDirectory.General.HollowCircle_HardEdge, AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>(AssetDirectory.General.LensFlare_Small, AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>(AssetDirectory.General.LensFlare_SmallBlank, AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>(AssetDirectory.General.LensFlare_Medium, AssetRequestMode.ImmediateLoad).Value);
+                PremultiplyTexture(ModContent.Request<Texture2D>(AssetDirectory.General.Bloom_Medium, AssetRequestMode.ImmediateLoad).Value);
             });
 
             Filters.Scene["AAModClassic:ShenDoragonSky"] = new Filter(new ShenDoragonSkyData("FilterMiniTower").UseColor(.5f, 0f, .5f).UseOpacity(0.2f), EffectPriority.VeryHigh);

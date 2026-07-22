@@ -1,4 +1,5 @@
-﻿using AAModClassic.Utilities;
+﻿using AAModClassic.Assets;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -20,7 +21,7 @@ public class PulseRing : Particle
 
     public override void Load()
     {
-        Texture = ModContent.Request<Texture2D>("AAModClassic\\Particles\\Types\\HollowCircleHardEdge");
+        Texture = ModContent.Request<Texture2D>(AssetDirectory.General.HollowCircle_HardEdge);
     }
 
     public PulseRing(Vector2 position, Vector2 velocity, Color color, float originalScale, float finalScale, int lifeTime)

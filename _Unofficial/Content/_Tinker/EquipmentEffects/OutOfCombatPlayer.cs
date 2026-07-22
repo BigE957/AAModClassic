@@ -59,11 +59,6 @@ namespace AAModClassic._Unofficial.Content._Tinker.EquipmentEffects
             _outOfCombatTimer++;
         }
 
-        public override void OnHitAnything(float x, float y, Entity victim)
-        {
-            _outOfCombatTimer = 0;
-        }
-
         public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo)
         {
             if (hurtInfo.Damage > Player.statLifeMax2 * 0.05f)
