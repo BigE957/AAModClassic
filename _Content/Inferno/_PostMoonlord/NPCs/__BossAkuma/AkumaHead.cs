@@ -490,18 +490,93 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D texture = TextureAssets.Npc[NPC.type].Value;
-            if (fireAttack == false)
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
             {
-                spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, NPC.IsABestiaryIconDummy ? Color.White : NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+                PortraitPositionXOverride = 36,
+                Position = new Vector2(72, 40),
+                Scale = 0.75f,
+                PortraitScale = 0.75f
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+
+            if (NPC.IsABestiaryIconDummy && NPC.type == ModContent.NPCType<AkumaHead>())
+            {
+                int[] Frame = { 1, 2, 0, 1, 2, 1, 2, 0, 1, 2, 1, 2, 0, 1, 2, 3, 4 };
+
+                int segmentCount = 4;
+                Vector2 baseOffset = Vector2.Zero;
+                float segmentSpacing = 38;
+                float animationSpeed = 1f;
+                float range = 20f;
+                float rotationStrength = 0.1f;
+
+                float headOffset = -20;
+                int headSpeedOffset = 0;
+
+                float offset = -0.2f;
+                float startX = baseOffset.X;
+                float startY = baseOffset.Y;
+                float wormTimer = base.NPC.GetGlobalNPC<BestiaryDrawingNPC>().bestiaryWormTimer;
+
+                // Draw the body segments
+                for (int i = segmentCount; i > 0; i--)
+                {
+                    int myFrame = Frame[i];
+                    if (myFrame != 0)
+                        continue;
+
+                    float bodyOffset = i * segmentSpacing - segmentSpacing * 0.5f;
+
+                    AkumaBody.DrawBackArm(spriteBatch, NPC.position + new Vector2(startX + bodyOffset, MathF.Sin((wormTimer + offset * i) * animationSpeed) * range + startY), Color.White, NPC.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer + offset * i) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, 1, NPC.scale, wormTimer + i);
+                }
+
+                for (int i = segmentCount; i > 0; i--)
+                {
+                    // The first segment is slightly closer to keep up with the head
+                    float bodyOffset = i * segmentSpacing - segmentSpacing * 0.5f;
+
+                    int myFrame = Frame[i];
+                    if (myFrame == 0)
+                    {
+                        spriteBatch.Draw(AkumaBody.ArmlessBody.Value, NPC.position + new Vector2(startX + bodyOffset, MathF.Sin((wormTimer + offset * i) * animationSpeed) * range + startY), null, NPC.GetAlpha(drawColor), NPC.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer + offset * i) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, AkumaBody.ArmlessBody.Size() * 0.5f, NPC.scale, SpriteEffects.FlipHorizontally, 0);
+                    }
+                    else
+                    {
+                        Rectangle frame = TextureAssets.Npc[ModContent.NPCType<AkumaBody>()].Frame(1, 5, 0, myFrame);
+                        spriteBatch.Draw(TextureAssets.Npc[ModContent.NPCType<AkumaBody>()].Value, NPC.position + new Vector2(startX + bodyOffset, MathF.Sin((wormTimer + offset * i) * animationSpeed) * range + startY), frame, NPC.GetAlpha(drawColor), NPC.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer + offset * i) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, frame.Size() / 2, NPC.scale, SpriteEffects.FlipHorizontally, 0f);
+                    }
+                }
+
+                for (int i = segmentCount; i > 0; i--)
+                {
+                    int myFrame = Frame[i];
+                    if (myFrame != 0)
+                        continue;
+
+                    float bodyOffset = i * segmentSpacing - segmentSpacing * 0.5f;
+
+                    AkumaBody.DrawFrontArm(spriteBatch, NPC.position + new Vector2(startX + bodyOffset, MathF.Sin((wormTimer + offset * i) * animationSpeed) * range + startY), Color.White, NPC.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer + offset * i) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, 1, NPC.scale, wormTimer + i);
+                }
+
+                // Draw the head
+                spriteBatch.Draw(TextureAssets.Npc[Type].Value, NPC.position + new Vector2(startX + headOffset, MathF.Sin((wormTimer - headSpeedOffset) * animationSpeed) * range + startY), NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer - headSpeedOffset) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.FlipHorizontally, 0f);
+                return false;
             }
-            if (fireAttack == true)
+
+
+            Texture2D texture = TextureAssets.Npc[NPC.type].Value;
+            if (fireAttack)
             {
                 Vector2 drawCenter = new Vector2(NPC.Center.X, NPC.Center.Y);
                 int num214 = texture.Height / 3;
                 int y6 = num214 * attackFrame;
-                Main.spriteBatch.Draw(texture, drawCenter - screenPos, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, texture.Width, num214)), NPC.IsABestiaryIconDummy ? Color.White : NPC.GetAlpha(drawColor), NPC.rotation, new Vector2(texture.Width / 2f, num214 / 2f), NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+                spriteBatch.Draw(texture, drawCenter - screenPos, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, y6, texture.Width, num214)), NPC.IsABestiaryIconDummy ? Color.White : NPC.GetAlpha(drawColor), NPC.rotation, new Vector2(texture.Width / 2f, num214 / 2f), NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             }
+            else
+            {
+                spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, NPC.IsABestiaryIconDummy ? Color.White : NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+            }
+            
             return false;
         }
 

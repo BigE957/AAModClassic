@@ -24,12 +24,12 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
     [AutoloadBossHead]
     public class AkumaABody : AkumaAHead
     {
-        private static Asset<Texture2D> ArmlessBody;
-        private static Asset<Texture2D> UpperArm;
-        private static Asset<Texture2D> LowerArm;
-        private static Asset<Texture2D> ArmlessBodyGlow;
-        private static Asset<Texture2D> UpperArmGlow;
-        private static Asset<Texture2D> LowerArmGlow;
+        internal static Asset<Texture2D> ArmlessBody;
+        internal static Asset<Texture2D> UpperArm;
+        internal static Asset<Texture2D> LowerArm;
+        internal static Asset<Texture2D> ArmlessBodyGlow;
+        internal static Asset<Texture2D> UpperArmGlow;
+        internal static Asset<Texture2D> LowerArmGlow;
 
         public override void SetStaticDefaults()
         {
@@ -154,101 +154,103 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             return false;
         }
 
-        internal void DrawBackArm(SpriteBatch spriteBatch, Color drawColor)
+        internal void DrawBackArm(SpriteBatch spriteBatch, Color drawColor) => DrawBackArm(spriteBatch, NPC.Center - Main.screenPosition, NPC.GetAlpha(drawColor), NPC.rotation, NPC.spriteDirection, NPC.scale, Main.GlobalTimeWrappedHourly * 3f + NPC.whoAmI, NPC.ai[1] == 1 || NPC.ai[2] >= 470 || Main.npc[(int)NPC.ai[3]].ai[1] == 1 || Main.npc[(int)NPC.ai[3]].ai[2] >= 500);
+
+        internal static void DrawBackArm(SpriteBatch spriteBatch, Vector2 center, Color drawColor, float rotation, int dir, float scale, float time, bool flaming)
         {
-            Vector2 screenPos = NPC.IsABestiaryIconDummy ? Vector2.Zero : Main.screenPosition;
             Rectangle upperBackArmFrame = UpperArm.Frame(2, frameX: 1);
             
-            Vector2 upperBackArmPos = NPC.Center + (new Vector2(0 * NPC.spriteDirection, -8).RotatedBy(NPC.rotation + MathHelper.PiOver2) * NPC.scale) - screenPos;
-            float bodyFacingAngle = NPC.rotation;
+            Vector2 upperBackArmPos = center + (new Vector2(0 * dir, -8).RotatedBy(rotation + MathHelper.PiOver2) * scale);
+            float bodyFacingAngle = rotation;
             
             Vector2 upperBackArmOrigin = new(12, 8);
-            if (NPC.spriteDirection == 1)
+            if (dir == 1)
                 upperBackArmOrigin.X = upperBackArmFrame.Width - upperBackArmOrigin.X;
 
-            float upperBackArmRotation = (MathHelper.Pi / 3f + MathF.Sin(Main.GlobalTimeWrappedHourly * 3f + NPC.whoAmI) * MathHelper.Pi / 8f) * -NPC.spriteDirection;
-            float upperBackArmRotationOffset = -1.75f * -NPC.spriteDirection;
+            float upperBackArmRotation = (MathHelper.Pi / 3f + MathF.Sin(time) * MathHelper.Pi / 8f) * -dir;
+            float upperBackArmRotationOffset = -1.75f * -dir;
 
             float upperWorldRot = bodyFacingAngle + upperBackArmRotation + upperBackArmRotationOffset;
 
-            spriteBatch.Draw(UpperArm.Value, upperBackArmPos, upperBackArmFrame, NPC.GetAlpha(drawColor), upperWorldRot, upperBackArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            spriteBatch.Draw(UpperArm.Value, upperBackArmPos, upperBackArmFrame, drawColor, upperWorldRot, upperBackArmOrigin, scale, dir == 1 ? SpriteEffects.FlipHorizontally : 0, 0);
             int shader;
-            if (NPC.ai[1] == 1 || NPC.ai[2] >= 470 || Main.npc[(int)NPC.ai[3]].ai[1] == 1 || Main.npc[(int)NPC.ai[3]].ai[2] >= 500)
+            if (flaming)
                 shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
             else
                 shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
             DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) => {
-                spriteBatch.Draw(UpperArmGlow.Value, upperBackArmPos, upperBackArmFrame, NPC.GetAlpha(Color.White), upperWorldRot, upperBackArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+                spriteBatch.Draw(UpperArmGlow.Value, upperBackArmPos, upperBackArmFrame, Color.White, upperWorldRot, upperBackArmOrigin, scale, dir == 1 ? SpriteEffects.FlipHorizontally : 0, 0);
             });
 
             // Lower back arm
             Rectangle lowerBackArmFrame = LowerArm.Frame(2, frameX: 1);
             Vector2 lowerBackArmOrigin = new(0, 44);
-            if (NPC.spriteDirection == 1)
+            if (dir == 1)
                 lowerBackArmOrigin.X = lowerBackArmFrame.Width - lowerBackArmOrigin.X;
 
-            Vector2 elbowLocalOffset = new Vector2(-8 * -NPC.spriteDirection, -10).RotatedBy(upperBackArmRotation);
-            Vector2 elbowLocal = (upperBackArmRotation.ToRotationVector2() * -28f * NPC.spriteDirection + elbowLocalOffset) * NPC.scale;
+            Vector2 elbowLocalOffset = new Vector2(-8 * -dir, -10).RotatedBy(upperBackArmRotation);
+            Vector2 elbowLocal = (upperBackArmRotation.ToRotationVector2() * -28f * dir + elbowLocalOffset) * scale;
             Vector2 elbowOffset = elbowLocal.RotatedBy(bodyFacingAngle);
             Vector2 lowerBackArmPos = upperBackArmPos + elbowOffset;
 
-            float lowerBackArmRotation = (MathHelper.PiOver2 + MathF.Sin(Main.GlobalTimeWrappedHourly * 3f + MathHelper.PiOver2 + NPC.whoAmI) * MathHelper.Pi / 8f) * -NPC.spriteDirection;
-            float lowerBackArmRotationOffset = (-MathHelper.PiOver2 - MathHelper.Pi / 3f) * -NPC.spriteDirection;
+            float lowerBackArmRotation = (MathHelper.PiOver2 + MathF.Sin(time + MathHelper.PiOver2) * MathHelper.Pi / 8f) * -dir;
+            float lowerBackArmRotationOffset = (-MathHelper.PiOver2 - MathHelper.Pi / 3f) * -dir;
 
             float lowerWorldRot = bodyFacingAngle + upperBackArmRotation + lowerBackArmRotation + lowerBackArmRotationOffset;
 
-            spriteBatch.Draw(LowerArm.Value, lowerBackArmPos, lowerBackArmFrame, NPC.GetAlpha(drawColor), lowerWorldRot, lowerBackArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            spriteBatch.Draw(LowerArm.Value, lowerBackArmPos, lowerBackArmFrame, drawColor, lowerWorldRot, lowerBackArmOrigin, scale, dir == 1 ? SpriteEffects.FlipHorizontally : 0, 0);
             DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) => {
-                spriteBatch.Draw(LowerArmGlow.Value, lowerBackArmPos, lowerBackArmFrame, NPC.GetAlpha(Color.White), lowerWorldRot, lowerBackArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+                spriteBatch.Draw(LowerArmGlow.Value, lowerBackArmPos, lowerBackArmFrame, Color.White, lowerWorldRot, lowerBackArmOrigin, scale, dir == 1 ? SpriteEffects.FlipHorizontally : 0, 0);
             });
         }
 
-        internal void DrawFrontArm(SpriteBatch spriteBatch, Color drawColor)
+        internal void DrawFrontArm(SpriteBatch spriteBatch, Color drawColor) => DrawFrontArm(spriteBatch, NPC.Center - Main.screenPosition, NPC.GetAlpha(drawColor), NPC.rotation, NPC.spriteDirection, NPC.scale, Main.GlobalTimeWrappedHourly * 3f + NPC.whoAmI, NPC.ai[1] == 1 || NPC.ai[2] >= 470 || Main.npc[(int)NPC.ai[3]].ai[1] == 1 || Main.npc[(int)NPC.ai[3]].ai[2] >= 500);
+
+        internal static void DrawFrontArm(SpriteBatch spriteBatch, Vector2 center, Color drawColor, float rotation, int dir, float scale, float time, bool flaming)
         {
-            Vector2 screenPos = NPC.IsABestiaryIconDummy ? Vector2.Zero : Main.screenPosition;
             Rectangle upperFrontArmFrame = UpperArm.Frame(2);
 
-            Vector2 upperFrontArmPos = NPC.Center - screenPos;
-            float frontBodyFacingAngle = NPC.rotation;
+            Vector2 upperFrontArmPos = center;
+            float frontBodyFacingAngle = rotation;
 
             Vector2 upperFrontArmOrigin = new(12, 8);
-            if (NPC.spriteDirection == 1)
+            if (dir == 1)
                 upperFrontArmOrigin.X = upperFrontArmFrame.Width - upperFrontArmOrigin.X;
 
-            float upperFrontArmRotation = (MathHelper.Pi / 3f + MathF.Sin(Main.GlobalTimeWrappedHourly * 3f + MathHelper.Pi + MathHelper.PiOver2 + NPC.whoAmI) * MathHelper.Pi / 8f) * -NPC.spriteDirection;
-            float upperFrontArmRotationOffset = -1.75f * -NPC.spriteDirection;
+            float upperFrontArmRotation = (MathHelper.Pi / 3f + MathF.Sin(time + MathHelper.Pi + MathHelper.PiOver2) * MathHelper.Pi / 8f) * -dir;
+            float upperFrontArmRotationOffset = -1.75f * -dir;
 
             float upperFrontWorldRot = frontBodyFacingAngle + upperFrontArmRotation + upperFrontArmRotationOffset;
 
-            spriteBatch.Draw(UpperArm.Value, upperFrontArmPos, upperFrontArmFrame, NPC.GetAlpha(drawColor), upperFrontWorldRot, upperFrontArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            spriteBatch.Draw(UpperArm.Value, upperFrontArmPos, upperFrontArmFrame, drawColor, upperFrontWorldRot, upperFrontArmOrigin, scale, dir == 1 ? SpriteEffects.FlipHorizontally : 0, 0);
             int shader;
-            if (NPC.ai[1] == 1 || NPC.ai[2] >= 470 || Main.npc[(int)NPC.ai[3]].ai[1] == 1 || Main.npc[(int)NPC.ai[3]].ai[2] >= 500)
+            if (flaming)
                 shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
             else
                 shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
             DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) => {
-                spriteBatch.Draw(UpperArmGlow.Value, upperFrontArmPos, upperFrontArmFrame, NPC.GetAlpha(Color.White), upperFrontWorldRot, upperFrontArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+                spriteBatch.Draw(UpperArmGlow.Value, upperFrontArmPos, upperFrontArmFrame, Color.White, upperFrontWorldRot, upperFrontArmOrigin, scale, dir == 1 ? SpriteEffects.FlipHorizontally : 0, 0);
             });
 
             // Lower front arm
             Rectangle lowerFrontArmFrame = LowerArm.Frame(2);
             Vector2 lowerFrontArmOrigin = new(0, 44);
-            if (NPC.spriteDirection == 1)
+            if (dir == 1)
                 lowerFrontArmOrigin.X = lowerFrontArmFrame.Width - lowerFrontArmOrigin.X;
 
-            Vector2 lowerFrontArmLocalOffset = new Vector2(-8 * -NPC.spriteDirection, -10).RotatedBy(upperFrontArmRotation);
-            Vector2 lowerFrontArmLocal = (upperFrontArmRotation.ToRotationVector2() * -28f * NPC.spriteDirection + lowerFrontArmLocalOffset) * NPC.scale;
+            Vector2 lowerFrontArmLocalOffset = new Vector2(-8 * -dir, -10).RotatedBy(upperFrontArmRotation);
+            Vector2 lowerFrontArmLocal = (upperFrontArmRotation.ToRotationVector2() * -28f * dir + lowerFrontArmLocalOffset) * scale;
             Vector2 lowerFrontArmWorldOffset = lowerFrontArmLocal.RotatedBy(frontBodyFacingAngle);
             Vector2 lowerFrontArmPos = upperFrontArmPos + lowerFrontArmWorldOffset;
 
-            float lowerFrontArmRotation = (MathHelper.PiOver2 + MathF.Sin(Main.GlobalTimeWrappedHourly * 3f + NPC.whoAmI) * MathHelper.Pi / 8f) * -NPC.spriteDirection;
-            float lowerFrontArmRotationOffset = (-MathHelper.PiOver2 - MathHelper.Pi / 3f) * -NPC.spriteDirection;
+            float lowerFrontArmRotation = (MathHelper.PiOver2 + MathF.Sin(time) * MathHelper.Pi / 8f) * -dir;
+            float lowerFrontArmRotationOffset = (-MathHelper.PiOver2 - MathHelper.Pi / 3f) * -dir;
 
             float lowerFrontWorldRot = frontBodyFacingAngle + upperFrontArmRotation + lowerFrontArmRotation + lowerFrontArmRotationOffset;
 
-            spriteBatch.Draw(LowerArm.Value, lowerFrontArmPos, lowerFrontArmFrame, NPC.GetAlpha(drawColor), lowerFrontWorldRot, lowerFrontArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+            spriteBatch.Draw(LowerArm.Value, lowerFrontArmPos, lowerFrontArmFrame, drawColor, lowerFrontWorldRot, lowerFrontArmOrigin, scale, dir == 1 ? SpriteEffects.FlipHorizontally : 0, 0);
             DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) => {
-                spriteBatch.Draw(LowerArmGlow.Value, lowerFrontArmPos, lowerFrontArmFrame, NPC.GetAlpha(Color.White), lowerFrontWorldRot, lowerFrontArmOrigin, NPC.scale, NPC.SpriteEffectDirection(true), 0);
+                spriteBatch.Draw(LowerArmGlow.Value, lowerFrontArmPos, lowerFrontArmFrame, Color.White, lowerFrontWorldRot, lowerFrontArmOrigin, scale, dir == 1 ? SpriteEffects.FlipHorizontally : 0, 0);
             });
         }
 
