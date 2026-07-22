@@ -1,0 +1,323 @@
+Trophy: {
+	InfernoGripTrophy: {
+		DisplayName: 燎狱巨爪纪念章
+		Tooltip: ""
+	}
+
+	BroodmotherTrophy: {
+		DisplayName: 育母炎龙纪念章
+		Tooltip: ""
+	}
+
+	DaybringerTrophy: {
+		DisplayName: 戴布林格纪念章
+		Tooltip: ""
+	}
+
+	NightcrawlerTrophy: {
+		DisplayName: 奈克劳尔纪念章
+		Tooltip: ""
+	}
+
+	OrthrusXTrophy: {
+		DisplayName: 食腐者纪念章
+		Tooltip: ""
+	}
+
+	RaiderUltimaTrophy: {
+		DisplayName: 侵入者纪念章
+		Tooltip: ""
+	}
+
+	RetrieverTrophy: {
+		DisplayName: 捕猎者纪念章
+		Tooltip: ""
+	}
+
+	TechnoTruffleTrophy: {
+		DisplayName: 机械松露怪纪念章
+		Tooltip: ""
+	}
+
+	InfinityZeroTrophy: {
+		DisplayName: 无限零纪念章
+		Tooltip: ""
+	}
+
+	AthenaTrophy: {
+		DisplayName: 雅典娜纪念章
+		Tooltip: ""
+	}
+
+	AthenaATrophy: {
+		DisplayName: 奥林匹亚女武神纪念章
+		Tooltip: ""
+	}
+
+	RajahRabbitTrophy: {
+		DisplayName: 巨兔王公纪念章
+		Tooltip: ""
+	}
+
+	MireGripTrophy: {
+		DisplayName: 潭渊巨爪纪念章
+		Tooltip: ""
+	}
+
+	ShenDoragonATrophy: {
+		DisplayName: 混沌帝皇纪念章
+		Tooltip: ""
+	}
+
+	ShenDoragonTrophy: {
+		DisplayName: 上神应龙纪念章
+		Tooltip: ""
+	}
+
+	AsheTrophy: {
+		DisplayName: 艾希纪念章
+		Tooltip: ""
+	}
+
+	HarukaTrophy: {
+		DisplayName: 遥香纪念章
+		Tooltip: ""
+	}
+
+	DesertDjinnTrophy: {
+		DisplayName: 沙漠巨灵纪念章
+		Tooltip: ""
+	}
+
+	AnubisTrophy: {
+		DisplayName: 阿努比斯纪念章
+		Tooltip: ""
+	}
+
+	AnubisATrophy: {
+		DisplayName: 逝落的断罪师纪念章
+		Tooltip: ""
+	}
+
+	FeudalFungusTrophy: {
+		DisplayName: 真菌帝纪念章
+		Tooltip: ""
+	}
+
+	TruffleToadTrophy: {
+		DisplayName: 松露蟾蜍纪念章
+		Tooltip: ""
+	}
+
+	GreedTrophy: {
+		DisplayName: 金食饕餮纪念章
+		Tooltip: ""
+	}
+
+	GreedATrophy: {
+		DisplayName: 鎏金万蟲王纪念章
+		Tooltip: ""
+	}
+
+	AkumaATrophy: {
+		DisplayName: 狂煞魔豪鬼纪念章
+		Tooltip: ""
+	}
+
+	AkumaTrophy: {
+		DisplayName: 邪鬼巨龙纪念章
+		Tooltip: ""
+	}
+
+	HydraTrophy: {
+		DisplayName: 九头渊蛇纪念章
+		Tooltip: ""
+	}
+
+	YamataATrophy: {
+		DisplayName: 八俣远吕智纪念章
+		Tooltip: ""
+	}
+
+	YamataTrophy: {
+		DisplayName: 八歧大蛇纪念章
+		Tooltip: ""
+	}
+
+	MushroomMonarchTrophy: {
+		DisplayName: 赤孢皇纪念章
+		Tooltip: ""
+	}
+
+	SubzeroSerpentTrophy: {
+		DisplayName: 绝零冰蛇纪念章
+		Tooltip: ""
+	}
+
+	SagittariusTrophy: {
+		DisplayName: 虚空人马纪念章
+		Tooltip: ""
+	}
+
+	ZeroATrophy: {
+		DisplayName: 零源协议纪念章
+		Tooltip: ""
+	}
+
+	ZeroTrophy: {
+		DisplayName: 零械单元纪念章
+		Tooltip: ""
+	}
+
+	SoulOfCthulhuTrophy: {
+		DisplayName: 克苏鲁之魂纪念章
+		Tooltip: ""
+	}
+}
+
+Relic: {
+	AthenaRelic: {
+		DisplayName: 雅典娜圣物
+		Tooltip: ""
+	}
+
+	AthenaARelic: {
+		DisplayName: 奥林匹亚女武神圣物
+		Tooltip: ""
+	}
+
+	RajahRabbitRelic: {
+		DisplayName: 巨兔王公圣物
+		Tooltip: ""
+	}
+
+	RajahRabbitARelic: {
+		DisplayName: 至尊巨兔王公圣物
+		Tooltip: ""
+	}
+
+	GripsOfChaosRelic: {
+		DisplayName: 混沌双爪圣物
+		Tooltip: ""
+	}
+
+	ShenDoragonRelic: {
+		DisplayName: 上神应龙圣物
+		Tooltip: ""
+	}
+
+	SistersOfDiscordRelic: {
+		DisplayName: 混沌姐妹圣物
+		Tooltip: ""
+	}
+
+	DesertDjinnRelic: {
+		DisplayName: 沙漠巨灵圣物
+		Tooltip: ""
+	}
+
+	AnubisRelic: {
+		DisplayName: 阿努比斯圣物
+		Tooltip: ""
+	}
+
+	AnubisARelic: {
+		DisplayName: 逝落的断罪师圣物
+		Tooltip: ""
+	}
+
+	FeudalFungusRelic: {
+		DisplayName: 真菌帝圣物
+		Tooltip: ""
+	}
+
+	TruffleToadRelic: {
+		DisplayName: 松露蟾蜍圣物
+		Tooltip: ""
+	}
+
+	GreedRelic: {
+		DisplayName: 金食饕餮圣物
+		Tooltip: ""
+	}
+
+	GreedARelic: {
+		DisplayName: 鎏金万蟲王圣物
+		Tooltip: ""
+	}
+
+	BroodmotherRelic: {
+		DisplayName: 育母炎龙圣物
+		Tooltip: ""
+	}
+
+	AkumaRelic: {
+		DisplayName: 邪鬼巨龙圣物
+		Tooltip: ""
+	}
+
+	HydraRelic: {
+		DisplayName: 九头渊蛇圣物
+		Tooltip: ""
+	}
+
+	YamataRelic: {
+		DisplayName: 八歧大蛇圣物
+		Tooltip: ""
+	}
+
+	MushroomMonarchRelic: {
+		DisplayName: 赤孢皇圣物
+		Tooltip: ""
+	}
+
+	SubzeroSerpentRelic: {
+		DisplayName: 绝零冰蛇圣物
+		Tooltip: ""
+	}
+
+	EquinoxWormsRelic: {
+		DisplayName: 昼夜双虫圣物
+		Tooltip: ""
+	}
+
+	SagittariusRelic: {
+		DisplayName: 虚空人马圣物
+		Tooltip: ""
+	}
+
+	ZeroRelic: {
+		DisplayName: 零械单元圣物
+		Tooltip: ""
+	}
+
+	OrthrusXRelic: {
+		DisplayName: 食腐者圣物
+		Tooltip: ""
+	}
+
+	RaiderUltimaRelic: {
+		DisplayName: 侵入者圣物
+		Tooltip: ""
+	}
+
+	RetrieverRelic: {
+		DisplayName: 捕猎者圣物
+		Tooltip: ""
+	}
+
+	TechnoTruffleRelic: {
+		DisplayName: 机械松露怪圣物
+		Tooltip: ""
+	}
+
+	SoulOfCthulhuRelic: {
+		DisplayName: 克苏鲁之魂圣物
+		Tooltip: ""
+	}
+
+	InfinityZeroRelic: {
+		DisplayName: 无限零圣物
+		Tooltip: ""
+	}
+}

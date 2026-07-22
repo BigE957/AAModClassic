@@ -1,0 +1,266 @@
+ConflagrateScythe: {
+	DisplayName: 焚天构镰
+	Tooltip:
+		'''
+		召唤一个旋转的泰拉构造体撕裂敌人
+		焚天构造法杖 EX
+		'''
+}
+
+DivineWindStone: {
+	DisplayName: 神风之石
+	Tooltip: 召唤一个天鸮符文
+}
+
+HurricaneStone: {
+	DisplayName: 飓风之石
+	Tooltip: 召唤一个蓄能天鸮符文
+}
+
+SolarStaff: {
+	DisplayName: 日炎权杖
+	Tooltip:
+		'''
+		对你的敌人降下烈火与狂怒
+		造成破晓
+		'''
+}
+
+CyberBaton: {
+	DisplayName: 电子指挥棒
+	Tooltip: 召唤一个电子之爪与你并肩作战
+}
+
+AleisterStaff: {
+	DisplayName: 亚雷斯塔法杖
+	Tooltip: ""
+}
+
+ConflagrateStaff: {
+	DisplayName: 焚天构造法杖
+	Tooltip:
+		'''
+		召唤一个旋转的焚天构造体撕裂敌人
+		"我以为天空是紫色的。"
+		—— Ender
+		'''
+}
+
+MagicAcorn: {
+	DisplayName: 魔法橡果
+	Tooltip:
+		'''
+		吸引松鼠与你为荣耀而战。
+		"很快™"
+		—— Fargowilta
+		'''
+}
+
+SockStaff: {
+	DisplayName: 袜子木偶法杖
+	Tooltip: 召唤一个袜子木偶与你并肩作战
+}
+
+FishnadoStaff: {
+	DisplayName: 飓风鲨权杖
+	Tooltip: ""
+}
+
+BlizzardDragonStaff: {
+	DisplayName: 寒暴龙权杖
+	Tooltip:
+		'''
+		召唤一只寒暴龙为你而战
+		寒霜九头蛇法杖 EX
+		'''
+}
+
+OmenStaff: {
+	DisplayName: 预兆鸦杖
+	Tooltip:
+		'''
+		召唤一只恶毒乌鸦与你并肩作战
+		乌鸦法杖 EX
+		'''
+}
+
+PerfectChaosRitual: {
+	DisplayName: 太始冥仪
+	Tooltip: 召唤一条小冥昧龙为你而战
+}
+
+SoccOnAStick: {
+	DisplayName: 棍上棉神
+	Tooltip:
+		'''
+		召唤一位棉袜之神为你而战
+		同时只能存在一个袜神。
+		已存在袜神时，后续召唤将变为普通袜子木偶
+		袜子木偶法杖 EX
+		'''
+}
+
+CottonCane: {
+	DisplayName: 棉花兔兔杖
+	Tooltip: 召唤一个直升飞兔士兵与你并肩作战
+}
+
+RajahsRage: {
+	DisplayName: 王公之怒
+	Tooltip: 召唤一只王冠兔兔与你并肩作战
+}
+
+ClawBaton: {
+	DisplayName: 爪之杵
+	Tooltip: 召唤一个龙之爪与你并肩作战
+}
+
+ChaosRitual: {
+	DisplayName: 混沌之仪
+	Tooltip: 召唤一个混沌机构与你并肩作战
+}
+
+FlameVortexStaff: {
+	DisplayName: 烈焰漩涡法杖
+	Tooltip:
+		'''
+		召唤烈焰环绕者，提升你的召唤伤害
+		每个法球占用1个召唤栏
+		首次召唤至少需要2个空余召唤栏
+		'''
+}
+
+ChaosBaton: {
+	DisplayName: 混沌指挥棒
+	Tooltip: 召唤一个冥昧之爪与你并肩作战
+}
+
+DemoniteStaff: {
+	DisplayName: 魔金法杖
+	Tooltip: 召唤一条恶魔吞噬者与你并肩作战
+}
+
+CrimeraStaff: {
+	DisplayName: 血爬虫法杖
+	Tooltip: 召唤一条猩红血肉虫与你并肩作战
+}
+
+SandScepter: {
+	DisplayName: 沙漠权杖
+	Tooltip: 召唤一个沙卷风与你并肩作战
+}
+
+SentryOfTheEye: {
+	DisplayName: 真眼之哨
+	Tooltip: 召唤一个眼睛哨兵
+}
+
+HorusCane: {
+	DisplayName: 荷鲁斯藤杖
+	Tooltip: 召唤一个荷鲁斯之眼哨兵
+}
+
+SkullWand: {
+	DisplayName: 颅骨魔杖
+	Tooltip: 召唤一个地牢骷髅与你并肩作战
+}
+
+HallowStaff: {
+	DisplayName: 神圣权杖
+	Tooltip: 召唤一个神圣棱镜与你并肩作战
+}
+
+TrueHallowStaff: {
+	DisplayName: 真·神圣权杖
+	Tooltip: 召唤一个彩虹棱镜与你并肩作战
+}
+
+DemonStaff: {
+	DisplayName: 恶魔权杖
+	Tooltip: 召唤一只恶魔与你并肩作战
+}
+
+DevilStaff: {
+	DisplayName: 邪魔权杖
+	Tooltip: 召唤一只恶鬼与你并肩作战
+}
+
+FireStaff: {
+	DisplayName: 烽煌杖
+	Tooltip: 召唤一只小凤凰为你而战
+}
+
+DragonsPike: {
+	DisplayName: 龙脊之矛
+	Tooltip: 召唤一条火龙为你而战
+}
+
+AncientLungStaff: {
+	DisplayName: 远古伴龙杖
+	Tooltip: 召唤一条远古之伴龙为你而战
+}
+
+HydraStaff: {
+	DisplayName: 九头蛇呼唤杖
+	Tooltip: 召唤一条石化九头蛇为你而战
+}
+
+SnakeStaff: {
+	DisplayName: 绝零蛇杖
+	Tooltip:
+		'''
+		召唤一条雪蛇为你而战
+		每个召唤栏召唤两节
+		'''
+}
+
+TerraStaff: {
+	DisplayName: 泰拉权杖
+	Tooltip: 召唤一位泰拉巫师与你并肩作战
+}
+
+TerraGauntlet: {
+	DisplayName: 泰拉手套
+	Tooltip: 召唤一只泰拉心球飞鱿、泰拉心之球、泰拉心球爬虫或泰拉编织者为你而战
+}
+
+SagittariusCore: {
+	DisplayName: 射手座核心
+	Tooltip: 激活环绕你运行的探针，保护你免受周围敌人攻击
+}
+
+DoomiteRadio: {
+	DisplayName: 厄劫雷达
+	Tooltip: 召唤一个厄劫雷达探针与你并肩作战
+}
+
+DoomiteSignal: {
+	DisplayName: 厄劫信号仪
+	Tooltip: 召唤一个厄劫探针与你并肩作战
+}
+
+VoidProbeControlUnit: {
+	DisplayName: 虚空探针控制单元
+	Tooltip: 召唤一个虚空探针为你而战
+}
+
+OverloadedDoomiteRadio: {
+	DisplayName: 过载厄劫雷达
+	Tooltip: 召唤一个虚空监察者与你并肩作战
+}
+
+DoomPortal: {
+	DisplayName: 厄劫之门
+	Tooltip: 召唤一个小型末日协议体为你而战
+}
+
+DapperAcorn: {
+	DisplayName: 精致小橡果
+	Tooltip:
+		'''
+		吸引松鼠前来，与你一同为荣耀而战。
+		"多人游戏 = 大型整活"
+		—— Fargowilta
+		魔法橡果 EX
+		'''
+}

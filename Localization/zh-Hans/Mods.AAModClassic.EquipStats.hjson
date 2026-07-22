@@ -1,0 +1,490 @@
+ClassGlobalStats: {
+	DefaultDamageClass: 无职业
+	GenericDamageClass: ""
+	MeleeDamageClass: 近战
+	MeleeNoSpeedDamageClass: "{$EquipStats.ClassGlobalStats.MeleeDamageClass}"
+	RangedDamageClass: 远程
+	MagicDamageClass: 魔法
+	SummonDamageClass: 召唤
+	SummonMeleeSpeedDamageClass: "{$EquipStats.ClassGlobalStats.SummonDamageClass}"
+	MagicSummonHybridDamageClass: 魔法和召唤
+	ThrowingDamageClass: 投掷
+	CritChance: "{0}% {1} {2}{3}暴击率"
+	AttackSpeed: "{0}% {1} {2}{3}速度"
+	ArmorPenetration: "{0} {1} {2}护甲穿透{3}"
+
+	StatModifier: {
+		Adlibs: {
+			EverySingleClassExceptSummoner: {
+				Base: "{0} {1} {2}{3}{4}"
+				Additive: "{0}% {1} {2}{3}{4}{5}"
+				Multiplicative: "{2}{3}{4} 乘以 {0}%"
+				Flat: "{0} {1} 固定 {2}{3}{4}"
+			}
+
+			Summoner: {
+				Base: "{1} {2}{3}{4} {0}"
+				Additive: "{1} {2}{3}{4}{5} {0}%"
+				Multiplicative: "{2}{3}{4} 乘以 {0}%"
+				Flat: "{1} {2}{3}{4} 固定 {0}"
+			}
+		}
+
+		Increases: 增加
+		Decreases: 减少
+		Increased: 增加
+		Decreased: 减少
+		Increase: 增加
+		Decrease: 减少
+		Reduced: 降低
+		More: 更多
+		Less: 更少
+		Damage: 伤害
+		Knockback: 击退
+		CritSameAsDamageAdditive: " & 暴击率"
+	}
+}
+
+Misc.Nothing: ""
+
+Effect: {
+	ManaFlowerEffect: 在需要时自动使用魔力药水
+	CrimsonHelmetSetEffect: 大幅增加生命再生
+	EnduranceEffect: "{0} 承受伤害 {1}%"
+	MaxLifeEffect: "{0} 最大生命值 {1}"
+	MovementSpeedEffect: "{0}% {1} 移动速度"
+	BrokenCodeTeleportEffect:
+		'''
+		让你有5秒故障裂位时间
+		使用钩爪可以产生故障裂位
+		在冷却时间内，你的速度提高，并获得无敌帧
+		传送有15秒冷却
+		在冷却时间内，你的魔法/召唤武器不消耗魔力，并增加20%伤害
+		警告：可能会在你重启游戏前永久错位你的四肢。这是一个特性。
+		'''
+	BrokenCodeTeleportUnofficialEffect:
+		'''
+		将你的钩爪替换为产生故障裂位的能力
+		按{0}产生故障裂位，冷却{1}秒
+		故障裂位会将你传送到光标位置，并冻结所有实体{2}秒
+		在故障裂位状态中按{0}将再次传送到光标位置并取消冻结
+		'''
+	BrokenCodeWhateverThisShitIsEffect: 受到伤害后增加移动速度和无敌帧时长
+	GoddessHarpEffect:
+		'''
+		召唤六翼天使女王亲自为你而战
+		雅典娜的伤害受仆从伤害加成
+		'''
+	SeraphHarpEffect: 召唤一只六翼天使为你而战，伤害受仆从伤害加成
+	OlympianWingsEffect: 飞行时可冲刺
+	WingTimeMaxEffect: 允许飞行和缓慢下落
+	FallDamageImmunityEffect: 免疫坠落伤害
+
+	JumpStatsEffect: {
+		JumpSpeed: 跳跃速度
+		JumpHeight: 跳跃高度
+		AutoJump: 允许自动跳跃
+	}
+
+	RajahRabbitsSashOfVengeanceEffect:
+		'''
+		每损失{0}%的生命值，你的最强伤害类型获得{1}%伤害加成
+		[c/{2}:当前伤害加成：+{3}% {4}伤害]
+		'''
+	RajahRabbitsCloakOfSupremacyEffect:
+		'''
+		每损失{0}%的生命值，你的最强伤害类型获得{1}%伤害加成，并增加{2}%移动速度
+		[c/{3}:当前伤害加成：+{4}% {5}伤害]
+		当前速度加成：+{6}%移动速度和最大奔跑速度
+		'''
+	MaxRunSpeedEffect: "{0}% {1} 奔跑速度"
+	BlackBeltEffect: 给予一定几率闪避攻击
+
+	MasterNinjaMobilityEffect: {
+		ShoeSpikes1: 允许沿墙下滑
+		ShoeSpikes2: 允许沿墙攀爬
+		Tabi: " 和冲刺"
+	}
+
+	NaitokurosuMireEffect: 在潭渊中额外增加{0}%远程伤害
+	NaitokurosuNightEffect: 夜间额外增加{0}%移动速度
+	BuffImmunityEffect: 免疫
+	NaitokurosuDebuffEffect:
+		'''
+		远程攻击和仆从造成毒液
+		夜间远程攻击和仆从改为造成蚀月
+		'''
+	TaiyangBaoleiImmunityEffect: 你对几乎所有debuff免疫
+	SolarArmorSetDashEffect: 允许你进行猛烈的爆炸冲刺
+	TaiyangBaoleiEnduranceEffect: 白天额外增加{0}%伤害减免
+	TaiyangBaoleiDebuffEffect:
+		'''
+		近战和魔法攻击对敌人造成着火
+		白天近战和魔法攻击造成破晓来代替着火
+		'''
+	DualityChaosEffect: 在混沌环境，增加{0}%伤害
+	DualityDefenseEffect: 在燎狱中增加{0}防御力
+	AttacksInflictBuffEffect: 你的{0}{1}攻击造成
+	HeartOfPassionDamageBoostEffect: 随着生命值减少，魔法和召唤物攻击会变强
+	HeartOfPassionManaRegenEffect: 低于2/3最大生命值，你的魔法恢复更快
+	HeartOfPassionDebuffEffect:
+		'''
+		魔法攻击和召唤物攻击产生燎狱龙炎
+		低于1/3最大生命值，你的魔法和召唤物攻击会产生"破晓"来代替 "着火"
+		'''
+	HeartOfSorrowDamageBoostEffect: 随着生命值减少，远程和近战攻击会变强
+	HeartOfSorrowMovementSpeedEffect: 低于2/3最大生命值，你的移动速度加倍
+	HeartOfSorrowDebuffEffect:
+		'''
+		近战和远程攻击会产生九头蛇毒
+		低于1/3最大生命值，你的近战和远程攻击会产生"蚀月"来代替 "中毒"
+		'''
+	HeartOfAnarchyDamageBoostEffect: 生命值越低，伤害越高
+	HeartOfAnarchyBullshitEffect: 低于2/3最大生命值，移动速度加倍，魔力再生大幅加快
+	HeartOfAnarchyDebuffEffect:
+		'''
+		攻击造成燎狱龙炎和九头蛇毒
+		低于1/3最大生命值，改为造成破晓和蚀月
+		'''
+	FlipperEffect: 允许游泳
+
+	FrostsparkBootsEffect: {
+		Default: 允许
+		Flight: 飞行
+		Running: 超快奔跑
+		IceSkates: 冰上额外机动性
+	}
+
+	LavaWadersWaterWalkingEffect: {
+		Default: 允许在水上行走
+		Water: 水
+		Honey: 蜂蜜
+		Lava: 熔岩
+	}
+
+	LavaWadersFireImmunityEffect: {
+		Default: 给予
+		FireImmune: 对火焰方块免疫
+		LavaImmune: "{0}秒熔岩免疫"
+	}
+
+	ObsidianRoseEffect: 减少因接触熔岩受到的伤害
+	SandstormMedallionEffect: 沙暴期间伤害和暴击率增加100%
+	ArtifactOfJudgementEffect:
+		'''
+		受到伤害时为造物充能
+		充能达到250后召唤裁决之眼并重置充能
+		裁决之眼存在期间，防御力降低，速度提升
+		[c/FFFF00:当前充能：{0}]
+		'''
+	ArtifactOfGuiltEffect:
+		'''
+		受到伤害时为造物充能
+		充能达到250后召唤逝落之眼并重置充能
+		逝落之眼存在期间，伤害和速度大幅提升
+		[c/FFFF00:当前充能：{0}]
+		'''
+	KnockbackImmunityEffect: 免疫击退
+	MaxManaEffect: "{0} 最大魔力 {1}"
+	DiscountCardEffect: 降低商店价格20%
+	LuckyCoinEffect: 击中敌人有时会掉落额外钱币
+	GoldRingEffect: 增加钱币拾取范围
+	CharmOfDesireEffect:
+		'''
+		捡拾钱币会增加1%伤害，持续4秒
+		继续捡拾钱币会增加1%伤害并重置计时
+		最高叠加至{0}%伤害
+		当前伤害加成：{1}%
+		'''
+	DragonsGuardEffect: 攻击你的敌人会着火
+	LanternEffect: 允许你在白天看穿潭渊的浓雾
+	ManaCostEffect: "{0}% {1} 魔力消耗"
+	CelestialMagnetEffect: 增加魔力星拾取范围
+	BlackLotusEmblemEffect:
+		'''
+		在需要时自动快速补充魔力
+		极大减少魔力病持续时间
+		'''
+	AshProofVestEffect: 让你在燎狱夜间的火风暴中得以存活
+	MaxSentrySlotEffect: "{0} 最大炮台数量 {1}"
+	OldOneCharmEffect: 旧日军团入侵期间，增加{0}%召唤伤害
+	ArcticMedallionEffect: 暴风雪期间伤害和暴击率增加100%
+	NightOwlEffect: 增强夜视
+
+	EquinoxDayNightStatBoostsEffect: {
+		Default:
+			'''
+			{0}，大幅提升伤害、近战速度、暴击率、
+			生命再生、防御力、挖矿速度和仆从击退力
+			'''
+		Day: 白天
+		Night: 夜晚
+	}
+
+	EquinoxEffect:
+		'''
+		大幅提升伤害、近战速度、暴击率、
+		生命再生、防御力、挖矿速度和仆从击退力
+		'''
+	EmitLightFromPlayerEffect: 穿戴时提供光照
+	MoonCharmEffect: 夜间将持有者变为狼人
+	NeptunesShellEffect: 入水时将持有者变为鱼人
+	SagittariusShieldEffect:
+		'''
+		按下饰品能力热键在你周围展开护盾保护你免受伤害
+		护盾期间无法使用物品
+		护盾期间生命再生大幅增加
+		护盾持续5秒
+		护盾有5分钟冷却
+		'''
+	APageOfTheRuneBookEffect:
+		'''
+		根据你的召唤栏召唤符文
+		玩家有1个召唤栏时召唤兔兔符文
+		玩家有2个召唤栏时召唤兔兔和不谐符文
+		玩家有3个召唤栏时召唤兔兔，不谐和能量符文
+		'''
+	TheBookOfRunesEffect:
+		'''
+		根据你的召唤栏召唤符文
+		玩家有1个召唤栏时召唤泰拉符文
+		玩家有2个召唤栏时召唤泰拉和混沌符文
+		玩家有3个召唤栏时召唤泰拉，混沌和虚空符文
+		'''
+	MaxMinionSlotEffect: "{0} 最大仆从数量 {1}"
+	ShieldOfCthulhuDashEffect: 允许你冲撞敌人造成伤害
+	DemonGauntletEffect: ""
+	AggroEffect: 敌人{0}可能以你为目标
+	StormClawEffect: 你的非自动挥舞武器变得迅捷如电
+	IgnoreWaterEffect: 液体不影响你的移动
+	GillsEffect: 允许你在液体中呼吸
+	ChaosHelmetMageSetEffect: 在液体中时，你的魔法能力大幅提升
+	AmmoCost75Effect: 25%几率节约弹药
+	HunterEffect: 显示敌人的位置
+	ChaosHelmetSummonerSetEffect: 一个龙魂替你肆虐敌人
+	OlympianHelmetSetDescEffect: "'他们会畏惧你的精准，但你却会畏惧最轻微的一阵微风'"
+	HoppingHoodlumHelmetSetEffect: 生命值低于一半时，移动速度、近战伤害和召唤伤害增加50%
+	ChampionHelmetMageSetDescEffect: "'能量从你的体内四溢……'"
+	ChampionHelmetMageSetEffect:
+		'''
+		攻击敌人有几率生成一个能量萝卜
+		捡拾能量萝卜可以增加你的伤害，魔法再生和生命再生
+		最多堆叠3层
+		每一层都会增加这些属性
+		'''
+	ChampionHelmetMeleeSetDescEffect: `你是守护无辜者的壁垒……`
+	ChampionHelmetRangedSetDescEffect: `是时候狩猎那些猎人了……`
+	ChampionHelmetSummonerSetDescEffect: "'就连无辜者也会来保护你……'"
+	ChampionHelmetMeleeSetEffect:
+		'''
+		按下套装能力键给予你"防卫者之怒"buff
+		在愤怒状态下，你的防御力随着生命值降低而增加
+		生命值越低，"防卫者之怒"持续时间越长
+		生命值越低，"防卫者之怒"冷却时间越长
+		冷却时间内，你的防御轻微减弱，但是你的速度加快
+		'''
+	ChampionHelmetRangedSetEffect:
+		'''
+		按下套装能力键，召唤8秒钟的大.兔.子. 单元重载协议
+		R.A.B.I.T.无人机有15秒冷却
+		在冷却时间中，你的远程伤害和暴击率增加15%
+		'''
+	ChampionHelmetSummonerSetEffect:
+		'''
+		兔兔男爵作为你的盟友而战
+		兔兔男爵会投掷标枪、撒胡萝卜、射出兔兔射线
+		随着你生命值减少, 兔兔男爵的攻击能力会强化
+		'''
+	FuryWitchsHelmetSetDescEffect: "'烧光，燃尽。'"
+	FuryWitchsHelmetSetHotkeyEffect:
+		'''
+		按下套装能力键释放艾希的烈焰之力
+		她的力量以护盾般的炼狱之火环绕你，并释放密集的火焰炸弹
+		只有在手持魔法或召唤武器时才能释放她的力量
+		'''
+	FuryWitchsHelmetSetMinionEffect:
+		'''
+		一团火焰之灵保护着你
+		魔力越低，火焰之灵越强
+		'''
+	AmmoCost80Effect: 20%几率节约弹药
+	MidnightAssassinHelmetSetEffect:
+		'''
+		近战武器有几率投掷刺客匕首
+		远程武器有几率射出刺客箭矢
+		匕首和箭矢降低敌人20防御力，增加敌人10%承受伤害
+		'''
+	MidnightAssassinHelmetSetDescEffect: "'狩猎，杀戮。'"
+	ChaosSlayerHelmetMeleeSetStatScalingEffect: 生命值越低，近战攻击和减伤越强
+	ChaosSlayerHelmetRangedSetStatScalingEffect: 生命值越低，远程攻击和暴击率越强
+	ChaosSlayerHelmetMageSetStatScalingEffect: 生命值越低，魔法攻击越强且法术魔力消耗越低
+	ChaosSlayerHelmetSummonerSetStatScalingEffect: 生命值越低，召唤攻击越强
+	ChaosSlayerHelmetSetDescEffect: "'混沌赋予你力量'"
+	PanicNecklaceEffect: 受到伤害后增加移动速度
+	FleshrendHelmetSetEffect: 受到敌人攻击会产生血泉喷裂对周围敌人造成伤害
+	DynaskullHelmetSetEffect: 你的远程射弹相当强大，震荡力使得目标混乱
+	ManaRegenEffect: "{0} 魔力再生速率 {1}"
+	LifeRegenEffect: "{0} 生命再生速率 {1}"
+	GoblinSlayersHelmetSetDamageEffect: 挥动武器对哥布林造成5倍伤害并增加击退
+	GoblinSlayersHelmetSetEnduranceEffect: 哥布林对你造成的伤害减少80%
+	GoblinSlayersHelmetSetDescEffect: "'我猎杀哥布林，仅此而已。'"
+	MiningSpeedEffect: "{0} 挖矿速度 {1}%"
+	SpelunkerEffect: 显示宝藏和矿石的位置
+	StoneSoldierHelmetSetEffect: 敌人死亡时有几率生成金币传送门
+	StoneSoldierHelmetSetDescEffect: "'当上抠门之王！'"
+	DefenseEffect: "{0} 防御力"
+	MagmaStoneEffect: 近战攻击造成火焰伤害
+	DraconianSunHelmetSetDescEffect: "'炽焰之怒吞噬了你'"
+	ChlorophyteHelmetSetEffect: 召唤一片强大的叶状水晶射击附近的敌人
+	DreadMoonHelmetSetDescEffect: "'深渊之怒激怒了你'"
+	UnlimitedBreathingUnderWaterForeverAndEverEffect: 允许你在液体中呼吸
+	OceanHelmetSetEffect: 在液体中时，魔法能力略微提升
+	AtlanteanHelmetSetEffect: 在液体中时，魔法能力和防御力大幅提升
+	PhilosophersStoneEffect: 降低治疗药水冷却时间25%
+	RaiderChestplateSetEffect: 你不会被击退，随着你的生命值降低，伤害减免将提高
+	DarkmatterHelmetMageSetEffect:
+		'''
+		对负能量光环范围内的敌人造成伤害
+		光环伤害受魔法属性加成，每次造成伤害时为你回复生命
+		光环当前造成{0}点魔法伤害，暴击率为{1}%
+		'哦……是这样吗……'
+		'''
+	DrawShadowLokisEffect: ""
+	DarkmatterHelmetMeleeSetEffect:
+		'''
+		提供一个护盾，你和附近的盟友减少40%受到的伤害
+		护盾吸收一次攻击后进入30秒冷却
+		护盾冷却期间夜晚增加你的生命回复
+		'''
+	DarkmatterHelmetRangedSetEffect:
+		'''
+		召唤不稳定传送门保护你
+		不稳定传送门与你一同射击，造成手持武器30%的伤害，削弱敌人并将其锁在原地
+		'''
+	DarkmatterHelmetSummonerSetEffect: 仆从偶尔会尝试干扰敌人的弹幕
+	RadiumHelmetMageSetEffect:
+		'''
+		对正能量光环范围内的敌人造成伤害
+		光环伤害受魔法属性加成，造成的伤害的50%转化为魔力
+		魔力已满时，光环改为给予魔法过载
+		光环当前造成{0}点魔法伤害，暴击率为{1}%
+		'''
+	RadiumHelmetMeleeSetEffect:
+		'''
+		在附近敌人上方召唤光之护盾
+		护盾使他们受到的伤害提高 40%
+		'''
+	RadiumHelmetRangedSetEffect:
+		'''
+		召唤太阳传送门保护你
+		太阳传送门与你一同射击，造成手持武器30%的伤害，并点燃敌人
+		'''
+	RadiumHelmetSummonerSetEffect: 仆从偶尔对附近敌人造成{0}点伤害
+	TerraHelmetMageSetEffect:
+		'''
+		你自动饮用魔力药水
+		减少40%魔力消耗
+		按下套装能力键两朵泰拉玫瑰在你周边开放
+		被花茎击中的敌人掉落魔力星
+		'''
+	TerraHelmetRangedSetEffect: 远程弹幕击中敌人时可能发射一发泰拉子弹追击目标
+	TerraHelmetSummonerSetEffect:
+		'''
+		召唤泰拉水晶协助你
+		按下套装能力键，切换攻击、防御、支援模式
+		攻击模式：水晶会追击并快速射杀敌人
+		防御模式：水晶悬浮在你上方，射杀附近敌人
+		支援模式下，你的防御和生命再生提升，但是减少一半伤害
+		'''
+	TerraHelmetMeleeSetEffect: 被敌人击中时，产生一枚爆炸性的泰拉球攻击你身边敌人
+
+	BiomiteHelmetSetEffect: {
+		Default: 根据所处生态环境提供不同效果
+		Day: 最大生命值增加20
+		Night: 最大魔力增加20
+		Void: 显示敌人的位置
+		Inferno: 免疫着火！
+		Mire: 免疫中毒
+		Terrarium: 增加5点防御力
+		Jungle: 魔力再生增加3
+		Snow: 免疫冷冻
+		Desert: 免疫沙漠中的强风
+		Hallow: 免疫缓慢，生命再生+3
+		Corruption: 移动速度和最大奔跑速度增加10%
+		Crimson: 护甲穿透增加5
+	}
+
+	OrichalcumHelmetSetEffect: 花瓣将落到目标上造成额外伤害
+	TitaniumHelmetSetEffect: 攻击产生钛金碎片的防御屏障
+	PalladiumHelmetSetEffect: 击中敌人后大幅增加生命再生
+	HallowedHelmetSetEffect: 击中敌人后进入免疫状态
+	DoomiteHelmetSetEffect: 一个虚空搜索者为你而战
+	DoomsdayHelmetSetDescEffect: "'生命终结系统启动。'"
+	FulguriteHelmetSetEffect: 受到攻击时从身体释放一道闪电爆裂，击退敌人
+	InfinitySlayerHelmetSetDescEffect: 无限的力量让你狂怒
+	AncientGoldChestplateEffect: 你有可能从石头里挖出金币
+	AncientGoldChestplateSetEffect: 如果你有足够多的钱，你将消耗金钱来闪避一次攻击
+	AncientGoldLeggingsEffect: 你有更多机会遇到金生物
+	StripemansLuckyLeggingsEffect:
+		'''
+		钓到的鱼翻倍
+		有几率在钓到双倍鱼的同时钓到板条箱
+		有几率用钓鱼竿勾住敌人来窃取战利品
+		可以用钓鱼竿拾取地上的物品
+		'''
+	StripemansLuckyChestplateEffect:
+		'''
+		遇到稀有敌人的几率更高
+		稀有物品出现更频繁
+		罐子可能出现在意想不到的地方
+		从罐子里有几率获得更好的东西
+		'''
+	StripemansLuckyHelmetEffect:
+		'''
+		挖掘石头时可能发现矿石
+		可以在提取机中提取任意种类的沙子以获得相关材料
+		'''
+	StripemansLuckyHelmetSetEffect:
+		'''
+		你改变了自然界的随机法则
+		你会是幸运儿？还是倒霉蛋。
+		按下套装能力键改变世界的随机系统：{0}
+		'那人已经与我们相似，能知道善恶。
+		现在恐怕他伸手又摘生命树的果子吃，就永远活着'
+		'''
+	FishingPowerEffect: "{0} 渔力 {1}"
+	HighTestFishingLineEffect: 钓鱼线永远不会断
+	TackleBoxEffect: 降低鱼饵消耗几率
+	SonarEffect: 检测上钩的鱼
+	PDAEffect: 显示一切信息
+	ArcticDivingGearEffect:
+		'''
+		允许游泳并大幅延长水下呼吸
+		提供冰上额外机动性
+		发出微弱的光芒，水下更加明亮
+		'''
+	ArchitectGizmoPackEffect:
+		'''
+		增加放置方块和墙的速度
+		方块放置和工具范围增加3
+		自动为放置的物品涂漆或涂层
+		'''
+	DangersenseEffect: 让你看见附近的危险源
+	ManaCostMultiplierEffect: 魔力消耗乘以 {0}
+	AnkhShieldEffect:
+		'''
+		免疫击退和火焰方块
+		免疫大多数减益
+		'''
+	DwarvenGauntletEffect: 持有此手套让你能够承受无限宝石的力量而不致超载
+	FullLavaImmunityEffect: 免疫熔岩
+	TimeStoneRespawnEffect: 重生时间缩短80%
+	TimeStoneTimeStopEffect: 按下时间宝石热键可以加速和恢复时间
+	SpaceStoneEffect: 让你可以用抓钩键传送，类似于裂位法杖
+	InfinityGauntletEffect:
+		'''
+		按下饰品能力键打响指，消灭屏幕中一半的敌人
+		响指有5分钟冷却时间
+		'''
+	DemonHelmetSetEffect: 一个忠诚的小恶魔仆从将为你而战，无论何时何地
+}

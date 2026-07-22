@@ -1,0 +1,379 @@
+DarkmatterJackhammer: {
+	DisplayName: 暗物质之锤
+	Tooltip: ""
+}
+
+DarkmatterPitchet: {
+	DisplayName: 暗物质镐斧
+	Tooltip: ""
+}
+
+Terratool: {
+	DisplayName: 泰拉万用工具
+	Tooltip:
+		'''
+		右键切换工具类型
+		最多只能同时激活2种工具类型
+		'''
+}
+
+DoomiteMiningLaser: {
+	DisplayName: 厄劫采矿激光
+	Tooltip: 以反物质激光进行开采
+}
+
+FulguritePitchet: {
+	DisplayName: 雷熔镐斧
+	Tooltip: ""
+}
+
+ExtravagantTerratool: {
+	DisplayName: 旷世万用工具
+	Tooltip:
+		'''
+		右键切换工具类型
+		最多只能同时激活2种工具类型
+		'''
+}
+
+GroviteTerratool: {
+	DisplayName: Grox的辉绿光岩万用工具
+	Tooltip:
+		'''
+		右键切换工具类型
+		最多只能同时激活2种工具类型
+		'''
+}
+
+Terraformer: {
+	DisplayName: 泰拉改造者
+	Tooltip:
+		'''
+		右键切换工具类型
+		最多只能同时激活2种工具类型
+		泰拉万用工具 EX
+		'''
+}
+
+ChaosTerratool: {
+	DisplayName: 混沌万用工具
+	Tooltip:
+		'''
+		右键切换工具类型
+		最多只能同时激活2种工具类型
+		'''
+}
+
+Timecaller: {
+	DisplayName: 时间操控者
+	Tooltip:
+		'''
+		召唤下一道天光。
+		非消耗品
+		'''
+}
+
+DiscordianTerratool: {
+	DisplayName: 冥昧万用工具
+	Tooltip:
+		'''
+		右键切换工具类型
+		最多只能同时激活2种工具类型
+		'''
+}
+
+Nightaxe: {
+	DisplayName: 暗夜斧
+	Tooltip: ""
+}
+
+TrueNightaxe: {
+	DisplayName: 真·暗夜斧
+	Tooltip: ""
+}
+
+Scalpel: {
+	DisplayName: 手术刀
+	Tooltip: ""
+}
+
+TrueScalpel: {
+	DisplayName: 真·手术刀
+	Tooltip: ""
+}
+
+Excavator: {
+	DisplayName: 掘地者
+	Tooltip: ""
+}
+
+Toothpick: {
+	DisplayName: 牙签
+	Tooltip: ""
+}
+
+GlowingMushmallet: {
+	DisplayName: 荧光菇锤
+	Tooltip: ""
+}
+
+GlowingMushpick: {
+	DisplayName: 荧光菇镐
+	Tooltip: ""
+}
+
+UnityPickaxe: {
+	DisplayName: 统一镐
+	Tooltip: 可以挖掘秘银和山铜。
+}
+
+MINEer: {
+	DisplayName: 掘矿-器
+	Tooltip: 更快地挖掘矿石
+}
+
+Unearther: {
+	DisplayName: 发崛者
+	Tooltip: 更快地挖掘矿石
+}
+
+DragonDigger: {
+	DisplayName: 龙掘者
+	Tooltip: 龙其实不挖洞，但这东西凑合能用
+}
+
+Stonebreaker: {
+	DisplayName: 碎石者
+	Tooltip: ""
+}
+
+PerfectStonebreaker: {
+	DisplayName: 精铸碎石者
+	Tooltip: ""
+}
+
+ScorchShark: {
+	DisplayName: 焦鲨
+	Tooltip: ""
+}
+
+Suncaller: {
+	DisplayName: 唤日者
+	Tooltip:
+		'''
+		唤出晨曦之日。
+		不消耗
+		'''
+}
+
+DraconianTerratool: {
+	DisplayName: 煞日万用工具
+	Tooltip:
+		'''
+		右键切换工具类型
+		最多只能同时激活2种工具类型
+		+20物块触及范围
+		'''
+}
+
+Grasscutter: {
+	DisplayName: 割草者
+	Tooltip: ""
+}
+
+MadnessAxe: {
+	DisplayName: 癫狂斧
+	Tooltip: ""
+}
+
+MadnessHammer: {
+	DisplayName: 癫狂锤
+	Tooltip: ""
+}
+
+MadnessPickaxe: {
+	DisplayName: 癫狂镐
+	Tooltip: ""
+}
+
+HydraTuneller: {
+	DisplayName: 九头蛇掘进机
+	Tooltip: 好吧这也太离谱了。九头蛇不用钻头的。
+}
+
+ShadowDrill: {
+	DisplayName: 暗影钻机
+	Tooltip: 用旋转的……绿色玩意儿来挖东西？大概吧？
+}
+
+DepthDigger: {
+	DisplayName: 深潭掘者
+	Tooltip: ""
+}
+
+Mooncaller: {
+	DisplayName: 唤月者
+	Tooltip:
+		'''
+		唤出清辉之月。
+		不消耗
+		'''
+}
+
+PerfectShadowDrill: {
+	DisplayName: 精铸暗影钻机
+	Tooltip: 这才像回事嘛。
+}
+
+DreadTerratool: {
+	DisplayName: 惊惧万用工具
+	Tooltip:
+		'''
+		右键切换工具类型
+		最多只能同时激活2种工具类型
+		'''
+}
+
+CoralAxe: {
+	DisplayName: 珊瑚斧
+	Tooltip: 来自海洋的斧头
+}
+
+CoralPickaxe: {
+	DisplayName: 珊瑚镐
+	Tooltip: 因为蓝色镐这名字太无聊了
+}
+
+Mushmallet: {
+	DisplayName: 蘑菇锤
+	Tooltip: ""
+}
+
+Mushpick: {
+	DisplayName: 蘑菇镐
+	Tooltip: ""
+}
+
+DragonPickaxe: {
+	DisplayName: 龙镐
+	Tooltip: ""
+}
+
+Icepick: {
+	DisplayName: 冰镐
+	Tooltip: ""
+}
+
+RadiumHammaxe: {
+	DisplayName: 镭光锤斧
+	Tooltip: ""
+}
+
+Starminer: {
+	DisplayName: 星矿者
+	Tooltip: ""
+}
+
+RiftMirror: {
+	DisplayName: 裂隙之镜
+	Tooltip:
+		'''
+		按下裂隙热键送你回家
+		按下裂隙返回热键将你带回最近的裂隙位置
+		'''
+}
+
+CodeMagnet: {
+	DisplayName: 二进制代码磁铁
+	Tooltip:
+		'''
+		通过移动代码到你附近来吸取物品
+		右键关闭效果
+		'''
+}
+
+CodeMagnetOff: {
+	DisplayName: 二进制代码磁铁
+	Tooltip:
+		'''
+		通过移动代码到你附近来吸取物品
+		效果当前未激活，右键重新激活
+		'''
+}
+
+DoomiteJacksaw: {
+	DisplayName: 厄劫电锯
+	Tooltip: 专为终极伐木与拆墙任务而设计！
+}
+
+DoomsdayTerratool: {
+	DisplayName: 末日万用工具
+	Tooltip:
+		'''
+		右键切换工具类型
+		最多只能同时激活2种工具类型
+		'''
+}
+
+ShatteredMirror: {
+	DisplayName: 破碎之镜
+	Tooltip: 一件被遗弃多年的纪念物，亟需修复。
+}
+
+GravitronCentrifuge: {
+	DisplayName: 重力离心机
+	Tooltip:
+		'''
+		提供超强离心力，在太空中给予标准重力
+		右键关闭效果
+		'''
+}
+
+GravitronCentrifugeOff: {
+	DisplayName: 重力离心机（未激活）
+	Tooltip:
+		'''
+		提供超强离心力，在太空中给予标准重力
+		效果当前未激活，右键重新激活
+		'''
+}
+
+TheGripsOfChaos: {
+	// DisplayName: The Grips of Chaos
+	/* Tooltip:
+		'''
+		Fires 2 different hooks depending on which one is already out
+		Red has a longer range
+		Blue pulls in/retracts quicker
+		''' */
+}
+
+LivingRazeleafWand: {
+	// DisplayName: Living Razeleaf Wand
+	// Tooltip: Placed razewood leaves
+}
+
+LivingRazewoodWand: {
+	// DisplayName: Living Razewood Wand
+	// Tooltip: Places living razewood
+}
+
+LivingBogleafWand: {
+	// DisplayName: Living Bogleaf Wand
+	// Tooltip: Places bogwood leaves
+}
+
+LivingBogwoodWand: {
+	// DisplayName: Living Bogwood Wand
+	// Tooltip: Places living bogwood
+}
+
+DragonsGrip: {
+	// DisplayName: Dragon's Grip
+	// Tooltip: ""
+}
+
+HydraBite: {
+	// DisplayName: Hydra Bite
+	// Tooltip: ""
+}

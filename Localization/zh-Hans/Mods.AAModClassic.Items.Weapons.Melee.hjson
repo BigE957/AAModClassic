@@ -1,0 +1,1124 @@
+BladeOfNight: {
+	DisplayName: 暗夜之刃
+	Tooltip: 源自黑暗生物的暗黑之剑
+}
+
+Doragonburedo: {
+	DisplayName: 龙破坏剑
+	Tooltip:
+		'''
+		"我要把他们全队都灭了"
+		—— Jace
+		'''
+}
+
+GentlemansRapier: {
+	DisplayName: 绅士长剑
+	Tooltip:
+		'''
+		射出诡异的精致高帽
+		右键向前突刺
+		左键挥砍
+		"吓死人了"
+		—— Tied
+		'''
+}
+
+Aerodrake: {
+	DisplayName: 腾天龙兽
+	Tooltip: 天龙之怒 EX
+}
+
+Apocalypse: {
+	DisplayName: 启示录
+	Tooltip:
+		'''
+		火焰南瓜杰克走向夕阳
+		灵魂在那里到达彼岸
+		无头骑士剑 EX
+		'''
+}
+
+DraconianFury: {
+	DisplayName: 狂煞之怒
+	Tooltip:
+		'''
+		对你的敌人降下烈火与狂怒
+		造成破晓
+		火焰之治 EX
+		'''
+}
+
+DraculaKnives: {
+	DisplayName: 德古拉伯爵飞刀
+	Tooltip:
+		'''
+		快速投掷窃取生命的飞刀
+		吸血鬼飞刀 EX
+		'''
+}
+
+FuryGreatforger: {
+	DisplayName: 锻铸天怒
+	Tooltip:
+		'''
+		击中敌人时产生爆炸并迸出火花
+		熔火之怒 EX
+		'''
+}
+
+GentlemansLongblade: {
+	DisplayName: 绅士长刃
+	Tooltip:
+		'''
+		射出大量诡异的精致高帽
+		右键向前突刺
+		左键挥砍
+		绅士长剑 EX
+		'''
+}
+
+Ikari: {
+	DisplayName: 应龙神怒
+	Tooltip:
+		'''
+		释放爆炸性的混沌刀刃，惩戒你的敌人
+		刀刃可以穿墙
+		冥昧神杀 EX
+		'''
+}
+
+PerfectChaos: {
+	DisplayName: 太始混冥
+	Tooltip: 浑沌 EX
+}
+
+ScourgeOfTheShadows: {
+	DisplayName: 冥厄者之戟
+	Tooltip:
+		'''
+		在物块间弹跳最多3次
+		命中敌人后碎裂
+		行进时和命中敌人时喷出小吞噬体
+		腐化者之戟 EX
+		'''
+}
+
+ScytheOfEvil: {
+	DisplayName: 无间煞镰
+	Tooltip:
+		'''
+		死神本尊的镰刀
+		造成灵液和诅咒狱炎
+		死神镰刀 EX
+		'''
+}
+
+TheLolkat: {
+	DisplayName: 笑猫之刃
+	Tooltip:
+		'''
+		这到底是什么意思？！？！？！？！111！！11
+		彩虹猫之刃 EX
+		'''
+}
+
+TrueTerraBlade: {
+	DisplayName: 真·泰拉之刃
+	Tooltip:
+		'''
+		射出追踪弹幕，造成泰拉灼焰
+		泰拉之刃 EX
+		'''
+}
+
+UltimaShortsword: {
+	DisplayName: 终极短剑
+	Tooltip: 铜短剑 EX
+}
+
+Umbra: {
+	DisplayName: 暗翳
+	Tooltip:
+		'''
+		源自黑暗生物的暗黑之剑
+		暗夜之刃 EX
+		'''
+}
+
+CthulhusBlade: {
+	DisplayName: 克苏鲁之刃
+	Tooltip: ""
+}
+
+ChaosSlayer: {
+	DisplayName: 冥昧神杀
+	Tooltip:
+		'''
+		释放混沌刀刃，惩戒你的敌人
+		刀刃可以穿墙
+		"粉碎一切理智"
+		'''
+}
+
+TrueFleshrendClaymore: {
+	DisplayName: 真·噬肉大剑
+	Tooltip:
+		'''
+		对目标造成灵液
+		虽然名字是这么起的，但这把剑并非血肉制成
+		'''
+}
+
+BlazingDawn: {
+	DisplayName: 赤晓之刃
+	Tooltip: 曙光在召唤
+}
+
+FlamingFury: {
+	DisplayName: 狂龙之怒
+	Tooltip: 以远古巨龙燃起的怒火铸就
+}
+
+DraconianDawn: {
+	DisplayName: 龙煞晓光
+	Tooltip: 升阳之真刃
+}
+
+Dragonkite: {
+	DisplayName: 龙鸢
+	Tooltip: ""
+}
+
+Daycrusher: {
+	DisplayName: 破晓者链球
+	Tooltip:
+		'''
+		以太阳质量的力道砸向敌人
+		造成破晓
+		'''
+}
+
+MorningGlory: {
+	DisplayName: 晨曦荣光
+	Tooltip: 投掷时分裂为4支额外的穿透幻影矛
+}
+
+ReignOfFire: {
+	DisplayName: 火焰之治
+	Tooltip:
+		'''
+		对你的敌人降下烈火与狂怒
+		造成破晓
+		'''
+}
+
+Solar: {
+	DisplayName: 燎阳
+	Tooltip:
+		'''
+		以行星绕太阳运行的速度旋转
+		造成破晓
+		'''
+}
+
+SunPartisan: {
+	DisplayName: 日之分律戟
+	Tooltip:
+		'''
+		传说中用来将时间划分为昼夜的两把神枪之一
+		造成破晓
+		'''
+}
+
+AbyssalYari: {
+	DisplayName: 夜之分律戟
+	Tooltip: 传说中用来将时间划分为昼夜的两把神枪之一
+}
+
+Crescent: {
+	DisplayName: 新月
+	Tooltip:
+		'''
+		比月光更快
+		造成蚀月
+		'''
+}
+
+Flairdra: {
+	DisplayName: 九头蛇链球
+	Tooltip:
+		'''
+		成为九头蛇。
+		造成蚀月
+		'''
+}
+
+HydraStabber: {
+	DisplayName: 深渊刺刃
+	Tooltip:
+		'''
+		极其迅猛且危险
+		造成蚀月
+		'''
+}
+
+ThrowingCrescent: {
+	DisplayName: 新月投刃
+	Tooltip: ""
+}
+
+DragonBlade: {
+	DisplayName: 原龙之刃
+	Tooltip: 射出小剑！
+}
+
+DarkmatterSlasher: {
+	DisplayName: 暗物质屠斩者
+	Tooltip: ""
+}
+
+DarkmatterSpinblade: {
+	DisplayName: 暗物质旋刃
+	Tooltip: ""
+}
+
+RealityShredders: {
+	DisplayName: 现实撕裂爪
+	Tooltip: 由暗物质铸成的利爪。造成电击减益
+}
+
+Void: {
+	DisplayName: 虚空
+	Tooltip: 由纯暗物质制成
+}
+
+Poppy: {
+	DisplayName: 罂粟彩巨剑
+	Tooltip: ""
+}
+
+TrueCopperShortsword: {
+	DisplayName: 真·铜短剑
+	Tooltip: 纯粹是为了玩梗
+}
+
+StallionsStar: {
+	DisplayName: 雄驹之星
+	Tooltip: 旋转的毁灭之刃
+}
+
+RiftShredder: {
+	DisplayName: 世界割裂臂
+	Tooltip: 射出虚空之星，撕裂现实本身
+}
+
+TheVortex: {
+	DisplayName: 漩涡
+	Tooltip: 旋转速度快到能把所有敌人拖入引力漩涡之中
+}
+
+FulguriteTazesaber: {
+	DisplayName: 雷熔电击刃
+	Tooltip: ""
+}
+
+StormJavelin: {
+	DisplayName: 风暴标枪
+	Tooltip: ""
+}
+
+InfinityBlade: {
+	DisplayName: 无限之刃
+	Tooltip: ""
+}
+
+SagittariusA: {
+	DisplayName: 射手座-A
+	Tooltip: 投出6把锋利无比的连枷
+}
+
+FuryForger: {
+	DisplayName: 熔火之怒
+	Tooltip: 击中敌人时迸出火花
+}
+
+CursedSickle: {
+	DisplayName: 咒缚之镰
+	Tooltip:
+		'''
+		在你周围旋转一把诅咒镰刀，撕裂敌人
+		右键将镰刀举过头顶挥砍，并射出一把咒缚飞镰
+		'''
+}
+
+Demise: {
+	DisplayName: 终亡
+	Tooltip:
+		'''
+		传说中曾由魔王执掌的神剑
+		左键释放毁灭性的恶魔能量
+		右键释放从天而降的终亡之刃
+		'''
+}
+
+ExtravagantLongsword: {
+	DisplayName: 奢阔长剑
+	Tooltip: ""
+}
+
+ExtravagantLongswordS: {
+	DisplayName: 奢阔长剑
+	Tooltip: ""
+}
+
+ScytheOfTheGrimReaper: {
+	DisplayName: 冷酷收割之镰
+	Tooltip:
+		'''
+		左键挥砍并释放追踪飞镰
+		右键发动冲刺斩击
+		冲刺期间免疫伤害，真实近战造成10倍伤害
+		冲刺能力冷却时间10秒
+		"话说，哥们儿，你见过几个死神啊？"
+		—— Gregg
+		'''
+}
+
+SoulSiphon: {
+	DisplayName: 灵魂虹吸之镰
+	Tooltip:
+		'''
+		我发誓，你要是再敢向我唱一首歌...
+		—— Charlie
+		'''
+}
+
+TimeTeller: {
+	DisplayName: 报时者
+	Tooltip:
+		'''
+		伤害随一天中的时间变化
+		正午和午夜时伤害最高
+		"该去死了！"
+		—— Dallin
+		'''
+}
+
+TitanAxe: {
+	DisplayName: 泰坦斧
+	Tooltip:
+		'''
+		右键投掷战斧。
+		左键挥砍战斧。
+		"哎哟！这可不是谷歌"
+		—— Welox
+		'''
+}
+
+NoodleSword: {
+	DisplayName: "[开发者] 面条剑"
+	Tooltip: 电子游戏十大超模武器
+}
+
+EmperorFlairon: {
+	DisplayName: 帝王泡泡枪
+	Tooltip: 释放一大群追踪泡泡
+}
+
+Axis: {
+	DisplayName: 凝轴冰矛
+	Tooltip:
+		'''
+		被这根矛击中的敌人将被雪花环绕
+		北极矛 EX
+		'''
+}
+
+Catastrophe: {
+	DisplayName: 灾灭浩劫
+	Tooltip:
+		'''
+		曾由魔君执掌的至高巨剑
+		左键释放毁灭性的恶魔能量
+		右键释放从天而降的浩劫之刃
+		真近战打击有几率瞬间吞噬敌人的灵魂
+		终亡 EX
+		'''
+}
+
+Chronos: {
+	DisplayName: 时间之神 克罗诺斯
+	Tooltip:
+		'''
+		报时者 EX
+		伤害随一天中的时间变化
+		正午和午夜时伤害最高
+		"时间是一团摇摇晃晃、时快时慢的溜溜球。"
+		—— Dallin
+		'''
+}
+
+CosmicFury: {
+	DisplayName: 宇宙之怒
+	Tooltip:
+		'''
+		使星辰从天而降
+		星辰可穿透任何障碍命中敌人
+		狂星之怒 EX
+		'''
+}
+
+ExquisiteExtravagantGreatblade: {
+	DisplayName: 奢阔·绝伦巨剑
+	Tooltip: 奢阔长剑 EX
+}
+
+ExquisiteExtravagantGreatbladeS: {
+	DisplayName: 奢阔·绝伦巨剑
+	Tooltip: 奢阔长剑 EX
+}
+
+FinalChaos: {
+	DisplayName: 终极浑沌
+	Tooltip:
+		'''
+		"我无所不能"
+		传奇武器
+		'''
+}
+
+PerfectChaosChain: {
+	DisplayName: 玄黄缚冥
+	Tooltip:
+		'''
+		发射旋转刀刃，撕裂敌人
+		冥昧链球 EX
+		'''
+}
+
+PerfectChaosYari: {
+	DisplayName: 太初贯冥
+	Tooltip: 冥昧之戟 EX
+}
+
+SlapBone: {
+	DisplayName: 骨掌
+	Tooltip:
+		'''
+		轻轻一拍就能把敌人送上卫星轨道！
+		拍拍手 EX
+		'''
+}
+
+SoulShredder: {
+	DisplayName: 灵魂撕裂之镰
+	Tooltip:
+		'''
+		左键挥砍并释放追踪飞镰
+		右键发动冲刺斩击
+		冲刺期间免疫伤害，真实近战造成15倍伤害
+		冲刺能力冷却时间5秒
+		"话说，哥们儿，你见过几个死神啊？"
+		—— Gregg
+		冷酷收割之镰 EX
+		'''
+}
+
+TartarusReaper: {
+	DisplayName: 塔尔塔洛斯猎魂镰
+	Tooltip:
+		'''
+		在你周围旋转一把诅咒镰刀，撕裂敌人
+		右键挥砍镰刀
+		咒缚之镰 EX
+		'''
+}
+
+TitanSlayer: {
+	DisplayName: 泰坦杀手
+	Tooltip:
+		'''
+		左键快速挥砍战斧
+		右键投掷战斧
+		泰坦斧 EX
+		'''
+}
+
+BugSwatter: {
+	DisplayName: 戮虫者
+	Tooltip: 对爬虫类敌人造成额外伤害
+}
+
+MidasClub: {
+	DisplayName: 迈达斯之棍
+	Tooltip: 揍东西来赚更多钱
+}
+
+Tizona: {
+	DisplayName: 提泽纳长剑
+	Tooltip: ""
+}
+
+SkycutterKopis: {
+	DisplayName: 裂穹弯刀
+	Tooltip: ""
+}
+
+Olympia: {
+	DisplayName: 奥林匹亚
+	Tooltip: ""
+}
+
+BloodyMary: {
+	DisplayName: 血腥玛丽
+	Tooltip: ""
+}
+
+BaneOfTheBunny: {
+	DisplayName: 兔灾克星
+	Tooltip:
+		'''
+		右键用作长矛突刺
+		左键用作标枪投掷
+		在矛突刺后立即投掷标枪，短时间内投掷速度加快
+		'''
+}
+
+ThePunisher: {
+	DisplayName: 惩罚者
+	Tooltip: ""
+}
+
+BaneOfTheSlaughterer: {
+	DisplayName: 屠戮克星
+	Tooltip:
+		'''
+		右键用作长矛突刺
+		左键用作标枪投掷
+		在矛突刺后立即投掷标枪，短时间内投掷速度加快
+		兔灾克星 EX
+		'''
+}
+
+Excalihare: {
+	DisplayName: 断兔圣剑
+	Tooltip: ""
+}
+
+TheAvenger: {
+	DisplayName: 复仇者
+	Tooltip: 惩罚者 EX
+}
+
+Chaos_Item: {
+	DisplayName: 浑沌
+	Tooltip: 这把混沌之剑对击中的敌人降下愤恨和怒火
+}
+
+ChaosChain: {
+	DisplayName: 冥昧链球
+	Tooltip: 投出一颗不稳定的混沌能量球
+}
+
+ChaosYari: {
+	DisplayName: 冥昧之戟
+	Tooltip: ""
+}
+
+Asteroid: {
+	DisplayName: 小行星
+	Tooltip:
+		'''
+		以陨星撞地球之力撞向敌人
+		造成冥昧业火
+		'''
+}
+
+Timesplitter: {
+	DisplayName: 天时分律者
+	Tooltip:
+		'''
+		据说这柄矛曾被用来将时间划分为昼夜
+		造成破晓和蚀月
+		'''
+}
+
+Masamune: {
+	DisplayName: 冈崎正宗之刃
+	Tooltip:
+		'''
+		左键用刀刃快速斩击敌人
+		无视无敌帧
+		右键发射剑气波
+		'''
+}
+
+DuskBringer: {
+	DisplayName: 宵暗使者
+	Tooltip: ""
+}
+
+FleshrendClaymore: {
+	DisplayName: 噬肉大剑
+	Tooltip: 沾满了你杀死的敌人之血。
+}
+
+CarnalCrusher: {
+	DisplayName: 嗜血粉碎者
+	Tooltip: 暴击时为你恢复生命值
+}
+
+IchorSpear: {
+	DisplayName: 脓血刺矛
+	Tooltip: 命中时对敌人造成灵液
+}
+
+Djinnerang: {
+	DisplayName: 沙灵回旋镖
+	Tooltip: ""
+}
+
+SultansScimitar: {
+	DisplayName: 苏丹弯刀
+	Tooltip: ""
+}
+
+AmberGreatsword: {
+	DisplayName: 琥珀大剑
+	Tooltip: ""
+}
+
+AmberSaber: {
+	DisplayName: 琥珀军刀
+	Tooltip: ""
+}
+
+DesertScimitar: {
+	DisplayName: 沙漠弯刀
+	Tooltip: ""
+}
+
+SandScimitar: {
+	DisplayName: 流沙弯刀
+	Tooltip: ""
+}
+
+JackalsWrath: {
+	DisplayName: 胡狼之怒
+	Tooltip: 挥砍时射出一把穿墙返回的幻影飞刃
+}
+
+Judgment: {
+	DisplayName: 审判
+	Tooltip: 命中敌人时降下附魔沙雨
+}
+
+CrookOfTheSoulJudge: {
+	DisplayName: 灵魂判官之钩
+	Tooltip:
+		'''
+		穿透物块
+		钩杖每次命中后，返回时为你恢复生命值
+		'''
+}
+
+Soulsplitter: {
+	DisplayName: 裂魂者
+	Tooltip: 挥砍时射出三把穿墙返回的幻影飞刃
+}
+
+Verdict: {
+	DisplayName: 裁决
+	Tooltip:
+		'''
+		命中敌人时降下附魔沙雨
+		同时生成两把逝落幻影之刃，沿水平方向攻击敌人
+		'''
+}
+
+AquaLance: {
+	DisplayName: 水之长矛
+	Tooltip: ""
+}
+
+BladeOfEvil: {
+	DisplayName: 至邪之刃
+	Tooltip:
+		'''
+		腐化与猩红的完美平衡
+		交替射出灵液与诅咒焰火球
+		'''
+}
+
+ToadTongue: {
+	DisplayName: 蛤蟆捕猎舌头
+	Tooltip: 收回时将敌人拉向你
+}
+
+GoblinSlayer: {
+	DisplayName: 哥布林杀手
+	Tooltip:
+		'''
+		左键挥砍，右键向前突刺
+		"传说中的哥布林杀手之刃"
+		'''
+}
+
+IlluminantFlail: {
+	DisplayName: 光明连枷
+	Tooltip: ""
+}
+
+MoltenLance: {
+	DisplayName: 熔岩长枪
+	Tooltip: 瞬间做成烧烤串串！
+}
+
+ScorchedSaw: {
+	DisplayName: 烧灼链锯
+	Tooltip: ""
+}
+
+StoneSlammer: {
+	DisplayName: 碎石锤
+	Tooltip: 命中空中目标必定暴击，并将目标砸向地面
+}
+
+Earthbreaker: {
+	DisplayName: 碎地者
+	Tooltip:
+		'''
+		命中空中目标必定暴击，并将目标砸向地面
+		撞击力有50%几率使被击中敌人混乱
+		敌人砸到地面后会受到额外伤害
+		'''
+}
+
+DragonGlove: {
+	DisplayName: 烈龙爪
+	Tooltip: ""
+}
+
+Incineration: {
+	DisplayName: 焚尽
+	Tooltip: 旋转的焦灰
+}
+
+Pyrosphere: {
+	DisplayName: 火硫球
+	Tooltip: ""
+}
+
+Yogan: {
+	DisplayName: 熔锻锤
+	Tooltip: 命中时点燃敌人
+}
+
+Dracorang: {
+	DisplayName: 龙击回旋镖
+	Tooltip: 留下短暂的火焰轨迹
+}
+
+Firestorm: {
+	DisplayName: 烈焰风暴
+	Tooltip: 挥砍时发射弹跳火球
+}
+
+Ryusei: {
+	DisplayName: 龙星之刃
+	Tooltip: 命中时以火焰和燎狱龙炎点燃敌人
+}
+
+SunHalberd: {
+	DisplayName: 日轮戟
+	Tooltip: 以弧线斩击敌人，随后朝光标方向突刺
+}
+
+DragonShiv: {
+	DisplayName: 龙牙短匕
+	Tooltip:
+		'''
+		缓慢，但打击力度犹如天体重击
+		造成破晓
+		'''
+}
+
+GrassSpear: {
+	DisplayName: 青草矛
+	Tooltip: ""
+}
+
+JungleReaper: {
+	DisplayName: 丛林收割者
+	Tooltip: 不过是把镰刀。冷静点 Welox。
+}
+
+MadnessSaber: {
+	DisplayName: 狂乱军刀
+	Tooltip: ""
+}
+
+AbyssalTwilight: {
+	DisplayName: 堑渊黄昏
+	Tooltip: 永暮在呼唤
+}
+
+Depthwalker: {
+	DisplayName: 潭渊步行者
+	Tooltip: 与九头蛇同行
+}
+
+ExilesKatana: {
+	DisplayName: 浪人武士刀
+	Tooltip: 以潭渊不屈的怒火铸就
+}
+
+HydraGlove: {
+	DisplayName: 九头蛇虎爪
+	Tooltip: ""
+}
+
+HydrasSpear: {
+	DisplayName: 九头蛇之矛
+	Tooltip: ""
+}
+
+AbyssalArc: {
+	DisplayName: 深渊弧刃
+	Tooltip: ""
+}
+
+BackScratcher: {
+	DisplayName: 背刺虎爪
+	Tooltip: ""
+}
+
+DeathDaggers: {
+	DisplayName: 死亡匕首
+	Tooltip: 投掷窃取生命的匕首，造成九头蛇毒
+}
+
+DreadTwilight: {
+	DisplayName: 惊惧黄昏
+	Tooltip: 升月的化身
+}
+
+GuardianOfTheDepths: {
+	DisplayName: 深渊守护者
+	Tooltip: ""
+}
+
+SwimmingHydra: {
+	DisplayName: 九头蛇泳刃鱼
+	Tooltip: ""
+}
+
+Amenomuraku: {
+	DisplayName: 天丛云剑
+	Tooltip:
+		'''
+		曾用于击败潭渊的多头巨妖
+		造成蚀月
+		'''
+}
+
+OceanRazor: {
+	DisplayName: 海洋剃刀
+	Tooltip: 咸的
+}
+
+SaltwaterSpear: {
+	DisplayName: 咸水矛
+	Tooltip: ""
+}
+
+RomulusTazesaber: {
+	DisplayName: 罗慕路斯的电击刃
+	Tooltip: 一把从某位受人敬仰的英雄那里窃取的的雷熔电刃。
+}
+
+SpookySawblade: {
+	DisplayName: 恐怖锯刃
+	Tooltip: 一把被幽灵附身的轮刃，因为被吓人的鬼魂附身所以会追踪敌人
+}
+
+Musharang: {
+	DisplayName: 松露回旋镖
+	Tooltip: ""
+}
+
+Mushmace: {
+	DisplayName: 松露之锤
+	Tooltip: ""
+}
+
+CloudEdge: {
+	DisplayName: 云锋
+	Tooltip: 射出云朵弹幕
+}
+
+TheDragonsBreath: {
+	DisplayName: 龙息之刃
+	Tooltip: 这龙肯定需要刷刷牙
+}
+
+BlizzardBuster: {
+	DisplayName: 暴雪破坏者
+	Tooltip: ""
+}
+
+SerpentSpike: {
+	DisplayName: 冰蛇尖刺
+	Tooltip: ""
+}
+
+SubzeroSlasher: {
+	DisplayName: 绝零杀手
+	Tooltip: 挥砍时有几率射出绝零弹幕
+}
+
+GlacierBreaker: {
+	DisplayName: 冰川破碎者
+	Tooltip: 连枷飞行时掉落冰锥
+}
+
+IceLongsword: {
+	DisplayName: 寒冰长剑
+	Tooltip: 朝敌人扔出真正的冰块，而不是那软绵绵的小雪球
+}
+
+RaiderLance: {
+	DisplayName: 突击者长枪
+	Tooltip: ""
+}
+
+VikingPolearm: {
+	DisplayName: 维京长柄枪
+	Tooltip: ""
+}
+
+AsgardianLance: {
+	DisplayName: 阿斯加德长枪
+	Tooltip: ""
+}
+
+DragonFang: {
+	DisplayName: 原龙之牙
+	Tooltip: 右键以女武神般之姿击杀敌人
+}
+
+BreakingDawn: {
+	DisplayName: 破晓之刃
+	Tooltip: ""
+}
+
+TerraBroadsword: {
+	DisplayName: 泰拉阔剑
+	Tooltip: ""
+}
+
+HarmonyShortsword: {
+	DisplayName: 谐和短剑
+	Tooltip: ""
+}
+
+AmethystGreatsword: {
+	DisplayName: 紫晶大剑
+	Tooltip: ""
+}
+
+AmethystSaber: {
+	DisplayName: 紫晶军刀
+	Tooltip: ""
+}
+
+DiamondGreatsword: {
+	DisplayName: 钻石大剑
+	Tooltip: ""
+}
+
+DiamondSaber: {
+	DisplayName: 钻石军刀
+	Tooltip: ""
+}
+
+EmeraldGreatsword: {
+	DisplayName: 翡翠大剑
+	Tooltip: ""
+}
+
+EmeraldSaber: {
+	DisplayName: 翡翠军刀
+	Tooltip: ""
+}
+
+PrismaticGreatsword: {
+	DisplayName: 棱彩大剑
+	Tooltip: ""
+}
+
+RubyGreatsword: {
+	DisplayName: 红玉大剑
+	Tooltip: ""
+}
+
+RubySaber: {
+	DisplayName: 红玉军刀
+	Tooltip: ""
+}
+
+SapphireGreatsword: {
+	DisplayName: 蓝玉大剑
+	Tooltip: ""
+}
+
+SapphireSaber: {
+	DisplayName: 蓝玉军刀
+	Tooltip: ""
+}
+
+TopazGreatsword: {
+	DisplayName: 黄玉大剑
+	Tooltip: ""
+}
+
+TopazSaber: {
+	DisplayName: 黄玉军刀
+	Tooltip: ""
+}
+
+TrueTinShortsword: {
+	DisplayName: 真·锡短剑
+	Tooltip: 暗影的真刃
+}
+
+SagittariusLeg: {
+	DisplayName: 射手座之腿
+	Tooltip: 就是一块金属。你拿它揍东西。挺简单的道理。
+}
+
+DoomiteSaber: {
+	DisplayName: 厄劫军刀
+	Tooltip: ""
+}
+
+Executioner: {
+	DisplayName: 刽子手
+	Tooltip: ""
+}
+
+Voidsaber: {
+	DisplayName: 虚空军刀
+	Tooltip: ""
+}
+
+EventHorizon: {
+	DisplayName: 事件视界
+	Tooltip: ""
+}
+
+RealityAnchor: {
+	DisplayName: 现实之锚
+	Tooltip: 投出一个神秘的锚，以数个维度的力量造成冲击
+}

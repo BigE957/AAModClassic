@@ -1,0 +1,478 @@
+Ethereal: {
+	DisplayName: 幽缈
+	Tooltip:
+		'''
+		"若是落入坏人手中，它将带来毁灭性的灾难，所以千万别给我。"
+		—— TheRedstoneBro
+		'''
+}
+
+PoniumStaff: {
+	DisplayName: Ponium法杖
+	Tooltip:
+		'''
+		"如果这都不叫tm的REEEEEEEEE，那我真不知道什么叫了。"
+		—— Beg
+		'''
+}
+
+DuckstepREMIX: {
+	DisplayName: 嘎嘎鸭 R.E.M.I.X.
+	Tooltip: 嘎嘎鸭发射器 EX
+}
+
+Light: {
+	DisplayName: 天光
+	Tooltip: 幽缈 EX
+}
+
+NovaFlare: {
+	DisplayName: 新星耀斑
+	Tooltip:
+		'''
+		从天空降下追踪飞焰
+		月之耀斑 EX
+		'''
+}
+
+PrismeowSpectrum: {
+	DisplayName: 棱喵·光谱
+	Tooltip:
+		'''
+		在光标处召唤一只传奇彩虹猫
+		发射朝光标方向移动的彩虹箭弹
+		警告：使用此物品会严重卡顿！
+		棱喵 EX
+		'''
+}
+
+Prismeow: {
+	DisplayName: 棱喵
+	Tooltip:
+		'''
+		发射彩虹猫
+		"神乎其技"
+		—— Hallam
+		'''
+}
+
+TrueTerraRose: {
+	DisplayName: 真·泰拉玫瑰
+	Tooltip:
+		'''
+		有人说，传说中的英雄本人曾用过这柄法杖
+		弹幕命中时爆炸
+		弹幕穿墙
+		右键发射一束穿透玫瑰
+		泰拉玫瑰 EX
+		'''
+}
+
+MeteorStrike: {
+	DisplayName: 流陨神击
+	Tooltip:
+		'''
+		向敌人发射一连串流星
+		击中敌人导致范围更小但伤害更高的爆炸
+		击中物块产生范围更大但伤害更低的弹幕
+		造成冥昧业火
+		'''
+}
+
+Daystorm: {
+	DisplayName: 破晓风暴
+	Tooltip: 在烧灼的烈焰浩劫之中焚尽你的敌人
+}
+
+BogBomb: {
+	DisplayName: 潭渊毒爆
+	Tooltip: 发射一枚爆炸弹，命中时造成毒液
+}
+
+AbyssalBomb: {
+	DisplayName: 深渊魂弹
+	Tooltip:
+		'''
+		发射爆炸性的灵魂炸弹
+		有小几率发射觉醒炸弹，爆炸时迸出深渊怨魂
+		'''
+}
+
+TerraRose: {
+	DisplayName: 泰拉玫瑰
+	Tooltip:
+		'''
+		有人说，传说中的英雄本人曾用过这柄法杖
+		弹幕穿墙
+		右键发射一束穿透玫瑰
+		'''
+}
+
+NovaFocus: {
+	DisplayName: 新星焦点枪
+	Tooltip: 发射一道强大无比的死亡射线
+}
+
+Nova: {
+	DisplayName: 新星
+	Tooltip: 发射一束爆炸性能量冲击，引发不断扩散的爆炸
+}
+
+VoidStar: {
+	DisplayName: 虚空之星
+	Tooltip: 发射一个黑暗旋转的涡流，追踪敌人
+}
+
+TotalDestruction: {
+	DisplayName: 全面毁灭
+	Tooltip: 以毁灭性的激光摧毁你面前的一切
+}
+
+PineBreaker: {
+	DisplayName: 松林破坏者
+	Tooltip:
+		'''
+		"我不喜欢蛋"
+		—— Planterror
+		'''
+}
+
+DuckstepLauncher: {
+	DisplayName: 嘎嘎鸭发射器
+	Tooltip:
+		'''
+		嘎。
+		—— Aves
+		'''
+}
+
+Placeholder: {
+	DisplayName: 占位符
+	Tooltip:
+		'''
+		"他们很快就会死™"
+		—— Fargo
+		'''
+}
+
+SkrallStaff: {
+	DisplayName: Skrall法杖
+	Tooltip:
+		'''
+		一颗冠以Skrall之名的宝石镶嵌在棍子上
+		棒子才有魔力。钻石只是装饰
+		—— Kingskrall
+		'''
+}
+
+UmbralReaper: {
+	DisplayName: 阴影收割者
+	Tooltip:
+		'''
+		左键发射追踪影矛
+		右键发射虚空能量波
+		"我没碰过女武神"
+		—— CMD
+		'''
+}
+
+SoapBlaster: {
+	DisplayName: 泡泡冲击波
+	Tooltip: 快速发射毁灭性的泡泡
+}
+
+UltibladeTyphoon: {
+	DisplayName: 极刃台风
+	Tooltip:
+		'''
+		释放3支快速追踪的剃刃飞轮
+		利刃台风 EX
+		'''
+}
+
+HiveArtillery: {
+	DisplayName: 蜂巢机炮
+	Tooltip:
+		'''
+		发射数十只恐怖狂蜂
+		蜜蜂无视敌人无敌帧
+		蜜蜂枪 EX
+		'''
+}
+
+PoniumUltiscepter: {
+	DisplayName: Ponium终极权杖
+	Tooltip: Ponium法杖 EX
+}
+
+Spectrum: {
+	DisplayName: 最终光谱棱镜
+	Tooltip:
+		'''
+		聚焦一道毁灭性的光束
+		终极棱镜 EX
+		'''
+}
+
+StarburstWand: {
+	DisplayName: 贯星魔杖
+	Tooltip:
+		'''
+		按住以蓄力
+		火花魔杖 EX
+		'''
+}
+
+SubzeroStormStaff: {
+	DisplayName: 绝零风暴法杖
+	Tooltip: 暴雪法杖 EX
+}
+
+FlamingGelWand: {
+	DisplayName: 烈火凝胶杖
+	Tooltip: 射出燃烧的凝胶
+}
+
+Gong: {
+	DisplayName: 法锣
+	Tooltip: ""
+}
+
+ManaBlade: {
+	DisplayName: 魔力之刃
+	Tooltip: 消耗魔力发射追踪弹幕
+}
+
+TrueGong: {
+	DisplayName: 真·魔锣
+	Tooltip: 更 多 锣
+}
+
+AncientArcanum: {
+	DisplayName: 远古奥秘
+	Tooltip: 释放一枚追踪的微型类星体，命中敌人时爆炸
+}
+
+GaleOfWings: {
+	DisplayName: 翅岚
+	Tooltip: ""
+}
+
+GaleForce: {
+	DisplayName: 天残罡风
+	Tooltip: ""
+}
+
+RoyalScepter: {
+	DisplayName: 皇家萝卜杖
+	Tooltip: 散射三根胡萝卜
+}
+
+RabbitsWrath: {
+	DisplayName: 兔怨
+	Tooltip: 向敌人降下锋锐无比的胡萝卜
+}
+
+RoyalStaff: {
+	DisplayName: 皇家法杖
+	Tooltip:
+		'''
+		散射五根金色胡萝卜
+		皇家萝卜杖 EX
+		'''
+}
+
+AshRain: {
+	DisplayName: 灰烬之雨
+	Tooltip:
+		'''
+		发射命中或一段时间后爆炸的火球
+		右键引爆所有火球
+		'''
+}
+
+FuryFlame: {
+	DisplayName: 怒焰
+	Tooltip: 让你向敌人喷射爆炸性的烈焰
+}
+
+SandLamp: {
+	DisplayName: 沙之神灯
+	Tooltip: ""
+}
+
+DesertStaff: {
+	DisplayName: 大漠权杖
+	Tooltip: 发射附魔沙矢，命中时爆裂为弹跳沙球
+}
+
+TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition: {
+	DisplayName: 传奇狗阿努比斯的生命史诗历险记 特别版
+	Tooltip: ""
+}
+
+ForsakenStaff: {
+	DisplayName: 逝落之杖
+	Tooltip: 发射2枚追踪的逝落能量弹，爆炸时迸出逝落火花
+}
+
+MushrockStaff: {
+	DisplayName: 苔石法杖
+	Tooltip: ""
+}
+
+CrystalTome: {
+	DisplayName: 明晶法典
+	Tooltip: 抛射魔力晶片，碎裂为更小的碎片
+}
+
+GoldDigger: {
+	DisplayName: 淘金掘杖
+	Tooltip:
+		'''
+		发射一束弹幕，触碰物块后产生伤害金币喷泉
+		同时只能存在一个喷泉
+		'''
+}
+
+OreStaff: {
+	DisplayName: 矿石法杖
+	Tooltip: ""
+}
+
+BlazePike: {
+	DisplayName: 怒焰法矛
+	Tooltip: 摸上去非常烫手
+}
+
+BlazingBreath: {
+	DisplayName: 烈焰吐息
+	Tooltip: ""
+}
+
+Volley: {
+	DisplayName: 排火球
+	Tooltip: 以均匀散布射出三发火球
+}
+
+Fireblast: {
+	DisplayName: 烈焰爆裂
+	Tooltip: 射出一发爆炸性的龙焰矢
+}
+
+Sunstorm: {
+	DisplayName: 日炎风暴
+	Tooltip:
+		'''
+		召唤环绕火球，一段时间后自动追踪敌人
+		按住右键手动释放和瞄准
+		'''
+}
+
+MagicFlower: {
+	DisplayName: 魔力之花
+	Tooltip: 好看
+}
+
+ManaRose: {
+	DisplayName: 魔法玫瑰
+	Tooltip:
+		'''
+		长而充满魔力
+		右键发射一束穿透玫瑰
+		'''
+}
+
+TrueManaRose: {
+	DisplayName: 真·魔法玫瑰
+	Tooltip:
+		'''
+		粉得可爱
+		右键发射一束穿透玫瑰
+		'''
+}
+
+MadnessStaff: {
+	DisplayName: 癫狂权杖
+	Tooltip: ""
+}
+
+GunkWand: {
+	DisplayName: 烂泥棒
+	Tooltip: ""
+}
+
+SludgeShot: {
+	DisplayName: 污泥投射法杖
+	Tooltip: 呃啊！全是苔藓！
+}
+
+VenomSpray: {
+	DisplayName: 毒液喷流
+	Tooltip: ""
+}
+
+Depthsprayer: {
+	DisplayName: 深海喷流杖
+	Tooltip: 将九头蛇毒笼罩敌人
+}
+
+Toxifang: {
+	DisplayName: 毒牙
+	Tooltip: 发射毒牙
+}
+
+AtlanteanTrident: {
+	DisplayName: 亚特兰三叉法戟
+	Tooltip: 发射三发魔法水箭
+}
+
+OceanTrident: {
+	DisplayName: 海洋三叉戟
+	Tooltip: 非常滑
+}
+
+ElectricityShard: {
+	DisplayName: 电能法片
+	Tooltip: 均匀地散布出火花。
+}
+
+DragonStaff: {
+	DisplayName: 原龙法杖
+	Tooltip: 发射龙鳞。
+}
+
+Icicle: {
+	DisplayName: 冰柱
+	Tooltip: 抛射魔力冰晶，碎裂为更小的碎片。
+}
+
+StarStaff: {
+	DisplayName: 宙星法杖
+	Tooltip: ""
+}
+
+TerraFocus: {
+	DisplayName: 泰拉聚焦杖
+	Tooltip: 向敌人发射泰拉魔力
+}
+
+NeutronRod: {
+	DisplayName: 中子权杖
+	Tooltip: 发射在墙壁间弹跳的旋转星辰
+}
+
+DoomStaff: {
+	DisplayName: 厄劫法杖
+	Tooltip: ""
+}
+
+GalacticStormspike: {
+	DisplayName: 银河风暴荆棘
+	Tooltip: 射出一道分支状的黑暗电流
+}
+
+SquidStorm: {
+	DisplayName: 鱿鱼风暴
+	Tooltip: 从拉莱耶深渊召来触手
+}

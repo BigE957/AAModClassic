@@ -1,0 +1,74 @@
+AcropolisBiome: {
+	DisplayName: 天穹卫城
+	TownNPCDialogueName: 天穹卫城
+}
+
+HoardBiome: {
+	DisplayName: 欲望金窟
+	TownNPCDialogueName: 欲望金窟
+}
+
+InfernoBiome: {
+	DisplayName: 燎狱
+	TownNPCDialogueName: 燎狱
+}
+
+MireBiome: {
+	DisplayName: 潭渊
+	TownNPCDialogueName: 潭渊
+}
+
+RisingMoonLakeBiomeZone: {
+	DisplayName: 升月之湖
+	TownNPCDialogueName: 升月之湖
+}
+
+RisingSunPagodaBiome: {
+	DisplayName: 升阳之塔
+	TownNPCDialogueName: 升阳之塔
+}
+
+TerrariumBiome: {
+	DisplayName: 泰拉心球
+	TownNPCDialogueName: 泰拉心球
+}
+
+VoidBiome: {
+	DisplayName: 虚空
+	TownNPCDialogueName: 虚空
+}
+
+LostKeepBiome: {
+	DisplayName: 失落要塞
+	TownNPCDialogueName: 失落要塞
+}
+
+ParthenanBiome: {
+	DisplayName: 帕特农神庙
+	TownNPCDialogueName: 帕特农神庙
+}
+
+RedMushroomBiome: {
+	DisplayName: 红蘑菇生态群落
+	TownNPCDialogueName: 红蘑菇生态群落
+}
+
+StarsBiome: {
+	DisplayName: 漫天星辰
+	TownNPCDialogueName: 漫天星辰
+}
+
+SunkenShipBiome: {
+	DisplayName: 沉船
+	TownNPCDialogueName: 沉船
+}
+
+UndergroundInfernoBiome: {
+	DisplayName: 地下燎狱
+	TownNPCDialogueName: 地下燎狱
+}
+
+UndergroundMireBiome: {
+	DisplayName: 地下潭渊
+	TownNPCDialogueName: 地下潭渊
+}

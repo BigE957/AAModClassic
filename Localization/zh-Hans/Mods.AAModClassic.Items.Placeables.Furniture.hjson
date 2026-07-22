@@ -1,0 +1,541 @@
+Doom: {
+	DoomBathtub: {
+		DisplayName: 厄劫浴缸
+		Tooltip: ""
+	}
+
+	DoomBed: {
+		DisplayName: 厄劫床
+		Tooltip: ""
+	}
+
+	DoomCandelabra: {
+		DisplayName: 厄劫烛台
+		Tooltip: ""
+	}
+
+	DoomCandle: {
+		DisplayName: 厄劫蜡烛
+		Tooltip: ""
+	}
+
+	DoomChair: {
+		DisplayName: 厄劫椅
+		Tooltip: ""
+	}
+
+	DoomChandelier: {
+		DisplayName: 厄劫吊灯
+		Tooltip: ""
+	}
+
+	DoomChest: {
+		DisplayName: 厄劫宝箱
+		Tooltip: ""
+	}
+
+	DoomClock: {
+		DisplayName: 厄劫倒计时钟
+		Tooltip: ""
+	}
+
+	DoomCouch: {
+		DisplayName: 厄劫沙发
+		Tooltip: ""
+	}
+
+	DoomDresser: {
+		DisplayName: 厄劫梳妆台
+		Tooltip: ""
+	}
+
+	DoomLamp: {
+		DisplayName: 厄劫灯
+		Tooltip: ""
+	}
+
+	DoomLantern: {
+		DisplayName: 厄劫灯笼
+		Tooltip: ""
+	}
+
+	DoomPiano: {
+		DisplayName: 厄劫钢琴
+		Tooltip: ""
+	}
+
+	DoomSink: {
+		DisplayName: 厄劫水槽
+		Tooltip: ""
+	}
+
+	DoomTable: {
+		DisplayName: 厄劫桌
+		Tooltip: ""
+	}
+
+	DoomWorkbench: {
+		DisplayName: 厄劫工作台
+		Tooltip: ""
+	}
+
+	DoomBookcase: {
+		DisplayName: 厄劫书架
+		Tooltip: ""
+	}
+
+	DoomDoor: {
+		DisplayName: 厄劫门
+		Tooltip: ""
+	}
+
+	DoomPlatform: {
+		DisplayName: 厄劫平台
+		Tooltip: ""
+	}
+}
+
+Razewood: {
+	RazewoodBed: {
+		DisplayName: 燎火木床
+		Tooltip: ""
+	}
+
+	RazewoodBookshelf: {
+		DisplayName: 燎火木书架
+		Tooltip: ""
+	}
+
+	RazewoodCandelabra: {
+		DisplayName: 燎火木烛台
+		Tooltip: ""
+	}
+
+	RazewoodCandle: {
+		DisplayName: 燎火木蜡烛
+		Tooltip: ""
+	}
+
+	RazewoodChair: {
+		DisplayName: 燎火木椅
+		Tooltip: ""
+	}
+
+	RazewoodChandelier: {
+		DisplayName: 燎火木吊灯
+		Tooltip: ""
+	}
+
+	RazewoodChest: {
+		DisplayName: 燎火木箱
+		Tooltip: ""
+	}
+
+	RazewoodClock: {
+		DisplayName: 燎火木时钟
+		Tooltip: ""
+	}
+
+	RazewoodCouch: {
+		DisplayName: 燎火木沙发
+		Tooltip: ""
+	}
+
+	RazewoodDoor: {
+		DisplayName: 燎火木门
+		Tooltip: ""
+	}
+
+	RazewoodDresser: {
+		DisplayName: 燎火木梳妆台
+		Tooltip: ""
+	}
+
+	RazewoodLamp: {
+		DisplayName: 燎火木灯
+		Tooltip: ""
+	}
+
+	RazewoodLantern: {
+		DisplayName: 燎火木灯笼
+		Tooltip: ""
+	}
+
+	RazewoodPiano: {
+		DisplayName: 燎火木钢琴
+		Tooltip: ""
+	}
+
+	RazewoodPlatform: {
+		DisplayName: 燎火木平台
+		Tooltip: ""
+	}
+
+	RazewoodSink: {
+		DisplayName: 燎火木水槽
+		Tooltip: ""
+	}
+
+	RazewoodTable: {
+		DisplayName: 燎火木桌
+		Tooltip: ""
+	}
+
+	RazewoodTub: {
+		DisplayName: 燎火木浴缸
+		Tooltip: ""
+	}
+
+	RazewoodWorkbench: {
+		DisplayName: 燎火木工作台
+		Tooltip: ""
+	}
+}
+
+Bogwood: {
+	BogwoodBathtub: {
+		DisplayName: 污泽木浴缸
+		Tooltip: ""
+	}
+
+	BogwoodBed: {
+		DisplayName: 污泽木床
+		Tooltip: ""
+	}
+
+	BogwoodBench: {
+		DisplayName: 污泽木沙发
+		Tooltip: ""
+	}
+
+	BogwoodBookshelf: {
+		DisplayName: 污泽木书架
+		Tooltip: ""
+	}
+
+	BogwoodCandelabra: {
+		DisplayName: 污泽木烛台
+		Tooltip: ""
+	}
+
+	BogwoodCandle: {
+		DisplayName: 污泽木蜡烛
+		Tooltip: ""
+	}
+
+	BogwoodChair: {
+		DisplayName: 污泽木椅
+		Tooltip: ""
+	}
+
+	BogwoodChandelier: {
+		DisplayName: 污泽木吊灯
+		Tooltip: ""
+	}
+
+	BogwoodChest: {
+		DisplayName: 污泽木箱
+		Tooltip: ""
+	}
+
+	BogwoodClock: {
+		DisplayName: 污泽木时钟
+		Tooltip: ""
+	}
+
+	BogwoodCouch: {
+		DisplayName: 污泽木沙发
+		Tooltip: ""
+	}
+
+	BogwoodDoor: {
+		DisplayName: 污泽木门
+		Tooltip: ""
+	}
+
+	BogwoodDresser: {
+		DisplayName: 污泽木梳妆台
+		Tooltip: ""
+	}
+
+	BogwoodLamp: {
+		DisplayName: 污泽木灯
+		Tooltip: ""
+	}
+
+	BogwoodLantern: {
+		DisplayName: 污泽木灯笼
+		Tooltip: ""
+	}
+
+	BogwoodPiano: {
+		DisplayName: 污泽木钢琴
+		Tooltip: ""
+	}
+
+	BogwoodPlatform: {
+		DisplayName: 污泽木平台
+		Tooltip: ""
+	}
+
+	BogwoodSink: {
+		DisplayName: 污泽木水槽
+		Tooltip: ""
+	}
+
+	BogwoodTable: {
+		DisplayName: 污泽木桌
+		Tooltip: ""
+	}
+
+	BogwoodWorkbench: {
+		DisplayName: 污泽木工作台
+		Tooltip: ""
+	}
+}
+
+OuroborosWood: {
+	OuroborosWoodBathtub: {
+		DisplayName: 衔尾木浴缸
+		Tooltip: ""
+	}
+
+	OuroborosWoodBed: {
+		DisplayName: 衔尾木床
+		Tooltip: ""
+	}
+
+	OuroborosWoodBookcase: {
+		DisplayName: 衔尾木书架
+		Tooltip: ""
+	}
+
+	OuroborosWoodCandle: {
+		DisplayName: 衔尾木蜡烛
+		Tooltip: ""
+	}
+
+	OuroborosWoodChair: {
+		DisplayName: 衔尾木椅
+		Tooltip: ""
+	}
+
+	OuroborosWoodChest: {
+		DisplayName: 衔尾木箱
+		Tooltip: ""
+	}
+
+	OuroborosWoodClock: {
+		DisplayName: 衔尾木时钟
+		Tooltip: ""
+	}
+
+	OuroborosWoodDoor: {
+		DisplayName: 衔尾木门
+		Tooltip: ""
+	}
+
+	OuroborosWoodLamp: {
+		DisplayName: 衔尾木灯
+		Tooltip: ""
+	}
+
+	OuroborosWoodLantern: {
+		DisplayName: 衔尾木灯笼
+		Tooltip: ""
+	}
+
+	OuroborosWoodPlatform: {
+		DisplayName: 衔尾木平台
+		Tooltip: ""
+	}
+
+	OuroborosWoodWorkbench: {
+		DisplayName: 衔尾木工作台
+		Tooltip: ""
+	}
+}
+
+Keep: {
+	KeepBath: {
+		DisplayName: 要塞浴缸
+		Tooltip: ""
+	}
+
+	KeepBed: {
+		DisplayName: 要塞床
+		Tooltip: ""
+	}
+
+	KeepBookcase: {
+		DisplayName: 要塞书架
+		Tooltip: ""
+	}
+
+	KeepCandelabra: {
+		DisplayName: 要塞烛台
+		Tooltip: ""
+	}
+
+	KeepCandle: {
+		DisplayName: 要塞蜡烛
+		Tooltip: ""
+	}
+
+	KeepChair: {
+		DisplayName: 要塞椅
+		Tooltip: ""
+	}
+
+	KeepChandelier: {
+		DisplayName: 要塞吊灯
+		Tooltip: ""
+	}
+
+	KeepClock: {
+		DisplayName: 要塞时钟
+		Tooltip: ""
+	}
+
+	KeepCouch: {
+		DisplayName: 要塞沙发
+		Tooltip: ""
+	}
+
+	KeepDoor: {
+		DisplayName: 要塞门
+		Tooltip: ""
+	}
+
+	KeepDresser: {
+		DisplayName: 要塞梳妆台
+		Tooltip: ""
+	}
+
+	KeepLamp: {
+		DisplayName: 要塞灯
+		Tooltip: ""
+	}
+
+	KeepLantern: {
+		DisplayName: 要塞灯笼
+		Tooltip: ""
+	}
+
+	KeepPiano: {
+		DisplayName: 要塞钢琴
+		Tooltip: ""
+	}
+
+	KeepSink: {
+		DisplayName: 要塞水槽
+		Tooltip: ""
+	}
+
+	KeepTable: {
+		DisplayName: 要塞桌
+		Tooltip: ""
+	}
+
+	KeepWorkbench: {
+		DisplayName: 要塞工作台
+		Tooltip: ""
+	}
+
+	SpiralStairs: {
+		DisplayName: 螺旋楼梯
+		Tooltip: ""
+	}
+}
+
+Terra: {
+	TerraBath: {
+		DisplayName: 泰拉浴缸
+		Tooltip: ""
+	}
+
+	TerraBed: {
+		DisplayName: 泰拉床
+		Tooltip: ""
+	}
+
+	TerraBookcase: {
+		DisplayName: 泰拉书架
+		Tooltip: ""
+	}
+
+	TerraCandelabra: {
+		DisplayName: 泰拉烛台
+		Tooltip: ""
+	}
+
+	TerraCandle: {
+		DisplayName: 泰拉蜡烛
+		Tooltip: ""
+	}
+
+	TerraChair: {
+		DisplayName: 泰拉椅
+		Tooltip: ""
+	}
+
+	TerraChandelier: {
+		DisplayName: 泰拉吊灯
+		Tooltip: ""
+	}
+
+	TerraChest: {
+		DisplayName: 泰拉宝箱
+		Tooltip: ""
+	}
+
+	TerraClock: {
+		DisplayName: 泰拉时钟
+		Tooltip: ""
+	}
+
+	TerraCouch: {
+		DisplayName: 泰拉沙发
+		Tooltip: ""
+	}
+
+	TerraDoor: {
+		DisplayName: 泰拉门
+		Tooltip: ""
+	}
+
+	TerraDresser: {
+		DisplayName: 泰拉梳妆台
+		Tooltip: ""
+	}
+
+	TerraLamp: {
+		DisplayName: 泰拉灯
+		Tooltip: ""
+	}
+
+	TerraLantern: {
+		DisplayName: 泰拉灯笼
+		Tooltip: ""
+	}
+
+	TerraPiano: {
+		DisplayName: 泰拉钢琴
+		Tooltip: ""
+	}
+
+	TerraSink: {
+		DisplayName: 泰拉水槽
+		Tooltip: ""
+	}
+
+	TerraTable: {
+		DisplayName: 泰拉桌
+		Tooltip: ""
+	}
+
+	TerraWorkbench: {
+		DisplayName: 泰拉工作台
+		Tooltip: ""
+	}
+}

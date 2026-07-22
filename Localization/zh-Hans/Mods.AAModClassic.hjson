@@ -1,0 +1,73 @@
+Keybinds: {
+	Rifthotkey: 裂位回家
+	RiftReturnhotkey: 裂位返程
+	AccessoryAbilityKey: 远古觉醒饰品能力
+	ArmorAbilityKey: 远古觉醒套装能力
+
+	Mods: {
+		AAModClassic: {
+			Keybinds: {
+				InfinityHotKey.DisplayName: 响指
+				Rifthotkey.DisplayName: 裂位回家
+				RiftReturnhotkey.DisplayName: 裂位返程
+				AccessoryAbilityKey.DisplayName: 远古觉醒饰品能力
+				ArmorAbilityKey.DisplayName: 远古觉醒套装能力
+				TimeStoneKey.DisplayName: 时间宝石
+			}
+		}
+	}
+}
+
+Configs: {
+	AAConfigClient: {
+		DisplayName: AA客户端配置
+
+		NoAATownNPC: {
+			Label: 禁用AA城镇NPC
+			Tooltip: 禁止本mod的城镇NPC生成，适合希望其他NPC更快生成的玩家。注意：阿努比斯不受影响，因为他对游戏进程至关重要。
+		}
+
+		NoBossDialogue: {
+			Label: 禁用Boss对话
+			Tooltip: 禁用Boss的对话以防止聊天栏刷屏。同时会使包含Boss对话的动画略微加快。
+		}
+
+		DisableNewAAReminderMessage: {
+			Label: 禁用远古觉醒提醒消息
+			Tooltip: 禁用进入世界时提示游玩远古觉醒[BETA]版本的提醒消息。
+		}
+
+		EnableContentReplacement: {
+			Label: 启用内容替换
+			Tooltip: ""
+		}
+
+		AncientIntroText: {
+			Label: Boss标题卡片
+			Tooltip: 切换部分后期Boss生成时显示的标题卡片。
+		}
+
+		DisableAnticheat: {
+			Label: 禁用反作弊
+			Tooltip: 禁用mod的部分反作弊功能。
+		}
+
+		DisablePinchThemes: {
+			Label: 禁用濒死主题曲
+			Tooltip: 禁用终局Boss血量较低时播放的主题曲。
+		}
+
+		HideIdentifiableInfo: {
+			Label: 隐藏个人识别信息
+			Tooltip: 禁用使用个人身份信息打破第四面墙的对话。
+		}
+	}
+}
+
+WorldBuild: {
+	Info1: 安置混沌祭坛
+	Info2: 混沌蔓延
+	Info3: 把土壤焦化成燎狱
+	Info4: 给潭渊蓄水
+	Info5: 建筑泰拉心球
+}
