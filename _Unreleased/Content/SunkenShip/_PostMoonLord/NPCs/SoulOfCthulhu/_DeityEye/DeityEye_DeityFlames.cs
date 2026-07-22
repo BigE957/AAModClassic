@@ -1,11 +1,36 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Dusts;
+using AAModClassic.UI.World;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEye
 {
-    internal class DeityEye_DeityFlames : ModProjectile
+    internal class DeityEye_DeityFlames : FireProj
     {
+        public override MulticolorShift ColorShift
+        {
+            get
+            {
+                Color color = Color.Cyan;
+                Color color2 = Color.Aqua;
+                Color color3 = Color.Lerp(Color.Lime, color2, 0.25f);
+                Color color4 = Color.Green;
+
+                return new MulticolorShift
+                ([
+                    new(Color.Transparent, 0f,   0.1f),   // fade in
+                    new(color,             0f,   0.1f),   // to color2
+                    new(color2,            0.15f, 0.35f), // hold then to color3
+                    new(color3,            0f,   0.15f),  // to color4
+                    new(color4,            0f,   0.15f)   // to final
+                ]);
+            }
+        }
+
+        public override int DustType => -1;// ModContent.DustType<CthulhuDust>();
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Flames of Agony");
@@ -19,19 +44,27 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Projectile.friendly = false;
             Projectile.ignoreWater = true;
             Projectile.penetrate = 1;
-            Projectile.alpha = 255;
+            //Projectile.alpha = 255;
+            Projectile.alpha = 60;
             Projectile.timeLeft = 100;
             Projectile.aiStyle = -1;
         }
 
         public override bool PreDraw(ref Color lightColor)
         {
-
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                return base.PreDraw(ref lightColor);
             return false;
         }
 
         public override void AI()
         {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                base.AI();
+                return;
+            }
+
             if (Projectile.timeLeft > 60)
             {
                 Projectile.timeLeft = 60;

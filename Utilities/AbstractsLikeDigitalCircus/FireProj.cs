@@ -81,7 +81,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
 
             int stickTime = 50;
             int dustTime = stickTime;
-            if (Projectile.localAI[0] < dustTime && Main.rand.NextFloat() < 0.25f)
+            if (DustType != -1 && Projectile.localAI[0] < dustTime && Main.rand.NextFloat() < 0.25f)
             {
                 Dust dust = Dust.NewDustDirect(Projectile.Center + Main.rand.NextVector2Circular(60f, 60f) * Utils.Remap(Projectile.localAI[0], 0f, 72f, 0.5f, 1f), 4, 4, DustType, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
                 if (Main.rand.NextBool(4))
