@@ -56,7 +56,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             NPC.width = 420; 			
             NPC.height = 342;
             NPC.npcSlots = 100;
-            NPC.scale = 1f;
+            NPC.scale = 1.4f;
             NPC.dontTakeDamage = true;
 			NPC.lifeMax = 2500000;
 			NPC.knockBackResist = 0f;
@@ -74,7 +74,6 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 			Music = MusicManagementSystem.MusicSlots["InfinityZero"];
 			NPC.HitSound = SoundID.NPCHit44;
 			NPC.DeathSound = new SoundStyle("AAModClassic/_Unreleased/Sounds/IZRoar");
-            NPC.scale *= 1.4f;
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
@@ -283,19 +282,19 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 {
                     int latestNPC;
 
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand2>(), NPC.whoAmI, NPC.whoAmI, 3);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand2>(), NPC.whoAmI, NPC.whoAmI, ai3: 3);
                     zeroIndex4 = (short)latestNPC;
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand1>(), latestNPC, NPC.whoAmI, 0);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand1>(), latestNPC, NPC.whoAmI, ai3: 0);
                     zeroIndex1 = (short)latestNPC;
 
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand2>(), latestNPC, NPC.whoAmI, 4);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand2>(), latestNPC, NPC.whoAmI, ai3: 4);
                     zeroIndex5 = (short)latestNPC;
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand1>(), latestNPC, NPC.whoAmI, 1);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand1>(), latestNPC, NPC.whoAmI, ai3: 1);
                     zeroIndex2 = (short)latestNPC;
 
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand2>(), latestNPC, NPC.whoAmI, 5);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand2>(), latestNPC, NPC.whoAmI, ai3: 5);
                     zeroIndex6 = (short)latestNPC;
-                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand1>(), latestNPC, NPC.whoAmI, 2);
+                    latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityZeroHand1>(), latestNPC, NPC.whoAmI, ai3: 2);
                     zeroIndex3 = (short)latestNPC;
 
                     //latestNPC = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y - 100, ModContent.NPCType<InfinityCore>(), 0, NPC.whoAmI);
@@ -624,7 +623,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             if (tenthHealth)
             {
-                spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, unofficialWorld ? NPC.frame.Size() * 0.5f : Vector2.Zero, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+                spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, unofficialWorld ? NPC.frame.Size() * 0.5f : Vector2.Zero, NPC.scale, 0, 0);
                 BaseDrawing.DrawAura(spriteBatch, glow, 0, NPC, auraPercent, 1f, 0f, 0f, GetRedAlpha(), unofficialWorld);
                 BaseDrawing.DrawTexture(spriteBatch, glow, 0, NPC, GetRedAlpha(), unofficialWorld);
                 if(unofficialWorld)
@@ -647,9 +646,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             else
             {
                 Color color = BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC, NPC.Center + new Vector2(0, -30), true, 0f), GetGlowAlpha(true));
-                spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, color, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+                spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, color, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
                 BaseDrawing.DrawAura(spriteBatch, glow, 0, NPC, auraPercent, 1f, 0f, 0f, GetGlowAlpha(true), true);
-                spriteBatch.Draw(glow, NPC.Center - screenPos, NPC.frame, GetGlowAlpha(false), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+                spriteBatch.Draw(glow, NPC.Center - screenPos, NPC.frame, GetGlowAlpha(false), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
                 if (unofficialWorld)
                 {
                     if (CoreFrame != -1)
@@ -665,7 +664,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     Vector2 eyeOffset = drawPos.DirectionTo(lookAt) * drawPos.Distance(lookAt) / 48f;
                     drawPos += new Vector2(MathHelper.Clamp(eyeOffset.X, -maxDist, maxDist), MathHelper.Clamp(eyeOffset.Y, -maxDist, maxDist));
                     BaseDrawing.DrawAura(spriteBatch, eye, 0, drawPos - new Vector2(7, 9), eye.Width, eye.Height, auraPercent, 1, NPC.scale, 0f, 1, 1, eye.Frame(), 0, 0, GetGlowAlpha(false), unofficialWorld);
-                    spriteBatch.Draw(eye, drawPos - screenPos, null, Color.White, NPC.rotation, eye.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+                    spriteBatch.Draw(eye, drawPos - screenPos, null, Color.White, NPC.rotation, eye.Size() * 0.5f, NPC.scale, 0, 0);
                 }
             }
 

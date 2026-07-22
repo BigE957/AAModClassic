@@ -1,0 +1,514 @@
+BossChecklist: {
+	MushroomMonarch: {
+		Name: 赤孢皇
+		Spawn: 白天使用{0}。
+		Despawn: "[c/F08080:赤孢皇逃向了天空。]"
+	}
+
+	FeudalFungus: {
+		Name: 真菌帝
+		Spawn: 在发光蘑菇生物群落中使用{0}。
+		Despawn: "[c/70FFF3:真菌帝消失了。]"
+	}
+
+	GripsOfChaos: {
+		Name: 混沌双爪
+		Spawn: 夜间使用{0}或{1}。
+		Despawn: "[c/75008C:混沌双爪飞走了，看来它们已经把你收拾够了。]"
+	}
+
+	TruffleToad: {
+		Name: 松露蟾蜍
+		Spawn: 在发光蘑菇生物群落中使用{0}。
+		Despawn: "[c/70FFF3:松露蟾蜍呱地叫了一声，然后消失了。]"
+	}
+
+	Broodmother: {
+		Name: 育母炎龙
+		Spawn: 白天在燎狱中使用{0}。
+		Despawn: "[c/FFA500:育母炎龙返回了炽热的深渊。]"
+	}
+
+	Hydra: {
+		Name: 九头渊蛇
+		Spawn: 夜间在潭渊中使用{0}。
+		Despawn: "[c/483D8B:九头渊蛇潜回了她的黑暗巢穴。]"
+	}
+
+	SubzeroSerpent: {
+		Name: 绝零冰蛇
+		Spawn: 夜间在雪原中使用{0}。
+		Despawn: "[c/6495ED:绝零冰蛇重新钻回了雪中。]"
+	}
+
+	DesertDjinn: {
+		Name: 沙漠巨灵
+		Spawn: 白天在沙漠中使用{0}。
+		Despawn: "[c/F4A460:沙漠巨灵得意洋洋地朝你秀了秀肌肉。]"
+	}
+
+	Sagittarius: {
+		Name: 射手座-虚空人马
+		Spawn: 在虚空中使用{0}。
+		Despawn: "[c/FF0000:虚空人马朝无尽黑暗奔驰而去……]"
+	}
+
+	TechnoTruffle: {
+		Name: 电子化-机械松露怪
+		Spawn: 夜间使用{0}。
+		Despawn: "[c/eb34eb:电子化-机械松露怪已处置目标。]"
+	}
+
+	Retriever: {
+		Name: 捕猎者-电子猎犬爪
+		Spawn: 夜间使用{0}。
+		Despawn: "[c/eb34eb:捕猎者-电子猎犬爪已收到悬赏。]"
+	}
+
+	OrthrusX: {
+		Name: 食腐者-双头狗俄耳托斯X型
+		Spawn: 夜间使用{0}。
+		Despawn: "[c/eb34eb:食腐者-双头狗俄耳托斯X型传送回了基地。]"
+	}
+
+	RaiderUltima: {
+		Name: 侵入者-创世哺育之母
+		Spawn: 夜间使用{0}。
+		Despawn: "[c/eb34eb:侵入者-创世哺育之母返回了基地。]"
+	}
+
+	Anubis: {
+		Name: 阿努比斯 史诗记述者
+		Spawn: 在沙漠中使用{0}。
+		Despawn: "[c/FFD700:阿努比斯开了个玩笑，然后恢复了他的形态。]"
+	}
+
+	BiomiteCore: {
+		Name: 环境原核
+		Spawn: 在失落要塞的基座上使用{0}。
+		Despawn: "[c/228B22:要塞的机械缓缓停转。]"
+	}
+
+	Athena: {
+		Name: 穹武鸮姬 雅典娜
+		Spawn: 在天穹卫城的猫头鹰祭坛处使用{0}，或在天穹卫城中击伤一只六翼鸟妖。
+		Despawn: "[c/008AA6:穹武鸮姬训斥了你一番后飞走了。]"
+	}
+
+	Greed: {
+		Name: 金食饕餮
+		Spawn: 在欲望金窟中的欲望祭坛处使用{0}，或在欲望金窟中开启3个贪婪宝箱。
+		Despawn: "[c/E39F00:金食饕餮回去清点他的宝藏了。]"
+	}
+
+	RajahRabbit: {
+		Name: 巨兔王公
+		Spawn: 使用{0}，或像个混蛋一样杀死100只兔子。
+		Despawn: "[c/D3D3D3:突袭惩罚者的正义得到了伸张。]"
+	}
+
+	ForsakenAnubis: {
+		Name: 觉醒之阿努比斯 逝落的断罪师
+		Spawn: 在击败月亮领主后挑战史诗记述者。
+		Despawn: "[c/228B22:断罪师的力量消退，他的失望难以估量。]"
+	}
+
+	AthenaA: {
+		Name: 觉醒之奥林匹亚女武神 雅典娜
+		Spawn: 在向阿努比斯证明自己后挑战穹武鸮姬。
+		Despawn: "[c/008AA6:女武神翱翔而去，心满意足。]"
+	}
+
+	GreedA: {
+		Name: 觉醒之金食饕餮 鎏金万蟲王
+		Spawn: 在向阿努比斯证明自己后挑战金食饕餮。
+		Despawn: "[c/E39F00:囤积者溜回他的洞穴，又一件珍宝加入了收藏。]"
+	}
+
+	EquinoxWorms: {
+		Name: 昼夜双虫
+		Spawn: 使用{0}。
+		Despawn: "[c/2F1F6C:双生之虫消失于星辰间，继续他们的昼夜平衡。]"
+	}
+
+	SistersOfDiscord: {
+		Name: 混沌姐妹
+		Spawn: 使用{0}。
+		Despawn: "[c/FF00FF:姐妹们匆忙赶回家中，告诉父亲她们的胜利。]"
+	}
+
+	Akuma: {
+		Name: 远古之邪鬼巨龙 凶煞恶魔
+		Spawn: 白天在燎狱中使用{0}。
+		Despawn: "[c/92251E:恶魔返回他的塔中，对这场战斗兴致索然。]"
+	}
+
+	AkumaA: {
+		Name: 觉醒之邪鬼巨龙 狂煞魔豪鬼
+		Spawn: 在专家模式下击败邪鬼巨龙，或使用{0}。
+		Despawn: "[c/00BFFF:恶魔返回他的塔中，因战斗而怒火中烧。]"
+	}
+
+	Yamata: {
+		Name: 远古之八歧大蛇 惊惧梦魇
+		Spawn: 夜间在潭渊中使用{0}。
+		Despawn: "[c/35397E:魔煞缓缓步入灵魂之湖，在自己的胜利中恣意沉醉。]"
+	}
+
+	YamataA: {
+		Name: 觉醒之八歧大蛇 八俣远吕智
+		Spawn: 在专家模式下击败八歧大蛇，或使用{0}。
+		Despawn: "[c/921E44:魔煞悄悄溜回灵魂之湖，独自舔舐伤口。]"
+	}
+
+	Zero: {
+		Name: 零械单元 虚空之末日结构
+		Spawn: 在虚空中使用{0}。
+		Despawn: "[c/FF0000:机器执行完返回协议，再次陷入沉默的凝视中。]"
+	}
+
+	ZeroP: {
+		Name: 零械汇编器 零.之.始.约.协.议
+		Spawn: 在专家模式下击败零械单元，或使用{0}。
+		Despawn: "[c/FF0000:机器执行完修复协议后，重新陷入沉默的凝视中。]"
+	}
+
+	RajahRabbitR: {
+		Name: 巨兔王公的复仇
+		Spawn: 使用{0}，或在已杀死至少1000只兔子后再杀死100只。
+		Despawn: "[c/D3D3D3:无辜的保护者的正义得到了伸张。]"
+	}
+
+	Shen: {
+		Name: 上神应龙 冥昧末日的预言者
+		Spawn: 使用{0}。
+		Despawn: "[c/FF00FF:混沌依旧主宰一切，冥昧末日的预言者仍在延续他的不谐之音。]"
+	}
+
+	ShenA: {
+		Name: 觉醒之上神应龙 冥昭瞢暗的化身
+		Spawn: 在专家模式下击败上神应龙，或使用{0}。
+		Despawn: "[c/FF00FF:尽管你尽了最大努力，混沌依旧主宰一切。]"
+	}
+
+	InfinityZero: {
+		Name: 无限零 机械恶意
+		Spawn: 使用{0}。
+		Despawn: "[c/A9A9A9:指令执行完毕，机械恶意静候下一位挑战者。]"
+	}
+
+	SoulOfCthulhu: {
+		Name: 克苏鲁之魂 旧日之影
+		Spawn: 使用{0}。
+		Despawn: "[c/00FFFF:旧神的怒火已得彰显，寰宇之灾重归沉眠。]"
+	}
+
+	Cthulhu: {
+		Name: 克苏鲁 寰宇之灾
+		Spawn: 在专家模式下击败克苏鲁之魂。
+		Despawn: "[c/00FFFF:旧神的怒火已得彰显，寰宇之灾将目光投向了泰拉瑞亚。]"
+	}
+
+	#Despawn Messages
+	DespawnKraken: 头足生物扭曲着遁入了召唤出的裂隙。
+}
+
+MusicDisplay: {
+	ModName: Ancients Awakened: Classic
+
+	SuperancientsPinch: {
+		Author: by SpectralAves
+		DisplayName: Bygone Battles
+	}
+
+	Broodmother: {
+		Author: by SpectralAves
+		DisplayName: Blazing Fury
+	}
+
+	ChaosPreShen: {
+		Author: by MaestroVGM
+		DisplayName: Condemned
+	}
+
+	Djinn: {
+		Author: by Tyeski
+		DisplayName: The Dust Bowl
+	}
+
+	Acropolis: {
+		Author: by ENNWAY
+		DisplayName: Palace in the Sky
+	}
+
+	Akuma: {
+		Author: by Saucecoie
+		DisplayName: Trial By Fire
+	}
+
+	AkumaAwakened: {
+		Author: by Tyeski
+		DisplayName: Dawn of the Dragon
+	}
+
+	Anubis: {
+		Author: by Tyeski
+		DisplayName: Strings of Judgement
+	}
+
+	Equinox: {
+		Author: by ProduceVGM
+		DisplayName: Celestial Cyclone
+	}
+
+	AnubisAwakened: {
+		Author: by Tyeski
+		DisplayName: Purgatorium
+	}
+
+	Athena: {
+		Author: by ENNWAY
+		DisplayName: Magisaint
+	}
+
+	Fungus: {
+		Author: by SpectralAves
+		DisplayName: Bioluminescent Beatdown
+	}
+
+	AthenaAwakened: {
+		Author: by ENNWAY
+		DisplayName: Goddess of Those Winged
+	}
+
+	Greed: {
+		Author: by Tyeski
+		DisplayName: Gold Digger
+	}
+
+	GreedAwakened: {
+		Author: by Tyeski
+		DisplayName: Ira De Riquezas Perdidas
+	}
+
+	Grips: {
+		Author: by SpectralAves
+		DisplayName: Twin Terror
+	}
+
+	Hoard: {
+		Author: by Tyeski
+		DisplayName: Cove
+	}
+
+	Hydra: {
+		Author: by SpectralAves
+		DisplayName: RAW Abyssal Wrath
+	}
+
+	MireDay: {
+		Author: by ProduceVGM
+		DisplayName: Through the Toxic Mist
+	}
+
+	MireLake: {
+		Author: by Rockwizard
+		DisplayName: Lake of Souls
+	}
+
+	InfernoNight: {
+		Author: by ProduceVGM
+		DisplayName: Emberstorm
+	}
+
+	InfernoPagoda: {
+		Author: by Rockwizard
+		DisplayName: Scorched Tower
+	}
+
+	MireSurface: {
+		Author: by ProduceVGM
+		DisplayName: Secluded Swamp
+	}
+
+	InfernoSurface: {
+		Author: by ProduceVGM
+		DisplayName: Scorched Earth
+	}
+
+	InfernoUnderground: {
+		Author: by ProduceVGM
+		DisplayName: Inner Mantle
+	}
+
+	MireUnderground: {
+		Author: by ProduceVGM
+		DisplayName: Creepy Crawlers
+	}
+
+	Monarch: {
+		Author: by SpectralAves
+		DisplayName: Fungal Face-off
+	}
+
+	MushroomSurface: {
+		Author: by SpectralAves
+		DisplayName: Overgrowth
+	}
+
+	Rajah: {
+		Author: by SpectralAves
+		DisplayName: JUSTICE
+	}
+
+	RajahAwakened: {
+		Author: by Jteoh
+		DisplayName: Supreme Justice EX
+	}
+
+	Sagittarius: {
+		Author: by SpectralAves
+		DisplayName: Event Horizon
+	}
+
+	Shen: {
+		Author: by MaestroVGM
+		DisplayName: Wings of Duality
+	}
+
+	Sisters: {
+		Author: by MaestroVGM
+		DisplayName: United
+	}
+
+	Stars: {
+		Author: by ProduceVGM
+		DisplayName: Scattered Stars
+	}
+
+	EquinoxAltar: {
+		Author: by ProduceVGM
+		DisplayName: Offerings
+	}
+
+	Subzero: {
+		Author: by ProduceVGM
+		DisplayName: Glacial Grace
+	}
+
+	ShenAwakened: {
+		Author: by MaestroVGM
+		DisplayName: Discordant Coda
+	}
+
+	SunkenShipPreSoC: {
+		Author: by ProduceVGM
+		DisplayName: Sleeping Curse
+	}
+
+	SunkenShip: {
+		Author: by Cosmoptera
+		DisplayName: Rift-Torn Ruins
+	}
+
+	ZeroAwakened: {
+		Author: by Saucecoie
+		DisplayName: Doomsday Arrives
+	}
+
+	Zero: {
+		Author: by SpectralAves
+		DisplayName: Clockwork Catastrophe
+	}
+
+	Terrarium: {
+		Author: by ProduceVGM
+		DisplayName: Resting Place
+	}
+
+	LostKeep: {
+		Author: by Saucecoie
+		DisplayName: Hall of Memories
+	}
+
+	BiomiteCore: {
+		Author: by ProduceVGM
+		DisplayName: Restless Spirit
+	}
+
+	TruffleToad: {
+		Author: by SpectralAves
+		DisplayName: TODESTOOL
+	}
+
+	Void: {
+		Author: by ProduceVGM
+		DisplayName: Waste
+	}
+
+	VoidPostML: {
+		Author: by ProduceVGM
+		DisplayName: Inanis
+	}
+
+	VoidPreIZ: {
+		Author: by Cosmoptera
+		DisplayName: Sleeping Giant
+	}
+
+	Yamata: {
+		Author: by Saucecoie
+		DisplayName: Crescent of Madness
+	}
+
+	YamataAwakened: {
+		Author: by Tyeski
+		DisplayName: Abyssal Nightmare
+	}
+
+	Siege: {
+		Author: by ProduceVGM
+		DisplayName: Controlled Chaos
+	}
+
+	TechnoTruffle: {
+		Author: by SpectralAves
+		DisplayName: Mechanical Mold Match
+	}
+
+	Parthenan: {
+		Author: by Tyeski
+		DisplayName: Maelstrom
+	}
+
+	SoulOfCthulhu: {
+		Author: by MaestroVGM
+		DisplayName: Recondite Rhapsody (Calm)
+	}
+
+	Cthulhu: {
+		Author: by MaestroVGM
+		DisplayName: Recondite Rhapsody (Combat)
+	}
+
+	InfinityZero: {
+		Author: by MaestroVGM
+		DisplayName: Infinitum
+	}
+}
+
+CalamityMod: {
+	LoreItemTooltip:
+		'''
+		[c/E3AF40:苍穹之上的喁喁细语，在你耳中轻盈回荡……]
+		[c/BEBEBE:按住Shift以仔细聆听]
+		'''
+	AwakeningReplacement:
+		'''
+		世间混沌横流。我抬起双眼，望见高耸崖壁上飘散的远古尘埃。
+		这双宏伟的羽翼……我已有多久不曾成为配得上它们名号的英雄？
+		仿佛数百年已逝，而我不过眨了眨眼。
+		看看我的杰作，如今它们……已化为废墟。无人敢来寻我，踏上我的道路。
+		在这残酷的世间，他们终将一无所获。
+		'''
+}

@@ -304,26 +304,28 @@ namespace AAModClassic.Utilities
 
         public static void DrawWithVanillaShader(SpriteBatch spriteBatch, int shader, Action<SpriteBatch> action)
         {
-            spriteBatch.End();
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, default, Main.GameViewMatrix.TransformationMatrix);
+            spriteBatch.End(out var snap);
+            var shaderSnap = snap;
+            shaderSnap.SortMode = SpriteSortMode.Immediate;
+            spriteBatch.Begin(shaderSnap);
 
             GameShaders.Armor.Apply(shader, null, null);
             action.Invoke(spriteBatch);
             
             spriteBatch.End();
-            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);
+            spriteBatch.Begin(snap);
         }
 
         //Thanks YuH
         public static bool DrawAnimatedBestiaryWorm(SpriteBatch spriteBatch, NPC npc, Color drawColor, Texture2D headTexture, Texture2D bodyTexture, int segmentCount, int segmentSpacing, float rotationStrength, Vector2 baseOffset, int animationSpeed, float range, float headOffset = 0, float headSpeedOffset = 0, bool flip = false)
         {
-            DrawAnimatedBestiaryWorm(spriteBatch, npc, drawColor, headTexture, [bodyTexture], segmentCount, segmentSpacing, rotationStrength, baseOffset, animationSpeed, range, headOffset, headSpeedOffset, flip);
+            DrawAnimatedBestiaryWorm(spriteBatch, npc, drawColor, headTexture, null, [bodyTexture], [null], segmentCount, segmentSpacing, rotationStrength, baseOffset, animationSpeed, range, headOffset, headSpeedOffset, flip);
             return false;
         }
 
         public static bool DrawAnimatedBestiaryWorm(SpriteBatch spriteBatch, NPC npc, Color drawColor, Texture2D headTexture, Texture2D bodyTexture, Texture2D bodyTextureAlt, int segmentCount, int segmentSpacing, float rotationStrength, Vector2 baseOffset, int animationSpeed, float range, float headOffset = 0, float headSpeedOffset = 0, bool flip = false)
         {
-            DrawAnimatedBestiaryWorm(spriteBatch, npc, drawColor, headTexture, [bodyTexture, bodyTextureAlt], segmentCount, segmentSpacing, rotationStrength, baseOffset, animationSpeed, range, headOffset, headSpeedOffset, flip);
+            DrawAnimatedBestiaryWorm(spriteBatch, npc, drawColor, headTexture, null, [bodyTexture, bodyTextureAlt], [null, null], segmentCount, segmentSpacing, rotationStrength, baseOffset, animationSpeed, range, headOffset, headSpeedOffset, flip);
             return false;
         }
 
@@ -345,9 +347,9 @@ namespace AAModClassic.Utilities
         /// <param name="headSpeedOffset">Offsets the animation progression for the head. Meant to pair with headOffset</param>
         /// <param name="flip">If the sprites should be flipped. Used for worms viewed from the side like Wyverns</param>
         /// <returns></returns>
-        public static bool DrawAnimatedBestiaryWorm(SpriteBatch spriteBatch, NPC npc, Color drawColor, Texture2D headTexture, Texture2D[] bodyTextures, int segmentCount, int segmentSpacing, float rotationStrength, Vector2 baseOffset, int animationSpeed, float range, float headOffset = 0, float headSpeedOffset = 0, bool flip = false)
+        public static bool DrawAnimatedBestiaryWorm(SpriteBatch spriteBatch, NPC npc, Color drawColor, Texture2D headTexture, Rectangle? headFrame, Texture2D[] bodyTextures, Rectangle?[] bodyFrames, int segmentCount, int segmentSpacing, float rotationStrength, Vector2 baseOffset, int animationSpeed, float range, float headOffset = 0, float headSpeedOffset = 0, bool flip = false)
         {
-            npc.frame = headTexture.Frame(1, Main.npcFrameCount[npc.type]);
+            npc.frame = headFrame ?? headTexture.Frame(1, Main.npcFrameCount[npc.type]);
             // Buffers the segment position and rotations
             float offset = -0.2f;
             float startX = baseOffset.X;
@@ -362,9 +364,12 @@ namespace AAModClassic.Utilities
 
                 // If there's only one texture passed in, use it for all segments
                 // If two are passed in, alternate between them
-                // If more are passed in, each iteration must correspond to a texture
-                Texture2D toUse = bodyTextures.Length == 1 ? bodyTextures[0] : bodyTextures.Length == 2 ? (i % 2 == 0 ? bodyTextures[0] : bodyTextures[1]) : bodyTextures[i - 1];
-                spriteBatch.Draw(toUse, npc.position + new Vector2(startX + bodyOffset, MathF.Sin((wormTimer + offset * i) * animationSpeed) * range + startY), toUse.Frame(1, 1, 0, 0), npc.GetAlpha(drawColor), npc.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer + offset * i) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, toUse.Size() / 2, npc.scale, fx, 0f);
+                // If more are passed in, wrap based on the texture array length
+                int texIndex = bodyTextures.Length == 1 ? 0 : i % bodyTextures.Length;
+                int frameIndex = bodyFrames == null ? -1 : bodyFrames.Length == 1 ? 0 : i % bodyFrames.Length;
+                Texture2D toUse = bodyTextures[texIndex];
+                Rectangle frame = bodyFrames == null || bodyFrames[frameIndex] == null ? toUse.Frame(1, 1, 0, 0) : bodyFrames[frameIndex].Value;
+                spriteBatch.Draw(toUse, npc.position + new Vector2(startX + bodyOffset, MathF.Sin((wormTimer + offset * i) * animationSpeed) * range + startY), frame, npc.GetAlpha(drawColor), npc.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer + offset * i) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, frame.Size() / 2, npc.scale, fx, 0f);
             }
             // Draw the head
             spriteBatch.Draw(headTexture, npc.position + new Vector2(startX + headOffset, MathF.Sin((wormTimer - headSpeedOffset) * animationSpeed) * range + startY), npc.frame, npc.GetAlpha(drawColor), npc.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer - headSpeedOffset) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, npc.frame.Size() * 0.5f, npc.scale, fx, 0f);

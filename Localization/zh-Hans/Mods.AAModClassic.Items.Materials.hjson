@@ -1,0 +1,472 @@
+RainbowMushroom: {
+	DisplayName: 虹彩炼药菇
+	Tooltip: 你不确定它的颜色是天生的，还是因为你喝大了。
+}
+
+ChampionPlate: {
+	DisplayName: 捍卫者金属板
+	Tooltip: 以捍佑矿石锻造而成
+}
+
+ChaosScale: {
+	DisplayName: 冥昧神鳞
+	Tooltip: 这炽热的鳞片中散发混沌能量
+}
+
+DiscordiumBar: {
+	DisplayName: 冥昧锭
+	Tooltip: 世界之混沌熔铸于一体，化作一块威力无穷的锭材
+}
+
+IncineriteBar: {
+	DisplayName: 燎烬锭
+	Tooltip: 小心。烫。
+}
+
+IncineriteOre: {
+	DisplayName: 燎烬矿
+	Tooltip: 这东西烫得不行。小心。
+}
+
+ScorchedScale: {
+	DisplayName: 焦炎鳞片
+	Tooltip: 一位可怕敌人的鳞片
+}
+
+RadiantIncineriteBar: {
+	DisplayName: 焚射锭
+	Tooltip: 光芒耀眼得让人几乎无法直视
+}
+
+DreadScale: {
+	DisplayName: 惊惧鳞片
+	Tooltip: 惊惧之月的力量已握于你手中
+}
+
+EventideAbyssiumOre: {
+	DisplayName: 渊宵矿
+	Tooltip: 冰冷而潮湿，仿佛沼泽中的午夜泥潭
+}
+
+DarkEnergy: {
+	DisplayName: 暗能量
+	Tooltip: 奇怪的是完全没有重量
+}
+
+ApocalyptiteOre: {
+	DisplayName: 启示矿
+	Tooltip: ""
+}
+
+FulguriteBar: {
+	DisplayName: 雷熔锭
+	Tooltip: 带静--电
+}
+
+FulguriteShard: {
+	DisplayName: 雷熔碎片
+	Tooltip: 千束雷电之怒贯穿这枚碎片
+}
+
+RealityBar: {
+	DisplayName: 现实锭
+	Tooltip: 原始的、跨维度的能量
+}
+
+Infinitium: {
+	DisplayName: 无限合金
+	Tooltip: 纯粹而不可预测的恶意
+}
+
+ShinyCharm: {
+	DisplayName: 闪耀魔力
+	Tooltip: 一种稀有的护符，能让某些武器变得闪闪发光
+}
+
+ShinyCharmFish: {
+	DisplayName: 闪耀魔力鱼
+	Tooltip: 一种稀有鱼类
+}
+
+EXSoul: {
+	DisplayName: EX之魂
+	Tooltip: 远古奥术魔法的精华
+}
+
+BiomePrism: {
+	DisplayName: 生态棱镜
+	Tooltip: 一颗魔法棱镜，可以被生态群系的力量强化。
+}
+
+M79Parts: {
+	DisplayName: M79零件
+	Tooltip: ""
+}
+
+BlueAlchemicalMushroom: {
+	DisplayName: 蓝色炼药菇
+	Tooltip: 闻起来怪怪的
+}
+
+BrownAlchemicalMushroom: {
+	DisplayName: 棕色炼药菇
+	Tooltip: 闻起来怪怪的
+}
+
+GrayAlchemicalMushroom: {
+	DisplayName: 灰色炼药菇
+	Tooltip: 闻起来怪怪的
+}
+
+GreenAlchemicalMushroom: {
+	DisplayName: 绿色炼药菇
+	Tooltip: 闻起来怪怪的
+}
+
+OrangeAlchemicalMushroom: {
+	DisplayName: 橙色炼药菇
+	Tooltip: 闻起来怪怪的
+}
+
+PinkAlchemicalMushroom: {
+	DisplayName: 粉色炼药菇
+	Tooltip: 闻起来怪怪的
+}
+
+PurpleAlchemicalMushroom: {
+	DisplayName: 紫色炼药菇
+	Tooltip: 闻起来怪怪的
+}
+
+RedAlchemicalMushroom: {
+	DisplayName: 红色炼药菇
+	Tooltip: 闻起来怪怪的
+}
+
+YellowAlchemicalMushroom: {
+	DisplayName: 黄色炼药菇
+	Tooltip: 闻起来怪怪的
+}
+
+GoddessFeather: {
+	DisplayName: 神妖鸟羽
+	Tooltip: ""
+}
+
+SeraphFeather: {
+	DisplayName: 六翼鸟妖之羽
+	Tooltip: 一根来自六翼鸟妖的银色羽毛
+}
+
+SkyCrystal: {
+	DisplayName: 天晶
+	Tooltip: 一颗美丽的晶体，据说其中蕴含着一片天空
+}
+
+StormSphere: {
+	DisplayName: 风暴球体
+	Tooltip: 一枚超級充能的瓦里安能量水晶球体
+}
+
+RajahPelt: {
+	DisplayName: 兔皮
+	Tooltip: 作为一张毛皮，它惊人地耐用
+}
+
+ChaosPrism: {
+	DisplayName: 混沌棱镜
+	Tooltip: 被混沌的冥昧之焰灌注
+}
+
+ChaosSoul: {
+	DisplayName: 冥昧之魂
+	Tooltip: 稳恒的浑沌，动荡与混乱的本像
+}
+
+DesertMana: {
+	DisplayName: 沙漠魔力
+	Tooltip: ""
+}
+
+DynaskullFossil: {
+	DisplayName: 恐龙王化石
+	Tooltip: 数百万年的能量在这具远古化石中脉动
+}
+
+VultureFeather: {
+	DisplayName: 秃鹫羽毛
+	Tooltip: ""
+}
+
+ForsakenFragment: {
+	DisplayName: 逝落碎片
+	Tooltip: ""
+}
+
+SoulFragment: {
+	DisplayName: 灵魂罪片
+	Tooltip: ""
+}
+
+GlowingMushium: {
+	DisplayName: 荧菌石
+	Tooltip: ""
+}
+
+GlowingMushiumBar: {
+	DisplayName: 荧菌锭
+	Tooltip: 发着光
+}
+
+HallowedOre: {
+	DisplayName: 神圣矿
+	Tooltip: 它超级亮
+}
+
+DevilSilk: {
+	DisplayName: 恶魔丝绸
+	Tooltip: 肉体的罪愆；摸上去很享受，但这东西不经用
+}
+
+PureEvil: {
+	DisplayName: 至纯邪恶
+	Tooltip: 太邪恶了，光是看着它会有罪恶感
+}
+
+CovetiteCrystal: {
+	DisplayName: 贪欲晶石
+	Tooltip:
+		'''
+		你对这枚晶体有一种奇怪的渴望，
+		尽管你已经拥有它了。
+		'''
+}
+
+StoneShell: {
+	DisplayName: 石壳
+	Tooltip: 比基岩更硬，比浮石更轻
+}
+
+CovetiteBar: {
+	DisplayName: 欲晶锭
+	Tooltip: 它好像挺亮眼，但又说不上真亮眼。金食饕餮怎么会堕落至此？
+}
+
+CovetiteOre: {
+	DisplayName: 欲晶矿
+	Tooltip: 只有傻子才想要这个。难怪金食饕餮有那么多。
+}
+
+DragonClaw_Item: {
+	DisplayName: 燎狱龙之爪
+	Tooltip: 别扎到自己
+}
+
+DragonScale: {
+	DisplayName: 龙鳞
+	Tooltip: ""
+}
+
+SolarMushroom: {
+	DisplayName: 日光蘑菇
+	Tooltip: 只在白天生长
+}
+
+DragonFire: {
+	DisplayName: 炽之龙息
+	Tooltip: 真的真的非常烫。
+}
+
+SoulOfSmite: {
+	DisplayName: 狂焰之魂
+	Tooltip: 燎狱生物之精华
+}
+
+CrucibleScale: {
+	DisplayName: 历炼鳞片
+	Tooltip: 煞日之怒从这鳞片中喷薄而出
+}
+
+DaybreakIncineriteBar: {
+	DisplayName: 炙曦锭
+	Tooltip: 如同灼日一般耀眼
+}
+
+DaybreakIncineriteOre: {
+	DisplayName: 炙曦矿
+	Tooltip: 摸起来暖暖的，像明亮的夏日清晨。
+}
+
+SearingSpark: {
+	DisplayName: 灼耀火花
+	Tooltip: ""
+}
+
+PlanteraPetal: {
+	DisplayName: 世纪之花花瓣
+	Tooltip: 它非常粉
+}
+
+MadnessFragment: {
+	DisplayName: 癫狂碎片
+	Tooltip: ""
+}
+
+AbyssiumBar: {
+	DisplayName: 潭渊锭
+	Tooltip: 凝固的黑暗
+}
+
+AbyssiumOre: {
+	DisplayName: 潭渊矿
+	Tooltip: 黏糊糊的。真让人讨厌。
+}
+
+BlackLotus: {
+	DisplayName: 黑莲花
+	Tooltip: 据说有人出价16万美金来买这东西。
+}
+
+LunarMushroom: {
+	DisplayName: 月光蘑菇
+	Tooltip: 只在夜晚生长
+}
+
+HydraClaw_Item: {
+	DisplayName: 九头蛇之爪
+	Tooltip: 别扎到自己
+}
+
+HydraHide: {
+	DisplayName: 九头蛇皮
+	Tooltip: 一位可怕敌人的皮
+}
+
+MirePod: {
+	DisplayName: 潭渊荚果
+	Tooltip: ""
+}
+
+Bogtoxin: {
+	DisplayName: 沼毒
+	Tooltip: 极强的腐蚀性毒液。
+}
+
+DeepAbyssiumBar: {
+	DisplayName: 堑渊锭
+	Tooltip: 这么黑，你能看到它真是一个奇迹
+}
+
+SoulOfSpite: {
+	DisplayName: 渊怨之魂
+	Tooltip: 潭渊生物之精华
+}
+
+EventideAbyssiumBar: {
+	DisplayName: 渊宵锭
+	Tooltip: 如夜月一般冰冷
+}
+
+TerrorSoul: {
+	DisplayName: 惊怖之魂
+	Tooltip: ""
+}
+
+Mushium: {
+	DisplayName: 赤孢石
+	Tooltip: ""
+}
+
+MushiumBar: {
+	DisplayName: 赤孢锭
+	Tooltip: 软乎乎的
+}
+
+DragonSpirit: {
+	DisplayName: 龙之灵息
+	Tooltip: 看起来是苹果味儿的
+}
+
+RelicBar: {
+	DisplayName: 古遗锭
+	Tooltip: ""
+}
+
+SnowMana: {
+	DisplayName: 冰霜魔力
+	Tooltip: ""
+}
+
+VikingRelic: {
+	DisplayName: 维京海盗遗物
+	Tooltip: ""
+}
+
+DarkmatterBar: {
+	DisplayName: 暗物质锭
+	Tooltip: 物理学本身的基石
+}
+
+DarkmatterOre: {
+	DisplayName: 暗物质簇
+	Tooltip: 感觉上无重量，但又有些许质量感
+}
+
+RadiantPhoton: {
+	DisplayName: 耀目光子
+	Tooltip: 一片来自天穹寰宇的碎片
+}
+
+RadiumBar: {
+	DisplayName: 镭光锭
+	Tooltip: 闪闪亮
+}
+
+RadiumOre: {
+	DisplayName: 镭光矿
+	Tooltip: 像午夜的星空一样闪烁
+}
+
+HeroRelics: {
+	DisplayName: 英雄遗物
+	Tooltip: 碎裂遗物的碎片
+}
+
+TerraShard: {
+	DisplayName: 泰拉碎片
+	Tooltip: ""
+}
+
+TerraPrism: {
+	DisplayName: 泰拉棱镜
+	Tooltip: 被泰拉瑞亚大地的统一谐律所灌注
+}
+
+Prism: {
+	DisplayName: 棱彩宝石
+	Tooltip: 闪耀着所有宝石的光彩
+}
+
+DoomiteBar: {
+	DisplayName: 厄劫锭
+	Tooltip: 不安的能量从这锭中散发出来
+}
+
+DoomiteScrap: {
+	DisplayName: 厄劫废料
+	Tooltip:
+		'''
+		一文不值
+		…还是说？
+		'''
+}
+
+ApocalyptitePlate: {
+	DisplayName: 启示图版
+	Tooltip: 一股不祥的能量在这块金属板中嗡鸣
+}
+
+UnstableSingularity: {
+	DisplayName: 不稳定奇点
+	Tooltip: 勉强稳定到可以握在手里
+}

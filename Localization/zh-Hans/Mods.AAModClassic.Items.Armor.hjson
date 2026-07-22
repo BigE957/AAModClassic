@@ -1,0 +1,907 @@
+ChaosSlayer: {
+	SharedFlavorText: "'甲胄中散发着冥昧狂煞之力'"
+
+	ChaosSlayerChestplate: {
+		DisplayName: 冥昧抹杀者道甲
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
+	}
+
+	ChaosSlayerHelmetMage: {
+		DisplayName: 冥昧抹杀者兜帽
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
+	}
+
+	ChaosSlayerHelmetMelee: {
+		DisplayName: 冥昧抹杀者盔胄
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
+	}
+
+	ChaosSlayerHelmetRanged: {
+		DisplayName: 冥昧抹杀者视镜
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
+	}
+
+	ChaosSlayerHelmetSummoner: {
+		DisplayName: 冥昧抹杀者面具
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
+	}
+
+	ChaosSlayerLeggings: {
+		DisplayName: 冥昧抹杀者护胫
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
+	}
+}
+
+Chaos: {
+	ChaosChestplate: {
+		DisplayName: 混元道甲
+		Tooltip: ""
+	}
+
+	ChaosHelmetMage: {
+		DisplayName: 混元面具
+		Tooltip: ""
+	}
+
+	ChaosHelmetMelee: {
+		DisplayName: 混元盔胄
+		Tooltip: ""
+	}
+
+	ChaosHelmetRanged: {
+		DisplayName: 混元假面
+		Tooltip: ""
+	}
+
+	ChaosHelmetSummoner: {
+		DisplayName: 混元视镜
+		Tooltip: ""
+	}
+
+	ChaosLeggings: {
+		DisplayName: 混元护胫
+		Tooltip: ""
+	}
+}
+
+DraconianSun: {
+	SharedFlavorText: "'燎狱的炽焰之怒栖息于此甲胄之中'"
+
+	DraconianSunChestplate: {
+		DisplayName: 炙戮道甲
+		Tooltip: "{$Armor.DraconianSun.SharedFlavorText}"
+	}
+
+	DraconianSunLeggings: {
+		DisplayName: 炙戮护腿
+		Tooltip: "{$Armor.DraconianSun.SharedFlavorText}"
+	}
+
+	DraconianSunHelmet: {
+		DisplayName: 炙戮盔胄
+		Tooltip: "{$Armor.DraconianSun.SharedFlavorText}"
+	}
+}
+
+Darkmatter: {
+	SharedFlavorText: 黑暗，依旧触不可及'
+
+	DarkmatterChestplate: {
+		DisplayName: 暗物质胸甲
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+
+	DarkmatterHelmetMage: {
+		DisplayName: 暗物质面具
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+
+	DarkmatterHelmetMelee: {
+		DisplayName: 暗物质头盔
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+
+	DarkmatterHelmetRanged: {
+		DisplayName: 暗物质视镜
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+
+	DarkmatterHelmetSummoner: {
+		DisplayName: 暗物质头饰
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+
+	DarkmatterLeggings: {
+		DisplayName: 暗物质护胫
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+}
+
+Radium: {
+	SharedFlavorText: "'你就是夜空中最闪亮的一颗星'"
+
+	RadiumChestplate: {
+		DisplayName: 镭光板甲
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+
+	RadiumHelmetMage: {
+		DisplayName: 镭光面具
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+
+	RadiumHelmetMelee: {
+		DisplayName: 镭光头盔
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+
+	RadiumHelmetRanged: {
+		DisplayName: 镭光头饰
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+
+	RadiumHelmetSummoner: {
+		DisplayName: 镭光帽
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+
+	RadiumLeggings: {
+		DisplayName: 镭光腿甲
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+}
+
+Biomite: {
+	BiomiteChestplate: {
+		DisplayName: 环境原核水晶甲
+		Tooltip: ""
+	}
+
+	BiomiteHelmet: {
+		DisplayName: 环境原核头盔
+		Tooltip: ""
+	}
+
+	BiomiteLeggings: {
+		DisplayName: 环境原核护胫
+		Tooltip: ""
+	}
+}
+
+Doomsday: {
+	SharedFlavorText: "'装甲内栖宿着毁灭行星之力'"
+
+	DoomsdayChestplate: {
+		DisplayName: 末日突击装甲
+		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
+	}
+
+	DoomsdayHelmetMage: {
+		DisplayName: 末日突击视镜
+		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
+	}
+
+	DoomsdayHelmetSummoner: {
+		DisplayName: 末日战术视镜
+		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
+	}
+
+	DoomsdayLeggings: {
+		DisplayName: 末日突击护胫
+		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
+	}
+}
+
+InfinitySlayer: {
+	SharedFlavorText: "'无限的伟力与恶意于甲胄中流淌'"
+
+	InfinitySlayerChestplate: {
+		DisplayName: 戮界胸甲
+		Tooltip: "{$Armor.InfinitySlayer.SharedFlavorText}"
+	}
+
+	InfinitySlayerHelmet: {
+		DisplayName: 戮界视镜
+		Tooltip: "{$Armor.InfinitySlayer.SharedFlavorText}"
+	}
+
+	InfinitySlayerLeggings: {
+		DisplayName: 戮界护胫
+		Tooltip: "{$Armor.InfinitySlayer.SharedFlavorText}"
+	}
+}
+
+StripemansLucky: {
+	StripemansLuckyChestplate: {
+		DisplayName: 幸运条纹人衬衫
+		Tooltip: ""
+	}
+
+	StripemansLuckyHelmet: {
+		DisplayName: 幸运条纹人帽
+		Tooltip: ""
+	}
+
+	StripemansLuckyLeggings: {
+		DisplayName: 幸运条纹人裤
+		Tooltip: ""
+	}
+}
+
+Olympian: {
+	OlympianChestplate: {
+		DisplayName: 奥林匹亚胸甲
+		Tooltip: ""
+	}
+
+	OlympianHelmet: {
+		DisplayName: 奥林匹亚头盔
+		Tooltip: ""
+	}
+
+	OlympianLeggings: {
+		DisplayName: 奥林匹亚护胫
+		Tooltip: ""
+	}
+}
+
+HoppingHoodlum: {
+	SharedFlavorText: "'跳脚狂怒'"
+
+	HoppingHoodlumChestplate: {
+		DisplayName: 跳跳流氓兔衬衫
+		Tooltip: "{$Armor.HoppingHoodlum.SharedFlavorText}"
+	}
+
+	HoppingHoodlumHelmet: {
+		DisplayName: 跳跳流氓兔兜帽
+		Tooltip: "{$Armor.HoppingHoodlum.SharedFlavorText}"
+	}
+
+	HoppingHoodlumLeggings: {
+		DisplayName: 跳跳流氓兔爪套
+		Tooltip: "{$Armor.HoppingHoodlum.SharedFlavorText}"
+	}
+}
+
+Champion: {
+	SharedFlavorText: "'纵横于这片土地上的捍卫者盔甲'"
+
+	ChampionChestplate: {
+		DisplayName: 捍卫者胸甲
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+
+	ChampionHelmetMage: {
+		DisplayName: 捍卫者兜帽
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+
+	ChampionHelmetMelee: {
+		DisplayName: 捍卫者巨盔
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+
+	ChampionHelmetRanged: {
+		DisplayName: 捍卫者面具
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+
+	ChampionHelmetSummoner: {
+		DisplayName: 捍卫者头饰
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+
+	ChampionLeggings: {
+		DisplayName: 捍卫者护胫
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+}
+
+FuryWitchs: {
+	FuryWitchsChestplate: {
+		DisplayName: 燎狱魔女胸甲
+		Tooltip: "'一件被至尊龙侍炽焰之灵附魔的法袍'"
+	}
+
+	FuryWitchsHelmet: {
+		DisplayName: 燎狱魔女兜帽
+		Tooltip: "'一件被至尊龙侍炽焰之灵附魔的兜帽'"
+	}
+
+	FuryWitchsLeggings: {
+		DisplayName: 燎狱魔女长靴
+		Tooltip: "'一双被至尊龙侍炽焰之灵附魔的长靴'"
+	}
+}
+
+MidnightAssassin: {
+	MidnightAssassinChestplate: {
+		DisplayName: 午夜刺客胸甲
+		Tooltip: "'一件被午夜暗影浸染的暗色胸甲'"
+	}
+
+	MidnightAssassinHelmet: {
+		DisplayName: 午夜刺客兜帽
+		Tooltip: "'一件被午夜暗影浸染的暗色兜帽'"
+	}
+
+	MidnightAssassinLeggings: {
+		DisplayName: 午夜刺客长靴
+		Tooltip: "'一双被午夜暗影浸染的暗色长靴'"
+	}
+}
+
+Nights: {
+	NightsChestplate: {
+		DisplayName: 夜之护胸
+		Tooltip: ""
+	}
+
+	NightsHelmet: {
+		DisplayName: 夜之护头
+		Tooltip: ""
+	}
+
+	NightsLeggings: {
+		DisplayName: 夜之护胫
+		Tooltip: ""
+	}
+}
+
+Fleshrend: {
+	FleshrendChestplate: {
+		DisplayName: 戮肉者胸甲
+		Tooltip: ""
+	}
+
+	FleshrendHelmet: {
+		DisplayName: 戮肉者头盔
+		Tooltip: ""
+	}
+
+	FleshrendLeggings: {
+		DisplayName: 戮肉者护胫
+		Tooltip: ""
+	}
+}
+
+Dynaskull: {
+	DynaskullChestplate: {
+		DisplayName: 王骨护胸
+		Tooltip: ""
+	}
+
+	DynaskullHelmet: {
+		DisplayName: 王骨护头
+		Tooltip: ""
+	}
+
+	DynaskullLeggings: {
+		DisplayName: 王骨护腿
+		Tooltip: ""
+	}
+}
+
+Deathly: {
+	DeathlyChestplate: {
+		DisplayName: 死寂胸护骨
+		Tooltip: ""
+	}
+
+	DeathlyHelmet: {
+		DisplayName: 死寂头护骨
+		Tooltip: ""
+	}
+
+	DeathlyLeggings: {
+		DisplayName: 死寂胫护骨
+		Tooltip: ""
+	}
+}
+
+GlowingMushium: {
+	GlowingMushiumChestplate: {
+		DisplayName: 荧菌衫
+		Tooltip: ""
+	}
+
+	GlowingMushiumHelmet: {
+		DisplayName: 荧菌帽
+		Tooltip: ""
+	}
+
+	GlowingMushiumLeggings: {
+		DisplayName: 荧菌裤
+		Tooltip: ""
+	}
+}
+
+GoblinSlayers: {
+	GoblinSlayersChestplate: {
+		DisplayName: 哥布林杀手胸甲
+		Tooltip: 对哥布林一族的深仇大恨附于此胸甲之上
+	}
+
+	GoblinSlayersHelmet: {
+		DisplayName: 哥布林杀手头盔
+		Tooltip: 对哥布林一族的深仇大恨附于此头盔之上
+	}
+
+	GoblinSlayersLeggings: {
+		DisplayName: 哥布林杀手护胫
+		Tooltip: 对哥布林一族的深仇大恨附于此护胫之上
+	}
+}
+
+Hallowed: {
+	HallowedHelmetSummoner: {
+		DisplayName: 神圣脸部涂装
+		Tooltip: ""
+	}
+}
+
+Demon: {
+	DemonChestplate: {
+		DisplayName: 恶魔外套
+		Tooltip: ""
+	}
+
+	DemonHelmet: {
+		DisplayName: 恶魔兜帽
+		Tooltip: ""
+	}
+
+	DemonLeggings: {
+		DisplayName: 恶魔步足
+		Tooltip: ""
+	}
+}
+
+Imp: {
+	ImpChestplate: {
+		DisplayName: 小鬼上衣
+		Tooltip: ""
+	}
+
+	ImpHelmet: {
+		DisplayName: 小鬼兜帽
+		Tooltip: ""
+	}
+
+	ImpLeggings: {
+		DisplayName: 小鬼长靴
+		Tooltip: ""
+	}
+}
+
+StoneSoldier: {
+	StoneSoldierChestplate: {
+		DisplayName: 点石成兵胸甲
+		Tooltip: ""
+	}
+
+	StoneSoldierHelmet: {
+		DisplayName: 点石成兵头盔
+		Tooltip: ""
+	}
+
+	StoneSoldierLeggings: {
+		DisplayName: 点石成兵护胫
+		Tooltip: ""
+	}
+}
+
+Blazing: {
+	SharedFlavorText: "{$Armor.Kindled.SharedFlavorText}"
+
+	BlazingChestplate: {
+		DisplayName: 怒炎道甲
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+
+	BlazingHelmet: {
+		DisplayName: 怒炎盔胄
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+
+	BlazingLeggings: {
+		DisplayName: 怒炎臑当
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+}
+
+Kindled: {
+	SharedFlavorText: "'在燎日之焰中锻造'"
+
+	KindledChestplate: {
+		DisplayName: 激燃道甲
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+
+	KindledHelmet: {
+		DisplayName: 激燃盔胄
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+
+	KindledLeggings: {
+		DisplayName: 激燃臑当
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+}
+
+Razewood: {
+	RazewoodChestplate: {
+		DisplayName: 燎火木胸甲
+		Tooltip: ""
+	}
+
+	RazewoodHelmet: {
+		DisplayName: 燎火木头盔
+		Tooltip: ""
+	}
+
+	RazewoodLeggings: {
+		DisplayName: 燎火木护胫
+		Tooltip: ""
+	}
+}
+
+Tribal: {
+	TribalChestplate: {
+		DisplayName: 部落披风
+		Tooltip: ""
+	}
+
+	TribalHelmet: {
+		DisplayName: 部落兜帽
+		Tooltip: ""
+	}
+
+	TribalLeggings: {
+		DisplayName: 部落褶裙
+		Tooltip: ""
+	}
+}
+
+Chlorophyte: {
+	ChlorophyteHelmetSummoner: {
+		DisplayName: 叶绿脸部涂装
+		Tooltip: ""
+	}
+
+	ChlorophyteHelmetSummoner2: {
+		DisplayName: 泰拉脸部涂装
+		Tooltip: ""
+	}
+}
+
+Abyssal: {
+	SharedFlavorText: "{$Armor.Depth.SharedFlavorText}"
+
+	AbyssalChestplate: {
+		DisplayName: 沉渊武服
+		Tooltip: "{$Armor.Abyssal.SharedFlavorText}"
+	}
+
+	AbyssalHelmet: {
+		DisplayName: 沉渊假面
+		Tooltip: "{$Armor.Abyssal.SharedFlavorText}"
+	}
+
+	AbyssalLeggings: {
+		DisplayName: 沉渊袴裤
+		Tooltip: "{$Armor.Abyssal.SharedFlavorText}"
+	}
+}
+
+Bogwood: {
+	BogwoodChestplate: {
+		DisplayName: 沼木胸甲
+		Tooltip: ""
+	}
+
+	BogwoodHelmet: {
+		DisplayName: 沼木头盔
+		Tooltip: ""
+	}
+
+	BogwoodLeggings: {
+		DisplayName: 沼木长靴
+		Tooltip: ""
+	}
+}
+
+Depth: {
+	SharedFlavorText: "'如影般轻盈'"
+
+	DepthChestplate: {
+		DisplayName: 深暗武服
+		Tooltip: "{$Armor.Depth.SharedFlavorText}"
+	}
+
+	DepthHelmet: {
+		DisplayName: 深暗假面
+		Tooltip: "{$Armor.Depth.SharedFlavorText}"
+	}
+
+	DepthLeggings: {
+		DisplayName: 深暗袴裤
+		Tooltip: "{$Armor.Depth.SharedFlavorText}"
+	}
+}
+
+DreadMoon: {
+	SharedFlavorText: "'潭渊的深渊之怒栖息于此甲胄之中'"
+
+	DreadMoonChestplate: {
+		DisplayName: 惧之月武服
+		Tooltip: "{$Armor.DreadMoon.SharedFlavorText}"
+	}
+
+	DreadMoonHelmet: {
+		DisplayName: 惧之月假面
+		Tooltip: "{$Armor.DreadMoon.SharedFlavorText}"
+	}
+
+	DreadMoonLeggings: {
+		DisplayName: 惧之月袴裤
+		Tooltip: "{$Armor.DreadMoon.SharedFlavorText}"
+	}
+}
+
+Atlantean: {
+	SharedFlavorText: "'它蕴含着亚特兰蒂斯的力量，随之振动'"
+
+	AtlanteanChestplate: {
+		DisplayName: 亚特兰蒂斯胸甲
+		Tooltip: "{$Armor.Atlantean.SharedFlavorText}"
+	}
+
+	AtlanteanHelmet: {
+		DisplayName: 亚特兰蒂斯头盔
+		Tooltip: "{$Armor.Atlantean.SharedFlavorText}"
+	}
+
+	AtlanteanLeggings: {
+		DisplayName: 亚特兰蒂斯护胫
+		Tooltip: "{$Armor.Atlantean.SharedFlavorText}"
+	}
+}
+
+Ocean: {
+	OceanChestplate: {
+		DisplayName: 海洋胸甲
+		Tooltip: ""
+	}
+
+	OceanHelmet: {
+		DisplayName: 海洋头盔
+		Tooltip: ""
+	}
+
+	OceanLeggings: {
+		DisplayName: 海洋护胫
+		Tooltip: ""
+	}
+}
+
+Mushium: {
+	MushiumChestplate: {
+		DisplayName: 赤孢衫
+		Tooltip: ""
+	}
+
+	MushiumHelmet: {
+		DisplayName: 赤孢帽
+		Tooltip: ""
+	}
+
+	MushiumLeggings: {
+		DisplayName: 赤孢裤
+		Tooltip: ""
+	}
+}
+
+Raider: {
+	RaiderChestplate: {
+		DisplayName: 突袭者胸甲
+		Tooltip: ""
+	}
+
+	RaiderHelmet: {
+		DisplayName: 突袭者头盔
+		Tooltip: ""
+	}
+
+	RaiderLeggings: {
+		DisplayName: 突袭者护胫
+		Tooltip: ""
+	}
+}
+
+Viking: {
+	VikingChestplate: {
+		DisplayName: 维京海盗板甲
+		Tooltip: ""
+	}
+
+	VikingHelmet: {
+		DisplayName: 维京海盗头盔
+		Tooltip: ""
+	}
+
+	VikingLeggings: {
+		DisplayName: 维京海盗护胫
+		Tooltip: ""
+	}
+}
+
+Terra: {
+	TerraChestplate: {
+		DisplayName: 泰拉胸甲
+		Tooltip: ""
+	}
+
+	TerraHelmetMage: {
+		DisplayName: 泰拉兜帽
+		Tooltip: ""
+	}
+
+	TerraHelmetMelee: {
+		DisplayName: 泰拉头盔
+		Tooltip: ""
+	}
+
+	TerraHelmetRanged: {
+		DisplayName: 泰拉视镜
+		Tooltip: ""
+	}
+
+	TerraHelmetSummoner: {
+		DisplayName: 泰拉面具
+		Tooltip: ""
+	}
+
+	TerraLeggings: {
+		DisplayName: 泰拉护胫
+		Tooltip: ""
+	}
+
+	TerraHelmetMageTest: {
+		DisplayName: 泰拉兜帽
+		Tooltip: ""
+	}
+}
+
+AncientGold: {
+	AncientGoldChestplate: {
+		DisplayName: 远古金链甲
+		Tooltip: ""
+	}
+
+	AncientGoldLeggings: {
+		DisplayName: 远古金护胫
+		Tooltip: ""
+	}
+}
+
+Adamantite: {
+	AdamantiteHelmetSummoner: {
+		DisplayName: 精金脸部涂装
+		Tooltip: ""
+	}
+}
+
+Cobalt: {
+	CobaltHelmetSummoner: {
+		DisplayName: 钴脸部涂装
+		Tooltip: ""
+	}
+}
+
+Mythril: {
+	MythrilHelmetSummoner: {
+		DisplayName: 秘银脸部涂装
+		Tooltip: ""
+	}
+}
+
+Orichalcum: {
+	OrichalcumHelmetSummoner: {
+		DisplayName: 山铜脸部涂装
+		Tooltip: ""
+	}
+}
+
+Palladium: {
+	PalladiumHelmetSummoner: {
+		DisplayName: 钯金脸部涂装
+		Tooltip: ""
+	}
+}
+
+Titanium: {
+	TitaniumHelmetSummoner: {
+		DisplayName: 钛金脸部涂装
+		Tooltip: ""
+	}
+}
+
+DarkDoomite: {
+	DarkDoomiteChestplate: {
+		DisplayName: 暗劫末日胸甲
+		Tooltip: ""
+	}
+
+	DarkDoomiteHelmet: {
+		DisplayName: 暗劫灾祸头盔
+		Tooltip: ""
+	}
+
+	DarkDoomiteLeggings: {
+		DisplayName: 暗劫废料护胫
+		Tooltip: ""
+	}
+}
+
+Doomite: {
+	DoomiteChestplate: {
+		DisplayName: 厄劫护胸
+		Tooltip: ""
+	}
+
+	DoomiteHelmet: {
+		DisplayName: 厄劫面具
+		Tooltip: ""
+	}
+
+	DoomiteLeggings: {
+		DisplayName: 厄劫护胫
+		Tooltip: ""
+	}
+}
+
+Ouroboros: {
+	OuroborosChestplate: {
+		DisplayName: 衔尾木胸甲
+		Tooltip: ""
+	}
+
+	OuroborosHelmet: {
+		DisplayName: 衔尾木头盔
+		Tooltip: ""
+	}
+
+	OuroborosLeggings: {
+		DisplayName: 衔尾木长靴
+		Tooltip: ""
+	}
+}
+
+Fulgurite: {
+	FulguriteChestplate: {
+		DisplayName: 雷熔护胸
+		Tooltip: ""
+	}
+
+	FulguriteHelmetMage: {
+		DisplayName: 雷熔面具
+		Tooltip: ""
+	}
+
+	FulguriteHelmetMelee: {
+		DisplayName: 雷熔头盔
+		Tooltip: ""
+	}
+
+	FulguriteHelmetRanged: {
+		DisplayName: 雷熔视镜
+		Tooltip: ""
+	}
+
+	FulguriteLeggings: {
+		DisplayName: 雷熔护胫
+		Tooltip: ""
+	}
+}

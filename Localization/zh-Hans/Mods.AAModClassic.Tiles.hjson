@@ -1,0 +1,252 @@
+TilesInfo: {
+	Spawnpointremoved: 生成点已移除！
+	Spawnpointset: 生成点已设置！
+	EnderMemoryInfo: 用于纪念我们心中的一位早已逝去的朋友。
+	DragonEgg1: 龙蛋破碎的声音在火山中回荡…
+	DragonEgg2: 你听到远处传来一声咆哮…
+	DragonEgg3: 你听到一声疲惫而轻微的嘶吼，然后…呼噜声..？
+	HydraPod1: 有东西从破碎的荚果中溢出…真恶心。
+	HydraPod2: 你听到附近传来嘶嘶声…
+	HydraPod3: 你听到嘶嘶声，但却窸窣地消失在浓雾中…
+}
+
+GreedChest: {
+	MapEntry: 贪婪宝箱
+	GreedChest1: 你脚下的地面轻微震动着…
+	GreedChest2: 你听到一声尖叫在洞穴中回荡…
+	GreedChest3: 把 老 子 的 东 西 放 下，你 这 个 偷 东 西 的 野 猴 子！！！
+}
+
+AvesInABox_Tile.MapEntry: 盒中爱维斯
+DevStatue_Tile.MapEntry: 雕像
+AleisterBook_Tile.MapEntry: 亚雷斯塔之书
+CCBag_Tile.MapEntry: 纸板箱
+CerberusBag_Tile.MapEntry: 刻耳泊洛斯犬舍
+CrystalChandelier_Tile.MapEntry: 水晶吊灯
+EnderMemory_Tile.MapEntry: 永恒追忆
+FurnitureDynamo_Tile.MapEntry: 家居集铸点
+SkyCrystal_Tile.MapEntry: 天晶
+AcropolisAltar_Tile.MapEntry: 枭纹祭坛
+RoyalRabbitCage_Tile.MapEntry: 皇家兔笼
+RitualAltar_Tile.MapEntry: 仪式祭坛
+DiscordianTorch_Tile.MapEntry: 冥昧火把
+AnyAncientCraftingStation_Tile.MapEntry: 任意远古制作站
+ChaosCrucible_Tile.MapEntry: 混沌坩埚
+ChaosAltarSafe_Tile.MapEntry: 混沌祭坛
+DynaskullFossil_Tile.MapEntry: 恐龙王化石
+EvilAltarSafe_Tile.MapEntry: 邪恶祭坛
+HallowedOre_Tile.MapEntry: 神圣矿
+ThixxieBanner_Tile.MapEntry: 胖精灵旗
+HallowedAnvil_Tile.MapEntry: 神圣砧
+HallowedForge_Tile.MapEntry: 神圣熔炉
+PaladinsSmeltery_Tile.MapEntry: 圣骑士冶炼炉
+TruePaladinsSmeltery_Tile.MapEntry: 真·圣骑士冶炼炉
+FatPixie_Banner_Tile.MapEntry: 胖精灵旗
+HaphestusForge_Tile.MapEntry: 赫费斯特铁匠神熔炉
+HellstoneAnvil_Tile.MapEntry: 狱石砧
+Throne_Tile.MapEntry: 邪恶王座
+CovetiteOre_Tile.MapEntry: 欲晶矿
+GreedAltar_Tile.MapEntry: 欲望祭坛
+GreedChest_Tile.MapEntry: 贪婪宝箱
+GreedLantern_Tile.MapEntry: 石灯笼
+IncineriteOre_Tile.MapEntry: 燎烬矿
+RazewoodBed_Tile.MapEntry: 燎火木床
+RazewoodBookshelf_Tile.MapEntry: 燎火木书架
+RazewoodCandelabra_Tile.MapEntry: 燎火木烛台
+RazewoodCandle_Tile.MapEntry: 燎火木蜡烛
+RazewoodChair_Tile.MapEntry: 燎火木椅
+RazewoodChandelier_Tile.MapEntry: 燎火木吊灯
+RazewoodChest_Tile.MapEntry: 燎火木箱
+
+RazewoodClock_Tile: {
+	MapEntry: 燎火木时钟
+	FlavorText: 也许用烧焦的木头做钟表不是什么好主意。这东西根本不走。
+}
+
+RazewoodCouch_Tile.MapEntry: 燎火木沙发
+RazewoodDoorClosed_Tile.MapEntry: 燎火木门
+RazewoodDoorOpen_Tile.MapEntry: 燎火木门
+RazewoodDresser_Tile.MapEntry: 燎火木梳妆台
+RazewoodLamp_Tile.MapEntry: 燎火木灯
+RazewoodLantern_Tile.MapEntry: 燎火木灯笼
+RazewoodPiano_Tile.MapEntry: 燎火木钢琴
+RazewoodSink_Tile.MapEntry: 燎火木水槽
+RazewoodTable_Tile.MapEntry: 燎火木桌
+RazewoodTub_Tile.MapEntry: 燎火木浴缸
+RazewoodWorkbench_Tile.MapEntry: 燎火木工作台
+DragonfireTorch_Tile.MapEntry: 燎狱龙炎火把
+SharpeningLavaFish_Tile.MapEntry: 利锋熔鱼
+DaybreakIncineriteOre_Tile.MapEntry: 炙曦矿
+DaybreakTorch_Tile.MapEntry: 炙曦火把
+InfernoChest_Tile.MapEntry: 燎狱宝箱
+DragonAltarUnsafe_Tile.MapEntry: 龙之祭坛
+DragonEgg_Tile.MapEntry: 龙蛋
+RazewoodPalmSapling_Tile.MapEntry: 燎火木棕榈树苗
+RazewoodSapling_Tile.MapEntry: 燎火木树苗
+AbyssiumOre_Tile.MapEntry: 潭渊矿
+BogwoodBathtub_Tile.MapEntry: 污泽木浴缸
+BogwoodBed_Tile.MapEntry: 污泽木床
+BogwoodBench_Tile.MapEntry: 污泽木长凳
+BogwoodBookshelf_Tile.MapEntry: 污泽木书架
+BogwoodCandelabra_Tile.MapEntry: 污泽木烛台
+BogwoodCandle_Tile.MapEntry: 污泽木蜡烛
+BogwoodChair_Tile.MapEntry: 污泽木椅
+BogwoodChandelier_Tile.MapEntry: 污泽木吊灯
+BogwoodChest_Tile.MapEntry: 污泽木箱
+BogwoodClock_Tile.MapEntry: 污泽木时钟
+BogwoodCouch_Tile.MapEntry: 污泽木沙发
+BogwoodDoorClosed_Tile.MapEntry: 污泽木门
+BogwoodDoorOpen_Tile.MapEntry: 污泽木门
+BogwoodDresser_Tile.MapEntry: 污泽木梳妆台
+BogwoodLamp_Tile.MapEntry: 污泽木灯
+BogwoodLantern_Tile.MapEntry: 污泽木灯笼
+BogwoodPiano_Tile.MapEntry: 污泽木钢琴
+BogwoodSink_Tile.MapEntry: 污泽木水槽
+BogwoodTable_Tile.MapEntry: 污泽木桌
+BogwoodWorkbench_Tile.MapEntry: 污泽木工作台
+BogtoxinTorch_Tile.MapEntry: 沼毒火把
+ToxinMonkfish_Tile.MapEntry: 毒源鮟鱇
+EventideAbyssiumOre_Tile.MapEntry: 渊宵矿
+EventideTorch_Tile.MapEntry: 渊宵火把
+MireChest_Tile.MapEntry: 潭渊宝箱
+AbyssAltarUnsafe_Tile.MapEntry: 深渊祭坛
+HydraPod_Tile.MapEntry: 九头蛇卵囊
+BogwoodPalmTreeSapling_Tile.MapEntry: 污泽木棕榈树苗
+BogwoodSapling_Tile.MapEntry: 污泽木树苗
+VikingRelic_Tile.MapEntry: 维京遗物
+RadiumOre_Tile.MapEntry: 镭光矿
+QuantumFusionAccelerator_Tile.MapEntry: 量子融合加速器
+RadiantArcanum_Tile.MapEntry: 射线之奥秘
+GravAltar_Tile.MapEntry: 重力祭坛
+StarAltar_Tile.MapEntry: 星辰祭坛
+WormAltar_Tile.MapEntry: 均衡祭坛
+TerraCore_Tile.MapEntry: 泰拉核心
+TerraPrismStation_Tile.MapEntry: 无限核心
+PrismOre_Tile.MapEntry: 棱彩宝石
+OuroborosWoodBathtub_Tile.MapEntry: 衔尾木浴缸
+OuroborosWoodBed_Tile.MapEntry: 衔尾木床
+OuroborosWoodBookcase_Tile.MapEntry: 衔尾木书架
+OuroborosWoodChair_Tile.MapEntry: 衔尾木椅
+OuroborosWoodChest_Tile.MapEntry: 衔尾木箱
+OuroborosWoodClock_Tile.MapEntry: 衔尾木时钟
+OuroborosWoodDoorClosed_Tile.MapEntry: 衔尾木门
+OuroborosWoodDoorOpen_Tile.MapEntry: 衔尾木门
+OuroborosWoodLantern_Tile.MapEntry: 衔尾木灯笼
+OuroborosWoodWorkbench_Tile.MapEntry: 衔尾木工作台
+ApocalyptiteOre_Tile.MapEntry: 启示矿
+DoomBathtub_Tile.MapEntry: 厄劫浴缸
+DoomBed_Tile.MapEntry: 厄劫床
+DoomBookcase_Tile.MapEntry: 厄劫书架
+DoomCandelabra_Tile.MapEntry: 厄劫烛台
+DoomCandle_Tile.MapEntry: 厄劫蜡烛
+DoomChair_Tile.MapEntry: 厄劫椅
+DoomChandelier_Tile.MapEntry: 厄劫吊灯
+DoomChest_Tile.MapEntry: 厄劫宝箱
+
+DoomClock_Tile: {
+	MapEntry: 厄劫倒计时钟
+
+	FlavorText: {
+		PreZero:
+			'''
+			时钟正在倒计时，指向某件事……不过你并不清楚那究竟是什么。
+			目前的数字大到连这个数字叫什么你都不知道。
+			'''
+		PostZero: 时钟上只显示一个数字：0
+	}
+}
+
+DoomCouch_Tile.MapEntry: 厄劫沙发
+DoomDoorClosed_Tile.MapEntry: 厄劫门
+DoomDoorOpen_Tile.MapEntry: 厄劫门
+DoomDresser_Tile.MapEntry: 厄劫梳妆台
+DoomLamp_Tile.MapEntry: 厄劫灯
+DoomLantern_Tile.MapEntry: 厄劫灯笼
+DoomPiano_Tile.MapEntry: 厄劫钢琴
+DoomSink_Tile.MapEntry: 厄劫水槽
+DoomTable_Tile.MapEntry: 厄劫桌
+DoomWorkbench_Tile.MapEntry: 厄劫工作台
+BinaryReassembler_Tile.MapEntry: 二进制碎片重组机
+DoomsdayChest_Tile.MapEntry: 末日宝箱
+OuroborosSapling_Tile.MapEntry: 衔尾木树苗
+AncientDataBank_Tile.MapEntry: 古代数据库
+DataBank_Tile.MapEntry: 数据库
+StormChest_Tile.MapEntry: 风暴宝箱
+Core_Tile.MapEntry: 源态细胞
+CoreActivator_Tile.MapEntry: 核心引擎
+CoreDoor_Tile.MapEntry: 密封门
+KeepBath_Tile.MapEntry: 要塞浴缸
+KeepBed_Tile.MapEntry: 要塞床
+KeepBookcase_Tile.MapEntry: 要塞书架
+KeepCandelabra_Tile.MapEntry: 要塞烛台
+KeepCandle_Tile.MapEntry: 要塞蜡烛
+KeepChair_Tile.MapEntry: 要塞椅
+KeepChandelier_Tile.MapEntry: 要塞吊灯
+KeepClock_Tile.MapEntry: 要塞时钟
+KeepCouch_Tile.MapEntry: 要塞沙发
+KeepDoorClosed_Tile.MapEntry: 要塞门
+KeepDoorOpen_Tile.MapEntry: 要塞门
+KeepDresser_Tile.MapEntry: 要塞梳妆台
+KeepLamp_Tile.MapEntry: 要塞灯
+KeepLantern_Tile.MapEntry: 要塞灯笼
+KeepPiano_Tile.MapEntry: 要塞钢琴
+KeepSink_Tile.MapEntry: 要塞水槽
+KeepTable_Tile.MapEntry: 要塞桌
+KeepWorkbench_Tile.MapEntry: 要塞工作台
+SpiralStairs_Tile.MapEntry: 螺旋楼梯
+TerraBath_Tile.MapEntry: 泰拉浴缸
+TerraBed_Tile.MapEntry: 泰拉床
+TerraBookcase_Tile.MapEntry: 泰拉书架
+TerraCandelabra_Tile.MapEntry: 泰拉烛台
+TerraCandle_Tile.MapEntry: 泰拉蜡烛
+TerraChair_Tile.MapEntry: 泰拉椅
+TerraChandelier_Tile.MapEntry: 泰拉吊灯
+TerraChest_Tile.MapEntry: 泰拉宝箱
+TerraClock_Tile.MapEntry: 泰拉时钟
+TerraCouch_Tile.MapEntry: 泰拉沙发
+TerraDoorClosed_Tile.MapEntry: 泰拉门
+TerraDoorOpen_Tile.MapEntry: 泰拉门
+TerraDresser_Tile.MapEntry: 泰拉梳妆台
+TerraLamp_Tile.MapEntry: 泰拉灯
+TerraLantern_Tile.MapEntry: 泰拉灯笼
+TerraPiano_Tile.MapEntry: 泰拉钢琴
+TerraSink_Tile.MapEntry: 泰拉水槽
+TerraTable_Tile.MapEntry: 泰拉桌
+TerraWorkbench_Tile.MapEntry: 泰拉工作台
+KeepDoor1_Tile.MapEntry: 要塞门
+KeepDoor2_Tile.MapEntry: 要塞门
+KeepDoor2S_Tile.MapEntry: 要塞门
+KeepDoor3_Tile.MapEntry: 要塞门
+
+TerraStatue_Tile: {
+	MapEntry: 失落英雄雕像
+	// FlavorText: The Hero who saved us all from the brink of chaos
+}
+
+SunkenChest_Tile.MapEntry: 沉船宝箱
+InfernoPylon_Tile.MapEntry: 燎狱晶塔
+MirePylon_Tile.MapEntry: 潭渊晶塔
+RedMushroomPylon_Tile.MapEntry: 红蘑菇晶塔
+VoidPylon_Tile.MapEntry: 虚空晶塔
+FulguriteShard_Tile.MapEntry: 雷熔碎片
+// RedmushBed_Tile.MapEntry: Mushroom Bed
+// RedmushBench_Tile.MapEntry: Mushroom Bench
+// RedmushBookcase_Tile.MapEntry: Mushroom Bookcase
+// RedmushCandelabra_Tile.MapEntry: Mushroom Candelabra
+// RedmushCandle_Tile.MapEntry: Mushroom Candle
+// RedmushChair_Tile.MapEntry: Mushroom Chair
+// RedmushChandelier_Tile.MapEntry: Mushroom Chandelier
+// RedmushChest_Tile.MapEntry: Mushroom Chest
+// RedmushClock_Tile.MapEntry: Mushroom Clock
+// RedmushCouch_Tile.MapEntry: Mushroom Couch
+// RedmushDoorClosed_Tile.MapEntry: Mushroom Door
+// RedmushDoorOpen_Tile.MapEntry: Mushroom Door
+// RedmushDresser_Tile.MapEntry: Mushroom Dresser
+// RedmushLamp_Tile.MapEntry: Mushroom Lamp
+// RedmushLantern_Tile.MapEntry: Mushroom Lantern
+// RedmushPiano_Tile.MapEntry: Mushroom Piano
+// RedmushSink_Tile.MapEntry: Mushroom Sink
+// RedmushTable_Tile.MapEntry: Mushroom Table
+// RedmushToilet_Tile.MapEntry: Mushroom Toilet
+// RedmushTub_Tile.MapEntry: Mushroom Tub
+// RedmushWorkbench_Tile.MapEntry: Mushroom Workbench

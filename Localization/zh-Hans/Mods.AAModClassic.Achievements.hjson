@@ -1,0 +1,248 @@
+//Boss Kills
+MushroomMonarchKilled: {
+	FriendlyName: 巨型真菌
+	Description: 推翻赤孢皇——一个自封为王的真菌异种。
+}
+
+FeudalFungusKilled: {
+	FriendlyName: 发光的世仇
+	Description: 击倒真菌帝——脾性恶劣的真菌异种。
+}
+
+GripsOfChaosKilled: {
+	FriendlyName: 脱手之灾
+	Description: 击败混沌双爪——五指俱全、渴求混沌的灾厄存在。
+}
+
+TruffleToadKilled: {
+	FriendlyName: 蛙鸣终焉
+	Description: 击杀松露蟾蜍——这种真菌怪物的敏捷度出人意料。
+}
+
+BroodmotherKilled: {
+	FriendlyName: 尘归尘
+	Description: 击败育母炎龙——由熔岩怒火中诞生的巨龙。
+}
+
+HydraKilled: {
+	FriendlyName: 三头胜独思
+	Description: 斩下九头渊蛇的首级——栖居于潭渊的愤怒巨兽。
+}
+
+DesertDjinnKilled: {
+	FriendlyName: 不许愿？
+	Description: 在力量上胜过沙漠巨灵——游荡于荒沙中的肌肉精灵。
+}
+
+SubzeroSerpentKilled: {
+	FriendlyName: 零度之下
+	Description: 融化绝零冰蛇——栖息于冻土苔原的闪亮巨蟒。
+}
+
+SagittariusKilled: {
+	FriendlyName: 哑然失声
+	Description: 摧毁射手座-虚空人马——被虚空黑暗意志侵蚀腐化的机械造物。
+}
+
+AkumaKilled: {
+	FriendlyName: 屠龙之道
+	Description: 将邪鬼巨龙化为灰烬。
+}
+
+AnubisKilled: {
+	FriendlyName: 你的第一步
+	Description: 在友谊对练中战胜阿努比斯。
+}
+
+BiomiteCoreKilled: {
+	FriendlyName: 世界之核
+	Description: 承受住环境原核的攻击——失落要塞的防御兼训练。
+}
+
+AthenaKilled: {
+	FriendlyName: 神圣惩戒
+	Description: 击败精明的穹武鸮姬。
+}
+
+ChampionRajahKilled: {
+	FriendlyName: 谁陷害了巨兔王公？
+	Description: 与突袭惩罚者本兔和解，继承他「无辜的保护者」的称号。
+}
+
+EquinoxWormsKilled: {
+	FriendlyName: 明年再见！
+	Description: 通过昼夜双虫的试炼，获得它们的祝福。
+}
+
+GreedKilled: {
+	FriendlyName: 独一无二的图腾
+	Description: 击败贪婪的金食饕餮，将他的宝库据为己有。
+}
+
+InfinityZeroKilled: {
+	FriendlyName: 致命错误
+	Description: 彻底摧毁无限零，不让遗忘的任何玩物完好无损。
+}
+
+PreEquinoxAncientsKilled: {
+	FriendlyName: 远古觉醒
+	Description: 击败阿努比斯、穹武鸮姬和金食饕餮的最强形态。
+}
+
+RajahKilled: {
+	FriendlyName: 猎兔季节
+	Description: 直面巨兔王公并活着讲述这个故事。
+}
+
+ShenDoragonKilled: {
+	FriendlyName: 穿越潭渊与燎狱
+	Description: 消灭上神应龙，终结永恒的混沌。
+}
+
+SiegeMechsKilled: {
+	FriendlyName: 战争军械库
+	Description: 击败三个夜间行动的风暴科学家威胁：捕猎者-电子猎犬爪、食腐者-双头狗俄耳托斯X型与侵入者-创世哺育之母。
+}
+
+SistersOfDiscordKilled: {
+	FriendlyName: 混乱干预
+	Description: 把混沌姐妹打得哭着跑回她们老爸的怀里。
+}
+
+SoulOfCthulhuKilled: {
+	FriendlyName: 沉船遗魂
+	Description: 驱除克苏鲁之魂，阻止它的寰宇之灾吞噬世界。
+}
+
+StormingSiege: {
+	FriendlyName: 轮碾锋镝
+	Description: 同时迎战捕猎者-电子猎犬爪、食腐者-双头狗俄耳托斯X型和侵入者-创世哺育之母，并取得胜利。
+}
+
+TechnoTruffleKilled: {
+	FriendlyName: 第四金属元素
+	Description: 摧毁风暴科学家的错误真菌造物——电子化-机械松露怪。
+}
+
+YamataKilled: {
+	FriendlyName: 多舌之首
+	Description: 斩下八歧大蛇的众多头颅。
+}
+
+ZeroKilled: {
+	FriendlyName: 系统.除以零异常
+	Description: 废除虚空的主零号单元，招致一个远为可怕的威胁之怒火……
+}
+
+AllBossesKilled: {
+	FriendlyName: 现在是谁觉醒了？
+	Description: 击败远古觉醒：经典版中的所有Boss。
+}
+
+//Ores Mined
+ChaosOreMined: {
+	FriendlyName: 混沌掌控
+	Description: 开采燎烬矿或潭渊矿——深埋地下的混沌矿石。
+}
+
+CelestialOreMined: {
+	FriendlyName: 第五元素
+	Description: 开采镭光矿或暗物质簇——在深空中形成的宇宙矿石。
+}
+
+TierThreeChaosOreMined: {
+	FriendlyName: 太古之力
+	Description: 开采炙曦矿或渊宵矿——分别在燎狱与潭渊中发现的远古矿石形态。
+}
+
+ApocalyptiteOreMined: {
+	FriendlyName: 末日降临
+	Description: 开采启示矿——由虚空毁灭能量形成的不稳定矿石。
+}
+
+//Items Obtained
+LuckyArmorEquipped: {
+	FriendlyName: 种田大户
+	Description: 装备全套幸运条纹人套装，让你挖矿、钓鱼、种田无人能敌。
+}
+
+MadnessPotionCrafted: {
+	FriendlyName: 禁忌炼金
+	Description: 用癫狂蘑菇与赤松露人交换虹彩炼药菇，并用它们炼制一瓶药水。
+}
+
+ChaosCrafted: {
+	FriendlyName: 复仇女神
+	Description: 获得「浑沌」——由狂怒与怨怒之刃锻造而成。
+}
+
+TerratoolCrafted: {
+	FriendlyName: 万能工具
+	Description: 获得泰拉万用工具——一柄集镐、斧、锤于一体的万能器具。
+}
+
+DragonstrideBootsCrafted: {
+	FriendlyName: 龙之靴
+	Description: 制作龙虬靴，以龙的速度疾驰世界！
+}
+
+TimecallerCrafted: {
+	FriendlyName: 时间领主
+	Description: 制作时间操控者，随心所欲地扭曲时间。
+}
+
+EXSoulCrafted: {
+	FriendlyName: 走向极致
+	Description: 用EX之魂升级一把武器。现在你如虎添翼了！
+}
+
+InfinityCoreCrafted: {
+	FriendlyName: 神之熔炉
+	Description: 完成无限核心——终极制作站。
+}
+
+//Discovery
+RedMushroomDiscovered: {
+	FriendlyName: 迷幻洞穴
+	Description: 发现红蘑菇生态群落，或用孢子袋自行打造一个。
+}
+
+TerrariumDiscovered: {
+	FriendlyName: 自然之心
+	Description: 发现泰拉心球——散发自然能量的水晶球体。
+}
+
+VoidDiscovered: {
+	FriendlyName: 虚无之境
+	Description: 发现虚空——悬浮在低轨道的不祥群岛。
+}
+
+MushmanEncountered: {
+	FriendlyName: 现在有两个了！
+	Description: 在红蘑菇生态群落中建造一间房屋，让赤松露人搬进来。
+}
+
+AcropolisDiscovered: {
+	FriendlyName: 奥林匹斯山
+	Description: 发现天穹卫城——六翼天使女王及其族裔的家园。
+}
+
+HoardDiscovered: {
+	FriendlyName: 聚宝为棺
+	Description: 发现蠕虫之王的洞穴——堆满赃物的宝库。
+}
+
+GreedChestOpened: {
+	FriendlyName: 盗窃癖
+	Description: 从宝库中的拾金婪虫身上摸一把钥匙，打开虫王珍贵的贪婪宝箱。
+}
+
+EquinoxAltarDiscovered: {
+	FriendlyName: 平衡
+	Description: 在云端之上找到昼夜祭坛。
+}
+
+AllBiomesDiscovered: {
+	FriendlyName: 环游世界
+	Description: 发现远古觉醒：经典版中的每一个生态群落和建筑。
+}

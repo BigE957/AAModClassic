@@ -1047,12 +1047,12 @@ namespace AAModClassic._Unofficial.Desert
             bool fAnubisTime = NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>();
             bool hasGreedBook = !Main.LocalPlayer.GetModPlayer<ZAAPlayer>().AnubisBook && Main.LocalPlayer.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>()) >= 0;
             if (!fAnubisTime && hasGreedBook)
-                button = "Found your book";
+                button = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LegendscribeUnofficial.Buttons.Book");
             else
-                button = "Help";
+                button = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LegendscribeUnofficial.Buttons.Help");
 
             if(!NPC.downedMoonlord || NPCExtensions.BeenKilled<AnubisA>())
-                button2 = "What's next?";
+                button2 = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LegendscribeUnofficial.Buttons.Next");
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref string shopName)

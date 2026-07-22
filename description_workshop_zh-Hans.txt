@@ -1,0 +1,128 @@
+远古者们已然觉醒。混沌主宰万物，风暴肆虐八方，现实正在分崩离析！
+
+重新体验远古觉醒的原始 1.3 版本——现已移植至 1.4.4。
+
+注意：多人模式目前极不稳定，已知有可能导致世界损坏。游玩风险自负！
+
+想要体验焕然一新的原模组？请查看 [url=steamcommunity.com/sharedfiles/filedetails/?id=3596943461] Ancients Awakened[/url]！
+
+想要反馈问题或讨论模组？欢迎加入我们的 [url=discord.gg/ghChaEa] Discord[/url]！
+
+Ancients Awakened: Classic 包含原版模组的：
+[list]
+[*] 800+ 物品
+[*] 100+ NPC
+[*] 21 个 Boss（7 个困难模式前，4 个困难模式，10 个月亮领主后）
+[*] 4 个新生态群落：
+[list]
+[*] 燎狱：一个被巨龙肆虐的火山群落，装备侧重于纯粹的防御。
+[*] 潭渊：一片遍布黑暗爬行生物的沼泽生物群系，装备侧重于极致速度。
+[*] 虚空：位于世界右上方的浮空岛群。那里什么都没有，没有理由去那里（还是说有什么理由？）
+[*] 泰拉心球：一个远离外界侵蚀、安全的水晶生态球。
+[/list]
+[*] 与Thorium（瑟银模组）的联动内容
+[*] 支持 Fargo's Mutant Mod（Fargo的突变）与 Calamity Mod（灾厄模组）
+[*] 独特的原声音乐
+[/list]
+
+此外，Ancients Awakened: Classic 新增了世界生成选项，可为世界添加额外的新旧内容：
+[list]
+[*] 已移除内容：恢复该模组在开发过程中被移除的旧版本内容：
+[list]
+[*] 电子松露怪：由神秘的风暴科学家创造的电子蘑菇怪物，融合了真菌帝与赤孢皇的战斗招式。
+[*] S.I.E.G.E. 机械：三场与原版机械 Boss 同时期的 Boss 战：
+[list]
+[*] 捕猎者-电子猎犬爪：可高速移动的机械混沌双爪。
+[*] 食腐者-双头狗俄耳托斯X型：装备高功率激光的机械九头渊蛇。
+[*] 侵入者-创世哺育之母：搭载毁灭性火力的机械育母炎龙。
+[/list]
+[/list]
+[*] 未发布内容：包含该模组公开版本中前所未有的全新内容，这些内容来自 Ancients Awakened 的开发中版本：
+[list]
+[*] 失落要塞：一座地下城堡，曾是一位传奇英雄的居所，其中隐藏着大量待揭开的谜团。
+[list]
+[*] 环境原核：失落要塞的防御机制，它掌握着各个生物群系的力量。可献上生态棱镜向其发起挑战。
+[/list]
+[*] 阿努比斯 史诗记述者：阿努比斯已完全重做，带来全新的战斗！唯有仔细留意他操控的符文，才能赢得胜利。
+[*] 无限零：直面虚空的超远古者，它号令 6 个零械单元，并隐匿着更加邪恶的存在。
+[*] 克苏鲁之魂：唤醒深海的超远古者，它潜伏在全新的沉船结构中，将昔日首领们再度化为可怖的形态。
+[/list]
+[*] 非官方内容：由移植团队制作的一系列体验优化、视觉增强等内容，以提升模组体验：
+[list]
+[*] Boss 视觉增强：众多 Boss 获得视觉提升，使其更加栩栩如生，充满动感。
+[*] 阿努比斯任务界面：阿努比斯的 Boss 对话已扩展为完整的任务界面，方便玩家跟进剧情。
+[*] 还有更多！
+[/list]
+[/list]
+
+最后，Ancients Awakened: Classic 旨在与新版 Ancients Awakened 完全兼容——会禁用与新内容重叠的经典内容，以便在两个模组同时启用时，获得流畅完整的游戏体验。
+
+注意：模组的部分音乐曲目应原作曲家的要求已被移除或替换。请尊重他们的决定。
+
+此移植版背后的开发者与贡献者：
+[list]
+[*] Big E
+[*] CaligulasAquarium
+[*] DiamondWalker
+[*] EIGHT
+[*] EduaRRdo
+[*] ERMUDO
+[*] MaestroVGM
+[*] Memeisseur
+[*] Pil
+[*] ProduceVGM
+[*] Rocket
+[*] Skoores
+[*] SpectralAves
+[*] SulfurInASea
+[/list]
+
+衷心感谢翻译团队：
+[list]
+[*] 俄语
+[list]
+[*] Arick
+[*] Waitti
+[/list]
+[*] 简体中文
+[list]
+[*] Lozenges
+[/list]
+[/list]
+
+当然，特别感谢原模组背后的开发团队：
+[list]
+[*] Beg
+[*] Blazen
+[*] Charlie Debnam
+[*] Chinzilla00
+[*] Dan Yami
+[*] Diverman Sam
+[*] Dradonhunter11
+[*] Ezalos
+[*] FailureOfMankind
+[*] Fargowilta
+[*] Fazergamer
+[*] Frogtism
+[*] GamingWithZack
+[*] Glitched Pixel
+[*] Gregg
+[*] Grox The Great
+[*] Halmska
+[*] Hero
+[*] KyuuSW
+[*] LordCakeSpy
+[*] MechanicPluto
+[*] Niorin
+[*] Moonburn
+[*] OverlordCMD
+[*] Rockwizard
+[*] SpectralAves
+[*] Sume
+[*] Tails the Fox 92
+[*] Tied
+[*] TheRedstoneBro
+[*] Uncle Danny
+[*] Welox
+[*] ZipZopZoop
+[/list]

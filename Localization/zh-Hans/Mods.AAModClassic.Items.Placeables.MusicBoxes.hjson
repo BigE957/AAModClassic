@@ -1,0 +1,254 @@
+BroodmotherBox: {
+	DisplayName: 八音盒（育母炎龙）
+	Tooltip: 播放'Blazing Fury' by SpectralAves
+}
+
+EquinoxBox: {
+	DisplayName: 八音盒（昼夜双虫）
+	Tooltip: 播放'Celestial Cyclone' by ProduceVGM
+}
+
+InfinityZeroBox: {
+	DisplayName: 八音盒（无限零）
+	Tooltip: 播放'Infinitum' by MaestroVGM
+}
+
+AthenaBox: {
+	DisplayName: 八音盒（雅典娜）
+	Tooltip: 播放'Magisaint' by ENNWAY
+}
+
+AcropolisBox: {
+	DisplayName: 八音盒（天穹卫城）
+	Tooltip: 播放'Palace in the Sky' by ENNWAY
+}
+
+AthenaAwakenedBox: {
+	DisplayName: 八音盒（奥林匹亚女武神）
+	Tooltip: 播放'Goddess of Those Winged' by ENNWAY
+}
+
+RajahBox: {
+	DisplayName: 八音盒（巨兔王公）
+	Tooltip: 播放'JUSTICE' by SpectralAves
+}
+
+RajahAwakenedBox: {
+	DisplayName: 八音盒（至尊巨兔王公）
+	Tooltip: 播放'Supreme Justice EX' by Jteoh
+}
+
+GripsBox: {
+	DisplayName: 八音盒（混沌双爪）
+	Tooltip: 播放'Twin Terror' by SpectralAves
+}
+
+ShenAwakenedBox: {
+	DisplayName: 八音盒（觉醒之上神应龙）
+	Tooltip: 播放'Discordant Coda' by MaestroVGM
+}
+
+ShenBox: {
+	DisplayName: 八音盒（上神应龙）
+	Tooltip: 播放'Wings of Duality' by MaestroVGM
+}
+
+SistersBox: {
+	DisplayName: 八音盒（混沌姐妹）
+	Tooltip: 播放'United' by MaestroVGM
+}
+
+ChaosPreShenBox: {
+	DisplayName: 八音盒（沉眠之龙）
+	Tooltip: 播放'Condemned' by MaestroVGM
+}
+
+DjinnBox: {
+	DisplayName: 八音盒（沙漠巨灵）
+	Tooltip: 播放'The Dust Bowl' by Tyeski
+}
+
+AnubisBox: {
+	DisplayName: 八音盒（阿努比斯）
+	Tooltip: 播放'Strings of Judgement' by Tyeski
+}
+
+AnubisAwakenedBox: {
+	DisplayName: 八音盒（逝落的断罪师）
+	Tooltip: 播放'Purgatorium' by Tyeski
+}
+
+FungusBox: {
+	DisplayName: 八音盒（真菌帝）
+	Tooltip: 播放'Bioluminescent Beatdown' by SpectralAves
+}
+
+TruffleToadBox: {
+	DisplayName: 八音盒（松露蟾蜍）
+	Tooltip: 播放'TODESTOOL' by SpectralAves
+}
+
+GreedBox: {
+	DisplayName: 八音盒（金食饕餮）
+	Tooltip: 播放'Gold Digger' by Tyeski
+}
+
+HoardBox: {
+	DisplayName: 八音盒（欲望金窟）
+	Tooltip: 播放'Cove' by Tyeski
+}
+
+GreedAwakenedBox: {
+	DisplayName: 八音盒（鎏金万蟲王）
+	Tooltip: 播放'Ira De Riquezas Perdidas' by Tyeski
+}
+
+InfernoNightBox: {
+	DisplayName: 八音盒（燎狱之夜）
+	Tooltip: 播放'Emberstorm' by ProduceVGM
+}
+
+InfernoSurfaceBox: {
+	DisplayName: 八音盒（燎狱）
+	Tooltip: 播放'Scorched Earth' by ProduceVGM
+}
+
+InfernoUndergroundBox: {
+	DisplayName: 八音盒（地下燎狱）
+	Tooltip: 播放'Inner Mantle' by ProduceVGM
+}
+
+AkumaAwakenedBox: {
+	DisplayName: 八音盒（狂煞魔豪鬼）
+	Tooltip: 播放'Dawn of the Dragon' by Tyeski
+}
+
+AkumaBox: {
+	DisplayName: 八音盒（邪鬼巨龙）
+	Tooltip: 播放'Trial By Fire' by Saucecoie
+}
+
+InfernoPagodaBox: {
+	DisplayName: 八音盒（升阳之塔）
+	Tooltip: 播放'Scorched Tower' by Rockwizard
+}
+
+HydraBox: {
+	DisplayName: 八音盒（九头渊蛇）
+	Tooltip: 播放'RAW Abyssal Wrath' by SpectralAves
+}
+
+MireDayBox: {
+	DisplayName: 八音盒（潭渊白昼）
+	Tooltip: 播放'Through the Toxic Mist' by ProduceVGM
+}
+
+MireSurfaceBox: {
+	DisplayName: 八音盒（潭渊）
+	Tooltip: 播放'Secluded Swamp' by ProduceVGM
+}
+
+MireUndergroundBox: {
+	DisplayName: 八音盒（地下潭渊）
+	Tooltip: 播放'Creepy Crawlers' by ProduceVGM
+}
+
+YamataAwakenedBox: {
+	DisplayName: 八音盒（八俣远吕智）
+	Tooltip: 播放'Abyssal Nightmare' by Tyeski
+}
+
+YamataBox: {
+	DisplayName: 八音盒（八歧大蛇）
+	Tooltip: 播放'Crescent of Madness' by Saucecoie
+}
+
+MireLakeBox: {
+	DisplayName: 八音盒（升月之湖）
+	Tooltip: 播放'Lake of Souls' by Rockwizard
+}
+
+MonarchBox: {
+	DisplayName: 八音盒（赤孢皇）
+	Tooltip: 播放'Fungal Face-off' by SpectralAves
+}
+
+MushroomSurfaceBox: {
+	DisplayName: 红蘑菇八音盒
+	Tooltip: 播放'Overgrowth' by SpectralAves
+}
+
+SubzeroBox: {
+	DisplayName: 八音盒（绝零冰蛇）
+	Tooltip: 播放'Glacial Grace' by ProduceVGM
+}
+
+StarsBox: {
+	DisplayName: 八音盒（漫天星辰）
+	Tooltip: 播放'Scattered Stars' by ProduceVGM
+}
+
+TerrariumBox: {
+	DisplayName: 八音盒（泰拉心球）
+	Tooltip: 播放'Resting Place' by ProduceVGM
+}
+
+SagittariusBox: {
+	DisplayName: 八音盒（虚空人马）
+	Tooltip: 播放'Event Horizon' by SpectralAves
+}
+
+VoidBox: {
+	DisplayName: 八音盒（虚空）
+	Tooltip: 播放'Waste' by ProduceVGM
+}
+
+ZeroAwakenedBox: {
+	DisplayName: 八音盒（零源协议）
+	Tooltip: 播放'Doomsday Arrives' by Saucecoie
+}
+
+ZeroBox: {
+	DisplayName: 八音盒（零械单元）
+	Tooltip: 播放'Clockwork Catastrophe' by SpectralAves
+}
+
+VoidPostMLBox: {
+	DisplayName: 八音盒（永劫虚空）
+	Tooltip: 播放'Inanis' by ProduceVGM
+}
+
+VoidPreIZBox: {
+	DisplayName: 八音盒（沉眠巨人）
+	Tooltip: 播放'Sleeping Giant' by Cosmoptera
+}
+
+SiegeBox: {
+	DisplayName: 八音盒（S.I.E.G.E. 机械单元）
+	Tooltip: 播放'Controlled Chaos' by ProduceVGM
+}
+
+ParthenanBox: {
+	DisplayName: 八音盒（帕特农神庙）
+	Tooltip: 播放'Maelstrom' by Tyeski
+}
+
+SunkenShipBox: {
+	DisplayName: 八音盒（沉船）
+	Tooltip: 播放'Rift-Torn Ruins' by Cosmoptera
+}
+
+SoulOfCthulhuBox: {
+	DisplayName: 八音盒（克苏鲁之魂）
+	Tooltip: 播放'Recondite Rhapsody (Calm)' by MaestroVGM
+}
+
+SunkenShipPreSoCBox: {
+	DisplayName: 八音盒（沉眠诅咒）
+	Tooltip: 播放'Sleeping Curse' by ProduceVGM
+}
+
+CthulhuBox: {
+	DisplayName: 八音盒（克苏鲁）
+	Tooltip: 播放'Recondite Rhapsody (Combat)' by MaestroVGM
+}

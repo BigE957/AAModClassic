@@ -1,0 +1,943 @@
+Aves: {
+	AvesWings: {
+		DisplayName: 嘎嘎鸭低音助推器
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+
+	AvesChestplate: {
+		DisplayName: DJ鸭T恤
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+
+	AvesHelmet: {
+		DisplayName: DJ鸭面具
+		Tooltip:
+			'''
+			"嘎"
+			非常适合冒充远古觉醒开发者！
+			'''
+	}
+
+	AvesLeggings: {
+		DisplayName: DJ鸭裤子
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+}
+
+Masks: {
+	AthenaAMask: {
+		DisplayName: 奥林匹亚女武神面具
+		Tooltip: ""
+	}
+
+	InfernoGripMask: {
+		DisplayName: 燎狱之爪面具
+		Tooltip: ""
+	}
+
+	DaybringerMask: {
+		DisplayName: 启明虫面具
+		Tooltip: ""
+	}
+
+	NightcrawlerMask: {
+		DisplayName: 夜行虫面具
+		Tooltip: ""
+	}
+
+	BlueOrthrusXMask: {
+		DisplayName: 蓝色俄耳托斯面具
+		Tooltip: ""
+	}
+
+	RedOrthrusXMask: {
+		DisplayName: 红色俄耳托斯面具
+		Tooltip: ""
+	}
+
+	RetrieverMask: {
+		DisplayName: 捕猎者面具
+		Tooltip: ""
+	}
+
+	TechnoTruffleMask: {
+		DisplayName: 机械松露怪面具
+		Tooltip: ""
+	}
+
+	AthenaMask: {
+		DisplayName: 雅典娜面具
+		Tooltip: ""
+	}
+
+	RajahRabbitMask: {
+		DisplayName: 巨兔王公面具
+		Tooltip: ""
+	}
+
+	MireGripMask: {
+		DisplayName: 潭渊之爪面具
+		Tooltip: ""
+	}
+
+	ShenDoragonAMask: {
+		DisplayName: 觉醒上神应龙面具
+		Tooltip: ""
+	}
+
+	ShenDoragonMask: {
+		DisplayName: 上神应龙面具
+		Tooltip: ""
+	}
+
+	DesertDjinnMask: {
+		DisplayName: 沙漠巨灵面具
+		Tooltip: ""
+	}
+
+	AnubisMask: {
+		DisplayName: 阿努比斯面具
+		Tooltip: ""
+	}
+
+	AnubisAMask: {
+		DisplayName: 逝落的断罪师面具
+		Tooltip: ""
+	}
+
+	FeudalFungusMask: {
+		DisplayName: 真菌帝面具
+		Tooltip: ""
+	}
+
+	TruffleToadMask: {
+		DisplayName: 松露蟾蜍面具
+		Tooltip: ""
+	}
+
+	GreedMask: {
+		DisplayName: 金食饕餮面具
+		Tooltip: ""
+	}
+
+	GreedAMask: {
+		DisplayName: 鎏金万蟲王面具
+		Tooltip: ""
+	}
+
+	BroodmotherMask: {
+		DisplayName: 育母炎龙面具
+		Tooltip: ""
+	}
+
+	AkumaAMask: {
+		DisplayName: 狂煞魔豪鬼面具
+		Tooltip: ""
+	}
+
+	AkumaMask: {
+		DisplayName: 邪鬼巨龙面具
+		Tooltip: ""
+	}
+
+	HydraMask1: {
+		DisplayName: 九头渊蛇面具
+		Tooltip: ""
+	}
+
+	HydraMask2: {
+		DisplayName: 九头渊蛇面具
+		Tooltip: ""
+	}
+
+	HydraMask3: {
+		DisplayName: 九头渊蛇面具
+		Tooltip: ""
+	}
+
+	YamataAMask: {
+		DisplayName: 八俣远吕智面具
+		Tooltip: ""
+	}
+
+	YamataMask: {
+		DisplayName: 八歧大蛇面具
+		Tooltip: ""
+	}
+
+	MushroomMonarchMask: {
+		DisplayName: 赤孢皇面具
+		Tooltip: ""
+	}
+
+	SubzeroSerpentMask: {
+		DisplayName: 绝零冰蛇面具
+		Tooltip: ""
+	}
+
+	SagittariusMask: {
+		DisplayName: 虚空人马面具
+		Tooltip: ""
+	}
+
+	ZeroMask: {
+		DisplayName: 零械单元面具
+		Tooltip: ""
+	}
+
+	RajahRabbitAMask: {
+		DisplayName: 至尊巨兔王公面具
+		Tooltip: ""
+	}
+
+	AsheMask: {
+		DisplayName: 艾希面具
+		Tooltip: ""
+	}
+
+	HarukaMask: {
+		DisplayName: 遥香面具
+		Tooltip: ""
+	}
+
+	RaiderUltimaMask: {
+		DisplayName: 创世哺育之母面具
+		Tooltip: ""
+	}
+
+	SoulOfCthulhuAMask: {
+		DisplayName: 寰宇之灾面具
+		Tooltip: ""
+	}
+
+	SoulOfCthulhuMask: {
+		DisplayName: 克苏鲁之魂面具
+		Tooltip: ""
+	}
+
+	InfinityZeroMask: {
+		DisplayName: 无限零面具
+		Tooltip: ""
+	}
+
+	ZeroAMask: {
+		DisplayName: 零源协议面具
+		Tooltip: ""
+	}
+
+	OrthrusXMask: {
+		DisplayName: 食腐者面具
+		Tooltip: ""
+	}
+}
+
+Pets: {
+	ScorchedEgg: {
+		DisplayName: 焦煅之卵
+		Tooltip: 这蛋会孵出什么来？
+	}
+
+	Seashroom: {
+		DisplayName: 海蟹菇
+		Tooltip: 闻着有股鱼味儿
+	}
+
+	CyberneticEgg: {
+		DisplayName: 电子器械之卵
+		Tooltip: 这里面会孵出什么来……等等，这剧情不是演过了吗？
+	}
+
+	CerberusWhistle: {
+		DisplayName: 哈迪斯之哨
+		Tooltip: 召唤冥王本人的看门犬
+	}
+
+	K9Collar: {
+		DisplayName: K9项圈
+		Tooltip: 召唤一个机器人伙伴
+	}
+
+	MoonBeeInAJar: {
+		DisplayName: 瓶中月光蜂
+		Tooltip: 召唤一只月光蜂
+	}
+
+	MudFishBall: {
+		DisplayName: 沼跃鱼球
+		Tooltip: 里面好像已经有东西了
+	}
+
+	RoyalStar: {
+		DisplayName: 皇家星星
+		Tooltip: 召唤一只非常漂亮的小猫咪
+	}
+
+	ShinyFishBall: {
+		DisplayName: 闪光沼跃鱼球
+		Tooltip: 里面好像已经有东西了
+	}
+
+	PaperBomb: {
+		DisplayName: 纸炸弹
+		Tooltip: ""
+	}
+
+	DragonSoul: {
+		DisplayName: 炎龙之魂
+		Tooltip:
+			'''
+			召唤一只龙魂
+			摸起来很烫，却让人感到安心……
+			'''
+	}
+
+	GlowingMossBall: {
+		DisplayName: 发光苔藓球
+		Tooltip:
+			'''
+			召唤一个发光苔藓球
+			别问是什么让它发光的，信我
+			'''
+	}
+
+	ZeroCore: {
+		DisplayName: 零之核心
+		Tooltip: 召唤一个探测生物的零械精简版
+	}
+}
+
+BigE: {
+	BigEWings: {
+		DisplayName: 高效升降梯
+		Tooltip:
+			'''
+			按住▼跳跃键可长时间悬浮
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+
+	Shiny: {
+		BigEWingsS: {
+			DisplayName: 高效升降梯
+			Tooltip:
+				'''
+				按住▼跳跃键可长时间悬浮
+				"非常适合冒充远古觉醒开发者！"
+				'''
+		}
+	}
+
+	LittleE: {
+		DisplayName: Little E
+		Tooltip: "'那是个迷你版的我，{0}。我想让你收着它。'"
+	}
+
+	LittleES: {
+		DisplayName: Calamity E
+		Tooltip: "'哥们儿，你喜欢灾厄模组？{0}，兄弟，我就知道我跟你合得来，哥们儿。过来，抱一个。抱一个，兄弟。'"
+	}
+}
+
+Blazen: {
+	BlazenWings: {
+		DisplayName: 战术突击推进器
+		Tooltip:
+			'''
+			按住上键以加速飞行
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+
+	BlazenChestplate: {
+		DisplayName: 战术突击护甲
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+
+	BlazenHelmet: {
+		DisplayName: 战术突击头盔
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+
+	BlazenLeggings: {
+		DisplayName: 战术突击战靴
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+}
+
+Charlie: {
+	CharlieWings: {
+		DisplayName: 狰狞梦魇之翼
+		Tooltip:
+			'''
+			按住▼跳跃键可长时间悬浮
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+
+	CharlieChestplate: {
+		DisplayName: 幽灵披风
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+
+	CharlieHelmet: {
+		DisplayName: 幽灵罩帽
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+
+	CharlieLeggings: {
+		DisplayName: 幽灵之靴
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+}
+
+Gibs: {
+	GibsWings: {
+		DisplayName: 亡灵喷射推进器
+		Tooltip:
+			'''
+			按住▼跳跃键可长时间悬浮
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+
+	GibsChestplate: {
+		DisplayName: 亡灵胸甲
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+
+	GibsHelmet: {
+		DisplayName: 亡灵颅骨
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+
+	GibsLeggings: {
+		DisplayName: 亡灵护腿
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+}
+
+Grox: {
+	GroxWings: {
+		DisplayName: 愤怒海盗的苍穹之帆
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+
+	GroxChestplate: {
+		DisplayName: 愤怒海盗的金柜胸甲
+		Tooltip:
+			'''
+			这件胸甲散发着对不会写代码的鱼的怨念。
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+
+	GroxHelmet: {
+		DisplayName: 愤怒海盗的兜帽
+		Tooltip:
+			'''
+			这顶兜帽散发着对不会写代码的鱼的怨念。
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+
+	GroxLeggings: {
+		DisplayName: 愤怒海盗的护腿
+		Tooltip:
+			'''
+			这双靴子散发着对不会写代码的鱼的怨念。
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+}
+
+Moon: {
+	MoonWings: {
+		DisplayName: 月纹黄蜂之翼
+		Tooltip:
+			'''
+			按住▼跳跃键可长时间悬浮
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+
+	MoonChestplate: {
+		DisplayName: 月纹长袍
+		Tooltip:
+			'''
+			传说中月光大法师的长袍
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+
+	Shiny: {
+		MoonChestplateS: {
+			DisplayName: 月纹长袍
+			Tooltip:
+				'''
+				传说中月光大法师的长袍
+				"非常适合冒充远古觉醒开发者！"
+				'''
+		}
+
+		MoonHelmetS: {
+			DisplayName: 月纹兜帽
+			Tooltip:
+				'''
+				传说中月光大法师的兜帽
+				"非常适合冒充远古觉醒开发者！"
+				'''
+		}
+
+		MoonLeggingsS: {
+			DisplayName: 月纹之靴
+			Tooltip:
+				'''
+				传说中月光大法师的长靴
+				"非常适合冒充远古觉醒开发者！"
+				'''
+		}
+	}
+
+	MoonHelmet: {
+		DisplayName: 月纹兜帽
+		Tooltip:
+			'''
+			传说中月光大法师的兜帽
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+
+	MoonLeggings: {
+		DisplayName: 月纹之靴
+		Tooltip:
+			'''
+			传说中月光大法师的长靴
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+}
+
+Anarchy: {
+	AnarchyChestplate: {
+		DisplayName: 圣境胸甲
+		Tooltip:
+			'''
+			"非常适合冒充远古觉醒贡献者！"
+			郑重声明：这件是Anarchy自己画的贴图。
+			'''
+	}
+
+	AnarchyHelmet: {
+		DisplayName: 圣境头盔
+		Tooltip:
+			'''
+			"非常适合冒充远古觉醒贡献者！"
+			郑重声明：这个是Anarchy自己画的贴图。
+			'''
+	}
+
+	AnarchyLeggings: {
+		DisplayName: 圣境护胫
+		Tooltip:
+			'''
+			"非常适合冒充远古觉醒贡献者！"
+			郑重声明：这件是Anarchy自己画的贴图。
+			'''
+	}
+}
+
+Apawn: {
+	ApawnChestplate: {
+		DisplayName: Apawn的胸甲
+		Tooltip: 非常适合冒充远古觉醒测试者！
+	}
+
+	ApawnHelmet: {
+		DisplayName: Apawn的目镜
+		Tooltip: 非常适合冒充远古觉醒测试者！
+	}
+
+	ApawnLeggings: {
+		DisplayName: Apawn的护胫
+		Tooltip: 非常适合冒充远古觉醒测试者！
+	}
+}
+
+Beg: {
+	BegChestplate: {
+		DisplayName: 怪马T恤
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+
+	BegHelmet: {
+		DisplayName: 怪马面具
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+
+	BegLeggings: {
+		DisplayName: 怪马蹄靴
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+}
+
+CC: {
+	CCChestplate: {
+		DisplayName: 惊惧教徒长袍
+		Tooltip:
+			'''
+			一位疯狂蜥蜴爱好者的兜帽
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+
+	Shiny: {
+		CCChestplateS: {
+			DisplayName: 惊惧教徒长袍
+			Tooltip:
+				'''
+				一位疯狂蜥蜴爱好者的兜帽
+				"非常适合冒充远古觉醒开发者！"
+				'''
+		}
+
+		CCHelmetS: {
+			DisplayName: 惊惧教徒面具
+			Tooltip:
+				'''
+				一位疯狂蜥蜴爱好者的面具
+				"非常适合冒充远古觉醒开发者！"
+				'''
+		}
+	}
+
+	CCHelmet: {
+		DisplayName: 惊惧教徒面具
+		Tooltip:
+			'''
+			一位疯狂蜥蜴爱好者的面具
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+}
+
+Cerberus: {
+	CerberusChestplate: {
+		DisplayName: 召唤法师长袍
+		Tooltip:
+			'''
+			亚雷斯塔"巨兽"的附魔长袍
+			非常适合冒充远古觉醒开发者！
+			'''
+	}
+
+	CerberusHelmet: {
+		DisplayName: 召唤法师兜帽
+		Tooltip:
+			'''
+			亚雷斯塔"巨兽"的附魔兜帽
+			非常适合冒充远古觉醒开发者！
+			'''
+	}
+
+	CerberusLeggings: {
+		DisplayName: 召唤法师长靴
+		Tooltip:
+			'''
+			亚雷斯塔"巨兽"的附魔长靴
+			非常适合冒充远古觉醒开发者！
+			'''
+	}
+}
+
+Delly: {
+	DellyChestplate: {
+		DisplayName: 暗影T恤
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+
+	DellyHelmet: {
+		DisplayName: 暗影假发
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+
+	DellyLeggings: {
+		DisplayName: 暗影之靴
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+}
+
+Fargo: {
+	FargoChestplate: {
+		DisplayName: 精致松鼠西装
+		Tooltip:
+			'''
+			很快™
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+
+	FargoHelmet: {
+		DisplayName: 精致松鼠高礼帽
+		Tooltip:
+			'''
+			很快™
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+
+	FargoLeggings: {
+		DisplayName: 精致松鼠长裤
+		Tooltip:
+			'''
+			很快™
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+}
+
+Fazer: {
+	FazerChestplate: {
+		DisplayName: 蓬松狐狸毛衫
+		Tooltip: 非常适合冒充远古觉醒贡献者！
+	}
+
+	FazerHelmet: {
+		DisplayName: 蓬松狐狸假发
+		Tooltip: 非常适合冒充远古觉醒贡献者！
+	}
+
+	FazerLeggings: {
+		DisplayName: 蓬松狐狸裤子
+		Tooltip: 非常适合冒充远古觉醒贡献者！
+	}
+}
+
+Hallam: {
+	HallamChestplate: {
+		DisplayName: Hallam的华贵燕尾服
+		Tooltip:
+			'''
+			这件燕尾服以纯粹的格调织成
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+
+	Shiny: {
+		HallamChestplateS: {
+			DisplayName: Hallam的华贵燕尾服
+			Tooltip:
+				'''
+				这件燕尾服以纯粹的格调织成
+				"非常适合冒充远古觉醒开发者！"
+				'''
+		}
+
+		HallamHelmetS: {
+			DisplayName: Hallam的精致高礼帽
+			Tooltip:
+				'''
+				光是戴着它就感觉自己特有品味
+				"非常适合冒充远古觉醒开发者！"
+				'''
+		}
+
+		HallamLeggingsS: {
+			DisplayName: Hallam的时尚长裤
+			Tooltip:
+				'''
+				这条裤子比你还值钱
+				"非常适合冒充远古觉醒开发者！"
+				'''
+		}
+	}
+
+	HallamHelmet: {
+		DisplayName: Hallam的精致高礼帽
+		Tooltip:
+			'''
+			光是戴着它就感觉自己特有品味
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+
+	HallamLeggings: {
+		DisplayName: Hallam的时尚长裤
+		Tooltip:
+			'''
+			这条裤子比你还值钱
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+}
+
+Maskano: {
+	MaskanoChestplate: {
+		DisplayName: 面具之王的胸甲
+		Tooltip: 非常适合冒充远古觉醒贡献者！
+	}
+
+	MaskanoHelmet: {
+		DisplayName: 面具
+		Tooltip: 非常适合冒充远古觉醒贡献者！
+	}
+
+	MaskanoLeggings: {
+		DisplayName: 面具之王的长靴
+		Tooltip: 非常适合冒充远古觉醒贡献者！
+	}
+}
+
+Mikpin: {
+	MikpinChestplate: {
+		DisplayName: 狐仙连身裙
+		Tooltip: 非常适合冒充远古觉醒测试者！
+	}
+
+	MikpinHelmet: {
+		DisplayName: 狐仙假发
+		Tooltip: 非常适合冒充远古觉醒测试者！
+	}
+
+	MikpinLeggings: {
+		DisplayName: 狐仙裤子
+		Tooltip: 非常适合冒充远古觉醒测试者！
+	}
+}
+
+Pluto: {
+	PlutoChestplate: {
+		DisplayName: 外神之胸甲
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+
+	Shiny: {
+		PlutoChestplateS: {
+			DisplayName: 外神之胸甲
+			Tooltip: 非常适合冒充远古觉醒开发者！
+		}
+
+		PlutoHelmetS: {
+			DisplayName: 外神之面具
+			Tooltip: 非常适合冒充远古觉醒开发者！
+		}
+	}
+
+	PlutoHelmet: {
+		DisplayName: 外神之面具
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+
+	PlutoLeggings: {
+		DisplayName: 外神之护胫
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+}
+
+Shox: {
+	ShoxChestplate: {
+		DisplayName: 震击之王的胸甲
+		Tooltip: 非常适合冒充远古觉醒贡献者！
+	}
+
+	ShoxHelmet: {
+		DisplayName: 震击之王的目镜
+		Tooltip: 非常适合冒充远古觉醒贡献者！
+	}
+
+	ShoxLeggings: {
+		DisplayName: 震击之王的长靴
+		Tooltip: 非常适合冒充远古觉醒贡献者！
+	}
+}
+
+Tails: {
+	TailsChestplate: {
+		DisplayName: Tails上衣
+		Tooltip:
+			'''
+			模仿某只双尾狐狸制作的上衣。
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+
+	TailsHelmet: {
+		DisplayName: Tails头盔
+		Tooltip:
+			'''
+			模仿某只双尾狐狸制作的头盔。
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+
+	TailsLeggings: {
+		DisplayName: Tails裤子
+		Tooltip:
+			'''
+			模仿某只双尾狐狸制作的裤子。
+			"非常适合冒充远古觉醒开发者！"
+			'''
+	}
+}
+
+Tied: {
+	TiedChestplate: {
+		DisplayName: Tied胸甲
+		Tooltip: ""
+	}
+
+	TiedHelmet: {
+		DisplayName: 恐怖头骨
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+
+	TiedLeggings: {
+		DisplayName: 恐怖长裤
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+}
+
+Universe: {
+	UniverseChestplate: {
+		DisplayName: 诅咒亡灵长袍
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+
+	UniverseHelmet: {
+		DisplayName: 诅咒亡灵兜帽
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+
+	UniverseLeggings: {
+		DisplayName: 诅咒亡灵之靴
+		Tooltip: 非常适合冒充远古觉醒开发者！
+	}
+}
+
+VoidEye: {
+	VoidEyeChestplate: {
+		DisplayName: 虚空之眼的胸甲
+		Tooltip: 非常适合冒充远古觉醒贡献者！
+	}
+
+	VoidEyeHelmet: {
+		DisplayName: 虚空之眼的面具
+		Tooltip: 非常适合冒充远古觉醒贡献者！
+	}
+
+	VoidEyeLeggings: {
+		DisplayName: 虚空之眼的长靴
+		Tooltip: 非常适合冒充远古觉醒贡献者！
+	}
+}
+
+HappySunSticker: {
+	DisplayName: 快乐太阳贴纸
+	Tooltip: ":D"
+}
+
+Ohno: {
+	Ono: {
+		DisplayName: ono
+		Tooltip: ono
+	}
+}

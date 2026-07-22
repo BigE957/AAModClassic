@@ -1,0 +1,1273 @@
+BossSummon: {
+	ChaosRune: {
+		DisplayName: 冥昧符文
+		Tooltip:
+			'''
+			一块充满浑沌能量的诅咒图版
+			召唤觉醒之上神应龙
+			不消耗
+			'''
+	}
+
+	ChaosSigil: {
+		DisplayName: 冥昧印迹
+		Tooltip:
+			'''
+			一块充满不稳定魔力的诅咒图版
+			召唤冥昧之皇
+			不消耗
+			'''
+	}
+
+	DraconianSunRune: {
+		DisplayName: 煞日符文
+		Tooltip:
+			'''
+			一块充满烈焰浑沌能量的附魔图版
+			召唤觉醒之邪鬼巨龙
+			只能在白天燎狱中使用
+			不消耗
+			'''
+	}
+
+	DreadMoonRune: {
+		DisplayName: 惧月符文
+		Tooltip:
+			'''
+			一块散发着黑暗浑沌能量的附魔图版
+			召唤觉醒之八歧大蛇
+			只能在夜晚潭渊中使用
+			不消耗
+			'''
+	}
+
+	DreadMoonSigil: {
+		DisplayName: 惧月印迹
+		Tooltip:
+			'''
+			一块据说包含了新生之月黑暗能量的破烂旧图版
+			召唤八歧大蛇
+			只能在夜晚潭渊中使用
+			不消耗
+			'''
+	}
+
+	EquinoxWorm: {
+		DisplayName: 昼夜虫
+		Tooltip:
+			'''
+			使用天界材料制作的蠕虫
+			召唤昼夜双虫
+			不消耗
+			'''
+	}
+
+	DoomsdayTesseract: {
+		DisplayName: 末日立方
+		Tooltip:
+			'''
+			注.释.
+			不.稳.定.  含.有.死.亡.缔.造.者.的.启.动.代.码.
+			建.议.分.析.模.组.配.置.: 你.已.被.警.告.
+			不消耗
+			'''
+	}
+
+	CyberneticScrap: {
+		DisplayName: 电子垃圾堆
+		Tooltip:
+			'''
+			一大堆金属垃圾
+			召唤食腐者
+			只能在夜晚使用
+			'''
+	}
+
+	CyberneticBell: {
+		DisplayName: 电子控制铃
+		Tooltip:
+			'''
+			一个精心装饰的铃铛
+			召唤侵入者
+			只能在夜晚使用
+			'''
+	}
+
+	CyberneticClaw: {
+		DisplayName: 电子控制爪
+		Tooltip:
+			'''
+			召唤捕猎者
+			只能在夜晚使用
+			'''
+	}
+
+	InfinityBeacon: {
+		DisplayName: 无限信标
+		Tooltip:
+			'''
+			一个蕴含着不稳定代码的不祥装置
+			召唤无尽屠戮者
+			检查模组配置或许是明智之举。你已被警告。
+			不消耗
+			'''
+	}
+
+	OwlStatue: {
+		DisplayName: 天鸮像
+		Tooltip:
+			'''
+			召唤雅典娜
+			只能在天穹卫城的天鸮祭坛处使用
+			"它的凝视直穿你的灵魂。"
+			'''
+		TooltipAlt1: 只能在天穹卫城使用
+		TooltipAlt2: 在天鸮祭坛使用可召唤雅典娜
+		TooltipAlt3: 直接使用可召唤奥林匹亚雅典娜
+	}
+
+	GoldenCarrot: {
+		DisplayName: 十克拉胡萝卜
+		Tooltip: 召唤一个凶猛的惩罚者
+	}
+
+	PlatinumCarrot: {
+		DisplayName: 十克拉胡萝卜
+		Tooltip: 召唤一个凶猛的惩罚者
+	}
+
+	TenCaratCarrot: {
+		DisplayName: 十克拉胡萝卜
+		Tooltip:
+			'''
+			这枚华丽的胡萝卜中散发着王公的怒火……
+			不消耗
+			'''
+	}
+
+	CuriousLookingClaw: {
+		DisplayName: 稀奇的爪子
+		Tooltip:
+			'''
+			出奇的干燥
+			只能在夜晚使用
+			'''
+	}
+
+	InterestingLookingClaw: {
+		DisplayName: 有趣的爪子
+		Tooltip:
+			'''
+			诡异的湿冷
+			只能在夜晚使用
+			'''
+	}
+
+	FlamesOfAnarchy: {
+		DisplayName: 原初之焰
+		Tooltip:
+			'''
+			在这个古老的瓷器中燃烧着浑沌之焰
+			召唤混沌姐妹
+			不消耗
+			'''
+	}
+
+	DesertLamp: {
+		DisplayName: 沙漠魔灯
+		Tooltip: 召唤沙漠巨灵
+	}
+
+	RasScepter: {
+		DisplayName: 拉的神杖
+		Tooltip:
+			'''
+			召唤阿努比斯
+			只能在沙漠表面使用
+			"我，呃……从我一个鸟朋友那借来的。"
+			不消耗
+			'''
+		TooltipExtension: 右键召唤逝落的断罪师 阿努比斯
+	}
+
+	CursedSkull: {
+		DisplayName: 诅咒头骨
+		Tooltip:
+			'''
+			召唤骷髅王
+			只能在夜晚使用
+			'''
+	}
+
+	ConfusingLookingMushroom: {
+		DisplayName: 困惑蘑菇
+		Tooltip:
+			'''
+			召唤真菌帝
+			只能在发光蘑菇生物群系中使用
+			'''
+	}
+
+	Toadstool: {
+		DisplayName: 蟾蜍臭菇
+		Tooltip:
+			'''
+			召唤松露蟾蜍
+			只能在发光蘑菇生物群系中使用
+			'''
+	}
+
+	GoldenGrub: {
+		DisplayName: 金欲诱饵
+		Tooltip:
+			'''
+			召唤金食饕餮
+			只能在欲望金窟的原欲祭坛处使用
+			"真的很闪。"
+			'''
+		TooltipAlt1: 只能在欲望金窟中使用
+		TooltipAlt2: 在原欲祭坛处使用可召唤金食饕餮
+		TooltipAlt3: 直接使用可召唤鎏金万蟲王
+	}
+
+	AncientBell: {
+		DisplayName: 远古铃铛
+		Tooltip:
+			'''
+			一枚精心制作的铃铛
+			在燎狱召唤育母炎龙
+			只能在白天使用
+			'''
+	}
+
+	DraconianSunSigil: {
+		DisplayName: 煞日印迹
+		Tooltip:
+			'''
+			一块据说包含了上千个太阳辐射能量的华丽图版
+			召唤邪鬼巨龙
+			只能在白天燎狱中使用
+			不消耗
+			'''
+	}
+
+	JungleOrchid: {
+		DisplayName: 丛林兰
+		Tooltip:
+			'''
+			召唤世纪之花
+			只能在地下丛林中使用
+			'''
+	}
+
+	HydraChow: {
+		DisplayName: 九头蛇食粮
+		Tooltip:
+			'''
+			光是拿着就让你作呕
+			召唤九头渊蛇
+			只能在夜晚使用
+			'''
+	}
+
+	IntimidatingLookingMushroom: {
+		DisplayName: 战栗蘑菇
+		Tooltip: 召唤赤孢皇
+	}
+
+	SubzeroCrystal: {
+		DisplayName: 绝零水晶
+		Tooltip: 召唤绝零冰蛇
+	}
+
+	Lifescanner: {
+		DisplayName: 生命扫描仪
+		Tooltip:
+			'''
+			召唤虚空人马
+			只能在虚空使用
+			'''
+	}
+
+	ERROR_NULL: {
+		DisplayName: 错.误_空.值
+		Tooltip:
+			'''
+			启.动.最.近.零.械.单.元.的.归.零.代.码
+			建.议.分.析.模.组.配.置.: 你.已.被.警.告.
+			不.消.耗.
+			'''
+	}
+
+	CyberneticShroom: {
+		DisplayName: 电子控制松露
+		Tooltip:
+			'''
+			召唤机械松露怪
+			只能在夜晚使用
+			'''
+	}
+
+	CursedCompass: {
+		DisplayName: 诅咒罗盘
+		Tooltip:
+			'''
+			一个老旧破损的罗盘。谁知道它是用来做什么的。
+			微弱的低语催促你返回沉船
+			不消耗
+			'''
+
+		AltText0: {
+			Ready: 罗盘的指针飞速旋转，散发出诡异的气息。
+			Downed: 一个老旧破损的罗盘，寄宿着不可名状的诅咒。
+		}
+
+		AltText1:
+			'''
+			召唤寰宇之灾
+			只能在沉船附近使用
+			'''
+	}
+
+	Masshroom: {
+		DisplayName: 蘑菇丛
+		Tooltip: 召唤大量赤孢皇
+	}
+
+	GlowingMasshroom: {
+		DisplayName: 荧光蘑菇丛
+		Tooltip:
+			'''
+			召唤大量真菌帝
+			只能在发光蘑菇生物群系中使用
+			'''
+	}
+}
+
+Consumables: {
+	InfernoKey: {
+		DisplayName: 燎狱钥匙
+		Tooltip: 解锁灼日之力
+	}
+
+	VoidKey: {
+		DisplayName: 末日遏止芯片
+		Tooltip: 解锁末日箱
+	}
+
+	LuckyCracker: {
+		DisplayName: 幸运薄饼
+		Tooltip: 她说这东西能让你运气变好。你信她吗？
+	}
+
+	LuckyCalmingPotion: {
+		DisplayName: 幸运镇静药剂
+		Tooltip: 降低敌人的攻击性
+	}
+
+	LuckyEndurancePotion: {
+		DisplayName: 幸运耐力药剂
+		Tooltip:
+			'''
+			所受伤害减少10%
+			防御提高10%
+			'''
+	}
+
+	LuckyIronskinPotion: {
+		DisplayName: 幸运铁皮药剂
+		Tooltip: 防御提高9点
+	}
+
+	LuckyLifeforcePotion: {
+		DisplayName: 幸运生命力药剂
+		Tooltip: 最大生命值提高21%
+	}
+
+	LuckyRagePotion: {
+		DisplayName: 幸运暴怒药剂
+		Tooltip: 暴击率提高11%
+	}
+
+	LuckyRegenerationPotion: {
+		DisplayName: 幸运再生药剂
+		Tooltip: 提供生命再生
+	}
+
+	LuckySummoningPotion: {
+		DisplayName: 幸运召唤药剂
+		Tooltip: 提高最大仆从和炮台数量
+	}
+
+	LuckySwiftnessPotion: {
+		DisplayName: 幸运敏捷药剂
+		Tooltip: 移动速度提高26%
+	}
+
+	LuckyThornsPotion: {
+		DisplayName: 幸运荆棘药剂
+		Tooltip: 攻击者也会受到伤害
+	}
+
+	LuckyWrathPotion: {
+		DisplayName: 幸运怒气药剂
+		Tooltip: 伤害提高11%
+	}
+
+	RoninPotion: {
+		DisplayName: 浪人药剂
+		Tooltip: 满血时获得3秒无敌时间
+	}
+
+	Carrot: {
+		DisplayName: 胡萝卜
+		Tooltip: 对眼睛有好处
+	}
+
+	GrandHealingPotion: {
+		DisplayName: 究极治疗药水
+		Tooltip: ""
+	}
+
+	GrandManaPotion: {
+		DisplayName: 究极魔力药水
+		Tooltip: ""
+	}
+
+	TheBigOne: {
+		DisplayName: 大.药.瓶.
+		Tooltip: ""
+	}
+
+	OrderBottle: {
+		DisplayName: 秩序烧瓶
+		Tooltip: 为混沌生物群系带来秩序
+	}
+
+	OrderSolution: {
+		DisplayName: 秩序溶液
+		Tooltip:
+			'''
+			环境改造枪专用
+			净化混沌
+			'''
+	}
+
+	CorruptionFlask: {
+		DisplayName: 暗影烧瓶
+		Tooltip: 扩散腐化之地
+	}
+
+	CrimsonFlask: {
+		DisplayName: 鲜血烧瓶
+		Tooltip: 扩散猩红之地
+	}
+
+	YellowSolution: {
+		DisplayName: 浅黄溶液
+		Tooltip:
+			'''
+			环境改造枪专用
+			清除雪原地形
+			'''
+	}
+
+	GlowingSporeBag: {
+		DisplayName: 荧光孢子袋
+		Tooltip: 扩散发光蘑菇地
+	}
+
+	HallowFlask: {
+		DisplayName: 水晶烧瓶
+		Tooltip: 扩散神圣之地
+	}
+
+	GildedKey: {
+		DisplayName: 鎏金钥匙
+		Tooltip: 大概能打开……什么东西？
+	}
+
+	AshJar: {
+		DisplayName: 燎烬罐
+		Tooltip: 扩散燎狱
+	}
+
+	ScorchedSeeds: {
+		DisplayName: 焦灼种子
+		Tooltip: 种植燎狱草
+	}
+
+	Sunpowder: {
+		DisplayName: 日耀粉
+		Tooltip: ""
+	}
+
+	FlaskOfDragonfire: {
+		DisplayName: 龙炎瓶
+		Tooltip: 近战攻击造成燎狱龙炎
+	}
+
+	KeyOfSmite: {
+		DisplayName: 惩戒之钥
+		Tooltip: 充满了烈焰能量
+	}
+
+	OrangeSolution: {
+		DisplayName: 橙色溶液
+		Tooltip:
+			'''
+			环境改造枪专用
+			扩散燎狱
+			'''
+	}
+
+	Fungicide: {
+		DisplayName: 除菌溶剂
+		Tooltip: 最初由虫群研制，用于对抗不断扩张的蘑菇威胁。
+	}
+
+	JungleFlask: {
+		DisplayName: 丛林烧瓶
+		Tooltip: 将森林转变为丛林
+	}
+
+	LimeSolution: {
+		DisplayName: 酸橙溶液
+		Tooltip:
+			'''
+			环境改造枪专用
+			将森林转变为丛林
+			'''
+	}
+
+	SwarmSolution: {
+		DisplayName: 虫群溶液
+		Tooltip:
+			'''
+			环境改造枪专用
+			净化蘑菇生物群系
+			'''
+	}
+
+	GodlySoul: {
+		DisplayName: 神级之魂
+		Tooltip:
+			'''
+			若可行，赋予武器"神级"前缀
+			用该灵魂右键武器即可设置前缀
+			过程中消耗
+			'''
+	}
+
+	LegendarySoul: {
+		DisplayName: 传奇之魂
+		Tooltip:
+			'''
+			若可行，赋予武器"传奇"前缀
+			用该灵魂右键武器即可设置前缀
+			过程中消耗
+			'''
+	}
+
+	MythicalSoul: {
+		DisplayName: 神话之魂
+		Tooltip:
+			'''
+			若可行，赋予武器"神话"前缀
+			用该灵魂右键武器即可设置前缀
+			过程中消耗
+			'''
+	}
+
+	UnrealSoul: {
+		DisplayName: 虚幻之魂
+		Tooltip:
+			'''
+			若可行，赋予武器"虚幻"前缀
+			用该灵魂右键武器即可设置前缀
+			过程中消耗
+			'''
+	}
+
+	DankSeeds: {
+		DisplayName: 阴湿种子
+		Tooltip: 种植潭渊草
+	}
+
+	DarkwaterFlask: {
+		DisplayName: 深水烧瓶
+		Tooltip: 扩散潭渊
+	}
+
+	Moonpowder: {
+		DisplayName: 月华粉
+		Tooltip: ""
+	}
+
+	FlaskOfHydratoxin: {
+		DisplayName: 渊毒瓶
+		Tooltip: 近战攻击造成渊毒
+	}
+
+	IndigoSolution: {
+		DisplayName: 靛青溶液
+		Tooltip:
+			'''
+			环境改造枪专用
+			扩散潭渊
+			'''
+	}
+
+	KeyOfSpite: {
+		DisplayName: 怨恨之钥
+		Tooltip: 充满了渊狱能量
+	}
+
+	MireKey: {
+		DisplayName: 潭渊钥匙
+		Tooltip: 解锁沉怒之渊的力量
+	}
+
+	ForestFlask: {
+		DisplayName: 森林烧瓶
+		Tooltip: 将丛林转变为森林
+	}
+
+	DeepGreenSolution: {
+		DisplayName: 深绿溶液
+		Tooltip:
+			'''
+			环境改造枪专用
+			将丛林转变为森林
+			'''
+	}
+
+	BrownSolution: {
+		DisplayName: 棕红溶液
+		Tooltip:
+			'''
+			环境改造枪专用
+			扩散红蘑菇生物群系
+			'''
+	}
+
+	MyceliumSeeds: {
+		DisplayName: 赤孢草种
+		Tooltip: 种植红色菌丝
+	}
+
+	SporeBag: {
+		DisplayName: 孢子袋
+		Tooltip: 扩散红蘑菇生物群系
+	}
+
+	IceFlask: {
+		DisplayName: 冰霜烧瓶
+		Tooltip: 扩散雪原
+	}
+
+	IcemeltFlask: {
+		DisplayName: 融雪烧瓶
+		Tooltip: 清除雪原
+	}
+
+	WhiteSolution: {
+		DisplayName: 白色溶液
+		Tooltip:
+			'''
+			环境改造枪专用
+			扩散雪原
+			'''
+	}
+
+	StarIdol: {
+		DisplayName: 群星祈愿
+		Tooltip:
+			'''
+			它如天上的群星般闪耀
+			只有当世界中天上的镭光矿数量较少时可使用。
+			'''
+	}
+
+	PurityFlask: {
+		DisplayName: 纯净烧瓶
+		Tooltip: 扩散森林
+	}
+
+	VoidFlask: {
+		DisplayName: 虚空烧瓶
+		Tooltip: 扩散虚空
+	}
+
+	BlackSolution: {
+		DisplayName: 纯黑溶液
+		Tooltip:
+			'''
+			环境改造枪专用
+			扩散虚空
+			'''
+	}
+
+	TerraKey: {
+		DisplayName: 泰拉钥匙
+		Tooltip: ""
+	}
+
+	GoblinTinkererDoll: {
+		DisplayName: 哥布林工匠玩偶
+		Tooltip: '''"对不起，小家伙……"'''
+	}
+}
+
+Currency: {
+	AncientCoin: {
+		DisplayName: 远古觉醒币
+		Tooltip: 一枚刻着A的红蓝相间硬币
+	}
+
+	BloodRune: {
+		DisplayName: 血浸符文
+		Tooltip: 一块据说浸染了远古生物鲜血的奇石
+	}
+
+	ChristmasCheer: {
+		DisplayName: 圣诞祝元
+		Tooltip: 纯粹的快乐与沁凉的薄荷清香
+	}
+
+	GoblinSoul: {
+		DisplayName: 哥布林亡魂
+		Tooltip: 哥布林的魂魄
+	}
+
+	MartianCredit: {
+		DisplayName: 火星信用点
+		Tooltip: 一张对火星人来说有某种货币价值的卡片
+	}
+
+	PirateBooty: {
+		DisplayName: 海盗战利品
+		Tooltip: 一枚打造极其精良的金币
+	}
+
+	HalloweenTreat: {
+		DisplayName: 万圣怪糖
+		Tooltip: 非常美味的糖果。但别吃，很可能被诅咒了。
+	}
+
+	MonsterSoul: {
+		DisplayName: 凶兽之魂
+		Tooltip: 恐怖凶兽的魂魄
+	}
+}
+
+MonochromeApple: {
+	DisplayName: 黑白苹果
+	Tooltip: 将吸引一位骏马伙伴
+}
+
+GRealmAdvertisement: {
+	DisplayName: GRealm广告
+	Tooltip:
+		'''
+		"想要更多AA内容和Grox风味的乐趣吗？去玩GRealm吧！"
+		- Grox The Great
+		'''
+}
+
+FancyTruffle: {
+	DisplayName: 优质松露
+	Tooltip: 吸引一种在水中与战斗中茁壮成长的王者生物
+}
+
+RoyalRabbit_Item: {
+	DisplayName: 王冠兔兔
+	Tooltip: 它受突袭惩罚者直接保护
+}
+
+ChampionHelmetMageSetEffect_CarrotBooster: {
+	DisplayName: 胡萝卜加速器
+	Tooltip: 坚韧但很脆。
+}
+
+Dyes: {
+	DiscordianDye: {
+		DisplayName: 酷煞染料
+		Tooltip: 使用后赋予一种浑沌之感
+	}
+
+	DiscordianInfernoDye: {
+		DisplayName: 煞狱染料
+		Tooltip: 使用后赋予一种浑沌之感
+	}
+
+	BlazingDye: {
+		DisplayName: 烈焰染料
+		Tooltip: 使用后赋予一种灼热激昂之感
+	}
+
+	BlazingFuryDye: {
+		DisplayName: 炙怒染料
+		Tooltip: 使用后赋予一种灼热激昂之感
+	}
+
+	AbyssalDye: {
+		DisplayName: 潭渊染料
+		Tooltip: 使用后赋予一种深不可测之感
+	}
+
+	AbyssalWrathDye: {
+		DisplayName: 渊怒染料
+		Tooltip: 使用后赋予一种深不可测之感
+	}
+
+	DoomsdayDye: {
+		DisplayName: 末日染料
+		Tooltip: 使用后赋予一种故障异常的外观
+	}
+}
+
+TheLifeAndEpicAdventuresOfAnubisTheWonderDog: {
+	DisplayName: 阿努比斯神犬的生命史诗历险记
+	Tooltip: ""
+}
+
+Fishmother: {
+	DisplayName: 育母炎鱼
+	Tooltip: ""
+}
+
+Hellfisher: {
+	DisplayName: 燎狱渔夫
+	Tooltip: ""
+}
+
+TriHeadedKoi: {
+	DisplayName: 三头锦鲤
+	Tooltip: ""
+}
+
+LovecraftiansResearchList: {
+	DisplayName: 洛夫克拉夫特星人的研究清单
+	Tooltip:
+		'''
+		我需要这些东西，拜托了！
+		1. 地下生物群落里的什么东西。从那儿搞块水晶应该能用……
+		2. 腐化之地的血肉样本。我想知道那些东西是由什么构成的。
+		3. 猩红之地的骨骼样本。我想探究它们的骨骼构造。
+		4. 找找潭渊生物吃什么。直接杀，杀到它们掉出食物之类的就行。
+		5. 燎狱生物的鳞片。我在研究它们为何如此耐热。
+		6. 丛林的孢子样本。这些蘑菇太烦人了，或许我能做点什么消灭它们。
+		7. 某种能注射毒液之类的生物器官。我的注射器坏了，那个护士又不肯把她的借我用。
+		8. 赤孢皇和真菌帝的构成样本。不过研究这些我可能需要点帮手……
+		9. 从西边那些浮空岛上搞一块废金属。那东西看起来挺有意思，可以用来打造装备。
+		10. 要是有台制冰机就好了。
+		11. 兔子。不是用来做实验的，我只是觉得它们可爱，想养几只当宠物。
+		12. 神圣之地闪闪发光的东西。我在想能不能用它炼更多药水……
+		'''
+}
+
+MadnessMushroom: {
+	DisplayName: 癫狂蘑菇
+	Tooltip:
+		'''
+		一枚极其稀有的蘑菇
+		或许赤松露人知道怎么处置它？
+		'''
+}
+
+GravitySphere: {
+	DisplayName: 重力天球
+	Tooltip: 一个星球的石质模型，甚至还带了一颗环绕的月亮！
+}
+
+StarChart: {
+	DisplayName: 星象绘景
+	Tooltip: 一张涵盖太阳系直至此星球的地图。
+}
+
+WormIdol: {
+	DisplayName: 蠕虫神像
+	Tooltip:
+		'''
+		一座描绘某种蠕虫之神的远古雕像。
+		看起来已多年无人触碰
+		'''
+}
+
+GS: {
+	DisplayName: G S
+	Tooltip: ""
+}
+
+SC: {
+	DisplayName: S C
+	Tooltip: ""
+}
+
+GlitchFish: {
+	DisplayName: 乱误码鱼
+	Tooltip: ""
+}
+
+Lore: {
+	Calamity: {
+		MushroomMonarchLore: {
+			DisplayName: 赤孢皇
+			Tooltip: ""
+			Lore:
+				'''
+				即便是最卑微的生物也有其君王。
+				泰拉瑞亚的蘑菇们不知出于什么原因，无止境地试图扩张它们的领地。
+				有这样的孱弱领袖，它们至今未能如愿也就不奇怪了——即便我的圣战为它们创造了可乘之机。
+				'''
+		}
+
+		FeudalFungusLore: {
+			DisplayName: 真菌帝
+			Tooltip: ""
+			Lore:
+				'''
+				尽管它们能施以可怖的掌控，但若说我对它们的本性毫无兴趣，那便是违心之言。
+				假若我的圣战能如愿告终，我与那位工程师的关系也未随时间淡去，我定会请他投身于这蘑菇魔法特性的研究。
+				'''
+		}
+
+		GripsOfChaosLore: {
+			DisplayName: 混沌双爪
+			Tooltip: ""
+			Lore:
+				'''
+				这些怪异之手常映入我麾下斥候的眼帘。
+				我尚不知其本质，但料想它们与泰拉瑞亚上空那邪恶的混沌脱不了干系。
+				唯有一点我确信不疑：神灵并非唯一在亵渎这片土地的存在。
+				'''
+		}
+
+		TruffleToadLore: {
+			DisplayName: 松露蟾蜍
+			Tooltip: ""
+			Lore:
+				'''
+				这又一次印证了真菌的顽强，以及它们绝不让死者安息的那份执念。
+				日久经年，我已看透，此般虚张声势的力量炫耀，不过是弱者拼命想要攫取力量的徒劳挣扎罢了。
+				'''
+		}
+
+		BroodmotherLore: {
+			DisplayName: 育母炎龙
+			Tooltip: ""
+			Lore:
+				'''
+				多么奇异的生物，从那燎狱的混沌中诞生，目睹它被斩杀，实属遗憾。
+				我曾见过她的女儿。明了这种关系总归有些怪异，但我已学会心怀敬畏。
+				从今往后，我定会倍加谨慎。
+				'''
+		}
+
+		HydraLore: {
+			DisplayName: 九头渊蛇
+			Tooltip: ""
+			Lore:
+				'''
+				她栖身的那片严苛而混沌的潭渊，曾是一座盛名远扬的居所。
+				他们曾是我最忠实的拥护者，他们的覆灭是一场我无力阻止的悲剧。
+				无论神祇与否，应为此事负责之人，终有一日将直面我的怒火。
+				'''
+		}
+
+		DesertDjinnLore: {
+			DisplayName: 沙漠巨灵
+			Tooltip: ""
+			Lore:
+				'''
+				在巨龙的纪元中，伊尔梅兰海不过是一片黄沙翻涌的荒漠，一个被遗弃种族的故土。
+				借我圣战之伟力，它已重获新生。
+				如今，那失落文明的幽魂，正自水渊长眠中苏醒。
+				命运还真是爱开玩笑，不是吗？
+				'''
+		}
+
+		SubzeroSerpentLore: {
+			DisplayName: 绝零冰蛇
+			Tooltip: ""
+			Lore:
+				'''
+				可怜的生灵。
+				随着神祇精华与混沌之力侵吞它的栖息地，它已日渐衰弱。
+				若这世界当真渴求安宁，此二者皆是必须被涤荡殆尽的祸端。
+				'''
+		}
+
+		SagittariusLore: {
+			DisplayName: 射手座-虚空人马
+			Tooltip: ""
+			Lore:
+				'''
+				那些不祥的浮岛……长久以来都是嘉登的执迷所在。
+				在他指挥下，我麾下众多研究员钻研着它们所环绕的异象。
+				然而他们收获甚微……
+				你面对的那台构造体，其构造与我们观察到的其他单位截然不同。
+				还有其他人也试图理解这片异常的本质；或许，他们也将在此事中扮演某种角色。
+				'''
+		}
+
+		SiegeUnitsLore: {
+			DisplayName: S.I.E.G.E. 机械单元
+			Tooltip: ""
+			Lore:
+				'''
+				如此可笑的构造体，毫无疑问出自风暴科学家之手。
+				他们曾是一个个体——风暴元素——但在很久以前便分裂成了一个更大的组织。
+				他们所谓的创新简直可笑；就连这些破破烂烂的机器都明显抄袭了嘉登的失败之作。
+				傲慢终将是他们覆灭的根源。
+				'''
+		}
+
+		OrthrusXLore: {
+			DisplayName: 俄耳托斯X型
+			Tooltip: ""
+			Lore:
+				'''
+				这粗劣的机械造物就是风暴科学家的最后防线？
+				何其可悲。
+				我毫不怀疑，我的寻神骑士能轻易将其碾为一堆废铁。
+				'''
+		}
+
+		RaiderUltimaLore: {
+			DisplayName: 创世哺育之母
+			Tooltip: ""
+			Lore:
+				'''
+				我早听闻过这台攻坚单位的传闻。
+				手下的步兵，确实曾数次在它面前溃不成军。
+				如今见你将其解决……看来我不在的这段时日，我的士兵们着实变得软弱了。
+				'''
+		}
+
+		RetrieverLore: {
+			DisplayName: 捕猎者
+			Tooltip: ""
+			Lore:
+				'''
+				以一只手的形态来设计回收单元……真是可悲。
+				尽管设计拙劣，它确实能够进入那异象之中。
+				我毫不怀疑，风暴科学家对自己无法理解的事物横加干涉，最终只会酿成恶果。
+				'''
+		}
+
+		AnubisLore: {
+			DisplayName: 史诗记述者
+			Tooltip: ""
+			Lore:
+				'''
+				直至近日，我也只在骑士们的一些模糊的传言中听闻他的传说。
+				在那场大焚尽之后，我震惊地发现他竟活生生地站在我的宫廷前。
+				他发出了一个警告：将有一人崛起，终结我的统治。
+				看来，他在你身上看到了摧毁我的手段。
+				唯有时间，才能道尽这段传说的结局……
+				'''
+		}
+
+		AthenaLore: {
+			DisplayName: 雅典娜
+			Tooltip: ""
+			Lore:
+				'''
+				六翼天使是相当独特的一群，在大没落之前，他们常与克里萨甸人来往。
+				如今却深居简出，全仰仗其女王的庇护。
+				如果这就是远古一族仅剩的模样，那可太令我失望了。
+				'''
+		}
+
+		GreedLore: {
+			DisplayName: 金食饕餮
+			Tooltip: ""
+			Lore:
+				'''
+				这是什么……？又一条像……他那样的蠕虫？
+				不可能。除了那吞噬者，其余早已被肃清殆尽——因为他逃进了——
+				……嗯……倘若，他并非唯一拥有那种能力的存在呢……？
+				'''
+		}
+
+		RajahRabbitLore: {
+			DisplayName: 巨兔王公
+			Tooltip: ""
+			Lore:
+				'''
+				一位高贵的战士，王公是值得尊敬的对手。
+				在我的征服之路上，他曾以同样的理由挑战我，一如他找上你；我应承了他的邀请，并在决斗中将他击败。
+				他靠着纯粹的毅力活了下来，再次向我发起挑战，渐渐地我们达成了共识。
+				我们并非殊途——皆为含冤而逝者的复仇之人。我们的羁绊日益牢固，刀锋相交的次数也愈发频繁。
+				嘉登曾声称他是间谍，在研究我的行动以期有朝一日将我刺杀，但他错了。他永远无法理解两名对手之间的惺惺相惜。
+				尽管早已分道扬镳，我却深知他的底细：那远非他全部的实力。庆幸他的仁慈吧，祈祷他不会以全力之怒降临于你。
+				'''
+		}
+
+		ForsakenAnubisLore: {
+			DisplayName: 逝落的断罪师 阿努比斯
+			Tooltip: ""
+			Lore:
+				'''
+				看来，阿努比斯选择让你一窥他真正的实力了。
+				当他决意对抗我时，毋庸置疑是以最强之姿。
+				即便如此，我亦毫无畏惧。这与我在面对至高叛徒时所目睹的力量相比不值一提。
+				若想与我匹敌，你还需变得更强才行。
+				'''
+		}
+
+		OlympianAthenaLore: {
+			DisplayName: 奥林匹亚雅典娜
+			Tooltip: ""
+			Lore:
+				'''
+				我曾以为雅典娜在你们初次交锋时有所保留。
+				这便是瓦里安一族的真正力量……岁月虽已使他们的族裔凋零至此，但仍有余勇可嘉。
+				我在想，若他们在巨龙最后的战斗中施以援手，命运是否会织就不同的故事……？
+				'''
+		}
+
+		WormKingGreedLore: {
+			DisplayName: 鎏金万蟲王
+			Tooltip: ""
+			Lore:
+				'''
+				我的推测得到了证实……
+				毋庸置疑。那条鎏金蠕虫，正是吞噬者的同族。
+				但如果这是真的，那么……
+				那股扭曲之力究竟在暗中影响这些土地多久了……？
+				'''
+		}
+
+		EquinoxWormsLore: {
+			DisplayName: 昼夜双虫
+			Tooltip: ""
+			Lore:
+				'''
+				我们的世界知晓许多源自星辰的蠕虫，这两条亦不例外。
+				因他们的仁慈，我们的世界得以享有白昼与黑夜。
+				他们与诸神截然相反，倾其所有只为吾辈的繁盛。
+				传说中甚至提及它们曾与一位英雄并肩作战，驱逐混沌之力。
+				正是那位英雄，激励我执起刀刃，踏上远征之路。
+				'''
+		}
+
+		SistersOfDiscordLore: {
+			DisplayName: 混沌姐妹
+			Tooltip: ""
+			Lore:
+				'''
+				那俩真是相当恼人的一对。
+				我毫不怀疑，沉默的那位已经暗中监视圣战许久了。
+				同样，那位法师也在多次场合下袭击了我的部队。我听说她渴望与硫火女巫一对一较量。
+				即便联手，我亦怀疑她们能否在那种遭遇中生还。
+				'''
+		}
+
+		AkumaLore: {
+			DisplayName: 凶煞恶魔
+			Tooltip: ""
+			Lore:
+				'''
+				邪鬼巨龙……
+				我的部队推进燎狱的任何尝试都被它的烈焰迅速击退。
+				正是他造就了燎狱：从他的火焰中诞生，将曾称此地为家的文明化为焦土。
+				谨记，你在此时取得的胜利不过是暂时的。凶煞恶魔的愤怒之魂至今犹存。
+				而我所惧的是，他们真正的力量仍在沉眠……静待觉醒之机。
+				'''
+		}
+
+		YamataLore: {
+			DisplayName: 惊惧梦魇
+			Tooltip: ""
+			Lore:
+				'''
+				惊惧梦魇……
+				我的部队不敢踏入潭渊半步，他那致命的毒素令所有踏入者窒息而亡。
+				正是他造就了潭渊：从他的毒素中诞生，扼杀了曾称此地为家的文明。
+				谨记，你在此时取得的胜利不过是暂时的。八歧大蛇的怨怒之魂仍在延续。
+				而我所惧的是，他们真正的力量仍在沉睡……静待觉醒之机。
+				'''
+		}
+
+		ZeroLore: {
+			DisplayName: 零械单元
+			Tooltip: ""
+			Lore:
+				'''
+				末日构造体……
+				嘉登长期以来都对这单位着迷不已。它的护盾将他所有的破解尝试尽数阻挡在外。
+				看来，唯有你能够启动它。
+				当心了。
+				那求救信号——如果嘉登对那异象的研究可信的话……
+				你已将灾难引到了我们的门阶之上。
+				'''
+		}
+
+		ChampionRajahRabbitLore: {
+			DisplayName: 无辜的保护者
+			Tooltip: ""
+			Lore:
+				'''
+				我本以为王公作为无辜的保护者的岁月将远超于我，然而我错了。
+				如今，你承袭了他的名号，而他如同我一般隐退归田。
+				在他全力之下胜出绝非小事；你或许已经准备好面对我了。
+				在接下来的战斗中凯旋而归吧，那一刻很快就将到来。
+				'''
+		}
+
+		ShenDoragonLore: {
+			DisplayName: 上神应龙
+			Tooltip: ""
+			Lore:
+				'''
+				难以想象，凶煞恶魔与惊惧梦魇竟只是同一存在的两半……
+				即便如此，我仍忍不住怀疑，那也远非他全部的力量。
+				在古老的传说中，我曾听过一位英雄与冥昧化身交战的故事。
+				然而那故事中描绘的并非龙形，而是一名男子……真令人好奇……
+				'''
+		}
+
+		InfinityZeroLore: {
+			DisplayName: 无限零
+			Tooltip: ""
+			Lore:
+				'''
+				嘉登对那异象的了解也仅限于无限零。
+				没想到它如此强大，却也不过是一具承载着更大威胁的躯壳。
+				遗忘……我恐怕曾在描述宇宙创生的远古经卷中见过这个名字。
+				四尊无可估量的泰坦……
+				难道这就是经卷中提及的熵之化身……？
+				'''
+		}
+
+		SoulOfCthulhuLore: {
+			DisplayName: 克苏鲁之魂
+			Tooltip: ""
+			Lore:
+				'''
+				巨龙一族的陨落……莫非当年并非只有一头畸变巨兽，而是两头……？
+				如果那个不可名状的魂魄所言属实，那事实必定如此，可为何独独这一段往事从未有人向我提起……？
+				在我钻研龙族语言时，我了解到"克苏鲁"意为"巨兽"。
+				或许这个称号正是因这孪生巨兽而生……
+				'''
+		}
+	}
+}
+
+InfinityGauntlet: {
+	DisplayName: 无限手套
+	Tooltip: ""
+}
+
+TimeStone: {
+	DisplayName: 时间宝石
+	Tooltip: ""
+}
+
+GoblinTinkererDoll: {
+	DisplayName: 哥布林工匠玩偶
+	Tooltip: ""
+}

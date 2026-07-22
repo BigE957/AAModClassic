@@ -1,0 +1,749 @@
+Skullshot: {
+	DisplayName: 超级髑髅炮
+	Tooltip:
+		'''
+		向敌人发射大量子弹
+		右键向敌人发射旋转的骨头
+		使用子弹和骨头作为弹药
+		"我就是没道理的仇神"
+		—— Gibs
+		'''
+}
+
+StormRifle: {
+	DisplayName: 风暴来复枪
+	Tooltip:
+		'''
+		发射静电射击
+		"NUM"
+		—— BlazenBreaker
+		'''
+}
+
+EternalTwilight: {
+	DisplayName: 永暮弓
+	Tooltip: 垂暮弓 EX
+}
+
+PerfectChaosBustershot: {
+	DisplayName: 混元破煞
+	Tooltip:
+		'''
+		发射穿透性双重冲击波，同时散射10发子弹
+		混沌破坏枪 EX
+		'''
+}
+
+PerfectChaosJavelin: {
+	DisplayName: 冥渊断空
+	Tooltip:
+		'''
+		命中时爆炸
+		冥昧标枪 EX
+		'''
+}
+
+SupremeHellshot: {
+	DisplayName: 至尊地狱炮
+	Tooltip:
+		'''
+		向敌人发射大量子弹
+		右键向敌人发射地狱骷髅
+		使用子弹与骨头作为弹药
+		超级髑髅炮 EX
+		'''
+}
+
+ThunderLord: {
+	DisplayName: 雷电领主
+	Tooltip:
+		'''
+		发射雷击，有极小几率发射超载雷霆弹，从天空召唤闪电
+		风暴来复枪 EX
+		'''
+}
+
+ApollosWrath: {
+	DisplayName: 阿波罗之怒
+	Tooltip:
+		'''
+		射出暗影光束
+		不消耗弹药
+		'''
+}
+
+Skyfall: {
+	DisplayName: 堕天
+	Tooltip: ""
+}
+
+Bonesaw: {
+	DisplayName: 骨质冲锋枪
+	Tooltip:
+		'''
+		将火枪子弹转化为灵液子弹！
+		16%几率不消耗弹药
+		'''
+}
+
+Battlestar: {
+	DisplayName: 战斗之星
+	Tooltip:
+		'''
+		将子弹转化为叶绿弹！
+		32%几率不消耗弹药
+		'''
+}
+
+TheVulcano: {
+	DisplayName: 武尔坎火神枪
+	Tooltip: 将凝胶转化为爆炸性熔岩喷弹
+}
+
+BurningGel: {
+	DisplayName: 灼烧胶球
+	Tooltip: 命中时点燃目标
+}
+
+Dawnstrike: {
+	DisplayName: 曙光突击
+	Tooltip: 蓄力以发射更大的火焰爆弹
+}
+
+AlienRifle: {
+	DisplayName: 异星来复枪
+	Tooltip: 使用能量胞腔作为弹药
+}
+
+Darksprayer: {
+	DisplayName: 黑暗喷射枪
+	Tooltip:
+		'''
+		"黑暗之喷涌，留痕于其身"
+		造成蚀月
+		'''
+}
+
+FallingTwilight: {
+	DisplayName: 垂暮弓
+	Tooltip: ""
+}
+
+MidnightWrath: {
+	DisplayName: 午夜之怒
+	Tooltip: 无需弹药
+}
+
+Sevenshot: {
+	DisplayName: 九头蛇七连射
+	Tooltip:
+		'''
+		发射6发子弹和一道毁灭性的月华冲击波
+		50%几率不消耗弹药
+		'''
+}
+
+DragonsMaw: {
+	DisplayName: 噬龙
+	Tooltip: 将箭矢转化为龙焰箭
+}
+
+DarkmatterKunai: {
+	DisplayName: 暗物质苦无
+	Tooltip: ""
+}
+
+TerraBallista: {
+	DisplayName: 泰拉强弩
+	Tooltip: 将箭矢转化为泰拉之箭
+}
+
+BlackHoleBlaster: {
+	DisplayName: 黑洞爆破枪
+	Tooltip: 偶尔发射一枚火箭弹，命中物块时爆炸形成漩涡
+}
+
+BrokenZeroWeapon: {
+	DisplayName: 残损零械武器
+	Tooltip: 它狂暴地试图攻击你
+}
+
+GenocideCannon: {
+	DisplayName: 种族灭绝炮
+	Tooltip:
+		'''
+		发射高爆火箭弹
+		25%几率发射一枚故障火箭，爆炸时分裂为碎片火箭
+		'''
+}
+
+Genocide: {
+	DisplayName: 种族灭绝
+	Tooltip:
+		'''
+		发射一束无限穿透的激光，无视物块并追踪敌人
+		穿透越多敌人伤害越高
+		无需弹药
+		'''
+}
+
+Gigataser: {
+	DisplayName: 机甲脉冲枪
+	Tooltip: 发射虚空闪电
+}
+
+Neutralizer: {
+	DisplayName: 中和光束弓
+	Tooltip:
+		'''
+		左键发射弹跳激光，每次在墙壁间弹跳后威力增强
+		右键发射普通箭矢
+		'''
+}
+
+OmegaVolley: {
+	DisplayName: 欧米茄排炮
+	Tooltip:
+		'''
+		快速射出精准无比的音速子弹齐射
+		每十发子弹可额外射出两发
+		33%几率不消耗弹药
+		'''
+}
+
+RealityCannon: {
+	DisplayName: 现实破坏炮
+	Tooltip: 快速发射散射的暗黑激光
+}
+
+FulguriteTazerblaster: {
+	DisplayName: 雷熔电击爆射枪
+	Tooltip:
+		'''
+		快速发射电击冲击
+		有极小几率一次射出两发电击冲击
+		'''
+}
+
+Annihilator: {
+	DisplayName: 湮灭者
+	Tooltip: 发射一道量子激光，创造出极其强大的奇点
+}
+
+GameRaider: {
+	DisplayName: 游戏乱入者
+	Tooltip: 发射爆炸性的松露菇火箭弹
+}
+
+GibsFemur: {
+	DisplayName: 愤怒的股骨
+	Tooltip: 啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+}
+
+MobianBuster: {
+	DisplayName: 莫比安破坏枪
+	Tooltip:
+		'''
+		一把标准的莫比安制式爆裂枪
+		长按蓄力，然后释放一发强大的蓄力射击！
+		"记住，蓄力射击是在你松开扳机时发射的，而不是反过来。"
+		—— Tails
+		'''
+}
+
+Hurricane: {
+	DisplayName: 飓风
+	Tooltip:
+		'''
+		射出2波各6支箭矢
+		有几率射出海洋之箭
+		66%几率不消耗箭矢
+		海啸 EX
+		'''
+}
+
+FreedomStar: {
+	DisplayName: 自由之星
+	Tooltip:
+		'''
+		Tails 信赖的爆裂枪
+		长按蓄力，然后释放一发强大的蓄力射击！
+		"让你久等了，对吧？"
+		—— Tails
+		莫比安破坏枪 EX
+		'''
+}
+
+Independence: {
+	DisplayName: 独立日
+	Tooltip:
+		'''
+		射出3枚烟花火箭弹
+		喜庆弹射器 EX
+		'''
+}
+
+SharkLauncher: {
+	DisplayName: 鲨鱼喷枪
+	Tooltip:
+		'''
+		发射能咬住敌人不放的致命鲨鱼
+		食人鱼枪 EX
+		'''
+}
+
+Skystrike: {
+	DisplayName: 空袭者
+	Tooltip:
+		'''
+		从空中降下空界之箭
+		初始箭矢无视物块
+		空界之弓 EX
+		'''
+}
+
+UltimateOreCannon: {
+	DisplayName: 终极矿石加农炮
+	Tooltip:
+		'''
+		使用任意矿石作为弹药
+		某些矿石在发射时具有特殊效果
+		传奇武器
+		加里有矿 EX
+		'''
+}
+
+UnityBallista: {
+	DisplayName: 秩序烈弩
+	Tooltip:
+		'''
+		将箭矢转换为泰拉之箭
+		单次使用射出3波各3支箭矢
+		泰拉强弩 EX
+		'''
+}
+
+UWAM: {
+	DisplayName: U.W.A.M.
+	Tooltip:
+		'''
+		以极低散布发射数百发子弹
+		有几率射出鲨鱼，造成2倍伤害
+		88%几率不消耗弹药
+		S.D.M.G. EX
+		'''
+}
+
+FlareMinigun: {
+	DisplayName: 信号弹机枪
+	Tooltip:
+		'''
+		快速连续发射数十枚信号弹
+		33%几率不消耗信号弹
+		右键熄灭所有信号弹
+		'''
+}
+
+HKMP5: {
+	DisplayName: HK MP5
+	Tooltip: 将子弹转化为爆破弹！
+}
+
+L85A2: {
+	DisplayName: L85A2
+	Tooltip: 将子弹转化为高速弹！
+}
+
+LaserRifle: {
+	DisplayName: 激光卡宾枪
+	Tooltip: 使用能量胞腔作为弹药
+}
+
+M79: {
+	DisplayName: M79
+	Tooltip:
+		'''
+		使用M79榴弹作为弹药
+		33%几率不消耗弹药
+		'''
+}
+
+MidasGun: {
+	DisplayName: 点金枪
+	Tooltip: 发射子弹来赚更多钱
+}
+
+RazorwindLongbow: {
+	DisplayName: 刃风长弓
+	Tooltip: 将木箭转化为具有高击退的风之箭
+}
+
+Windfury: {
+	DisplayName: 神风天怒
+	Tooltip: 将木箭转化为具有高击退和无限穿透的烈风之箭
+}
+
+Bunzooka: {
+	DisplayName: 兔兔火箭炮
+	Tooltip: 发射兔兔火箭弹
+}
+
+FluffyFury: {
+	DisplayName: 毛绒动物之怒
+	Tooltip:
+		'''
+		将箭矢转化为分裂兔兔箭
+		可能导致卡顿的警告
+		'''
+}
+
+RPG: {
+	DisplayName: RPG
+	Tooltip:
+		'''
+		"兔兔推进榴弹"
+		发射兔兔火箭弹
+		兔兔火箭炮 EX
+		'''
+}
+
+ChaosBustershot: {
+	DisplayName: 混沌破坏枪
+	Tooltip: 发射穿透性双重冲击波，同时散射6发子弹
+}
+
+ChaosJavelin: {
+	DisplayName: 冥昧标枪
+	Tooltip: 命中时爆炸
+}
+
+DraconicRipper: {
+	DisplayName: 神龙开膛手
+	Tooltip:
+		'''
+		高速发射数十发大口径龙牙
+		无视敌人防御
+		50%几率不消耗弹药
+		'''
+}
+
+FlamingTwilight: {
+	DisplayName: 焰霞的黄昏
+	Tooltip:
+		'''
+		左键向敌人发射冥昧火球
+		右键在光标位置降下烈火与狂怒
+		消耗凝胶作为弹药
+		33%几率不消耗凝胶
+		'''
+}
+
+AbyssalKunai: {
+	DisplayName: 深渊苦无
+	Tooltip: ""
+}
+
+MizuArashi: {
+	DisplayName: 水岚
+	Tooltip:
+		'''
+		有1/15几率射出渊水之魂
+		渊水之魂造成2倍伤害，穿透最多10个敌人并无视物块
+		77%几率不消耗箭矢
+		'''
+}
+
+Scourge: {
+	DisplayName: 鞭挞者
+	Tooltip:
+		'''
+		将子弹转化为诅咒弹！
+		24%几率不消耗弹药
+		'''
+}
+
+Sandagger: {
+	DisplayName: 沙之投刀
+	Tooltip: ""
+}
+
+SandstormCrossbow: {
+	DisplayName: 沙暴十字弩
+	Tooltip: 将箭矢转换为沙漠弩箭
+}
+
+DynaskullJavelin: {
+	DisplayName: 恐龙王标枪
+	Tooltip: 若刺入敌人体内且该敌人死亡，释放一道追踪的王骨能量弹
+}
+
+FossilBoneslinger: {
+	DisplayName: 化石掷骨器
+	Tooltip: ""
+}
+
+NeithsString: {
+	DisplayName: 奈特神弦弓
+	Tooltip:
+		'''
+		一次射出2支箭矢
+		偶尔射出"审判之箭"，降低敌人防御
+		将木箭转化为速度较慢但伤害较高的木乃伊之箭
+		'''
+}
+
+Sandthrower: {
+	DisplayName: 投沙器
+	Tooltip: 30%几率不消耗凝胶
+}
+
+PrimevalJavelin: {
+	DisplayName: 原初之枪
+	Tooltip: 若刺入敌人体内且该敌人死亡，释放4道追踪的王骨能量弹
+}
+
+CursedFlamefury: {
+	DisplayName: 诅咒焰怒
+	Tooltip: 50%几率不消耗凝胶
+}
+
+Lifeline: {
+	DisplayName: 命脉弓
+	Tooltip:
+		'''
+		射出2支强化木乃伊箭，与普通箭矢一同发射
+		若2支强化木乃伊箭命中目标，则爆发"断罪箭"
+		断罪箭降低敌人的接触伤害
+		'''
+}
+
+BoneBow: {
+	DisplayName: 骨弓
+	Tooltip: 将木箭转换为骨箭
+}
+
+DeathlyLongbow: {
+	DisplayName: 死神长弓
+	Tooltip: 将骨箭转换为烈焰头骨
+}
+
+TrueDeathlyLongbow: {
+	DisplayName: 死神阴魂弓
+	Tooltip:
+		'''
+		将箭矢转换为死神之箭
+		每隔一发额外发射一枚爆炸性的幽魂头骨
+		'''
+}
+
+FrogLob: {
+	DisplayName: 投蛙器
+	Tooltip: ""
+}
+
+Fireball: {
+	DisplayName: 火球
+	Tooltip: 比马里奥的火之花还强！
+}
+
+GildedGlock: {
+	DisplayName: 镀金手枪
+	Tooltip: 使用钱币作为弹药
+}
+
+OreCannon: {
+	DisplayName: 加里有矿
+	Tooltip:
+		'''
+		使用部分矿石作为弹药
+		某些矿石在发射时具有特殊效果
+		'''
+}
+
+DragonFlamebow: {
+	DisplayName: 燎龙炎弓
+	Tooltip: 将箭矢转化为龙焰箭
+}
+
+DragonsSpine: {
+	DisplayName: 龙脊
+	Tooltip: ""
+}
+
+Firebuster: {
+	DisplayName: 烈焰爆裂枪
+	Tooltip: ""
+}
+
+Blastshot: {
+	DisplayName: 爆裂射击
+	Tooltip: 消耗凝胶
+}
+
+RadiantDawn: {
+	DisplayName: 曜光破晓弓
+	Tooltip: 按住以发射更多箭矢
+}
+
+YearOfTheDragon: {
+	DisplayName: 龙年
+	Tooltip:
+		'''
+		发射绚丽的烟花，惊艳你的朋友，炸飞你的敌人！
+		"邪鬼巨龙牌烟花对近距离将烟花射入敌人面部所造成的伤害概不负责。"
+		'''
+}
+
+MadnessBow: {
+	DisplayName: 狂乱之弓
+	Tooltip: ""
+}
+
+MadnessKnife: {
+	DisplayName: 狂乱飞刀
+	Tooltip: ""
+}
+
+AbyssalPentashot: {
+	DisplayName: 深渊五发枪
+	Tooltip: ""
+}
+
+HydraFang: {
+	DisplayName: 九头蛇之牙
+	Tooltip: 穿透最多3个敌人
+}
+
+HydraTrishot: {
+	DisplayName: 九头蛇三连发
+	Tooltip: ""
+}
+
+Mossket: {
+	DisplayName: 苔藓枪
+	Tooltip: ""
+}
+
+MurkyGel: {
+	DisplayName: 浑浊凝胶
+	Tooltip: 命中时造成涂油减益
+}
+
+AbyssalShadowshot: {
+	DisplayName: 潭渊暗影枪
+	Tooltip: 发射一道追踪暗影冲击波，同时散射6发子弹
+}
+
+Bubbleshot: {
+	DisplayName: 潭渊泡泡枪
+	Tooltip: ""
+}
+
+TheSquirter: {
+	DisplayName: 喷射枪
+	Tooltip: 不消耗弹药
+}
+
+Toxithrower: {
+	DisplayName: 流毒喷枪
+	Tooltip: 使用凝胶作为弹药
+}
+
+AbyssalEruption: {
+	DisplayName: 深渊焚爆
+	Tooltip: 喷吐深渊酸液，被其致命酸液杀死的敌人会爆炸。也消耗凝胶
+}
+
+CoralBow: {
+	DisplayName: 珊瑚弓
+	Tooltip: 比金属弓不知强到哪里去了
+}
+
+OceanWhaler: {
+	DisplayName: 猎鲸者
+	Tooltip: ""
+}
+
+SpookyKnife: {
+	DisplayName: 闹灵投刀
+	Tooltip: 命中时散布哀木之火
+}
+
+MushroomBow: {
+	DisplayName: 蘑菇弓
+	Tooltip: ""
+}
+
+SerpentsSting: {
+	DisplayName: 冰蛇之刺
+	Tooltip: 将子弹转化为雪弹
+}
+
+Sickleshot: {
+	DisplayName: 冰镰射击
+	Tooltip: 高速射出2支寒冰箭
+}
+
+SnowflakeShuriken: {
+	DisplayName: 雪花手里剑
+	Tooltip: ""
+}
+
+Winterbreak: {
+	DisplayName: 破冬
+	Tooltip: ""
+}
+
+OdinsBlade: {
+	DisplayName: 奥丁冰霜飞剑
+	Tooltip: 看来金食饕餮不知何时从某人手里顺手牵羊了这件东西
+}
+
+ShootingStar: {
+	DisplayName: 流星
+	Tooltip: ""
+}
+
+DoomiteAssaultBlaster: {
+	DisplayName: 厄劫突击爆射枪
+	Tooltip: ""
+}
+
+DoomiteHolobow: {
+	DisplayName: 厄劫全息弓
+	Tooltip: ""
+}
+
+DoomPistol: {
+	DisplayName: 厄劫手枪
+	Tooltip: ""
+}
+
+Incapacitator: {
+	DisplayName: 行为麻痹标枪
+	Tooltip: ""
+}
+
+SingularityCannon: {
+	DisplayName: 奇点加农炮
+	Tooltip: ""
+}
+
+AncientHydraTrishot: {
+	DisplayName: 远古九头蛇三连发
+	Tooltip: 它甚至能净化腐化！
+}
+
+CthulhuCannon: {
+	DisplayName: 克苏鲁加农炮
+	Tooltip:
+		'''
+		使用炮弹作为弹药
+		发射撕裂现实的炸弹，命中时碎裂为强大的暗黑裂隙
+		'''
+}
+
+ProtocolR: {
+	DisplayName: 协议-R
+	Tooltip: 发射一连串特殊火箭弹
+}

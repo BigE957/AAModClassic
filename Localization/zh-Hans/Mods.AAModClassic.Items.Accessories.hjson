@@ -1,0 +1,460 @@
+AleisterBook: {
+	DisplayName: 阿莱斯特之书
+	Tooltip:
+		'''
+		传说中伟大野兽之书。
+		增加10%召唤伤害
+		+2召唤栏
+		或许你还能让它变得更强..?
+		封面写着一段话：
+		我需要更多强大的灵魂, *****,*********,**********
+		'''
+}
+
+TheBookOfTheLaw: {
+	DisplayName: 法之书
+	Tooltip:
+		'''
+		传说中伟大野兽之书。
+		增加30%召唤伤害
+		+2召唤栏
+		包含制作此物所需所有碎片的全部属性。
+
+		'''
+}
+
+DemonGauntlet: {
+	DisplayName: 恶魔手套
+	Tooltip: ""
+}
+
+Equinox: {
+	DisplayName: 昼夜平分符
+	Tooltip: "'真正的平衡'"
+}
+
+Duality: {
+	DisplayName: 二律背反
+	Tooltip: "'古老的护身符中喷涌出冥昧之力'"
+}
+
+DragontamersCloak: {
+	DisplayName: 驯龙者披风
+	Tooltip: ""
+}
+
+Lantern: {
+	DisplayName: 提灯
+	Tooltip: ""
+}
+
+TaiyangBaolei: {
+	DisplayName: 太阳堡垒
+	Tooltip: ""
+}
+
+EnergyConduit: {
+	DisplayName: 能量导管
+	Tooltip: ""
+}
+
+Naitokurosu: {
+	DisplayName: 黑莲
+	Tooltip: ""
+}
+
+DarkVoid: {
+	DisplayName: 暗黑虚空
+	Tooltip: "'既黑暗又恐怖'"
+}
+
+RadiantStar: {
+	DisplayName: 光辉之星
+	Tooltip: "'闪瞎眼'"
+}
+
+DarkmatterWings: {
+	DisplayName: 暗物质增幅器
+	Tooltip: ""
+}
+
+StormCharm: {
+	DisplayName: 风暴护符
+	Tooltip: ""
+}
+
+StormRiot: {
+	DisplayName: 暴风防暴盾
+	Tooltip: ""
+}
+
+StormPendant: {
+	DisplayName: 风暴挂坠
+	Tooltip: ""
+}
+
+HoloCape: {
+	DisplayName: 全息披风
+	Tooltip: ""
+}
+
+StormClaw: {
+	DisplayName: 风暴之爪
+	Tooltip: ""
+}
+
+APageOfTheRuneBook: {
+	DisplayName: 符文书页
+	Tooltip: ""
+}
+
+EmperorFishronWings: {
+	DisplayName: 帝王猪鲨之翼
+	Tooltip: ""
+}
+
+TheBookOfRunes: {
+	DisplayName: 符文圣典
+	Tooltip: ""
+}
+
+BulwarkOfChaos: {
+	DisplayName: 混沌堡垒
+	Tooltip: ""
+}
+
+FireFrostMedallion: {
+	DisplayName: 冰与火之勋环
+	Tooltip: ""
+}
+
+CursedEyeOfTheSoulBinder: {
+	DisplayName: 缚魂者的诅咒之眼
+	Tooltip: ""
+}
+
+OlympianWings: {
+	DisplayName: 奥林匹亚之翼
+	Tooltip: ""
+}
+
+SeraphHarp: {
+	DisplayName: 六翼天琴
+	Tooltip: ""
+}
+
+GoddessHarp: {
+	DisplayName: 神御天琴
+	Tooltip: ""
+}
+
+RabbitcopterWings: {
+	DisplayName: 直升飞兔螺旋耳
+	Tooltip: "'啊,那不是兔耳朵的正确用法,不过很有效'"
+}
+
+RajahRabbitsSashOfVengeance: {
+	DisplayName: 巨兔王公的复仇腰带
+	Tooltip: ""
+}
+
+RajahRabbitsCloakOfSupremacy: {
+	DisplayName: 王公兔的至尊斗篷
+	Tooltip: "'你被无辜的保护者视为合格的继承者'"
+}
+
+ClawOfChaos: {
+	DisplayName: 混沌之爪
+	Tooltip: ""
+}
+
+ChaosWings: {
+	DisplayName: 混沌之翼
+	Tooltip: ""
+}
+
+DragonstrideBoots: {
+	DisplayName: 龙虬靴
+	Tooltip: ""
+}
+
+HeartOfPassion: {
+	DisplayName: 燎激之心
+	Tooltip: ""
+}
+
+HeartOfSorrow: {
+	DisplayName: 渊哀之心
+	Tooltip: ""
+}
+
+WingsOfChaos: {
+	DisplayName: 混沌之翼
+	Tooltip: ""
+}
+
+SandstormMedallion: {
+	DisplayName: 沙暴吊坠
+	Tooltip: ""
+}
+
+VultureWings: {
+	DisplayName: 秃鹫之翼
+	Tooltip: ""
+}
+
+ArtifactOfJudgement: {
+	DisplayName: 裁决造物
+	Tooltip: ""
+}
+
+ArtifactOfGuilt: {
+	DisplayName: 罪域魂物
+	Tooltip: ""
+}
+
+PalladiumShield: {
+	DisplayName: 钯金盾
+	Tooltip: ""
+}
+
+GlowingTruffle: {
+	DisplayName: 发光松露
+	Tooltip: "'别舔它'"
+}
+
+TruffleLegs: {
+	DisplayName: 松露腿
+	Tooltip: ""
+}
+
+CharmOfDesire: {
+	DisplayName: 贪欲挂饰
+	Tooltip: ""
+}
+
+TalismanOfDesire: {
+	DisplayName: 贪欲护身符
+	Tooltip: ""
+}
+
+DragonsGuard: {
+	DisplayName: 龙之守卫
+	Tooltip: ""
+}
+
+MagmancerWings: {
+	DisplayName: 熔魔之翼
+	Tooltip: ""
+}
+
+OrnateBand: {
+	DisplayName: 华丽珠环
+	Tooltip: ""
+}
+
+DraconianWings: {
+	DisplayName: 炙曦之翼
+	Tooltip: ""
+}
+
+HydraPendant: {
+	DisplayName: 九头蛇吊坠
+	Tooltip: ""
+}
+
+AshProofVest0: {
+	DisplayName: 燎烬-凭证背心
+	Tooltip:
+		'''
+		"{$Accessories.AshProofVest3.SharedFlavorText}"
+		背心状态：灰飞烟灭...
+		'''
+}
+
+AshProofVest1: {
+	DisplayName: 燎烬-凭证背心
+	Tooltip:
+		'''
+		"{$Accessories.AshProofVest3.SharedFlavorText}"
+		背心状态：即将报废
+		'''
+}
+
+AshProofVest2: {
+	DisplayName: 燎烬-凭证背心
+	Tooltip:
+		'''
+		"{$Accessories.AshProofVest3.SharedFlavorText}"
+		背心状态：年久失修
+		'''
+}
+
+AshProofVest3: {
+	SharedFlavorText: 在燎狱风暴中停留过久会令此饰品损坏……
+	DisplayName: 燎烬-凭证背心
+	Tooltip:
+		'''
+		"{$Accessories.AshProofVest3.SharedFlavorText}"
+		背心状态：完好如新
+		'''
+}
+
+ShadowBand: {
+	DisplayName: 暗影束带
+	Tooltip: ""
+}
+
+AquamancerWings: {
+	DisplayName: 水法之翼
+	Tooltip: ""
+}
+
+BlackLotusEmblem: {
+	DisplayName: 黑莲印记
+	Tooltip: ""
+}
+
+BotchedBand: {
+	DisplayName: 拙急饰带
+	Tooltip: ""
+}
+
+DreadMoonWings: {
+	DisplayName: 惧月之翼
+	Tooltip: ""
+}
+
+OldOneCharm: {
+	DisplayName: 旧日护符
+	Tooltip: ""
+}
+
+HeartyTruffle: {
+	DisplayName: 丰盛松露
+	Tooltip: "'别吃它'"
+}
+
+ArcticMedallion: {
+	DisplayName: 极地吊坠
+	Tooltip: ""
+}
+
+RadiumWings: {
+	DisplayName: 镭光之翼
+	Tooltip: ""
+}
+
+TerraWings: {
+	DisplayName: 泰拉之翼
+	Tooltip: ""
+}
+
+SagittariusShield: {
+	DisplayName: 人马盾
+	Tooltip: ""
+}
+
+BrokenCode: {
+	DisplayName: 破损代码
+	Tooltip: "'你看上去不太好'"
+}
+
+ZeroWings: {
+	DisplayName: 零式喷射器
+	Tooltip: ""
+}
+
+DragonSerpentNecklace: {
+	DisplayName: 龙蛇项链
+	Tooltip: ""
+}
+
+MadnessTruffle: {
+	DisplayName: 癫狂松露
+	Tooltip: "'你知道的，别把它往嘴里放'"
+}
+
+HeartOfAnarchy: {
+	DisplayName: 原初之焰
+	Tooltip: "'这对姐妹的心脏在这件古老瓷器中如一体般跳动'"
+}
+
+MetallicTruffle: {
+	DisplayName: 金属松露
+	Tooltip: "'别咬它'"
+}
+
+AnkhNecklace: {
+	DisplayName: 生命十字项链
+	Tooltip: ""
+}
+
+AnkhScarf: {
+	DisplayName: 生命十字围巾
+	Tooltip: ""
+}
+
+AnkhTablet: {
+	DisplayName: 安卡石板
+	Tooltip: ""
+}
+
+DwarvenGauntlet: {
+	DisplayName: 矮人王手套
+	Tooltip: "'好吧。我自己来。'"
+}
+
+MindStone: {
+	DisplayName: 心灵宝石
+	Tooltip: "'不过是简单的微积分罢了'"
+}
+
+PowerStone: {
+	DisplayName: 力量宝石
+	Tooltip: "'平衡宇宙时，没人会考虑什么乐趣'"
+}
+
+RealityStone: {
+	DisplayName: 现实宝石
+	Tooltip: "'现在……现实可以如我所愿了……'"
+}
+
+SoulStone: {
+	DisplayName: 灵魂宝石
+	Tooltip: "'我所失去的远超你的想象'"
+}
+
+TimeStone: {
+	DisplayName: 时间宝石
+	Tooltip:
+		'''
+		将时间宝石作为物品使用，停止/恢复时间
+		'怕它。躲它。命运终会降临。'
+		'''
+}
+
+SpaceStone: {
+	DisplayName: 空间宝石
+	Tooltip:
+		'''
+		按下裂位回家热键回到家中
+		按下裂位返程热键返回你最近的裂隙位置
+		"'不过这一次……我确实笑得很开心'"
+		'''
+}
+
+InfinityGauntlet: {
+	DisplayName: 无限手套
+	Tooltip: 完美的平衡，万物本该如此
+}
+
+KappaFins: {
+	DisplayName: 河童脚蹼
+	Tooltip: ""
+}
+
+KappaGear: {
+	DisplayName: 河童装备
+	Tooltip: ""
+}
