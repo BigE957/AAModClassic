@@ -20,7 +20,7 @@ public class PulseRing : Particle
 
     public override void Load()
     {
-        Texture = ModContent.Request<Texture2D>("AAModClassic\\Particles\\Types\\HollowCircleHardEdge");
+        Texture = ModContent.Request<Texture2D>("AAModClassic/Particles/Types/HollowCircleHardEdge");
     }
 
     public PulseRing(Vector2 position, Vector2 velocity, Color color, float originalScale, float finalScale, int lifeTime)
