@@ -187,9 +187,13 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs._BossCt
             public FabrikLimb Tentacle = tentacle;
             public Point GrippedTile = Point.Zero;
             public readonly Vector2 RestDir = restAngle.ToRotationVector2();
-            private int stateCounter = 0;
+            private int stateCounter = Main.rand.Next(0, 255);
             private float sineCounter = 0f;
             private Vector2 previousTipPosition = Main.LocalPlayer.Center;
+            private bool isGripped = false;
+
+            private VertexPositionColorTexture[] _stripVertsCache;
+            private readonly VertexPositionColorTexture[] _footVertsCache = new VertexPositionColorTexture[4];
 
             public void Update()
             {
@@ -243,6 +247,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs._BossCt
                 if (GrippedTile == Point.Zero)
                 {
                     Tentacle.Update(Main.LocalPlayer.Center, Tentacle.Points[^1] + ((goal - Tentacle.Points[^1]) / 10f));
+                    isGripped = false;
                 }
                 else
                 {
@@ -250,6 +255,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs._BossCt
                     {
                         Tentacle.Update(Main.LocalPlayer.Center, goal); //tentacle.Points[^1] + ((goal - tentacle.Points[^1]) / 10f))
                         ampMult = 0.1f;
+                        isGripped = true;
                     }
                     else
                     {
@@ -260,7 +266,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs._BossCt
                         ampMult = MathHelper.Lerp(1f, 0.1f, lerp);
                         Tentacle.Update(Main.LocalPlayer.Center, Vector2.Lerp(previousTipPosition, goal, lerp));
                         stateCounter++;
-                    }
+                    }          
                 }
 
                 if (ampMult != 0)
@@ -280,28 +286,163 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs._BossCt
 
                     sineCounter += 0.05f;
                 }
+
+                //foreach (var v in Tentacle.Points)
+                //    Dust.NewDustPerfect(v, DustID.LifeDrain, Vector2.Zero);
+            }
+
+            public void Draw(GraphicsDevice gd, BasicEffect effect, Vector2 screenPos)
+            {
+                Texture2D texture = GetCthulhuTexture("Tentacle_" + (isGripped ? "Grounded" : "Idle"));
+                effect.Texture = texture;
+
+                var verts = BuildStrip(screenPos, Color.White, texture.Width * 0.5f);
+
+                foreach (var pass in effect.CurrentTechnique.Passes)
+                {
+                    pass.Apply();
+                    gd.DrawUserPrimitives(PrimitiveType.TriangleStrip, verts, 0, verts.Length - 2);
+                }
+
+                if (isGripped)
+                {
+                    Texture2D footTexture = GetCthulhuTexture("Tentacle_Grounded_End");
+                    effect.Texture = footTexture;
+
+                    var footVerts = BuildFootQuad(screenPos, Color.White, footTexture);
+
+                    foreach (var pass in effect.CurrentTechnique.Passes)
+                    {
+                        pass.Apply();
+                        gd.DrawUserPrimitives(PrimitiveType.TriangleStrip, footVerts, 0, footVerts.Length - 2);
+                    }
+                }
+            }
+
+            private VertexPositionColorTexture[] BuildStrip(Vector2 screenPos, Color color, float halfWidth)
+            {
+                Vector2[] points = Tentacle.Points;
+                int numPoints = points.Length;
+                int requiredLength = numPoints * 2;
+
+                if (_stripVertsCache == null || _stripVertsCache.Length != requiredLength)
+                    _stripVertsCache = new VertexPositionColorTexture[requiredLength];
+
+                float totalLength = 0f;
+                for (int i = 0; i < numPoints - 1; i++)
+                    totalLength += points[i].Distance(points[i + 1]);
+
+                float traveled = 0f;
+                Vector2 prevPerp = Vector2.Zero;
+
+                for (int i = 0; i < numPoints; i++)
+                {
+                    Vector2 tangent;
+                    if (i == 0)
+                        tangent = (points[1] - points[0]).SafeNormalize(Vector2.UnitX);
+                    else if (i == numPoints - 1)
+                        tangent = (points[i] - points[i - 1]).SafeNormalize(Vector2.UnitX);
+                    else
+                        tangent = (points[i + 1] - points[i - 1]).SafeNormalize(Vector2.UnitX);
+
+                    Vector2 perp = new Vector2(-tangent.Y, tangent.X);
+
+                    if (i > 0 && Vector2.Dot(perp, prevPerp) < 0)
+                        perp = -perp;
+                    prevPerp = perp;
+
+                    perp *= halfWidth;
+
+                    if (i > 0)
+                        traveled += points[i - 1].Distance(points[i]);
+
+                    // base (i = 0) -> bottom of texture (v = 1); tip -> top (v = 0)
+                    float v = totalLength > 0f ? 1f - (traveled / totalLength) : 1f;
+
+                    Vector2 world = points[i] - screenPos;
+                    _stripVertsCache[i * 2 + 0] = new VertexPositionColorTexture(new Vector3(world - perp, 0f), color, new Vector2(0f, v));
+                    _stripVertsCache[i * 2 + 1] = new VertexPositionColorTexture(new Vector3(world + perp, 0f), color, new Vector2(1f, v));
+                }
+
+                return _stripVertsCache;
+            }
+
+            private VertexPositionColorTexture[] BuildFootQuad(Vector2 screenPos, Color color, Texture2D footTexture)
+            {
+                Vector2 tipWorld = Tentacle.Points[^1] - screenPos;
+                Vector2 tileWorld = GrippedTile.ToWorldCoordinates() - screenPos;
+
+                Vector2 dir = Vector2.UnitY;
+                Vector2 perp = new Vector2(-dir.Y, dir.X) * (footTexture.Width * 0.5f);
+
+                Vector2 ankleWorld = tipWorld - dir * 8;
+
+                // never compress below natural length — only stretch further if needed
+                float length = MathF.Max(footTexture.Height, Vector2.Distance(ankleWorld, tileWorld));
+                Vector2 soleWorld = ankleWorld + dir * length;
+
+                _footVertsCache[0] = new VertexPositionColorTexture(new Vector3(ankleWorld - perp, 0f), color, new Vector2(0f, 1f));
+                _footVertsCache[1] = new VertexPositionColorTexture(new Vector3(ankleWorld + perp, 0f), color, new Vector2(1f, 1f));
+                _footVertsCache[2] = new VertexPositionColorTexture(new Vector3(soleWorld - perp, 0f), color, new Vector2(0f, 0f));
+                _footVertsCache[3] = new VertexPositionColorTexture(new Vector3(soleWorld + perp, 0f), color, new Vector2(1f, 0f));
+
+                return _footVertsCache;
             }
         }
 
         List<CthulhuTentacle> tentacles = [];
 
+        private static BasicEffect _bodyEffect;
+
+        private static BasicEffect GetBodyEffect(GraphicsDevice gd)
+        {
+            if (_bodyEffect == null || _bodyEffect.IsDisposed)
+            {
+                _bodyEffect = new BasicEffect(gd)
+                {
+                    TextureEnabled = true,
+                    VertexColorEnabled = true
+                };
+            }
+            return _bodyEffect;
+        }
+
+        public override void Unload()
+        {
+            try
+            {
+                if (_bodyEffect != null && !_bodyEffect.IsDisposed)
+                    _bodyEffect.Dispose();
+            }
+            catch { }
+            finally
+            {
+                _bodyEffect = null;
+            }
+        }
+
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D line = ModContent.Request<Texture2D>("AAModClassic/_Unofficial/Desert/Line").Value;
-            foreach (var cTent in tentacles)
-            {
-                var tentacle = cTent.Tentacle;
-                for (int i = 0; i < tentacle.Points.Length - 1; i++)
-                {
-                    float ratio = i / (float)(tentacle.Points.Length - 1);
-                    int width = ((int)MathHelper.Lerp(20, 1, ratio)) * 2;
+            spriteBatch.End();
 
-                    Vector2 start = tentacle.Points[i];
-                    Vector2 end = tentacle.Points[i + 1];
-                    spriteBatch.Draw(line, start - Main.screenPosition, null, Color.DarkGreen, start.AngleTo(end), new(0, 0.5f), new Vector2((start.Distance(end) / 496f), width + 4), 0, 0);
-                    spriteBatch.Draw(line, start - Main.screenPosition, null, Color.Green, start.AngleTo(end), new(0, 0.5f), new Vector2((start.Distance(end) / 496f), width), 0, 0);
-                }
-            }
+            var gd = Main.instance.GraphicsDevice;
+            var effect = GetBodyEffect(gd);
+            effect.World = Main.GameViewMatrix.TransformationMatrix;
+            effect.View = Matrix.Identity;
+            effect.Projection = Matrix.CreateOrthographicOffCenter(0, Main.screenWidth, Main.screenHeight, 0, 0, 1);
+
+            var prevBlend = gd.BlendState;
+            var prevRaster = gd.RasterizerState;
+            gd.BlendState = BlendState.AlphaBlend;
+            gd.RasterizerState = RasterizerState.CullNone;
+
+            foreach (var cTent in tentacles)
+                cTent.Draw(gd, effect, Main.screenPosition);
+
+            gd.RasterizerState = prevRaster;
+            gd.BlendState = prevBlend;
+
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);
 
             return false;
 
