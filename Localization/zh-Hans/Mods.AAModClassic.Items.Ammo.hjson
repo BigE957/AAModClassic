@@ -1,0 +1,121 @@
+EnergyCell: {
+	DisplayName: 能量胞腔
+	Tooltip: ""
+}
+
+ReaperArrow: {
+	DisplayName: 幽魂箭
+	Tooltip: 这支箭可以穿墙
+}
+
+DragonArrow: {
+	DisplayName: 龙焰箭
+	Tooltip: 比大部分的箭矢击退力都强
+}
+
+DaybreakArrow: {
+	DisplayName: 破晓箭
+	Tooltip:
+		'''
+		以烈日之灼烧毁目标
+		造成破晓
+		不消耗
+		'''
+}
+
+EventideArrow: {
+	DisplayName: 宵暗箭
+	Tooltip:
+		'''
+		以无月之夜蔽目目标
+		造成蚀月
+		不消耗
+		'''
+}
+
+TerraArrow: {
+	DisplayName: 泰拉箭
+	Tooltip:
+		'''
+		追踪敌人
+		不消耗
+		'''
+}
+
+SingularityArrow: {
+	DisplayName: 奇点箭
+	Tooltip:
+		'''
+		唯一比光快的，是虚空吞噬它的速度
+		不消耗
+		'''
+}
+
+UnstablePowerCell: {
+	DisplayName: 不稳定能量电池
+	Tooltip:
+		'''
+		可作为子弹使用
+		不消耗
+		'''
+}
+
+M79Round: {
+	DisplayName: M79圆榴弹
+	Tooltip: ""
+}
+
+ChaosArrow: {
+	DisplayName: 混沌箭
+	Tooltip: 击中后随机施加一种减益
+}
+
+DragonfireArrow: {
+	DisplayName: 燎狱龙炎箭
+	Tooltip: 击中后造成燎狱龙炎减益
+}
+
+DragonfireBullet: {
+	DisplayName: 龙焰弹
+	Tooltip: ""
+}
+
+DragonfireDart: {
+	DisplayName: 龙焰镖
+	Tooltip: ""
+}
+
+DaybreakBullet: {
+	DisplayName: 破晓弹
+	Tooltip: ""
+}
+
+HydratoxinArrow: {
+	DisplayName: 九头蛇毒箭
+	Tooltip: 击中后造成九头蛇毒减益
+}
+
+HydratoxinBullet: {
+	DisplayName: 九头蛇毒弹
+	Tooltip: ""
+}
+
+HydratoxinDart: {
+	DisplayName: 九头蛇毒镖
+	Tooltip: ""
+}
+
+EventideBullet: {
+	DisplayName: 宵暗弹
+	Tooltip: ""
+}
+
+DarkmatterArrow: {
+	DisplayName: 暗物质箭
+	Tooltip: ""
+}
+
+RadiumArrow: {
+	DisplayName: 镭光箭
+	Tooltip: ""
+}

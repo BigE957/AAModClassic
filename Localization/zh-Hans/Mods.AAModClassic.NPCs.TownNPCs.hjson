@@ -1,0 +1,440 @@
+LargeLetter: {
+	DisplayName: 大字母
+
+	TownNPCMood: {
+		Content: 可以说事情进展得…顺顺—E—利利…
+		NoHome: 哥们你得帮帮我啊。我毕生积蓄全没了。我现在流落街头了。你得帮帮我啊兄弟。
+		FarFromHome: 兄弟我tm的在哪？我怎么到这儿来的？我家呢？
+		LoveSpace: 啊，清静安宁的感觉真好…
+		DislikeCrowded: 这里是不是越来越挤了，还是只有我这么觉得？
+		HateCrowded: 这帮人tm的都是谁啊，兄弟。
+		LikeNPC_Princess: 根据住房合同，我必须喜欢跟{NPCName}待在一起。她还行吧，大概。
+		Princess_LovesNPC: "{NPCName}真是个'人物'。ta的收藏可不少！"
+		LikeNPC: "{NPCName}是我的好伙伴。我们跟其他人有点不太一样。"
+		HateNPC: 兄弟。那个{NPCName}是不是超级种族歧视啊？谁邀请的他啊？他说他想"杀光所有哥布林"。这太过分了，兄弟！
+	}
+
+	Census.SpawnCondition: 专家模式下
+	Button1: 时装商店
+	Button2: 武器商店
+	Chat1: 希望你别介意我在这儿晃悠。为了到这儿，我折腾了一 大 堆破代码，可得歇歇了。
+	Chat2:
+		'''
+		想听个趣事？嗯，我从来没见过我爸。他们说他在很久以前就失踪了。他可是个真正的…
+		E先生。
+		'''
+	Chat3: 你在找一条鱼？不知道你在说谁，伙计。
+	Chat4: 看看我！我是Big E！我一直在这儿，永远都会在！
+}
+
+Legendscribe: {
+	Census.SpawnCondition: 始终可用
+	DisplayName: 史诗记述者
+
+	TownNPCMood: {
+		Content: 我淡定得像根黄瓜。
+		NoHome: 天哪，在沙漠里走了那么久…有间房子住住倒也挺好的。
+		FarFromHome: 我在贴寻狗启事…找的是我自己…
+		LoveSpace: 能有这么宽敞的地方放松放松，感觉真不错。
+		DislikeCrowded: 这儿有点吵。我只想好好看这本超棒的书。
+		HateCrowded: 也太挤了吧。你这基本上就是让我住狗窝啊！
+		LikeNPC_Princess: "{NPCName}的心，确实比羽毛还轻。"
+		Princess_LovesNPC: "{NPCName}有好多故事可以分享！"
+		LoveBiome: 啊，没什么比沙漠的阳光更能晒出一身漂亮的小麦色了！
+		HateBiome: 我好好好好冷！快带我回暖和和和和的地方去，拜托！
+		LikeNPC: "{NPCName}一直在帮我清理跳蚤。"
+		DislikeNPC: 这个叫{NPCName}的老在我沙漠里打高尔夫！
+	}
+
+	AnubisName: 史诗记述者
+	SetChatButtons1: 切换信息
+	SetChatButtons2: 我现在该做什么？
+	SetChatButtons3: 蘑菇。我是认真的。
+	SetChatButtons4: 更多蘑菇。
+	SetChatButtons5: 管好爪子
+	SetChatButtons6: 笨重的肥龙
+	SetChatButtons7: 三头怪胎
+	SetChatButtons8: 三个愿望
+	SetChatButtons9: 冷酷如冰
+	SetChatButtons10: 逮到你了
+	SetChatButtons11: 机械大块头
+	SetChatButtons12: 两个头；零个脑子
+	SetChatButtons13: 又是蠕虫Boss，该死。
+	SetChatButtons14: 审判之古者
+	SetChatButtons15: 可怕的双胞胎
+	SetChatButtons16: 狂怒之古者
+	SetChatButtons17: 怨怒之古者
+	SetChatButtons18: 末日之古者
+	SetChatButtons19: 冥昧末日的预言者
+	SetChatButtons20: 守石者
+	SetChatButtons21: 聒噪性头痛
+	SetChatButtons22: 好一条蠕虫
+	SetChatButtons23: 蹦跳小混混
+	SetChatButtons24: 鹰身女妖又来了
+	SetChatButtons25: 财富与安息
+	SetChatButtons26: 兔子的愤怒
+	SetChatButtons27: 我要求再战一场。
+	GetBookChat:
+		'''
+		你找到了！我那本限量版的高贵自传！谢啦，伙计。这样吧，这本就当作礼物送给你了。来，我再给你亲笔签个名。
+		…哎呀，不小心拿我的符文羽毛笔签了名。算了，反正这下它成了魔法书了。
+		'''
+	GetSummonItemChat: 嘿，谢谢你回来找我。我想试试你的本事。既然你能把那些机械铁憨憨打得落花流水，我倒想看看你跟我这样的人交手能撑多久。来，拿着这个权杖，等你准备好了，就去地表的沙漠用它。我随时奉陪。
+	GetSummonItemChat2: 拿着。这是一件古老的神器，很快就能派上用场。它会指引你去一个…对这个世界的人来说很特别的地方。读一读那里的碑文，上面会告诉你该怎么做。要想清除这世间的一些大恶，我们可得忙活一阵了。
+	CombatTextChat: 我回家了。拜拜。
+	downedMonarchY: …就这？
+	downedMonarchN: 嘿，你看到这些满地都是的小红蘑菇没？我听说，要是你抓上一把捏碎，再拿在手里挥一挥，它们的蘑菇王还是什么的就会冲出来，追着你撞。这我可得亲眼瞧瞧。
+	downedFungusY: 干得漂亮。老实交代，你现在是不是上头了？
+	downedFungusN: 那发光的蘑菇洞穴，不知为什么，每次进去都搞得我晕乎乎的。话说回来，想提升魔法能力吗？那底下有个大蘑菇怪物，体内融合了很棒的魔法力量。下去的时候记得捏住鼻子。
+	downedGripsY: 干得漂亮，收拾掉那两只巨手了。或许那些小的终于能放过我了。
+	downedGripsN: 晚上那些飞来飞去的爪子简直是噩梦，吓得我毛都竖了。在我的旅途中，我碰到过两只超——大的。如果你把它们干掉，小的也许就不来烦人了。多宰几只小的，再拿着它们的掉落物比划比划，说不定能把它们召唤下来。
+	downedBroodY: 那是我这辈子见过最肥的龙。
+	downedBroodN: 喜欢龙吗？不喜欢？那可惜了。想要更好的装备？那你得去宰一头超——大的熔岩龙。她个头大、模样吓人，还肥——得简直飞不起来，虽然人家照样飞给你看。
+	downedHydraY: 走好不送。那条九头蛇就是不肯消停。至少她女儿稍微温和一些…嗯？谁？以后再说，干得好。
+	downedHydraN: 潭渊向来是所有恶心蜥蜴的聚集地，但那里有一条超级大的，有三个头。她脾气特别暴躁，每次我想进她的巢穴，她都想着要吃了我！
+	downedDjinnY: 哈！现在知道谁才是老大了吧，这沙包怂货！
+	downedDjinnN: 那个狗娘养——哦嗨。抱歉，刚才被一只沙漠巨灵气得够呛。那个会魔法的肌肉蠢货和他的喽啰老在我面前秀肌肉。你能不能去帮我教训教训他们？
+	downedSerpentY: 希望你没有被"冻成冰棍儿"！*咚咚锵*…好吧我知道这很冷。
+	downedSerpentN: 蛇！怎么偏偏又是蛇啊！我恨死它们了！算了，最近冻原那边有些雪蛇老缠着我不放。你能不能当回灭蛇专家，去瞧瞧它们到底在搞什么名堂？
+	downedRetrieverY: 你顺便拿回我的《传奇狗阿努比斯的生命史诗历险记》第三版了吗？
+	downedRetrieverN: 还记得混沌双爪吗？那双恶心的抓抓手？现在有个机械版的，还老偷我的东西。能不能帮我个忙，去朝它扔个扳手什么的？
+	downedRaiderY: 所以说果然是个巨型机器人？好吧，有时候人就是想太多了。那玩意儿几乎跟育母炎龙一样肥。
+	downedRaiderN: 有人说在某天夜里看到个奇怪的影子。那家伙大得连月亮都给遮住了一小会儿。你得去查查这怪事，然后解决掉它。
+	downedOrthrusY: 看来食腐者现在成了盘中餐了。
+	downedOrthrusN: 还记得九头蛇吗？外面还有一条更大的。而且是机器版的。而且它呃…会放电。所以呃…祝你好运！
+	downedEquinoxY: 干掉那对昼夜双虫了，漂亮。我能看出来你做到了，因为现在好像过了一周了。希望我没错过护士的预约…
+	downedEquinoxN: 喜欢蠕虫吗？我也不喜欢，但你猜怎么着？有两条大蠕虫控制着昼夜的流转，而且它们可难缠了。祝你好运。
+	AnubisScapterLost: 你把权杖弄丢了？！我不能把这种东西像发糖一样随便发，知道吗！算了，再给你一根。
+	downedAnubisBY: 你下手可以轻一点的，知道吧。我的背现在还疼着呢。
+	downedAnubisBN: 我听说有个掌管典籍的家伙，浑身肌肉还长得贼帅，所有女士都为他那出神入化的灵魂审判能力神魂颠倒。真是个了不起的家伙。
+	downedAthenaY: 感谢昼夜，你总算让那些叽叽喳喳的小东西闭嘴了！它们要是再朝我尖叫一声，我就打算烤一只来当炸鸡晚餐了。
+	downedAthenaN: 你知道天上那些尖叫的鹰身女妖吧？这倒好，还有一群更讨人嫌的，叫六翼天使，简直 闭 不 上 嘴！！！她们在东边那个空中宫殿里有个头领。也许你上去揍她个满地找牙，她们就能闭上那张鸟嘴了。
+	downedGreedYBookY: 嘿，谢谢你帮我把书拿回来。金食饕餮前阵子把它偷了，估计是因为我用来装订的金色镶边太惹眼了。去那个洞穴里再翻翻吧，说不定他还偷了别的东西？
+	downedGreedYBookN: 嘿，呃…你找到我那东西没？还没有？就在下面那堆战利品里再翻翻，肯定在里头。
+	downedGreedN: 嘿呃，地下有一个超大的宝藏堆，里面有很多金子，但被一条超吝啬的蠕虫守着。你应该去那儿看看，能捞一大堆财宝，不过呃…下面有我的东西。你能去帮我拿回来吗？放心，你只要瞧见，立马就知道那是我的。
+	downedRajahY: 你打败了巨兔王公？噗，对，你吹吧，我可是亲眼见过他把所谓的神明都揍得屁滚尿流，你不可能打得过他！
+	downedRajahN: 嘿，你知道那些到处蹦蹦跳跳的兔子吗？我呃…我是你的话就不会去惹它们。这附近有个传说，说是有个类似"守护者"的存在保护着它们免受伤害。为什么是传说？因为好像跟那东西交过手的人就没活着回来的。挺有意思的故事，对吧？
+	downedAnubisFAnubisY: 干得不错，伙计。我确实挺惊讶的，虽然我还是放了水。嗯？我的全力？就像我之前说的，有些东西为了你好还是别碰为妙。
+	downedAnubisFAnubisN: 我要再战一场，{0}。不是因为我的自尊心。我得确认你已经为接下来的事情做好了准备。来沙漠找我，再战一次。做好准备。
+
+	UnofficialInterim: {
+		Help: 抱歉，伙计，但在你打败我来证明自己之前，我不会再提供任何帮助了。
+		PreFight.Repeat: 恐怕这事等不了。除非你能证明自己已经准备好迎接即将到来的一切，否则我不会再帮你了。
+
+		PostLose: {
+			First: 不走运，伙计。想面对接下来的那些东西，光凭这点本事可不够看。别担心，你什么时候想再战，我随时奉陪！
+
+			Repeat: {
+				FirstDeath: {
+					0: 干嘛不再跟我打一局？你前进的唯一途径就是打败我。
+					1: 别告诉我输一次就想放弃了。来，咱们再来一局！
+				}
+
+				MultipleDeaths: {
+					0: 你的韧性很强，但光靠韧性可应付不了接下来的挑战。来，咱们再来！
+					1: 打得不错，伙计。继续努力。我相信你迟早能向我证明自己的实力。
+				}
+			}
+		}
+
+		PostVictory: 哈哈！这才像话！我就知道你有这本事。你绝对已经准备好面对前方的一切了。
+	}
+
+	downedAthenaAY: 嗯？你问瓦里安是什么？这个名字我可有年头没听过了…久到我都快记不起来了。不过我隐约记得，好像还有另一个在什么地方晃悠着…
+	downedAthenaAN: 嘿，那个烦人的小鸟妖找到你了吗？对不住，是我告诉她的，她在我耳朵边上一直叫，烦死了。总之，看来雅典娜想再战一场。小心点，伙计。这感觉像个陷阱…
+	GreedACalamityMod: 说起来，你跟神明吞噬者干架的时候，让我想起了金食饕餮…想想看啊。他俩都有那种虫洞能力，都能根据吃下去的东西变强。你说它们会不会是…不，那就太扯了…还是说…？
+	downedGreedAY: 所以他一直都在隐藏自己真正的实力。不过我想知道为什么…难道他是在躲什么东西…？
+	downedGreedAN: 你知道吗，我隐约记得那个"喜欢偷鸡摸狗的贪财家伙"的一件事。那家伙刚在这片地界露面的时候，可比后来你揍他屁股时强太多了。难道他越老越弱了…？还是说…不，那绝不可能。
+	downedSistersY: 漂亮，你给那两个被宠坏的臭丫头好好上了一课！她俩完全没料到会栽跟头！
+	downedSistersN: 还记得育母炎龙和九头渊蛇吗？那俩都有女儿。天哪，她们烦死人了！！！每次我去混沌生态群系，这俩就专等着坏我好事！你能去教训教训她们吗？
+	downedAkumaY: 邪鬼巨龙自以为很酷。在我眼里，他就是装逼装过头然后翻车的那种。不说这个了，你最好去用水冲冲头发。你头上有点烤焦了。
+	downedAkumaN: 为什么会有人把一条太阳蛇叫做恶魔？我也不知道…但邪鬼巨龙必须得滚蛋。他老用火焰吐息把我的沙漠烧成玻璃，气死我了。
+	downedYamataY: 谢谢你让那个七个头的娘炮闭嘴。那家伙烦得我真想把自己的毛都扯光。
+	downedYamataN: 八歧大蛇，那个爱发牢骚的蠢货！他对什么都抱怨个没完，还就——是——闭——不——上——嘴！讲真的，同时应付七个叽叽喳喳吵得要死、还互相抢着说话的头，换你你受得了吗！
+	downedZeroY: …说实话。那东西死掉之后说的话，让我浑身不舒服。
+	downedZeroN: 你见过虚空里那个一直飘在那儿的又大又吓人的铁家伙了吧？总之，你干翻月亮领主之后，我听见虚空那边轰的一声巨响。你能去帮我看看吗？
+	downedShenY: 天哪——我就知道你能行，兄弟！干得漂亮！不过…你把他打趴下的时候，他看起来好像气得要命…简直跟他当初被——呃，算了，当我没说。
+	downedShenN: 邪鬼巨龙和八歧大蛇…你知道吗，那俩曾经是一体的。而且天哪，那个合体形态强得离谱，有一次直接夷平了两个文明。总之，你找我有什么事来着？
+	downedRajahCY: 所以老王公终于决定把权杖挂起来了？他好像觉得你是保护弱者的最佳人选。照他说的做吧，要我说，这才是正确的选择。
+	downedRajahCN: 那些兔子最近变得相当躁动。有点不对劲。我就是有这种感觉…
+	Stones: 你知道吗…你打败上神应龙之后，我感觉到…一些非常古老的魔法被激活了。也许你该去拜访一下你打过的一些比较厉害的Boss？对了，你最近见到哥布林召唤师了吗？老天，她变得好强，不知道她到底什么来头。
+	else: 这我可不知道。你可以问问目前能打的那些强力生物？
+	AkumaGuideChat: 我要是你，白天就离潭渊远点。那里白天雾气超重，什么也看不见。我记得你可以用燎狱龙之爪做一盏灯笼，能帮你看穿雾气…
+	YamataGuideChat: 燎狱里的火山晚上不知为什么特别活跃。白天似乎会平静下来。也许你用那些九头蛇之爪做点什么覆盖物就能穿过去？它们好像不受火山灰的影响…
+	JungleGuideChat: 我注意到，丛林里的怪物会掉一种特别奇怪的叶子。不过那东西硬得跟钉子似的，所以拿来做装备说不定挺有意思的…
+	BroodMotherGuideChat: 你知道燎狱火山底那些蛋吧？呃，是啊，我要是你就绝不会去碰那些玩意儿——除非你想跟一条暴怒的龙打打交道。
+	HydraGuideChat: 潭渊的湖底下有一些…某种东西的荚果。我可不想知道那条九头蛇到底吃的是什么。我也不会去打破它们，谁敢动她的食物，那条大蜥蜴可就要发飙了。
+	VoidGuideChat: 东边那些浮空岛看得我直发毛。它们就那么…悬在那儿。我估计上头有些房子，但打死我也不会上去的。
+	HardModeGuideChat1: 嘿，你要是去地下混沌生物群系，我觉得你能搞到一些灵魂，就跟你在邪恶生物群系里拿到的那种差不多。那玩意儿应该挺有用的。
+	HardModeGuideChat2: 嘿，你知道潭渊里那些青蛙吗？我听说它们囤了老多金币。去把它们揍个屁滚尿流，然后——哗啦！钱就来了。
+	PlantBossGuideChat: 嘿，你听到泰拉心球那边传来的音乐没？我猜那底下有新东西。去搞一个他们那儿的那种绿色棱镜来，我觉得你能用它做出个超强的新制作站。
+	EquinoxBossGuideChat: 你看到天上那些发光的球体了吗？如果我没记错，它们会随着一天中的时间变化。说不定你在不同时间点过去，能从它们身上拿到不一样的东西？
+	AnubisChatMask: 嘿，看着真帅，帅哥。
+	AnubisChat1: 你该不会碰巧很擅长揉肚子吧？
+	AnubisChat2: 你知道去完海滩，泳裤里全是沙子那难受劲儿吧？想象一下成天都是这滋味儿。这就是我的日常。
+	AnubisChat3: 跟你说过无数次了，我 不 是 福 瑞！
+	AnubisChat4: 嘿，我背上痒得要命。能帮我挠挠不？
+	AnubisChat5:
+		'''
+		不行。我才不戴除蚤项圈。
+			 
+		*挠挠*
+		'''
+	AnubisChat6: 每个人都问我是谁是好狗狗，但我很不爽，因为他们从来不告诉我好狗狗是谁。
+	AnubisChat7: 你看到我的尾巴了吗？我得好好教训教训它。
+	AnubisChat8: 沙漠巨灵也许肌肉发达，但他根本比不过我！瞧好了！
+	AnubisChat9: 对了，谢谢你让我在这歇脚。在沙漠里走了几千年，真能把人累垮。
+	AnubisChat10: 对，《泰拉瑞亚史记》是我写的。但我也写了另一本很好的书。《传奇狗阿努比斯的生命史诗历险记》！想要一本吗？
+	AnubisChat11: "你不讨厌吗，当 "
+	AnubisChat12: 红色的恶心血肉
+	AnubisChat13: 紫色的黏糊垃圾
+	AnubisChat14: " 占了你的生态群系的时候？太恶心了。"
+	AnubisChat15: 我最讨厌什么生物？哦那简单，史莱姆王。那东西要是砸在你身上，没把喷灯的话，你衣服上或者毛上的粘液就甭想洗干净了。
+	AnubisChat16: "天哪，我试着撩了 "
+	AnubisChat17: " ，结果她们把我揍了个半死。这些女士在血月的时候到底是怎么了？"
+	AnubisChat18: "我试着撩了 "
+	AnubisChat19: " ，她对我特别客气。这…很奇怪…尤其是在血月的时候。"
+	AnubisChat20: 嘿，衣服不错。
+	AnubisChat21: 嘿，喜欢我的悬浮派对帽吗？魔法真好玩。
+	AnubisChat22: 迪斯科在你们泰拉人这儿还挺流行吧？我可是会跳超棒的摇摆舞。
+	AnubisChat23: 嘿呃…如果有人问的话，
+	AnubisChat24: " 的所有信息都是我给的，明白了吗？"
+	AnubisChat25: "那个 "
+	AnubisChat26: " 挺不错的。对Boss也知道不少…其实我希望他没有在跟踪我什么的。"
+	AnubisChat27: "我觉得 "
+	AnubisChat28: " 在装傻，不想让别人知道他有多聪明。你看那张脸。纯。粹。天。才。"
+	AnubisChat29: " 老嚷嚷说我把他的鞋子全啃了。这能怪我吗，谁让他用上等皮革做鞋呢。"
+	AnubisChat30: "别问 "
+	AnubisChat31: " 他的货是哪来的。恶心得很。"
+	AnubisChat32: …然后他把那玩意儿翻过来，结果这家伙居然把自己变成——你听好了——一根腌黄瓜。这绝对是我这辈子见过的最tm的搞笑的事了。嗯？我在跟谁说话？不知道。
+	AnubisChatSOTSAnubisMask1: 不要。
+	AnubisChatSOTSAnubisMask2: 别这样。
+	AnubisChatSOTSAnubisMask3: 别跟我说话。
+	AnubisChatSOTSAnubisMask4: 离我远点。
+}
+
+LegendscribeUnofficial: {
+	DisplayName: 史诗记述者
+
+	TownNPCMood: {
+		Content: 我淡定得像根黄瓜。
+		NoHome: 我需要一栋漂亮的大房子。你能给我弄一栋，带个我能穿得过去的[c/FFFF00:高门]吗？
+		FarFromHome: 我在贴寻狗启事…找的是我自己…
+		LoveSpace: 能有这么宽敞的地方放松放松，感觉真不错。
+		DislikeCrowded: 这儿有点吵。我只想好好看这本超棒的书。
+		HateCrowded: 也太挤了吧。你这基本上就是让我住狗窝啊！
+		LikeNPC_Princess: "{NPCName}的心，确实比羽毛还轻。"
+		Princess_LovesNPC: "{NPCName}有好多故事可以分享！"
+		LoveBiome: 啊，没什么比沙漠的阳光更能晒出一身漂亮的小麦色了！
+		HateBiome: 我好好好好冷！快带我回暖和和和和的地方去，拜托！
+		LikeNPC: "{NPCName}一直在帮我清理跳蚤。"
+		DislikeNPC: 这个叫{NPCName}的老在我沙漠里打高尔夫！
+	}
+
+	Buttons: {
+		Help: 帮助
+		Book: 找到你的书了
+		Next: 接下来呢？
+	}
+
+	Census.SpawnCondition: 需要一间带高门的房子
+}
+
+GoblinSlayer: {
+	DisplayName: 哥布林杀手
+	Census.SpawnCondition: 哥布林军队被击败
+
+	TownNPCMood: {
+		Content: 我感觉到附近没有哥布林了。这下清净了。
+		NoHome: 没有地方存放我猎杀哥布林的武器，真是难办。你能帮忙吗？
+		FarFromHome: 我太久没回去了，家里说不定早被哥布林给端了！
+		LoveSpace: 我偏爱独处。这样更容易发现哥布林。
+		DislikeCrowded: 这里的有些人…他们，他们居然不介意哥布林。这绝对不能忍。
+		HateCrowded: 这群人里藏着哥布林…我就知道！！
+		LikeNPC_Princess: "{NPCName}不是哥布林。我敬重这一点。"
+		Princess_LovesNPC: "{NPCName}也许是种族主义者，但我爱我王国里的每一个人，所以我想那也无所谓吧。"
+		LikeBiome: 这片宁静的森林里一只哥布林都看不到。美妙极了。
+		DislikeBiome: 我看到哥布林侦察兵在海岸线潜伏。我们必须杀了它们。
+		LikeNPC: "{NPCName}也精通哥布林猎杀。非常好。"
+		HateNPC: 我 必 须 杀 了 那 只 哥 布 林。
+	}
+
+	GoblinSlayerName: 哥布林杀手
+	GoblinSlayerChat1: "我不信任 "
+	GoblinSlayerChat2: 。他身上总有股劲儿让我喜欢不起来…
+	GoblinSlayerChat3: " 告诉我，他老家那儿经常杀哥布林。真希望啥时候能去那地方瞧瞧，听起来太棒了。"
+	GoblinSlayerChat4: 我不喜欢哥布林。
+	GoblinSlayerChat5: 看到有啥哥布林能让我宰没？
+	GoblinSlayerChat6: 哥布林就是这世间的祸害。
+	GoblinSlayerChat7: 找着能抄的哥布林贼窝没？
+	GoblinSlayerChat8: 我为什么恨哥布林？因为它们是哥布林。
+	GoblinSlayerChat9: 嘿，你出门的时候，能帮我杀几只哥布林吗？把它们的灵魂给我，我就拿我多出来的哥布林杀手装备跟你换。
+	GoblinSlayerChat10: 搜嘎。
+	GoblinSlayerChat11: 还有其他军队像那些该死的哥布林一样入侵这片土地。幸好，痛扁那些小崽子们让我早有准备。去给我弄点它们的特殊玩意来，我拿我从它们身上扒来的东西跟你换。
+}
+
+Lovecraftian: {
+	Census.SpawnCondition: 克苏鲁之眼被击败
+	DisplayName: 洛夫克拉夫特星人
+
+	TownNPCMood: {
+		Content: 我正在适应这个维度的生活。
+		NoHome: 我想要个可以做研究的地方。
+		FarFromHome: 我想念我的研究…
+		LoveSpace: 我很庆幸这地方归我一个人。我的研究有时候…对你们这样的凡人来说挺危险的。
+		DislikeCrowded: 哎呀，这儿也太挤了，我有点难以集中注意力。
+		HateCrowded: 这里人太多了。阻碍了我的研究！
+		LikeNPC_Princess: "{NPCName}太热情了！她甚至愿意协助我！"
+		Princess_LovesNPC: "{NPCName}对我们特别好奇！真讨人喜欢"
+		LoveBiome: 我在海洋边感觉真像在家一样。这是你们这个维度最接近我家那个维度的地方了。
+		DislikeBiome: 哎呀，我说我能换个地方住吗？在这太阳底下我都快被晒成干了！
+		LikeNPC: "{NPCName}在帮助我了解你们的维度方面帮了大忙。"
+		DislikeNPC: 我不太喜欢{NPCName}。每次我问他什么事，他总想收我的钱才回答！
+	}
+
+	button1: 商店
+	button2: 提供材料
+	LovecraftianChat1: 要知道，在我老家那边，按你们这儿的说法，我大概算个'烫手的大人物'。
+	LovecraftianChat2: 我不是唯一来到这儿的东西。我的世界裂开一道空间裂隙的时候，还有一大堆其他玩意儿跟着我一起穿过来了。不过像克苏鲁之眼和克苏鲁之脑这些，倒是早就已经在这儿了。天知道那俩是从哪来的。
+	LovecraftianChat3: …看什么看？你那表情，就好像从没见过鱿鱼人似的。
+	LovecraftianChat4: 对，我是女的。怎么了？是这些触手胡子让你误会了？
+	LovecraftianChat5: 要是你还有半点保命的脑子，就离海岸边那艘沉船远点。我老家那边有些吓人的玩意儿老在那儿出没，尤其是…算了，当我没说。
+	LovecraftianChat6: 你们有没有试过，触手里缠了些莫名其妙的东西，自己都搞不清楚是怎么来的？没有吗？难道就我这样？
+	LovecraftianChat7: 嘿，你们这个世界挺有意思的。你能帮我从不同的生物群系收集一些样本给我研究吗？如果你愿意，我可以做一些有用的东西跟你交换。
+	LovecraftianChat8: "哦。这就尴尬了。可怜的 "
+	LovecraftianChat9: 。他的船就是我从那道裂隙里掉出来的时候被毁的。
+	LovecraftianChat10: "那个 "
+	LovecraftianChat11: " 简直是在放屁。克苏鲁多半在他还来不及*呃*一声之前就把他拍扁了。"
+	LovecraftianChat12: 那个晃来晃去的死人把我吓到了。要知道我自己就是个行走的恐怖故事，能把我吓到已经很说明问题了。我说不上来，就是感觉他知道的太多了…
+	LovecraftianChat13: 说个冷知识：月亮领主和克苏鲁是兄弟。至少我以前碰到的一个粉色小精灵姐姐是这么跟我说的。
+	PurityFlaskChat: 哦！那些是纯净碎片吗？太好了！来，拿着这个。这是我特制的烧瓶，可以用它净化大多数生态群系。
+	AshJarChat: 龙，嗯？我见过更吓人的。总之，这是新烧瓶。小心，很烫。
+	DarkwaterFlaskChat: 这是什么…？简直就是一个…什么玩意儿捏成的球。我研究一下。给，新烧瓶。拿去浪吧。
+	CorruptionFlaskChat: 你在呕什么？比这难闻的东西多了去了。不过是腐烂的肉而已。
+	CrimsonFlaskChat: 嗯…骨头？我以前见过类似的。跟我老家那边的有点像。
+	HallowFlaskChat: 这是什么东西？它在…闪闪发光…？算了，我再研究研究。给你新烧瓶。
+	VoidFlaskChat: 哇，这个好重！这是什么？我从来没见过这种金属。哦对了。新烧瓶。给你。
+	FungicideChat: 嗯…发光的孢子？除了发光蘑菇之外我还真没见过这种东西。说到蘑菇，给，我找到了一种效果拔群的除菌溶剂配方。我把它做成了烧瓶。
+	SporeSacChat: 这是什么东西？软乎乎的…我想办法用上吧。哦对了，{0}教过我怎么做蘑菇孢子。你觉得怎么合适就怎么用吧。
+	SporeSacMushmanNameFallback: 我之前聊过的一个人
+	GlowingSporeSacChat: 嗯，这东西挺亮的。*嗅* 哎呦，烧得我鼻孔疼。总之，给，我做了{0}那种孢子的发光版本。
+	GlowingSporeSacMushmanNameFallback: 一个有意思的家伙
+	JungleFlaskChat: 哦太谢谢你了！这些毒刺用来做一些临时注射器会很合适。给，我开发出了一种全新的溶液，可以把森林变成丛林。很棒吧？
+	IceFlaskChat: 这个才真正管用，谢谢你。嘿，说到冰，看看这个。既能造雪又能除雪的烧瓶？喜欢吗？一份价钱双份效果！
+	ForestFlaskChat: 真希望我老家那边也有这些小东西，太可爱了～！不过嘛，我要是你，就会对这些小家伙多留个心眼。树妖跟我说，有个巨型怪物在守护着它们……总之，你出门的时候，我新做了一瓶药剂。它能把丛林变成森林，小心着点用。
+	SquidListChat: 这是我研究需要的一些东西的清单。要是你弄丢了，我很乐意再给你写份新的。
+	NothingChat: 嗯…什么都没有吗？我需要些东西做研究。最好是不同生物群系里的重要材料，怪物碎片、植物，之类的。
+}
+
+Mushman: {
+	Census.SpawnCondition: 击败赤孢皇之后，在红色蘑菇生态群系建一间房子
+	DisplayName: 赤松露人
+
+	TownNPCMood: {
+		Content: 我只是风中一朵卑微的小蘑菇…
+		NoHome: 我需要个地方，好多种点我的特殊蘑菇…
+		FarFromHome: 哦糟糕，我的蘑菇！没我在它们能行吗？！
+		LoveSpace: 啊，我的蘑菇们有这么大地方可以长了！
+		DislikeCrowded: 我可怜的蘑菇们，它们觉得好挤。
+		HateCrowded: 有人一直在偷我的蘑菇！这里这么多人，我不知道是谁！
+		LikeNPC_Princess: "{NPCName}跟我一样，也是红蘑菇的狂热粉！"
+		Princess_LovesNPC: "{NPCName}也是个很有意思的家伙！"
+		LoveBiome: 啊，一大清早就能看到红蘑菇，这感觉太美好了！
+		HateBiome: 呃，蓝色的蘑菇？！糟透了。
+		LikeNPC: 我喜欢{NPCName}。她可真懂得怎么嗨！
+		HateNPC: "{NPCName}真是个让人扫兴的家伙。"
+	}
+
+	button1: 商店
+	button2: 奇异植物
+	MushmanChat1: 那些发光的松露一个个都太扫兴了。
+	MushmanChat2: " 一次邀请我去他的热水浴缸里。我拒绝了，因为我还有更重要的事要做"
+	MushmanChat3: 赤孢皇可不全是你看到的那样，你知道的。
+	MushmanChat4: 别问我药水的蘑菇是从哪来的。
+	MushmanChat5: 我有药水，你有钱。想交易吗？
+	MushmanChat6: " 有一次问我红松露是不是跟蓝松露一样好吃。显然不是。蓝松露咸多了。"
+	NoMushroomChat1: 我需要一些奇异植物来做东西。给我带一些来，我就给你特殊的炼金蘑菇。用来做药水很不错。
+	NoMushroomChat2: …没有植物？
+	NoMushroomChat3: 植物，拜托。没有植物我不会给你蘑菇的。
+	SpecialChat1: 癫狂蘑菇？太棒了！给你一种特殊蘑菇当作报酬。这个真的很有用。只是…别直接吃。
+	SpecialChat2: 哦，癫狂蘑菇！我很喜欢这种，因为它们有特殊的性质。来，给你几颗彩虹蘑菇。
+	SpecialChat3: 你可以在两个蘑菇生物群系里找到它们，你懂的。为防万一，最好两边都搜一搜。那些东西真的很有用。
+	MushroomChat1: 谢谢。这些蘑菇可比没用的染料强多了，对吧？
+	MushroomChat2: 给你。更多的彩色蘑菇，满足你所有酿造需求。只是…别吃。
+	MushroomChat3: 这些染料材料我用来干什么？呃…做东西用。现在别来打扰我，我还有事要忙呢！
+}
+
+Samurai: {
+	Census.SpawnCondition: 混沌双爪被击败
+	DisplayName: 武士
+
+	TownNPCMood: {
+		Content: 幸福是一个方向，不是终点。
+		NoHome: 我需要个能落脚歇息、好好磨砺刀锋的地方，这样才有机会战胜那头野兽…
+		FarFromHome: 我离家太远了。
+		LoveSpace: 周围安静点有助于我专心修行。
+		DislikeCrowded: 稍微再静一点儿，我就能好好集中精神了。
+		HateCrowded: 这么多人叫我怎么修炼？！我可能会把谁的头砍下来！
+		LikeNPC_Princess: 如果一个国家要从往昔的余烬中崛起，我相信{NPCName}能够领导它。
+		Princess_LovesNPC: "{NPCName}的剑使得真是出神入化！"
+		LikeBiome: 即使它现在…混沌不堪，我依然深爱着我的故土。
+		DislikeBiome: 呃，这地方简直爬满了虫子…
+		LikeNPC: 我跟{NPCName}聊了不少。看来他会在我的狩猎中成为一个宝贵的盟友。
+		DislikeNPC: 我不太喜欢{NPCName}的麦芽酒。说实话，我更偏好清酒。
+	}
+
+	SamuraiChat1: "我认识 "
+	SamuraiChat2: " 有一阵子了。他真是个有文化的人。"
+	SamuraiChat3: "我不太喜欢 "
+	SamuraiChat4: " 的麦芽酒。对我来说有点太烈了。说实话，我更偏好清酒。"
+	SamuraiChat5: 混沌生态群系并不总是这么…嗯…混乱。
+	SamuraiChat6: 你看到我的剑了吗？我好像找不到了。
+	SamuraiChat7: 我们曾经是整个泰拉瑞亚最强盛的国度…然后…他来了…
+	SamuraiChat8: 我记得我的老宗师给过我一些睿智的教诲，比如："您正在尝试查看Flash内容，但您没有安装Flash播放器"…我至今还在琢磨这句话的意思。
+	SamuraiChat9: 说实话，我有一半的台词都是从幸运签语饼里学来的。想来一个吗？
+	SamuraiChat10: 如果你非最好的不可，那你就经常能如愿。
+	SamuraiChat11: 改变可能会痛苦，但它通向更好的未来。
+	SamuraiChat12: 过上你所爱的生活，才能爱上你所过的生活。
+	SamuraiChat13: 飞翔的鸟儿心中总惦记着大地。
+	SamuraiChat14: 我们的行为定义了我们，正如我们定义了自己的行为。
+	SamuraiChat15: 永远不要放弃。只要你不放弃，就不算失败。
+	SamuraiChat16: 你心中萦绕的那些问题的答案，你早已知晓。
+	SamuraiChat17: 我们必须活在当下，活在这个世界里。
+	SamuraiChat18: 幸福掌握在你自己手中。
+	SamuraiChat19: 冬天来了，春天还会远吗？
+	SamuraiChat20: 陌生人不过是你还没开口交谈的朋友。
+	SamuraiChat21: 你的鞋子今天会让你很开心。
+}
+
+LuciferSitting: {
+	DisplayName: 路西法 深邃地狱之主
+
+	Buttons: {
+		Who: 你是谁？
+		When: 这里什么时候能建好？
+		Why: 你为什么建造它？
+		Bye: 好吧，再见。
+	}
+
+	Dialogue: {
+		Start:
+			'''
+			晚点再来，我正打算在这儿开店呢。
+
+			哈？我在干啥？！我在这儿监督呢。
+			'''
+		Chat0: 我是谁？！我是——得了吧。你还能不知道我是谁。赶紧走，我还得建竞技场呢。
+		Chat1: 不知道，得看我那帮懒鬼手下什么时候才肯挪挪屁股，真正动起工来。
+		Chat2: 你问题还挺多啊？我建这玩意儿就是为了看到血流成河。还能为什么？
+		Chat3: 回见。等我建好了再来，我等着看你被捅成筛子！哈哈哈哈哈哈！！！
+	}
+}
+
+QuestFish: {
+	Fishmother: 好吧，我刚刚在燎狱里转悠，想给我某个史诗级整蛊大计找点烫手货，结果你猜怎么着——水下有条肥头大耳的鱼，烫得周围的水都咕嘟咕嘟开了！我当时心想："直完美！"但我没带鱼竿，压根儿抓不住。去把它给我抓来，奴隶。
+	FishmotherLocation: 在燎狱任何地方钓获
+	TriHeadedKoi: 我讨厌潭渊。在那儿我啥也看不见，除非是过了我睡觉的点儿。可我知道里面有条我想要的杀人鱼，你猜怎么着，那玩意儿有——三——个——头！你能去帮我把它抓来吗？
+	TriHeadedKoiLocation: 在潭渊任何地方钓获
+	GlitchFish: 有一次我醒来，看见天上那吓人的岛上有条怪鱼在水里，大概是在西边。你去，把它给我弄来。你问空岛上为啥会有水？自己想办法去。
+	GlitchFishLocation: 在虚空任何地方钓获
+}

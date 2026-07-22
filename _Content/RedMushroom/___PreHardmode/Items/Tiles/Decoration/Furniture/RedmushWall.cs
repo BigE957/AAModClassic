@@ -7,7 +7,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoratio
 {
     public class RedmushWall : ModItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Placeables";
+        public new string LocalizationCategory => "Items.Placeables.Furniture.RedMushroom";
         public override void SetStaticDefaults() 
         {
 			Item.ResearchUnlockCount = 400;

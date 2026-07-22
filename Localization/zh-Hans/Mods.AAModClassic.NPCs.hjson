@@ -1,0 +1,339 @@
+GlobalNPCInfo.NPCarrive: " 已苏醒！"
+
+EnemyChat: {
+	SeraphChat1: 啊——你真没意思！胆小鬼..！
+	SeraphChat2: 哈哈哈！夹着尾巴逃跑吧，你这没骨气的泰拉人！
+	SeraphChat3: 我玩腻了。
+	SeraphChat4: 回来！我还没踢够你呢..！
+	SeraphChat5: 哎哟，小泰拉人要逃跑了。要去哭鼻子吗？
+	SeraphKillChat1: 哎呀。他们死了。算了..！
+	SeraphKillChat2: 哈！我赢了！
+	SeraphKillChat3: 真有趣！等你不再那么菜的时候再来吧，小废物！
+	SeraphKillChat4: 再也别回来..！
+	SeraphKillChat5: 真是雷声大雨点小。小菜一碟！
+	SeraphHurtChat1: 嗷..！真没礼貌！雅典娜娜娜娜娜娜娜！！！
+	SeraphHurtChat2: 嘿！我只是在玩玩而已！等雅典娜知道了你就完蛋了！
+	SeraphHurtChat3: 这下你完了！哦雅典娜娜娜娜娜——
+	SeraphHurtChat4: 好疼..！哇啊啊啊啊雅典娜娜娜娜这个泰拉人欺负我！
+	SeraphHurtChat5: *倒吸凉气*！你弄脏了我的裙子..！我要去找雅典娜..！
+	SeraphAthenaRunChat1: 这下你惨了...！
+	SeraphAthenaRunChat2: 我可不想在这附近待着...
+	SeraphAthenaRunChat3: 你马上就要遭报应了！
+	SeraphAthenaRunChat4: 接下来发生的事可不是我的错。
+	SeraphAthenaRunChat5: 活该！
+	AthenaChat1: ...唉...那群叽叽歪歪的小——
+	AthenaChat2: 我没时间奉陪..！
+}
+
+Athena.DisplayName: 穹武鸮姬 雅典娜
+AthenaDefeat.DisplayName: "{$NPCs.Athena.DisplayName}"
+AthenaFlee.DisplayName: "{$NPCs.Athena.DisplayName}"
+OwlRune.DisplayName: 天鸮符文
+SeraphA.DisplayName: 六翼鸟妖护卫
+Seraph.DisplayName: 六翼鸟妖
+SeraphHurt.DisplayName: "{$NPCs.Seraph.DisplayName}"
+AthenaA.DisplayName: 觉醒之奥林匹亚女武神 雅典娜
+AthenaCloneDark.DisplayName: "{$NPCs.AthenaCloneLight.DisplayName}"
+AthenaCloneLight.DisplayName: 穹武鸮姬的克隆体
+ChargedOwlRune.DisplayName: 蓄能天鸮符文
+SeraphHerald.DisplayName: 六翼鸟妖斥候
+BunnyBrawler.DisplayName: 兔兔打手
+RabbitcopterSoldier.DisplayName: 直升飞兔
+RabidRabbit.DisplayName: 红眼狂兔
+RajahRabbit.DisplayName: 巨兔王公
+RoyalRabbit_NPC.DisplayName: 王冠兔兔
+RajahRabbitA.DisplayName: 至尊巨兔王公 无辜的保护者
+RajahRabbitADefeat.DisplayName: "{$NPCs.RajahRabbitA.DisplayName}"
+SupremeBunnyBrawler.DisplayName: 至尊兔兔打手
+SupremeRabbitcopterSoldier.DisplayName: 至尊直升飞兔
+SupremeRabidRabbit.DisplayName: 至尊红眼狂兔
+GripOfChaosInferno.DisplayName: 燎狱巨爪
+GripOfChaosMire.DisplayName: 潭渊巨爪
+ChaosDragon.DisplayName: 混沌飞龙
+ShenDoragonA.DisplayName: 觉醒之上神应龙 冥昭瞢暗的化身
+ShenDoragon.DisplayName: 上神应龙 冥昧末日的预言者
+AbyssGrip.DisplayName: 上神渊惧之爪
+BlazeGrip.DisplayName: 上神狱怒之爪
+ShenDoragon_Hitbox.DisplayName: "{$NPCs.ShenDoragon.DisplayName}"
+ShenDoragonDeath.DisplayName: 死亡的冥昧
+ShenDoragonDefeat.DisplayName: 被打败的冥昧
+ShenDoragonSpawn.DisplayName: 冥昧之息
+ShenDoragonTransition.DisplayName: 觉醒之冥昧
+FuryAshe.DisplayName: 觉醒燎狱魔女 凶怒之邪鬼艾希
+FuryAsheVanish.DisplayName: "{$NPCs.FuryAshe.DisplayName}"
+FuryFlameVortex.DisplayName: 狂焰漩涡
+ShenlingBody1.DisplayName: "{$NPCs.ShenlingHead.DisplayName}"
+ShenlingBody2.DisplayName: "{$NPCs.ShenlingHead.DisplayName}"
+ShenlingHead.DisplayName: 上神游龙
+ShenlingTail.DisplayName: "{$NPCs.ShenlingHead.DisplayName}"
+WrathHaruka.DisplayName: 觉醒潭渊妖女 震惧之八歧遥香
+WrathHarukaClone.DisplayName: "{$NPCs.WrathHaruka.DisplayName}"
+WrathHarukaVanish.DisplayName: "{$NPCs.WrathHaruka.DisplayName}"
+AHDeath.DisplayName: 被打败的姐妹
+AHSpawn.DisplayName: 混沌姐妹
+Ashe.DisplayName: 燎狱魔女 邪鬼艾希
+AshenDragonArms.DisplayName: "{$NPCs.AshenDragonHead.DisplayName}"
+AshenDragonBody1.DisplayName: "{$NPCs.AshenDragonHead.DisplayName}"
+AshenDragonBody2.DisplayName: "{$NPCs.AshenDragonHead.DisplayName}"
+AshenDragonBody3.DisplayName: "{$NPCs.AshenDragonHead.DisplayName}"
+AshenDragonHead.DisplayName: 艾希的燎狱烬龙
+AshenDragonTail.DisplayName: "{$NPCs.AshenDragonHead.DisplayName}"
+AsheRune.DisplayName: 艾希召唤符文
+AsheSpawn.DisplayName: "{$NPCs.Ashe.DisplayName}"
+AsheVanish.DisplayName: "{$NPCs.Ashe.DisplayName}"
+FlameVortex.DisplayName: 狂焰漩涡
+Haruka.DisplayName: 潭渊妖女 八歧遥香
+HarukaClone.DisplayName: "{$NPCs.Haruka.DisplayName}"
+HarukaFall.DisplayName: "{$NPCs.Haruka.DisplayName}"
+HarukaSpawn.DisplayName: "{$NPCs.Haruka.DisplayName}"
+HarukaVanish.DisplayName: "{$NPCs.Haruka.DisplayName}"
+DesertDjinn.DisplayName: 沙漠巨灵
+DustDjinn.DisplayName: 沙漠之魂
+Anubis.DisplayName: 阿努比斯 史诗记述者
+EyeSentry.DisplayName: 禁忌之眼
+HorusHawk.DisplayName: 荷鲁斯暗隼
+Locust.DisplayName: 禁忌蝗群
+MinionRitual.DisplayName: 禁忌之环
+Scarab.DisplayName: 法老圣甲虫
+UraeusBody.DisplayName: "{$NPCs.UraeusHead.DisplayName}"
+UraeusHead.DisplayName: 眼镜神蛇
+UraeusTail.DisplayName: "{$NPCs.UraeusHead.DisplayName}"
+AnubisA.DisplayName: 觉醒之阿努比斯 逝落的断罪师
+AnubisForsakenTransition.DisplayName: "{$NPCs.Anubis.DisplayName}"
+CursedLocust.DisplayName: 咒缚蝗群
+CursedMinionRitual.DisplayName: 咒缚之环
+CursedScarab.DisplayName: 咒缚圣甲虫
+ForsakenSun.DisplayName: 逝落之阳
+HorusSentry.DisplayName: 荷鲁斯之眼哨
+Naddaha.DisplayName: 咒缚唤女娜黛哈
+FeudalFungus.DisplayName: 真菌帝
+FeudalFungus_FungalSpore.DisplayName: 漂浮孢子
+FeudalFungus_FungusFlier.DisplayName: 浮空真菌
+FeudalFungusAsleep.DisplayName: 一个超大的发光蘑菇
+FeudalFungusWakeUp.DisplayName: 一个超大的发光蘑菇...?
+GlowingMushling.DisplayName: 荧菌精
+GregariousGlowshrooms.DisplayName: 荧光孢子菇
+LuminousAccordyceps.DisplayName: 光蕈谐菌
+TruffleToad.DisplayName: 松露蟾蜍
+TinyToad.DisplayName: 小松露蟾蜍
+FatPixie.DisplayName: 小胖精灵
+GreedBody.DisplayName: "{$NPCs.GreedHead.DisplayName}"
+GreedHead.DisplayName: 金食饕餮
+GreedTransition.DisplayName: 闪耀的贪婪
+OreConstruct.DisplayName: 矿石精
+SparkOfDesire.DisplayName: 欲望奇点
+ScavengerBody.DisplayName: "{$NPCs.ScavengerHead.DisplayName}"
+ScavengerHead.DisplayName: 拾金婪虫
+ScavengerTail.DisplayName: "{$NPCs.ScavengerHead.DisplayName}"
+GreedABody.DisplayName: "{$NPCs.GreedAHead.DisplayName}"
+GreedAHead.DisplayName: 觉醒之金食饕餮 鎏金万蟲王
+SingularityOfDesire.DisplayName: 欲望奇点
+Broodmini.DisplayName: 小炎龙
+Broodmother.DisplayName: 育母炎龙
+DragonEgg.DisplayName: 炎龙蛋
+InfernalSlime.DisplayName: 燎狱史莱姆
+DragonClaw_NPC.DisplayName: 龙之爪
+FlameBrute.DisplayName: 炽焰兽
+Singemander.DisplayName: 灼烧蝾螈
+WyrmlingBody.DisplayName: "{$NPCs.WyrmlingHead.DisplayName}"
+WyrmlingHead.DisplayName: 燎狱游虫
+WyrmlingTail1.DisplayName: "{$NPCs.WyrmlingHead.DisplayName}"
+WyrmlingTail2.DisplayName: "{$NPCs.WyrmlingHead.DisplayName}"
+BlazePhoenix.DisplayName: 炽焰凤凰
+InfernalGhoul.DisplayName: 燎狱食尸鬼
+PigronInferno.DisplayName: 燎狱猪龙
+ChaoticDawn.DisplayName: 混晓之剑
+InfernoMimic.DisplayName: 燎狱大宝箱怪
+WyrmBody1.DisplayName: "{$NPCs.WyrmHead.DisplayName}"
+WyrmBody2.DisplayName: "{$NPCs.WyrmHead.DisplayName}"
+WyrmBody3.DisplayName: "{$NPCs.WyrmHead.DisplayName}"
+WyrmBody4.DisplayName: "{$NPCs.WyrmHead.DisplayName}"
+WyrmHead.DisplayName: 燎狱游龙
+MagmaSwimmer.DisplayName: 熔岩游鱼
+AkumaBody.DisplayName: "{$NPCs.AkumaHead.DisplayName}"
+AkumaHead.DisplayName: 远古之邪鬼巨龙 凶煞恶魔
+AkumaTransition.DisplayName: 激怒之灵
+AkumaABody.DisplayName: "{$NPCs.AkumaAHead}"
+AkumaAHead.DisplayName: 觉醒之邪鬼巨龙 狂煞魔豪鬼
+AwakenedLungBody.DisplayName: "{$NPCs.AwakenedLungHead.DisplayName}"
+AwakenedLungHead.DisplayName: 觉醒之伴龙
+AwakenedLungTail.DisplayName: "{$NPCs.AwakenedLungHead.DisplayName}"
+BlazeClaw.DisplayName: 炽焰之爪
+AncientLungBody.DisplayName: "{$NPCs.AncientLungHead.DisplayName}"
+AncientLungHead.DisplayName: 远古之伴龙
+AncientLungTail.DisplayName: "{$NPCs.AncientLungHead.DisplayName}"
+MadnessBat.DisplayName: 癫狂飞行者
+MadnessSlime.DisplayName: 癫狂史莱姆
+HarukaShadowPostHydra.DisplayName: "{$NPCs.HarukaShadow.DisplayName}"
+HarukaShadow.DisplayName: ……
+HydraBody.DisplayName: 九头渊蛇
+HydraHead1.DisplayName: "{$NPCs.HydraBody.DisplayName}"
+HydraHead2.DisplayName: "{$NPCs.HydraBody.DisplayName}"
+HydraHead3.DisplayName: "{$NPCs.HydraBody.DisplayName}"
+HydraHead4.DisplayName: "{$NPCs.HydraBody.DisplayName}"
+HydraHead5.DisplayName: "{$NPCs.HydraBody.DisplayName}"
+HydraHead6.DisplayName: "{$NPCs.HydraBody.DisplayName}"
+HydraHead7.DisplayName: "{$NPCs.HydraBody.DisplayName}"
+HydraHead8.DisplayName: "{$NPCs.HydraBody.DisplayName}"
+HydraHead9.DisplayName: "{$NPCs.HydraBody.DisplayName}"
+MurkySlime.DisplayName: 潭渊史莱姆
+HydraClaw_NPC.DisplayName: 九头蛇之爪
+Mosster.DisplayName: 潭渊藓怪
+Newt.DisplayName: 潭渊蝾螈
+Skulker.DisplayName: 潭渊潜伏者
+Kappa.DisplayName: 潭渊河童
+Toxitoad.DisplayName: 剧毒蟾蜍
+ShadowGhoul.DisplayName: 潭渊食尸鬼
+PigronMire.DisplayName: 潭渊猪龙
+ChaoticTwilight.DisplayName: 乱暮之剑
+MireMimic.DisplayName: 潭渊大宝箱怪
+Miresquito.DisplayName: 潭渊毒蚊
+FogAngler.DisplayName: 潭雾鮟鱇
+MireSoul.DisplayName: 霆渊之魂
+YamataABody.DisplayName: 觉醒之八歧大蛇 八俣远吕智
+YamataAHead.DisplayName: "{$NPCs.YamataABody.DisplayName}"
+YamataAHeadFake.DisplayName: "{$NPCs.YamataABody.DisplayName}"
+YamataBody.DisplayName: 远古之八歧大蛇 惊惧梦魇
+YamataHead.DisplayName: "{$NPCs.YamataBody.DisplayName}"
+YamataHeadFake1.DisplayName: "{$NPCs.YamataBody.DisplayName}"
+YamataHeadFake2.DisplayName: "{$NPCs.YamataBody.DisplayName}"
+YamataTransition.DisplayName: 霆渊之魂
+AbyssClaw.DisplayName: 潭渊之爪
+Soulsucker.DisplayName: 灵魂吸食者
+Mushling.DisplayName: 红孢精
+MushroomMonarch.DisplayName: 赤孢皇
+MushroomMonarchAsleep.DisplayName: 一个超大的红蘑菇
+MushroomMonarchWakeUp.DisplayName: 一个超大的红蘑菇...?
+FungusFrog.DisplayName: 赤孢蛙
+Mushbug.DisplayName: 赤孢瓢虫
+MushroomCrab.DisplayName: 赤孢甲虫
+MushroomJelly.DisplayName: 赤孢水母
+MushroomZombie.DisplayName: 赤孢僵尸
+MushroomZombie2.DisplayName: 赤孢僵尸
+ElderDragon.DisplayName: 长老飞龙
+IceCrystal.DisplayName: 冰晶
+SubzeroSerpentBody.DisplayName: "{$NPCs.SubzeroSerpentHead.DisplayName}"
+SubzeroSerpentHead.DisplayName: 绝零冰蛇
+SubzeroSerpentTail.DisplayName: "{$NPCs.SubzeroSerpentHead.DisplayName}"
+SnowSerpentBody.DisplayName: "{$NPCs.SnowSerpentHead.DisplayName}"
+SnowSerpentHead.DisplayName: 雪蛇
+SnowSerpentTail.DisplayName: "{$NPCs.SnowSerpentHead.DisplayName}"
+DaybringerBody.DisplayName: "{$NPCs.DaybringerHead.DisplayName}"
+DaybringerHead.DisplayName: 白昼启明虫 戴布林格
+DaybringerTail.DisplayName: "{$NPCs.DaybringerHead.DisplayName}"
+Equiprobe.DisplayName: 装甲探针
+NightCloud.DisplayName: 奈克劳尔云
+NightcrawlerBody.DisplayName: "{$NPCs.NightcrawlerHead.DisplayName}"
+NightcrawlerHead.DisplayName: 黑夜爬行虫 奈克劳尔
+NightcrawlerTail.DisplayName: "{$NPCs.NightcrawlerHead.DisplayName}"
+SunWatcher.DisplayName: 日光看守
+NightGuard.DisplayName: 暗夜护卫
+DBPortal.DisplayName: 明亮之星
+NCPortal.DisplayName: 黑色虚空
+WormSpawn.DisplayName: 天堂之声
+PurityCrawler.DisplayName: 净源爬虫
+PuritySphere.DisplayName: 净源之球
+PuritySquid.DisplayName: 净源飞鱿
+PurityWeaverBody.DisplayName: 泰拉编织者
+PurityWeaverHead.DisplayName: 净源编织者
+PurityWeaverTail.DisplayName: 泰拉编织者
+TerraDeadshot.DisplayName: 泰拉亡命枪手
+TerraKnight.DisplayName: 泰拉心球骑士
+TerraSquire.DisplayName: 泰拉心球护卫
+TerraWarlock.DisplayName: 泰拉心球邪士
+TerraCrawler.DisplayName: 泰拉心球爬虫
+TerraSphere.DisplayName: 泰拉心之球
+TerraSquid.DisplayName: 泰拉心球枪乌贼
+TerraWeaverBody.DisplayName: "{$NPCs.TerraWeaverHead.DisplayName}"
+TerraWeaverHead.DisplayName: 泰拉编织者
+TerraWeaverTail.DisplayName: "{$NPCs.TerraWeaverHead.DisplayName}"
+TerraWizard.DisplayName: 泰拉心球女巫
+UnityProbe.DisplayName: 统和探针
+UnityWatcher.DisplayName: 统和看守
+Sagittarius.DisplayName: 射手座-虚空人马
+ShadowScout.DisplayName: 暗影侦察者
+StoneSearcher.DisplayName: 废石搜索者
+ZeroDeactivated.DisplayName: 奇异机械
+VoidScout.DisplayName: 虚空监察者
+Vortex.DisplayName: 虚空绞杀者-铰刀
+NullZP.DisplayName: "{$NPCs.Null.DisplayName}"
+Null.DisplayName: 虚-无
+ZeroA.DisplayName: 零械汇编器 零.之.始.约.协.议
+ZeroEcho.DisplayName: 戒木零0-回音
+ZeroMini.DisplayName: 零械自组织源 零.之.自.组.织.协.议
+ZeroTransition.DisplayName: 破损裂隙
+Zero.DisplayName: 零械单元 虚空之末日结构
+ZeroBrokenWeapon.DisplayName: 损坏武器
+ZeroGenocideCannon.DisplayName: 种族灭绝炮
+ZeroGigataser.DisplayName: 机甲脉冲枪
+ZeroNeutralizer.DisplayName: 中和光束炮
+ZeroNovaFocus.DisplayName: 新星焦点枪
+ZeroOmegaVolley.DisplayName: 欧米伽排炮
+ZeroRealityCannon.DisplayName: 现实破坏炮
+ZeroRiftShredder.DisplayName: 世界割裂臂
+ZeroVoidStar.DisplayName: 星体虚无械
+Searcher.DisplayName: 虚空搜索者
+OrthrusXBody.DisplayName: 食腐者-双头狗俄耳托斯X型
+OrthrusXHead.DisplayName: "{$NPCs.OrthrusXBody.DisplayName}"
+OrthrusXHead_OrthrusReticle.DisplayName: 目标锁定
+RaiderEgg.DisplayName: 侵入之卵
+RaiderUltima.DisplayName: 侵入者-创世哺育之母
+RaiderUltima_RaiderRocket.DisplayName: 侵入火箭
+Raidmini.DisplayName: 小侵入者
+Retriever.DisplayName: 捕猎者-电子猎犬爪
+CyberClaw.DisplayName: 电子之爪
+AmbientSoulOfCthulhu.DisplayName: ???
+OlympianDragon.DisplayName: 卫城飞龙
+AnubisUnreleased.DisplayName: "{$NPCs.Anubis.DisplayName}"
+AnubisCircle.DisplayName: 阿努比斯之环
+BiomiteCore.DisplayName: 环境原核
+TechnoTruffle.DisplayName: 电子化-机械松露怪
+TruffleProbe.DisplayName: 机械松露探针
+Truffling.DisplayName: 机械松露推进器
+DimensionDiver.DisplayName: 维度潜袭者
+RiftShark.DisplayName: 裂噬鲨
+Cthulhu.DisplayName: 克苏鲁 寰宇之灾
+DeityBrain.DisplayName: 神祇之脑 鲁·克苏
+EyeOfAzathoth.DisplayName: 阿撒托斯之眼
+DeityEater.DisplayName: 神祇之噬 克鲁姆·克鲁赫
+DeityEaterBody.DisplayName: "{$NPCs.DeityEater.DisplayName}"
+DeityEaterTail.DisplayName: "{$NPCs.DeityEater.DisplayName}"
+DeityEye.DisplayName: 神祇之眼 塞伊格亚
+DeityLeviathan.DisplayName: 神祇海兽 秽触
+DeityShark.DisplayName: 神祇鲨
+DeityShark2.DisplayName: 神祇鲨
+LeviathanBubble.DisplayName: 秽触气泡
+DeityRose.DisplayName: 神祇玫瑰 埃洛
+DeityRoseClaws.DisplayName: 埃洛的触须
+DeityRoseHook.DisplayName: 埃洛的钩爪
+DeityRoseSpore.DisplayName: 埃洛的孢子
+ShadowUrchin.DisplayName: 暗影海胆
+DeitySkull.DisplayName: 神祇之颅 兰·提戈斯
+DeitySkull_Hand.DisplayName: 提戈斯之爪
+DeitySkull_Hand1.DisplayName: "{$NPCs.DeitySkull_Hand.DisplayName}"
+DeitySkull_Hand2.DisplayName: "{$NPCs.DeitySkull_Hand.DisplayName}"
+DeitySkull_Hand3.DisplayName: "{$NPCs.DeitySkull_Hand.DisplayName}"
+DeitySkull_Hand4.DisplayName: "{$NPCs.DeitySkull_Hand.DisplayName}"
+DeitySkull_Hand5.DisplayName: "{$NPCs.DeitySkull_Hand.DisplayName}"
+CthulhuPortal.DisplayName: 黑暗之门
+CthulhuSpawn.DisplayName: 量渊之门
+DeityDragon.DisplayName: 灵渊飞龙
+DeityDragon_Arms.DisplayName: "{$NPCs.DeityDragon.DisplayName}"
+DeityDragon_Body1.DisplayName: "{$NPCs.DeityDragon.DisplayName}"
+DeityDragon_Body2.DisplayName: "{$NPCs.DeityDragon.DisplayName}"
+DeityDragon_Body3.DisplayName: "{$NPCs.DeityDragon.DisplayName}"
+DeityDragon_Tail.DisplayName: "{$NPCs.DeityDragon.DisplayName}"
+Portal.DisplayName: 裂隙之门
+RiftVision.DisplayName: 裂隙视像
+SoulOfCthulhu.DisplayName: 克苏鲁之魂 旧日之影
+UDUNFUKED.DisplayName: 洛夫克拉夫特之影
+TrenchSquid.DisplayName: 渊噬鱿
+InfinityCore.DisplayName: 零之原点
+InfinityZero.DisplayName: 无限零 机械恶意
+InfinityZeroHand1.DisplayName: 被束缚的零械
+InfinityZeroHand2.DisplayName: "{$NPCs.InfinityZeroHand1.DisplayName}"
+InfinityZeroSpawn1.DisplayName: 死亡
+Oblivion.DisplayName: 遗忘 熵之谜
+TerraSerpentBody.DisplayName: "{$NPCs.TerraSerpentHead.DisplayName}"
+TerraSerpentHead.DisplayName: 泰拉心球之蛇
+TerraSerpentTail.DisplayName: "{$NPCs.TerraSerpentHead.DisplayName}"

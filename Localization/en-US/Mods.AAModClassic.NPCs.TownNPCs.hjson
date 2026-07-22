@@ -231,6 +231,12 @@ LegendscribeUnofficial: {
 		DislikeNPC: This {NPCName} guy keeps golfing in my desert!
 	}
 
+	Buttons: {
+		Help: Help
+		Book: Found your book
+		Next: What's next?
+	}
+
 	Census.SpawnCondition: Needs a home with a Tall Gate
 }
 
@@ -400,7 +406,29 @@ Samurai: {
 	SamuraiChat21: Your shoes will make you happy today.
 }
 
-LuciferSitting.DisplayName: Lucifer the Pit Lord
+LuciferSitting: {
+	DisplayName: Lucifer the Pit Lord
+
+	Buttons: {
+		Who: Who are you?
+		When: When will it be done?
+		Why: Why are you building it?
+		Bye: Alright, goodbye.
+	}
+
+	Dialogue: {
+		Start:
+			'''
+			Come back later. I'm setting up shop here.
+
+			Huh? What am I doin'?! I'm supervising.
+			'''
+		Chat0: Who am I?! I'm-- Who am I kiddin'. You know who I am. Now skedaddle, I got an arena to get built.
+		Chat1: I don't know, whenever my guys get off their lazy behinds and actually start building stuff.
+		Chat2: You have a lot of questions, don't you? I'm building it because I want to watch guts spill. Why else?
+		Chat3: See you around. Come back when I finish, I'd love to see you get gored! BWAHAHAHAHAHAHAHAHAH!!!
+	}
+}
 
 QuestFish: {
 	Fishmother: Okay so, I was walking through the Inferno looking for something hot for one of my epic pranks, when I saw this fat fish underwater, boiling the water around it. I thought 'PERFECT!' but I couldn't catch it because I didn't have my rod on me. Go get it, slave.

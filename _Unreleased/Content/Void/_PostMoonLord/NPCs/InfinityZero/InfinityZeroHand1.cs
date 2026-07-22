@@ -60,7 +60,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         InfinityZero Body => BodyNPC != null && BodyNPC.ModNPC is InfinityZero body ? body : null;
         public NPC BodyNPC => Main.npc[(int)NPC.ai[0]];
 
-		public byte HandType => (byte)NPC.ai[1]; //0 == left top, 1 == left middle, 2 == left bottom, 3 == right top, 4 == right middle, 5 == right bottom
+		public int HandType => (int)NPC.ai[3]; //0 == left top, 1 == left middle, 2 == left bottom, 3 == right top, 4 == right middle, 5 == right bottom
 		public bool leftHand = true;
         public bool RepairMode = false;
 

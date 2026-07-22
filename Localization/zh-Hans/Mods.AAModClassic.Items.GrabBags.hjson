@@ -1,0 +1,428 @@
+TreasureBags: {
+	ShenDoragonTreasureBag: {
+		DisplayName: 宝藏箱（上神应龙）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	AnubisTreasureBag: {
+		DisplayName: 宝藏袋（阿努比斯）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	AnubisATreasureBag: {
+		DisplayName: 宝藏袋（逝落断罪师）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	BroodmotherTreasureBag: {
+		DisplayName: 宝藏袋（育母炎龙）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	AkumaTreasureBag: {
+		DisplayName: 宝藏袋（邪鬼巨龙）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	HydraTreasureBag: {
+		DisplayName: 宝藏袋（九头渊蛇）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	YamataTreasureBag: {
+		DisplayName: 宝藏袋（八歧大蛇）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	ZeroTreasureBag: {
+		DisplayName: 宝藏袋（零械单元）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	OrthrusXTreasureBag: {
+		DisplayName: 宝藏袋（俄耳托斯X型）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	RaiderUltimaTreasureBag: {
+		DisplayName: 宝藏袋（创世哺育之母）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	RetrieverTreasureBag: {
+		DisplayName: 宝藏袋（电子猎犬爪）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	TechnoTruffleTreasureBag: {
+		DisplayName: 宝藏袋（机械松露怪）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	InfinityZeroTreasureBag: {
+		DisplayName: 宝藏箱（无限零）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	AthenaTreasureBag: {
+		DisplayName: 宝藏袋（雅典娜）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	AthenaATreasureBag: {
+		DisplayName: 宝藏袋（奥林匹亚女武神）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	RajahRabbitTreasureBag: {
+		DisplayName: 宝藏袋（巨兔王公）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	RajahRabbitATreasureBag: {
+		DisplayName: 宝藏箱（至尊巨兔王公）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	GripsOfChaosTreasureBag: {
+		DisplayName: 宝藏袋（混沌双爪）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	SistersOfDiscordTreasureBag: {
+		DisplayName: 宝藏袋（混沌姐妹）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	DesertDjinnTreasureBag: {
+		DisplayName: 宝藏袋（沙漠巨灵）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	FeudalFungusTreasureBag: {
+		DisplayName: 宝藏袋（真菌帝）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	TruffleToadTreasureBag: {
+		DisplayName: 宝藏袋（松露蟾蜍）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	GreedTreasureBag: {
+		DisplayName: 宝藏袋（金食饕餮）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	GreedATreasureBag: {
+		DisplayName: 宝藏袋（鎏金万蟲王）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	MushroomMonarchTreasureBag: {
+		DisplayName: 宝藏袋（赤孢皇）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	SubzeroSerpentTreasureBag: {
+		DisplayName: 宝藏袋（绝零冰蛇）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	EquinoxWormsTreasureBag: {
+		DisplayName: 宝藏袋（昼夜双虫）
+		Tooltip:
+			'''
+			{$CommonItemTooltip.RightClickToOpen}
+			根据一天中时间的不同产生掉落物
+			'''
+	}
+
+	SagittariusTreasureBag: {
+		DisplayName: 宝藏袋（虚空人马）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	SoulOfCthulhuTreasureBag: {
+		DisplayName: 宝藏箱（克苏鲁之魂）
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+}
+
+Vanity: {
+	AnarchyBag: {
+		DisplayName: 崭新的宝藏袋
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}"
+			'冒充Anarchy的所有必需品！不，真的，就是Anarchy本人。'
+			郑重声明，Anarchy自己画的。
+			'''
+	}
+
+	ApawnBag: {
+		DisplayName: 惊喜蛋
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'一个塑料蛋，一个非非非非常大的蛋！'
+			'''
+	}
+
+	AvesBag: {
+		DisplayName: DJ Duck的包裹
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充黑白鸭的所有必需品！'
+			'''
+	}
+
+	BegBag: {
+		DisplayName: 怪马袋
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充那个怪马小子的所有必需品！'
+			'''
+	}
+
+	BigEBag: {
+		DisplayName: 大字母的包裹
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充大字母的所有必需品！'
+			'''
+	}
+
+	BlazenBag: {
+		DisplayName: 雷电领主的包裹
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充雷电领主的所有必需品！'
+			'''
+	}
+
+	CCBag: {
+		DisplayName: 泥潭狂人的纸皮箱
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充恐惧献祭者的所有必需品！'
+			'''
+	}
+
+	CerberusBag: {
+		DisplayName: 小刻尔伯洛斯的狗屋
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充小狗召唤师的所有必需品！'
+			'''
+	}
+
+	CharlieBag: {
+		DisplayName: 收割者袋
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充阴冷怪客的所有必需品！'
+			'''
+	}
+
+	DellyBag: {
+		DisplayName: 虚空之女的包裹
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充虚空小公举的所有必需品！'
+			'''
+	}
+
+	FargoBag: {
+		DisplayName: 松鼠的顶帽
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充表情包松鼠的所有必需品！'
+			'''
+	}
+
+	FazerBag: {
+		DisplayName: 湿毛包
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充毛绒狐狸的所有必需品！'
+			'''
+	}
+
+	GibsBag: {
+		DisplayName: 愤怒归来者的石棺
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充愤怒归来者的所有必需品！'
+			'''
+	}
+
+	GroxBag: {
+		DisplayName: 辉绿海匣
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充愤怒代码海盗的所有必需品！'
+			'''
+	}
+
+	HallamBag: {
+		DisplayName: 魔术师的礼帽
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充发怒猫的所有必需品！'
+			'''
+	}
+
+	MaskanoBag: {
+		DisplayName: 面具袋
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}"
+			'冒充面具领主的所有必需品。'
+			'''
+	}
+
+	MikpinBag: {
+		DisplayName: 狐皮包
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充网络狐狸的所有必需品！'
+			'''
+	}
+
+	MoonBag: {
+		DisplayName: 月虫包裹
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充月光蜂的所有必需品！'
+			'''
+	}
+
+	PlutoBag: {
+		DisplayName: 外神包
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充矮人神的所有必需品！'
+			'''
+	}
+
+	ShoxBag: {
+		DisplayName: 充能震颤包裹
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充震颤领主的所有必需品！'
+			'''
+	}
+
+	TailsBag: {
+		DisplayName: 狐尾工具箱
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充惊奇狐狸的所有必需品！'
+			'''
+	}
+
+	TiedBag: {
+		DisplayName: 老魔术师的礼帽
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充绅士骨头男的所有必需品！'
+			'''
+	}
+
+	VoidEyeBag: {
+		DisplayName: 虚空之门
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}"
+			'冒充虚空之眼的所有必需品！'
+			'''
+	}
+
+	DallinBag: {
+		DisplayName: 菲斯的包裹
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充菲斯领主的所有必需品！'
+			'''
+	}
+
+	FuryWitchsBag: {
+		DisplayName: 艾希的挎包
+		Tooltip:
+			'''
+			右键打开
+			内含一套愤怒女巫长袍
+			'''
+	}
+
+	MidnightAssassinBag: {
+		DisplayName: 遥香的锁匣
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}"
+			内含一套子夜刺客套装
+			'''
+	}
+
+	PlanterrorBag: {
+		DisplayName: 植物恐魔的包裹
+		Tooltip:
+			'''
+			"{$CommonItemTooltip.RightClickToOpen}" 
+			'冒充植物恐魔的所有必需品！'
+			'''
+	}
+}
+
+Crates: {
+	InfernoCrate: {
+		DisplayName: 燎狱板条箱
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	DaybreakCrate: {
+		DisplayName: 炙曦板条箱
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	MireCrate: {
+		DisplayName: 潭渊板条箱
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	EventideCrate: {
+		DisplayName: 渊宵板条箱
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	VoidCrate: {
+		DisplayName: 虚空板条箱
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+
+	NullCrate: {
+		DisplayName: 虚无板条箱
+		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+	}
+}

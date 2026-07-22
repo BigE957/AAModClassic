@@ -40,7 +40,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         }
 
         public int body = -1;
-        public float rotValue = -1f;
+        public ref float RotValue => ref NPC.ai[3];
         public bool spawnedDust = false;
         public bool fireAttack = false;
 
@@ -48,8 +48,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             if (body == -1)
             {
-                int npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<DeityBrain>(), 500f, null);
-                if (npcID >= 0) body = npcID;
+                int npcID = NPC.FindFirstNPC(ModContent.NPCType<DeityBrain>());
+                if (npcID >= 0) 
+                    body = npcID;
             }
             if (body == -1)
             {
@@ -85,12 +86,12 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
             int EoACount = DeityBrain.EyeCount;
             bool outer = NPC.ai[0] % 2 == 0;
-            rotValue = (NPC.ai[0] * (MathHelper.TwoPi / EoACount)) + (NPC.ai[1] * (outer ? -0.025f : 0.04f));
+            RotValue = (NPC.ai[0] * (MathHelper.TwoPi / EoACount)) + (NPC.ai[1] * (outer ? -0.025f : 0.04f));
             //rotValue += 0.05f;
-            while (rotValue > MathHelper.TwoPi) 
-                rotValue -= (float)Math.PI * 2f;
+            while (RotValue > MathHelper.TwoPi) 
+                RotValue -= (float)Math.PI * 2f;
             int dist = outer ? 280 : 180;
-            NPC.Center = BaseUtility.RotateVector(brain.Center, brain.Center + new Vector2(dist, 0f), rotValue);
+            NPC.Center = BaseUtility.RotateVector(brain.Center, brain.Center + new Vector2(dist, 0f), RotValue);
             NPC.position.Y -= 48;
 
             NPC.spriteDirection = (NPC.position.X - NPC.oldPos[1].X) < 0 ? 1 : -1;

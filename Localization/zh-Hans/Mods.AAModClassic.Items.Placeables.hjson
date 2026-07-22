@@ -1,0 +1,792 @@
+Functional: {
+	ChaosCrucible: {
+		DisplayName: 混沌坩埚
+		Tooltip: 混沌之力需要一双稳重的手和巨大的锻造炉来驾驭
+	}
+
+	TruePaladinsSmeltery: {
+		DisplayName: 真·圣骑士冶炼炉
+		Tooltip:
+			'''
+			超级熔炉，只为最杰出的铁匠准备
+			可作为绝大多数必要制作站使用
+			'''
+	}
+
+	HaphestusForge: {
+		DisplayName: 赫费斯特铁匠神熔炉
+		Tooltip:
+			'''
+			*拍一拍熔炉顶* "这小东西竟然能塞下这么多制作站。"
+			可作为地狱熔炉、狱石砧、炼药桌、恶魔祭坛、工匠作坊及桌椅使用
+			'''
+	}
+
+	DragonAltarSafe: {
+		DisplayName: 龙之祭坛
+		Tooltip: ""
+	}
+
+	QuantumFusionAccelerator: {
+		DisplayName: 量子融合加速器
+		Tooltip:
+			'''
+			以声速发射粒子
+			允许你加工暗物质簇和镭光矿
+			'''
+	}
+
+	RadiantArcanum: {
+		DisplayName: 射线之奥秘
+		Tooltip:
+			'''
+			向星星许愿
+			允许你加工暗物质簇和镭光矿
+			'''
+	}
+
+	BinaryReassembler: {
+		DisplayName: 二进制碎片重组机
+		Tooltip: 现实从未如此容易操纵
+	}
+
+	FurnitureDynamo: {
+		DisplayName: 家居集铸点
+		Tooltip:
+			'''
+			将所有家具制作站合为一体
+			再也不用在家里塞12个制作站了！
+			'''
+	}
+
+	CorruptAltar: {
+		DisplayName: 恶魔祭坛
+		Tooltip: ""
+	}
+
+	CrimsonAltar: {
+		DisplayName: 猩红祭坛
+		Tooltip: ""
+	}
+
+	HallowedAnvil: {
+		DisplayName: 神圣砧
+		Tooltip: 一座神圣的砧
+	}
+
+	HallowedForge: {
+		DisplayName: 神圣熔炉
+		Tooltip: 这东西竟然也有做不出来的东西，真是稀奇
+	}
+
+	PaladinsSmeltery: {
+		DisplayName: 圣骑士冶炼炉
+		Tooltip:
+			'''
+			这东西可以做很多东西
+			可作为大多数困难模式制作站 + 工作台和重型工作台使用
+			'''
+	}
+
+	HellstoneAnvil: {
+		DisplayName: 狱石砧
+		Tooltip: 这东西本来就会着火吗？
+	}
+
+	SharpeningLavaFish: {
+		DisplayName: 利锋熔鱼
+		Tooltip: ""
+	}
+
+	AbyssAltarSafe: {
+		DisplayName: 深渊祭坛
+		Tooltip: ""
+	}
+
+	ToxinMonkfish: {
+		DisplayName: 毒源鮟鱇
+		Tooltip: ""
+	}
+
+	TerraCore: {
+		DisplayName: 泰拉核心
+		Tooltip:
+			'''
+			将大多数制作站合为一体
+			用于创造远古制作站
+			'''
+	}
+
+	TerraPrismStation: {
+		DisplayName: 无限核心
+		Tooltip:
+			'''
+			万物合成一体。
+			整合所有原版及远古觉醒制作站
+			'''
+	}
+
+	InfernoPylon: {
+		DisplayName: 燎狱晶塔
+		Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
+	}
+
+	MirePylon: {
+		DisplayName: 潭渊晶塔
+		Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
+	}
+
+	RedMushroomPylon: {
+		DisplayName: 红蘑菇晶塔
+		Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
+	}
+
+	VoidPylon: {
+		DisplayName: 虚空晶塔
+		Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
+	}
+}
+
+TerraCrystal: {
+	DisplayName: 泰拉水晶
+	Tooltip: ""
+}
+
+DoomsdayCircuitPlating: {
+	DisplayName: 末日电路板
+	Tooltip: ""
+}
+
+DoomstoneBrick: {
+	DisplayName: 厄劫石砖
+	Tooltip: ""
+}
+
+VoidUnit: {
+	DisplayName: 虚空机械单元
+	Tooltip: ""
+}
+
+AvesInABox: {
+	DisplayName: 盒中爱维斯
+	Tooltip: 多 做 点 音 乐 盒 你 这 该 死 的 鸭 子
+}
+
+AvesStatue: {
+	DisplayName: 绿头鸭乐师雕像
+	Tooltip: ""
+}
+
+BegStatue: {
+	DisplayName: 怪马雕像
+	Tooltip: ""
+}
+
+CharlieStatue: {
+	DisplayName: 吉他雕像
+	Tooltip: ""
+}
+
+DallinStatue: {
+	DisplayName: 博士雕像
+	Tooltip: ""
+}
+
+EnderStatue: {
+	DisplayName: 传说英雄雕像
+	Tooltip: ""
+}
+
+FargoStatue: {
+	DisplayName: 礼帽松鼠雕像
+	Tooltip: ""
+}
+
+FazerStatue: {
+	DisplayName: 萨米雕像
+	Tooltip: ""
+}
+
+GroxStatue: {
+	DisplayName: 守护者雕像
+	Tooltip: ""
+}
+
+HallamStatue: {
+	DisplayName: 彩虹之神雕像
+	Tooltip: ""
+}
+
+KyuuStatue: {
+	DisplayName: 断魔圣剑雕像
+	Tooltip: ""
+}
+
+LCSStatue: {
+	DisplayName: 谎言雕像
+	Tooltip: ""
+}
+
+MoonStatue: {
+	DisplayName: 黄蜂雕像
+	Tooltip: ""
+}
+
+SauceStatue: {
+	DisplayName: 蛇雕像
+	Tooltip: ""
+}
+
+TailsStatue: {
+	DisplayName: 狐狸雕像
+	Tooltip: ""
+}
+
+EnderMemory: {
+	DisplayName: 永恒追忆
+	Tooltip:
+		'''
+		为纪念某人而建的高大雕像
+		底座上镌刻着一行沉痛的铭文。
+		'''
+}
+
+SkycrystalBrick: {
+	DisplayName: 天晶砖
+	Tooltip: ""
+}
+
+SkymarbleBrick: {
+	DisplayName: 天理石砖
+	Tooltip: ""
+}
+
+RoyalRabbitCage: {
+	DisplayName: 皇家兔笼
+	Tooltip: ""
+}
+
+RitualAltar: {
+	DisplayName: 仪式祭坛
+	Tooltip: 一座古老的祭坛，其用途早已湮没在时间之中……
+}
+
+DiscordianTorch: {
+	DisplayName: 冥昧火把
+	Tooltip: ""
+}
+
+DesertCrate: {
+	DisplayName: 沙漠板条箱
+	Tooltip: "'灰太大，打不开'"
+}
+
+HellCrate: {
+	DisplayName: 地狱板条箱
+	Tooltip: "'烫得打不开'"
+}
+
+CovetiteBrick: {
+	DisplayName: 欲晶砖
+	Tooltip: ""
+}
+
+CovetiteBrickWall: {
+	DisplayName: 欲晶砖墙
+	Tooltip: ""
+}
+
+GreedBrick: {
+	DisplayName: 欲望金窟砖
+	Tooltip: ""
+}
+
+GreedChest: {
+	DisplayName: 贪婪宝箱
+	Tooltip: ""
+}
+
+GreedLantern: {
+	DisplayName: 石灯笼
+	Tooltip: ""
+}
+
+GreedStone: {
+	DisplayName: 金窟石
+	Tooltip: ""
+}
+
+IncineriteBrick: {
+	DisplayName: 燎烬砖
+	Tooltip: ""
+}
+
+IncineriteBrickWall: {
+	DisplayName: 燎烬砖墙
+	Tooltip: ""
+}
+
+Razewood: {
+	DisplayName: 燎火木
+	Tooltip: ""
+}
+
+RazewoodWall: {
+	DisplayName: 燎火木墙
+	Tooltip: ""
+}
+
+DragonfireTorch: {
+	DisplayName: 燎狱龙炎火把
+	Tooltip: ""
+}
+
+SunAltar: {
+	DisplayName: 酷煞之日祭坛
+	Tooltip: ""
+}
+
+SunAltarA: {
+	DisplayName: 觉醒之日祭坛
+	Tooltip: ""
+}
+
+DaybreakBrick: {
+	DisplayName: 炙曦砖
+	Tooltip: ""
+}
+
+DaybreakBrickWall: {
+	DisplayName: 炙曦砖墙
+	Tooltip: ""
+}
+
+DaybreakTorch: {
+	DisplayName: 炙曦火把
+	Tooltip: ""
+}
+
+InfernoChest: {
+	DisplayName: 燎狱宝箱
+	Tooltip: ""
+}
+
+ScorchedDynastyWood: {
+	DisplayName: 烧焦王朝木
+	Tooltip: ""
+}
+
+ScorchedDynastyWoodUnsafe: {
+	DisplayName: 烧焦王朝木（不安全的）
+	Tooltip: ""
+}
+
+ScorchedShingles: {
+	DisplayName: 烧焦瓦片
+	Tooltip: ""
+}
+
+TorchAsh: {
+	DisplayName: 火山灰
+	Tooltip: ""
+}
+
+Torchice: {
+	DisplayName: 橙冰
+	Tooltip: ""
+}
+
+Torchsand: {
+	DisplayName: 爝火沙
+	Tooltip: ""
+}
+
+TorchsandHardened: {
+	DisplayName: 硬化爝火沙
+	Tooltip: ""
+}
+
+Torchsandstone: {
+	DisplayName: 爝火沙岩
+	Tooltip: ""
+}
+
+Torchstone: {
+	DisplayName: 爝火石
+	Tooltip: 摸起来很温暖
+}
+
+AbyssiumBrick: {
+	DisplayName: 潭渊砖
+	Tooltip: ""
+}
+
+Bogwood: {
+	DisplayName: 污泽木
+	Tooltip: ""
+}
+
+BogwoodWall: {
+	DisplayName: 污泽木墙
+	Tooltip: ""
+}
+
+BogtoxinTorch: {
+	DisplayName: 沼毒火把
+	Tooltip: ""
+}
+
+DreadMoonAltar: {
+	DisplayName: 惊惧之月祭坛
+	Tooltip: ""
+}
+
+DreadMoonAltarA: {
+	DisplayName: 觉醒之月祭坛
+	Tooltip: ""
+}
+
+EventideAbyssiumBrick: {
+	DisplayName: 渊宵砖
+	Tooltip: ""
+}
+
+EventideBrickWall: {
+	DisplayName: 渊宵砖墙
+	Tooltip: ""
+}
+
+EventideTorch: {
+	DisplayName: 渊宵火把
+	Tooltip: ""
+}
+
+MireChest: {
+	DisplayName: 潭渊宝箱
+	Tooltip: ""
+}
+
+Darkmud: {
+	DisplayName: 黑泥砖
+	Tooltip: ""
+}
+
+Depthsand: {
+	DisplayName: 潭渊沙
+	Tooltip: ""
+}
+
+DepthsandHardened: {
+	DisplayName: 硬化潭渊沙
+	Tooltip: ""
+}
+
+Depthsandstone: {
+	DisplayName: 潭渊砂岩
+	Tooltip: ""
+}
+
+Depthstone: {
+	DisplayName: 潭渊石
+	Tooltip: 潮
+}
+
+IndigoIce: {
+	DisplayName: 靛蓝冰
+	Tooltip: ""
+}
+
+MushroomBlock: {
+	DisplayName: 蘑菇块
+	Tooltip: ""
+}
+
+IceCrate: {
+	DisplayName: 冰雪板条箱
+	Tooltip: "'冻得打不开'"
+}
+
+RelicBrick: {
+	DisplayName: 遗物砖
+	Tooltip: ""
+}
+
+RelicBrickWall: {
+	DisplayName: 遗物砖墙
+	Tooltip: ""
+}
+
+DarkmatterBrick: {
+	DisplayName: 暗物质砖
+	Tooltip: ""
+}
+
+DarkmatterBrickWall: {
+	DisplayName: 暗物质砖墙
+	Tooltip: ""
+}
+
+EquinoxBrick: {
+	DisplayName: 昼夜砖
+	Tooltip: 随一天中的时间变化
+}
+
+EquinoxBrickWall: {
+	DisplayName: 昼夜砖墙
+	Tooltip: ""
+}
+
+RadiumBrick: {
+	DisplayName: 镭光砖
+	Tooltip: ""
+}
+
+RadiumBrickWall: {
+	DisplayName: 镭光砖墙
+	Tooltip: ""
+}
+
+PermeableTerraWoodWand: {
+	DisplayName: 通透泰拉木魔杖
+	Tooltip: 右键切换模式
+}
+
+TerraLeafWand: {
+	DisplayName: 泰拉树叶魔杖
+	Tooltip: ""
+}
+
+TerraWoodWand: {
+	DisplayName: 泰拉木魔杖
+	Tooltip: 右键切换模式
+}
+
+OuroborosWood: {
+	DisplayName: 衔尾木
+	Tooltip: ""
+}
+
+OuroborosWoodWall: {
+	DisplayName: 衔尾木墙
+	Tooltip: ""
+}
+
+DoomsdayPlatingWall: {
+	DisplayName: 末日电路板墙
+	Tooltip: ""
+}
+
+DoomstoneBrickWall: {
+	DisplayName: 厄劫石砖墙
+	Tooltip: ""
+}
+
+DoomstoneB: {
+	DisplayName: 厄劫石
+	Tooltip: ""
+}
+
+Doomstone: {
+	DisplayName: 充能厄劫石
+	Tooltip: ""
+}
+
+DoomsdayChest: {
+	DisplayName: 末日宝箱
+	Tooltip: ""
+}
+
+DoomitePlatingWall: {
+	DisplayName: 厄劫金属板墙
+	Tooltip: ""
+}
+
+KeepBrick: {
+	DisplayName: 要塞砖
+	Tooltip: ""
+}
+
+AcropolisPainting: {
+	DisplayName: 空中宫殿
+	Tooltip: "'那些六翼天使比真正的鹰身女妖更像鹰身女妖……'"
+}
+
+AkumaPainting: {
+	DisplayName: 凶煞恶魔
+	Tooltip: "'憎恨的烈焰……仍然在这恶魔心中燃烧……'"
+}
+
+AnubisPainting: {
+	DisplayName: 故友
+	Tooltip: "'硬汉一个，但他总能逗我笑。'"
+}
+
+CRajahPainting: {
+	DisplayName: 无辜者的守护神
+	Tooltip: "'比守护者更强的，只有他无尽的怒火。'"
+}
+
+DaedalusPainting: {
+	DisplayName: 光之王
+	Tooltip: "'做正确的事……哪怕那不是最好的选择。'"
+}
+
+DecayPainting: {
+	DisplayName: 典狱长
+	Tooltip: "'那个老幽灵……他到底在谋划什么……？'"
+}
+
+FulgurusPainting: {
+	DisplayName: 引雷者
+	Tooltip: "'这幅不是我画的。是风暴科学家送的礼物……他们看起来人还不错。'"
+}
+
+GreedPainting: {
+	DisplayName: 万蟲王
+	Tooltip: "'洞穴深处藏着金山银山……由一条浑身裹着财宝的巨蟒守护。'"
+}
+
+HotJPainting: {
+	DisplayName: 心核
+	Tooltip: "'生命的起源……退化成了一堆有知觉的泥巴。可怜的家伙……'"
+}
+
+IZPainting: {
+	DisplayName: 无限之眼
+	Tooltip: "'它至今仍萦绕在我的噩梦里……'"
+}
+
+JojoBagginsPainting: {
+	DisplayName: 建筑师
+	Tooltip: "'怪人一个，但天哪他真是个好建筑师。'"
+}
+
+KingQueenPainting: {
+	DisplayName: 君主
+	Tooltip: "'我想你们了，爸，妈……'"
+}
+
+LuciferPainting: {
+	DisplayName: 邪恶之王
+	Tooltip: "'深渊。炽热、黑暗、鲜血，敬谢不敏。'"
+}
+
+MushmadPainting: {
+	DisplayName: 狂乱
+	Tooltip: "'这么多蘑菇……'"
+}
+
+NKPainting: {
+	DisplayName: 无名骑士
+	Tooltip: "'据说这位冷酷无情的地牢守卫在死去之前也曾和我们一样……'"
+}
+
+RajahPainting: {
+	DisplayName: 突袭惩罚者
+	Tooltip: "'弱小无助者的王——虽然他自己绝对不小也不无助。'"
+}
+
+SanguinePainting: {
+	DisplayName: 血与骨
+	Tooltip: "'他们好像把'面目怪物'这个词理解得太较真了。'"
+}
+
+ShenPainting: {
+	DisplayName: 冥昧末日的预言者
+	Tooltip: "'我把他封印了，但问题是……永远压制混沌是不可能的。'"
+}
+
+ShipPainting: {
+	DisplayName: 阴森帆船
+	Tooltip: "'那艘船……我至今搞不懂那些盘踞在里面的生物到底是什么……'"
+}
+
+SoCPainting: {
+	DisplayName: 沉没之魂
+	Tooltip: "'一个被封印在沉船中的深渊异怪……'"
+}
+
+TerraPainting: {
+	DisplayName: 英雄
+	Tooltip: "'他们称我为英雄，但我总觉得自己做得还不够。'"
+}
+
+UmbraPainting: {
+	DisplayName: 蛛影
+	Tooltip: "'我讨厌蜘蛛。尤其是这只。'"
+}
+
+ValkyriePainting: {
+	DisplayName: 勇气
+	Tooltip: "'希望你能找到你失去的爱人……'"
+}
+
+WizardPainting: {
+	DisplayName: 巫师
+	Tooltip: "'不管你变成了什么，我对你仍然抱有希望。'"
+}
+
+YamataPainting: {
+	DisplayName: 七首哀嚎
+	Tooltip: "'仁慈的阿撒托斯啊，这只特大号蜥蜴能不能把嘴闭上？！'"
+}
+
+ZeroPainting: {
+	DisplayName: "0"
+	Tooltip: "'那个东西……我不知道它是什么，但它就是……让我脊背发凉。'"
+}
+
+TerraBrick: {
+	DisplayName: 泰拉砖
+	Tooltip: ""
+}
+
+RottedDynastyWood: {
+	DisplayName: 腐烂王朝木
+	Tooltip: 都烂糊了！
+}
+
+RottedShingles: {
+	DisplayName: 腐烂瓦片
+	Tooltip: ""
+}
+
+SunkenChest: {
+	DisplayName: 沉船宝箱
+	Tooltip: ""
+}
+
+Sticker: {
+	DisplayName: 特殊贴纸
+	Tooltip: 你是赢家
+}
+
+AncientDataBank: {
+	DisplayName: 古代数据库
+	Tooltip: ""
+}
+
+DataBank: {
+	DisplayName: 数据库
+	Tooltip: ""
+}
+
+StormChest: {
+	DisplayName: 风暴宝箱
+	Tooltip: ""
+}
+
+LivingBogtoxinBlock: {
+	DisplayName: 沼毒活火块
+	Tooltip: ""
+}
+
+LivingDragonFireBlock: {
+	DisplayName: 龙焰活火块
+	Tooltip: ""
+}
+
+ScorchedDynastyWoodWall: {
+	DisplayName: 烧焦王朝木墙
+	Tooltip: ""
+}

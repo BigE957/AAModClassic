@@ -2,6 +2,7 @@
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
@@ -86,25 +87,26 @@ namespace AAModClassic._Content.Hell.___PreHardmode.NPCs.__Friendly
 
         public override void SetChatButtons(ref string button, ref string button2)
         {
+            string buttonsPath = "Mods.AAModClassic.NPCs.TownNPCs.LuciferSitting.Buttons.";
             string who = "Who are you?";
             string when = "When will it be done?";
             string why = "Why are you building it?";
             string bye = "Alright, goodbye.";
             if (chatNumber == 0)
             {
-                button = who;
+                button = Language.GetTextValue(buttonsPath + "Who");
             }
             else if (chatNumber == 1)
             {
-                button = when;
+                button = Language.GetTextValue(buttonsPath + "When");
             }
             else if (chatNumber == 2)
             {
-                button = why;
+                button = Language.GetTextValue(buttonsPath + "Why");
             }
             else if (chatNumber == 3)
             {
-                button = bye;
+                button = Language.GetTextValue(buttonsPath + "Bye");
             }
             else
             {
@@ -114,25 +116,11 @@ namespace AAModClassic._Content.Hell.___PreHardmode.NPCs.__Friendly
 
         public override void OnChatButtonClicked(bool firstButton, ref string shopName)
         {
+            string chatPath = "Mods.AAModClassic.NPCs.TownNPCs.LuciferSitting.Dialogue.Chat";
+
             if (firstButton)
             {
-                if (chatNumber == 0)
-                {
-                    Main.npcChatText = @"Who am I?! I'm-- Who am I kiddin'. You know who I am. Now skedaddle, I got an arena to get built.";
-                }
-                else if (chatNumber == 1)
-                {
-                    Main.npcChatText = @"I don't know, whenever my guys get off their lazy behinds and actually start building stuff.";
-                }
-                else if (chatNumber == 2)
-                {
-                    Main.npcChatText = @"You have a lot of questions, don't you? I'm building it because I want to watch guts spill. Why else?";
-                }
-                else if (chatNumber == 3)
-                {
-                    Main.npcChatText = @"See you around. Come back when I finish, I'd love to see you get gored! BWAHAHAHAHAHAHAHAHAH!!!";
-                }
-                chatNumber++;
+                Main.npcChatText = Language.GetTextValue(chatPath + chatNumber++);
                 SoundEngine.PlaySound(SoundID.MenuTick);
             }
         }
@@ -141,11 +129,9 @@ namespace AAModClassic._Content.Hell.___PreHardmode.NPCs.__Friendly
         {
             chatNumber = 0;
 
-            WeightedRandom<string> chat = new WeightedRandom<string>();
+            WeightedRandom<string> chat = new();
 
-            chat.Add(@"Come back later. I'm setting up shop here.
-
-Huh? What am I doin'?! I'm supervising.");
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LuciferSitting.Dialogue.Start"));
             return chat;
         }
     }

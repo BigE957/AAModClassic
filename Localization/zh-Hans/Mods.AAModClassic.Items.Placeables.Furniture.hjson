@@ -1,541 +1,541 @@
 Doom: {
 	DoomBathtub: {
-		DisplayName: Гибельная ванна
+		DisplayName: 厄劫浴缸
 		Tooltip: ""
 	}
 
 	DoomBed: {
-		DisplayName: Гибельная кровать
+		DisplayName: 厄劫床
 		Tooltip: ""
 	}
 
 	DoomCandelabra: {
-		DisplayName: Гибельный канделябр
+		DisplayName: 厄劫烛台
 		Tooltip: ""
 	}
 
 	DoomCandle: {
-		DisplayName: Гибельная свеча
+		DisplayName: 厄劫蜡烛
 		Tooltip: ""
 	}
 
 	DoomChair: {
-		DisplayName: Гибельный стул
+		DisplayName: 厄劫椅
 		Tooltip: ""
 	}
 
 	DoomChandelier: {
-		DisplayName: Гибельная люстра
+		DisplayName: 厄劫吊灯
 		Tooltip: ""
 	}
 
 	DoomChest: {
-		DisplayName: Гибельный сундук
+		DisplayName: 厄劫宝箱
 		Tooltip: ""
 	}
 
 	DoomClock: {
-		DisplayName: Часы обратного отсчёта
+		DisplayName: 厄劫倒计时钟
 		Tooltip: ""
 	}
 
 	DoomCouch: {
-		DisplayName: Гибельный диван
+		DisplayName: 厄劫沙发
 		Tooltip: ""
 	}
 
 	DoomDresser: {
-		DisplayName: Гибельный комод
+		DisplayName: 厄劫梳妆台
 		Tooltip: ""
 	}
 
 	DoomLamp: {
-		DisplayName: Гибельная лампа
+		DisplayName: 厄劫灯
 		Tooltip: ""
 	}
 
 	DoomLantern: {
-		DisplayName: Гибельный фонарь
+		DisplayName: 厄劫灯笼
 		Tooltip: ""
 	}
 
 	DoomPiano: {
-		DisplayName: Гибельное пианино
+		DisplayName: 厄劫钢琴
 		Tooltip: ""
 	}
 
 	DoomSink: {
-		DisplayName: Гибельная раковина
+		DisplayName: 厄劫水槽
 		Tooltip: ""
 	}
 
 	DoomTable: {
-		DisplayName: Гибельный стол
+		DisplayName: 厄劫桌
 		Tooltip: ""
 	}
 
 	DoomWorkbench: {
-		DisplayName: Гибельный верстак
+		DisplayName: 厄劫工作台
 		Tooltip: ""
 	}
 
 	DoomBookcase: {
-		DisplayName: Гибельный книжный шкаф
+		DisplayName: 厄劫书架
 		Tooltip: ""
 	}
 
 	DoomDoor: {
-		DisplayName: Гибельная дверь
+		DisplayName: 厄劫门
 		Tooltip: ""
 	}
 
 	DoomPlatform: {
-		DisplayName: Гибельная платформа
+		DisplayName: 厄劫平台
 		Tooltip: ""
 	}
 }
 
 Razewood: {
 	RazewoodBed: {
-		DisplayName: Выжженная кровать
+		DisplayName: 燎火木床
 		Tooltip: ""
 	}
 
 	RazewoodBookshelf: {
-		DisplayName: Выжженный книжный шкаф
+		DisplayName: 燎火木书架
 		Tooltip: ""
 	}
 
 	RazewoodCandelabra: {
-		DisplayName: Выжженный канделябр
+		DisplayName: 燎火木烛台
 		Tooltip: ""
 	}
 
 	RazewoodCandle: {
-		DisplayName: Выжженная свеча
+		DisplayName: 燎火木蜡烛
 		Tooltip: ""
 	}
 
 	RazewoodChair: {
-		DisplayName: Выжженный стул
+		DisplayName: 燎火木椅
 		Tooltip: ""
 	}
 
 	RazewoodChandelier: {
-		DisplayName: Выжженная люстра
+		DisplayName: 燎火木吊灯
 		Tooltip: ""
 	}
 
 	RazewoodChest: {
-		DisplayName: Выжженный сундук
+		DisplayName: 燎火木箱
 		Tooltip: ""
 	}
 
 	RazewoodClock: {
-		DisplayName: Выжженные часы
+		DisplayName: 燎火木时钟
 		Tooltip: ""
 	}
 
 	RazewoodCouch: {
-		DisplayName: Выжженный диван
+		DisplayName: 燎火木沙发
 		Tooltip: ""
 	}
 
 	RazewoodDoor: {
-		DisplayName: Выжженная дверь
+		DisplayName: 燎火木门
 		Tooltip: ""
 	}
 
 	RazewoodDresser: {
-		DisplayName: Выжженный комод
+		DisplayName: 燎火木梳妆台
 		Tooltip: ""
 	}
 
 	RazewoodLamp: {
-		DisplayName: Выжженная лампа
+		DisplayName: 燎火木灯
 		Tooltip: ""
 	}
 
 	RazewoodLantern: {
-		DisplayName: Выжженный фонарь
+		DisplayName: 燎火木灯笼
 		Tooltip: ""
 	}
 
 	RazewoodPiano: {
-		DisplayName: Выжженное пианино
+		DisplayName: 燎火木钢琴
 		Tooltip: ""
 	}
 
 	RazewoodPlatform: {
-		DisplayName: Выжженная платформа
+		DisplayName: 燎火木平台
 		Tooltip: ""
 	}
 
 	RazewoodSink: {
-		DisplayName: Выжженная раковина
+		DisplayName: 燎火木水槽
 		Tooltip: ""
 	}
 
 	RazewoodTable: {
-		DisplayName: Выжженный стол
+		DisplayName: 燎火木桌
 		Tooltip: ""
 	}
 
 	RazewoodTub: {
-		DisplayName: Выжженная ванна
+		DisplayName: 燎火木浴缸
 		Tooltip: ""
 	}
 
 	RazewoodWorkbench: {
-		DisplayName: Выжженный верстак
+		DisplayName: 燎火木工作台
 		Tooltip: ""
 	}
 }
 
 Bogwood: {
 	BogwoodBathtub: {
-		DisplayName: Болотная ванна
+		DisplayName: 污泽木浴缸
 		Tooltip: ""
 	}
 
 	BogwoodBed: {
-		DisplayName: Болотная кровать
+		DisplayName: 污泽木床
 		Tooltip: ""
 	}
 
 	BogwoodBench: {
-		DisplayName: Болотный диван
+		DisplayName: 污泽木沙发
 		Tooltip: ""
 	}
 
 	BogwoodBookshelf: {
-		DisplayName: Болотный книжный шкаф
+		DisplayName: 污泽木书架
 		Tooltip: ""
 	}
 
 	BogwoodCandelabra: {
-		DisplayName: Болотный канделябр
+		DisplayName: 污泽木烛台
 		Tooltip: ""
 	}
 
 	BogwoodCandle: {
-		DisplayName: Болотная свеча
+		DisplayName: 污泽木蜡烛
 		Tooltip: ""
 	}
 
 	BogwoodChair: {
-		DisplayName: Болотный стул
+		DisplayName: 污泽木椅
 		Tooltip: ""
 	}
 
 	BogwoodChandelier: {
-		DisplayName: Болотная люстра
+		DisplayName: 污泽木吊灯
 		Tooltip: ""
 	}
 
 	BogwoodChest: {
-		DisplayName: Болотный сундук
+		DisplayName: 污泽木箱
 		Tooltip: ""
 	}
 
 	BogwoodClock: {
-		DisplayName: Болотные часы
+		DisplayName: 污泽木时钟
 		Tooltip: ""
 	}
 
 	BogwoodCouch: {
-		DisplayName: Болотный диван
+		DisplayName: 污泽木沙发
 		Tooltip: ""
 	}
 
 	BogwoodDoor: {
-		DisplayName: Болотная дверь
+		DisplayName: 污泽木门
 		Tooltip: ""
 	}
 
 	BogwoodDresser: {
-		DisplayName: Болотный комод
+		DisplayName: 污泽木梳妆台
 		Tooltip: ""
 	}
 
 	BogwoodLamp: {
-		DisplayName: Болотная лампа
+		DisplayName: 污泽木灯
 		Tooltip: ""
 	}
 
 	BogwoodLantern: {
-		DisplayName: Болотный фонарь
+		DisplayName: 污泽木灯笼
 		Tooltip: ""
 	}
 
 	BogwoodPiano: {
-		DisplayName: Болотное пианино
+		DisplayName: 污泽木钢琴
 		Tooltip: ""
 	}
 
 	BogwoodPlatform: {
-		DisplayName: Болотная платформа
+		DisplayName: 污泽木平台
 		Tooltip: ""
 	}
 
 	BogwoodSink: {
-		DisplayName: Болотная раковина
+		DisplayName: 污泽木水槽
 		Tooltip: ""
 	}
 
 	BogwoodTable: {
-		DisplayName: Болотный стол
+		DisplayName: 污泽木桌
 		Tooltip: ""
 	}
 
 	BogwoodWorkbench: {
-		DisplayName: Болотный верстак
+		DisplayName: 污泽木工作台
 		Tooltip: ""
 	}
 }
 
 OuroborosWood: {
 	OuroborosWoodBathtub: {
-		DisplayName: Уроборосовая ванна
+		DisplayName: 衔尾木浴缸
 		Tooltip: ""
 	}
 
 	OuroborosWoodBed: {
-		DisplayName: Уроборосовая кровать
+		DisplayName: 衔尾木床
 		Tooltip: ""
 	}
 
 	OuroborosWoodBookcase: {
-		DisplayName: Уроборосовый книжный шкаф
+		DisplayName: 衔尾木书架
 		Tooltip: ""
 	}
 
 	OuroborosWoodCandle: {
-		DisplayName: Уроборосовая свеча
+		DisplayName: 衔尾木蜡烛
 		Tooltip: ""
 	}
 
 	OuroborosWoodChair: {
-		DisplayName: Уроборосовый стул
+		DisplayName: 衔尾木椅
 		Tooltip: ""
 	}
 
 	OuroborosWoodChest: {
-		DisplayName: Уроборосовый сундук
+		DisplayName: 衔尾木箱
 		Tooltip: ""
 	}
 
 	OuroborosWoodClock: {
-		DisplayName: Уроборосовые часы
+		DisplayName: 衔尾木时钟
 		Tooltip: ""
 	}
 
 	OuroborosWoodDoor: {
-		DisplayName: Уроборосовая дверь
+		DisplayName: 衔尾木门
 		Tooltip: ""
 	}
 
 	OuroborosWoodLamp: {
-		DisplayName: Уроборосовая лампа
+		DisplayName: 衔尾木灯
 		Tooltip: ""
 	}
 
 	OuroborosWoodLantern: {
-		DisplayName: Уроборосовый фонарь
+		DisplayName: 衔尾木灯笼
 		Tooltip: ""
 	}
 
 	OuroborosWoodPlatform: {
-		DisplayName: Уроборосовая платформа
+		DisplayName: 衔尾木平台
 		Tooltip: ""
 	}
 
 	OuroborosWoodWorkbench: {
-		DisplayName: Уроборосовый верстак
+		DisplayName: 衔尾木工作台
 		Tooltip: ""
 	}
 }
 
 Keep: {
 	KeepBath: {
-		DisplayName: Ванна цитадели
+		DisplayName: 要塞浴缸
 		Tooltip: ""
 	}
 
 	KeepBed: {
-		DisplayName: Кровать цитадели
+		DisplayName: 要塞床
 		Tooltip: ""
 	}
 
 	KeepBookcase: {
-		DisplayName: Книжный шкаф цитадели
+		DisplayName: 要塞书架
 		Tooltip: ""
 	}
 
 	KeepCandelabra: {
-		DisplayName: Канделябр цитадели
+		DisplayName: 要塞烛台
 		Tooltip: ""
 	}
 
 	KeepCandle: {
-		DisplayName: Свеча цитадели
+		DisplayName: 要塞蜡烛
 		Tooltip: ""
 	}
 
 	KeepChair: {
-		DisplayName: Стул цитадели
+		DisplayName: 要塞椅
 		Tooltip: ""
 	}
 
 	KeepChandelier: {
-		DisplayName: Люстра цитадели
+		DisplayName: 要塞吊灯
 		Tooltip: ""
 	}
 
 	KeepClock: {
-		DisplayName: Часы цитадели
+		DisplayName: 要塞时钟
 		Tooltip: ""
 	}
 
 	KeepCouch: {
-		DisplayName: Диван цитадели
+		DisplayName: 要塞沙发
 		Tooltip: ""
 	}
 
 	KeepDoor: {
-		DisplayName: Дверь цитадели
+		DisplayName: 要塞门
 		Tooltip: ""
 	}
 
 	KeepDresser: {
-		DisplayName: Комод цитадели
+		DisplayName: 要塞梳妆台
 		Tooltip: ""
 	}
 
 	KeepLamp: {
-		DisplayName: Лампа цитадели
+		DisplayName: 要塞灯
 		Tooltip: ""
 	}
 
 	KeepLantern: {
-		DisplayName: Фонарь цитадели
+		DisplayName: 要塞灯笼
 		Tooltip: ""
 	}
 
 	KeepPiano: {
-		DisplayName: Пианино цитадели
+		DisplayName: 要塞钢琴
 		Tooltip: ""
 	}
 
 	KeepSink: {
-		DisplayName: Раковина цитадели
+		DisplayName: 要塞水槽
 		Tooltip: ""
 	}
 
 	KeepTable: {
-		DisplayName: Стол цитадели
+		DisplayName: 要塞桌
 		Tooltip: ""
 	}
 
 	KeepWorkbench: {
-		DisplayName: Верстак цитадели
+		DisplayName: 要塞工作台
 		Tooltip: ""
 	}
 
 	SpiralStairs: {
-		DisplayName: Винтовая лестница
+		DisplayName: 螺旋楼梯
 		Tooltip: ""
 	}
 }
 
 Terra: {
 	TerraBath: {
-		DisplayName: Терра-ванна
+		DisplayName: 泰拉浴缸
 		Tooltip: ""
 	}
 
 	TerraBed: {
-		DisplayName: Терра-кровать
+		DisplayName: 泰拉床
 		Tooltip: ""
 	}
 
 	TerraBookcase: {
-		DisplayName: Терра-книжный шкаф
+		DisplayName: 泰拉书架
 		Tooltip: ""
 	}
 
 	TerraCandelabra: {
-		DisplayName: Терра-канделябр
+		DisplayName: 泰拉烛台
 		Tooltip: ""
 	}
 
 	TerraCandle: {
-		DisplayName: Терра-свеча
+		DisplayName: 泰拉蜡烛
 		Tooltip: ""
 	}
 
 	TerraChair: {
-		DisplayName: Терра-стул
+		DisplayName: 泰拉椅
 		Tooltip: ""
 	}
 
 	TerraChandelier: {
-		DisplayName: Терра-люстра
+		DisplayName: 泰拉吊灯
 		Tooltip: ""
 	}
 
 	TerraChest: {
-		DisplayName: Терра-сундук
+		DisplayName: 泰拉宝箱
 		Tooltip: ""
 	}
 
 	TerraClock: {
-		DisplayName: Терра-часы
+		DisplayName: 泰拉时钟
 		Tooltip: ""
 	}
 
 	TerraCouch: {
-		DisplayName: Терра-диван
+		DisplayName: 泰拉沙发
 		Tooltip: ""
 	}
 
 	TerraDoor: {
-		DisplayName: Терра-дверь
+		DisplayName: 泰拉门
 		Tooltip: ""
 	}
 
 	TerraDresser: {
-		DisplayName: Терра-комод
+		DisplayName: 泰拉梳妆台
 		Tooltip: ""
 	}
 
 	TerraLamp: {
-		DisplayName: Терра-лампа
+		DisplayName: 泰拉灯
 		Tooltip: ""
 	}
 
 	TerraLantern: {
-		DisplayName: Терра-фонарь
+		DisplayName: 泰拉灯笼
 		Tooltip: ""
 	}
 
 	TerraPiano: {
-		DisplayName: Терра-пианино
+		DisplayName: 泰拉钢琴
 		Tooltip: ""
 	}
 
 	TerraSink: {
-		DisplayName: Терра-раковина
+		DisplayName: 泰拉水槽
 		Tooltip: ""
 	}
 
 	TerraTable: {
-		DisplayName: Терра-стол
+		DisplayName: 泰拉桌
 		Tooltip: ""
 	}
 
 	TerraWorkbench: {
-		DisplayName: Терра-верстак
+		DisplayName: 泰拉工作台
 		Tooltip: ""
 	}
 }

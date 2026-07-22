@@ -1,0 +1,329 @@
+ThixxieBanner: {
+	DisplayName: 胖精灵旗
+	Tooltip: ""
+}
+
+FatPixie_Banner: {
+	DisplayName: 小胖精灵旗
+	Tooltip: ""
+}
+
+SeraphBanner: {
+	DisplayName: 六翼鸟妖旗
+	Tooltip: ""
+}
+
+ChaosDragonBanner: {
+	DisplayName: 混沌飞龙旗
+	Tooltip: ""
+}
+
+DjinnBanner: {
+	DisplayName: 沙漠巨灵旗
+	Tooltip: ""
+}
+
+TinyToadBanner: {
+	DisplayName: 小松露蟾蜍旗
+	Tooltip: ""
+}
+
+ScavengerBanner: {
+	DisplayName: 拾金婪虫旗
+	Tooltip: ""
+}
+
+InfernalSlimeBanner: {
+	DisplayName: 燎狱史莱姆旗
+	Tooltip: ""
+}
+
+DragonClawBanner: {
+	DisplayName: 龙之爪旗
+	Tooltip: ""
+}
+
+FlameBruteBanner: {
+	DisplayName: 炽焰兽旗
+	Tooltip: ""
+}
+
+SingemanderBanner: {
+	DisplayName: 灼烧蝾螈旗
+	Tooltip: ""
+}
+
+WyrmlingBanner: {
+	DisplayName: 燎狱游虫旗
+	Tooltip: ""
+}
+
+ChaoticDawnBanner: {
+	DisplayName: 混晓之剑旗
+	Tooltip: ""
+}
+
+WyrmBanner: {
+	DisplayName: 燎狱游龙旗
+	Tooltip: ""
+}
+
+MagmaSwimmerBanner: {
+	DisplayName: 熔岩游鱼旗
+	Tooltip: ""
+}
+
+BlazeClawBanner: {
+	DisplayName: 炽焰之爪旗
+	Tooltip: ""
+}
+
+AncientLungBanner: {
+	DisplayName: 远古之伴龙旗
+	Tooltip: ""
+}
+
+MadnessBatBanner: {
+	DisplayName: 癫狂飞行者旗
+	Tooltip: ""
+}
+
+MadnessSlimeBanner: {
+	DisplayName: 癫狂史莱姆旗
+	Tooltip: ""
+}
+
+MurkySlimeBanner: {
+	DisplayName: 潭渊史莱姆旗
+	Tooltip: ""
+}
+
+HydraClawBanner: {
+	DisplayName: 九头蛇之爪旗
+	Tooltip: ""
+}
+
+MossterBanner: {
+	DisplayName: 潭渊藓怪旗
+	Tooltip: ""
+}
+
+NewtBanner: {
+	DisplayName: 潭渊蝾螈旗
+	Tooltip: ""
+}
+
+SkulkerBanner: {
+	DisplayName: 潭渊潜伏者旗
+	Tooltip: ""
+}
+
+KappaBanner: {
+	DisplayName: 潭渊河童旗
+	Tooltip: ""
+}
+
+ToxitoadBanner: {
+	DisplayName: 剧毒蟾蜍旗
+	Tooltip: ""
+}
+
+PigronMireBanner: {
+	DisplayName: 潭渊猪龙旗
+	Tooltip: ""
+}
+
+ChaoticTwilightBanner: {
+	DisplayName: 乱暮之剑旗
+	Tooltip: ""
+}
+
+MiresquitoBanner: {
+	DisplayName: 潭渊毒蚊旗
+	Tooltip: ""
+}
+
+FogAnglerBanner: {
+	DisplayName: 潭雾鮟鱇旗
+	Tooltip: ""
+}
+
+AbyssClawBanner: {
+	DisplayName: 潭渊之爪旗
+	Tooltip: ""
+}
+
+SoulsuckerBanner: {
+	DisplayName: 灵魂吸食者旗
+	Tooltip: ""
+}
+
+FungusFrogBanner: {
+	DisplayName: 赤孢蛙旗
+	Tooltip: ""
+}
+
+MushbugBanner: {
+	DisplayName: 赤孢瓢虫旗
+	Tooltip: ""
+}
+
+MushroomCrabBanner: {
+	DisplayName: 赤孢甲虫旗
+	Tooltip: ""
+}
+
+MushroomJellyBanner: {
+	DisplayName: 赤孢水母旗
+	Tooltip: ""
+}
+
+MushroomZombieBanner: {
+	DisplayName: 赤孢僵尸旗
+	Tooltip: ""
+}
+
+SnowSerpentBanner: {
+	DisplayName: 雪蛇旗
+	Tooltip: ""
+}
+
+SunWatcherBanner: {
+	DisplayName: 日光看守旗
+	Tooltip: ""
+}
+
+NightGuardBanner: {
+	DisplayName: 暗夜护卫旗
+	Tooltip: ""
+}
+
+PurityCrawlerBanner: {
+	DisplayName: 净源爬虫旗
+	Tooltip: ""
+}
+
+PuritySphereBanner: {
+	DisplayName: 净源之球旗
+	Tooltip: ""
+}
+
+PuritySquidBanner: {
+	DisplayName: 净源飞鱿旗
+	Tooltip: ""
+}
+
+PurityWeaverBanner: {
+	DisplayName: 净源编织者旗
+	Tooltip: ""
+}
+
+TerraDeadshotBanner: {
+	DisplayName: 泰拉亡命枪手旗
+	Tooltip: ""
+}
+
+TerraKnightBanner: {
+	DisplayName: 泰拉心球骑士旗
+	Tooltip: ""
+}
+
+TerraSquireBanner: {
+	DisplayName: 泰拉心球护卫旗
+	Tooltip: ""
+}
+
+TerraWarlockBanner: {
+	DisplayName: 泰拉心球邪士旗
+	Tooltip: ""
+}
+
+TerraCrawlerBanner: {
+	DisplayName: 泰拉心球爬虫旗
+	Tooltip: ""
+}
+
+TerraSphereBanner: {
+	DisplayName: 泰拉心之球旗
+	Tooltip: ""
+}
+
+TerraSquidBanner: {
+	DisplayName: 泰拉心球枪乌贼旗
+	Tooltip: ""
+}
+
+TerraWizardBanner: {
+	DisplayName: 泰拉心球女巫旗
+	Tooltip: ""
+}
+
+UnityProbeBanner: {
+	DisplayName: 统和探针旗
+	Tooltip: ""
+}
+
+UnityWatcherBanner: {
+	DisplayName: 统和看守旗
+	Tooltip: ""
+}
+
+ShadowScoutBanner: {
+	DisplayName: 暗影侦察者旗
+	Tooltip: ""
+}
+
+StoneSearcherBanner: {
+	DisplayName: 废石搜索者旗
+	Tooltip: ""
+}
+
+VoidScoutBanner: {
+	DisplayName: 虚空监察者旗
+	Tooltip: ""
+}
+
+VortexBanner: {
+	DisplayName: 虚空绞杀者旗
+	Tooltip: ""
+}
+
+NullBanner: {
+	DisplayName: 虚-无旗
+	Tooltip: ""
+}
+
+SearcherBanner: {
+	DisplayName: 虚空搜索者旗
+	Tooltip: ""
+}
+
+DimensionDiverBanner: {
+	DisplayName: 维度潜袭者旗
+	Tooltip: ""
+}
+
+RiftSharkBanner: {
+	DisplayName: 裂噬鲨旗
+	Tooltip: ""
+}
+
+TrenchSquidBanner: {
+	DisplayName: 渊噬鱿旗
+	Tooltip: ""
+}
+
+TerraWeaverBanner: {
+	DisplayName: 泰拉编织者旗
+	Tooltip: ""
+}
+
+TerraSerpentBanner: {
+	DisplayName: 泰拉心球之蛇旗
+	Tooltip: ""
+}
+
+DustDjinnBanner: {
+	DisplayName: 沙漠之魂旗
+	Tooltip: ""
+}

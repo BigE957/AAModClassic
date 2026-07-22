@@ -1,0 +1,41 @@
+Healer: {
+	AuroraScythe: {
+		DisplayName: 极光之镰
+		Tooltip:
+			'''
+			在你身边旋转一把霜灼镰刀，撕裂敌人
+			镰刀触碰敌人时造成霜冻
+			直接命中时获得1层灵魂精华
+			'''
+	}
+
+	CarrotFarmer: {
+		DisplayName: 萝卜锄
+		Tooltip:
+			'''
+			在你身边旋转一把萝卜镰刀，撕裂敌人
+			镰刀旋转时向外射出胡萝卜
+			直接命中时获得1层灵魂精华
+			'''
+	}
+
+	DragonsClaw: {
+		DisplayName: 燎狱龙爪
+		Tooltip:
+			'''
+			在你身边旋转一把烈焰镰刀，撕裂敌人
+			镰刀触碰敌人时点燃目标
+			直接命中时获得1层灵魂精华
+			'''
+	}
+
+	HydrasFury: {
+		DisplayName: 九头蛇之怒
+		Tooltip:
+			'''
+			在你身边旋转一把深渊镰刀，撕裂敌人
+			镰刀触碰敌人时造成中毒
+			直接命中时获得1层灵魂精华
+			'''
+	}
+}

@@ -388,7 +388,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             if (NPC.IsABestiaryIconDummy)
             {
                 Texture2D[] textures = [TextureAssets.Npc[ModContent.NPCType<AshenDragonBody1>()].Value, TextureAssets.Npc[ModContent.NPCType<AshenDragonBody1>()].Value, TextureAssets.Npc[ModContent.NPCType<AshenDragonArms>()].Value, TextureAssets.Npc[ModContent.NPCType<AshenDragonBody1>()].Value, TextureAssets.Npc[ModContent.NPCType<AshenDragonBody1>()].Value];
-                return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, TextureAssets.Npc[Type].Value, textures, 4, 28, 0.25f, Vector2.Zero, 2, 10, headOffset: -24, flip: true);
+                return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, TextureAssets.Npc[Type].Value, null, textures, null, 4, 28, 0.25f, Vector2.Zero, 2, 10, headOffset: -24, flip: true);
             }
             spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, new Color(Color.White.R, Color.White.G, Color.White.B, 100), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(), 0);
 

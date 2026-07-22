@@ -1,0 +1,675 @@
+APageOfTheRuneBookEffect_Buff: {
+	DisplayName: 符文
+	Description: 召唤符文为你而战
+}
+
+PrettyPony_Buff: {
+	DisplayName: 你也是马
+	Description: 嘶嘶嘶.
+}
+
+CerberusWhistle_Buff: {
+	DisplayName: 刻耳泊洛斯
+	Description: “哇哦，那并不可怕”
+}
+
+K9Collar_Buff: {
+	DisplayName: K9单位
+	Description: 汪！
+}
+
+MoonBeeInAJar_Buff: {
+	DisplayName: 月光蜂
+	Description: 一个月光蜂跟随着你
+}
+
+MudFishBall_Buff: {
+	DisplayName: 沼跃鱼
+	Description: 所以我听说你喜欢沼跃鱼？
+}
+
+RoyalStar_Buff: {
+	DisplayName: 皇族小猫
+	Description: “真漂亮!”
+}
+
+ShinyFishBall_Buff: {
+	DisplayName: 闪耀的沼跃鱼
+	Description: 所以我听说你喜欢沼跃鱼？
+}
+
+AleisterStaff_BeBanished: {
+	DisplayName: 放逐
+	Description: 你被召唤魔法标记了
+}
+
+AleisterStaff_InvokerOfMadness: {
+	DisplayName: 暴走召唤师
+	Description: 疯狂的召唤师
+}
+
+ConflagrateStaff_Buff: {
+	DisplayName: 焚天构造体
+	Description: 召唤一个焚天构造体为你而战
+}
+
+MagicAcorn_Buff: {
+	DisplayName: 松鼠
+	Description: 扔坚果
+}
+
+ScytheOfTheGrimReaper_ReaperScytheImmunity: {
+	DisplayName: 无伤收割
+	Description: 你免疫所有伤害，并且造成的近战伤害大幅提高。
+}
+
+ScytheOfTheGrimReaper_ReaperScytheImmunityCooldown: {
+	DisplayName: 收割冷却
+	Description: 你现在不能用这个武器的冲刺技能
+}
+
+SockStaff_Buff: {
+	DisplayName: 袜偶
+	Description: 召唤一只袜子木偶为你而战
+}
+
+PrinceFishron_Buff: {
+	DisplayName: 猪鲨王子
+	Description: 猪鲨的继承人
+}
+
+FishnadoStaff_Buff: {
+	DisplayName: 飓风鲨
+	Description: 召唤一个飓风鲨为你而战
+}
+
+TheBookOfRunesEffect_Buff: {
+	DisplayName: 符文
+	Description: 召唤符文为你而战
+}
+
+TheBookOfTheLaw_InvokedCaligula: {
+	DisplayName: 召唤兽·卡利古拉
+	Description: 你的利爪猛击敌人并且能够治疗你
+}
+
+ConflagrateScythe_Buff: {
+	DisplayName: 终结仆从 EX
+	Description: 召唤一个泰拉构造体为你而战
+}
+
+OmenStaff_Buff: {
+	DisplayName: 恶鸦
+	Description: 召唤一只恶毒乌鸦为你而战
+}
+
+PerfectChaosRitual_Buff: {
+	DisplayName: 小神龙
+	Description: 召唤小冥昧龙为你而战
+}
+
+SoccOnAStick_Buff: {
+	DisplayName: 棉袜神
+	Description: 袜神.
+}
+
+TartarusReaper_CursedHellfire: {
+	DisplayName: 诅咒狱炎
+	Description: 你的血肉正在被烈火吞噬
+}
+
+LuckyCracker_CrasyLucky: {
+	DisplayName: 好运？
+	Description: 你对这个世界开始感到陌生
+}
+
+LuckyCalming: {
+	DisplayName: 幸运镇静
+	Description: 降低敌怪攻击性
+}
+
+LuckyEndurance: {
+	DisplayName: 幸运耐力
+	Description:
+		'''
+		所受伤害降低10%
+		增加10%防御力
+		'''
+}
+
+LuckyIronskin: {
+	DisplayName: 幸运铁皮
+	Description: 增加9点防御力
+}
+
+LuckyLifeforce: {
+	DisplayName: 幸运生命力
+	Description: 最大生命值增加21%
+}
+
+LuckyRage: {
+	DisplayName: 幸运暴怒
+	Description: 暴击率增加11%
+}
+
+LuckyRegeneration: {
+	DisplayName: 幸运再生
+	Description: 提供生命再生
+}
+
+LuckySummoning: {
+	DisplayName: 幸运召唤
+	Description: 增加你的最大仆从和炮台数量
+}
+
+LuckySwiftness: {
+	DisplayName: 幸运敏捷
+	Description: 移动速度增加26%
+}
+
+LuckyThorns: {
+	DisplayName: 幸运荆棘
+	Description: 攻击者也会受到伤害
+}
+
+LuckyWrath: {
+	DisplayName: 幸运怒气
+	Description: 伤害增加11%
+}
+
+RoninPotion_Buff: {
+	DisplayName: 浪人
+	Description: 你不会受到任何伤害
+}
+
+PaperBomb_Buff: {
+	DisplayName: 砰!!!
+	Description: 实际上并不会爆炸...暂时还不会。
+}
+
+InfinityOverload_Buff: {
+	DisplayName: 元素超载
+	Description: 这些元素对于你的生命造成冲击
+}
+
+SeraphHarp_Buff: {
+	DisplayName: 六翼天使
+	Description: 好动的小不点
+}
+
+GoddessHarp_Buff: {
+	DisplayName: 雅典娜
+	Description: 我现在姑且帮你，但总有一天我会揍扁你
+}
+
+CottonCane_Buff: {
+	DisplayName: 直升飞兔
+	Description: 召唤直升飞兔士兵为你而战
+}
+
+RajahsRage_Buff: {
+	DisplayName: 王冠兔兔
+	Description: 召唤一个王冠兔兔为你而战
+}
+
+ChampionHelmetMageSetEffect_ChampionBoost1: {
+	DisplayName: 捍卫者增幅
+	Description: 提升属性
+}
+
+ChampionHelmetMageSetEffect_ChampionBoost2: {
+	DisplayName: 捍卫者增幅
+	Description: 提升属性
+}
+
+ChampionHelmetMageSetEffect_ChampionBoost3: {
+	DisplayName: 捍卫者增幅
+	Description: 提升属性
+}
+
+ChampionHelmetMeleeSetEffect_DefendersRage: {
+	DisplayName: 守护者之怒
+	Description: 泰拉瑞亚的守护者永不言败
+}
+
+ChampionHelmetMeleeSetEffect_RajahsRage: {
+	DisplayName: 巨兔王公之怒
+	Description: 泰拉瑞亚的守护者永不言败
+}
+
+ChampionHelmetRangedSetEffect_RABITUnitReloadProtocol: {
+	DisplayName: 大.兔.子. 单元重载协议
+	Description: 重 新 加 载. 提 供 伤 害 补 偿.
+}
+
+ChampionHelmetSummonerSetEffect_Buff: {
+	DisplayName: 兔兔男爵
+	Description: 兔兔男爵保护你
+}
+
+ClawBaton_Buff: {
+	DisplayName: 混沌之握
+	Description: 召唤一个混沌之爪为你而战
+}
+
+ChaosHelmetMageSetEffect_ChaoticFury: {
+	DisplayName: 混沌之怒
+	Description: 你的魔法能力大量提升
+}
+
+ChaosHelmetSummonerSetEffect_Buff: {
+	DisplayName: 龙魂
+	Description: 召唤一个龙魂为你而战
+}
+
+ChaosRitual_Buff: {
+	DisplayName: 混沌机构
+	Description: 召唤一个混沌机构为你而战
+}
+
+FuryWitchsHelmetSetHotkeyEffect_AsheFlame: {
+	DisplayName: 燎狱龙炎
+	Description: 你获得了燎狱的火焰力量
+}
+
+FuryWitchsHelmetSetHotkeyEffect_AsheFlameCooldown: {
+	DisplayName: 燎狱龙炎冷却
+	Description: 一段时间内你无法再次驾驭这股火焰
+}
+
+FuryWitchsHelmetSetMinionEffect_Buff: {
+	DisplayName: 狱焰之灵
+	Description: 你越虚弱，它越强力
+}
+
+MidnightAssassinHelmetSetEffect_AssassinHurt: {
+	DisplayName: 刺客负伤
+	Description: ""
+}
+
+FlameVortexStaff_Buff: {
+	DisplayName: 烈焰环绕者
+	Description: 火焰环绕着你，给予你力量
+}
+
+ChaosBaton_Buff: {
+	DisplayName: 冥昧之握
+	Description: 召唤一个冥昧之爪为你而战
+}
+
+DiscordianInferno_Buff: {
+	DisplayName: 冥昧业火
+	Description: 你的灵魂自我分裂
+}
+
+DemoniteStaff_Buff: {
+	DisplayName: 魔鬼吞噬者
+	Description: 召唤一个恶魔吞噬者为你而战
+}
+
+CrimeraStaff_Buff: {
+	DisplayName: 小血肉虫
+	Description: 召唤一只猩红血肉虫为你而战
+}
+
+SandScepter_Buff: {
+	DisplayName: 沙卷风
+	Description: 召唤一个沙卷风为你而战
+}
+
+DynaskullJavelin_DynaEnergyBuff: {
+	DisplayName: 远古能量
+	Description: ""
+}
+
+ArtifactOfJudgement_Buff: {
+	DisplayName: 审判之眼
+	Description:
+		'''
+		审判之眼在保护你
+		伤害与速度提升
+		'''
+}
+
+PrimevalJavelin_DynaEnergy: {
+	DisplayName: 远古能量
+	Description: ""
+}
+
+ArtifactOfGuilt_Buff: {
+	DisplayName: 逝落之眼
+	Description:
+		'''
+		逝落之眼在保护你
+		伤害与速度提升
+		'''
+}
+
+Lifeline_Forsaken: {
+	DisplayName: 逝落
+	Description: 你被抛弃了
+}
+
+Lifeline_ForsakenWeak: {
+	DisplayName: 逝落弱化
+	Description: 削弱敌怪接触伤害
+}
+
+SkullWand_Buff: {
+	DisplayName: 小骷髅
+	Description: 召唤一个地牢骷髅为你而战
+}
+
+Shroomed_Buff: {
+	DisplayName: 松露化
+	Description: 你已经被松露化了
+}
+
+HallowStaff_Buff: {
+	DisplayName: 神圣棱镜
+	Description: 召唤一个神圣棱镜为你而战
+}
+
+TrueHallowStaff_Buff: {
+	DisplayName: 真·神圣棱镜
+	Description: 召唤一个彩虹棱镜为你而战
+}
+
+DemonHelmetSetEffect_Buff: {
+	DisplayName: 恶魔领主
+	Description: 你命令一个小恶魔跟在你周围
+}
+
+DemonStaff_Buff: {
+	DisplayName: 恶魔
+	Description: 召唤一个恶魔为你而战
+}
+
+DevilStaff_Buff: {
+	DisplayName: 恶鬼仆从
+	Description: 召唤一个恶鬼为你而战
+}
+
+CharmOfDesire_Desire: {
+	DisplayName: 贪婪
+	Description: 更多金币，更多力量！！！
+}
+
+Earthbreaker_Falling: {
+	DisplayName: 坠落
+	Description: ""
+}
+
+ScorchedEgg_Buff: {
+	DisplayName: 哺育小龙
+	Description: 小宝宝
+}
+
+DragonSoul_Buff: {
+	DisplayName: 炎龙之魂
+	Description: 龙之怒火中烧
+}
+
+FireStaff_Buff: {
+	DisplayName: 小凤凰
+	Description: 召唤一只小凤凰为你而战
+}
+
+FlaskOfDragonfire_Buff: {
+	DisplayName: 武器附加：燎狱龙炎
+	Description: 近战攻击造成燎狱龙炎
+}
+
+DragonsPike_Buff: {
+	DisplayName: 狱焰龙
+	Description: 召唤一条火龙为你而战
+}
+
+LungMinion_Buff: {
+	DisplayName: 古龙
+	Description: 召唤一条古龙为你而战
+}
+
+AkumaAHead_ScorchingPain: {
+	DisplayName: 痛灼
+	Description: 着火debuff对你造成双倍伤害
+}
+
+BurningAsh_Buff: {
+	DisplayName: 燎狱之烬
+	Description: 灰烬正在灼烧你的皮肤
+}
+
+DragonFire_Buff: {
+	DisplayName: 燎狱龙炎
+	Description: 你的伤害输出降低
+}
+
+GlowingMossBall_Buff: {
+	DisplayName: 发光苔球
+	Description: 别问什么让它发光. 相信我.
+}
+
+HydraBody_Hunted: {
+	DisplayName: 受猎
+	Description:
+		'''
+		你正在被潭渊生物猎杀
+		飞行时间和速度降低
+		'''
+}
+
+FlaskOfHydratoxin_Buff: {
+	DisplayName: 武器附加：九头蛇毒
+	Description: 近战攻击造成九头蛇毒
+}
+
+YamataABody_TrueAbyssalGravity: {
+	DisplayName: 真渊重力
+	Description: “呃呃呃呃呃呃呃呃呃呃呃呃呃”
+}
+
+YamataBody_AbyssalGravity: {
+	DisplayName: 潭渊重力
+	Description: “别 想 远 离 我,臭 小 子!”
+}
+
+Clueless_Buff: {
+	DisplayName: 浓雾
+	Description: 你什么也看不见
+}
+
+HydraToxin_Buff: {
+	DisplayName: 九头蛇毒
+	Description: 在你身上的时间越长,越能腐蚀你的身体
+}
+
+Moonraze_Buff: {
+	DisplayName: 蚀月
+	Description: 被月亮射线持续焚烧
+}
+
+AquaintedWithWater_Buff: {
+	DisplayName: 亲水之力
+	Description: 你的魔法能力略微提升
+}
+
+Atlantean_Buff: {
+	DisplayName: 亚特兰蒂斯之力
+	Description: 你的战斗能力提升了
+}
+
+Seashroom_Buff: {
+	DisplayName: 鲨可梦
+	Description: 不会咬人...真是...
+}
+
+SnakeStaff_Buff: {
+	DisplayName: 雪蛇
+	Description: 召唤一个雪蛇为你而战
+}
+
+StarHelmetRangedPlayer_DarkmatterSphere_DarkCurse_Buff: {
+	DisplayName: 暗黑诅咒
+	Description: 你的伤害大幅降低！
+}
+
+StarHelmetRangedPlayer_DarkmatterSphere_DarkLock_Buff: {
+	DisplayName: 暗黑禁锢
+	Description: 你被黑暗之力锁在原地！
+}
+
+StarHelmetRangedPlayer_SunSiphon_ManaOverload: {
+	DisplayName: 魔法过载
+	Description: 魔法攻击速度加倍
+}
+
+RadiumInferno_Buff: {
+	DisplayName: 辐射
+	Description: 你的生命值持续减少
+}
+
+TerraHelmetMageSetEffect_TerraRoseCooldown: {
+	DisplayName: 泰拉玫瑰冷却
+	Description: 暂时无法种植玫瑰……
+}
+
+TerraHelmetSummonerSetEffect_Buff: {
+	DisplayName: 泰拉水晶
+	Description: 可按需向附近敌怪发射能量球
+}
+
+TerraStaff_Buff: {
+	DisplayName: 泰拉女巫
+	Description: 魔力
+}
+
+TerraGauntlet_Buff: {
+	DisplayName: 向泰拉心球的呼唤
+	Description: 一大堆怪物可供你召唤
+}
+
+Terrablaze_Buff: {
+	DisplayName: 泰拉之火
+	Description: 受到的伤害增加
+}
+
+TerrasGuidance_Buff: {
+	DisplayName: 泰拉的导引
+	Description: 免疫坠落伤害
+}
+
+SagittariusShield_ShieldsUp: {
+	DisplayName: 护盾启动
+	Description: 它们打不进来，可你也打不出去。
+}
+
+SagittariusCore_Buff: {
+	DisplayName: 人马轨道器
+	Description: 召唤轨道器为你而战
+}
+
+DoomiteHelmetSetEffect_Buff: {
+	DisplayName: 搜索侦察兵
+	Description: 召唤一个虚空搜索者为你而战
+}
+
+DoomiteRadio_Buff: {
+	DisplayName: 厄劫雷达探针
+	Description: 召唤一个厄劫雷达探针为你而战
+}
+
+DoomiteSignal_Buff: {
+	DisplayName: 厄劫探针
+	Description: 召唤一个厄劫探针为你而战
+}
+
+VoidProbeControlUnit_Buff: {
+	DisplayName: 小探测器
+	Description: 召唤一个虚空探针为你而战
+}
+
+OverloadedDoomiteRadio_Buff: {
+	DisplayName: 虚空猎手
+	Description: 召唤一个虚空监察者为你而战
+}
+
+BrokenCodeTeleportUnofficialEffect_Freeze: {
+	DisplayName: 冻结
+	Description: 任务管理器对这一套可不管用
+}
+
+BrokenCodeTeleportUnofficialEffect_FreezeCooldown: {
+	DisplayName: 冻结冷却
+	Description: 至少你的脑袋还长在脖子上！
+}
+
+BrokenCodeTeleportEffect_Glitched: {
+	DisplayName: 故障
+	Description: 你的头大概离你十英尺远
+}
+
+ZeroCore_Buff: {
+	DisplayName: 便携零械
+	Description: 生命探测系统启动
+}
+
+DoomPortal_Buff: {
+	DisplayName: 末.日.协.议
+	Description: 召唤一个小型末日协议体为你而战
+}
+
+CyberneticEgg_Buff: {
+	DisplayName: 小侵入者
+	Description: 小机器人
+}
+
+CyberBaton_Buff: {
+	DisplayName: 电子之爪
+	Description: 召唤电子之爪为你而战
+}
+
+DapperAcorn_Buff: {
+	DisplayName: 帅气松鼠
+	Description: 现在戴上滑稽帽子了
+}
+
+RealityBent_Buff: {
+	DisplayName: 弯曲裂位
+	Description: 你周围的空间被扭曲了
+}
+
+InfinityScorch_Buff: {
+	DisplayName: 无限残烬
+	Description: 你的生命正在燃烧殆尽
+}
+
+LockedOn_Buff: {
+	DisplayName: 锁定
+	Description: ""
+}
+
+BrokenArmor_Buff: {
+	DisplayName: 破甲
+	Description: ""
+}
+
+Electrified_Buff: {
+	DisplayName: 电击
+	Description: ""
+}
+
+Impaled_Buff: {
+	DisplayName: 穿刺
+	Description: "'嗷！'"
+}
+
+SpearStuck_Buff: {
+	DisplayName: 刺穿
+	Description: 一支长矛扎进了你的身体里, 啊！
+}
+
+InfinityGauntletEffect_InfinityBurnout: {
+	DisplayName: 无限残烬
+	Description: 它们应该冲着我的头砍
+}
