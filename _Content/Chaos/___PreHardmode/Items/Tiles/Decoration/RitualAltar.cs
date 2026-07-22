@@ -38,6 +38,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.Items.Tiles.Decoration
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 10);
             recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 10);
+            recipe.AddTile(TileID.HeavyWorkBench);
             recipe.Register();
         }
     }
