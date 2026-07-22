@@ -640,4 +640,14 @@ RedMushroom: {
 		// DisplayName: Mushroom Workbench
 		// Tooltip: ""
 	}
+
+	RedmushPlatform: {
+		// DisplayName: Redmush Platform
+		// Tooltip: ""
+	}
+
+	RedmushWall: {
+		// DisplayName: Redmush Wall
+		// Tooltip: ""
+	}
 }

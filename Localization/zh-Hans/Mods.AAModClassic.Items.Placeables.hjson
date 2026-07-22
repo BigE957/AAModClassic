@@ -790,13 +790,3 @@ ScorchedDynastyWoodWall: {
 	DisplayName: 烧焦王朝木墙
 	Tooltip: ""
 }
-
-RedmushPlatform: {
-	// DisplayName: Mushroom Platform
-	// Tooltip: ""
-}
-
-RedmushWall: {
-	// DisplayName: Mushroom Wall
-	// Tooltip: ""
-}
