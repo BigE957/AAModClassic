@@ -14,7 +14,7 @@ ChaosScale: {
 }
 
 DiscordiumBar: {
-	DisplayName: Discordium
+	DisplayName: Discordium Bar
 	Tooltip: The World Chaoses melded together into a single, powerful bar
 }
 
@@ -24,7 +24,7 @@ IncineriteBar: {
 }
 
 IncineriteOre: {
-	DisplayName: Incinerite
+	DisplayName: Incinerite Ore
 	Tooltip: This stuff is really friggin' hot. Careful.
 }
 
@@ -54,7 +54,7 @@ DarkEnergy: {
 }
 
 ApocalyptiteOre: {
-	DisplayName: Apocalyptite
+	DisplayName: Apocalyptite Ore
 	Tooltip: ""
 }
 
@@ -74,7 +74,7 @@ RealityBar: {
 }
 
 Infinitium: {
-	DisplayName: Infinitium
+	DisplayName: Infinitium Bar
 	Tooltip: Pure, unpredictable malice
 }
 
@@ -288,7 +288,7 @@ CrucibleScale: {
 }
 
 DaybreakIncineriteBar: {
-	DisplayName: Daybreak Incinerite
+	DisplayName: Daybreak Incinerite Bar
 	Tooltip: Bright as the radiant sun
 }
 
@@ -318,7 +318,7 @@ AbyssiumBar: {
 }
 
 AbyssiumOre: {
-	DisplayName: Abyssium
+	DisplayName: Abyssium Ore
 	Tooltip: It's all mushy. Nasty.
 }
 
@@ -363,7 +363,7 @@ SoulOfSpite: {
 }
 
 EventideAbyssiumBar: {
-	DisplayName: Eventide Abyssium
+	DisplayName: Eventide Abyssium Bar
 	Tooltip: Cold as the evening moon
 }
 
@@ -403,7 +403,7 @@ VikingRelic: {
 }
 
 DarkmatterBar: {
-	DisplayName: Dark Matter
+	DisplayName: Darkmatter Bar
 	Tooltip: The building blocks of physics itself
 }
 
