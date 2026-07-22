@@ -661,7 +661,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             player.maxTurrets += amount;
         }
 
-        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.IncreaseDecrease), Math.Abs(amount));
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.IncreasesDecreases).FirstCharToUpper(), Math.Abs(amount));
     }
 
     public class MaxMinionSlotEffect(int amount) : EquipmentEffectData
