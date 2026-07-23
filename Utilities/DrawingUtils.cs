@@ -7,9 +7,11 @@ using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.Drawing;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ObjectData;
 
 namespace AAModClassic.Utilities
 {
@@ -408,6 +410,14 @@ namespace AAModClassic.Utilities
                     chainTexture.Value.Bounds, drawColor, chainRotation,
                     chainTexture.Size() * 0.5f, 1f, SpriteEffects.None, 0);
             }
+        }
+
+        public static bool DrawSwayingMultiTile(int i, int j)
+        {
+            Tile tile = Main.tile[i, j];
+            if (TileObjectData.IsTopLeft(tile))
+                Main.instance.TilesRenderer.AddSpecialPoint(i, j, TileDrawing.TileCounterType.MultiTileVine);
+            return false;
         }
     }
 
