@@ -1,78 +1,32 @@
+using AAModClassic.Dusts;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFurniture
 {
     public class DoomBed_Tile : ModTile
 	{
-		public override void SetStaticDefaults()
-		{
-			Main.tileFrameImportant[Type] = true;
-			Main.tileLavaDeath[Type] = true;
-			TileID.Sets.HasOutlines[Type] = true;
-			TileObjectData.newTile.CopyFrom(TileObjectData.Style4x2); //this style already takes care of direction for us
-			TileObjectData.newTile.CoordinateHeights = new int[]{ 16, 18 };
-			TileObjectData.addTile(Type);
-			LocalizedText name = CreateMapEntryName();
-			// name.SetDefault("Doom Bed");
-            AddMapEntry(new Color(200, 0, 0), name);
-            DustType = ModContent.DustType<Dusts.DoomDust>();
-			TileID.Sets.DisableSmartCursor[Type] = true;
-			AdjTiles = new int[]{ TileID.Beds };
-			TileID.Sets.CanBeSleptIn[Type] = true;
-		}
+        public override void SetStaticDefaults()
+        {
+            this.SetUpBed(ModContent.ItemType<DoomBed>());
+            DustType = ModContent.DustType<DoomDust>();
+            VanillaFallbackOnModDeletion = TileID.Beds;
+        }
 
-		public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
-		{
-			return true;
-		}
+        public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 
-		public override void NumDust(int i, int j, bool fail, ref int num)
-		{
-			num = 1;
-		}
+        public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
 
-        public override bool RightClick(int i, int j)
-		{
-			Player player = Main.LocalPlayer;
-			Tile tile = Main.tile[i, j];
-			int spawnX = i - tile.TileFrameX / 18;
-			int spawnY = j + 2;
-			spawnX += tile.TileFrameX >= 72 ? 5 : 2;
-			if (tile.TileFrameY % 38 != 0)
-			{
-				spawnY--;
-			}
-			player.FindSpawn();
-			if (player.SpawnX == spawnX && player.SpawnY == spawnY)
-			{
-				player.RemoveSpawn();
-				Main.NewText(Language.GetTextValue("Game.SpawnPointRemoved"), 255, 240, 20);
-			}
-			else if (Player.CheckSpawn(spawnX, spawnY))
-			{
-				player.ChangeSpawn(spawnX, spawnY);
-				Main.NewText(Language.GetTextValue("Game.SpawnPointSet"), 255, 240, 20);
-			}
-            return true;
-		}
+        public override bool RightClick(int i, int j) => FurnitureCommon.BedRightClick(i, j);
 
-		public override void MouseOver(int i, int j)
-		{
-			Player player = Main.LocalPlayer;
-			player.noThrow = 2;
-			player.cursorItemIconEnabled = true;
-			player.cursorItemIconID = ModContent.ItemType<DoomBed>();
-		}
+        public override void MouseOver(int i, int j) => FurnitureCommon.MouseOver(i, j, ModContent.ItemType<DoomBed>());
 
-
-		public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
+        public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
 		{
 			Tile tile = Main.tile[i, j];
 			Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
