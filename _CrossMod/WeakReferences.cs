@@ -953,7 +953,7 @@ namespace AAModClassic._CrossMod
                 if (CalamityMod.CalamityMod.IsEnabled)
                     serpentCollectibles.Add(ModContent.ItemType<SubzeroSerpentLore>());
 
-                AddBoss(bossChecklist, mod, "SubzeroSerpent", (() => NPCExtensions.BeenKilled<SubzeroSerpentHead>()), new List<int>() { ModContent.NPCType<SubzeroSerpentHead>(), ModContent.NPCType<SubzeroSerpentBody>(), ModContent.NPCType<SubzeroSerpentTail>() }, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "SubzeroSerpent", (() => NPCExtensions.BeenKilled<SubzeroSerpentHead>()), ModContent.NPCType<SubzeroSerpentHead>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "SubzeroSerpent.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "SubzeroSerpent.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<SubzeroCrystal>() + "]"),

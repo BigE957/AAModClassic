@@ -5,7 +5,6 @@ using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
@@ -18,6 +17,7 @@ using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.Animations;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -182,10 +182,6 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                 }
             }
 
-            if (NPC.ai[3] > 0f)
-            {
-                NPC.realLife = (int)NPC.ai[3];
-            }
             if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead)
             {
                 NPC.TargetClosest(true);
@@ -196,9 +192,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    NPC.ai[3] = NPC.whoAmI;
                     int previousSegment = NPC.whoAmI;
-                    //NPC.realLife = NPC.whoAmI;
                     int Length = 12;
                     for (int a = 0; a <= Length; a++)
                     {
@@ -207,7 +201,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                         {
                             type = ModContent.NPCType<SubzeroSerpentTail>();
                         }
-                        int segment = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), type, NPC.whoAmI, 0f, previousSegment, 0, NPC.whoAmI, 255);
+                        int segment = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.Center.X), (int)(NPC.Bottom.Y), type, NPC.whoAmI, 0f, previousSegment, 0, NPC.whoAmI, 255);
                         Main.npc[segment].realLife = NPC.whoAmI;
                         NPC.ai[0] = segment;
                         NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, segment);
@@ -582,6 +576,14 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                     if (internalAI[0] >= 300)
                     {
                         NPC.active = false;
+                        foreach(NPC n in Main.ActiveNPCs)
+                        {
+                            if (n.realLife == NPC.whoAmI)
+                            {
+                                n.active = false;
+                                n.netUpdate = true;
+                            }
+                        }
                     }
                 }
                 else
@@ -835,19 +837,49 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 
         public override void HitEffect(NPC.HitInfo hit)
         {
+            if (Main.dedServ)
+                return;
+
             for (int x = 0; x < 5; x++)
             {
                 Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.IceDust>(), hit.HitDirection, -1f, 0, default, 1f);
             }
-            if (NPC.life == 0)
+            if (NPC.life <= 0 || hit.InstantKill)
             {
                 for (int x = 0; x < 5; x++)
                 {
                     Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.SnowDustLight>(), hit.HitDirection, -1f, 0, default, 1f);
                 }
 
-                if(!Main.dedServ)
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SZSGoreHead").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SZSGoreHead").Type, 1f);
+
+                if(!hit.InstantKill)
+                    foreach (NPC n in Main.ActiveNPCs)
+                    {
+                        if (n.whoAmI == NPC.whoAmI)
+                            continue;
+
+                        if (n.realLife == NPC.whoAmI)
+                            n.HitEffect(instantKill: true);
+                    }
+            }
+        }
+
+        public override void OnKill()
+        {
+            foreach (NPC n in Main.ActiveNPCs)
+            {
+                if (n.whoAmI == NPC.whoAmI)
+                    continue;
+
+                if (n.realLife == NPC.whoAmI)
+                {
+                    n.life = 0;
+                    n.realLife = -1;
+                    n.checkDead();
+                    if(Main.dedServ)
+                        NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n.whoAmI);
+                }
             }
         }
 
