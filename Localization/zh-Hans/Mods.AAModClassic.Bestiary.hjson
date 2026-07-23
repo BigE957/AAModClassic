@@ -19,9 +19,9 @@ ChampionRajahRabbit: {
 	5: 保护无辜者。这就是一切的意义所在。在切磋中击败他而不取其性命，你证明了有人配得上他的称号。有人比他更强，能完成他的目标。生命是一份诸多人来不及珍惜的礼物。一份诸多之人肆意挥霍、故意破坏的礼物。那些花费数百年、甚至数千年守护正义的英雄们。  那些谦卑的镇民，用尽自己所能搜罗来的一切供养着他们的家园。  还有那些形形色色、大大小小的生灵，乃至最不起眼的兔子。  如今，它们的安危就交付在你手中。  他相信，你定不会让他失望。
 }
 
-SupremeRabbitcopterSoldier: ……
-SupremeRabidRabbit: ……
-SupremeBunnyBrawler: ……
+SupremeRabbitcopterSoldier: "{$Bestiary.RabbitcopterSoldier}"
+SupremeRabidRabbit: "{$Bestiary.RabidRabbit}"
+SupremeBunnyBrawler: "{$Bestiary.BunnyBrawler}"
 GripOfChaosInferno: 某位更高存在的混沌之手，如今沦为炮灰。这只燎狱巨爪焚尽沿途的一切。
 GripOfChaosMire: 某位更高存在的混沌之手，如今沦为炮灰。这只潭渊巨爪溺毙沿途的一切。
 ChaosDragon: 曾以天空为家的龙族在混沌之力降临世界后降落到地表。如今它们只为进一步散播混沌而存在。
