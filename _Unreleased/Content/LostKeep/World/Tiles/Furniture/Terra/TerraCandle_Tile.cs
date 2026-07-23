@@ -1,10 +1,9 @@
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Terra;
 
@@ -12,56 +11,29 @@ public class TerraCandle_Tile : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		//IL_007f: Unknown result type (might be due to invalid IL or missing references)
-		Main.tileFrameImportant[Type] = true;
-		Main.tileLavaDeath[Type] = true;
-		Main.tileLighted[Type] = true;
-		TileObjectData.newTile.CopyFrom(TileObjectData.StyleOnTable1x1);
-		TileObjectData.newTile.CoordinateHeights = new int[1] { 20 };
-		TileObjectData.newTile.DrawYOffset = -4;
-		TileObjectData.addTile((int)Type);
-		LocalizedText val = CreateMapEntryName();
-		// val.SetDefault("Terra Candle");
-		AddMapEntry(new Color(65, 205, 12), val);
-		base.DustType = DustID.Terra;
-		TileID.Sets.DisableSmartCursor[Type] = true;
-		base.AdjTiles = new int[1] { 100 };
-		RegisterItemDrop(ModContent.ItemType<TerraCandle>());
-		AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
+        this.SetUpCandle(ModContent.ItemType<TerraCandle>(), true);
+        DustType = DustID.Terra;
 	}
 
-	public override void HitWire(int i, int j)
-	{
-		if (Main.tile[i, j].TileFrameX >= 18)
-		{
-			Main.tile[i, j].TileFrameX -= 18;
-		}
-		else
-		{
-			Main.tile[i, j].TileFrameX += 18;
-		}
-	}
+    public override bool RightClick(int i, int j)
+    {
+        FurnitureCommon.RightClickBreak(i, j);
+        return true;
+    }
 
-	public override bool RightClick(int i, int j)
-	{
-        Main.LocalPlayer.PickTile(i, j, 100);
-		return true;
-	}
+    public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 
-	public override void NumDust(int i, int j, bool fail, ref int num)
-	{
-		num = (fail ? 1 : 3);
-	}
+    public override void HitWire(int i, int j) => FurnitureCommon.LightHitWire(Type, i, j, 1, 1);
 
-	public override void MouseOver(int i, int j)
-	{
-		Player localPlayer = Main.LocalPlayer;
-		localPlayer.noThrow = 2;
-		localPlayer.cursorItemIconEnabled = true;
-		localPlayer.cursorItemIconID = ModContent.ItemType<TerraCandle>();
-	}
+    public override void MouseOver(int i, int j)
+    {
+        Player player = Main.LocalPlayer;
+        player.noThrow = 2;
+        player.cursorItemIconEnabled = true;
+        player.cursorItemIconID = ModContent.ItemType<TerraCandle>();
+    }
 
-	public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
+    public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
 	{
 		if (Main.tile[i, j].TileFrameX < 18)
 		{

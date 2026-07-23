@@ -1,60 +1,30 @@
+using AAModClassic.Dusts;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.BogwoodFurniture
 {
     public class BogwoodCandle_Tile : ModTile
 	{
-		public override void SetStaticDefaults()
-		{
-			Main.tileFrameImportant[Type] = true;
-			Main.tileLavaDeath[Type] = true;
-            Main.tileLighted[Type] = true;
-            TileObjectData.newTile.CopyFrom(TileObjectData.StyleOnTable1x1);
-            TileObjectData.newTile.CoordinateHeights = new int[]
-            {
-                20
-            };
-            TileObjectData.newTile.DrawYOffset = -4;
-            TileObjectData.addTile(Type);
-			LocalizedText name = CreateMapEntryName();
-			// name.SetDefault("Bogwood Candle");
-            AddMapEntry(new Color(205, 62, 12), name);
-            DustType = ModContent.DustType<Dusts.BogwoodDust>();
-			TileID.Sets.DisableSmartCursor[Type] = true;
-			AdjTiles = new int[]{ TileID.Candelabras };
-            RegisterItemDrop(ModContent.ItemType<BogwoodCandle>());
-            AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-        }
-        public override void HitWire(int i, int j)
+        public override void SetStaticDefaults()
         {
-
-
-            if (Main.tile[i, j].TileFrameX >= 18)
-            {
-                Main.tile[i, j].TileFrameX -= 18;
-            }
-            else
-            {
-                Main.tile[i, j].TileFrameX += 18;
-            }
-
-
+            this.SetUpCandle(ModContent.ItemType<BogwoodCandle>(), true);
+            base.DustType = ModContent.DustType<BogwoodDust>();
         }
+
         public override bool RightClick(int i, int j)
         {
-            Main.LocalPlayer.PickTile(i, j, 100);
+            FurnitureCommon.RightClickBreak(i, j);
             return true;
         }
-        public override void NumDust(int i, int j, bool fail, ref int num)
-		{
-			num = fail ? 1 : 3;
-		}
+
+        public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
+
+        public override void HitWire(int i, int j) => FurnitureCommon.LightHitWire(Type, i, j, 1, 1);
+
         public override void MouseOver(int i, int j)
         {
             Player player = Main.LocalPlayer;

@@ -1,68 +1,40 @@
 using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Terra;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Keep;
 
 public class KeepCandle_Tile : ModTile
 {
-	public override void SetStaticDefaults()
-	{
-		//IL_007f: Unknown result type (might be due to invalid IL or missing references)
-		Main.tileFrameImportant[Type] = true;
-		Main.tileLavaDeath[Type] = true;
-		Main.tileLighted[Type] = true;
-		TileObjectData.newTile.CopyFrom(TileObjectData.StyleOnTable1x1);
-		TileObjectData.newTile.CoordinateHeights = new int[1] { 20 };
-		TileObjectData.newTile.DrawYOffset = -4;
-		TileObjectData.addTile((int)Type);
-		LocalizedText val = CreateMapEntryName();
-		// val.SetDefault("Keep Candle");
-		AddMapEntry(new Color(30, 150, 12), val);
-		base.DustType = DustID.Stone;
-		TileID.Sets.DisableSmartCursor[Type] = true;
-		base.AdjTiles = new int[1] { 100 };
-        RegisterItemDrop(ModContent.ItemType<KeepCandle>());
-		AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-	}
+    public override void SetStaticDefaults()
+    {
+        this.SetUpCandle(ModContent.ItemType<KeepCandle>(), true);
+        base.DustType = DustID.Stone;
+    }
 
-	public override void HitWire(int i, int j)
-	{
-		if (Main.tile[i, j].TileFrameX >= 18)
-		{
-			Main.tile[i, j].TileFrameX -= 18;
-		}
-		else
-		{
-			Main.tile[i, j].TileFrameX += 18;
-		}
-	}
+    public override bool RightClick(int i, int j)
+    {
+        FurnitureCommon.RightClickBreak(i, j);
+        return true;
+    }
 
-	public override bool RightClick(int i, int j)
-	{
-        Main.LocalPlayer.PickTile(i, j, 100);
-		return true;
-	}
+    public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 
-	public override void NumDust(int i, int j, bool fail, ref int num)
-	{
-		num = (fail ? 1 : 3);
-	}
+    public override void HitWire(int i, int j) => FurnitureCommon.LightHitWire(Type, i, j, 1, 1);
 
-	public override void MouseOver(int i, int j)
-	{
-		Player localPlayer = Main.LocalPlayer;
-		localPlayer.noThrow = 2;
-		localPlayer.cursorItemIconEnabled = true;
-		localPlayer.cursorItemIconID = ModContent.ItemType<KeepCandle>();
-	}
+    public override void MouseOver(int i, int j)
+    {
+        Player player = Main.LocalPlayer;
+        player.noThrow = 2;
+        player.cursorItemIconEnabled = true;
+        player.cursorItemIconID = ModContent.ItemType<KeepCandle>();
+    }
 
-	public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
+    public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
 	{
 		if (Main.tile[i, j].TileFrameX < 18)
 		{
@@ -74,15 +46,6 @@ public class KeepCandle_Tile : ModTile
 
 	public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
 	{
-		//IL_0067: Unknown result type (might be due to invalid IL or missing references)
-		//IL_006c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00f0: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00f5: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00f7: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0102: Unknown result type (might be due to invalid IL or missing references)
-		//IL_010c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0114: Unknown result type (might be due to invalid IL or missing references)
-		//IL_011a: Unknown result type (might be due to invalid IL or missing references)
 		ulong seed = Main.TileFrameSeed ^ ((ulong)j | (ulong)i);
 		Color val = new(100, 100, 100, 0);
 		int frameX = Main.tile[i, j].TileFrameX;
