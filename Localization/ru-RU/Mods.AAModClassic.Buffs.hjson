@@ -119,8 +119,8 @@ TartarusReaper_CursedHellfire: {
 }
 
 LuckyCracker_CrasyLucky: {
-	DisplayName: Абсолютный везунчик?
-	Description: Вы чувствуете, как мир вокруг становится странным
+	DisplayName: Абсолютный счастливчик?
+	Description: Вы чувствуете, будто весь мир крутится вокруг вас
 }
 
 LuckyCalming: {
@@ -555,7 +555,7 @@ Terrablaze_Buff: {
 }
 
 TerrasGuidance_Buff: {
-	DisplayName: Терра-защита
+	DisplayName: Терра-устремление
 	Description: Ваши ноги светятся силой Террариума, предотвращая урон от падения
 }
 

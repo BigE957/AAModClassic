@@ -339,41 +339,41 @@ GravitronCentrifugeOff: {
 }
 
 TheGripsOfChaos: {
-	// DisplayName: The Grips of Chaos
-	/* Tooltip:
+	DisplayName: 混沌之攫
+	Tooltip:
 		'''
-		Fires 2 different hooks depending on which one is already out
-		Red has a longer range
-		Blue pulls in/retracts quicker
-		''' */
+		交替射出两种钩爪。
+		红钩射程更长
+		蓝钩回收更快。
+		'''
 }
 
 LivingRazeleafWand: {
-	// DisplayName: Living Razeleaf Wand
-	// Tooltip: Placed razewood leaves
+	DisplayName: 燎火木树叶魔棒
+	Tooltip: 放置燎火木树叶
 }
 
 LivingRazewoodWand: {
-	// DisplayName: Living Razewood Wand
-	// Tooltip: Places living razewood
+	DisplayName: 生命燎火木魔棒
+	Tooltip: 放置生命燎火木
 }
 
 LivingBogleafWand: {
-	// DisplayName: Living Bogleaf Wand
-	// Tooltip: Places bogwood leaves
+	DisplayName: 污泽木树叶魔棒
+	Tooltip: 放置污泽木树叶
 }
 
 LivingBogwoodWand: {
-	// DisplayName: Living Bogwood Wand
-	// Tooltip: Places living bogwood
+	DisplayName: 生命污泽木魔棒
+	Tooltip: 放置生命污泽木
 }
 
 DragonsGrip: {
-	// DisplayName: Dragon's Grip
-	// Tooltip: ""
+	DisplayName: 龙爪手
+	Tooltip: ""
 }
 
 HydraBite: {
-	// DisplayName: Hydra Bite
-	// Tooltip: ""
+	DisplayName: 九头蛇之噬
+	Tooltip: ""
 }

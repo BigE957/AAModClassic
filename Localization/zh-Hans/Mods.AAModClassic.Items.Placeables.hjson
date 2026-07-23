@@ -547,17 +547,17 @@ RadiumBrickWall: {
 }
 
 PermeableTerraWoodWand: {
-	DisplayName: 通透泰拉木魔杖
+	DisplayName: 通透泰拉木魔棒
 	Tooltip: 右键切换模式
 }
 
 TerraLeafWand: {
-	DisplayName: 泰拉树叶魔杖
+	DisplayName: 泰拉树叶魔棒
 	Tooltip: ""
 }
 
 TerraWoodWand: {
-	DisplayName: 泰拉木魔杖
+	DisplayName: 泰拉木魔棒
 	Tooltip: 右键切换模式
 }
 
@@ -743,7 +743,7 @@ TerraBrick: {
 
 RottedDynastyWood: {
 	DisplayName: 腐烂王朝木
-	Tooltip: 都烂糊了！
+	Tooltip: 都烂糊了
 }
 
 RottedShingles: {
@@ -758,7 +758,7 @@ SunkenChest: {
 
 Sticker: {
 	DisplayName: 特殊贴纸
-	Tooltip: 你是赢家
+	Tooltip: 你赢了
 }
 
 AncientDataBank: {

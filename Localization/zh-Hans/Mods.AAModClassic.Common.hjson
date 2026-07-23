@@ -58,12 +58,12 @@ RajahSPDamageResistance: 当前伤害抗性：+
 PlayerBuyPrice: 购买价格：
 AncientCoin: 远古钱币
 AncientCoins: 远古钱币
-BloodRune: 血之符文
-BloodRunes: 血之符文
-ChristmasCheer: 圣诞欢呼
-ChristmasCheers: 圣诞欢呼
-GoblinSoul: 哥布林灵魂
-GoblinSouls: 哥布林灵魂
+BloodRune: 血浸符文
+BloodRunes: 血浸符文
+ChristmasCheer: 圣诞祝元
+ChristmasCheers: 圣诞祝元
+GoblinSoul: 哥布林亡魂
+GoblinSouls: 哥布林亡魂
 HalloweenTreat: 万圣节糖果
 HalloweenTreats: 万圣节糖果
 MartianCredit: 火星信用点
@@ -125,7 +125,7 @@ WorldgenReminderInfo3: 错0误。 世0界并没有0包含aamod.tmod的内0容。
 WorldgenReminderInfo4: 嘿！你没有在这个世界上创造出远古觉醒的东西！在我把你炸到火星之前赶紧创造一个新世界！
 WorldgenReminderInfo5: 嘿, 呃……这个世界里我看不到任何远古觉醒的内容。聪明点赶紧创一个新世界。
 WorldgenReminderInfo6: 嘿。说你呢。另一个次元的人。你可能在下载了mod之后忘记了创造一个新的世界。如果你想要所有的mod的内容, 创造一个新的世界。
-WorldgenReminderInfo7: 创造……新世界……否则疯狂的蘑菇人……会压扁……你这个小泰拉人……
+WorldgenReminderInfo7: 创造……新世界……否则癫狂蘑菇……会压扁……你这个小泰拉人……
 WorldgenReminderInfo8: …凡人。如果我没有老眼昏花的话, 你的世界就没有远古觉醒的内容。创造一个新的世界最吼的。
 WorldgenReminderInfo9: 泰拉人..！这世界里没有远古觉醒的东西！真想玩这个mod的话就创个新世界……白痴……
 NewAAInfo1: 嘿孩子，你知道有一个更新版的远古觉醒可以玩吗？要我说的话，值得去看看。
@@ -134,7 +134,7 @@ NewAAInfo3: 警0告。未检0测到AAMod.tmod。建0议：尝试远0古觉0醒Be
 NewAAInfo4: 嘿 你！别忘了去看看新版远古觉醒，否则！
 NewAAInfo5: 嘿, 呃……我不确定你是否知道, 不过有一个更新版的远古觉醒可以玩。你或许可以试试什么的……
 NewAAInfo6: 跨维度的存在啊。如果你还不知道的话，有一个更新版的远古觉醒可以玩。有空的话去看看吧。
-NewAAInfo7: 快去玩新……远古觉醒……否则疯狂的蘑菇人……会压扁……小泰拉人……
+NewAAInfo7: 快去玩新……远古觉醒……否则癫狂蘑菇……会压扁……小泰拉人……
 NewAAInfo8: …凡人。我听说有一个更新版的远古觉醒可以玩。或许尝试一下会是明智之举。
 NewAAInfo9: 地上的凡人！你该知道有个更新版的远古觉醒可以玩！不去试的话你就是个大傻子！
 #AAWorldChangeInfo

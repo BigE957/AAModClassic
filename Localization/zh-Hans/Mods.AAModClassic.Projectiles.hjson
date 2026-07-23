@@ -903,8 +903,7 @@ SistersTitle.DisplayName: 双胞胎姐妹标题
 Title.DisplayName: 标题
 InfinityGauntletEffect_Snap.DisplayName: 响指
 ProtocolR_RaiderRocket.DisplayName: 侵入火箭
-// TheGripsOfChaos_HookInferno.DisplayName: Grip of Chaos
-// TheGripsOfChaos_HookMire.DisplayName: Grip of Chaos
-// DragonsGrip_Hook.DisplayName: Dragon's Grip
-// HydraBite_Hook.DisplayName: Hydra Bite
-// BiomiteCore_RainbowBack.DisplayName: Rainbow
+TheGripsOfChaos_HookInferno.DisplayName: 混沌之攫
+TheGripsOfChaos_HookMire.DisplayName: 混沌之攫
+DragonsGrip_Hook.DisplayName: 龙爪手
+HydraBite_Hook.DisplayName: 九头蛇之噬

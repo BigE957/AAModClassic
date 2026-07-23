@@ -35,7 +35,7 @@ DesertDjinnKilled: {
 }
 
 SubzeroSerpentKilled: {
-	FriendlyName: Below Zero
+	FriendlyName: Холодный как лёд
 	Description: Растопите Морозную змею - ползучую тварь, обитающую в ледяной тундре.
 }
 
@@ -70,7 +70,7 @@ ChampionRajahKilled: {
 }
 
 EquinoxWormsKilled: {
-	FriendlyName: Made In Heaven
+	FriendlyName: Я буду ждать тебя в будущем...
 	Description: Пройдите испытание Червей Равноденствия, заслужив их благословение.
 }
 
@@ -80,7 +80,7 @@ GreedKilled: {
 }
 
 InfinityZeroKilled: {
-	FriendlyName: Фатальная 0шибка
+	FriendlyName: Р0к0вая 0шибка
 	Description: Уничт0жьте Безграничн0г0 Зир0, не 0ставив ни 0дной игрушки Забвения нетр0нутой.
 }
 
@@ -95,7 +95,7 @@ RajahKilled: {
 }
 
 ShenDoragonKilled: {
-	FriendlyName: Through the Mire and the Flames
+	FriendlyName: Сквозь мглу и пламя
 	Description: Уничтожьте Шеня Доракона, положив конец его нескончаемому хаосу.
 }
 
@@ -126,12 +126,12 @@ TechnoTruffleKilled: {
 
 YamataKilled: {
 	FriendlyName: Головоломка
-	Description: Отсеките множество голов Яматы - воплощения ужаса.
+	Description: Отсеките множество голов Яматы - ужасающего кошмара.
 }
 
 ZeroKilled: {
-	FriendlyName: System.DivideByZeroException
-	Description: Выведите из стр0я основной Зир0-юнит Пуст0ты, и навлеките на себя гнев куда б0лее страшн0й угр0зы...
+	FriendlyName: 0÷0
+	Description: Выведите из стр0я основной м0дуль Зир0 Пуст0ты, и навлеките на себя гнев куда б0лее страшн0й угр0зы...
 }
 
 AllBossesKilled: {
@@ -192,7 +192,7 @@ TimecallerCrafted: {
 }
 
 EXSoulCrafted: {
-	FriendlyName: Крайние меры
+	FriendlyName: Сжигая мосты
 	Description: Улучшите оружие с помощью Души EX. Теперь вы на шаг впереди всех!
 }
 

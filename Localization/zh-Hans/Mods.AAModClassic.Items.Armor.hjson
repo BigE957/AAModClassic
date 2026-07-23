@@ -153,17 +153,17 @@ Radium: {
 
 Biomite: {
 	BiomiteChestplate: {
-		DisplayName: 环境原核水晶甲
+		DisplayName: 源态晶鳞甲
 		Tooltip: ""
 	}
 
 	BiomiteHelmet: {
-		DisplayName: 环境原核头盔
+		DisplayName: 源态护头盔
 		Tooltip: ""
 	}
 
 	BiomiteLeggings: {
-		DisplayName: 环境原核护胫
+		DisplayName: 源态护胫腿
 		Tooltip: ""
 	}
 }
@@ -597,17 +597,17 @@ Abyssal: {
 
 Bogwood: {
 	BogwoodChestplate: {
-		DisplayName: 沼木胸甲
+		DisplayName: 污泽木胸甲
 		Tooltip: ""
 	}
 
 	BogwoodHelmet: {
-		DisplayName: 沼木头盔
+		DisplayName: 污泽木头盔
 		Tooltip: ""
 	}
 
 	BogwoodLeggings: {
-		DisplayName: 沼木长靴
+		DisplayName: 污泽木长靴
 		Tooltip: ""
 	}
 }

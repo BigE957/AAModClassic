@@ -217,36 +217,31 @@ KeepDoor1_Tile.MapEntry: 要塞门
 KeepDoor2_Tile.MapEntry: 要塞门
 KeepDoor2S_Tile.MapEntry: 要塞门
 KeepDoor3_Tile.MapEntry: 要塞门
-
-TerraStatue_Tile: {
-	MapEntry: 失落英雄雕像
-	// FlavorText: The Hero who saved us all from the brink of chaos
-}
-
+TerraStatue_Tile.MapEntry: 失落英雄雕像
 SunkenChest_Tile.MapEntry: 沉船宝箱
 InfernoPylon_Tile.MapEntry: 燎狱晶塔
 MirePylon_Tile.MapEntry: 潭渊晶塔
 RedMushroomPylon_Tile.MapEntry: 红蘑菇晶塔
 VoidPylon_Tile.MapEntry: 虚空晶塔
 FulguriteShard_Tile.MapEntry: 雷熔碎片
-// RedmushBed_Tile.MapEntry: Mushroom Bed
-// RedmushBench_Tile.MapEntry: Mushroom Bench
-// RedmushBookcase_Tile.MapEntry: Mushroom Bookcase
-// RedmushCandelabra_Tile.MapEntry: Mushroom Candelabra
-// RedmushCandle_Tile.MapEntry: Mushroom Candle
-// RedmushChair_Tile.MapEntry: Mushroom Chair
-// RedmushChandelier_Tile.MapEntry: Mushroom Chandelier
-// RedmushChest_Tile.MapEntry: Mushroom Chest
-// RedmushClock_Tile.MapEntry: Mushroom Clock
-// RedmushCouch_Tile.MapEntry: Mushroom Couch
-// RedmushDoorClosed_Tile.MapEntry: Mushroom Door
-// RedmushDoorOpen_Tile.MapEntry: Mushroom Door
-// RedmushDresser_Tile.MapEntry: Mushroom Dresser
-// RedmushLamp_Tile.MapEntry: Mushroom Lamp
-// RedmushLantern_Tile.MapEntry: Mushroom Lantern
-// RedmushPiano_Tile.MapEntry: Mushroom Piano
-// RedmushSink_Tile.MapEntry: Mushroom Sink
-// RedmushTable_Tile.MapEntry: Mushroom Table
-// RedmushToilet_Tile.MapEntry: Mushroom Toilet
-// RedmushTub_Tile.MapEntry: Mushroom Tub
-// RedmushWorkbench_Tile.MapEntry: Mushroom Workbench
+RedmushBed_Tile.MapEntry: 红蘑菇床
+RedmushBench_Tile.MapEntry: 红蘑菇长椅
+RedmushBookcase_Tile.MapEntry: 红蘑菇书架
+RedmushCandelabra_Tile.MapEntry: 红蘑菇烛台
+RedmushCandle_Tile.MapEntry: 红蘑菇蜡烛
+RedmushChair_Tile.MapEntry: 红蘑菇椅
+RedmushChandelier_Tile.MapEntry: 红蘑菇吊灯
+RedmushChest_Tile.MapEntry: 红蘑菇箱
+RedmushClock_Tile.MapEntry: 红蘑菇时钟
+RedmushCouch_Tile.MapEntry: 红蘑菇沙发
+RedmushDoorClosed_Tile.MapEntry: 红蘑菇门
+RedmushDoorOpen_Tile.MapEntry: 红蘑菇门
+RedmushDresser_Tile.MapEntry: 红蘑菇梳妆台
+RedmushLamp_Tile.MapEntry: 红蘑菇灯
+RedmushLantern_Tile.MapEntry: 红蘑菇灯笼
+RedmushPiano_Tile.MapEntry: 红蘑菇钢琴
+RedmushSink_Tile.MapEntry: 红蘑菇水槽
+RedmushTable_Tile.MapEntry: 红蘑菇桌
+RedmushToilet_Tile.MapEntry: 红蘑菇马桶
+RedmushTub_Tile.MapEntry: 红蘑菇浴缸
+RedmushWorkbench_Tile.MapEntry: 红蘑菇工作台

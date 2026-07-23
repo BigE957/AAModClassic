@@ -15,7 +15,7 @@ ChaosScale: {
 
 DiscordiumBar: {
 	DisplayName: 冥昧锭
-	Tooltip: 世界之混沌熔铸于一体，化作一块威力无穷的锭材
+	Tooltip: 世界的冥昧之力熔铸于一体，化作一块威力无穷的锭材
 }
 
 IncineriteBar: {
@@ -74,7 +74,7 @@ RealityBar: {
 }
 
 Infinitium: {
-	DisplayName: 无限合金
+	DisplayName: 无尽锭
 	Tooltip: 纯粹而不可预测的恶意
 }
 

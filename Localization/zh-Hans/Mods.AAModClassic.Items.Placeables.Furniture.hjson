@@ -542,112 +542,112 @@ Terra: {
 
 RedMushroom: {
 	RedmushBed: {
-		// DisplayName: Mushroom Bed
-		// Tooltip: ""
+		DisplayName: 红蘑菇床
+		Tooltip: ""
 	}
 
 	RedmushBench: {
-		// DisplayName: Mushroom Bench
-		// Tooltip: ""
+		DisplayName: 红蘑菇长椅
+		Tooltip: ""
 	}
 
 	RedmushBookcase: {
-		// DisplayName: Mushroom Bookcase
-		// Tooltip: ""
+		DisplayName: 红蘑菇书架
+		Tooltip: ""
 	}
 
 	RedmushCandelabra: {
-		// DisplayName: Mushroom Candelabra
-		// Tooltip: ""
+		DisplayName: 红蘑菇烛台
+		Tooltip: ""
 	}
 
 	RedmushCandle: {
-		// DisplayName: Mushroom Candle
-		// Tooltip: ""
+		DisplayName: 红蘑菇蜡烛
+		Tooltip: ""
 	}
 
 	RedmushChair: {
-		// DisplayName: Mushroom Chair
-		// Tooltip: ""
+		DisplayName: 红蘑菇椅
+		Tooltip: ""
 	}
 
 	RedmushChandelier: {
-		// DisplayName: Mushroom Chandelier
-		// Tooltip: ""
+		DisplayName: 红蘑菇吊灯
+		Tooltip: ""
 	}
 
 	RedmushChest: {
-		// DisplayName: Mushroom Chest
-		// Tooltip: ""
+		DisplayName: 红蘑菇箱
+		Tooltip: ""
 	}
 
 	RedmushClock: {
-		// DisplayName: Mushroom Clock
-		// Tooltip: ""
+		DisplayName: 红蘑菇时钟
+		Tooltip: ""
 	}
 
 	RedmushCouch: {
-		// DisplayName: Mushroom Couch
-		// Tooltip: ""
+		DisplayName: 红蘑菇沙发
+		Tooltip: ""
 	}
 
 	RedmushDoor: {
-		// DisplayName: Mushroom Door
-		// Tooltip: ""
+		DisplayName: 红蘑菇门
+		Tooltip: ""
 	}
 
 	RedmushDresser: {
-		// DisplayName: Mushroom Dresser
-		// Tooltip: ""
+		DisplayName: 红蘑菇梳妆台
+		Tooltip: ""
 	}
 
 	RedmushLamp: {
-		// DisplayName: Mushroom Lamp
-		// Tooltip: ""
+		DisplayName: 红蘑菇灯
+		Tooltip: ""
 	}
 
 	RedmushLantern: {
-		// DisplayName: Mushroom Lantern
-		// Tooltip: ""
+		DisplayName: 红蘑菇灯笼
+		Tooltip: ""
 	}
 
 	RedmushPiano: {
-		// DisplayName: Mushroom Piano
-		// Tooltip: ""
+		DisplayName: 红蘑菇钢琴
+		Tooltip: ""
 	}
 
 	RedmushSink: {
-		// DisplayName: Mushroom Sink
-		// Tooltip: ""
+		DisplayName: 红蘑菇水槽
+		Tooltip: ""
 	}
 
 	RedmushTable: {
-		// DisplayName: Mushroom Table
-		// Tooltip: ""
+		DisplayName: 红蘑菇桌
+		Tooltip: ""
 	}
 
 	RedmushToilet: {
-		// DisplayName: Mushroom Toilet
-		// Tooltip: ""
+		DisplayName: 红蘑菇马桶
+		Tooltip: ""
 	}
 
 	RedmushTub: {
-		// DisplayName: Mushroom Tub
-		// Tooltip: ""
+		DisplayName: 红蘑菇浴缸
+		Tooltip: ""
 	}
 
 	RedmushWorkbench: {
-		// DisplayName: Mushroom Workbench
-		// Tooltip: ""
+		DisplayName: 红蘑菇工作台
+		Tooltip: ""
 	}
 
 	RedmushPlatform: {
-		// DisplayName: Mushroom Platform
-		// Tooltip: ""
+		DisplayName: 红蘑菇平台
+		Tooltip: ""
 	}
 
 	RedmushWall: {
-		// DisplayName: Mushroom Wall
-		// Tooltip: ""
+		DisplayName: 红蘑菇墙
+		Tooltip: ""
 	}
 }

@@ -975,7 +975,7 @@ SerpentSpike: {
 }
 
 SubzeroSlasher: {
-	DisplayName: Морозный секатель
+	DisplayName: Морозный рассекатель
 	Tooltip: С некоторым шансом при взмахе выпускает морозный снаряд
 }
 
