@@ -8,6 +8,7 @@ using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Rarities;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.UI.World;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 {
@@ -42,6 +43,11 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
             Item.DamageType = DamageClass.Magic;
             Item.autoReuse = true;
             Item.rare = ModContent.RarityType<AncientsRarity>();
+
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                Item.knockBack = 0.25f;
+            }
         }
 
         
