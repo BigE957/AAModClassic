@@ -1,9 +1,9 @@
-using Microsoft.Xna.Framework;
+using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OuroborosWoodFurniture;
+using AAModClassic.Dusts;
+using AAModClassic.Utilities;
 using Terraria;
-using Terraria.ID;
-using Terraria.Localization;
+using Terraria.GameContent.ObjectInteractions;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture
 {
@@ -11,44 +11,22 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.Ra
     {
         public override void SetStaticDefaults()
         {
-            Main.tileFrameImportant[Type] = true;
-            Main.tileNoAttach[Type] = true;
-            Main.tileLavaDeath[Type] = true;
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
-            TileObjectData.newTile.Height = 5;
-            TileObjectData.newTile.CoordinateHeights = new[]
-            {
-                16,
-                16,
-                16,
-                16,
-                16
-            };
-            TileObjectData.addTile(Type);
-            LocalizedText name = CreateMapEntryName();
-            // name.SetDefault("Example Clock"); // Automatic from .lang files
-            AddMapEntry(new Color(205, 62, 12), name);
-            DustType = ModContent.DustType<Dusts.RazewoodDust>();
-            AdjTiles = new int[] { TileID.GrandfatherClocks };
+            this.SetUpClock(ModContent.ItemType<RazewoodClock>());
+            DustType = ModContent.DustType<RazewoodDust>();
         }
 
-        public override bool RightClick(int x, int y)
-        {
-            Main.NewText(Language.GetTextValue("Mods.AAModClassic.Tiles.RazewoodClock_Tile.FlavorText"), 205, 62, 12);
-            return true;
-        }
+        public override void MouseOver(int i, int j) => FurnitureCommon.MouseOver(i, j, ModContent.ItemType<RazewoodClock>());
+
+        public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
+
+        public override bool RightClick(int x, int y) => FurnitureCommon.ClockRightClick();
 
         public override void NearbyEffects(int i, int j, bool closer)
         {
             if (closer)
-            {
                 Main.SceneMetrics.HasClock = true;
-            }
         }
 
-        public override void NumDust(int i, int j, bool fail, ref int num)
-        {
-            num = fail ? 1 : 3;
-        }
+        public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
     }
 }
