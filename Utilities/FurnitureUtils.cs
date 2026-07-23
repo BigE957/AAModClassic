@@ -833,7 +833,7 @@ namespace AAModClassic.Utilities
             Main.tileFrameImportant[mt.Type] = true;
             Main.tileLavaDeath[mt.Type] = !lavaImmune;
             Main.tileWaterDeath[mt.Type] = false;
-            TileID.Sets.HasOutlines[mt.Type] = true;
+            //TileID.Sets.HasOutlines[mt.Type] = true;
             TileID.Sets.CanBeSleptIn[mt.Type] = true;
             TileID.Sets.InteractibleByNPCs[mt.Type] = true;
             TileID.Sets.IsValidSpawnPoint[mt.Type] = true;
@@ -973,7 +973,7 @@ namespace AAModClassic.Utilities
             Main.tileWaterDeath[mt.Type] = false;
             TileID.Sets.CanBeSatOnForNPCs[mt.Type] = true;
             TileID.Sets.CanBeSatOnForPlayers[mt.Type] = true;
-            TileID.Sets.HasOutlines[mt.Type] = true;
+            //TileID.Sets.HasOutlines[mt.Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2);
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
             TileObjectData.newTile.Direction = TileObjectDirection.PlaceLeft;
@@ -1050,7 +1050,7 @@ namespace AAModClassic.Utilities
             Main.tileNoAttach[mt.Type] = true;
             Main.tileOreFinderPriority[mt.Type] = 500;
             TileID.Sets.BasicChest[mt.Type] = true;
-            TileID.Sets.HasOutlines[mt.Type] = true;
+            //TileID.Sets.HasOutlines[mt.Type] = true;
             TileID.Sets.DisableSmartCursor[mt.Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
             if (offset)
@@ -1082,7 +1082,7 @@ namespace AAModClassic.Utilities
             Main.tileFrameImportant[mt.Type] = true;
             Main.tileNoAttach[mt.Type] = true;
             Main.tileLavaDeath[mt.Type] = !lavaImmune;
-            TileID.Sets.HasOutlines[mt.Type] = true;
+            //TileID.Sets.HasOutlines[mt.Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
             TileObjectData.newTile.Height = 5;
             TileObjectData.newTile.CoordinateHeights = new int[]
@@ -1121,7 +1121,7 @@ namespace AAModClassic.Utilities
             Main.tileWaterDeath[mt.Type] = false;
             TileID.Sets.NotReallySolid[mt.Type] = true;
             TileID.Sets.DrawsWalls[mt.Type] = true;
-            TileID.Sets.HasOutlines[mt.Type] = true;
+            //TileID.Sets.HasOutlines[mt.Type] = true;
             TileID.Sets.DisableSmartCursor[mt.Type] = true;
             TileObjectData.newTile.Width = 1;
             TileObjectData.newTile.Height = 3;
@@ -1206,7 +1206,7 @@ namespace AAModClassic.Utilities
             TileObjectData.addAlternate(1);
             TileObjectData.addTile(mt.Type);
             TileID.Sets.HousingWalls[mt.Type] = true;
-            TileID.Sets.HasOutlines[mt.Type] = true;
+            //TileID.Sets.HasOutlines[mt.Type] = true;
             TileID.Sets.DisableSmartCursor[mt.Type] = true;
 
             // As you could probably guess, all open doors count as doors.
@@ -1232,7 +1232,7 @@ namespace AAModClassic.Utilities
             Main.tileWaterDeath[mt.Type] = false;
             Main.tileLavaDeath[mt.Type] = false;
             TileID.Sets.BasicDresser[mt.Type] = true;
-            TileID.Sets.HasOutlines[mt.Type] = true;
+            //TileID.Sets.HasOutlines[mt.Type] = true;
             TileID.Sets.DisableSmartCursor[mt.Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
             TileObjectData.newTile.Origin = new Point16(1, 1);
@@ -1268,7 +1268,7 @@ namespace AAModClassic.Utilities
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.newTile.LavaPlacement = LiquidPlacement.Allowed;
             TileObjectData.addTile(mt.Type);
-            TileID.Sets.HasOutlines[mt.Type] = true;
+            //TileID.Sets.HasOutlines[mt.Type] = true;
 
             TileObjectData.newTile.Width = 2;
             TileObjectData.newTile.Height = 4;
@@ -1489,7 +1489,7 @@ namespace AAModClassic.Utilities
             Main.tileLavaDeath[mt.Type] = !lavaImmune;
             Main.tileWaterDeath[mt.Type] = false;
             TileID.Sets.CanBeSatOnForPlayers[mt.Type] = true;
-            TileID.Sets.HasOutlines[mt.Type] = true;
+            //TileID.Sets.HasOutlines[mt.Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
             TileObjectData.newTile.LavaDeath = !lavaImmune;
             TileObjectData.newTile.LavaPlacement = lavaImmune ? LiquidPlacement.Allowed : LiquidPlacement.NotAllowed;
