@@ -57,6 +57,15 @@ namespace AAModClassic._Content.Void.World.Biomes
         public override ModWaterStyle WaterStyle => ModContent.GetInstance<VoidWaterStyle>();
     }
 
+    public class VoidSkySystem : ModPlayer
+    {
+        public override void OnEnterWorld()
+        {
+            if (AAWorld.downedZero)
+                VoidSky.Alpha = 1f;
+        }
+    }
+
     public class VoidSky : CustomSky
     {
         private readonly UnifiedRandom random = new UnifiedRandom();
@@ -229,9 +238,10 @@ namespace AAModClassic._Content.Void.World.Biomes
                 else if (Alpha > 0)
                 {
                     spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
-                    spriteBatch.Draw(PlanetTexture, planetPos, null, Color.White * 0.9f * Intensity * Alpha, Rotation, new Vector2(PlanetTexture.Width >> 1, PlanetTexture.Height >> 1), 1f, SpriteEffects.None, 1f);
+                    float riftIntensity = Intensity * Intensity * Intensity;
+                    spriteBatch.Draw(PlanetTexture, planetPos, null, Color.White * 0.9f * riftIntensity * Alpha, Rotation, new Vector2(PlanetTexture.Width >> 1, PlanetTexture.Height >> 1), 1f, SpriteEffects.None, 1f);
                     float lightningIntensity = BaseUtility.MultiLerp(Main.LocalPlayer.miscCounter % 100f / 100f, 0.2f, 0.8f, 0.2f);
-                    spriteBatch.Draw(LB, planetPos, null, Color.White * 0.9f * Intensity * Alpha * lightningIntensity, LBRotation, new Vector2(LB.Width >> 1, LB.Height >> 1), 1f, SpriteEffects.None, 1f);
+                    spriteBatch.Draw(LB, planetPos, null, Color.White * 0.9f * riftIntensity * Alpha * lightningIntensity, LBRotation, new Vector2(LB.Width >> 1, LB.Height >> 1), 1f, SpriteEffects.None, 1f);
 
                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !AAWorld_Unreleased.DownedIZ)
                     {
@@ -246,7 +256,7 @@ namespace AAModClassic._Content.Void.World.Biomes
                         }
 
                         if(!anyIZ)
-                            spriteBatch.Draw(Echo, echoPos, null, GetGlowAlpha(true) * Intensity * Alpha, 0f, new Vector2(Echo.Width >> 1, Echo.Height >> 1), AAWorld.downedAllAncients ? 0.4f : .3f, SpriteEffects.None, 1f);
+                            spriteBatch.Draw(Echo, echoPos, null, GetGlowAlpha(true) * riftIntensity * Alpha, 0f, new Vector2(Echo.Width >> 1, Echo.Height >> 1), AAWorld.downedAllAncients ? 0.4f : .3f, SpriteEffects.None, 1f);
                     }
                 }
                 Color astroGlow = Color.White * MathHelper.Lerp(0.7f, 1f, Main.mouseTextColor / 255f);
@@ -314,12 +324,8 @@ namespace AAModClassic._Content.Void.World.Biomes
         }
     }
 
-    public class VoidSkyData : ScreenShaderData
+    public class VoidSkyData(string passName) : ScreenShaderData(passName)
     {
-        public VoidSkyData(string passName) : base(passName)
-        {
-        }
-
         private static void UpdateVoidSky()
         {
             if (AAWorld.voidTiles < 100)
