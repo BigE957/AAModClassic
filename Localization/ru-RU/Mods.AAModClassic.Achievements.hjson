@@ -35,7 +35,7 @@ DesertDjinnKilled: {
 }
 
 SubzeroSerpentKilled: {
-	FriendlyName: Холодный как лёд
+	FriendlyName: Минус один
 	Description: Растопите Морозную змею - ползучую тварь, обитающую в ледяной тундре.
 }
 
@@ -130,7 +130,7 @@ YamataKilled: {
 }
 
 ZeroKilled: {
-	FriendlyName: 0÷0
+	FriendlyName: ДелитьНаНольНельзя = false
 	Description: Выведите из стр0я основной м0дуль Зир0 Пуст0ты, и навлеките на себя гнев куда б0лее страшн0й угр0зы...
 }
 
@@ -192,7 +192,7 @@ TimecallerCrafted: {
 }
 
 EXSoulCrafted: {
-	FriendlyName: Сжигая мосты
+	FriendlyName: Превышая лимиты
 	Description: Улучшите оружие с помощью Души EX. Теперь вы на шаг впереди всех!
 }
 

@@ -217,7 +217,12 @@ KeepDoor1_Tile.MapEntry: 要塞门
 KeepDoor2_Tile.MapEntry: 要塞门
 KeepDoor2S_Tile.MapEntry: 要塞门
 KeepDoor3_Tile.MapEntry: 要塞门
-TerraStatue_Tile.MapEntry: 失落英雄雕像
+
+TerraStatue_Tile: {
+	MapEntry: 失落英雄雕像
+	// FlavorText: The Hero who saved us all from the brink of chaos
+}
+
 SunkenChest_Tile.MapEntry: 沉船宝箱
 InfernoPylon_Tile.MapEntry: 燎狱晶塔
 MirePylon_Tile.MapEntry: 潭渊晶塔
