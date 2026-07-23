@@ -87,6 +87,6 @@ public class LensFlareAttached : Particle
         // white flare 
         // vertical, horizontal
         spriteBatch.Draw(texture, Position - Main.screenPosition, null, Color.White, Rotation, texture.Size() * 0.5f, scale, 0, 0f);
-        spriteBatch.Draw(texture, Position - Main.screenPosition, null, Color.White, Rotation + horizFlareRotation, texture.Size() * 0.5f, scale * 0.6f, 0, 0f);
+        spriteBatch.Draw(texture, Position - Main.screenPosition, null, Color.White, Rotation + horizFlareRotation, texture.Size() * 0.5f, scale * new Vector2(0.6f, 0.4f), 0, 0f);
     }
 }

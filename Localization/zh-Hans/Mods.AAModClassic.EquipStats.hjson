@@ -39,6 +39,8 @@ ClassGlobalStats: {
 		Reduced: 降低
 		More: 更多
 		Less: 更少
+		// Faster: faster
+		// Slower: slower
 		Damage: 伤害
 		Knockback: 击退
 		CritSameAsDamageAdditive: " & 暴击率"
@@ -487,4 +489,15 @@ Effect: {
 		响指有5分钟冷却时间
 		'''
 	DemonHelmetSetEffect: 一个忠诚的小恶魔仆从将为你而战，无论何时何地
+	// ShadowBandUnofficialEffect: While out of combat, gain 40% increased movement speed and decreased aggro
+	// DragonstrideBootsUnofficialEffect: While out of combat, gain 28% increased movement speed
+	// MendingBandEffect: While out of combat, your regeneration is increased by 3
+	/* CuringBandEffect:
+		'''
+		While out of combat, your regeneration is increased by 3
+		Debuffs wear off faster while out of combat
+		''' */
+	// ShadowFlowerEffect: While out of combat, you heal {0} mana per second
+	// AdjustOutOfCombatTimeEffect: You exit combat {0} seconds {1}
+	// FracturedAnkhEffect: Ails you with most debuffs
 }

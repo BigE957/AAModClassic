@@ -72,7 +72,7 @@ Can only be used in the desert on the surface
             //ParticleSystem.SpawnParticle(new Spark(player.Center, Vector2.Zero, false, 20, 5, Color.Yellow));
             //ParticleSystem.SpawnParticle(new AltSpark(player.Center, Vector2.Zero, false, 10, 5, Main.DiscoColor));
             Vector2 eyeOffset = new Vector2(2 * player.direction, -9);
-            ParticleSystem.SpawnParticle(new LensFlareAttached(() => player.MountedCenter, eyeOffset, new Vector2(Main.rand.NextFloat(), Main.rand.NextFloat()), 10, 1, Color.Red));
+            ParticleSystem.SpawnParticle(new LensFlareAttached(() => player.MountedCenter, eyeOffset, new Vector2(0.5f, -Main.rand.NextFloat(0f, 0.5f) * player.direction), 10, 1, Color.Red));
             //ParticleSystem.SpawnParticle(new LensFlareAttached(() => player.Center, eyeOffset, new Vector2(0.1f, 0.75f), 10, 2, Color.Red, flareStretch: new Vector2(0.5f, 0.5f)));
 
             if (!player.ZoneDesert && !player.ZoneUndergroundDesert)
