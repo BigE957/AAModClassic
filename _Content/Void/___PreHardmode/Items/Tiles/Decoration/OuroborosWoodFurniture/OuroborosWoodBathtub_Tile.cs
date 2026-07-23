@@ -1,4 +1,7 @@
+using AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFurniture;
+using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -12,32 +15,13 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Ourob
 {
     public class OuroborosWoodBathtub_Tile : ModTile
 	{
-		public override void SetStaticDefaults()
-		{
-			Main.tileFrameImportant[Type] = true;
-			Main.tileLavaDeath[Type] = true;
-			TileID.Sets.HasOutlines[Type] = true;
-			TileObjectData.newTile.CopyFrom(TileObjectData.Style4x2); //this style already takes care of direction for us
-			TileObjectData.newTile.CoordinateHeights = new int[]{ 16, 18 };
-			TileObjectData.addTile(Type);
-			LocalizedText name = CreateMapEntryName();
-            // name.SetDefault("Ouroboros Wood Bathtub");
-            AddMapEntry(new Color(70, 0, 10), name);
-			DustType = ModContent.DustType<Dusts.DoomDust>();
-			TileID.Sets.DisableSmartCursor[Type] = true;
-            TileID.Sets.HasOutlines[Type] = false;
-            AdjTiles = new int[]{ TileID.Bathtubs };
-		}
+        public override void SetStaticDefaults()
+        {
+            this.SetUpBathtub(ModContent.ItemType<OuroborosWoodBathtub>());
+            DustType = ModContent.DustType<DoomDust>();
+        }
 
-		public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
-		{
-			return true;
-		}
-
-		public override void NumDust(int i, int j, bool fail, ref int num)
-		{
-			num = 1;
-		}
+        public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
