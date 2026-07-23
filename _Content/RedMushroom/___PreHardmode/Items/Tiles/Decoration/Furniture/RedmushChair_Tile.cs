@@ -10,9 +10,6 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoratio
 {
     public class RedmushChair_Tile : ModTile
 	{
-
-		public const int NextStyleHeight = 40;
-
         public override void SetStaticDefaults()
 		{
             this.SetUpChair(ModContent.ItemType<RedmushChair>());

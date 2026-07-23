@@ -1,69 +1,26 @@
 using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Terra;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Keep;
 
 public class KeepCandelabra_Tile : ModTile
 {
-	public override void SetStaticDefaults()
-	{
-		//IL_0076: Unknown result type (might be due to invalid IL or missing references)
-		Main.tileFrameImportant[Type] = true;
-		Main.tileNoAttach[Type] = true;
-		Main.tileLighted[Type] = true;
-		Main.tileLavaDeath[Type] = true;
-		TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
-		TileObjectData.newTile.DrawYOffset = 2;
-		TileObjectData.addTile((int)Type);
-		LocalizedText val = CreateMapEntryName();
-		// val.SetDefault("Keep Candelabra");
-		AddMapEntry(new Color(30, 150, 12), val);
-		base.DustType = DustID.Stone;
-		AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-		base.AdjTiles = new int[1] { 100 };
-        RegisterItemDrop(ModContent.ItemType<KeepCandelabra>());
+    public override void SetStaticDefaults()
+    {
+        this.SetUpCandelabra(ModContent.ItemType<TerraCandelabra>());
+        DustType = DustID.Stone;
     }
 
-	public override void HitWire(int i, int j)
-	{
-		int num = i - Main.tile[i, j].TileFrameX / 18 % 2;
-		int num2 = j - Main.tile[i, j].TileFrameY / 18 % 2;
-		for (int k = num; k < num + 2; k++)
-		{
-			for (int l = num2; l < num2 + 2; l++)
-			{
-				if (Main.tile[k, l].TileFrameX >= 36)
-				{
-					Main.tile[k, l].TileFrameX -= 36;
-				}
-				else
-				{
-					Main.tile[k, l].TileFrameX += 36;
-				}
-			}
-		}
-		if (Wiring.running)
-		{
-			Wiring.SkipWire(num, num2);
-			Wiring.SkipWire(num, num2 + 1);
-			Wiring.SkipWire(num + 1, num2);
-			Wiring.SkipWire(num + 1, num2 + 1);
-		}
-		NetMessage.SendTileSquare(-1, num, num2 + 1, 2);
-	}
+    public override void HitWire(int i, int j) => FurnitureCommon.LightHitWire(Type, i, j, 2, 2);
 
-	public override void NumDust(int i, int j, bool fail, ref int num)
-	{
-		num = (fail ? 1 : 3);
-	}
+    public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 
-	public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
+    public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
 	{
 		if (Main.tile[i, j].TileFrameX < 36)
 		{
