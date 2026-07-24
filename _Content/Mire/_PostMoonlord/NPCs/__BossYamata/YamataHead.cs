@@ -281,6 +281,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             {
                 YamataBody.TeleportMeBitch = false;
                 NPC.Center = yamata.NPC.Center;
+                NPC.netOffset = Vector2.Zero;
                 return;
             }
         }

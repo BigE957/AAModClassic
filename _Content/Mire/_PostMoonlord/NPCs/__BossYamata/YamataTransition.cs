@@ -64,6 +64,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             {
                 NPC.alpha = 255;
                 NPC.Center = player.Center - new Vector2(0, 300f);
+                NPC.netOffset = Vector2.Zero;
             }
 			
 			if(Main.netMode != NetmodeID.Server) //clientside stuff
@@ -216,6 +217,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 {
                     NPC.alpha = 255;
                     NPC.Center = player.Center - new Vector2(0, 300f);
+                    NPC.netOffset = Vector2.Zero;
                 }
 
                 if (Main.netMode != NetmodeID.Server) //clientside stuff

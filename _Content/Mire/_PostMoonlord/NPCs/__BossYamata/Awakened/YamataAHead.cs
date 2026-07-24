@@ -116,6 +116,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             {
                 YamataABody.TeleportMeBitch = false;
                 NPC.Center = Body.NPC.Center;
+                NPC.netOffset = Vector2.Zero;
                 return;
             }
 
@@ -311,6 +312,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             {
                 YamataABody.TeleportMeBitch = false;
                 NPC.Center = Body.NPC.Center;
+                NPC.netOffset = Vector2.Zero;
                 return;
             }
         }

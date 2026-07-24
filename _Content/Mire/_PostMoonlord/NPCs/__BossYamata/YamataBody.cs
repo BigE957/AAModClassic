@@ -462,6 +462,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                         TeleportMe6 = true;
                         TeleportMeBitch = true;
                         NPC.Center = tele;
+                        NPC.netOffset = Vector2.Zero;
                         NPC.dontTakeDamage = true;
                         TrueHead.dontTakeDamage = true;
                         Head2.dontTakeDamage = true;

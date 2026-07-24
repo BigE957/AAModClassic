@@ -90,6 +90,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             while (rotValue > (float)Math.PI * 2f) rotValue -= (float)Math.PI * 2f;
 
             NPC.Center = BaseUtility.RotateVector(player.Center, player.Center + new Vector2(260, 0f), rotValue);
+            NPC.netOffset = Vector2.Zero;
         }
 
         public override void FindFrame(int frameHeight)

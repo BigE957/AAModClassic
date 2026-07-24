@@ -119,6 +119,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             rotValue += Main.expertMode ? .05f : 0f;
             while (rotValue > (float)Math.PI * 2f) rotValue -= (float)Math.PI * 2f;
             NPC.Center = BaseUtility.RotateVector(zero.Center, zero.Center + new Vector2(((Zero)zero.ModNPC).Distance, 0f), rotValue);
+            NPC.netOffset = Vector2.Zero;
 
             if (Main.netMode != NetmodeID.MultiplayerClient) { NPC.ai[2]++; }
 

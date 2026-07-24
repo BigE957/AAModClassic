@@ -112,8 +112,8 @@ public class BiomiteCore : ModNPC
 		{
 			NPC.dontTakeDamage = true;
 			NPC.Center = val2;
-			NPC.Center = val2;
-			NPC.netUpdate = true;
+            NPC.netOffset = Vector2.Zero;
+            NPC.netUpdate = true;
 			if (internalAI[1] % 10f == 0f)
 			{
 				NPC.ai[3] += 1f;
@@ -202,7 +202,8 @@ public class BiomiteCore : ModNPC
 						break;
                 }
 				NPC.Center = moveTo;
-				NPC.ai[0] = 0f;
+                NPC.netOffset = Vector2.Zero;
+                NPC.ai[0] = 0f;
 				NPC.ai[1] = 1f;
 				NPC.ai[3] = Main.rand.Next(1, 17);
 				NPC.netUpdate = true;

@@ -198,7 +198,8 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
                     {
                         Vector2 tele = new Vector2(player.Center.X, player.Center.Y - 350);
                         NPC.Center = tele;
-                        if(tiletele) TeleCooldown = 300;
+                        NPC.netOffset = Vector2.Zero;
+                        if (tiletele) TeleCooldown = 300;
                         for (int m = 0; m < 6; m++)
                         {
                             Dust.NewDust(NPC.Center, NPC.width, NPC.height, DustID.Blood, NPC.velocity.RotatedBy(Main.rand.NextFloat() * 3.1415926f).X * 0.2f, NPC.velocity.RotatedBy(Main.rand.NextFloat() * 3.1415926f).Y * 0.2f, ModContent.DustType<Dusts.ShroomDust>(), default, 1.5f);

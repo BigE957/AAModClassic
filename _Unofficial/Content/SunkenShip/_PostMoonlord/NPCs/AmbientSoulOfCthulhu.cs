@@ -96,6 +96,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
                 VerletIntegration.VerletSimulation(rope, 10, gravity: 0.05f, windAffected: false);
 
             NPC.Center = (Body[0].Position + Body[2].Position) / 2f;
+            NPC.netOffset = Vector2.Zero;
             NPC.rotation = (Body[2].Position - Body[0].Position).ToRotation();
 
             if (!Main.dedServ)

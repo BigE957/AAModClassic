@@ -318,6 +318,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 }
                 NPC.dontTakeDamage = true;
                 NPC.Center = new Vector2(player.Center.X, player.Center.Y - 60);
+                NPC.netOffset = Vector2.Zero;
                 return;
             }
             else

@@ -229,6 +229,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                         NPC.alpha = 254; //don't let it hit 255 or it will despawn!
                         Vector2 tele = new Vector2(player.Center.X, player.Center.Y);
                         NPC.Center = tele;
+                        NPC.netOffset = Vector2.Zero;
                         NPC.dontTakeDamage = false;
                         foreach (NPC n in Main.ActiveNPCs)
                             if (n.type == ModContent.NPCType<InfinityZeroHand1>() || n.type == ModContent.NPCType<InfinityZeroHand2>() || n.type == ModContent.NPCType<InfinityCore>())

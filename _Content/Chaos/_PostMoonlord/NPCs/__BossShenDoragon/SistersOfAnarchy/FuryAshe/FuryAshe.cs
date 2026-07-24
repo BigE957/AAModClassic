@@ -549,6 +549,28 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             }
         }
 
+        public override void SendExtraAI(BinaryWriter writer)
+        {
+            base.SendExtraAI(writer);
+            if (Main.netMode == NetmodeID.Server || Main.dedServ)
+            {
+                writer.Write(pos);
+                writer.Write(Health);
+                writer.Write(RuneCrash);
+            }
+        }
+
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+            base.ReceiveExtraAI(reader);
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+            {
+                pos = reader.ReadSingle();
+                Health = reader.ReadBoolean();
+                RuneCrash = reader.ReadBoolean();
+            }
+        }
+
         public override void BossLoot(ref int potionType)
         {
             potionType = 0;
@@ -708,28 +730,6 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
         public float scale2 = 0;
         public float RingRotation2 = 0;
-
-        public override void SendExtraAI(BinaryWriter writer)
-        {
-            base.SendExtraAI(writer);
-            if (Main.netMode == NetmodeID.Server || Main.dedServ)
-            {
-                writer.Write(pos);
-                writer.Write(Health);
-                writer.Write(RuneCrash);
-            }
-        }
-
-        public override void ReceiveExtraAI(BinaryReader reader)
-        {
-            base.ReceiveExtraAI(reader);
-            if (Main.netMode == NetmodeID.MultiplayerClient)
-            {
-                pos = reader.ReadSingle();
-                Health = reader.ReadBoolean();
-                RuneCrash = reader.ReadBoolean();
-            }
-        }
 
         private void RingEffects()
         {

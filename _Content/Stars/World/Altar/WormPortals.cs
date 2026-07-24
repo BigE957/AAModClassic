@@ -63,6 +63,7 @@ namespace AAModClassic._Content.Stars.World.Altar
             {
                 NPC.alpha = 255;
                 NPC.Center = player.Center - new Vector2(200, 300f);
+                NPC.netOffset = Vector2.Zero;
             }
 
             NPC.rotation += .1f;
@@ -70,6 +71,7 @@ namespace AAModClassic._Content.Stars.World.Altar
             if (NPC.ai[0] != 1)
             {
                 NPC.Center = player.Center - new Vector2(200, 300f);
+                NPC.netOffset = Vector2.Zero;
                 NPC.ai[0] = 1;
             }
 
@@ -186,6 +188,7 @@ namespace AAModClassic._Content.Stars.World.Altar
             {
                 NPC.alpha = 255;
                 NPC.Center = player.Center - new Vector2(-200, 300f);
+                NPC.netOffset = Vector2.Zero;
             }
 
             NPC.rotation += .1f;
@@ -193,6 +196,7 @@ namespace AAModClassic._Content.Stars.World.Altar
             if (NPC.ai[0] != 1)
             {
                 NPC.Center = player.Center - new Vector2(-200, 300f);
+                NPC.netOffset = Vector2.Zero;
                 NPC.ai[0] = 1;
             }
 

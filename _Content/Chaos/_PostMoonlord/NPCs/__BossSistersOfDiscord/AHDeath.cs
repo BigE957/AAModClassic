@@ -51,6 +51,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord
             }
 
             NPC.Center = player.Center;
+            NPC.netOffset = Vector2.Zero;
 
             if (NPC.ai[1] == 240)
             {

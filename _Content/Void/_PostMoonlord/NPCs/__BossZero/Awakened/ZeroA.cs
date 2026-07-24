@@ -691,7 +691,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                 NPC.position = player.Center - new Vector2(0, 600);
                 if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                     NPC.Center = player.Center - new Vector2(0, 400);
-                NPC.velocity *= 0;
+                NPC.netOffset = Vector2.Zero;
+                NPC.velocity = Vector2.Zero;
 
                 if(NPC.ai[2] == 240 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
@@ -842,6 +843,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                         return;
                     }
                     NPC.Center = new Vector2(targetPos.X + posX, targetPos.Y + posY);
+                    NPC.netOffset = Vector2.Zero;
                     safe = true;
                 }
             }
@@ -850,16 +852,19 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                 targetPos.X += 430 * (NPC.Center.X > targetPos.X ? -1 : 1);
                 targetPos.Y -= 430;
                 NPC.Center = new Vector2(targetPos.X, targetPos.Y);
+                NPC.netOffset = Vector2.Zero;
             }
             else if (a == 2)
             {
                 targetPos.X += 430 * (NPC.Center.X > targetPos.X ? -1 : 1);
                 targetPos.Y += 430;
                 NPC.Center = new Vector2(targetPos.X, targetPos.Y);
+                NPC.netOffset = Vector2.Zero;
             }
             else
             {
                 NPC.Center = player.Center + new Vector2(0, -200);
+                NPC.netOffset = Vector2.Zero;
             }
 
             NPC.velocity *= 0;

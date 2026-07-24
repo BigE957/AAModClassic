@@ -220,6 +220,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
                             TeleportMe2 = true;
                             TeleportMe3 = true;
                             NPC.Center = tele;
+                            NPC.netOffset = Vector2.Zero;
                             NPC.netUpdate = true;
                         }
                     }
@@ -236,6 +237,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
                             TeleportMe2 = true;
                             TeleportMe3 = true;
                             NPC.Center = tele;
+                            NPC.netOffset = Vector2.Zero;
                             NPC.netUpdate = true;
                         }
                     }
