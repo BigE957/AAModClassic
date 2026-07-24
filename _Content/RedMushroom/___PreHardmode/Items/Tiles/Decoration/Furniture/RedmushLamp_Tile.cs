@@ -25,7 +25,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoratio
 			Tile tile = Main.tile[i, j];
 			if (tile.TileFrameX == 0) 
             {
-				r = 0.9f;
+				r = 1.1f;
 				g = 0.5f;
 				b = 0.5f;
 			}

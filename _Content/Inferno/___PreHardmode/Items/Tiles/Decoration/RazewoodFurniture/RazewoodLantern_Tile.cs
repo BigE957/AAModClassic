@@ -27,9 +27,10 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.Ra
             Tile tile = Main.tile[i, j];
             if (tile.TileFrameX < 18)
             {
-                r = 0.9f;
-                g = 0.9f;
-                b = 0.9f;
+                Vector3 c = (Color.Orange * 0.9f).ToVector3();
+                r = c.X;
+                g = c.Y;
+                b = c.Z;
             }
         }
 

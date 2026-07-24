@@ -27,8 +27,8 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Ourob
             if (tile.TileFrameX < 18)
             {
                 r = 0.9f;
-                g = 0.2f;
-                b = 0.2f;
+                g = 0f;
+                b = 0f;
             }
         }
 

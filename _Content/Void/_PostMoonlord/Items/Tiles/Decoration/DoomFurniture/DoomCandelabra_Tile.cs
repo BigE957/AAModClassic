@@ -24,9 +24,9 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
             Tile tile = Main.tile[i, j];
             if (tile.TileFrameX < 36)
             {
-                r = 0.9f;
-                g = 0.9f;
-                b = 0.9f;
+                r = 1.5f;
+                g = 0.3f;
+                b = 0.3f;
             }
         }
 

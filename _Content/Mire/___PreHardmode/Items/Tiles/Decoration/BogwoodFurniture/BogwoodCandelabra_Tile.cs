@@ -24,9 +24,9 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwo
             Tile tile = Main.tile[i, j];
             if (tile.TileFrameX < 36)
             {
-                r = 0.9f;
+                r = 0.2f;
                 g = 0.9f;
-                b = 0.9f;
+                b = 0.2f;
             }
         }
 
