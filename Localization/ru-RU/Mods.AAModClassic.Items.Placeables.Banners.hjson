@@ -54,7 +54,7 @@ SingemanderBanner: {
 }
 
 WyrmlingBanner: {
-	DisplayName: Знамя змеёныша
+	DisplayName: Знамя змеевичок
 	Tooltip: ""
 }
 
@@ -79,7 +79,7 @@ BlazeClawBanner: {
 }
 
 AncientLungBanner: {
-	DisplayName: Знамя древнего Луна
+	DisplayName: Знамя древнего луна
 	Tooltip: ""
 }
 

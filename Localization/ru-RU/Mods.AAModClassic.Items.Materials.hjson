@@ -84,7 +84,7 @@ ShinyCharm: {
 }
 
 ShinyCharmFish: {
-	DisplayName: Рыба-сияющий амулет
+	DisplayName: Рыба в форме сияющего амулета
 	Tooltip: Разновидность редкой рыбы
 }
 
@@ -363,7 +363,7 @@ SoulOfSpite: {
 }
 
 EventideAbyssiumBar: {
-	DisplayName: Сумеречный абиссальнит
+	DisplayName: Сумеречный абиссальнитовый слиток
 	Tooltip: Холодный, словно вечерняя луна
 }
 
