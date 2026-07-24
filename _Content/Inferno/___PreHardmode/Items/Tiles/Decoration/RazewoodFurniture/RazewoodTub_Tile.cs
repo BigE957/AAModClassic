@@ -1,3 +1,6 @@
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoration.Furniture;
+using AAModClassic.Dusts;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Localization;
@@ -8,23 +11,12 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.Ra
 {
     public class RazewoodTub_Tile : ModTile
 	{
-		public override void SetStaticDefaults()
-		{
-			Main.tileFrameImportant[Type] = true;
-			Main.tileLavaDeath[Type] = true;
-			TileObjectData.newTile.CopyFrom(TileObjectData.Style4x2);
-			TileObjectData.newTile.CoordinateHeights = new int[]{ 16, 18 };
-			TileObjectData.addTile(Type);
-			LocalizedText name = CreateMapEntryName();
-			// name.SetDefault("Razewood Bathtub");
-            AddMapEntry(new Color(205, 62, 12), name);
-            DustType = ModContent.DustType<Dusts.RazewoodDust>();
-		}
+        public override void SetStaticDefaults()
+        {
+            this.SetUpBathtub(ModContent.ItemType<RazewoodTub>());
+            DustType = ModContent.DustType<RazewoodDust>();
+        }
 
-		
-		public override void NumDust(int i, int j, bool fail, ref int num)
-		{
-			num = 1;
-		}
-	}
+        public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
+    }
 }

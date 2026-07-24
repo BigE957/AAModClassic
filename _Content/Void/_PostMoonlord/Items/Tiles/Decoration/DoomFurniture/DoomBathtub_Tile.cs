@@ -1,13 +1,9 @@
-using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Terra;
 using AAModClassic.Dusts;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFurniture
 {

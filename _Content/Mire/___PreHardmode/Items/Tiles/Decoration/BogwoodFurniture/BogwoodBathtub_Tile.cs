@@ -13,7 +13,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwo
 	{
         public override void SetStaticDefaults()
         {
-            this.SetUpBathtub(ModContent.ItemType<DoomBathtub>());
+            this.SetUpBathtub(ModContent.ItemType<BogwoodBathtub>());
             DustType = ModContent.DustType<BogwoodDust>();
         }
 
