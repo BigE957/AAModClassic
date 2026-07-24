@@ -1,0 +1,268 @@
+StripemansLucky: ""
+Olympian:
+	'''
+	60% de Probabilidad de Crítico Cuerpo a Cuerpo Aumentada
+	60% de Probabilidad de Crítico a Distancia Aumentada
+	60% de Probabilidad de Crítico Mágico Aumentada
+	60% de Probabilidad de Crítico de Lanzamiento Aumentada
+
+	'''
+HoppingHoodlum: ""
+ChampionMage: ""
+ChampionMage_CarrotBooster: ""
+ChampionMelee: ""
+ChampionRanged: ""
+ChampionSummoner: ""
+ChaosMage:
+	'''
+	Ignorar Agua Activado
+	Aletas de Accesorio Activadas
+
+	'''
+ChaosMelee:
+	'''
+	10% de Velocidad de Ataque Cuerpo a Cuerpo Aumentada
+	4 Aggro
+
+	'''
+ChaosRanged:
+	'''
+	25% de Daño a Distancia Aumentado
+	Coste de Munición 75 Activado
+	Detectar Criatura Activado
+	Visión Nocturna Activada
+
+	'''
+ChaosSummoner:
+	'''
+	4 Súbditos Máximos
+
+	'''
+FuryWitchs:
+	'''
+	20% de Daño Mágico Aumentado
+	20% de Daño de Invocación Aumentado
+	4 Súbditos Máximos
+
+	'''
+MidnightAssassin:
+	'''
+	30% de Velocidad de Ataque Cuerpo a Cuerpo Aumentada
+
+	'''
+ChaosSlayerMage: ""
+ChaosSlayerMelee: ""
+ChaosSlayerRanged: ""
+ChaosSlayerSummoner: ""
+Nights:
+	'''
+	Pánico Activado
+	22% de Velocidad de Movimiento Aumentada
+
+	'''
+Fleshrend:
+	'''
+	Regeneración Carmesí Activada
+
+	'''
+Dynaskull: ""
+Deathly:
+	'''
+	Coste de Munición 80 Activado
+
+	'''
+GlowingMushium: ""
+GoblinSlayers: ""
+Demon: ""
+Imp: ""
+StoneSoldier:
+	'''
+	Descuento Disponible Activado
+	Tiene Moneda de la Suerte Activada
+	Anillo de Oro Activado
+
+	'''
+Blazing:
+	'''
+	4 Aggro
+
+	'''
+Kindled:
+	'''
+	2% de Resistencia Aumentada
+
+	'''
+Razewood: ""
+DraconianSun: ""
+Tribal:
+	'''
+	Flor de Maná Activada
+
+	'''
+ChlorophyteSummoner:
+	'''
+	6 Súbditos Máximos
+
+	'''
+ChlorophyteSummoner2:
+	'''
+	6 Súbditos Máximos
+
+	'''
+Abyssal:
+	'''
+	Coste de Munición 80 Activado
+
+	'''
+Bogwood: ""
+Depth:
+	'''
+	Coste de Munición 80 Activado
+	Visión Nocturna Activada
+
+	'''
+DreadMoon: ""
+Atlantean: ""
+Ocean: ""
+Mushium:
+	'''
+	P Stone Activado
+
+	'''
+Raider:
+	'''
+	Sin Retroceso Activado
+
+	'''
+Viking:
+	'''
+	4% de Resistencia Aumentada
+
+	'''
+DarkmatterMage:
+	'''
+	Efecto de Armadura de Dibujar Sombras de Loki Activado
+
+	'''
+DarkmatterMelee:
+	'''
+	Efecto de Armadura de Dibujar Sombras de Loki Activado
+
+	'''
+DarkmatterRanged:
+	'''
+	Efecto de Armadura de Dibujar Sombras de Loki Activado
+
+	'''
+DarkmatterSummoner:
+	'''
+	Efecto de Armadura de Dibujar Sombras de Loki Activado
+
+	'''
+RadiumMage: ""
+RadiumMelee: ""
+RadiumRanged: ""
+RadiumSummoner: ""
+TerraMage:
+	'''
+	Flor de Maná Activada
+
+	'''
+TerraMelee:
+	'''
+	28% de Velocidad de Ataque Cuerpo a Cuerpo Aumentada
+
+	'''
+TerraRanged:
+	'''
+	20% de Probabilidad de Crítico a Distancia Aumentada
+
+	'''
+TerraSummoner: ""
+Biomite:
+	'''
+	20 Maná Máximo 2
+
+	'''
+AdamantiteSummoner:
+	'''
+	4 Súbditos Máximos
+	Efecto de Armadura de Dibujar Sombra Activado
+	Efecto de Armadura de Dibujar Contornos Activado
+
+	'''
+CobaltSummoner:
+	'''
+	2 Súbditos Máximos
+	Efecto de Armadura de Dibujar Sombra Activado
+	Efecto de Armadura de Dibujar Contornos Activado
+
+	'''
+MythrilSummoner:
+	'''
+	3 Súbditos Máximos
+
+	'''
+OrichalcumSummoner:
+	'''
+	Pétalo al Golpear Activado
+	2 Súbditos Máximos
+
+	'''
+PalladiumSummoner:
+	'''
+	1 Súbdito Máximo
+
+	'''
+TitaniumSummoner:
+	'''
+	Esquiva al Golpear Activada
+	4 Súbditos Máximos
+
+	'''
+DarkDoomite:
+	'''
+	2 Súbditos Máximos
+
+	'''
+Doomite:
+	'''
+	1 Súbdito Máximo
+
+	'''
+Oroboros: ""
+DoomsdayMage: ""
+DoomsdaySummoner:
+	'''
+	5 Súbditos Máximos
+
+	'''
+FulguriteMage: ""
+FulguriteMelee:
+	'''
+	20% de Velocidad de Ataque Cuerpo a Cuerpo Aumentada
+	20% de Velocidad de Movimiento Aumentada
+
+	'''
+FulguriteRanged:
+	'''
+	Coste de Munición 75 Activado
+
+	'''
+TerraMageTest: ""
+InfinitySlayer:
+	'''
+
+	Puedes ver toda la vida a tu alrededor
+	Puedes ver todas las amenazas potenciales a tu alrededor
+	Tus ataques abrasan a tus enemigos con las llamas del infinito
+	'''
+ChampionMageSetEffect_CarrotBooster: ""
+HallowedSummoner:
+	'''
+	6 Súbditos Máximos
+	Efecto de Armadura de Dibujar Sombra Activado
+	Efecto de Armadura de Dibujar Contornos Activado
+
+	'''
+Ouroboros: ""

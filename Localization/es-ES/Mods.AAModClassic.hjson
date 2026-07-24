@@ -1,0 +1,73 @@
+Keybinds: {
+	Rifthotkey: Teletransporte a Base
+	RiftReturnhotkey: Teletransporte de Vuelta
+	AccessoryAbilityKey: Habilidad de Accesorio
+	ArmorAbilityKey: Habilidad de Armadura
+
+	Mods: {
+		AAModClassic: {
+			Keybinds: {
+				InfinityHotKey.DisplayName: Chasquido
+				Rifthotkey.DisplayName: Teletransporte a Base
+				RiftReturnhotkey.DisplayName: Teletransporte de Vuelta
+				AccessoryAbilityKey.DisplayName: Habilidad de Accesorio
+				ArmorAbilityKey.DisplayName: Habilidad de Armadura
+				TimeStoneKey.DisplayName: Gema del Tiempo
+			}
+		}
+	}
+}
+
+Configs: {
+	AAConfigClient: {
+		DisplayName: Configuración de Cliente
+
+		NoAATownNPC: {
+			Label: Desactivar PNJs de ciudad de AA
+			Tooltip: Evita que aparezcan los PNJs de ciudad de este mod, para quienes prefieren que otros PNJs aparezcan más rápido. Nota: Esto no afecta a Anubis, ya que es clave para el progreso.
+		}
+
+		NoBossDialogue: {
+			Label: Desactivar diálogos de jefes
+			Tooltip: Desactiva los diálogos de los jefes para evitar la saturación del chat. También hace que las animaciones que contienen diálogos de jefes vayan un poco más rápido.
+		}
+
+		DisableNewAAReminderMessage: {
+			Label: Desactivar mensaje de recordatorio de Ancients Awakened
+			Tooltip: Desactiva el mensaje de recordatorio al entrar al mundo para echar un vistazo a Ancients Awakened [BETA].
+		}
+
+		EnableContentReplacement: {
+			Label: Activar reemplazo de contenido
+			Tooltip: ""
+		}
+
+		AncientIntroText: {
+			Label: Tarjetas de presentación de jefes
+			Tooltip: Alterna las tarjetas de título que muestran algunos de los jefes más avanzados al aparecer.
+		}
+
+		DisableAnticheat: {
+			Label: Desactivar antitrampas
+			Tooltip: Desactiva algunas de las funciones antitrampas del mod.
+		}
+
+		DisablePinchThemes: {
+			Label: Desactivar temas de apuro
+			Tooltip: Desactiva la música especial que suena cuando los jefes de final de juego tienen poca vida.
+		}
+
+		HideIdentifiableInfo: {
+			Label: Ocultar información identificable
+			Tooltip: Desactiva los diálogos que rompen la cuarta pared y que hacen uso de información de identificación personal.
+		}
+	}
+}
+
+WorldBuild: {
+	Info1: Colocando altares del caos
+	Info2: Extendiendo el caos
+	Info3: Abrasando el Infierno
+	Info4: Inundando el Lodazal
+	Info5: Construyendo el Terrario
+}

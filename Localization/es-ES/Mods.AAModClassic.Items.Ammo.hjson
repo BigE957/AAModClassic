@@ -1,0 +1,121 @@
+EnergyCell: {
+	DisplayName: Célula de Energía
+	Tooltip: ""
+}
+
+ReaperArrow: {
+	DisplayName: Flecha de Segador
+	Tooltip: Esta flecha puede atravesar paredes
+}
+
+DragonArrow: {
+	DisplayName: Flecha de Dragón
+	Tooltip: Tiene un retroceso más fuerte que la mayoría de las flechas
+}
+
+DaybreakArrow: {
+	DisplayName: Flecha del Amanecer
+	Tooltip:
+		'''
+		Quema a su objetivo con el calor del sol ardiente
+		Inflige Sol deslumbrante
+		No consumible
+		'''
+}
+
+EventideArrow: {
+	DisplayName: Flecha del Atardecer
+	Tooltip:
+		'''
+		Ciega a su objetivo con la oscuridad de una noche sin luna
+		Inflige Arrasamiento lunar
+		No consumible
+		'''
+}
+
+TerraArrow: {
+	DisplayName: Flecha de Terra
+	Tooltip:
+		'''
+		Se dirige automáticamente hacia los enemigos
+		No consumible
+		'''
+}
+
+SingularityArrow: {
+	DisplayName: Flecha de Singularidad
+	Tooltip:
+		'''
+		Lo único más rápido que la luz es el vacío que la devora
+		No consumible
+		'''
+}
+
+UnstablePowerCell: {
+	DisplayName: Célula de Energía Inestable
+	Tooltip:
+		'''
+		Actúa como bala
+		No consumible
+		'''
+}
+
+M79Round: {
+	DisplayName: Munición de M79
+	Tooltip: ""
+}
+
+ChaosArrow: {
+	DisplayName: Flecha del Caos
+	Tooltip: Inflige una debilitación aleatoria al golpear
+}
+
+DragonfireArrow: {
+	DisplayName: Flecha de Fuego de Dragón
+	Tooltip: Inflige la debilitación Fuego de dragón al golpear
+}
+
+DragonfireBullet: {
+	DisplayName: Bala de Fuego de Dragón
+	Tooltip: ""
+}
+
+DragonfireDart: {
+	DisplayName: Dardo de Fuego de Dragón
+	Tooltip: ""
+}
+
+DaybreakBullet: {
+	DisplayName: Bala del Amanecer
+	Tooltip: ""
+}
+
+HydratoxinArrow: {
+	DisplayName: Flecha de Hidratoxina
+	Tooltip: Inflige la debilitación Hidratoxina al golpear
+}
+
+HydratoxinBullet: {
+	DisplayName: Bala de Hidratoxina
+	Tooltip: ""
+}
+
+HydratoxinDart: {
+	DisplayName: Dardo de Hidratoxina
+	Tooltip: ""
+}
+
+EventideBullet: {
+	DisplayName: Bala del Atardecer
+	Tooltip: ""
+}
+
+DarkmatterArrow: {
+	DisplayName: Flecha de Materia Oscura
+	Tooltip: ""
+}
+
+RadiumArrow: {
+	DisplayName: Flecha de Radio
+	Tooltip: ""
+}

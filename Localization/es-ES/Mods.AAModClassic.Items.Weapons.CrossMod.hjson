@@ -1,0 +1,41 @@
+Healer: {
+	AuroraScythe: {
+		DisplayName: Guadaña Aurora
+		Tooltip:
+			'''
+			Hace girar una guadaña de quemadura gélida a tu alrededor que destroza a los enemigos
+			Las guadañas infligen quemadura gélida al contacto
+			Otorga 1 esencia de alma al impactar directamente
+			'''
+	}
+
+	CarrotFarmer: {
+		DisplayName: Agricultor de Zanahorias
+		Tooltip:
+			'''
+			Hace girar una guadaña de zanahoria a tu alrededor que destroza a los enemigos
+			Las guadañas disparan zanahorias mientras giran
+			Otorga 1 esencia de alma al impactar directamente
+			'''
+	}
+
+	DragonsClaw: {
+		DisplayName: Garra de Dragón
+		Tooltip:
+			'''
+			Hace girar una guadaña ígnea a tu alrededor que destroza a los enemigos
+			Las guadañas prenden fuego a los enemigos al contacto
+			Otorga 1 esencia de alma al impactar directamente
+			'''
+	}
+
+	HydrasFury: {
+		DisplayName: Furia de la Hidra
+		Tooltip:
+			'''
+			Hace girar una guadaña abisal a tu alrededor que destroza a los enemigos
+			Las guadañas infligen veneno al contacto
+			Otorga 1 esencia de alma al impactar directamente
+			'''
+	}
+}

@@ -1,0 +1,254 @@
+BroodmotherBox: {
+	DisplayName: Caja de Música (Madre de la camada)
+	Tooltip: Reproduce 'Blazing Fury' de SpectralAves
+}
+
+EquinoxBox: {
+	DisplayName: Caja de Música (Gusanos de Equinoccio)
+	Tooltip: Reproduce 'Celestial Cyclone' de ProduceVGM
+}
+
+InfinityZeroBox: {
+	DisplayName: Caja de Música (Infinity Zero )
+	Tooltip: Reproduce 'Infinitum' de MaestroVGM
+}
+
+AthenaBox: {
+	DisplayName: Caja de Música (Atenea)
+	Tooltip: Reproduce 'Magisaint' de ENNWAY
+}
+
+AcropolisBox: {
+	DisplayName: Caja de Música (Acrópolis)
+	Tooltip: Reproduce 'Palace in the Sky' de ENNWAY
+}
+
+AthenaAwakenedBox: {
+	DisplayName: Caja de Música (Atenea Olimpica)
+	Tooltip: Reproduce 'Goddess of Those Winged' de ENNWAY
+}
+
+RajahBox: {
+	DisplayName: Caja de Música (Rajah Rabbit)
+	Tooltip: Reproduce 'JUSTICE' de SpectralAves
+}
+
+RajahAwakenedBox: {
+	DisplayName: Caja de Música (Campeón de los Inocentes)
+	Tooltip: Reproduce 'Supreme Justice EX' de Jteoh
+}
+
+GripsBox: {
+	DisplayName: Caja de Música (Agarres del Caos)
+	Tooltip: Reproduce 'Twin Terror' de SpectralAves
+}
+
+ShenAwakenedBox: {
+	DisplayName: Caja de Música (Shen Doragon Despertado)
+	Tooltip: Reproduce 'Discordant Coda' de MaestroVGM
+}
+
+ShenBox: {
+	DisplayName: Caja de Música (Shen Doragon)
+	Tooltip: Reproduce 'Wings of Duality' de MaestroVGM
+}
+
+SistersBox: {
+	DisplayName: Caja de Música (Hermnas de la Discordia)
+	Tooltip: Reproduce 'United' de MaestroVGM
+}
+
+ChaosPreShenBox: {
+	DisplayName: Caja de Música (Dragon Dormido)
+	Tooltip: Reproduce 'Condemned' de MaestroVGM
+}
+
+DjinnBox: {
+	DisplayName: Caja de Música (Genio del Desierto)
+	Tooltip: Reproduce 'The Dust Bowl' de Tyeski
+}
+
+AnubisBox: {
+	DisplayName: Caja de Música (Anubis)
+	Tooltip: Reproduce 'Strings of Judgement' de Tyeski
+}
+
+AnubisAwakenedBox: {
+	DisplayName: Caja de Música (Anubis Abandonado)
+	Tooltip: Reproduce 'Purgatorium' de Tyeski
+}
+
+FungusBox: {
+	DisplayName: Caja de Música (Hongo Feudal)
+	Tooltip: Reproduce 'Bioluminescent Beatdown' de SpectralAves
+}
+
+TruffleToadBox: {
+	DisplayName: Caja de Música (Sapo de Trufa)
+	Tooltip: Reproduce 'TODESTOOL' de SpectralAves
+}
+
+GreedBox: {
+	DisplayName: Caja de Música (Avaricia)
+	Tooltip: Reproduce 'Gold Digger' de Tyeski
+}
+
+HoardBox: {
+	DisplayName: Caja de Música (Tesoro)
+	Tooltip: Reproduce 'Cove' de Tyeski
+}
+
+GreedAwakenedBox: {
+	DisplayName: Caja de Música (Rey Gusano de la Codicia)
+	Tooltip: Reproduce 'Ira De Riquezas Perdidas' de Tyeski
+}
+
+InfernoNightBox: {
+	DisplayName: Caja de Música (Infierno Noche)
+	Tooltip: Reproduce ‘Emberstorm’ de ProduceVGM
+}
+
+InfernoSurfaceBox: {
+	DisplayName: Caja de Música (Infierno)
+	Tooltip: Reproduce ‘Scorched Earth’ de ProduceVGM
+}
+
+InfernoUndergroundBox: {
+	DisplayName: Caja de Música (Infierno Subterráneo)
+	Tooltip: Reproduce ‘Inner Mantle’ de ProduceVGM
+}
+
+AkumaAwakenedBox: {
+	DisplayName: Caja de Música (Oni Akuma)
+	Tooltip: Reproduce 'Dawn of the Dragon' de Tyeski
+}
+
+AkumaBox: {
+	DisplayName: Caja de Música (Akuma)
+	Tooltip: Reproduce 'Trial de Fire' de Saucecoie
+}
+
+InfernoPagodaBox: {
+	DisplayName: Caja de Música (Pagoda del Sol Naciente)
+	Tooltip: Reproduce 'Scorched Tower' de Rockwizard
+}
+
+HydraBox: {
+	DisplayName: Caja de Música (Hidra)
+	Tooltip: Reproduce 'RAW Adessal Wrath' de SpectralAves
+}
+
+MireDayBox: {
+	DisplayName: Caja de Música (Lodazal Día)
+	Tooltip: Reproduce 'Through the Toxic Mist' de ProduceVGM
+}
+
+MireSurfaceBox: {
+	DisplayName: Caja de Música (Lodazal)
+	Tooltip: Reproduce 'Secluded Swamp' de ProduceVGM
+}
+
+MireUndergroundBox: {
+	DisplayName: Caja de Música (Lodazal Subterráneo)
+	Tooltip: Reproduce 'Creepy Crawlers' de ProduceVGM
+}
+
+YamataAwakenedBox: {
+	DisplayName: Caja de Música (Yamata No Orochi)
+	Tooltip: Reproduce 'Adessal Nightmare' de Tyeski
+}
+
+YamataBox: {
+	DisplayName: Caja de Música (Yamata)
+	Tooltip: Reproduce 'Crescent of Madness' de Saucecoie
+}
+
+MireLakeBox: {
+	DisplayName: Caja de Música (Lago de la Luna Naciente)
+	Tooltip: Reproduce 'Lake of Souls' de Rockwizard
+}
+
+MonarchBox: {
+	DisplayName: Caja de Música (Monarca Champiñón)
+	Tooltip: Reproduce 'Fungal Face-off' de SpectralAves
+}
+
+MushroomSurfaceBox: {
+	DisplayName: Caja de Música (Champiñón Rojo)
+	Tooltip: Reproduce 'Overgrowth' de SpectralAves
+}
+
+SubzeroBox: {
+	DisplayName: Caja de Música (Serpiente Subcero)
+	Tooltip: Reproduce 'Glacial Grace' de ProduceVGM
+}
+
+StarsBox: {
+	DisplayName: Caja de Música (Estrellas Celestiales)
+	Tooltip: Reproduce 'Scattered Stars' de ProduceVGM
+}
+
+TerrariumBox: {
+	DisplayName: Caja de Música (Terrario)
+	Tooltip: Reproduce ‘Resting Place’ de ProduceVGM
+}
+
+SagittariusBox: {
+	DisplayName: Caja de Música (Sagitario)
+	Tooltip: Reproduce 'Event Horizon' de SpectralAves
+}
+
+VoidBox: {
+	DisplayName: Caja de Música (Vacío)
+	Tooltip: Reproduce 'Waste' de ProduceVGM
+}
+
+ZeroAwakenedBox: {
+	DisplayName: Caja de Música (Protocolo Zero)
+	Tooltip: Reproduce 'Doomsday Arrives' de Saucecoie
+}
+
+ZeroBox: {
+	DisplayName: Caja de Música (Zero)
+	Tooltip: Reproduce 'Clockwork Catastrophe' de SpectralAves
+}
+
+VoidPostMLBox: {
+	DisplayName: Caja de Música (Vacío - Activado)
+	Tooltip: Reproduce 'Inanis' de ProduceVGM
+}
+
+VoidPreIZBox: {
+	DisplayName: Caja de Música (Gigante Dormido)
+	Tooltip: Reproduce 'Sleeping Giant' de Cosmoptera
+}
+
+SiegeBox: {
+	DisplayName: Caja de Música (Unidad S.I.E.G.E.)
+	Tooltip: Reproduce 'Controlled Chaos' de ProduceVGM
+}
+
+ParthenanBox: {
+	DisplayName: Caja de Música (Parthenan)
+	Tooltip: Reproduce 'Maelstrom' de Tyeski
+}
+
+SunkenShipBox: {
+	DisplayName: Caja de Música (Barco Hundido)
+	Tooltip: Reproduce 'Rift-Torn Ruins' de Cosmoptera
+}
+
+SoulOfCthulhuBox: {
+	DisplayName: Caja de Música (Alma de Cthulhu)
+	Tooltip: Reproduce 'Recondite Rhapsody (Calm)' de MaestroVGM
+}
+
+SunkenShipPreSoCBox: {
+	DisplayName: Caja de Música (Maldición Durmiente)
+	Tooltip: Reproduce 'Sleeping Curse' de ProduceVGM
+}
+
+CthulhuBox: {
+	DisplayName: Caja de Música (Cthulhu)
+	Tooltip: Reproduce 'Recondite Rhapsody (Combat)' de MaestroVGM
+}

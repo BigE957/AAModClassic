@@ -1,0 +1,344 @@
+GlobalNPCInfo.NPCarrive: " se ha despertado!"
+
+EnemyChat: {
+	SeraphChat1: ¡Vaya, no tienes gracia! ¡Gallina..!
+	SeraphChat2: ¡Jajajaj! ¡Huyendo como el caminante de la tierra sin agallas que eres!
+	SeraphChat3: Me he aburrido.
+	SeraphChat4: ¡Vuelve! ¡Me lo estaba pasando bien dándote una paliza..!
+	SeraphChat5: Vaya, el pequeño caminante de la tierra se marcha. ¿Vas a llorar?
+	SeraphKillChat1: Vaya. Se han muerto. ¡Pues bueno..!
+	SeraphKillChat2: ¡Ja! ¡He ganado!
+	SeraphKillChat3: ¡Ha estado divertido! ¡Vuelve cuando no apestes!, ¡enano!
+	SeraphKillChat4: ¡Y QUÉDATE fuera..!
+	SeraphKillChat5: Bueno, eso ha sido anticlimático. ¡Pan comido!
+	SeraphHurtChat1: ¡AY..! ¡Qué GROSERO! ¡¡ATENEAAAAAAAAAAAAAAA!!!
+	SeraphHurtChat2: ¡EH! ¡Solo estaba jugando! ¡Espera a que Atenea se entere de ESTO!
+	SeraphHurtChat3: ¡AHORA sí que lo has hecho! ¡Oh ATEEEEENEAAAAAAAA!
+	SeraphHurtChat4: ¡ESO HA DOLIDO..! ¡WAAAAAAAAAAH ATENEA ¡EL CAMINANTE DE LA TIERRA ESTÁ SIENDO MALO!
+	SeraphHurtChat5: *GASP*! ¡Me has ensuciado el vestido..! ¡Voy a buscar a Atenea..!
+	SeraphAthenaRunChat1: ¡Ahora sí que lo has hecho...!
+	SeraphAthenaRunChat2: No quiero estar por aquí para ver esto...
+	SeraphAthenaRunChat3: ¡Te vas a enterar ahora!
+	SeraphAthenaRunChat4: Lo que pase a continuación no es culpa mía.
+	SeraphAthenaRunChat5: ¡Te está bien empleado!
+	AthenaChat1: ...ugh... esos niñatos llorones...
+	AthenaChat2: ¡No tengo tiempo para esto..!
+}
+
+Athena.DisplayName: Atenea
+AthenaDefeat.DisplayName: Atenea Derrotada
+AthenaFlee.DisplayName: Atenea
+OwlRune.DisplayName: Runa de Búho
+SeraphA.DisplayName: Guardia Serafín
+Seraph.DisplayName: Serafín
+SeraphHurt.DisplayName: Serafín Herido
+AthenaA.DisplayName: Atenea Olímpica
+AthenaCloneDark.DisplayName: Clon de Atenea
+AthenaCloneLight.DisplayName: Clon de Atenea
+ChargedOwlRune.DisplayName: Runa de Búho Cargada
+SeraphHerald.DisplayName: Heraldo Serafín
+BunnyBrawler.DisplayName: Conejo Luchador
+RabbitcopterSoldier.DisplayName: Soldado Heliconejo
+RabidRabbit.DisplayName: Conejo Rabioso
+RajahRabbit.DisplayName: Rajah Rabbit
+RoyalRabbit_NPC.DisplayName: Conejo Real
+RajahRabbitA.DisplayName: Rajah Rabbit; Campeón de los Inocentes
+RajahRabbitADefeat.DisplayName: Rajah Rabbit
+SupremeBunnyBrawler.DisplayName: Conejo Luchador Supremo
+SupremeRabbitcopterSoldier.DisplayName: Soldado Heliconejo Supremo
+SupremeRabidRabbit.DisplayName: Conejo Rabioso Supremo
+GripOfChaosInferno.DisplayName: Garra del Caos
+GripOfChaosMire.DisplayName: Garra del Caos
+ChaosDragon.DisplayName: Dragón del Caos
+ShenDoragonA.DisplayName: Shen Doragon Despertado
+ShenDoragon.DisplayName: Shen Doragon; Profeta del Apocalipsis Discordiano
+AbyssGrip.DisplayName: Garra de la Ira Abisal
+BlazeGrip.DisplayName: Garra de la Furia Ardiente
+ShenDoragon_Hitbox.DisplayName: Shen Doragon; Profeta del Apocalipsis Discordiano
+ShenDoragonDeath.DisplayName: Muerte de Discordia
+ShenDoragonDefeat.DisplayName: Derrota de Discordia
+ShenDoragonSpawn.DisplayName: Discordia
+ShenDoragonTransition.DisplayName: Despertar Discordiano
+FuryAshe.DisplayName: Furia Ashe
+FuryAsheVanish.DisplayName: Ashe Akuma
+FuryFlameVortex.DisplayName: Vértice de Llamas
+ShenlingBody1.DisplayName: Serpiente Discordiana
+ShenlingBody2.DisplayName: Serpiente Discordiana
+ShenlingHead.DisplayName: Serpiente Discordiana
+ShenlingTail.DisplayName: Serpiente Discordiana
+WrathHaruka.DisplayName: Wrath Haruka
+WrathHarukaClone.DisplayName: Wrath Haruka
+WrathHarukaVanish.DisplayName: Wrath Haruka
+AHDeath.DisplayName: Derrota de las Hermanas
+AHSpawn.DisplayName: Hermanas de la Discordia
+Ashe.DisplayName: Ashe Akuma
+AshenDragonArms.DisplayName: Dragón Ceniciento
+AshenDragonBody1.DisplayName: Dragón Ceniciento
+AshenDragonBody2.DisplayName: Dragón Ceniciento
+AshenDragonBody3.DisplayName: Dragón Ceniciento
+AshenDragonHead.DisplayName: Dragón Ceniciento
+AshenDragonTail.DisplayName: Dragón Ceniciento
+AsheRune.DisplayName: Runa de Ashe
+AsheSpawn.DisplayName: Ashe Akuma
+AsheVanish.DisplayName: Ashe Akuma
+FlameVortex.DisplayName: Vértice de Llamas
+Haruka.DisplayName: Haruka Yamata
+HarukaClone.DisplayName: Haruka Yamata
+HarukaFall.DisplayName: Haruka Yamata
+HarukaSpawn.DisplayName: Haruka Yamata
+HarukaVanish.DisplayName: Haruka Yamata
+DesertDjinn.DisplayName: Genio del Desierto
+Djinn.DisplayName: Genio
+Anubis.DisplayName: Anubis Escriba de Leyendas
+EyeSentry.DisplayName: Centinela Ocular
+HorusHawk.DisplayName: Halcón de Horus
+Locust.DisplayName: Langosta
+MinionRitual.DisplayName: Ritual de Esbirro
+Scarab.DisplayName: Escarabajo
+UraeusBody.DisplayName: Uraeus
+UraeusHead.DisplayName: Cabeza de Uraeus
+UraeusTail.DisplayName: Uraeus
+AnubisA.DisplayName: Anubis; Juez Abandonado
+AnubisForsakenTransition.DisplayName: Anubis Escriba de Leyendas
+CursedLocust.DisplayName: Langosta Maldita
+CursedMinionCircle.DisplayName: Círculo de Esbirros Maldito
+CursedScarab.DisplayName: Escarabajo Maldito
+ForsakenSun.DisplayName: Sol Abandonado
+HorusSentry.DisplayName: Centinela de Horus
+Naddaha.DisplayName: Naddaha
+FeudalFungus.DisplayName: Hongo Feudal
+FeudalFungus_FungalSpore.DisplayName: Espora Fúngica
+FeudalFungus_FungusFlier.DisplayName: Volador Fúngico
+FeudalFungusAsleep.DisplayName: Hongo Luminoso Muy Grande
+FeudalFungusWakeUp.DisplayName: ¿Hongo Luminoso Muy Grande...?
+GlowingMushling.DisplayName: Champiñón Luminoso
+GregariousGlowshrooms.DisplayName: Champiñones Luminosos Gregarios
+LuminousAccordyceps.DisplayName: Cordyceps Luminoso
+TruffleToad.DisplayName: Sapo de Trufa
+TinyToad.DisplayName: Sapo Pequeño
+FatPixie.DisplayName: Hada Gorda
+GreedBody.DisplayName: Avaricia
+GreedHead.DisplayName: Avaricia
+GreedTransition.DisplayName: Chispa de Avaricia
+OreConstruct.DisplayName: Constructo de Mineral
+SparkOfDesire.DisplayName: Chispa de Deseo
+ScavengerBody.DisplayName: Carroñero
+ScavengerHead.DisplayName: Carroñero
+ScavengerTail.DisplayName: Carroñero
+GreedABody.DisplayName: Rey Gusano Avaricia
+GreedAHead.DisplayName: Rey Gusano Avaricia
+SingularityOfDesire.DisplayName: Singularidad de Deseo
+Broodmini.DisplayName: Mininido
+Broodmother.DisplayName: La Madre de la Brote
+DragonEgg.DisplayName: Huevo de Dragón
+InfernalSlime.DisplayName: Limo Infernal
+DragonClaw_NPC.DisplayName: Garra de Dragón
+FlameBrute.DisplayName: Bruto de Llamas
+Singemander.DisplayName: Singemander
+WyrmlingBody.DisplayName: Dragontino
+WyrmlingHead.DisplayName: Dragontino
+WyrmlingTail1.DisplayName: Dragontino
+WyrmlingTail2.DisplayName: Dragontino
+BlazePhoenix.DisplayName: Fénix Ígneo
+InfernalGhoul.DisplayName: Goul Infernal
+PigronInferno.DisplayName: Chanchicerdo
+ChaoticDawn.DisplayName: Amanecer Caótico
+InfernoMimic.DisplayName: Mímico Infernal
+WyrmBody1.DisplayName: Wyrm
+WyrmBody2.DisplayName: Wyrm
+WyrmBody3.DisplayName: Wyrm
+WyrmBody4.DisplayName: Wyrm
+WyrmHead.DisplayName: Wyrm
+MagmaSwimmer.DisplayName: Nadador de Magma
+AkumaBody.DisplayName: Akuma, Demonio Draconiano
+AkumaHead.DisplayName: Akuma; Demonio Draconiano
+AkumaTransition.DisplayName: Alma de Furia
+AkumaABody.DisplayName: Oni Akuma
+AkumaAHead.DisplayName: Oni Akuma
+AwakenedLungBody.DisplayName: Pulmón Despertado
+AwakenedLungHead.DisplayName: Pulmón Despertado
+AwakenedLungTail.DisplayName: Pulmón Despertado
+BlazeClaw.DisplayName: Garra de Llamas
+AncientLungBody.DisplayName: Pulmón Ancestral
+AncientLungHead.DisplayName: Pulmón Ancestral
+AncientLungTail.DisplayName: Pulmón Ancestral
+MadnessBat.DisplayName: Murciélago de la Locura
+MadnessSlime.DisplayName: Limo de la Locura
+HarukaShadowPostHydra.DisplayName: ...
+HarukaShadow.DisplayName: ...
+HydraBody.DisplayName: Hidra
+HydraHead1.DisplayName: Hidra
+HydraHead2.DisplayName: Hidra
+HydraHead3.DisplayName: Hidra
+HydraHead4.DisplayName: Hidra
+HydraHead5.DisplayName: Hidra
+HydraHead6.DisplayName: Hidra
+HydraHead7.DisplayName: Hidra
+HydraHead8.DisplayName: Hidra
+HydraHead9.DisplayName: Hidra
+MurkySlime.DisplayName: Limo Turbio
+HydraClaw_NPC.DisplayName: Garra de Hidra
+Mosster.DisplayName: Monsstruo
+Newt.DisplayName: Tritón
+Skulker.DisplayName: Merodeador
+Kappa.DisplayName: Kappa
+Toxitoad.DisplayName: Sapo Tóxico
+ShadowGhoul.DisplayName: Goul de las Sombras
+PigronMire.DisplayName: Chanchicerdo
+ChaoticTwilight.DisplayName: Crepúsculo Caótico
+MireMimic.DisplayName: Mímico del Lodazal
+Miresquito.DisplayName: Miresquito
+FogAngler.DisplayName: Pescador de la Niebla
+MireSoul.DisplayName: Alma del Lodazal
+YamataABody.DisplayName: Cuerpo de Yamata A
+YamataAHead.DisplayName: Yamata no Orochi
+YamataAHeadFake.DisplayName: Yamata no Orochi
+YamataBody.DisplayName: Yamata
+YamataHead.DisplayName: Yamata
+YamataHeadFake1.DisplayName: Yamata
+YamataHeadFake2.DisplayName: Yamata
+YamataTransition.DisplayName: Espíritu de Ira
+AbyssClaw.DisplayName: Garra Abisal
+Soulsucker.DisplayName: Succiona almas
+Mushling.DisplayName: Champiñón
+MushroomMonarch.DisplayName: Monarca Champiñón
+MushroomMonarchAsleep.DisplayName: Hongo Muy Grande
+MushroomMonarchWakeUp.DisplayName: ¿Hongo Muy Grande...?
+FungusFrog.DisplayName: Rana Fúngica
+Mushbug.DisplayName: Bicho Hongo
+MushroomCrab.DisplayName: Cangrejo de Hongo
+MushroomJelly.DisplayName: Gelatina de Hongo
+MushroomZombie.DisplayName: Zombi de Hongo
+MushroomZombie2.DisplayName: Zombi de Hongo
+ElderDragon.DisplayName: Dragón Anciano
+IceCrystal.DisplayName: Cristal de Hielo
+SubzeroSerpent_Body.DisplayName: Serpiente Subcero
+SubzeroSerpent_Head.DisplayName: Serpiente Subcero
+SubzeroSerpent_Tail.DisplayName: Serpiente Subcero
+SnowSerpentBody.DisplayName: Serpiente de Nieve
+SnowSerpentHead.DisplayName: Serpiente de Nieve
+SnowSerpentTail.DisplayName: Serpiente de Nieve
+DaybringerBody.DisplayName: Portador del Día
+DaybringerHead.DisplayName: Portador del Día
+DaybringerTail.DisplayName: Portador del Día
+Equiprobe.DisplayName: Equiprobador
+NightCloud.DisplayName: Nube Nocturna
+NightcrawlerBody.DisplayName: Reptador Nocturno
+NightcrawlerHead.DisplayName: Reptador Nocturno
+NightcrawlerTail.DisplayName: Reptador Nocturno
+SunWatcher.DisplayName: Vigía Solar
+NightGuard.DisplayName: Guardia Nocturno
+DBPortal.DisplayName: Estrella Brillante
+NCPortal.DisplayName: Portal C. N.
+WormSpawn.DisplayName: Voz Celestial
+PurityCrawler.DisplayName: Reptador de la Pureza
+PuritySphere.DisplayName: Esfera de la Pureza
+PuritySquid.DisplayName: Calamar de la Pureza
+PurityWeaverBody.DisplayName: Tejedor de Terra
+PurityWeaverHead.DisplayName: Tejedor de Terra
+PurityWeaverTail.DisplayName: Tejedor de Terra
+TerraDeadshot.DisplayName: Tirador de Terra
+TerraKnight.DisplayName: Caballero de Terra
+TerraSquire.DisplayName: Escudero de Terra
+TerraWarlock.DisplayName: Brujo de Terra
+TerraCrawler.DisplayName: Reptador de Terra
+TerraSphere.DisplayName: Esfera de Terra
+TerraSquid.DisplayName: Calamar de Terra
+TerraWeaverBody.DisplayName: Tejedor de Terra
+TerraWeaverHead.DisplayName: Tejedor de Terra
+TerraWeaverTail.DisplayName: Tejedor de Terra
+TerraWizard.DisplayName: Mago de Terra
+UnityProbe.DisplayName: Sonda de Unidad
+UnityWatcher.DisplayName: Vigía de Unidad
+Sagittarius.DisplayName: Sagitario
+ShadowScout.DisplayName: Explorador de las Sombras
+StoneSearcher.DisplayName: Buscador de Piedra
+ZeroDeactivated.DisplayName: Máquina Extraña
+VoidScout.DisplayName: Explorador del Vacío
+Vortex.DisplayName: Vórtice
+NullZP.DisplayName: Nulo
+Null.DisplayName: Nulo
+ZeroA.DisplayName: ZER0 PR0T0C0L
+ZeroEcho.DisplayName: 3CH0
+ZeroMini.DisplayName: ZER0 SELF 0RGANIZATI0N
+ZeroTransition.DisplayName: Grieta Rota
+Zero.DisplayName: Zero
+ZeroBrokenWeapon.DisplayName: Arma Rota
+ZeroGenocideCannon.DisplayName: Cañón de Genocidio
+ZeroGigataser.DisplayName: Gigatáser
+ZeroNeutralizer.DisplayName: Neutralizador
+ZeroNovaFocus.DisplayName: Enfoque Nova
+ZeroOmegaVolley.DisplayName: Descarga Omega
+ZeroRealityCannon.DisplayName: Cañón de la Realidad
+ZeroRiftShredder.DisplayName: Triturador de Grietas
+ZeroVoidStar.DisplayName: Estrella del Vacío
+Searcher.DisplayName: Buscador
+OrthrusXBody.DisplayName: Orthrus X
+OrthrusXHead.DisplayName: Orthrus X
+OrthrusXHead_OrthrusReticle.DisplayName: Retícula de Orthrus
+RaiderEgg.DisplayName: Huevo de Incursor
+RaiderUltima.DisplayName: El Incursor Última
+RaiderUltima_RaiderRocket.DisplayName: Cohete Incursor
+Raidmini.DisplayName: Miniincursor
+Retriever.DisplayName: El Recuperador
+CyberClaw.DisplayName: Garra Cibernética
+AmbientSoulOfCthulhu.DisplayName: ???
+OlympianDragon.DisplayName: Dragón Olímpico
+AnubisUnreleased.DisplayName: Anubis Escriba de Leyendas
+AnubisCircle.DisplayName: Círculo de Anubis
+BiomiteCore.DisplayName: Núcleo de Biomita
+TechnoTruffle.DisplayName: Tecnotrufa
+TruffleProbe.DisplayName: Sonda de Trufa
+Truffling.DisplayName: Trufil
+DimensionDiver.DisplayName: Buzo de la Fosa
+RiftShark.DisplayName: Tiburón de la Fosa
+Cthulhu.DisplayName: Cthulhu, Calamidad Cósmica
+DeityBrain.DisplayName: Lu'Kthu
+EyeOfAzathoth.DisplayName: Ojo de Azathoth
+DeityEater.DisplayName: Crom Cruach
+DeityEaterBody.DisplayName: Crom Cruach
+DeityEaterTail.DisplayName: Crom Cruach
+DeityEye.DisplayName: Cyaegha
+DeityLeviathan.DisplayName: Vile-Oct
+DeityShark.DisplayName: Tiburón de Deidad
+DeityShark2.DisplayName: Tiburón de Deidad
+LeviathanBubble.DisplayName: Burbuja de Leviatán
+DeityRose.DisplayName: Ei'lor
+DeityRoseClaws.DisplayName: Tentáculo de Ei'Lor
+DeityRoseHook.DisplayName: Garra de Ei'Lor
+DeityRoseSpore.DisplayName: Espora de Ei'Lor
+ShadowUrchin.DisplayName: Erizo de las Sombras
+DeitySkull.DisplayName: Rhan-Tegoth
+DeitySkull_Hand.DisplayName: Garra de Tegoth
+DeitySkull_Hand1.DisplayName: Garra de Tegoth
+DeitySkull_Hand2.DisplayName: Garra de Tegoth
+DeitySkull_Hand3.DisplayName: Garra de Tegoth
+DeitySkull_Hand4.DisplayName: Garra de Tegoth
+DeitySkull_Hand5.DisplayName: Garra de Tegoth
+CthulhuPortal.DisplayName: Portal Oscuro
+CthulhuSpawn.DisplayName: Portal Cuántico
+DeityDragon.DisplayName: Psyvern
+DeityDragon_Arms.DisplayName: Psyvern
+DeityDragon_Body1.DisplayName: Psyvern
+DeityDragon_Body2.DisplayName: Psyvern
+DeityDragon_Body3.DisplayName: Psyvern
+DeityDragon_Tail.DisplayName: Psyvern
+Portal.DisplayName: Portal de Grieta
+RiftVision.DisplayName: Visión de Grieta
+SoulOfCthulhu.DisplayName: Alma de Cthulhu
+UDUNFUKED.DisplayName: Sombra Lovecraftiana
+TrenchSquid.DisplayName: Calamar de la Fosa
+InfinityCore.DisplayName: Cero Infinito
+InfinityZero.DisplayName: Cero Infinito; Malicia Mecánica
+InfinityZeroHand1.DisplayName: Cero Encadenado
+InfinityZeroHand2.DisplayName: Cero Encadenado
+InfinityZeroSpawn1.DisplayName: Muerte
+Oblivion.DisplayName: Olvido
+// TerraSerpentBody.DisplayName: Terra Serpent
+// TerraSerpentHead.DisplayName: Terra Serpent
+// TerraSerpentTail.DisplayName: Terra Serpent
+// DustDjinn.DisplayName: Dust Djinn
+// CursedMinionRitual.DisplayName: Cursed Ritual
+// SubzeroSerpentBody.DisplayName: "{$NPCs.SubzeroSerpentHead.DisplayName}"
+// SubzeroSerpentHead.DisplayName: Subzero Serpent
+// SubzeroSerpentTail.DisplayName: "{$NPCs.SubzeroSerpentHead.DisplayName}"
