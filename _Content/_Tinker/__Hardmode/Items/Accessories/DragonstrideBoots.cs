@@ -44,9 +44,10 @@ namespace AAModClassic._Content._Tinker.__Hardmode.Items.Accessories
                 AddEffect(new LavaWadersWaterWalkingEffect(false));
             AddEffect(new LavaWadersFireImmunityEffect(true, 600));
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
                 AddEffect<ObsidianRoseEffect>();
-            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 AddEffect<DragonstrideBootsUnofficialEffect>();
+            }
             AddEffect<FlipperEffect>();
             AddEffect(new MasterNinjaMobilityEffect(false, true));
         }
