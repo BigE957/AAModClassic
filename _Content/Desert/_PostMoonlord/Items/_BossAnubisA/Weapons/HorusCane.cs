@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
 using AAModClassic._Content.Desert._PostMoonlord.Items.Materials;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -49,22 +50,30 @@ namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons
             {
                 num155 = (int)(Main.screenPosition.Y + Main.screenHeight - Main.mouseY) / 16;
             }
-			if (player.ownedProjectileCounts[num74] < player.maxTurrets)
-			{
-				Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), Main.mouseX + Main.screenPosition.X, Main.mouseY + Main.screenPosition.Y, 0f, 0f, num74, num76, num77, i, 0f, 0f);
-			}
-			if (player.ownedProjectileCounts[num74] == player.maxTurrets)
-			{
-                foreach (Projectile p in Main.ActiveProjectiles)
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), Main.mouseX + Main.screenPosition.X, Main.mouseY + Main.screenPosition.Y, 0f, 0f, num74, num76, num77, i, 0f, 0f);
+                player.UpdateMaxTurrets();
+            }
+            else
+            {
+                if (player.ownedProjectileCounts[num74] < player.maxTurrets)
                 {
-					if(p.type == num74)
-					{
-						p.Kill();
-						break;
-					}
-				}
-				 Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), Main.mouseX + Main.screenPosition.X, num155 * 16 - 24, 0f, 0f, num74, num76, num77, i, 0f, 0f);
-			}
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), Main.mouseX + Main.screenPosition.X, Main.mouseY + Main.screenPosition.Y, 0f, 0f, num74, num76, num77, i, 0f, 0f);
+                }
+                if (player.ownedProjectileCounts[num74] == player.maxTurrets)
+                {
+                    foreach (Projectile p in Main.ActiveProjectiles)
+                    {
+                        if (p.type == num74)
+                        {
+                            p.Kill();
+                            break;
+                        }
+                    }
+                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), Main.mouseX + Main.screenPosition.X, num155 * 16 - 24, 0f, 0f, num74, num76, num77, i, 0f, 0f);
+                }
+            }
 
             return false;
         }

@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -49,22 +50,30 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
             {
                 num155 = (int)(Main.screenPosition.Y + Main.screenHeight - Main.mouseY) / 16;
             }
-			if (player.ownedProjectileCounts[num74] < player.maxTurrets)
-			{
-				Projectile.NewProjectile(source, Main.mouseX + Main.screenPosition.X, num155 * 16 - 24, 0f, 15f, num74, num76, num77, i, 0f, 0f);
-			}
-			if (player.ownedProjectileCounts[num74] == player.maxTurrets)
-			{
-                foreach (Projectile p in Main.ActiveProjectiles)
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                Projectile.NewProjectile(source, Main.mouseX + Main.screenPosition.X, num155 * 16 - 24, 0f, 15f, num74, num76, num77, i, 0f, 0f);
+                player.UpdateMaxTurrets();
+            }
+            else
+            {
+                if (player.ownedProjectileCounts[num74] < player.maxTurrets)
                 {
-					if(p.type == num74)
-					{
-						p.Kill();
-						break;
-					}
-				}
-				 Projectile.NewProjectile(source, Main.mouseX + Main.screenPosition.X, num155 * 16 - 24, 0f, 15f, num74, num76, num77, i, 0f, 0f);
-			}
+                    Projectile.NewProjectile(source, Main.mouseX + Main.screenPosition.X, num155 * 16 - 24, 0f, 15f, num74, num76, num77, i, 0f, 0f);
+                }
+                if (player.ownedProjectileCounts[num74] == player.maxTurrets)
+                {
+                    foreach (Projectile p in Main.ActiveProjectiles)
+                    {
+                        if (p.type == num74)
+                        {
+                            p.Kill();
+                            break;
+                        }
+                    }
+                    Projectile.NewProjectile(source, Main.mouseX + Main.screenPosition.X, num155 * 16 - 24, 0f, 15f, num74, num76, num77, i, 0f, 0f);
+                }
+            }
 
             return false;
         }
