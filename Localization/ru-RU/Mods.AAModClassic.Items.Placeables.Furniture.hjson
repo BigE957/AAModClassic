@@ -541,92 +541,113 @@ Terra: {
 }
 
 RedMushroom: {
-    RedmushBed: {
-        DisplayName: Грибная кровать
-        Tooltip: ""
-    }
-    RedmushBench: {
-        DisplayName: Грибная скамья
-        Tooltip: ""
-    }
-    RedmushBookcase: {
-        DisplayName: Грибной книжный шкаф
-        Tooltip: ""
-    }
-    RedmushCandelabra: {
-        DisplayName: Грибной канделябр
-        Tooltip: ""
-    }
-    RedmushCandle: {
-        DisplayName: Грибная свеча
-        Tooltip: ""
-    }
-    RedmushChair: {
-        DisplayName: Грибной стул
-        Tooltip: ""
-    }
-    RedmushChandelier: {
-        DisplayName: Грибная люстра
-        Tooltip: ""
-    }
-    RedmushChest: {
-        DisplayName: Грибной сундук
-        Tooltip: ""
-    }
-    RedmushClock: {
-        DisplayName: Грибные часы
-        Tooltip: ""
-    }
-    RedmushCouch: {
-        DisplayName: Грибной диван
-        Tooltip: ""
-    }
-    RedmushDoor: {
-        DisplayName: Грибная дверь
-        Tooltip: ""
-    }
-    RedmushDresser: {
-        DisplayName: Грибной комод
-        Tooltip: ""
-    }
-    RedmushLamp: {
-        DisplayName: Грибная лампа
-        Tooltip: ""
-    }
-    RedmushLantern: {
-        DisplayName: Грибной фонарь
-        Tooltip: ""
-    }
-    RedmushPiano: {
-        DisplayName: Грибное пианино
-        Tooltip: ""
-    }
-    RedmushSink: {
-        DisplayName: Грибная раковина
-        Tooltip: ""
-    }
-    RedmushTable: {
-        DisplayName: Грибной стол
-        Tooltip: ""
-    }
-    RedmushToilet: {
-        DisplayName: Грибной унитаз
-        Tooltip: ""
-    }
-    RedmushTub: {
-        DisplayName: Грибная ванна
-        Tooltip: ""
-    }
-    RedmushWorkbench: {
-        DisplayName: Грибной верстак
-        Tooltip: ""
-    }
-    RedmushPlatform: {
-        DisplayName: Грибная платформа
-        Tooltip: ""
-    }
-    RedmushWall: {
-        DisplayName: Грибная стена
-        Tooltip: ""
-    }
+	RedmushBed: {
+		DisplayName: Грибная кровать
+		Tooltip: ""
+	}
+
+	RedmushBench: {
+		DisplayName: Грибная скамья
+		Tooltip: ""
+	}
+
+	RedmushBookcase: {
+		DisplayName: Грибной книжный шкаф
+		Tooltip: ""
+	}
+
+	RedmushCandelabra: {
+		DisplayName: Грибной канделябр
+		Tooltip: ""
+	}
+
+	RedmushCandle: {
+		DisplayName: Грибная свеча
+		Tooltip: ""
+	}
+
+	RedmushChair: {
+		DisplayName: Грибной стул
+		Tooltip: ""
+	}
+
+	RedmushChandelier: {
+		DisplayName: Грибная люстра
+		Tooltip: ""
+	}
+
+	RedmushChest: {
+		DisplayName: Грибной сундук
+		Tooltip: ""
+	}
+
+	RedmushClock: {
+		DisplayName: Грибные часы
+		Tooltip: ""
+	}
+
+	RedmushCouch: {
+		DisplayName: Грибной диван
+		Tooltip: ""
+	}
+
+	RedmushDoor: {
+		DisplayName: Грибная дверь
+		Tooltip: ""
+	}
+
+	RedmushDresser: {
+		DisplayName: Грибной комод
+		Tooltip: ""
+	}
+
+	RedmushLamp: {
+		DisplayName: Грибная лампа
+		Tooltip: ""
+	}
+
+	RedmushLantern: {
+		DisplayName: Грибной фонарь
+		Tooltip: ""
+	}
+
+	RedmushPiano: {
+		DisplayName: Грибное пианино
+		Tooltip: ""
+	}
+
+	RedmushSink: {
+		DisplayName: Грибная раковина
+		Tooltip: ""
+	}
+
+	RedmushTable: {
+		DisplayName: Грибной стол
+		Tooltip: ""
+	}
+
+	RedmushToilet: {
+		DisplayName: Грибной унитаз
+		Tooltip: ""
+	}
+
+	RedmushTub: {
+		DisplayName: Грибная ванна
+		Tooltip: ""
+	}
+
+	RedmushWorkbench: {
+		DisplayName: Грибной верстак
+		Tooltip: ""
+	}
+
+	RedmushPlatform: {
+		DisplayName: Грибная платформа
+		Tooltip: ""
+	}
+
+	RedmushWall: {
+		DisplayName: Грибная стена
+		Tooltip: ""
+	}
 }

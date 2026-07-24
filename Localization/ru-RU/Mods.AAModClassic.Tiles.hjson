@@ -213,7 +213,12 @@ KeepDoor1_Tile.MapEntry: Дверь цитадели
 KeepDoor2_Tile.MapEntry: Дверь цитадели
 KeepDoor2S_Tile.MapEntry: Дверь цитадели
 KeepDoor3_Tile.MapEntry: Дверь цитадели
-TerraStatue_Tile.MapEntry: Статуя павшего героя
+
+TerraStatue_Tile: {
+	MapEntry: Статуя павшего героя
+	// FlavorText: The Hero who saved us all from the brink of chaos
+}
+
 SunkenChest_Tile.MapEntry: Затонувший сундук
 InfernoPylon_Tile.MapEntry: Пилон Инферно
 MirePylon_Tile.MapEntry: Пилон Трясины
