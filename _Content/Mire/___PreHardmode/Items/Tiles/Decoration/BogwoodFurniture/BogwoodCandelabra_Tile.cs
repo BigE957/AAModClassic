@@ -15,7 +15,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwo
             DustType = ModContent.DustType<BogwoodDust>();
         }
 
-        public override void HitWire(int i, int j) => FurnitureCommon.LightHitWire(Type, i, j, 2, 2);
+        public override void HitWire(int i, int j) => FurnitureUtils.LightHitWire(Type, i, j, 2, 2);
 
         public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 

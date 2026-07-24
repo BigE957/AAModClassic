@@ -23,9 +23,9 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Ourob
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
 
-        public override bool RightClick(int i, int j) => FurnitureCommon.BedRightClick(i, j);
+        public override bool RightClick(int i, int j) => FurnitureUtils.BedRightClick(i, j);
 
-        public override void MouseOver(int i, int j) => FurnitureCommon.MouseOver(i, j, ModContent.ItemType<OuroborosWoodBed>());
+        public override void MouseOver(int i, int j) => FurnitureUtils.MouseOver(i, j, ModContent.ItemType<OuroborosWoodBed>());
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {

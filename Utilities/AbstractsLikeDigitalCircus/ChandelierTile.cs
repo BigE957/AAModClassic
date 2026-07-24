@@ -62,7 +62,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
 
         public override void HitWire(int i, int j)
         {
-            FurnitureCommon.LightHitWire(Type, i, j, 3, 3);
+            FurnitureUtils.LightHitWire(Type, i, j, 3, 3);
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

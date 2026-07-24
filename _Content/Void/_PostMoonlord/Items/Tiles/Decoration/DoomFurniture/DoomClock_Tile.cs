@@ -18,7 +18,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
             DustType = ModContent.DustType<DoomDust>();
         }
 
-        public override void MouseOver(int i, int j) => FurnitureCommon.MouseOver(i, j, ModContent.ItemType<DoomClock>());
+        public override void MouseOver(int i, int j) => FurnitureUtils.MouseOver(i, j, ModContent.ItemType<DoomClock>());
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
 

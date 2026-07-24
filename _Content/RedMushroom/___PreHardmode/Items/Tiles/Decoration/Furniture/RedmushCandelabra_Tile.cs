@@ -13,7 +13,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoratio
             DustType = ModContent.DustType<MushDust>();
         }
 
-        public override void HitWire(int i, int j) => FurnitureCommon.LightHitWire(Type, i, j, 2, 2);
+        public override void HitWire(int i, int j) => FurnitureUtils.LightHitWire(Type, i, j, 2, 2);
 
         public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 

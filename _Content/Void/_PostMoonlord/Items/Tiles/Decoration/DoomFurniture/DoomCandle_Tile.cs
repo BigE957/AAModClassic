@@ -17,13 +17,13 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
 
         public override bool RightClick(int i, int j)
         {
-            FurnitureCommon.RightClickBreak(i, j);
+            FurnitureUtils.RightClickBreak(i, j);
             return true;
         }
 
         public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 
-        public override void HitWire(int i, int j) => FurnitureCommon.LightHitWire(Type, i, j, 1, 1);
+        public override void HitWire(int i, int j) => FurnitureUtils.LightHitWire(Type, i, j, 1, 1);
 
         public override void MouseOver(int i, int j)
         {

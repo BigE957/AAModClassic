@@ -14,7 +14,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace AAModClassic.Utilities
 {
-    internal static class FurnitureCommon
+    internal static class FurnitureUtils
     {
         public static bool BedRightClick(int i, int j)
         {

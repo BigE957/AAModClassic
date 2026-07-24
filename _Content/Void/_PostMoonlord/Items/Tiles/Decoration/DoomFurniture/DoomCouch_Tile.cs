@@ -21,13 +21,13 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
             DustType = ModContent.DustType<DoomDust>();
         }
 
-        public override void MouseOver(int i, int j) => FurnitureCommon.BenchMouseOver(i, j, ModContent.ItemType<DoomCouch>());
+        public override void MouseOver(int i, int j) => FurnitureUtils.BenchMouseOver(i, j, ModContent.ItemType<DoomCouch>());
 
         public override void NumDust(int i, int j, bool fail, ref int num) => num = (fail ? 1 : 3);
 
-        public override void ModifySittingTargetInfo(int i, int j, ref TileRestingInfo info) => FurnitureCommon.BenchSitInfo(i, j, ref info);
+        public override void ModifySittingTargetInfo(int i, int j, ref TileRestingInfo info) => FurnitureUtils.BenchSitInfo(i, j, ref info);
 
-        public override bool RightClick(int i, int j) => FurnitureCommon.ChairRightClick(i, j);
+        public override bool RightClick(int i, int j) => FurnitureUtils.ChairRightClick(i, j);
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => settings.player.IsWithinSnappngRangeToTile(i, j, PlayerSittingHelper.ChairSittingMaxDistance);
 

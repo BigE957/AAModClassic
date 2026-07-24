@@ -25,11 +25,11 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Ourob
 			num = fail ? 1 : 3;
         }
 
-        public override void ModifySittingTargetInfo(int i, int j, ref TileRestingInfo info) => FurnitureCommon.ChairSitInfo(i, j, ref info);
+        public override void ModifySittingTargetInfo(int i, int j, ref TileRestingInfo info) => FurnitureUtils.ChairSitInfo(i, j, ref info);
 
-        public override bool RightClick(int i, int j) => FurnitureCommon.ChairRightClick(i, j);
+        public override bool RightClick(int i, int j) => FurnitureUtils.ChairRightClick(i, j);
 
-        public override void MouseOver(int i, int j) => FurnitureCommon.ChairMouseOver(i, j, ModContent.ItemType<OuroborosWoodChair>());
+        public override void MouseOver(int i, int j) => FurnitureUtils.ChairMouseOver(i, j, ModContent.ItemType<OuroborosWoodChair>());
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => settings.player.IsWithinSnappngRangeToTile(i, j, PlayerSittingHelper.ChairSittingMaxDistance);
 

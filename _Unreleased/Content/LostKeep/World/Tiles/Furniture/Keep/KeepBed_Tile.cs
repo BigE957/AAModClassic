@@ -18,7 +18,7 @@ public class KeepBed_Tile : ModTile
 
     public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
 
-    public override bool RightClick(int i, int j) => FurnitureCommon.BedRightClick(i, j);
+    public override bool RightClick(int i, int j) => FurnitureUtils.BedRightClick(i, j);
 
-    public override void MouseOver(int i, int j) => FurnitureCommon.MouseOver(i, j, ModContent.ItemType<KeepBed>());
+    public override void MouseOver(int i, int j) => FurnitureUtils.MouseOver(i, j, ModContent.ItemType<KeepBed>());
 }

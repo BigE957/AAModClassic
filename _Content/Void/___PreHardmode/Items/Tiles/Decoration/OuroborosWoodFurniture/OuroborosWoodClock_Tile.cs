@@ -17,11 +17,11 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Ourob
             DustType = ModContent.DustType<DoomDust>();
         }
 
-        public override void MouseOver(int i, int j) => FurnitureCommon.MouseOver(i, j, ModContent.ItemType<OuroborosWoodClock>());
+        public override void MouseOver(int i, int j) => FurnitureUtils.MouseOver(i, j, ModContent.ItemType<OuroborosWoodClock>());
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
 
-        public override bool RightClick(int x, int y) => FurnitureCommon.ClockRightClick();
+        public override bool RightClick(int x, int y) => FurnitureUtils.ClockRightClick();
 
         public override void NearbyEffects(int i, int j, bool closer)
         {

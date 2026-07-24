@@ -20,7 +20,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Ourob
 
         public override void HitWire(int i, int j)
         {
-            FurnitureCommon.LightHitWire(Type, i, j, 1, 3);
+            FurnitureUtils.LightHitWire(Type, i, j, 1, 3);
         }
 
         public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
