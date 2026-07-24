@@ -198,6 +198,7 @@ Athena: {
 		}
 	}
 
+	AwakenedSummon: ¿Destruyendo uno de mis artefactos...? ¡Los terrícolas no paráis de tocarme las narices!
 	Kill: Y vete lejos... idiota.
 	Defeat: ¡AY! ¡Bien, bien..! ¡Te dejaré en paz! Vaya, no aflojas, ¿verdad?
 
@@ -234,8 +235,6 @@ Athena: {
 			Repeat: ¡AY! ¡Bien, bien..! ¡Te dejaré en paz! Vaya, no aflojas, ¿verdad?
 		}
 	}
-
-	AwakenedSummon: ¿Destruyendo uno de mis artefactos...? ¡Los terrícolas no paráis de tocarme las narices!
 }
 
 SeraphHerald1: ¡HOLA! ¡CAMINANTE TERRESTRE! ¡SÍ, TÚ, ESTÚPIDO SIMIO!
@@ -282,9 +281,9 @@ Greed: {
 		4: ¡TE ROBARÉ LA VIDA!
 	}
 
+	AwakenedSummon: ¡¿TE ATREVES A COMER DE MI TESORO?! ¡ENTONCES TE CONVERTIRÉ EN MI PRÓXIMA COMIDA!
 	Despawn: ¡EEEEEEEEEEEEEEEGH, LA LUZ DE LA SUPERFICIE! ¡DEMASIADO BRILLANTE! ¡DEMASIADO BRILLANTE!
 	Kill: ¡Y ALEJATE DE MIS GLORIOSAS RIQUEZAS, PEQUEÑO LADRÓN!
-	AwakenedSummon: ¡¿TE ATREVES A COMER DE MI TESORO?! ¡ENTONCES TE CONVERTIRÉ EN MI PRÓXIMA COMIDA!
 }
 
 Rajah: {

@@ -231,13 +231,13 @@ LegendscribeUnofficial: {
 		DislikeNPC: ¡Este tipo, {NPCName}, no para de jugar al golf en mi desierto!
 	}
 
-	Census.SpawnCondition: Necesita una casa con una Puerta Alta
-
 	Buttons: {
 		Help: Ayuda
 		Book: Encontré tu libro
-		Next:¿Qué es lo siguiente?
+		Next: ¿Qué es lo siguiente?
 	}
+
+	Census.SpawnCondition: Necesita una casa con una Puerta Alta
 }
 
 GoblinSlayer: {

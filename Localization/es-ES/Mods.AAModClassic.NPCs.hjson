@@ -88,7 +88,7 @@ HarukaFall.DisplayName: Haruka Yamata
 HarukaSpawn.DisplayName: Haruka Yamata
 HarukaVanish.DisplayName: Haruka Yamata
 DesertDjinn.DisplayName: Genio del Desierto
-Djinn.DisplayName: Genio
+DustDjinn.DisplayName: Genio de Polvo
 Anubis.DisplayName: Anubis Escriba de Leyendas
 EyeSentry.DisplayName: Centinela Ocular
 HorusHawk.DisplayName: Halcón de Horus
@@ -101,7 +101,7 @@ UraeusTail.DisplayName: Uraeus
 AnubisA.DisplayName: Anubis; Juez Abandonado
 AnubisForsakenTransition.DisplayName: Anubis Escriba de Leyendas
 CursedLocust.DisplayName: Langosta Maldita
-CursedMinionCircle.DisplayName: Círculo de Esbirros Maldito
+CursedMinionRitual.DisplayName: Círculo de Esbirros Maldito
 CursedScarab.DisplayName: Escarabajo Maldito
 ForsakenSun.DisplayName: Sol Abandonado
 HorusSentry.DisplayName: Centinela de Horus
@@ -212,9 +212,9 @@ MushroomZombie.DisplayName: Zombi de Hongo
 MushroomZombie2.DisplayName: Zombi de Hongo
 ElderDragon.DisplayName: Dragón Anciano
 IceCrystal.DisplayName: Cristal de Hielo
-SubzeroSerpent_Body.DisplayName: Serpiente Subcero
-SubzeroSerpent_Head.DisplayName: Serpiente Subcero
-SubzeroSerpent_Tail.DisplayName: Serpiente Subcero
+SubzeroSerpentBody.DisplayName: "{$NPCs.SubzeroSerpentHead.DisplayName}"
+SubzeroSerpentHead.DisplayName: Serpiente Subcero
+SubzeroSerpentTail.DisplayName: "{$NPCs.SubzeroSerpentHead.DisplayName}"
 SnowSerpentBody.DisplayName: Serpiente de Nieve
 SnowSerpentHead.DisplayName: Serpiente de Nieve
 SnowSerpentTail.DisplayName: Serpiente de Nieve
@@ -334,11 +334,6 @@ InfinityZeroHand1.DisplayName: Cero Encadenado
 InfinityZeroHand2.DisplayName: Cero Encadenado
 InfinityZeroSpawn1.DisplayName: Muerte
 Oblivion.DisplayName: Olvido
-// TerraSerpentBody.DisplayName: Terra Serpent
+TerraSerpentBody.DisplayName: "{$NPCs.TerraSerpentHead.DisplayName}"
 // TerraSerpentHead.DisplayName: Terra Serpent
-// TerraSerpentTail.DisplayName: Terra Serpent
-// DustDjinn.DisplayName: Dust Djinn
-// CursedMinionRitual.DisplayName: Cursed Ritual
-// SubzeroSerpentBody.DisplayName: "{$NPCs.SubzeroSerpentHead.DisplayName}"
-// SubzeroSerpentHead.DisplayName: Subzero Serpent
-// SubzeroSerpentTail.DisplayName: "{$NPCs.SubzeroSerpentHead.DisplayName}"
+TerraSerpentTail.DisplayName: "{$NPCs.TerraSerpentHead.DisplayName}"

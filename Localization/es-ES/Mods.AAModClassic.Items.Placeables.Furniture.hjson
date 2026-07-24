@@ -552,7 +552,7 @@ RedMushroom: {
 	}
 
 	RedmushBookcase: {
-		DisplayName:Estantería de Champiñón
+		DisplayName: Estantería de Champiñón
 		Tooltip: ""
 	}
 

@@ -594,19 +594,19 @@ OverloadedDoomiteRadio_Buff: {
 	Description: Invoca un explorador del vacío para que luche por ti
 }
 
-BrokenCode_Freeze: {
-	DisplayName: Congelación
-	Description: El Administrador de tareas no te va a servir de ayuda con esto
+BrokenCodeTeleportUnofficialEffect_Freeze: {
+	DisplayName: Congelado
+	Description: El Administrador de tareas no te va a ayudar con esto
 }
 
-BrokenCode_FreezeCooldown: {
+BrokenCodeTeleportUnofficialEffect_FreezeCooldown: {
 	DisplayName: Enfriamiento de Congelación
-	Description: ¡Al menos tu cabeza sigue pegada al cuerpo!
+	Description: ¡Al menos tu cabeza sigue sobre tu cuerpo!
 }
 
-BrokenCode_Glitched: {
+BrokenCodeTeleportEffect_Glitched: {
 	DisplayName: Glitcheado
-	Description: Tu cabeza está como a 3 metros por delante de ti
+	Description: Tu cabeza está como a 3 metros de ti
 }
 
 ZeroCore_Buff: {
@@ -672,19 +672,4 @@ SpearStuck_Buff: {
 InfinityGauntletEffect_InfinityBurnout: {
 	DisplayName: Desgaste del Infinito
 	Description: No apuntaron a la cabeza.
-}
-
-BrokenCodeTeleportUnofficialEffect_Freeze: {
-	DisplayName: Congelado
-	Description: El Administrador de tareas no te va a ayudar con esto
-}
-
-BrokenCodeTeleportUnofficialEffect_FreezeCooldown: {
-	DisplayName: Enfriamiento de Congelación
-	Description: ¡Al menos tu cabeza sigue sobre tu cuerpo!
-}
-
-BrokenCodeTeleportEffect_Glitched: {
-	DisplayName: Glitcheado
-	Description: Tu cabeza está como a 3 metros de ti
 }

@@ -267,7 +267,7 @@ DragonScale: {
 	Tooltip: ""
 }
 
-Hotshroom: {
+SolarMushroom: {
 	DisplayName: Champiñón Solar
 	Tooltip: Solo crece durante el día
 }
@@ -327,9 +327,9 @@ BlackLotus: {
 	Tooltip: Se dice que alguien ofreció $160000 por esta cosa.
 }
 
-Darkshroom: {
+LunarMushroom: {
 	DisplayName: Champiñón Lunar
-	Tooltip: Solo crece por la noche
+	Tooltip: Solo crece durante la noche
 }
 
 HydraClaw_Item: {
@@ -469,14 +469,4 @@ ApocalyptitePlate: {
 UnstableSingularity: {
 	DisplayName: Singularidad Inestable
 	Tooltip: Apenas lo suficientemente estable como para sostenerse
-}
-
-SolarMushroom: {
-	DisplayName: Champiñón Solar
-	Tooltip: Solo crece durante el día
-}
-
-LunarMushroom: {
-	DisplayName: Champiñón Lunar
-	Tooltip: Solo crece durante la noche
 }

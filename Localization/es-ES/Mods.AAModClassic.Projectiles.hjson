@@ -67,7 +67,7 @@ TheBookOfRunesEffect_NovaRay.DisplayName: Rayo nova
 TheBookOfRunesEffect_TerraRune.DisplayName: Runa terra
 TheBookOfRunesEffect_VoidRune.DisplayName: Runa del vacío
 TheBookOfTheLaw_ClawSlash.DisplayName: Corte de garra
-Aerodrake_AeroSlash.DisplayName: Aerocorte del aerodrake
+Aerodrake_Aeroslash.DisplayName: Aerocorte del aerodrake
 Aerodrake_AeroslashSplit.DisplayName: División de aerocorte del aerodrake
 Apocalypse_Explosion.DisplayName: Apocalipsis
 Apocalypse_FlamingJack.DisplayName: Apocalipsis
@@ -82,9 +82,9 @@ Catastrophe_CatastropheSphere.DisplayName: Esfera de la perdición
 Chronos_Holdout.DisplayName: Chronos
 ConflagrateScythe_ConflagrateConstructEX.DisplayName: Esbirro del End EX
 CosmicFury_Proj.DisplayName: Furia cósmica
-CursedSickleEXDamage.DisplayName: Daño de hoz maldita EX
-CursedSickleEXDamage2.DisplayName: Daño de hoz maldita EX 2
-CursedSickleEXEffect.DisplayName: Efecto de hoz maldita EX
+TartarusReaperDamage.DisplayName: Segador de Tártaro
+TartarusReaperDamage2.DisplayName: Segador de Tártaro
+TartarusReaperEffect.DisplayName: Segador de Tártaro
 DraconianFury_Flamesplosion.DisplayName: Llamarada explosiva
 DraconianFury_Meteor.DisplayName: Meteoro de furia draconiana
 EternalTwilight_YamataPhantom.DisplayName: Fantasma de Yamata del crepúsculo eterno
@@ -341,10 +341,10 @@ DynaskullJavelin_Proj.DisplayName: Jabalina de calavera dinástica
 FossilBoneslinger_AmberArrow.DisplayName: Flecha de ámbar
 DesertDjinn_Djinnado.DisplayName: Djinnado
 Legendscribe_Judgement.DisplayName: Juicio
-Djinn_BurstBlue.DisplayName: Ráfaga de Djinn
-Djinn_BurstRed.DisplayName: Ráfaga de Djinn
-Djinn_MagicBlastBlue.DisplayName: Explosión mágica
-Djinn_MagicBlastRed.DisplayName: Explosión mágica
+DustDjinn_BurstBlue.DisplayName: Genio de Polvo: Ráfaga Azul
+DustDjinn_BurstRed.DisplayName: Genio de Polvo: Ráfaga Roja
+DustDjinn_MagicBlastBlue.DisplayName: Genio de Polvo: Explosión Mágica Azul
+DustDjinn_MagicBlastRed.DisplayName: Genio de Polvo: Explosión Mágica Roja
 ArtifactOfJudgement_EyeOfJudgement.DisplayName: Ojo del juicio
 DesertStaff_DesertBlast.DisplayName: Bastón del desierto: explosión del desierto
 DesertStaff_FragBlast.DisplayName: Bastón del desierto: explosión fragmentaria
@@ -694,7 +694,7 @@ DaybringerHead_DayOrb.DisplayName: Orbe del día
 DaybringerHead_DayRay.DisplayName: Rayo del día
 DaybringerHead_DayStar.DisplayName: Estrella del día
 DaybringerHead_DaySun.DisplayName: Sol del día
-NightcrawlerHead_NightcrawlerDeathraySmall.DisplayName: Cabeza de oruga nocturna: rayo de la muerte de oruga nocturna pequeño
+NightcrawlerHead_NightDeathraySmall.DisplayName: Rayo de la Muerte Nocturno
 NightcrawlerHead_NightDeathray.DisplayName: Rayo de la muerte nocturno
 NightcrawlerHead_NightLaser.DisplayName: Láser nocturno
 NightcrawlerHead_NightScythe.DisplayName: Guadaña nocturna
@@ -892,7 +892,7 @@ Genocide_Antimatter.DisplayName: Antimateria
 InfinityBlade_Rift.DisplayName: Hoja del infinito: brecha
 Nova_NovaBurst.DisplayName: Nova: explosión nova
 Nova_Supernova.DisplayName: Supernova
-Sagittarius_Proj.DisplayName: Sagitario
+SagittariusA_Proj.DisplayName: Sagitario A
 TotalDestruction_Proj.DisplayName: Destrucción total
 InfinityZero_InfinityBolt.DisplayName: Rayo del infinito
 InfinityZero_InfinityStorm.DisplayName: Tormenta del infinito
@@ -902,17 +902,7 @@ DummyExplosionTerra.DisplayName: Explosión de prueba
 SistersTitle.DisplayName: Título de hermanas
 Title.DisplayName: Título
 InfinityGauntletEffect_Snap.DisplayName: Guantelete del infinito: chasquido
-Aerodrake_Aeroslash.DisplayName: Aerodrake: Aeroslash
-TartarusReaperDamage.DisplayName: Segador de Tártaro
-TartarusReaperDamage2.DisplayName: Segador de Tártaro
-TartarusReaperEffect.DisplayName: Segador de Tártaro
-NightcrawlerHead_NightDeathraySmall.DisplayName: Rayo de la Muerte Nocturno
-SagittariusA_Proj.DisplayName: Sagitario A
 ProtocolR_RaiderRocket.DisplayName: Cohete Incursor
-DustDjinn_BurstBlue.DisplayName: Genio de Polvo: Ráfaga Azul
-DustDjinn_BurstRed.DisplayName: Genio de Polvo: Ráfaga Roja
-DustDjinn_MagicBlastBlue.DisplayName: Genio de Polvo: Explosión Mágica Azul
-DustDjinn_MagicBlastRed.DisplayName: Genio de Polvo: Explosión Mágica Roja
 TheGripsOfChaos_HookInferno.DisplayName: Garra del Caos
 TheGripsOfChaos_HookMire.DisplayName: Garra del Caos
 DragonsGrip_Hook.DisplayName: Garra de Dragón
