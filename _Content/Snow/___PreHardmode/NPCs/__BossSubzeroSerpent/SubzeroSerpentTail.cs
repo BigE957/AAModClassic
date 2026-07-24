@@ -50,15 +50,17 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             NPC.dontCountMe = true;
         }
 
-        bool graceFrame = false;
-
         public override void AI()
         {
-            if(NPC.realLife == -1 || !Main.npc[NPC.realLife].active || Main.npc[NPC.realLife].type != ModContent.NPCType<SubzeroSerpentHead>())
+            NPC.realLife = (int)NPC.ai[3];
+
+            if (NPC.ai[0] != -1 && (NPC.realLife == -1 || !Main.npc[NPC.realLife].active || Main.npc[NPC.realLife].type != ModContent.NPCType<SubzeroSerpentHead>()))
             {
                 NPC.active = false;
                 return;
             }
+
+            NPC.ai[0] = 0;
 
             int tileX = (int)(NPC.position.X / 16f) - 1;
             int tileCenterX = (int)(NPC.Center.X / 16f) + 2;
@@ -89,10 +91,6 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                 }
             }
 
-            if (NPC.ai[3] > 0f)
-            {
-                NPC.realLife = (int)NPC.ai[3];
-            }
             if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead)
             {
                 NPC.TargetClosest(true);

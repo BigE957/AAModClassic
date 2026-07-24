@@ -201,9 +201,8 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                         {
                             type = ModContent.NPCType<SubzeroSerpentTail>();
                         }
-                        int segment = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.Center.X), (int)(NPC.Bottom.Y), type, NPC.whoAmI, 0f, previousSegment, 0, NPC.whoAmI, 255);
+                        int segment = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.Center.X), (int)(NPC.Bottom.Y), type, NPC.whoAmI, -1, previousSegment, 0, NPC.whoAmI);
                         Main.npc[segment].realLife = NPC.whoAmI;
-                        NPC.ai[0] = segment;
                         NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, segment);
                         previousSegment = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? segment : (NPC.whoAmI = segment);
                     }
