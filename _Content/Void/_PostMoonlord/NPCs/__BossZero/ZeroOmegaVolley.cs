@@ -2,6 +2,7 @@ using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.Core;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -97,13 +98,16 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
 
         public override void AI()
         {
+            NPC.TargetClosest();
+
             if (body == -1)
             {
                 int npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<Zero>(), -1, null);
                 if (npcID >= 0) body = npcID;
             }
 
-            if (body == -1) return;
+            if (body == -1)
+                return;
 
             NPC zero = Main.npc[body];
             if (zero == null || zero.life <= 0 || !zero.active || zero.type != ModContent.NPCType<Zero>()) { NPC.active = false; return; }
@@ -119,6 +123,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             rotValue += Main.expertMode ? .05f : 0f;
             while (rotValue > (float)Math.PI * 2f) rotValue -= (float)Math.PI * 2f;
             NPC.Center = BaseUtility.RotateVector(zero.Center, zero.Center + new Vector2(((Zero)zero.ModNPC).Distance, 0f), rotValue);
+            NPC.netOffset = Vector2.Zero;
 
             if (Main.netMode != NetmodeID.MultiplayerClient) { NPC.ai[2]++; }
 
@@ -142,19 +147,16 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
                 }
             }
 
-            Vector2 vector2 = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
-            float num1 = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2 - vector2.X;
-            float num2 = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2 - vector2.Y;
-            NPC.rotation = (float)Math.Atan2(num2, num1) - 1.57f;
+            NPC.rotation = NPC.Center.AngleTo(Main.player[NPC.target].Center);
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D tex = TextureAssets.Npc[NPC.type].Value;
             Texture2D glowTex = Glowmask.Value;
-            BaseDrawing.DrawAfterimage(spriteBatch, tex, 0, NPC, 1, 1, 6, true, 0, 0, Color.DarkRed, NPC.frame);
-            spriteBatch.Draw(tex, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
-            spriteBatch.Draw(glowTex, NPC.Center - screenPos, NPC.frame, AAColor.COLOR_WHITEFADE1, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+            DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, tex, NPC.Center - screenPos, NPC.velocity, 6, NPC.frame, Color.DarkRed, NPC.scale, [NPC.rotation - MathHelper.PiOver2], NPC.frame.Size() * 0.5f, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None);
+            spriteBatch.Draw(tex, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation - MathHelper.PiOver2, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+            spriteBatch.Draw(glowTex, NPC.Center - screenPos, NPC.frame, AAColor.COLOR_WHITEFADE1, NPC.rotation - MathHelper.PiOver2, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
             return false;
         }
 
