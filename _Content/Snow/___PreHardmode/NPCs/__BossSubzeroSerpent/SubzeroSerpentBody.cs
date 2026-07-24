@@ -55,6 +55,12 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 
         public override void AI()
         {
+            if (NPC.realLife == -1 || !Main.npc[NPC.realLife].active || Main.npc[NPC.realLife].type != ModContent.NPCType<SubzeroSerpentHead>())
+            {
+                NPC.active = false;
+                return;
+            }
+
             int tileX = (int)(NPC.position.X / 16f) - 1;
             int tileCenterX = (int)(NPC.Center.X / 16f) + 2;
             int tileY = (int)(NPC.position.Y / 16f) - 1;
