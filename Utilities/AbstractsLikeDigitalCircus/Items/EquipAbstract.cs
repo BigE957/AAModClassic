@@ -469,8 +469,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         {
             if (lava)
                 player.waterWalk2 = true;
-            else
-                player.waterWalk = true;
+            player.waterWalk = true;
         }
 
         public override string GetDescription()

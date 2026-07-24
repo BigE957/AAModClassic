@@ -215,8 +215,8 @@ KeepDoor2S_Tile.MapEntry: Дверь цитадели
 KeepDoor3_Tile.MapEntry: Дверь цитадели
 
 TerraStatue_Tile: {
-    MapEntry: Статуя павшего героя
-    FlavorText: Герой, спасший нас всех от неминуемого хаоса
+	MapEntry: Статуя павшего героя
+	FlavorText: Герой, спасший нас всех от неминуемого хаоса
 }
 
 SunkenChest_Tile.MapEntry: Затонувший сундук
