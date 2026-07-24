@@ -35,7 +35,10 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Accessories
             AddEffect(new FrostsparkBootsEffect(3, 9f, true));
             AddEffect(new MovementSpeedEffect(0.12f));
             AddEffect(new MaxRunSpeedEffect(0.12f));
-            AddEffect(new LavaWadersWaterWalkingEffect(true));
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddEffect(new LavaWadersWaterWalkingEffect(true));
+            else
+                AddEffect(new LavaWadersWaterWalkingEffect(false));
             AddEffect(new LavaWadersFireImmunityEffect(true, 600));
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 AddEffect<ObsidianRoseEffect>();
