@@ -1,3 +1,5 @@
+using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Keep;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -14,122 +16,42 @@ public class TerraDoorClosed_Tile : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		//IL_018c: Unknown result type (might be due to invalid IL or missing references)
-		Main.tileFrameImportant[Type] = true;
-		Main.tileBlockLight[Type] = true;
-		Main.tileSolid[Type] = true;
-		Main.tileNoAttach[Type] = true;
-		Main.tileLavaDeath[Type] = true;
-		TileID.Sets.NotReallySolid[Type] = true;
-		TileID.Sets.DrawsWalls[Type] = true;
-		TileID.Sets.HasOutlines[Type] = true;
-		TileObjectData.newTile.Width = 1;
-		TileObjectData.newTile.Height = 3;
-		TileObjectData.newTile.Origin = new Point16(0, 0);
-		TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
-		TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
-		TileObjectData.newTile.UsesCustomCanPlace = true;
-		TileObjectData.newTile.LavaDeath = true;
-		TileObjectData.newTile.CoordinateHeights = new int[3] { 16, 16, 16 };
-		TileObjectData.newTile.CoordinateWidth = 16;
-		TileObjectData.newTile.CoordinatePadding = 2;
-		TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
-		TileObjectData.newAlternate.Origin = new Point16(0, 1);
-		TileObjectData.addAlternate(0);
-		TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
-		TileObjectData.newAlternate.Origin = new Point16(0, 2);
-		TileObjectData.addAlternate(0);
-		TileObjectData.addTile((int)Type);
-		AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
-		LocalizedText val = CreateMapEntryName();
-		// val.SetDefault("Terra Door");
-		AddMapEntry(new Color(65, 205, 12), val);
-		DustType = DustID.Terra;
-		TileID.Sets.DisableSmartCursor[Type] = true;
-		AdjTiles = new int[1] { 10 };
+        this.SetUpDoorClosed(ModContent.ItemType<KeepDoor>());
+        DustType = DustID.Terra;
         TileID.Sets.OpenDoorID[Type] = ModContent.TileType<TerraDoorOpen_Tile>();
-        RegisterItemDrop(ModContent.ItemType<TerraDoor>());
     }
 
-	public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
-	{
-		return true;
-	}
+    public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
 
-	public override void NumDust(int i, int j, bool fail, ref int num)
-	{
-		num = 1;
-	}
+    public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
+
+    public override void MouseOver(int i, int j)
+    {
+        Player localPlayer = Main.LocalPlayer;
+        localPlayer.noThrow = 2;
+        localPlayer.cursorItemIconEnabled = true;
+        localPlayer.cursorItemIconID = ModContent.ItemType<TerraDoor>();
+    }
 }
 
 public class TerraDoorOpen_Tile : ModTile
 {
     public override void SetStaticDefaults()
     {
-        //IL_028b: Unknown result type (might be due to invalid IL or missing references)
-        Main.tileFrameImportant[Type] = true;
-        Main.tileSolid[Type] = false;
-        Main.tileLavaDeath[Type] = true;
-        Main.tileNoSunLight[Type] = true;
-        TileObjectData.newTile.Width = 2;
-        TileObjectData.newTile.Height = 3;
-        TileObjectData.newTile.Origin = new Point16(0, 0);
-        TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile, 1, 0);
-        TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, 1, 0);
-        TileObjectData.newTile.UsesCustomCanPlace = true;
-        TileObjectData.newTile.LavaDeath = true;
-        TileObjectData.newTile.CoordinateHeights = new int[3] { 16, 16, 16 };
-        TileObjectData.newTile.CoordinateWidth = 16;
-        TileObjectData.newTile.CoordinatePadding = 2;
-        TileObjectData.newTile.StyleHorizontal = true;
-        TileObjectData.newTile.StyleMultiplier = 2;
-        TileObjectData.newTile.StyleWrapLimit = 2;
-        TileObjectData.newTile.Direction = TileObjectDirection.PlaceRight;
-        TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
-        TileObjectData.newAlternate.Origin = new Point16(0, 1);
-        TileObjectData.addAlternate(0);
-        TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
-        TileObjectData.newAlternate.Origin = new Point16(0, 2);
-        TileObjectData.addAlternate(0);
-        TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
-        TileObjectData.newAlternate.Origin = new Point16(1, 0);
-        TileObjectData.newAlternate.AnchorTop = new AnchorData(AnchorType.SolidTile, 1, 1);
-        TileObjectData.newAlternate.AnchorBottom = new AnchorData(AnchorType.SolidTile, 1, 1);
-        TileObjectData.newAlternate.Direction = TileObjectDirection.PlaceLeft;
-        TileObjectData.addAlternate(1);
-        TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
-        TileObjectData.newAlternate.Origin = new Point16(1, 1);
-        TileObjectData.newAlternate.AnchorTop = new AnchorData(AnchorType.SolidTile, 1, 1);
-        TileObjectData.newAlternate.AnchorBottom = new AnchorData(AnchorType.SolidTile, 1, 1);
-        TileObjectData.newAlternate.Direction = TileObjectDirection.PlaceLeft;
-        TileObjectData.addAlternate(1);
-        TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
-        TileObjectData.newAlternate.Origin = new Point16(1, 2);
-        TileObjectData.newAlternate.AnchorTop = new AnchorData(AnchorType.SolidTile, 1, 1);
-        TileObjectData.newAlternate.AnchorBottom = new AnchorData(AnchorType.SolidTile, 1, 1);
-        TileObjectData.newAlternate.Direction = TileObjectDirection.PlaceLeft;
-        TileObjectData.addAlternate(1);
-        TileObjectData.addTile((int)Type);
-        AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
-        TileID.Sets.HousingWalls[Type] = true;
-        TileID.Sets.HasOutlines[Type] = true;
-        LocalizedText val = CreateMapEntryName();
-        // val.SetDefault("Terra Door");
-        AddMapEntry(new Color(65, 205, 12), val);
-        base.DustType = DustID.Terra;
-        TileID.Sets.DisableSmartCursor[Type] = true;
-        base.AdjTiles = new int[1] { 11 };
+        this.SetUpDoorOpen(ModContent.ItemType<KeepDoor>());
+        DustType = DustID.Terra;
         TileID.Sets.CloseDoorID[Type] = ModContent.TileType<TerraDoorClosed_Tile>();
-        RegisterItemDrop(ModContent.ItemType<TerraDoor>());
     }
 
-    public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
-    {
-        return true;
-    }
+    public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
 
-    public override void NumDust(int i, int j, bool fail, ref int num)
+    public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
+
+    public override void MouseOver(int i, int j)
     {
-        num = 1;
+        Player localPlayer = Main.LocalPlayer;
+        localPlayer.noThrow = 2;
+        localPlayer.cursorItemIconEnabled = true;
+        localPlayer.cursorItemIconID = ModContent.ItemType<TerraDoor>();
     }
 }

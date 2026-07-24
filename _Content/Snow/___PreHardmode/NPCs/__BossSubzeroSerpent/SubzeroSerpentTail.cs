@@ -50,15 +50,17 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             NPC.dontCountMe = true;
         }
 
-        bool graceFrame = false;
-
         public override void AI()
         {
-            if (!NPC.AnyNPCs(ModContent.NPCType<SubzeroSerpentHead>()))
+            NPC.realLife = (int)NPC.ai[3];
+
+            if (NPC.ai[0] != -1 && (NPC.realLife == -1 || !Main.npc[NPC.realLife].active || Main.npc[NPC.realLife].type != ModContent.NPCType<SubzeroSerpentHead>()))
             {
                 NPC.active = false;
                 return;
             }
+
+            NPC.ai[0] = 0;
 
             int tileX = (int)(NPC.position.X / 16f) - 1;
             int tileCenterX = (int)(NPC.Center.X / 16f) + 2;
@@ -89,10 +91,6 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                 }
             }
 
-            if (NPC.ai[3] > 0f)
-            {
-                NPC.realLife = (int)NPC.ai[3];
-            }
             if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead)
             {
                 NPC.TargetClosest(true);
@@ -103,16 +101,21 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             {
                 headActive = true;
             }
-            else if (Main.npc[(int)NPC.ai[1]].life <= 0)
+            else if (Main.npc[NPC.realLife].life <= 0)
             {
                 headActive = true;
             }
             if (headActive)
             {
+                /*
                 NPC.life = 0;
+                NPC.realLife = -1;
                 NPC.HitEffect(0, 10.0);
                 NPC.checkDead();
+                */
+                return;
             }
+
             int num12 = (int)(NPC.position.X / 16f) - 1;
             int num13 = (int)((NPC.position.X + NPC.width) / 16f) + 2;
             int num14 = (int)(NPC.position.Y / 16f) - 1;
@@ -396,19 +399,31 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 
         public override void HitEffect(NPC.HitInfo hit)
         {
+            if (Main.dedServ)
+                return;
+
             for (int x = 0; x < 5; x++)
             {
                 Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.IceDust>(), hit.HitDirection, -1f, 0, default, 1f);
             }
-            if (NPC.life == 0)
+            if (NPC.life <= 0 || hit.InstantKill)
             {
                 for (int x = 0; x < 5; x++)
-                {
                     Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.SnowDustLight>(), hit.HitDirection, -1f, 0, default, 1f);
-                }
 
-                if(!Main.dedServ)
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SZSGoreTail").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SZSGoreTail").Type, 1f);
+
+                if (!hit.InstantKill)
+                    foreach (NPC n in Main.ActiveNPCs)
+                    {
+                        if (n.whoAmI == NPC.whoAmI)
+                            continue;
+
+                        if (n.realLife == NPC.realLife || n.whoAmI == NPC.realLife)
+                        {
+                            n.HitEffect(instantKill: true);
+                        }
+                    }
             }
         }
     }

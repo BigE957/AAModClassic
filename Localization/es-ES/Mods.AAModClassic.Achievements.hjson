@@ -1,0 +1,248 @@
+//Boss Kills
+MushroomMonarchKilled: {
+	FriendlyName: El Gran Hongo
+	Description: Derroca al Monarca Champiñón, una abominación fúngica cuyo título se ha impuesto él mismo.
+}
+
+FeudalFungusKilled: {
+	FriendlyName: Feudo Resplandeciente
+	Description: Derriba al Hongo Feudal, una abominación fúngica con muy malas pulgas.
+}
+
+GripsOfChaosKilled: {
+	FriendlyName: Se Nos Va de las Manos
+	Description: Derrota a las Garras del Caos, seres desastrosos de cinco dedos y una sed insaciable de caos.
+}
+
+TruffleToadKilled: {
+	FriendlyName: Allá Estiró la Pata
+	Description: Acaba con el Sapo de Trufa, una bestia fúngica sorprendentemente ágil.
+}
+
+BroodmotherKilled: {
+	FriendlyName: Cenizas a las Cenizas
+	Description: Acaba con la Madre de la Camada, un dragón nacido de la furia fundida.
+}
+
+HydraKilled: {
+	FriendlyName: Tres Cabezas Piensan Mejor que Una
+	Description: Decapita a la Hidra, una bestia colérica que habita en el Lodazal.
+}
+
+DesertDjinnKilled: {
+	FriendlyName: ¿Sin Deseos?
+	Description: Supera en músculos al Djinn del Desierto, un genio musculoso que vaga por los páramos arenosos.
+}
+
+SubzeroSerpentKilled: {
+	FriendlyName: Bajo Cero
+	Description: Descongela a la Serpiente Subcero, una serpiente reluciente que vive en la tundra gélida.
+}
+
+SagittariusKilled: {
+	FriendlyName: Quedarse Afónico
+	Description: Destruye a Sagitario, una máquina convertida en troyano por la oscura voluntad del Vacío.
+}
+
+AkumaKilled: {
+	FriendlyName: Cómo Matar a un Dragón
+	Description: Reduce a Akuma, el Demonio Draconiano, a nada más que cenizas.
+}
+
+AnubisKilled: {
+	FriendlyName: Tu Primer Paso
+	Description: Vence al escriba de leyendas Anubis en un combate amistoso.
+}
+
+BiomiteCoreKilled: {
+	FriendlyName: El Núcleo del Mundo
+	Description: Soporta al Núcleo de Biomita, el mecanismo de entrenamiento y defensa del Bastión.
+}
+
+AthenaKilled: {
+	FriendlyName: Disciplina Divina
+	Description: Defriega a la astuta Reina Serafín, Athena.
+}
+
+ChampionRajahKilled: {
+	FriendlyName: ¿Quién Engañó a Rajah Rabbit?
+	Description: Haz las paces con el mismísimo Castigador Saltarín y hereda su título de 'Campeón de los Inocentes'.
+}
+
+EquinoxWormsKilled: {
+	FriendlyName: ¡Nos Vemos el Año que Viene!
+	Description: Supera la prueba de los Gusanos del Equinoccio, ganando su bendición.
+}
+
+GreedKilled: {
+	FriendlyName: Tótem No Fungible
+	Description: Derrota al avaricioso Codicia y haz tuyo su tesoro.
+}
+
+InfinityZeroKilled: {
+	FriendlyName: Error Fatal
+	Description: Oblitera a Infinity Zero, sin dejar ninguno de los juguetes del Olvido ileso.
+}
+
+PreEquinoxAncientsKilled: {
+	FriendlyName: El Despertar
+	Description: Derrota a Anubis, Athena y Codicia en su máximo esplendor.
+}
+
+RajahKilled: {
+	FriendlyName: Temporada de Conejos
+	Description: Enfréntate a Rajah Rabbit y vive para contarlo.
+}
+
+ShenDoragonKilled: {
+	FriendlyName: A Través del Lodazal y las Llamas
+	Description: Diezma a Shen Doragon, poniendo fin a su caos eterno.
+}
+
+SiegeMechsKilled: {
+	FriendlyName: Arsenal de Chatarra de Guerra
+	Description: Derrota a las tres amenazas nocturnas de Fulgaria: el Retriever, Ortrus X y Raider Ultima.
+}
+
+SistersOfDiscordKilled: {
+	FriendlyName: Intervención Discordiana
+	Description: Manda a las Hermanas del Caos llorando de vuelta con sus papás.
+}
+
+SoulOfCthulhuKilled: {
+	FriendlyName: Naufragio
+	Description: Exorciza al Alma de Cthulhu, evitando que su calamidad cósmica envuelva al mundo.
+}
+
+StormingSiege: {
+	FriendlyName: Asalto Muele-engranajes
+	Description: Lucha contra el Retriever, Orthrus X y Raider Ultima simultáneamente y sal victorioso.
+}
+
+TechnoTruffleKilled: {
+	FriendlyName: El Cuarto Ingrediente Metálico
+	Description: Destruye el error fúngico de Fulgaria, Techno Trufa.
+}
+
+YamataKilled: {
+	FriendlyName: Cabezas Parlantes
+	Description: Corta las múltiples cabezas de Yamata, la Pesadilla Temible.
+}
+
+ZeroKilled: {
+	FriendlyName: System.DivideByZeroException
+	Description: Saca de servicio a la Unidad Zero principal del Vacío y gánate la ira de una amenaza mucho mayor...
+}
+
+AllBossesKilled: {
+	FriendlyName: ¿Quién Despierta Ahora?
+	Description: Derrota a cada jefe en Ancients Awakened: Classic.
+}
+
+//Ores Mined
+ChaosOreMined: {
+	FriendlyName: Control del Caos
+	Description: Mina Incinerita o Abyssium, minerales caóticos que se encuentran en lo profundo del subsuelo.
+}
+
+CelestialOreMined: {
+	FriendlyName: Quintaesencia
+	Description: Mina Radio o Materia Oscura, minerales cósmicos formados en el espacio profundo.
+}
+
+TierThreeChaosOreMined: {
+	FriendlyName: Antediluviano
+	Description: Mina Incinerita del Alba o Abyssium del Anochecer, formas primordiales de los minerales anteriores que se encuentran dentro del Infierno y el Lodazal respectivamente.
+}
+
+ApocalyptiteOreMined: {
+	FriendlyName: Apocalipsis Now
+	Description: Mina Apocaliptita, un mineral inestable formado por las energías destructivas del Vacío.
+}
+
+//Items Obtained
+LuckyArmorEquipped: {
+	FriendlyName: Yu-Farm-Lot
+	Description: Equípate un conjunto completo de la armadura de la Suerte del Hombre de las Rayas, lo que te permitirá minar, pescar y cultivar como a nadie.
+}
+
+MadnessPotionCrafted: {
+	FriendlyName: Alquimia Prohibida
+	Description: Intercambia un Champiñón de la Locura con el Hombre Champiñón por un Champiñón Arcoíris, y fabrica una poción con ellos.
+}
+
+ChaosCrafted: {
+	FriendlyName: Némesis
+	Description: Consigue a Caos, forjada a partir de las mejores hojas de la furia y la ira.
+}
+
+TerratoolCrafted: {
+	FriendlyName: Omniherramienta
+	Description: Consigue una Terratool para blandir un pico, un hacha y un martillo, todo en una sola herramienta.
+}
+
+DragonstrideBootsCrafted: {
+	FriendlyName: Botas del Dragón
+	Description: Fabrica las Botas de Zancada Dracónica ¡y embiste a través del mundo con velocidad dracónica!
+}
+
+TimecallerCrafted: {
+	FriendlyName: Yendo al Extremo
+	Description: Mejora un arma con un Alma EX. ¡Ahora sí que te has puesto las pilas!
+}
+
+EXSoulCrafted: {
+	FriendlyName: Yendo al Extremo
+	Description: Mejora un arma con un Alma EX. ¡Ahora sí que te has puesto las pilas!
+}
+
+InfinityCoreCrafted: {
+	FriendlyName: Forja de la Divinidad
+	Description: Completa el Núcleo del Infinito, la estación de fabricación definitiva.
+}
+
+//Discovery
+RedMushroomDiscovered: {
+	FriendlyName: Gruta Groovy
+	Description: Encuentra un bioma de Champiñones Rojos, o crea uno tú mismo con algunas Bolsas de Esporas.
+}
+
+TerrariumDiscovered: {
+	FriendlyName: Corazón de la Naturaleza
+	Description: Descubre el Terrario, un globo cristalino que irradia energías naturales.
+}
+
+VoidDiscovered: {
+	FriendlyName: Inanis
+	Description: Descubre el Vacío, un ominoso grupo de islas que flotan en la órbita baja.
+}
+
+MushmanEncountered: {
+	FriendlyName: ¡Ahora hay dos de ellos!
+	Description: Construye una casa en el bioma de Champiñones Rojos y haz que el Hombre Champiñón se mude.
+}
+
+AcropolisDiscovered: {
+	FriendlyName: Monte Olimpo
+	Description: Descubre la Acrópolis, hogar de la Reina Serafín y los suyos.
+}
+
+HoardDiscovered: {
+	FriendlyName: Acumulación: Enterrado Vivo
+	Description: Descubre la Caverna del Rey Gusano, un tesoro repleto de riquezas robadas.
+}
+
+GreedChestOpened: {
+	FriendlyName: Cleptómano
+	Description: Róbales una llave a los Carroñeros del Tesoro y abre uno de los valiosos cofres de su Rey.
+}
+
+EquinoxAltarDiscovered: {
+	FriendlyName: Equilibrio
+	Description: Encuentra el Altar del Equinoccio en lo alto, por encima de las nubes.
+}
+
+AllBiomesDiscovered: {
+	FriendlyName: Al Rededor del Mundo
+	Description: Descubre cada uno de los biomas y estructuras en Ancients Awakened: Classic.
+}

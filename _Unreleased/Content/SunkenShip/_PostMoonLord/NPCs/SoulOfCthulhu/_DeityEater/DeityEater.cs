@@ -6,6 +6,7 @@ using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -86,7 +87,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             if (FireAttack == true)
             {
                 SoundEngine.PlaySound(SoundID.Item34, NPC.position);
-                int proj2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + Main.rand.Next(-20, 20), NPC.Center.Y + Main.rand.Next(-20, 20), NPC.velocity.X * 1.6f, NPC.velocity.Y * 1.6f, ModContent.ProjectileType<DeityEye_DeityFlames>(), 30, 0, -1);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(Main.rand.Next(-20, 20), Main.rand.Next(-20, 20)), NPC.velocity * (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 0.8f : 1.6f), ModContent.ProjectileType<DeityEye_DeityFlames>(), 30, 0, -1);
                 FireAttack = false;
 
             }

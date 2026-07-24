@@ -721,7 +721,7 @@ Consumables: {
 
 Currency: {
 	AncientCoin: {
-		DisplayName: 远古觉醒币
+		DisplayName: 远古钱币
 		Tooltip: 一枚刻着A的红蓝相间硬币
 	}
 
@@ -751,12 +751,12 @@ Currency: {
 	}
 
 	HalloweenTreat: {
-		DisplayName: 万圣怪糖
+		DisplayName: 万圣节糖果
 		Tooltip: 非常美味的糖果。但别吃，很可能被诅咒了。
 	}
 
 	MonsterSoul: {
-		DisplayName: 凶兽之魂
+		DisplayName: 怪物灵魂
 		Tooltip: 恐怖凶兽的魂魄
 	}
 }

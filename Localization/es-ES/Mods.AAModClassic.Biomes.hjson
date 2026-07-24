@@ -1,0 +1,74 @@
+AcropolisBiome: {
+	DisplayName: La Acrópolis
+	TownNPCDialogueName: la Acrópolis
+}
+
+HoardBiome: {
+	DisplayName: El Tesoro
+	TownNPCDialogueName: el Tesoro
+}
+
+InfernoBiome: {
+	DisplayName: El Infierno
+	TownNPCDialogueName: el Infierno
+}
+
+MireBiome: {
+	DisplayName: El Lodazal
+	TownNPCDialogueName: el Lodazal
+}
+
+RisingMoonLakeBiome: {
+	DisplayName: El Lago de la Luna Naciente
+	TownNPCDialogueName: el Lago de la Luna Naciente
+}
+
+RisingSunPagodaBiome: {
+	DisplayName: La Pagoda del Sol Naciente
+	TownNPCDialogueName: la Pagoda del Sol Naciente
+}
+
+TerrariumBiome: {
+	DisplayName: El Terrario
+	TownNPCDialogueName: el Terrario
+}
+
+VoidBiome: {
+	DisplayName: El Vacío
+	TownNPCDialogueName: el Vacío
+}
+
+LostKeepBiome: {
+	DisplayName: El Bastión Perdido
+	TownNPCDialogueName: el Bastión Perdido
+}
+
+ParthenanBiome: {
+	DisplayName: El Parthenan
+	TownNPCDialogueName: el Parthenan
+}
+
+RedMushroomBiome: {
+	DisplayName: Champiñón Rojo
+	TownNPCDialogueName: el Champiñón Rojo
+}
+
+StarsBiome: {
+	DisplayName: Estrellas Celestiales
+	TownNPCDialogueName: las Estrellas Celestiales
+}
+
+SunkenShipBiome: {
+	DisplayName: El Barco Hundido
+	TownNPCDialogueName: el Barco Hundido
+}
+
+UndergroundInfernoBiome: {
+	DisplayName: Infierno Subterráneo
+	TownNPCDialogueName: el Infierno Subterráneo
+}
+
+UndergroundMireBiome: {
+	DisplayName: Lodazal Subterráneo
+	TownNPCDialogueName: el Lodazal Subterráneo
+}

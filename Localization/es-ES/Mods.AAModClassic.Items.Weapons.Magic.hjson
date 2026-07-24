@@ -1,0 +1,478 @@
+Ethereal: {
+	DisplayName: Etéreo
+	Tooltip:
+		'''
+		'Si cae en las manos equivocadas, puede causar daños devastadores, así que no me lo des.'
+		- TheRedstoneBro
+		'''
+}
+
+PoniumStaff: {
+	DisplayName: Vara de Ponium
+	Tooltip:
+		'''
+		'Eso es un p*** REEEEEEEEE si alguna vez he visto uno'
+		- Beg
+		'''
+}
+
+DuckstepREMIX: {
+	DisplayName: Duckstep R.E.M.I.X.
+	Tooltip: Lanzador Duckstep EX
+}
+
+Light: {
+	DisplayName: Luz
+	Tooltip: Etéreo EX
+}
+
+NovaFlare: {
+	DisplayName: Llamarada Nova
+	Tooltip:
+		'''
+		Dispara bengalas teledirigidas desde el cielo
+		Llamarada Lunar EX
+		'''
+}
+
+PrismeowSpectrum: {
+	DisplayName: Espectro de Prismeow
+	Tooltip:
+		'''
+		Invoca a un Gato Arcoíris Legendario en la posición del cursor
+		Dispara Rayos Arcoíris que se mueven en la dirección de tu cursor
+		Advertencia: ¡Usar esto HARÁ que tu juego se ralentice!
+		Prismeow EX
+		'''
+}
+
+Prismeow: {
+	DisplayName: Prismeow
+	Tooltip:
+		'''
+		Dispara gatos arcoíris
+		'Divino'
+		- Hallam
+		'''
+}
+
+TrueTerraRose: {
+	DisplayName: Rosa Terra Verdadera
+	Tooltip:
+		'''
+		Algunos dicen que este báculo fue utilizado por el héroe legendario en persona
+		Los proyectiles explotan al impactar
+		Los proyectiles atraviesan paredes
+		Hacer clic derecho dispara una rosa perforante
+		Rosa Terra EX
+		'''
+}
+
+MeteorStrike: {
+	DisplayName: Impacto de Meteoro
+	Tooltip:
+		'''
+		Dispara una descarga de meteoritos a tus enemigos
+		Golpear enemigos causa una explosión más pequeña, pero más dañina
+		Golpear un bloque causa un proyectil más grande, pero menos dañino
+		Inflige Infierno Discordiano
+		'''
+}
+
+Daystorm: {
+	DisplayName: Tormenta Diurna
+	Tooltip: Incinera a tus enemigos en una tormenta de caos ígneo abrasador
+}
+
+BogBomb: {
+	DisplayName: Bomba de Ciénaga
+	Tooltip: Dispara una bomba explosiva que inflige veneno a todo lo que golpea
+}
+
+AbyssalBomb: {
+	DisplayName: Bomba Abisal
+	Tooltip:
+		'''
+		Dispara bombas espirituales explosivas
+		Pequeña probabilidad de disparar una bomba despertada que explota en almas del abismo
+		'''
+}
+
+TerraRose: {
+	DisplayName: Rosa Terra
+	Tooltip:
+		'''
+		Algunos dicen que este báculo fue utilizado por el héroe legendario en persona
+		Los proyectiles atraviesan paredes
+		Hacer clic derecho dispara una rosa perforante
+		'''
+}
+
+NovaFocus: {
+	DisplayName: Enfoque Nova
+	Tooltip: Dispara un láser de muerte increíblemente poderoso
+}
+
+Nova: {
+	DisplayName: Nova
+	Tooltip: Dispara una explosión de energía que causa una explosión expansiva
+}
+
+VoidStar: {
+	DisplayName: Estrella del Vacío
+	Tooltip: Dispara un vórtice oscuro y giratorio que busca a los enemigos
+}
+
+TotalDestruction: {
+	DisplayName: Destrucción Total
+	Tooltip: Destruye todo frente a ti con un láser destructivo
+}
+
+PineBreaker: {
+	DisplayName: Rompepinos
+	Tooltip:
+		'''
+		'No me gusta el huevo'
+		- Planterror
+		'''
+}
+
+DuckstepLauncher: {
+	DisplayName: Lanzador Duckstep
+	Tooltip:
+		'''
+		Cuac.
+		- Aves
+		'''
+}
+
+Placeholder: {
+	DisplayName: Marcador de posición
+	Tooltip:
+		'''
+		'Morirán SoonTM'
+		- Fargo
+		'''
+}
+
+SkrallStaff: {
+	DisplayName: Báculo Skrall
+	Tooltip:
+		'''
+		Un diamante skraltopiano envuelto en un palo
+		Es el palo el que es mágico. El diamante es solo para lucirse
+		- Kingskrall
+		'''
+}
+
+UmbralReaper: {
+	DisplayName: Segador Umbral
+	Tooltip:
+		'''
+		El clic izquierdo dispara lanzas teledirigidas
+		El clic derecho dispara una onda de energía del vacío
+		'Nunca toqué a Valkyrie' 
+		- CMD
+		'''
+}
+
+SoapBlaster: {
+	DisplayName: Lanzador de Jabón
+	Tooltip: Dispara rápidamente burbujas destructivas
+}
+
+UltibladeTyphoon: {
+	DisplayName: Tifón Ultiespada
+	Tooltip:
+		'''
+		Lanza 3 ruedas de cuchilla rápidas y teledirigidas
+		Tifón de Cuchillas EX
+		'''
+}
+
+HiveArtillery: {
+	DisplayName: Artillería de Colmena
+	Tooltip:
+		'''
+		Dispara docenas de abejas terroríficas
+		Las abejas ignoran los fotogramas de invencibilidad del enemigo
+		Pistola de Abejas EX
+		'''
+}
+
+PoniumUltiscepter: {
+	DisplayName: Ultra-cetro de Ponium
+	Tooltip: Vara de Ponium EX
+}
+
+Spectrum: {
+	DisplayName: Espectro
+	Tooltip:
+		'''
+		Concentra un devastador rayo de luz
+		Último Prisma EX
+		'''
+}
+
+StarburstWand: {
+	DisplayName: Vara de Estallido Estelar
+	Tooltip:
+		'''
+		Mantén presionado para cargar la vara
+		Vara de Chispa EX
+		'''
+}
+
+SubzeroStormStaff: {
+	DisplayName: Báculo de Tormenta Subcero
+	Tooltip: Báculo de Ventisca EX
+}
+
+FlamingGelWand: {
+	DisplayName: Vara de Gel Flamígero
+	Tooltip: Dispara gel en llamas
+}
+
+Gong: {
+	DisplayName: Gong
+	Tooltip: ""
+}
+
+ManaBlade: {
+	DisplayName: Espada de Maná
+	Tooltip: Dispara proyectiles teledirigidos a costa de maná
+}
+
+TrueGong: {
+	DisplayName: Gong Verdadero
+	Tooltip: MÁS GONG
+}
+
+AncientArcanum: {
+	DisplayName: Arcano Ancestral
+	Tooltip: Libera un quásar miniatura teledirigido que explota al impactar con un enemigo
+}
+
+GaleOfWings: {
+	DisplayName: Vendaval de Alas
+	Tooltip: ""
+}
+
+GaleForce: {
+	DisplayName: Fuerza del Vendaval
+	Tooltip: ""
+}
+
+RoyalScepter: {
+	DisplayName: Cetro Real
+	Tooltip: Dispara una ráfaga de tres zanahorias
+}
+
+RabbitsWrath: {
+	DisplayName: Ira del Conejo
+	Tooltip: Lanza zanahorias afiladas como navajas sobre tus enemigos
+}
+
+RoyalStaff: {
+	DisplayName: Vara Real
+	Tooltip:
+		'''
+		Dispara una ráfaga de cinco zanahorias doradas
+		Cetro Real EX
+		'''
+}
+
+AshRain: {
+	DisplayName: Lluvia de Ceniza
+	Tooltip:
+		'''
+		Dispara una bola de fuego que explota al impactar o tras cierto tiempo
+		Clic derecho para detonar las bolas de fuego
+		'''
+}
+
+FuryFlame: {
+	DisplayName: Llama de Furia
+	Tooltip: Te permite lanzar llamas explosivas a tus enemigos
+}
+
+SandLamp: {
+	DisplayName: Lámpara de Arena
+	Tooltip: ""
+}
+
+DesertStaff: {
+	DisplayName: Báculo del Desierto
+	Tooltip: Dispara un rayo de arena encantada que explota en bolas rebotantes al impactar
+}
+
+TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition: {
+	DisplayName: La Vida y Épicas Aventuras de Anubis el Perro Maravilla Edición Especial
+	Tooltip: ""
+}
+
+ForsakenStaff: {
+	DisplayName: Báculo del Olvidado
+	Tooltip: Dispara 2 ráfagas teledirigidas de energía olvidada que explotan en chispas olvidadas
+}
+
+MushrockStaff: {
+	DisplayName: Báculo de Rocahongo
+	Tooltip: ""
+}
+
+CrystalTome: {
+	DisplayName: Tomo de Cristal
+	Tooltip: Invoca cristales que se rompen en pedazos
+}
+
+GoldDigger: {
+	DisplayName: Buscatesoros
+	Tooltip:
+		'''
+		Dispara un proyectil que, al chocar con un bloque, crea una fuente de monedas
+		Solo puede haber 1 fuente activa a la vez
+		'''
+}
+
+OreStaff: {
+	DisplayName: Báculo de Mineral
+	Tooltip: ""
+}
+
+BlazePike: {
+	DisplayName: Pica de Llamarada
+	Tooltip: Muy caliente al tacto
+}
+
+BlazingBreath: {
+	DisplayName: Aliento Llameante
+	Tooltip: ""
+}
+
+Volley: {
+	DisplayName: Volley
+	Tooltip: Dispara una ráfaga de tres bolas de fuego con una dispersión uniforme
+}
+
+Fireblast: {
+	DisplayName: Explosión de Fuego
+	Tooltip: Dispara un rayo explosivo de fuego de dragón
+}
+
+Sunstorm: {
+	DisplayName: Tormenta Solar
+	Tooltip:
+		'''
+		Invoca bolas de fuego orbitales que buscan a los enemigos después de un tiempo
+		Mantén presionado el clic derecho para soltarlas y apuntar manualmente
+		'''
+}
+
+MagicFlower: {
+	DisplayName: Flor Mágica
+	Tooltip: Bonita
+}
+
+ManaRose: {
+	DisplayName: Rosa de Maná
+	Tooltip:
+		'''
+		Larga y mágica
+		Hacer clic derecho dispara una rosa perforante
+		'''
+}
+
+TrueManaRose: {
+	DisplayName: Rosa de Maná Verdadera
+	Tooltip:
+		'''
+		Bonita en rosa
+		Hacer clic derecho dispara una rosa perforante
+		'''
+}
+
+MadnessStaff: {
+	DisplayName: Báculo de la Locura
+	Tooltip: ""
+}
+
+GunkWand: {
+	DisplayName: Vara de Mugre
+	Tooltip: ""
+}
+
+SludgeShot: {
+	DisplayName: Disparo de Lodo
+	Tooltip: ¡Puaj! ¡Está lleno de musgo!
+}
+
+VenomSpray: {
+	DisplayName: Pulverizador de Veneno
+	Tooltip: ""
+}
+
+Depthsprayer: {
+	DisplayName: Rociador de las Profundidades
+	Tooltip: Cubre a los enemigos en Hidratoxina
+}
+
+Toxifang: {
+	DisplayName: Colmillo Tóxico
+	Tooltip: Dispara colmillos tóxicos
+}
+
+AtlanteanTrident: {
+	DisplayName: Tridente Atlante
+	Tooltip: Dispara una descarga triple de rayos de agua
+}
+
+OceanTrident: {
+	DisplayName: Tridente Oceánico
+	Tooltip: Muy resbaladizo
+}
+
+ElectricityShard: {
+	DisplayName: Esquirlas de Electricidad
+	Tooltip: Dispara chispas en una dispersión uniforme.
+}
+
+DragonStaff: {
+	DisplayName: Báculo de Dragón
+	Tooltip: Dispara escamas de dragón.
+}
+
+Icicle: {
+	DisplayName: Carámbano
+	Tooltip: Invoca cristales que se rompen en pedazos.
+}
+
+StarStaff: {
+	DisplayName: Báculo Estelar
+	Tooltip: ""
+}
+
+TerraFocus: {
+	DisplayName: Enfoque Terra
+	Tooltip: Dispara ráfagas de magia terra a tus enemigos
+}
+
+NeutronRod: {
+	DisplayName: Vara de Neutrones
+	Tooltip: Dispara estrellas giratorias que rebotan en las paredes
+}
+
+DoomStaff: {
+	DisplayName: Báculo del Destino
+	Tooltip: ""
+}
+
+GalacticStormspike: {
+	DisplayName: Punta de Tormenta Galáctica
+	Tooltip: Dispara un rayo ramificado de electricidad oscura
+}
+
+SquidStorm: {
+	DisplayName: Tormenta de Calamares
+	Tooltip: Invoca tentáculos desde las profundidades de R'lyehian
+}

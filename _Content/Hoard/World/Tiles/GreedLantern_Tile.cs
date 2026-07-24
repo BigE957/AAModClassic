@@ -1,9 +1,6 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using AAModClassic.Utilities;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace AAModClassic._Content.Hoard.World.Tiles
 {
@@ -11,22 +8,13 @@ namespace AAModClassic._Content.Hoard.World.Tiles
     {
         public override void SetStaticDefaults()
         {
-            Main.tileSolidTop[Type] = false;
-            Main.tileFrameImportant[Type] = true;
-            Main.tileNoAttach[Type] = true;
-            Main.tileLavaDeath[Type] = false;
-            Main.tileLighted[Type] = true;
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
-            AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-            LocalizedText name = CreateMapEntryName();
-            // name.SetDefault("Stone Lantern");
-            AddMapEntry(new Color(51, 51, 51), name);
-            TileID.Sets.DisableSmartCursor[Type] = true;
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
-            TileObjectData.addTile(Type);
-            DustType = DustID.Chlorophyte;
-            HitSound = SoundID.Tink;
+            this.SetUpLantern(ModContent.ItemType<GreedLantern>(), true);
+            DustType = DustID.Gold;
+
         }
+        public override void HitWire(int i, int j) => FurnitureUtils.LightHitWire(Type, i, j, 1, 2);
+
+        public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)   //light colors
         {

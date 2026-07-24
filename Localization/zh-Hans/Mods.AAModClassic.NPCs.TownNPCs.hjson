@@ -185,27 +185,27 @@ Legendscribe: {
 	AnubisChat8: 沙漠巨灵也许肌肉发达，但他根本比不过我！瞧好了！
 	AnubisChat9: 对了，谢谢你让我在这歇脚。在沙漠里走了几千年，真能把人累垮。
 	AnubisChat10: 对，《泰拉瑞亚史记》是我写的。但我也写了另一本很好的书。《传奇狗阿努比斯的生命史诗历险记》！想要一本吗？
-	AnubisChat11: "你不讨厌吗，当 "
+	AnubisChat11: 你不讨厌吗，当
 	AnubisChat12: 红色的恶心血肉
 	AnubisChat13: 紫色的黏糊垃圾
-	AnubisChat14: " 占了你的生态群系的时候？太恶心了。"
+	AnubisChat14: 占了你的生态群系的时候？太恶心了。
 	AnubisChat15: 我最讨厌什么生物？哦那简单，史莱姆王。那东西要是砸在你身上，没把喷灯的话，你衣服上或者毛上的粘液就甭想洗干净了。
-	AnubisChat16: "天哪，我试着撩了 "
-	AnubisChat17: " ，结果她们把我揍了个半死。这些女士在血月的时候到底是怎么了？"
-	AnubisChat18: "我试着撩了 "
-	AnubisChat19: " ，她对我特别客气。这…很奇怪…尤其是在血月的时候。"
+	AnubisChat16: 天哪，我试着撩了
+	AnubisChat17: ，结果她们把我揍了个半死。这些女士在血月的时候到底是怎么了？
+	AnubisChat18: 我试着撩了
+	AnubisChat19: ，她对我特别客气。这…很奇怪…尤其是在血月的时候。
 	AnubisChat20: 嘿，衣服不错。
 	AnubisChat21: 嘿，喜欢我的悬浮派对帽吗？魔法真好玩。
 	AnubisChat22: 迪斯科在你们泰拉人这儿还挺流行吧？我可是会跳超棒的摇摆舞。
 	AnubisChat23: 嘿呃…如果有人问的话，
-	AnubisChat24: " 的所有信息都是我给的，明白了吗？"
-	AnubisChat25: "那个 "
-	AnubisChat26: " 挺不错的。对Boss也知道不少…其实我希望他没有在跟踪我什么的。"
-	AnubisChat27: "我觉得 "
-	AnubisChat28: " 在装傻，不想让别人知道他有多聪明。你看那张脸。纯。粹。天。才。"
-	AnubisChat29: " 老嚷嚷说我把他的鞋子全啃了。这能怪我吗，谁让他用上等皮革做鞋呢。"
-	AnubisChat30: "别问 "
-	AnubisChat31: " 他的货是哪来的。恶心得很。"
+	AnubisChat24: 的所有信息都是我给的，明白了吗？
+	AnubisChat25: 那个
+	AnubisChat26: 挺不错的。对Boss也知道不少…其实我希望他没有在跟踪我什么的。
+	AnubisChat27: 我觉得
+	AnubisChat28: 在装傻，不想让别人知道他有多聪明。你看那张脸。纯。粹。天。才。
+	AnubisChat29: 老嚷嚷说我把他的鞋子全啃了。这能怪我吗，谁让他用上等皮革做鞋呢。
+	AnubisChat30: 别问
+	AnubisChat31: 他的货是哪来的。恶心得很。
 	AnubisChat32: …然后他把那玩意儿翻过来，结果这家伙居然把自己变成——你听好了——一根腌黄瓜。这绝对是我这辈子见过的最tm的搞笑的事了。嗯？我在跟谁说话？不知道。
 	AnubisChatSOTSAnubisMask1: 不要。
 	AnubisChatSOTSAnubisMask2: 别这样。
@@ -260,9 +260,9 @@ GoblinSlayer: {
 	}
 
 	GoblinSlayerName: 哥布林杀手
-	GoblinSlayerChat1: "我不信任 "
+	GoblinSlayerChat1: 我不信任
 	GoblinSlayerChat2: 。他身上总有股劲儿让我喜欢不起来…
-	GoblinSlayerChat3: " 告诉我，他老家那儿经常杀哥布林。真希望啥时候能去那地方瞧瞧，听起来太棒了。"
+	GoblinSlayerChat3: 告诉我，他老家那儿经常杀哥布林。真希望啥时候能去那地方瞧瞧，听起来太棒了。
 	GoblinSlayerChat4: 我不喜欢哥布林。
 	GoblinSlayerChat5: 看到有啥哥布林能让我宰没？
 	GoblinSlayerChat6: 哥布林就是这世间的祸害。
@@ -301,10 +301,10 @@ Lovecraftian: {
 	LovecraftianChat5: 要是你还有半点保命的脑子，就离海岸边那艘沉船远点。我老家那边有些吓人的玩意儿老在那儿出没，尤其是…算了，当我没说。
 	LovecraftianChat6: 你们有没有试过，触手里缠了些莫名其妙的东西，自己都搞不清楚是怎么来的？没有吗？难道就我这样？
 	LovecraftianChat7: 嘿，你们这个世界挺有意思的。你能帮我从不同的生物群系收集一些样本给我研究吗？如果你愿意，我可以做一些有用的东西跟你交换。
-	LovecraftianChat8: "哦。这就尴尬了。可怜的 "
+	LovecraftianChat8: 哦。这就尴尬了。可怜的
 	LovecraftianChat9: 。他的船就是我从那道裂隙里掉出来的时候被毁的。
-	LovecraftianChat10: "那个 "
-	LovecraftianChat11: " 简直是在放屁。克苏鲁多半在他还来不及*呃*一声之前就把他拍扁了。"
+	LovecraftianChat10: 那个
+	LovecraftianChat11: 简直是在放屁。克苏鲁多半在他还来不及*呃*一声之前就把他拍扁了。
 	LovecraftianChat12: 那个晃来晃去的死人把我吓到了。要知道我自己就是个行走的恐怖故事，能把我吓到已经很说明问题了。我说不上来，就是感觉他知道的太多了…
 	LovecraftianChat13: 说个冷知识：月亮领主和克苏鲁是兄弟。至少我以前碰到的一个粉色小精灵姐姐是这么跟我说的。
 	PurityFlaskChat: 哦！那些是纯净碎片吗？太好了！来，拿着这个。这是我特制的烧瓶，可以用它净化大多数生态群系。
@@ -331,7 +331,7 @@ Mushman: {
 	DisplayName: 赤松露人
 
 	TownNPCMood: {
-		Content: 我只是风中一朵卑微的小蘑菇…
+		Content: 我只是风中的一朵卑微的小蘑菇…
 		NoHome: 我需要个地方，好多种点我的特殊蘑菇…
 		FarFromHome: 哦糟糕，我的蘑菇！没我在它们能行吗？！
 		LoveSpace: 啊，我的蘑菇们有这么大地方可以长了！
@@ -348,11 +348,11 @@ Mushman: {
 	button1: 商店
 	button2: 奇异植物
 	MushmanChat1: 那些发光的松露一个个都太扫兴了。
-	MushmanChat2: " 一次邀请我去他的热水浴缸里。我拒绝了，因为我还有更重要的事要做"
+	MushmanChat2: 一次邀请我去他的热水浴缸里。我拒绝了，因为我还有更重要的事要做
 	MushmanChat3: 赤孢皇可不全是你看到的那样，你知道的。
 	MushmanChat4: 别问我药水的蘑菇是从哪来的。
 	MushmanChat5: 我有药水，你有钱。想交易吗？
-	MushmanChat6: " 有一次问我红松露是不是跟蓝松露一样好吃。显然不是。蓝松露咸多了。"
+	MushmanChat6: 有一次问我红松露是不是跟蓝松露一样好吃。显然不是。蓝松露咸多了。
 	NoMushroomChat1: 我需要一些奇异植物来做东西。给我带一些来，我就给你特殊的炼金蘑菇。用来做药水很不错。
 	NoMushroomChat2: …没有植物？
 	NoMushroomChat3: 植物，拜托。没有植物我不会给你蘑菇的。
@@ -383,10 +383,10 @@ Samurai: {
 		DislikeNPC: 我不太喜欢{NPCName}的麦芽酒。说实话，我更偏好清酒。
 	}
 
-	SamuraiChat1: "我认识 "
-	SamuraiChat2: " 有一阵子了。他真是个有文化的人。"
-	SamuraiChat3: "我不太喜欢 "
-	SamuraiChat4: " 的麦芽酒。对我来说有点太烈了。说实话，我更偏好清酒。"
+	SamuraiChat1: 我认识
+	SamuraiChat2: 有一阵子了。他真是个有文化的人。
+	SamuraiChat3: 我不太喜欢
+	SamuraiChat4: 的麦芽酒。对我来说有点太烈了。说实话，我更偏好清酒。
 	SamuraiChat5: 混沌生态群系并不总是这么…嗯…混乱。
 	SamuraiChat6: 你看到我的剑了吗？我好像找不到了。
 	SamuraiChat7: 我们曾经是整个泰拉瑞亚最强盛的国度…然后…他来了…
@@ -431,7 +431,7 @@ LuciferSitting: {
 }
 
 QuestFish: {
-	Fishmother: 好吧，我刚刚在燎狱里转悠，想给我某个史诗级整蛊大计找点烫手货，结果你猜怎么着——水下有条肥头大耳的鱼，烫得周围的水都咕嘟咕嘟开了！我当时心想："直完美！"但我没带鱼竿，压根儿抓不住。去把它给我抓来，奴隶。
+	Fishmother: 好吧，我刚刚在燎狱里转悠，想给我某个史诗级整蛊大计找点烫手货，结果你猜怎么着——水下有条肥头大耳的鱼，烫得周围的水都咕嘟咕嘟开了！我当时心想："真完美！"但我没带鱼竿，压根儿抓不住。去把它给我抓来，奴隶。
 	FishmotherLocation: 在燎狱任何地方钓获
 	TriHeadedKoi: 我讨厌潭渊。在那儿我啥也看不见，除非是过了我睡觉的点儿。可我知道里面有条我想要的杀人鱼，你猜怎么着，那玩意儿有——三——个——头！你能去帮我把它抓来吗？
 	TriHeadedKoiLocation: 在潭渊任何地方钓获

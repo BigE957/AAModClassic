@@ -1,5 +1,5 @@
 ClassGlobalStats: {
-	DefaultDamageClass: 无职业
+	DefaultDamageClass: 全职业
 	GenericDamageClass: ""
 	MeleeDamageClass: 近战
 	MeleeNoSpeedDamageClass: "{$EquipStats.ClassGlobalStats.MeleeDamageClass}"
@@ -9,24 +9,24 @@ ClassGlobalStats: {
 	SummonMeleeSpeedDamageClass: "{$EquipStats.ClassGlobalStats.SummonDamageClass}"
 	MagicSummonHybridDamageClass: 魔法和召唤
 	ThrowingDamageClass: 投掷
-	CritChance: "{0}% {1} {2}{3}暴击率"
-	AttackSpeed: "{0}% {1} {2}{3}速度"
-	ArmorPenetration: "{0} {1} {2}护甲穿透{3}"
+	CritChance: "{1}{0}%{2}{3}暴击率"
+	AttackSpeed: "{1}{0}%{2}{3}速度"
+	ArmorPenetration: "{1}{0}{2}{3}护甲穿透"
 
 	StatModifier: {
 		Adlibs: {
 			EverySingleClassExceptSummoner: {
-				Base: "{0} {1} {2}{3}{4}"
-				Additive: "{0}% {1} {2}{3}{4}{5}"
-				Multiplicative: "{2}{3}{4} 乘以 {0}%"
-				Flat: "{0} {1} 固定 {2}{3}{4}"
+				Base: "{1}{0}{2}{3}{4}"
+				Additive: "{1}{0}%{2}{3}{4}{5}"
+				Multiplicative: "{2}{3}{4}乘以{0}%"
+				Flat: "{2}{3}{4}固定{1}{0}"
 			}
 
 			Summoner: {
-				Base: "{1} {2}{3}{4} {0}"
-				Additive: "{1} {2}{3}{4}{5} {0}%"
-				Multiplicative: "{2}{3}{4} 乘以 {0}%"
-				Flat: "{1} {2}{3}{4} 固定 {0}"
+				Base: "{1}{2}{3}{4}{0}"
+				Additive: "{1}{0}%{2}{3}{4}{5}"
+				Multiplicative: "{2}{3}{4}乘以{0}%"
+				Flat: "{2}{3}{4}固定{1}{0}"
 			}
 		}
 
@@ -37,10 +37,8 @@ ClassGlobalStats: {
 		Increase: 增加
 		Decrease: 减少
 		Reduced: 降低
-		More: 更多
-		Less: 更少
-		// Faster: faster
-		// Slower: slower
+		More: 更
+		Less: 更不
 		Damage: 伤害
 		Knockback: 击退
 		CritSameAsDamageAdditive: " & 暴击率"
@@ -52,9 +50,9 @@ Misc.Nothing: ""
 Effect: {
 	ManaFlowerEffect: 在需要时自动使用魔力药水
 	CrimsonHelmetSetEffect: 大幅增加生命再生
-	EnduranceEffect: "{0} 承受伤害 {1}%"
-	MaxLifeEffect: "{0} 最大生命值 {1}"
-	MovementSpeedEffect: "{0}% {1} 移动速度"
+	EnduranceEffect: "{0}{1}%承受伤害 "
+	MaxLifeEffect: "{0}{1}最大生命值"
+	MovementSpeedEffect: "{1}{0}%移动速度"
 	BrokenCodeTeleportEffect:
 		'''
 		让你有5秒故障裂位时间
@@ -75,7 +73,7 @@ Effect: {
 	GoddessHarpEffect:
 		'''
 		召唤六翼天使女王亲自为你而战
-		雅典娜的伤害受仆从伤害加成
+		雅典娜的伤害受召唤伤害加成
 		'''
 	SeraphHarpEffect: 召唤一只六翼天使为你而战，伤害受仆从伤害加成
 	OlympianWingsEffect: 飞行时可冲刺
@@ -99,13 +97,13 @@ Effect: {
 		[c/{3}:当前伤害加成：+{4}% {5}伤害]
 		当前速度加成：+{6}%移动速度和最大奔跑速度
 		'''
-	MaxRunSpeedEffect: "{0}% {1} 奔跑速度"
+	MaxRunSpeedEffect: "{1}{0}%奔跑速度"
 	BlackBeltEffect: 给予一定几率闪避攻击
 
 	MasterNinjaMobilityEffect: {
 		ShoeSpikes1: 允许沿墙下滑
 		ShoeSpikes2: 允许沿墙攀爬
-		Tabi: " 和冲刺"
+		Tabi: 和冲刺
 	}
 
 	NaitokurosuMireEffect: 在潭渊中额外增加{0}%远程伤害
@@ -187,8 +185,8 @@ Effect: {
 		[c/FFFF00:当前充能：{0}]
 		'''
 	KnockbackImmunityEffect: 免疫击退
-	MaxManaEffect: "{0} 最大魔力 {1}"
-	DiscountCardEffect: 降低商店价格20%
+	MaxManaEffect: "{0}{1}最大魔力"
+	DiscountCardEffect: 降低20%商店价格
 	LuckyCoinEffect: 击中敌人有时会掉落额外钱币
 	GoldRingEffect: 增加钱币拾取范围
 	CharmOfDesireEffect:
@@ -200,15 +198,15 @@ Effect: {
 		'''
 	DragonsGuardEffect: 攻击你的敌人会着火
 	LanternEffect: 允许你在白天看穿潭渊的浓雾
-	ManaCostEffect: "{0}% {1} 魔力消耗"
+	ManaCostEffect: "{1}{0}%魔力消耗"
 	CelestialMagnetEffect: 增加魔力星拾取范围
 	BlackLotusEmblemEffect:
 		'''
-		在需要时自动快速补充魔力
+		在需要时快速自动补充魔力
 		极大减少魔力病持续时间
 		'''
 	AshProofVestEffect: 让你在燎狱夜间的火风暴中得以存活
-	MaxSentrySlotEffect: "{0} 最大炮台数量 {1}"
+	MaxSentrySlotEffect: "{0}{1}最大炮台数量"
 	OldOneCharmEffect: 旧日军团入侵期间，增加{0}%召唤伤害
 	ArcticMedallionEffect: 暴风雪期间伤害和暴击率增加100%
 	NightOwlEffect: 增强夜视
@@ -253,7 +251,7 @@ Effect: {
 		玩家有2个召唤栏时召唤泰拉和混沌符文
 		玩家有3个召唤栏时召唤泰拉，混沌和虚空符文
 		'''
-	MaxMinionSlotEffect: "{0} 最大仆从数量 {1}"
+	MaxMinionSlotEffect: "{0}{1}最大仆从数量"
 	ShieldOfCthulhuDashEffect: 允许你冲撞敌人造成伤害
 	DemonGauntletEffect: ""
 	AggroEffect: 敌人{0}可能以你为目标
@@ -325,12 +323,12 @@ Effect: {
 	PanicNecklaceEffect: 受到伤害后增加移动速度
 	FleshrendHelmetSetEffect: 受到敌人攻击会产生血泉喷裂对周围敌人造成伤害
 	DynaskullHelmetSetEffect: 你的远程射弹相当强大，震荡力使得目标混乱
-	ManaRegenEffect: "{0} 魔力再生速率 {1}"
-	LifeRegenEffect: "{0} 生命再生速率 {1}"
+	ManaRegenEffect: "{0}{1}魔力再生速率"
+	LifeRegenEffect: "{0}{1}生命再生速率"
 	GoblinSlayersHelmetSetDamageEffect: 挥动武器对哥布林造成5倍伤害并增加击退
 	GoblinSlayersHelmetSetEnduranceEffect: 哥布林对你造成的伤害减少80%
 	GoblinSlayersHelmetSetDescEffect: "'我猎杀哥布林，仅此而已。'"
-	MiningSpeedEffect: "{0} 挖矿速度 {1}%"
+	MiningSpeedEffect: "{0}{1}%挖矿速度"
 	SpelunkerEffect: 显示宝藏和矿石的位置
 	StoneSoldierHelmetSetEffect: 敌人死亡时有几率生成金币传送门
 	StoneSoldierHelmetSetDescEffect: "'当上抠门之王！'"
@@ -342,7 +340,7 @@ Effect: {
 	UnlimitedBreathingUnderWaterForeverAndEverEffect: 允许你在液体中呼吸
 	OceanHelmetSetEffect: 在液体中时，魔法能力略微提升
 	AtlanteanHelmetSetEffect: 在液体中时，魔法能力和防御力大幅提升
-	PhilosophersStoneEffect: 降低治疗药水冷却时间25%
+	PhilosophersStoneEffect: 降低治疗药水25%冷却时间
 	RaiderChestplateSetEffect: 你不会被击退，随着你的生命值降低，伤害减免将提高
 	DarkmatterHelmetMageSetEffect:
 		'''
@@ -454,7 +452,7 @@ Effect: {
 		'那人已经与我们相似，能知道善恶。
 		现在恐怕他伸手又摘生命树的果子吃，就永远活着'
 		'''
-	FishingPowerEffect: "{0} 渔力 {1}"
+	FishingPowerEffect: "{0}{1}渔力 "
 	HighTestFishingLineEffect: 钓鱼线永远不会断
 	TackleBoxEffect: 降低鱼饵消耗几率
 	SonarEffect: 检测上钩的鱼
@@ -489,15 +487,4 @@ Effect: {
 		响指有5分钟冷却时间
 		'''
 	DemonHelmetSetEffect: 一个忠诚的小恶魔仆从将为你而战，无论何时何地
-	// ShadowBandUnofficialEffect: While out of combat, gain 40% increased movement speed and decreased aggro
-	// DragonstrideBootsUnofficialEffect: While out of combat, gain 28% increased movement speed
-	// MendingBandEffect: While out of combat, your regeneration is increased by 3
-	/* CuringBandEffect:
-		'''
-		While out of combat, your regeneration is increased by 3
-		Debuffs wear off faster while out of combat
-		''' */
-	// ShadowFlowerEffect: While out of combat, you heal {0} mana per second
-	// AdjustOutOfCombatTimeEffect: You exit combat {0} seconds {1}
-	// FracturedAnkhEffect: Ails you with most debuffs
 }

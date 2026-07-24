@@ -3,6 +3,7 @@ using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -98,17 +99,20 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.rotation = 0;// (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 1.57f;
 
             NPC.ai[1]++;
-            int aiTimerFire = (NPC.ai[0] % 3 == 0 ? 50 : NPC.ai[0] % 2 == 0 ? 150 : 100); //aiTimerFire is different per head by using whoAmI (which is usually different) 
+            bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
+            int group = (int)NPC.ai[0] % 3;
+            int bassAmt = unofficial ? 100 : 50;
+            bool canFire = group switch {
+                0 => NPC.ai[1] % (bassAmt * 3) == 0,
+                1 => NPC.ai[1] % (bassAmt * 2) == 0 && NPC.ai[1] % (bassAmt * 2) != 0,
+                _ => NPC.ai[1] % bassAmt == 0 && NPC.ai[1] % (bassAmt * 2) != 0 && NPC.ai[1] % (bassAmt * 3) != 0
+            };
 
-            if (targetPlayer != null && NPC.ai[1] % aiTimerFire == 0)
+            if (targetPlayer != null && canFire)
             {
                 //fireAttack = true;
-                for (int i = 0; i < 5; ++i)
-                {
-                    Vector2 dir = Vector2.Normalize(targetPlayer.Center - NPC.Center);
-                    dir *= 5f;
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, dir.X * 3, dir.Y * 3, ModContent.ProjectileType<DeityEye_DeityFlames>(), 48, 0f, -1);
-                }
+                Vector2 dir = Vector2.Normalize(targetPlayer.Center - NPC.Center);
+                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, dir * 15, unofficial ? ModContent.ProjectileType<DiverShot>() : ModContent.ProjectileType<DeityEye_DeityFlames>(), 48, 0f, -1);
             }
 
             if (Main.netMode != NetmodeID.Server && Main.LocalPlayer.miscTimer % 2 == 0)

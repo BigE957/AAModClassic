@@ -1,0 +1,910 @@
+APageOfTheRuneBookEffect_BunnyRune.DisplayName: Runa de conejito
+APageOfTheRuneBookEffect_DiscordRune.DisplayName: Runa de discordia
+APageOfTheRuneBookEffect_EnergyRune.DisplayName: Runa de energía
+CerberusWhistle_Cerberus.DisplayName: Cerbero
+K9Collar_K9Unit.DisplayName: Unidad K9
+MoonBeeInAJar_Lunamini.DisplayName: Lunamini
+MudFishBall_Mudkip.DisplayName: Mudkip
+RoyalStar_RoyalKitten.DisplayName: Gatito real
+ShinyFishBall_ShinyMudkip.DisplayName: Mudkip shiny
+AleisterStaff_InvokedDamage.DisplayName: Daño invocado por el báculo de Aleister
+AleisterStaff_InvokedHeal.DisplayName: Cura invocada por el báculo de Aleister
+AleisterStaff_InvokedRune.DisplayName: Runa invocada por el báculo de Aleister
+AleisterStaff_Proj.DisplayName: Proyectil del báculo de Aleister
+GameRaider_GameRocket.DisplayName: Cohete de juego
+GameRaider_MooBoom.DisplayName: Moo Boom
+PineBreaker_Pine.DisplayName: Pino
+BladeOfNight_NightSlash.DisplayName: Corte nocturno
+ConflagrateStaff_ConflagrateConstruct.DisplayName: Constructo conflagrador
+CursedSickle_Holdout.DisplayName: Hoz maldita
+CursedSickle_Proj.DisplayName: Hoz maldita
+CursedSickleDamage.DisplayName: Daño de hoz maldita
+CursedSickleDamage2.DisplayName: Daño de hoz maldita 2
+CursedSickleEffect.DisplayName: Eefecto de hoz maldita
+Demise_DemiseBlade.DisplayName: Hoja de la perdición
+Demise_DemiseExplosion.DisplayName: Explosión de la perdición
+Demise_DemiseSphere.DisplayName: Esfera de la perdición
+Doragonburedo_Ryugen.DisplayName: Ryugen
+DuckstepLauncher_Duck.DisplayName: Pato del lanzador de patos
+DuckstepLauncher_Ducksplosion.DisplayName: Patoexplosión
+DuckstepLauncher_DucksplosionAlt.DisplayName: Patoexplosión
+Ethereal_Deathray.DisplayName: Rayo etéreo
+Ethereal_Holdout.DisplayName: Etéreo
+ExtravagantLongsword_BigBoom.DisplayName: Gran explosión
+ExtravagantLongsword_BigE.DisplayName: Gran E
+ExtravagantLongswordS_BigE.DisplayName: Gran E
+GentlemansRapier_TopHat.DisplayName: Sombrero de copa
+GibsFemur_AngryFemur.DisplayName: Fémur enfadado
+MagicAcorn_Acorn.DisplayName: Bellota
+MagicAcorn_Squirrel1.DisplayName: Ardilla
+MagicAcorn_Squirrel2.DisplayName: Ardilla
+MobianBuster_Holdout.DisplayName: Destructor mobian
+MobianBuster_MobianChargedShot.DisplayName: Disparo cargado mobian
+MobianBuster_MobianShot.DisplayName: Disparo mobian
+Placeholder_SoonTM.DisplayName: Próximamente
+PoniumStaff_PonyShot.DisplayName: Disparo de poni
+PoniumStaff_Ponysplosion.DisplayName: Poniexplosión
+ScytheOfTheGrimReaper_Hitbox.DisplayName: Caja de impacto de la parca
+ScytheOfTheGrimReaper_Proj.DisplayName: Guadaña de la parca
+SkrallStaff_BigCrystal.DisplayName: Cristal grande
+SkrallStaff_Crystal.DisplayName: Cristal
+SockStaff_SockPuppet.DisplayName: Títere de calcetín
+SoulSiphon_Heal.DisplayName: Cura
+SoulSiphon_Proj.DisplayName: Succionador de almas
+StormRifle_ThunderSpark.DisplayName: Chispa del trueno
+TimeTeller_Holdout.DisplayName: Marcador de tiempo
+TimeTeller_Time.DisplayName: Marcador de tiempo
+TitanAxe_Proj.DisplayName: Proyectil del hacha de titán
+UmbralReaper_VoidSpear.DisplayName: Lanza del vacío de la parca umbría
+UmbralReaper_VoidWave.DisplayName: Onda del vacío de la parca umbría
+Noodle.DisplayName: "[DEV] Fideo"
+FurySpark.DisplayName: Chispa furiosa
+EmperorFlairon_Holdout.DisplayName: Mangual emperador
+FishnadoStaff_Fishnado.DisplayName: Peznal
+Hurricane_OceanicArrow.DisplayName: Flecha oceánica
+TheBookOfRunesEffect_ChaosRune.DisplayName: Runa del caos
+TheBookOfRunesEffect_NovaRay.DisplayName: Rayo nova
+TheBookOfRunesEffect_TerraRune.DisplayName: Runa terra
+TheBookOfRunesEffect_VoidRune.DisplayName: Runa del vacío
+TheBookOfTheLaw_ClawSlash.DisplayName: Corte de garra
+Aerodrake_Aeroslash.DisplayName: Aerocorte del aerodrake
+Aerodrake_AeroslashSplit.DisplayName: División de aerocorte del aerodrake
+Apocalypse_Explosion.DisplayName: Apocalipsis
+Apocalypse_FlamingJack.DisplayName: Apocalipsis
+Apocalypse_Heal.DisplayName: Cura
+Axis_Holdout.DisplayName: Axis
+Axis_Proj.DisplayName: Disparo de Axis
+BlizzardDragonStaff_BlizzardDragon.DisplayName: Dragón de ventisca
+BlizzardDragonStaff_IceBall.DisplayName: Bola de hielo del báculo de dragón de ventisca
+Catastrophe_CatastropheBlade.DisplayName: Hoja de catástrofe
+Catastrophe_CatastropheExplosion.DisplayName: Explosión de catástrofe
+Catastrophe_CatastropheSphere.DisplayName: Esfera de la perdición
+Chronos_Holdout.DisplayName: Chronos
+ConflagrateScythe_ConflagrateConstructEX.DisplayName: Esbirro del End EX
+CosmicFury_Proj.DisplayName: Furia cósmica
+TartarusReaperDamage.DisplayName: Segador de Tártaro
+TartarusReaperDamage2.DisplayName: Segador de Tártaro
+TartarusReaperEffect.DisplayName: Segador de Tártaro
+DraconianFury_Flamesplosion.DisplayName: Llamarada explosiva
+DraconianFury_Meteor.DisplayName: Meteoro de furia draconiana
+EternalTwilight_YamataPhantom.DisplayName: Fantasma de Yamata del crepúsculo eterno
+ExquisiteExtravagantGreatblade_BiggerE.DisplayName: Gran espada exquisita y extravagante: E más grande
+ExquisiteExtravagantGreatbladeS_BiggerE.DisplayName: Gran espada exquisita y extravagante S: E más grande
+FinalChaos_Proj.DisplayName: Guadaña del caos
+FinalChaos_Scythe.DisplayName: CAOS CAOS
+FreedomStar_FreedomChargedShot.DisplayName: Disparo cargado de la Estrella de la Libertad
+FreedomStar_FreedomShot.DisplayName: Disparo de la Estrella de la Libertad
+FreedomStar_Holdout.DisplayName: Estrella de la Libertad
+FreedomStar_PlasmaBall.DisplayName: Bola de plasma
+HiveArtillery_Bee.DisplayName: Abeja de la artillería colmena
+HiveArtillery_BeeStrong.DisplayName: Abeja fuerte de la artillería colmena
+Ikari_BladeOfAbyssalWrath.DisplayName: Hoja de ira abisal
+Ikari_BladeOfBlazingFury.DisplayName: Hoja de furia llameante
+Ikari_BladeOfUnyieldingChaos.DisplayName: Hoja de caos implacable
+Light_Deathray.DisplayName: Luz
+Light_Holdout.DisplayName: Luz
+OmenStaff_Crow.DisplayName: Cuervo
+PerfectChaos_ChaosBeam.DisplayName: Rayo del caos
+PerfectChaos_Explosion.DisplayName: Furia discordiana
+PerfectChaosBustershot_ChaosShot1.DisplayName: Disparo del destructor del caos perfecto 1
+PerfectChaosBustershot_ChaosShot2.DisplayName: Disparo del caos
+PerfectChaosBustershot_ChaosShot3.DisplayName: Disparo del caos
+PerfectChaosChain_Holdout.DisplayName: Cadena del caos perfecto
+PerfectChaosChain_Proj.DisplayName: Sierra del caos
+PerfectChaosJavelin_PerfectChaosBlast.DisplayName: Explosión de caos perfecto
+PerfectChaosJavelin_Proj.DisplayName: Jabalina de caos perfecto
+PerfectChaosRitual_ChaosExplosion.DisplayName: Explosión de caos
+PerfectChaosRitual_ChaosFireball.DisplayName: Bola de fuego de Xiao
+PerfectChaosRitual_XiaoDoragon.DisplayName: Xiao Doragon
+PerfectChaosYari_Holdout.DisplayName: Yari del caos
+PerfectChaosYari_Proj.DisplayName: Yari del caos
+PoniumUltiscepter_PonyShot.DisplayName: Disparo de poni
+PoniumUltiscepter_Ponysplosion.DisplayName: Poniexplosión
+PrismeowSpectrum_LegendaryRainbowCat.DisplayName: Gato arcoíris legendario
+ScourgeOfTheShadows_CursedFireball.DisplayName: Bola de fuego maldita
+ScourgeOfTheShadows_Proj.DisplayName: Proyectil del azote de las sombras
+ScourgeOfTheShadows_ProjSplit.DisplayName: División de proyectil del azote de las sombras
+ScytheOfEvil_Holdout.DisplayName: Guadaña del mal
+ScytheOfEvil_Proj.DisplayName: Guadaña del mal
+SharkLauncher_Shark.DisplayName: Tiburón
+SoccOnAStick_SockDudeFromBaldis.DisplayName: Títere de calcetín
+SoccOnAStick_SockPuppet.DisplayName: Títere de calcetín
+SoulShredder_Proj.DisplayName: Triturador de almas
+Spectrum_Deathray.DisplayName: Rayo del espectro
+Spectrum_Holdout.DisplayName: Cristal
+StarburstWand_Holdout.DisplayName: Varita estelar
+StarburstWand_SparkLarge.DisplayName: Chispa
+StarburstWand_SparkMedium.DisplayName: Chispa
+StarburstWant_SparkLargeExplosion.DisplayName: Chispa
+StarburstWant_SparkMediumExplosion.DisplayName: Chispa
+SubzeroStormStaff_SubzeroSnowflake.DisplayName: Copo de nieve bajo cero
+SupremeHellshot_Hellshot.DisplayName: Disparo infernal supremo
+TartarusReaper_Holdout.DisplayName: Guadaña del Tártaro
+TartarusReaper_Proj.DisplayName: Proyectil de la guadaña del Tártaro
+ThunderLord_SuperchargedThunderbullet.DisplayName: Bala de trueno supercargada
+ThunderLord_ThunderBoom.DisplayName: Estruendo de trueno
+ThunderLord_Thundershot.DisplayName: Disparo de trueno
+ThunderLord_Thunderstrike.DisplayName: Impacto de trueno
+TitanSlayer_Proj.DisplayName: Proyectil del asesino de titanes
+TitanSlayer_Slash.DisplayName: Corte del asesino de titanes
+TrueTerraBlade_UnityBeam.DisplayName: Rayo de la unidad
+TrueTerraRose_Proj.DisplayName: Rosa terra
+TrueTerraRose_TrueTerraPetal.DisplayName: Pétalo de rosa terra verdadera
+UltimaShortsword_UltimaShot.DisplayName: Disparo última de espada corta última
+FlamingGelWand_FlamingGel.DisplayName: Gel en llamas
+EnergyCell_Proj.DisplayName: Láser
+M79Round_Proj.DisplayName: Proyectil de M79
+PaperBomb_Boomer.DisplayName: Boomer
+ManaBlade_ManaStar.DisplayName: Estrella de maná
+AncientArcanum_Quazar.DisplayName: Quasar
+SeraphHarp_Seraph.DisplayName: Serafín del arpa de serafín
+DivineWindStone_OwlRune.DisplayName: Runa de búho de piedra de viento divino
+GaleOfWings_Tornado.DisplayName: Tornado de vendaval de alas
+RazorwindLongbow_WindArrow.DisplayName: Flecha de viento de arco largo cortavientos
+SkycutterKopis_Skyblade.DisplayName: Hoja celestial de kopis cortacielos
+GoddessHarp_Athena.DisplayName: Athena
+GoddessHarp_RazorGust.DisplayName: Ráfaga cortante
+GoddessHarp_VarianBurst.DisplayName: Ráfaga de Varian
+HurricaneStone_OlympianStorm.DisplayName: Tormenta olímpica
+HurricaneStone_OwlRuneCharged.DisplayName: Runa de búho cargada de piedra de huracán
+Hurricane.DisplayName: Huracán
+Olympia_Skyrazor.DisplayName: Cuchilla celestial
+AthenaA_ChargedVarianBurst.DisplayName: Ráfaga de Varian cargada
+AthenaA_RazorGust.DisplayName: Ráfaga cortante
+AthenaA_SwiftwindOrb.DisplayName: Orbe de viento veloz
+AthenaA_SwiftwindSpear.DisplayName: Lanza de viento veloz
+AthenaA_VarianBurst.DisplayName: Ráfaga de Varian
+ChargedOwlRune_OlympianStorm.DisplayName: Tormenta olímpica
+AthenaGale.DisplayName: Vendaval
+AthenaHurricane.DisplayName: Tornado
+FeatherProjectile.DisplayName: Proyectil de pluma
+GaleArrow.DisplayName: Flecha de vendaval
+SeraphFeather.DisplayName: Pluma de serafín
+BaneOfTheBunny_Holdout.DisplayName: Plaga del conejo
+BaneOfTheBunny_Proj.DisplayName: Plaga del conejo
+Bunzooka_Raboom.DisplayName: Rabum
+Bunzooka_RajahRocket.DisplayName: Cohete de Rajah
+CottonCane_RabbitcopterSoldier.DisplayName: Soldado conejocóptero
+ThePunisher_Holdout.DisplayName: El Castigador
+RajahRabbit_BaneOfTheBunny.DisplayName: Plaga del conejo
+RajahRabbit_BunnyBattlerSummon.DisplayName: Invocación de conejo
+RajahRabbit_BunnyBrawlerSummon.DisplayName: Invocación de conejo
+RajahRabbit_Carrot.DisplayName: Zanahoria
+RajahRabbit_CarrotFarmer.DisplayName: Granjero de zanahorias
+RajahRabbit_RabbitcopterSoldierSummon.DisplayName: Invocación de conejo
+RajahRabbit_Raboom.DisplayName: Rabum
+RajahRabbit_RajahRocket.DisplayName: Cohete de Rajah
+RajahRabbit_Stomp.DisplayName: Pisotón
+RajahRabbit_ThePunisher.DisplayName: El Castigador
+RajahRabbitBookIt.DisplayName: Conejo Rajah
+BaneOfTheSlaughterer_Holdout.DisplayName: Plaga del carnicero
+BaneOfTheSlaughterer_Proj.DisplayName: Plaga del carnicero
+Excalihare_Boom.DisplayName: Excalihare
+Excalihare_Proj.DisplayName: Excalihare
+FluffyFury_Carrow.DisplayName: Carrow
+FluffyFury_CarrowSplit.DisplayName: Carrow
+RabbitBeam.DisplayName: Rayo de conejo
+RajahsRage_RoyalRabbit.DisplayName: Conejo real
+RPG_Bunnysplosion.DisplayName: Conejoploseión
+RPG_RajahRocket.DisplayName: Cohete de Rajah
+TheAvenger_Holdout.DisplayName: El Vengador
+ChampionHelmetRangedSetEffect_Carrot.DisplayName: Zanahoria
+ChampionHelmetRangedSetEffect_Explosion.DisplayName: Explosión
+ChampionHelmetRangedSetEffect_RABITDrone.DisplayName: Gato arcoíris legendario
+ChampionHelmetSummonerSetEffect_BaronBunny.DisplayName: Conejo barón
+ChampionHelmetSummonerSetEffect_BaronsSpear.DisplayName: Lanza del barón
+ChampionHelmetSummonerSetEffect_Carrot.DisplayName: Zanahoria
+RajahRabbitA_BaneOfTheSlaughterer.DisplayName: Plaga del carnicero
+RajahRabbitA_Carrow.DisplayName: Carrow
+RajahRabbitA_CarrowSplit.DisplayName: Carrow
+RajahRabbitA_Excalihare.DisplayName: Excalihare
+RajahRabbitA_ExcalihareBoom.DisplayName: Excalihare
+RajahRabbitA_GoldenCarrot.DisplayName: Zanahoria
+RajahRabbitA_Raboom.DisplayName: Rabum
+RajahRabbitA_RajahRocket.DisplayName: Cohete de Rajah
+RajahRabbitA_TheAvenger.DisplayName: El Vengador
+RajahRabbitABookIt.DisplayName: Conejo Rajah; Campeón de los inocentes
+RajahRabbitALeave.DisplayName: Conejo Rajah; Campeón de los inocentes
+RajahCarrot.DisplayName: Zanahoria
+RajahCarrotEX.DisplayName: Zanahoria
+ClawBaton_DragonClaw.DisplayName: Garra de dragón
+ClawBaton_Holdout.DisplayName: Bastón de garra
+ClawBaton_HydraClaw.DisplayName: Garra de hidra
+OrderBottle_Proj.DisplayName: Botella de orden
+ChaosArrow_Proj.DisplayName: Flecha del caos
+ChaosHelmetSummonerSetEffect_DragonShot.DisplayName: Dinobomba
+ChaosHelmetSummonerSetEffect_DragonSpirit.DisplayName: Espíritu de dragón
+OrderSolution_Proj.DisplayName: Solución de orden
+Chaos_ChaosBeam.DisplayName: Rayo del caos
+ChaosBustershot_ChaosShot1.DisplayName: ADN
+ChaosChain_Holdout.DisplayName: Cadena del caos
+ChaosJavelin_ChaosBlast.DisplayName: Explosión de caos
+ChaosJavelin_Proj.DisplayName: Jabalina del caos
+ChaosRitual_ChaosConstruct.DisplayName: Constructo del caos
+ChaosRitual_ChaosFireball.DisplayName: Bola de fuego del caos
+ChaosYari_Holdout.DisplayName: Yari del caos
+ChaosYari_Proj.DisplayName: Yari del caos
+Asteroid_Holdout.DisplayName: Asteroide
+Asteroid_Meteorite.DisplayName: Meteorito
+ChaosSlayer_BladeOfChaos.DisplayName: Hoja del caos
+ChaosSlayer_BladeOfFury.DisplayName: Hoja de furia
+ChaosSlayer_BladeOfWrath.DisplayName: Hoja de ira
+DraconicRipper_AkumaTooth.DisplayName: Diente de Akuma
+DraconicRipper_ShenDoragonTooth.DisplayName: Diente de Shen Doragon
+DraconicRipper_YamataTooth.DisplayName: Diente de Yamata
+FlamingTwilight_DiscordianInferno.DisplayName: Infierno discordiano
+MeteorStrike_Meteor.DisplayName: Impacto de meteoro: meteoro
+MeteorStrike_MeteorBlue.DisplayName: Impacto de meteoro: meteoro azul
+MeteorStrike_MeteorRed.DisplayName: Impacto de meteoro: meteoro rojo
+Skyfall_Proj.DisplayName: Caída del cielo
+Skyfall_ProjBlue.DisplayName: Caída del cielo
+Skyfall_ProjRed.DisplayName: Caída del cielo
+Timesplitter_CosmicBlow.DisplayName: Golpe cósmico
+Timesplitter_Holdout.DisplayName: Divisor temporal
+FuryWitchsHelmetSetMinionEffect_FlameSoul.DisplayName: Alma de llama
+FuryWitchsHelmetSetMinionEffect_FlameSoulShot.DisplayName: Fuego
+MidnightAssassinHelmetSetEffect_AssassinArrow.DisplayName: Flecha asesina
+MidnightAssassinHelmetSetEffect_AssassinDagger.DisplayName: Daga asesina
+AbyssalKunai_Proj.DisplayName: Kunai abisal
+AshRain_Ash.DisplayName: Lluvia de ceniza: ceniza
+AshRain_FireMagic.DisplayName: Lluvia de ceniza: magia de fuego
+FlameVortexStaff_FireOrbiter.DisplayName: Bastón de vórtice de llamas: orbitador de fuego
+FuryFlame_FuryFire.DisplayName: Llama furiosa: fuego furioso
+Masamune_Slash.DisplayName: Corte nocturno
+Masamune_Surasshu.DisplayName: Surasshu
+MizuArashi_MizuSpirit.DisplayName: Espíritu mizu
+ChaosBaton_AbyssBall.DisplayName: Bastón del caos: bola del abismo
+ChaosBaton_AbyssClaw.DisplayName: Garra del abismo
+ChaosBaton_BlazeBall.DisplayName: Bola de fuego
+ChaosBaton_BlazeBlast.DisplayName: Explosión de fuego
+ChaosBaton_BlazeClaw.DisplayName: Garra de fuego
+ChaosBaton_Holdout.DisplayName: Bastón del caos
+ShenDoragonA_ChaosLightning.DisplayName: Rayo del caos
+ShenDoragonA_DeathBoom.DisplayName: Golpe discordiano
+ShenDoragonA_Deathray.DisplayName: Rayo de la muerte discordiano
+ShenDoragonA_DeathrayVertical.DisplayName: Rayo de la muerte fantasmal
+ShenDoragonA_FireBreath.DisplayName: Aliento de fuego de Shen Doragon A
+AbyssGrip_AbyssalBomb.DisplayName: Agarre del abismo: bomba abisal
+AbyssGrip_Orbiter.DisplayName: Orbitador de agarre del abismo
+AbyssGrip_Orbiter2.DisplayName: Orbitador de agarre del abismo
+AbyssGrip_Soulsplosion.DisplayName: Explosión de almas
+BlazeGrip_Clone.DisplayName: Garra de fuego de Shen
+BlazeGrip_Deathray.DisplayName: Rayo de la muerte de agarre de fuego
+BlazeGrip_Explosion.DisplayName: Explosión
+BlazeGrip_ScorchBomb.DisplayName: Agarre de fuego: bomba abrasadora
+ShenDoragon_ChaosFireballAccel.DisplayName: Bola de fuego del caos acelerada de Shen Doragon
+ShenDoragon_ChaosFireballFrag.DisplayName: Fragmento de bola de fuego del caos de Shen Doragon
+ShenDoragon_ChaosFireballHoming.DisplayName: Bola de fuego del caos guiada de Shen Doragon
+ShenDoragon_ChaosFireballSpread.DisplayName: Dispersión de bolas de fuego del caos de Shen Doragon
+ShenDoragon_DiscordianInferno.DisplayName: Infierno discordiano
+FuryAshe_Explosion.DisplayName: Fuego diurno furioso
+FuryAshe_FuryFireBomb.DisplayName: Furia de Ashe: bomba de fuego furiosa
+FuryFlameVortex_FuryFireBomb.DisplayName: Vórtice de llamas furioso: bomba de fuego furiosa
+WrathHaruka_WrathNightSlash.DisplayName: Corte nocturno de ira
+Ashe_BlazingFury.DisplayName: Furia llameante de Ashe
+Ashe_DayfireShot.DisplayName: Disparo de fuego diurno
+Ashe_Explosion.DisplayName: Fuego diurno
+Ashe_Fireball.DisplayName: Bola de fuego
+Ashe_FireBomb.DisplayName: Bomba de fuego de Ashe
+Ashe_FireBombExplosion.DisplayName: Fuego diurno
+FlameVortex_FireBomb.DisplayName: Vórtice de llamas: bomba de fuego
+Haruka_Arrow.DisplayName: Flecha de Haruka
+Haruka_DepthKillingBlast.DisplayName: Explosión mortal de las profundidades
+Haruka_Kunai.DisplayName: Kunai abisal
+Haruka_NightSlash.DisplayName: Corte nocturno
+MagicBoom.DisplayName: Explosión mágica
+MeteorBoom.DisplayName: Impacto de meteoro
+MeteorBoomBlue.DisplayName: Impacto de meteoro
+MeteorBoomRed.DisplayName: Impacto de meteoro
+MeteorStrike_Proj.DisplayName: Impacto de meteoro
+MeteorStrikeBlue.DisplayName: Impacto de meteoro
+MeteorStrikeRed.DisplayName: Impacto de meteoro
+CorruptionFlask_Proj.DisplayName: Frasco de corrupción
+DemoniteStaff_DemonEater.DisplayName: Devorador de demonios
+DuskBringer_Holdout.DisplayName: DBP
+CrimsonFlask_Proj.DisplayName: Frasco carmesí
+CrimeraStaff_CrimtaneCrimera.DisplayName: Crimera de carmianita
+IchorSpear_Holdout.DisplayName: Lanza de icor
+TrueFleshClaymore_FleshBeam.DisplayName: Rayo de carne
+Djinnerang_Proj.DisplayName: Djinnerang
+Sandagger_Proj.DisplayName: Daga de arena
+SandLamp_Spray.DisplayName: Rocío
+SandScepter_DesertGust.DisplayName: Ráfaga del desierto
+SandScepter_DustDevil.DisplayName: Diablo de polvo
+SandstormCrossbow_DesertBoltBlue.DisplayName: Explosión mágica
+SandstormCrossbow_DesertBoltRed.DisplayName: Explosión mágica
+SultansScimitar_DesertGust.DisplayName: Ráfaga del desierto
+AmberGreatsword_AmberBolt.DisplayName: Proyectil de ámbar
+DesertScimitar_Sand.DisplayName: Arena
+DynaskullJavelin_DynaEnergy.DisplayName: Jabalina de calavera dinástica: energía dinástica
+DynaskullJavelin_Proj.DisplayName: Jabalina de calavera dinástica
+FossilBoneslinger_AmberArrow.DisplayName: Flecha de ámbar
+DesertDjinn_Djinnado.DisplayName: Djinnado
+Legendscribe_Judgement.DisplayName: Juicio
+DustDjinn_BurstBlue.DisplayName: Genio de Polvo: Ráfaga Azul
+DustDjinn_BurstRed.DisplayName: Genio de Polvo: Ráfaga Roja
+DustDjinn_MagicBlastBlue.DisplayName: Genio de Polvo: Explosión Mágica Azul
+DustDjinn_MagicBlastRed.DisplayName: Genio de Polvo: Explosión Mágica Roja
+ArtifactOfJudgement_EyeOfJudgement.DisplayName: Ojo del juicio
+DesertStaff_DesertBlast.DisplayName: Bastón del desierto: explosión del desierto
+DesertStaff_FragBlast.DisplayName: Bastón del desierto: explosión fragmentaria
+JackalsWrath_PhantomBlade.DisplayName: Hoja fantasma
+Judgment_EnchantedSand.DisplayName: Juicio: arena encantada
+NeithsString_JudgementArrow.DisplayName: Flecha del juicio
+NeithsString_MummyArrow.DisplayName: Flecha de momia
+Sandthrower_Sandstorm.DisplayName: Lanzarena: tormenta de arena
+SentryOfTheEye_TheEye.DisplayName: El ojo
+YellowSolution_Proj.DisplayName: Solución amarilla
+PrimevalJavelin_Proj.DisplayName: Jabalina primigenia
+TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition_BlockHorizontal.DisplayName: La vida y épicas aventuras de Anubis, el perro maravilla: edición especial bloque horizontal
+TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition_BlockVertical.DisplayName: La vida y épicas aventuras de Anubis, el perro maravilla: edición especial bloque vertical
+Anubis_BlockHorizontal.DisplayName: Anubis: bloque horizontal
+Anubis_BlockVertical.DisplayName: Anubis: bloque vertical
+Anubis_EyeSentrySummon.DisplayName: Invocación de ojo
+Anubis_Pumpkin.DisplayName: Anubis: calabaza
+Anubis_Runeblast.DisplayName: Anubis: explosión rúnica
+Anubis_Scepter.DisplayName: Anubis: cetro
+Locust_Spit.DisplayName: Saliva
+Runefire.DisplayName: Fuego rúnico
+ArtifactOfGuilt_EyeOfTheForsaken.DisplayName: Ojo de los abandonados
+CrookOfTheSoulJudge_Proj.DisplayName: Cayado del juez de almas
+CursedFlamefury_ForsakenFlame.DisplayName: Furia de llamas malditas: llama de los abandonados
+ForsakenStaff_ForsakenFrag.DisplayName: Bastón de los abandonados: fragmento de los abandonados
+ForsakenStaff_ForsakenStaffBlast.DisplayName: Bastón de los abandonados: explosión del bastón de los abandonados
+HorusCane_HorusEye.DisplayName: Ojo de Horus
+HorusCane_HorusHawk.DisplayName: Halcón de Horus
+Lifeline_EnchancedMummyArrow.DisplayName: Flecha de momia mejorada
+Lifeline_EnchancedMummyArrowD.DisplayName: Flecha de momia mejorada
+Lifeline_ForsakenArrow.DisplayName: Flecha de los abandonados
+Soulsplitter_Proj.DisplayName: Partidor de almas
+Verdict_ForsakenBoom.DisplayName: Explosión de los abandonados
+Verdict_ForsakenPhantomBlade.DisplayName: Hoja fantasma de los abandonados
+Verdict_ForsakenSand.DisplayName: Veredicto: arena de los abandonados
+AnubisA_BlockHorizontal.DisplayName: Anubis A: bloque horizontal
+AnubisA_BlockVertical.DisplayName: Anubis A: bloque vertical
+AnubisA_CrookOfTheSoulJudge.DisplayName: Anubis A: cayado del juez de almas
+AnubisA_CurseFlame.DisplayName: Anubis A: llama maldita
+AnubisA_CurseGlyphs.DisplayName: Anubis A: glifos de maldición
+AnubisA_DamnedSoul.DisplayName: Anubis A: alma condenada
+AnubisA_ForsakenBlast.DisplayName: Anubis A: explosión de los abandonados
+AnubisA_ForsakenExplosion.DisplayName: Explosión de los abandonados
+AnubisA_ForsakenFireball.DisplayName: Bola de fuego de los abandonados
+AnubisA_ForsakenSkull.DisplayName: Anubis A: calavera de los abandonados
+AnubisA_HorusSummon.DisplayName: Invocación de Horus
+AnubisA_SunSummon.DisplayName: Invocación solar
+AquaLance_Holdout.DisplayName: APP
+SkullWand_AquaticSkull.DisplayName: Calavera acuática
+SkullWand_SkullShot.DisplayName: Disparo de calavera
+ReaperArrow_Proj.DisplayName: Flecha de la parca
+TrueDeathlyLongbow_GhastBoom.DisplayName: Explosión espeluznante
+TrueDeathlyLongbow_GhastSkull.DisplayName: Arco largo mortal verdadero: calavera espeluznante
+BladeOfEvil_FlareOfEvil.DisplayName: Destello del mal
+FrogLob_ToadGunk.DisplayName: Mugre de sapo
+MushrockStaff_Kashroom.DisplayName: Kashroom
+MushrockStaff_Rock.DisplayName: Roca
+ToadTongue_Holdout.DisplayName: Lengua de sapo
+GlowingSporeBag_Proj.DisplayName: Bolsa de esporas brillante
+FeudalFungus_FungusCloud.DisplayName: Nube de hongos
+FeudalFungus_SporeBlast.DisplayName: Hongo feudal: explosión de esporas
+FeudalFungusLeave.DisplayName: Hongo feudal
+TruffleToad_FungusBubble.DisplayName: Burbuja de hongo
+TruffleToad_GlowingExplosion.DisplayName: Explosión brillante
+TruffleToad_LargeFungusBubble.DisplayName: Burbuja de sapo
+TruffleToad_Puffball.DisplayName: Hongo de humo
+TruffleToad_WaterleafSeed.DisplayName: Semilla de hoja de agua
+HallowFlask_Proj.DisplayName: Frasco sagrado
+HallowStaff_HallowedPrism.DisplayName: Prisma sagrado
+HallowStaff_PrismShot.DisplayName: Bastón sagrado: disparo de prisma
+IlluminantFlail_Holdout.DisplayName: Mangual luminoso
+TrueHallowStaff_TrueHallowedPrism.DisplayName: Prisma sagrado verdadero
+TrueHallowStaff_TruePrismShot.DisplayName: Bastón sagrado verdadero: disparo de prisma verdadero
+DemonHelmetSetEffect_ImpServant.DisplayName: Sirviente diablillo
+DemonStaff_DemonServant.DisplayName: Sirviente demoníaco
+DemonStaff_DemonSickle.DisplayName: Bastón demoníaco: hoz demoníaca
+Fireball_Explosion.DisplayName: Explosión
+Fireball_Proj.DisplayName: Bola de fuego
+MoltenLance_Holdout.DisplayName: MLP
+TheVulcano_FlareOfEvil.DisplayName: Destello del mal
+TheVulcano_VulcanExplosion.DisplayName: El volcán: explosión volcánica
+DevilStaff_DevilServant.DisplayName: Sirviente del diablo
+DevilStaff_UnholyTrident.DisplayName: Bastón del diablo: tridente impío
+ScorchedSaw_Proj.DisplayName: Sierra abrasada
+GoldDigger_Bolt.DisplayName: Proyectil buscador de oro
+GoldDigger_GoldFountain.DisplayName: Fuente de oro
+GreedHead_GoldCoin.DisplayName: Moneda de oro
+OreConstruct_Nebula.DisplayName: Constructo de mineral: nebulosa
+AFrag.DisplayName: Mineral
+DaybreakBlast.DisplayName: Explosión del alba
+Earthbreaker_Earthquake.DisplayName: Romretierras: terremoto
+GravityAffectedOreChunk.DisplayName: Trozo de mineral afectado por la gravedad
+LuminiteBlast.DisplayName: Explosión de luminita
+OreChunk.DisplayName: Trozo de mineral
+OreSpores.DisplayName: Esporas de mineral
+OreStaff_OreCluster.DisplayName: Bastón de mineral: cúmulo de mineral
+GreedAHead_CovetiteStalagtite.DisplayName: Estalactita de covitita
+GreedAHead_DesireSpark.DisplayName: Chispa de deseo
+GreedAHead_MemoriesOfSomethingGrand.DisplayName: Memorias de algo grande
+GreedAHead_PlatinumCoin.DisplayName: Moneda de platino
+GreedAHead_Warning.DisplayName: Advertencia
+SingularityOfDesire_DesireBeam.DisplayName: Rayo de deseo
+SingularityOfDesire_DesireBlast.DisplayName: Explosión de deseo
+GreedGold.DisplayName: Oro
+ScorchedEgg_Broodmini.DisplayName: Mininido
+DragonArrow_Proj.DisplayName: Flechas de dragón
+AshJar_Proj.DisplayName: Tarro de ceniza
+Sunpowder_Proj.DisplayName: Polvo solar
+DragonSoul_DragonSoul.DisplayName: Alma de dragón
+Hellfisher_Bobber.DisplayName: Pescador infernal: flotador
+BurningGel_Proj.DisplayName: Gel ardiente
+DragonsSpine_Proj.DisplayName: Columna vertebral de dragón
+FireStaff_BabyPhoenix.DisplayName: Fénix bebé
+Incineration_Holdout.DisplayName: Incineración
+Pyrosphere_Holdout.DisplayName: Piroesfera
+Volley_Proj.DisplayName: Volea
+Yogan_Holdout.DisplayName: Yogan
+Broodmother_FireBreath.DisplayName: Madre nodriza: aliento de fuego
+Broodmother_MagmaBall.DisplayName: Bola de magma
+Broodmother_MagmaExplosion.DisplayName: Explosión de magma
+DragonfireArrow_Proj.DisplayName: Flecha de fuego de dragón
+DragonfireBullet_Proj.DisplayName: Bala de fuego de dragón
+DragonfireDart_Proj.DisplayName: Dardo de fuego de dragón
+OrangeSolution_Proj.DisplayName: Solución naranja
+DraconianDawn_DawnRay.DisplayName: Rayo del alba draconiano
+Dracorang_Proj.DisplayName: Dracorang
+DragonsPike_DragonBody.DisplayName: Dragón
+DragonsPike_DragonHead.DisplayName: Dragón
+DragonsPike_DragonTail.DisplayName: Dragón
+Fireblast_Proj.DisplayName: Ráfaga de fuego
+Ryusei_Holdout.DisplayName: Ryusei
+SunHalberd_Holdout.DisplayName: Alabarda solar
+DaybreakArrow_Proj.DisplayName: Flecha del alba
+AncientLungStaff_LungBody.DisplayName: Pulmón ancestral
+AncientLungStaff_LungHead.DisplayName: Pulmón ancestral
+AncientLungStaff_LungTail.DisplayName: Pulmón ancestral
+Dawnstrike_BlastLarge.DisplayName: Golpe del alba: explosión grande
+Dawnstrike_BlastLargeExplosion.DisplayName: Fuego diurno
+Dawnstrike_BlastLargeMiniShrapnel.DisplayName: Fuego diurno
+Dawnstrike_BlastLargeShrapnel.DisplayName: Golpe del alba: metralla grande
+Dawnstrike_BlastMedium.DisplayName: Meteoro draconiano
+Dawnstrike_BlastSmall.DisplayName: Golpe del alba: explosión pequeña
+Dawnstrike_Holdout.DisplayName: Golpe del alba
+Daycrusher_Holdout.DisplayName: Triturador del día
+Daystorm_Bullet.DisplayName: Bala de tormenta diurna
+Daystorm_DaybreakBullet.DisplayName: Bala del alba
+MorningGlory_Proj.DisplayName: Gloria de la mañana
+RadiantDawn_Holdout.DisplayName: Amanecer radiante
+ReignOfFire_Meteor.DisplayName: Reinado del fuego: meteoro
+Solar_Holdout.DisplayName: Solar
+SolarStaff_FlamingMeteor.DisplayName: Meteoro llameante
+SolarStaff_SunOrb.DisplayName: Portal solar
+SunPartisan_Holdout.DisplayName: Partisano solar
+SunPartisan_Proj.DisplayName: Partisano solar
+Sunstorm_Fireball.DisplayName: Tormenta solar: bola de fuego
+YearOfTheDragon_Proj.DisplayName: Año del dragón
+DaybreakBullet_Proj.DisplayName: Antimateria
+AkumaHead_Boom.DisplayName: Fuego diurno
+AkumaHead_Breath.DisplayName: Cabeza de Akuma: aliento
+AkumaHead_FireBomb.DisplayName: Cabeza de Akuma: bomba de fuego
+AkumaHead_FireShot.DisplayName: Cabeza de Akuma: disparo de fuego
+AkumaHead_Flare.DisplayName: Fuego diurno
+AkumaHead_HomingFireball.DisplayName: Cabeza de Akuma: bola de fuego guiada
+AkumaHead_MegaFireBomb.DisplayName: Cabeza de Akuma: megabomba de fuego
+AkumaHead_Meteor.DisplayName: Fuego diurno
+AkumaAFireballFrag.DisplayName: Bola de fuego
+AkumaAHead_Boom.DisplayName: Fuego diurno
+AkumaAHead_Breath.DisplayName: Cabeza de Akuma A: aliento
+AkumaAHead_DayfireExplosion.DisplayName: Fuego diurno
+AkumaAHead_Firebomb.DisplayName: Cabeza de Akuma A: bomba de fuego
+AkumaAHead_HomingFireball.DisplayName: Cabeza de Akuma A: bola de fuego guiada
+AkumaAHead_Meteor.DisplayName: Fuego diurno
+AkumaAHead_Rock.DisplayName: Roca volcánica
+AkumaAHead_SolarDeathray.DisplayName: Rayo de la muerte solar
+AkumaAHead_SolarDeathraySmall.DisplayName: Cabeza de Akuma A: rayo de la muerte solar pequeño
+AsheA.DisplayName: Ashe de Akuma
+AkumaExplosion.DisplayName: Explosión de Akuma
+AkumaExplosionBlue.DisplayName: Explosión de Akuma
+DragonfireProj.DisplayName: Aliento de dragón
+SolarFlare.DisplayName: Bengalas solares
+TorchsandBall.DisplayName: Bola de arena de antorcha
+Fungicide_Proj.DisplayName: Fungicida
+JungleFlask_Proj.DisplayName: Frasco de la jungla
+GrassSpear_GSP.DisplayName: GSP
+JungleReaper_Proj.DisplayName: Segador de la jungla
+ManaRose_Proj.DisplayName: Rosa de maná
+LimeSolution_Proj.DisplayName: Solución lima
+SwarmSolution_Proj.DisplayName: Solución de enjambre
+TrueManaRose_Proj.DisplayName: Rosa de maná verdadera
+TrueManaRose_TrueManaPetal.DisplayName: Pétalo de maná
+ManaPetal.DisplayName: Pétalo de maná
+MadnessKnife_Proj.DisplayName: Cuchillo de la locura
+MadnessStaff_MadnessSphere.DisplayName: Esfera de la locura
+DarkwaterFlask_Proj.DisplayName: Frasco de agua oscura
+Moonpowder_Proj.DisplayName: Polvo lunar
+GlowingMossBall_Pet.DisplayName: Musgo brillante
+HydraTuneller_Holdout.DisplayName: Tunelador de hidra
+ShadowDrill_Holdout.DisplayName: Taladro de las sombras
+Depthwalker_Holdout.DisplayName: Caminante de las profundidades
+GunkWand_Gunk.DisplayName: Mugre
+HydraFang_Proj.DisplayName: Colmillo de hidra
+HydraSpear_Holdout.DisplayName: Lanza de hidra
+HydraStaff_BogBomb.DisplayName: Bomba de ciénaga
+HydraStaff_BogBoom.DisplayName: Ácido
+HydraStaff_StoneHydra.DisplayName: Hidra de piedra
+MurkyGel_Proj.DisplayName: Gel turbio
+SludgeShot_Proj.DisplayName: Disparo de lodo
+VenomSpray_Venom.DisplayName: Veneno
+HydraHead_HydraBomb.DisplayName: Bomba de hidra
+HydraHead_HydraBreath.DisplayName: Cabeza de hidra: aliento de hidra
+HydraHead_HydraMist.DisplayName: Cabeza de hidra: niebla de hidra
+HydratoxinArrow_Proj.DisplayName: Flechas de hidratoxina
+HydratoxinBullet_Proj.DisplayName: Bala de hidratoxina
+HydratoxinDart_HydratoxinDroplet.DisplayName: Gotita de hidratoxina
+HydratoxinDart_Proj.DisplayName: Dardo de hidratoxina
+IndigoSolution_Proj.DisplayName: Solución índigo
+PerfectShadowDrill_Holdout.DisplayName: Taladro de las sombras perfecto
+AbyssalArc_Proj.DisplayName: Bumerán antimonio
+AbyssalShadowshot_Shadowshot.DisplayName: Disparo sombrío abisal: disparo sombrío
+BogBomb_BogDrop.DisplayName: Bomba de ciénaga: gota de ciénaga
+BogBomb_BogOrb.DisplayName: Bomba de ciénaga: orbe de ciénaga
+Bubbleshot_FuckingBubbles.DisplayName: BURBUJAS DE MIERDA
+DeathDaggers_DeathDagger.DisplayName: Daga de la muerte
+DeathDaggers_DeathDaggerHeal.DisplayName: Cura
+Depthsprayer_Proj.DisplayName: Rociador de las profundidades
+DreadTwilight_TwilightRay.DisplayName: Rayo del crepúsculo
+SwimmingHydra_HydraSlash.DisplayName: Corte de hidra
+TheSquirter_Squirt.DisplayName: Chorro
+Toxifang_Proj.DisplayName: Colmillo tóxico
+Toxifire.DisplayName: Fuegotóxico
+EventideArrow_Proj.DisplayName: Flecha del anochecer
+AbyssalBomb_SoulBomb.DisplayName: Bomba de almas
+AbyssalBomb_SoulBombSmall.DisplayName: Bomba abisal: bomba de almas pequeña
+AbyssalBomb_Soulsplosion.DisplayName: Explosión de almas
+AbyssalBomb_SoulsplosionSmall.DisplayName: Explosión de almas
+AbyssalEruption_AcidBall.DisplayName: Bola de ácido
+AbyssalEruption_AcidFlame.DisplayName: Llama ácida
+AbyssalEruption_Soulsplosion.DisplayName: Explosión de almas
+AbyssalYari_Holdout.DisplayName: Yari abisal
+AbyssalYari_Proj.DisplayName: Yari abisal
+AbyssLash.DisplayName: Látigo abisal
+Amenomuraku_PhantomSword.DisplayName: Amenomuraku: espada fantasma
+Crescent_Proj.DisplayName: Creciente
+Darksprayer_DarkSoul.DisplayName: Alma oscura
+Darksprayer_Moonblow.DisplayName: Golpe lunar
+FallingTwilight_HydraSoul.DisplayName: Alma de hidra
+Flairdra_Cyclone.DisplayName: Ciclón
+Flairdra_Holdout.DisplayName: Flairdra
+MidnightWrath_Proj.DisplayName: Ira de medianoche
+ThrowingCrescent_Proj.DisplayName: Creciente arrojadizo
+EventideBullet_Proj.DisplayName: Bala del anochecer
+EventideBullet_ProjCopy.DisplayName: Copia de bala del anochecer
+YamataAHead_AbyssalBomb.DisplayName: Cabeza de Yamata A: bomba abisal
+YamataAHead_HarukaProj.DisplayName: Haruka de Yamata
+YamataAHead_MireDeathray.DisplayName: Rayo de la muerte del lodazal
+YamataAHead_MireDeathraySmall.DisplayName: Rayo de la muerte del lodazal
+YamataAHead_Soulsplosion.DisplayName: Explosión de almas
+YamataAHead_Venom.DisplayName: Veneno
+YamataAHead_Venom2.DisplayName: Veneno
+YamataAHeadFake_AbyssalStorm.DisplayName: Tormenta abisal
+YamataAHeadFake_AbyssalThunder.DisplayName: Trueno abisal
+YamataAHeadFake_AbyssalWrath.DisplayName: Cabeza falsa de Yamata A: ira abisal
+YamataAHeadFake_MireDeathrayWave.DisplayName: Rayo de la muerte del lodazal
+YamataAHeadFake_MireDeathrayWaveSmall.DisplayName: Rayo de la muerte del lodazal
+YamataAHeadFake_Shockwave.DisplayName: Onda expansiva
+YamataHead_AbyssalBomb.DisplayName: Cabeza de Yamata: bomba abisal
+YamataHead_AbyssalStorm.DisplayName: Tormenta abisal
+YamataHead_AbyssalStormRain.DisplayName: Cabeza de Yamata: lluvia de tormenta abisal
+YamataHead_AbyssalWrath.DisplayName: Cabeza de Yamata: ira abisal
+YamataHead_Shockwave.DisplayName: Onda expansiva
+YamataHead_Soulsplosion.DisplayName: Explosión de almas
+YamataHead_Venom.DisplayName: Veneno
+YamataHead_VenomBlast.DisplayName: Veneno
+AcidBoomProj.DisplayName: Ácido
+AcidProj.DisplayName: Ácido
+HydraSoulProj.DisplayName: Alma de hidra
+Depthsand_Proj.DisplayName: Arena de las profundidades
+OceanWhaler_OceanHarpoon.DisplayName: Arpón oceánico
+SaltwaterSpear_Holdout.DisplayName: Lanza de agua salada
+Seashroom_Sharkron.DisplayName: Sharkron
+SpookyKnife_Proj.DisplayName: Cuchillo espeluznante
+SpookySawblade_Proj.DisplayName: Bumerán sierra
+ForestFlask_Proj.DisplayName: Frasco
+DeepGreenSolution_Proj.DisplayName: Solución verde oscuro
+ElectricityShard_Proj.DisplayName: Fragmento de electricidad
+BrownSolution_Proj.DisplayName: Solución marrón
+SporeBag_Proj.DisplayName: Saco de esporas
+Musharang_Proj.DisplayName: Musharang
+Mushmace_Holdout.DisplayName: Mazo de champiñones
+MushroomMonarch_FakeMushroom.DisplayName: Monarca champiñón: champiñón falso
+MushroomMonarch_RUNAWAY.DisplayName: Monarca champiñón
+Mushman_Throwshroom.DisplayName: Mushman: champiñón arrojadizo
+CloudEdge_Cloud.DisplayName: Nube
+DragonBlade_TinySword.DisplayName: Espada pequeña
+DragonsMaw_DragonLaser.DisplayName: Láser de dragón
+DragonStaff_DragonScale.DisplayName: Escama de dragón
+TheDragonsBreath_DragonBreath.DisplayName: Aliento de dragón
+TheDragonsBreath_Holdout.DisplayName: Aliento de dragón
+BlizzardBuster_Proj.DisplayName: BB
+Icicle_IceSpike.DisplayName: Púa de hielo
+SerpentSpike_Proj.DisplayName: Púa de serpiente
+Sickleshot_IceArrow.DisplayName: Flecha de hielo
+SnakeStaff_SerpentBody.DisplayName: Serpiente de las nieves
+SnakeStaff_SerpentHead.DisplayName: Serpiente de las nieves
+SnakeStaff_SerpentTail.DisplayName: Serpiente ancestral
+SnowflakeShuriken_Proj.DisplayName: SS
+Snowflake.DisplayName: Copo de nieve de Axis
+Sting.DisplayName: Aguijón
+IceFlask_Proj.DisplayName: Frasco de hielo
+IcemeltFlask_Proj.DisplayName: Frasco de deshielo
+GlacierBreaker_Holdout.DisplayName: Rompeglaciares
+GlacierBreaker_IceChunk.DisplayName: Trozo de hielo
+RaiderLance_Holdout.DisplayName: Lanza asaltante
+VikingPolearm_Holdout.DisplayName: Arma de asta vikinga
+Winterbreak_Proj.DisplayName: Rompeinviernos
+IceCrystal_IceSpike.DisplayName: Púa de hielo
+SubzeroSerpent_IceBall.DisplayName: Bola de hielo
+SubzeroSerpentHead_SerpentBreath.DisplayName: Cabeza de serpiente bajo cero: aliento de serpiente
+WhiteSolution_Proj.DisplayName: Solución blanca
+AsgardianLance_Holdout.DisplayName: Lanza asgardiana
+AsgardianLance_Proj.DisplayName: Lanza asgardiana
+DragonFang_ValkyrieSlash.DisplayName: Corte de valquiria
+OdinsBlade_Proj.DisplayName: Hoja de Odín
+IceShrapnel.DisplayName: Metralla de hielo
+DarkmatterArrow_Proj.DisplayName: Flecha de materia oscura
+RadiumArrow_Proj.DisplayName: Flecha de radio
+RadiumHelmetSummonerSetEffect_RadiumBlast.DisplayName: Efecto de conjunto de invocador de casco de radio: explosión de radio
+StarHelmetMagePlayer_DarkLeech.DisplayName: Jugador mago con casco estelar: sanguijuela oscura
+StarHelmetMagePlayer_SunSiphon.DisplayName: Jugador mago con casco estelar: succionador solar
+StarHelmetRangedPlayer_DarkmatterSphere.DisplayName: Jugador a distancia con casco estelar: esfera de materia oscura
+StarHelmetRangedPlayer_SunSphere.DisplayName: Jugador a distancia con casco estelar: esfera solar
+WormIdol_Pointer.DisplayName: Puntero
+DarkmatterJackhammer_Holdout.DisplayName: Martillo neumático de materia oscura
+BreakingDawn_MorningStar.DisplayName: Amanecer: estrella de la mañana
+DarkmatterKunai_Proj.DisplayName: Kunai de materia oscura
+DarkmatterSlasher_DarkmatterWave.DisplayName: Onda de materia oscura
+DarkmatterSlasher_RealityTear.DisplayName: Desgarro de la realidad
+DarkmatterSlasher_Slash.DisplayName: Cortador de materia oscura: corte
+DarkmatterSpinblade_EnergyBlade.DisplayName: Hoja de energía de cuchilla giratoria de materia oscura
+DarkmatterSpinblade_Proj.DisplayName: Cuchilla giratoria de materia oscura
+RealityShredders_Holdout.DisplayName: Trituradoras de la realidad
+StarStaff_Star1.DisplayName: Bastón estelar: estrella 1
+StarStaff_Star2.DisplayName: Bastón estelar: estrella 2
+Void_Holdout.DisplayName: Vacío
+DaybringerHead_DayDart.DisplayName: Dardo del día
+DaybringerHead_DayOrb.DisplayName: Orbe del día
+DaybringerHead_DayRay.DisplayName: Rayo del día
+DaybringerHead_DayStar.DisplayName: Estrella del día
+DaybringerHead_DaySun.DisplayName: Sol del día
+NightcrawlerHead_NightDeathraySmall.DisplayName: Rayo de la Muerte Nocturno
+NightcrawlerHead_NightDeathray.DisplayName: Rayo de la muerte nocturno
+NightcrawlerHead_NightLaser.DisplayName: Láser nocturno
+NightcrawlerHead_NightScythe.DisplayName: Guadaña nocturna
+NightcrawlerHead_Nothing.DisplayName: Nada
+Moonray.DisplayName: Rayo lunar
+Sunbeam.DisplayName: Rayo de sol
+Lovecraftian_LovecraftianEye.DisplayName: Ojo lovecraftiano
+TerraArrow_Proj.DisplayName: Flecha terra
+TerraHelmetMageSetEffect_TerraRose.DisplayName: Rosa terra
+TerraHelmetRangedSetEffect_TerraBullet.DisplayName: Bala terra
+TerraHelmetSummonerSetEffect_TerraCrystal.DisplayName: Cristal terra
+TerraRose_Proj.DisplayName: Rosa terra
+TerraRose_TerraPetal.DisplayName: Pétalo terra
+TerraStaff_MagicBlast.DisplayName: Explosión mágica
+TerraStaff_TerraWizard.DisplayName: Mago terra
+TerraBoom.DisplayName: Explosión terra
+TerraSphere.DisplayName: Bomba terra
+PurityFlask_Proj.DisplayName: Frasco de pureza
+TerraFocus_MagicBlast.DisplayName: Explosión mágica
+TerraGauntlet_SummonBlast.DisplayName: Explosión de invocación
+TerraGauntlet_TerraCrawler.DisplayName: Oruga terra
+TerraGauntlet_TerraSphere.DisplayName: Esfera terra
+TerraGauntlet_TerraSquid.DisplayName: Calamar terra
+TerraDeadshot_Deadshot.DisplayName: Deadshot
+TerraSphere_SummonBlast.DisplayName: Explosión de invocación
+TerraWizard_MagicBlast.DisplayName: Explosión mágica
+UnityWatcher_Sphere.DisplayName: Esfera
+PurityBlast.DisplayName: Explosión de pureza
+AmethystGreatsword_AmethystBolt.DisplayName: Proyectil de amatista
+DiamondGreatsword_DiamondBolt.DisplayName: Proyectil de diamante
+EmeraldGreatsword_EmeraldBolt.DisplayName: Proyectil de esmeralda
+PrismaticGreatsword_PrismBolt.DisplayName: Proyectil de prisma
+RubyGreatsword_RubyBolt.DisplayName: Proyectil de rubí
+SapphireGreatsword_SapphireBolt.DisplayName: Proyectil de zafiro
+TopazGreatsword_TopazBolt.DisplayName: Proyectil de topacio
+TrueCopperShortsword_Proj.DisplayName: Espada corta de cobre verdadera
+NeutronRod_NovaStar.DisplayName: Estrella nova
+SagittariusCore_Orbiter.DisplayName: Núcleo de Sagitario: orbitador
+StallionsStar_Proj.DisplayName: Estrella de semental
+DoomiteHelmetSetEffect_Searcher.DisplayName: Buscador
+VoidFlask_Proj.DisplayName: Frasco del vacío
+DoomiteJacksaw_Holdout.DisplayName: Sierra de calar de doomita
+DoomiteMiningLaser_MiningLaser.DisplayName: Láser minero de doomita
+DoomiteAssaultBlaster_DoomiteVortex.DisplayName: Vórtice
+DoomiteHolobow_HoloArrow.DisplayName: Flecha holográfica
+DoomiteRadio_DoomiteRadioProbe.DisplayName: Sonda de radio de doomita
+DoomiteSaber_DoomShot.DisplayName: Disparo fatal
+DoomiteSignal_DoomiteProbe.DisplayName: Sonda de doomita
+DoomStaff_DoomBoom.DisplayName: Explosión fatal
+DoomStaff_Proj.DisplayName: Fatal
+Executioner_Holdout.DisplayName: Verdugo
+Incapacitator_Proj.DisplayName: Incapacitador
+VoidProbeControlUnit_MiniProbe.DisplayName: Minsonda
+Voidsaber_Holdout.DisplayName: Sable del vacío
+Sagittarius_Electrobomb.DisplayName: Sagitario: electrobomba
+Sagittarius_Electrosphere.DisplayName: Sagitario: esfera eléctrica
+Sagittarius_NovaStar.DisplayName: Estrella nova
+Sagittarius_RaiderRocket.DisplayName: Cohete asaltante
+Sagittarius_StaticShockHolyShitThatsTheRVPineSong.DisplayName: Descarga estática
+Sagittarius_VoidRay.DisplayName: Rayo del vacío
+Sagittarius_VoidShot.DisplayName: Sagitario: disparo del vacío
+BlackSolution_Proj.DisplayName: Solución negra
+OverloadedDoomiteRadio_VoidScout.DisplayName: Explorador del vacío
+SingularityCannon_Singularity.DisplayName: Cañón de singularidad: singularidad
+SingularityCannon_SingularityVortex.DisplayName: Vórtice de singularidad
+SingularityArrow_Proj.DisplayName: Flecha de singularidad
+UnstablePowerCell_Proj.DisplayName: Bala inestable
+ZeroCore_ZeroBab.DisplayName: Núcleo de Zero: Bebé de Zero
+BlackHoleBlaster_BlackRocket.DisplayName: Cohete negro
+BlackHoleBlaster_RedBullet.DisplayName: Bala roja
+BlackHoleBlaster_Rocket.DisplayName: Cohete
+BlackHoleBlaster_VoidCyclone.DisplayName: Lanzador de agujeros negros: ciclón del vacío
+BrokenZeroWeapon_TeslaShock.DisplayName: Teslaexplosión
+DoomPortal_D00MPR0T0C0L.DisplayName: PROTOCOL0_DE_MUERTE
+EventHorizon_Holdout.DisplayName: Horizonte de sucesos
+EventHorizon_Holdout_Vortex.DisplayName: Horizonte de sucesos: vórtice
+GenocideCannon_01010011.DisplayName: Cañón de genocidio: 01010011
+GenocideCannon_b00m.DisplayName: b00m
+GenocideCannon_GenocideBoom.DisplayName: Explosión de genocidio
+GenocideCannon_R0CKET.DisplayName: C0HETE
+GenocideCannon_VoidRocket.DisplayName: Cohete del vacío
+Genocide.DisplayName: Antimateria
+Gigataser_Gigatase.DisplayName: Choque de táser
+NovaFocus_DoomRay.DisplayName: Enfoque nova: rayo fatal
+OmegaVolley_OmegaBlast.DisplayName: Explosión omega
+OmegaVolley_OmegaShot.DisplayName: Disparo omega
+RealityCannon_RealityLaser.DisplayName: Láser de la realidad
+RiftShredder_Rift.DisplayName: Triturador de brechas: brecha
+RiftShredder_RiftSlash.DisplayName: Triturador de brechas: corte de brecha
+TheVortex_Holdout.DisplayName: El vórtice
+TheVortex_Proj.DisplayName: El vórtice
+VoidStar_StarVortex.DisplayName: Vórtice estelar
+ZeroA_b00m.DisplayName: b00m
+ZeroA_EchoDeathray.DisplayName: Explosión de eco
+ZeroA_EchoGigablast.DisplayName: Gigaexplosión de eco
+ZeroA_ERROR.DisplayName: ERR0R
+ZeroA_GlitchBlast.DisplayName: Explosión fallida
+ZeroA_GlitchBomb.DisplayName: Bomba fallida
+ZeroA_GlitchRocket.DisplayName: C0HETE
+ZeroA_ProtoStarRay.DisplayName: Rayo del vacío
+ZeroA_StaticShock.DisplayName: Descarga estática
+ZeroA_StaticSphere.DisplayName: Esfera estática de Zero A
+ZeroDeath1.DisplayName: Zero
+ZeroDeath2.DisplayName: Zero
+Zero_DoomDeathray.DisplayName: Rayo fatal
+Zero_VoidBeam.DisplayName: Rayo del vacío
+Zero_VoidRay.DisplayName: Rayo del vacío
+ZeroGenocideCannon_GenocideBoom.DisplayName: Explosión de genocidio
+ZeroGenocideCannon_GenocideRocket.DisplayName: Cohete de genocidio
+ZeroGigataser_TaserShock.DisplayName: Choque de táser
+ZeroNeutralizer_SingularityArrow.DisplayName: Flecha de singularidad
+ZeroNovaFocus_NovaRay.DisplayName: Rayo nova
+ZeroOmegaVolley_OmegaBullet.DisplayName: Bala omega
+ZeroRiftShredder_Rift.DisplayName: Triturador de brechas de Zero: brecha
+ZeroRiftShredder_RiftSlash.DisplayName: Triturador de brechas de Zero: corte de brecha
+ZeroRocket.DisplayName: Cohete del vacío
+ZeroVoidStar_VoidCyclone.DisplayName: Estrella del vacío de Zero: ciclón del vacío
+ZeroVoidStar_VoidStorm.DisplayName: Estrella del vacío de Zero: tormenta del vacío
+Darkray.DisplayName: Rayo oscuro
+DeathBeam.DisplayName: Rayo de la muerte
+DeathLaser.DisplayName: Láser de la muerte
+ProbeShot.DisplayName: Disparo de sonda
+AuroraScythe_Holdout.DisplayName: Guadaña auroral
+AuroraScytheDamage.DisplayName: Daño de guadaña auroral
+AuroraScytheDamage2.DisplayName: Daño de guadaña auroral 2
+AuroraScytheEffect.DisplayName: Efecto de guadaña auroral
+CarrotFarmer_FarmedCarrot.DisplayName: Zanahoria cultivada
+CarrotFarmer_Holdout.DisplayName: Granjero de zanahorias
+CarrotFarmerDamage.DisplayName: Daño de granjero de zanahorias
+CarrotFarmerDamage2.DisplayName: Daño de granjero de zanahorias 2
+CarrotFarmerEffect.DisplayName: Efecto de granjero de zanahorias
+DragonsClaw_Holdout.DisplayName: Garra de dragón
+DragonsClawDamage.DisplayName: Daño de garra de dragón
+DragonsClawDamage2.DisplayName: Daño de garra de dragón 2
+DragonsClawEffect.DisplayName: Efecto de garra de dragón
+HydrasFury_Holdout.DisplayName: Furia de hidra
+HydrasFuryDamage.DisplayName: Daño de furia de hidra
+HydrasFuryDamage2.DisplayName: Daño de furia de hidra 2
+HydrasFuryEffect.DisplayName: Efecto de furia de hidra
+CyberneticEgg_Raidmini.DisplayName: Mininido
+FulguriteHelmetSetPlayer_FulguriteRing.DisplayName: Anillo de fulgurita
+CyberBaton_CyberClaw.DisplayName: Garra cibernética
+FulguriteTazerblaster_Taserblast.DisplayName: Ráfaga de táser
+StormJavelin_Proj.DisplayName: Jabalina de tormenta
+OrthrusXHead_ShockingBreath.DisplayName: Aliento electrizante
+OrthrusXHead_Spark.DisplayName: Chispa
+RaiderUltima_RaiderExplosion.DisplayName: Explosión asaltante
+RaiderUltima_RaidShock.DisplayName: Choque asaltante
+RaiderUltima_RaidSphere.DisplayName: Esfera asaltante
+RaiderUltima_RocketStrike.DisplayName: Ataque de cohetes
+Retriever_Shot.DisplayName: Recuperador
+InfinityBoom.DisplayName: Explosión infinita
+InfinitySphere.DisplayName: Bomba de almas
+DapperAcorn_DapperSquirrel1.DisplayName: Ardilla elegante
+DapperAcorn_DapperSquirrel2.DisplayName: Ardilla elegante
+DapperAcorn_Fez.DisplayName: Bellota elegante: fez
+DapperAcorn_Fezsplosion.DisplayName: Fezplosión
+DapperAcorn_TopHat.DisplayName: Sombrero de copa
+Axe.DisplayName: Hacha
+HugeAxe.DisplayName: Hacha
+BiomiteCore_Boulder.DisplayName: Núcleo de biomita: roca
+BiomiteCore_BoulderChunk.DisplayName: Núcleo de biomita: trozo de roca
+BiomiteCore_FireBreath.DisplayName: Núcleo de biomita: aliento de fuego
+BiomiteCore_ForbiddenStorm.DisplayName: Núcleo de biomita: tormenta prohibida
+BiomiteCore_Glacier.DisplayName: Núcleo de biomita: glaciar
+BiomiteCore_GlacierBomb.DisplayName: Núcleo de biomita: bomba de glaciar
+BiomiteCore_HellfireBlast.DisplayName: Núcleo de biomita: explosión de fuego infernal
+BiomiteCore_HellfireBoom.DisplayName: Núcleo de biomita: estallido de fuego infernal
+BiomiteCore_Rainbow.DisplayName: Núcleo de biomita: arcoíris
+TechnoTruffle_BookIt.DisplayName: Tecnotrufa
+TechnoTruffle_TruffleShot.DisplayName: Disparo de trufa
+CthulhuCannon_CthulhuBomb.DisplayName: Bomba de Cthulhu
+CthulhuCannon_CthulhuBoom.DisplayName: Cthulhusplosion
+GalacticStormspike_Stormray.DisplayName: Punta de tormenta galáctica: rayo de tormenta
+RealityAnchor_Holdout.DisplayName: Ancla de la realidad
+RealityAnchor_RealityBurst.DisplayName: Ráfaga de la realidad
+SquidStorm_CthulhuTentacle.DisplayName: Tentáculo
+DiverShot.DisplayName: Disparo de buzo
+CthulhuDeath.DisplayName: Explosión de la realidad
+CthulhuDeathBoom.DisplayName: Ruptura de la realidad
+CthulhuHurricane.DisplayName: Huracán
+CthulhuNuke.DisplayName: Nuca de Cthulhu
+CthulhuShot.DisplayName: Disparo de Cthulhu
+Cthulhusplosion.DisplayName: Ruptura de la realidad
+CthulhuStrike.DisplayName: Golpe de la realidad
+Watcher.DisplayName: Vigía
+DeityEye_DeityFlames.DisplayName: Ojo de la deidad: llamas de la deidad
+DeityLeviathan_Leviacane.DisplayName: Leviacán
+DeityLeviathan_Leviacane2.DisplayName: Leviacán
+DeityLeviathan_RazorbladeRift.DisplayName: Leviatán de la deidad: brecha de cuchillas
+DeityRose_Splinter.DisplayName: Astilla de Ei'Lor
+Annihilator_Annihilation.DisplayName: Aniquilación
+Annihilator_AnnihilationBurst.DisplayName: Singularidad
+Genocide_Antimatter.DisplayName: Antimateria
+InfinityBlade_Rift.DisplayName: Hoja del infinito: brecha
+Nova_NovaBurst.DisplayName: Nova: explosión nova
+Nova_Supernova.DisplayName: Supernova
+SagittariusA_Proj.DisplayName: Sagitario A
+TotalDestruction_Proj.DisplayName: Destrucción total
+InfinityZero_InfinityBolt.DisplayName: Rayo del infinito
+InfinityZero_InfinityStorm.DisplayName: Tormenta del infinito
+InfinityZero_InfinityZeroShot.DisplayName: Infinito Zero: disparo de infinito Zero
+ShockwaveBoom.DisplayName: Explosión de onda expansiva
+DummyExplosionTerra.DisplayName: Explosión de prueba
+SistersTitle.DisplayName: Título de hermanas
+Title.DisplayName: Título
+InfinityGauntletEffect_Snap.DisplayName: Guantelete del infinito: chasquido
+ProtocolR_RaiderRocket.DisplayName: Cohete Incursor
+TheGripsOfChaos_HookInferno.DisplayName: Garra del Caos
+TheGripsOfChaos_HookMire.DisplayName: Garra del Caos
+DragonsGrip_Hook.DisplayName: Garra de Dragón
+HydraBite_Hook.DisplayName: Mordisco de Hidra
+BiomiteCore_RainbowBack.DisplayName: Arcoíris

@@ -5,6 +5,7 @@ using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -483,7 +484,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
             //draw glow/glow afterimage
             spriteBatch.Draw(GlowTex, NPC.Center - screenPos, NPC.frame, AAColor.Cthulhu2, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
-            BaseDrawing.DrawAfterimage(Main.spriteBatch, GlowTex, 0, NPC, 0.8f, 1f, 6, false, 0f, 0f, AAColor.Cthulhu2);
+            DrawingUtils.DrawAfterimageWithVelocity(Main.spriteBatch, GlowTex, NPC.Center - screenPos, NPC.velocity, 6, NPC.frame, AAColor.Cthulhu2, NPC.scale, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0.8f, 1f);
 
             return false;
         }

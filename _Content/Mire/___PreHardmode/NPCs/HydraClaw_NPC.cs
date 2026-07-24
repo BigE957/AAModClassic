@@ -1,12 +1,8 @@
 using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Inferno.___PreHardmode.NPCs;
-using AAModClassic._Content.Madness.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._CrossMod;
 using AAModClassic.Globals;
-using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using AAModClassic.Utilities.Interfaces;
 using System;
@@ -17,7 +13,6 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
-using static AAModClassic._Content.Inferno.___PreHardmode.NPCs.DragonClaw_NPC;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
 {
@@ -135,26 +130,11 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             target.AddBuff(BuffID.Poisoned, 180);
         }
 
+        public override bool PreKill() => !WasSpawnedByGripOfChaos;
+
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            LeadingConditionRule spawnedByGrips = new(new SpawnedByGripsMire());
-
-            spawnedByGrips.OnSuccess(ItemDropRule.Common(ModContent.ItemType<HydraClaw_Item>(), 2));
-
-            npcLoot.Add(spawnedByGrips);
-        }
-
-        public class SpawnedByGripsMire : IItemDropRuleCondition, IProvideItemConditionDescription
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                HydraClaw_NPC claw = info.npc.ModNPC as HydraClaw_NPC;
-                return !claw.WasSpawnedByGripOfChaos;
-            }
-
-            public bool CanShowItemDropInUI() => true;
-
-            public string GetConditionDescription() => Language.GetTextValue("Mods.AAModClassic.Common.Conditions.SpawnedByGrips");
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HydraClaw_Item>(), 2));
         }
     }
 }

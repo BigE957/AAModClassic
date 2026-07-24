@@ -61,6 +61,10 @@ Huge thanks to the Translation Teams:
 - Russian
 	- Arick 
 	- Waitti
+- Simplified Chinese
+	- Lozenges
+- Spanish
+	- Ningunomas
 
 Credit of course to the original team behind the mod:
 - Beg

@@ -1,9 +1,9 @@
+using AAModClassic.Dusts;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OuroborosWoodFurniture
 {
@@ -11,17 +11,26 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Ourob
     {
         public override void SetStaticDefaults()
         {
-            Main.tileFrameImportant[Type] = true;
-            Main.tileLavaDeath[Type] = true;
-            TileObjectData.newTile.CopyFrom(TileObjectData.StyleOnTable1x1);
-            TileObjectData.newTile.StyleHorizontal = true;
-            TileObjectData.newTile.StyleWrapLimit = 36;
-            TileObjectData.addTile(Type);
-            DustType = ModContent.DustType<Dusts.DoomDust>();
-            Main.tileLighted[Type] = true; 
-            AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-	        AddMapEntry(new Color(70, 0, 10));
-            RegisterItemDrop(ModContent.ItemType<OuroborosWoodCandle>());
+            this.SetUpCandle(ModContent.ItemType<OuroborosWoodCandle>(), true);
+            base.DustType = ModContent.DustType<DoomDust>();
+        }
+
+        public override bool RightClick(int i, int j)
+        {
+            FurnitureUtils.RightClickBreak(i, j);
+            return true;
+        }
+
+        public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
+
+        public override void HitWire(int i, int j) => FurnitureUtils.LightHitWire(Type, i, j, 1, 1);
+
+        public override void MouseOver(int i, int j)
+        {
+            Player player = Main.LocalPlayer;
+            player.noThrow = 2;
+            player.cursorItemIconEnabled = true;
+            player.cursorItemIconID = ModContent.ItemType<OuroborosWoodCandle>();
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
@@ -29,14 +38,6 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Ourob
             r = 0.9f;
             g = 0f;
             b = 0f;
-        }
-
-        public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
-        {
-            if(Main.tile[i, j].TileFrameX == 0 && Main.tile[i, j].TileFrameY == 0)
-            {
-                Item.NewItem(Entity.GetSource_NaturalSpawn(), i * 16, j * 16, 48, 48, ModContent.ItemType<OuroborosWoodCandle>());
-            }
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)

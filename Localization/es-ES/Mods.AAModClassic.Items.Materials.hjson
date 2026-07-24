@@ -1,0 +1,472 @@
+RainbowMushroom: {
+	DisplayName: Champiñón Arcoíris
+	Tooltip: No estás muy seguro de si es colorido por naturaleza o porque estás drogado.
+}
+
+ChampionPlate: {
+	DisplayName: Placa de Campeón
+	Tooltip: Forjada a partir de Champium
+}
+
+ChaosScale: {
+	DisplayName: Escama de Caos
+	Tooltip: El caos irradia de esta escama ardiente
+}
+
+DiscordiumBar: {
+	DisplayName: Lingote de Discordium
+	Tooltip: Los Caos del Mundo fundidos en un solo y poderoso lingote
+}
+
+IncineriteBar: {
+	DisplayName: Lingote de Incinerita
+	Tooltip: Cuidado. Está caliente.
+}
+
+IncineriteOre: {
+	DisplayName: Incinerita
+	Tooltip: Esta cosa está jodidamente caliente. Cuidado.
+}
+
+ScorchedScale: {
+	DisplayName: Escama Chamuscada
+	Tooltip: La escama de un oponente formidable
+}
+
+RadiantIncineriteBar: {
+	DisplayName: Lingote de Incinerita Radiante
+	Tooltip: Apenas puedes mirarlo, es muy brillante
+}
+
+DreadScale: {
+	DisplayName: Escama de Pavor
+	Tooltip: El poder de la luna del pavor está en tus manos
+}
+
+EventideAbyssiumOre: {
+	DisplayName: Mineral de Abyssium Anochecer
+	Tooltip: Es frío y húmedo, como un anochecer en una ciénaga pantanosa
+}
+
+DarkEnergy: {
+	DisplayName: Energía Oscura
+	Tooltip: Extrañamente no tiene peso
+}
+
+ApocalyptiteOre: {
+	DisplayName: Apocaliptita
+	Tooltip: ""
+}
+
+FulguriteBar: {
+	DisplayName: Lingote de Fulgurita
+	Tooltip: Tiene estática
+}
+
+FulguriteShard: {
+	DisplayName: Fragmento de Fulgurita
+	Tooltip: La furia de mil rayos corre a través de este fragmento
+}
+
+RealityBar: {
+	DisplayName: Lingote de Realidad
+	Tooltip: Energía pura e interdimensional
+}
+
+Infinitium: {
+	DisplayName: Infinitium
+	Tooltip: Malicia pura e impredecible
+}
+
+ShinyCharm: {
+	DisplayName: Amuleto Irisado
+	Tooltip: Un amuleto raro que te permite hacer brillantes a ciertas armas
+}
+
+ShinyCharmFish: {
+	DisplayName: Pez Amuleto Irisado
+	Tooltip: Una especie de pez raro
+}
+
+EXSoul: {
+	DisplayName: Alma EX
+	Tooltip: Esencia de magia antigua y arcana
+}
+
+BiomePrism: {
+	DisplayName: Prisma de Bioma
+	Tooltip: Un prisma mágico que puede ser mejorado con el poder de un bioma.
+}
+
+M79Parts: {
+	DisplayName: Piezas de M79
+	Tooltip: ""
+}
+
+BlueAlchemicalMushroom: {
+	DisplayName: Champiñón Alquímico Azul
+	Tooltip: Huele raro
+}
+
+BrownAlchemicalMushroom: {
+	DisplayName: Champiñón Alquímico Marrón
+	Tooltip: Huele raro
+}
+
+GrayAlchemicalMushroom: {
+	DisplayName: Champiñón Alquímico Gris
+	Tooltip: Huele raro
+}
+
+GreenAlchemicalMushroom: {
+	DisplayName: Champiñón Alquímico Verde
+	Tooltip: Huele raro
+}
+
+OrangeAlchemicalMushroom: {
+	DisplayName: Champiñón Alquímico Naranja
+	Tooltip: Huele raro
+}
+
+PinkAlchemicalMushroom: {
+	DisplayName: Champiñón Alquímico Rosa
+	Tooltip: Huele raro
+}
+
+PurpleAlchemicalMushroom: {
+	DisplayName: Champiñón Alquímico Morado
+	Tooltip: Huele raro
+}
+
+RedAlchemicalMushroom: {
+	DisplayName: Champiñón Alquímico Rojo
+	Tooltip: Huele raro
+}
+
+YellowAlchemicalMushroom: {
+	DisplayName: Champiñón Alquímico Amarillo
+	Tooltip: Huele raro
+}
+
+GoddessFeather: {
+	DisplayName: Pluma de Diosa
+	Tooltip: ""
+}
+
+SeraphFeather: {
+	DisplayName: Pluma de Serafín
+	Tooltip: Una pluma plateada de una arpía serafín
+}
+
+SkyCrystal: {
+	DisplayName: Cristal del Cielo
+	Tooltip: Un hermoso cristal, se dice que contiene un pedazo del cielo
+}
+
+StormSphere: {
+	DisplayName: Esfera de Tormenta
+	Tooltip: Una esfera de cristal sobrecargada de Energía Varian
+}
+
+RajahPelt: {
+	DisplayName: Piel de Conejo
+	Tooltip: Sorprendentemente duradera para ser una piel de pelaje
+}
+
+ChaosPrism: {
+	DisplayName: Prisma de Caos
+	Tooltip: Imbuido con las llamas discordianas del caos
+}
+
+ChaosSoul: {
+	DisplayName: Alma de Caos
+	Tooltip: Discordia sólida, simbolizando el desasosiego y la Anarquía misma
+}
+
+DesertMana: {
+	DisplayName: Maná del Desierto
+	Tooltip: ""
+}
+
+DynaskullFossil: {
+	DisplayName: Fósil de Dinocráneo
+	Tooltip: La energía de millones de años pulsa a través de este antiguo fósil
+}
+
+VultureFeather: {
+	DisplayName: Pluma de Buitre
+	Tooltip: ""
+}
+
+ForsakenFragment: {
+	DisplayName: Fragmento Abandonado
+	Tooltip: ""
+}
+
+SoulFragment: {
+	DisplayName: Fragmento de Alma
+	Tooltip: ""
+}
+
+GlowingMushium: {
+	DisplayName: Champium Brillante
+	Tooltip: ""
+}
+
+GlowingMushiumBar: {
+	DisplayName: Lingote de Champium Brillante
+	Tooltip: Brillante
+}
+
+HallowedOre: {
+	DisplayName: Mineral Sagrado
+	Tooltip: Es súper brillante
+}
+
+DevilSilk: {
+	DisplayName: Seda del Diablo
+	Tooltip: Pecado físico; se siente bien, pero no es un buen material a largo plazo
+}
+
+PureEvil: {
+	DisplayName: Maldad Pura
+	Tooltip: Tan insidioso que te sientes culpable con solo mirarlo
+}
+
+CovetiteCrystal: {
+	DisplayName: Cristal de Covetita
+	Tooltip:
+		'''
+		Tienes un extraño deseo por este cristal, 
+		a pesar de que ya es tuyo.
+		'''
+}
+
+StoneShell: {
+	DisplayName: Caparazón de Piedra
+	Tooltip: Más duro que la roca madre pero más ligero que la piedra pómez
+}
+
+CovetiteBar: {
+	DisplayName: Lingote de Covetita
+	Tooltip: De alguna manera es brillante pero al mismo tiempo no lo es. ¿Cómo cayó la codicia en esto?
+}
+
+CovetiteOre: {
+	DisplayName: Mineral de Covetita
+	Tooltip: Solo un tonto querría esto. Tiene sentido el por qué la codicia lo tiene.
+}
+
+DragonClaw_Item: {
+	DisplayName: Garra de Dragón
+	Tooltip: No te pinches
+}
+
+DragonScale: {
+	DisplayName: Escama de Dragón
+	Tooltip: ""
+}
+
+SolarMushroom: {
+	DisplayName: Champiñón Solar
+	Tooltip: Solo crece durante el día
+}
+
+DragonFire: {
+	DisplayName: Fuego de Dragón
+	Tooltip: Está muy pero que muy caliente.
+}
+
+SoulOfSmite: {
+	DisplayName: Alma de Castigo
+	Tooltip: La esencia de las criaturas del Infierno
+}
+
+CrucibleScale: {
+	DisplayName: Escama de Crisol
+	Tooltip: La furia del sol draconiano emana de esta escama
+}
+
+DaybreakIncineriteBar: {
+	DisplayName: Incinerita del Alba
+	Tooltip: Brillante como el sol radiante
+}
+
+DaybreakIncineriteOre: {
+	DisplayName: Mineral de Incinerita del Alba
+	Tooltip: Es cálido al tacto, como una mañana brillante de verano.
+}
+
+SearingSpark: {
+	DisplayName: Chispa Abrasadora
+	Tooltip: ""
+}
+
+PlanteraPetal: {
+	DisplayName: Pétalo de Plantera
+	Tooltip: Es muy rosa
+}
+
+MadnessFragment: {
+	DisplayName: Fragmento de Locura
+	Tooltip: ""
+}
+
+AbyssiumBar: {
+	DisplayName: Lingote de Abyssium
+	Tooltip: Oscuridad sólida
+}
+
+AbyssiumOre: {
+	DisplayName: Abyssium
+	Tooltip: Está todo blando. Desagradable.
+}
+
+BlackLotus: {
+	DisplayName: Loto Negro
+	Tooltip: Se dice que alguien ofreció $160000 por esta cosa.
+}
+
+LunarMushroom: {
+	DisplayName: Champiñón Lunar
+	Tooltip: Solo crece durante la noche
+}
+
+HydraClaw_Item: {
+	DisplayName: Garra de Hidra
+	Tooltip: No te pinches
+}
+
+HydraHide: {
+	DisplayName: Piel de Hidra
+	Tooltip: La piel de un oponente formidable
+}
+
+MirePod: {
+	DisplayName: Vaina del Lodazal
+	Tooltip: ""
+}
+
+Bogtoxin: {
+	DisplayName: Toxina de Ciénaga
+	Tooltip: Veneno sumamente corrosivo.
+}
+
+DeepAbyssiumBar: {
+	DisplayName: Lingote de Abyssium Profundo
+	Tooltip: Es un milagro que puedas siquiera verlo, es muy oscuro
+}
+
+SoulOfSpite: {
+	DisplayName: Alma de Rencor
+	Tooltip: La esencia de las criaturas del Lodazal
+}
+
+EventideAbyssiumBar: {
+	DisplayName: Abyssium del Anochecer
+	Tooltip: Frío como la luna de la tarde
+}
+
+TerrorSoul: {
+	DisplayName: Alma de Terror
+	Tooltip: ""
+}
+
+Mushium: {
+	DisplayName: Champium
+	Tooltip: ""
+}
+
+MushiumBar: {
+	DisplayName: Lingote de Champium
+	Tooltip: Blandito
+}
+
+DragonSpirit: {
+	DisplayName: Espíritu de Dragón
+	Tooltip: Parece que tiene sabor a manzana
+}
+
+RelicBar: {
+	DisplayName: Lingote de Reliquia
+	Tooltip: ""
+}
+
+SnowMana: {
+	DisplayName: Maná de Nieve
+	Tooltip: ""
+}
+
+VikingRelic: {
+	DisplayName: Reliquia Vikinga
+	Tooltip: ""
+}
+
+DarkmatterBar: {
+	DisplayName: Materia Oscura
+	Tooltip: Los componentes básicos de la física misma
+}
+
+DarkmatterOre: {
+	DisplayName: Mineral de Materia Oscura
+	Tooltip: Se siente ingrávido, pero aún conserva algún tipo de masa
+}
+
+RadiantPhoton: {
+	DisplayName: Fotón Radiante
+	Tooltip: Un fragmento del cosmos celestial
+}
+
+RadiumBar: {
+	DisplayName: Lingote de Radio
+	Tooltip: Es centelleante
+}
+
+RadiumOre: {
+	DisplayName: Mineral de Radio
+	Tooltip: Parpadea como las estrellas en los cielos de medianoche
+}
+
+HeroRelics: {
+	DisplayName: Reliquias de Héroe
+	Tooltip: Fragmentos de una reliquia destrozada
+}
+
+TerraShard: {
+	DisplayName: Fragmento de Terra
+	Tooltip: ""
+}
+
+TerraPrism: {
+	DisplayName: Prisma de Terra
+	Tooltip: Imbuido con la armonía unificada de las tierras de Terraria
+}
+
+Prism: {
+	DisplayName: Prisma
+	Tooltip: Brilla con los colores de todas las gemas
+}
+
+DoomiteBar: {
+	DisplayName: Lingote de Doomita
+	Tooltip: Una energía inquietante emana de este lingote
+}
+
+DoomiteScrap: {
+	DisplayName: Chatarra de Doomita
+	Tooltip:
+		'''
+		No vale nada
+		...¿o sí?
+		'''
+}
+
+ApocalyptitePlate: {
+	DisplayName: Placa de Apocaliptita
+	Tooltip: Una energía presagiante resuena en este revestimiento de metal
+}
+
+UnstableSingularity: {
+	DisplayName: Singularidad Inestable
+	Tooltip: Apenas lo suficientemente estable como para sostenerse
+}

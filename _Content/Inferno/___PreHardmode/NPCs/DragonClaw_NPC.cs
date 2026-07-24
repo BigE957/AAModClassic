@@ -132,26 +132,11 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
             target.AddBuff(BuffID.OnFire, 180);
         }
 
+        public override bool PreKill() => !WasSpawnedByGripOfChaos;
+
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            LeadingConditionRule spawnedByGrips = new(new SpawnedByGripsInferno());
-
-            spawnedByGrips.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DragonClaw_Item>(), 2));
-
-            npcLoot.Add(spawnedByGrips);
-        }
-
-        public class SpawnedByGripsInferno : IItemDropRuleCondition, IProvideItemConditionDescription
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                DragonClaw_NPC claw = info.npc.ModNPC as DragonClaw_NPC;
-                return !claw.WasSpawnedByGripOfChaos;
-            }
-
-            public bool CanShowItemDropInUI() => true;
-
-            public string GetConditionDescription() => Language.GetTextValue("Mods.AAModClassic.Common.Conditions.SpawnedByGrips");
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DragonClaw_Item>(), 2));
         }
     }
 }

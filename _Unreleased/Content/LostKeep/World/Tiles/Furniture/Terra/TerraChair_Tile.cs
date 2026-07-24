@@ -1,10 +1,9 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.Enums;
+using AAModClassic.Utilities;
+using Terraria.DataStructures;
+using Terraria.GameContent;
+using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Terra;
 
@@ -12,31 +11,22 @@ public class TerraChair_Tile : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		//IL_00cf: Unknown result type (might be due to invalid IL or missing references)
-		Main.tileFrameImportant[Type] = true;
-		Main.tileNoAttach[Type] = true;
-		Main.tileLavaDeath[Type] = true;
-		TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2);
-		TileObjectData.newTile.CoordinateHeights = new int[2] { 16, 18 };
-		TileObjectData.newTile.Direction = TileObjectDirection.PlaceLeft;
-		TileObjectData.newTile.StyleWrapLimit = 2;
-		TileObjectData.newTile.StyleMultiplier = 2;
-		TileObjectData.newTile.StyleHorizontal = true;
-		TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
-		TileObjectData.newAlternate.Direction = TileObjectDirection.PlaceRight;
-		TileObjectData.addAlternate(1);
-		TileObjectData.addTile((int)Type);
-		AddToArray(ref TileID.Sets.RoomNeeds.CountsAsChair);
-		LocalizedText val = CreateMapEntryName();
-		// val.SetDefault("Terra Chair");
-		AddMapEntry(new Color(65, 205, 12), val);
-		base.DustType = DustID.Terra;
-		TileID.Sets.DisableSmartCursor[Type] = true;
-		base.AdjTiles = new int[1] { 15 };
-	}
+        this.SetUpChair(ModContent.ItemType<TerraChair>());
+        DustType = DustID.Terra;
+
+        VanillaFallbackOnModDeletion = TileID.Chairs;
+    }
 
 	public override void NumDust(int i, int j, bool fail, ref int num)
 	{
 		num = (fail ? 1 : 3);
 	}
+
+    public override void ModifySittingTargetInfo(int i, int j, ref TileRestingInfo info) => FurnitureUtils.ChairSitInfo(i, j, ref info);
+
+    public override bool RightClick(int i, int j) => FurnitureUtils.ChairRightClick(i, j);
+
+    public override void MouseOver(int i, int j) => FurnitureUtils.ChairMouseOver(i, j, ModContent.ItemType<TerraChair>());
+
+    public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => settings.player.IsWithinSnappngRangeToTile(i, j, PlayerSittingHelper.ChairSittingMaxDistance);
 }

@@ -1,28 +1,28 @@
 GlobalNPCInfo.NPCarrive: " пробуждается!"
 
 EnemyChat: {
-	SeraphChat1: О-о-й, ты такой скучняшка! Тру-у-уси-и-ишка..!
+	SeraphChat1: О-о-й, ты такой скучняшка! Тру-у-уси-и-ишка!..
 	SeraphChat2: Ха-ха-ха! Сбегаешь как и все эти бесхребетные землеходцы, коим ты и являешься!
 	SeraphChat3: Как скучно.
-	SeraphChat4: Ну вернись! Мне было так весело пинать тебя..!
+	SeraphChat4: Ну вернись! Мне было так весело пинать тебя!..
 	SeraphChat5: О-о-й, ну что ты, землеходец-младший. Ну заплачь!
-	SeraphKillChat1: У-у-упс. Сдохли. Как так то..!
+	SeraphKillChat1: У-у-упс. Сдохли. Как так то!..
 	SeraphKillChat2: Ха! Моя взяла!
-	SeraphKillChat3: Было весело! Возвращайся, когда перестанешь отсасывать!, соплежуй!
-	SeraphKillChat4: И НЕ ПРИХОДИ СЮДА БОЛЬШЕ..!
+	SeraphKillChat3: Было весело! Возвращайся, когда перестанешь отсасывать, соплежуй!
+	SeraphKillChat4: И НЕ ПРИХОДИ СЮДА БОЛЬШЕ!..
 	SeraphKillChat5: Ну-у-у, не впечатлил... Ты просто жалок!
-	SeraphHurtChat1: АЙ СУ..! Слышь, НАГЛЕЦ! АФИНА-А-А-А-А-А-А-А-А-А-А-А-А!!!
+	SeraphHurtChat1: АЙ СУ-- Слышь, НАГЛЕЦ! АФИНА-А-А-А-А-А-А-А-А-А-А-А-А!!!
 	SeraphHurtChat2: СЛЫШЬ! Я же просто играл! Вот щас-щас, погоди, Афина КАК УЗНАЕТ, А!
 	SeraphHurtChat3: НУ ВСЁ, хватит с тебя! Ох, э- АФИ-И-И-И-И-И-И-ИНА-А-А-А-А-А-А-А!
 	SeraphHurtChat4: БОЛЬНО МАТЬ ТВ..! МХВУУУУ-УУУ-УУУ АФИНА-А-А-А-А-А ЗЕМЛЕХОДЕЦ МЕНЯ ОБИЖАЕТ!
-	SeraphHurtChat5: *АХ*! Ты мне платье порвал..! Я щас Афину позову..!
-	SeraphAthenaRunChat1: Всё, с тебя хватит...!
+	SeraphHurtChat5: *АХ*! Ты мне платье порвал!.. Я щас Афину позову!..
+	SeraphAthenaRunChat1: Всё, с тебя хватит!..
 	SeraphAthenaRunChat2: Я, пожалуй, пойду...
 	SeraphAthenaRunChat3: Щас ты получишь!
 	SeraphAthenaRunChat4: Что будет дальше - уже не моя проблема.
 	SeraphAthenaRunChat5: Да! Съел?!
-	AthenaChat1: ...боже...эти мелкие плаксы--
-	AthenaChat2: У меня нет на это времени..!
+	AthenaChat1: ...Боже... эти мелкие плаксы--
+	AthenaChat2: У меня нет на это времени!..
 }
 
 Athena.DisplayName: Афина
@@ -101,7 +101,7 @@ UraeusTail.DisplayName: Урей
 AnubisA.DisplayName: Анубис; Отвергнутый судья
 AnubisForsakenTransition.DisplayName: Анубис Легендописец
 CursedLocust.DisplayName: Проклятая саранча
-// CursedMinionRitual.DisplayName: Cursed Ritual
+CursedMinionRitual.DisplayName: Проклятый ритуал
 CursedScarab.DisplayName: Проклятый скарабей
 ForsakenSun.DisplayName: Отвергнутое солнце
 HorusSentry.DisplayName: Страж Гора
@@ -110,7 +110,7 @@ FeudalFungus.DisplayName: Грибной феодал
 FeudalFungus_FungalSpore.DisplayName: Грибная спора
 FeudalFungus_FungusFlier.DisplayName: Гриболетун
 FeudalFungusAsleep.DisplayName: Огроменный светящийся гриб
-FeudalFungusWakeUp.DisplayName: Огроменный светящийся гриб...?
+FeudalFungusWakeUp.DisplayName: Огроменный светящийся гриб?..
 GlowingMushling.DisplayName: Светящийся грибёнок
 GregariousGlowshrooms.DisplayName: Кучка светящихся грибов
 LuminousAccordyceps.DisplayName: Блестящий аккордицепс

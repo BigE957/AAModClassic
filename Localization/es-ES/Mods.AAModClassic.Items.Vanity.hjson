@@ -1,0 +1,943 @@
+Aves: {
+	AvesWings: {
+		DisplayName: Amplificadores de Bajo Pato
+		Tooltip: ¡Geniales para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+
+	AvesChestplate: {
+		DisplayName: Camiseta de DJ Pato
+		Tooltip: ¡Geniales para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+
+	AvesHelmet: {
+		DisplayName: Máscara de DJ Pato
+		Tooltip:
+			'''
+			'Cuac'
+			'¡Geniales para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+
+	AvesLeggings: {
+		DisplayName: Pantalones de DJ Pato
+		Tooltip: ¡Geniales para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+}
+
+Masks: {
+	AthenaAMask: {
+		DisplayName: Máscara de Atenea Olímpica
+		Tooltip: ""
+	}
+
+	InfernoGripMask: {
+		DisplayName: Máscara del Agarre del Caos Infernal
+		Tooltip: ""
+	}
+
+	DaybringerMask: {
+		DisplayName: Máscara del Portador del Día
+		Tooltip: ""
+	}
+
+	NightcrawlerMask: {
+		DisplayName: Máscara del Noctámbulo
+		Tooltip: ""
+	}
+
+	BlueOrthrusXMask: {
+		DisplayName: Máscara de Orthrus X Azul
+		Tooltip: ""
+	}
+
+	RedOrthrusXMask: {
+		DisplayName: Máscara de Orthrus X Roja
+		Tooltip: ""
+	}
+
+	RetrieverMask: {
+		DisplayName: Máscara de Retriever
+		Tooltip: ""
+	}
+
+	TechnoTruffleMask: {
+		DisplayName: Máscara de Techno Trufa
+		Tooltip: ""
+	}
+
+	AthenaMask: {
+		DisplayName: Máscara de Atenea
+		Tooltip: ""
+	}
+
+	RajahRabbitMask: {
+		DisplayName: Máscara de Rajah Rabbit
+		Tooltip: ""
+	}
+
+	MireGripMask: {
+		DisplayName: Máscara del Agarre del Caos del Lodazal
+		Tooltip: ""
+	}
+
+	ShenDoragonAMask: {
+		DisplayName: Máscara de Shen Doragon Despertado
+		Tooltip: ""
+	}
+
+	ShenDoragonMask: {
+		DisplayName: Máscara de Shen Doragon
+		Tooltip: ""
+	}
+
+	DesertDjinnMask: {
+		DisplayName: Máscara de Genio del Desierto
+		Tooltip: ""
+	}
+
+	AnubisMask: {
+		DisplayName: Máscara de Anubis
+		Tooltip: ""
+	}
+
+	AnubisAMask: {
+		DisplayName: Máscara de Anubis Abandonado
+		Tooltip: ""
+	}
+
+	FeudalFungusMask: {
+		DisplayName: Máscara de Hongo Feudal
+		Tooltip: ""
+	}
+
+	TruffleToadMask: {
+		DisplayName: Máscara de Sapo Trufa
+		Tooltip: ""
+	}
+
+	GreedMask: {
+		DisplayName: Máscara de Codicia
+		Tooltip: ""
+	}
+
+	GreedAMask: {
+		DisplayName: Máscara de Codicia Rey Gusano
+		Tooltip: ""
+	}
+
+	BroodmotherMask: {
+		DisplayName: Máscara de Madre de la Camada
+		Tooltip: ""
+	}
+
+	AkumaAMask: {
+		DisplayName: Máscara de Akuma Oni
+		Tooltip: ""
+	}
+
+	AkumaMask: {
+		DisplayName: Máscara de Akuma
+		Tooltip: ""
+	}
+
+	HydraMask1: {
+		DisplayName: Máscara de Hidra
+		Tooltip: ""
+	}
+
+	HydraMask2: {
+		DisplayName: Máscara de Hidra
+		Tooltip: ""
+	}
+
+	HydraMask3: {
+		DisplayName: Máscara de Hidra
+		Tooltip: ""
+	}
+
+	YamataAMask: {
+		DisplayName: Máscara de Yamata No Orochi
+		Tooltip: ""
+	}
+
+	YamataMask: {
+		DisplayName: Máscara de Yamata
+		Tooltip: ""
+	}
+
+	MushroomMonarchMask: {
+		DisplayName: Máscara de Monarca Fúngico
+		Tooltip: ""
+	}
+
+	SubzeroSerpentMask: {
+		DisplayName: Máscara de Serpiente Subzero
+		Tooltip: ""
+	}
+
+	SagittariusMask: {
+		DisplayName: Máscara de Sagitario
+		Tooltip: ""
+	}
+
+	ZeroMask: {
+		DisplayName: Máscara de Zero
+		Tooltip: ""
+	}
+
+	RajahRabbitAMask: {
+		DisplayName: Máscara de Campeón de Rajah Rabbit
+		Tooltip: ""
+	}
+
+	AsheMask: {
+		DisplayName: Máscara de Ashe
+		Tooltip: ""
+	}
+
+	HarukaMask: {
+		DisplayName: Máscara de Haruka
+		Tooltip: ""
+	}
+
+	RaiderUltimaMask: {
+		DisplayName: Máscara de Raider Ultima
+		Tooltip: ""
+	}
+
+	SoulOfCthulhuAMask: {
+		DisplayName: Máscara de Calamidad Cósmica
+		Tooltip: ""
+	}
+
+	SoulOfCthulhuMask: {
+		DisplayName: Máscara de Alma de Cthulhu
+		Tooltip: ""
+	}
+
+	InfinityZeroMask: {
+		DisplayName: Máscara de Infinity Zero
+		Tooltip: ""
+	}
+
+	ZeroAMask: {
+		DisplayName: Máscara de Protocolo Zero
+		Tooltip: ""
+	}
+
+	OrthrusXMask: {
+		DisplayName: Máscara de Orthrus X
+		Tooltip: ""
+	}
+}
+
+Pets: {
+	ScorchedEgg: {
+		DisplayName: Huevo Chamuscado
+		Tooltip: ¿Qué saldrá de este huevo?
+	}
+
+	Seashroom: {
+		DisplayName: Champiñón Marino
+		Tooltip: Huele a pescado
+	}
+
+	CyberneticEgg: {
+		DisplayName: Huevo Cibernético
+		Tooltip: ¿Qué saldrá de este... espera, ¿no hemos hecho esto ya?
+	}
+
+	CerberusWhistle: {
+		DisplayName: Silbato de Hades
+		Tooltip: Invoca al perro guardián del mismísimo rey del inframundo
+	}
+
+	K9Collar: {
+		DisplayName: Collar K9
+		Tooltip: Invoca a un compañero robótico
+	}
+
+	MoonBeeInAJar: {
+		DisplayName: Abeja Lunar en un Frasco
+		Tooltip: Invoca a una Lunamini
+	}
+
+	MudFishBall: {
+		DisplayName: Bola de Pez de Barro
+		Tooltip: Parece que ya tiene algo dentro
+	}
+
+	RoyalStar: {
+		DisplayName: Estrella Real
+		Tooltip: Invoca a un gatito muy bonito
+	}
+
+	ShinyFishBall: {
+		DisplayName: Bola de Pez Brillante
+		Tooltip: Parece que ya tiene algo dentro
+	}
+
+	PaperBomb: {
+		DisplayName: Bomba de Papel
+		Tooltip: ""
+	}
+
+	DragonSoul: {
+		DisplayName: Alma de Dragón
+		Tooltip:
+			'''
+			Invoca un Alma de Dragón
+			Se siente caliente, pero reconfortante...
+			'''
+	}
+
+	GlowingMossBall: {
+		DisplayName: Bola de Musgo Brillante
+		Tooltip:
+			'''
+			Invoca una Bola de Musgo Brillante
+			No preguntes qué hace que brille, confía en mí
+			'''
+	}
+
+	ZeroCore: {
+		DisplayName: Núcleo Zero
+		Tooltip: Invoca un ZER0 lite detector de criaturas
+	}
+}
+
+BigE: {
+	BigEWings: {
+		DisplayName: Ascensores Eficientes
+		Tooltip:
+			'''
+			Mantén presionado abajo y salta para flotar durante un periodo prolongado de tiempo
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+
+	Shiny: {
+		BigEWingsS: {
+			DisplayName: Ascensores Eficientes
+			Tooltip:
+				'''
+				Mantén presionado abajo y salta para flotar durante un periodo prolongado de tiempo
+				'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+				'''
+		}
+	}
+
+	LittleE: {
+		DisplayName: Little E
+		Tooltip: "'Esa es una versión pequeña de mí, {0}. Quiero que la tengas.'"
+	}
+
+	LittleES: {
+		DisplayName: Calamit E
+		Tooltip: "'Tío, ¿te gusta el Mod Calamity? {0}, hermano, sabía que me caías bien, tío. Ven aquí, acércate. Acércate, hermano.'"
+	}
+}
+
+Blazen: {
+	BlazenWings: {
+		DisplayName: Propulsor de Asalto Táctico
+		Tooltip:
+			'''
+			Mantén presionado arriba para propulsarte más rápido
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+
+	BlazenChestplate: {
+		DisplayName: Armadura de Asalto Táctico
+		Tooltip: ¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+
+	BlazenHelmet: {
+		DisplayName: Casco de Asalto Táctico
+		Tooltip: ¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+
+	BlazenLeggings: {
+		DisplayName: Botas de Asalto Táctico
+		Tooltip: ¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+}
+
+Charlie: {
+	CharlieWings: {
+		DisplayName: Alas de Pesadilla Sombría
+		Tooltip:
+			'''
+			Mantén presionado abajo y salta para flotar durante un periodo prolongado de tiempo
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+
+	CharlieChestplate: {
+		DisplayName: Capa de Espectro
+		Tooltip: ¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+
+	CharlieHelmet: {
+		DisplayName: Capucha de Espectro
+		Tooltip: ¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+
+	CharlieLeggings: {
+		DisplayName: Botas de Espectro
+		Tooltip: ¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+}
+
+Gibs: {
+	GibsWings: {
+		DisplayName: Propulsor a Reacción de Revenant
+		Tooltip:
+			'''
+			Mantén presionado abajo y salta para flotar durante un periodo prolongado de tiempo
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+
+	GibsChestplate: {
+		DisplayName: Placa de Revenant
+		Tooltip: ¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+
+	GibsHelmet: {
+		DisplayName: Cráneo de Revenant
+		Tooltip: ¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+
+	GibsLeggings: {
+		DisplayName: Piernas de Revenant
+		Tooltip: ¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+}
+
+Grox: {
+	GroxWings: {
+		DisplayName: Velas del Cielo del Pirata Furioso
+		Tooltip: ¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+
+	GroxChestplate: {
+		DisplayName: Peto Cofre del Pirata Furioso
+		Tooltip:
+			'''
+			Un odio hacia los peces que no saben programar irradia de este Peto.
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+
+	GroxHelmet: {
+		DisplayName: Capucha del Pirata Furioso
+		Tooltip:
+			'''
+			Un odio hacia los peces que no saben programar irradia de esta capucha.
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+
+	GroxLeggings: {
+		DisplayName: Grebas del Pirata Furioso
+		Tooltip:
+			'''
+			Un odio hacia los peces que no saben programar irradia de estas botas.
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+}
+
+Moon: {
+	MoonWings: {
+		DisplayName: Alas de Avispa Lunar
+		Tooltip:
+			'''
+			Mantén presionado abajo y salta para flotar durante un periodo prolongado de tiempo
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+
+	MoonChestplate: {
+		DisplayName: Túnica Lunar
+		Tooltip:
+			'''
+			La túnica de un mago lunar legendario
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+
+	Shiny: {
+		MoonChestplateS: {
+			DisplayName: Túnica Lunar
+			Tooltip:
+				'''
+				La túnica de un mago lunar legendario
+				'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+				'''
+		}
+
+		MoonHelmetS: {
+			DisplayName: Capucha Lunar
+			Tooltip:
+				'''
+				La capucha de un mago lunar legendario
+				'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+				'''
+		}
+
+		MoonLeggingsS: {
+			DisplayName: Botas Lunares
+			Tooltip:
+				'''
+				Las botas de un mago lunar legendario
+				'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+				'''
+		}
+	}
+
+	MoonHelmet: {
+		DisplayName: Capucha Lunar
+		Tooltip:
+			'''
+			La capucha de un mago lunar legendario
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+
+	MoonLeggings: {
+		DisplayName: Botas Lunares
+		Tooltip:
+			'''
+			Las botas de un mago lunar legendario
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+}
+
+Anarchy: {
+	AnarchyChestplate: {
+		DisplayName: Peto Prístino
+		Tooltip:
+			'''
+			'¡Genial para hacerse pasar por colaboradores de Ancients Awakened!'
+			Para que conste, Anarchy hizo el sprite de esto él mismo.
+			'''
+	}
+
+	AnarchyHelmet: {
+		DisplayName: Casco Prístino
+		Tooltip:
+			'''
+			'¡Genial para hacerse pasar por colaboradores de Ancients Awakened!'
+			Para que conste, Anarchy hizo el sprite de esto él mismo.
+			'''
+	}
+
+	AnarchyLeggings: {
+		DisplayName: Grebas Prístinas
+		Tooltip:
+			'''
+			'¡Genial para hacerse pasar por colaboradores de Ancients Awakened!'
+			Para que conste, Anarchy hizo el sprite de esto él mismo.
+			'''
+	}
+}
+
+Apawn: {
+	ApawnChestplate: {
+		DisplayName: Peto de Apawn
+		Tooltip: ¡Genial para hacerse pasar por testers de Ancients Awakened!
+	}
+
+	ApawnHelmet: {
+		DisplayName: Visor de Apawn
+		Tooltip: ¡Genial para hacerse pasar por testers de Ancients Awakened!
+	}
+
+	ApawnLeggings: {
+		DisplayName: Grebas de Apawn
+		Tooltip: ¡Genial para hacerse pasar por testers de Ancients Awakened!
+	}
+}
+
+Beg: {
+	BegChestplate: {
+		DisplayName: Camiseta de Caballo Extraño
+		Tooltip: Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+
+	BegHelmet: {
+		DisplayName: Máscara de Caballo Extraño
+		Tooltip: Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+
+	BegLeggings: {
+		DisplayName: Cascos de Caballo Extraño
+		Tooltip: Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+}
+
+CC: {
+	CCChestplate: {
+		DisplayName: Túnica de Cultista del Pavor
+		Tooltip:
+			'''
+			La capucha de un loco entusiasta de los lagartos
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+
+	Shiny: {
+		CCChestplateS: {
+			DisplayName: Túnica de Cultista del Pavor
+			Tooltip:
+				'''
+				La capucha de un loco entusiasta de los lagartos
+				'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+				'''
+		}
+
+		CCHelmetS: {
+			DisplayName: Máscara de Cultista del Pavor
+			Tooltip:
+				'''
+				La máscara de un loco entusiasta de los lagartos
+				'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+				'''
+		}
+	}
+
+	CCHelmet: {
+		DisplayName: Máscara de Cultista del Pavor
+		Tooltip:
+			'''
+			La máscara de un loco entusiasta de los lagartos
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+}
+
+Cerberus: {
+	CerberusChestplate: {
+		DisplayName: Túnica de Invocador
+		Tooltip:
+			'''
+			La túnica encantada de Aleister el 'Mega Therion'
+			Great for impersonating Awakened Devs!
+			'''
+	}
+
+	CerberusHelmet: {
+		DisplayName: Capucha de Invocador
+		Tooltip:
+			'''
+			La capucha encantada de Aleister el 'Mega Therion'
+			Great for impersonating Awakened Devs!
+			'''
+	}
+
+	CerberusLeggings: {
+		DisplayName: Botas de Invocador
+		Tooltip:
+			'''
+			Las botas encantadas de Aleister el 'Mega Therion'
+			Great for impersonating Awakened Devs!
+			'''
+	}
+}
+
+Delly: {
+	DellyChestplate: {
+		DisplayName: Camisa de Sombras
+		Tooltip: Great for impersonating Ancients Awakened Developers!
+	}
+
+	DellyHelmet: {
+		DisplayName: Peluca de Sombras
+		Tooltip: Great for impersonating Ancients Awakened Developers!
+	}
+
+	DellyLeggings: {
+		DisplayName: Botas de Sombras
+		Tooltip: Great for impersonating Ancients Awakened Developers!
+	}
+}
+
+Fargo: {
+	FargoChestplate: {
+		DisplayName: Traje de Ardilla Elegante
+		Tooltip:
+			'''
+			soonTM
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+
+	FargoHelmet: {
+		DisplayName: Sombrero de Copa de Ardilla Elegante
+		Tooltip:
+			'''
+			soonTM
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+
+	FargoLeggings: {
+		DisplayName: Pantalones de Ardilla Elegante
+		Tooltip:
+			'''
+			soonTM
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+}
+
+Fazer: {
+	FazerChestplate: {
+		DisplayName: Suéter de Zorro Esponjoso
+		Tooltip: ¡Genial para hacerse pasar por colaboradores de Ancients Awakened!
+	}
+
+	FazerHelmet: {
+		DisplayName: Peluca de Zorro Esponjoso
+		Tooltip: ¡Genial para hacerse pasar por colaboradores de Ancients Awakened!
+	}
+
+	FazerLeggings: {
+		DisplayName: Pantalones de Zorro Esponjoso
+		Tooltip: ¡Genial para hacerse pasar por colaboradores de Ancients Awakened!
+	}
+}
+
+Hallam: {
+	HallamChestplate: {
+		DisplayName: Esmoquin Elegante de Hallam
+		Tooltip:
+			'''
+			Este esmoquin fue tejido con pura clase
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+
+	Shiny: {
+		HallamChestplateS: {
+			DisplayName: Esmoquin Elegante de Hallam
+			Tooltip:
+				'''
+				Este esmoquin fue tejido con pura clase
+				'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+				'''
+		}
+
+		HallamHelmetS: {
+			DisplayName: Sombrero de Copa Elegante de Hallam
+			Tooltip:
+				'''
+				No puedes evitar sentirte elegante solo con llevar esto puesto
+				'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+				'''
+		}
+
+		HallamLeggingsS: {
+			DisplayName: Pantalones de Moda de Hallam
+			Tooltip:
+				'''
+				Estos pantalones cuestan mucho más que tú
+				'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+				'''
+		}
+	}
+
+	HallamHelmet: {
+		DisplayName: Sombrero de Copa Elegante de Hallam
+		Tooltip:
+			'''
+			No puedes evitar sentirte elegante solo con llevar esto puesto
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+
+	HallamLeggings: {
+		DisplayName: Pantalones de Moda de Hallam
+		Tooltip:
+			'''
+			Estos pantalones cuestan mucho más que tú
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+}
+
+Maskano: {
+	MaskanoChestplate: {
+		DisplayName: Peto del Señor de las Máscaras
+		Tooltip: ¡Genial para hacerse pasar por colaboradores de Ancients Awakened!
+	}
+
+	MaskanoHelmet: {
+		DisplayName: La Máscara
+		Tooltip: ¡Genial para hacerse pasar por colaboradores de Ancients Awakened!
+	}
+
+	MaskanoLeggings: {
+		DisplayName: Botas del Señor de las Máscaras
+		Tooltip: ¡Genial para hacerse pasar por colaboradores de Ancients Awakened!
+	}
+}
+
+Mikpin: {
+	MikpinChestplate: {
+		DisplayName: Vestido de Kitsune
+		Tooltip: ¡Genial para hacerse pasar por testers de Ancients Awakened!
+	}
+
+	MikpinHelmet: {
+		DisplayName: Peluca de Kitsune
+		Tooltip: ¡Genial para hacerse pasar por testers de Ancients Awakened!
+	}
+
+	MikpinLeggings: {
+		DisplayName: Pantalones de Kitsune
+		Tooltip: ¡Genial para hacerse pasar por testers de Ancients Awakened!
+	}
+}
+
+Pluto: {
+	PlutoChestplate: {
+		DisplayName: Peto del Dios Exterior
+		Tooltip: Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+
+	Shiny: {
+		PlutoChestplateS: {
+			DisplayName: Peto del Dios Exterior
+			Tooltip: Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+		}
+
+		PlutoHelmetS: {
+			DisplayName: Máscara del Dios Exterior
+			Tooltip: Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+		}
+	}
+
+	PlutoHelmet: {
+		DisplayName: Máscara del Dios Exterior
+		Tooltip: Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+
+	PlutoLeggings: {
+		DisplayName: Grebas del Dios Exterior
+		Tooltip: Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+}
+
+Shox: {
+	ShoxChestplate: {
+		DisplayName: Peto del Señor del Choque
+		Tooltip: ¡Genial para hacerse pasar por colaboradores de Ancients Awakened!
+	}
+
+	ShoxHelmet: {
+		DisplayName: Visor del Señor del Choque
+		Tooltip: ¡Genial para hacerse pasar por colaboradores de Ancients Awakened!
+	}
+
+	ShoxLeggings: {
+		DisplayName: Botas del Señor del Choque
+		Tooltip: ¡Genial para hacerse pasar por colaboradores de Ancients Awakened!
+	}
+}
+
+Tails: {
+	TailsChestplate: {
+		DisplayName: Disfraz de cuerpo de Tails
+		Tooltip:
+			'''
+			Un traje de cuerpo hecho para parecerse a cierto zorro de dos colas.
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+
+	TailsHelmet: {
+		DisplayName: Casco de Tails
+		Tooltip:
+			'''
+			Un casco hecho para parecerse a cierto zorro de dos colas.
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+
+	TailsLeggings: {
+		DisplayName: Mallas de Tails
+		Tooltip:
+			'''
+			Mallas hechas para parecerse a cierto zorro de dos colas.
+			'¡Genial para hacerse pasar por desarrolladores de Ancients Awakened!'
+			'''
+	}
+}
+
+Tied: {
+	TiedChestplate: {
+		DisplayName: Peto Atado
+		Tooltip: ""
+	}
+
+	TiedHelmet: {
+		DisplayName: Cráneo Espeluznante
+		Tooltip: Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+
+	TiedLeggings: {
+		DisplayName: Pantalones Espeluznantes
+		Tooltip: Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+}
+
+Universe: {
+	UniverseChestplate: {
+		DisplayName: Túnica de Segador Maldito
+		Tooltip: Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+
+	UniverseHelmet: {
+		DisplayName: Capucha de Segador Maldito
+		Tooltip: Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+
+	UniverseLeggings: {
+		DisplayName: Botas de Segador Maldito
+		Tooltip: Genial para hacerse pasar por desarrolladores de Ancients Awakened!
+	}
+}
+
+VoidEye: {
+	VoidEyeChestplate: {
+		DisplayName: Peto del Ojo del Vacío
+		Tooltip: ¡Genial para hacerse pasar por colaboradores de Ancients Awakened!
+	}
+
+	VoidEyeHelmet: {
+		DisplayName: Máscara del Ojo del Vacío
+		Tooltip: ¡Genial para hacerse pasar por colaboradores de Ancients Awakened!
+	}
+
+	VoidEyeLeggings: {
+		DisplayName: Botas del Ojo del Vacío
+		Tooltip: ¡Genial para hacerse pasar por colaboradores de Ancients Awakened!
+	}
+}
+
+HappySunSticker: {
+	DisplayName: Pegatina de Sol Feliz
+	Tooltip: ":D"
+}
+
+Ohno: {
+	Ono: {
+		DisplayName: ono
+		Tooltip: ono
+	}
+}

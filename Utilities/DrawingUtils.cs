@@ -7,9 +7,11 @@ using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.Drawing;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ObjectData;
 
 namespace AAModClassic.Utilities
 {
@@ -407,6 +409,56 @@ namespace AAModClassic.Utilities
                 Main.EntitySpriteDraw(chainTexture.Value, center - Main.screenPosition,
                     chainTexture.Value.Bounds, drawColor, chainRotation,
                     chainTexture.Size() * 0.5f, 1f, SpriteEffects.None, 0);
+            }
+        }
+
+        public static bool DrawSwayingMultiTile(int i, int j)
+        {
+            Tile tile = Main.tile[i, j];
+            if (TileObjectData.IsTopLeft(tile))
+                Main.instance.TilesRenderer.AddSpecialPoint(i, j, TileDrawing.TileCounterType.MultiTileVine);
+            return false;
+        }
+
+        public static void DrawFlameEffect(Texture2D flameTexture, int i, int j, int offsetX = 0, int offsetY = 0)
+        {
+            Tile tile = Main.tile[i, j];
+            if (tile.IsTileInvisible && !Main.ShouldShowInvisibleWalls())
+                return;
+
+            Vector2 zero = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange, Main.offScreenRange);
+
+            int width = 16;
+            int height = 16;
+            int yOffset = TileObjectData.GetTileData(tile).DrawYOffset;
+
+            ulong randShakeEffect = Main.TileFrameSeed ^ (ulong)((long)j << 32 | (long)(uint)i);
+            float drawPositionX = i * 16 - (int)Main.screenPosition.X - (width - 16f) / 2f;
+            float drawPositionY = j * 16 - (int)Main.screenPosition.Y;
+            for (int c = 0; c < 7; c++)
+            {
+                float shakeX = Utils.RandomInt(ref randShakeEffect, -10, 11) * 0.15f;
+                float shakeY = Utils.RandomInt(ref randShakeEffect, -10, 1) * 0.35f;
+                Main.spriteBatch.Draw(flameTexture, new Vector2(drawPositionX + shakeX, drawPositionY + shakeY + yOffset) + zero, new Rectangle(tile.TileFrameX + offsetX, tile.TileFrameY + offsetY, width, height), new Color(100, 100, 100, 0), 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+            }
+        }
+
+        public static void DrawFlameSparks(int dustType, int rarity, int i, int j)
+        {
+            if (!Main.gamePaused && Main.instance.IsActive && !(Main.tile[i, j].IsTileInvisible && !Main.ShouldShowInvisibleWalls()) && (!Lighting.UpdateEveryFrame || Main.rand.NextBool(4)))
+            {
+                if (Main.rand.NextBool(rarity))
+                {
+                    int dust = Dust.NewDust(new Vector2(i * 16 + 4, j * 16 + 2), 4, 4, dustType, 0f, 0f, 100, default, 1f);
+                    if (!Main.rand.NextBool(3))
+                        Main.dust[dust].noGravity = true;
+
+                    // Prevent lag.
+                    Main.dust[dust].noLightEmittence = true;
+
+                    Main.dust[dust].velocity *= 0.3f;
+                    Main.dust[dust].velocity.Y = Main.dust[dust].velocity.Y - 1.5f;
+                }
             }
         }
     }

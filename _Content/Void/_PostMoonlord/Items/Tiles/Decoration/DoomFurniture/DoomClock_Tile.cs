@@ -1,11 +1,12 @@
+using AAModClassic.Dusts;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
-using Terraria.ID;
+using Terraria.GameContent.ObjectInteractions;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFurniture
 {
@@ -13,26 +14,13 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
     {
         public override void SetStaticDefaults()
         {
-            Main.tileFrameImportant[Type] = true;
-            Main.tileNoAttach[Type] = true;
-            Main.tileLavaDeath[Type] = true;
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
-            TileObjectData.newTile.Height = 5;
-            TileObjectData.newTile.CoordinateHeights = new[]
-            {
-                16,
-                16,
-                16,
-                16,
-                16
-            };
-            TileObjectData.addTile(Type);
-            LocalizedText name = CreateMapEntryName();
-            // name.SetDefault("Example Clock"); // Automatic from .lang files
-            AddMapEntry(new Color(200, 0, 0), name);
-            DustType = ModContent.DustType<Dusts.DoomDust>();
-            AdjTiles = new int[] { TileID.GrandfatherClocks };
+            this.SetUpClock(ModContent.ItemType<DoomClock>());
+            DustType = ModContent.DustType<DoomDust>();
         }
+
+        public override void MouseOver(int i, int j) => FurnitureUtils.MouseOver(i, j, ModContent.ItemType<DoomClock>());
+
+        public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
 
         public override bool RightClick(int x, int y)
         {
@@ -50,15 +38,12 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
         public override void NearbyEffects(int i, int j, bool closer)
         {
             if (closer)
-            {
                 Main.SceneMetrics.HasClock = true;
-            }
         }
 
-        public override void NumDust(int i, int j, bool fail, ref int num)
-        {
-            num = fail ? 1 : 3;
-        }
+        public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
+
+        public override bool PreDraw(int i, int j, SpriteBatch spriteBatch) => false;
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {

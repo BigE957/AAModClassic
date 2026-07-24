@@ -1,0 +1,266 @@
+ConflagrateScythe: {
+	DisplayName: Guadaña Conflagradora
+	Tooltip:
+		'''
+		Invoca un constructo giratorio que destroza a los enemigos
+		Báculo Conflagrador EX
+		'''
+}
+
+DivineWindStone: {
+	DisplayName: Piedra de Viento Divino
+	Tooltip: Invoca una centinela de runa de búho
+}
+
+HurricaneStone: {
+	DisplayName: Piedra de Huracán
+	Tooltip: Invoca una centinela de runa de búho cargada
+}
+
+SolarStaff: {
+	DisplayName: Báculo Solar
+	Tooltip:
+		'''
+		Hace llover fuego y furia sobre tus enemigos
+		Inflige Desgarrado
+		'''
+}
+
+CyberBaton: {
+	DisplayName: Porra Cibernética
+	Tooltip: Invoca una garra cibernética para luchar contigo
+}
+
+AleisterStaff: {
+	DisplayName: Báculo de Aleister
+	Tooltip: ""
+}
+
+ConflagrateStaff: {
+	DisplayName: Báculo Conflagrador
+	Tooltip:
+		'''
+		Invoca un constructo giratorio que destroza a los enemigos
+		'Pensé que el cielo era morado.'
+		- Ender
+		'''
+}
+
+MagicAcorn: {
+	DisplayName: Bellota Mágica
+	Tooltip:
+		'''
+		Atrae ardillas para que luchen contigo por la gloria.
+		'SoonTM'
+		- Fargowilta
+		'''
+}
+
+SockStaff: {
+	DisplayName: Báculo de Marioneta de Calcetín
+	Tooltip: Invoca una marioneta de calcetín para que luche contigo
+}
+
+FishnadoStaff: {
+	DisplayName: Báculo de Peznado
+	Tooltip: ""
+}
+
+BlizzardDragonStaff: {
+	DisplayName: Báculo de Dragón de Ventisca
+	Tooltip:
+		'''
+		Invoca un dragón de ventisca para que luche por ti
+		Báculo de Hidra EX
+		'''
+}
+
+OmenStaff: {
+	DisplayName: Báculo de Presagio
+	Tooltip:
+		'''
+		Invoca un cuervo feroz para que luche contigo
+		Báculo de Cuervo EX
+		'''
+}
+
+PerfectChaosRitual: {
+	DisplayName: Ritual del Caos Perfecto
+	Tooltip: Invoca un pequeño dragón del caos para que luche por ti
+}
+
+SoccOnAStick: {
+	DisplayName: Socc en un palo
+	Tooltip:
+		'''
+		Invoca a un dios de algodón para que luche por ti
+		Solo puede existir un Socc.
+		Cualquier invocación después de la primera resultará en un calcetín normal
+		Báculo de Marioneta de Calcetín EX
+		'''
+}
+
+CottonCane: {
+	DisplayName: Bastón de Algodón
+	Tooltip: Invoca a un Conejo Soldado en Helicóptero para que luche contigo
+}
+
+RajahsRage: {
+	DisplayName: Furia de Rajah
+	Tooltip: Invoca a un Conejo Real para que luche contigo
+}
+
+ClawBaton: {
+	DisplayName: Porra de Garra
+	Tooltip: Invoca una garra del caos para que luche contigo
+}
+
+ChaosRitual: {
+	DisplayName: Ritual del Caos
+	Tooltip: Invoca un constructo del caos para que luche contigo
+}
+
+FlameVortexStaff: {
+	DisplayName: Báculo de Vórtice de Fuego
+	Tooltip:
+		'''
+		Conjura esferas llameantes que aumentan tu daño de invocación
+		Cada esfera ocupa 1 espacio de invocación
+		Debes tener al menos 2 espacios libres para la primera invocación
+		'''
+}
+
+ChaosBaton: {
+	DisplayName: Porra del Caos
+	Tooltip: Invoca una garra discordante para que luche contigo
+}
+
+DemoniteStaff: {
+	DisplayName: Báculo de Demonita
+	Tooltip: Invoca a un devorador para que luche contigo
+}
+
+CrimeraStaff: {
+	DisplayName: Báculo de Crimera
+	Tooltip: Invoca a una Crimera para que luche contigo
+}
+
+SandScepter: {
+	DisplayName: Cetro de Arena
+	Tooltip: Invoca a un demonio de polvo para que luche contigo
+}
+
+SentryOfTheEye: {
+	DisplayName: Centinela del Ojo
+	Tooltip: Invoca a un ojo centinela
+}
+
+HorusCane: {
+	DisplayName: Bastón de Horus
+	Tooltip: Invoca a un ojo centinela de Horus
+}
+
+SkullWand: {
+	DisplayName: Varita de Cráneo
+	Tooltip: Invoca a un cráneo de mazmorra para que luche contigo
+}
+
+HallowStaff: {
+	DisplayName: Báculo Sagrado
+	Tooltip: Invoca un prisma para que luche contigo
+}
+
+TrueHallowStaff: {
+	DisplayName: Báculo Sagrado Verdadero
+	Tooltip: Invoca un prisma arcoíris para que luche contigo
+}
+
+DemonStaff: {
+	DisplayName: Báculo de Demonio
+	Tooltip: Invoca a un demonio para que luche contigo
+}
+
+DevilStaff: {
+	DisplayName: Báculo de Diablo
+	Tooltip: Invoca a un diablo para que luche contigo
+}
+
+FireStaff: {
+	DisplayName: Báculo de Fuego
+	Tooltip: Invoca a un bebé fénix para que luche por ti
+}
+
+DragonsPike: {
+	DisplayName: Pica de Dragón
+	Tooltip: Invoca a un dragón de fuego para que luche por ti
+}
+
+AncientLungStaff: {
+	DisplayName: Báculo de Pulmón Ancestral
+	Tooltip: Invoca a un pulmón ancestral para que luche por ti
+}
+
+HydraStaff: {
+	DisplayName: Báculo de Hidra
+	Tooltip: Invoca a una hidra de piedra para que luche por ti
+}
+
+SnakeStaff: {
+	DisplayName: Báculo de Serpiente
+	Tooltip:
+		'''
+		Invoca a una serpiente de nieve para que luche por ti
+		Invoca 2 segmentos por cada espacio de súbdito
+		'''
+}
+
+TerraStaff: {
+	DisplayName: Báculo Terra
+	Tooltip: Invoca a un mago Terra para que luche contigo
+}
+
+TerraGauntlet: {
+	DisplayName: Guantelete Terra
+	Tooltip: Invoca a un calamar Terra, esfera Terra, reptador Terra o tejedor Terra para que luche por ti
+}
+
+SagittariusCore: {
+	DisplayName: Núcleo de Sagitario
+	Tooltip: Activa sondas que orbitan a tu alrededor y te defienden de los enemigos cercanos
+}
+
+DoomiteRadio: {
+	DisplayName: Radio de Doomita
+	Tooltip: Invoca una sonda de radio de doomita para que luche contigo
+}
+
+DoomiteSignal: {
+	DisplayName: Señal de Doomita
+	Tooltip: Invoca una sonda de doomita para que luche contigo
+}
+
+VoidProbeControlUnit: {
+	DisplayName: Unidad de Control de Sonda del Vacío
+	Tooltip: Invoca una sonda del vacío para que luche por ti
+}
+
+OverloadedDoomiteRadio: {
+	DisplayName: Radio de Doomita Sobrecargada
+	Tooltip: Invoca un explorador del vacío para que luche contigo
+}
+
+DoomPortal: {
+	DisplayName: Portal del Destino
+	Tooltip: Invoca un pequeño Protocolo del Destino para que luche por ti
+}
+
+DapperAcorn: {
+	DisplayName: Bellota Elegante
+	Tooltip:
+		'''
+		Atrae ardillas para que luchen contigo por la gloria.
+		'Multijugador = gran meme'
+		- Fargowilta
+		Bellota Mágica EX
+		'''
+}

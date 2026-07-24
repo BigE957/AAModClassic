@@ -225,24 +225,24 @@ MirePylon_Tile.MapEntry: Пилон Трясины
 RedMushroomPylon_Tile.MapEntry: Пилон пустошей красных грибов
 VoidPylon_Tile.MapEntry: Пилон Пустоты
 FulguriteShard_Tile.MapEntry: Фульгуритовый осколок
-// RedmushBed_Tile.MapEntry: Mushroom Bed
-// RedmushBench_Tile.MapEntry: Mushroom Bench
-// RedmushBookcase_Tile.MapEntry: Mushroom Bookcase
-// RedmushCandelabra_Tile.MapEntry: Mushroom Candelabra
-// RedmushCandle_Tile.MapEntry: Mushroom Candle
-// RedmushChair_Tile.MapEntry: Mushroom Chair
-// RedmushChandelier_Tile.MapEntry: Mushroom Chandelier
-// RedmushChest_Tile.MapEntry: Mushroom Chest
-// RedmushClock_Tile.MapEntry: Mushroom Clock
-// RedmushCouch_Tile.MapEntry: Mushroom Couch
-// RedmushDoorClosed_Tile.MapEntry: Mushroom Door
-// RedmushDoorOpen_Tile.MapEntry: Mushroom Door
-// RedmushDresser_Tile.MapEntry: Mushroom Dresser
-// RedmushLamp_Tile.MapEntry: Mushroom Lamp
-// RedmushLantern_Tile.MapEntry: Mushroom Lantern
-// RedmushPiano_Tile.MapEntry: Mushroom Piano
-// RedmushSink_Tile.MapEntry: Mushroom Sink
-// RedmushTable_Tile.MapEntry: Mushroom Table
-// RedmushToilet_Tile.MapEntry: Mushroom Toilet
-// RedmushTub_Tile.MapEntry: Mushroom Tub
-// RedmushWorkbench_Tile.MapEntry: Mushroom Workbench
+RedmushBed_Tile.MapEntry: Грибная кровать
+RedmushBench_Tile.MapEntry: Грибная скамья
+RedmushBookcase_Tile.MapEntry: Грибной книжный шкаф
+RedmushCandelabra_Tile.MapEntry: Грибной канделябр
+RedmushCandle_Tile.MapEntry: Грибная свеча
+RedmushChair_Tile.MapEntry: Грибной стул
+RedmushChandelier_Tile.MapEntry: Грибная люстра
+RedmushChest_Tile.MapEntry: Грибной сундук
+RedmushClock_Tile.MapEntry: Грибные часы
+RedmushCouch_Tile.MapEntry: Грибной диван
+RedmushDoorClosed_Tile.MapEntry: Грибная дверь
+RedmushDoorOpen_Tile.MapEntry: Грибная дверь
+RedmushDresser_Tile.MapEntry: Грибной комод
+RedmushLamp_Tile.MapEntry: Грибная лампа
+RedmushLantern_Tile.MapEntry: Грибной фонарь
+RedmushPiano_Tile.MapEntry: Грибное пианино
+RedmushSink_Tile.MapEntry: Грибная раковина
+RedmushTable_Tile.MapEntry: Грибной стол
+RedmushToilet_Tile.MapEntry: Грибной унитаз
+RedmushTub_Tile.MapEntry: Грибная ванна
+RedmushWorkbench_Tile.MapEntry: Грибной верстак

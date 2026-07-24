@@ -542,112 +542,112 @@ Terra: {
 
 RedMushroom: {
 	RedmushBed: {
-		// DisplayName: Mushroom Bed
-		// Tooltip: ""
+		DisplayName: Грибная кровать
+		Tooltip: ""
 	}
 
 	RedmushBench: {
-		// DisplayName: Mushroom Bench
-		// Tooltip: ""
+		DisplayName: Грибная скамья
+		Tooltip: ""
 	}
 
 	RedmushBookcase: {
-		// DisplayName: Mushroom Bookcase
-		// Tooltip: ""
+		DisplayName: Грибной книжный шкаф
+		Tooltip: ""
 	}
 
 	RedmushCandelabra: {
-		// DisplayName: Mushroom Candelabra
-		// Tooltip: ""
+		DisplayName: Грибной канделябр
+		Tooltip: ""
 	}
 
 	RedmushCandle: {
-		// DisplayName: Mushroom Candle
-		// Tooltip: ""
+		DisplayName: Грибная свеча
+		Tooltip: ""
 	}
 
 	RedmushChair: {
-		// DisplayName: Mushroom Chair
-		// Tooltip: ""
+		DisplayName: Грибной стул
+		Tooltip: ""
 	}
 
 	RedmushChandelier: {
-		// DisplayName: Mushroom Chandelier
-		// Tooltip: ""
+		DisplayName: Грибная люстра
+		Tooltip: ""
 	}
 
 	RedmushChest: {
-		// DisplayName: Mushroom Chest
-		// Tooltip: ""
+		DisplayName: Грибной сундук
+		Tooltip: ""
 	}
 
 	RedmushClock: {
-		// DisplayName: Mushroom Clock
-		// Tooltip: ""
+		DisplayName: Грибные часы
+		Tooltip: ""
 	}
 
 	RedmushCouch: {
-		// DisplayName: Mushroom Couch
-		// Tooltip: ""
+		DisplayName: Грибной диван
+		Tooltip: ""
 	}
 
 	RedmushDoor: {
-		// DisplayName: Mushroom Door
-		// Tooltip: ""
+		DisplayName: Грибная дверь
+		Tooltip: ""
 	}
 
 	RedmushDresser: {
-		// DisplayName: Mushroom Dresser
-		// Tooltip: ""
+		DisplayName: Грибной комод
+		Tooltip: ""
 	}
 
 	RedmushLamp: {
-		// DisplayName: Mushroom Lamp
-		// Tooltip: ""
+		DisplayName: Грибная лампа
+		Tooltip: ""
 	}
 
 	RedmushLantern: {
-		// DisplayName: Mushroom Lantern
-		// Tooltip: ""
+		DisplayName: Грибной фонарь
+		Tooltip: ""
 	}
 
 	RedmushPiano: {
-		// DisplayName: Mushroom Piano
-		// Tooltip: ""
+		DisplayName: Грибное пианино
+		Tooltip: ""
 	}
 
 	RedmushSink: {
-		// DisplayName: Mushroom Sink
-		// Tooltip: ""
+		DisplayName: Грибная раковина
+		Tooltip: ""
 	}
 
 	RedmushTable: {
-		// DisplayName: Mushroom Table
-		// Tooltip: ""
+		DisplayName: Грибной стол
+		Tooltip: ""
 	}
 
 	RedmushToilet: {
-		// DisplayName: Mushroom Toilet
-		// Tooltip: ""
+		DisplayName: Грибной унитаз
+		Tooltip: ""
 	}
 
 	RedmushTub: {
-		// DisplayName: Mushroom Tub
-		// Tooltip: ""
+		DisplayName: Грибная ванна
+		Tooltip: ""
 	}
 
 	RedmushWorkbench: {
-		// DisplayName: Mushroom Workbench
-		// Tooltip: ""
+		DisplayName: Грибной верстак
+		Tooltip: ""
 	}
 
 	RedmushPlatform: {
-		// DisplayName: Mushroom Platform
-		// Tooltip: ""
+		DisplayName: Грибная платформа
+		Tooltip: ""
 	}
 
 	RedmushWall: {
-		// DisplayName: Mushroom Wall
-		// Tooltip: ""
+		DisplayName: Грибная стена
+		Tooltip: ""
 	}
 }

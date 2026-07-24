@@ -1,0 +1,330 @@
+Removed: {
+	Title: Eliminado
+	Description: Experimenta contenido eliminado de versiones anteriores de Ancients Awakened.
+}
+
+Unreleased: {
+	Title: No Lanzado
+	Description: Experimenta contenido nunca antes visto de compilaciones en desarrollo.
+}
+
+Unofficial: {
+	Title: No Oficial
+	Description: Disfruta de una experiencia más fluida con mejoras y nuevas adiciones.
+}
+
+WindowTitle: {
+	0: Ancients Awakened: Los jóvenes están cansados
+	1: Ancients Awakened: Perdidos en el mar...
+	2: Ancients Awakened: El Asesino se acerca
+	3: Ancients Awakened: Ardiendo en el infierno discordiano
+	4: Ancients Awakened: Roca de tamaño mediano
+	5: Ancients Awakened: ¡Prueba también Ancients Awakened!
+	6: Ancients Awakened: RÁPIDO ESCONDE EL ALMACÉN DE MÁSCARAS BRILLANTES
+	7: Ancients Awakened: ¡la precuela tan esperada!
+	8: Ancients Awakened: PORTAZO. PORTAZO. PORTAZO. PORTAZO.
+	9: Ancients Awakened: ...No, Ancients Asleep.
+	10: Ancients Awakened: ¡Prueba también Tremor!
+	11: Ancients Awakened: El incidente de la tierra de Chungus
+	12: Ancients Awakened: ¡Prueba también Valcodix!
+	13: Ancients Awakened: Cthulhu está enfadado... ¡y le falta un alma!
+	14: Ancients Awakened: Él es la tormenta que se acerca
+	15: Ancients Awakened: Five Nights at Anubis'
+	16: Ancients Awakened: Fiel a la historia
+	17: Ancients Awakened: ¡Prueba también Elements Awoken!
+	18: Ancients Awakened: Porteado por completo para tu disfrute
+	19: Ancients Awakened: Un futuro brillante pero oscuro se desenvuelve...
+}
+
+Quests: {
+	LegendscribeEarlyGame: {
+		MushroomMonarch: {
+			Name: Champiñones. Lo digo en serio.
+
+			Description: {
+				Incomplete: Oye, ¿conoces todos estos pequeños champiñones rojos que crecen por todas partes? Escuché que si aplastas un montón de ellos juntos y los agitas, su rey o algo así vendrá e intentará atropellarte. Tengo que ver eso.
+				Complete: ...¿eso fue todo?
+			}
+
+			Tasks: - Derrota al Monarca de los Champiñones
+		}
+
+		FeudalFungus: {
+			Name: Más Champiñones.
+
+			Description: {
+				Incomplete: Las cuevas de champiñones luminosos siempre me hacen sentir mareado por alguna razón. De todos modos, ¿quieres mejores habilidades mágicas? Hay un gran monstruo champiñón que tiene excelentes habilidades mágicas infundidas en él. Solo tápate la nariz mientras estés ahí abajo.
+				Complete: Buen trabajo. Ahora sé honesto, ¿qué tan drogado estás ahora mismo?
+			}
+
+			Tasks: - Derrota al Hongo Feudal
+		}
+
+		GripsOfChaos: {
+			Name: Agárrate
+
+			Description: {
+				Incomplete: Esas garras voladoras por la noche son una pesadilla con la que lidiar, y me dan mucho miedo. En mis viajes, me he topado con estas dos REEEEEEEALMENTE grandes. Tal vez si las matas, las pequeñas se larguen. Quizás matar a unas pocas y demostrar que lo has hecho de alguna manera las haga bajar.
+				Complete: Buen trabajo eliminando esas manos gigantes. Tal vez las pequeñas por fin me dejen en paz por una vez.
+			}
+
+			Tasks: - Derrota a las Garras del Caos
+		}
+
+		Broodmother: {
+			Name: Dragón Lastre
+
+			Description: {
+				Incomplete: ¿Te gustan los dragones? ¿No? Qué mal. ¿Quieres mejor equipamiento? Tienes que ir a matar a este ENORME dragón hecho de lava. Es grande, aterrador y DEMASIADO gordo para volar, pero lo hace de todos modos.
+				Complete: Ese fue el dragón más gordo que he visto en mi vida.
+			}
+
+			Tasks: - Derrota a la Madre de la Camada
+		}
+
+		Hydra: {
+			Name: Monstruo de Tres Cabezas
+
+			Description: {
+				Incomplete: El Lodazal siempre ha sido un punto de reunión para los lagartos más desagradables, pero hay uno muy grande allí que tiene 3 cabezas. Está de mal humor todo el tiempo, y cada vez que intento entrar en su guarida, ¡intenta COMERME!
+				Complete: Menos mal. Esa hidra no para quieta. Al menos su hija es un poco más tranquila... ¿eh? ¿Quién? Te lo explicaré más tarde, buen trabajo.
+			}
+
+			Tasks: - Derrota a la Hidra
+		}
+
+		DesertDjinn: {
+			Name: 3 Deseos
+
+			Description: {
+				Incomplete: ¡ESE HIJO DE LA.. Oh, hola. Perdón, estaba un poco enfadado por un pequeño enfrentamiento que tuve con el genio del desierto. Ese cabeza hueca mágico y sus esbirros no paran de presumir de músculos conmigo. ¿Podrías ir a enseñarles una lección?
+				Complete: ¡Ja! ¿Quién es el duro ahora, saco de penas arenoso?
+			}
+
+			Tasks: - Derrota al Genio del Desierto
+		}
+
+		SubzeroSerpent: {
+			Name: Frío como el hielo
+
+			Description: {
+				Incomplete: Serpientes, ¿por qué siempre tienen que ser serpientes? ¡Las odio! Como sea, últimamente en la tundra ha habido estas serpientes de las nieves que no me dejan en paz. ¿Podrías hacer de exterminador y averiguar qué están haciendo?
+				Complete: ¡Espero que no te hayas cogido una "CONGELACIÓN"! *badum-tss*... sí, ya sé que eso fue malo.
+			}
+
+			Tasks: - Derrota a la Serpiente Bajo Cero
+		}
+
+		Sagittarius: {
+			Name: Juego de Caballos
+
+			Description: {
+				Incomplete: ¿Conoces el vacío? ¿Esas islas flotantes espeluznantes hacia el este? Juro que vi un caballo robot volando por ahí. ¡Me dio un vuelco el corazón! Estaba pensando, ¿serías capaz de encargarte de esa lata para mí?
+				Complete: Buen trabajo lidiando con ese caballo. No sé por qué, pero de repente me siento bastante hambriento...
+			}
+
+			Tasks: - Derrota a Sagitario
+		}
+
+		Retriever: {
+			Name: Te pillé
+
+			Description: {
+				Incomplete: ¿Te acuerdas de las Garras del Caos? ¿Esas manos fastidiosas que atrapan cosas? Hay una robótica que no para de robar mis cosas. ¿Me haces el favor de ir a tirarle una llave inglesa o algo así?
+				Complete: ¿Por casualidad recuperaste mi tercera edición de "¡La vida y épicas aventuras de Anubis, el perro maravilla!"?
+			}
+
+			Tasks: - Derrota al Retriever
+		}
+
+		OrthrusX: {
+			Name: Dos cabezas; cero cerebros
+
+			Description: {
+				Incomplete: ¿Te acuerdas de la Hidra? Hay una más grande por ahí. Y es un robot. Y em... dispara rayos. Así que... ¡buena suerte!
+				Complete: Supongo que lo que se come ahora es al Orthrus.
+			}
+
+			Tasks: - Derrota a Orthrus X
+		}
+
+		RaiderUltima: {
+			Name: Masa Mecánica
+
+			Description: {
+				Incomplete: La gente dijo que vio una extraña sombra en una de las noches. Era tan grande que incluso tapó la luna por un momento. Deberías descubrir este misterio y hacer algo.
+				Complete: ¿Así que era un robot gigante después de todo? Bueno, a veces la gente simplemente exagera el problema. Esa cosa era casi tan gorda como la Madre de la Camada.
+			}
+
+			Tasks: - Derrota a Raider Ultima
+		}
+
+		Anubis: {
+			Name: Antiguo del Juicio
+
+			Description: {
+				Incomplete: Escuché que hay por ahí un tipo guardián del saber que está muy cachas y es guapo, y a todas las chicas les encanta por sus increíbles habilidades para juzgar almas. Qué gran tipo.
+				Complete: Podrías habérmelo tomado un poco más con calma, ¿sabes? Todavía me duele la espalda por eso.
+			}
+
+			Tasks: - Derrota a Anubis; Escriba de Leyendas
+		}
+
+		Athena: {
+			Name: Dolor de cabeza chillón
+
+			Description: {
+				Incomplete: ¿Conoces esas harpías chillonas allá arriba en el cielo? Bueno, ¡hay unas MUY odiosas llamadas serafines que SIMPLEMENTE NO SE CALLAN! Tienen una lider en ese palacio celestial hacia el este. Tal vez si le das su merecido, cierren la boca.
+				Complete: ¡Gracias al Equinoccio, hiciste callar a esos molestos chillones! Estaba a punto de asar a uno en un espeto y cenar pollo frito si volvían a chillarme una vez más.
+			}
+
+			Tasks: - Derrota a Atenea
+		}
+
+		Greed: {
+			Name: Qué gusano
+
+			Description: {
+				Incomplete: Oye, eh... hay un ENORME tesoro acumulado bajo tierra en alguna parte con mucho oro, pero está custodiado por un gusano muy tacaño. Deberías ir a echar un vistazo por un montón de botín, pero... hay algo mío ahí abajo. ¿Podrías ir a buscarlo por mí? No te preocupes, cuando lo veas, sabrás que es mío.
+				Complete: Oye... ¿encontraste mi cosa ya? ¿No? Solo busca por esa pila de botín de ahí abajo, seguro que está en alguna parte.
+				FoundBook: Oye, gracias por recuperar mi libro. Avaricia lo robó hace tiempo, probablemente por los detalles dorados que usé para encuadernarlo. Mira alrededor de esa cueva, ¿tal vez hay otras cosas que haya robado?
+			}
+
+			Tasks: - Derrota a Avaricia
+		}
+
+		Rajah: {
+			Name: Bandido Saltarín
+
+			Description: {
+				Incomplete: Oye, ¿conoces a esos conejitos que van dando saltos por ahí todo el tiempo? Yo... yo no los molestaría si fuera tú. Por aquí corre la leyenda de una especie de 'Guardián' que protege del peligro. ¿Por qué es una leyenda? Porque, por lo visto, nadie ha luchado contra esta cosa y ha vivido para contarla. Buena historia, ¿eh?
+				Complete: ¿Derrotaste a Rajah? Pff, claro, hombre, ya le he visto vapulear a supuestos dioses antes, ¡ni de broma le has ganado...!
+			}
+
+			Tasks: - Derrota a Rajah Rabbit
+		}
+	}
+
+	LegendscribeLateGame: {
+		ForsakenAnubis: {
+			Name: Exijo la revancha.
+
+			Description: {
+				Incomplete: Quiero la revancha, {0}. Y tampoco es por mi orgullo. Necesito asegurarme de que estás listo para lo que se avecina. Encuéntrame en el desierto y luchemos de nuevo. Y ve preparado.
+				Complete: Lo has hecho bien, colega. Estoy bastante impresionado, aunque todavía me estaba conteniendo. ¿Eh? ¿Mi poder al máximo...? Como dije antes, algunas cosas deberían mantenerse bajo llave por tu propio bien.
+			}
+
+			Tasks: - Derrota a Anubis; Juez Abandonado
+		}
+
+		AthenaA: {
+			Name: Las brujas arpías han vuelto
+
+			Description: {
+				Incomplete: Oye, ¿te encontró esa brujita pesada? Perdón por decirle dónde estabas, no paraba de chillarme al oído. Como sea, parece que Atenea quiere la revancha. Mantente alerta, amigo. Esto pinta a trampa...
+				Complete: ¿Eh? ¿Que qué es un Varian, preguntas? Es algo que no he oído en años... hace tanto que apenas recuerdo el nombre. Aunque sí recuerdo algo sobre otro pululando por ahí...
+			}
+
+			Tasks: - Derrota a Atenea la Olímpica
+		}
+
+		GreedA: {
+			Name: Riquezas y Descansa en Paz
+
+			Description: {
+				Incomplete: Sabes, creo recordar una historia sobre el viejo manitas-robacosas. Cuando apareció por primera vez por estos lares, era mucho más fuerte que cuando le pateaste el trasero. ¿Tal vez se volvió más débil con el tiempo...? O tal vez... no, eso no puede ser.
+				Complete: Así que ESTABA ocultando su verdadero poder todo este tiempo. Aunque me pregunto por qué... ¿podría estar escondiéndose de algo, tal vez...?
+			}
+
+			Tasks: - Derrota al Rey Gusano, Avaricia
+		}
+
+		Equinox: {
+			Name: Más jefes gusano, joder.
+
+			Description: {
+				Incomplete: ¿Te gustan los gusanos? A mí tampoco, pero ¿adivina qué? Hay dos grandes que controlan el flujo del día y de la noche, y son unos tipos duros. Buena suerte.
+				Complete: Buen trabajo enfrentándome a los Gusanos del Equinoccio. Se nota que lo hiciste porque ya ha pasado como una semana. Espero no haber perdido mi cita con la enfermera.
+			}
+
+			Tasks: - Derrota a los Gusanos del Equinoccio
+		}
+
+		Sisters: {
+			Name: Gemelas Terribles
+
+			Description: {
+				Incomplete: ¿Te acuerdas de la vieja Madre de la Camada y de la Hidra? Bueno, esos dos tienen hijas. Y, ¡hombre, cómo molestan...! ¡Cada vez que voy a los biomas del caos, esas dos están ahí esperando para arruinarme el día! ¿Podrías ir a darles su merecido?
+				Complete: ¡Bien, les diste una lección a esas dos mocosas malcriadas! ¡Esas dos no se lo esperaban!
+			}
+
+			Tasks: - Derrota a las Hermanas de la Discordia
+		}
+
+		Akuma: {
+			Name: Antiguo de la Furia
+
+			Description: {
+				Incomplete: ¿Por qué alguien llamaría demonio a una serpiente solar? No tengo ni idea personalmente... pero Akuma tiene que desaparecer. Siempre arrasa mis desiertos con su aliento de fuego y me pone negro.
+				Complete: Akuma se cree un malote. Para mí, solo da la impresión de que intenta ir de guay y fracasa estrepitosamente. En fin, tal vez quieras echarte un poco de agua en el pelo. Te has quemado un poco por ahí arriba.
+			}
+
+			Tasks: - Derrota a Akuma
+		}
+
+		Yamata: {
+			Name: Antiguo de la Ira
+
+			Description: {
+				Incomplete: ¡Yamata, el llorica pesado! Se queja de todo, ¡Y NO SE CALLA! ¡EN SERIO, intenta lidiar tú con siete cabezas de dragón insoportablemente ruidosas que no paran de parlotear y se pisan las voces!
+				Complete: Gracias por callar a ese bocazas de 7 cabezas. Me dan ganas de arrancarme el pelo.
+			}
+
+			Tasks: - Derrota a Yamata
+		}
+
+		Zero: {
+			Name: Antiguo de la Perdición
+
+			Description: {
+				Incomplete: Has visto esa gran y terrorífica máquina de ahí que siempre está flotando en el Vacío, ¿verdad? Después de que aplastaste al Señor de la Luna, escuché una onda expansiva masiva proveniente de por allí. ¿Podrías echarle un vistazo por mí?
+				Complete: ...Te seré sincero. No me gusta nada de nada lo que dijo esa cosa después de morir.
+			}
+
+			Tasks: - Derrota a Zero
+		}
+
+		Shen: {
+			Name: Profeta del Destino Discordiano
+
+			Description: {
+				Incomplete: Akuma y Yamata... ya sabes, esos dos una vez fueron un solo ser. Y caramba, ese tipo era poderoso. Arrasó dos civilizaciones una vez. En fin, entonces, ¿qué era lo que necesitabas?
+				Complete: ¡Santo cielo...! ¡Sabía que lo llevarías dentro, tío! ¡Gran trabajo! Aunque... parecía bastante cabreado cuando lo derrotaste... casi tanto como cuando fue derrotado por... ah, déjalo.
+			}
+
+			Tasks: - Derrota a Shen Doragon
+		}
+
+		InfinityZero: {
+			Name: Malicia Mecánica
+
+			Description: {
+				Incomplete: Oye, ¿te acuerdas de lo que soltaba Zero después de que lo desmontaras? Sí... Bueno, resulta que teníamos razón al preocuparnos. Una máquina enorme se ha teletransportado al vacío a través de la gran brecha que probablemente habrás notado. Iría con cuidado si planeas curiosear por ahí próximamente...
+				Complete: Vaya... ¿Has derrotado a esa cosa? Había algo viviente dentro, ¿eh? ¿Y dices que solo quería que lo dejaran en paz? No puede ser... No será que... Eh, mejor nos preocupamos de eso más tarde.
+			}
+
+			Tasks: - Derrota a Infinity Zero
+		}
+
+		SoulOfCthulhu: {
+			Name: Calamidad Cósmica
+
+			Description: {
+				Incomplete: ¿Has estado en el océano últimamente? ¡Hay una niebla muy loca que ha envuelto todo el océano! Ahora que lo pienso, recuerdo que un barco se hundió por allí hace un tiempo. ¿Me pregunto si ambas cosas estarán relacionadas...?
+				Complete: ¡¿Luchaste y mataste el ALMA DE CTHULHU?! Vaya, eso no es poca cosa. Aunque toda esa maldición que soltaba me tiene preocupado... Azathoth... Esperemos que no haya nada de verdad detrás de ello.
+			}
+
+			Tasks: - Derrota al Alma de Cthulhu
+		}
+	}
+}

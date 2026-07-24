@@ -19,9 +19,9 @@ ChampionRajahRabbit: {
 	5: Protecting the innocent. This is what this has all been for. By defeating him in a spar and not taking his life, you’ve proven there’s somebody deserving of his title. Somebody stronger than him, who can accomplish his goals. Life is a gift many are quick to not appreciate fully. A gift many are willing to squander and intently destroy. Heroes that have dedicated centuries or millenia defending what is right. Humble townsfolk, providing their community with what they’re able to scrounge up. Critters of all shapes and sizes, all the way down to the humble rabbit. Their safety is in your hands now. He knows you won’t disappoint.
 }
 
-SupremeRabbitcopterSoldier: ...
-SupremeRabidRabbit: ...
-SupremeBunnyBrawler: ...
+SupremeRabbitcopterSoldier: "{$Bestiary.RabbitcopterSoldier}"
+SupremeRabidRabbit: "{$Bestiary.RabidRabbit}"
+SupremeBunnyBrawler: "{$Bestiary.BunnyBrawler}"
 GripOfChaosInferno: Chaotic hand of a higher being, devolved to fodder. This infernal grip scorches all in its path.
 GripOfChaosMire: Chaotic hand of a higher being, devolved to fodder. This abyssal grip drowns all in its path.
 ChaosDragon: Once having called the skies their home, these dragons descended to the surface after after chaotic forces appeared in the world. Now, they serve only to spread chaos further.
@@ -39,20 +39,21 @@ Samurai: The Samurai hails from a village destroyed by an ancient demon, now hop
 DesertDjinn: An arrogant spirit wandering the desert, hoping to one day find a worthy opponent.
 DustDjinn: The difference between a Genie and a Djinn is that one grants wishes and the other grants death.
 Legendscribe: The god of the afterlife, the judge of souls, and the main protagonist of the award-winning autobiography 'The Life and Epic Adventures of Anubis the Wonder Dog!'.
-Anubis: There's a lot about myself that I could tell you, but I'm not gonna.
+Anubis: "'There's a lot about myself that I could tell you, but I'm not gonna.'"
 EyeSentry: A deadly construct that'll scorch any under its gaze with Runefire.
 HorusHawk: Gifted to Anubis by a close friend, these agile avians now heed his call.
 Locust: Summoned from the Land of the Dead, these lowly pests spit upon the enemies of the Legendscribe.
 Scarab: Summoned from the Land of the Dead, these humble insects rush down the Legendscribe's foes.
 Uraeus: Summoned from the Land of the Dead, these regal serpents bare their fangs to aid in the Legendscribe's test.
-ForsakenAnubis: I already told you some things better stay locked away for good, now quit asking.
+ForsakenAnubis: "'I already told you some things better stay locked away for good, now quit asking.'"
 CursedLocust: Bloated by the accursed souls of those judged, these locusts begrudgingly aid in the Forsaken Judge's test.
 CursedScarab: Empowered by the accursed souls of those judged, these scarabs will fierecely aid in the Forsaken Judge's test.
 HorusSentry: Empowered by the accursed souls of those judged, this construct now spells doom for any that fall beneath its gaze.
 Naddaha: A water spirit summoned from the Land of the Dead, she'll happily lend her voice to aid in the Forsaken Judge's test.
 FeudalFungus: Digging deep below the mushrooms of the surface reveals an entirely different species of fungus, though it is not dissimilar in temper. If one were to dig even deeper, what other new fungi could they find...?
 GlowingMushling: One of the Feudal Fungus’ dangerously luminescent servants.
-LuminousAccordyceps: ...
+LuminousAccordyceps: While most often parasitic, this peculiar brand of cordyceps has formed a mutually beneficial relationship with this Truffle Toad. The toad protects it from predators, while the Accordyceps prevents it from taking damage.
+GregariousGlowshrooms: While these mushrooms are close, they aren't connected by the stem. This prevents them from being considered a cluster of fungi, and instead means they are gregarious.
 TruffleToad: A large, perhaps too large frog that makes its home within the glowing caverns down below.
 TinyToad: These vile spawn are ready to defend their mother from the moment they're born. Nothing in this world is more disgusting than this beast.
 GoblinSlayer: A knight equipped with steel armor. Despite having poor equipment, he can sense any Goblin approaching, and he can slice, dice and make them goblin fries in no time!

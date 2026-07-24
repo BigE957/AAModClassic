@@ -1,0 +1,675 @@
+APageOfTheRuneBookEffect_Buff: {
+	DisplayName: Runa
+	Description: Invoca runas para que luchen por ti
+}
+
+PrettyPony_Buff: {
+	DisplayName: Lindo Poni
+	Description: Es un caballo.
+}
+
+CerberusWhistle_Buff: {
+	DisplayName: Cerbero
+	Description: "'¡Aww, eso no da tanto miedo!'"
+}
+
+K9Collar_Buff: {
+	DisplayName: Unidad K9
+	Description: Guau.
+}
+
+MoonBeeInAJar_Buff: {
+	DisplayName: Lunamini
+	Description: Una pequeña abeja lunar te sigue
+}
+
+MudFishBall_Buff: {
+	DisplayName: Mudkip
+	Description: ¡Hazte con todos!
+}
+
+RoyalStar_Buff: {
+	DisplayName: Gatito Real
+	Description: "'¡Es tan preciosa!'"
+}
+
+ShinyFishBall_Buff: {
+	DisplayName: Mudkip Variocolor
+	Description: ¡Hazte con todos!
+}
+
+AleisterStaff_BeBanished: {
+	DisplayName: Sé Desterrado
+	Description: Estás marcado por Magia Invocada
+}
+
+AleisterStaff_InvokerOfMadness: {
+	DisplayName: El Invocador de la Locura
+	Description: El Invocador Loco
+}
+
+ConflagrateStaff_Buff: {
+	DisplayName: Constructo de Conflagración
+	Description: Invoca un constructo de conflagración para que luche por ti
+}
+
+MagicAcorn_Buff: {
+	DisplayName: Ardilla
+	Description: Lanza nueces
+}
+
+ScytheOfTheGrimReaper_ReaperScytheImmunity: {
+	DisplayName: Inmunidad de la Guadaña de la Parca
+	Description: Eres inmune al daño e infliges un daño cuerpo a cuerpo enormemente aumentado
+}
+
+ScytheOfTheGrimReaper_ReaperScytheImmunityCooldown: {
+	DisplayName: Enfriamiento de Inmunidad de la Guadaña de la Parca
+	Description: Ahora no puedes usar la habilidad de embestida del arma
+}
+
+SockStaff_Buff: {
+	DisplayName: Marioneta de Calcetín
+	Description: Invoca una marioneta de calcetín para que luche por ti
+}
+
+PrinceFishron_Buff: {
+	DisplayName: Príncipe Fishron
+	Description: El heredero del fishron
+}
+
+FishnadoStaff_Buff: {
+	DisplayName: Tiburonado
+	Description: Invoca un tiburonado para que luche por ti
+}
+
+TheBookOfRunesEffect_Buff: {
+	DisplayName: Runa
+	Description: Invoca runas para que luche por ti
+}
+
+TheBookOfTheLaw_InvokedCaligula: {
+	DisplayName: Calígula Invocado
+	Description: Tu garra golpea al enemigo locamente y te cura.
+}
+
+ConflagrateScythe_Buff: {
+	DisplayName: Súbdito de Ender EX
+	Description: Invoca un constructo de terra para que luche por ti
+}
+
+OmenStaff_Buff: {
+	DisplayName: Cuervo
+	Description: Invoca un cuervo feroz para que luche por ti
+}
+
+PerfectChaosRitual_Buff: {
+	DisplayName: Xiao Doragon
+	Description: Invoca un pequeño dragón del caos para que luche por ti
+}
+
+SoccOnAStick_Buff: {
+	DisplayName: Socc
+	Description: Socc.
+}
+
+TartarusReaper_CursedHellfire: {
+	DisplayName: Fuego Infernal Maldito
+	Description: Tu carne y tu sangre se están consumiendo
+}
+
+LuckyCracker_CrasyLucky: {
+	DisplayName: ¿Suerte?
+	Description: Sientes que el mundo a tu alrededor se vuelve extraño
+}
+
+LuckyCalming: {
+	DisplayName: Calma Afortunada
+	Description: Reduce la agresividad de los enemigos
+}
+
+LuckyEndurance: {
+	DisplayName: Resistencia Afortunada
+	Description:
+		'''
+		Reduce el daño recibido en un 10%
+		Aumenta tu defensa en un 10%
+		'''
+}
+
+LuckyIronskin: {
+	DisplayName: Piel de Hierro Afortunada
+	Description: Aumenta la defensa en 9
+}
+
+LuckyLifeforce: {
+	DisplayName: Fuerza Vital Afortunada
+	Description: Aumenta la vida máxima en un 21%
+}
+
+LuckyRage: {
+	DisplayName: Rabia Afortunada
+	Description: Aumenta la probabilidad crítica en un 11%
+}
+
+LuckyRegeneration: {
+	DisplayName: Regeneración Afortunada
+	Description: Proporciona regeneración de vida
+}
+
+LuckySummoning: {
+	DisplayName: Invocación Afortunada
+	Description: Aumenta tu número máximo de súbditos y centinelas
+}
+
+LuckySwiftness: {
+	DisplayName: Rapidez Afortunada
+	Description: Velocidad de movimiento aumentada en un 26%
+}
+
+LuckyThorns: {
+	DisplayName: Espinas Afortunadas
+	Description: Los atacantes también reciben daño
+}
+
+LuckyWrath: {
+	DisplayName: Ira Afortunada
+	Description: Aumenta el daño en un 11%
+}
+
+RoninPotion_Buff: {
+	DisplayName: Ronin
+	Description: No recibirás ningún daño
+}
+
+PaperBomb_Buff: {
+	DisplayName: Boomer
+	Description: En realidad no explota... Todavía.
+}
+
+InfinityOverload_Buff: {
+	DisplayName: Sobrecarga Elemental
+	Description: Los elementos arremeten contra tu propio ser
+}
+
+SeraphHarp_Buff: {
+	DisplayName: Serafín
+	Description: Pequeño pero guerrero
+}
+
+GoddessHarp_Buff: {
+	DisplayName: Atenea
+	Description: "'Te ayudaré, pero de todos modos algún día te daré una paliza.'"
+}
+
+CottonCane_Buff: {
+	DisplayName: Soldado Conejocóptero
+	Description: Invoca un soldado conejocóptero para que luche por ti
+}
+
+RajahsRage_Buff: {
+	DisplayName: Conejo Real
+	Description: Invoca un conejo real para que luche por ti
+}
+
+ChampionHelmetMageSetEffect_ChampionBoost1: {
+	DisplayName: Impulso de Campeón
+	Description: Estadísticas aumentadas
+}
+
+ChampionHelmetMageSetEffect_ChampionBoost2: {
+	DisplayName: Impulso de Campeón
+	Description: Estadísticas aumentadas
+}
+
+ChampionHelmetMageSetEffect_ChampionBoost3: {
+	DisplayName: Impulso de Campeón
+	Description: Estadísticas aumentadas
+}
+
+ChampionHelmetMeleeSetEffect_DefendersRage: {
+	DisplayName: Rabia del Defensor
+	Description: Un campeón de Terraria nunca se rinde
+}
+
+ChampionHelmetMeleeSetEffect_RajahsRage: {
+	DisplayName: Rabia de Rajah
+	Description: Un campeón de Terraria nunca se rinde
+}
+
+ChampionHelmetRangedSetEffect_RABITUnitReloadProtocol: {
+	DisplayName: Protocolo de Recarga de la Unidad R.A.B.I.T.
+	Description: RECARGANDO. COMPENSACIÓN DE DAÑO PROPORCIONADA.
+}
+
+ChampionHelmetSummonerSetEffect_Buff: {
+	DisplayName: Barón Bunny
+	Description: Barón Bunny te protege
+}
+
+ClawBaton_Buff: {
+	DisplayName: Garras del Caos
+	Description: Invoca una garra del caos para que luche por ti
+}
+
+ChaosHelmetMageSetEffect_ChaoticFury: {
+	DisplayName: Furia Caótica
+	Description: Tus habilidades mágicas aumentan sustancialmente
+}
+
+ChaosHelmetSummonerSetEffect_Buff: {
+	DisplayName: Espíritu de Dragón
+	Description: Invoca un espíritu de dragón para que luche por ti
+}
+
+ChaosRitual_Buff: {
+	DisplayName: Constructo del Caos
+	Description: Invoca un constructo del caos para que luche por ti
+}
+
+FuryWitchsHelmetSetHotkeyEffect_AsheFlame: {
+	DisplayName: Llama de Ashe
+	Description: Obtienes el poder de la llama del infierno
+}
+
+FuryWitchsHelmetSetHotkeyEffect_AsheFlameCooldown: {
+	DisplayName: Enfriamiento de Llama de Ashe
+	Description: No puedes empuñar las llamas por un período de tiempo
+}
+
+FuryWitchsHelmetSetMinionEffect_Buff: {
+	DisplayName: Alma de Llama
+	Description: Cuanto más débil seas, más duro luchará
+}
+
+MidnightAssassinHelmetSetEffect_AssassinHurt: {
+	DisplayName: Dolor de Asesino
+	Description: ""
+}
+
+FlameVortexStaff_Buff: {
+	DisplayName: Orbitadores
+	Description: Las llamas orbitan a tu alrededor, potenciándote
+}
+
+ChaosBaton_Buff: {
+	DisplayName: Garra de la Discordia
+	Description: Invoca una garra de la discordia para que luche por ti
+}
+
+DiscordianInferno_Buff: {
+	DisplayName: Infierno de la Discordia
+	Description: Tu alma se está desgarrando
+}
+
+DemoniteStaff_Buff: {
+	DisplayName: Devorador de Demonios
+	Description: Invoca un devorador de demoniita para que luche por ti
+}
+
+CrimeraStaff_Buff: {
+	DisplayName: Crimera de Carmesí
+	Description: Invoca una crimera de carmesí para que luche por ti
+}
+
+SandScepter_Buff: {
+	DisplayName: Demonio de Polvo
+	Description: Invoca un demonio de polvo para que luche por ti
+}
+
+DynaskullJavelin_DynaEnergyBuff: {
+	DisplayName: Dina-energía
+	Description: ""
+}
+
+ArtifactOfJudgement_Buff: {
+	DisplayName: Ojo del Juicio
+	Description:
+		'''
+		El Ojo del Juicio te está protegiendo
+		El daño y la velocidad aumentan
+		'''
+}
+
+PrimevalJavelin_DynaEnergy: {
+	DisplayName: Dina-energía
+	Description: ""
+}
+
+ArtifactOfGuilt_Buff: {
+	DisplayName: Ojo del Abandonado
+	Description:
+		'''
+		El Ojo del Abandonado te está protegiendo
+		El daño y la velocidad aumentan
+		'''
+}
+
+Lifeline_Forsaken: {
+	DisplayName: Abandonado
+	Description: Has sido abandonado
+}
+
+Lifeline_ForsakenWeak: {
+	DisplayName: Debilitamiento Abandonado
+	Description: Debilita el daño por contacto de los enemigos
+}
+
+SkullWand_Buff: {
+	DisplayName: Cráneo Acuático
+	Description: Invoca un cráneo de la mazmorra para que luche por ti
+}
+
+Shroomed_Buff: {
+	DisplayName: ENCHAMPIÑONADO
+	Description: Te has enchampiñado
+}
+
+HallowStaff_Buff: {
+	DisplayName: Prisma Sagrado
+	Description: Invoca un prisma para que luche por ti
+}
+
+TrueHallowStaff_Buff: {
+	DisplayName: Prisma Sagrado Verdadero
+	Description: Invoca un prisma bendito para que luche por ti
+}
+
+DemonHelmetSetEffect_Buff: {
+	DisplayName: Señor Demonio
+	Description: Dominas a un pequeño diablillo que te sigue a todas partes.
+}
+
+DemonStaff_Buff: {
+	DisplayName: Compañero Demonio
+	Description: Invoca un demonio para que luche por ti
+}
+
+DevilStaff_Buff: {
+	DisplayName: Sirviente Demonio
+	Description: Invoca un demonio para que luche por ti
+}
+
+CharmOfDesire_Desire: {
+	DisplayName: Deseo
+	Description: ¡¡¡MÁS MONEDAS, MÁS PODER!!!
+}
+
+Earthbreaker_Falling: {
+	DisplayName: Cayendo
+	Description: ""
+}
+
+ScorchedEgg_Buff: {
+	DisplayName: Minicría
+	Description: Bebé pequeñito
+}
+
+DragonSoul_Buff: {
+	DisplayName: Alma de Dragón
+	Description: Arde con la furia de un dragón
+}
+
+FireStaff_Buff: {
+	DisplayName: Bebé Fénix
+	Description: Invoca un bebé fénix para que luche por ti
+}
+
+FlaskOfDragonfire_Buff: {
+	DisplayName: Imbuir arma: Fuego de dragón
+	Description: Los ataques cuerpo a cuerpo infligen Fuego de dragón
+}
+
+DragonsPike_Buff: {
+	DisplayName: Dragón de Llama
+	Description: Invoca un dragón para que luche por ti
+}
+
+LungMinion_Buff: {
+	DisplayName: Dragón Antiguo
+	Description: Invoca un dragón antiguo para que luche por ti
+}
+
+AkumaAHead_ScorchingPain: {
+	DisplayName: Dolor Abrasador
+	Description: Los estados negativos de fuego te infligen el doble de daño
+}
+
+BurningAsh_Buff: {
+	DisplayName: Ceniza Ardiente
+	Description: La ceniza está derritiendo tu piel
+}
+
+DragonFire_Buff: {
+	DisplayName: Fuego de Dragón
+	Description: Tu daño infligido se reduce
+}
+
+GlowingMossBall_Buff: {
+	DisplayName: Bola de Musgo Luminoso
+	Description: No preguntes qué hace que brille. Confía en mí.
+}
+
+HydraBody_Hunted: {
+	DisplayName: Cazado
+	Description:
+		'''
+		Estás siendo cazado por una criatura abisal
+		Tiempo de vuelo y velocidad de carrera reducidos
+		'''
+}
+
+FlaskOfHydratoxin_Buff: {
+	DisplayName: Imbuir arma: Hidratoxina
+	Description: Los ataques cuerpo a cuerpo infligen Hidratoxina
+}
+
+YamataABody_TrueAbyssalGravity: {
+	DisplayName: Gravedad Abisal Verdadera
+	Description: "'REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE'"
+}
+
+YamataBody_AbyssalGravity: {
+	DisplayName: Gravedad Abisal
+	Description: "'¡NO TE VAS A ESCAPAR DE MÍ, NIÑATO!'"
+}
+
+Clueless_Buff: {
+	DisplayName: Niebla
+	Description: No puedes ver nada
+}
+
+HydraToxin_Buff: {
+	DisplayName: Hidratoxina
+	Description: Cuanto más tiempo la tengas, más rápido se infecta y te consume
+}
+
+Moonraze_Buff: {
+	DisplayName: Arrasamiento Lunar
+	Description: Incinerado por rayos lunares
+}
+
+AquaintedWithWater_Buff: {
+	DisplayName: Familiarizado con el Agua
+	Description: Tus habilidades mágicas aumentan ligeramente
+}
+
+Atlantean_Buff: {
+	DisplayName: Poder Atlante
+	Description: Tus habilidades mágicas aumentan
+}
+
+Seashroom_Buff: {
+	DisplayName: Tiburón-dragón
+	Description: No muerde... mucho...
+}
+
+SnakeStaff_Buff: {
+	DisplayName: Serpiente de Nieve
+	Description: Invoca una serpiente de nieve para que luche por ti
+}
+
+StarHelmetRangedPlayer_DarkmatterSphere_DarkCurse_Buff: {
+	DisplayName: Maldición Oscura
+	Description: ¡Infliges significativamente menos daño!
+}
+
+StarHelmetRangedPlayer_DarkmatterSphere_DarkLock_Buff: {
+	DisplayName: Bloqueo Oscuro
+	Description: ¡La oscuridad te ha inmovilizado!
+}
+
+StarHelmetRangedPlayer_SunSiphon_ManaOverload: {
+	DisplayName: Sobrecarga de Maná
+	Description: Doble velocidad de ataque mágico
+}
+
+RadiumInferno_Buff: {
+	DisplayName: Infierno de Radio
+	Description: Perdiendo vida rápidamente
+}
+
+TerraHelmetMageSetEffect_TerraRoseCooldown: {
+	DisplayName: Enfriamiento de Rosa de Terra
+	Description: No se pueden plantar rosas en este momento...
+}
+
+TerraHelmetSummonerSetEffect_Buff: {
+	DisplayName: Cristal de Terra
+	Description: Dispara orbes a los enemigos cercanos, si así lo deseas
+}
+
+TerraStaff_Buff: {
+	DisplayName: Mago de Terra
+	Description: Magia
+}
+
+TerraGauntlet_Buff: {
+	DisplayName: Esbirros de Terra
+	Description: Un despliegue de constructos de la unidad a tu disposición
+}
+
+Terrablaze_Buff: {
+	DisplayName: Terrallamarada
+	Description: El daño recibido aumenta
+}
+
+TerrasGuidance_Buff: {
+	DisplayName: Guía de Terra
+	Description: Tus pies brillan con el poder del terrario, previniendo el daño por caída
+}
+
+SagittariusShield_ShieldsUp: {
+	DisplayName: Escudos Arriba
+	Description: Ellos no pueden entrar, pero tus armas tampoco pueden salir.
+}
+
+SagittariusCore_Buff: {
+	DisplayName: Orbitador de Sagitario
+	Description: Invoca un orbitador para que luche por ti
+}
+
+DoomiteHelmetSetEffect_Buff: {
+	DisplayName: Explorador Buscador
+	Description: Invoca un buscador para que luche por ti
+}
+
+DoomiteRadio_Buff: {
+	DisplayName: Sonda de Radio de Doomita
+	Description: Invoca una sonda de radio de doomita para que luche por ti
+}
+
+DoomiteSignal_Buff: {
+	DisplayName: Sonda de Doomita
+	Description: Invoca una sonda de doomita para que luche por ti
+}
+
+VoidProbeControlUnit_Buff: {
+	DisplayName: Minisonda
+	Description: Invoca una sonda del vacío para que luche por ti
+}
+
+OverloadedDoomiteRadio_Buff: {
+	DisplayName: Explorador del Vacío
+	Description: Invoca un explorador del vacío para que luche por ti
+}
+
+BrokenCodeTeleportUnofficialEffect_Freeze: {
+	DisplayName: Congelado
+	Description: El Administrador de tareas no te va a ayudar con esto
+}
+
+BrokenCodeTeleportUnofficialEffect_FreezeCooldown: {
+	DisplayName: Enfriamiento de Congelación
+	Description: ¡Al menos tu cabeza sigue sobre tu cuerpo!
+}
+
+BrokenCodeTeleportEffect_Glitched: {
+	DisplayName: Glitcheado
+	Description: Tu cabeza está como a 3 metros de ti
+}
+
+ZeroCore_Buff: {
+	DisplayName: ZER0 lite
+	Description: SISTEMAS DE DETECCIÓN DE VIDA ACTIVADOS
+}
+
+DoomPortal_Buff: {
+	DisplayName: PR0T0C0L0 D00M
+	Description: Invoca un bebé PR0T0C0L0 ZER0 para que luche por ti
+}
+
+CyberneticEgg_Buff: {
+	DisplayName: Minirraid
+	Description: Bot pequeñito
+}
+
+CyberBaton_Buff: {
+	DisplayName: Cibergarra
+	Description: Invoca una cibergarra para que luche por ti
+}
+
+DapperAcorn_Buff: {
+	DisplayName: Ardilla Elegante
+	Description: Ahora con sombreros divertidos
+}
+
+RealityBent_Buff: {
+	DisplayName: Fisurado
+	Description: El espacio a tu alrededor se está distorsionando
+}
+
+InfinityScorch_Buff: {
+	DisplayName: Quemadura del Infinito
+	Description: Tu vida se está consumiendo por el fuego
+}
+
+LockedOn_Buff: {
+	DisplayName: Fijado
+	Description: ""
+}
+
+BrokenArmor_Buff: {
+	DisplayName: Armadura rota
+	Description: ""
+}
+
+Electrified_Buff: {
+	DisplayName: Electrificado
+	Description: ""
+}
+
+Impaled_Buff: {
+	DisplayName: Empalado
+	Description: "'¡Ouch!'"
+}
+
+SpearStuck_Buff: {
+	DisplayName: Alanceado
+	Description: Tienes una lanza clavada. Ay.
+}
+
+InfinityGauntletEffect_InfinityBurnout: {
+	DisplayName: Desgaste del Infinito
+	Description: No apuntaron a la cabeza.
+}

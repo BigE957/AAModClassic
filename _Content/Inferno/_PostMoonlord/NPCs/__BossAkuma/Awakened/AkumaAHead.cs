@@ -41,6 +41,15 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
             Main.npcFrameCount[NPC.type] = 3;
             NPCID.Sets.BossBestiaryPriority.Add(Type);
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionXOverride = 36,
+                Position = new Vector2(72, 40),
+                Scale = 0.75f,
+                PortraitScale = 0.75f
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
         public override void SetDefaults()
@@ -693,30 +702,93 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D AkumaTex = TextureAssets.Npc[NPC.type].Value;
-            if (NPC.type == ModContent.NPCType<AkumaAHead>())
+            if (NPC.IsABestiaryIconDummy && NPC.type == ModContent.NPCType<AkumaAHead>())
             {
-                if (NPC.ai[0] == 0 || NPC.ai[0] == 1 || NPC.ai[0] == 5 || NPC.ai[0] == 9)
+                int[] Frame = { 1, 2, 0, 1, 2, 1, 2, 0, 1, 2, 1, 2, 0, 1, 2, 3, 4 };
+
+                int segmentCount = 4;
+                Vector2 baseOffset = Vector2.Zero;
+                float segmentSpacing = 42;
+                float animationSpeed = 1f;
+                float range = 20f;
+                float rotationStrength = 0.1f;
+
+                float headOffset = -20;
+                int headSpeedOffset = 0;
+
+                float offset = -0.2f;
+                float startX = baseOffset.X;
+                float startY = baseOffset.Y;
+                float wormTimer = base.NPC.GetGlobalNPC<BestiaryDrawingNPC>().bestiaryWormTimer;
+
+                int myShader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
+
+                // Draw the body segments
+                for (int i = segmentCount; i > 0; i--)
                 {
-                    AkumaTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/AkumaAHead_Open").Value;
+                    int myFrame = Frame[i];
+                    if (myFrame != 0)
+                        continue;
+
+                    float bodyOffset = i * segmentSpacing - segmentSpacing * 0.5f;
+
+                    AkumaABody.DrawBackArm(spriteBatch, NPC.position + new Vector2(startX + bodyOffset, MathF.Sin((wormTimer + offset * i) * animationSpeed) * range + startY), Color.White, NPC.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer + offset * i) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, 1, NPC.scale, wormTimer + i, false);
                 }
-                else
+
+                for (int i = segmentCount; i > 0; i--)
                 {
-                    AkumaTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/_PostMoonlord/NPCs/__BossAkuma/Awakened/AkumaAHead").Value;
+                    // The first segment is slightly closer to keep up with the head
+                    float bodyOffset = i * segmentSpacing - segmentSpacing * 0.5f;
+
+                    int myFrame = Frame[i];
+                    if (myFrame == 0)
+                    {
+                        spriteBatch.Draw(AkumaABody.ArmlessBody.Value, NPC.position + new Vector2(startX + bodyOffset, MathF.Sin((wormTimer + offset * i) * animationSpeed) * range + startY), null, NPC.GetAlpha(drawColor), NPC.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer + offset * i) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, AkumaABody.ArmlessBody.Size() * 0.5f, NPC.scale, SpriteEffects.FlipHorizontally, 0);
+
+                        DrawingUtils.DrawWithVanillaShader(spriteBatch, myShader, (spriteBatch) => {
+                            spriteBatch.Draw(AkumaABody.ArmlessBodyGlow.Value, NPC.position + new Vector2(startX + bodyOffset, MathF.Sin((wormTimer + offset * i) * animationSpeed) * range + startY), null, NPC.GetAlpha(drawColor), NPC.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer + offset * i) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, AkumaABody.ArmlessBodyGlow.Size() / 2, NPC.scale, SpriteEffects.FlipHorizontally, 0f);
+                        });
+                    }
+                    else
+                    {
+                        Rectangle frame = TextureAssets.Npc[ModContent.NPCType<AkumaABody>()].Frame(1, 5, 0, myFrame);
+                        spriteBatch.Draw(TextureAssets.Npc[ModContent.NPCType<AkumaABody>()].Value, NPC.position + new Vector2(startX + bodyOffset, MathF.Sin((wormTimer + offset * i) * animationSpeed) * range + startY), frame, NPC.GetAlpha(drawColor), NPC.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer + offset * i) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, frame.Size() / 2, NPC.scale, SpriteEffects.FlipHorizontally, 0f);
+                        DrawingUtils.DrawWithVanillaShader(spriteBatch, myShader, (spriteBatch) => {
+                            spriteBatch.Draw(ModContent.Request<Texture2D>(Texture.Replace("Head", "Body") + "_Glow").Value, NPC.position + new Vector2(startX + bodyOffset, MathF.Sin((wormTimer + offset * i) * animationSpeed) * range + startY), frame, NPC.GetAlpha(drawColor), NPC.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer + offset * i) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, frame.Size() / 2, NPC.scale, SpriteEffects.FlipHorizontally, 0f);
+                        });
+                    }
                 }
+
+                for (int i = segmentCount; i > 0; i--)
+                {
+                    int myFrame = Frame[i];
+                    if (myFrame != 0)
+                        continue;
+
+                    float bodyOffset = i * segmentSpacing - segmentSpacing * 0.5f;
+
+                    AkumaABody.DrawFrontArm(spriteBatch, NPC.position + new Vector2(startX + bodyOffset, MathF.Sin((wormTimer + offset * i) * animationSpeed) * range + startY), Color.White, NPC.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer + offset * i) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, 1, NPC.scale, wormTimer + i, false);
+                }
+
+                // Draw the head
+                spriteBatch.Draw(TextureAssets.Npc[Type].Value, NPC.position + new Vector2(startX + headOffset, MathF.Sin((wormTimer - headSpeedOffset) * animationSpeed) * range + startY), NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer - headSpeedOffset) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.FlipHorizontally, 0f);
+                DrawingUtils.DrawWithVanillaShader(spriteBatch, myShader, (spriteBatch) => {
+                    spriteBatch.Draw(ModContent.Request<Texture2D>(Texture + "_Glow").Value, NPC.position + new Vector2(startX + headOffset, MathF.Sin((wormTimer - headSpeedOffset) * animationSpeed) * range + startY), NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer - headSpeedOffset) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.FlipHorizontally, 0f);
+                });
+                return false;
             }
+
+            Texture2D AkumaTex = TextureAssets.Npc[NPC.type].Value;
+            if (NPC.type == ModContent.NPCType<AkumaAHead>() && (NPC.ai[0] == 0 || NPC.ai[0] == 1 || NPC.ai[0] == 5 || NPC.ai[0] == 9))
+                AkumaTex = ModContent.Request<Texture2D>(Texture + "_Open").Value;
 
             Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
             
             int shader;
             if (NPC.ai[1] == 1 || NPC.ai[2] >= 470 || Main.npc[(int)NPC.ai[3]].ai[1] == 1 || Main.npc[(int)NPC.ai[3]].ai[2] >= 500)
-            {
                 shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
-            }
             else
-            {
                 shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
-            }
 
             Texture2D myGlowTex;
             if (NPC.type == ModContent.NPCType<AkumaAHead>())

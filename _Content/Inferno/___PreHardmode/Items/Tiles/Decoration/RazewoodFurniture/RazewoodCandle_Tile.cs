@@ -1,60 +1,30 @@
+using AAModClassic.Dusts;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture
 {
     public class RazewoodCandle_Tile : ModTile
 	{
-		public override void SetStaticDefaults()
-		{
-			Main.tileFrameImportant[Type] = true;
-			Main.tileLavaDeath[Type] = true;
-            Main.tileLighted[Type] = true;
-            TileObjectData.newTile.CopyFrom(TileObjectData.StyleOnTable1x1);
-            TileObjectData.newTile.CoordinateHeights = new int[]
-            {
-                20
-            };
-            TileObjectData.newTile.DrawYOffset = -4;
-            TileObjectData.addTile(Type);
-			LocalizedText name = CreateMapEntryName();
-			// name.SetDefault("Razewood Candle");
-            AddMapEntry(new Color(205, 62, 12), name);
-            DustType = ModContent.DustType<Dusts.RazewoodDust>();
-			TileID.Sets.DisableSmartCursor[Type] = true;
-			AdjTiles = new int[]{ TileID.Candelabras };
-            RegisterItemDrop(ModContent.ItemType<RazewoodCandle>());
-            AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-        }
-        public override void HitWire(int i, int j)
+        public override void SetStaticDefaults()
         {
-
-
-            if (Main.tile[i, j].TileFrameX >= 18)
-            {
-                Main.tile[i, j].TileFrameX -= 18;
-            }
-            else
-            {
-                Main.tile[i, j].TileFrameX += 18;
-            }
-
-
+            this.SetUpCandle(ModContent.ItemType<RazewoodCandle>(), true);
+            base.DustType = ModContent.DustType<RazewoodDust>();
         }
+
         public override bool RightClick(int i, int j)
         {
-            Main.LocalPlayer.PickTile(i, j, 100);
+            FurnitureUtils.RightClickBreak(i, j);
             return true;
         }
-        public override void NumDust(int i, int j, bool fail, ref int num)
-		{
-			num = fail ? 1 : 3;
-		}
+
+        public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
+
+        public override void HitWire(int i, int j) => FurnitureUtils.LightHitWire(Type, i, j, 1, 1);
+
         public override void MouseOver(int i, int j)
         {
             Player player = Main.LocalPlayer;
@@ -68,9 +38,10 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.Ra
             Tile tile = Main.tile[i, j];
             if (tile.TileFrameX < 18)
             {
-                r = 0.9f;
-                g = 0.9f;
-                b = 0.9f;
+                Vector3 c = (Color.Orange * 0.9f).ToVector3();
+                r = c.X;
+                g = c.Y;
+                b = c.Z;
             }
         }
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)

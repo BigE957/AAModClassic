@@ -19,9 +19,9 @@ ChampionRajahRabbit: {
 	5: 保护无辜者。这就是一切的意义所在。在切磋中击败他而不取其性命，你证明了有人配得上他的称号。有人比他更强，能完成他的目标。生命是一份诸多人来不及珍惜的礼物。一份诸多之人肆意挥霍、故意破坏的礼物。那些花费数百年、甚至数千年守护正义的英雄们。  那些谦卑的镇民，用尽自己所能搜罗来的一切供养着他们的家园。  还有那些形形色色、大大小小的生灵，乃至最不起眼的兔子。  如今，它们的安危就交付在你手中。  他相信，你定不会让他失望。
 }
 
-SupremeRabbitcopterSoldier: ……
-SupremeRabidRabbit: ……
-SupremeBunnyBrawler: ……
+SupremeRabbitcopterSoldier: "{$Bestiary.RabbitcopterSoldier}"
+SupremeRabidRabbit: "{$Bestiary.RabidRabbit}"
+SupremeBunnyBrawler: "{$Bestiary.BunnyBrawler}"
 GripOfChaosInferno: 某位更高存在的混沌之手，如今沦为炮灰。这只燎狱巨爪焚尽沿途的一切。
 GripOfChaosMire: 某位更高存在的混沌之手，如今沦为炮灰。这只潭渊巨爪溺毙沿途的一切。
 ChaosDragon: 曾以天空为家的龙族在混沌之力降临世界后降落到地表。如今它们只为进一步散播混沌而存在。
@@ -52,7 +52,8 @@ HorusSentry: 被审判者的诅咒之魂赋予此造物力量，如今任何落�
 Naddaha: 从亡者之地被召唤而来的水之精魂，咒缚唤女娜黛哈将欣然献上歌声协助逝落断罪师的试炼。
 FeudalFungus: 深挖地表蘑菇之下的土层会揭示截然不同的真菌物种，尽管脾性并无二致。若再挖得更深，又会发现何等新奇的真菌……？
 GlowingMushling: 真菌帝的危险发光仆从之一——荧菌精。
-LuminousAccordyceps: ……
+LuminousAccordyceps: 虽然多数虫草菌为寄生，但这种奇特的菌株却与松露蟾蜍形成了互利共生的关系——蟾蜍为其抵御天敌，光蕈谐菌则护其免受伤害。
+GregariousGlowshrooms: 虽然这些蘑菇彼此紧挨，但菌柄并不相连。正因如此，它们不能被视作一簇真菌，而是群聚生长。
 TruffleToad: 一只太大——也许过大了——的松露蟾蜍，栖息于下方发光洞穴之中。
 TinyToad: 这些邪恶的后代从出生起便已准备好守护它们的母亲。世上没有什么比小松露蟾蜍更令人作呕的了。
 GoblinSlayer: 一名装备钢甲的哥布林杀手。尽管装备简陋，他能瞬间察觉靠近的哥布林，将他们削成哥布林薯条！

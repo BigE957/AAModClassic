@@ -469,8 +469,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         {
             if (lava)
                 player.waterWalk2 = true;
-            else
-                player.waterWalk = true;
+            player.waterWalk = true;
         }
 
         public override string GetDescription()
@@ -661,7 +660,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             player.maxTurrets += amount;
         }
 
-        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.IncreaseDecrease), Math.Abs(amount));
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.IncreasesDecreases).FirstCharToUpper(), Math.Abs(amount));
     }
 
     public class MaxMinionSlotEffect(int amount) : EquipmentEffectData

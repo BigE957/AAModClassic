@@ -1,73 +1,33 @@
+using AAModClassic.Dusts;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture
 {
     public class RazewoodCandelabra_Tile : ModTile
 	{
-		public override void SetStaticDefaults()
-		{
-			Main.tileFrameImportant[Type] = true;
-			Main.tileNoAttach[Type] = true;
-            Main.tileLighted[Type] = true;
-            Main.tileLavaDeath[Type] = true;
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
-            TileObjectData.newTile.DrawYOffset = 2;
-            TileObjectData.addTile(Type);
-			LocalizedText name = CreateMapEntryName();
-			// name.SetDefault("Razewood Candelabra");
-            AddMapEntry(new Color(205, 62, 12), name);
-            DustType = ModContent.DustType<Dusts.RazewoodDust>();
-            AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-            AdjTiles = new int[]{ TileID.Candelabras };
-            RegisterItemDrop(ModContent.ItemType<RazewoodCandelabra>());
-		}
-        public override void HitWire(int i, int j)
+        public override void SetStaticDefaults()
         {
-            int left = i - Main.tile[i, j].TileFrameX / 18 % 2;
-            int top = j - Main.tile[i, j].TileFrameY / 18 % 2;
-            for (int x = left; x < left + 2; x++)
-            {
-                for (int y = top; y < top + 2; y++)
-                {
-
-                    if (Main.tile[x, y].TileFrameX >= 36)
-                    {
-                        Main.tile[x, y].TileFrameX -= 36;
-                    }
-                    else
-                    {
-                        Main.tile[x, y].TileFrameX += 36;
-                    }
-                }
-            }
-            if (Wiring.running)
-            {
-                Wiring.SkipWire(left, top);
-                Wiring.SkipWire(left, top + 1);
-                Wiring.SkipWire(left + 1, top);
-                Wiring.SkipWire(left + 1, top + 1);
-            }
-            NetMessage.SendTileSquare(-1, left, top + 1, 2);
-            
+            this.SetUpCandelabra(ModContent.ItemType<RazewoodCandelabra>());
+            DustType = ModContent.DustType<RazewoodDust>();
         }
-        public override void NumDust(int i, int j, bool fail, ref int num)
-		{
-			num = fail ? 1 : 3;
-		}
+
+        public override void HitWire(int i, int j) => FurnitureUtils.LightHitWire(Type, i, j, 2, 2);
+
+        public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
+
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
             Tile tile = Main.tile[i, j];
             if (tile.TileFrameX < 36)
             {
-                r = 0.9f;
-                g = 0.9f;
-                b = 0.9f;
+                Vector3 c = (Color.Orange * 0.9f).ToVector3();
+                r = c.X;
+                g = c.Y;
+                b = c.Z;
             }
         }
 

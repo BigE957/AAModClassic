@@ -4,6 +4,8 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -13,6 +15,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEye
 {
@@ -240,41 +243,41 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     {
                         num414 = -1;
                     }
-                    Vector2 vector40 = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
-                    float num415 = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2 + num414 * 400 - vector40.X;
-                    float num416 = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2 - vector40.Y;
-                    float num417 = (float)Math.Sqrt((double)(num415 * num415 + num416 * num416));
-                    num417 = num412 / num417;
-                    num415 *= num417;
-                    num416 *= num417;
-                    if (NPC.velocity.X < num415)
+                    Vector2 spawnPos = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+                    float vX = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2 + num414 * 400 - spawnPos.X;
+                    float vY = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2 - spawnPos.Y;
+                    float length = (float)Math.Sqrt((double)(vX * vX + vY * vY));
+                    length = num412 / length;
+                    vX *= length;
+                    vY *= length;
+                    if (NPC.velocity.X < vX)
                     {
                         NPC.velocity.X = NPC.velocity.X + num413;
-                        if (NPC.velocity.X < 0f && num415 > 0f)
+                        if (NPC.velocity.X < 0f && vX > 0f)
                         {
                             NPC.velocity.X = NPC.velocity.X + num413;
                         }
                     }
-                    else if (NPC.velocity.X > num415)
+                    else if (NPC.velocity.X > vX)
                     {
                         NPC.velocity.X = NPC.velocity.X - num413;
-                        if (NPC.velocity.X > 0f && num415 < 0f)
+                        if (NPC.velocity.X > 0f && vX < 0f)
                         {
                             NPC.velocity.X = NPC.velocity.X - num413;
                         }
                     }
-                    if (NPC.velocity.Y < num416)
+                    if (NPC.velocity.Y < vY)
                     {
                         NPC.velocity.Y = NPC.velocity.Y + num413;
-                        if (NPC.velocity.Y < 0f && num416 > 0f)
+                        if (NPC.velocity.Y < 0f && vY > 0f)
                         {
                             NPC.velocity.Y = NPC.velocity.Y + num413;
                         }
                     }
-                    else if (NPC.velocity.Y > num416)
+                    else if (NPC.velocity.Y > vY)
                     {
                         NPC.velocity.Y = NPC.velocity.Y - num413;
-                        if (NPC.velocity.Y > 0f && num416 < 0f)
+                        if (NPC.velocity.Y > 0f && vY < 0f)
                         {
                             NPC.velocity.Y = NPC.velocity.Y - num413;
                         }
@@ -300,29 +303,30 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                         }
                         if (NPC.ai[3] >= 60f)
                         {
-                            NPC.ai[3] = 0f;
-                            vector40 = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
-                            num415 = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2 - vector40.X;
-                            num416 = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2 - vector40.Y;
+                            bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
+
+                            NPC.ai[3] = unofficial ? 55 : 0f;
+                            spawnPos = NPC.Center;
+                            Vector2 toTarget = spawnPos.DirectionTo(Main.player[NPC.target].Center);
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
-                                float num418 = 12f;
-                                int num419 = 25;
+                                float baseSpeed = 12f;
+                                int dmg = 25;
                                 int num420 = ModContent.ProjectileType<DeityEye_DeityFlames>();
                                 if (Main.expertMode)
                                 {
-                                    num418 = 14f;
-                                    num419 = 22;
+                                    baseSpeed = 14f;
+                                    dmg = 22;
                                 }
-                                num417 = (float)Math.Sqrt((double)(num415 * num415 + num416 * num416));
-                                num417 = num418 / num417;
-                                num415 *= num417;
-                                num416 *= num417;
-                                num415 += Main.rand.Next(-40, 41) * 0.05f;
-                                num416 += Main.rand.Next(-40, 41) * 0.05f;
-                                vector40.X += num415 * 4f;
-                                vector40.Y += num416 * 4f;
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), vector40.X, vector40.Y, num415, num416, num420, num419, 0f, Main.myPlayer, 0f, 0f);
+                                Vector2 velocity = toTarget * baseSpeed;
+                                if (unofficial)
+                                {
+                                    velocity /= 2f;
+                                    spawnPos -= velocity * 4f;
+                                }
+                                else
+                                    spawnPos += velocity * 4f;
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), spawnPos, velocity, num420, dmg, 0f, Main.myPlayer, 0f, 0f);
                             }
                         }
                     }
@@ -679,10 +683,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
             //draw glow/glow afterimage
             spriteBatch.Draw(GlowTex, NPC.Center - screenPos, NPC.frame, AAColor.Cthulhu2, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
-            BaseDrawing.DrawAfterimage(spriteBatch, GlowTex, 0, NPC, 0.8f, 1f, 6, false, 0f, 0f, AAColor.Cthulhu2);
-            
+            DrawingUtils.DrawAfterimageWithVelocity(Main.spriteBatch, GlowTex, NPC.Center - screenPos, NPC.velocity, 6, NPC.frame, AAColor.Cthulhu2, NPC.scale, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0.8f, 1f);
+
             return false;
         }
-
     }
 }

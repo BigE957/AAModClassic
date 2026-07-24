@@ -1,0 +1,323 @@
+Trophy: {
+	InfernoGripTrophy: {
+		DisplayName: Trofeo de Agarre Infernal del Caos
+		Tooltip: ""
+	}
+
+	BroodmotherTrophy: {
+		DisplayName: Trofeo de Madre de la Camada
+		Tooltip: ""
+	}
+
+	DaybringerTrophy: {
+		DisplayName: Trofeo de Traedor del Día
+		Tooltip: ""
+	}
+
+	NightcrawlerTrophy: {
+		DisplayName: Trofeo de Reptador Nocturno
+		Tooltip: ""
+	}
+
+	OrthrusXTrophy: {
+		DisplayName: Trofeo de Orthrus X
+		Tooltip: ""
+	}
+
+	RaiderUltimaTrophy: {
+		DisplayName: Trofeo de Raider Ultima
+		Tooltip: ""
+	}
+
+	RetrieverTrophy: {
+		DisplayName: Trofeo de Retriever
+		Tooltip: ""
+	}
+
+	TechnoTruffleTrophy: {
+		DisplayName: Trofeo de Techno Trufa
+		Tooltip: ""
+	}
+
+	InfinityZeroTrophy: {
+		DisplayName: Trofeo de Infinity Zero
+		Tooltip: ""
+	}
+
+	AthenaTrophy: {
+		DisplayName: Trofeo de Atenea
+		Tooltip: ""
+	}
+
+	AthenaATrophy: {
+		DisplayName: Trofeo de Atenea Olímpica
+		Tooltip: ""
+	}
+
+	RajahRabbitTrophy: {
+		DisplayName: Trofeo de Rajah Rabbit
+		Tooltip: ""
+	}
+
+	MireGripTrophy: {
+		DisplayName: Trofeo de Agarre del Lodazal del Caos
+		Tooltip: ""
+	}
+
+	ShenDoragonATrophy: {
+		DisplayName: Trofeo de Shen Doragon Despertado
+		Tooltip: ""
+	}
+
+	ShenDoragonTrophy: {
+		DisplayName: Trofeo de Shen Doragon
+		Tooltip: ""
+	}
+
+	AsheTrophy: {
+		DisplayName: Trofeo de Ashe
+		Tooltip: ""
+	}
+
+	HarukaTrophy: {
+		DisplayName: Trofeo de Haruka
+		Tooltip: ""
+	}
+
+	DesertDjinnTrophy: {
+		DisplayName: Trofeo de Genio del Desierto
+		Tooltip: ""
+	}
+
+	AnubisTrophy: {
+		DisplayName: Trofeo de Anubis
+		Tooltip: ""
+	}
+
+	AnubisATrophy: {
+		DisplayName: Trofeo de Anubis Abandonado
+		Tooltip: ""
+	}
+
+	FeudalFungusTrophy: {
+		DisplayName: Trofeo de Hongo Feudal
+		Tooltip: ""
+	}
+
+	TruffleToadTrophy: {
+		DisplayName: Trofeo de Sapo Trufa
+		Tooltip: ""
+	}
+
+	GreedTrophy: {
+		DisplayName: Trofeo de Codicia
+		Tooltip: ""
+	}
+
+	GreedATrophy: {
+		DisplayName: Trofeo de Rey Gusano Codicia
+		Tooltip: ""
+	}
+
+	AkumaATrophy: {
+		DisplayName: Trofeo de Oni Akuma
+		Tooltip: ""
+	}
+
+	AkumaTrophy: {
+		DisplayName: Trofeo de Akuma
+		Tooltip: ""
+	}
+
+	HydraTrophy: {
+		DisplayName: Trofeo de Hidra
+		Tooltip: ""
+	}
+
+	YamataATrophy: {
+		DisplayName: Trofeo de Yamata No Orochi
+		Tooltip: ""
+	}
+
+	YamataTrophy: {
+		DisplayName: Trofeo de Yamata
+		Tooltip: ""
+	}
+
+	MushroomMonarchTrophy: {
+		DisplayName: Trofeo de Monarca Champiñón
+		Tooltip: ""
+	}
+
+	SubzeroSerpentTrophy: {
+		DisplayName: Trofeo de Serpiente Subzero
+		Tooltip: ""
+	}
+
+	SagittariusTrophy: {
+		DisplayName: Trofeo de Sagitario
+		Tooltip: ""
+	}
+
+	ZeroATrophy: {
+		DisplayName: Trofeo de Protocolo Cero
+		Tooltip: ""
+	}
+
+	ZeroTrophy: {
+		DisplayName: Trofeo de Cero
+		Tooltip: ""
+	}
+
+	SoulOfCthulhuTrophy: {
+		DisplayName: Trofeo de Alma de Cthulhu
+		Tooltip: ""
+	}
+}
+
+Relic: {
+	AthenaRelic: {
+		DisplayName: Reliquia de Atenea
+		Tooltip: ""
+	}
+
+	AthenaARelic: {
+		DisplayName: Reliquia de Atenea Olímpica
+		Tooltip: ""
+	}
+
+	RajahRabbitRelic: {
+		DisplayName: Reliquia de Rajah Rabbit
+		Tooltip: ""
+	}
+
+	RajahRabbitARelic: {
+		DisplayName: Reliquia de Campeón de los Inocentes
+		Tooltip: ""
+	}
+
+	GripsOfChaosRelic: {
+		DisplayName: Reliquia de Agarres del Caos
+		Tooltip: ""
+	}
+
+	ShenDoragonRelic: {
+		DisplayName: Reliquia de Shen Doragon
+		Tooltip: ""
+	}
+
+	SistersOfDiscordRelic: {
+		DisplayName: Reliquia de Hermanas de la Discordia
+		Tooltip: ""
+	}
+
+	DesertDjinnRelic: {
+		DisplayName: Reliquia de Genio del Desierto
+		Tooltip: ""
+	}
+
+	AnubisRelic: {
+		DisplayName: Reliquia de Anubis
+		Tooltip: ""
+	}
+
+	AnubisARelic: {
+		DisplayName: Reliquia de Anubis, Juez Abandonado
+		Tooltip: ""
+	}
+
+	FeudalFungusRelic: {
+		DisplayName: Reliquia de Hongo Feudal
+		Tooltip: ""
+	}
+
+	TruffleToadRelic: {
+		DisplayName: Reliquia de Sapo Trufa
+		Tooltip: ""
+	}
+
+	GreedRelic: {
+		DisplayName: Reliquia de Codicia
+		Tooltip: ""
+	}
+
+	GreedARelic: {
+		DisplayName: Reliquia de Rey Gusano Codicia
+		Tooltip: ""
+	}
+
+	BroodmotherRelic: {
+		DisplayName: Reliquia de Madre de la Camada
+		Tooltip: ""
+	}
+
+	AkumaRelic: {
+		DisplayName: Reliquia de Akuma
+		Tooltip: ""
+	}
+
+	HydraRelic: {
+		DisplayName: Reliquia de Hídra
+		Tooltip: ""
+	}
+
+	YamataRelic: {
+		DisplayName: Reliquia de Yamata
+		Tooltip: ""
+	}
+
+	MushroomMonarchRelic: {
+		DisplayName: Reliquia de Monarca Champiñón
+		Tooltip: ""
+	}
+
+	SubzeroSerpentRelic: {
+		DisplayName: Reliquia de Serpiente Subzero
+		Tooltip: ""
+	}
+
+	EquinoxWormsRelic: {
+		DisplayName: Reliquia de Gusanos del Equinoccio
+		Tooltip: ""
+	}
+
+	SagittariusRelic: {
+		DisplayName: Reliquia de Sagitario
+		Tooltip: ""
+	}
+
+	ZeroRelic: {
+		DisplayName: Reliquia de Cero
+		Tooltip: ""
+	}
+
+	OrthrusXRelic: {
+		DisplayName: Reliquia de Orthrus X
+		Tooltip: ""
+	}
+
+	RaiderUltimaRelic: {
+		DisplayName: Reliquia de Raider Ultima
+		Tooltip: ""
+	}
+
+	RetrieverRelic: {
+		DisplayName: Reliquia de Retriever
+		Tooltip: ""
+	}
+
+	TechnoTruffleRelic: {
+		DisplayName: Reliquia de Techno Trufa
+		Tooltip: ""
+	}
+
+	SoulOfCthulhuRelic: {
+		DisplayName: Reliquia de Alma de Cthulhu
+		Tooltip: ""
+	}
+
+	InfinityZeroRelic: {
+		DisplayName: Reliquia de Infinity Zero
+		Tooltip: ""
+	}
+}

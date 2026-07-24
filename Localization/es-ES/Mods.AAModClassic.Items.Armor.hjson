@@ -1,0 +1,907 @@
+ChaosSlayer: {
+	SharedFlavorText: "'El poder de la rabia discordante irradia de esta armadura'"
+
+	ChaosSlayerChestplate: {
+		DisplayName: Placa de Cazacaos
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
+	}
+
+	ChaosSlayerHelmetMage: {
+		DisplayName: Capucha de Cazacaos
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
+	}
+
+	ChaosSlayerHelmetMelee: {
+		DisplayName: Kabuto de Cazacaos
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
+	}
+
+	ChaosSlayerHelmetRanged: {
+		DisplayName: Visor de Cazacaos
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
+	}
+
+	ChaosSlayerHelmetSummoner: {
+		DisplayName: Máscara de Cazacaos
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
+	}
+
+	ChaosSlayerLeggings: {
+		DisplayName: Grebas de Cazacaos
+		Tooltip: "{$Armor.ChaosSlayer.SharedFlavorText}"
+	}
+}
+
+Chaos: {
+	ChaosChestplate: {
+		DisplayName: Dou del Caos
+		Tooltip: ""
+	}
+
+	ChaosHelmetMage: {
+		DisplayName: Máscara del Caos
+		Tooltip: ""
+	}
+
+	ChaosHelmetMelee: {
+		DisplayName: Kabuto del Caos
+		Tooltip: ""
+	}
+
+	ChaosHelmetRanged: {
+		DisplayName: Fukumen del Caos
+		Tooltip: ""
+	}
+
+	ChaosHelmetSummoner: {
+		DisplayName: Visor del Caos
+		Tooltip: ""
+	}
+
+	ChaosLeggings: {
+		DisplayName: Grebas del Caos
+		Tooltip: ""
+	}
+}
+
+DraconianSun: {
+	SharedFlavorText: "'La furia abrasadora del Infierno descansa en esta armadura'"
+
+	DraconianSunChestplate: {
+		DisplayName: Dou del Sol Draconiano
+		Tooltip: "{$Armor.DraconianSun.SharedFlavorText}"
+	}
+
+	DraconianSunLeggings: {
+		DisplayName: Grebas del Sol Draconiano
+		Tooltip: "{$Armor.DraconianSun.SharedFlavorText}"
+	}
+
+	DraconianSunHelmet: {
+		DisplayName: Kabuto del Sol Draconiano
+		Tooltip: "{$Armor.DraconianSun.SharedFlavorText}"
+	}
+}
+
+Darkmatter: {
+	SharedFlavorText: "'Oscura, pero aún apenas visible'"
+
+	DarkmatterChestplate: {
+		DisplayName: Coraza de Materia Oscura
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+
+	DarkmatterHelmetMage: {
+		DisplayName: Máscara de Materia Oscura
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+
+	DarkmatterHelmetMelee: {
+		DisplayName: Casco de Materia Oscura
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+
+	DarkmatterHelmetRanged: {
+		DisplayName: Visor de Materia Oscura
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+
+	DarkmatterHelmetSummoner: {
+		DisplayName: Tocado de Materia Oscura
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+
+	DarkmatterLeggings: {
+		DisplayName: Grebas de Materia Oscura
+		Tooltip: "{$Armor.Darkmatter.SharedFlavorText}"
+	}
+}
+
+Radium: {
+	SharedFlavorText: "'Brilla con la luz de un cielo nocturno estrellado'"
+
+	RadiumChestplate: {
+		DisplayName: Armadura de Placas de Radio
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+
+	RadiumHelmetMage: {
+		DisplayName: Máscara de Radio
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+
+	RadiumHelmetMelee: {
+		DisplayName: Casco de Radio
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+
+	RadiumHelmetRanged: {
+		DisplayName: Visor de Radio
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+
+	RadiumHelmetSummoner: {
+		DisplayName: Sombrero de Radio
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+
+	RadiumLeggings: {
+		DisplayName: Grebas de Radio
+		Tooltip: "{$Armor.Radium.SharedFlavorText}"
+	}
+}
+
+Biomite: {
+	BiomiteChestplate: {
+		DisplayName: Cota de Cristal de Biomita
+		Tooltip: ""
+	}
+
+	BiomiteHelmet: {
+		DisplayName: Casco de Biomita
+		Tooltip: ""
+	}
+
+	BiomiteLeggings: {
+		DisplayName: Grebas de Biomita
+		Tooltip: ""
+	}
+}
+
+Doomsday: {
+	SharedFlavorText: "'El poder para destruir planetas enteros descansa en esta armadura'"
+
+	DoomsdayChestplate: {
+		DisplayName: Armadura de Asalto del Juicio Final
+		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
+	}
+
+	DoomsdayHelmetMage: {
+		DisplayName: Visor de Asalto del Juicio Final
+		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
+	}
+
+	DoomsdayHelmetSummoner: {
+		DisplayName: Visor Táctico del Juicio Final
+		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
+	}
+
+	DoomsdayLeggings: {
+		DisplayName: Grebas de Asalto del Juicio Final
+		Tooltip: "{$Armor.Doomsday.SharedFlavorText}"
+	}
+}
+
+InfinitySlayer: {
+	SharedFlavorText: "'Poder e inquina infinitos fluyen a través de esta armadura'"
+
+	InfinitySlayerChestplate: {
+		DisplayName: Coraza de Cazainfinito
+		Tooltip: "{$Armor.InfinitySlayer.SharedFlavorText}"
+	}
+
+	InfinitySlayerHelmet: {
+		DisplayName: Visor de Cazainfinito
+		Tooltip: "{$Armor.InfinitySlayer.SharedFlavorText}"
+	}
+
+	InfinitySlayerLeggings: {
+		DisplayName: Grebas de Cazainfinito
+		Tooltip: "{$Armor.InfinitySlayer.SharedFlavorText}"
+	}
+}
+
+StripemansLucky: {
+	StripemansLuckyChestplate: {
+		DisplayName: Camisa de la Suerte de Stripeman
+		Tooltip: ""
+	}
+
+	StripemansLuckyHelmet: {
+		DisplayName: Sombrero de la Suerte de Stripeman
+		Tooltip: ""
+	}
+
+	StripemansLuckyLeggings: {
+		DisplayName: Pantalones de la Suerte de Stripeman
+		Tooltip: ""
+	}
+}
+
+Olympian: {
+	OlympianChestplate: {
+		DisplayName: Coraza Olímpica
+		Tooltip: ""
+	}
+
+	OlympianHelmet: {
+		DisplayName: Casco Olímpico
+		Tooltip: ""
+	}
+
+	OlympianLeggings: {
+		DisplayName: Grebas Olímpicas
+		Tooltip: ""
+	}
+}
+
+HoppingHoodlum: {
+	SharedFlavorText: "'Furioso a más no poder'"
+
+	HoppingHoodlumChestplate: {
+		DisplayName: Camisa de Rufián Saltador
+		Tooltip: "{$Armor.HoppingHoodlum.SharedFlavorText}"
+	}
+
+	HoppingHoodlumHelmet: {
+		DisplayName: Capucha de Rufián Saltador
+		Tooltip: "{$Armor.HoppingHoodlum.SharedFlavorText}"
+	}
+
+	HoppingHoodlumLeggings: {
+		DisplayName: Garras de Rufián Saltador
+		Tooltip: "{$Armor.HoppingHoodlum.SharedFlavorText}"
+	}
+}
+
+Champion: {
+	SharedFlavorText: "'La armadura de un campeón temido por todo el territorio'"
+
+	ChampionChestplate: {
+		DisplayName: Coraza de Campeón
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+
+	ChampionHelmetMage: {
+		DisplayName: Capucha de Campeón
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+
+	ChampionHelmetMelee: {
+		DisplayName: Gran Casco de Campeón
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+
+	ChampionHelmetRanged: {
+		DisplayName: Máscara de Campeón
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+
+	ChampionHelmetSummoner: {
+		DisplayName: Tocado de Campeón
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+
+	ChampionLeggings: {
+		DisplayName: Grebas de Campeón
+		Tooltip: "{$Armor.Champion.SharedFlavorText}"
+	}
+}
+
+FuryWitchs: {
+	FuryWitchsChestplate: {
+		DisplayName: Coraza de Bruja de la Furia
+		Tooltip: "'Un vestido encantado con el espíritu ardiente de un acólito de dragón supremo'"
+	}
+
+	FuryWitchsHelmet: {
+		DisplayName: Capucha de Bruja de la Furia
+		Tooltip: "'Una capucha encantada con el espíritu ardiente de un acólito de dragón supremo'"
+	}
+
+	FuryWitchsLeggings: {
+		DisplayName: Botas de Bruja de la Furia
+		Tooltip: "'Botas encantadas con el espíritu ardiente de un acólito de dragón supremo'"
+	}
+}
+
+MidnightAssassin: {
+	MidnightAssassinChestplate: {
+		DisplayName: Coraza de Asesino de la Medianoche
+		Tooltip: "'Una coraza oscura infundida con la sombra de la medianoche'"
+	}
+
+	MidnightAssassinHelmet: {
+		DisplayName: Capucha de Asesino de la Medianoche
+		Tooltip: "'Una capucha oscura infundida con la sombra de la medianoche'"
+	}
+
+	MidnightAssassinLeggings: {
+		DisplayName: Botas de Asesino de la Medianoche
+		Tooltip: "'Botas oscuras infundidas con la sombra de la medianoche'"
+	}
+}
+
+Nights: {
+	NightsChestplate: {
+		DisplayName: Armadura de Placas de la Noche
+		Tooltip: ""
+	}
+
+	NightsHelmet: {
+		DisplayName: Casco de la Noche
+		Tooltip: ""
+	}
+
+	NightsLeggings: {
+		DisplayName: Grebas de la Noche
+		Tooltip: ""
+	}
+}
+
+Fleshrend: {
+	FleshrendChestplate: {
+		DisplayName: Placa Desgarracarnes
+		Tooltip: ""
+	}
+
+	FleshrendHelmet: {
+		DisplayName: Casco Desgarracarnes
+		Tooltip: ""
+	}
+
+	FleshrendLeggings: {
+		DisplayName: Grebas Desgarracarnes
+		Tooltip: ""
+	}
+}
+
+Dynaskull: {
+	DynaskullChestplate: {
+		DisplayName: Protector Costillar de Dinocráneo
+		Tooltip: ""
+	}
+
+	DynaskullHelmet: {
+		DisplayName: Dinocráneo
+		Tooltip: ""
+	}
+
+	DynaskullLeggings: {
+		DisplayName: Grebas de Dinocráneo
+		Tooltip: ""
+	}
+}
+
+Deathly: {
+	DeathlyChestplate: {
+		DisplayName: Protector Costillar Mortífero
+		Tooltip: ""
+	}
+
+	DeathlyHelmet: {
+		DisplayName: Calavera Mortífera
+		Tooltip: ""
+	}
+
+	DeathlyLeggings: {
+		DisplayName: Grebas Mortíferas
+		Tooltip: ""
+	}
+}
+
+GlowingMushium: {
+	GlowingMushiumChestplate: {
+		DisplayName: Camisa de Champium brillante
+		Tooltip: ""
+	}
+
+	GlowingMushiumHelmet: {
+		DisplayName: Sombrero de Champium brillante
+		Tooltip: ""
+	}
+
+	GlowingMushiumLeggings: {
+		DisplayName: Pantalones de Champium brillante
+		Tooltip: ""
+	}
+}
+
+GoblinSlayers: {
+	GoblinSlayersChestplate: {
+		DisplayName: Coraza de Cazagoblins
+		Tooltip: Un odio inmenso hacia los goblins atormenta esta coraza
+	}
+
+	GoblinSlayersHelmet: {
+		DisplayName: Casco de Cazagoblins
+		Tooltip: Un odio inmenso hacia los goblins atormenta este casco
+	}
+
+	GoblinSlayersLeggings: {
+		DisplayName: Grebas de Cazagoblins
+		Tooltip: Un odio inmenso hacia los goblins atormenta estas grebas
+	}
+}
+
+Hallowed: {
+	HallowedHelmetSummoner: {
+		DisplayName: Pintura Facial Sagrada
+		Tooltip: ""
+	}
+}
+
+Demon: {
+	DemonChestplate: {
+		DisplayName: Ropaje de Demonio
+		Tooltip: ""
+	}
+
+	DemonHelmet: {
+		DisplayName: Capucha de Demonio
+		Tooltip: ""
+	}
+
+	DemonLeggings: {
+		DisplayName: Pezuñas de Demonio
+		Tooltip: ""
+	}
+}
+
+Imp: {
+	ImpChestplate: {
+		DisplayName: Ropaje de Diablillo
+		Tooltip: ""
+	}
+
+	ImpHelmet: {
+		DisplayName: Capucha de Diablillo
+		Tooltip: ""
+	}
+
+	ImpLeggings: {
+		DisplayName: Botas de Diablillo
+		Tooltip: ""
+	}
+}
+
+StoneSoldier: {
+	StoneSoldierChestplate: {
+		DisplayName: Coraza de Soldado de Piedra
+		Tooltip: ""
+	}
+
+	StoneSoldierHelmet: {
+		DisplayName: Casco de Soldado de Piedra
+		Tooltip: ""
+	}
+
+	StoneSoldierLeggings: {
+		DisplayName: Grebas de Soldado de Piedra
+		Tooltip: ""
+	}
+}
+
+Blazing: {
+	SharedFlavorText: "{$Armor.Kindled.SharedFlavorText}"
+
+	BlazingChestplate: {
+		DisplayName: Dao Abrasador
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+
+	BlazingHelmet: {
+		DisplayName: Kabuto Abrasador
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+
+	BlazingLeggings: {
+		DisplayName: Suneate Abrasador
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+}
+
+Kindled: {
+	SharedFlavorText: "'Forjado en las llamas del sol abrasador'"
+
+	KindledChestplate: {
+		DisplayName: Dao Encendido
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+
+	KindledHelmet: {
+		DisplayName: Kabuto Encendido
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+
+	KindledLeggings: {
+		DisplayName: Suneate Encendido
+		Tooltip: "{$Armor.Blazing.SharedFlavorText}"
+	}
+}
+
+Razewood: {
+	RazewoodChestplate: {
+		DisplayName: Coraza de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodHelmet: {
+		DisplayName: Casco de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodLeggings: {
+		DisplayName: Botas de Madera Asoladora
+		Tooltip: ""
+	}
+}
+
+Tribal: {
+	TribalChestplate: {
+		DisplayName: Capa Tribal
+		Tooltip: ""
+	}
+
+	TribalHelmet: {
+		DisplayName: Sombrero Tribal
+		Tooltip: ""
+	}
+
+	TribalLeggings: {
+		DisplayName: Falda Tribal
+		Tooltip: ""
+	}
+}
+
+Chlorophyte: {
+	ChlorophyteHelmetSummoner: {
+		DisplayName: Pintura Facial de Clorofita
+		Tooltip: ""
+	}
+
+	ChlorophyteHelmetSummoner2: {
+		DisplayName: Pintura Facial de Terra
+		Tooltip: ""
+	}
+}
+
+Abyssal: {
+	SharedFlavorText: "{$Armor.Depth.SharedFlavorText}"
+
+	AbyssalChestplate: {
+		DisplayName: Gi Abisal
+		Tooltip: "{$Armor.Abyssal.SharedFlavorText}"
+	}
+
+	AbyssalHelmet: {
+		DisplayName: Fukumen Abisal
+		Tooltip: "{$Armor.Abyssal.SharedFlavorText}"
+	}
+
+	AbyssalLeggings: {
+		DisplayName: Hakama Abisal
+		Tooltip: "{$Armor.Abyssal.SharedFlavorText}"
+	}
+}
+
+Bogwood: {
+	BogwoodChestplate: {
+		DisplayName: Coraza de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodHelmet: {
+		DisplayName: Casco de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodLeggings: {
+		DisplayName: Botas de Madera de Pantano
+		Tooltip: ""
+	}
+}
+
+Depth: {
+	SharedFlavorText: "'Ligero como la propia sombra'"
+
+	DepthChestplate: {
+		DisplayName: Gi de las Profundidades
+		Tooltip: "{$Armor.Depth.SharedFlavorText}"
+	}
+
+	DepthHelmet: {
+		DisplayName: Fukumen de las Profundidades
+		Tooltip: "{$Armor.Depth.SharedFlavorText}"
+	}
+
+	DepthLeggings: {
+		DisplayName: Hakama de las Profundidades
+		Tooltip: "{$Armor.Depth.SharedFlavorText}"
+	}
+}
+
+DreadMoon: {
+	SharedFlavorText: "'La ira abisal del Mire descansa en esta armadura'"
+
+	DreadMoonChestplate: {
+		DisplayName: Gi de la Luna del Pavor
+		Tooltip: "{$Armor.DreadMoon.SharedFlavorText}"
+	}
+
+	DreadMoonHelmet: {
+		DisplayName: Fukumen de la Luna del Pavor
+		Tooltip: "{$Armor.DreadMoon.SharedFlavorText}"
+	}
+
+	DreadMoonLeggings: {
+		DisplayName: Hakama de la Luna del Pavor
+		Tooltip: "{$Armor.DreadMoon.SharedFlavorText}"
+	}
+}
+
+Atlantean: {
+	SharedFlavorText: "'Vibra con los poderes de la Atlántida'"
+
+	AtlanteanChestplate: {
+		DisplayName: Coraza Atlante
+		Tooltip: "{$Armor.Atlantean.SharedFlavorText}"
+	}
+
+	AtlanteanHelmet: {
+		DisplayName: Casco Atlante
+		Tooltip: "{$Armor.Atlantean.SharedFlavorText}"
+	}
+
+	AtlanteanLeggings: {
+		DisplayName: Grebas Atlantes
+		Tooltip: "{$Armor.Atlantean.SharedFlavorText}"
+	}
+}
+
+Ocean: {
+	OceanChestplate: {
+		DisplayName: Coraza del Océano
+		Tooltip: ""
+	}
+
+	OceanHelmet: {
+		DisplayName: Casco del Océano
+		Tooltip: ""
+	}
+
+	OceanLeggings: {
+		DisplayName: Grebas del Océano
+		Tooltip: ""
+	}
+}
+
+Mushium: {
+	MushiumChestplate: {
+		DisplayName: Camisa de Champium
+		Tooltip: ""
+	}
+
+	MushiumHelmet: {
+		DisplayName: Sombrero de Champium
+		Tooltip: ""
+	}
+
+	MushiumLeggings: {
+		DisplayName: Pantalones de Champium
+		Tooltip: ""
+	}
+}
+
+Raider: {
+	RaiderChestplate: {
+		DisplayName: Coraza de Invasor
+		Tooltip: ""
+	}
+
+	RaiderHelmet: {
+		DisplayName: Casco de Invasor
+		Tooltip: ""
+	}
+
+	RaiderLeggings: {
+		DisplayName: Grebas de Invasor
+		Tooltip: ""
+	}
+}
+
+Viking: {
+	VikingChestplate: {
+		DisplayName: Cota de Mallas Vikinga
+		Tooltip: ""
+	}
+
+	VikingHelmet: {
+		DisplayName: Casco Vikingo
+		Tooltip: ""
+	}
+
+	VikingLeggings: {
+		DisplayName: Grebas Vikingas
+		Tooltip: ""
+	}
+}
+
+Terra: {
+	TerraChestplate: {
+		DisplayName: Coraza de Terra
+		Tooltip: ""
+	}
+
+	TerraHelmetMage: {
+		DisplayName: Capucha de Terra
+		Tooltip: ""
+	}
+
+	TerraHelmetMelee: {
+		DisplayName: Yelmo de Terra
+		Tooltip: ""
+	}
+
+	TerraHelmetRanged: {
+		DisplayName: Visor de Terra
+		Tooltip: ""
+	}
+
+	TerraHelmetSummoner: {
+		DisplayName: Máscara de Terra
+		Tooltip: ""
+	}
+
+	TerraLeggings: {
+		DisplayName: Grebas de Terra
+		Tooltip: ""
+	}
+
+	TerraHelmetMageTest: {
+		DisplayName: Capucha de Terra
+		Tooltip: ""
+	}
+}
+
+AncientGold: {
+	AncientGoldChestplate: {
+		DisplayName: Cota de Mallas de Oro Antiguo
+		Tooltip: ""
+	}
+
+	AncientGoldLeggings: {
+		DisplayName: Grebas de Oro Antiguo
+		Tooltip: ""
+	}
+}
+
+Adamantite: {
+	AdamantiteHelmetSummoner: {
+		DisplayName: Pintura Facial de Adamantita
+		Tooltip: ""
+	}
+}
+
+Cobalt: {
+	CobaltHelmetSummoner: {
+		DisplayName: Pintura Facial de Cobalto
+		Tooltip: ""
+	}
+}
+
+Mythril: {
+	MythrilHelmetSummoner: {
+		DisplayName: Pintura Facial de Mithril
+		Tooltip: ""
+	}
+}
+
+Orichalcum: {
+	OrichalcumHelmetSummoner: {
+		DisplayName: Pintura Facial de Oricalco
+		Tooltip: ""
+	}
+}
+
+Palladium: {
+	PalladiumHelmetSummoner: {
+		DisplayName: Pintura Facial de Paladio
+		Tooltip: ""
+	}
+}
+
+Titanium: {
+	TitaniumHelmetSummoner: {
+		DisplayName: Pintura Facial de Titanio
+		Tooltip: ""
+	}
+}
+
+DarkDoomite: {
+	DarkDoomiteChestplate: {
+		DisplayName: Coraza de Doomita Oscura
+		Tooltip: ""
+	}
+
+	DarkDoomiteHelmet: {
+		DisplayName: Casco de Doomita Oscura
+		Tooltip: ""
+	}
+
+	DarkDoomiteLeggings: {
+		DisplayName: Grebas de Doomita Oscura
+		Tooltip: ""
+	}
+}
+
+Doomite: {
+	DoomiteChestplate: {
+		DisplayName: Placa de Doomita
+		Tooltip: ""
+	}
+
+	DoomiteHelmet: {
+		DisplayName: Visor de Doomita
+		Tooltip: ""
+	}
+
+	DoomiteLeggings: {
+		DisplayName: Grebas de Doomita
+		Tooltip: ""
+	}
+}
+
+Ouroboros: {
+	OuroborosChestplate: {
+		DisplayName: Coraza de Madera de Uróboros
+		Tooltip: ""
+	}
+
+	OuroborosHelmet: {
+		DisplayName: Casco de Madera de Uróboros
+		Tooltip: ""
+	}
+
+	OuroborosLeggings: {
+		DisplayName: Botas de Madera de Uróboros
+		Tooltip: ""
+	}
+}
+
+Fulgurite: {
+	FulguriteChestplate: {
+		DisplayName: Coraza de Fulgurita
+		Tooltip: ""
+	}
+
+	FulguriteHelmetMage: {
+		DisplayName: Yelmo de Fulgurita
+		Tooltip: ""
+	}
+
+	FulguriteHelmetMelee: {
+		DisplayName: Casco de Fulgurita
+		Tooltip: ""
+	}
+
+	FulguriteHelmetRanged: {
+		DisplayName: Visor de Fulgurita
+		Tooltip: ""
+	}
+
+	FulguriteLeggings: {
+		DisplayName: Pantalones de Fulgurita
+		Tooltip: ""
+	}
+}

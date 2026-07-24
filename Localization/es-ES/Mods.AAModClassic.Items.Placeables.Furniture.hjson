@@ -1,0 +1,653 @@
+Doom: {
+	DoomBathtub: {
+		DisplayName: Bañera de Doom
+		Tooltip: ""
+	}
+
+	DoomBed: {
+		DisplayName: Cama de Doom
+		Tooltip: ""
+	}
+
+	DoomCandelabra: {
+		DisplayName: Candelabro de Doom
+		Tooltip: ""
+	}
+
+	DoomCandle: {
+		DisplayName: Vela de Doom
+		Tooltip: ""
+	}
+
+	DoomChair: {
+		DisplayName: Silla de Doom
+		Tooltip: ""
+	}
+
+	DoomChandelier: {
+		DisplayName: Lámpara de Doom
+		Tooltip: ""
+	}
+
+	DoomChest: {
+		DisplayName: Cofre de Doom
+		Tooltip: ""
+	}
+
+	DoomClock: {
+		DisplayName: Reloj de Cuenta Regresiva
+		Tooltip: ""
+	}
+
+	DoomCouch: {
+		DisplayName: Sofá de Doom
+		Tooltip: ""
+	}
+
+	DoomDresser: {
+		DisplayName: Aparador de Doom
+		Tooltip: ""
+	}
+
+	DoomLamp: {
+		DisplayName: Lámpara de Doom
+		Tooltip: ""
+	}
+
+	DoomLantern: {
+		DisplayName: Linterna de Doom
+		Tooltip: ""
+	}
+
+	DoomPiano: {
+		DisplayName: Piano de Doom
+		Tooltip: ""
+	}
+
+	DoomSink: {
+		DisplayName: Fregadero de Doom
+		Tooltip: ""
+	}
+
+	DoomTable: {
+		DisplayName: Mesa de Doom
+		Tooltip: ""
+	}
+
+	DoomWorkbench: {
+		DisplayName: Banco de Trabajo de Doom
+		Tooltip: ""
+	}
+
+	DoomBookcase: {
+		DisplayName: Librería de Doom
+		Tooltip: ""
+	}
+
+	DoomDoor: {
+		DisplayName: Puerta de Doom
+		Tooltip: ""
+	}
+
+	DoomPlatform: {
+		DisplayName: Plataforma de Doom
+		Tooltip: ""
+	}
+}
+
+Razewood: {
+	RazewoodBed: {
+		DisplayName: Cama de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodBookshelf: {
+		DisplayName: Librería de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodCandelabra: {
+		DisplayName: Candelabro de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodCandle: {
+		DisplayName: Vela de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodChair: {
+		DisplayName: Silla de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodChandelier: {
+		DisplayName: Lámpara de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodChest: {
+		DisplayName: Cofre de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodClock: {
+		DisplayName: Reloj de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodCouch: {
+		DisplayName: Sofá de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodDoor: {
+		DisplayName: Puerta de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodDresser: {
+		DisplayName: Aparador de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodLamp: {
+		DisplayName: Lámpara de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodLantern: {
+		DisplayName: Linterna de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodPiano: {
+		DisplayName: Piano de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodPlatform: {
+		DisplayName: Plataforma de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodSink: {
+		DisplayName: Fregadero de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodTable: {
+		DisplayName: Mesa de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodTub: {
+		DisplayName: Bañera de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodWorkbench: {
+		DisplayName: Banco de Trabajo de Madera Asoladora
+		Tooltip: ""
+	}
+}
+
+Bogwood: {
+	BogwoodBathtub: {
+		DisplayName: Bañera de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodBed: {
+		DisplayName: Cama de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodBench: {
+		DisplayName: Sofá de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodBookshelf: {
+		DisplayName: Librería de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodCandelabra: {
+		DisplayName: Candelabro de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodCandle: {
+		DisplayName: Vela de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodChair: {
+		DisplayName: Silla de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodChandelier: {
+		DisplayName: Lámpara de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodChest: {
+		DisplayName: Cofre de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodClock: {
+		DisplayName: Reloj de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodCouch: {
+		DisplayName: Sofá de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodDoor: {
+		DisplayName: Puerta de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodDresser: {
+		DisplayName: Aparador de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodLamp: {
+		DisplayName: Lámpara de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodLantern: {
+		DisplayName: Linterna de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodPiano: {
+		DisplayName: Piano de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodPlatform: {
+		DisplayName: Plataforma de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodSink: {
+		DisplayName: Fregadero de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodTable: {
+		DisplayName: Mesa de Madera de Pantano
+		Tooltip: ""
+	}
+
+	BogwoodWorkbench: {
+		DisplayName: Banco de Trabajo de Madera de Pantano
+		Tooltip: ""
+	}
+}
+
+OuroborosWood: {
+	OuroborosWoodBathtub: {
+		DisplayName: Bañera de Madera de Ouroboros
+		Tooltip: ""
+	}
+
+	OuroborosWoodBed: {
+		DisplayName: Cama de Madera de Ouroboros
+		Tooltip: ""
+	}
+
+	OuroborosWoodBookcase: {
+		DisplayName: Librería de Madera de Ouroboros
+		Tooltip: ""
+	}
+
+	OuroborosWoodCandle: {
+		DisplayName: Vela de Madera de Ouroboros
+		Tooltip: ""
+	}
+
+	OuroborosWoodChair: {
+		DisplayName: Silla de Madera de Ouroboros
+		Tooltip: ""
+	}
+
+	OuroborosWoodChest: {
+		DisplayName: Cofre de Madera de Ouroboros
+		Tooltip: ""
+	}
+
+	OuroborosWoodClock: {
+		DisplayName: Reloj de Madera de Ouroboros
+		Tooltip: ""
+	}
+
+	OuroborosWoodDoor: {
+		DisplayName: Puerta de Madera de Ouroboros
+		Tooltip: ""
+	}
+
+	OuroborosWoodLamp: {
+		DisplayName: Lámpara de Madera de Ouroboros
+		Tooltip: ""
+	}
+
+	OuroborosWoodLantern: {
+		DisplayName: Linterna de Madera de Ouroboros
+		Tooltip: ""
+	}
+
+	OuroborosWoodPlatform: {
+		DisplayName: Plataforma de Madera de Ouroboros
+		Tooltip: ""
+	}
+
+	OuroborosWoodWorkbench: {
+		DisplayName: Banco de Trabajo de Madera de Ouroboros
+		Tooltip: ""
+	}
+}
+
+Keep: {
+	KeepBath: {
+		DisplayName: Bañera de Keep
+		Tooltip: ""
+	}
+
+	KeepBed: {
+		DisplayName: Cama de Keep
+		Tooltip: ""
+	}
+
+	KeepBookcase: {
+		DisplayName: Librería de Keep
+		Tooltip: ""
+	}
+
+	KeepCandelabra: {
+		DisplayName: Candelabro de Keep
+		Tooltip: ""
+	}
+
+	KeepCandle: {
+		DisplayName: Vela de Keep
+		Tooltip: ""
+	}
+
+	KeepChair: {
+		DisplayName: Silla de Keep
+		Tooltip: ""
+	}
+
+	KeepChandelier: {
+		DisplayName: Lámpara de Keep
+		Tooltip: ""
+	}
+
+	KeepClock: {
+		DisplayName: Reloj de Keep
+		Tooltip: ""
+	}
+
+	KeepCouch: {
+		DisplayName: Sofá de Keep
+		Tooltip: ""
+	}
+
+	KeepDoor: {
+		DisplayName: Puerta de Keep
+		Tooltip: ""
+	}
+
+	KeepDresser: {
+		DisplayName: Aparador de Keep
+		Tooltip: ""
+	}
+
+	KeepLamp: {
+		DisplayName: Lámpara de Keep
+		Tooltip: ""
+	}
+
+	KeepLantern: {
+		DisplayName: Linterna de Keep
+		Tooltip: ""
+	}
+
+	KeepPiano: {
+		DisplayName: Piano de Keep
+		Tooltip: ""
+	}
+
+	KeepSink: {
+		DisplayName: Fregadero de Keep
+		Tooltip: ""
+	}
+
+	KeepTable: {
+		DisplayName: Mesa de Keep
+		Tooltip: ""
+	}
+
+	KeepWorkbench: {
+		DisplayName: Banco de Trabajo de Keep
+		Tooltip: ""
+	}
+
+	SpiralStairs: {
+		DisplayName: Escalera de Caracol
+		Tooltip: ""
+	}
+}
+
+Terra: {
+	TerraBath: {
+		DisplayName: Bañera Terra
+		Tooltip: ""
+	}
+
+	TerraBed: {
+		DisplayName: Cama Terra
+		Tooltip: ""
+	}
+
+	TerraBookcase: {
+		DisplayName: Librería Terra
+		Tooltip: ""
+	}
+
+	TerraCandelabra: {
+		DisplayName: Candelabro Terra
+		Tooltip: ""
+	}
+
+	TerraCandle: {
+		DisplayName: Vela Terra
+		Tooltip: ""
+	}
+
+	TerraChair: {
+		DisplayName: Silla Terra
+		Tooltip: ""
+	}
+
+	TerraChandelier: {
+		DisplayName: Lámpara Terra
+		Tooltip: ""
+	}
+
+	TerraChest: {
+		DisplayName: Cofre Terra
+		Tooltip: ""
+	}
+
+	TerraClock: {
+		DisplayName: Reloj Terra
+		Tooltip: ""
+	}
+
+	TerraCouch: {
+		DisplayName: Sofá Terra
+		Tooltip: ""
+	}
+
+	TerraDoor: {
+		DisplayName: Puerta Terra
+		Tooltip: ""
+	}
+
+	TerraDresser: {
+		DisplayName: Aparador Terra
+		Tooltip: ""
+	}
+
+	TerraLamp: {
+		DisplayName: Lámpara de de Terra
+		Tooltip: ""
+	}
+
+	TerraLantern: {
+		DisplayName: Linterna Terra
+		Tooltip: ""
+	}
+
+	TerraPiano: {
+		DisplayName: Piano Terra
+		Tooltip: ""
+	}
+
+	TerraSink: {
+		DisplayName: Fregadero Terra
+		Tooltip: ""
+	}
+
+	TerraTable: {
+		DisplayName: Mesa Terra
+		Tooltip: ""
+	}
+
+	TerraWorkbench: {
+		DisplayName: Banco de Trabajo Terra
+		Tooltip: ""
+	}
+}
+
+RedMushroom: {
+	RedmushBed: {
+		DisplayName: Cama de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushBench: {
+		DisplayName: Banco de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushBookcase: {
+		DisplayName: Estantería de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushCandelabra: {
+		DisplayName: Candelabro de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushCandle: {
+		DisplayName: Vela de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushChair: {
+		DisplayName: Silla de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushChandelier: {
+		DisplayName: Lámpara de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushChest: {
+		DisplayName: Cofre de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushClock: {
+		DisplayName: Reloj de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushCouch: {
+		DisplayName: Sofá de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushDoor: {
+		DisplayName: Puerta de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushDresser: {
+		DisplayName: Aparador de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushLamp: {
+		DisplayName: Lámpara de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushLantern: {
+		DisplayName: Farol de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushPiano: {
+		DisplayName: Piano de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushSink: {
+		DisplayName: Fregadero de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushTable: {
+		DisplayName: Mesa de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushToilet: {
+		DisplayName: Retrete de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushTub: {
+		DisplayName: Bañera de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushWorkbench: {
+		DisplayName: Banco de Trabajo de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushPlatform: {
+		DisplayName: Plataforma de Champiñón
+		Tooltip: ""
+	}
+
+	RedmushWall: {
+		DisplayName: Pared de Champiñón
+		Tooltip: ""
+	}
+}

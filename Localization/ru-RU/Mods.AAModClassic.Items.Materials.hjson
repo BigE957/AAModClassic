@@ -14,7 +14,7 @@ ChaosScale: {
 }
 
 DiscordiumBar: {
-	DisplayName: Раздорнит
+	DisplayName: Раздорнитовый слиток
 	Tooltip: Весь хаос мира, слившийся в единый мощный слиток
 }
 
@@ -24,7 +24,7 @@ IncineriteBar: {
 }
 
 IncineriteOre: {
-	DisplayName: Испепельнит
+	DisplayName: Испепельнитовая руда
 	Tooltip: Эта хрень чертовски горяча. Осторожно
 }
 
@@ -54,7 +54,7 @@ DarkEnergy: {
 }
 
 ApocalyptiteOre: {
-	DisplayName: Апокалиптит
+	DisplayName: Апокалиптитовая руда
 	Tooltip: ""
 }
 
@@ -84,7 +84,7 @@ ShinyCharm: {
 }
 
 ShinyCharmFish: {
-	DisplayName: Рыба-сияющий амулет
+	DisplayName: Рыба в форме сияющего амулета
 	Tooltip: Разновидность редкой рыбы
 }
 
@@ -165,7 +165,7 @@ SkyCrystal: {
 
 StormSphere: {
 	DisplayName: Штормовая сфера
-	Tooltip: Сверхзаряженная кристаллическая сфера энергии воинов
+	Tooltip: Сверхзаряженная кристаллическая сфера энергии варианов
 }
 
 RajahPelt: {
@@ -180,7 +180,7 @@ ChaosPrism: {
 
 ChaosSoul: {
 	DisplayName: Эссенция хаоса
-	Tooltip: Твёрдый раздор, символизирующий смуту и саму анархию
+	Tooltip: Затвердевший раздор, символизирующий смуту и саму анархию
 }
 
 DesertMana: {
@@ -220,7 +220,7 @@ GlowingMushiumBar: {
 
 HallowedOre: {
 	DisplayName: Освящённая руда
-	Tooltip: Она очень яркая
+	Tooltip: Очень яркая
 }
 
 DevilSilk: {
@@ -288,7 +288,7 @@ CrucibleScale: {
 }
 
 DaybreakIncineriteBar: {
-	DisplayName: Рассветный испепельнит
+	DisplayName: Рассветный испепельнитовый слиток
 	Tooltip: Яркий, словно сияющее солнце
 }
 
@@ -304,7 +304,7 @@ SearingSpark: {
 
 PlanteraPetal: {
 	DisplayName: Лепесток Плантеры
-	Tooltip: Он очень розовый
+	Tooltip: Очень розовый
 }
 
 MadnessFragment: {
@@ -318,7 +318,7 @@ AbyssiumBar: {
 }
 
 AbyssiumOre: {
-	DisplayName: Абиссальнит
+	DisplayName: Абиссальнитовая руда
 	Tooltip: Весь такой рыхлый. Гадость
 }
 
@@ -363,7 +363,7 @@ SoulOfSpite: {
 }
 
 EventideAbyssiumBar: {
-	DisplayName: Сумеречный абиссальнит
+	DisplayName: Сумеречный абиссальнитовый слиток
 	Tooltip: Холодный, словно вечерняя луна
 }
 
@@ -403,7 +403,7 @@ VikingRelic: {
 }
 
 DarkmatterBar: {
-	DisplayName: Тёмная материя
+	DisplayName: Слиток тёмной материи
 	Tooltip: Строительные блоки самой физики
 }
 
@@ -462,7 +462,7 @@ DoomiteScrap: {
 }
 
 ApocalyptitePlate: {
-	DisplayName: Слиток апокалиптита
+	DisplayName: Апокалиптитовый слиток
 	Tooltip: От этого слитка исходит зловещая энергия
 }
 

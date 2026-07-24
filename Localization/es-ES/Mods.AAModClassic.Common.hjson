@@ -1,0 +1,347 @@
+#InvokerInfo
+
+InvokerBookEX1:
+	'''
+	Ahora puedes controlar la verdadera habilidad del Invocador
+	Cuando sostienes el Bastón del Invocador, el alma de los enemigos muertos te curará
+	Puedes liberar el alma dañina de los enemigos muertos
+	'''
+InvokerBookEX2:
+	'''
+
+	Nota de Aleister:
+	¡Necesito almas más poderosas, el dragón, el conejo gigante, la máquina extraña, más, más! ¡Derrótalos!
+	'''
+InvokerBookEX3:
+	'''
+
+	Clic izquierdo para usar el libro. Invoca a Calígula Invocado.
+	'''
+InvokerStaff1:
+	'''
+	Extraño. Todo es extraño.
+	¿Blandir un arma inflige daño de invocación?
+	¿De verdad?
+	Arma legendaria. -Cerbero
+	'''
+InvokerStaff2:
+	'''
+	Clic izquierdo para disparar un proyectil de invocador.
+	Clic derecho para desterrar a todos los enemigos según tu daño de destierro base.
+	Desterrar enemigos puede curarte según su vida máxima.
+	¿Pero a qué costo?
+	Arma legendaria. -Cerbero
+	'''
+InvokerDamage1: destierro
+InvokerDamage2: invocación
+CaligulaSoul: ¡Robo de Alma Poderoso!
+
+#Items
+
+InfinityGauntlet: {
+	SoulStoneStatus: La gema del alma se materializa en tu mano
+	SnapStatus: Perfectamente equilibrado, como todo debe estar...
+}
+
+DemiseEXInfo: El alma del enemigo golpeado estalla
+RajahSPTooltipMelee: Cuerpo a cuerpo
+RajahSPTooltipRanged: A distancia
+RajahSPTooltipMagic: Mágico
+RajahSPTooltipSummoning: Invocación
+RajahSPTooltipThrowing: Arrojadizo
+RajahSPDamageInfo: Daño
+RajahSPDamageBoost: Aumento de daño actual: +
+RajahSPSpeedBoost: Aumento de velocidad actual: +
+RajahSPDamageResistance: Resistencia al daño actual: +
+#CurrencyItems
+
+PlayerBuyPrice: Precio de compra:
+AncientCoin: Moneda antigua
+AncientCoins: Monedas antiguas
+BloodRune: Runa de sangre
+BloodRunes: Runas de sangre
+ChristmasCheer: Alegría navideña
+ChristmasCheers: Alegrías navideñas
+GoblinSoul: Alma de duende
+GoblinSouls: Almas de duende
+HalloweenTreat: Dulce de Halloween
+HalloweenTreats: Dulces de Halloween
+MartianCredit: Crédito marciano
+MartianCredits: Créditos marciano
+MonsterSoul: Alma de monstruo
+MonsterSouls: Almas de monstruo
+PirateBooty: Botín de pirata
+PirateBooties: Botines de pirata
+#GoblinSlayerShop
+
+GoblinSlayerShopChangeShopType: Cambiar tipo de tienda
+GoblinSlayerShopGoblinLoot: Botín de duendes
+GoblinSlayerShopBloodMoonLoot: Botín de Luna de sangre
+GoblinSlayerShopOldOneArmyLoot: Botín del Ejército del Antiguo
+GoblinSlayerShopPirateLoot: Botín de piratas
+GoblinSlayerShopEclipseLoot: Botín del eclipse
+GoblinSlayerShopHalloweenLoot: Botín de Halloween
+GoblinSlayerShopChristmasLoot: Botín de Navidad
+GoblinSlayerShopMartianLoot: Botín marciano
+#AAModClassic.Tiles.RazewoodF
+
+RazewoodClockGetTime: Quizás hacer un reloj de madera calcinada no fue tan buena idea. Ni siquiera funciona.
+#lockedchest
+
+InfernoChest_Locked: Cofre del infierno cerrado
+MireChest_Locked: Cofre del lodazal cerrado
+DoomsdayChest_Locked: Cofre del juicio final cerrado
+GreedChest_Locked: Cofre de la codicia cerrado
+#TownNPCName
+
+GoblinSlayerName: Cazador Goblin
+#BossName
+
+MushroomMonarch: El Monarca Champiñón
+FeudalFungus: El Hongo Feudal
+Broodmother: La Madre de la Camada
+Hydra: La Hidra
+GripsofChaos: Los Agarres del Caos
+SubzeroSerpent: La Serpiente Bajo Cero
+TruffleToad: El Sapo de Trufa
+Sagittarius: Sagitario
+Skeletron: Esqueletrón
+RajahRabbit: Rajah Rabbit
+DesertDjinn: El Genio del Desierto
+Plantera: Plantera
+Athena: Atenea
+Greed: Codicia
+Akuma: Akuma, Demonio Draconiano
+AkumaA: Oni Akuma
+Yamata: Yamata, Pesadilla Pavorosa
+YamataA: Yamata no Orochi
+ShenDoragon: Shen Doragon, Profeta del Caos
+SupremeRajah: Rajah Rabbit
+#AAPlayerChat
+
+WorldgenReminderInfo1: Oye... ¿chico? Corrígeme si me equivoco, pero creo que tu mundo no se generó con el contenido de Ancients Awakened. Yo que tú crearía uno nuevo.
+WorldgenReminderInfo2: ¡IMBÉCIL! ¡NO HAS GENERADO EL CONTENIDO DE ANCIENTS AWAKENED! ¡CREA UN NUEVO MUNDO AHORA! REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+WorldgenReminderInfo3: ERR0R. EL MUND0 N0 PARECE C0NTENER C0NTENID0 DE AAM0D.TM0D. POR FAVOR, GENERA UN NUEV0 MUND0.
+WorldgenReminderInfo4: ¡HEY! ¡No has generado las cosas de Ancients Awakened en este mundo! ¡Genera un mundo nuevo antes de que te mande a Marte de un disparo!
+WorldgenReminderInfo5: Oye... no veo ningún contenido de Ancients Awakened en este mundo. Sería inteligente crear un mundo nuevo o lo que sea...
+WorldgenReminderInfo6: Oye. Tú. Ser interdimensional. Puede que hayas olvidado crear un mundo nuevo después de descargar el mod. Crea un nuevo mundo si quieres todo el contenido del mod.
+WorldgenReminderInfo7: Crear... mundo nuevo... o champiñón furioso... aplastará... a pequeño terrariano...
+WorldgenReminderInfo8: ...Mortal. Tu mundo no tiene contenido de Ancients Awakened si mis viejos ojos no me engañan. Lo óptimo sería generar un mundo nuevo.
+WorldgenReminderInfo9: ¡Caminante de la Tierra..! ¡No hay cosas de Ancients Awakened en este mundo! Crea un mundo nuevo si de verdad quieres jugar a este mod... idiota...
+NewAAInfo1: Oye, chico, ¿sabías que hay una versión más nueva de Ancients Awakened a la que podrías estar jugando? Si me preguntas, valdría la pena echarle un vistazo.
+NewAAInfo2: ¡ERES UN VERDADERO NECIO! ¡PROBABLEMENTE NI SIQUIERA SABES QUE HAY UNA VERSIÓN MÁS NUEVA DE ANCIENTS AWAKENED A LA QUE PODRÍAS ESTAR JUGANDO!
+NewAAInfo3: ADVERTENCIA. AAM0D.TM0D N0 DETECTAD0. SUGERENCIA: C0NSIDERA PR0BAR ANCIENTS AWAKENED BETA.
+NewAAInfo4: ¡HEY, TÚ! ¡No te olvides de echar un vistazo a la nueva versión de Ancients Awakened, o si no ya verás!
+NewAAInfo5: Oye... no estoy seguro de si lo sabías, pero hay una versión más nueva de Ancients Awakened a la que podrías estar jugando. Quizás quieras darle una oportunidad o algo así...
+NewAAInfo6: Ser interdimensional. En caso de que no lo supieras ya, hay una versión más nueva de Ancients Awakened a la que podrías estar jugando. Échale un vistazo cuando tengas la oportunidad.
+NewAAInfo7: Conseguir nuevo... ancients awakened... o champiñón furioso... aplastará... a pequeño terrariano...
+NewAAInfo8: ...Mortal. He oído hablar de una versión más nueva de Ancients Awakened a la que podrías estar jugando. Tal vez sería sensato probarla.
+NewAAInfo9: ¡Caminante de la Tierra! Deberías saber que podrías estar jugando a una versión más nueva de Ancients Awakened. ¡Serías un idiota si no le dieras una oportunidad!
+#AAWorldChangeInfo
+
+downedEquinoxInfo: El regalo de los celestiales destella en la atmósfera...
+downedEquinoxInfoFailure: Hay un montón de estrellas en el cielo, hijo.
+downedMoonlordInfo1: ¡Los Ancestros han despertado!
+downedMoonlordInfo2: El beneficio del Señor de la Luna destella en las cuevas de abajo...
+downedMechBossAnyInfo: Las cuevas brillan con luz por un breve momento...
+downedSiegeUnitAnyInfo: El estallido de un rayo ruge en las cavernas...
+downedSistersInfo: La energía caótica crece en las partes más profundas del mundo.
+downedBoss2Info1: Escuchas un zumbido de armonía desde el Terrario tras la derrota de un gran demonio...
+downedBoss3Info1: Vientos del desierto se agitan...
+downedBoss3Info2: Las colinas invernales tiemblan...
+downedBoss3Info3: ¡Los huesos del pasado antiguo estallan con energía!
+downedMechBossInfo1: Oye, chico, soy yo, Anubis. Hazme un favor y búscame en el pueblo, quiero hablar contigo de algo.
+downedMechBossInfo2: Los esbirros del sol oscuro son dotados con reliquias heroicas...
+downedAllAncientsInfo1: El caos comienza a agitarse en la atmósfera...
+downedAllAncientsInfo2: Una niebla de otro mundo envuelve un naufragio olvidado...
+hardModeInfo: ¡Las almas de la furia y la ira se han desatado en el mundo!
+#AAWorldBuild
+
+AAWorldBuildAltars: Colocando altares del caos
+AAWorldBuildChaos: Propagando el caos
+AAWorldBuildInferno: Calcinando el infierno
+AAWorldBuildMire: Inundando el Lodazal
+AAWorldBuildTerrarium: Construyendo el Terrario
+AAWorldBuildLostKeep: Escondiendo la Fortaleza del Héroe
+AAWorldBuildAcropolis: Elevando la Acrópolis
+AAWorldBuildHoard: Amasando Tesoros
+AAWorldBuildEquinoxAlt: Equilibrando el Sol y la Luna
+
+RecipeGroups: {
+	Ore: {
+		Copper: Mineral de Cobre
+		Iron: Mineral de Hierro
+		Silver: Mineral de Plata
+		Gold: Mineral de Oro
+		Evil: Mineral Maligno
+		Chaos: Mineral del Caos
+		EvilOrChaos: Mineral Maligno o del Caos
+		Cobalt: Mineral de Cobalto
+		Mythril: Mineral de Mitril
+		Adamantite: Mineral de Adamantita
+		Hallowed: Mineral Sagrado
+	}
+
+	Bars: {
+		Copper: Lingote de Cobre
+		Iron: Lingote de Hierro
+		Silver: Lingote de Plata
+		Gold: Lingote de Oro
+		Evil: Lingote Maligno
+		Chaos: Lingote del Caos
+		EvilOrChaos: Lingote Maligno o del Caos
+		Cobalt: Lingote de Cobalto
+		Mythril: Lingote de Mitril
+		Adamantite: Lingote de Adamantita
+		Hallowed: Lingote Sagrado
+	}
+
+	Materials: {
+		ShinyCharm: Amuleto Brillante
+		ChaosClaw: Garra del Caos
+		Evil: Material Maligno
+		Chaos: Material del Caos
+		EvilOrChaos: Material Maligno o del Caos
+		HardmodeEvil: Material Maligno del Modo Difícil
+		HardmodeChaos: Material del Caos del Modo Difícil
+		HardmodeEvilOrChaos: Material Maligno o del Caos del Modo Difícil
+		EarlyAncient: Material Antiguo Temprano
+		LateAncient: Material Antiguo Tardío
+		Superancient: Material Superantiguo
+	}
+
+	CraftingStations: {
+		Altar: Altar
+		HardmodeAnvil: Yunque del Modo Difícil
+		HardmodeForge: Forja del Modo Difícil
+		CelestialCraftingStation: Estación de Creación Celestial
+		AncientCraftingStation: Estación de Creación Antigua
+	}
+
+	Weapons.EvilStaff: Bastón Maligno
+
+	Armor: {
+		TerraChestplate: Coraza de Terra
+		TerraLeggings: Grebas de Terra
+		ChaosChestplate: Coraza del Caos
+		ChaosLeggings: Grebas del Caos
+		RadiumHelmet: Casco de Radio
+		DarkmatterHelmet: Casco de Materia Oscura
+	}
+
+	Misc.DevBag: Bolsa de Desarrollador
+}
+
+NPCarrive: ¡ha despertado!
+#GlobalNPCSInfo
+
+BosshasAwoken: ¡ha despertado!
+#BossSummonedInfo
+
+BosshaveAwoken: ¡ha despertado!
+RajahGlobalInfo1: ¡Aquellos que masacran a los inocentes deben ser CASTIGADOS!
+RajahGlobalInfo2: ¡HAS COMETIDO UN PECADO IMPERDONABLE! ¡TE BORRARÉ DE ESTE REINO MORTAL! PREPÁRATE PARA EL VERDADERO DOLOR Y CASTIGO,
+RajahGlobalInfo3: Los ojos de una criatura furiosa se posan sobre ti...
+ChaosRuneYamataFalse: La imagen de un demonio ardiente parpadea en tu mente...
+ChaosRuneAkumaFalse: La imagen de un terror de 7 cabezas parpadea en tu mente...
+ChaosRuneFalse: ¡JA! ¡Ojalá hubiera dos de mí para aplastarte contra el suelo!
+ChaosRuneTrue1: ¡Shen Doragon ha despertado!
+ChaosRuneTrue2: ¿Saltando directamente a la parte divertida, ya veo? Me gustas, chico.
+ChaosSigilFalse1: Solo la mitad azul del Sello está iluminada...
+ChaosSigilFalse2: Solo la mitad roja del Sello está iluminada...
+ChaosSigilFalse3: ¡JA! ¡Ojalá hubiera dos de mí para aplastarte contra el suelo!
+ChaosSigilFalse4: El Sello del Caos brilla, y las imágenes de los pedestales del Caos parpadean en tu mente
+ChaosSigilFalse5: El Sello no hace nada.
+ChaosSigilTrue1: Gran error, chico...
+ChaosSigilTrue2: Hmpf... ¿otra vez..? Muy bien, vamos a terminar con esto de una vez.
+ConfusingMushroomFalse1: El champiñón brilla y su olor te marea.
+ConfusingMushroomFalse2: El Hongo Feudal sigue intentando atacarte
+CuriousClawFalse1: ¡Los Agarres del Caos ya están aquí!
+CuriousClawFalse2: La garra yace flácida en tu mano. Qué asco.
+Grips.GripsofChaosAwoken: ¡Los Agarres del Caos han despertado!
+DiamondCarrotRajahText1: ¡GRAVE ERROR, TERRARIANO!
+DiamondCarrotRajahText2: Muéstrame de qué estás hecho,
+DjinnLampDesertFalse1: La lámpara escupe arena mientras la frotas
+DjinnLampDesertFalse2: Ninguna cantidad de frotar la lámpara te salvará aquí
+DraconianDayTimeFalse: Cielos, chico. ¿Es que un dragón no puede pegar un ojo? Vuelve por la mañana.
+DraconianRuneFalse1: La imagen de la torre calcinada en la cima del infierno parpadea en tu mente
+DraconianRuneFalse2: Oye chico, esa runa solo funciona una vez, ¿sabes?
+DraconianRuneInfernoFalse: Solo puedes usar esa runa en el Infierno, chico.
+DraconianRuneTrue1: El aire a tu alrededor comienza a calentarse...
+DraconianRuneTrue2: Yendo directo al grano, ¿eh..? Muy bien entonces, ¡prepárate para el infierno..!
+DraconianSigilFalse: Oye chico, ese Sello solo funciona una vez, ¿sabes?
+DraconianSigilInfernoFalse: Solo puedes usar ese Sello en el Infierno, chico.
+DraconianSignalTrue1: Je, espero que estés listo para sentir la furia del sol ardiente, chico.
+DraconianSignalTrue2: ¿De vuelta por más, chico? ¿No tienes mejores cosas que hacer? Ya me venciste una vez. Está bien, pero no iré suave contigo.
+DragonBellDayTimeFalse: La campana suena en oídos sordos. Los dragones están durmiendo ahora.
+DragonBellFalse1: La Madre de la Camada ya ha sido llamada
+DragonBellFalse2: La campana suena en oídos sordos. Los dragones no están aquí.
+DreadRuneTrue1: ¡Yamata ha despertado!
+DreadRuneTrue2: Sí, sí, ya lo pillo, mi primera fase es insoportable. ¡Vamos a acabar con esto de una vez..!
+DreadTimeFalse: ¡NO! ¡NO QUIERO LUCHAR AHORA! ¡NECESITO MI SUEÑO REPARADOR! ¡VUELVE POR LA NOCHE!
+DreadFalse1: La imagen del extraño árbol en el corazón del lodazal parpadea en tu mente
+DreadFalse2: ¡¿QUÉ DEMONIOS ESTÁS HACIENDO?! ¡¡¡YA ESTOY AQUÍ!!!
+DreadMireFalse: ¡Oye, bobo! ¡El lodazal está por allá!
+DreadSigilTrue1: ¡¿Te ATREVES a entrar en mi territorio, terrariano?! ¡NIEHEHEHEHEH..! ¡Gran error..!
+DreadSigilTrue2: ¡¿De vuelta por más..?! ¡Esta vez no tendrás tanta suerte, mocoso..!
+DreadSigilMireFalse: ¡NECESITAS usar ese sello en el altar del centro del lodazal! ¡Confía en mí, no pasará nada malo!
+EquinoxWormawoken: ¡Los Gusanos del Equinoccio han despertado!
+SistersDownedInfo1: ¡¿Otra vez..?! ¿Es que no aprendiste la última vez? ¡En fin, me lo voy a pasar en grande haciéndote pedazos!
+SistersDownedInfo2: Como sea, vamos a terminar con esto de una vez.
+SistersInfo1: Suspiro... Aquí vamos de nuevo...
+SistersInfo2: ¡ESTA VEZ NO VOY A PERDER! ¡Vas a probar el sabor de la derrota, asquerosa sangre caliente!
+HydraChowTimeFalse: No viene nada. Las criaturas del lodazal duermen.
+HydraChowFalse1: La Hidra quiere esa comida.
+HydraChowFalse2: No viene nada. Ahora te ves tonto sosteniendo esa bola apestosa de mugre.
+InterestingClawFalse1: ¡Los Agarres del Caos ya están aquí!
+InterestingClawFalse2: La garra yace flácida en tu mano. Qué asco.
+IntimidatingMushroomFalse1: El champiñón solo te mira fijamente y te da escalofríos con solo mirarlo.
+IntimidatingMushroomFalse2: El Monarca Champiñón sigue intentando pisotearte
+LifescannerFalse: El Escáner de Vida no hace nada.
+ScepterBossFalse1: Agitas el bastón como un psicópata. No pasa nada.
+ScepterBossFalse2: Eh... ¿qué estás haciendo?
+SubzeroCrystalSnowZoneFalse: El cristal muestra en su interior una imagen del bioma de hielo cercano
+SubzeroCrystalFalse: La Serpiente Subcero continúa atacando
+ToadstoolFalse1: ¿La seta venenosa croa..?
+ToadstoolFalse2: El Sapo de Trufa croa
+ZeroUnitFalse: ERR0R. UNIDAD ZER0 YA ACTIVA. P0R FAV0R, INTÉNTEL0 MÁS TARDE.
+ZeroUnitVoidZoneFalse: ERR0R. PLAYER.GETM0DPLAYER<AAPLAYER>(M0D).Z0NEV0ID : :  FALS0. P0R FAV0R, INTÉNTEL0 MÁS TARDE.
+ZeroUnitRuneTrue: PR0T0C0L0 DEL JUICI0 FINAL ACTIVAD0 MANUALMENTE. SISTEMAS DE TERMINACIÓN A T0DA P0TENCIA
+ZeroTesseractTrue: UNIDAD ZER0 ACTIVADA. INICIAR PR0T0C0L0 DEL P0RTAD0R DE LA PERDICIÓN.
+ZeroTesseractDownedTrue: 0BJETIV0 FIJAD0. ESTA VEZ N0 EXISTE LA P0SIBILIDAD DE N0 TERMINAR C0NTIG0, TERRARIAN0.
+RoyalRabbitSummoned1: ¡Aquellos que masacran a los inocentes deben ser CASTIGADOS!
+RoyalRabbitSummoned2: PAGARÁS POR TUS PECADOS,
+ScrapHeapFalse1: Sientes una descarga estática al usar esto. ¿Quizás esté intentando enviar una señal?
+ScrapHeapFalse2: ¡Ortros quiere comerse eso Y A TI!
+CyberneticClawFalse1: La garra simplemente yace flácida en tu mano.
+CyberneticClawFalse2: ¡El Retriever todavía está intentando atraparte!
+CyberneticBellFalse1: La campana suena, pero no pasa nada.
+CyberneticBellFalse2: ¡El Raider escucha la campana y sigue intentando matarte!
+CyberneticShroomFalse1: Deja de agitar ese champiñón de metal como un psicópata.
+CyberneticShroomFalse2: La Techno Trufa continúa existiendo.
+CursedCompassFalse: Las maldiciones ligadas a la brújula gimen ante la presencia de su creador.
+MassShroomInitiated: ¡Es hora de un foso de champiñones!
+GlowingMassShroomInitiated: ¡Estás siendo asaltado por un montón de hongos!
+GlowingMassShroomFalse: Deja de agitar un montón de champiñones en mitad de la nada como un loco.
+
+Conditions: {
+	Release: En mundos aún no publicados
+	DownedRajah: Después de derrotar a Rajah Rabbit
+	InSunkenShipPreSoC: Cerca del Barco Hundido después de derrotar a todos los Antiguos
+	IsMaster: En Modo Maestro
+	Unofficial: En mundos no oficiales
+	NotUnofficial: En mundos oficiales
+	PostLateAncientsAndRemovedWorld: Después de los Antiguos Tardíos
+	SpawnedByTruffleToad: Si no fue invocado por el Sapo de Trufa
+	SpawnedByGrips: Si no fue invocado por los Agarres del Caos
+	InAnyInferno: En el bioma del Infierno
+	InAnyMire: En el bioma del Lodazal
+	InAnyRedMushroom: En el bioma de Champiñones Rojos
+	InAnyVoid: En el bioma del Vacío
+	SpawnedBySubzeroSerpent: Si la Serpiente Subcero no está viva actualmente
+	PostLateAncientsAndRemovedWorldAndExpert: Si los Gusanos del Equinoccio han sido derrotados
+	OneMechDefeated: Si un jefe mecánico ha sido derrotado
+	SkeletronDefeated: Si Esqueletron ha sido derrotado
+	GolemDefeated: Si el Gólem ha sido derrotado
+	GoblinsDefeated: Si el Ejército de duendes ha sido derrotado
+}

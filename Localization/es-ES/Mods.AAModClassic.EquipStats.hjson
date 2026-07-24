@@ -1,0 +1,489 @@
+ClassGlobalStats: {
+	DefaultDamageClass: sin clase
+	GenericDamageClass: ""
+	MeleeDamageClass: cuerpo a cuerpo
+	MeleeNoSpeedDamageClass: "{$EquipStats.ClassGlobalStats.MeleeDamageClass}"
+	RangedDamageClass: a distancia
+	MagicDamageClass: mágico
+	SummonDamageClass: de invocación
+	SummonMeleeSpeedDamageClass: "{$EquipStats.ClassGlobalStats.SummonDamageClass}"
+	MagicSummonHybridDamageClass: mágico y de invocación
+	ThrowingDamageClass: de arrojables
+	CritChance: "{0}% {1} {2}{3}de probabilidad de golpe crítico"
+	AttackSpeed: "{0}% {1} {2}{3}de velocidad"
+	ArmorPenetration: "{0} {1}{2}de penetración de armadura con {3}"
+
+	StatModifier: {
+		Adlibs: {
+			EverySingleClassExceptSummoner: {
+				Base: "{0} {1} {2}{3}{4}"
+				Additive: "{0}% {1} {2}{3}{4}{5}"
+				Multiplicative: "{2}{3}{4} multiplicado por {0}%"
+				Flat: "{0} {1} de {2}{3}{4}"
+			}
+
+			Summoner: {
+				Base: "{1} {2}{3}{4} en {0}"
+				Additive: "{1} {2}{3}{4}{5} en un {0}%"
+				Multiplicative: Multiplies {2}{3}{4} por un {0}%
+				Flat: "{1} {2}{3}{4} en un valor fijo de {0}"
+			}
+		}
+
+		Increases: aumenta
+		Decreases: disminuye
+		Increased: aumentado
+		Decreased: disminuido
+		Increase: aumento
+		Decrease: disminución
+		Reduced: reducido
+		More: más
+		Less: menos
+		Damage: daño
+		Knockback: retroceso
+		CritSameAsDamageAdditive: " y probabilidad de golpe crítico"
+	}
+}
+
+Misc.Nothing: ""
+
+Effect: {
+	ManaFlowerEffect: Usa pociones de maná automáticamente cuando es necesario
+	CrimsonHelmetSetEffect: Regeneración de vida considerablemente aumentada
+	EnduranceEffect: "{0} el daño recibido en un {1}%"
+	MaxLifeEffect: "{0} la vida máxima en {1}"
+	MovementSpeedEffect: "{0}% de {1} velocidad de movimiento"
+	BrokenCodeTeleportEffect:
+		'''
+		Te permite bugearte con un tiempo de recarga de 5 segundos
+		Engánchate para bugearte
+		Mientras dura la recarga, tu velocidad aumenta y ganas fotogramas de invencibilidad
+		Mientras dura la recarga, tus armas mágicas y de invocación no consumen maná y tienen un 20% más de daño
+		La teletransportación tiene un tiempo de recarga de 15 segundos
+		ADVERTENCIA: Puede desplazar permanentemente tus extremidades hasta reiniciar el juego. Esto es una característica.
+		'''
+	BrokenCodeTeleportUnofficialEffect:
+		'''
+		Reemplaza tu gancho con la habilidad de bugearte
+		Presiona {0} para bugearte con un tiempo de recarga de {1} segundos
+		Bugearte te teletransporta a tu cursor y hace que todas las entidades se congelen durante {2} segundos
+		Presionar {0} mientras estás bugeado te teletransportará a tu cursor y descongelará el juego
+		'''
+	BrokenCodeWhateverThisShitIsEffect: Aumenta la velocidad de movimiento y la duración de la invencibilidad tras recibir daño
+	GoddessHarpEffect:
+		'''
+		Invoca a la mismísima Reina Serafín para que luche a tu lado
+		Atenea se beneficia del daño de invocación
+		'''
+	SeraphHarpEffect: Invoca a un serafín para que luche por ti que se beneficia del daño de invocación
+	OlympianWingsEffect: Permite realizar una embestida mientras vuelas
+	WingTimeMaxEffect: Permite volar y caer lentamente
+	FallDamageImmunityEffect: Niega el daño por caída
+
+	JumpStatsEffect: {
+		JumpSpeed: velocidad de salto
+		JumpHeight: altura de salto
+		AutoJump: permite el salto automático
+	}
+
+	RajahRabbitsSashOfVengeanceEffect:
+		'''
+		Cada {0}% de vida perdida te otorga un {1}% de daño aumentado para tu clase de daño más fuerte
+		[c/{2}:Aumento de daño actual: +{3}% de daño {4}]
+		'''
+	RajahRabbitsCloakOfSupremacyEffect:
+		'''
+		Cada {0}% de vida perdida te otorga un {1}% de daño aumentado para tu clase de daño más fuerte y un {2}% de velocidad de movimiento aumentada
+		[c/{3}:Aumento de daño actual: +{4}% de daño {5}]
+		Aumento de velocidad actual: +{6}% de velocidad de movimiento y velocidad máxima de carrera
+		'''
+	MaxRunSpeedEffect: "{0}% de {1} velocidad de carrera"
+	BlackBeltEffect: Otorga una probabilidad de esquivar ataques
+
+	MasterNinjaMobilityEffect: {
+		ShoeSpikes1: Permite la habilidad de deslizarse por las paredes
+		ShoeSpikes2: Permite la habilidad de escalar paredes
+		Tabi: " y realizar una embestida"
+	}
+
+	NaitokurosuMireEffect: Otorga un {0}% de daño a distancia adicional mientras estás en el Lodazal
+	NaitokurosuNightEffect: Otorga un {0}% de velocidad de movimiento adicional por la noche
+	BuffImmunityEffect: "Otorga inmunidad a "
+	NaitokurosuDebuffEffect:
+		'''
+		Los ataques a distancia y los esbirros infligen Veneno
+		Los ataques a distancia y los esbirros infligen Resplandor Lunar en su lugar por la noche
+		'''
+	TaiyangBaoleiImmunityEffect: Otorga inmunidad a casi todos los estados alterados
+	SolarArmorSetDashEffect: Permite al jugador embestir a los enemigos y explotar
+	TaiyangBaoleiEnduranceEffect: Otorga un {0}% de resistencia al daño adicional durante el día
+	TaiyangBaoleiDebuffEffect:
+		'''
+		Los ataques cuerpo a cuerpo y mágicos infligen daño de fuego
+		Los ataques cuerpo a cuerpo y mágicos infligen Desintegración Solar en su lugar durante el día
+		'''
+	DualityChaosEffect: Otorga un {0}% de daño adicional mientras estás en el Infierno o en el Lodazal
+	DualityDefenseEffect: Otorga {0} de defensa adicional mientras estás en el Infierno
+	AttacksInflictBuffEffect: "Tus ataques {0}{1} infligen "
+	HeartOfPassionDamageBoostEffect: El daño mágico y de invocación aumenta cuanta menos vida tengas
+	HeartOfPassionManaRegenEffect: Por debajo de los 2/3 de tu vida máxima, tu maná se regenera mucho más rápido
+	HeartOfPassionDebuffEffect:
+		'''
+		El daño mágico y de invocación inflige Fuego de Dragón
+		Por debajo de 1/3 de tu vida máxima, tu daño mágico y de invocación inflige Desintegración Solar en su lugar
+		'''
+	HeartOfSorrowDamageBoostEffect: El daño cuerpo a cuerpo y a distancia aumenta cuanta menos vida tengas
+	HeartOfSorrowMovementSpeedEffect: Por debajo de los 2/3 de tu vida máxima, tu velocidad de movimiento aumenta en un 100%
+	HeartOfSorrowDebuffEffect:
+		'''
+		El daño cuerpo a cuerpo y a distancia inflige Toxina de Hidra
+		Por debajo de 1/3 de tu vida máxima, tu daño cuerpo a cuerpo y a distancia inflige Resplandor Lunar en su lugar
+		'''
+	HeartOfAnarchyDamageBoostEffect: Tu daño aumenta cuanta menos vida tengas
+	HeartOfAnarchyBullshitEffect: Por debajo de los 2/3 de tu vida máxima, tu velocidad de movimiento aumenta en un 100% y tu maná se regenera mucho más rápido
+	HeartOfAnarchyDebuffEffect:
+		'''
+		Tus ataques infligen Fuego de Dragón y Toxina de Hidra
+		Por debajo de 1/3 de tu vida máxima, infliges Desintegración Solar y Resplandor Lunar en su lugar
+		'''
+	FlipperEffect: Otorga la habilidad de nadar
+
+	FrostsparkBootsEffect: {
+		Default: "Permite "
+		Flight: volar
+		Running: correr superrápido
+		IceSkates: movilidad adicional sobre el hielo
+	}
+
+	LavaWadersWaterWalkingEffect: {
+		Default: "Proporciona la habilidad de caminar sobre "
+		Water: agua
+		Honey: miel
+		Lava: lava
+	}
+
+	LavaWadersFireImmunityEffect: {
+		Default: "Otorga "
+		FireImmune: inmunidad a los bloques de fuego
+		LavaImmune: "{0} segundos de inmunidad a la lava"
+	}
+
+	ObsidianRoseEffect: Reduce el daño al tocar la lava
+	SandstormMedallionEffect: Aumenta tu daño y probabilidad de golpe crítico en un 100% durante una tormenta de arena
+	ArtifactOfJudgementEffect:
+		'''
+		Recibir daño genera una carga en el artefacto
+		Al alcanzar una carga de 250, se invocará un Ojo del Juicio y se restablecerá el valor de la carga
+		Tu defensa disminuye y tu velocidad aumenta mientras el Ojo está activo
+		[c/FFFF00:Carga actual: {0}]
+		'''
+	ArtifactOfGuiltEffect:
+		'''
+		Recibir daño genera una carga en el artefacto
+		Al alcanzar una carga de 250, se invocará un Ojo del Abandonado y se restablecerá el valor de la carga
+		Obtendrás un gran aumento de daño y velocidad mientras el Ojo está activo
+		[c/FFFF00:Carga actual: {0}]
+		'''
+	KnockbackImmunityEffect: Otorga inmunidad al retroceso
+	MaxManaEffect: "{0} el maná máximo en {1}"
+	DiscountCardEffect: Reduce los precios de las tiendas en un 20%
+	LuckyCoinEffect: Golpear enemigos a veces hará que suelten monedas extra
+	GoldRingEffect: Aumenta el rango de recogida de monedas
+	CharmOfDesireEffect:
+		'''
+		Recoger monedas aumenta tu daño en un 1% durante 4 segundos
+		Recoger otra moneda aumenta el daño en un 1% y restablece la cuenta atrás
+		Tiene un límite máximo del {0}% de daño
+		Aumento de daño actual: {1}%
+		'''
+	DragonsGuardEffect: Los enemigos que te golpeen arderán en llamas
+	LanternEffect: Te permite ver a través de la niebla del Lodazal durante el día
+	ManaCostEffect: "{0}% de {1} coste de maná"
+	CelestialMagnetEffect: Aumenta el rango de recogida de estrellas de maná
+	BlackLotusEmblemEffect:
+		'''
+		Usa pociones de maná automáticamente cuando es necesario
+		Reduce considerablemente la duración de la Debilidad de Maná
+		'''
+	AshProofVestEffect: Te permite sobrevivir a la tormenta de fuego del Infierno por la noche
+	MaxSentrySlotEffect: "{0} tu número máximo de centinelas en {1}"
+	OldOneCharmEffect: Mientras el Ejército del Antiguo está en curso, aumenta tu daño de invocación en un {0}%
+	ArcticMedallionEffect: Aumenta tu daño y probabilidad de golpe crítico en un 100% durante una tormenta de nieve
+	NightOwlEffect: Aumenta la visión nocturna
+
+	EquinoxDayNightStatBoostsEffect: {
+		Default:
+			'''
+			Durante el {0}, otorga un gran pero no especialmente excepcional aumento al daño,
+			velocidad cuerpo a cuerpo, probabilidad de golpe crítico, regeneración de vida,
+			defensa, velocidad de minería y retroceso de esbirros
+			'''
+		Day: día
+		Night: noche
+	}
+
+	EquinoxEffect:
+		'''
+		Gran aumento al daño, velocidad cuerpo a cuerpo,
+		probabilidad de golpe crítico, regeneración de vida,
+		defensa, velocidad de minería y retroceso de esbirros
+		'''
+	EmitLightFromPlayerEffect: Proporciona luz cuando se lleva equipado
+	MoonCharmEffect: Convierte al portador en un hombre lobo por la noche
+	NeptunesShellEffect: Convierte al portador en tritón al entrar al agua
+	SagittariusShieldEffect:
+		'''
+		Presionar la tecla de habilidad de accesorio coloca una barrera a tu alrededor para protegerte del daño
+		Mientras el escudo esté activo, no puedes usar objetos
+		Mientras el escudo esté activo, tu regeneración de vida aumenta drásticamente
+		El escudo dura 5 segundos
+		El escudo tiene un tiempo de recarga de 5 minutos
+		'''
+	APageOfTheRuneBookEffect:
+		'''
+		Invoca runas por cada espacio de esbirro no utilizado
+		Tener 1 espacio de esbirro libre invoca una Runa de Conejo
+		Tener 2 espacios de esbirro libres invoca una Runa de Discordia adicional
+		Tener 3 espacios de esbirro libres invoca una Runa de Energía adicional
+		'''
+	TheBookOfRunesEffect:
+		'''
+		Invoca runas por cada espacio de esbirro no utilizado
+		Tener 1 espacio de esbirro libre invoca una Runa de Terra
+		Tener 2 espacios de esbirro libres invoca una Runa de Caos adicional
+		Tener 3 espacios de esbirro libres invoca una Runa de Vacío adicional
+		'''
+	MaxMinionSlotEffect: "{0} tu número máximo de esbirros en {1}"
+	ShieldOfCthulhuDashEffect: Permite embestir a los enemigos, infligiéndoles daño
+	DemonGauntletEffect: ""
+	AggroEffect: Es {0} probable que los enemigos te tengan como objetivo
+	StormClawEffect: Tus armas que no tienen ataque automático se vuelven sumamente rápidas
+	IgnoreWaterEffect: Los líquidos no afectan a tu movimiento
+	GillsEffect: Permite respirar en líquidos
+	ChaosHelmetMageSetEffect: Mientras estás sumergido en líquidos, tus habilidades mágicas aumentan drásticamente
+	AmmoCost75Effect: 25% de probabilidad de ahorrar munición
+	HunterEffect: Muestra la ubicación de los enemigos
+	ChaosHelmetSummonerSetEffect: Un alma de dragón devasta a los enemigos por ti
+	OlympianHelmetSetDescEffect: "'Temerán tu precisión, pero tú temerás la más mínima ráfaga'"
+	HoppingHoodlumHelmetSetEffect: Mientras estés por debajo de la mitad de tu vida, tu velocidad de movimiento, daño cuerpo a cuerpo y daño de invocación aumentan en un 50%
+	ChampionHelmetMageSetDescEffect: "'La energía emana de tu cuerpo...'"
+	ChampionHelmetMageSetEffect:
+		'''
+		El daño mágico tiene una probabilidad de generar zanahorias de energía
+		Recoge zanahorias de energía para obtener mejoras acumulables
+		'''
+	ChampionHelmetMeleeSetDescEffect: `Eres el muro que protege a los inocentes...`
+	ChampionHelmetRangedSetDescEffect: `Hora de cazar a los cazadores...`
+	ChampionHelmetSummonerSetDescEffect: "'Incluso los inocentes vendrán a protegerte...'"
+	ChampionHelmetMeleeSetEffect:
+		'''
+		Presionar la tecla de habilidad de armadura te otorga la mejora 'Furia del Defensor'
+		Mientras estás enfurecido, ganas más defensa cuanta menos vida tengas
+		'Furia del Defensor' dura más tiempo cuanta menos vida tengas
+		'Furia del Defensor' tiene un tiempo de recarga más largo cuanta menos vida tengas
+		Durante la recarga, tu defensa disminuye ligeramente, pero tu velocidad aumenta
+		'''
+	ChampionHelmetRangedSetEffect:
+		'''
+		Presionar la tecla de habilidad de armadura invoca un Dron R.A.B.I.T. durante 8 segundos
+		El Dron R.A.B.I.T. tiene un tiempo de recarga de 15 segundos
+		Durante la recarga, tu daño a distancia y probabilidad de golpe crítico aumentan en un 15%
+		'''
+	ChampionHelmetSummonerSetEffect:
+		'''
+		El Barón Bunny viene a ayudarte a ti y a toda la especie de los conejos
+		El Barón Bunny lanzará jabalinas, ráfagas de zanahorias y disparará rayos de conejo
+		Cuanto más débil seas, con más fuerza luchará el Barón Bunny
+		'''
+	FuryWitchsHelmetSetDescEffect: "'Arrasa y quema.'"
+	FuryWitchsHelmetSetHotkeyEffect:
+		'''
+		Presiona la tecla de habilidad de armadura para desatar el poder de las llamas de Ashe
+		Su poder te rodea con un infierno protector y lanza una ráfaga de bombas de fuego
+		Solo puedes desatar su poder mientras empuñas un arma mágica o de invocación
+		'''
+	FuryWitchsHelmetSetMinionEffect:
+		'''
+		Un espíritu de fuego te protege
+		El espíritu de fuego se vuelve más poderoso cuanto menos maná tengas
+		'''
+	AmmoCost80Effect: 20% de probabilidad de ahorrar munición
+	MidnightAssassinHelmetSetEffect:
+		'''
+		Tus armas cuerpo a cuerpo tienen una probabilidad de lanzar dagas de asesino
+		Tus armas a distancia tienen una probabilidad de disparar flechas de asesino
+		Las dagas y flechas reducen la defensa del enemigo en 20 y aumentan el daño recibido en un 10%
+		'''
+	MidnightAssassinHelmetSetDescEffect: "'Caza y mata.'"
+	ChaosSlayerHelmetMeleeSetStatScalingEffect: Tus ataques cuerpo a cuerpo y tu resistencia se vuelven más fuertes a medida que tu vida disminuye
+	ChaosSlayerHelmetRangedSetStatScalingEffect: Tus ataques a distancia y tu probabilidad de golpe crítico se vuelven más fuertes a medida que tu vida disminuye
+	ChaosSlayerHelmetMageSetStatScalingEffect: Tus ataques mágicos se vuelven más fuertes y tus hechizos consumen menos maná a medida que tu vida disminuye
+	ChaosSlayerHelmetSummonerSetStatScalingEffect: Tus ataques de invocación se vuelven más fuertes a medida que tu vida disminuye
+	ChaosSlayerHelmetSetDescEffect: "'El caos te empodera'"
+	PanicNecklaceEffect: Aumenta la velocidad de movimiento tras recibir daño
+	FleshrendHelmetSetEffect: Recibir golpes de los enemigos puede activar una explosión de sangre que daña a todos los enemigos a tu alrededor
+	DynaskullHelmetSetEffect: Tus proyectiles a distancia tienen tanta fuerza que confunden al objetivo debido a la fuerza de impacto
+	ManaRegenEffect: "{0} la velocidad de regeneración de maná en {1}"
+	LifeRegenEffect: "{0} la velocidad de regeneración de vida en {1}"
+	GoblinSlayersHelmetSetDamageEffect: Tus armas de ataque cuerpo a cuerpo infligen 5 veces más daño y tienen un retroceso aumentado contra los goblins
+	GoblinSlayersHelmetSetEnduranceEffect: Los goblins te infligen un 80% menos de daño
+	GoblinSlayersHelmetSetDescEffect: "'Yo cazo goblins, o nada.'"
+	MiningSpeedEffect: "{0} la velocidad de minería en un {1}%"
+	SpelunkerEffect: Muestra la ubicación de tesoros y minerales
+	StoneSoldierHelmetSetEffect: Los enemigos tienen una pequeña probabilidad de generar un portal de monedas al morir
+	StoneSoldierHelmetSetDescEffect: "'¡Conviértete en el tacaño definitivo!'"
+	DefenseEffect: "{0} defensa"
+	MagmaStoneEffect: Los ataques cuerpo a cuerpo infligen daño de fuego
+	DraconianSunHelmetSetDescEffect: "'La furia abrasadora te consume'"
+	ChlorophyteHelmetSetEffect: Invoca un poderoso cristal de hoja que dispara a los enemigos cercanos
+	DreadMoonHelmetSetDescEffect: "'La ira abisal te enfurece'"
+	UnlimitedBreathingUnderWaterForeverAndEverEffect: Permite respirar en líquidos
+	OceanHelmetSetEffect: Mientras estás sumergido en líquidos, tus habilidades mágicas se ven ligeramente mejoradas
+	AtlanteanHelmetSetEffect: Mientras estás sumergido en líquidos, tus habilidades mágicas y tu defensa se ven enormemente mejoradas
+	PhilosophersStoneEffect: Reduce el tiempo de recarga de las pociones de curación en un 25%
+	RaiderChestplateSetEffect: A medida que tu vida disminuye, tu resistencia al daño aumenta
+	DarkmatterHelmetMageSetEffect:
+		'''
+		Daña a los enemigos dentro de tu aura negativa
+		El daño de tu aura escala con tus estadísticas mágicas y te cura cada vez que daña a un enemigo
+		Tu aura inflige actualmente {0} de daño mágico y tiene una probabilidad de golpe crítico del {1}%
+		'Oh... Con que es eso...'
+		'''
+	DrawShadowLokisEffect: ""
+	DarkmatterHelmetMeleeSetEffect:
+		'''
+		Invoca un escudo oscuro para protegerte a ti y a los aliados cercanos
+		El escudo reducirá el daño recibido en un 40%
+		Cuando el escudo absorbe un golpe, entra en un tiempo de recarga de 30 segundos
+		Tu regeneración de vida aumenta mientras el escudo está en recarga por la noche
+		'''
+	DarkmatterHelmetRangedSetEffect:
+		'''
+		Invoca un portal inestable para protegerte
+		El portal inestable dispara junto a ti, inflige el 30% del daño de tu arma equipada, debilita a los enemigos y los inmoviliza
+		'''
+	DarkmatterHelmetSummonerSetEffect: Los esbirros intentarán ocasionalmente desviar los proyectiles enemigos
+	RadiumHelmetMageSetEffect:
+		'''
+		Daña a los enemigos dentro de tu aura positiva
+		El daño de tu aura escala con tus estadísticas mágicas y devuelve el 50% del daño infligido como maná
+		Si estás al máximo de maná, el aura te otorga Sobrecarga de Maná en su lugar
+		Tu aura inflige actualmente {0} de daño mágico y tiene una probabilidad de golpe crítico del {1}%
+		'''
+	RadiumHelmetMeleeSetEffect:
+		'''
+		Invoca un escudo de luz sobre los enemigos cercanos
+		El escudo reduce el daño que reciben en un 40%
+		'''
+	RadiumHelmetRangedSetEffect:
+		'''
+		Invoca un portal solar para protegerte
+		El portal solar dispara junto a ti, inflige el 30% del daño de tu arma equipada y prende fuego a los enemigos
+		'''
+	RadiumHelmetSummonerSetEffect: Los esbirros infligirán ocasionalmente {0} de daño a los enemigos cercanos
+	TerraHelmetMageSetEffect:
+		'''
+		Presionar la tecla de habilidad de armadura hace que crezcan 2 tallos de rosa de terra a tu alrededor
+		Los enemigos golpeados por los tallos sueltan estrellas de maná
+		'''
+	TerraHelmetRangedSetEffect: Golpear a un enemigo con un proyectil a distancia puede hacer que se dispare una bala de terra al objetivo
+	TerraHelmetSummonerSetEffect:
+		'''
+		Invoca un poderoso cristal de terra que dispara a los enemigos cercanos
+		Presionar la tecla de habilidad de armadura cambia el cristal entre los modos de ofensiva, defensiva y apoyo
+		En el modo ofensivo, el cristal perseguirá y derribará rápidamente a los enemigos
+		En el modo defensivo, el cristal permanecerá encima de ti y disparará a los enemigos cercanos
+		En el modo de apoyo, tu defensa y regeneración de vida aumentan significativamente, pero tu daño se reduce a la mitad
+		'''
+	TerraHelmetMeleeSetEffect: Ser golpeado por un enemigo hace que una esfera de terra explosiva se dirija hacia el enemigo que te atacó
+
+	BiomiteHelmetSetEffect: {
+		Default: Proporciona diferentes efectos según los biomas en los que te encuentres
+		Day: Aumenta la vida máxima en 20
+		Night: Aumenta el maná máximo en 20
+		Void: Muestra la ubicación de los enemigos
+		Inferno: Otorga inmunidad a ¡En llamas!
+		Mire: Otorga inmunidad a Envenenado
+		Terrarium: 5 de defensa
+		Jungle: Aumenta la regeneración de maná en 3
+		Snow: Otorga inmunidad a Enfriamiento
+		Desert: Otorga inmunidad a los vientos del desierto
+		Hallow: Otorga inmunidad a Lentitud y 3 de regeneración de vida
+		Corruption: Aumenta la velocidad de movimiento y la velocidad máxima de carrera en un 10%
+		Crimson: Aumenta la penetración de armadura en 5
+	}
+
+	OrichalcumHelmetSetEffect: Pétalos de flores caerán sobre tu objetivo para infligir daño adicional
+	TitaniumHelmetSetEffect: Atacar genera una barrera defensiva de fragmentos de titanio
+	PalladiumHelmetSetEffect: Aumenta considerablemente la regeneración de vida tras golpear a un enemigo
+	HallowedHelmetSetEffect: Te vuelves inmune tras golpear a un enemigo
+	DoomiteHelmetSetEffect: Un buscador del vacío lucha a tu lado
+	DoomsdayHelmetSetDescEffect: "'Sistemas de terminación de vida activados.'"
+	FulguriteHelmetSetEffect: Recibir golpes hace que brote una ráfaga de rayos de tu cuerpo, empujando a los enemigos
+	InfinitySlayerHelmetSetDescEffect: El poder infinito te enfurece
+	AncientGoldChestplateEffect: Tienes una probabilidad de encontrar monedas de oro al minar a través de la piedra
+	AncientGoldChestplateSetEffect: Si tienes más monedas de oro que el valor del daño recibido, esquivarás el ataque a cambio de tu dinero
+	AncientGoldLeggingsEffect: Mayor probabilidad de encontrar criaturas doradas
+	StripemansLuckyLeggingsEffect:
+		'''
+		Duplica los peces capturados
+		Probabilidad de pescar una caja junto con el pez duplicado
+		Tienes una probabilidad de robar botín a los enemigos al engancharlos con una caña de pescar
+		Puedes recoger objetos del suelo con una caña de pescar
+		'''
+	StripemansLuckyChestplateEffect:
+		'''
+		Tienes una mayor probabilidad de encontrar enemigos raros
+		Los objetos raros aparecen con más frecuencia
+		Las vasijas pueden aparecer en lugares donde nunca esperarías que estuvieran
+		Tienes una probabilidad de obtener mejores cosas de las vasijas
+		'''
+	StripemansLuckyHelmetEffect:
+		'''
+		Puedes encontrar minerales al minar piedra
+		Puedes procesar cualquier tipo de arena en un extractinator para obtener materiales relacionados
+		'''
+	StripemansLuckyHelmetSetEffect:
+		'''
+		Cambias la regla de la aleatoriedad de la naturaleza
+		¿Serás un tipo con suerte? O un hombre desafortunado.
+		Presiona la tecla de habilidad de armadura para cambiar el sistema aleatorio del mundo: {0}
+		'He aquí el hombre es como uno de nosotros, sabiendo el bien y el mal.
+		Ahora, pues, que no alargue su mano, y tome también del árbol de la vida, y coma, y viva para siempre'
+		'''
+	FishingPowerEffect: "{0} el poder de pesca en {1}"
+	HighTestFishingLineEffect: El sedal nunca se romperá
+	TackleBoxEffect: Reduce la probabilidad de consumir cebo
+	SonarEffect: Detecta los peces que han picado
+	PDAEffect: Lo muestra todo
+	ArcticDivingGearEffect:
+		'''
+		Otorga la habilidad de nadar y prolonga considerablemente la respiración bajo el agua
+		Proporciona movilidad adicional sobre el hielo
+		Genera un brillo muy sutil que se vuelve más intenso bajo el agua
+		'''
+	ArchitectGizmoPackEffect:
+		'''
+		Aumenta la velocidad de colocación de bloques y paredes
+		Aumenta el rango de colocación de bloques y herramientas en 3
+		Pinta o recubre automáticamente los objetos colocados
+		'''
+	DangersenseEffect: Te permite ver fuentes de peligro cercanas
+	ManaCostMultiplierEffect: Multiplica el coste de maná por {0}
+	AnkhShieldEffect:
+		'''
+		Otorga inmunidad al retroceso y a los bloques de fuego
+		Otorga inmunidad a la mayoría de estados alterados
+		'''
+	DwarvenGauntletEffect: Tener este guantelete te permite manejar las gemas del infinito sin sobrecargarte
+	FullLavaImmunityEffect: Proporciona inmunidad a la lava
+	TimeStoneRespawnEffect: Tiempo de reaparición reducido en un 80%
+	TimeStoneTimeStopEffect: Presionar la tecla de la Gema del Tiempo te permitirá acelerar y reanudar el tiempo
+	SpaceStoneEffect: Te permite teletransportarte con la función del gancho al igual que con la varita de la discordia
+	InfinityGauntletEffect:
+		'''
+		Presionar la tecla de habilidad de accesorio te permite chasquear los dedos, eliminando a la mitad de los enemigos en tu pantalla
+		El chasquido tiene un tiempo de recarga de 5 minutos
+		'''
+	DemonHelmetSetEffect: Un leal sirviente diablillo luchará por ti, sin importar la estación o la condición
+}
