@@ -88,6 +88,10 @@ Huge thanks to the Translation Teams:
 [list]
 [*] Lozenges 
 [/list]
+[*] Spanish
+[list]
+[*] Ningunomas 
+[/list]
 [/list]
 
 Credit of course to the original team behind the mod:

@@ -88,6 +88,10 @@ Ancients Awakened: Classic 包含原版模组的：
 [list]
 [*] Lozenges
 [/list]
+[*] 西班牙语
+[list]
+[*] Ningunomas 
+[/list]
 [/list]
 
 当然，特别感谢原模组背后的开发团队：
