@@ -1,15 +1,9 @@
-using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Terra;
+using AAModClassic.Dusts;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using Terraria;
-using Terraria.DataStructures;
-using Terraria.Enums;
-using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFurniture
 {
@@ -17,8 +11,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
 	{
         public override void SetStaticDefaults()
         {
-            this.SetUpPiano(ModContent.ItemType<TerraPiano>(), true);
-            DustType = ModContent.DustType<Dusts.DoomDust>();
+            this.SetUpPiano(ModContent.ItemType<DoomPiano>(), true);
+            DustType = ModContent.DustType<DoomDust>();
         }
 
         public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
