@@ -147,14 +147,12 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 			ColorToTile[new(0, 64, 0)] = ModContent.TileType<TerraPillar_Tile>();
 			ColorToTile[new(128, 0, 0)] = ModContent.TileType<TerraWood_Tile>();
 			ColorToTile[new(0, 255, 255)] = ModContent.TileType<PermeableTerraWood_Tile>();
-			Color black = default(Color);
 			ColorToTile[new(0, 0, 64)] = ModContent.TileType<TerraLeaves_Tile>();
 			ColorToTile[new(64, 0, 0)] = ModContent.TileType<ScorchedShingles_Tile>();
 			ColorToTile[new(255, 0, 255)] = ModContent.TileType<TerraVault_Tile>();
 			ColorToTile[new(0, 0, 255)] = TileID.Glass;
 			ColorToTile[new(255, 255, 255)] = -1;
-			Color black3 = Color.Black;
-			ColorToTile[black3] = -2;
+			ColorToTile[Color.Black] = -2;
 			Dictionary<Color, int> colorToTile = ColorToTile;
 			Dictionary<Color, int> dictionary2 = new Dictionary<Color, int>();
 			dictionary2[new(0, 255, 0)] = ModContent.WallType<KeepBrick_Wall>();
@@ -162,8 +160,7 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 			dictionary2[new(255, 0, 255)] = TileID.Dressers;
 			dictionary2[new(0, 0, 255)] = TileID.Containers;
 			dictionary2[new(255, 255, 255)] = -1;
-			black = Color.Black;
-			dictionary2[black] = -2;
+			dictionary2[Color.Black] = -2;
 			Dictionary<Color, int> colorToWall = dictionary2;
 			WorldUtils.Gen(origin, new Shapes.Rectangle(280, 230), Actions.Chain((GenAction[])(object)new GenAction[3]
 			{
@@ -171,7 +168,10 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 				new Actions.SetLiquid(0, (byte)0),
 				new Actions.SetSlope(0)
 			}));
-			TexGen texGenerator = TexGen.GetTexGenerator(LostKeepTexGenAssets.KeepTileData, colorToTile, LostKeepTexGenAssets.KeepWallData, colorToWall, null, LostKeepTexGenAssets.KeepSlopeData);
+
+			HashSet<int> unbreakableTiles = [TileID.Glass, ModContent.TileType<TerraWood_Tile>(), ModContent.TileType<PermeableTerraWood_Tile>(), ModContent.TileType<TerraLeaves_Tile>(), ModContent.TileType<ScorchedShingles_Tile>()];
+
+			TexGen texGenerator = TexGen.GetTexGenerator(LostKeepTexGenAssets.KeepTileData, colorToTile, LostKeepTexGenAssets.KeepWallData, colorToWall, null, LostKeepTexGenAssets.KeepSlopeData, unbreakableTiles: unbreakableTiles);
 			int placeX = origin.X;
 			int placeY = origin.Y;
 
