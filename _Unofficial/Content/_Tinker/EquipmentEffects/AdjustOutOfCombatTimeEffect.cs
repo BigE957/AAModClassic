@@ -8,6 +8,7 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Humanizer;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -28,6 +29,6 @@ namespace AAModClassic._Unofficial.Content._Tinker.EquipmentEffects
             player.GetModPlayer<OutOfCombatPlayer>().OutOfCombatThresholdModifier += amount;
         }
 
-        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(amount, ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.FasterSlower));
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(Math.Abs(amount), ChatUtils.IncreaseOrDecreaseText(-amount, ChatUtils.IncreaseDecreaseTextType.FasterSlower));
     }
 }

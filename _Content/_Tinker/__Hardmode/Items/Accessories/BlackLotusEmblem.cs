@@ -47,7 +47,7 @@ namespace AAModClassic._Content._Tinker.__Hardmode.Items.Accessories
             else
             {
                 AddEffect(new ShadowFlowerEffect(15));
-                AddEffect(new AdjustOutOfCombatTimeEffect(5));
+                AddEffect(new AdjustOutOfCombatTimeEffect(-3));
             }
             AddEffect<CelestialMagnetEffect>();
             AddEffect(new AttacksInflictBuffEffect(DamageClass.Magic, (ModContent.BuffType<Moonraze_Buff>(), 100)));

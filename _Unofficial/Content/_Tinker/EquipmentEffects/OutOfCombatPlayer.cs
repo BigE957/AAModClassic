@@ -37,12 +37,13 @@ namespace AAModClassic._Unofficial.Content._Tinker.EquipmentEffects
             OutOfCombatEffectsToPerform = new();
             IsOutOfCombat = false;
             OutOfCombatThresholdModifier = 0;
-
-            _outOfCombatThreshold = _OUTOFCOMBATHRESHOLDBASE + (OutOfCombatThresholdModifier * 60);
+            _outOfCombatThreshold = 0;
         }
 
         public override void UpdateEquips()
         {
+            _outOfCombatThreshold = _OUTOFCOMBATHRESHOLDBASE + (OutOfCombatThresholdModifier * 60);
+
             if (_outOfCombatTimer > _outOfCombatThreshold)
             {
                 IsOutOfCombat = true;
@@ -56,7 +57,13 @@ namespace AAModClassic._Unofficial.Content._Tinker.EquipmentEffects
                 }
             }
 
-            _outOfCombatTimer++;
+            if (OutOfCombatEffectsToPerform.Count > 0)
+                _outOfCombatTimer++;
+            else
+            {
+                _outOfCombatTimer = 0;
+
+            }
         }
 
         public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo)

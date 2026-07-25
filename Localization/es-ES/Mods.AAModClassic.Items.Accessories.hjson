@@ -303,6 +303,11 @@ AshProofVest3: {
 ShadowBand: {
 	DisplayName: Banda de Sombras
 	Tooltip: ""
+	/* Unofficial.Tooltip:
+		'''
+		Being out of combat is defined as not taking 
+		more than 5% of your health in a single hit
+		''' */
 }
 
 AquamancerWings: {
@@ -457,4 +462,29 @@ KappaFins: {
 KappaGear: {
 	DisplayName: Equipamiento de Kappa
 	Tooltip: ""
+}
+
+CuringBand: {
+	// DisplayName: Curing Band
+	// Tooltip: ""
+}
+
+MendingBand: {
+	// DisplayName: Mending Band
+	// Tooltip: ""
+}
+
+ShadowFlower: {
+	// DisplayName: Shadow Flower
+	// Tooltip: ""
+}
+
+KappaMits: {
+	// DisplayName: Kappa Mits
+	// Tooltip: ""
+}
+
+FracturedAnkh: {
+	// DisplayName: Fractured Ankh
+	// Tooltip: "'Cursed?'"
 }

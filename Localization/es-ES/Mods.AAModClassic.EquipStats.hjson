@@ -39,6 +39,8 @@ ClassGlobalStats: {
 		Reduced: reducido
 		More: más
 		Less: menos
+		// Faster: faster
+		// Slower: slower
 		Damage: daño
 		Knockback: retroceso
 		CritSameAsDamageAdditive: " y probabilidad de golpe crítico"
@@ -486,4 +488,15 @@ Effect: {
 		El chasquido tiene un tiempo de recarga de 5 minutos
 		'''
 	DemonHelmetSetEffect: Un leal sirviente diablillo luchará por ti, sin importar la estación o la condición
+	// ShadowBandUnofficialEffect: While out of combat, gain 40% increased movement speed and decreased aggro
+	// DragonstrideBootsUnofficialEffect: While out of combat, gain 28% increased movement speed
+	// MendingBandEffect: While out of combat, your regeneration is increased by 3
+	/* CuringBandEffect:
+		'''
+		While out of combat, your regeneration is increased by 3
+		Debuffs wear off faster while out of combat
+		''' */
+	// ShadowFlowerEffect: While out of combat, you heal {0} mana per second
+	// AdjustOutOfCombatTimeEffect: You exit combat {0} seconds {1}
+	// FracturedAnkhEffect: Ails you with most debuffs
 }

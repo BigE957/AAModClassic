@@ -3,8 +3,11 @@ using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Unofficial.Content._Tinker.EquipmentEffects;
+using AAModClassic.Particles;
+using AAModClassic.Particles.Types;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
@@ -35,31 +38,28 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Accessories
 
         public override void DrawEffects(PlayerDrawSet drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright)
         {
-            if (effect)
+            if (drawInfo.shadow == 0)
             {
-                if (drawInfo.shadow == 0)
+                if (_isOutOfCombatPrevFrame != _isOutOfCombat)
                 {
-                    if (_isOutOfCombatPrevFrame != _isOutOfCombat)
+                    if (_isOutOfCombat && effect)
                     {
-                        if (_isOutOfCombat)
+                        for (int i = 0; i < 20; i++)
                         {
-                            for (int i = 0; i < 20; i++)
-                            {
-                                Dust.NewDust(drawInfo.Position, 20, 20, DustID.CrimsonSpray, Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(-20, 20), 0, default, 2);
-                            }
+                            Dust.NewDust(drawInfo.Position, 20, 20, DustID.CrimsonSpray, Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(-20, 20), 0, default, 2);
                         }
-                        else
+                    }
+                    else
+                    {
+                        for (int i = 0; i < 20; i++)
                         {
-                            for (int i = 0; i < 20; i++)
-                            {
-                                Dust.NewDust(drawInfo.Position, 20, 20, DustID.BlueFairy, Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(-20, 20), 0, default, 2);
-                            }
+                            Dust.NewDust(drawInfo.Position, 20, 20, DustID.BlueFairy, Main.rand.NextFloat(-20, 20), Main.rand.NextFloat(-20, 20), 0, default, 2);
                         }
                     }
                 }
-            }
 
-            _isOutOfCombatPrevFrame = _isOutOfCombat;
+                _isOutOfCombatPrevFrame = _isOutOfCombat;
+            }
         }
     }
 }
