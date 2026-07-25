@@ -17,9 +17,10 @@ public class TerraStatue_Tile : ModTile
 		Main.tileSolidTop[Type] = false;
 		Main.tileFrameImportant[Type] = true;
 		Main.tileNoAttach[Type] = true;
-		DustType = DustID.Gold;
+		DustType = DustID.Terra;
 		Main.tileLavaDeath[Type] = false;
-		TileObjectData.newTile.Width = 4;
+		TileObjectData.newTile = TileObjectData.Style3x4;
+        TileObjectData.newTile.Width = 4;
 		TileObjectData.newTile.Height = 5;
 		TileObjectData.newTile.Origin = new Point16(1, 4);
 		TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
@@ -28,18 +29,14 @@ public class TerraStatue_Tile : ModTile
 		TileObjectData.newTile.CoordinatePadding = 2;
 		TileObjectData.newTile.Direction = TileObjectDirection.None;
 		TileObjectData.newTile.LavaDeath = false;
-		TileObjectData.addTile((int)Type);
+		TileObjectData.addTile(Type);
 		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Lost Hero Statue");
 		AddMapEntry(new Color(100, 100, 100), val);
 		TileID.Sets.DisableSmartCursor[Type] = true;
 	}
 
-    public override bool CanKillTile(int i, int j, ref bool blockDamaged)
-    {
-		blockDamaged = true;
-        return false;
-    }
+	public override bool CanKillTile(int i, int j, ref bool blockDamaged) => false;
 
     public override bool CanReplace(int i, int j, int tileTypeBeingPlaced) => false;
 
