@@ -15,10 +15,12 @@ namespace AAModClassic._Content._Dev.___PreHardmode.Items.Tiles.Decoration
 		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.Table | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
             TileObjectData.addTile(Type);
-			LocalizedText name = CreateMapEntryName();
+            AnimationFrameHeight = 54;
+
+            LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Aves In A Box");
 			AddMapEntry(new Color(100, 200, 100), name);
 			DustType = DustID.t_LivingWood;
@@ -36,24 +38,25 @@ namespace AAModClassic._Content._Dev.___PreHardmode.Items.Tiles.Decoration
 
         public override bool RightClick(int i, int j)
         {
-            if (Quack == false)
+            if (!Quack)
             {
-                QuackTimer = 90;
+                QuackTimer = 40;
                 SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/QUAK"));
+                Quack = true;
+                return true;
             }
-            Quack = true;
-            return true;
+            return false;
 		}
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
             if (QuackTimer <= 0)
             {
-                frame = 0;
+                frame = -1;
                 Quack = false;
             }
             if (Quack)
             {
-                frame = 1;
+                frame = 0;
                 QuackTimer--;
             }
         }

@@ -19,7 +19,6 @@ public class TerraStatue_Tile : ModTile
 		Main.tileNoAttach[Type] = true;
 		DustType = DustID.Terra;
 		Main.tileLavaDeath[Type] = false;
-		TileObjectData.newTile = TileObjectData.Style3x4;
         TileObjectData.newTile.Width = 4;
 		TileObjectData.newTile.Height = 5;
 		TileObjectData.newTile.Origin = new Point16(1, 4);
