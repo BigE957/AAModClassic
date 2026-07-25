@@ -220,7 +220,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 					NPC.damage = DamageIdle;
                     goalOffset = GetVariance();
                     ChargeAttack = false;
-					chargeCounter = 0;
+                    Charging = false;
+                    chargeCounter = 0;
 					NPC.netUpdate = true;
                     shouldCharge = Main.rand.NextBool(3); //wether or not to charge
                 }
@@ -270,8 +271,11 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 				NPC.localAI[3] = 0;
 				if(playerAvailable && !ChargeAttack)
 					NPC.velocity = Vector2.Normalize(targetPlayer.Center - NPC.Center) * 0.005f;
-				NPC.rotation = NPC.velocity.ToRotation();
-			}
+
+                NPC.rotation = NPC.velocity.ToRotation();
+                if (RepairMode && !ChargeAttack && !Charging && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                    NPC.rotation += MathHelper.PiOver2;
+            }
 
             if (unofficial)
                 NPC.knockBackResist = ChargeAttack ? 0f : 1f;
@@ -284,6 +288,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     if (Main.netMode != NetmodeID.MultiplayerClient && chargingCounter > 60)
                     {
                         ChargeAttack = false;
+                        Charging = false;
                         goalOffset = GetVariance(false);
                         NPC.netUpdate = true;
                         chargingCounter = 0;
@@ -299,6 +304,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     if (Main.netMode != NetmodeID.MultiplayerClient && Vector2.Distance(destination, NPC.Center) < 60f)
                     {
                         ChargeAttack = false;
+                        Charging = false;
                         goalOffset = GetVariance(false);
                         NPC.netUpdate = true;
                     }
@@ -385,7 +391,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
                 if (Body != null && Body.tenthHealth)
                 {
-                    DrawingUtils.DrawAura(spriteBatch, glowTex, NPC, Body.auraPercent, 1f, 0f, 0f, InfinityZero.GetGlowAlpha(true), true);
+                    DrawingUtils.DrawAura(spriteBatch, glowTex, NPC.Center - screenPos, NPC.frame, InfinityZero.GetGlowAlpha(true), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, Body.auraPercent);
                     spriteBatch.Draw(glowTex, NPC.Center - screenPos, NPC.frame, InfinityZero.GetGlowAlpha(true), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
                 }
                 else
@@ -395,14 +401,13 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 string zeroTexture = ModContent.GetInstance<InfinityZeroHand1>().Texture;
                 string glowMaskTexture = zeroTexture + "_Glow";
-                string ArmTex = Texture + "_Arm";
                 Texture2D zeroTex = ModContent.Request<Texture2D>(zeroTexture).Value;
                 Texture2D glowTex = ModContent.Request<Texture2D>(glowMaskTexture).Value;
 
                 spriteBatch.Draw(zeroTex, NPC.Center - screenPos, NPC.frame, BaseUtility.ColorClamp(BaseDrawing.GetNPCColor(NPC), InfinityZero.GetGlowAlpha(true)), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
                 if (Body != null && Body.tenthHealth)
                 {
-                    BaseDrawing.DrawAura(spriteBatch, glowTex, 0, NPC, Body.auraPercent, 1f, 0f, 0f, InfinityZero.GetGlowAlpha(true), true);
+                    DrawingUtils.DrawAura(spriteBatch, glowTex, NPC.Center - screenPos, NPC.frame, InfinityZero.GetGlowAlpha(true), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, Body.auraPercent);
                     spriteBatch.Draw(glowTex, NPC.Center - screenPos, NPC.frame, InfinityZero.GetRedAlpha(), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);
                 }
                 else
@@ -413,20 +418,12 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public override void FindFrame(int frameHeight)
         {
-            //npc.frameCounter++;
             if (ChargeAttack || Charging)
-            {
                 NPC.frame.Y = 1 * frameHeight;
-            }else
-            if (RepairMode)
-            {
+            else if (RepairMode)
                 NPC.frame.Y = 2 * frameHeight;
-            }
             else
-            {
 				NPC.frame.Y = 0;
-                //npc.frameCounter = 0;
-            }
         }
 
         public override bool PreKill() => false;

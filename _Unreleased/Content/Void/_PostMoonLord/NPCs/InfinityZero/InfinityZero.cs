@@ -625,7 +625,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             if (tenthHealth)
             {
-                spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, unofficialWorld ? NPC.frame.Size() * 0.5f : Vector2.Zero, NPC.scale, 0, 0);
+                spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, unofficialWorld ? NPC.frame.Size() * 0.5f : Vector2.Zero, NPC.scale, 0, 0);
                 BaseDrawing.DrawAura(spriteBatch, glow, 0, NPC, auraPercent, 1f, 0f, 0f, GetRedAlpha(), unofficialWorld);
                 BaseDrawing.DrawTexture(spriteBatch, glow, 0, NPC, GetRedAlpha(), unofficialWorld);
                 if(unofficialWorld)
@@ -634,7 +634,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     {
                         Texture2D core = ModContent.Request<Texture2D>(respritePath + "_Core").Value;
                         Rectangle frame = core.Frame(3, 1, CoreFrame, 0);
-                        spriteBatch.Draw(core, NPC.Center - new Vector2(3, 15) - Main.screenPosition, frame, drawColor, NPC.rotation, frame.Size() * 0.5f, NPC.scale, 0, 0);
+                        spriteBatch.Draw(core, NPC.Center - new Vector2(3, 15) - Main.screenPosition, frame, Color.White, NPC.rotation, frame.Size() * 0.5f, NPC.scale, 0, 0);
                     }
                     Texture2D eye = ModContent.Request<Texture2D>(respritePath + "_Eye").Value;
                     float maxDist = 9f;
