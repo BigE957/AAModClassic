@@ -24,6 +24,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossS
             DustType = DustID.WoodFurniture;
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AddMapEntry(new Color(120, 85, 60));
+			RegisterItemDrop(ModContent.ItemType<ShenDoragonTrophy>());
 		}
 	}
 }
