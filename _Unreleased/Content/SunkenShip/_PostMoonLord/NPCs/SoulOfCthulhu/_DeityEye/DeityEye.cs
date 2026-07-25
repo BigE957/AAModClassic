@@ -1,3 +1,4 @@
+using AAModClassic._CrossMod.CalamityMod;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
@@ -15,13 +16,28 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEye
 {
-    [AutoloadBossHead]
     public class DeityEye : ModNPC
     {
+        public static int normalIconIndex;
+        public static int phase2IconIndex;
+
+        public override void Load()
+        {
+            string normalIconPath = Texture + "_Head_Boss";
+            string phase2IconPath = Texture + "_Head_Boss2";
+
+            normalIconIndex = AAMod.instance.AddBossHeadTexture(normalIconPath, -1);
+            phase2IconIndex = AAMod.instance.AddBossHeadTexture(phase2IconPath, -1);
+        }
+
+        public override void BossHeadSlot(ref int index)
+        {
+            index = NPC.ai[0] > 1f ? phase2IconIndex : normalIconIndex;
+        }
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Cyaegha");
@@ -87,16 +103,6 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
         public override void FindFrame(int frameHeight)
         {
-            int num = 1;
-            if (!Main.dedServ)
-            {
-                Main.instance.LoadNPC(NPC.type);
-                if (TextureAssets.Npc[NPC.type].Value == null)
-                {
-                    return;
-                }
-                num = TextureAssets.Npc[NPC.type].Height() / Main.npcFrameCount[NPC.type];
-            }
             NPC.frameCounter += 1.0;
             if (NPC.frameCounter < 7.0)
             {
@@ -104,11 +110,11 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             }
             else if (NPC.frameCounter < 14.0)
             {
-                NPC.frame.Y = num;
+                NPC.frame.Y = frameHeight;
             }
             else if (NPC.frameCounter < 21.0)
             {
-                NPC.frame.Y = num * 2;
+                NPC.frame.Y = frameHeight * 2;
             }
             else
             {
@@ -117,7 +123,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             }
             if (NPC.ai[0] > 1f)
             {
-                NPC.frame.Y = NPC.frame.Y + num * 3;
+                NPC.frame.Y = NPC.frame.Y + frameHeight * 3;
                 return;
             }
         }
@@ -305,7 +311,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                         {
                             bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
 
-                            NPC.ai[3] = unofficial ? 55 : 0f;
+                            NPC.ai[3] = 0f;
                             spawnPos = NPC.Center;
                             Vector2 toTarget = spawnPos.DirectionTo(Main.player[NPC.target].Center);
                             if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -318,11 +324,10 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                                     baseSpeed = 14f;
                                     dmg = 22;
                                 }
-                                Vector2 velocity = toTarget * baseSpeed;
+                                Vector2 velocity = toTarget.RotatedBy(Main.rand.NextFloat(-MathHelper.Pi / 8f, MathHelper.Pi / 8f)) * baseSpeed;
                                 if (unofficial)
                                 {
                                     velocity /= 2f;
-                                    spawnPos -= velocity * 4f;
                                 }
                                 else
                                     spawnPos += velocity * 4f;

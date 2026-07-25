@@ -500,6 +500,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 if (NPC.ai[1] == 2f)
                 {
                     Summon = true;
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        NPC.dontTakeDamage = true;
                     NPC.velocity *= .8f;
                     if (NPC.velocity.X < .5f || NPC.velocity.X > -.5f)
                     {
@@ -630,13 +632,13 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             if (NPC.life <= 0 && !Main.dedServ)
             {
                 Vector2 baseVelocity = NPC.velocity * Main.rand.NextFloat();
-                Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, baseVelocity + Vector2.UnitX * 2f, Mod.Find<ModGore>("SoCGore1").Type, 1.4f);
-                Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, baseVelocity + Vector2.UnitX * -2f, Mod.Find<ModGore>("SoCGore1").Type, 1.4f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, baseVelocity + Vector2.UnitX * 2f, Mod.Find<ModGore>("SoCGore1").Type, NPC.scale);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, baseVelocity + Vector2.UnitX * -2f, Mod.Find<ModGore>("SoCGore1").Type, NPC.scale);
                 for (int i = 0; i < 8; i++)
                 {
                     int num = 3 + i;
                     Vector2 extraVelo = Vector2.UnitY.RotatedBy(MathHelper.TwoPi / 8f * i) * -2f;
-                    Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, baseVelocity + extraVelo, Mod.Find<ModGore>("SoCGore" + num).Type, 1.4f);
+                    Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, baseVelocity + extraVelo, Mod.Find<ModGore>("SoCGore" + num).Type, NPC.scale);
                 }
             }
         }
@@ -674,9 +676,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 }
                 scale = 1f - alpha / 255f;
                 RingRotation += 0.0149599658f;
-                Main.spriteBatch.Draw(RingTex, vector38, null, AAColor.Cthulhu, -RingRotation, RingTex.Size() / 2f, scale, SpriteEffects.None, 0f);
-                Main.spriteBatch.Draw(RitualTex, vector38, null, AAColor.Cthulhu, RingRotation, origin8, scale, SpriteEffects.None, 0f);
-                Main.spriteBatch.Draw(RingTex, vector38, null, AAColor.Cthulhu, -RingRotation, RingTex.Size() / 2f, scale * 0.42f, SpriteEffects.None, 0f);
+                spriteBatch.Draw(RingTex, vector38, null, AAColor.Cthulhu, -RingRotation, RingTex.Size() / 2f, scale, SpriteEffects.None, 0f);
+                spriteBatch.Draw(RitualTex, vector38, null, AAColor.Cthulhu, RingRotation, origin8, scale, SpriteEffects.None, 0f);
+                spriteBatch.Draw(RingTex, vector38, null, AAColor.Cthulhu, -RingRotation, RingTex.Size() / 2f, scale * 0.42f, SpriteEffects.None, 0f);
             }
 
             int shader;

@@ -24,7 +24,19 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
     {
         private static readonly CthulhuSky_Clouds CthulhuFog = new(false);
 
-        public override bool IsBiomeActive(Player player) => AAWorld_Unreleased.ShipTiles > 1;
+        public override bool IsBiomeActive(Player player)
+        {
+            if (AAWorld_Unreleased.ShipTiles > 1)
+                return true;
+
+            foreach(NPC n in Main.ActiveNPCs)
+            {
+                if (n.type == ModContent.NPCType<SoulOfCthulhu>() || n.type == ModContent.NPCType<Cthulhu>() || n.type == ModContent.NPCType<CthulhuPortal>())
+                    return true;
+            }
+
+            return false;
+        }
 
         public override void SpecialVisuals(Player player, bool isActive)
         {

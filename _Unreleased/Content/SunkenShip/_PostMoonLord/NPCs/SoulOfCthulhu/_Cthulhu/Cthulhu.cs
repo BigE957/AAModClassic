@@ -12,6 +12,7 @@ using AAModClassic.Achievements;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
@@ -395,14 +396,20 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
             //draw glow/glow afterimage
             spriteBatch.Draw(GlowTex, NPC.Center - screenPos, NPC.frame, AAColor.Cthulhu2, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(), 0);
-            BaseDrawing.DrawAfterimage(spriteBatch, GlowTex, 0, NPC, 0.8f, 1f, 6, false, 0f, 0f, AAColor.Cthulhu2);
+            DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, GlowTex, NPC.Center - screenPos, NPC.velocity, 6, NPC.frame, AAColor.Cthulhu2, NPC.scale, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection(), 0.8f);
 
             //Draw Shield
             if (BossAlive)
             {
                 int shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
-                BaseDrawing.DrawTexture(spriteBatch, Shield, shader, NPC.position, NPC.width, NPC.height, ShieldScale, ShieldRotation, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), AAColor.Cthulhu, true);
-                BaseDrawing.DrawTexture(spriteBatch, Barrier, 0, NPC.position, NPC.width, NPC.height, ShieldScale, ShieldRotation, 0, 1, new Rectangle(0, 0, Barrier.Width, Barrier.Height), Color.White, true);
+                DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (sb) =>
+                {
+                    float opacity = 1f;
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        opacity = MathHelper.Lerp(0.25f, 0.75f, MathF.Sin(Main.GlobalTimeWrappedHourly * 5f) / 2f + 0.5f);
+                    spriteBatch.Draw(Shield, NPC.Center - screenPos, null, AAColor.Cthulhu * opacity, ShieldRotation, Shield.Size() * 0.5f, ShieldScale, 0, 0);
+                });
+                spriteBatch.Draw(Barrier, NPC.Center - screenPos, null, Color.White, ShieldRotation, Barrier.Size() * 0.5f, ShieldScale, 0, 0);
             }
             return false;
         }
