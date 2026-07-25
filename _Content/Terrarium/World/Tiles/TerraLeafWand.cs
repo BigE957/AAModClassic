@@ -17,6 +17,7 @@ namespace AAModClassic._Content.Terrarium.World.Tiles
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Leaf Wand");
+            ItemID.Sets.DisableAutomaticPlaceableDrop[Type] = true;
         }
         public override void SetDefaults()
         {

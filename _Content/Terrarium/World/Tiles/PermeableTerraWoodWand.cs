@@ -12,6 +12,7 @@ namespace AAModClassic._Content.Terrarium.World.Tiles
         {
             // DisplayName.SetDefault("Permeable Terra Wood Wand");
             /* Tooltip.SetDefault(@"Right click to swap modes"); */
+            ItemID.Sets.DisableAutomaticPlaceableDrop[Type] = true;
         }
         public override void SetDefaults()
         {
