@@ -182,7 +182,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 if (StormTimer >= 750)
                 {
                     StormTimer = 0;
-                    Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, NPC.velocity.X * 2f, NPC.velocity.Y * 2f, ModContent.ProjectileType<InfinityZero_InfinityStorm>(), 0, 0, -1);
+                    Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, NPC.velocity.X * 2f, NPC.velocity.Y * 2f, ModContent.ProjectileType<InfinityZero_InfinityStorm>(), 60, 0, -1);
                 }
             }
 
