@@ -53,7 +53,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             NPC.npcSlots = 0;
             NPC.dontCountMe = true;
             NPC.noTileCollide = true;
-            NPC.boss = false;
+            NPC.boss = true;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.Item88;
             NPC.noGravity = true;
