@@ -153,7 +153,7 @@ MagmaSwimmer.DisplayName: Magma Swimmer
 AkumaBody.DisplayName: "{$NPCs.AkumaHead.DisplayName}"
 AkumaHead.DisplayName: Akuma; Draconian Demon
 AkumaTransition.DisplayName: Soul Of Fury
-AkumaABody.DisplayName: "{$NPCs.AkumaAHead}"
+AkumaABody.DisplayName: "{$NPCs.AkumaAHead.DisplayName}"
 AkumaAHead.DisplayName: Oni Akuma
 AwakenedLungBody.DisplayName: "{$NPCs.AwakenedLungHead.DisplayName}"
 AwakenedLungHead.DisplayName: Awakened Lung
