@@ -46,12 +46,18 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
 
         public int body = -1;
         public float rotValue = -1f;
+        private int despawnTimer;
+        private int syncTimer;
+        private float lastSyncedRot = -1f;
 
         public override void AI()
         {
+            //setting life to 0 left the probe active with no health, and the truffle counts
+            //every active probe when it decides whether it's invulnerable
             if (!NPC.AnyNPCs(ModContent.NPCType<TechnoTruffle>()))
             {
-                NPC.life = 0;
+                BaseAI.KillNPCWithLoot(NPC);
+                return;
             }
 
             NPC.noGravity = true;
@@ -67,6 +73,9 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
                 NPC.chaseable = true;
             }
 
+            //failsafe, a probe nobody can reach would keep the truffle invulnerable forever
+            if (++despawnTimer > 3600) { BaseAI.KillNPCWithLoot(NPC); return; }
+
             if (body == -1)
             {
                 int npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<TechnoTruffle>(), 400f, null);
@@ -76,7 +85,16 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             NPC truffle = Main.npc[body];
             if (truffle == null || truffle.life <= 0 || !truffle.active || truffle.type != ModContent.NPCType<TechnoTruffle>()) { BaseAI.KillNPCWithLoot(NPC); return; }
 
-            Player player = Main.player[truffle.target];
+            //the truffle's target can point at someone who died or left, which would fling the
+            //probe off to a spot nobody can follow it to
+            int target = truffle.target;
+            if (!CanOrbit(target))
+            {
+                NPC.TargetClosest(false);
+                target = NPC.target;
+                if (!CanOrbit(target)) return;
+            }
+            Player player = Main.player[target];
 
             for (int m = NPC.oldPos.Length - 1; m > 0; m--)
             {
@@ -89,9 +107,30 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             rotValue += 0.04f;
             while (rotValue > (float)Math.PI * 2f) rotValue -= (float)Math.PI * 2f;
 
+            //probes teleport instead of moving, so clients can't extrapolate them, and every
+            //client starts its own rotValue however late the spawn packet turned up. park the
+            //server's angle in ai[1] so they can line back up
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                NPC.ai[1] = rotValue;
+                if (++syncTimer >= 12)
+                {
+                    syncTimer = 0;
+                    NPC.netUpdate = true;
+                }
+            }
+            else if (NPC.ai[1] != lastSyncedRot)
+            {
+                lastSyncedRot = NPC.ai[1];
+                rotValue = NPC.ai[1];
+            }
+
             NPC.Center = BaseUtility.RotateVector(player.Center, player.Center + new Vector2(260, 0f), rotValue);
             NPC.netOffset = Vector2.Zero;
         }
+
+        private static bool CanOrbit(int player) =>
+            player >= 0 && player < Main.maxPlayers && Main.player[player].active && !Main.player[player].dead;
 
         public override void FindFrame(int frameHeight)
         {
