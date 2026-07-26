@@ -6,7 +6,7 @@ MushroomMonarchKilled: {
 
 FeudalFungusKilled: {
 	FriendlyName: 发光的世仇
-	Description: 击倒真菌帝——脾性恶劣的真菌异种。
+	Description: 击倒真菌帝——一个脾性恶劣的真菌异种。
 }
 
 GripsOfChaosKilled: {
@@ -40,7 +40,7 @@ SubzeroSerpentKilled: {
 }
 
 SagittariusKilled: {
-	FriendlyName: 哑然失声
+	FriendlyName: 嘶声力竭
 	Description: 摧毁射手座-虚空人马——被虚空黑暗意志侵蚀腐化的机械造物。
 }
 
@@ -56,7 +56,7 @@ AnubisKilled: {
 
 BiomiteCoreKilled: {
 	FriendlyName: 世界之核
-	Description: 承受住环境原核的攻击——失落要塞的防御兼训练。
+	Description: 承受住环境原核的攻击——失落要塞的防御兼训练机制。
 }
 
 AthenaKilled: {
@@ -75,7 +75,7 @@ EquinoxWormsKilled: {
 }
 
 GreedKilled: {
-	FriendlyName: 独一无二的图腾
+	FriendlyName: 非同质化图腾
 	Description: 击败贪婪的金食饕餮，将他的宝库据为己有。
 }
 
@@ -95,23 +95,23 @@ RajahKilled: {
 }
 
 ShenDoragonKilled: {
-	FriendlyName: 穿越潭渊与燎狱
+	FriendlyName: 穿越沼泽与火焰
 	Description: 消灭上神应龙，终结永恒的混沌。
 }
 
 SiegeMechsKilled: {
 	FriendlyName: 战争军械库
-	Description: 击败三个夜间行动的风暴科学家威胁：捕猎者-电子猎犬爪、食腐者-双头狗俄耳托斯X型与侵入者-创世哺育之母。
+	Description: 击败风暴科学家创造的三个夜间行动的威胁：捕猎者-电子猎犬爪、食腐者-双头狗俄耳托斯X型与侵入者-创世哺育之母。
 }
 
 SistersOfDiscordKilled: {
-	FriendlyName: 混乱干预
+	FriendlyName: 混沌干预
 	Description: 把混沌姐妹打得哭着跑回她们老爸的怀里。
 }
 
 SoulOfCthulhuKilled: {
 	FriendlyName: 沉船遗魂
-	Description: 驱除克苏鲁之魂，阻止它的寰宇之灾吞噬世界。
+	Description: 驱除克苏鲁之魂，阻止寰宇之灾吞噬世界。
 }
 
 StormingSiege: {
@@ -156,7 +156,7 @@ TierThreeChaosOreMined: {
 }
 
 ApocalyptiteOreMined: {
-	FriendlyName: 末日降临
+	FriendlyName: 现代启示录
 	Description: 开采启示矿——由虚空毁灭能量形成的不稳定矿石。
 }
 
