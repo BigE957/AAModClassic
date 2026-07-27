@@ -1,8 +1,7 @@
-﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Pets;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Pets;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic._Unreleased.Content.Mire.___PreHardmode;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.Consumables;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
@@ -22,7 +21,9 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Consumables
                 ModContent.ItemType<Mossket>(),
                 ModContent.ItemType<GlowingMossBall>(),
                 ModContent.ItemType<ShadowBand>(),
-                ModContent.ItemType<GunkWand>()
+                ModContent.ItemType<GunkWand>(),
+                ModContent.ItemType<LivingBogwoodWand>(),
+                ModContent.ItemType<LivingBogleafWand>()
             )
         ];
     }

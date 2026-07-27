@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Pets;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
+using AAModClassic._Unreleased.Content.Inferno.___PreHardmode.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.Consumables;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
@@ -20,7 +21,9 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables
                 ModContent.ItemType<Firebuster>(), 
                 ModContent.ItemType<Volley>(), 
                 ModContent.ItemType<DragonSoul>(), 
-                ModContent.ItemType<DragonsGuard>()
+                ModContent.ItemType<DragonsGuard>(),
+                ModContent.ItemType<LivingRazewoodWand>(),
+                ModContent.ItemType<LivingRazeleafWand>()
             )
         ];
     }
