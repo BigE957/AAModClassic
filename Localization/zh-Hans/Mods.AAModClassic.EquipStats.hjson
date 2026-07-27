@@ -500,4 +500,10 @@ Effect: {
 	// ShadowFlowerEffect: While out of combat, you heal {0} mana per second
 	// AdjustOutOfCombatTimeEffect: You exit combat {0} seconds {1}
 	// FracturedAnkhEffect: Ails you with most debuffs
+	/* RaptorTalonEffect:
+		'''
+		Increases your heavy critical strike chance the closer you 
+		are to an enemy, up to 10%
+		''' */
+	// HeavyCritChanceEffect: "{0}% {1} {2}{3} critical strike chance"
 }

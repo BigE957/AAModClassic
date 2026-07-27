@@ -153,5 +153,7 @@ namespace AAModClassic.Globals
         public static Color OblivionDialogue => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? new Color(200, 0, 0) : Color.DarkRed;
 
         public static Color YamataDialogue => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? new Color(85, 86, 110) : new Color(45, 46, 70);
+
+        public static Color HeavyCritCombatText => new Color(255, 66, 75, 255);
     }
 }
