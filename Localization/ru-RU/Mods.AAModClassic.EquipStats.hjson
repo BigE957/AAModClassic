@@ -501,7 +501,7 @@ Effect: {
 	/* RaptorTalonEffect:
 		'''
 		Increases your heavy critical strike chance the closer you 
-		are to an enemy, up to 10%
+		are to an enemy, up to {0}%
 		''' */
-	// HeavyCritChanceEffect: "{0}% {1} {2}{3} critical strike chance"
+	// HeavyCritChanceEffect: "{0}% {1} {2}{3}heavy critical strike chance"
 }
