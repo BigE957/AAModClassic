@@ -11,7 +11,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
 {
-    class StarsBox_Tile : ModTile
+    public class StarsBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

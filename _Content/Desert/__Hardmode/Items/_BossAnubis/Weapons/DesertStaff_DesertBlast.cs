@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons
 {
-    class DesertStaff_DesertBlast : ModProjectile
+    public class DesertStaff_DesertBlast : ModProjectile
     {
         public override void SetStaticDefaults()
         {

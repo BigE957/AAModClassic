@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Decoration
 {
-    class ChaosPreShenBox_Tile : ModTile
+    public class ChaosPreShenBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

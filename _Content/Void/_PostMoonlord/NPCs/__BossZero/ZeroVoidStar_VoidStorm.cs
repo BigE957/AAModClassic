@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
 {
-    class ZeroVoidStar_VoidStorm : ModProjectile
+    public class ZeroVoidStar_VoidStorm : ModProjectile
     {
         public override void SetStaticDefaults()
         {

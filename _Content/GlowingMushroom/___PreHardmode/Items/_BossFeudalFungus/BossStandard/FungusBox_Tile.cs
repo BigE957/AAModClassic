@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.BossStandard
 {
-    class FungusBox_Tile : ModTile
+    public class FungusBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

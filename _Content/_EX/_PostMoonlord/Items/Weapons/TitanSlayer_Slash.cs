@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    class TitanSlayer_Slash : ModProjectile
+    public class TitanSlayer_Slash : ModProjectile
     {
         public override void SetStaticDefaults()
         {

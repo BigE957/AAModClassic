@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.World.Tiles.Trees
 {
-    class BogwoodTree_Tile : ModTree
+    public class BogwoodTree_Tile : ModTree
     {
         public override TreePaintingSettings TreeShaderSettings => new();
 

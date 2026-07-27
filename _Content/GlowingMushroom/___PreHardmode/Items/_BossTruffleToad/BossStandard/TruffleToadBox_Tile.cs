@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard
 {
-    class TruffleToadBox_Tile : ModTile
+    public class TruffleToadBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

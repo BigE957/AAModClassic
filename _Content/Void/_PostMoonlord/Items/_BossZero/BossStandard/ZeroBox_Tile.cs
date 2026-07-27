@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
 {
-    class ZeroBox_Tile : ModTile
+    public class ZeroBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

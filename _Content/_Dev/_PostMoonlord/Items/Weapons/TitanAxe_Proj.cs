@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
-    class TitanAxe_Proj : ModProjectile
+    public class TitanAxe_Proj : ModProjectile
 	{
 		public override void SetDefaults()
         {

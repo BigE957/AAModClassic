@@ -341,7 +341,7 @@ namespace AAModClassic._Content.Void.World.Biomes
         }
     }
 
-    class VoidSurfaceBgStyle : ModSurfaceBackgroundStyle
+    public class VoidSurfaceBgStyle : ModSurfaceBackgroundStyle
     {
         public override void ModifyFarFades(float[] fades, float transitionSpeed)
         {

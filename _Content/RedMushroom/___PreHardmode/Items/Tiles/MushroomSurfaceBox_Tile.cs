@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles
 {
-    class MushroomSurfaceBox_Tile : ModTile
+    public class MushroomSurfaceBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard
 {
-    class AthenaBox_Tile : ModTile
+    public class AthenaBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

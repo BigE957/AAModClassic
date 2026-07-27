@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration
 {
-    class AbyssiumBrick_Tile : ModTile
+    public class AbyssiumBrick_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

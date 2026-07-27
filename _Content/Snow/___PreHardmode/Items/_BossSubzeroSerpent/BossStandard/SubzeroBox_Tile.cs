@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.BossStandard
 {
-    class SubzeroBox_Tile : ModTile
+    public class SubzeroBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

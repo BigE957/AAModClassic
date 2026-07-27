@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard
 {
-    class EquinoxBox_Tile : ModTile
+    public class EquinoxBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

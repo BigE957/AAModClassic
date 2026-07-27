@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Weapons
 {
-    class ChaosBaton_AbyssBall : ModProjectile
+    public class ChaosBaton_AbyssBall : ModProjectile
     {
         public override void SetStaticDefaults()
         {

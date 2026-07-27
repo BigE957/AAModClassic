@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 {
-    class OrthrusXHead_Spark : ModProjectile
+    public class OrthrusXHead_Spark : ModProjectile
     {
         public override void SetStaticDefaults()
         {

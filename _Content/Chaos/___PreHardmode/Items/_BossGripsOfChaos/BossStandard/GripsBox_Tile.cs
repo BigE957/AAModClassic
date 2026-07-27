@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard
 {
-    class GripsBox_Tile : ModTile
+    public class GripsBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

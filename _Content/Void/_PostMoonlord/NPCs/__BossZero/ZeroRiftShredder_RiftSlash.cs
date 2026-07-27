@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
 {
-    class ZeroRiftShredder_RiftSlash : ModProjectile
+    public class ZeroRiftShredder_RiftSlash : ModProjectile
     {
         public override void SetDefaults()
         {

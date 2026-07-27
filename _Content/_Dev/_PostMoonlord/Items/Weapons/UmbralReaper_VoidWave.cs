@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
-    class UmbralReaper_VoidWave : ModProjectile
+    public class UmbralReaper_VoidWave : ModProjectile
     {
         public override void SetDefaults()
         {

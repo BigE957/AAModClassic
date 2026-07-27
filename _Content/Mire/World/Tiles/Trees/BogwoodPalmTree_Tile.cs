@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.World.Tiles.Trees
 {
-    class BogwoodPalmTree_Tile : ModPalmTree
+    public class BogwoodPalmTree_Tile : ModPalmTree
     {
         public override TreePaintingSettings TreeShaderSettings => new();
 

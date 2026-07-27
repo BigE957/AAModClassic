@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items.Tiles
 {
-    class AcropolisBox_Tile : ModTile
+    public class AcropolisBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

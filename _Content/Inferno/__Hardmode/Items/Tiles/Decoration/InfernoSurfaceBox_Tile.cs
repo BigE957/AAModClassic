@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.Items.Tiles.Decoration
 {
-    class InfernoSurfaceBox_Tile : ModTile
+    public class InfernoSurfaceBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

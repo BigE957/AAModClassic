@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.BossStandard
 {
-    class RajahAwakenedBox_Tile : ModTile
+    public class RajahAwakenedBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

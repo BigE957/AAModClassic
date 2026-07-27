@@ -12,7 +12,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
 {
     // to investigate: Projectile.Damage, (8843)
-    class ZeroRiftShredder_Rift : ModProjectile
+    public class ZeroRiftShredder_Rift : ModProjectile
     {
         public static Asset<Texture2D> Triangle1;
         public static Asset<Texture2D> Triangle2;

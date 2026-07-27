@@ -10,7 +10,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic._Content.Mire.World.Tiles.Trees
 {
-    class BogwoodPalmTreeSapling_Tile : ModTile
+    public class BogwoodPalmTreeSapling_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.BossStandard
 {
-    class GreedAwakenedBox_Tile : ModTile
+    public class GreedAwakenedBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

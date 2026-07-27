@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    class EternalTwilight_YamataPhantom : ModProjectile
+    public class EternalTwilight_YamataPhantom : ModProjectile
     {
         public override void SetStaticDefaults()
         {

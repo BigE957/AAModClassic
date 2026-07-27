@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Mire.__Hardmode.Items.Tiles.Decoration
 {
-    class LivingBogtoxinBlock_Tile : ModTile
+    public class LivingBogtoxinBlock_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

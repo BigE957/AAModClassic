@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.World.Tiles.Trees
 {
-    class OuroborosTree_Tile : ModTree
+    public class OuroborosTree_Tile : ModTree
     {
         public override void SetStaticDefaults()
         {

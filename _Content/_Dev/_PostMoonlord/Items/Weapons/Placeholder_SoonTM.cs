@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
-    class Placeholder_SoonTM : Javelin
+    public class Placeholder_SoonTM : Javelin
     {
         public override void SetDefaults()
         {

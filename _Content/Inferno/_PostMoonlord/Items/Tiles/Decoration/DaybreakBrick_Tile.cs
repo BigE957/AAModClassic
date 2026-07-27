@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Tiles.Decoration
 {
-    class DaybreakBrick_Tile : ModTile
+    public class DaybreakBrick_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

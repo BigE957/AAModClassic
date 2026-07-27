@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard
 {
-    class ShenAwakenedBox_Tile : ModTile
+    public class ShenAwakenedBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

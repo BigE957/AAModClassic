@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.World.Tiles.Trees
 {
-    class RazewoodPalmTree_Tile : ModPalmTree
+    public class RazewoodPalmTree_Tile : ModPalmTree
     {
         public override TreePaintingSettings TreeShaderSettings => new();
 

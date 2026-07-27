@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars.World.Altar
 {
-    class NightcrawlerBrick_Tile : ModTile
+    public class NightcrawlerBrick_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

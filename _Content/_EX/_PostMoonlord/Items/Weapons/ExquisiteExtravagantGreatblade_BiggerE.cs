@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    class ExquisiteExtravagantGreatblade_BiggerE : ModProjectile
+    public class ExquisiteExtravagantGreatblade_BiggerE : ModProjectile
     {
         public override void SetStaticDefaults()
         {

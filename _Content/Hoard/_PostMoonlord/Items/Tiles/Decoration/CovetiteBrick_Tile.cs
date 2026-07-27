@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.Items.Tiles.Decoration
 {
-    class CovetiteBrick_Tile : ModTile
+    public class CovetiteBrick_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

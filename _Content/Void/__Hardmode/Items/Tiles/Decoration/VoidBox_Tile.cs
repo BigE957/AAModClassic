@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Void.__Hardmode.Items.Tiles.Decoration
 {
-    class VoidBox_Tile : ModTile
+    public class VoidBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

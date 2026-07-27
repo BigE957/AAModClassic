@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Hoard.__Hardmode.Items.Tiles
 {
-    class HoardBox_Tile : ModTile
+    public class HoardBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items.Tiles.Decoration
 {
-    class MireLakeBox_Tile : ModTile
+    public class MireLakeBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.BossStandard
 {
-    class GreedBox_Tile : ModTile
+    public class GreedBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

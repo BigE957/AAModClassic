@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration
 {
-    class Bogwood_Tile : ModTile
+    public class Bogwood_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

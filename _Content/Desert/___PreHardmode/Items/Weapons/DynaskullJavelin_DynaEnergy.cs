@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items.Weapons
 {
-    class DynaskullJavelin_DynaEnergy : ModProjectile
+    public class DynaskullJavelin_DynaEnergy : ModProjectile
     {
         public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()

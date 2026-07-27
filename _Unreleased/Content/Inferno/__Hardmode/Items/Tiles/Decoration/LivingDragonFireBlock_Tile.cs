@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Inferno.__Hardmode.Items.Tiles.Decoration
 {
-    class LivingDragonFireBlock_Tile : ModTile
+    public class LivingDragonFireBlock_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

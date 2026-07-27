@@ -8,7 +8,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.BossStandard
 {
-    class CthulhuBox_Tile : ModTile
+    public class CthulhuBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStandard
 {
-    class AkumaBox_Tile : ModTile
+    public class AkumaBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.BossStandard
 {
-    class DjinnBox_Tile : ModTile
+    public class DjinnBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

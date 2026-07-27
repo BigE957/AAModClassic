@@ -10,7 +10,7 @@ using AAModClassic.Dusts;
 
 namespace AAModClassic._Removed.Content.Parthenan
 {
-    class SiegeBox_Tile : ModTile, IGlowmaskTile
+    public class SiegeBox_Tile : ModTile, IGlowmaskTile
 	{
 		public override void SetStaticDefaults()
 		{

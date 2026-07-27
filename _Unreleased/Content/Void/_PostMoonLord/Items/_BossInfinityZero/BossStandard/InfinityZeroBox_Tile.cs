@@ -11,7 +11,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.BossStandard
 {
-    class InfinityZeroBox_Tile : ModTile
+    public class InfinityZeroBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

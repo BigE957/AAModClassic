@@ -6,7 +6,7 @@ using System;
 
 namespace AAModClassic._Content.Inferno.World.Tiles
 {
-    class Torchsand_Tile : ModTile
+    public class Torchsand_Tile : ModTile
     {
 
         public override void SetStaticDefaults()

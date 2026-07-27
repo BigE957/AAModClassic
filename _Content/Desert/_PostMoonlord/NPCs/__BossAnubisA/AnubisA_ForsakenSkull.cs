@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 {
-    class AnubisA_ForsakenSkull : ModProjectile
+    public class AnubisA_ForsakenSkull : ModProjectile
     {
         public override void SetStaticDefaults()
         {

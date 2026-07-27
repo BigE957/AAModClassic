@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Tiles.Decoration
 {
-    class MireDayBox_Tile : ModTile
+    public class MireDayBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

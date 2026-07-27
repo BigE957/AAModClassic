@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons
 {
-    class ForsakenStaff_ForsakenStaffBlast : ModProjectile
+    public class ForsakenStaff_ForsakenStaffBlast : ModProjectile
     {
         public override void SetStaticDefaults()
         {
