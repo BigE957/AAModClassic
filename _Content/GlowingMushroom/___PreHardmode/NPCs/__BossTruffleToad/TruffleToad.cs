@@ -101,7 +101,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
 
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
-                NPC.defense = 5;
+                NPC.defense = 10;
             }
         }
 
@@ -728,7 +728,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
                 {
                     if (Main.expertMode)
                     {
-                        NPC.damage = (int)(NPC.defDamage * 2 * 0.9);
+                        NPC.damage = (int)(NPC.defDamage * 2 * 0.9); // TODO: THAT SOUNDS PROBLEMATIC
                     }
                     else
                     {
