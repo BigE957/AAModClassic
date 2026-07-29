@@ -97,8 +97,11 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.Zombie29;
             if (Main.expertMode)
-            {
                 NPC.defense = 20;
+
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                NPC.defense = 5;
             }
         }
 
