@@ -3,6 +3,7 @@ using AAModClassic._Content.Inferno.___PreHardmode.NPCs;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic.Globals;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
