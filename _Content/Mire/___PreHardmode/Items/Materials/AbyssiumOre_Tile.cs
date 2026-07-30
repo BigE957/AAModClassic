@@ -1,4 +1,5 @@
 using AAModClassic._Content.Mire.World.Tiles;
+using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -33,7 +34,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Materials
 
         public override bool CanExplode(int i, int j)
         {
-            return false;
+            return WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)

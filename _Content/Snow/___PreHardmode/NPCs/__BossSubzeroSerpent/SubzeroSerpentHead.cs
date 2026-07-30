@@ -807,7 +807,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 
         public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 		{
-			if (Main.expertMode)
+			if (Main.expertMode && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
 			{
                 target.AddBuff(BuffID.Chilled, 200, true);
 			}

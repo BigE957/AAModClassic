@@ -144,6 +144,7 @@ namespace AAModClassic
              GetNewRecipe(ItemID.TerraBlade, 1)
             .AddIngredient(ModContent.ItemType<TrueFleshrendClaymore>(), 1)
             .AddIngredient(ItemID.TrueExcalibur, 1)
+            .AddIngredient(ItemID.BrokenHeroSword, 1)
             .AddTile(TileID.MythrilAnvil)
             .Register();
 
