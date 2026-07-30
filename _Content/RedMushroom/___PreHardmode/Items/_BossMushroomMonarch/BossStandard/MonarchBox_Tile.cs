@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard
 {
-    class MonarchBox_Tile : ModTile
+    public class MonarchBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

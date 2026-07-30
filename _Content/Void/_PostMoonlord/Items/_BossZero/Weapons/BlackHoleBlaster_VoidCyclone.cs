@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 {
-    class BlackHoleBlaster_VoidCyclone : ModProjectile
+    public class BlackHoleBlaster_VoidCyclone : ModProjectile
     {
         public override void SetStaticDefaults()
         {

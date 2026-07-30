@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    class TartarusReaper_Proj : ModProjectile
+    public class TartarusReaper_Proj : ModProjectile
     {
         public override void SetDefaults()
         {

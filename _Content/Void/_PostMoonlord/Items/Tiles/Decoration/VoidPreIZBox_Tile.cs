@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
 {
-    class VoidPreIZBox_Tile : ModTile
+    public class VoidPreIZBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

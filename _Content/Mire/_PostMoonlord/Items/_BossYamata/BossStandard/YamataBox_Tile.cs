@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
-    class YamataBox_Tile : ModTile
+    public class YamataBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

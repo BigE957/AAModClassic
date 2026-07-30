@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace AAModClassic._Content.Mire.World.Tiles
 {
-    class Depthsand_Tile : ModTile
+    public class Depthsand_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

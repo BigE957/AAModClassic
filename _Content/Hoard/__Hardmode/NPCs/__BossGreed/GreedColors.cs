@@ -2,7 +2,7 @@
 
 namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
 {
-    class GreedrawColors
+    public class GreedrawColors
     {
         public static Color Copper => new Color(150, 67, 22); public static Color CopperGlow => new Color(255, 229, 183);
 

@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    class Catastrophe_CatastropheBlade : ModProjectile
+    public class Catastrophe_CatastropheBlade : ModProjectile
     {
         public override void SetDefaults()
         {

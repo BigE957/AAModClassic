@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
 {
-    class AbyssalShadowshot_Shadowshot : ModProjectile
+    public class AbyssalShadowshot_Shadowshot : ModProjectile
     {
         public override void SetStaticDefaults()
         {

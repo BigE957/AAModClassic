@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    class ScytheOfEvil_Proj : ModProjectile
+    public class ScytheOfEvil_Proj : ModProjectile
     {
         public override void SetDefaults()
         {

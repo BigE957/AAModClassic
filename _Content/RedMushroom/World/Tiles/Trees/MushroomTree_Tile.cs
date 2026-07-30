@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.World.Tiles.Trees
 {
-    class MushroomTree_Tile : ModTree
+    public class MushroomTree_Tile : ModTree
     {
         public override TreePaintingSettings TreeShaderSettings => new();
 

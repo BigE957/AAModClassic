@@ -1,4 +1,6 @@
 ﻿using AAModClassic._Content.Void.Projectiles;
+using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -30,11 +32,14 @@ namespace AAModClassic._Content.Void.__Hardmode.Items.Weapons
             Projectile.timeLeft *= 5;
             Projectile.minion = true;
             Projectile.minionSlots = 1;
+
+			if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+				this.MakeSpriteCenteredOnInaccurateHitbox(new Vector2(76, 42));
         }
 
         public override void AI()
         {
-        	if (Projectile.localAI[0] == 0f)
+            if (Projectile.localAI[0] == 0f)
         	{
         		int num226 = 36;
 				for (int num227 = 0; num227 < num226; num227++)

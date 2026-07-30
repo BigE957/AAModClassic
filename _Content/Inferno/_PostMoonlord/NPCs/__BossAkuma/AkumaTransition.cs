@@ -63,6 +63,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
                 {
                     NPC.alpha = 255;
                     NPC.Center = player.Center - new Vector2(0, 300f);
+                    NPC.netOffset = Vector2.Zero;
                 }
 
                 if (Main.netMode != NetmodeID.Server) //clientside stuff
@@ -138,6 +139,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             {
                 NPC.alpha = 255;
                 NPC.Center = player.Center - new Vector2(0, 300f);
+                NPC.netOffset = Vector2.Zero;
             }
 			
 			if(Main.netMode != NetmodeID.Server) //clientside stuff

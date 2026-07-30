@@ -1,4 +1,6 @@
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
+using AAModClassic.Dusts;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -99,7 +101,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 int num1284 = 10;
                 for (int num1285 = 0; num1285 < 2; num1285++)
                 {
-                    int num1286 = Dust.NewDust(NPC.position - new Vector2(num1284), NPC.width + num1284 * 2, NPC.height + num1284 * 2, DustID.GoldFlame, 0f, 0f, 100, default, 2f);
+                    int num1286 = Dust.NewDust(NPC.position - new Vector2(num1284), NPC.width + num1284 * 2, NPC.height + num1284 * 2, WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? ModContent.DustType<CthulhuDust>() : DustID.GoldFlame, 0f, 0f, 100, default, 2f);
                     Main.dust[num1286].noGravity = true;
                     Main.dust[num1286].noLight = true;
                 }
@@ -214,7 +216,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             int num1298 = 10;
             for (int num1299 = 0; num1299 < 1; num1299++)
             {
-                int num1300 = Dust.NewDust(NPC.position - new Vector2(num1298), NPC.width + num1298 * 2, NPC.height + num1298 * 2, DustID.GoldFlame, 0f, 0f, 100, default, 2f);
+                int num1300 = Dust.NewDust(NPC.position - new Vector2(num1298), NPC.width + num1298 * 2, NPC.height + num1298 * 2, WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? ModContent.DustType<CthulhuDust>() : DustID.GoldFlame, 0f, 0f, 100, default, 2f);
                 Main.dust[num1300].noGravity = true;
                 Main.dust[num1300].noLight = true;
             }

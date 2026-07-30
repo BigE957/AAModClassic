@@ -93,6 +93,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 RotValue -= (float)Math.PI * 2f;
             int dist = outer ? 280 : 180;
             NPC.Center = BaseUtility.RotateVector(brain.Center, brain.Center + new Vector2(dist, 0f), RotValue);
+            NPC.netOffset = Vector2.Zero;
             NPC.position.Y -= 48;
 
             NPC.spriteDirection = (NPC.position.X - NPC.oldPos[1].X) < 0 ? 1 : -1;

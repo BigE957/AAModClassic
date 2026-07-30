@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration
 {
-    class OuroborosWood : BaseAAItem, ILocalizedModType
+    public class OuroborosWood : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables";
         public override void SetStaticDefaults()

@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard
 {
-    class SistersBox_Tile : ModTile
+    public class SistersBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

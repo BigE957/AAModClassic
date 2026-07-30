@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard
 {
-    class AnubisBox_Tile : ModTile
+    public class AnubisBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

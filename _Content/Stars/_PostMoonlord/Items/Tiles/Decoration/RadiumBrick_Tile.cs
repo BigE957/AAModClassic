@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
 {
-    class RadiumBrick_Tile : ModTile
+    public class RadiumBrick_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

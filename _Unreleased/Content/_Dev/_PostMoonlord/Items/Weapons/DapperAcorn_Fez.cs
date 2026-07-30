@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content._Dev._PostMoonlord.Items.Weapons
 {
-    class DapperAcorn_Fez : ModProjectile
+    public class DapperAcorn_Fez : ModProjectile
     {
         public override void SetStaticDefaults()
         {

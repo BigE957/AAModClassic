@@ -46,6 +46,7 @@ namespace AAModClassic._Content.Stars.World.Altar
             }
             Player player = Main.player[NPC.target];
             NPC.Center = player.Center - new Vector2(0, 300f);
+            NPC.netOffset = Vector2.Zero;
 
             if (!NPC.AnyNPCs(ModContent.NPCType<DBPortal>()))
             {

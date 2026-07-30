@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Tiles
 {
-    class TerrariumBox_Tile : ModTile
+    public class TerrariumBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

@@ -1152,6 +1152,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     }
                     Vector2 center = player.Center + new Vector2(-NPC.ai[1], -200f);
                     vector = NPC.Center = center;
+                    NPC.netOffset = Vector2.Zero;
                     int num36 = Math.Sign(player.Center.X - vector.X);
                     if (num36 != 0)
                     {

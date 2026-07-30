@@ -220,6 +220,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 else
                 {
                     NPC.Center = ((player7.gravDir == 1f) ? player7.Top : player7.Bottom) + new Vector2((float)(player7.direction * 4), 0f);
+                    NPC.netOffset = Vector2.Zero;
                     NPC.gfxOffY = player7.gfxOffY;
                     NPC.velocity = Vector2.Zero;
                     player7.AddBuff(BuffID.Obstructed, 59, true);

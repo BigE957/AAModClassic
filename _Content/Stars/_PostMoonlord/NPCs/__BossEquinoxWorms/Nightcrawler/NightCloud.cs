@@ -105,6 +105,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nigh
             rotValue += 0.05f;
             while (rotValue > (float)Math.PI * 2f) rotValue -= (float)Math.PI * 2f;
             NPC.Center = BaseUtility.RotateVector(NC.position, NC.position + new Vector2(140f, 0f), rotValue);
+            NPC.netOffset = Vector2.Zero;
 
             int aiTimerFire = 0;
 

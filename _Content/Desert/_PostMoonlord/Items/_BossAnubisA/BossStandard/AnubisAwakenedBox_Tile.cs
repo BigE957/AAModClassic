@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.BossStandard
 {
-    class AnubisAwakenedBox_Tile : ModTile
+    public class AnubisAwakenedBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

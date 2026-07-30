@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechnoTruffle
 {
-    class TechnoTruffle_TruffleShot : ModProjectile
+    public class TechnoTruffle_TruffleShot : ModProjectile
     {
         public override void SetStaticDefaults()
         {

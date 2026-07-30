@@ -803,13 +803,22 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
             if (scale > 0)
             {
-                BaseDrawing.DrawTexture(spriteBatch, RitualTex, blue, NPC.position, NPC.width, NPC.height, scale, RingRotation, 0, 1, new Rectangle(0, 0, RitualTex.Width, RitualTex.Height), drawColor, true);
-                BaseDrawing.DrawTexture(spriteBatch, RingTex, red, NPC.position, NPC.width, NPC.height, scale, -RingRotation, 0, 1, new Rectangle(0, 0, RingTex.Width, RingTex.Height), drawColor, true);
-                BaseDrawing.DrawTexture(spriteBatch, RingTex1, blue, NPC.position, NPC.width, NPC.height, scale, -RingRotation, 0, 1, new Rectangle(0, 0, RingTex1.Width, RingTex1.Height), drawColor, true);
+                DrawingUtils.DrawWithVanillaShader(spriteBatch, blue, (sb) =>
+                {
+                    sb.Draw(RitualTex, NPC.Center - screenPos, null, Color.White, RingRotation, RitualTex.Size() * 0.5f, scale, 0, 0);
+                    GameShaders.Armor.Apply(red, null, null);
+                    sb.Draw(RingTex, NPC.Center - screenPos, null, Color.White, -RingRotation, RingTex.Size() * 0.5f, scale, 0, 0);
+                    GameShaders.Armor.Apply(blue, null, null);
+                    sb.Draw(RingTex1, NPC.Center - screenPos, null, Color.White, -RingRotation, RingTex1.Size() * 0.5f, scale, 0, 0);
+
+                });
             }
             if (scale2 > 0)
             {
-                BaseDrawing.DrawTexture(spriteBatch, ShieldTex, red, NPC.position, NPC.width, NPC.height, scale2, RingRotation2, 0, 1, new Rectangle(0, 0, ShieldTex.Width, ShieldTex.Height), drawColor, true);
+                DrawingUtils.DrawWithVanillaShader(spriteBatch, red, (sb) =>
+                {
+                    sb.Draw(ShieldTex, NPC.Center - screenPos, null, Color.White, RingRotation2, ShieldTex.Size() * 0.5f, scale, 0, 0);
+                });
             }
 
             spriteBatch.Draw(Tex, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);

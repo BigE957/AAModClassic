@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars.World.Altar
 {
-    class DaybringerBrick_Tile : ModTile
+    public class DaybringerBrick_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

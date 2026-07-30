@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Dusts
 {
-    class BogleafDust : ModDust
+    public class BogleafDust : ModDust
     {
         public override void OnSpawn(Dust dust)
         {

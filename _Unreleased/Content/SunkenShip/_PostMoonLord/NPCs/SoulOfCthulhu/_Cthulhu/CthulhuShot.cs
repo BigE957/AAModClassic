@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu
 {
-    class CthulhuShot : ModProjectile
+    public class CthulhuShot : ModProjectile
     {
         public override void SetStaticDefaults()
         {

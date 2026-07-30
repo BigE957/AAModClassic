@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.Items.Tiles.Decoration
 {
-    class RelicBrick_Tile : ModTile
+    public class RelicBrick_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

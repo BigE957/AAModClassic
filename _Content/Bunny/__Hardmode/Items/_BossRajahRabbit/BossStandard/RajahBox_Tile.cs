@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard
 {
-    class RajahBox_Tile : ModTile
+    public class RajahBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

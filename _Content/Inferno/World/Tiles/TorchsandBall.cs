@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.World.Tiles
 {
-    class TorchsandBall : ModProjectile
+    public class TorchsandBall : ModProjectile
     {
         protected bool falling = true;
         public override void SetStaticDefaults()

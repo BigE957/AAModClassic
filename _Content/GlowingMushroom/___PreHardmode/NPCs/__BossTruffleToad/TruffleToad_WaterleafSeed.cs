@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad
 {
     /// <summary>
-    /// that was the display name for the projectile. thats what it is. thats what it was named. and frankly, i dont have the demonic soul to change that
+    /// that was the display name for the projectile. thats what it is. thats what it was named. and frankly, 
+    /// i dont have the demonic soul to change that
     /// </summary>
     public class TruffleToad_WaterleafSeed : ModProjectile
     {

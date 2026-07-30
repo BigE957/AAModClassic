@@ -265,7 +265,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
 			}else
             if (NPC.ai[0] == 4) //Projectile skill
             {
-                NPC.direction = NPC.spriteDirection = NPC.position.X < targetPlayer.position.X ? -1 : 1;
+                NPC.direction = NPC.spriteDirection = NPC.position.X < targetPlayer.position.X ? 1 : -1;
                 NPC.rotation = NPC.DirectionTo(targetPlayer.Center).ToRotation() + (NPC.position.X < targetPlayer.position.X ? 0 : (float)Math.PI);
                 moveSpeed = 14f;
 				Vector2 point = targetPlayer.Center + offsetBasePoint + new Vector2(-ChangingPosX, 0);

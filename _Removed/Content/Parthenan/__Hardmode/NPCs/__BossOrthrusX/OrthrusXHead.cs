@@ -52,7 +52,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             Music = MusicManagementSystem.MusicSlots["Siege"];
             NPC.dontCountMe = true;
             NPC.noTileCollide = true;
-            NPC.boss = false;
+            NPC.boss = true;
             NPC.noGravity = true;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {

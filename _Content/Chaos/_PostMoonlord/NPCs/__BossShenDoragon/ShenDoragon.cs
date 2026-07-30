@@ -256,6 +256,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     Vector2 center = NPC.Center;
                     NPC.width = chargeWidth;
                     NPC.Center = center;
+                    NPC.netOffset = Vector2.Zero;
                     NPC.netUpdate = true;
                 }
             }
@@ -264,6 +265,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 Vector2 center = NPC.Center;
                 NPC.width = normalWidth;
                 NPC.Center = center;
+                NPC.netOffset = Vector2.Zero;
                 NPC.netUpdate = true;
             }
 

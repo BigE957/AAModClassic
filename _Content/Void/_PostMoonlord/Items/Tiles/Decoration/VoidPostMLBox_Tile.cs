@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
 {
-    class VoidPostMLBox_Tile : ModTile
+    public class VoidPostMLBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

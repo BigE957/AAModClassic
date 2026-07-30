@@ -10,7 +10,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic._Content.Inferno.World.Tiles.Trees
 {
-    class RazewoodSapling_Tile : ModTile
+    public class RazewoodSapling_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

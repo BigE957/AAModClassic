@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
 {
-    class DarkmatterBrick_Tile : ModTile
+    public class DarkmatterBrick_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

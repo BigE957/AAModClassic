@@ -38,6 +38,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             NPC.noTileCollide = true;
             NPC.noGravity = true;
             NPC.DeathSound = new SoundStyle("AAModClassic/Sounds/YamataRoar");
+            NPC.boss = true;
             Music = MusicManagementSystem.MusicSlots["Yamata_Awakened"];
             NPC.knockBackResist *= 0.05f;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
@@ -116,6 +117,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             {
                 YamataABody.TeleportMeBitch = false;
                 NPC.Center = Body.NPC.Center;
+                NPC.netOffset = Vector2.Zero;
                 return;
             }
 
@@ -311,6 +313,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             {
                 YamataABody.TeleportMeBitch = false;
                 NPC.Center = Body.NPC.Center;
+                NPC.netOffset = Vector2.Zero;
                 return;
             }
         }

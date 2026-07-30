@@ -153,7 +153,7 @@ MagmaSwimmer.DisplayName: 熔岩游鱼
 AkumaBody.DisplayName: "{$NPCs.AkumaHead.DisplayName}"
 AkumaHead.DisplayName: 远古之邪鬼巨龙 凶煞恶魔
 AkumaTransition.DisplayName: 激怒之灵
-AkumaABody.DisplayName: "{$NPCs.AkumaAHead}"
+AkumaABody.DisplayName: "{$NPCs.AkumaAHead.DisplayName}"
 AkumaAHead.DisplayName: 觉醒之邪鬼巨龙 狂煞魔豪鬼
 AwakenedLungBody.DisplayName: "{$NPCs.AwakenedLungHead.DisplayName}"
 AwakenedLungHead.DisplayName: 觉醒之伴龙

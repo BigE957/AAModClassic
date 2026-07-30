@@ -47,7 +47,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
         {
             NPC.TargetClosest();
             Player player = Main.player[NPC.target];
-            NPC.Center = player.Center - new Vector2(0, 300f); ;
+            NPC.Center = player.Center - new Vector2(0, 300f);
+            NPC.netOffset = Vector2.Zero;
             NPC.ai[0]++;
             if (NPC.timeLeft <= 10)
                 NPC.timeLeft = 10;
@@ -118,7 +119,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             {
                 NPC.TargetClosest();
                 Player player = Main.player[NPC.target];
-                NPC.Center = player.Center - new Vector2(0, 300f); ;
+                NPC.Center = player.Center - new Vector2(0, 300f);
+                NPC.netOffset = Vector2.Zero;
                 NPC.ai[0]++;
                 if (NPC.alpha < 255 && NPC.ai[0] > 200)
                 {

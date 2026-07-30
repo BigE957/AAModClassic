@@ -79,7 +79,7 @@ namespace AAModClassic._Content.Stars.World.Biomes
 
             WorldGenUtils.AddProtectedStructure(new Rectangle(placementPoint.X, placementPoint.Y, EquinoxShrineTexGenAssets.EquinoxTileData.Width, EquinoxShrineTexGenAssets.EquinoxTileData.Height), 20);
 
-            Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
+            Dictionary<Color, int> colorToTile = new()
             {
                 [new Color(255, 0, 0)] = ModContent.TileType<GreedBrick_Tile>(),
                 [new Color(0, 255, 255)] = ModContent.TileType<DayCrystal_Tile>(),
@@ -90,7 +90,7 @@ namespace AAModClassic._Content.Stars.World.Biomes
                 [Color.Black] = -1 //don't touch when genning		
             };
 
-            TexGen gen = TexGen.GetTexGenerator(EquinoxShrineTexGenAssets.EquinoxTileData, colorToTile, null, null, null, EquinoxShrineTexGenAssets.EquinoxSlopeData);
+            TexGen gen = TexGen.GetTexGenerator(EquinoxShrineTexGenAssets.EquinoxTileData, colorToTile, null, null, null, EquinoxShrineTexGenAssets.EquinoxSlopeData, unbreakableTiles: [ModContent.TileType<GreedBrick_Tile>()]);
 
             gen.Generate(placementPoint.X, placementPoint.Y, true, true);
 

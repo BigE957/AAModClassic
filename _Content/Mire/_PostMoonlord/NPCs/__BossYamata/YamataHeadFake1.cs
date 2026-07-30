@@ -154,18 +154,21 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             {
                 Body.TeleportMe1 = false;
                 NPC.Center = Body.NPC.Center;
+                NPC.netOffset = Vector2.Zero;
                 return;
             }
             if (Body.TeleportMe2)
             {
                 Body.TeleportMe2 = false;
                 NPC.Center = Body.NPC.Center;
+                NPC.netOffset = Vector2.Zero;
                 return;
             }
             if (Body.TeleportMe3)
             {
                 Body.TeleportMe3 = false;
                 NPC.Center = Body.NPC.Center;
+                NPC.netOffset = Vector2.Zero;
                 for (int i = 0; i < 5; ++i)
                 {
                     SoundEngine.PlaySound(SoundID.Item20, NPC.Center);
@@ -179,18 +182,21 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             {
                 Body.TeleportMe4 = false;
                 NPC.Center = Body.NPC.Center;
+                NPC.netOffset = Vector2.Zero;
                 return;
             }
             if (Body.TeleportMe5)
             {
                 Body.TeleportMe5 = false;
                 NPC.Center = Body.NPC.Center;
+                NPC.netOffset = Vector2.Zero;
                 return;
             }
             if (Body.TeleportMe6)
             {
                 Body.TeleportMe6 = false;
                 NPC.Center = Body.NPC.Center;
+                NPC.netOffset = Vector2.Zero;
                 return;
             }
 

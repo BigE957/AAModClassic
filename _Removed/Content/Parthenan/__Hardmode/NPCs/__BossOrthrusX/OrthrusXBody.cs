@@ -224,7 +224,9 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                 if (HeadBlue != null && HeadRed != null)
                 {
                     HeadBlue.NPC.Center = NPC.Center + new Vector2(SHLOOPX, -SHLOOPY) + NPC.velocity;
+                    HeadBlue.NPC.netOffset = Vector2.Zero;
                     HeadRed.NPC.Center = NPC.Center + new Vector2(-SHLOOPX, -SHLOOPY) + NPC.velocity;
+                    HeadRed.NPC.netOffset = Vector2.Zero;
                 }
                 if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient) { NPC.active = false; NPC.netUpdate = true; }
                 return;
@@ -270,7 +272,9 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                         if (HeadBlue != null && HeadRed != null)
                         {
                             HeadBlue.NPC.Center = NPC.Center + new Vector2(SHLOOPX, -SHLOOPY) + NPC.velocity;
+                            HeadBlue.NPC.netOffset = Vector2.Zero;
                             HeadRed.NPC.Center = NPC.Center + new Vector2(-SHLOOPX, -SHLOOPY) + NPC.velocity;
+                            HeadRed.NPC.netOffset = Vector2.Zero;
                         }
                     }
                     else if (Main.netMode != NetmodeID.MultiplayerClient) //digs itself out of the ground

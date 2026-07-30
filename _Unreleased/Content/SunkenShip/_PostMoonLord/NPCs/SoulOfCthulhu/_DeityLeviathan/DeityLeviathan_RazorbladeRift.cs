@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityLeviathan
 {
-    class DeityLeviathan_RazorbladeRift : ModProjectile
+    public class DeityLeviathan_RazorbladeRift : ModProjectile
     {
         public override void SetStaticDefaults()
         {

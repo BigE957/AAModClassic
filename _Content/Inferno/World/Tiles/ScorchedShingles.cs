@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.World.Tiles
 {
-    class ScorchedShingles : BaseAAItem, ILocalizedModType
+    public class ScorchedShingles : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables";
         public override void SetDefaults()

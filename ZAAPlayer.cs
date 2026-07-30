@@ -715,7 +715,7 @@ namespace AAModClassic
                 }
             }
 
-            if ((Main.rand.NextBool(4096) && liquidType == 0 && Player.fishingSkill >= 100)|| (Main.rand.NextBool(2048) && Player.accFishingLine && Player.accTackleBox))
+            if ((Main.rand.NextBool(4096) && liquidType == 0 && Player.fishingSkill >= 100) || (Main.rand.NextBool(2048) && Player.accFishingLine && Player.accTackleBox))
             {
                 itemDrop = ModContent.ItemType<ShinyCharmFish>();
             }

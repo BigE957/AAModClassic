@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
 {
-    class EquinoxBrick_Tile : ModTile
+    public class EquinoxBrick_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

@@ -60,7 +60,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Materials
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            var frame = TextureAssets.Item[Type].Frame(1, 10, 0, (int)(Main.GlobalTimeWrappedHourly * 8) % 8);
+            var frame = TextureAssets.Item[Type].Frame(1, 9, 0, (int)(Main.GlobalTimeWrappedHourly * 8) % 8);
             var position = Item.Center - Main.screenPosition;
             var origin = frame.Size() / 2f;
             spriteBatch.Draw(glowmask.Value, position, frame, lightColor, rotation, origin, scale, SpriteEffects.None, 0);

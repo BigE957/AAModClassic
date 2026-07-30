@@ -81,7 +81,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     Vector2 center = playerPositions[i] - Projectile.Center;
                     float ai = Main.rand.Next(100);
                     Vector2 velocity = Vector2.Normalize(center.RotatedByRandom(0.78539818525314331)) * 7f;
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, velocity.X, velocity.Y, ModContent.ProjectileType<InfinityZero_InfinityBolt>(), Projectile.damage, 0f, Main.myPlayer, center.ToRotation(), ai);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, velocity.X, velocity.Y, ModContent.ProjectileType<InfinityZero_InfinityBolt>(), 60, 0f, -1, center.ToRotation(), ai);
                 }
             }
             Lighting.AddLight(Projectile.Center, 0.4f, 0.85f, 0.9f);

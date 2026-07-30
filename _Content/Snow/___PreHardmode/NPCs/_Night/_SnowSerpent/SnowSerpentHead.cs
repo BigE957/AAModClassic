@@ -3,6 +3,7 @@ using AAModClassic._Content.Inferno.___PreHardmode.NPCs;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic.Globals;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
@@ -98,7 +99,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
         
 		public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 		{
-			if (Main.expertMode)
+			if (Main.expertMode && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
 			{
 				target.AddBuff(BuffID.Chilled, 200, true);
 			}

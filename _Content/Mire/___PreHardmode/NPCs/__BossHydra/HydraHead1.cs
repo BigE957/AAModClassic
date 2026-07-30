@@ -53,7 +53,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             NPC.npcSlots = 0;
             NPC.dontCountMe = true;
             NPC.noTileCollide = true;
-            NPC.boss = false;
+            NPC.boss = true;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.Item88;
             NPC.noGravity = true;
@@ -180,11 +180,12 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
                 NPC.velocity *= 0.9f;
                 if (Math.Abs(NPC.velocity.X) < 0.05f) NPC.velocity.X = 0f;
                 if (Math.Abs(NPC.velocity.Y) < 0.05f) NPC.velocity.Y = 0f;
-            }else
-            if (dist > 200f) //teleport to keep up with body
+            }
+            else if (dist > 200f) //teleport to keep up with body
             {
                 NPC.Center = Body.NPC.Center;
-				NPC.netUpdate = true;
+                NPC.netOffset = Vector2.Zero;
+                NPC.netUpdate = true;
             }	
             else
             {

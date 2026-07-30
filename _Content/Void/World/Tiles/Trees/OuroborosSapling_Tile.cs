@@ -11,7 +11,7 @@ using Terraria.ObjectData;
 
 namespace AAModClassic._Content.Void.World.Tiles.Trees
 {
-    class OuroborosSapling_Tile : ModTile
+    public class OuroborosSapling_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Tiles.Decoration
 {
-    class InfernoPagodaBox_Tile : ModTile
+    public class InfernoPagodaBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

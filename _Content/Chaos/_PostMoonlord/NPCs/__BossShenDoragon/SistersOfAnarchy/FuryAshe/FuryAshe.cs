@@ -6,6 +6,7 @@ using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Assets;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -549,6 +550,28 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             }
         }
 
+        public override void SendExtraAI(BinaryWriter writer)
+        {
+            base.SendExtraAI(writer);
+            if (Main.netMode == NetmodeID.Server || Main.dedServ)
+            {
+                writer.Write(pos);
+                writer.Write(Health);
+                writer.Write(RuneCrash);
+            }
+        }
+
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+            base.ReceiveExtraAI(reader);
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+            {
+                pos = reader.ReadSingle();
+                Health = reader.ReadBoolean();
+                RuneCrash = reader.ReadBoolean();
+            }
+        }
+
         public override void BossLoot(ref int potionType)
         {
             potionType = 0;
@@ -687,17 +710,25 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
             if (scale > 0)
             {
-                BaseDrawing.DrawTexture(spriteBatch, RitualTex, blue, NPC.position, NPC.width, NPC.height, scale, RingRotation, 0, 1, new Rectangle(0, 0, RitualTex.Width, RitualTex.Height), drawColor, true);
-                BaseDrawing.DrawTexture(spriteBatch, RingTex, red, NPC.position, NPC.width, NPC.height, scale, -RingRotation, 0, 1, new Rectangle(0, 0, RingTex.Width, RingTex.Height), drawColor, true);
-                BaseDrawing.DrawTexture(spriteBatch, RingTex1, blue, NPC.position, NPC.width, NPC.height, scale, -RingRotation, 0, 1, new Rectangle(0, 0, RingTex1.Width, RingTex1.Height), drawColor, true);
+                DrawingUtils.DrawWithVanillaShader(spriteBatch, blue, (sb) =>
+                {
+                    sb.Draw(RitualTex, NPC.Center - screenPos, null, Color.White, RingRotation, RitualTex.Size() * 0.5f, scale, 0, 0);
+                    GameShaders.Armor.Apply(red, null, null);
+                    sb.Draw(RingTex, NPC.Center - screenPos, null, Color.White, -RingRotation, RingTex.Size() * 0.5f, scale, 0, 0);
+                    GameShaders.Armor.Apply(blue, null, null);
+                    sb.Draw(RingTex1, NPC.Center - screenPos, null, Color.White, -RingRotation, RingTex1.Size() * 0.5f, scale, 0, 0);
+
+                });
             }
             if (scale2 > 0)
             {
-                BaseDrawing.DrawTexture(spriteBatch, ShieldTex, red, NPC.position, NPC.width, NPC.height, scale2, RingRotation2, 0, 1, new Rectangle(0, 0, ShieldTex.Width, ShieldTex.Height), drawColor, true);
+                DrawingUtils.DrawWithVanillaShader(spriteBatch, red, (sb) =>
+                {
+                    sb.Draw(ShieldTex, NPC.Center - screenPos, null, Color.White, RingRotation2, ShieldTex.Size() * 0.5f, scale, 0, 0);
+                });
             }
 
             spriteBatch.Draw(Tex, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
-
             spriteBatch.Draw(Glow, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
 
             return false;
@@ -708,28 +739,6 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
         public float scale2 = 0;
         public float RingRotation2 = 0;
-
-        public override void SendExtraAI(BinaryWriter writer)
-        {
-            base.SendExtraAI(writer);
-            if (Main.netMode == NetmodeID.Server || Main.dedServ)
-            {
-                writer.Write(pos);
-                writer.Write(Health);
-                writer.Write(RuneCrash);
-            }
-        }
-
-        public override void ReceiveExtraAI(BinaryReader reader)
-        {
-            base.ReceiveExtraAI(reader);
-            if (Main.netMode == NetmodeID.MultiplayerClient)
-            {
-                pos = reader.ReadSingle();
-                Health = reader.ReadBoolean();
-                RuneCrash = reader.ReadBoolean();
-            }
-        }
 
         private void RingEffects()
         {

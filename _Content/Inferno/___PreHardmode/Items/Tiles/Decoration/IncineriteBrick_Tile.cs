@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration
 {
-    class IncineriteBrick_Tile : ModTile
+    public class IncineriteBrick_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

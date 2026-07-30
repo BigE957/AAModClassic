@@ -92,8 +92,8 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 			rotValue += 0.05f;
 			while(rotValue > (float)Math.PI * 2f) rotValue -= (float)Math.PI * 2f;
 			NPC.Center = BaseUtility.RotateVector(anubis.Center, anubis.Center + new Vector2(160f, 0f), rotValue);
-
-			NPC.spriteDirection = NPC.position.X - NPC.oldPos[1].X < 0 ? -1 : 1;
+            NPC.netOffset = Vector2.Zero;
+            NPC.spriteDirection = NPC.position.X - NPC.oldPos[1].X < 0 ? -1 : 1;
 			NPC.rotation = (NPC.position.X - NPC.oldPos[1].X) * 0.05f;
 
             Player player = Main.player[anubis.target];

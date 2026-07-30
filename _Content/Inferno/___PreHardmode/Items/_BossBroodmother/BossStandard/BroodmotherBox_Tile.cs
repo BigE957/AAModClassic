@@ -8,7 +8,7 @@ using Terraria.ID;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard
 {
-    class BroodmotherBox_Tile : ModTile
+    public class BroodmotherBox_Tile : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

@@ -19,6 +19,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Materials
             // name.SetDefault("Viking Relic");
             AddMapEntry(new Color(58, 68, 102), name);
 			MinPick = 65;
+            DustType = ModContent.DustType<Dusts.IceDust>();
         }
     }
 }
