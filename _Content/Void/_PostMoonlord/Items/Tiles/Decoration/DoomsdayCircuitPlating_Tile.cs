@@ -1,7 +1,9 @@
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -35,8 +37,9 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
             Tile tile = Main.tile[x, y];
             if (tile != null && tile.HasTile && tile.TileType == Type)
             {
-                Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-                BaseDrawing.DrawTileTexture(sb, glowTex, x, y, true, false, false, null, AAGlobalTile.GetZeroColorDim);
+                bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
+                Texture2D glowTex = ModContent.Request<Texture2D>(unofficial ? Texture + "_Glow" : "AAModClassic/_Content/Void/_PostMoonlord/Items/Materials/ApocalyptiteOre_Tile_Glow").Value;
+                BaseDrawing.DrawTileTexture(sb, glowTex, x, y, true, false, false, null, unofficial ? (color) => Color.Lerp(Color.Red * 0.2f, Color.White * 0.6f, MathF.Sin(Main.GlobalTimeWrappedHourly) / 2f + 0.5f) : AAGlobalTile.GetZeroColorDim);
             }
         }
 
