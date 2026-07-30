@@ -18,8 +18,11 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetrieve
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Treasure Bag (Retriever)");
-			// Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
-		}
+            // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+
+            Item.ResearchUnlockCount = 3;
+            ItemID.Sets.BossBag[Type] = true;
+        }
 
 		public override void SetDefaults()
 		{

@@ -17,8 +17,11 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechn
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Treasure Bag (Techno Truffle)");
-			// Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
-		}
+            // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+
+            Item.ResearchUnlockCount = 3;
+            ItemID.Sets.BossBag[Type] = true;
+        }
 
 		public override void SetDefaults()
 		{
