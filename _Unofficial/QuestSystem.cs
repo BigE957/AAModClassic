@@ -436,6 +436,8 @@ namespace AAModClassic._Unofficial
             AAMod.instance.Logger.Info("Quest System: Resetting Questlines...");
 
             InitializeAllQuestlines();
+
+            QuestlinesModified = false;
         }
 
         public override void NetSend(BinaryWriter writer)
@@ -456,8 +458,8 @@ namespace AAModClassic._Unofficial
             foreach (Questline questline in Questlines.Values)
                 foreach (Quest quest in questline.Quests.Values)
                 {
-                    //quest.IsTurnedIn = reader.ReadBoolean();
-                    //quest.EverTurnedIn = reader.ReadBoolean();
+                    quest.IsTurnedIn = reader.ReadBoolean();
+                    quest.EverTurnedIn = reader.ReadBoolean();
                     foreach (QuestObjective obj in quest.Objectives)
                         obj.AddProgress(reader.ReadInt32(), true, true);
                     quest.Active = reader.ReadBoolean();
@@ -550,7 +552,18 @@ namespace AAModClassic._Unofficial
 
         private static readonly Dictionary<string, FieldInfo> newAADownedInfo = [];
 
-        public override void PostWorldLoad()
+        private static bool QuestlinesModified = false;
+
+        public override void PreUpdatePlayers()
+        {
+            if (!QuestlinesModified)
+            {
+                ModifyQuestlines();
+                QuestlinesModified = true;
+            }
+        }
+
+        private static void ModifyQuestlines()
         {
             bool anyChange = false;
 
@@ -618,6 +631,8 @@ namespace AAModClassic._Unofficial
                 LegendscribeQuestUISystem.questUI.OnActivate();
             }
         }
+
+
 
         public static void AddQuestline(string id, string vendor)
         {
