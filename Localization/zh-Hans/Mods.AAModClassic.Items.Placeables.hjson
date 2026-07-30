@@ -698,7 +698,7 @@ ShenPainting: {
 
 ShipPainting: {
 	DisplayName: 阴森帆船
-	Tooltip: "'那艘船……我至今搞不懂那些盘踞在里面的生物到底是什么……'"
+	Tooltip: "'那艘船……我至今仍搞不懂那些盘踞在里面的生物是什么……'"
 }
 
 SoCPainting: {
@@ -723,7 +723,7 @@ ValkyriePainting: {
 
 WizardPainting: {
 	DisplayName: 巫师
-	Tooltip: "'不管你变成了什么，我对你仍然抱有希望。'"
+	Tooltip: "'不管你变成了什么模样，我对你仍然抱有希望。'"
 }
 
 YamataPainting: {
