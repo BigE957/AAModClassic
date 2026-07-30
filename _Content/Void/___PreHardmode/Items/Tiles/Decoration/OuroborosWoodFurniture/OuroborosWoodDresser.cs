@@ -4,18 +4,14 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OuroborosWoodFurniture
 {
-    public class OuroborosWoodChair : ModItem, ILocalizedModType
+    public class OuroborosWoodDresser : ModItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables.Furniture.OuroborosWood";
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Ouroboros Wood Chair");
-        }
 
         public override void SetDefaults()
         {
-            Item.width = 16;
-            Item.height = 32;
+            Item.width = 38;
+            Item.height = 24;
             Item.maxStack = Item.CommonMaxStack;
             Item.useTurn = true;
             Item.autoReuse = true;
@@ -24,16 +20,14 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Ourob
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 250;
-            Item.createTile = ModContent.TileType<OuroborosWoodChair_Tile>();
+            Item.createTile = ModContent.TileType<OuroborosWoodDresser_Tile>();
         }
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<OuroborosWood>(), 4);
-            //recipe.AddIngredient(ItemID.Torch, 3);
-            recipe.AddTile(TileID.WorkBenches);
+            recipe.AddIngredient(ModContent.ItemType<OuroborosWood>(), 16);
+            recipe.AddTile(TileID.Sawmill);
             recipe.Register();
         }
-
     }
 }

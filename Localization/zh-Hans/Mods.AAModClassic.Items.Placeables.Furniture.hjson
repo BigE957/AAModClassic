@@ -354,6 +354,46 @@ OuroborosWood: {
 		DisplayName: 衔尾木工作台
 		Tooltip: ""
 	}
+
+	OuroborosWoodCandelabra: {
+		// DisplayName: Ouroboros Wood Candelabra
+		// Tooltip: ""
+	}
+
+	OuroborosWoodChandelier: {
+		// DisplayName: Ouroboros Wood Chandelier
+		// Tooltip: ""
+	}
+
+	OuroborosWoodCouch: {
+		// DisplayName: Ouroboros Wood Couch
+		// Tooltip: ""
+	}
+
+	OuroborosWoodDresser: {
+		// DisplayName: Ouroboros Wood Dresser
+		// Tooltip: ""
+	}
+
+	OuroborosWoodPiano: {
+		// DisplayName: Ouroboros Wood Piano
+		// Tooltip: ""
+	}
+
+	OuroborosWoodSink: {
+		// DisplayName: Ouroboros Wood Sink
+		// Tooltip: ""
+	}
+
+	OuroborosWoodTable: {
+		// DisplayName: Ouroboros Wood Table
+		// Tooltip: ""
+	}
+
+	OuroborosWoodToilet: {
+		// DisplayName: Ouroboros Wood Toilet
+		// Tooltip: ""
+	}
 }
 
 Keep: {
