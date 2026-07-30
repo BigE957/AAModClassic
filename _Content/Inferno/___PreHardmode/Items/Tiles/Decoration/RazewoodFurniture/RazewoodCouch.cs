@@ -26,6 +26,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.Ra
             Item.value = 250;
             Item.createTile = ModContent.TileType<RazewoodCouch_Tile>();
         }
+
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
@@ -35,6 +36,5 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.Ra
             recipe.Register();
 
         }
-
     }
 }

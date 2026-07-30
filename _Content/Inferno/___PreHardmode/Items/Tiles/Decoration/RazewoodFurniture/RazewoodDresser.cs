@@ -30,11 +30,8 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.Ra
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<Razewood>(), 16);
-            //recipe.AddIngredient(ItemID.Torch, 3);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
-
         }
-
     }
 }

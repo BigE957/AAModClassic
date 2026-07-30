@@ -1,12 +1,6 @@
-using AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFurniture;
 using AAModClassic.Dusts;
 using AAModClassic.Utilities;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture
 {
