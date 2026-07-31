@@ -38,7 +38,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
 
         public override void PostAI()
         {
-            Lighting.AddLight(Projectile.Center, Color.DodgerBlue.R / 255, Color.DodgerBlue.G / 255, Color.DodgerBlue.B / 255);
+            Lighting.AddLight(Projectile.Center, Color.DodgerBlue.R / 255f, Color.DodgerBlue.G / 255f, Color.DodgerBlue.B / 255f);
         }
 
         public override void OnKill(int timeLeft)

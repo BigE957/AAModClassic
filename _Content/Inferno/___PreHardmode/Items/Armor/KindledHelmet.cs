@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
         {
             AddSetEffect(new EnduranceEffect(0.02f));
             AddSetEffect<MagmaStoneEffect>();
-            AddSetEffect(new EmitLightFromPlayerEffect(AAColor.Lantern.R / 255, AAColor.Lantern.G / 255 * 0.95f, AAColor.Lantern.B / 255 * 0.8f));
+            AddSetEffect(new EmitLightFromPlayerEffect(AAColor.Lantern.R / 255f, AAColor.Lantern.G / 255f * 0.95f, AAColor.Lantern.B / 255f * 0.8f));
         }
 
         public override void AddRecipes()

@@ -45,7 +45,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
 			float playerDistX = Math.Abs(player.Center.X - NPC.Center.X);
 			float playerDistY = Math.Abs(player.Center.Y - NPC.Center.Y);
 			bool smashAttack = playerDistX < 15f && playerDistY < 40f;
-            Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
+            Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255f, Color.DarkOrange.G / 255f, Color.DarkOrange.B / 255f);
 
             if (smashAttack) //Stop moving to smash players
 			{

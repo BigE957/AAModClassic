@@ -47,7 +47,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs
         {
             if (NPC.frame.Y == 48 * 2 || NPC.frame.Y == 48)
             {
-                Lighting.AddLight(NPC.Center, AAColor.Lantern.R / 255, AAColor.Lantern.G / 255, AAColor.Lantern.B / 255);
+                Lighting.AddLight(NPC.Center, AAColor.Lantern.R / 255f, AAColor.Lantern.G / 255f, AAColor.Lantern.B / 255f);
             }
             if (NPC.wet)
             {

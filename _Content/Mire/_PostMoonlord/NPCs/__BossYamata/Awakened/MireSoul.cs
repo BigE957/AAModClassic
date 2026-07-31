@@ -46,7 +46,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
         }
         public override void AI()
         {
-            Lighting.AddLight(NPC.Center, AAColor.YamataA.R / 255, AAColor.YamataA.G / 255, AAColor.YamataA.B / 255);
+            Lighting.AddLight(NPC.Center, AAColor.YamataA.R / 255f, AAColor.YamataA.G / 255f, AAColor.YamataA.B / 255f);
             AAAI.AIShadowflameGhost(NPC, ref NPC.ai, false, 660f, 0.3f, 15f, 0.2f, 8f, 5f, 10f, 0.4f, 0.4f, 0.95f, 5f);
             if (!NPC.AnyNPCs(ModContent.NPCType<YamataABody>()))
             {

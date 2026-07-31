@@ -44,7 +44,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons     //We need th
                     Projectile.Kill();
                 }
             }
-            Lighting.AddLight(Projectile.Center, color.R / 255, color.G / 255, color.B / 255);     //this is the projectile light color R, G, B (Red, Green, Blue)
+            Lighting.AddLight(Projectile.Center, color.R / 255f, color.G / 255f, color.B / 255f);     //this is the projectile light color R, G, B (Red, Green, Blue)
             Projectile.Center = player.MountedCenter;
             Projectile.position.X += player.width / 2 * player.direction;  //this is the projectile width sptrite direction from the playr
             Projectile.spriteDirection = player.direction;

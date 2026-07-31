@@ -55,7 +55,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Surface._Day
 
         public override void AI()
         {
-            Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
+            Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255f, Color.DarkOrange.G / 255f, Color.DarkOrange.B / 255f);
 			AAAI.AIShadowflameGhost(NPC, ref NPC.ai, false, 660f, 0.3f, 10f, 0.2f, 6f, 5f, 10f, 0.4f, 0.4f, 0.95f, 5f);
 			NPC.spriteDirection = NPC.velocity.X > 0 ? -1 : 1;
 			BaseAI.LookAt(NPC.Center + NPC.velocity, NPC, 0);

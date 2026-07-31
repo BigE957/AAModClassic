@@ -222,7 +222,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 
         private void CastLights()
         {
-            DelegateMethods.v3_1 = new Vector3(AAColor.ZeroShield.R / 255, AAColor.ZeroShield.G / 255, AAColor.ZeroShield.B / 255);
+            DelegateMethods.v3_1 = new Vector3(AAColor.ZeroShield.R / 255f, AAColor.ZeroShield.G / 255f, AAColor.ZeroShield.B / 255f);
             Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.velocity * (Distance - MOVE_DISTANCE), 26, DelegateMethods.CastLight);
         }
 

@@ -27,7 +27,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Accessor
 	
         public override void AI()
         {
-            Lighting.AddLight(Projectile.Center, Color.DarkSeaGreen.R / 255, Color.DarkSeaGreen.G / 255, Color.DarkSeaGreen.B / 255);
+            Lighting.AddLight(Projectile.Center, Color.DarkSeaGreen.R / 255f, Color.DarkSeaGreen.G / 255f, Color.DarkSeaGreen.B / 255f);
             Player player = Main.player[Projectile.owner];
 			Projectile.Center = player.Center;
 			Projectile.position.Y = player.Center.Y-90;

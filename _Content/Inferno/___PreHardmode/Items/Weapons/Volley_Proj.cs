@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
 
         public override bool PreAI()
         {
-            Lighting.AddLight(Projectile.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
+            Lighting.AddLight(Projectile.Center, Color.DarkOrange.R / 255f, Color.DarkOrange.G / 255f, Color.DarkOrange.B / 255f);
             if (Projectile.wet)
             {
                 Projectile.Kill();

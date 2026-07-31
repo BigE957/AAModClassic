@@ -28,7 +28,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons
 	
         public override void AI()
         {
-            Lighting.AddLight(Projectile.Center, Color.DarkSeaGreen.R / 255, Color.DarkSeaGreen.G / 255, Color.DarkSeaGreen.B / 255);
+            Lighting.AddLight(Projectile.Center, Color.DarkSeaGreen.R / 255f, Color.DarkSeaGreen.G / 255f, Color.DarkSeaGreen.B / 255f);
             if (Projectile.scale < 1f) Projectile.scale += 0.01f;
             if (Projectile.alpha > 0) Projectile.alpha -= 5;
 

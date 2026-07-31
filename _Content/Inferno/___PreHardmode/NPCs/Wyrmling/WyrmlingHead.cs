@@ -65,7 +65,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
 
         public override bool PreAI()
         {
-            Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
+            Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255f, Color.DarkOrange.G / 255f, Color.DarkOrange.B / 255f);
             Player player = Main.player[NPC.target];
             float dist = NPC.Distance(player.Center);
             if (NPC.alpha != 0)

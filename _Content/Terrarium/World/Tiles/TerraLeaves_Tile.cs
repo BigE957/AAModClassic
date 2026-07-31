@@ -41,9 +41,9 @@ namespace AAModClassic._Content.Terrarium.World.Tiles
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)   //light colors
         {
-            r = Color.YellowGreen.R / 255;
-            g = Color.YellowGreen.G / 255;
-            b = Color.YellowGreen.B / 255;
+            r = Color.YellowGreen.R / 255f;
+            g = Color.YellowGreen.G / 255f;
+            b = Color.YellowGreen.B / 255f;
         }
     }
 }

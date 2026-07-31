@@ -38,7 +38,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories
         public override void RegisterEquipEffects()
         {
             AddEffect<LanternEffect>();
-            AddEffect(new EmitLightFromPlayerEffect(AAColor.Lantern.R / 255, AAColor.Lantern.G / 255 * 0.95f, AAColor.Lantern.B / 255 * 0.8f));
+            AddEffect(new EmitLightFromPlayerEffect(AAColor.Lantern.R / 255f, AAColor.Lantern.G / 255f * 0.95f, AAColor.Lantern.B / 255f * 0.8f));
         }
 
         //TODO: cant this be removed

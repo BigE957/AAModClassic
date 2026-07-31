@@ -48,14 +48,14 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Tiles.Decoration
 				Dust.NewDust(new Vector2(player.itemLocation.X + 16f * player.direction, player.itemLocation.Y - 14f * player.gravDir), 4, 4, ModContent.DustType<Dusts.HydratoxinDust>());
 			}
 			Vector2 position = player.RotatedRelativePoint(new Vector2(player.itemLocation.X + 12f * player.direction + player.velocity.X, player.itemLocation.Y - 14f + player.velocity.Y), true);
-			Lighting.AddLight(position, AAColor.BogToxin.R / 255, AAColor.BogToxin.G / 255, AAColor.BogToxin.B / 255);
+			Lighting.AddLight(position, AAColor.BogToxin.R / 255f, AAColor.BogToxin.G / 255f, AAColor.BogToxin.B / 255f);
 		}
 
 		public override void PostUpdate()
 		{
 			if (!Item.wet)
 			{
-				Lighting.AddLight((int)((Item.position.X + Item.width / 2) / 16f), (int)((Item.position.Y + Item.height / 2) / 16f), AAColor.BogToxin.R / 255, AAColor.BogToxin.G / 255, AAColor.BogToxin.B / 255);
+				Lighting.AddLight((int)((Item.position.X + Item.width / 2) / 16f), (int)((Item.position.Y + Item.height / 2) / 16f), AAColor.BogToxin.R / 255f, AAColor.BogToxin.G / 255f, AAColor.BogToxin.B / 255f);
 			}
 		}
 

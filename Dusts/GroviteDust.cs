@@ -29,7 +29,7 @@ namespace AAModClassic.Dusts
                 {
                     strength = 1f;
                 }
-                Lighting.AddLight(dust.position, ZAAPlayer.groviteColor.R / 255 * 0.3f * strength, ZAAPlayer.groviteColor.G / 255 * 0.3f * strength, ZAAPlayer.groviteColor.B / 255 * 0.3f * strength);
+                Lighting.AddLight(dust.position, ZAAPlayer.groviteColor.R / 255f * 0.3f * strength, ZAAPlayer.groviteColor.G / 255f * 0.3f * strength, ZAAPlayer.groviteColor.B / 255f * 0.3f * strength);
             }
             return false;
         }

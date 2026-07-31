@@ -38,7 +38,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
         {
             Color color = BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, BaseDrawing.GetLightColor(Projectile.position), BaseDrawing.GetLightColor(Projectile.position), Color.Violet, BaseDrawing.GetLightColor(Projectile.position), Color.Violet, BaseDrawing.GetLightColor(Projectile.position));
 
-            Lighting.AddLight((int)(Projectile.Center.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, color.R / 255, color.G / 255, color.B / 255);
+            Lighting.AddLight((int)(Projectile.Center.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, color.R / 255f, color.G / 255f, color.B / 255f);
             if (++Projectile.frameCounter >= 4)
             {
                 Projectile.frameCounter = 0;
