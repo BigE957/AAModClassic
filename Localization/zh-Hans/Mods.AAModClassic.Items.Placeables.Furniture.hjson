@@ -295,105 +295,106 @@ Bogwood: {
 }
 
 OuroborosWood: {
-	OuroborosWoodBathtub: {
-		DisplayName: 衔尾木浴缸
-		Tooltip: ""
-	}
+	OuroborosWood: {
+    OuroborosWoodBathtub: {
+        DisplayName: Уроборосовая ванна
+        Tooltip: ""
+    }
 
-	OuroborosWoodBed: {
-		DisplayName: 衔尾木床
-		Tooltip: ""
-	}
+    OuroborosWoodBed: {
+        DisplayName: Уроборосовая кровать
+        Tooltip: ""
+    }
 
-	OuroborosWoodBookcase: {
-		DisplayName: 衔尾木书架
-		Tooltip: ""
-	}
+    OuroborosWoodBookcase: {
+        DisplayName: Уроборосовый книжный шкаф
+        Tooltip: ""
+    }
 
-	OuroborosWoodCandle: {
-		DisplayName: 衔尾木蜡烛
-		Tooltip: ""
-	}
+    OuroborosWoodCandle: {
+        DisplayName: Уроборосовая свеча
+        Tooltip: ""
+    }
 
-	OuroborosWoodChair: {
-		DisplayName: 衔尾木椅
-		Tooltip: ""
-	}
+    OuroborosWoodChair: {
+        DisplayName: Уроборосовый стул
+        Tooltip: ""
+    }
 
-	OuroborosWoodChest: {
-		DisplayName: 衔尾木箱
-		Tooltip: ""
-	}
+    OuroborosWoodChest: {
+        DisplayName: Уроборосовый сундук
+        Tooltip: ""
+    }
 
-	OuroborosWoodClock: {
-		DisplayName: 衔尾木时钟
-		Tooltip: ""
-	}
+    OuroborosWoodClock: {
+        DisplayName: Уроборосовые часы
+        Tooltip: ""
+    }
 
-	OuroborosWoodDoor: {
-		DisplayName: 衔尾木门
-		Tooltip: ""
-	}
+    OuroborosWoodDoor: {
+        DisplayName: Уроборосовая дверь
+        Tooltip: ""
+    }
 
-	OuroborosWoodLamp: {
-		DisplayName: 衔尾木灯
-		Tooltip: ""
-	}
+    OuroborosWoodLamp: {
+        DisplayName: Уроборосовая лампа
+        Tooltip: ""
+    }
 
-	OuroborosWoodLantern: {
-		DisplayName: 衔尾木灯笼
-		Tooltip: ""
-	}
+    OuroborosWoodLantern: {
+        DisplayName: Уроборосовый фонарь
+        Tooltip: ""
+    }
 
-	OuroborosWoodPlatform: {
-		DisplayName: 衔尾木平台
-		Tooltip: ""
-	}
+    OuroborosWoodPlatform: {
+        DisplayName: Уроборосовая платформа
+        Tooltip: ""
+    }
 
-	OuroborosWoodWorkbench: {
-		DisplayName: 衔尾木工作台
-		Tooltip: ""
-	}
+    OuroborosWoodWorkbench: {
+        DisplayName: Уроборосовый верстак
+        Tooltip: ""
+    }
 
-	OuroborosWoodCandelabra: {
-		// DisplayName: Ouroboros Wood Candelabra
-		// Tooltip: ""
-	}
+    OuroborosWoodCandelabra: {
+        DisplayName: Уроборосовый канделябр
+        Tooltip: ""
+    }
 
-	OuroborosWoodChandelier: {
-		// DisplayName: Ouroboros Wood Chandelier
-		// Tooltip: ""
-	}
+    OuroborosWoodChandelier: {
+        DisplayName: Уроборосовая люстра
+        Tooltip: ""
+    }
 
-	OuroborosWoodCouch: {
-		// DisplayName: Ouroboros Wood Couch
-		// Tooltip: ""
-	}
+    OuroborosWoodCouch: {
+        DisplayName: Уроборосовый диван
+        Tooltip: ""
+    }
 
-	OuroborosWoodDresser: {
-		// DisplayName: Ouroboros Wood Dresser
-		// Tooltip: ""
-	}
+    OuroborosWoodDresser: {
+        DisplayName: Уроборосовый комод
+        Tooltip: ""
+    }
 
-	OuroborosWoodPiano: {
-		// DisplayName: Ouroboros Wood Piano
-		// Tooltip: ""
-	}
+    OuroborosWoodPiano: {
+        DisplayName: Уроборосовое пианино
+        Tooltip: ""
+    }
 
-	OuroborosWoodSink: {
-		// DisplayName: Ouroboros Wood Sink
-		// Tooltip: ""
-	}
+    OuroborosWoodSink: {
+        DisplayName: Уроборосовая раковина
+        Tooltip: ""
+    }
 
-	OuroborosWoodTable: {
-		// DisplayName: Ouroboros Wood Table
-		// Tooltip: ""
-	}
+    OuroborosWoodTable: {
+        DisplayName: Уроборосовый стол
+        Tooltip: ""
+    }
 
-	OuroborosWoodToilet: {
-		// DisplayName: Ouroboros Wood Toilet
-		// Tooltip: ""
-	}
+    OuroborosWoodToilet: {
+        DisplayName: Уроборосовый унитаз
+        Tooltip: ""
+    }
 }
 
 Keep: {
