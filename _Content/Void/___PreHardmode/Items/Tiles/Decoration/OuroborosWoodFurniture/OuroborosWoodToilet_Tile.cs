@@ -50,7 +50,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Ourob
             VanillaFallbackOnModDeletion = TileID.Chairs;
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsChair);
 
-            AddMapEntry(new Color(200, 150, 20), Language.GetText("ItemName.Bench"));
+            AddMapEntry(new Color(200, 150, 20), Language.GetText("ItemName.Toilet"));
 
             RegisterItemDrop(ModContent.ItemType<OuroborosWoodToilet>(), 0);
         }
