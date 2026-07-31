@@ -493,3 +493,8 @@ RaptorTalon: {
 	DisplayName: Raptor Talon
 	Tooltip: A heavy critical strike will do 3x damage
 }
+
+PrimevalScarf: {
+	DisplayName: Primeval Scarf
+	Tooltip: ""
+}

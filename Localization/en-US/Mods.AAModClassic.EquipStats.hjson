@@ -505,4 +505,5 @@ Effect: {
 		are to an enemy, up to {0}%
 		'''
 	HeavyCritChanceEffect: "{0}% {1} {2}{3}heavy critical strike chance"
+	PrimevalScarfEffect: Critical strikes are followed by homing bolts of Dyna-energy
 }
