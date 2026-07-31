@@ -38,7 +38,6 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoratio
         {
             CreateRecipe()
                 .AddIngredient(ModContent.ItemType<MushroomBlock>(), 10)
-                .AddTile(TileID.WorkBenches)
                 .Register();
         }
     }
