@@ -8,10 +8,10 @@ FatPixie: 哇塞
 CoreSpawn: 环境原核发出一阵嗡鸣，开始运转！
 
 SistersOfDiscord: {
-	// Ambient.HarukaShadow: pathetic.
+    Ambient.HarukaShadow: 真可悲。
 
-	Spawn: {
-		1: 哟，这不是…居然能在这儿碰到你呀～！
+    Spawn: {
+        1: 哟，这不是…居然能在这儿碰到你呀～！
 
 		2: {
 			None: 哦，可不是嘛，小子…你的名号我可没少听。在这片地方，你可真是惹了不少乱子…
