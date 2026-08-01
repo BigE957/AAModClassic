@@ -51,7 +51,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         private static FieldInfo MessageTimeLeft = null;
         private static FieldInfo MessageColor = null;
 
-        public override bool UnlockWhenNearby => false;
+        public bool UnlockWhenNearby => false;
 
         public override void SetStaticDefaults()
         {

@@ -12,7 +12,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
 {
     public class AthenaCloneLight : ModNPC, IBestiaryCritterNPC
     {
-        public override bool UnlockWhenNearby => false;
+        public bool UnlockWhenNearby => false;
 
         public override void SetStaticDefaults()
         {

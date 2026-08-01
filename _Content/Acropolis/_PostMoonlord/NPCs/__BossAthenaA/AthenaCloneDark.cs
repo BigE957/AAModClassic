@@ -1,6 +1,5 @@
 using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic.UI.World;
-using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -12,7 +11,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
 {
     public class AthenaCloneDark : ModNPC, IBestiaryCritterNPC
     {
-        public override bool UnlockWhenNearby => false;
+        public bool UnlockWhenNearby => false;
 
         public override void SetStaticDefaults()
         {

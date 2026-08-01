@@ -2,8 +2,8 @@
 {
     public interface IBestiaryCritterNPC
     {
-        public virtual int CountAsType => -1;
+        public int CountAsType => -1;
 
-        public virtual bool UnlockWhenNearby => true;
+        public bool UnlockWhenNearby => true;
     }
 }
