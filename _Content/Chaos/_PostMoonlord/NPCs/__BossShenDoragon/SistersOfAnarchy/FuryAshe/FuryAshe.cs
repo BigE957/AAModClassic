@@ -139,7 +139,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
                     MoveToPoint(wantedVelocity);
 
-                    BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<ShenDoragonA_FireBreath>(), ref NPC.ai[2], 5, 36, 16, false);
+                    BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<ShenDoragonA_FireBreath>(), ref NPC.ai[2], 5, 20, 16, false);
                     if (NPC.ai[1]++ > (Main.expertMode ? 180 : 280))
                     {
                         NPC.ai[1] = 0;
@@ -180,8 +180,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             const float ai0 = 0.01f;
-                            NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), 36, 0f, -1, ai0, chaosType: ChaosType.Discord);
-                            NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), 36, 0f, -1, ai0, chaosType: ChaosType.Discord);
+                            NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), 18, 0f, -1, ai0, chaosType: ChaosType.Discord);
+                            NPC.NewProjectileFlipped<ShenDoragon_ChaosFireballAccel>(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), 18, 0f, -1, ai0, chaosType: ChaosType.Discord);
                         }
                     }
                     if (++NPC.ai[1] > 40)
@@ -233,7 +233,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                     }
                     if (NPC.life > NPC.lifeMax / 3 || NPC.ai[1] < 100)
                     {
-                        BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<FuryAshe_FuryFireBomb>(), ref NPC.ai[2], NPC.life < NPC.lifeMax * 0.666f ? 30 : 60, 36, 8, false);
+                        BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<FuryAshe_FuryFireBomb>(), ref NPC.ai[2], NPC.life < NPC.lifeMax * 0.666f ? 20 : 40, 36, 8, false);
                     }
                     if (NPC.ai[1]++ > (Main.expertMode ? 180 : 280))
                     {
@@ -243,7 +243,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                             {
                                 Vector2 shoot = new Vector2((float)Math.Sin(i * 0.25f * 3.1415926f), (float)Math.Cos(i * 0.25f * 3.1415926f));
                                 shoot *= 8f;
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, shoot.X, shoot.Y, ModContent.ProjectileType<FuryAshe_FuryFireBomb>(), 36, 5, -1);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, shoot.X, shoot.Y, ModContent.ProjectileType<FuryAshe_FuryFireBomb>(), 20, 5, -1);
                             }
                             if(Main.rand.NextBool(3)) 
                             {

@@ -83,8 +83,6 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         public bool Invisible = false;
         public int Frame = 0;
 
-        public int damage = 0;
-
         public int[] internalAI = new int[10];
 
         public int[] ShadowNPC = new int[3];
@@ -241,7 +239,6 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         {
             NPC.TargetClosest(true);
             Player player = Main.player[NPC.target];
-            damage = 70;
 
             int ashe = NPC.CountNPCS(ModContent.NPCType<Ashe.Ashe>());
             bool flag = player.dead || !player.active || Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000f || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000f;
@@ -350,7 +347,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                 Vector2 targetCenter = player.position + new Vector2(player.width * 0.5f, player.height * 0.5f);
                 Vector2 fireTarget = NPC.Center;
                 int projType = ModContent.ProjectileType<Haruka_NightSlash>();
-                BaseAI.FireProjectile(targetCenter, fireTarget, projType, damage, 0f, 12f);
+                BaseAI.FireProjectile(targetCenter, fireTarget, projType, 18, 0f, 12f);
                 internalAI[0] = Main.rand.Next(2);
                 internalAI[5] = 0;
                 NPC.netUpdate = true;
@@ -525,7 +522,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                         for (int i = 0; i < 3; i++)
                         {
                             double offsetAngle = startAngle + deltaAngle * i;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, damage, 5, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, 18, 5);
                         }
                     }
                     if ((internalAI[2] < 4 || internalAI[2] > 6) && Main.netMode != NetmodeID.MultiplayerClient) 
@@ -582,7 +579,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                         Vector2 targetCenter = player.position + new Vector2(player.width * 0.5f, player.height * 0.5f);
                         Vector2 fireTarget = NPC.Center;
                         int projType = ModContent.ProjectileType<Haruka_NightSlash>();
-                        BaseAI.FireProjectile(targetCenter, fireTarget, projType, damage, 0f, 14f);
+                        BaseAI.FireProjectile(targetCenter, fireTarget, projType, 18, 0f, 14f);
                         NPC.netUpdate = true;
                     }
                     if (isSlashing && internalAI[2] > 9 && Main.netMode != NetmodeID.MultiplayerClient)
@@ -712,7 +709,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                         for (int i = 0; i < 3; i++)
                         {
                             double offsetAngle = startAngle + deltaAngle * i;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, damage, 0, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, 18, 0);
                         }
                         if(strikebackproj != 0)
                         {
@@ -721,7 +718,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                             for (int i = 0; i < strikebackproj; i++)
                             {
                                 double offsetAngle = startAngle + deltaAngle * i;
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), ModContent.ProjectileType<Haruka_Arrow>(), damage, 0, Main.myPlayer);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), ModContent.ProjectileType<Haruka_Arrow>(), 35, 0);
                             }
                         }
                     }
@@ -1071,13 +1068,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                 Vector2 shoot;
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), ShadowkingPosition.X, ShadowkingPosition.Y, 0, 0, ModContent.ProjectileType<Haruka_DepthKillingBlast>(), damage, 5, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), ShadowkingPosition.X, ShadowkingPosition.Y, 0, 0, ModContent.ProjectileType<Haruka_DepthKillingBlast>(), 35, 5);
                     int projType = ModContent.ProjectileType<Haruka_NightSlash>();
                     for (int i = 0; i < 12; i++)
                     {
                         shoot = new Vector2((float)Math.Sin(i * (Pi / 6)), (float)Math.Cos(i * (Pi / 6)));
                         shoot *= 10f;
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), ShadowkingPosition.X, ShadowkingPosition.Y, shoot.X, shoot.Y, projType, damage, 5, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), ShadowkingPosition.X, ShadowkingPosition.Y, shoot.X, shoot.Y, projType, 35, 5);
                     }
                 }
 

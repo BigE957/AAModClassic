@@ -112,7 +112,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
                     MoveToPoint(wantedVelocity);
 
-                    BaseAI.ShootPeriodic(NPC, player.Center + new Vector2(Main.rand.Next(-10, 10), Main.rand.Next(-10, 10)), player.width, player.height, ModContent.ProjectileType<Ashe_DayfireShot>(), ref NPC.ai[2], 18, 32, 9, false);
+                    BaseAI.ShootPeriodic(NPC, player.Center + new Vector2(Main.rand.Next(-10, 10), Main.rand.Next(-10, 10)), player.width, player.height, ModContent.ProjectileType<Ashe_DayfireShot>(), ref NPC.ai[2], 18, 18, 9, false);
                     if (NPC.ai[1]++ > (Main.expertMode ? 180 : 280))
                     {
                         AIChange();
@@ -150,7 +150,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                     {
                         if (NPC.ai[1] > 60 && NPC.ai[1] <= 180)
                         {
-                            BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<Ashe_BlazingFury>(), ref NPC.ai[2], 5, 32, 16, false);
+                            BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<Ashe_BlazingFury>(), ref NPC.ai[2], 5, 16, 16, false);
                         }
                     }
 
@@ -194,8 +194,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             const float ai0 = 0.01f;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), ModContent.ProjectileType<Ashe_Fireball>(), 32, 0f, -1, ai0);
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), ModContent.ProjectileType<Ashe_Fireball>(), 32, 0f, -1, ai0);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(Math.PI / 2), ModContent.ProjectileType<Ashe_Fireball>(), 16, 0f, -1, ai0);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.velocity).RotatedBy(-Math.PI / 2), ModContent.ProjectileType<Ashe_Fireball>(), 16, 0f, -1, ai0);
                         }
                     }
                     if (++NPC.ai[1] > 40)
@@ -247,7 +247,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                     }
                     if (NPC.life > NPC.lifeMax / 3 || NPC.ai[1] < 100)
                     {
-                        BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<Ashe_FireBomb>(), ref NPC.ai[2], NPC.life < NPC.lifeMax * 0.666f ? 30 : 60, 32, 8, false);
+                        BaseAI.ShootPeriodic(NPC, player.Center, player.width, player.height, ModContent.ProjectileType<Ashe_FireBomb>(), ref NPC.ai[2], NPC.life < NPC.lifeMax * 0.666f ? 20 : 30, 32, 8, false);
                     }
                     if (NPC.ai[1]++ > (Main.expertMode ? 180 : 280))
                     {
@@ -259,7 +259,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                                 {
                                     Vector2 shoot = new Vector2((float)Math.Sin(i * 0.25f * 3.1415926f), (float)Math.Cos(i * 0.25f * 3.1415926f));
                                     shoot *= 8f;
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, shoot.X, shoot.Y, ModContent.ProjectileType<Ashe_FireBomb>(), 32, 5, -1, 0f, 0f);
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, shoot.X, shoot.Y, ModContent.ProjectileType<Ashe_FireBomb>(), 20, 5, -1, 0f, 0f);
                                 }
                             }
                             if(Main.rand.NextBool(3))

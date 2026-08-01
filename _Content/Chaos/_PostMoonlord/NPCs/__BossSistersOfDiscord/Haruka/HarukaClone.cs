@@ -62,6 +62,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                 NPC.life = 0;
                 NPC.active = false;
             }
+
+            //Unfuck the scaling
+            NPC.damage = 150;
         }
 
 

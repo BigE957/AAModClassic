@@ -63,6 +63,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                 NPC.life = 0;
                 NPC.active = false;
             }
+
+            NPC.damage = 150;
         }
 
 
