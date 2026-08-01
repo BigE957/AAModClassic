@@ -93,6 +93,11 @@ Doom: {
 		DisplayName: Plataforma de Doom
 		Tooltip: ""
 	}
+
+	DoomToilet: {
+		// DisplayName: Doom Toilet
+		// Tooltip: ""
+	}
 }
 
 Razewood: {
@@ -189,6 +194,11 @@ Razewood: {
 	RazewoodWorkbench: {
 		DisplayName: Banco de Trabajo de Madera Asoladora
 		Tooltip: ""
+	}
+
+	RazewoodToilet: {
+		// DisplayName: Razewood Toilet
+		// Tooltip: ""
 	}
 }
 
@@ -292,108 +302,113 @@ Bogwood: {
 		DisplayName: Banco de Trabajo de Madera de Pantano
 		Tooltip: ""
 	}
+
+	BogwoodToilet: {
+		// DisplayName: Bogwood Toilet
+		// Tooltip: ""
+	}
 }
 
 OuroborosWood: {
-    OuroborosWoodBathtub: {
-        DisplayName: Bañera de Madera de Ouroboros
-        Tooltip: ""
-    }
+	OuroborosWoodBathtub: {
+		DisplayName: Bañera de Madera de Ouroboros
+		Tooltip: ""
+	}
 
-    OuroborosWoodBed: {
-        DisplayName: Cama de Madera de Ouroboros
-        Tooltip: ""
-    }
+	OuroborosWoodBed: {
+		DisplayName: Cama de Madera de Ouroboros
+		Tooltip: ""
+	}
 
-    OuroborosWoodBookcase: {
-        DisplayName: Librería de Madera de Ouroboros
-        Tooltip: ""
-    }
+	OuroborosWoodBookcase: {
+		DisplayName: Librería de Madera de Ouroboros
+		Tooltip: ""
+	}
 
-    OuroborosWoodCandle: {
-        DisplayName: Vela de Madera de Ouroboros
-        Tooltip: ""
-    }
+	OuroborosWoodCandle: {
+		DisplayName: Vela de Madera de Ouroboros
+		Tooltip: ""
+	}
 
-    OuroborosWoodChair: {
-        DisplayName: Silla de Madera de Ouroboros
-        Tooltip: ""
-    }
+	OuroborosWoodChair: {
+		DisplayName: Silla de Madera de Ouroboros
+		Tooltip: ""
+	}
 
-    OuroborosWoodChest: {
-        DisplayName: Cofre de Madera de Ouroboros
-        Tooltip: ""
-    }
+	OuroborosWoodChest: {
+		DisplayName: Cofre de Madera de Ouroboros
+		Tooltip: ""
+	}
 
-    OuroborosWoodClock: {
-        DisplayName: Reloj de Madera de Ouroboros
-        Tooltip: ""
-    }
+	OuroborosWoodClock: {
+		DisplayName: Reloj de Madera de Ouroboros
+		Tooltip: ""
+	}
 
-    OuroborosWoodDoor: {
-        DisplayName: Puerta de Madera de Ouroboros
-        Tooltip: ""
-    }
+	OuroborosWoodDoor: {
+		DisplayName: Puerta de Madera de Ouroboros
+		Tooltip: ""
+	}
 
-    OuroborosWoodLamp: {
-        DisplayName: Lámpara de Madera de Ouroboros
-        Tooltip: ""
-    }
+	OuroborosWoodLamp: {
+		DisplayName: Lámpara de Madera de Ouroboros
+		Tooltip: ""
+	}
 
-    OuroborosWoodLantern: {
-        DisplayName: Farol de Madera de Ouroboros
-        Tooltip: ""
-    }
+	OuroborosWoodLantern: {
+		DisplayName: Farol de Madera de Ouroboros
+		Tooltip: ""
+	}
 
-    OuroborosWoodPlatform: {
-        DisplayName: Plataforma de Madera de Ouroboros
-        Tooltip: ""
-    }
+	OuroborosWoodPlatform: {
+		DisplayName: Plataforma de Madera de Ouroboros
+		Tooltip: ""
+	}
 
-    OuroborosWoodWorkbench: {
-        DisplayName: Banco de Trabajo de Madera de Ouroboros
-        Tooltip: ""
-    }
+	OuroborosWoodWorkbench: {
+		DisplayName: Banco de Trabajo de Madera de Ouroboros
+		Tooltip: ""
+	}
 
-    OuroborosWoodCandelabra: {
-        DisplayName:Candelabro de Madera de Ouroboros
-        Tooltip: ""
-    }
+	OuroborosWoodCandelabra: {
+		DisplayName: Candelabro de Madera de Ouroboros
+		Tooltip: ""
+	}
 
-    OuroborosWoodChandelier: {
-        DisplayName: Lámpara de Araña de Madera de Ouroboros
-        Tooltip: ""
-    }
+	OuroborosWoodChandelier: {
+		DisplayName: Lámpara de Araña de Madera de Ouroboros
+		Tooltip: ""
+	}
 
-    OuroborosWoodCouch: {
-        DisplayName: Sofá de Madera de Ouroboros
-        Tooltip: ""
-    }
+	OuroborosWoodCouch: {
+		DisplayName: Sofá de Madera de Ouroboros
+		Tooltip: ""
+	}
 
-    OuroborosWoodDresser: {
-        DisplayName: Aparador de Madera de Ouroboros
-        Tooltip: ""
-    }
+	OuroborosWoodDresser: {
+		DisplayName: Aparador de Madera de Ouroboros
+		Tooltip: ""
+	}
 
-    OuroborosWoodPiano: {
-        DisplayName: Piano de Madera de Ouroboros
-        Tooltip: ""
-    }
+	OuroborosWoodPiano: {
+		DisplayName: Piano de Madera de Ouroboros
+		Tooltip: ""
+	}
 
-    OuroborosWoodSink: {
-        DisplayName: Fregadero de Madera de Ouroboros
-        Tooltip: ""
-    }
+	OuroborosWoodSink: {
+		DisplayName: Fregadero de Madera de Ouroboros
+		Tooltip: ""
+	}
 
-    OuroborosWoodTable: {
-        DisplayName: Mesa de Madera de Ouroboros
-        Tooltip: ""
-    }
+	OuroborosWoodTable: {
+		DisplayName: Mesa de Madera de Ouroboros
+		Tooltip: ""
+	}
 
-    OuroborosWoodToilet: {
-        DisplayName: Retrete de Madera de Ouroboros
-        Tooltip: ""
-    }
+	OuroborosWoodToilet: {
+		DisplayName: Retrete de Madera de Ouroboros
+		Tooltip: ""
+	}
 }
 
 Keep: {
@@ -486,6 +501,11 @@ Keep: {
 		DisplayName: Escalera de Caracol
 		Tooltip: ""
 	}
+
+	KeepToilet: {
+		// DisplayName: Keep Toilet
+		// Tooltip: ""
+	}
 }
 
 Terra: {
@@ -577,6 +597,11 @@ Terra: {
 	TerraWorkbench: {
 		DisplayName: Banco de Trabajo Terra
 		Tooltip: ""
+	}
+
+	TerraToilet: {
+		// DisplayName: Terra Toilet
+		// Tooltip: ""
 	}
 }
 

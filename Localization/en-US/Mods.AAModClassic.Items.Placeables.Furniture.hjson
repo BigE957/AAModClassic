@@ -93,6 +93,11 @@ Doom: {
 		DisplayName: Doom Platform
 		Tooltip: ""
 	}
+
+	DoomToilet: {
+		DisplayName: Doom Toilet
+		Tooltip: ""
+	}
 }
 
 Razewood: {
@@ -188,6 +193,11 @@ Razewood: {
 
 	RazewoodWorkbench: {
 		DisplayName: Razewood Workbench
+		Tooltip: ""
+	}
+
+	RazewoodToilet: {
+		DisplayName: Razewood Toilet
 		Tooltip: ""
 	}
 }
@@ -290,6 +300,11 @@ Bogwood: {
 
 	BogwoodWorkbench: {
 		DisplayName: Bogwood Workbench
+		Tooltip: ""
+	}
+
+	BogwoodToilet: {
+		DisplayName: Bogwood Toilet
 		Tooltip: ""
 	}
 }
@@ -486,6 +501,11 @@ Keep: {
 		DisplayName: Spiral Stairs
 		Tooltip: ""
 	}
+
+	KeepToilet: {
+		DisplayName: Keep Toilet
+		Tooltip: ""
+	}
 }
 
 Terra: {
@@ -576,6 +596,11 @@ Terra: {
 
 	TerraWorkbench: {
 		DisplayName: Terra Workbench
+		Tooltip: ""
+	}
+
+	TerraToilet: {
+		DisplayName: Terra Toilet
 		Tooltip: ""
 	}
 }

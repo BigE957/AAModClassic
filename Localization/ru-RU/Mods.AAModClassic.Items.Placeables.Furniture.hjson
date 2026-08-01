@@ -93,6 +93,11 @@ Doom: {
 		DisplayName: Гибельная платформа
 		Tooltip: ""
 	}
+
+	DoomToilet: {
+		// DisplayName: Doom Toilet
+		// Tooltip: ""
+	}
 }
 
 Razewood: {
@@ -189,6 +194,11 @@ Razewood: {
 	RazewoodWorkbench: {
 		DisplayName: Выжженный верстак
 		Tooltip: ""
+	}
+
+	RazewoodToilet: {
+		// DisplayName: Razewood Toilet
+		// Tooltip: ""
 	}
 }
 
@@ -291,6 +301,11 @@ Bogwood: {
 	BogwoodWorkbench: {
 		DisplayName: Болотный верстак
 		Tooltip: ""
+	}
+
+	BogwoodToilet: {
+		// DisplayName: Bogwood Toilet
+		// Tooltip: ""
 	}
 }
 
@@ -486,6 +501,11 @@ Keep: {
 		DisplayName: Винтовая лестница
 		Tooltip: ""
 	}
+
+	KeepToilet: {
+		// DisplayName: Keep Toilet
+		// Tooltip: ""
+	}
 }
 
 Terra: {
@@ -577,6 +597,11 @@ Terra: {
 	TerraWorkbench: {
 		DisplayName: Терра-верстак
 		Tooltip: ""
+	}
+
+	TerraToilet: {
+		// DisplayName: Terra Toilet
+		// Tooltip: ""
 	}
 }
 

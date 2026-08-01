@@ -93,6 +93,11 @@ Doom: {
 		DisplayName: 厄劫平台
 		Tooltip: ""
 	}
+
+	DoomToilet: {
+		// DisplayName: Doom Toilet
+		// Tooltip: ""
+	}
 }
 
 Razewood: {
@@ -189,6 +194,11 @@ Razewood: {
 	RazewoodWorkbench: {
 		DisplayName: 燎火木工作台
 		Tooltip: ""
+	}
+
+	RazewoodToilet: {
+		// DisplayName: Razewood Toilet
+		// Tooltip: ""
 	}
 }
 
@@ -292,108 +302,113 @@ Bogwood: {
 		DisplayName: 污泽木工作台
 		Tooltip: ""
 	}
+
+	BogwoodToilet: {
+		// DisplayName: Bogwood Toilet
+		// Tooltip: ""
+	}
 }
 
 OuroborosWood: {
-    OuroborosWoodBathtub: {
-        DisplayName: Уроборосовая ванна
-        Tooltip: ""
-    }
+	OuroborosWoodBathtub: {
+		DisplayName: Уроборосовая ванна
+		Tooltip: ""
+	}
 
-    OuroborosWoodBed: {
-        DisplayName: Уроборосовая кровать
-        Tooltip: ""
-    }
+	OuroborosWoodBed: {
+		DisplayName: Уроборосовая кровать
+		Tooltip: ""
+	}
 
-    OuroborosWoodBookcase: {
-        DisplayName: Уроборосовый книжный шкаф
-        Tooltip: ""
-    }
+	OuroborosWoodBookcase: {
+		DisplayName: Уроборосовый книжный шкаф
+		Tooltip: ""
+	}
 
-    OuroborosWoodCandle: {
-        DisplayName: Уроборосовая свеча
-        Tooltip: ""
-    }
+	OuroborosWoodCandle: {
+		DisplayName: Уроборосовая свеча
+		Tooltip: ""
+	}
 
-    OuroborosWoodChair: {
-        DisplayName: Уроборосовый стул
-        Tooltip: ""
-    }
+	OuroborosWoodChair: {
+		DisplayName: Уроборосовый стул
+		Tooltip: ""
+	}
 
-    OuroborosWoodChest: {
-        DisplayName: Уроборосовый сундук
-        Tooltip: ""
-    }
+	OuroborosWoodChest: {
+		DisplayName: Уроборосовый сундук
+		Tooltip: ""
+	}
 
-    OuroborosWoodClock: {
-        DisplayName: Уроборосовые часы
-        Tooltip: ""
-    }
+	OuroborosWoodClock: {
+		DisplayName: Уроборосовые часы
+		Tooltip: ""
+	}
 
-    OuroborosWoodDoor: {
-        DisplayName: Уроборосовая дверь
-        Tooltip: ""
-    }
+	OuroborosWoodDoor: {
+		DisplayName: Уроборосовая дверь
+		Tooltip: ""
+	}
 
-    OuroborosWoodLamp: {
-        DisplayName: Уроборосовая лампа
-        Tooltip: ""
-    }
+	OuroborosWoodLamp: {
+		DisplayName: Уроборосовая лампа
+		Tooltip: ""
+	}
 
-    OuroborosWoodLantern: {
-        DisplayName: Уроборосовый фонарь
-        Tooltip: ""
-    }
+	OuroborosWoodLantern: {
+		DisplayName: Уроборосовый фонарь
+		Tooltip: ""
+	}
 
-    OuroborosWoodPlatform: {
-        DisplayName: Уроборосовая платформа
-        Tooltip: ""
-    }
+	OuroborosWoodPlatform: {
+		DisplayName: Уроборосовая платформа
+		Tooltip: ""
+	}
 
-    OuroborosWoodWorkbench: {
-        DisplayName: Уроборосовый верстак
-        Tooltip: ""
-    }
+	OuroborosWoodWorkbench: {
+		DisplayName: Уроборосовый верстак
+		Tooltip: ""
+	}
 
-    OuroborosWoodCandelabra: {
-        DisplayName: Уроборосовый канделябр
-        Tooltip: ""
-    }
+	OuroborosWoodCandelabra: {
+		DisplayName: Уроборосовый канделябр
+		Tooltip: ""
+	}
 
-    OuroborosWoodChandelier: {
-        DisplayName: Уроборосовая люстра
-        Tooltip: ""
-    }
+	OuroborosWoodChandelier: {
+		DisplayName: Уроборосовая люстра
+		Tooltip: ""
+	}
 
-    OuroborosWoodCouch: {
-        DisplayName: Уроборосовый диван
-        Tooltip: ""
-    }
+	OuroborosWoodCouch: {
+		DisplayName: Уроборосовый диван
+		Tooltip: ""
+	}
 
-    OuroborosWoodDresser: {
-        DisplayName: Уроборосовый комод
-        Tooltip: ""
-    }
+	OuroborosWoodDresser: {
+		DisplayName: Уроборосовый комод
+		Tooltip: ""
+	}
 
-    OuroborosWoodPiano: {
-        DisplayName: Уроборосовое пианино
-        Tooltip: ""
-    }
+	OuroborosWoodPiano: {
+		DisplayName: Уроборосовое пианино
+		Tooltip: ""
+	}
 
-    OuroborosWoodSink: {
-        DisplayName: Уроборосовая раковина
-        Tooltip: ""
-    }
+	OuroborosWoodSink: {
+		DisplayName: Уроборосовая раковина
+		Tooltip: ""
+	}
 
-    OuroborosWoodTable: {
-        DisplayName: Уроборосовый стол
-        Tooltip: ""
-    }
+	OuroborosWoodTable: {
+		DisplayName: Уроборосовый стол
+		Tooltip: ""
+	}
 
-    OuroborosWoodToilet: {
-        DisplayName: Уроборосовый унитаз
-        Tooltip: ""
-    }
+	OuroborosWoodToilet: {
+		DisplayName: Уроборосовый унитаз
+		Tooltip: ""
+	}
 }
 
 Keep: {
@@ -486,6 +501,11 @@ Keep: {
 		DisplayName: 螺旋楼梯
 		Tooltip: ""
 	}
+
+	KeepToilet: {
+		// DisplayName: Keep Toilet
+		// Tooltip: ""
+	}
 }
 
 Terra: {
@@ -577,6 +597,11 @@ Terra: {
 	TerraWorkbench: {
 		DisplayName: 泰拉工作台
 		Tooltip: ""
+	}
+
+	TerraToilet: {
+		// DisplayName: Terra Toilet
+		// Tooltip: ""
 	}
 }
 
