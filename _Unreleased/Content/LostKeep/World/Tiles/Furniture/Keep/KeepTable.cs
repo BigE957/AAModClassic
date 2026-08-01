@@ -7,7 +7,7 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Keep;
 
 public class KeepTable : ModItem, ILocalizedModType
 {
-        public new string LocalizationCategory => "Items.Placeables.Furniture.Keep";
+    public new string LocalizationCategory => "Items.Placeables.Furniture.Keep";
 	public override void SetStaticDefaults()
 	{
 		// DisplayName.SetDefault("Keep Table");
@@ -30,13 +30,9 @@ public class KeepTable : ModItem, ILocalizedModType
 
 	public override void AddRecipes()
 	{
-
-		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0017: Unknown result type (might be due to invalid IL or missing references)
-		//IL_001f: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(ModContent.ItemType<TerraShard>(), 8);
-		val.AddTile(TileID.WorkBenches);
-		val.Register();
+		Recipe recipe = CreateRecipe();
+		recipe.AddIngredient(ModContent.ItemType<TerraShard>(), 8);
+		recipe.AddTile(TileID.WorkBenches);
+		recipe.Register();
 	}
 }
