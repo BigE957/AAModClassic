@@ -62,7 +62,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
 
             foreach (Projectile p in Main.ActiveProjectiles)
             {
-                if (p.friendly && !p.minion && p.damage > 0 && p.Hitbox.Intersects(Projectile.Hitbox))
+                if (p.friendly && !p.minion && Main.player[p.owner].heldProj != p.whoAmI && p.damage > 0 && p.Hitbox.Intersects(Projectile.Hitbox))
                     p.Kill();
             }
         }

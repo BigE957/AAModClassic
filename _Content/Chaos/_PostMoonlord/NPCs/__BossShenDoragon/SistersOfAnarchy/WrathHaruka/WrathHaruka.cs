@@ -1,6 +1,5 @@
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
-using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
@@ -336,11 +335,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                 }
             }
 
+            //TODO: THe conditions for this to happen never actually occur as far as I can tell
             if(Main.expertMode && internalAI[0] != AISTATE_Shadowkilling && internalAI[0] != AISTATE_SPIN && SHADOWCONTER <= 0 && !Invisible)
             {
+                //Main.NewText("oooooh imma strike back");
                 foreach(Projectile p in Main.ActiveProjectiles)
                 {
-                    if(p.friendly && p.damage > 0 && NPC.Hitbox.Intersects(p.Hitbox))
+                    if(p.friendly && !p.minion && Main.player[p.owner].heldProj != p.whoAmI && p.damage > 0 && NPC.Hitbox.Intersects(p.Hitbox))
                     {
                         if(internalAI[6] >= 2000)
                         {

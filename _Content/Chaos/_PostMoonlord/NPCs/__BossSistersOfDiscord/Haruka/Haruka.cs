@@ -420,17 +420,19 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                 }
             }
 
-            if(Main.expertMode && internalAI[0] != AISTATE_Shadowkilling && internalAI[0] != AISTATE_SPIN && SHADOWCONTER <= 0 && !Invisible)
+            //TODO: THe conditions for this to happen never actually occur as far as I can tell
+            if (Main.expertMode && internalAI[0] != AISTATE_Shadowkilling && internalAI[0] != AISTATE_SPIN && SHADOWCONTER <= 0 && !Invisible)
             {
+                Main.NewText(internalAI[6]);
                 foreach(Projectile p in Main.ActiveProjectiles)
                 {
-                    if(p.friendly && p.damage > 0 && NPC.Hitbox.Intersects(p.Hitbox))
+                    if(p.friendly && !p.minion && Main.player[p.owner].heldProj != p.whoAmI && p.damage > 0 && NPC.Hitbox.Intersects(p.Hitbox))
                     {
                         if(internalAI[6] >= 3500)
                         {
                             p.Kill();
                             internalAI[6] -= 3500;
-                            strikebackproj ++;
+                            strikebackproj++;
                             internalAI[0] = AISTATE_SPIN;
                         }
                         else if(internalAI[7] >= 3000)
