@@ -142,7 +142,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         public override void OnKill(int timeLeft)
         {
             SoundEngine.PlaySound(SoundID.Item124);
-            int id = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center - new Vector2(0, 95), new Vector2(0, 0), ModContent.ProjectileType<Ashe_FireBombExplosion>(), Projectile.damage, 5);
+            int id = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center - new Vector2(0, 95), new Vector2(0, 0), ModContent.ProjectileType<Ashe_FireBombExplosion>(), 20, 5);
             if(Projectile.ai[1] == 1)
             {
                 Main.projectile[id].hostile = false;

@@ -1068,13 +1068,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                 Vector2 shoot;
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), ShadowkingPosition.X, ShadowkingPosition.Y, 0, 0, ModContent.ProjectileType<Haruka_DepthKillingBlast>(), 35, 5);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), ShadowkingPosition.X, ShadowkingPosition.Y, 0, 0, ModContent.ProjectileType<Haruka_DepthKillingBlast>(), 45, 5);
                     int projType = ModContent.ProjectileType<Haruka_NightSlash>();
                     for (int i = 0; i < 12; i++)
                     {
                         shoot = new Vector2((float)Math.Sin(i * (Pi / 6)), (float)Math.Cos(i * (Pi / 6)));
                         shoot *= 10f;
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), ShadowkingPosition.X, ShadowkingPosition.Y, shoot.X, shoot.Y, projType, 35, 5);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), ShadowkingPosition.X, ShadowkingPosition.Y, shoot.X, shoot.Y, projType, 18, 5);
                     }
                 }
 

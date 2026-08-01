@@ -991,7 +991,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             {
                 if(Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), ShadowkingPosition.X, ShadowkingPosition.Y, 0, 0, ModContent.ProjectileType<Haruka_DepthKillingBlast>(), 30, 5);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), ShadowkingPosition.X, ShadowkingPosition.Y, 0, 0, ModContent.ProjectileType<Haruka_DepthKillingBlast>(), 40, 5);
 
                     Vector2 shoot = Vector2.Zero;
                     int projType = ModContent.ProjectileType<WrathHaruka_WrathNightSlash>();
