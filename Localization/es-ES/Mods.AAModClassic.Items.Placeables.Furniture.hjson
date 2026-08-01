@@ -95,8 +95,8 @@ Doom: {
 	}
 
 	DoomToilet: {
-		// DisplayName: Doom Toilet
-		// Tooltip: ""
+		DisplayName: Retrete de Doom
+		Tooltip: ""
 	}
 }
 
@@ -197,8 +197,8 @@ Razewood: {
 	}
 
 	RazewoodToilet: {
-		// DisplayName: Razewood Toilet
-		// Tooltip: ""
+		DisplayName: Retrete de Madera Asoladora
+		Tooltip: ""
 	}
 }
 
@@ -304,8 +304,8 @@ Bogwood: {
 	}
 
 	BogwoodToilet: {
-		// DisplayName: Bogwood Toilet
-		// Tooltip: ""
+		DisplayName: Retrete de Madera de Pantano
+		Tooltip: ""
 	}
 }
 
@@ -503,8 +503,8 @@ Keep: {
 	}
 
 	KeepToilet: {
-		// DisplayName: Keep Toilet
-		// Tooltip: ""
+		DisplayName: Retrete de Keep
+		Tooltip: ""
 	}
 }
 
@@ -600,8 +600,8 @@ Terra: {
 	}
 
 	TerraToilet: {
-		// DisplayName: Terra Toilet
-		// Tooltip: ""
+		DisplayName: Retrete Terra
+		Tooltip: ""
 	}
 }
 

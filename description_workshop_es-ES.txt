@@ -1,0 +1,132 @@
+¡Los Ancestros han despertado! ¡El caos reina, las tormentas arrasan y la realidad se desgarra por las costuras!
+
+Revive la versión 1.3 original de Ancients Awakened, adaptada a 1.4.4.
+
+Aviso: El multijugador tiene muchos errores actualmente y es conocido por corromper mundos. ¡Juega bajo tu propia responsabilidad!
+
+¿Buscas una versión nueva y moderna del mod original? ¡Echa un vistazo a [url=steamcommunity.com/sharedfiles/filedetails/?id=3596943461] Ancients Awakened[/url]!
+
+¿Quieres informar de problemas o simplemente hablar sobre el mod? ¡Únete a nuestro [url=discord.gg/ghChaEa] Discord[/url]!
+
+Ancients Awakened: Classic incluye las características originales del mod:
+[list]
+[*] Más de 800 objetos
+[*] Más de 100 NPCs
+[*] 21 jefes (7 antes del modo difícil, 4 en el modo difícil y 10 después del Señor de la Luna)
+[*] 4 biomas nuevos:
+[list]
+[*] El Infierno: un bioma volcánico arrasado por dragones, con equipamiento centrado principalmente en la defensa pura.
+[*] El Lodazal: un bioma pantanoso infestado de criaturas deslizantes de la oscuridad, con equipamiento centrado principalmente en la velocidad pura.
+[*] El Vacío: Islas flotantes en la esquina superior derecha del mundo. No hay nada allí, no hay razón para ir (¿O sí?).
+[*] El Terrario: Una biosfera de cristal a salvo del mundo corrupto que te rodea.
+[/list]
+[*] Cross-Mod con Thorium
+[*] Compatibilidad con Fargo's Mutant Mod y Calamity Mod
+[*] Banda sonora única
+[/list]
+
+Además, Ancients Awakened: Classic incluye nuevas opciones de generación de mundo para añadir contenido adicional, tanto antiguo como nuevo, a una partida:
+[list]
+[*] Eliminado: Recupera contenido antiguo de versiones anteriores del mod que se eliminó durante el desarrollo:
+[list]
+[*] Techno Trufa: Una amenaza de champiñón cibernético creada por los enigmáticos fulgarios, que combina movimientos tanto del Monarca Champiñón como del Hongo Feudal.
+[*] Los Mecas de Asedio: Este trío de jefes se combate aproximadamente al mismo tiempo que los jefes mecánicos del juego base:
+[list]
+[*] El Retriever: Una Garra del Caos cibernética capaz de moverse a gran velocidad.
+[*] Orthrus X: Una versión cibernética de la Hidra que empuña láseres de alta potencia.
+[*] Raider Ultima: Una versión cibernética de la Madre de la Camada armada con una potencia de fuego devastadora.
+[/list]
+[/list]
+[*] Inédito: Incluye contenido nuevo nunca antes visto en las versiones públicas del mod. Este contenido ha sido extraído de las versiones en desarrollo de Ancients Awakened:
+[list]
+[*] La Fortaleza Perdida: Una ciudadela subterránea que en su día fue el hogar de un héroe legendario, y que esconde un montón de misterios por descubrir.
+[list]
+[*] El Núcleo de Biomita: El mecanismo de defensa de la Fortaleza Perdida que empuña poderes de todos los biomas; se le puede retar ofreciendo un Prisma de Bioma.
+[/list]
+[*] Anubis, el Escriba Legendario: ¡Anubis ha sido rediseñado con un combate completamente nuevo! Solo prestando mucha atención a las runas que empuña saldrás victorioso.
+[*] Infinity Zero: Enfréntate al superanciano del Vacío, que comanda 6 unidades Cero y alberga una presencia aún más malévola.
+[*] El Alma de Cthulhu: Despierta al superanciano del Océano que acecha en el interior de la nueva estructura del Barco Hundido. Invoca recreaciones temibles de jefes anteriores.
+[/list]
+[*] No oficial: Incluye una serie de cambios de calidad de vida, mejoras visuales y más creados por el equipo de adaptación para mejorar la experiencia del mod:
+[list]
+[*] Mejoras visuales de jefes: Muchos jefes han recibido mejoras visuales para hacerlos sentir más vivos y dinámicos.
+[*] Interfaz de misiones de Anubis: El diálogo de jefes de Anubis se ha ampliado a una interfaz de misiones completa, facilitando su seguimiento.
+[*] ¡Y mucho más!
+[/list]
+[/list]
+
+Finalmente, Ancients Awakened: Classic pretende ofrecer compatibilidad total con el nuevo Ancients Awakened, deshabilitando el contenido clásico que se solape con el nuevo para facilitar una partida fluida y completa con ambos activados.
+
+Nota: Algunas de las pistas musicales del mod han sido eliminadas o reemplazadas a petición de sus compositores originales. Por favor, respeta su decisión.
+
+Desarrolladores y colaboradores detrás de esta adaptación:
+[list]
+[*] Big E
+[*] CaligulasAquarium
+[*] DiamondWalker
+[*] EIGHT
+[*] EduaRRdo
+[*] ERMUDO
+[*] MaestroVGM
+[*] Memeisseur
+[*] Pil
+[*] ProduceVGM
+[*] Rocket
+[*] Skoores
+[*] SpectralAves
+[*] SulfurInASea
+[/list]
+
+¡Muchas gracias a los equipos de traducción:
+[list]
+[*] Ruso
+[list]
+[*] Arick 
+[*] Waitti 
+[/list]
+[*] Chino simplificado
+[list]
+[*] Lozenges 
+[/list]
+[*] Español
+[list]
+[*] Ningunomas 
+[/list]
+[/list]
+
+Por supuesto, crédito al equipo original detrás del mod:
+[list]
+[*] Beg
+[*] Blazen
+[*] Charlie Debnam
+[*] Chinzilla00
+[*] Dan Yami
+[*] Diverman Sam
+[*] Dradonhunter11
+[*] Ezalos
+[*] FailureOfMankind
+[*] Fargowilta
+[*] Fazergamer
+[*] Frogtism
+[*] GamingWithZack
+[*] Glitched Pixel
+[*] Gregg
+[*] Grox The Great
+[*] Halmska
+[*] Hero
+[*] KyuuSW
+[*] LordCakeSpy
+[*] MechanicPluto
+[*] Niorin
+[*] Moonburn
+[*] OverlordCMD
+[*] Rockwizard
+[*] SpectralAves
+[*] Sume
+[*] Tails the Fox 92
+[*] Tied
+[*] TheRedstoneBro
+[*] Uncle Danny
+[*] Welox
+[*] ZipZopZoop
+[/list]
