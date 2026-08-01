@@ -13,7 +13,14 @@ namespace AAModClassic._Content.Mire.World.Tiles.Trees
 {
     public class BogwoodTree_Tile : ModTree
     {
-        public override TreePaintingSettings TreeShaderSettings => new();
+        public override TreePaintingSettings TreeShaderSettings => new()
+        {
+            UseSpecialGroups = true,
+            SpecialGroupMinimalHueValue = 11f / 72f,
+            SpecialGroupMaximumHueValue = 0.25f,
+            SpecialGroupMinimumSaturationValue = 0.88f,
+            SpecialGroupMaximumSaturationValue = 1f
+        };
 
         public override void SetStaticDefaults()
         {

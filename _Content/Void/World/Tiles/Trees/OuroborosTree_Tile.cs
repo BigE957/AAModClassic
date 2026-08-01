@@ -1,5 +1,4 @@
 ﻿using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Void.World.Tiles;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria.GameContent;
@@ -9,12 +8,19 @@ namespace AAModClassic._Content.Void.World.Tiles.Trees
 {
     public class OuroborosTree_Tile : ModTree
     {
+        public override TreePaintingSettings TreeShaderSettings => new()
+        {
+            UseSpecialGroups = true,
+            SpecialGroupMinimalHueValue = 11f / 72f,
+            SpecialGroupMaximumHueValue = 0.25f,
+            SpecialGroupMinimumSaturationValue = 0.88f,
+            SpecialGroupMaximumSaturationValue = 1f
+        };
+
         public override void SetStaticDefaults()
         {
             GrowsOnTileId = [ModContent.TileType<ApocalyptiteOre_Tile>(), ModContent.TileType<DoomGrass_Tile>(), ModContent.TileType<Doomstone_Tile>(), ModContent.TileType<DoomstoneB_Tile>()];
         }
-
-        public override TreePaintingSettings TreeShaderSettings => new();
 
         public override int DropWood()
         {

@@ -1,5 +1,4 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
-using AAModClassic._Content.Inferno.World.Tiles;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria.GameContent;
@@ -9,8 +8,14 @@ namespace AAModClassic._Content.Inferno.World.Tiles.Trees
 {
     public class RazewoodPalmTree_Tile : ModPalmTree
     {
-        public override TreePaintingSettings TreeShaderSettings => new();
-
+        public override TreePaintingSettings TreeShaderSettings => new()
+        {
+            UseSpecialGroups = true,
+            SpecialGroupMinimalHueValue = 11f / 72f,
+            SpecialGroupMaximumHueValue = 0.25f,
+            SpecialGroupMinimumSaturationValue = 0.88f,
+            SpecialGroupMaximumSaturationValue = 1f
+        };
         public override void SetStaticDefaults()
         {
             GrowsOnTileId = [ModContent.TileType<Torchsand_Tile>()];

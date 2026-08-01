@@ -1,5 +1,4 @@
-﻿using AAModClassic._Content.RedMushroom.World.Tiles;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -9,7 +8,14 @@ namespace AAModClassic._Content.RedMushroom.World.Tiles.Trees
 {
     public class MushroomTree_Tile : ModTree
     {
-        public override TreePaintingSettings TreeShaderSettings => new();
+        public override TreePaintingSettings TreeShaderSettings => new()
+        {
+            UseSpecialGroups = true,
+            SpecialGroupMinimalHueValue = 11f / 72f,
+            SpecialGroupMaximumHueValue = 0.25f,
+            SpecialGroupMinimumSaturationValue = 0.88f,
+            SpecialGroupMaximumSaturationValue = 1f
+        };
 
         public override void SetStaticDefaults()
         {

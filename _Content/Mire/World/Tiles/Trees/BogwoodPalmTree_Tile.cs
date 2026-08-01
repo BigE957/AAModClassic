@@ -8,8 +8,14 @@ namespace AAModClassic._Content.Mire.World.Tiles.Trees
 {
     public class BogwoodPalmTree_Tile : ModPalmTree
     {
-        public override TreePaintingSettings TreeShaderSettings => new();
-
+        public override TreePaintingSettings TreeShaderSettings => new()
+        {
+            UseSpecialGroups = true,
+            SpecialGroupMinimalHueValue = 11f / 72f,
+            SpecialGroupMaximumHueValue = 0.25f,
+            SpecialGroupMinimumSaturationValue = 0.88f,
+            SpecialGroupMaximumSaturationValue = 1f
+        };
         public override void SetStaticDefaults()
         {
             GrowsOnTileId = [ModContent.TileType<Depthsand_Tile>()];
