@@ -295,7 +295,6 @@ Bogwood: {
 }
 
 OuroborosWood: {
-	OuroborosWood: {
     OuroborosWoodBathtub: {
         DisplayName: Уроборосовая ванна
         Tooltip: ""
