@@ -1,6 +1,6 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Terraria;
@@ -27,7 +27,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Armor
 			Item.height = 18;
 			Item.value = 3000000;
 			Item.defense = 28;
-		}
+            Item.rare = ModContent.RarityType<AncientsRarity>();
+        }
 
         public override void RegisterEquipEffects()
         {
