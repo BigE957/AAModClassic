@@ -295,105 +295,105 @@ Bogwood: {
 }
 
 OuroborosWood: {
-	OuroborosWoodBathtub: {
-		DisplayName: Bañera de Madera de Ouroboros
-		Tooltip: ""
-	}
+    OuroborosWoodBathtub: {
+        DisplayName: Bañera de Madera de Ouroboros
+        Tooltip: ""
+    }
 
-	OuroborosWoodBed: {
-		DisplayName: Cama de Madera de Ouroboros
-		Tooltip: ""
-	}
+    OuroborosWoodBed: {
+        DisplayName: Cama de Madera de Ouroboros
+        Tooltip: ""
+    }
 
-	OuroborosWoodBookcase: {
-		DisplayName: Librería de Madera de Ouroboros
-		Tooltip: ""
-	}
+    OuroborosWoodBookcase: {
+        DisplayName: Librería de Madera de Ouroboros
+        Tooltip: ""
+    }
 
-	OuroborosWoodCandle: {
-		DisplayName: Vela de Madera de Ouroboros
-		Tooltip: ""
-	}
+    OuroborosWoodCandle: {
+        DisplayName: Vela de Madera de Ouroboros
+        Tooltip: ""
+    }
 
-	OuroborosWoodChair: {
-		DisplayName: Silla de Madera de Ouroboros
-		Tooltip: ""
-	}
+    OuroborosWoodChair: {
+        DisplayName: Silla de Madera de Ouroboros
+        Tooltip: ""
+    }
 
-	OuroborosWoodChest: {
-		DisplayName: Cofre de Madera de Ouroboros
-		Tooltip: ""
-	}
+    OuroborosWoodChest: {
+        DisplayName: Cofre de Madera de Ouroboros
+        Tooltip: ""
+    }
 
-	OuroborosWoodClock: {
-		DisplayName: Reloj de Madera de Ouroboros
-		Tooltip: ""
-	}
+    OuroborosWoodClock: {
+        DisplayName: Reloj de Madera de Ouroboros
+        Tooltip: ""
+    }
 
-	OuroborosWoodDoor: {
-		DisplayName: Puerta de Madera de Ouroboros
-		Tooltip: ""
-	}
+    OuroborosWoodDoor: {
+        DisplayName: Puerta de Madera de Ouroboros
+        Tooltip: ""
+    }
 
-	OuroborosWoodLamp: {
-		DisplayName: Lámpara de Madera de Ouroboros
-		Tooltip: ""
-	}
+    OuroborosWoodLamp: {
+        DisplayName: Lámpara de Madera de Ouroboros
+        Tooltip: ""
+    }
 
-	OuroborosWoodLantern: {
-		DisplayName: Linterna de Madera de Ouroboros
-		Tooltip: ""
-	}
+    OuroborosWoodLantern: {
+        DisplayName: Farol de Madera de Ouroboros
+        Tooltip: ""
+    }
 
-	OuroborosWoodPlatform: {
-		DisplayName: Plataforma de Madera de Ouroboros
-		Tooltip: ""
-	}
+    OuroborosWoodPlatform: {
+        DisplayName: Plataforma de Madera de Ouroboros
+        Tooltip: ""
+    }
 
-	OuroborosWoodWorkbench: {
-		DisplayName: Banco de Trabajo de Madera de Ouroboros
-		Tooltip: ""
-	}
+    OuroborosWoodWorkbench: {
+        DisplayName: Banco de Trabajo de Madera de Ouroboros
+        Tooltip: ""
+    }
 
-	OuroborosWoodCandelabra: {
-		// DisplayName: Ouroboros Wood Candelabra
-		// Tooltip: ""
-	}
+    OuroborosWoodCandelabra: {
+        DisplayName:Candelabro de Madera de Ouroboros
+        Tooltip: ""
+    }
 
-	OuroborosWoodChandelier: {
-		// DisplayName: Ouroboros Wood Chandelier
-		// Tooltip: ""
-	}
+    OuroborosWoodChandelier: {
+        DisplayName: Lámpara de Araña de Madera de Ouroboros
+        Tooltip: ""
+    }
 
-	OuroborosWoodCouch: {
-		// DisplayName: Ouroboros Wood Couch
-		// Tooltip: ""
-	}
+    OuroborosWoodCouch: {
+        DisplayName: Sofá de Madera de Ouroboros
+        Tooltip: ""
+    }
 
-	OuroborosWoodDresser: {
-		// DisplayName: Ouroboros Wood Dresser
-		// Tooltip: ""
-	}
+    OuroborosWoodDresser: {
+        DisplayName: Aparador de Madera de Ouroboros
+        Tooltip: ""
+    }
 
-	OuroborosWoodPiano: {
-		// DisplayName: Ouroboros Wood Piano
-		// Tooltip: ""
-	}
+    OuroborosWoodPiano: {
+        DisplayName: Piano de Madera de Ouroboros
+        Tooltip: ""
+    }
 
-	OuroborosWoodSink: {
-		// DisplayName: Ouroboros Wood Sink
-		// Tooltip: ""
-	}
+    OuroborosWoodSink: {
+        DisplayName: Fregadero de Madera de Ouroboros
+        Tooltip: ""
+    }
 
-	OuroborosWoodTable: {
-		// DisplayName: Ouroboros Wood Table
-		// Tooltip: ""
-	}
+    OuroborosWoodTable: {
+        DisplayName: Mesa de Madera de Ouroboros
+        Tooltip: ""
+    }
 
-	OuroborosWoodToilet: {
-		// DisplayName: Ouroboros Wood Toilet
-		// Tooltip: ""
-	}
+    OuroborosWoodToilet: {
+        DisplayName: Retrete de Madera de Ouroboros
+        Tooltip: ""
+    }
 }
 
 Keep: {
