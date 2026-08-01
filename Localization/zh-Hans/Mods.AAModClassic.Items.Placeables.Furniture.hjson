@@ -95,8 +95,8 @@ Doom: {
 	}
 
 	DoomToilet: {
-		// DisplayName: Doom Toilet
-		// Tooltip: ""
+		DisplayName: 厄劫马桶
+		Tooltip: ""
 	}
 }
 
@@ -197,8 +197,8 @@ Razewood: {
 	}
 
 	RazewoodToilet: {
-		// DisplayName: Razewood Toilet
-		// Tooltip: ""
+		DisplayName: 燎火木马桶
+		Tooltip: ""
 	}
 }
 
@@ -304,109 +304,109 @@ Bogwood: {
 	}
 
 	BogwoodToilet: {
-		// DisplayName: Bogwood Toilet
-		// Tooltip: ""
+		DisplayName: 污泽木马桶
+		Tooltip: ""
 	}
 }
 
 OuroborosWood: {
 	OuroborosWoodBathtub: {
-		DisplayName: Уроборосовая ванна
+		DisplayName: 衔尾木浴缸
 		Tooltip: ""
 	}
 
 	OuroborosWoodBed: {
-		DisplayName: Уроборосовая кровать
+		DisplayName: 衔尾木床
 		Tooltip: ""
 	}
 
 	OuroborosWoodBookcase: {
-		DisplayName: Уроборосовый книжный шкаф
+		DisplayName: 衔尾木书架
 		Tooltip: ""
 	}
 
 	OuroborosWoodCandle: {
-		DisplayName: Уроборосовая свеча
+		DisplayName: 衔尾木蜡烛
 		Tooltip: ""
 	}
 
 	OuroborosWoodChair: {
-		DisplayName: Уроборосовый стул
+		DisplayName: 衔尾木椅
 		Tooltip: ""
 	}
 
 	OuroborosWoodChest: {
-		DisplayName: Уроборосовый сундук
+		DisplayName: 衔尾木箱
 		Tooltip: ""
 	}
 
 	OuroborosWoodClock: {
-		DisplayName: Уроборосовые часы
+		DisplayName: 衔尾木时钟
 		Tooltip: ""
 	}
 
 	OuroborosWoodDoor: {
-		DisplayName: Уроборосовая дверь
+		DisplayName: 衔尾木门
 		Tooltip: ""
 	}
 
 	OuroborosWoodLamp: {
-		DisplayName: Уроборосовая лампа
+		DisplayName: 衔尾木灯
 		Tooltip: ""
 	}
 
 	OuroborosWoodLantern: {
-		DisplayName: Уроборосовый фонарь
+		DisplayName: 衔尾木灯笼
 		Tooltip: ""
 	}
 
 	OuroborosWoodPlatform: {
-		DisplayName: Уроборосовая платформа
+		DisplayName: 衔尾木平台
 		Tooltip: ""
 	}
 
 	OuroborosWoodWorkbench: {
-		DisplayName: Уроборосовый верстак
+		DisplayName: 衔尾木工作台
 		Tooltip: ""
 	}
 
 	OuroborosWoodCandelabra: {
-		DisplayName: Уроборосовый канделябр
+		DisplayName: 衔尾木烛台
 		Tooltip: ""
 	}
 
 	OuroborosWoodChandelier: {
-		DisplayName: Уроборосовая люстра
+		DisplayName: 衔尾木吊灯
 		Tooltip: ""
 	}
 
 	OuroborosWoodCouch: {
-		DisplayName: Уроборосовый диван
+		DisplayName: 衔尾木沙发
 		Tooltip: ""
 	}
 
 	OuroborosWoodDresser: {
-		DisplayName: Уроборосовый комод
+		DisplayName: 衔尾木梳妆台
 		Tooltip: ""
 	}
 
 	OuroborosWoodPiano: {
-		DisplayName: Уроборосовое пианино
+		DisplayName: 衔尾木钢琴
 		Tooltip: ""
 	}
 
 	OuroborosWoodSink: {
-		DisplayName: Уроборосовая раковина
+		DisplayName: 衔尾木水槽
 		Tooltip: ""
 	}
 
 	OuroborosWoodTable: {
-		DisplayName: Уроборосовый стол
+		DisplayName: 衔尾木桌
 		Tooltip: ""
 	}
 
 	OuroborosWoodToilet: {
-		DisplayName: Уроборосовый унитаз
+		DisplayName: 衔尾木马桶
 		Tooltip: ""
 	}
 }
@@ -503,8 +503,8 @@ Keep: {
 	}
 
 	KeepToilet: {
-		// DisplayName: Keep Toilet
-		// Tooltip: ""
+		DisplayName: 要塞马桶
+		Tooltip: ""
 	}
 }
 
@@ -600,8 +600,8 @@ Terra: {
 	}
 
 	TerraToilet: {
-		// DisplayName: Terra Toilet
-		// Tooltip: ""
+		DisplayName: 泰拉马桶
+		Tooltip: ""
 	}
 }
 
