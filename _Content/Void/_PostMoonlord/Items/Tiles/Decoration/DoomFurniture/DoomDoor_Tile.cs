@@ -46,7 +46,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
     {
         public override void SetStaticDefaults()
         {
-            this.SetUpDoorClosed(ModContent.ItemType<DoomDoor>());
+            this.SetUpDoorOpen(ModContent.ItemType<DoomDoor>());
             TileID.Sets.CloseDoorID[Type] = ModContent.TileType<DoomDoorClosed_Tile>();
             DustType = ModContent.DustType<DoomDust>();
         }
