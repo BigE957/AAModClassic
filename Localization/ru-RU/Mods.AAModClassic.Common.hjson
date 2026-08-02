@@ -344,6 +344,6 @@ Conditions: {
 	// SkeletronDefeated: If Skeletron has been defeated
 	// GolemDefeated: If Golem has been defeated
 	// GoblinsDefeated: If the Goblin Army has been defeated
-	// DownedGobSummoner: Mods.AAModClassic.Common.Conditions.DownedGobSummoner
-	// DownedMoth: Mods.AAModClassic.Common.Conditions.DownedMoth
+	DownedGobSummoner: Если Гоблин-чернокнижник был повержен
+	DownedMoth: Если Мотрон была повержена
 }

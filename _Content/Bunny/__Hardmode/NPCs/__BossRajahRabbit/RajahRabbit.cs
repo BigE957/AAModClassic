@@ -288,7 +288,9 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                                 BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.LastStand.Singleplayer.Repeat", Main.LocalPlayer.name.ToUpper()), 107, 137, 179);
                         }
                     }
-                    Music = MusicManagementSystem.MusicSlots["Superancients_Pinch"];
+
+                    if (!AAConfigClient.Instance.DisablePinchThemes)
+                        Music = MusicManagementSystem.MusicSlots["Superancients_Pinch"];
                 }
             }
 
