@@ -153,7 +153,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
         {
             if (firstButton)
             {
-                shopName = "shop";
+                shopName = "Shop";
             }
 
             if (!firstButton)
@@ -500,6 +500,8 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
             shop.Add<GrandManaPotion>([new((LocalizedText)null, () => AAWorld.downedAncient)]);
 
             shop.Add<TheBigOne>([new((LocalizedText)null, () => AAWorld.downedSAncient)]);
+
+            shop.Register();
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

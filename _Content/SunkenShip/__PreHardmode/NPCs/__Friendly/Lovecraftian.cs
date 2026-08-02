@@ -177,7 +177,7 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
 
             if (firstButton)
             {
-                shopName = "shop";
+                shopName = "Shop";
             }
 
             if (!firstButton)
@@ -528,6 +528,7 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
             shop.Add<IceFlask>(new Condition((LocalizedText)null, () => AAWorld.squid12 >= 1));
             shop.Add<IcemeltFlask>(new Condition((LocalizedText)null, () => AAWorld.squid12 >= 1));
             shop.Add<ForestFlask>(new Condition((LocalizedText)null, () => AAWorld.squid13 >= 5));
+            shop.Register();
         }
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)

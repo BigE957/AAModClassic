@@ -223,7 +223,7 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly
             }
             else
             {
-                shopName = "shop";
+                shopName = "Shop";
             }
 		}
 

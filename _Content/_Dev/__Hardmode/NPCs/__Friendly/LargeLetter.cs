@@ -1,26 +1,16 @@
 using AAModClassic._Content._Dev.__Hardmode.Items.Accessories.Vanity;
 using AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity;
 using AAModClassic._Content._Dev.__Hardmode.Items.Consumables;
-using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 using AAModClassic._Content.Chaos.___PreHardmode.NPCs.Friendly;
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard;
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Tools;
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
 using AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly;
 using AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly;
-using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly;
 using AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly;
-using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unofficial.Content._Dev.__Hardmode.Items.Consumables;
 using AAModClassic._Unofficial.Desert;
 using AAModClassic.UI.World;
-using AAModClassic.Utilities;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -247,6 +237,8 @@ namespace AAModClassic._Content._Dev.__Hardmode.NPCs.__Friendly
                 shopCustomPrice = 25,
                 shopSpecialCurrency = AAMod.AncientCoin
             });
+
+            vanityShop.Register();
             #endregion
 
             NPCShop weaponShop = new(Type, "WeaponShop");
@@ -388,6 +380,8 @@ namespace AAModClassic._Content._Dev.__Hardmode.NPCs.__Friendly
                 shopCustomPrice = 40,
                 shopSpecialCurrency = AAMod.AncientCoin
             }, Condition.DownedMoonLord);
+
+            weaponShop.Register();
             #endregion
         }
 
