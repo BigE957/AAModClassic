@@ -220,7 +220,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.NPCs.__Friendly
             {
                 shopCustomPrice = 15,
                 shopSpecialCurrency = AAMod.AncientCoin
-            }, new Condition(Language.GetTextValue(""), () => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial)));
+            }, new Condition(Language.GetTextValue("Mods.AAModClassic.Common.Conditions.Unofficial"), () => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial)));
 
             vanityShop.Add(new Item(ModContent.ItemType<BigEBag>())
             {
