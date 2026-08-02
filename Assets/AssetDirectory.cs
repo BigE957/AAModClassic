@@ -48,6 +48,23 @@ namespace AAModClassic.Assets
             public static readonly string BiomePrism = FilePath + "BiomePrism";
         }
 
+        public class Particles
+        {
+            public static readonly string FilePath = AssetDirectory.FilePath + "Particles/";
+
+            public static readonly string CircleGlow = FilePath + "CircleGlow";
+            public static readonly string CircleGlow_White = FilePath + "CircleGlow_White";
+            public static readonly string CircleSolid = FilePath + "CircleSolid";
+
+            public static readonly string PillGlow = FilePath + "PillGlow";
+            public static readonly string PillGlow_White = FilePath + "PillGlow_White";
+            public static readonly string PillSolid = FilePath + "PillSolid";
+
+            public static readonly string StripGlow = FilePath + "StripGlow";
+            public static readonly string StripGlow_White = FilePath + "StripGlow_White";
+            public static readonly string StripSolid = FilePath + "StripSolid";
+        }
+
         public class Projectiles
         {
             public static readonly string FilePath = AssetDirectory.FilePath + "Projectiles/";

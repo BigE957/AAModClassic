@@ -15,6 +15,7 @@ public class LensFlareAttached : Particle
     public override bool Additive => false;
 
     private static Asset<Texture2D> Texture;
+    private static Asset<Texture2D> Bloom;
 
     public Func<Vector2> AnchorPosition;
     public Vector2 Offset;
@@ -36,6 +37,7 @@ public class LensFlareAttached : Particle
     public override void Load()
     {
         Texture = ModContent.Request<Texture2D>(AssetDirectory.General.LensFlare_SmallBlank);
+        Bloom = ModContent.Request<Texture2D>(AssetDirectory.General.Bloom_Medium);
     }
 
     public override void Update()
@@ -55,8 +57,7 @@ public class LensFlareAttached : Particle
     {
         Vector2 scale = FlareStretch * Scale;
         Texture2D texture = Texture.Value;
-        //Texture2D texture = ModContent.Request<Texture2D>(AssetDirectory.General.LensFlare_Medium).Value;
-        Texture2D bloom = ModContent.Request<Texture2D>(AssetDirectory.General.Bloom_Medium).Value;
+        Texture2D bloom = Bloom.Value;
 
         Color c = Color;
 
@@ -68,16 +69,6 @@ public class LensFlareAttached : Particle
         spriteBatch.Draw(bloom, Position - Main.screenPosition, null, c * colorMult, Rotation, bloom.Size() * 0.5f, scale, 0, 0f);
         spriteBatch.Draw(bloom, Position - Main.screenPosition, null, c * colorMult, Rotation, bloom.Size() * 0.5f, scale * new Vector2(0.3f, 1.25f), 0, 0f);
         spriteBatch.Draw(bloom, Position - Main.screenPosition, null, c * colorMult, Rotation + horizFlareRotation, bloom.Size() * 0.5f, scale * new Vector2(0.2f, 0.8f), 0, 0f);
-
-        // pale bloom
-        // middle, vertical, horizontal
-        /*
-        Color alphalessWhite = Color.White * 0.5f;
-        alphalessWhite.A = 0;
-        spriteBatch.Draw(bloom, Position - Main.screenPosition, null, alphalessWhite, Rotation, bloom.Size() * 0.5f, scale * 0.5f, 0, 0f);
-        spriteBatch.Draw(bloom, Position - Main.screenPosition, null, alphalessWhite, Rotation, bloom.Size() * 0.5f, (scale * new Vector2(0.3f, 1.25f)) * 0.5f, 0, 0f);
-        spriteBatch.Draw(bloom, Position - Main.screenPosition, null, alphalessWhite, Rotation + horizFlareRotation, bloom.Size() * 0.5f, (scale * new Vector2(0.2f, 0.8f)) * 0.5f, 0, 0f);
-        */
 
         // red flare
         // vertical, horizontal

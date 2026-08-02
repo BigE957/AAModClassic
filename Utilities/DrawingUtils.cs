@@ -115,6 +115,11 @@ namespace AAModClassic.Utilities
 
         public static void DrawAfterimage(this SpriteBatch sb, Texture2D texture, Vector2[] positions, Rectangle? frame, Color color, float scale, float[] rotations, Vector2 origin, SpriteEffects effects = 0, float distanceScalar = 1.0F, float sizeScalar = 1f)
         {
+            DrawAfterimage(sb, texture, positions, frame, color, new Vector2(scale, scale), rotations, origin, effects, distanceScalar, sizeScalar);
+        }
+
+        public static void DrawAfterimage(this SpriteBatch sb, Texture2D texture, Vector2[] positions, Rectangle? frame, Color color, Vector2 scale, float[] rotations, Vector2 origin, SpriteEffects effects = 0, float distanceScalar = 1.0F, float sizeScalar = 1f)
+        {
             Vector2 velAddon = Vector2.Zero;
             Vector2 originalpos = positions[0];
             int imageCount = positions.Length;
