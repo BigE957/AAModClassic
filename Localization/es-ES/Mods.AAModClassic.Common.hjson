@@ -344,4 +344,6 @@ Conditions: {
 	SkeletronDefeated: Si Esqueletron ha sido derrotado
 	GolemDefeated: Si el Gólem ha sido derrotado
 	GoblinsDefeated: Si el Ejército de duendes ha sido derrotado
+	// DownedGobSummoner: Mods.AAModClassic.Common.Conditions.DownedGobSummoner
+	// DownedMoth: Mods.AAModClassic.Common.Conditions.DownedMoth
 }
