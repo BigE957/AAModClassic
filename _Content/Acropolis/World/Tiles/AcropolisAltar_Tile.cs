@@ -83,7 +83,7 @@ namespace AAModClassic._Content.Acropolis.World.Tiles
                     {
                         item.stack--;
 
-                        Vector2 npcCenter = player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * Main.rand.Next(2) == 0 ? -1 : 1, -800f);
+                        Vector2 npcCenter = player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * (Main.rand.NextBool() ? -1 : 1), -800f);
                         for (int a = 0; a < 8; a++)
                             Dust.NewDust(npcCenter, 152, 114, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0);
 
