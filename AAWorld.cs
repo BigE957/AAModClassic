@@ -413,6 +413,8 @@ namespace AAModClassic
             SmashHydraPod = tag.GetInt("Pod");
 
             acropolisPos = tag.Get<Point>("acropolisPos");
+            if(acropolisPos == Point.Zero)
+                acropolisPos = new Point((int)(Main.maxTilesX * 0.65f), 100);
 
             TerrariumEnemies = NPC.downedBoss2;
             previousDownedAllAncients = downedAllAncients;
