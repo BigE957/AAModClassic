@@ -344,6 +344,6 @@ Conditions: {
 	SkeletronDefeated: 如果骷髅王被打败
 	GolemDefeated: 如果石巨人被打败
 	GoblinsDefeated: 如果哥布林军队被打败
-	// DownedGobSummoner: If the Goblin Warlock has been defeated
-	// DownedMoth: If Mothron has been defeated
+	DownedGobSummoner: 如果哥布林术士被打败
+	DownedMoth: 如果蛾怪被打败
 }
