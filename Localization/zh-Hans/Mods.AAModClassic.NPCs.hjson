@@ -337,3 +337,4 @@ Oblivion.DisplayName: 遗忘 熵之谜
 TerraSerpentBody.DisplayName: "{$NPCs.TerraSerpentHead.DisplayName}"
 TerraSerpentHead.DisplayName: 泰拉心球之蛇
 TerraSerpentTail.DisplayName: "{$NPCs.TerraSerpentHead.DisplayName}"
+DesertDjinn_Unofficial.DisplayName: "{$NPCs.DesertDjinn.DisplayName}"

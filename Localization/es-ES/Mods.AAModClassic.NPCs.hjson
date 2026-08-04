@@ -337,3 +337,4 @@ Oblivion.DisplayName: Olvido
 TerraSerpentBody.DisplayName: "{$NPCs.TerraSerpentHead.DisplayName}"
 // TerraSerpentHead.DisplayName: Terra Serpent
 TerraSerpentTail.DisplayName: "{$NPCs.TerraSerpentHead.DisplayName}"
+DesertDjinn_Unofficial.DisplayName: "{$NPCs.DesertDjinn.DisplayName}"
