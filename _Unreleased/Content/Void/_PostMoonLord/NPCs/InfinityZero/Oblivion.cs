@@ -77,8 +77,18 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         private static bool InitializeSteamSearch()
         {
-            if (OperatingSystem.IsAndroid() || OperatingSystem.IsIOS() || !SteamAPI.IsSteamRunning())
+            if (OperatingSystem.IsAndroid() || OperatingSystem.IsIOS())
                 return false;
+
+            try
+            {
+                if (!SteamAPI.IsSteamRunning())
+                    return false;
+            }
+            catch
+            {
+                return false;
+            }
 
             steamPath = null;
             if (OperatingSystem.IsWindows())
