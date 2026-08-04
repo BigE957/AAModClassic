@@ -6,7 +6,7 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.UI;
 
-namespace AAModClassic._Unofficial.Desert;
+namespace AAModClassic.UI.Core;
 
 public class UIItem : UIElement
 {

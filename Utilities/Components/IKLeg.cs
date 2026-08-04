@@ -633,7 +633,7 @@ namespace AAModClassic.Utilities.Components
                 _ => Color.Blue
             };
 
-            Texture2D line = ModContent.Request<Texture2D>("AAModClassic/_Unofficial/Desert/Line").Value;
+            Texture2D line = ModContent.Request<Texture2D>("AAModClassic/UI/Core/Line").Value;
             float startToMid = Start.AngleTo(Middle);
             Main.spriteBatch.Draw(line, Start - Main.screenPosition, null, c.MultiplyRGB(Color.White * 0.5f), startToMid, new Vector2(0, line.Height / 2f), new Vector2(LengthA / line.Width, 4), 0, 0);
 
