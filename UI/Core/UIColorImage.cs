@@ -7,7 +7,7 @@ using Terraria.UI;
 
 namespace AAModClassic.UI.Core
 {
-    internal sealed class UIColorImage : UIImage
+    public sealed class UIColorImage : UIImage
     {
         private Asset<Texture2D> texture;
         private Color color;

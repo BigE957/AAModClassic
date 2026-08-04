@@ -6,7 +6,7 @@ using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Tools;
 
 namespace AAModClassic.UI.Tools
 {
-    internal sealed class TerratoolAUI : TerratoolUI
+    public sealed class TerratoolAUI : TerratoolUI
     {
         public static int Pick = 300;
 

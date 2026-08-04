@@ -7,7 +7,7 @@ using System;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    internal class BlizzardDragonStaff_IceBall : ModProjectile
+    public class BlizzardDragonStaff_IceBall : ModProjectile
     {
         public override void SetStaticDefaults()
         {

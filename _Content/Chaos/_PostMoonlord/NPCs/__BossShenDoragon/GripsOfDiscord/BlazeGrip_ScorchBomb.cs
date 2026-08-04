@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord
 {
-    internal class BlazeGrip_ScorchBomb : ModProjectile
+    public class BlazeGrip_ScorchBomb : ModProjectile
     {
         public override void SetStaticDefaults()
         {

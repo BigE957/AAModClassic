@@ -278,7 +278,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
         }
     }
 
-    internal class RabbitBeam : ModProjectile
+    public class RabbitBeam : ModProjectile
     {
         public override string Texture => AssetDirectory.General.Nothing;
         public override void SetStaticDefaults()

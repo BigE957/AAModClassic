@@ -9,7 +9,7 @@ using AAModClassic.Base.BaseMod.Base;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {
-    internal class Dawnstrike_BlastLarge : ModProjectile
+    public class Dawnstrike_BlastLarge : ModProjectile
     {
         public override void SetStaticDefaults()
         {

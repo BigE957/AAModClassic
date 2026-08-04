@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hallow.__Hardmode.Items.Weapons
 {
-    internal class TrueHallowStaff_TruePrismShot : ModProjectile
+    public class TrueHallowStaff_TruePrismShot : ModProjectile
     {
         public override void SetStaticDefaults()
         {

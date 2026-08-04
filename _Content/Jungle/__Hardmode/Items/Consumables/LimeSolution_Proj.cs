@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Jungle.__Hardmode.Items.Consumables
 {
-    internal class LimeSolution_Proj : ModProjectile
+    public class LimeSolution_Proj : ModProjectile
     {
         public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()

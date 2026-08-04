@@ -16,8 +16,8 @@ namespace AAModClassic._Unreleased.Content.Parthenan.World.Biomes
 {
     public class ParthenanTexGenAssets : ModSystem
     {
-        internal static TexGenData ParthenanTileData;
-        internal static TexGenData ParthenanWallData;
+        public static TexGenData ParthenanTileData;
+        public static TexGenData ParthenanWallData;
 
         public override void OnModLoad()
         {

@@ -10,7 +10,7 @@ using Terraria.UI;
 
 namespace AAModClassic.UI.Tools
 {
-    internal abstract class TerratoolUI : ToggableUI
+    public abstract class TerratoolUI : ToggableUI
     {
         private static bool onTerratoolMenu = false;
 

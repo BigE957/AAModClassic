@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons
 {
-    internal class AshRain_FireMagic : ModProjectile
+    public class AshRain_FireMagic : ModProjectile
     {
         public override void SetStaticDefaults()
         {

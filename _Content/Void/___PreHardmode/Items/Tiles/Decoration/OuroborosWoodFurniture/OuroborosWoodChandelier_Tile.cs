@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OuroborosWoodFurniture
 {
-    internal class OuroborosWoodChandelier_Tile : ChandelierTile
+    public class OuroborosWoodChandelier_Tile : ChandelierTile
     {
         public override int ItemType => ModContent.ItemType<OuroborosWoodChandelier>();
 

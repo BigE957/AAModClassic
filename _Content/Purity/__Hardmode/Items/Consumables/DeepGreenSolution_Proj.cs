@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Purity.__Hardmode.Items.Consumables
 {
-    internal class DeepGreenSolution_Proj : ModProjectile
+    public class DeepGreenSolution_Proj : ModProjectile
     {
         public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()

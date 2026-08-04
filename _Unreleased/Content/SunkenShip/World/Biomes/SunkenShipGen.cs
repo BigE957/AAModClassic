@@ -14,14 +14,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
 {
     public class SunkenShipTexGenAssets : ModSystem
     {
-        internal static TexGenData SmallShipTileData;
-        internal static TexGenData SmallShipWallData;
-        internal static TexGenData SmallShipLiquidData;
+        public static TexGenData SmallShipTileData;
+        public static TexGenData SmallShipWallData;
+        public static TexGenData SmallShipLiquidData;
 
-        internal static TexGenData BigShipTileData;
-        internal static TexGenData BigShipThoriumTileData;
-        internal static TexGenData BigShipWallData;
-        internal static TexGenData BigShipLiquidData;
+        public static TexGenData BigShipTileData;
+        public static TexGenData BigShipThoriumTileData;
+        public static TexGenData BigShipWallData;
+        public static TexGenData BigShipLiquidData;
 
         public override void OnModLoad()
         {

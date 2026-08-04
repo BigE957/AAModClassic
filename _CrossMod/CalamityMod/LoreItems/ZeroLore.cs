@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._CrossMod.CalamityMod.LoreItems
 {
-    internal class ZeroLore : LoreItem
+    public class ZeroLore : LoreItem
     {
         public override void SetDefaults()
         {

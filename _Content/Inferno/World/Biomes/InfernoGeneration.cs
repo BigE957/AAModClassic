@@ -12,11 +12,11 @@ using static AAModClassic.Utilities.WorldGenUtils;
 
 namespace AAModClassic._Content.Inferno.World.Biomes
 {
-    internal class InfernoTexGenAssets : ModSystem
+    public class InfernoTexGenAssets : ModSystem
     {
-        internal static TexGenData VolcanoTileData;
-        internal static TexGenData VolcanoWallData;
-        internal static TexGenData VolcanoLiquidData;
+        public static TexGenData VolcanoTileData;
+        public static TexGenData VolcanoWallData;
+        public static TexGenData VolcanoLiquidData;
 
         public override void OnModLoad()
         {

@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
 {
-    internal abstract class FallingBlock : ModTile
+    public abstract class FallingBlock : ModTile
     {
         public abstract int ItemDropID { get; }
         public abstract int ItemProjectileID { get; }

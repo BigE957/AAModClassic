@@ -15,9 +15,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
     [AutoloadBossHead]
     public class AkumaBody : AkumaHead
     {
-        internal static Asset<Texture2D> ArmlessBody;
-        internal static Asset<Texture2D> UpperArm;
-        internal static Asset<Texture2D> LowerArm;
+        public static Asset<Texture2D> ArmlessBody;
+        public static Asset<Texture2D> UpperArm;
+        public static Asset<Texture2D> LowerArm;
 
         public override void SetStaticDefaults()
         {
@@ -129,9 +129,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             return false;
         }
 
-        internal void DrawBackArm(SpriteBatch spriteBatch, Color drawColor) => DrawBackArm(spriteBatch, NPC.Center - Main.screenPosition, NPC.GetAlpha(drawColor), NPC.rotation, NPC.spriteDirection, NPC.scale, Main.GlobalTimeWrappedHourly * 3f + NPC.whoAmI);
+        public void DrawBackArm(SpriteBatch spriteBatch, Color drawColor) => DrawBackArm(spriteBatch, NPC.Center - Main.screenPosition, NPC.GetAlpha(drawColor), NPC.rotation, NPC.spriteDirection, NPC.scale, Main.GlobalTimeWrappedHourly * 3f + NPC.whoAmI);
 
-        internal static void DrawBackArm(SpriteBatch spriteBatch, Vector2 center, Color drawColor, float rotation, int dir, float scale,  float time)
+        public static void DrawBackArm(SpriteBatch spriteBatch, Vector2 center, Color drawColor, float rotation, int dir, float scale,  float time)
         {
             Rectangle upperBackArmFrame = UpperArm.Frame(2, frameX: 1);
             Vector2 upperBackArmPos = center + (new Vector2(0 * dir, -8).RotatedBy(rotation + MathHelper.PiOver2) * scale);
@@ -166,9 +166,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             spriteBatch.Draw(LowerArm.Value, lowerBackArmPos, lowerBackArmFrame, drawColor, lowerWorldRot, lowerBackArmOrigin, scale, dir == 1 ? SpriteEffects.FlipHorizontally : 0, 0);
         }
 
-        internal void DrawFrontArm(SpriteBatch spriteBatch, Color drawColor) => DrawFrontArm(spriteBatch, NPC.Center - Main.screenPosition, NPC.GetAlpha(drawColor), NPC.rotation, NPC.spriteDirection, NPC.scale, Main.GlobalTimeWrappedHourly * 3f + NPC.whoAmI);
+        public void DrawFrontArm(SpriteBatch spriteBatch, Color drawColor) => DrawFrontArm(spriteBatch, NPC.Center - Main.screenPosition, NPC.GetAlpha(drawColor), NPC.rotation, NPC.spriteDirection, NPC.scale, Main.GlobalTimeWrappedHourly * 3f + NPC.whoAmI);
 
-        internal static void DrawFrontArm(SpriteBatch spriteBatch, Vector2 center, Color drawColor, float rotation, int dir, float scale, float time)
+        public static void DrawFrontArm(SpriteBatch spriteBatch, Vector2 center, Color drawColor, float rotation, int dir, float scale, float time)
         {
             Rectangle upperFrontArmFrame = UpperArm.Frame(2);
 

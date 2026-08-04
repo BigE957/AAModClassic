@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 {
-    internal class AkumaAHead_Firebomb : ModProjectile
+    public class AkumaAHead_Firebomb : ModProjectile
     {
         public override void SetStaticDefaults()
         {

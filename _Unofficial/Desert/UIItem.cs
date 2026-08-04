@@ -7,7 +7,8 @@ using Terraria.GameContent;
 using Terraria.UI;
 
 namespace AAModClassic._Unofficial.Desert;
-internal class UIItem : UIElement
+
+public class UIItem : UIElement
 {
     public float ImageScale = 1f;
     public float Rotation;

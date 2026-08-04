@@ -13,13 +13,13 @@ using static AAModClassic.Utilities.WorldGenUtils;
 
 namespace AAModClassic._Content.Hell.World.Biomes
 {
-    internal class PitTexGenAssets : ModSystem
+    public class PitTexGenAssets : ModSystem
     {
-        internal static TexGenData PitContructionTileData;
-        internal static TexGenData PitTileData;
-        internal static TexGenData PitWallData;
-        internal static TexGenData PitLiquidData;
-        internal static TexGenData PitSlopeData;
+        public static TexGenData PitContructionTileData;
+        public static TexGenData PitTileData;
+        public static TexGenData PitWallData;
+        public static TexGenData PitLiquidData;
+        public static TexGenData PitSlopeData;
 
         public override void OnModLoad()
         {

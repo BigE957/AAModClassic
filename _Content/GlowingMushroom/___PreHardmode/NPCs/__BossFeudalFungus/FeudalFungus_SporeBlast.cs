@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus
 {
-    internal class FeudalFungus_SporeBlast : ModProjectile
+    public class FeudalFungus_SporeBlast : ModProjectile
     {
         
         public override void SetStaticDefaults()

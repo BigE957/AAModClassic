@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 {
-    internal class SubzeroSerpentHead_SerpentBreath : ModProjectile
+    public class SubzeroSerpentHead_SerpentBreath : ModProjectile
     {
         public string BiomeType = "Default";
 

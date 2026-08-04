@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons
 {
-    internal class AshRain_Ash : ModProjectile
+    public class AshRain_Ash : ModProjectile
     {
         public override void SetStaticDefaults()
         {

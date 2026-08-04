@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration.Ancient
 {
-    internal class AncientDataBank : ModItem, ILocalizedModType
+    public class AncientDataBank : ModItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables";
         public override void SetStaticDefaults()

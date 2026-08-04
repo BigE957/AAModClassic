@@ -6,7 +6,7 @@ using Terraria.UI;
 
 namespace AAModClassic.UI.Tools
 {
-    internal sealed class TerratoolYUI : TerratoolUI
+    public sealed class TerratoolYUI : TerratoolUI
     {
         public static int Pick = 300;
 

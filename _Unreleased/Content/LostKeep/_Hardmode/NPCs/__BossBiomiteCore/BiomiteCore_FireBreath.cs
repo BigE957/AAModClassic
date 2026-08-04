@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
 
-internal class BiomiteCore_FireBreath : ModProjectile
+public class BiomiteCore_FireBreath : ModProjectile
 {
 	public override string Texture => AssetDirectory.General.Nothing;
 

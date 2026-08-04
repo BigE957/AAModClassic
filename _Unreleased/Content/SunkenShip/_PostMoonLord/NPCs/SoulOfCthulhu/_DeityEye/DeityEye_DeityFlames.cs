@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEye
 {
-    internal class DeityEye_DeityFlames : FireProj
+    public class DeityEye_DeityFlames : FireProj
     {
         public override MulticolorShift ColorShift
         {

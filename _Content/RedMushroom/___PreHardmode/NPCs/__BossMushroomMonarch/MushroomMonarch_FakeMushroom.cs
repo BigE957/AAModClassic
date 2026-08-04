@@ -8,7 +8,7 @@ using Terraria.DataStructures;
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch
 {
     //TODO: rework this into an item? idk why any of this is necessarry when the intent is obvious
-    internal class MushroomMonarch_FakeMushroom : ModProjectile
+    public class MushroomMonarch_FakeMushroom : ModProjectile
     {
         public override string Texture => "Terraria/Images/Item_" + ItemID.Mushroom;
 

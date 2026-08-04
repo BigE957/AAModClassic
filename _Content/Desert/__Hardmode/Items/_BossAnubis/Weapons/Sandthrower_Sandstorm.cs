@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons
 {
-    internal class Sandthrower_Sandstorm : ModProjectile
+    public class Sandthrower_Sandstorm : ModProjectile
     {
         public override string Texture => AssetDirectory.General.Nothing;
         public override void SetStaticDefaults()

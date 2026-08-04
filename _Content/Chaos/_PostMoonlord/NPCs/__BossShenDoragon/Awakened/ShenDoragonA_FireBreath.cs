@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened
 {
-    internal class ShenDoragonA_FireBreath : FireProj
+    public class ShenDoragonA_FireBreath : FireProj
     {
         public override MulticolorShift ColorShift
         {

@@ -17,12 +17,12 @@ using Terraria.WorldBuilding;
 
 namespace AAModClassic._Content.Hoard.World.Biomes
 {
-    internal class HoardTexGenAssets : ModSystem
+    public class HoardTexGenAssets : ModSystem
     {
-        internal static TexGenData HoardDeletionData;
+        public static TexGenData HoardDeletionData;
 
-        internal static TexGenData HoardTileData;
-        internal static TexGenData HoardWallData;
+        public static TexGenData HoardTileData;
+        public static TexGenData HoardWallData;
 
         public override void OnModLoad()
         {
