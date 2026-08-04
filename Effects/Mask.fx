@@ -11,7 +11,7 @@ float4 PixelShaderFunction(float2 coords : TEXCOORD0, float4 vertexColor : COLOR
         return float4(0, 0, 0, 0);
     
     float4 finalColor = tex2D(noise, coords * noiseScale + offset);
-    return finalColor;
+    return finalColor * vertexColor;
 }
 
 technique Greyscale
