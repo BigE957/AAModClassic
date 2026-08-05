@@ -160,6 +160,7 @@ namespace AAModClassic.Particles.Types
                     for (int j = 0; j < amt; j++)
                     {
                         int d = WorldGen.KillTile_MakeTileDust(ColumnPositions[i].X, ColumnPositions[i].Y, t);
+                        Main.dust[d].position.Y -= myPeak * 0.5f * Main.rand.NextFloat();
                         Main.dust[d].velocity.Y -= myPeak / 18f * Main.rand.NextFloat();
                     }
                 }
