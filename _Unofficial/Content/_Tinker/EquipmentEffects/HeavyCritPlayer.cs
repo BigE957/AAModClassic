@@ -78,7 +78,8 @@ namespace AAModClassic._Unofficial.Content._Tinker.EquipmentEffects
                 SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Custom/SpecialCrit") with { PitchVariance = 0.5f, MaxInstances = 0, Volume = 0.5f }, target.Center);
 
                 int combatTextID = CombatText.NewText(target.Hitbox, AAColor.HeavyCritCombatText, hit.Damage, true);
-                Main.combatText[combatTextID].position.Y -= 30f;
+                if (combatTextID != 100)
+                    Main.combatText[combatTextID].position.Y -= 30f;
 
                 foreach (var effect in EffectsOnCrit_AfterDamage)
                     effect.Invoke(target, hit, damageDone, Player);

@@ -113,22 +113,29 @@ namespace AAModClassic.Utilities
                 DrawAfterimage(sb, texture, positions, frame, lightColor, scale, [rotation], frame.Size() * 0.5f, spriteDirection == -1 ? SpriteEffects.FlipHorizontally : 0, distanceScalar, sizeScalar);
         }
 
-        public static void DrawAfterimage(this SpriteBatch sb, Texture2D texture, Vector2[] positions, Rectangle? frame, Color color, float scale, float[] rotations, Vector2 origin, SpriteEffects effects = 0, float distanceScalar = 1.0F, float sizeScalar = 1f)
+        public static void DrawAfterimage(this SpriteBatch sb, Texture2D texture, Vector2[] positions, Rectangle? frame, Color color, float scale, float[] rotations, Vector2 origin, SpriteEffects effects = 0, float distanceScalar = 1.0F, float sizeScalar = 1f, float offsetX = 0, float offsetY = 0)
         {
-            DrawAfterimage(sb, texture, positions, frame, color, new Vector2(scale, scale), rotations, origin, effects, distanceScalar, sizeScalar);
+            DrawAfterimage(sb, texture, positions, frame, color, new Vector2(scale, scale), rotations, origin, effects, distanceScalar, sizeScalar, offsetX, offsetY);
         }
 
-        public static void DrawAfterimage(this SpriteBatch sb, Texture2D texture, Vector2[] positions, Rectangle? frame, Color color, Vector2 scale, float[] rotations, Vector2 origin, SpriteEffects effects = 0, float distanceScalar = 1.0F, float sizeScalar = 1f)
+        public static void DrawAfterimage(this SpriteBatch sb, Texture2D texture, Vector2[] positions, Rectangle? frame, Color color, Vector2 scale, float[] rotations, Vector2 origin, SpriteEffects effects = 0, float distanceScalar = 1.0F, float sizeScalar = 1f, float offsetX = 0, float offsetY = 0)
         {
-            Vector2 velAddon = Vector2.Zero;
-            Vector2 originalpos = positions[0];
             int imageCount = positions.Length;
+            Vector2[] positionsOffset = new Vector2[imageCount];
+            for (int i = 0; i < imageCount; i++)
+            {
+                positionsOffset[i].X = positions[i].X + offsetX;
+                positionsOffset[i].Y = positions[i].Y + offsetY;
+            }
+
+            Vector2 velAddon = Vector2.Zero;
+            Vector2 originalpos = positionsOffset[0];
 
             for (int i = 0; i < imageCount; i++)
             {
                 scale *= sizeScalar;
                 Color newColor = color * ((imageCount + 3 - i) / (float)(imageCount + 9));
-                Vector2 position = Vector2.Lerp(originalpos, (i >= positions.Length ? positions[positions.Length - 1] : positions[i]), distanceScalar);
+                Vector2 position = Vector2.Lerp(originalpos, (i >= positionsOffset.Length ? positionsOffset[positionsOffset.Length - 1] : positionsOffset[i]), distanceScalar);
                 float rotation = rotations == null ? 0 : i >= rotations.Length ? rotations[^1] : rotations[i];
                 sb.Draw(texture, position - Main.screenPosition, frame, newColor, rotation, frame.HasValue ? frame.Value.Size() * 0.5f : texture.Size() * 0.5f, scale, effects, 0);
             }

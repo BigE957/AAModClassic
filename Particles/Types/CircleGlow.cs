@@ -67,7 +67,7 @@ public class CircleGlow : Particle
 
         Lifetime = 100;
         Scale *= DecayRate;
-        if (Scale.X <= 0.001f && Scale.Y <= 0.001f)
+        if (Scale.X <= 0.075f && Scale.Y <= 0.075f)
             Lifetime = 0;
 
         base.Update();

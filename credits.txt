@@ -1,0 +1,5 @@
+Sounds/Custom/
+WooshTiny
+WHOOSH (multiple) by C3Sabertooth -- https://freesound.org/s/480873/ -- License: Creative Commons 0
+MagicDing
+Magic sounds.wav by Wax_vibe -- https://freesound.org/s/587802/ -- License: Creative Commons 0

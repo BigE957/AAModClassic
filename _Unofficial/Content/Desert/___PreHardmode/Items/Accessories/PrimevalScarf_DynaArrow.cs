@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -19,7 +20,7 @@ namespace AAModClassic._Unofficial.Content.Desert.___PreHardmode.Items.Accessori
     public class PrimevalScarf_DynaArrow : ModProjectile
 	{
         public ref float MyMortalEnemy => ref Projectile.ai[0];
-        public ref float BeenAliveTimer => ref Projectile.ai[1];
+        public ref float ModeTimer => ref Projectile.ai[1];
         public ref float CurrentMode => ref Projectile.ai[2];
 
         public Vector2 StretchAmount = new Vector2(0.9f, 3.5f);
@@ -56,6 +57,25 @@ namespace AAModClassic._Unofficial.Content.Desert.___PreHardmode.Items.Accessori
         {
             Vector2 targetPos = Main.npc[(int)MyMortalEnemy].Center;
 
+            if (CurrentMode == 0 && ModeTimer == 0)
+            {
+                SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Custom/MagicDing") with { Pitch = 1, PitchVariance = 0.8f, MaxInstances = 0 }, Projectile.Center);
+            }
+
+            if (CurrentMode == 0 && ModeTimer > 15)
+            {
+                CurrentMode = 1;
+                ModeTimer = 0;
+            }
+            else if (CurrentMode == 1 && ModeTimer > 35)
+            {
+                CurrentMode = 2;
+                ModeTimer = 0;
+
+                Projectile.oldPos = new Vector2[Projectile.oldPos.Length];
+                Projectile.oldRot = new float[Projectile.oldRot.Length];
+            }
+
             if (CurrentMode == 0)
             {
                 Projectile.velocity *= 0.94f;
@@ -65,7 +85,7 @@ namespace AAModClassic._Unofficial.Content.Desert.___PreHardmode.Items.Accessori
             {
                 Projectile.velocity.Y += 0.6f;
 
-                Projectile.rotation += (0.5f * Math.Clamp(BeenAliveTimer / 25, 0, 1)) * Projectile.direction;
+                Projectile.rotation += (0.5f * Math.Clamp(ModeTimer / 25, 0, 1)) * Projectile.direction;
 
                 if (Projectile.velocity.Y > 16f)
                 {
@@ -75,51 +95,40 @@ namespace AAModClassic._Unofficial.Content.Desert.___PreHardmode.Items.Accessori
             else if (CurrentMode == 2)
             {
                 Projectile.extraUpdates = 2;
-                if (BeenAliveTimer == 0)
+                if (ModeTimer == 0)
                 {
                     Projectile.velocity = Projectile.Center.DirectionTo(targetPos) * 7;
-
                     Projectile.oldPos = new Vector2[Projectile.oldPos.Length];
-                    Projectile.oldRot = new float[Projectile.oldRot.Length];
 
                     for (int i = 0; i < 6; i++)
                     {
-                        Vector2 speed = Projectile.Center.DirectionFrom(targetPos) * Main.rand.NextFloat(1.2f, 2);
-                        ParticleSystem.SpawnParticle(new CircleGlow(Projectile.Center, speed, 1, new Color(255, 157, 0), 0.92f, 0, 0.98f, false, true, true));
+                        SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Custom/WooshTiny") with { Pitch = 1, PitchVariance = 0.5f, MaxInstances = 0, Volume = 0.33f }, Projectile.Center);
 
-                        speed = Projectile.Center.DirectionFrom(targetPos) * Main.rand.NextFloat(2, 5);
+                        Vector2 speed = Projectile.Center.DirectionFrom(targetPos) * Main.rand.NextFloat(2, 3);
+                        ParticleSystem.SpawnParticle(new CircleGlow(Projectile.Center, speed, 1, new Color(255, 157, 0), 0.88f, 0, 0.98f, false, true, true));
+
+                        speed = Projectile.Center.DirectionFrom(targetPos) * Main.rand.NextFloat(3, 6);
                         speed.X *= Main.rand.NextFloat(0.2f, 0.4f);
                         speed.Y *= Main.rand.NextFloat(0.2f, 0.4f);
                         speed = speed.RotatedBy(Main.rand.NextFloat(-0.8f, 0.8f));
-                        ParticleSystem.SpawnParticle(new CircleGlow(Projectile.Center, speed, 1, new Color(255, 157, 0), 0.90f, 0, 0.98f, false, true, true));
+                        ParticleSystem.SpawnParticle(new CircleGlow(Projectile.Center, speed, 1, new Color(255, 157, 0), 0.86f, 0, 0.98f, false, true, true));
                     }
                 }
 
-                if (Projectile.Center.Distance(Main.player[Projectile.owner].Center) > 1000 && BeenAliveTimer > 10)
+                if (Projectile.Center.Distance(Main.player[Projectile.owner].Center) > 1000 && ModeTimer > 10)
                     Projectile.Kill();
 
                 Projectile.velocity *= 1.04f;
                 Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
             }
 
-            if (BeenAliveTimer > 5)
+            if (ModeTimer > 5)
             {
                 StretchAmount *= 0.9f;
                 Projectile.friendly = true;
             }
 
-            BeenAliveTimer++;
-
-            if (CurrentMode == 0 && BeenAliveTimer > 15)
-            {
-                CurrentMode = 1;
-                BeenAliveTimer = 0;
-            }
-            else if (CurrentMode == 1 && BeenAliveTimer > 35)
-            {
-                CurrentMode = 2;
-                BeenAliveTimer = 0;
-            }
+            ModeTimer++;
         }
 
         public override void OnKill(int timeLeft)
@@ -134,7 +143,7 @@ namespace AAModClassic._Unofficial.Content.Desert.___PreHardmode.Items.Accessori
                 speed.RotatedBy(Main.rand.NextFloat(-MathHelper.PiOver4, MathHelper.PiOver4));
                 int biggerBox = target.DirectionTo(Projectile.Center - Projectile.velocity).X > target.DirectionTo(Projectile.Center - Projectile.velocity).Y ? target.width / 2 : target.height / 2;
                 Vector2 center = target.Center + target.DirectionTo(Projectile.Center - Projectile.velocity) * biggerBox;
-                ParticleSystem.SpawnParticle(new CircleGlow(center + (Projectile.velocity.SafeNormalize(Vector2.Zero) * 2), speed, 1, new Color(255, 157, 0), 0.94f, 0, 0.98f, false, true, true));
+                ParticleSystem.SpawnParticle(new CircleGlow(center + (Projectile.velocity.SafeNormalize(Vector2.Zero) * 2), speed, 1.25f, new Color(255, 157, 0), 0.94f, 0, 0.98f, false, true, true));
             }
         }
 
@@ -145,23 +154,20 @@ namespace AAModClassic._Unofficial.Content.Desert.___PreHardmode.Items.Accessori
             Rectangle arrowRect = new Rectangle(0, 0, 10, 28);
             Rectangle sphereRect = new Rectangle(arrowRect.Width, 0, 16, 28);
             Color dynaGlow = new Color(252, 139, 7, 255);
+            float FixTrailGoingBehindPlayerOnSpawn = CurrentMode == 0 && ModeTimer <= 2 ? 0.5f : 1f;
             Vector2 arrowScale = new Vector2(Projectile.scale, Projectile.scale);
             if (CurrentMode == 2)
-                arrowScale.Y *= MathHelper.Lerp(1, 2f, Math.Clamp(Projectile.velocity.Length() / 25, 0, 25));
-
-            // afteriamge 
-            if (CurrentMode == 2)
             {
-                Vector2[] oldCenters = Projectile.oldPos;
-                for (int i = 0; i < oldCenters.Length; i++)
-                    oldCenters[i] += new Vector2(Projectile.width / 2f, Projectile.height / 2f);
-                DrawingUtils.DrawAfterimage(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, oldCenters, arrowRect, Color.White, arrowScale, Projectile.oldRot, arrowRect.Size() * 0.5f, SpriteEffects.None, 5, 0.8f);
+                arrowScale.Y *= MathHelper.Lerp(1, 2f, Math.Clamp(Projectile.velocity.Length() / 25, 0, 25));
+                
+                // afteriamge 
+                DrawingUtils.DrawAfterimage(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, Projectile.oldPos, arrowRect, Color.White, arrowScale, Projectile.oldRot, arrowRect.Size() * 0.5f, SpriteEffects.None, 2f, 0.85f, Projectile.width / (2f * Projectile.extraUpdates), Projectile.height / (2f * Projectile.extraUpdates));
             }
 
             // bloom
             float bloomScaleX = Math.Max(Projectile.scale * (StretchAmount.X * 0.5f) * 0.8f, 0.2f);
             float bloomScaleY = Math.Max(Projectile.scale * (StretchAmount.Y * 0.5f) * 0.8f, 0.5f);
-            Vector2 bloomScale = new Vector2(bloomScaleX, bloomScaleY);
+            Vector2 bloomScale = new Vector2(bloomScaleX, bloomScaleY) * FixTrailGoingBehindPlayerOnSpawn;
             if (CurrentMode == 2)
                 bloomScale.Y *= MathHelper.Lerp(1, 2f, Math.Clamp(Projectile.velocity.Length() / 25, 0, 25));
             Main.EntitySpriteDraw(bloom, Projectile.Center - Main.screenPosition, null, new Color(255, 84, 0) * 0.75f, Projectile.rotation, bloom.Size() * 0.5f, bloomScale, SpriteEffects.None);
@@ -180,7 +186,6 @@ namespace AAModClassic._Unofficial.Content.Desert.___PreHardmode.Items.Accessori
             Main.EntitySpriteDraw(TextureAssets.Projectile[Projectile.type].Value, Projectile.Center - Main.screenPosition, arrowRect, Color.White, Projectile.rotation, arrowRect.Size() * 0.5f, arrowScale, SpriteEffects.None);
 
             // ball
-            float FixTrailGoingBehindPlayerOnSpawn = CurrentMode == 0 && BeenAliveTimer == 1 ? 0.5f : 1f;
             Main.EntitySpriteDraw(TextureAssets.Projectile[Projectile.type].Value, Projectile.Center - Main.screenPosition, sphereRect, Color.White, Projectile.rotation, sphereRect.Size() * 0.5f, Projectile.scale * StretchAmount * FixTrailGoingBehindPlayerOnSpawn, SpriteEffects.None);
 
             return false;
