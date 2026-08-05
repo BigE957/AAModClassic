@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic.Utilities;
 
@@ -57,5 +59,37 @@ public static class CollisionUtils
         }
 
         return null;
+    }
+
+    public static Point FindSurfaceBelow(Point p, bool ignorePlatforms = false)
+    {
+
+        if (SurfaceTile(p))
+            while (SurfaceTile(p.X, p.Y - 1) && p.Y >= 1)
+                p.Y--;
+        else
+        {
+
+            while (!SurfaceTile(p.X, p.Y + 1) && (ignorePlatforms || !TileID.Sets.Platforms[Framing.GetTileSafely(p.X, p.Y).TileType]) && p.Y < Main.maxTilesY)
+                p.Y++;
+            if (ignorePlatforms || !TileID.Sets.Platforms[Framing.GetTileSafely(p.X, p.Y).TileType])
+                p.Y++;
+        }
+
+        return p;
+    }
+
+    public static bool SurfaceTile(Point p) => SurfaceTile(p.X, p.Y);
+    public static bool SurfaceTile(int x, int y)
+    {
+        Tile t = Framing.GetTileSafely(x, y);
+
+        if (t == null)
+            return false;
+
+        if (t.HasTile && Main.tileSolid[t.TileType] && !Main.tileSolidTop[t.TileType] && !t.IsActuated && !TileLoader.IsClosedDoor(t))
+            return true;
+
+        return false;
     }
 }

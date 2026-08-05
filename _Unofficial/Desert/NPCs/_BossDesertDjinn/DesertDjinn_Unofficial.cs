@@ -1,11 +1,16 @@
 ﻿using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
 using AAModClassic.Music;
+using AAModClassic.Particles;
+using AAModClassic.Particles.Types;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
@@ -51,16 +56,88 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
 
         public override void AI()
         {
-            NPC.TargetClosest();
-
             switch (CurrentState)
             {
                 case DjinnState.Spawn:
-                    NPC.velocity = (Target.Center - NPC.Center) / 90f;
+                    NPC.TargetClosest();
+                    NPC.velocity = ((Target.Center - Vector2.UnitY * 96f) - NPC.Center) / 90f;
+                    if(Timer > 120)
+                    {
+                        CurrentState = DjinnState.GrandSlam;
+                        Timer = 0;
+                        return;
+                    }
                     break;
                 case DjinnState.RecoverFlex:
                     break;
                 case DjinnState.GrandSlam:
+                    float gravity = 0.6f;
+                    if(Timer == 0)
+                    {
+                        NPC.TargetClosest();
+                        Vector2 targetPos = Target.Center + Target.velocity * 4f;
+                        if (MathUtils.TryGetLaunchVelocity(targetPos - NPC.Center, 12f, gravity, out Vector2 velocity))
+                        {
+                            NPC.velocity = velocity;
+                            FrameX = 4;
+                        }
+                        else
+                        {
+                            CurrentState = DjinnState.Spawn;
+                            Timer--;
+                        }
+                    }
+                    else
+                    {
+                        if (!AttackFlag)
+                        {
+                            NPC.velocity.Y += gravity;
+
+                            if (Collision.SolidCollision(NPC.position, NPC.width, NPC.height))
+                            {
+                                NPC.velocity *= new Vector2(-0.75f, -0.5f);
+                                AttackFlag = true;
+                                Timer = 0;
+                            }
+                            else if(Collision.SolidCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
+                            {
+                                SoundEngine.PlaySound(SoundID.DD2_MonkStaffGroundImpact, NPC.Center);
+
+                                for (int i = 2; i <= 24; i++)
+                                {
+                                    float heightMult = MathF.Sin((i - 1) / 24f * MathHelper.Pi);
+
+                                    Point start = NPC.Center.ToTileCoordinates() - new Point(-i * NPC.direction, 8);
+                                    Point ground = CollisionUtils.FindSurfaceBelow(start, true);
+                                    ParticleSystem.SpawnParticle(new GroundWave(ground, 8, 108 * heightMult, i * 2, 16), DrawLayer.AfterPlayers);
+
+                                }
+
+                                for (int i = 2; i <= 12; i++)
+                                {
+                                    float heightMult = MathF.Sin((i - 1) / 12f * MathHelper.Pi);
+
+                                    Point start = NPC.Center.ToTileCoordinates() - new Point(-i * -NPC.direction, 8);
+                                    Point ground = CollisionUtils.FindSurfaceBelow(start, true);
+                                    ParticleSystem.SpawnParticle(new GroundWave(ground, 2, 24 * heightMult, i * 3, 16), DrawLayer.AfterPlayers);
+
+                                }
+                            }
+                        }
+                        else
+                        {
+                            NPC.velocity *= new Vector2(0.925f, 0.85f);
+
+                            if (Timer > 30 || (MathF.Abs(NPC.velocity.X) < 0.01f && MathF.Abs(NPC.velocity.Y) < 0.01f))
+                            {
+                                FrameX = 0;
+                                CurrentState = DjinnState.Spawn;
+                                Timer = 0;
+                                AttackFlag = false;
+                                return;
+                            }
+                        }
+                    }
                     break;
                 case DjinnState.TwisterPunch:
                     break;
@@ -69,6 +146,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                 case DjinnState.Dive:
                     break;
             }
+
             Timer++;
         }
 
@@ -107,6 +185,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
         public override void FindFrame(int frameHeight)
         {
             NPC.frame.Width = TextureAssets.Npc[NPC.type].Width() / 6;
+            NPC.frame.X = FrameX * NPC.frame.Width;
             NPC.frameCounter++;
 
             if (NPC.frameCounter > 5)
