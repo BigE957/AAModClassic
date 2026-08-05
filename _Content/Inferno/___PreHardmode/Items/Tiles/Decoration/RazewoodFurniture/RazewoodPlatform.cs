@@ -10,7 +10,8 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.Ra
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Razewood Platform");
-		}
+            Item.ResearchUnlockCount = 200;
+        }
 
 		public override void SetDefaults()
 		{
