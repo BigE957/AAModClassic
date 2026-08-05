@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 {
-    internal class ZeroA_GlitchBlast : ModProjectile
+    public class ZeroA_GlitchBlast : ModProjectile
     {
         public override void SetStaticDefaults()
         {

@@ -141,95 +141,48 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.Friendly
         {
             if (firstButton)
             {
-                shopName = "shop";
+                shopName = "Shop";
             }
         }
 
-        public override void ModifyActiveShop(string shopName, Item[] items)
+        public override void AddShops()
         {
-            int nextSlot = 0;
-            items[nextSlot] = new Item(ItemID.DynastyWood);
-            nextSlot++;
-            if (Main.dayTime)
-            {
-                items[nextSlot] = new Item(ItemID.RedDynastyShingles);
-                nextSlot++;
-                items[nextSlot] = new Item(ModContent.ItemType<ScorchedSeeds>());
-                nextSlot++;
-                items[nextSlot] = new Item(ModContent.ItemType<Sunpowder>());
-                nextSlot++;
-                if (NPCExtensions.BeenKilled<Broodmother>() == true)
-                {
-                    items[nextSlot] = new Item(ModContent.ItemType<AncientBell>());
-                    items[nextSlot].value = 100000;
-                    nextSlot++;
-                }
-            }
-            if (!Main.dayTime)
-            {
-                items[nextSlot] = new Item(ItemID.BlueDynastyShingles);
-                nextSlot++;
-                items[nextSlot] = new Item(ModContent.ItemType<DankSeeds>());
-                nextSlot++;
-                items[nextSlot] = new Item(ModContent.ItemType<Moonpowder>());
-                nextSlot++;
-                if (NPCExtensions.BeenKilled<HydraBody>() == true)
-                {
-                    items[nextSlot] = new Item(ModContent.ItemType<HydraChow>());
-                    items[nextSlot].value = 100000;
-                    nextSlot++;
-                }
-            }
-            items[nextSlot] = new Item(ModContent.ItemType<LuckyCracker>());
-            items[nextSlot].value = 2000000;
-			nextSlot++;
-            items[nextSlot] = new Item(ModContent.ItemType<RoninPotion>());
-            items[nextSlot].value = 50000;
-			nextSlot++;
-			items[nextSlot] = new Item(ItemID.Sake);
-			nextSlot++;
-			items[nextSlot] = new Item(ItemID.Pho);
-			nextSlot++;
-            items[nextSlot] = new Item(ItemID.PadThai);
-            nextSlot++;
-            items[nextSlot] = new Item(ItemID.Gi);
-            nextSlot++;
-            items[nextSlot] = new Item(ItemID.Kimono);
-            nextSlot++;
-            items[nextSlot] = new Item(ItemID.FancyDishes);
-            nextSlot++;
-            items[nextSlot] = new Item(ItemID.Katana);
-            nextSlot++;
-            items[nextSlot] = new Item(ItemID.Shuriken);
-            nextSlot++;
-            items[nextSlot] = new Item(ItemID.NinjaHood);
-            nextSlot++;
-            items[nextSlot] = new Item(ItemID.NinjaShirt);
-            nextSlot++;
-            items[nextSlot] = new Item(ItemID.NinjaPants);
-            nextSlot++;
-            if (Main.dayTime)
-            {
-                if (Main.hardMode == true)
-                {
-                    items[nextSlot] = new Item(ModContent.ItemType<OrangeSolution>());
-                    nextSlot++;
-                }
-            }
-            else
-            {
-                if (Main.hardMode == true)
-                {
-                    items[nextSlot] = new Item(ModContent.ItemType<IndigoSolution>());
-                    nextSlot++;
-                }
-            }
+            NPCShop shop = new(Type);
 
-            if (Main.hardMode == true)
-            {
-                items[nextSlot] = new Item(ModContent.ItemType<OrderSolution>());
-                nextSlot++;
-            }
+            shop.Add(ItemID.DynastyWood);
+
+            shop.Add(ItemID.RedDynastyShingles, Condition.TimeDay);
+            shop.Add<ScorchedSeeds>(Condition.TimeDay);
+            shop.Add<Sunpowder>(Condition.TimeDay);
+            shop.Add<AncientBell>(Condition.TimeDay, new((LocalizedText)null, () => NPCExtensions.BeenKilled<Broodmother>()));
+
+            shop.Add(ItemID.BlueDynastyShingles, Condition.TimeNight);
+            shop.Add<DankSeeds>(Condition.TimeNight);
+            shop.Add<Moonpowder>(Condition.TimeNight);
+            shop.Add<HydraChow>(Condition.TimeNight, new((LocalizedText)null, () => NPCExtensions.BeenKilled<HydraBody>()));
+
+            shop.Add(new Item(ModContent.ItemType<LuckyCracker>()) { shopCustomPrice = 2000000 });
+            shop.Add(new Item(ModContent.ItemType<RoninPotion>()) { shopCustomPrice = 50000 });
+
+            shop.Add(ItemID.Sake);
+            shop.Add(ItemID.Pho);
+            shop.Add(ItemID.PadThai);
+            shop.Add(ItemID.Gi);
+            shop.Add(ItemID.Kimono);
+            shop.Add(ItemID.FancyDishes);
+            shop.Add(ItemID.Katana);
+            shop.Add(ItemID.Shuriken);
+            shop.Add(ItemID.NinjaHood);
+            shop.Add(ItemID.NinjaShirt);
+            shop.Add(ItemID.NinjaPants);
+
+            shop.Add(ItemID.DynastyWood);
+
+            shop.Add<OrangeSolution>(Condition.Hardmode, Condition.TimeDay);
+            shop.Add<IndigoSolution>(Condition.Hardmode, Condition.TimeNight);
+            shop.Add<OrderSolution>(Condition.Hardmode);
+
+            shop.Register();
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

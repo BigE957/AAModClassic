@@ -8,7 +8,7 @@ using AAModClassic._Content.RedMushroom.World.Tiles;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables
 {
-    internal class BrownSolution_Proj : ModProjectile
+    public class BrownSolution_Proj : ModProjectile
     {
         public override string Texture => AssetDirectory.General.Nothing;
         public override void SetStaticDefaults()

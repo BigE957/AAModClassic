@@ -81,7 +81,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
                 }
             }
             Projectile.frameCounter++;
-            Lighting.AddLight(Projectile.Center, Color.Magenta.R / 255, Color.Magenta.G / 255, Color.Magenta.B / 255);
+            Lighting.AddLight(Projectile.Center, Color.Magenta.R / 255f, Color.Magenta.G / 255f, Color.Magenta.B / 255f);
             if (Projectile.velocity == Vector2.Zero)
             {
                 if (Projectile.frameCounter >= Projectile.extraUpdates * 2)

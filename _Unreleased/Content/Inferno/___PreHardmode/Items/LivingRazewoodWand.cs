@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Inferno.___PreHardmode.Items
 {
-    internal class LivingRazewoodWand : ModItem, ILocalizedModType
+    public class LivingRazewoodWand : ModItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Tools";
         public override void SetStaticDefaults() => ItemID.Sets.DisableAutomaticPlaceableDrop[Type] = true;

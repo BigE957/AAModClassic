@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hell.__Hardmode.Items.Weapons
 {
-    internal class DevilStaff_UnholyTrident : ModProjectile
+    public class DevilStaff_UnholyTrident : ModProjectile
     {
         public override void SetStaticDefaults()
         {

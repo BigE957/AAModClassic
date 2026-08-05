@@ -26,7 +26,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons
 	
         public override void AI()
         {
-            Lighting.AddLight(Projectile.Center, Color.Gold.R / 255, Color.Gold.G / 255, Color.Gold.B / 255);
+            Lighting.AddLight(Projectile.Center, Color.Gold.R / 255f, Color.Gold.G / 255f, Color.Gold.B / 255f);
             if (Projectile.scale < 1f) Projectile.scale += 0.01f;
             if (Projectile.alpha > 0) Projectile.alpha -= 5;
 

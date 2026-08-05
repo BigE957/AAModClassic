@@ -3,6 +3,7 @@ using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._CrossMod;
 using AAModClassic.Globals;
+using AAModClassic.UI.Core;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -402,7 +403,7 @@ namespace AAModClassic._Unofficial.Desert
             Nodes.Clear();
             Lines.Clear();
 
-            var line = ModContent.Request<Texture2D>("AAModClassic/_Unofficial/Desert/Line").Value;
+            var line = ModContent.Request<Texture2D>("AAModClassic/UI/Core/Line").Value;
 
             var depths = DepthValues.ToList();
             depths.Sort((v1, v2) => v1.Value > v2.Value ? 1 : v1.Value < v2.Value ? -1 : 0);

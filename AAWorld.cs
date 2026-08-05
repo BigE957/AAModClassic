@@ -123,11 +123,11 @@ namespace AAModClassic
         public static int OreCount;
         public static bool DiscordOres;
         public static bool ChaosStripes;
-        private int infernoSide = 0;
-        private Vector2 infernoPos = new(0, 0);
-        private Vector2 mirePos = new(0, 0);
-        private Vector2 InfernoCenter = -Vector2.One;
-        private Vector2 MireCenter = -Vector2.One;
+        public int infernoSide = 0;
+        public Vector2 infernoPos = new(0, 0);
+        public Vector2 mirePos = new(0, 0);
+        public Vector2 InfernoCenter = -Vector2.One;
+        public Vector2 MireCenter = -Vector2.One;
         public static Vector2 shipPos = new(0, 0);
         public static Point acropolisPos = Point.Zero;
         public string nums = "1234567890";
@@ -413,6 +413,8 @@ namespace AAModClassic
             SmashHydraPod = tag.GetInt("Pod");
 
             acropolisPos = tag.Get<Point>("acropolisPos");
+            if(acropolisPos == Point.Zero)
+                acropolisPos = new Point((int)(Main.maxTilesX * 0.65f), 100);
 
             TerrariumEnemies = NPC.downedBoss2;
             previousDownedAllAncients = downedAllAncients;

@@ -153,7 +153,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
         {
             if (firstButton)
             {
-                shopName = "shop";
+                shopName = "Shop";
             }
 
             if (!firstButton)
@@ -473,63 +473,35 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
             return chat;
         }
 
-        public override void ModifyActiveShop(string shopName, Item[] items)
-		{
-            int nextSlot = 0;
+        public override void AddShops()
+        {
+            NPCShop shop = new(Type);
+            shop.Add(ItemID.Mushroom);
+            shop.Add(ItemID.GlowingMushroom);
+            shop.Add<SporeBag>();
+            shop.Add(ItemID.RecallPotion);
+            shop.Add(ItemID.MushroomGrassSeeds);
+            shop.Add<MyceliumSeeds>();
+            shop.Add(ItemID.MushroomGrassSeeds);
+            shop.Add(ItemID.LesserHealingPotion);
+            shop.Add(ItemID.LesserManaPotion);
 
-            items[nextSlot] = new Item(ItemID.Mushroom);
-            nextSlot++;
-            items[nextSlot] = new Item(ItemID.GlowingMushroom);
-            nextSlot++;
-            items[nextSlot] = new Item(ModContent.ItemType<SporeBag>());
-            nextSlot++;
-            items[nextSlot] = new Item(ItemID.RecallPotion);
-            nextSlot++;
-            items[nextSlot] = new Item(ItemID.WormholePotion);
-            nextSlot++;
-            items[nextSlot] = new Item(ModContent.ItemType<MyceliumSeeds>());
-            nextSlot++;
-            items[nextSlot] = new Item(ItemID.MushroomGrassSeeds);
-            nextSlot++;
-            items[nextSlot] = new Item(ItemID.LesserHealingPotion);
-            nextSlot++;
-            items[nextSlot] = new Item(ItemID.LesserManaPotion);
-            nextSlot++;
+            shop.Add(ItemID.HealingPotion, Condition.DownedSkeletron);
+            shop.Add(ItemID.ManaPotion, Condition.DownedSkeletron);
 
-            if (NPC.downedBoss3 == true)
-            {
-                items[nextSlot] = new Item(ItemID.HealingPotion);
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.ManaPotion);
-                nextSlot++;
-            }
+            shop.Add(ItemID.GreaterHealingPotion, Condition.Hardmode);
+            shop.Add(ItemID.GreaterManaPotion, Condition.Hardmode);
 
-            if (Main.hardMode == true)
-            {
-                items[nextSlot] = new Item(ItemID.GreaterHealingPotion);
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.GreaterManaPotion);
-                nextSlot++;
-            }
-            if (NPC.downedMoonlord == true)
-            {
-                items[nextSlot] = new Item(ItemID.SuperHealingPotion);
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.SuperManaPotion);
-                nextSlot++;
-            }
-            if (AAWorld.downedAncient == true)
-            {
-                items[nextSlot] = new Item(ModContent.ItemType<GrandHealingPotion>());
-                nextSlot++;
-                items[nextSlot] = new Item(ModContent.ItemType<GrandManaPotion>());
-                nextSlot++;
-            }
-            if (AAWorld.downedSAncient == true)
-            {
-                items[nextSlot] = new Item(ModContent.ItemType<TheBigOne>());
-                nextSlot++;
-            }
+            shop.Add(ItemID.SuperHealingPotion, Condition.DownedMoonLord);
+            shop.Add(ItemID.SuperManaPotion, Condition.DownedMoonLord);
+
+            //TODO: Give these text
+            shop.Add<GrandHealingPotion>([new((LocalizedText)null, () => AAWorld.downedAncient)]);
+            shop.Add<GrandManaPotion>([new((LocalizedText)null, () => AAWorld.downedAncient)]);
+
+            shop.Add<TheBigOne>([new((LocalizedText)null, () => AAWorld.downedSAncient)]);
+
+            shop.Register();
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

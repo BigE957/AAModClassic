@@ -5,7 +5,7 @@ using Terraria.UI;
 namespace AAModClassic.UI.Core
 {
     // © Even More Modifiers by Jofairden
-    internal abstract class ToggableUI : UIState
+    public abstract class ToggableUI : UIState
     {
         public bool Visible { get; set; }
 

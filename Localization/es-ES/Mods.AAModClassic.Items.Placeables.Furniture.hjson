@@ -93,6 +93,11 @@ Doom: {
 		DisplayName: Plataforma de Doom
 		Tooltip: ""
 	}
+
+	DoomToilet: {
+		DisplayName: Retrete de Doom
+		Tooltip: ""
+	}
 }
 
 Razewood: {
@@ -188,6 +193,11 @@ Razewood: {
 
 	RazewoodWorkbench: {
 		DisplayName: Banco de Trabajo de Madera Asoladora
+		Tooltip: ""
+	}
+
+	RazewoodToilet: {
+		DisplayName: Retrete de Madera Asoladora
 		Tooltip: ""
 	}
 }
@@ -292,6 +302,11 @@ Bogwood: {
 		DisplayName: Banco de Trabajo de Madera de Pantano
 		Tooltip: ""
 	}
+
+	BogwoodToilet: {
+		DisplayName: Retrete de Madera de Pantano
+		Tooltip: ""
+	}
 }
 
 OuroborosWood: {
@@ -341,7 +356,7 @@ OuroborosWood: {
 	}
 
 	OuroborosWoodLantern: {
-		DisplayName: Linterna de Madera de Ouroboros
+		DisplayName: Farol de Madera de Ouroboros
 		Tooltip: ""
 	}
 
@@ -352,6 +367,46 @@ OuroborosWood: {
 
 	OuroborosWoodWorkbench: {
 		DisplayName: Banco de Trabajo de Madera de Ouroboros
+		Tooltip: ""
+	}
+
+	OuroborosWoodCandelabra: {
+		DisplayName: Candelabro de Madera de Ouroboros
+		Tooltip: ""
+	}
+
+	OuroborosWoodChandelier: {
+		DisplayName: Lámpara de Araña de Madera de Ouroboros
+		Tooltip: ""
+	}
+
+	OuroborosWoodCouch: {
+		DisplayName: Sofá de Madera de Ouroboros
+		Tooltip: ""
+	}
+
+	OuroborosWoodDresser: {
+		DisplayName: Aparador de Madera de Ouroboros
+		Tooltip: ""
+	}
+
+	OuroborosWoodPiano: {
+		DisplayName: Piano de Madera de Ouroboros
+		Tooltip: ""
+	}
+
+	OuroborosWoodSink: {
+		DisplayName: Fregadero de Madera de Ouroboros
+		Tooltip: ""
+	}
+
+	OuroborosWoodTable: {
+		DisplayName: Mesa de Madera de Ouroboros
+		Tooltip: ""
+	}
+
+	OuroborosWoodToilet: {
+		DisplayName: Retrete de Madera de Ouroboros
 		Tooltip: ""
 	}
 }
@@ -446,6 +501,11 @@ Keep: {
 		DisplayName: Escalera de Caracol
 		Tooltip: ""
 	}
+
+	KeepToilet: {
+		DisplayName: Retrete de Keep
+		Tooltip: ""
+	}
 }
 
 Terra: {
@@ -536,6 +596,11 @@ Terra: {
 
 	TerraWorkbench: {
 		DisplayName: Banco de Trabajo Terra
+		Tooltip: ""
+	}
+
+	TerraToilet: {
+		DisplayName: Retrete Terra
 		Tooltip: ""
 	}
 }

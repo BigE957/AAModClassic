@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.Projectiles
 {
-    internal class ProbeShot : ModProjectile
+    public class ProbeShot : ModProjectile
     {
         public override void SetStaticDefaults()
         {

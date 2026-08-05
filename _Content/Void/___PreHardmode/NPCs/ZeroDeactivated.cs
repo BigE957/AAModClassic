@@ -5,7 +5,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.Core;
 using AAModClassic.Utilities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -20,7 +20,7 @@ using Terraria.ModLoader.IO;
 
 namespace AAModClassic._Content.Void.___PreHardmode.NPCs
 {
-	public class ZeroDeactivated : ModNPC
+	public class ZeroDeactivated : ModNPC, IBestiaryCritterNPC
 	{
         public static int ZeroShieldStrength = 0;
 

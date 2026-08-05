@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 {
-    internal class YamataHead_AbyssalBomb : ModProjectile
+    public class YamataHead_AbyssalBomb : ModProjectile
     {
         public override void SetStaticDefaults()
         {

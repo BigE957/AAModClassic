@@ -184,7 +184,8 @@ public static class VerletIntegration
                 
         foreach (Projectile proj in Main.ActiveProjectiles)
         {
-            if (proj.velocity == Vector2.Zero)
+            //For some reason the True Eye of Cthulhu pet tends to have a -0 x velocity, causing erronious behavior
+            if (proj.velocity == Vector2.Zero || (Math.Abs(proj.velocity.X) < 0.001f && Math.Abs(proj.velocity.Y) < 0.001f))
                 continue;
 
             bool temp = MoveObjectBasedOnEntity(obj, proj, dampening, cap, isChain);

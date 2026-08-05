@@ -344,4 +344,6 @@ Conditions: {
 	SkeletronDefeated: If Skeletron has been defeated
 	GolemDefeated: If Golem has been defeated
 	GoblinsDefeated: If the Goblin Army has been defeated
+	DownedGobSummoner: If the Goblin Warlock has been defeated
+	DownedMoth: If Mothron has been defeated
 }

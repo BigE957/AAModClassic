@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.__Hardmode.Items.Consumables
 {
-    internal class WhiteSolution_Proj : ModProjectile
+    public class WhiteSolution_Proj : ModProjectile
     {
         public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()

@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.__Hardmode.Items.Consumables
 {
-    internal class YellowSolution_Proj : ModProjectile
+    public class YellowSolution_Proj : ModProjectile
     {
         public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()

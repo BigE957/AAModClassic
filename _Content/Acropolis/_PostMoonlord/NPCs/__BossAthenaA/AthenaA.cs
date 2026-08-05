@@ -125,8 +125,10 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
 
             if (internalAI[2] == 0 && NPC.life < NPC.lifeMax / 3 && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaCloneDark>());
-                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaCloneLight>());
+                NPC n1 = NPC.NewNPCDirect(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaCloneDark>());
+                NPC n2 = NPC.NewNPCDirect(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaCloneLight>());
+                Main.BestiaryTracker.Sights.RegisterWasNearby(n1);
+                Main.BestiaryTracker.Sights.RegisterWasNearby(n2);
                 internalAI[2] = 1;
                 NPC.netUpdate = true;
             }

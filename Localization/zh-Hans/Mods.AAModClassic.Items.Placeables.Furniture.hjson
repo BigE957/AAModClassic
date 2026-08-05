@@ -93,6 +93,11 @@ Doom: {
 		DisplayName: 厄劫平台
 		Tooltip: ""
 	}
+
+	DoomToilet: {
+		DisplayName: 厄劫马桶
+		Tooltip: ""
+	}
 }
 
 Razewood: {
@@ -188,6 +193,11 @@ Razewood: {
 
 	RazewoodWorkbench: {
 		DisplayName: 燎火木工作台
+		Tooltip: ""
+	}
+
+	RazewoodToilet: {
+		DisplayName: 燎火木马桶
 		Tooltip: ""
 	}
 }
@@ -292,6 +302,11 @@ Bogwood: {
 		DisplayName: 污泽木工作台
 		Tooltip: ""
 	}
+
+	BogwoodToilet: {
+		DisplayName: 污泽木马桶
+		Tooltip: ""
+	}
 }
 
 OuroborosWood: {
@@ -352,6 +367,46 @@ OuroborosWood: {
 
 	OuroborosWoodWorkbench: {
 		DisplayName: 衔尾木工作台
+		Tooltip: ""
+	}
+
+	OuroborosWoodCandelabra: {
+		DisplayName: 衔尾木烛台
+		Tooltip: ""
+	}
+
+	OuroborosWoodChandelier: {
+		DisplayName: 衔尾木吊灯
+		Tooltip: ""
+	}
+
+	OuroborosWoodCouch: {
+		DisplayName: 衔尾木沙发
+		Tooltip: ""
+	}
+
+	OuroborosWoodDresser: {
+		DisplayName: 衔尾木梳妆台
+		Tooltip: ""
+	}
+
+	OuroborosWoodPiano: {
+		DisplayName: 衔尾木钢琴
+		Tooltip: ""
+	}
+
+	OuroborosWoodSink: {
+		DisplayName: 衔尾木水槽
+		Tooltip: ""
+	}
+
+	OuroborosWoodTable: {
+		DisplayName: 衔尾木桌
+		Tooltip: ""
+	}
+
+	OuroborosWoodToilet: {
+		DisplayName: 衔尾木马桶
 		Tooltip: ""
 	}
 }
@@ -446,6 +501,11 @@ Keep: {
 		DisplayName: 螺旋楼梯
 		Tooltip: ""
 	}
+
+	KeepToilet: {
+		DisplayName: 要塞马桶
+		Tooltip: ""
+	}
 }
 
 Terra: {
@@ -536,6 +596,11 @@ Terra: {
 
 	TerraWorkbench: {
 		DisplayName: 泰拉工作台
+		Tooltip: ""
+	}
+
+	TerraToilet: {
+		DisplayName: 泰拉马桶
 		Tooltip: ""
 	}
 }

@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.FuryAshe
 {
-    internal class FuryAshe_FuryFireBomb : ModProjectile
+    public class FuryAshe_FuryFireBomb : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -108,7 +108,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
         public override void OnKill(int timeLeft)
         {
             SoundEngine.PlaySound(SoundID.Item124);
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center - new Vector2(0, 95), new Vector2(0, 0), ModContent.ProjectileType<FuryAshe_Explosion>(), Projectile.damage, 5);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center - new Vector2(0, 95), new Vector2(0, 0), ModContent.ProjectileType<FuryAshe_Explosion>(), 20, 5);
             Projectile.active = false;
         }
     }

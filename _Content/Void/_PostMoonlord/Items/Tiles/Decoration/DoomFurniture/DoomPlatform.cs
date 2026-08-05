@@ -11,7 +11,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Doom Platform");
-		}
+            Item.ResearchUnlockCount = 200;
+        }
 
 		public override void SetDefaults()
 		{

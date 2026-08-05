@@ -524,13 +524,13 @@ namespace AAModClassic.Globals
             }
         }
 
-        internal class LambdaDropRuleCondition : IItemDropRuleCondition
+        public class LambdaDropRuleCondition : IItemDropRuleCondition
         {
             private readonly Func<DropAttemptInfo, bool> conditionLambda;
             private readonly bool visibleInUI;
             private readonly string description;
 
-            internal LambdaDropRuleCondition(Func<DropAttemptInfo, bool> lambda, bool ui = true, string desc = null)
+            public LambdaDropRuleCondition(Func<DropAttemptInfo, bool> lambda, bool ui = true, string desc = null)
             {
                 conditionLambda = lambda;
                 visibleInUI = ui;

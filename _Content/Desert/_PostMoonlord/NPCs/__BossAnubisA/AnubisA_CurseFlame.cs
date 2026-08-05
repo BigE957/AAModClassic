@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 {
-    internal class AnubisA_CurseFlame : ModProjectile
+    public class AnubisA_CurseFlame : ModProjectile
     {
         public override void SetStaticDefaults()
         {

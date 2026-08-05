@@ -13,11 +13,11 @@ using Terraria.WorldBuilding;
 
 namespace AAModClassic._Content._Dev.World.Biomes
 {
-    internal class CrystalOfMemoriesTexGenAssets : ModSystem
+    public class CrystalOfMemoriesTexGenAssets : ModSystem
     {
-        internal static TexGenData EnderCrystalTileData;
-        internal static TexGenData EnderCrystalWallData;
-        internal static TexGenData EnderCrystalSlopeData;
+        public static TexGenData EnderCrystalTileData;
+        public static TexGenData EnderCrystalWallData;
+        public static TexGenData EnderCrystalSlopeData;
 
         public override void OnModLoad()
         {

@@ -1,6 +1,5 @@
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
-using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
@@ -70,8 +69,6 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
         public bool Invisible = false;
         public int Frame = 0;
-
-        public int damage = 0;
 
         public int[] internalAI = new int[8];
 
@@ -191,7 +188,6 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
         {
             NPC.TargetClosest();
             Player player = Main.player[NPC.target];
-            damage = 60;
 
             Vector2 wantedVelocity = player.Center - new Vector2(pos, 0);
             NPC.direction = NPC.spriteDirection = NPC.position.X < player.position.X ? 1 : -1;
@@ -271,7 +267,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                 Vector2 targetCenter = player.position + new Vector2(player.width * 0.5f, player.height * 0.5f);
                 Vector2 fireTarget = NPC.Center;
                 int projType = ModContent.ProjectileType<WrathHaruka_WrathNightSlash>();
-                BaseAI.FireProjectile(targetCenter, fireTarget, projType, damage*1, 0f, 14f);
+                BaseAI.FireProjectile(targetCenter, fireTarget, projType, 16, 0f, 14f);
                 internalAI[0] = Main.rand.Next(2);
                 internalAI[5] = 0;
             }
@@ -339,11 +335,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                 }
             }
 
+            //TODO: THe conditions for this to happen never actually occur as far as I can tell
             if(Main.expertMode && internalAI[0] != AISTATE_Shadowkilling && internalAI[0] != AISTATE_SPIN && SHADOWCONTER <= 0 && !Invisible)
             {
+                //Main.NewText("oooooh imma strike back");
                 foreach(Projectile p in Main.ActiveProjectiles)
                 {
-                    if(p.friendly && p.damage > 0 && NPC.Hitbox.Intersects(p.Hitbox))
+                    if(p.friendly && !p.minion && Main.player[p.owner].heldProj != p.whoAmI && p.damage > 0 && NPC.Hitbox.Intersects(p.Hitbox))
                     {
                         if(internalAI[6] >= 2000)
                         {
@@ -447,7 +445,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                         for (int i = 0; i < 3; i++)
                         {
                             double offsetAngle = startAngle + deltaAngle * i;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, damage*1, 5, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, 16, 5);
                         }
                     }
                     if ((internalAI[2] < 4 || internalAI[2] > 6) && Main.netMode != NetmodeID.MultiplayerClient) 
@@ -507,7 +505,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                         Vector2 targetCenter = player.position + new Vector2(player.width * 0.5f, player.height * 0.5f);
                         Vector2 fireTarget = NPC.Center;
                         int projType = ModContent.ProjectileType<WrathHaruka_WrathNightSlash>();
-                        BaseAI.FireProjectile(targetCenter, fireTarget, projType, damage*1, 0f, 14f);
+                        BaseAI.FireProjectile(targetCenter, fireTarget, projType, 16, 0f, 14f);
                     }
                     if (isSlashing && internalAI[2] > 9)
                     {
@@ -671,7 +669,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                             for (int i = 0; i < 3; i++)
                             {
                                 double offsetAngle = startAngle + deltaAngle * i;
-                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, damage, 0, Main.myPlayer);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, 16, 0);
                             }
                             if(strikebackproj != 0)
                             {
@@ -680,7 +678,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                                 for (int i = 0; i < strikebackproj; i++)
                                 {
                                     double offsetAngle = startAngle + deltaAngle * i;
-                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), ModContent.ProjectileType<Haruka_Arrow>(), damage, 0, Main.myPlayer);
+                                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), ModContent.ProjectileType<Haruka_Arrow>(), 30, 0);
                                 }
                             }
                         }
@@ -994,7 +992,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             {
                 if(Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), ShadowkingPosition.X, ShadowkingPosition.Y, 0, 0, ModContent.ProjectileType<Haruka_DepthKillingBlast>(), damage*1, 5, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromThis(), ShadowkingPosition.X, ShadowkingPosition.Y, 0, 0, ModContent.ProjectileType<Haruka_DepthKillingBlast>(), 40, 5);
 
                     Vector2 shoot = Vector2.Zero;
                     int projType = ModContent.ProjectileType<WrathHaruka_WrathNightSlash>();
@@ -1002,7 +1000,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                     {
                         shoot = new Vector2((float)Math.Sin(i * 0.125f * Pi), (float)Math.Cos(i * 0.125f * Pi));
                         shoot *= 14f;
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), ShadowkingPosition.X, ShadowkingPosition.Y, shoot.X, shoot.Y, projType, damage*1, 5, Main.myPlayer);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), ShadowkingPosition.X, ShadowkingPosition.Y, shoot.X, shoot.Y, projType, 30, 5);
                     }
                 }
 

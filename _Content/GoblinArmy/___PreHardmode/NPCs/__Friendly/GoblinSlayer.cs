@@ -223,568 +223,692 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly
             }
             else
             {
-                shopName = "shop";
+                if(Goblin)
+                    shopName = "GoblinShop";
+                else if (Blood)
+                    shopName = "BloodMoonShop";
+                else if (OOA)
+                    shopName = "OOAShop";
+                else if (Pirate)
+                    shopName = "PirateShop";
+                else if (Eclipse)
+                    shopName = "EclipseShop";
+                else if (Pumpkin)
+                    shopName = "PumpkinMoonShop";
+                else if (Frost)
+                    shopName = "FrostMoonShop";
+                else if (Martian)
+                    shopName = "MartianShop";
             }
 		}
 
-		public override void ModifyActiveShop(string shopName, Item[] items)
-		{
-            int nextSlot = 0;
-            if (Goblin)
+        public override void AddShops()
+        {
+            NPCShop goblinShop = new(Type, "GoblinShop");
+            #region Goblin Shop
+            goblinShop.Add(new Item(ModContent.ItemType<GoblinSlayersHelmet>())
             {
-                items[nextSlot] = new Item(ModContent.ItemType<GoblinSlayersHelmet>());
-                items[nextSlot].shopCustomPrice = new int?(10);
-                items[nextSlot].shopSpecialCurrency = AAMod.GoblinSoul;
-                nextSlot++;
-                items[nextSlot] = new Item(ModContent.ItemType<GoblinSlayersChestplate>());
-                items[nextSlot].shopCustomPrice = new int?(15);
-                items[nextSlot].shopSpecialCurrency = AAMod.GoblinSoul;
-                nextSlot++;
-                items[nextSlot] = new Item(ModContent.ItemType<GoblinSlayersLeggings>());
-                items[nextSlot].shopCustomPrice = new int?(12);
-                items[nextSlot].shopSpecialCurrency = AAMod.GoblinSoul;
-                nextSlot++;
-                items[nextSlot] = new Item(ModContent.ItemType<Items.Weapons.GoblinSlayer>());
-                items[nextSlot].shopCustomPrice = new int?(15);
-                items[nextSlot].shopSpecialCurrency = AAMod.GoblinSoul;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.GoblinBattleStandard);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.GoblinSoul;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.Harpoon);
-                items[nextSlot].shopCustomPrice = new int?(10);
-                items[nextSlot].shopSpecialCurrency = AAMod.GoblinSoul;
-                nextSlot++;
-                if (DownedBools.downedGobSummoner)
-                {
-                    items[nextSlot] = new Item(ItemID.ShadowFlameKnife);
-                    items[nextSlot].shopCustomPrice = new int?(40);
-                    items[nextSlot].shopSpecialCurrency = AAMod.GoblinSoul;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.ShadowFlameBow);
-                    items[nextSlot].shopCustomPrice = new int?(40);
-                    items[nextSlot].shopSpecialCurrency = AAMod.GoblinSoul;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.ShadowFlameHexDoll);
-                    items[nextSlot].shopCustomPrice = new int?(40);
-                    items[nextSlot].shopSpecialCurrency = AAMod.GoblinSoul;
-                    nextSlot++;
-                }
-            }
-            else if (Blood)
+                shopCustomPrice = 10,
+                shopSpecialCurrency = AAMod.GoblinSoul
+            });
+            goblinShop.Add(new Item(ModContent.ItemType<GoblinSlayersChestplate>())
             {
-                items[nextSlot] = new Item(ItemID.TopHat);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.BloodRune;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.TheBrideHat);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.BloodRune;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.TheBrideDress);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.BloodRune;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.SharkToothNecklace);
-                items[nextSlot].shopCustomPrice = new int?(15);
-                items[nextSlot].shopSpecialCurrency = AAMod.BloodRune;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.MoneyTrough);
-                items[nextSlot].shopCustomPrice = new int?(25);
-                items[nextSlot].shopSpecialCurrency = AAMod.BloodRune;
-                nextSlot++;
-                if (Main.hardMode)
-                {
-                    items[nextSlot] = new Item(ItemID.KOCannon);
-                    items[nextSlot].shopCustomPrice = new int?(25);
-                    items[nextSlot].shopSpecialCurrency = AAMod.BloodRune;
-                    nextSlot++;
-                    if (NPC.downedClown)
-                    {
-                        items[nextSlot] = new Item(ItemID.Bananarang);
-                        items[nextSlot].shopCustomPrice = new int?(20);
-                        items[nextSlot].shopSpecialCurrency = AAMod.BloodRune;
-                        nextSlot++;
-                    }
-                }
-            }
-            else if (OOA)
+                shopCustomPrice = 15,
+                shopSpecialCurrency = AAMod.GoblinSoul
+            });
+            goblinShop.Add(new Item(ModContent.ItemType<GoblinSlayersLeggings>())
             {
-                items[nextSlot] = new Item(ModContent.ItemType<OldOneCharm>());
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.WarTableBanner);
-                items[nextSlot].shopCustomPrice = new int?(2);
-                items[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.WarTable);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.DD2PetDragon);
-                items[nextSlot].shopCustomPrice = new int?(10);
-                items[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.DD2PetGato);
-                items[nextSlot].shopCustomPrice = new int?(10);
-                items[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
-                nextSlot++;
-                if (DownedBools.downedOgre == true)
-                {
-                    items[nextSlot] = new Item(ItemID.ApprenticeScarf);
-                    items[nextSlot].shopCustomPrice = new int?(15);
-                    items[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.SquireShield);
-                    items[nextSlot].shopCustomPrice = new int?(15);
-                    items[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.HuntressBuckler);
-                    items[nextSlot].shopCustomPrice = new int?(15);
-                    items[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.MonkBelt);
-                    items[nextSlot].shopCustomPrice = new int?(15);
-                    items[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.DD2PetGhost);
-                    items[nextSlot].shopCustomPrice = new int?(20);
-                    items[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.DD2SquireDemonSword);
-                    items[nextSlot].shopCustomPrice = new int?(25);
-                    items[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.MonkStaffT2);
-                    items[nextSlot].shopCustomPrice = new int?(25);
-                    items[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.MonkStaffT1);
-                    items[nextSlot].shopCustomPrice = new int?(25);
-                    items[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.BookStaff);
-                    items[nextSlot].shopCustomPrice = new int?(25);
-                    items[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.DD2PhoenixBow);
-                    items[nextSlot].shopCustomPrice = new int?(25);
-                    items[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
-                    nextSlot++;
-                }
-                if (DownedBools.downedBetsy == true)
-                {
-                    items[nextSlot] = new Item(ItemID.DD2SquireBetsySword);
-                    items[nextSlot].shopCustomPrice = new int?(50);
-                    items[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.MonkStaffT3);
-                    items[nextSlot].shopCustomPrice = new int?(50);
-                    items[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.DD2BetsyBow);
-                    items[nextSlot].shopCustomPrice = new int?(50);
-                    items[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.ApprenticeStaffT3);
-                    items[nextSlot].shopCustomPrice = new int?(50);
-                    items[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.BetsyWings);
-                    items[nextSlot].shopCustomPrice = new int?(50);
-                    items[nextSlot].shopSpecialCurrency = CustomCurrencyID.DefenderMedals;
-                    nextSlot++;
-                }
-            }
-            else if (Pirate)
+                shopCustomPrice = 12,
+                shopSpecialCurrency = AAMod.GoblinSoul
+            });
+            goblinShop.Add(new Item(ModContent.ItemType<Items.Weapons.GoblinSlayer>())
             {
-                if (Main.hardMode)
-                {
-                    items[nextSlot] = new Item(ItemID.PirateMap);
-                    items[nextSlot].shopCustomPrice = Item.sellPrice(0, 1, 0, 0);
-                    nextSlot++;
-                }
-                items[nextSlot] = new Item(ItemID.EyePatch);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.PirateBooty;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.SailorHat);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.PirateBooty;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.SailorShirt);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.PirateBooty;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.SailorPants);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.PirateBooty;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.BuccaneerBandana);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.PirateBooty;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.BuccaneerShirt);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.PirateBooty;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.BuccaneerPants);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.PirateBooty;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.LuckyCoin);
-                items[nextSlot].shopCustomPrice = new int?(15);
-                items[nextSlot].shopSpecialCurrency = AAMod.PirateBooty;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.DiscountCard);
-                items[nextSlot].shopCustomPrice = new int?(15);
-                items[nextSlot].shopSpecialCurrency = AAMod.PirateBooty;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.GoldRing);
-                items[nextSlot].shopCustomPrice = new int?(15);
-                items[nextSlot].shopSpecialCurrency = AAMod.PirateBooty;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.Cutlass);
-                items[nextSlot].shopCustomPrice = new int?(40);
-                items[nextSlot].shopSpecialCurrency = AAMod.PirateBooty;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.PirateStaff);
-                items[nextSlot].shopCustomPrice = new int?(40);
-                items[nextSlot].shopSpecialCurrency = AAMod.PirateBooty;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.CoinGun);
-                items[nextSlot].shopCustomPrice = new int?(60);
-                items[nextSlot].shopSpecialCurrency = AAMod.PirateBooty;
-                nextSlot++;
-            }
-            else if (Eclipse)
+                shopCustomPrice = 15,
+                shopSpecialCurrency = AAMod.GoblinSoul
+            });
+            goblinShop.Add(new Item(ItemID.GoblinBattleStandard)
             {
-                items[nextSlot] = new Item(ItemID.EyeSpring);
-                items[nextSlot].shopCustomPrice = new int?(10);
-                items[nextSlot].shopSpecialCurrency = AAMod.MonsterSoul;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.BrokenBatWing);
-                items[nextSlot].shopCustomPrice = new int?(15);
-                items[nextSlot].shopSpecialCurrency = AAMod.MonsterSoul;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.MoonStone);
-                items[nextSlot].shopCustomPrice = new int?(20);
-                items[nextSlot].shopSpecialCurrency = AAMod.MonsterSoul;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.NeptunesShell);
-                items[nextSlot].shopCustomPrice = new int?(20);
-                items[nextSlot].shopSpecialCurrency = AAMod.MonsterSoul;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.DeathSickle);
-                items[nextSlot].shopCustomPrice = new int?(25);
-                items[nextSlot].shopSpecialCurrency = AAMod.MonsterSoul;
-                nextSlot++;
-                if (NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3)
-                {
-                    items[nextSlot] = new Item(ModContent.ItemType<HeroRelics>());
-                    items[nextSlot].shopCustomPrice = new int?(30);
-                    items[nextSlot].shopSpecialCurrency = AAMod.MonsterSoul;
-                    nextSlot++;
-                }
-                if (DownedBools.downedMoth)
-                {
-                    items[nextSlot] = new Item(ItemID.BrokenHeroSword);
-                    items[nextSlot].shopCustomPrice = new int?(30);
-                    items[nextSlot].shopSpecialCurrency = AAMod.MonsterSoul;
-                    nextSlot++;
-                }
-                if (NPC.downedPlantBoss)
-                {
-                    if (DownedBools.downedMoth)
-                    {
-                        items[nextSlot] = new Item(ItemID.MothronWings);
-                        items[nextSlot].shopCustomPrice = new int?(40);
-                        items[nextSlot].shopSpecialCurrency = AAMod.MonsterSoul;
-                        nextSlot++;
-                        items[nextSlot] = new Item(ItemID.TheEyeOfCthulhu);
-                        items[nextSlot].shopCustomPrice = new int?(40);
-                        items[nextSlot].shopSpecialCurrency = AAMod.MonsterSoul;
-                        nextSlot++;
-                    }
-                    items[nextSlot] = new Item(ItemID.NailGun);
-                    items[nextSlot].shopCustomPrice = new int?(40);
-                    items[nextSlot].shopSpecialCurrency = AAMod.MonsterSoul;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.Nail);
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.PsychoKnife);
-                    items[nextSlot].shopCustomPrice = new int?(40);
-                    items[nextSlot].shopSpecialCurrency = AAMod.MonsterSoul;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.DeadlySphereStaff);
-                    items[nextSlot].shopCustomPrice = new int?(40);
-                    items[nextSlot].shopSpecialCurrency = AAMod.MonsterSoul;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.ToxicFlask);
-                    items[nextSlot].shopCustomPrice = new int?(40);
-                    items[nextSlot].shopSpecialCurrency = AAMod.MonsterSoul;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.ButchersChainsaw);
-                    items[nextSlot].shopCustomPrice = new int?(40);
-                    items[nextSlot].shopSpecialCurrency = AAMod.MonsterSoul;
-                    nextSlot++;
-                }
-            }
-            else if (Pumpkin)
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.GoblinSoul
+            });
+            goblinShop.Add(new Item(ItemID.Harpoon)
             {
-                if (NPC.downedHalloweenTree)
-                {
-                    items[nextSlot] = new Item(ItemID.SpookyWood);
-                    items[nextSlot].value = 50;
-                    nextSlot++;
-                }
-                items[nextSlot] = new Item(ItemID.GoodieBag);
-                items[nextSlot].shopCustomPrice = new int?(15);
-                items[nextSlot].shopSpecialCurrency = AAMod.HalloweenTreat;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.ScarecrowHat);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.HalloweenTreat;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.ScarecrowShirt);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.HalloweenTreat;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.ScarecrowPants);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.HalloweenTreat;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.JackOLanternMask);
-                items[nextSlot].shopCustomPrice = new int?(10);
-                items[nextSlot].shopSpecialCurrency = AAMod.HalloweenTreat;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.BloodyMachete);
-                items[nextSlot].shopCustomPrice = new int?(20);
-                items[nextSlot].shopSpecialCurrency = AAMod.HalloweenTreat;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.BladedGlove);
-                items[nextSlot].shopCustomPrice = new int?(20);
-                items[nextSlot].shopSpecialCurrency = AAMod.HalloweenTreat;
-                nextSlot++;
-                if (NPC.downedHalloweenTree)
-                {
-                    items[nextSlot] = new Item(ItemID.StakeLauncher);
-                    items[nextSlot].shopCustomPrice = new int?(20);
-                    items[nextSlot].shopSpecialCurrency = AAMod.HalloweenTreat;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.Stake);
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.NecromanticScroll);
-                    items[nextSlot].shopCustomPrice = new int?(20);
-                    items[nextSlot].shopSpecialCurrency = AAMod.HalloweenTreat;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.SpookyHook);
-                    items[nextSlot].shopCustomPrice = new int?(20);
-                    items[nextSlot].shopSpecialCurrency = AAMod.HalloweenTreat;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.SpookyTwig);
-                    items[nextSlot].shopCustomPrice = new int?(20);
-                    items[nextSlot].shopSpecialCurrency = AAMod.HalloweenTreat;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.CursedSapling);
-                    items[nextSlot].shopCustomPrice = new int?(20);
-                    items[nextSlot].shopSpecialCurrency = AAMod.HalloweenTreat;
-                    nextSlot++;
-                }
-                if (NPC.downedHalloweenKing)
-                {
-                    items[nextSlot] = new Item(ItemID.TheHorsemansBlade);
-                    items[nextSlot].shopCustomPrice = new int?(30);
-                    items[nextSlot].shopSpecialCurrency = AAMod.HalloweenTreat;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.JackOLanternLauncher);
-                    items[nextSlot].shopCustomPrice = new int?(30);
-                    items[nextSlot].shopSpecialCurrency = AAMod.HalloweenTreat;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.JackOLantern);
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.CandyCornRifle);
-                    items[nextSlot].shopCustomPrice = new int?(30);
-                    items[nextSlot].shopSpecialCurrency = AAMod.HalloweenTreat;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.BatScepter);
-                    items[nextSlot].shopCustomPrice = new int?(30);
-                    items[nextSlot].shopSpecialCurrency = AAMod.HalloweenTreat;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.RavenStaff);
-                    items[nextSlot].shopCustomPrice = new int?(30);
-                    items[nextSlot].shopSpecialCurrency = AAMod.HalloweenTreat;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.BlackFairyDust);
-                    items[nextSlot].shopCustomPrice = new int?(30);
-                    items[nextSlot].shopSpecialCurrency = AAMod.HalloweenTreat;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.SpiderEgg);
-                    items[nextSlot].shopCustomPrice = new int?(30);
-                    items[nextSlot].shopSpecialCurrency = AAMod.HalloweenTreat;
-                    nextSlot++;
-                }
-                items[nextSlot] = new Item(ItemID.MagicalPumpkinSeed);
-                items[nextSlot].shopCustomPrice = new int?(60);
-                items[nextSlot].shopSpecialCurrency = AAMod.HalloweenTreat;
-                nextSlot++;
-            }
-            else if (Frost)
+                shopCustomPrice = 10,
+                shopSpecialCurrency = AAMod.GoblinSoul
+            });
+
+            Condition downedGobSummoner = new(Language.GetTextValue("Mods.AAModClassic.Common.Conditions.DownedGobSummoner"), () => DownedBools.downedGobSummoner);
+            goblinShop.Add(new Item(ItemID.ShadowFlameKnife)
             {
-                items[nextSlot] = new Item(ItemID.ElfHat);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.ChristmasCheer;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.ElfShirt);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.ChristmasCheer;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.ElfPants);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.ChristmasCheer;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.SnowGlobe);
-                items[nextSlot].shopCustomPrice = new int?(10);
-                items[nextSlot].shopSpecialCurrency = AAMod.ChristmasCheer;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.Present);
-                items[nextSlot].shopCustomPrice = new int?(15);
-                items[nextSlot].shopSpecialCurrency = AAMod.ChristmasCheer;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.GiantBow);
-                items[nextSlot].shopCustomPrice = new int?(30);
-                items[nextSlot].shopSpecialCurrency = AAMod.ChristmasCheer;
-                nextSlot++;
-                if (NPC.downedChristmasTree)
-                {
-                    items[nextSlot] = new Item(ItemID.ChristmasTreeSword);
-                    items[nextSlot].shopCustomPrice = new int?(20);
-                    items[nextSlot].shopSpecialCurrency = AAMod.ChristmasCheer;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.Razorpine);
-                    items[nextSlot].shopCustomPrice = new int?(20);
-                    items[nextSlot].shopSpecialCurrency = AAMod.ChristmasCheer;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.FestiveWings);
-                    items[nextSlot].shopCustomPrice = new int?(20);
-                    items[nextSlot].shopSpecialCurrency = AAMod.ChristmasCheer;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.ChristmasHook);
-                    items[nextSlot].shopCustomPrice = new int?(20);
-                    items[nextSlot].shopSpecialCurrency = AAMod.ChristmasCheer;
-                    nextSlot++;
-                }
-                if (NPC.downedChristmasSantank)
-                {
-                    items[nextSlot] = new Item(ItemID.ChainGun);
-                    items[nextSlot].shopCustomPrice = new int?(25);
-                    items[nextSlot].shopSpecialCurrency = AAMod.ChristmasCheer;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.ElfMelter);
-                    items[nextSlot].shopCustomPrice = new int?(25);
-                    items[nextSlot].shopSpecialCurrency = AAMod.ChristmasCheer;
-                    nextSlot++;
-                }
-                if (NPC.downedChristmasIceQueen)
-                {
-                    items[nextSlot] = new Item(ItemID.NorthPole);
-                    items[nextSlot].shopCustomPrice = new int?(30);
-                    items[nextSlot].shopSpecialCurrency = AAMod.ChristmasCheer;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.SnowmanCannon);
-                    items[nextSlot].shopCustomPrice = new int?(30);
-                    items[nextSlot].shopSpecialCurrency = AAMod.ChristmasCheer;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.BlizzardStaff);
-                    items[nextSlot].shopCustomPrice = new int?(30);
-                    items[nextSlot].shopSpecialCurrency = AAMod.ChristmasCheer;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.BabyGrinchMischiefWhistle);
-                    items[nextSlot].shopCustomPrice = new int?(30);
-                    items[nextSlot].shopSpecialCurrency = AAMod.ChristmasCheer;
-                    nextSlot++;
-                    items[nextSlot] = new Item(ItemID.ReindeerBells);
-                    items[nextSlot].shopCustomPrice = new int?(30);
-                    items[nextSlot].shopSpecialCurrency = AAMod.ChristmasCheer;
-                    nextSlot++;
-                }
-            }
-            else if (Martian)
+                shopCustomPrice = 40,
+                shopSpecialCurrency = AAMod.GoblinSoul
+            }, downedGobSummoner);
+            goblinShop.Add(new Item(ItemID.ShadowFlameBow)
             {
-                items[nextSlot] = new Item(ItemID.MartianConduitPlating);
-                items[nextSlot].value = 50;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.MartianCostumeMask);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.MartianCostumeShirt);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.MartianCostumePants);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.MartianUniformHelmet);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.MartianUniformTorso);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.MartianUniformPants);
-                items[nextSlot].shopCustomPrice = new int?(5);
-                items[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.BrainScrambler);
-                items[nextSlot].shopCustomPrice = new int?(30);
-                items[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.InfluxWaver);
-                items[nextSlot].shopCustomPrice = new int?(40);
-                items[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.Xenopopper);
-                items[nextSlot].shopCustomPrice = new int?(40);
-                items[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.ElectrosphereLauncher);
-                items[nextSlot].shopCustomPrice = new int?(40);
-                items[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.LaserMachinegun);
-                items[nextSlot].shopCustomPrice = new int?(40);
-                items[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.ChargedBlasterCannon);
-                items[nextSlot].shopCustomPrice = new int?(40);
-                items[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.XenoStaff);
-                items[nextSlot].shopCustomPrice = new int?(40);
-                items[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.LaserDrill);
-                items[nextSlot].shopCustomPrice = new int?(40);
-                items[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.AntiGravityHook);
-                items[nextSlot].shopCustomPrice = new int?(40);
-                items[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
-                nextSlot++;
-                items[nextSlot] = new Item(ItemID.CosmicCarKey);
-                items[nextSlot].shopCustomPrice = new int?(50);
-                items[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
-                nextSlot++;
-                items[nextSlot] = new Item(ModContent.ItemType<EnergyConduit>());
-                items[nextSlot].shopCustomPrice = new int?(50);
-                items[nextSlot].shopSpecialCurrency = AAMod.MartianCredit;
-                nextSlot++;
-            }
+                shopCustomPrice = 40,
+                shopSpecialCurrency = AAMod.GoblinSoul
+            }, downedGobSummoner);
+            goblinShop.Add(new Item(ItemID.ShadowFlameHexDoll)
+            {
+                shopCustomPrice = 40,
+                shopSpecialCurrency = AAMod.GoblinSoul
+            }, downedGobSummoner);
+
+            goblinShop.Register();
+            #endregion
+
+            NPCShop bloodMoonShop = new(Type, "BloodMoonShop");
+            #region Blood Moon Shop
+            bloodMoonShop.Add(new Item(ItemID.TopHat)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.BloodRune
+            });
+            bloodMoonShop.Add(new Item(ItemID.TheBrideHat)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.BloodRune
+            });
+            bloodMoonShop.Add(new Item(ItemID.TheBrideDress)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.BloodRune
+            });
+            bloodMoonShop.Add(new Item(ItemID.SharkToothNecklace)
+            {
+                shopCustomPrice = 15,
+                shopSpecialCurrency = AAMod.BloodRune
+            });
+            bloodMoonShop.Add(new Item(ItemID.MoneyTrough)
+            {
+                shopCustomPrice = 25,
+                shopSpecialCurrency = AAMod.BloodRune
+            });
+
+            bloodMoonShop.Add(new Item(ItemID.KOCannon)
+            {
+                shopCustomPrice = 25,
+                shopSpecialCurrency = AAMod.BloodRune
+            }, Condition.Hardmode);
+            bloodMoonShop.Add(new Item(ItemID.Bananarang)
+            {
+                shopCustomPrice = 20,
+                shopSpecialCurrency = AAMod.BloodRune
+            }, Condition.Hardmode);
+
+            bloodMoonShop.Register();
+            #endregion
+
+            NPCShop ooaShop = new(Type, "OOAShop");
+            #region OOA Shop
+            ooaShop.Add(new Item(ModContent.ItemType<OldOneCharm>())
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = CustomCurrencyID.DefenderMedals
+            });
+            ooaShop.Add(new Item(ItemID.WarTableBanner)
+            {
+                shopCustomPrice = 2,
+                shopSpecialCurrency = CustomCurrencyID.DefenderMedals
+            });
+            ooaShop.Add(new Item(ItemID.WarTable)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = CustomCurrencyID.DefenderMedals
+            });
+            ooaShop.Add(new Item(ItemID.DD2PetDragon)
+            {
+                shopCustomPrice = 10,
+                shopSpecialCurrency = CustomCurrencyID.DefenderMedals
+            });
+            ooaShop.Add(new Item(ItemID.DD2PetGato)
+            {
+                shopCustomPrice = 10,
+                shopSpecialCurrency = CustomCurrencyID.DefenderMedals
+            });
+
+            ooaShop.Add(new Item(ItemID.ApprenticeScarf)
+            {
+                shopCustomPrice = 15,
+                shopSpecialCurrency = CustomCurrencyID.DefenderMedals
+            }, Condition.DownedOldOnesArmyT2);
+            ooaShop.Add(new Item(ItemID.SquireShield)
+            {
+                shopCustomPrice = 15,
+                shopSpecialCurrency = CustomCurrencyID.DefenderMedals
+            }, Condition.DownedOldOnesArmyT2);
+            ooaShop.Add(new Item(ItemID.HuntressBuckler)
+            {
+                shopCustomPrice = 15,
+                shopSpecialCurrency = CustomCurrencyID.DefenderMedals
+            }, Condition.DownedOldOnesArmyT2);
+            ooaShop.Add(new Item(ItemID.MonkBelt)
+            {
+                shopCustomPrice = 15,
+                shopSpecialCurrency = CustomCurrencyID.DefenderMedals
+            }, Condition.DownedOldOnesArmyT2);
+            ooaShop.Add(new Item(ItemID.DD2PetGhost)
+            {
+                shopCustomPrice = 20,
+                shopSpecialCurrency = CustomCurrencyID.DefenderMedals
+            }, Condition.DownedOldOnesArmyT2);
+            ooaShop.Add(new Item(ItemID.DD2SquireDemonSword)
+            {
+                shopCustomPrice = 25,
+                shopSpecialCurrency = CustomCurrencyID.DefenderMedals
+            }, Condition.DownedOldOnesArmyT2);
+            ooaShop.Add(new Item(ItemID.MonkStaffT2)
+            {
+                shopCustomPrice = 25,
+                shopSpecialCurrency = CustomCurrencyID.DefenderMedals
+            }, Condition.DownedOldOnesArmyT2);
+            ooaShop.Add(new Item(ItemID.MonkStaffT1)
+            {
+                shopCustomPrice = 25,
+                shopSpecialCurrency = CustomCurrencyID.DefenderMedals
+            }, Condition.DownedOldOnesArmyT2);
+            ooaShop.Add(new Item(ItemID.BookStaff)
+            {
+                shopCustomPrice = 25,
+                shopSpecialCurrency = CustomCurrencyID.DefenderMedals
+            }, Condition.DownedOldOnesArmyT2);
+            ooaShop.Add(new Item(ItemID.DD2PhoenixBow)
+            {
+                shopCustomPrice = 25,
+                shopSpecialCurrency = CustomCurrencyID.DefenderMedals
+            }, Condition.DownedOldOnesArmyT2);
+
+            ooaShop.Add(new Item(ItemID.DD2SquireBetsySword)
+            {
+                shopCustomPrice = 50,
+                shopSpecialCurrency = CustomCurrencyID.DefenderMedals
+            }, Condition.DownedOldOnesArmyT3);
+            ooaShop.Add(new Item(ItemID.MonkStaffT3)
+            {
+                shopCustomPrice = 50,
+                shopSpecialCurrency = CustomCurrencyID.DefenderMedals
+            }, Condition.DownedOldOnesArmyT3);
+            ooaShop.Add(new Item(ItemID.DD2BetsyBow)
+            {
+                shopCustomPrice = 50,
+                shopSpecialCurrency = CustomCurrencyID.DefenderMedals
+            }, Condition.DownedOldOnesArmyT3);
+            ooaShop.Add(new Item(ItemID.ApprenticeStaffT3)
+            {
+                shopCustomPrice = 50,
+                shopSpecialCurrency = CustomCurrencyID.DefenderMedals
+            }, Condition.DownedOldOnesArmyT3);
+            ooaShop.Add(new Item(ItemID.BetsyWings)
+            {
+                shopCustomPrice = 50,
+                shopSpecialCurrency = CustomCurrencyID.DefenderMedals
+            }, Condition.DownedOldOnesArmyT3);
+
+            ooaShop.Register();
+            #endregion
+
+            NPCShop pirateShop = new(Type, "PirateShop");
+            #region Pirate Shop
+            pirateShop.Add(new Item(ItemID.PirateMap)
+            {
+                shopCustomPrice = Item.sellPrice(0, 1, 0, 0)
+            }, Condition.Hardmode);
+
+            pirateShop.Add(new Item(ItemID.EyePatch)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.PirateBooty
+            });
+            pirateShop.Add(new Item(ItemID.SailorHat)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.PirateBooty
+            });
+            pirateShop.Add(new Item(ItemID.SailorShirt)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.PirateBooty
+            });
+            pirateShop.Add(new Item(ItemID.SailorPants)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.PirateBooty
+            });
+            pirateShop.Add(new Item(ItemID.BuccaneerBandana)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.PirateBooty
+            });
+            pirateShop.Add(new Item(ItemID.BuccaneerShirt)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.PirateBooty
+            });
+            pirateShop.Add(new Item(ItemID.BuccaneerPants)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.PirateBooty
+            });
+            pirateShop.Add(new Item(ItemID.LuckyCoin)
+            {
+                shopCustomPrice = 15,
+                shopSpecialCurrency = AAMod.PirateBooty
+            });
+            pirateShop.Add(new Item(ItemID.DiscountCard)
+            {
+                shopCustomPrice = 15,
+                shopSpecialCurrency = AAMod.PirateBooty
+            });
+            pirateShop.Add(new Item(ItemID.GoldRing)
+            {
+                shopCustomPrice = 15,
+                shopSpecialCurrency = AAMod.PirateBooty
+            });
+            pirateShop.Add(new Item(ItemID.Cutlass)
+            {
+                shopCustomPrice = 40,
+                shopSpecialCurrency = AAMod.PirateBooty
+            });
+            pirateShop.Add(new Item(ItemID.PirateStaff)
+            {
+                shopCustomPrice = 40,
+                shopSpecialCurrency = AAMod.PirateBooty
+            });
+            pirateShop.Add(new Item(ItemID.CoinGun)
+            {
+                shopCustomPrice = 60,
+                shopSpecialCurrency = AAMod.PirateBooty
+            });
+
+            pirateShop.Register();
+            #endregion
+
+            NPCShop eclipseShop = new(Type, "EclipseShop");
+            #region Eclipse Shop
+            eclipseShop.Add(new Item(ItemID.EyeSpring)
+            {
+                shopCustomPrice = 10,
+                shopSpecialCurrency = AAMod.MonsterSoul
+            });
+            eclipseShop.Add(new Item(ItemID.BrokenBatWing)
+            {
+                shopCustomPrice = 15,
+                shopSpecialCurrency = AAMod.MonsterSoul
+            });
+            eclipseShop.Add(new Item(ItemID.MoonStone)
+            {
+                shopCustomPrice = 20,
+                shopSpecialCurrency = AAMod.MonsterSoul
+            });
+            eclipseShop.Add(new Item(ItemID.NeptunesShell)
+            {
+                shopCustomPrice = 20,
+                shopSpecialCurrency = AAMod.MonsterSoul
+            });
+            eclipseShop.Add(new Item(ItemID.DeathSickle)
+            {
+                shopCustomPrice = 25,
+                shopSpecialCurrency = AAMod.MonsterSoul
+            });
+
+            eclipseShop.Add(new Item(ModContent.ItemType<HeroRelics>())
+            {
+                shopCustomPrice = 30,
+                shopSpecialCurrency = AAMod.MonsterSoul
+            }, Condition.DownedMechBossAll);
+
+            Condition downedMoth = new(Language.GetTextValue("Mods.AAModClassic.Common.Conditions.DownedMoth"), () => DownedBools.downedMoth);
+            eclipseShop.Add(new Item(ItemID.BrokenHeroSword)
+            {
+                shopCustomPrice = 30,
+                shopSpecialCurrency = AAMod.MonsterSoul
+            }, downedMoth);
+
+            eclipseShop.Add(new Item(ItemID.MothronWings)
+            {
+                shopCustomPrice = 40,
+                shopSpecialCurrency = AAMod.MonsterSoul
+            }, Condition.DownedPlantera, downedMoth);
+            eclipseShop.Add(new Item(ItemID.TheEyeOfCthulhu)
+            {
+                shopCustomPrice = 40,
+                shopSpecialCurrency = AAMod.MonsterSoul
+            }, Condition.DownedPlantera, downedMoth);
+
+            eclipseShop.Add(new Item(ItemID.NailGun)
+            {
+                shopCustomPrice = 40,
+                shopSpecialCurrency = AAMod.MonsterSoul
+            }, Condition.DownedPlantera);
+            eclipseShop.Add(new Item(ItemID.Nail), Condition.DownedPlantera);
+            eclipseShop.Add(new Item(ItemID.PsychoKnife)
+            {
+                shopCustomPrice = 40,
+                shopSpecialCurrency = AAMod.MonsterSoul
+            }, Condition.DownedPlantera);
+            eclipseShop.Add(new Item(ItemID.DeadlySphereStaff)
+            {
+                shopCustomPrice = 40,
+                shopSpecialCurrency = AAMod.MonsterSoul
+            }, Condition.DownedPlantera);
+            eclipseShop.Add(new Item(ItemID.ToxicFlask)
+            {
+                shopCustomPrice = 40,
+                shopSpecialCurrency = AAMod.MonsterSoul
+            }, Condition.DownedPlantera);
+            eclipseShop.Add(new Item(ItemID.ButchersChainsaw)
+            {
+                shopCustomPrice = 40,
+                shopSpecialCurrency = AAMod.MonsterSoul
+            }, Condition.DownedPlantera);
+
+            eclipseShop.Register();
+            #endregion
+
+            NPCShop pumpkinShop = new(Type, "PumpkinMoonShop");
+            #region Pumpkin Moon Shop
+            pumpkinShop.Add(new Item(ItemID.SpookyWood)
+            {
+                shopCustomPrice = 50
+            }, Condition.DownedMourningWood);
+
+            pumpkinShop.Add(new Item(ItemID.GoodieBag)
+            {
+                shopCustomPrice = 15,
+                shopSpecialCurrency = AAMod.HalloweenTreat
+            });
+            pumpkinShop.Add(new Item(ItemID.ScarecrowHat)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.HalloweenTreat
+            });
+            pumpkinShop.Add(new Item(ItemID.ScarecrowShirt)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.HalloweenTreat
+            });
+            pumpkinShop.Add(new Item(ItemID.ScarecrowPants)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.HalloweenTreat
+            });
+            pumpkinShop.Add(new Item(ItemID.JackOLanternMask)
+            {
+                shopCustomPrice = 10,
+                shopSpecialCurrency = AAMod.HalloweenTreat
+            });
+            pumpkinShop.Add(new Item(ItemID.BloodyMachete)
+            {
+                shopCustomPrice = 20,
+                shopSpecialCurrency = AAMod.HalloweenTreat
+            });
+            pumpkinShop.Add(new Item(ItemID.BladedGlove)
+            {
+                shopCustomPrice = 20,
+                shopSpecialCurrency = AAMod.HalloweenTreat
+            });
+
+            pumpkinShop.Add(new Item(ItemID.StakeLauncher)
+            {
+                shopCustomPrice = 20,
+                shopSpecialCurrency = AAMod.HalloweenTreat
+            }, Condition.DownedMourningWood);
+            pumpkinShop.Add(new Item(ItemID.Stake), Condition.DownedMourningWood);
+            pumpkinShop.Add(new Item(ItemID.NecromanticScroll)
+            {
+                shopCustomPrice = 20,
+                shopSpecialCurrency = AAMod.HalloweenTreat
+            }, Condition.DownedMourningWood);
+            pumpkinShop.Add(new Item(ItemID.SpookyHook)
+            {
+                shopCustomPrice = 20,
+                shopSpecialCurrency = AAMod.HalloweenTreat
+            }, Condition.DownedMourningWood);
+            pumpkinShop.Add(new Item(ItemID.SpookyTwig)
+            {
+                shopCustomPrice = 20,
+                shopSpecialCurrency = AAMod.HalloweenTreat
+            }, Condition.DownedMourningWood);
+            pumpkinShop.Add(new Item(ItemID.CursedSapling)
+            {
+                shopCustomPrice = 20,
+                shopSpecialCurrency = AAMod.HalloweenTreat
+            }, Condition.DownedMourningWood);
+
+            pumpkinShop.Add(new Item(ItemID.TheHorsemansBlade)
+            {
+                shopCustomPrice = 30,
+                shopSpecialCurrency = AAMod.HalloweenTreat
+            }, Condition.DownedPumpking);
+            pumpkinShop.Add(new Item(ItemID.JackOLanternLauncher)
+            {
+                shopCustomPrice = 30,
+                shopSpecialCurrency = AAMod.HalloweenTreat
+            }, Condition.DownedPumpking);
+            pumpkinShop.Add(new Item(ItemID.JackOLantern), Condition.DownedPumpking);
+            pumpkinShop.Add(new Item(ItemID.CandyCornRifle)
+            {
+                shopCustomPrice = 30,
+                shopSpecialCurrency = AAMod.HalloweenTreat
+            }, Condition.DownedPumpking);
+            pumpkinShop.Add(new Item(ItemID.BatScepter)
+            {
+                shopCustomPrice = 30,
+                shopSpecialCurrency = AAMod.HalloweenTreat
+            }, Condition.DownedPumpking);
+            pumpkinShop.Add(new Item(ItemID.RavenStaff)
+            {
+                shopCustomPrice = 30,
+                shopSpecialCurrency = AAMod.HalloweenTreat
+            }, Condition.DownedPumpking);
+            pumpkinShop.Add(new Item(ItemID.BlackFairyDust)
+            {
+                shopCustomPrice = 30,
+                shopSpecialCurrency = AAMod.HalloweenTreat
+            }, Condition.DownedPumpking);
+            pumpkinShop.Add(new Item(ItemID.SpiderEgg)
+            {
+                shopCustomPrice = 30,
+                shopSpecialCurrency = AAMod.HalloweenTreat
+            }, Condition.DownedPumpking);
+
+            pumpkinShop.Add(new Item(ItemID.MagicalPumpkinSeed)
+            {
+                shopCustomPrice = 60,
+                shopSpecialCurrency = AAMod.HalloweenTreat
+            });
+
+            pumpkinShop.Register();
+            #endregion
+
+            NPCShop frostShop = new(Type, "FrostMoonShop");
+            #region Frost Moon Shop
+            frostShop.Add(new Item(ItemID.ElfHat)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.ChristmasCheer
+            });
+            frostShop.Add(new Item(ItemID.ElfShirt)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.ChristmasCheer
+            });
+            frostShop.Add(new Item(ItemID.ElfPants)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.ChristmasCheer
+            });
+            frostShop.Add(new Item(ItemID.SnowGlobe)
+            {
+                shopCustomPrice = 10,
+                shopSpecialCurrency = AAMod.ChristmasCheer
+            });
+            frostShop.Add(new Item(ItemID.Present)
+            {
+                shopCustomPrice = 15,
+                shopSpecialCurrency = AAMod.ChristmasCheer
+            });
+            frostShop.Add(new Item(ItemID.GiantBow)
+            {
+                shopCustomPrice = 30,
+                shopSpecialCurrency = AAMod.ChristmasCheer
+            });
+
+            frostShop.Add(new Item(ItemID.ChristmasTreeSword)
+            {
+                shopCustomPrice = 20,
+                shopSpecialCurrency = AAMod.ChristmasCheer
+            }, Condition.DownedEverscream);
+            frostShop.Add(new Item(ItemID.Razorpine)
+            {
+                shopCustomPrice = 20,
+                shopSpecialCurrency = AAMod.ChristmasCheer
+            }, Condition.DownedEverscream);
+            frostShop.Add(new Item(ItemID.FestiveWings)
+            {
+                shopCustomPrice = 20,
+                shopSpecialCurrency = AAMod.ChristmasCheer
+            }, Condition.DownedEverscream);
+            frostShop.Add(new Item(ItemID.ChristmasHook)
+            {
+                shopCustomPrice = 20,
+                shopSpecialCurrency = AAMod.ChristmasCheer
+            }, Condition.DownedEverscream);
+
+            frostShop.Add(new Item(ItemID.ChainGun)
+            {
+                shopCustomPrice = 25,
+                shopSpecialCurrency = AAMod.ChristmasCheer
+            }, Condition.DownedSantaNK1);
+            frostShop.Add(new Item(ItemID.ElfMelter)
+            {
+                shopCustomPrice = 25,
+                shopSpecialCurrency = AAMod.ChristmasCheer
+            }, Condition.DownedSantaNK1);
+
+            frostShop.Add(new Item(ItemID.NorthPole)
+            {
+                shopCustomPrice = 30,
+                shopSpecialCurrency = AAMod.ChristmasCheer
+            }, Condition.DownedIceQueen);
+            frostShop.Add(new Item(ItemID.SnowmanCannon)
+            {
+                shopCustomPrice = 30,
+                shopSpecialCurrency = AAMod.ChristmasCheer
+            }, Condition.DownedIceQueen);
+            frostShop.Add(new Item(ItemID.BlizzardStaff)
+            {
+                shopCustomPrice = 30,
+                shopSpecialCurrency = AAMod.ChristmasCheer
+            }, Condition.DownedIceQueen);
+            frostShop.Add(new Item(ItemID.BabyGrinchMischiefWhistle)
+            {
+                shopCustomPrice = 30,
+                shopSpecialCurrency = AAMod.ChristmasCheer
+            }, Condition.DownedIceQueen);
+            frostShop.Add(new Item(ItemID.ReindeerBells)
+            {
+                shopCustomPrice = 30,
+                shopSpecialCurrency = AAMod.ChristmasCheer
+            }, Condition.DownedIceQueen);
+
+            frostShop.Register();
+            #endregion
+
+            NPCShop martianShop = new(Type, "MartianShop");
+            #region Martian Shop
+            martianShop.Add(new Item(ItemID.MartianConduitPlating)
+            {
+                shopCustomPrice = 50
+            });
+            martianShop.Add(new Item(ItemID.MartianCostumeMask)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.MartianCredit
+            });
+            martianShop.Add(new Item(ItemID.MartianCostumeShirt)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.MartianCredit
+            });
+            martianShop.Add(new Item(ItemID.MartianCostumePants)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.MartianCredit
+            });
+            martianShop.Add(new Item(ItemID.MartianUniformHelmet)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.MartianCredit
+            });
+            martianShop.Add(new Item(ItemID.MartianUniformTorso)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.MartianCredit
+            });
+            martianShop.Add(new Item(ItemID.MartianUniformPants)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = AAMod.MartianCredit
+            });
+            martianShop.Add(new Item(ItemID.BrainScrambler)
+            {
+                shopCustomPrice = 30,
+                shopSpecialCurrency = AAMod.MartianCredit
+            });
+            martianShop.Add(new Item(ItemID.InfluxWaver)
+            {
+                shopCustomPrice = 40,
+                shopSpecialCurrency = AAMod.MartianCredit
+            });
+            martianShop.Add(new Item(ItemID.Xenopopper)
+            {
+                shopCustomPrice = 40,
+                shopSpecialCurrency = AAMod.MartianCredit
+            });
+            martianShop.Add(new Item(ItemID.ElectrosphereLauncher)
+            {
+                shopCustomPrice = 40,
+                shopSpecialCurrency = AAMod.MartianCredit
+            });
+            martianShop.Add(new Item(ItemID.LaserMachinegun)
+            {
+                shopCustomPrice = 40,
+                shopSpecialCurrency = AAMod.MartianCredit
+            });
+            martianShop.Add(new Item(ItemID.ChargedBlasterCannon)
+            {
+                shopCustomPrice = 40,
+                shopSpecialCurrency = AAMod.MartianCredit
+            });
+            martianShop.Add(new Item(ItemID.XenoStaff)
+            {
+                shopCustomPrice = 40,
+                shopSpecialCurrency = AAMod.MartianCredit
+            });
+            martianShop.Add(new Item(ItemID.LaserDrill)
+            {
+                shopCustomPrice = 40,
+                shopSpecialCurrency = AAMod.MartianCredit
+            });
+            martianShop.Add(new Item(ItemID.AntiGravityHook)
+            {
+                shopCustomPrice = 40,
+                shopSpecialCurrency = AAMod.MartianCredit
+            });
+            martianShop.Add(new Item(ItemID.CosmicCarKey)
+            {
+                shopCustomPrice = 50,
+                shopSpecialCurrency = AAMod.MartianCredit
+            });
+            martianShop.Add(new Item(ModContent.ItemType<EnergyConduit>())
+            {
+                shopCustomPrice = 50,
+                shopSpecialCurrency = AAMod.MartianCredit
+            });
+
+            martianShop.Register();
+            #endregion
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

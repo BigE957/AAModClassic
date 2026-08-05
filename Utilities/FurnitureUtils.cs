@@ -14,7 +14,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace AAModClassic.Utilities
 {
-    internal static class FurnitureUtils
+    public static class FurnitureUtils
     {
         public static bool BedRightClick(int i, int j)
         {
@@ -741,7 +741,7 @@ namespace AAModClassic.Utilities
         /// </summary>
         /// <param name="mt">The ModTile which is being initialized.</param>
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to false.</param>
-        internal static void SetUp6x6Painting(this ModTile mt, bool lavaImmune = false)
+        public static void SetUp6x6Painting(this ModTile mt, bool lavaImmune = false)
         {
             Main.tileFrameImportant[mt.Type] = true;
             Main.tileLavaDeath[mt.Type] = !lavaImmune;
@@ -764,7 +764,7 @@ namespace AAModClassic.Utilities
         /// <param name="itemDropID">The ID of the item this tile drops when broken.</param>
         /// <param name="mapColor">The color of the bar on the minimap.</param>
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to true like vanilla bars.</param>
-        internal static void SetUpBar(this ModTile mt, int itemDropID, Color mapColor, bool lavaImmune = true)
+        public static void SetUpBar(this ModTile mt, int itemDropID, Color mapColor, bool lavaImmune = true)
         {
             mt.RegisterItemDrop(itemDropID);
 
@@ -789,7 +789,7 @@ namespace AAModClassic.Utilities
         /// <param name="mt">The ModTile which is being initialized.</param>
         /// <param name="itemDropID">The ID of the item this tile drops when broken.</param>
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to false.</param>
-        internal static void SetUpBathtub(this ModTile mt, int itemDropID, bool lavaImmune = false)
+        public static void SetUpBathtub(this ModTile mt, int itemDropID, bool lavaImmune = false)
         {
             mt.RegisterItemDrop(itemDropID);
 
@@ -826,14 +826,14 @@ namespace AAModClassic.Utilities
         /// <param name="mt">The ModTile which is being initialized.</param>
         /// <param name="itemDropID">The ID of the item this tile drops when broken.</param>
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to false.</param>
-        internal static void SetUpBed(this ModTile mt, int itemDropID, bool lavaImmune = false)
+        public static void SetUpBed(this ModTile mt, int itemDropID, bool lavaImmune = false)
         {
             mt.RegisterItemDrop(itemDropID);
 
             Main.tileFrameImportant[mt.Type] = true;
             Main.tileLavaDeath[mt.Type] = !lavaImmune;
             Main.tileWaterDeath[mt.Type] = false;
-            //TileID.Sets.HasOutlines[mt.Type] = true;
+            TileID.Sets.HasOutlines[mt.Type] = true;
             TileID.Sets.CanBeSleptIn[mt.Type] = true;
             TileID.Sets.InteractibleByNPCs[mt.Type] = true;
             TileID.Sets.IsValidSpawnPoint[mt.Type] = true;
@@ -870,7 +870,7 @@ namespace AAModClassic.Utilities
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to false.</param>
         /// <param name="solidTop">Whether this tile is supposed to have a solid top. Defaults to true.</param>
         /// <param name="autoBookcase">Whether this tile is automatically registered as a bookcase and table with proper map entry. Defaults to true.</param>
-        internal static void SetUpBookcase(this ModTile mt, int itemDropID, bool lavaImmune = false, bool solidTop = true, bool autoBookcase = true)
+        public static void SetUpBookcase(this ModTile mt, int itemDropID, bool lavaImmune = false, bool solidTop = true, bool autoBookcase = true)
         {
             mt.RegisterItemDrop(itemDropID);
 
@@ -901,7 +901,7 @@ namespace AAModClassic.Utilities
         /// <param name="mt">The ModTile which is being initialized.</param>
         /// <param name="itemDropID">The ID of the item this tile drops when broken.</param>
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to false.</param>
-        internal static void SetUpCandelabra(this ModTile mt, int itemDropID, bool lavaImmune = false)
+        public static void SetUpCandelabra(this ModTile mt, int itemDropID, bool lavaImmune = false)
         {
             mt.RegisterItemDrop(itemDropID);
 
@@ -931,7 +931,7 @@ namespace AAModClassic.Utilities
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to false.</param>
         /// <param name="autoMapEntry">Whether this tile is supposed to use normal map entries. Defaults to true.</param>
         /// <param name="offset">The vertical offset of the tile. Defaults to -4.</param>
-        internal static void SetUpCandle(this ModTile mt, int itemDropID, bool lavaImmune = false, bool autoMapEntry = true, int offset = -4)
+        public static void SetUpCandle(this ModTile mt, int itemDropID, bool lavaImmune = false, bool autoMapEntry = true, int offset = -4)
         {
             mt.RegisterItemDrop(itemDropID);
 
@@ -963,7 +963,7 @@ namespace AAModClassic.Utilities
         /// <param name="mt">The ModTile which is being initialized.</param>
         /// <param name="itemDropID">The ID of the item this tile drops when broken.</param>
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to false.</param>
-        internal static void SetUpChair(this ModTile mt, int itemDropID, bool lavaImmune = false)
+        public static void SetUpChair(this ModTile mt, int itemDropID, bool lavaImmune = false)
         {
             mt.RegisterItemDrop(itemDropID);
 
@@ -973,7 +973,7 @@ namespace AAModClassic.Utilities
             Main.tileWaterDeath[mt.Type] = false;
             TileID.Sets.CanBeSatOnForNPCs[mt.Type] = true;
             TileID.Sets.CanBeSatOnForPlayers[mt.Type] = true;
-            //TileID.Sets.HasOutlines[mt.Type] = true;
+            TileID.Sets.HasOutlines[mt.Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2);
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
             TileObjectData.newTile.Direction = TileObjectDirection.PlaceLeft;
@@ -1000,7 +1000,7 @@ namespace AAModClassic.Utilities
         /// <param name="mt">The ModTile which is being initialized.</param>
         /// <param name="itemDropID">The ID of the item this tile drops when broken.</param>
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to false.</param>
-        internal static void SetUpChandelier(this ModTile mt, int itemDropID, bool lavaImmune = false)
+        public static void SetUpChandelier(this ModTile mt, int itemDropID, bool lavaImmune = false)
         {
             mt.RegisterItemDrop(itemDropID);
 
@@ -1038,7 +1038,7 @@ namespace AAModClassic.Utilities
         /// <param name="itemDropID">The ID of the item this tile drops when broken.</param>
         /// <param name="offset">If true, uses the parameter offsetAmt to decide the Y draw offset.</param>
         /// <param name="offsetAmt">If offset is true, this is the Y draw offset to use. Otherwise it is ignored.</param>
-        internal static void SetUpChest(this ModTile mt, int itemDropID, bool offset = false, int offsetAmt = 4)
+        public static void SetUpChest(this ModTile mt, int itemDropID, bool offset = false, int offsetAmt = 4)
         {
             mt.RegisterItemDrop(itemDropID);
 
@@ -1050,7 +1050,7 @@ namespace AAModClassic.Utilities
             Main.tileNoAttach[mt.Type] = true;
             Main.tileOreFinderPriority[mt.Type] = 500;
             TileID.Sets.BasicChest[mt.Type] = true;
-            //TileID.Sets.HasOutlines[mt.Type] = true;
+            TileID.Sets.HasOutlines[mt.Type] = true;
             TileID.Sets.DisableSmartCursor[mt.Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
             if (offset)
@@ -1075,14 +1075,14 @@ namespace AAModClassic.Utilities
         /// <param name="mt">The ModTile which is being initialized.</param>
         /// <param name="itemDropID">The ID of the item this tile drops when broken.</param>
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to false.</param>
-        internal static void SetUpClock(this ModTile mt, int itemDropID, bool lavaImmune = false)
+        public static void SetUpClock(this ModTile mt, int itemDropID, bool lavaImmune = false)
         {
             mt.RegisterItemDrop(itemDropID);
 
             Main.tileFrameImportant[mt.Type] = true;
             Main.tileNoAttach[mt.Type] = true;
             Main.tileLavaDeath[mt.Type] = !lavaImmune;
-            //TileID.Sets.HasOutlines[mt.Type] = true;
+            TileID.Sets.HasOutlines[mt.Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
             TileObjectData.newTile.Height = 5;
             TileObjectData.newTile.CoordinateHeights = new int[]
@@ -1109,7 +1109,7 @@ namespace AAModClassic.Utilities
         /// <param name="mt">The ModTile which is being initialized.</param>
         /// <param name="itemDropID">The ID of the item this tile drops when broken.</param>
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to false.</param>
-        internal static void SetUpDoorClosed(this ModTile mt, int itemDropID, bool lavaImmune = false)
+        public static void SetUpDoorClosed(this ModTile mt, int itemDropID, bool lavaImmune = false)
         {
             mt.RegisterItemDrop(itemDropID);
 
@@ -1121,7 +1121,7 @@ namespace AAModClassic.Utilities
             Main.tileWaterDeath[mt.Type] = false;
             TileID.Sets.NotReallySolid[mt.Type] = true;
             TileID.Sets.DrawsWalls[mt.Type] = true;
-            //TileID.Sets.HasOutlines[mt.Type] = true;
+            TileID.Sets.HasOutlines[mt.Type] = true;
             TileID.Sets.DisableSmartCursor[mt.Type] = true;
             TileObjectData.newTile.Width = 1;
             TileObjectData.newTile.Height = 3;
@@ -1155,7 +1155,7 @@ namespace AAModClassic.Utilities
         /// <param name="mt">The ModTile which is being initialized.</param>
         /// <param name="itemDropID">The ID of the item this tile drops when broken.</param>
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to false.</param>
-        internal static void SetUpDoorOpen(this ModTile mt, int itemDropID, bool lavaImmune = false)
+        public static void SetUpDoorOpen(this ModTile mt, int itemDropID, bool lavaImmune = false)
         {
             mt.RegisterItemDrop(itemDropID);
 
@@ -1206,7 +1206,7 @@ namespace AAModClassic.Utilities
             TileObjectData.addAlternate(1);
             TileObjectData.addTile(mt.Type);
             TileID.Sets.HousingWalls[mt.Type] = true;
-            //TileID.Sets.HasOutlines[mt.Type] = true;
+            TileID.Sets.HasOutlines[mt.Type] = true;
             TileID.Sets.DisableSmartCursor[mt.Type] = true;
 
             // As you could probably guess, all open doors count as doors.
@@ -1220,7 +1220,7 @@ namespace AAModClassic.Utilities
         /// </summary>
         /// <param name="mt">The ModTile which is being initialized.</param>
         /// <param name="itemDropID">The ID of the item this tile drops when broken.</param>
-        internal static void SetUpDresser(this ModTile mt, int itemDropID)
+        public static void SetUpDresser(this ModTile mt, int itemDropID)
         {
             mt.RegisterItemDrop(itemDropID);
 
@@ -1232,7 +1232,7 @@ namespace AAModClassic.Utilities
             Main.tileWaterDeath[mt.Type] = false;
             Main.tileLavaDeath[mt.Type] = false;
             TileID.Sets.BasicDresser[mt.Type] = true;
-            //TileID.Sets.HasOutlines[mt.Type] = true;
+            TileID.Sets.HasOutlines[mt.Type] = true;
             TileID.Sets.DisableSmartCursor[mt.Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
             TileObjectData.newTile.Origin = new Point16(1, 1);
@@ -1257,7 +1257,7 @@ namespace AAModClassic.Utilities
         /// <param name="itemDropID">The ID of the item this tile drops when broken.</param>
         /// <param name="mapColor">The map color of the tile.</param>
         /// <param name="lava">Whether or not the type of fountain is lava.</param>
-        internal static void SetUpFountain(this ModTile mt, int itemDropID, Color mapColor, bool lava = false)
+        public static void SetUpFountain(this ModTile mt, int itemDropID, Color mapColor, bool lava = false)
         {
             mt.RegisterItemDrop(itemDropID);
 
@@ -1268,7 +1268,7 @@ namespace AAModClassic.Utilities
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.newTile.LavaPlacement = LiquidPlacement.Allowed;
             TileObjectData.addTile(mt.Type);
-            //TileID.Sets.HasOutlines[mt.Type] = true;
+            TileID.Sets.HasOutlines[mt.Type] = true;
 
             TileObjectData.newTile.Width = 2;
             TileObjectData.newTile.Height = 4;
@@ -1291,7 +1291,7 @@ namespace AAModClassic.Utilities
         /// <param name="mt">The ModTile which is being initialized.</param>
         /// <param name="itemDropID">The ID of the item this tile drops when broken.</param>
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to false.</param>
-        internal static void SetUpLamp(this ModTile mt, int itemDropID, bool lavaImmune = false)
+        public static void SetUpLamp(this ModTile mt, int itemDropID, bool lavaImmune = false)
         {
             mt.RegisterItemDrop(itemDropID);
 
@@ -1319,7 +1319,7 @@ namespace AAModClassic.Utilities
         /// <param name="itemDropID">The ID of the item this tile drops when broken.</param>
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to false.</param>
         /// <param name="autoMapEntry">Whether this tile is supposed to use normal map entries. Defaults to true.</param>
-        internal static void SetUpLantern(this ModTile mt, int itemDropID, bool lavaImmune = false, bool autoMapEntry = true)
+        public static void SetUpLantern(this ModTile mt, int itemDropID, bool lavaImmune = false, bool autoMapEntry = true)
         {
             mt.RegisterItemDrop(itemDropID);
 
@@ -1355,7 +1355,7 @@ namespace AAModClassic.Utilities
         /// <param name="itemDropID">The ID of the item this tile drops when broken.</param>
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to false.</param>
         /// <param name="solidTop">Whether this tile is supposed to have a solid top. Defaults to true.</param>
-        internal static void SetUpPiano(this ModTile mt, int itemDropID, bool lavaImmune = false, bool solidTop = true)
+        public static void SetUpPiano(this ModTile mt, int itemDropID, bool lavaImmune = false, bool solidTop = true)
         {
             mt.RegisterItemDrop(itemDropID);
 
@@ -1382,7 +1382,7 @@ namespace AAModClassic.Utilities
         /// <param name="mt">The ModTile which is being initialized.</param>
         /// <param name="itemDropID">The ID of the item this tile drops when broken.</param>
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to false.</param>
-        internal static void SetUpPlatform(this ModTile mt, int itemDropID, bool lavaImmune = false)
+        public static void SetUpPlatform(this ModTile mt, int itemDropID, bool lavaImmune = false)
         {
             mt.RegisterItemDrop(itemDropID);
 
@@ -1421,7 +1421,7 @@ namespace AAModClassic.Utilities
         /// </summary>
         /// <param name="mt">The ModPylon which is being initialized.</param>
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to false.</param>
-        internal static void SetUpPylon(this ModPylon mp, TEModdedPylon pylonHook, bool lavaImmune = false, int offset = 2)
+        public static void SetUpPylon(this ModPylon mp, TEModdedPylon pylonHook, bool lavaImmune = false, int offset = 2)
         {
             Main.tileLighted[mp.Type] = true;
             Main.tileFrameImportant[mp.Type] = true;
@@ -1452,7 +1452,7 @@ namespace AAModClassic.Utilities
         /// <param name="water">Whether this tile counts as a water source. Defaults to true.</param>
         /// <param name="lava">Whether this tile counts as a lava source. Defaults to false.</param>
         /// <param name="honey">Whether this tile counts as a honey source. Defaults to false.</param>
-        internal static void SetUpSink(this ModTile mt, int itemDropID, bool lavaImmune = false, bool water = true, bool lava = false, bool honey = false)
+        public static void SetUpSink(this ModTile mt, int itemDropID, bool lavaImmune = false, bool water = true, bool lava = false, bool honey = false)
         {
             mt.RegisterItemDrop(itemDropID);
 
@@ -1480,7 +1480,7 @@ namespace AAModClassic.Utilities
         /// <param name="itemDropID">The ID of the item this tile drops when broken.</param>
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to false.</param>
         /// <param name="bench">Whether this tile is displayed as bench instead of sofa on the map. Defaults to false.</param>
-        internal static void SetUpSofa(this ModTile mt, int itemDropID, bool lavaImmune = false, bool bench = false)
+        public static void SetUpSofa(this ModTile mt, int itemDropID, bool lavaImmune = false, bool bench = false)
         {
             mt.RegisterItemDrop(itemDropID);
 
@@ -1489,7 +1489,7 @@ namespace AAModClassic.Utilities
             Main.tileLavaDeath[mt.Type] = !lavaImmune;
             Main.tileWaterDeath[mt.Type] = false;
             TileID.Sets.CanBeSatOnForPlayers[mt.Type] = true;
-            //TileID.Sets.HasOutlines[mt.Type] = true;
+            TileID.Sets.HasOutlines[mt.Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
             TileObjectData.newTile.LavaDeath = !lavaImmune;
             TileObjectData.newTile.LavaPlacement = lavaImmune ? LiquidPlacement.Allowed : LiquidPlacement.NotAllowed;
@@ -1506,7 +1506,7 @@ namespace AAModClassic.Utilities
         /// <param name="mt">The ModTile which is being initialized.</param>
         /// <param name="itemDropID">The ID of the item this tile drops when broken.</param>
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to false.</param>
-        internal static void SetUpTable(this ModTile mt, int itemDropID, bool lavaImmune = false)
+        public static void SetUpTable(this ModTile mt, int itemDropID, bool lavaImmune = false)
         {
             mt.RegisterItemDrop(itemDropID);
 
@@ -1537,7 +1537,7 @@ namespace AAModClassic.Utilities
         /// <param name="itemDropID">The ID of the item this tile drops when broken.</param>
         /// <param name="waterImmune">Whether this tile is supposed to be immune to water. Defaults to false.</param>
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to false.</param>
-        internal static void SetUpTorch(this ModTile mt, int itemDropID, bool waterImmune = false, bool lavaImmune = false)
+        public static void SetUpTorch(this ModTile mt, int itemDropID, bool waterImmune = false, bool lavaImmune = false)
         {
             mt.RegisterItemDrop(itemDropID);
 
@@ -1592,7 +1592,7 @@ namespace AAModClassic.Utilities
         /// Extension which initializes a ModTile to be a trophy.
         /// </summary>
         /// <param name="mt">The ModTile which is being initialized.</param>
-        internal static void SetUpTrophy(this ModTile mt)
+        public static void SetUpTrophy(this ModTile mt)
         {
             // TODO -- how to force trophy drops correctly? they all have zero code in them
 
@@ -1614,7 +1614,7 @@ namespace AAModClassic.Utilities
         /// <param name="mt">The ModTile which is being initialized.</param>
         /// <param name="itemDropID">The ID of the item this tile drops when broken.</param>
         /// <param name="lavaImmune">Whether this tile is supposed to be immune to lava. Defaults to false.</param>
-        internal static void SetUpWorkBench(this ModTile mt, int itemDropID, bool lavaImmune = false)
+        public static void SetUpWorkBench(this ModTile mt, int itemDropID, bool lavaImmune = false)
         {
             mt.RegisterItemDrop(itemDropID);
 

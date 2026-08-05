@@ -1,4 +1,5 @@
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -17,7 +18,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 
         public override void SetDefaults()
         {
-            NPC.lifeMax = 600;
+            NPC.lifeMax = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 300 : 600;
             NPC.defense = 10;
             NPC.damage = 50;
             NPC.width = 30;

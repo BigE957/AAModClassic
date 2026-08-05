@@ -93,6 +93,11 @@ Doom: {
 		DisplayName: Гибельная платформа
 		Tooltip: ""
 	}
+
+	DoomToilet: {
+		DisplayName: Гибельный унитаз
+		Tooltip: ""
+	}
 }
 
 Razewood: {
@@ -188,6 +193,11 @@ Razewood: {
 
 	RazewoodWorkbench: {
 		DisplayName: Выжженный верстак
+		Tooltip: ""
+	}
+
+	RazewoodToilet: {
+		DisplayName: Выжженный унитаз
 		Tooltip: ""
 	}
 }
@@ -292,6 +302,11 @@ Bogwood: {
 		DisplayName: Болотный верстак
 		Tooltip: ""
 	}
+
+	BogwoodToilet: {
+		DisplayName: Болотный унитаз
+		Tooltip: ""
+	}
 }
 
 OuroborosWood: {
@@ -352,6 +367,46 @@ OuroborosWood: {
 
 	OuroborosWoodWorkbench: {
 		DisplayName: Уроборосовый верстак
+		Tooltip: ""
+	}
+
+	OuroborosWoodCandelabra: {
+		DisplayName: Уроборосовый канделябр
+		Tooltip: ""
+	}
+
+	OuroborosWoodChandelier: {
+		DisplayName: Уроборосовая люстра
+		Tooltip: ""
+	}
+
+	OuroborosWoodCouch: {
+		DisplayName: Уроборосовый кинжал
+		Tooltip: ""
+	}
+
+	OuroborosWoodDresser: {
+		DisplayName: Уроборосовый комод
+		Tooltip: ""
+	}
+
+	OuroborosWoodPiano: {
+		DisplayName: Уроборосовое пианино
+		Tooltip: ""
+	}
+
+	OuroborosWoodSink: {
+		DisplayName: Уроборосовая раковина
+		Tooltip: ""
+	}
+
+	OuroborosWoodTable: {
+		DisplayName: Уроборосовый стол
+		Tooltip: ""
+	}
+
+	OuroborosWoodToilet: {
+		DisplayName: Уроборосовый унитаз
 		Tooltip: ""
 	}
 }
@@ -446,6 +501,11 @@ Keep: {
 		DisplayName: Винтовая лестница
 		Tooltip: ""
 	}
+
+	KeepToilet: {
+		DisplayName: Унитаз цитадели
+		Tooltip: ""
+	}
 }
 
 Terra: {
@@ -536,6 +596,11 @@ Terra: {
 
 	TerraWorkbench: {
 		DisplayName: Терра-верстак
+		Tooltip: ""
+	}
+
+	TerraToilet: {
+		DisplayName: Терра-унитаз
 		Tooltip: ""
 	}
 }

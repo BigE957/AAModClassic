@@ -35,7 +35,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
             Projectile.timeLeft = 3600;
             Projectile.tileCollide = false;
         }
-        internal const float charge = 40f;
+        public const float charge = 40f;
         public float LaserLength { get { return Projectile.localAI[1]; } set { Projectile.localAI[1] = value; } }
         public const float LaserLengthMax = 2000f;
         int multiplier = 1;

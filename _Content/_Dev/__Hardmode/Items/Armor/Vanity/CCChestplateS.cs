@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
 	[AutoloadEquip(EquipType.Body)]
-	internal class CCChestplateS : ModItem, ILocalizedModType
+    public class CCChestplateS : ModItem, ILocalizedModType
 	{
         public new string LocalizationCategory => "Items.Vanity.CC.Shiny";
         public override void SetStaticDefaults()

@@ -7,7 +7,7 @@ using AAModClassic._Content.Inferno.World.Tiles;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Consumables
 {
-    internal class Moonpowder_Proj : ModProjectile
+    public class Moonpowder_Proj : ModProjectile
     {
         public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()

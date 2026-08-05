@@ -96,7 +96,9 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
         bool HasStopped = false;
         bool SelectPoint = false;
         Vector2 MovePoint = new Vector2(0, 0);
-        public int ProbeCount = Main.expertMode ? 4 : 6;
+        //as a field this ran while the mod was still loading, before there was a world, so
+        //expertMode was always false and this was always 6
+        public int ProbeCount => Main.expertMode ? 4 : 6;
 
         public override void FindFrame(int frameHeight)
         {
@@ -138,7 +140,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
 
         public override void AI()
         {
-            NPC.dontTakeDamage = NPC.AnyNPCs(ModContent.NPCType<TruffleProbe>());
+            NPC.dontTakeDamage = AnyOwnedProbes();
             NPC.TargetClosest();
             Player player = Main.player[NPC.target];
 
@@ -470,12 +472,34 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             }
             else
             {
-                for (int i = 0; i < ProbeCount; i++)
+                //wait for the last wave to be cleared. probes used to stack up every time this
+                //attack came around, and the truffle is invulnerable while any of them are alive
+                if (!AnyOwnedProbes())
                 {
-                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 10, (int)NPC.Center.Y - 10, ModContent.NPCType<TruffleProbe>(), ai0: i);
+                    for (int i = 0; i < ProbeCount; i++)
+                    {
+                        NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 10, (int)NPC.Center.Y - 10, ModContent.NPCType<TruffleProbe>(), ai0: i);
+                    }
+                    NPC.netUpdate = true;
                 }
-                NPC.netUpdate = true;
             }
+        }
+
+        //AnyNPCs is too broad to gate invulnerability on; it also picks up another truffle's
+        //probes, and probes left active with no health
+        private bool AnyOwnedProbes()
+        {
+            int probeType = ModContent.NPCType<TruffleProbe>();
+            for (int i = 0; i < Main.maxNPCs; i++)
+            {
+                NPC npc = Main.npc[i];
+                if (npc.active && npc.life > 0 && npc.type == probeType
+                    && npc.ModNPC is TruffleProbe probe && (probe.body == -1 || probe.body == NPC.whoAmI))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public void MoveToPoint(Vector2 point, bool goUpFirst = false)

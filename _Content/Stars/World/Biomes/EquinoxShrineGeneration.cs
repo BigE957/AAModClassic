@@ -14,10 +14,10 @@ using Terraria.WorldBuilding;
 
 namespace AAModClassic._Content.Stars.World.Biomes
 {
-    internal class EquinoxShrineTexGenAssets : ModSystem
+    public class EquinoxShrineTexGenAssets : ModSystem
     {
-        internal static TexGenData EquinoxTileData;
-        internal static TexGenData EquinoxSlopeData;
+        public static TexGenData EquinoxTileData;
+        public static TexGenData EquinoxSlopeData;
 
         public override void OnModLoad()
         {

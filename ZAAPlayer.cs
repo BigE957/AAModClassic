@@ -1819,6 +1819,9 @@ namespace AAModClassic
 
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
+            if (Player.dead)
+                return;
+
             if (AAMod.Rift.JustPressed)
             {
                 RiftPos = Player.position;

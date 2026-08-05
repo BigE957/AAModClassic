@@ -26,17 +26,15 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.Ra
             Item.value = 250;
             Item.createTile = ModContent.TileType<RazewoodPiano_Tile>();
         }
+
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<Razewood>(), 15);
             recipe.AddIngredient(ItemID.Book);
             recipe.AddIngredient(ItemID.Bone, 4);
-            //recipe.AddIngredient(ItemID.Torch, 3);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
-
         }
-
     }
 }

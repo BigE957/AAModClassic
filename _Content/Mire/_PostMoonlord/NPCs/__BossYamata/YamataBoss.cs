@@ -195,7 +195,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 			}
 		}
 
-        internal void DrawYamataLeg(SpriteBatch spritebatch, NPC yamata, Vector2 start, Vector2 middle, Vector2 end, bool left, bool front, bool isBestiary = false)
+        public void DrawYamataLeg(SpriteBatch spritebatch, NPC yamata, Vector2 start, Vector2 middle, Vector2 end, bool left, bool front, bool isBestiary = false)
         {
             bool awakened = (yamata.ModNPC is YamataABody);
 

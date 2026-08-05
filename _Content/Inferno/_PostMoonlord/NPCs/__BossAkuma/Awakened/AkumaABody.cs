@@ -24,12 +24,12 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
     [AutoloadBossHead]
     public class AkumaABody : AkumaAHead
     {
-        internal static Asset<Texture2D> ArmlessBody;
-        internal static Asset<Texture2D> UpperArm;
-        internal static Asset<Texture2D> LowerArm;
-        internal static Asset<Texture2D> ArmlessBodyGlow;
-        internal static Asset<Texture2D> UpperArmGlow;
-        internal static Asset<Texture2D> LowerArmGlow;
+        public static Asset<Texture2D> ArmlessBody;
+        public static Asset<Texture2D> UpperArm;
+        public static Asset<Texture2D> LowerArm;
+        public static Asset<Texture2D> ArmlessBodyGlow;
+        public static Asset<Texture2D> UpperArmGlow;
+        public static Asset<Texture2D> LowerArmGlow;
 
         public override void SetStaticDefaults()
         {
@@ -154,9 +154,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             return false;
         }
 
-        internal void DrawBackArm(SpriteBatch spriteBatch, Color drawColor) => DrawBackArm(spriteBatch, NPC.Center - Main.screenPosition, NPC.GetAlpha(drawColor), NPC.rotation, NPC.spriteDirection, NPC.scale, Main.GlobalTimeWrappedHourly * 3f + NPC.whoAmI, NPC.ai[1] == 1 || NPC.ai[2] >= 470 || Main.npc[(int)NPC.ai[3]].ai[1] == 1 || Main.npc[(int)NPC.ai[3]].ai[2] >= 500);
+        public void DrawBackArm(SpriteBatch spriteBatch, Color drawColor) => DrawBackArm(spriteBatch, NPC.Center - Main.screenPosition, NPC.GetAlpha(drawColor), NPC.rotation, NPC.spriteDirection, NPC.scale, Main.GlobalTimeWrappedHourly * 3f + NPC.whoAmI, NPC.ai[1] == 1 || NPC.ai[2] >= 470 || Main.npc[(int)NPC.ai[3]].ai[1] == 1 || Main.npc[(int)NPC.ai[3]].ai[2] >= 500);
 
-        internal static void DrawBackArm(SpriteBatch spriteBatch, Vector2 center, Color drawColor, float rotation, int dir, float scale, float time, bool flaming)
+        public static void DrawBackArm(SpriteBatch spriteBatch, Vector2 center, Color drawColor, float rotation, int dir, float scale, float time, bool flaming)
         {
             Rectangle upperBackArmFrame = UpperArm.Frame(2, frameX: 1);
             
@@ -204,9 +204,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             });
         }
 
-        internal void DrawFrontArm(SpriteBatch spriteBatch, Color drawColor) => DrawFrontArm(spriteBatch, NPC.Center - Main.screenPosition, NPC.GetAlpha(drawColor), NPC.rotation, NPC.spriteDirection, NPC.scale, Main.GlobalTimeWrappedHourly * 3f + NPC.whoAmI, NPC.ai[1] == 1 || NPC.ai[2] >= 470 || Main.npc[(int)NPC.ai[3]].ai[1] == 1 || Main.npc[(int)NPC.ai[3]].ai[2] >= 500);
+        public void DrawFrontArm(SpriteBatch spriteBatch, Color drawColor) => DrawFrontArm(spriteBatch, NPC.Center - Main.screenPosition, NPC.GetAlpha(drawColor), NPC.rotation, NPC.spriteDirection, NPC.scale, Main.GlobalTimeWrappedHourly * 3f + NPC.whoAmI, NPC.ai[1] == 1 || NPC.ai[2] >= 470 || Main.npc[(int)NPC.ai[3]].ai[1] == 1 || Main.npc[(int)NPC.ai[3]].ai[2] >= 500);
 
-        internal static void DrawFrontArm(SpriteBatch spriteBatch, Vector2 center, Color drawColor, float rotation, int dir, float scale, float time, bool flaming)
+        public static void DrawFrontArm(SpriteBatch spriteBatch, Vector2 center, Color drawColor, float rotation, int dir, float scale, float time, bool flaming)
         {
             Rectangle upperFrontArmFrame = UpperArm.Frame(2);
 

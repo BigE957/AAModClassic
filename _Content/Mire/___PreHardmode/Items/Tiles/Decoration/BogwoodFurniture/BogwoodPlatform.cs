@@ -10,7 +10,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwo
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Bogwood Platform");
-		}
+            Item.ResearchUnlockCount = 200;
+        }
 
 		public override void SetDefaults()
 		{

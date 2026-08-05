@@ -45,7 +45,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs
 
         public override void AI()
         {
-            Lighting.AddLight(NPC.Center, AAColor.Lantern.R / 255, AAColor.Lantern.G / 255, AAColor.Lantern.B / 255);
+            Lighting.AddLight(NPC.Center, AAColor.Lantern.R / 255f, AAColor.Lantern.G / 255f, AAColor.Lantern.B / 255f);
             if (NPC.wet)
             {
                 NPC.noGravity = true;

@@ -13,7 +13,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._CrossMod.CalamityMod.LoreItems
 {
-    internal class SiegeUnitsLore : LoreItem
+    public class SiegeUnitsLore : LoreItem
     {
         public override void SetDefaults()
         {

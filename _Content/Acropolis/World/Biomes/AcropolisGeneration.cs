@@ -17,11 +17,11 @@ using Terraria.WorldBuilding;
 
 namespace AAModClassic._Content.Acropolis.World.Biomes
 {
-    internal class AcropolisTexGenAssets : ModSystem
+    public class AcropolisTexGenAssets : ModSystem
     {
-        internal static TexGenData AcropolisTileData;
-        internal static TexGenData AcropolisWallData;
-        internal static TexGenData AcropolisRoofData;
+        public static TexGenData AcropolisTileData;
+        public static TexGenData AcropolisWallData;
+        public static TexGenData AcropolisRoofData;
 
         public override void OnModLoad()
         {

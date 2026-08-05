@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
 {
-    internal class Broodmother_FireBreath : ModProjectile
+    public class Broodmother_FireBreath : ModProjectile
     {
         public override void SetStaticDefaults()
         {

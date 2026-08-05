@@ -9,6 +9,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
 using AAModClassic.Utilities;
+using Terraria.Localization;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
 { 
@@ -36,6 +37,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             NPC.width = 38;
             NPC.height = 58;
             NPC.rarity = 1;
+            NPC.immortal = true;
         }
 
         public override void AI()
@@ -75,7 +77,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             if (NPC.ai[0] != 1)
             {
                 NPC.ai[0] = 1;
-                CombatText.NewText(NPC.Hitbox, new Color(72, 78, 117), "pathetic.");
+                CombatText.NewText(NPC.Hitbox, new Color(72, 78, 117), Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Ambient.HarukaShadow"));
             }
         }
 

@@ -69,7 +69,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm
                 NPC.TargetClosest(true);
             if (Main.player[NPC.target].dead && NPC.timeLeft > 300)
                 NPC.timeLeft = 300;
-            Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
+            Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255f, Color.DarkOrange.G / 255f, Color.DarkOrange.B / 255f);
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {

@@ -22,13 +22,13 @@ using Terraria.WorldBuilding;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 {
-    internal class LostKeepTexGenAssets : ModSystem
+    public class LostKeepTexGenAssets : ModSystem
     {
-        internal static TexGenData KeepTileData;
-        internal static TexGenData KeepWallData;
-        internal static TexGenData KeepSlopeData;
-        internal static TexGenData KeepPlatformData;
-        internal static TexGenData KeepObjectData;
+        public static TexGenData KeepTileData;
+        public static TexGenData KeepWallData;
+        public static TexGenData KeepSlopeData;
+        public static TexGenData KeepPlatformData;
+        public static TexGenData KeepObjectData;
 
         public override void OnModLoad()
         {

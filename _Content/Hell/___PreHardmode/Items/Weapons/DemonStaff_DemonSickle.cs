@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hell.___PreHardmode.Items.Weapons
 {
-    internal class DemonStaff_DemonSickle : ModProjectile
+    public class DemonStaff_DemonSickle : ModProjectile
     {
         public override void SetStaticDefaults()
         {

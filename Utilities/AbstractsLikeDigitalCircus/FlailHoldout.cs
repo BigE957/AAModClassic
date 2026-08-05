@@ -39,7 +39,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
         internal static readonly Dictionary<int, Asset<Texture2D>> chainTextures = [];
         internal static readonly Dictionary<int, Asset<Texture2D>> chainTextureExtras = []; // This texture and related code is optional and used for a unique effect
 
-        internal enum AIState
+        public enum AIState
         {
             Spinning,
             LaunchingForward,
@@ -51,7 +51,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
         }
 
         // These properties wrap the usual ai and localAI arrays for cleaner and easier to understand code.
-        internal AIState CurrentAIState
+        public AIState CurrentAIState
         {
             get => (AIState)Projectile.ai[0];
             set => Projectile.ai[0] = (float)value;

@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord
 {
-    internal class AbyssGrip_AbyssalBomb : ModProjectile
+    public class AbyssGrip_AbyssalBomb : ModProjectile
     {
         public override void SetStaticDefaults()
         {

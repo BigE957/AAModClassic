@@ -6,7 +6,7 @@ using AAModClassic.Assets;
 
 namespace AAModClassic._Content.Void.__Hardmode.Items.Consumables
 {
-    internal class BlackSolution_Proj : ModProjectile
+    public class BlackSolution_Proj : ModProjectile
     {
         public override string Texture => AssetDirectory.General.Nothing;
         public override void SetDefaults()

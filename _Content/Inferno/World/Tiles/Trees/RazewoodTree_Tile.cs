@@ -1,5 +1,4 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
-using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic._Unreleased.Content.Inferno.___PreHardmode.Items;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
@@ -15,7 +14,14 @@ namespace AAModClassic._Content.Inferno.World.Tiles.Trees
 {
     public class RazewoodTree_Tile : ModTree
     {
-        public override TreePaintingSettings TreeShaderSettings => new();
+        public override TreePaintingSettings TreeShaderSettings => new()
+        {
+            UseSpecialGroups = true,
+            SpecialGroupMinimalHueValue = 11f / 72f,
+            SpecialGroupMaximumHueValue = 0.25f,
+            SpecialGroupMinimumSaturationValue = 0.88f,
+            SpecialGroupMaximumSaturationValue = 1f
+        };
 
         public override void SetStaticDefaults()
         {

@@ -63,11 +63,11 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             {
                 if (Main.dayTime)
                 {
-                    Lighting.AddLight(Projectile.Center, new Vector3(Color.OrangeRed.R / 255f, Color.OrangeRed.G / 255, Color.OrangeRed.B / 255f));
+                    Lighting.AddLight(Projectile.Center, new Vector3(Color.OrangeRed.R / 255f, Color.OrangeRed.G / 255f, Color.OrangeRed.B / 255f));
                 }
                 else
                 {
-                    Lighting.AddLight(Projectile.Center, new Vector3(Color.Indigo.R / 255f, Color.Indigo.G / 255, Color.Indigo.B / 255f));
+                    Lighting.AddLight(Projectile.Center, new Vector3(Color.Indigo.R / 255f, Color.Indigo.G / 255f, Color.Indigo.B / 255f));
                 }
             }
             else

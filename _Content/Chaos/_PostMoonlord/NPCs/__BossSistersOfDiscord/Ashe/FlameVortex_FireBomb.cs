@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe
 {
-    internal class FlameVortex_FireBomb : ModProjectile
+    public class FlameVortex_FireBomb : ModProjectile
     {
         public override void SetStaticDefaults()
         {

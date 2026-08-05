@@ -1,4 +1,5 @@
-﻿using AAModClassic.Utilities;
+﻿using AAModClassic._Content.Terrarium.World.Biomes;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
@@ -8,9 +9,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.TerraWeaver
 {
-    public class TerraWeaverTail : TerraWeaverBody, IBannerNPC
+    public class TerraWeaverTail : TerraWeaverHead, IBannerNPC
     {
-        public new int OverrideBannerNPCType => ModContent.NPCType<TerraWeaverHead>();
+        public int OverrideBannerNPCType => ModContent.NPCType<TerraWeaverHead>();
 
         public override void SetStaticDefaults()
         {
@@ -20,13 +21,21 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.Te
 
         public override void SetDefaults()
         {
-            base.SetDefaults();
-
-            NPC.width = 20;
+            NPC.lifeMax = 350;
+            NPC.defense = 20;
+            NPC.damage = 50;
+            NPC.width = 18;
             NPC.height = 18;
+            NPC.aiStyle = -1;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.knockBackResist = 0f;
+            if (!NPC.IsABestiaryIconDummy)
+                NPC.alpha = 255;
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
+            SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
             NPC.dontCountMe = true;
-
-            NPC.alpha = 255;
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)

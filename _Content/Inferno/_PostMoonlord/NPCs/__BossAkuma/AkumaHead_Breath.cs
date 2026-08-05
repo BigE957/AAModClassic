@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 {
-    internal class AkumaHead_Breath : FireProj
+    public class AkumaHead_Breath : FireProj
     {
         public override MulticolorShift ColorShift 
         { get {

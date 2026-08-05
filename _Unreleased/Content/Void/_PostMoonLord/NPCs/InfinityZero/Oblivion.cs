@@ -7,6 +7,7 @@ using AAModClassic.Music;
 using AAModClassic.UI.Core;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Humanizer;
 using Microsoft.Win32;
 using Microsoft.Xna.Framework;
@@ -40,7 +41,7 @@ using Terraria.UI.Chat;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
-    public class Oblivion : ModNPC
+    public class Oblivion : ModNPC, IBestiaryCritterNPC
     {
         private static string steamPath = null;
         private static string accountID = null;
@@ -49,6 +50,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         private static FieldInfo ChatMessageList = null;
         private static FieldInfo MessageTimeLeft = null;
         private static FieldInfo MessageColor = null;
+
+        public bool UnlockWhenNearby => false;
 
         public override void SetStaticDefaults()
         {
@@ -74,8 +77,18 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         private static bool InitializeSteamSearch()
         {
-            if (OperatingSystem.IsAndroid() || OperatingSystem.IsIOS() || !SteamAPI.IsSteamRunning())
+            if (OperatingSystem.IsAndroid() || OperatingSystem.IsIOS())
                 return false;
+
+            try
+            {
+                if (!SteamAPI.IsSteamRunning())
+                    return false;
+            }
+            catch
+            {
+                return false;
+            }
 
             steamPath = null;
             if (OperatingSystem.IsWindows())

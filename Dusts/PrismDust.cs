@@ -28,7 +28,7 @@ namespace AAModClassic.Dusts
                 {
                     strength = 1f;
                 }
-                Lighting.AddLight(dust.position, dustColor.R / 255 * strength, dustColor.G / 255 * strength, dustColor.B / 255 * strength);
+                Lighting.AddLight(dust.position, dustColor.R / 255f * strength, dustColor.G / 255f * strength, dustColor.B / 255f * strength);
             }
             return false;
         }

@@ -82,10 +82,6 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
             ]);
         }
 
-        public override void HitEffect(NPC.HitInfo hit)
-        {
-        }
-
         public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
         {
             if (!AAConfigClient.Instance.NoAATownNPC)
@@ -181,7 +177,7 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
 
             if (firstButton)
             {
-                shopName = "shop";
+                shopName = "Shop";
             }
 
             if (!firstButton)
@@ -515,77 +511,24 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
             }
         }
 
-
-        public override void ModifyActiveShop(string shopName, Item[] items)
+        public override void AddShops()
         {
-            int nextSlot = 0;
-            if (AAWorld.squid1 >= 5)
-            {
-                items[nextSlot] = new Item(ModContent.ItemType<PurityFlask>());
-                nextSlot++;
-            }
-            if (AAWorld.squid2 >= 5)
-            {
-                items[nextSlot] = new Item(ModContent.ItemType<AshJar>());
-                nextSlot++;
-            }
-            if (AAWorld.squid3 >= 5)
-            {
-                items[nextSlot] = new Item(ModContent.ItemType<DarkwaterFlask>());
-                nextSlot++;
-            }
-            if (AAWorld.squid4 >= 5)
-            {
-                items[nextSlot] = new Item(ModContent.ItemType<CorruptionFlask>());
-                nextSlot++;
-            }
-            if (AAWorld.squid5 >= 5)
-            {
-                items[nextSlot] = new Item(ModContent.ItemType<CrimsonFlask>());
-                nextSlot++;
-            }
-            if (AAWorld.squid6 >= 5)
-            {
-                items[nextSlot] = new Item(ModContent.ItemType<HallowFlask>());
-                nextSlot++;
-            }
-            if (AAWorld.squid7 >= 5)
-            {
-                items[nextSlot] = new Item(ModContent.ItemType<VoidFlask>());
-                nextSlot++;
-            }
-            if (AAWorld.squid8 >= 5)
-            {
-                items[nextSlot] = new Item(ModContent.ItemType<Fungicide>());
-                nextSlot++;
-            }
-            if (AAWorld.squid9 >= 5)
-            {
-                items[nextSlot] = new Item(ModContent.ItemType<SporeBag>());
-                nextSlot++;
-            }
-            if (AAWorld.squid10 >= 5)
-            {
-                items[nextSlot] = new Item(ModContent.ItemType<GlowingSporeBag>());
-                nextSlot++;
-            }
-            if (AAWorld.squid11 >= 5)
-            {
-                items[nextSlot] = new Item(ModContent.ItemType<JungleFlask>());
-                nextSlot++;
-            }
-            if (AAWorld.squid12 >= 1)
-            {
-                items[nextSlot] = new Item(ModContent.ItemType<IceFlask>());
-                nextSlot++;
-                items[nextSlot] = new Item(ModContent.ItemType<IcemeltFlask>());
-                nextSlot++;
-            }
-            if (AAWorld.squid13 >= 5)
-            {
-                items[nextSlot] = new Item(ModContent.ItemType<ForestFlask>());
-                nextSlot++;
-            }
+            NPCShop shop = new(Type);
+            shop.Add<PurityFlask>(new Condition((LocalizedText)null, () => AAWorld.squid1 >= 5));
+            shop.Add<AshJar>(new Condition((LocalizedText)null, () => AAWorld.squid2 >= 5));
+            shop.Add<DarkwaterFlask>(new Condition((LocalizedText)null, () => AAWorld.squid3 >= 5));
+            shop.Add<CorruptionFlask>(new Condition((LocalizedText)null, () => AAWorld.squid4 >= 5));
+            shop.Add<CrimsonFlask>(new Condition((LocalizedText)null, () => AAWorld.squid5 >= 5));
+            shop.Add<HallowFlask>(new Condition((LocalizedText)null, () => AAWorld.squid6 >= 5));
+            shop.Add<VoidFlask>(new Condition((LocalizedText)null, () => AAWorld.squid7 >= 5));
+            shop.Add<Fungicide>(new Condition((LocalizedText)null, () => AAWorld.squid8 >= 5));
+            shop.Add<SporeBag>(new Condition((LocalizedText)null, () => AAWorld.squid9 >= 5));
+            shop.Add<GlowingSporeBag>(new Condition((LocalizedText)null, () => AAWorld.squid10 >= 5));
+            shop.Add<JungleFlask>(new Condition((LocalizedText)null, () => AAWorld.squid11 >= 5));
+            shop.Add<IceFlask>(new Condition((LocalizedText)null, () => AAWorld.squid12 >= 1));
+            shop.Add<IcemeltFlask>(new Condition((LocalizedText)null, () => AAWorld.squid12 >= 1));
+            shop.Add<ForestFlask>(new Condition((LocalizedText)null, () => AAWorld.squid13 >= 5));
+            shop.Register();
         }
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)

@@ -10,16 +10,16 @@ using Terraria.WorldBuilding;
 
 namespace AAModClassic._Content.Terrarium.World.Biomes
 {
-    internal class TerrariumTexGenAssets : ModSystem
+    public class TerrariumTexGenAssets : ModSystem
     {
-        internal static TexGenData TerrariumSmallDeletionData;
-        internal static TexGenData TerrariumMediumDeletionData;
+        public static TexGenData TerrariumSmallDeletionData;
+        public static TexGenData TerrariumMediumDeletionData;
 
-        internal static TexGenData TerrariumSmallTileData;
-        internal static TexGenData TerrariumMediumTileData;
+        public static TexGenData TerrariumSmallTileData;
+        public static TexGenData TerrariumMediumTileData;
 
-        internal static TexGenData TerrariumSmallWallData;
-        internal static TexGenData TerrariumMediumWallData;
+        public static TexGenData TerrariumSmallWallData;
+        public static TexGenData TerrariumMediumWallData;
 
         public override void OnModLoad()
         {

@@ -4,7 +4,7 @@ using ReLogic.Content;
 using Terraria;
 using Terraria.UI;
 
-namespace AAModClassic._Unofficial.Desert
+namespace AAModClassic.UI.Core
 {
     public class FrameableUIImage : UIElement
     {

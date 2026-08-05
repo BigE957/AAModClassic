@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons
 {
-    internal class FuryFlame_FuryFire : ModProjectile
+    public class FuryFlame_FuryFire : ModProjectile
     {
         public override void SetStaticDefaults()
         {

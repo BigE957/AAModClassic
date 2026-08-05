@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 {
-    internal class Runefire : ModProjectile
+    public class Runefire : ModProjectile
     {
         public override void SetStaticDefaults()
         {

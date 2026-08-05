@@ -11,11 +11,11 @@ using static AAModClassic.Utilities.WorldGenUtils;
 
 namespace AAModClassic._Content.Mire.World.Biomes
 {
-    internal class MireTexGenAssets : ModSystem
+    public class MireTexGenAssets : ModSystem
     {
-        internal static TexGenData LakeTileData;
-        internal static TexGenData LakeWallData;
-        internal static TexGenData LakeLiquidData;
+        public static TexGenData LakeTileData;
+        public static TexGenData LakeWallData;
+        public static TexGenData LakeLiquidData;
 
         public override void OnModLoad()
         {

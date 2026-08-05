@@ -9,11 +9,6 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoratio
     {
         public new string LocalizationCategory => "Items.Placeables.Furniture.RedMushroom";
 
-        public override void SetStaticDefaults() 
-        {
-			Item.ResearchUnlockCount = 1;
-		}
-
         public override void SetDefaults() 
         {
             Item.width = 20;

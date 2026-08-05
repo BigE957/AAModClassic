@@ -43,7 +43,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs._Surface._Day
 
         public override bool PreAI()
         {
-            Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
+            Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255f, Color.DarkOrange.G / 255f, Color.DarkOrange.B / 255f);
             return true;
         }
 

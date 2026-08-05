@@ -49,10 +49,9 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoratio
             VanillaFallbackOnModDeletion = TileID.Chairs;
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsChair);
 
-            LocalizedText name = CreateMapEntryName();
-            AddMapEntry(new Color(200, 150, 20), name);
+            AddMapEntry(new Color(200, 150, 20), Language.GetText("ItemName.Toilet"));
 
-			RegisterItemDrop(ModContent.ItemType<RedmushToilet>(), 0);
+            RegisterItemDrop(ModContent.ItemType<RedmushToilet>(), 0);
         }
 
 		public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;

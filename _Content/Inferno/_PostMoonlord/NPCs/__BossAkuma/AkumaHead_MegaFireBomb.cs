@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 {
-    internal class AkumaHead_MegaFireBomb : ModProjectile
+    public class AkumaHead_MegaFireBomb : ModProjectile
     {
         public override void SetStaticDefaults()
         {

@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.Projectiles
 {
-    internal class DeathLaser : ModProjectile
+    public class DeathLaser : ModProjectile
     {
         public override void SetStaticDefaults()
         {

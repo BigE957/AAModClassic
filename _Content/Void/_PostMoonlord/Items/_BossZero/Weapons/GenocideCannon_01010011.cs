@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 {
-    internal class GenocideCannon_01010011 : ModProjectile
+    public class GenocideCannon_01010011 : ModProjectile
     {
         public override void SetStaticDefaults()
         {

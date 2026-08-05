@@ -47,7 +47,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
             NPC.noGravity = true;
             NPC.noTileCollide = true;
 
-            Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255, Color.DarkOrange.G / 255, Color.DarkOrange.B / 255);
+            Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255f, Color.DarkOrange.G / 255f, Color.DarkOrange.B / 255f);
 
             if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead)
             {

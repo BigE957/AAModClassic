@@ -91,36 +91,36 @@ namespace AAModClassic
     public partial class AAMod : Mod
     {
         // Miscellaneous
-        internal static int AncientCoin = -1;
-        internal static int GoblinSoul = -1;
-        internal static int BloodRune = -1;
-        internal static int PirateBooty = -1;
-        internal static int MonsterSoul = -1;
-        internal static int HalloweenTreat = -1;
-        internal static int ChristmasCheer = -1;
-        internal static int MartianCredit = -1;
-        internal static int DustIDSlashFX; //TODO: This thing never gets set but is used once inside Overhaul cross mod. No clue what to make of it...
+        public static int AncientCoin = -1;
+        public static int GoblinSoul = -1;
+        public static int BloodRune = -1;
+        public static int PirateBooty = -1;
+        public static int MonsterSoul = -1;
+        public static int HalloweenTreat = -1;
+        public static int ChristmasCheer = -1;
+        public static int MartianCredit = -1;
+        public static int DustIDSlashFX; //TODO: This thing never gets set but is used once inside Overhaul cross mod. No clue what to make of it...
 
         // Hotkeys
-        internal static ModKeybind AccessoryAbilityKey;
-        internal static ModKeybind ArmorAbilityKey;
-        internal static ModKeybind Rift;
-        internal static ModKeybind RiftReturn;
-        internal static ModKeybind TimeStoneKey;
+        public static ModKeybind AccessoryAbilityKey;
+        public static ModKeybind ArmorAbilityKey;
+        public static ModKeybind Rift;
+        public static ModKeybind RiftReturn;
+        public static ModKeybind TimeStoneKey;
 
         // UI
-        internal UserInterface TerratoolInterface;
-        internal TerratoolTUI TerratoolTState;
-        internal TerratoolCUI TerratoolCState;
-        internal TerratoolAUI TerratoolAState;
-        internal TerratoolYUI TerratoolYState;
-        internal TerratoolZUI TerratoolZState;
-        internal TerratoolSUI TerratoolSState;
-        internal TerratoolKipUI TerratoolKipState;
-        internal TerratoolGroxUI TerratoolGroxState;
-        internal TerratoolEXUI TerratoolEXState;
+        public UserInterface TerratoolInterface;
+        public TerratoolTUI TerratoolTState;
+        public TerratoolCUI TerratoolCState;
+        public TerratoolAUI TerratoolAState;
+        public TerratoolYUI TerratoolYState;
+        public TerratoolZUI TerratoolZState;
+        public TerratoolSUI TerratoolSState;
+        public TerratoolKipUI TerratoolKipState;
+        public TerratoolGroxUI TerratoolGroxState;
+        public TerratoolEXUI TerratoolEXState;
 
-        internal static AAMod instance;
+        public static AAMod instance;
 
         public AAMod()
         {

@@ -6,7 +6,7 @@ using AAModClassic.UI.World;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
 {
-    internal class HydraHead_HydraMist : ModProjectile
+    public class HydraHead_HydraMist : ModProjectile
     {
         public override void SetStaticDefaults()
         {
