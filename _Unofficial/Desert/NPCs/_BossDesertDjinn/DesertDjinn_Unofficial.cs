@@ -103,25 +103,20 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                             {
                                 SoundEngine.PlaySound(SoundID.DD2_MonkStaffGroundImpact, NPC.Center);
 
-                                for (int i = 2; i <= 24; i++)
+                                for(int i = -3; i <= 3; i++)
                                 {
-                                    float heightMult = MathF.Sin((i - 1) / 24f * MathHelper.Pi);
-
-                                    Point start = NPC.Center.ToTileCoordinates() - new Point(-i * NPC.direction, 8);
-                                    Point ground = CollisionUtils.FindSurfaceBelow(start, true);
-                                    ParticleSystem.SpawnParticle(new GroundWave(ground, 8, 108 * heightMult, i * 2, 16), DrawLayer.AfterPlayers);
-
+                                    Point s = NPC.Center.ToTileCoordinates() - new Point(-i * NPC.direction, 8);
+                                    Point g = CollisionUtils.FindSurfaceBelow(s, true);
+                                    WorldGen.KillTile(g.X, g.Y, effectOnly: true);
                                 }
 
-                                for (int i = 2; i <= 12; i++)
-                                {
-                                    float heightMult = MathF.Sin((i - 1) / 12f * MathHelper.Pi);
+                                Point start = NPC.Center.ToTileCoordinates() - new Point(-2 * NPC.direction, 8);
+                                Point ground = CollisionUtils.FindSurfaceBelow(start, true);
+                                ParticleSystem.SpawnParticle(new GroundWave(ground, 8, 24, NPC.direction == 1, 108, 2, 16), DrawLayer.AfterPlayers);
 
-                                    Point start = NPC.Center.ToTileCoordinates() - new Point(-i * -NPC.direction, 8);
-                                    Point ground = CollisionUtils.FindSurfaceBelow(start, true);
-                                    ParticleSystem.SpawnParticle(new GroundWave(ground, 2, 24 * heightMult, i * 3, 16), DrawLayer.AfterPlayers);
-
-                                }
+                                start = NPC.Center.ToTileCoordinates() - new Point(2 * NPC.direction, 8);
+                                ground = CollisionUtils.FindSurfaceBelow(start, true);
+                                ParticleSystem.SpawnParticle(new GroundWave(ground, 2, 10, NPC.direction != 1, 24, 3, 16), DrawLayer.AfterPlayers);
                             }
                         }
                         else
