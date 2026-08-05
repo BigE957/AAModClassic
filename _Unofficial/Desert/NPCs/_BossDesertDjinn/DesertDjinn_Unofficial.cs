@@ -112,11 +112,11 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
 
                                 Point start = NPC.Center.ToTileCoordinates() - new Point(-2 * NPC.direction, 8);
                                 Point ground = CollisionUtils.FindSurfaceBelow(start, true);
-                                ParticleSystem.SpawnParticle(new GroundWave(ground, 8, 24, NPC.direction == 1, 108, 2, 16), DrawLayer.AfterPlayers);
+                                ParticleSystem.SpawnParticle(new GroundWave(ground, 16, 24, NPC.direction == 1, 108, 1, 16), DrawLayer.AfterPlayers);
 
                                 start = NPC.Center.ToTileCoordinates() - new Point(2 * NPC.direction, 8);
                                 ground = CollisionUtils.FindSurfaceBelow(start, true);
-                                ParticleSystem.SpawnParticle(new GroundWave(ground, 2, 10, NPC.direction != 1, 24, 3, 16), DrawLayer.AfterPlayers);
+                                ParticleSystem.SpawnParticle(new GroundWave(ground, 8, 10, NPC.direction != 1, 24, 3, 16), DrawLayer.AfterPlayers);
                             }
                         }
                         else
