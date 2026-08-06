@@ -41,11 +41,15 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
             }
             else
             {
-                Projectile.alpha -= 10;
+                
                 if (Projectile.alpha <= 0)
                 {
-                    Projectile.localAI[0] = 1f;
+                    Projectile.alpha = 0;
+                    if (Projectile.ai[2]-- <= 0)
+                        Projectile.localAI[0] = 1f;
                 }
+                else
+                    Projectile.alpha -= 10;
             }
         }
 
@@ -53,11 +57,8 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
         {
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
-                float upTime = 50f;
                 float counter = Projectile.ai[0];
-                float opacity = MathHelper.Clamp(counter / 10f, 0f, 1f);
-                if (counter > upTime - 40f)
-                    opacity = MathHelper.Lerp(1f, 0f, (counter - (upTime - 40f)) / 40f);
+                float opacity = Projectile.Opacity;
 
                 Point point5 = Projectile.Center.ToTileCoordinates();
                 Collision.ExpandVertically(point5.X, point5.Y, out var topY, out var bottomY, 15, 15);
@@ -86,7 +87,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
                     Main.EntitySpriteDraw(texture, drawPos, null, drawColor, baseRotation + rotationOffset, texture.Size() * 0.5f, 1f + scale, SpriteEffects.None);
                 }
 
-                Main.EntitySpriteDraw(TextureAssets.Projectile[Projectile.type].Value, new Vector2(Projectile.Center.X, Projectile.position.Y) - Main.screenPosition, null, Color.White, Projectile.rotation, TextureAssets.Projectile[Projectile.type].Size() * 0.5f, 1, SpriteEffects.None);
+                //Main.EntitySpriteDraw(TextureAssets.Projectile[Projectile.type].Value, new Vector2(Projectile.Center.X, Projectile.position.Y) - Main.screenPosition, null, Color.White, Projectile.rotation, TextureAssets.Projectile[Projectile.type].Size() * 0.5f, 1, SpriteEffects.None);
             }
 
             return !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);

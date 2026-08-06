@@ -1,7 +1,6 @@
 ﻿using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
 using AAModClassic._Content.Desert.___PreHardmode.NPCs._Day;
 using AAModClassic.Assets;
-using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
@@ -72,6 +71,8 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                 target.velocity = Projectile.velocity / 2f + Vector2.UnitY * -10;
             else
                 target.velocity = Projectile.velocity + Vector2.UnitY * -16;
+
+            target.velocity *= Projectile.height / 100f;
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
@@ -81,7 +82,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
 
             Vector2 maxVelocity = Projectile.velocity * 1.5f + Vector2.UnitY * -24;
 
-            target.velocity += Vector2.Lerp(Vector2.Zero, maxVelocity, target.knockBackResist);
+            target.velocity += Vector2.Lerp(Vector2.Zero, maxVelocity, target.knockBackResist) * Projectile.height / 100f;
         }
     }
 }
