@@ -33,6 +33,11 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
         {
             Vector2 ground = CollisionUtils.FindSurfaceBelow((Projectile.Center + Vector2.UnitX * Projectile.ai[0]).ToTileCoordinates(), true).ToWorldCoordinates();
             Projectile.Bottom = new(Projectile.Center.X, ground.Y);
+
+            if (Projectile.ai[0] < 8)
+                Projectile.position -= Projectile.velocity;
+
+            Projectile.ai[0]++;
         }
 
         public override void ModifyDamageHitbox(ref Rectangle hitbox)

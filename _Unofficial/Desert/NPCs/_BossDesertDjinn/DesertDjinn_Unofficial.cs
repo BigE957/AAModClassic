@@ -112,7 +112,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                                 ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
                                 int dir = (NPC.direction == 1 ? 1 : -1);
 
-                                Projectile proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates() + new Vector2(-120 * dir), new Vector2(16 * dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), 10, 0f);
+                                Projectile proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(16 * dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), 10, 0f);
                                 proj.timeLeft = particle.Lifetime - 12;
 
                                 start = NPC.Center.ToTileCoordinates() - new Point(2 * NPC.direction, 8);
