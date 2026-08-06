@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -196,8 +197,8 @@ namespace AAModClassic.Particles.Types
                         continue;
               
                     Main.instance.TilesRenderer.GetTileDrawData(myTilePosition.X, myTilePosition.Y, t, t.TileType, ref t.TileFrameX, ref t.TileFrameY, out int tileWidth, out int tileHeight, out int tileTop, out int halfBrickHeight, out int addFrX, out int addFrY, out SpriteEffects tileSpriteEffect, out Texture2D glowTexture, out Rectangle glowSourceRect, out Color glowColor);
-                    
-                    Texture2D tileTex = Main.instance.TilePaintSystem.TryGetTileAndRequestIfNotReady(t.TileType, 0, t.TileColor);
+
+                    Texture2D tileTex = Main.instance.TilePaintSystem.TryGetTileAndRequestIfNotReady(t.TileType, 0, t.TileColor) ?? TextureAssets.Tile[t.TileType].Value;
                     Vector2 drawPosition = myTilePosition.ToWorldCoordinates(0, 0) + new Vector2(0f, -offset) - tileScreenPosition;
                     drawPosition = new Vector2(MathF.Floor(drawPosition.X), MathF.Floor(drawPosition.Y));
                     int r = topRow + j;
@@ -267,6 +268,7 @@ namespace AAModClassic.Particles.Types
                             slice.Width,
                             clampedHeight
                         );
+
                         spritebatch.Draw(tileTex, destination, source, sliceColor, Rotation, Vector2.Zero, tileSpriteEffect, 0f);
 
                         if (glowTexture != null)
