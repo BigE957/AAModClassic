@@ -3,8 +3,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
-using Terraria.GameContent;
-using Terraria.GameContent.Drawing;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -40,6 +38,7 @@ namespace AAModClassic.Particles.Types
         private readonly int GridHeight;
         private readonly Vector3[] _localLight;
         private readonly bool[] _localFilled;
+        private readonly Vector3[] _staticRealLight;
 
         private static float LightDecayThroughAir 
         { 
@@ -140,6 +139,11 @@ namespace AAModClassic.Particles.Types
             Depth = requiredDepth;
             GridHeight = MaxShiftTiles + Depth;
 
+            _staticRealLight = new Vector3[Count * GridHeight];
+            for (int i = 0; i < Count; i++)
+                for (int r = 0; r < GridHeight; r++)
+                    _staticRealLight[Index(i, r)] = SampleRealLight(StartPosition.X + i * Direction, ColumnPositions[i].Y - MaxShiftTiles + r);
+
             _localLight = new Vector3[Count * GridHeight];
             _localFilled = new bool[Count * GridHeight];
         }
@@ -200,9 +204,7 @@ namespace AAModClassic.Particles.Types
 
                     if (t.Slope != SlopeType.Solid && !t.IsHalfBlock)
                     {
-                        GetLocalTileSlices(i, r, ref _blendedSlices);
-
-                        Color color = new(_blendedSlices[4]);
+                        Color color = new(GetLocalLight(i, r));
 
                         int num = (int)t.Slope;
                         int num2 = 2;
@@ -304,34 +306,30 @@ namespace AAModClassic.Particles.Types
                     bool filled = r >= top && r < top + Depth;
                     _localFilled[idx] = filled;
 
-                    if (filled)
-                    {
-                        int depthInColumn = r - top;
-                        _localLight[idx] = SampleRealLight(StartPosition.X + i * Direction, ColumnPositions[i].Y + depthInColumn);
-                    }
-                    else
-                    {
-                        _localLight[idx] = SampleRealLight(StartPosition.X + i * Direction, ColumnPositions[i].Y - MaxShiftTiles + r);
-                    }
+                    int depthInColumn = r - top;
+                    _localLight[idx] = filled ? SampleRealLight(StartPosition.X + i * Direction, ColumnPositions[i].Y + depthInColumn) : _staticRealLight[idx];
                 }
             }
+
+            float decayAir = LightDecayThroughAir;
+            float decaySolid = LightDecayThroughSolid;
 
             for (int pass = 0; pass < 2; pass++)
             {
                 for (int i = 0; i < Count; i++)
                 {
-                    SweepColumn(i, true);
-                    SweepColumn(i, false);
+                    SweepColumn(i, true, decayAir, decaySolid);
+                    SweepColumn(i, false, decayAir, decaySolid);
                 }
                 for (int r = 0; r < GridHeight; r++)
                 {
-                    SweepRow(r, true);
-                    SweepRow(r, false);
+                    SweepRow(r, true, decayAir, decaySolid);
+                    SweepRow(r, false, decayAir, decaySolid);
                 }
             }
         }
 
-        private void SweepColumn(int i, bool topToBottom)
+        private void SweepColumn(int i, bool topToBottom, float decayAir, float decaySolid)
         {
             Vector3 running = Vector3.Zero;
             int start = topToBottom ? 0 : GridHeight - 1;
@@ -343,11 +341,11 @@ namespace AAModClassic.Particles.Types
                 int idx = Index(i, r);
                 running = Vector3.Max(running, _localLight[idx]);
                 _localLight[idx] = running;
-                running *= _localFilled[idx] ? LightDecayThroughSolid : LightDecayThroughAir;
+                running *= _localFilled[idx] ? decaySolid : decayAir;
             }
         }
 
-        private void SweepRow(int r, bool leftToRight)
+        private void SweepRow(int r, bool leftToRight, float decayAir, float decaySolid)
         {
             Vector3 running = Vector3.Zero;
             int start = leftToRight ? 0 : Count - 1;
@@ -359,7 +357,7 @@ namespace AAModClassic.Particles.Types
                 int idx = Index(i, r);
                 running = Vector3.Max(running, _localLight[idx]);
                 _localLight[idx] = running;
-                running *= _localFilled[idx] ? LightDecayThroughSolid : LightDecayThroughAir;
+                running *= _localFilled[idx] ? decaySolid : decayAir;
             }
         }
 
