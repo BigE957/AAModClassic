@@ -163,7 +163,7 @@ public class ParticleSystem : ModSystem
     {
         if (alphablendParticles[targetLayer].Count > 0)
         {
-            Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.Transform);
+            Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.Transform);
 
             foreach (Particle p in alphablendParticles[targetLayer])
                 p.Draw(Main.spriteBatch);
@@ -173,7 +173,7 @@ public class ParticleSystem : ModSystem
 
         if (additiveParticles[targetLayer].Count > 0)
         {
-            Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.Transform);
+            Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.Transform);
 
             foreach (Particle p in additiveParticles[targetLayer])
                 p.Draw(Main.spriteBatch);

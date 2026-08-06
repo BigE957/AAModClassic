@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.Drawing;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -100,7 +101,7 @@ namespace AAModClassic.Particles.Types
         public GroundWave(Point tilePosition, int depth, int count, bool rightwards, float peak, int columnDelay = 0, int duration = 30)
         {
             StartPosition = tilePosition;
-            Position = tilePosition.ToWorldCoordinates();
+            Position = tilePosition.ToWorldCoordinates(0, 0);
             Velocity = Vector2.Zero;
             Scale = Vector2.One;
             Duration = duration;
@@ -115,7 +116,7 @@ namespace AAModClassic.Particles.Types
             ColumnOffsets = new float[Count];
             for (int i = 0; i < Count; i++)
             {
-                ColumnPositions[i] = CollisionUtils.FindSurfaceBelow(StartPosition + new Point(i * Direction, -8), true);
+                ColumnPositions[i] = CollisionUtils.FindSurfaceBelow(StartPosition + new Point(i * Direction, 0), true);
                 ColumnOffsets[i] = 0f;
             }
 
@@ -157,6 +158,7 @@ namespace AAModClassic.Particles.Types
                 {
                     Tile t = Framing.GetTileSafely(ColumnPositions[i]);
                     int amt = WorldGen.KillTile_GetTileDustAmount(false, t, ColumnPositions[i].X, ColumnPositions[i].Y);
+                    amt = (int)(amt * (myPeak / 96f));
                     for (int j = 0; j < amt; j++)
                     {
                         int d = WorldGen.KillTile_MakeTileDust(ColumnPositions[i].X, ColumnPositions[i].Y, t);
@@ -172,6 +174,8 @@ namespace AAModClassic.Particles.Types
         {
             PropagateLocalLight();
 
+            Vector2 tileScreenPosition = new Vector2((int)Main.screenPosition.X, (int)Main.screenPosition.Y);
+
             for (int i = 0; i < Count; i++)
             {
                 Point start = ColumnPositions[i];
@@ -186,26 +190,15 @@ namespace AAModClassic.Particles.Types
 
                     if (t == null || !t.HasTile)
                         continue;
-
-                    Texture2D tileTex = TextureAssets.Tile[t.TileType].Value;
-                    Vector2 drawPosition = myTilePosition.ToWorldCoordinates() + new Vector2(0f, -offset) - Main.screenPosition;
-
+              
+                    Main.instance.TilesRenderer.GetTileDrawData(myTilePosition.X, myTilePosition.Y, t, t.TileType, ref t.TileFrameX, ref t.TileFrameY, out int tileWidth, out int tileHeight, out int tileTop, out int halfBrickHeight, out int addFrX, out int addFrY, out SpriteEffects tileSpriteEffect, out Texture2D glowTexture, out Rectangle glowSourceRect, out Color glowColor);
+                    
+                    Texture2D tileTex = Main.instance.TilePaintSystem.TryGetTileAndRequestIfNotReady(t.TileType, 0, t.TileColor);
+                    Vector2 drawPosition = myTilePosition.ToWorldCoordinates(0, 0) + new Vector2(0f, -offset) - tileScreenPosition;
+                    drawPosition = new Vector2(MathF.Floor(drawPosition.X), MathF.Floor(drawPosition.Y));
                     int r = topRow + j;
 
-                    if (t.IsHalfBlock)
-                    {
-                        Color color = new Color(GetLocalLight(i, r));
-                        Vector2 topLeft = drawPosition - new Vector2(8f, 0f);
-
-                        Rectangle top = new Rectangle(t.TileFrameX, t.TileFrameY, 16, 12);
-                        spritebatch.Draw(tileTex, topLeft, top, color, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-
-                        Rectangle lip = new Rectangle(144, 66, 16, 4);
-                        spritebatch.Draw(tileTex, topLeft + new Vector2(0f, 12f), lip, color, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-
-                        continue;
-                    }
-                    else if (t.Slope != SlopeType.Solid)
+                    if (t.Slope != SlopeType.Solid && !t.IsHalfBlock)
                     {
                         GetLocalTileSlices(i, r, ref _blendedSlices);
 
@@ -241,25 +234,44 @@ namespace AAModClassic.Particles.Types
                                     break;
                             }
 
-                            spritebatch.Draw(tileTex, drawPosition + new Vector2(num6, k * num2 + num3), new Rectangle(t.TileFrameX + num6, t.TileFrameY + num5, num2, num4), color, 0f, new Vector2(8f, 8f), 1f, 0, 0f);
+                            spritebatch.Draw(tileTex, drawPosition + new Vector2(num6, k * num2 + num3), new Rectangle(t.TileFrameX + num6, t.TileFrameY + num5, num2, num4), color, 0f, Vector2.Zero, 1f, 0, 0f);
                         }
 
                         int num7 = ((num <= 2) ? 14 : 0);
-                        Main.spriteBatch.Draw(tileTex, drawPosition + new Vector2(0f, num7), new Rectangle(t.TileFrameX, t.TileFrameY + num7, 16, 2), color, 0f, new Vector2(8f, 8f), 1f, 0, 0f);
+                        Main.spriteBatch.Draw(tileTex, drawPosition + new Vector2(0f, num7), new Rectangle(t.TileFrameX, t.TileFrameY + num7, 16, 2), color, 0f, Vector2.Zero, 1f, 0, 0f);
                         continue;
                     }
 
                     GetLocalTileSlices(i, r, ref _blendedSlices);
 
+                    int actualVisibleHeight = tileHeight - halfBrickHeight;
+
                     for (int s = 0; s < 9; s++)
                     {
                         Rectangle slice = SliceOffsets[s];
-                        Rectangle source = new(t.TileFrameX + slice.X, t.TileFrameY + slice.Y, slice.Width, slice.Height);
 
+                        int clampedHeight = slice.Height;
+                        if (slice.Y + clampedHeight > actualVisibleHeight)
+                            clampedHeight = actualVisibleHeight - slice.Y;
+
+                        if (clampedHeight <= 0)
+                            continue;
+
+                        Rectangle source = new(t.TileFrameX + addFrX + slice.X, t.TileFrameY + addFrY + slice.Y, slice.Width, clampedHeight);
                         Color sliceColor = new(_blendedSlices[s]);
-                        Rectangle destination = new((int)(drawPosition.X + slice.X - 8), (int)(drawPosition.Y + slice.Y - 8), slice.Width + 1, slice.Height + 1);
+                        Rectangle destination = new(
+                            (int)(drawPosition.X + slice.X),
+                            (int)(drawPosition.Y + slice.Y + tileTop + halfBrickHeight),
+                            slice.Width,
+                            clampedHeight
+                        );
+                        spritebatch.Draw(tileTex, destination, source, sliceColor, Rotation, Vector2.Zero, tileSpriteEffect, 0f);
 
-                        spritebatch.Draw(tileTex, destination, source, sliceColor, Rotation, Vector2.Zero, SpriteEffects.None, 0f);
+                        if (glowTexture != null)
+                        {
+                            Rectangle glowSource = new(glowSourceRect.X + slice.X, glowSourceRect.Y + slice.Y, slice.Width, clampedHeight);
+                            spritebatch.Draw(glowTexture, destination, glowSource, glowColor, Rotation, Vector2.Zero, tileSpriteEffect, 0f);
+                        }
                     }
                 }
             }
@@ -269,13 +281,6 @@ namespace AAModClassic.Particles.Types
 
         #region Vanilla Lighting Approximation Shit
         private static Vector3 SampleRealLight(int x, int y) => Lighting.GetColor(x, y).ToVector3();
-
-        private bool IsFilled(int i, int r)
-        {
-            int shiftTiles = (int)(ColumnOffsets[i] / 16f);
-            int top = MaxShiftTiles - shiftTiles;
-            return r >= top && r < top + Depth;
-        }
 
         private Vector3 GetLocalLight(int i, int r)
         {
