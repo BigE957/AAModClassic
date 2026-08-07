@@ -2,6 +2,7 @@ using AAModClassic._Content.Chaos.World.Tiles;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.RedMushroom.World.Biomes;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.Tiles.Functional;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -22,7 +23,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Functiona
     public class RedMushroomPylon_Tile : PylonAbstract_Tile
     {
         public override int PylonItemID => ModContent.ItemType<RedMushroomPylon>();
-        public override Condition ShopCondition => RedMushroomConditions.InAnyRedMushroom;
+        public override Condition ShopCondition => AAConditions.InAnyRedMushroom;
         public override bool TeleportBiomeRequirements => AAWorld.mushTiles > 100;
         public override (float, float, float) LightColor => (0.8f, 0.7f, 0.3f);
         public override Color DustColor => new Color(0.6f, 0.5f, 0.1f, 1f);
