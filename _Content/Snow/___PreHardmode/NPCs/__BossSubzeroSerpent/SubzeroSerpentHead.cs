@@ -25,7 +25,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 {
-	public class SubzeroSerpentHead : BiomeConvertableNPC
+    [AutoloadBossHead]
+    public class SubzeroSerpentHead : BiomeConvertableNPC
 	{
         public int damage = 0;
 
@@ -33,7 +34,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
         private static readonly Dictionary<string, int> UnofficialHeadSlots = [];
 
         public override string Texture => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpentHead";
-        public override string HeadTexture => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpentHead_Boss";
+        public override string BossHeadTexture => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpentHead_Boss";
         
         public override string AssetPath => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/";
         public override bool SeperateBiomeFolders => true;
@@ -45,7 +46,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             foreach (var biome in Biomes)
             {
                 if (biome.Name == "Default")
-                    HeadSlots.Add(biome.Name, Mod.AddBossHeadTexture(HeadTexture, Type));
+                    HeadSlots.Add(biome.Name, Mod.AddBossHeadTexture(BossHeadTexture, Type));
                 else
                     HeadSlots.Add(biome.Name, Mod.AddBossHeadTexture(Texture.Replace("Default", biome.Name) + "_" + biome.Name + "_Head_Boss", Type));
             }
