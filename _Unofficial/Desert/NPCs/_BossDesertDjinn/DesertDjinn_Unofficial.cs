@@ -22,7 +22,22 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
         public override string BossHeadTexture => "AAModClassic/_Content/Desert/___PreHardmode/NPCs/__BossDesertDjinn/DesertDjinn_Head_Boss";
 
         public int Exhaustion = 0;
-        public static int ExhaustionCap => Main.masterMode ? 8 : Main.expertMode ? 7 : 5;
+        public int ExhaustionCap 
+        { 
+            get 
+            {
+                if (Main.expertMode && Phase2) //P2 Expert+ (Infinite)
+                    return int.MaxValue;
+
+                if (Main.masterMode || Phase2) //P1 Master or P2 Normal
+                    return 9;
+
+                if (Main.expertMode) //P1 Expert
+                    return 7;
+
+                return 6;
+            } 
+        }
 
         public enum DjinnState
         {
@@ -43,6 +58,8 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
         public Vector2 AttackVector = Vector2.Zero;
         public int AttackCounter = 0;
 
+        public bool Phase2 => NPC.life / (float)NPC.lifeMax <= 0.5f;
+
         public Player Target => Main.player[NPC.target];
 
         private int FrameX = 0;
@@ -51,6 +68,9 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
         {
             // DisplayName.SetDefault("Desert Djinn");
             Main.npcFrameCount[NPC.type] = 9;
+            NPCID.Sets.TrailingMode[Type] = 3;
+            NPCID.Sets.TrailCacheLength[Type] = 10;
+
             this.HideFromBestiary();
         }
 
@@ -617,14 +637,32 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                             Time = 0;
                             AttackFlag = false;
                             NPC.rotation = 0f;
+                            NPC.velocity = Vector2.Zero;
 
                             if (Exhaustion + 1 < ExhaustionCap)
                             {
-                                CurrentState = Main.rand.NextBool() ? DjinnState.TwisterPunch : DjinnState.MudaMuda;
+                                if(Phase2)
+                                {
+                                    if (AttackCounter <= (Main.masterMode ? 2 : Main.expertMode ? 1 : 0))
+                                        CurrentState = DjinnState.MudaMuda;
+                                    else if (Main.rand.NextBool(AttackCounter - (Main.masterMode ? 1 : Main.expertMode ? 0 : -1)))
+                                        CurrentState = DjinnState.MudaMuda;
+                                    else
+                                        CurrentState = DjinnState.TwisterPunch;
+                                }
+                                else
+                                    CurrentState = Main.rand.NextBool(AttackCounter + 2) ? DjinnState.MudaMuda : DjinnState.TwisterPunch;
+                                
+                                if (CurrentState == DjinnState.TwisterPunch)
+                                    AttackCounter = 0;
+                                else
+                                    AttackCounter++;
+
                                 Exhaustion += 1;
                             }
                             else
                             {
+                                AttackCounter = 0;
                                 FrameX = 0;
                                 CurrentState = DjinnState.RecoverFlex;
                             }
@@ -717,8 +755,14 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
             NPC.spriteDirection = NPC.direction;
 
-            if (!Target.ZoneDesert)
-                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, texture, NPC.Center - Main.screenPosition, NPC.velocity, 7, NPC.frame, Color.Goldenrod * NPC.Opacity, NPC.scale, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection());
+            if (!NPC.IsABestiaryIconDummy && (!Target.ZoneDesert || Phase2))
+            {
+                Vector2[] positions = new Vector2[NPC.oldPos.Length];
+                for (int i = 0; i < positions.Length; i++)
+                    positions[i] = NPC.oldPos[i] + NPC.frame.Size() * 0.5f;
+                
+                DrawingUtils.DrawCenteredAfterimages(spriteBatch, NPC, NPCID.Sets.TrailingMode[Type], Color.Goldenrod);
+            }
 
             spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor * NPC.Opacity, NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, NPC.SpriteEffectDirection(), 0);
 

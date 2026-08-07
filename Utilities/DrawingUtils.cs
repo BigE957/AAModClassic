@@ -112,7 +112,6 @@ namespace AAModClassic.Utilities
 
         public static void DrawAfterimage(this SpriteBatch sb, Texture2D texture, Vector2[] positions, Rectangle? frame, Color color, float scale, float[] rotations, Vector2 origin, SpriteEffects effects = 0, float distanceScalar = 1.0F, float sizeScalar = 1f)
         {
-            Vector2 velAddon = Vector2.Zero;
             Vector2 originalpos = positions[0];
             int imageCount = positions.Length;
 
@@ -122,7 +121,7 @@ namespace AAModClassic.Utilities
                 Color newColor = color * ((imageCount + 3 - i) / (float)(imageCount + 9));
                 Vector2 position = Vector2.Lerp(originalpos, (i >= positions.Length ? positions[positions.Length - 1] : positions[i]), distanceScalar);
                 float rotation = rotations == null ? 0 : i >= rotations.Length ? rotations[^1] : rotations[i];
-                sb.Draw(texture, position - Main.screenPosition, frame, newColor, rotation, frame.HasValue ? frame.Value.Size() * 0.5f : texture.Size() * 0.5f, scale, effects, 0);
+                sb.Draw(texture, position - Main.screenPosition, frame, newColor, rotation, origin, scale, effects, 0);
             }
         }
 
@@ -227,7 +226,7 @@ namespace AAModClassic.Utilities
         /// <param name="typeOneIncrement">If mode 1 is used, this controls the loop increment. Set it to more than 1 to skip afterimages.</param>
         /// <param name="texture">The texture to draw. Set to <b>null</b> to draw the projectile's own loaded texture.</param>
         /// <param name="drawCentered">If <b>false</b>, the afterimages will be centered on the projectile's position instead of its own center.</param>
-        public static void DrawCenteredAfterimages(NPC npc, int mode, Color lightColor, int typeOneIncrement = 1, Texture2D texture = null, bool drawCentered = true)
+        public static void DrawCenteredAfterimages(SpriteBatch spriteBatch, NPC npc, int mode, Color lightColor, int typeOneIncrement = 1, Texture2D texture = null, bool drawCentered = true)
         {
             texture ??= TextureAssets.Npc[npc.type].Value;
             float scale = npc.scale;
@@ -251,7 +250,7 @@ namespace AAModClassic.Utilities
                         {
                             Vector2 position2 = npc.oldPos[j] + vector - Main.screenPosition + new Vector2(0f, npc.gfxOffY);
                             Color color2 = alpha * ((float)(npc.oldPos.Length - j) / (float)npc.oldPos.Length);
-                            Main.spriteBatch.Draw(texture, position2, frame, color2, rotation, origin, scale, effects, 0f);
+                            spriteBatch.Draw(texture, position2, frame, color2, rotation, origin, scale, effects, 0f);
                         }
 
                         break;
@@ -271,7 +270,7 @@ namespace AAModClassic.Utilities
                                 color3 *= num5 / num4;
                             }
 
-                            Main.spriteBatch.Draw(texture, position3, frame, color3, rotation, origin, scale, effects, 0f);
+                            spriteBatch.Draw(texture, position3, frame, color3, rotation, origin, scale, effects, 0f);
                         }
 
                         break;
@@ -284,7 +283,27 @@ namespace AAModClassic.Utilities
                             SpriteEffects effects2 = ((npc.spriteDirection == -1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None);
                             Vector2 position = npc.oldPos[i] + vector - Main.screenPosition + new Vector2(0f, npc.gfxOffY);
                             Color color = alpha * ((float)(npc.oldPos.Length - i) / (float)npc.oldPos.Length);
-                            Main.spriteBatch.Draw(texture, position, frame, color, rotation2, origin, scale, effects2, 0f);
+                            spriteBatch.Draw(texture, position, frame, color, rotation2, origin, scale, effects2, 0f);
+                        }
+
+                        break;
+                    }
+                case 3:
+                    {
+                        int num2 = Math.Max(1, typeOneIncrement);
+                        Color color3 = alpha;
+                        int num3 = NPCID.Sets.TrailCacheLength[npc.type];
+                        float num4 = (float)num3 * 1.5f;
+                        for (int k = 0; k < num3; k += num2)
+                        {
+                            Vector2 position3 = npc.oldPos[k] + vector - Main.screenPosition + new Vector2(0f, npc.gfxOffY);
+                            if (k > 0)
+                            {
+                                float num5 = num3 - k;
+                                color3 *= num5 / num4;
+                            }
+
+                            spriteBatch.Draw(texture, position3, frame, color3, npc.oldRot[k], origin, scale, effects, 0f);
                         }
 
                         break;
@@ -297,7 +316,7 @@ namespace AAModClassic.Utilities
             if (NPCID.Sets.TrailCacheLength[npc.type] <= 0 || flag)
             {
                 Vector2 vector2 = (drawCentered ? npc.Center : npc.position);
-                Main.spriteBatch.Draw(texture, vector2 - Main.screenPosition + new Vector2(0f, npc.gfxOffY), frame, npc.GetAlpha(lightColor), rotation, origin, scale, effects, 0f);
+                spriteBatch.Draw(texture, vector2 - Main.screenPosition + new Vector2(0f, npc.gfxOffY), frame, npc.GetAlpha(lightColor), rotation, origin, scale, effects, 0f);
             }
         }
 

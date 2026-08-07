@@ -284,7 +284,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 
                 //BaseDrawing.DrawAfterimage(spriteBatch, Trail.Value, 0, NPC, 1, 1, 8, true, 0, 0, Color.Black, NPC.frame, 7);
                 if(!NPC.IsABestiaryIconDummy)
-                    DrawingUtils.DrawCenteredAfterimages(NPC, NPCID.Sets.TrailingMode[NPC.type], Color.Black, 1, Trail.Value);
+                    DrawingUtils.DrawCenteredAfterimages(spriteBatch, NPC, NPCID.Sets.TrailingMode[NPC.type], Color.Black, 1, Trail.Value);
                 spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0f);
                 DrawingUtils.DrawAura(spriteBatch, Glowmask.Value, NPC, auraPercent, 1, 0, 0, c);
                 spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, c, NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, NPC.SpriteEffectDirection(), 0f);
