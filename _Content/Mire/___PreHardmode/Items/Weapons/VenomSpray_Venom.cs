@@ -69,7 +69,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
         
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-        	target.immune[Projectile.owner] = 8;
+        	target.immune[Projectile.owner] = 8; //TODO: this doesnt look good
         	target.AddBuff(BuffID.Poisoned, 400);
         }
     }

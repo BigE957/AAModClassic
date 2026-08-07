@@ -476,3 +476,12 @@ SquidStorm: {
 	DisplayName: Squid Storm
 	Tooltip: Casts tentacles from the R'lyehian depths
 }
+
+ShadowHand: {
+	DisplayName: Shadow Hand
+	Tooltip: 
+		'''
+		Casts a shadow hand from nearby ground
+		The hand latches onto enemies and deals damage over time
+		'''
+}

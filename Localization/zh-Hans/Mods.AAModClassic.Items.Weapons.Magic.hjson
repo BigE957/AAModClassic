@@ -476,3 +476,8 @@ SquidStorm: {
 	DisplayName: 鱿鱼风暴
 	Tooltip: 从拉莱耶深渊召来触手
 }
+
+ShadowHand: {
+	// DisplayName: Shadow Hand
+	// Tooltip: ""
+}

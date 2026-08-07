@@ -16,6 +16,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unofficial.Content.Desert.___PreHardmode.Items.Accessories
 {
+    [AutoloadEquip(EquipType.Neck)]
     public class PrimevalScarf : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";

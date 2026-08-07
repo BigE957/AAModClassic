@@ -476,3 +476,8 @@ SquidStorm: {
 	DisplayName: Tormenta de Calamares
 	Tooltip: Invoca tentáculos desde las profundidades de R'lyehian
 }
+
+ShadowHand: {
+	// DisplayName: Shadow Hand
+	// Tooltip: ""
+}

@@ -473,3 +473,8 @@ SquidStorm: {
 	DisplayName: Игра в кальмара
 	Tooltip: Выпускает щупальца из глубин Р'льеха
 }
+
+ShadowHand: {
+	// DisplayName: Shadow Hand
+	// Tooltip: ""
+}

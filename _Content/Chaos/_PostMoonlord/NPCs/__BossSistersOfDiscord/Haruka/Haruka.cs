@@ -239,9 +239,6 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         {
             NPC.TargetClosest(true);
             Player player = Main.player[NPC.target];
-            damage = 70;
-            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                damage = 40;
 
             int ashe = NPC.CountNPCS(ModContent.NPCType<Ashe.Ashe>());
             bool flag = player.dead || !player.active || Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000f || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000f;

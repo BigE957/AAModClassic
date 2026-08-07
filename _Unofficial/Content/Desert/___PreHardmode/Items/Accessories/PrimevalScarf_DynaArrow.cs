@@ -46,6 +46,8 @@ namespace AAModClassic._Unofficial.Content.Desert.___PreHardmode.Items.Accessori
             Projectile.tileCollide = false;
 
             Projectile.damage = 15;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 1;
         }
 
         public override bool? CanCutTiles()
@@ -149,7 +151,7 @@ namespace AAModClassic._Unofficial.Content.Desert.___PreHardmode.Items.Accessori
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D bloom = ModContent.Request<Texture2D>(AssetDirectory.General.Bloom_Medium).Value;
+            Texture2D bloom = ModContent.Request<Texture2D>(General.Bloom_Medium).Value;
 
             Rectangle arrowRect = new Rectangle(0, 0, 10, 28);
             Rectangle sphereRect = new Rectangle(arrowRect.Width, 0, 16, 28);
