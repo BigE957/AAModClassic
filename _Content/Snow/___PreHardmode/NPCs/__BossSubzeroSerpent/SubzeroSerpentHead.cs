@@ -81,6 +81,11 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             ]);
         }
 
+        public override void BossHeadRotation(ref float rotation)
+        {
+            rotation = NPC.rotation;
+        }
+
         public override void SetDefaults()
 		{
             base.SetDefaults();

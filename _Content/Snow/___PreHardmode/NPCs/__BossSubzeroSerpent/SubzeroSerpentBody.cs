@@ -4,6 +4,7 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -16,9 +17,29 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
         public ref float HasChosenVerticalFrame => ref NPC.localAI[0];
         public ref float VerticalFrame => ref NPC.localAI[1];
 
+        private static readonly Dictionary<string, int> HeadSlots = [];
+
         public override string Texture => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpentBody";
         public override string AssetPath => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/";
         public override bool SeperateBiomeFolders => true;
+
+        public override void Load()
+        {
+            base.Load();
+
+            foreach (var biome in Biomes)
+            {
+                if (biome.Name == "Default")
+                    HeadSlots.Add(biome.Name, Mod.AddBossHeadTexture(Texture + "_Head_Boss", Type));
+                else
+                    HeadSlots.Add(biome.Name, Mod.AddBossHeadTexture(Texture.Replace("Default", biome.Name) + "_" + biome.Name + "_Head_Boss", Type));
+            }
+        }
+
+        public override void BossHeadSlot(ref int index)
+        {
+            index = HeadSlots[BiomeType];
+        }
 
         public override void SetStaticDefaults()
         {
@@ -47,12 +68,17 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             NPC.HitSound = SoundID.NPCHit5;
             NPC.DeathSound = SoundID.NPCDeath7;
             NPC.netAlways = true;
-            NPC.boss = true;
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
+            NPC.boss = false;
             Music = MusicManagementSystem.MusicSlots["Subzero"];
             NPC.alpha = 50;
             NPC.dontCountMe = true;
         }
 
+        public override void BossHeadRotation(ref float rotation)
+        {
+            rotation = NPC.rotation;
+        }
         public override void AI()
         {
             if (NPC.ai[3] > 0f)
