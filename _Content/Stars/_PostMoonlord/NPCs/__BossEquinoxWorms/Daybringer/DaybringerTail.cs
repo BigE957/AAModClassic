@@ -16,6 +16,8 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             base.SetDefaults();
             NPC.dontCountMe = true;
             NPC.npcSlots = 0;
+            NPC.boss = false;
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
         }
 
         public override bool PreKill()

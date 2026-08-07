@@ -39,6 +39,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
             RepairMode = false;
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
+
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

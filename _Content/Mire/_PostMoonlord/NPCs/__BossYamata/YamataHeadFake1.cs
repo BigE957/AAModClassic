@@ -45,6 +45,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             {
                 NPC.buffImmune[k] = true;
             }
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
         }
 
         public float[] customAI = new float[4];
