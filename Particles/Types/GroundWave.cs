@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -24,10 +25,13 @@ namespace AAModClassic.Particles.Types
             new Rectangle(12, 12, 4, 4),
         ];
 
+        private const float NoLightThreshold = 0.001f;
+
         private readonly Point StartPosition;
         private readonly Point[] ColumnPositions;
         private readonly float[] ColumnOffsets;
-        private readonly int Depth = 1;
+        private readonly int[] ColumnDepths;
+
         private readonly int Count = 1;
         private readonly int Direction = 1;
         private readonly float Peak = 16f;
@@ -40,9 +44,13 @@ namespace AAModClassic.Particles.Types
         private readonly Vector3[] _localLight;
         private readonly bool[] _localFilled;
         private readonly Vector3[] _staticRealLight;
+        private readonly bool[] _staticRealFilled;
 
-        private static float LightDecayThroughAir 
-        { 
+        private readonly List<Point> _hiddenRealTiles;
+        private bool _hiddenTilesUnregistered;
+
+        private static float LightDecayThroughAir
+        {
             get
             {
                 float LightDecayThroughAir = 0.91f;
@@ -77,7 +85,7 @@ namespace AAModClassic.Particles.Types
                 if (Main.LocalPlayer.nightVision)
                     LightDecayThroughSolid *= 1.03f;
 
-                if (Main.LocalPlayer.blind)   
+                if (Main.LocalPlayer.blind)
                     LightDecayThroughSolid *= 0.95f;
 
                 if (Main.LocalPlayer.blackout)
@@ -98,7 +106,7 @@ namespace AAModClassic.Particles.Types
             }
         }
 
-        public GroundWave(Point tilePosition, int depth, int count, bool rightwards, float peak, int columnDelay = 0, int duration = 30)
+        public GroundWave(Point tilePosition, int count, bool rightwards, float peak, int columnDelay = 0, int duration = 30)
         {
             StartPosition = tilePosition;
             Position = tilePosition.ToWorldCoordinates(0, 0);
@@ -114,49 +122,127 @@ namespace AAModClassic.Particles.Types
 
             ColumnPositions = new Point[Count];
             ColumnOffsets = new float[Count];
+            int surfaceOffset = 0;
             for (int i = 0; i < Count; i++)
             {
-                ColumnPositions[i] = CollisionUtils.FindSurfaceBelow(StartPosition + new Point(i * Direction, 0), true);
+                ColumnPositions[i] = CollisionUtils.FindSurfaceAround(StartPosition + new Point(i * Direction, surfaceOffset));
+                surfaceOffset = ColumnPositions[i].Y - StartPosition.Y;
                 ColumnOffsets[i] = 0f;
             }
 
             MaxShiftTiles = (int)MathF.Ceiling(Peak / 16f);
 
-            int requiredDepth = depth;
+            ColumnDepths = new int[Count];
+            _hiddenRealTiles = new List<Point>();
+            int maxColumnDepth = 0;
             for (int i = 0; i < Count; i++)
             {
-                int myY = ColumnPositions[i].Y;
+                int naturalDepth = ComputeColumnDepth(i, out bool endedOnGap);
 
-                int leftY = (i > 0) ? ColumnPositions[i - 1].Y : myY;
-                int rightY = (i < Count - 1) ? ColumnPositions[i + 1].Y : myY;
+                if (endedOnGap)
+                {
+                    int revealCount = Math.Min(naturalDepth, (int)MathF.Ceiling(GetColumnPeak(i) / 16f));
+                    for (int k = 0; k < revealCount; k++)
+                    {
+                        int row = naturalDepth - 1 - k; // from the bottom tile upward
+                        _hiddenRealTiles.Add(ColumnPositions[i] + new Point(0, row));
+                    }
+                }
 
-                int maxDrop = Math.Max(leftY - myY, rightY - myY);
-
-                int neededDepth = maxDrop + MaxShiftTiles + 2;
-                if (neededDepth > requiredDepth)
-                    requiredDepth = neededDepth;
+                int columnDepth = Math.Max(1, naturalDepth);
+                ColumnDepths[i] = columnDepth;
+                if (columnDepth > maxColumnDepth)
+                    maxColumnDepth = columnDepth;
             }
 
-            Depth = requiredDepth;
-            GridHeight = MaxShiftTiles + Depth;
+            if (_hiddenRealTiles.Count > 0)
+                GroundWaveGlobalTile.RegisterHiddenTiles(_hiddenRealTiles);
+
+            GridHeight = MaxShiftTiles + maxColumnDepth;
 
             _staticRealLight = new Vector3[Count * GridHeight];
+            _staticRealFilled = new bool[Count * GridHeight];
             for (int i = 0; i < Count; i++)
+            {
                 for (int r = 0; r < GridHeight; r++)
-                    _staticRealLight[Index(i, r)] = SampleRealLight(StartPosition.X + i * Direction, ColumnPositions[i].Y - MaxShiftTiles + r);
+                {
+                    int idx = Index(i, r);
+                    int worldX = StartPosition.X + i * Direction;
+                    int worldY = ColumnPositions[i].Y - MaxShiftTiles + r;
+
+                    _staticRealLight[idx] = SampleRealLight(worldX, worldY);
+
+                    Tile t = Framing.GetTileSafely(new Point(worldX, worldY));
+                    _staticRealFilled[idx] = t != null && t.HasTile;
+                }
+            }
 
             _localLight = new Vector3[Count * GridHeight];
             _localFilled = new bool[Count * GridHeight];
         }
 
+        private int ComputeColumnDepth(int column, out bool endedOnGap)
+        {
+            endedOnGap = false;
+            Point columnStart = ColumnPositions[column];
+            int maxDepth = GetTilesToScreenBottom(columnStart.Y) + (int)MathF.Ceiling(GetColumnPeak(column) / 16f);
+
+            int consecutiveDarkTiles = 0;
+            for (int k = 0; k < maxDepth; k++)
+            {
+                Point p = columnStart + new Point(0, k);
+                Tile t = Framing.GetTileSafely(p);
+
+                if (t == null || !t.HasTile)
+                {
+                    endedOnGap = true;
+                    return k;
+                }
+
+                Vector3 light = SampleRealLight(p.X, p.Y);
+                bool noLight = light.X <= NoLightThreshold && light.Y <= NoLightThreshold && light.Z <= NoLightThreshold;
+
+                if (noLight)
+                {
+                    consecutiveDarkTiles++;
+                    if (consecutiveDarkTiles >= 2)
+                        return (int)MathF.Min(k + (int)MathF.Ceiling(GetColumnPeak(column) / 16f), maxDepth);
+                }
+                else
+                {
+                    consecutiveDarkTiles = 0;
+                }
+            }
+
+            return maxDepth;
+        }
+
+        private static int GetTilesToScreenBottom(int startTileY)
+        {
+            int screenBottomWorldY = (int)Main.screenPosition.Y + Main.screenHeight;
+            int screenBottomTileY = screenBottomWorldY / 16;
+            return Math.Max(screenBottomTileY - startTileY + 1, 1);
+        }
+
+        private float GetColumnPeak(int i)
+        {
+            float heightRatio = MathHelper.Lerp(0.05f, 0.95f, i / (float)Count);
+            return MathF.Sin(heightRatio * MathHelper.Pi) * Peak;
+        }
+
         public override void Update()
         {
+            if (!_hiddenTilesUnregistered && Time >= Lifetime - 4 && _hiddenRealTiles.Count > 0)
+            {
+                GroundWaveGlobalTile.UnregisterHiddenTiles(_hiddenRealTiles);
+                _hiddenTilesUnregistered = true;
+            }
+
             for (int i = 0; i < Count; i++)
             {
                 float ratio = MathHelper.Clamp((Time - (ColumnDelay * i)) / (float)Duration, 0f, 1f);
 
-                float heightRatio = MathHelper.Lerp(0.05f, 0.95f, i / (float)Count);
-                float myPeak = MathF.Sin(heightRatio * MathHelper.Pi) * Peak;
+                float myPeak = GetColumnPeak(i);
                 ColumnOffsets[i] = MathF.Sin(ratio * MathHelper.Pi) * myPeak;
 
                 if (Time == (ColumnDelay * i))
@@ -175,11 +261,16 @@ namespace AAModClassic.Particles.Types
             Time++;
         }
 
+        public override void OnKill(bool wasEvicted)
+        {
+            
+        }
+
         public override void Draw(SpriteBatch spritebatch)
         {
             PropagateLocalLight();
 
-            Vector2 tileScreenPosition = new Vector2((int)Main.screenPosition.X, (int)Main.screenPosition.Y);
+            Vector2 tileScreenPosition = new((int)Main.screenPosition.X, (int)Main.screenPosition.Y);
 
             for (int i = 0; i < Count; i++)
             {
@@ -187,15 +278,16 @@ namespace AAModClassic.Particles.Types
                 float offset = ColumnOffsets[i];
                 int shiftTiles = (int)(offset / 16f);
                 int topRow = MaxShiftTiles - shiftTiles;
+                int myDepth = ColumnDepths[i];
 
-                for (int j = 0; j < Depth; j++)
+                for (int j = 0; j < myDepth; j++)
                 {
                     Point myTilePosition = start + new Point(0, j);
                     Tile t = Framing.GetTileSafely(myTilePosition);
 
                     if (t == null || !t.HasTile)
                         continue;
-              
+
                     Main.instance.TilesRenderer.GetTileDrawData(myTilePosition.X, myTilePosition.Y, t, t.TileType, ref t.TileFrameX, ref t.TileFrameY, out int tileWidth, out int tileHeight, out int tileTop, out int halfBrickHeight, out int addFrX, out int addFrY, out SpriteEffects tileSpriteEffect, out Texture2D glowTexture, out Rectangle glowSourceRect, out Color glowColor);
 
                     Texture2D tileTex = Main.instance.TilePaintSystem.TryGetTileAndRequestIfNotReady(t.TileType, 0, t.TileColor) ?? TextureAssets.Tile[t.TileType].Value;
@@ -299,17 +391,19 @@ namespace AAModClassic.Particles.Types
         {
             for (int i = 0; i < Count; i++)
             {
+                int myDepth = ColumnDepths[i];
+
                 for (int r = 0; r < GridHeight; r++)
                 {
                     int idx = Index(i, r);
                     int shiftTiles = (int)(ColumnOffsets[i] / 16f);
                     int top = MaxShiftTiles - shiftTiles;
 
-                    bool filled = r >= top && r < top + Depth;
-                    _localFilled[idx] = filled;
+                    bool withinTrackedDepth = r >= top && r < top + myDepth;
+                    _localFilled[idx] = withinTrackedDepth || _staticRealFilled[idx];
 
                     int depthInColumn = r - top;
-                    _localLight[idx] = filled ? SampleRealLight(StartPosition.X + i * Direction, ColumnPositions[i].Y + depthInColumn) : _staticRealLight[idx];
+                    _localLight[idx] = withinTrackedDepth ? SampleRealLight(StartPosition.X + i * Direction, ColumnPositions[i].Y + depthInColumn) : _staticRealLight[idx];
                 }
             }
 
@@ -389,5 +483,41 @@ namespace AAModClassic.Particles.Types
                 outSlices[s] = (outSlices[s] + flat) * 0.5f;
         }
         #endregion
+    }
+
+    public class GroundWaveGlobalTile : GlobalTile
+    {
+        private static readonly Dictionary<Point, int> HiddenTileRefCounts = [];
+
+        public static void RegisterHiddenTiles(List<Point> tiles)
+        {
+            foreach (Point p in tiles)
+            {
+                HiddenTileRefCounts.TryGetValue(p, out int count);
+                HiddenTileRefCounts[p] = count + 1;
+            }
+        }
+
+        public static void UnregisterHiddenTiles(List<Point> tiles)
+        {
+            foreach (Point p in tiles)
+            {
+                if (!HiddenTileRefCounts.TryGetValue(p, out int count))
+                    continue;
+
+                if (count <= 1)
+                    HiddenTileRefCounts.Remove(p);
+                else
+                    HiddenTileRefCounts[p] = count - 1;
+            }
+        }
+
+        public override bool PreDraw(int i, int j, int type, SpriteBatch spriteBatch)
+        {
+            if (HiddenTileRefCounts.Count > 0 && HiddenTileRefCounts.ContainsKey(new Point(i, j)))
+                return false;
+
+            return base.PreDraw(i, j, type, spriteBatch);
+        }
     }
 }

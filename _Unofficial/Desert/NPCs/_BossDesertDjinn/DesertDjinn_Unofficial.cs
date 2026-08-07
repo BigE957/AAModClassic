@@ -22,7 +22,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
         public override string BossHeadTexture => "AAModClassic/_Content/Desert/___PreHardmode/NPCs/__BossDesertDjinn/DesertDjinn_Head_Boss";
 
         public int Exhaustion = 0;
-        public static int ExhaustionCap => Main.masterMode ? 7 : Main.expertMode ? 6 : 5;
+        public static int ExhaustionCap => Main.masterMode ? 8 : Main.expertMode ? 7 : 5;
 
         public enum DjinnState
         {
@@ -31,14 +31,17 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
             GrandSlam,
             TwisterPunch,
             SubmergedUppercut,
-            Dive
+            Dive,
+            MudaMuda
         }
 
         public DjinnState CurrentState { get => (DjinnState)NPC.ai[0]; set => NPC.ai[0] = (float)value; }
         public DjinnState PreviousStartingState = DjinnState.Spawn;
         public ref float Time => ref NPC.ai[1];
         public bool AttackFlag = false;
+        public bool AttemptFailedFlag = false;
         public Vector2 AttackVector = Vector2.Zero;
+        public int AttackCounter = 0;
 
         public Player Target => Main.player[NPC.target];
 
@@ -59,6 +62,8 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
 
         public override void AI()
         {
+            NPC.hide = CurrentState == DjinnState.SubmergedUppercut;
+
             switch (CurrentState)
             {
                 case DjinnState.Spawn:
@@ -66,7 +71,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                     NPC.velocity = ((Target.Center - Vector2.UnitY * 96f) - NPC.Center) / 90f;
                     if(Time > 120)
                     {
-                        CurrentState = DjinnState.TwisterPunch;
+                        CurrentState = DjinnState.MudaMuda;
                         Time = 0;
                         Exhaustion++;
                         return;
@@ -74,14 +79,21 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                     break;
                 case DjinnState.RecoverFlex:
                     NPC.TargetClosest();
-                    
-                    if(Time < 240)
+
+                    if (Time < 240)
+                    {
                         NPC.velocity *= 0.95f;
+                        if(Time <= 30f)
+                        {
+                            NPC.Center = Vector2.Lerp(NPC.Center, CollisionUtils.FindSurfaceBelow(NPC.Center.ToTileCoordinates(), true).ToWorldCoordinates(8f, -NPC.height), Time / 30f);
+                        }
+                    }
                     else
                         NPC.velocity = ((Target.Center - Vector2.UnitY * 96f) - NPC.Center) / 90f;
 
                     if (Time >= 30 && Time < 240)
                     {
+                        NPC.damage = 0;
                         if (Time == 30)
                         {
                             NPC.frameCounter = -1;
@@ -90,12 +102,15 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         FrameX = 5;
                     }
                     else
+                    {
+                        NPC.damage = NPC.defDamage;
                         FrameX = 0;
+                    }
 
 
                     if (Time >= 300)
                     {
-                        List<DjinnState> options = [DjinnState.GrandSlam, DjinnState.TwisterPunch, DjinnState.SubmergedUppercut, DjinnState.Dive];
+                        List<DjinnState> options = [DjinnState.GrandSlam, DjinnState.TwisterPunch, DjinnState.SubmergedUppercut, DjinnState.Dive, DjinnState.MudaMuda];
                         options.Remove(PreviousStartingState);
 
                         CurrentState = options[Main.rand.Next(options.Count)];
@@ -119,7 +134,8 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         }
                         else
                         {
-                            CurrentState = DjinnState.Spawn;
+                            CurrentState = DjinnState.Dive;
+                            Exhaustion -= 1;
                             Time--;
                         }
                     }
@@ -129,7 +145,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         {
                             NPC.velocity.Y += gravity;
 
-                            if(Collision.SolidCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
+                            if(Time > 10 && (NPC.Bottom.Y + NPC.velocity.Y) > Target.Bottom.Y && CollisionUtils.SurfaceCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
                             {
                                 SoundEngine.PlaySound(SoundID.DD2_MonkStaffGroundImpact, NPC.Center);
                                 Time = 0;
@@ -138,29 +154,37 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                                 for (int i = -3; i <= 3; i++)
                                 {
                                     Point s = NPC.Center.ToTileCoordinates() - new Point(-i * NPC.direction, 8);
-                                    Point g = CollisionUtils.FindSurfaceBelow(s, true);
+                                    Point g = CollisionUtils.FindSurfaceBelow(s);
                                     WorldGen.KillTile(g.X, g.Y, effectOnly: true);
                                 }
 
                                 Point start = NPC.Center.ToTileCoordinates() - new Point(-2 * NPC.direction, 8);
-                                Point ground = CollisionUtils.FindSurfaceBelow(start, true);
-                                GroundWave particle = new(ground, 16, 32, NPC.direction == 1, 108, 1, 16);
+                                Point ground = CollisionUtils.FindSurfaceBelow(start);
+                                GroundWave particle = new(ground, 32, NPC.direction == 1, 162, 1, 16);
                                 ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
                                 int dir = (NPC.direction == 1 ? 1 : -1);
 
-                                Projectile proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(16 * dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), 10, 0f);
+                                Projectile proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(16 * dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), 10, 0f, ai1: 10);
                                 proj.timeLeft = particle.Lifetime - 12;
+                                proj.height = 150;
+                                proj.position.Y -= 25;
 
                                 start = NPC.Center.ToTileCoordinates() - new Point(2 * NPC.direction, 8);
-                                ground = CollisionUtils.FindSurfaceBelow(start, true);
-                                ParticleSystem.SpawnParticle(new GroundWave(ground, 8, 10, NPC.direction != 1, 24, 3, 16), DrawLayer.AfterPlayers);
+                                ground = CollisionUtils.FindSurfaceBelow(start);
+                                ParticleSystem.SpawnParticle(new GroundWave(ground, 10, NPC.direction != 1, 24, 3, 16), DrawLayer.AfterPlayers);
 
-                                if (Exhaustion + 1 < ExhaustionCap && Main.rand.NextBool())
+                                bool tooFar = NPC.DistanceSQ(Target.Center) > 640000;
+                                if (tooFar || (Exhaustion + 1 < ExhaustionCap && Collision.SolidCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))) //800^2
                                 {
-                                    Time = 0;                                
-                                    CurrentState = DjinnState.SubmergedUppercut;
-                                    AttackFlag = true;
-                                    Exhaustion++;
+                                    if (tooFar || Main.rand.NextBool())
+                                    {
+                                        Time = 0;
+                                        CurrentState = DjinnState.SubmergedUppercut;
+                                        AttackFlag = true;
+                                        Exhaustion++;
+                                    }
+                                    else
+                                        AttemptFailedFlag = true;
                                 }
                                 return;
                             }
@@ -179,14 +203,15 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
 
                                 if (Exhaustion + 1 < ExhaustionCap)
                                 {
-                                    CurrentState = DjinnState.Dive;
+                                    CurrentState = AttemptFailedFlag ? DjinnState.MudaMuda : DjinnState.SubmergedUppercut;
                                     Exhaustion++;
                                 }
                                 else
                                 {
                                     FrameX = 0;
                                     CurrentState = DjinnState.RecoverFlex;
-                                }                               
+                                }
+                                AttemptFailedFlag = false;
                                 return;
                             }
                         }
@@ -206,9 +231,9 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         Point hitPos = Point.Zero;
                         int mod = (int)Time % 4;
                         if (mod == 0)
-                            hitPos = CollisionUtils.FindSurfaceBelow((Target.Center - Vector2.UnitX * 96).ToTileCoordinates(), true);
+                            hitPos = CollisionUtils.FindSurfaceBelow((Target.Center - Vector2.UnitX * 96).ToTileCoordinates());
                         else if(mod == 2)
-                            hitPos = CollisionUtils.FindSurfaceBelow((Target.Center + Vector2.UnitX * 96).ToTileCoordinates(), true);
+                            hitPos = CollisionUtils.FindSurfaceBelow((Target.Center + Vector2.UnitX * 96).ToTileCoordinates());
                             
                         if(hitPos != Point.Zero)
                         {
@@ -244,11 +269,16 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         Time = 0;
                         AttackFlag = false;
 
-                        if (Exhaustion + 2 < ExhaustionCap)
+                        if (Main.rand.NextBool() && Exhaustion + 2 < ExhaustionCap)
                         {
                             FrameX = 4;
                             CurrentState = DjinnState.GrandSlam;
                             Exhaustion += 2;
+                        }
+                        else if(Exhaustion + 1 < ExhaustionCap)
+                        {
+                            CurrentState = DjinnState.SubmergedUppercut;
+                            Exhaustion += 1;
                         }
                         else
                         {
@@ -266,13 +296,14 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                             int side = NPC.Center.X > Target.Center.X ? 1 : -1;
                             NPC.velocity = new Vector2(4 * side, -8);
                             FrameX = 4;
+                            NPC.TargetClosest();
                             NPC.direction *= -1;
                         }
                         else
                         {
                             NPC.velocity.Y += 0.6f;
 
-                            if (Collision.SolidCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
+                            if (NPC.Bottom.Y > Target.Bottom.Y && Collision.SolidCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
                             {
                                 SoundEngine.PlaySound(SoundID.DD2_MonkStaffGroundImpact, NPC.Center);
                                 Time = 0;
@@ -281,18 +312,18 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                                 for (int i = -3; i <= 3; i++)
                                 {
                                     Point s = NPC.Center.ToTileCoordinates() - new Point(-i * NPC.direction, 8);
-                                    Point g = CollisionUtils.FindSurfaceBelow(s, true);
+                                    Point g = CollisionUtils.FindSurfaceBelow(s);
                                     WorldGen.KillTile(g.X, g.Y, effectOnly: true);
                                 }
 
                                 Point start = NPC.Center.ToTileCoordinates() - new Point(-2 * NPC.direction, 8);
-                                Point ground = CollisionUtils.FindSurfaceBelow(start, true);
-                                GroundWave particle = new(ground, 8, 8, NPC.direction == 1, 24, 2, 16);
+                                Point ground = CollisionUtils.FindSurfaceBelow(start);
+                                GroundWave particle = new(ground, 8, NPC.direction == 1, 24, 2, 16);
                                 ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
 
                                 start = NPC.Center.ToTileCoordinates() - new Point(2 * NPC.direction, 8);
-                                ground = CollisionUtils.FindSurfaceBelow(start, true);
-                                ParticleSystem.SpawnParticle(new GroundWave(ground, 8, 8, NPC.direction != 1, 24, 2, 16), DrawLayer.AfterPlayers);
+                                ground = CollisionUtils.FindSurfaceBelow(start);
+                                ParticleSystem.SpawnParticle(new GroundWave(ground, 8, NPC.direction != 1, 24, 2, 16), DrawLayer.AfterPlayers);
                                 return;
                             }
                         }
@@ -304,23 +335,42 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         {
                             if (Time < 60)
                             {
-                                NPC.Center = CollisionUtils.FindSurfaceBelow(Target.Center.ToTileCoordinates()).ToWorldCoordinates() + Vector2.UnitY * 196;
+                                NPC.Center = CollisionUtils.FindSurfaceBelow(Target.Center.ToTileCoordinates(), true).ToWorldCoordinates() + Vector2.UnitY * 196;
                                 NPC.velocity = Vector2.Zero;
 
                                 FrameX = 3;
                                 NPC.rotation = MathHelper.PiOver2 * -NPC.direction;
+
+                                Point surface = CollisionUtils.FindSurfaceBelow(NPC.Center.ToTileCoordinates(), true);
+                                for(int i = -3; i <= 3; i++)
+                                {
+                                    if (Main.rand.NextFloat() < 0.9f)
+                                        continue;
+
+                                    Point p = CollisionUtils.FindSurfaceBelow(surface + new Point(i, 0));
+                                    WorldGen.KillTile(p.X, p.Y, effectOnly: true);
+                                }
                             }
                             else if (Time > 90)
                             {
                                 if (Collision.SolidCollision(NPC.position, NPC.width, NPC.height))
                                 {
                                     NPC.velocity = Vector2.UnitY * -24f;
+                                    Point surface = CollisionUtils.FindSurfaceBelow(NPC.Center.ToTileCoordinates(), true);
+                                    for (int i = -3; i <= 3; i++)
+                                    {
+                                        if (Main.rand.NextFloat() < 0.9f)
+                                            continue;
+
+                                        Point p = CollisionUtils.FindSurfaceBelow(surface + new Point(i, 0));
+                                        WorldGen.KillTile(p.X, p.Y, effectOnly: true);
+                                    }
+
                                     if (!Collision.SolidCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
                                     {
                                         SoundEngine.PlaySound(SoundID.DD2_MonkStaffGroundImpact, NPC.Center);
-
                                         for (int i = -3; i <= 3; i++)
-                                        {
+                                        {                                
                                             Point s = NPC.Center.ToTileCoordinates() - new Point(-i * NPC.direction, 8);
                                             Point g = CollisionUtils.FindSurfaceBelow(s, true);
                                             WorldGen.KillTile(g.X, g.Y, effectOnly: true);
@@ -328,17 +378,20 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
 
                                         Point start = NPC.Center.ToTileCoordinates() - new Point(-2 * NPC.direction, 8);
                                         Point ground = CollisionUtils.FindSurfaceBelow(start, true);
-                                        GroundWave particle = new(ground, 8, 8, NPC.direction == 1, 24, 2, 16);
+                                        GroundWave particle = new(ground, 8, NPC.direction == 1, 24, 2, 16);
                                         ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
 
                                         start = NPC.Center.ToTileCoordinates() - new Point(2 * NPC.direction, 8);
                                         ground = CollisionUtils.FindSurfaceBelow(start, true);
-                                        ParticleSystem.SpawnParticle(new GroundWave(ground, 8, 8, NPC.direction != 1, 24, 2, 16), DrawLayer.AfterPlayers);
+                                        ParticleSystem.SpawnParticle(new GroundWave(ground, 8, NPC.direction != 1, 24, 2, 16), DrawLayer.AfterPlayers);
                                     }
                                 }
                                 else
                                 {
-                                    NPC.velocity *= 0.9f;
+                                    if (NPC.Center.Y > Target.Bottom.Y + 16)
+                                        NPC.velocity = Vector2.UnitY * -24f;
+                                    else
+                                        NPC.velocity *= 0.9f;
 
                                     NPC.rotation *= 0.92f;
                                     if (Math.Abs(NPC.rotation) < 0.1f)
@@ -351,9 +404,11 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                                             Time = 0;
                                             NPC.rotation = 0f;
 
-                                            CurrentState = DjinnState.Dive;
-                                            AttackFlag = true;
+                                            CurrentState = Main.rand.NextBool() ? DjinnState.MudaMuda : DjinnState.Dive;
+                                            if (CurrentState == DjinnState.Dive)
+                                                AttackFlag = true;
                                             Exhaustion += 1;
+                                            return;
                                         }
                                     }
 
@@ -372,6 +427,16 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                             {
                                 NPC.TargetClosest(); //Turn towards nearest player for uppercut
                                 NPC.rotation = MathHelper.PiOver2 * -NPC.direction;
+
+                                Point surface = CollisionUtils.FindSurfaceBelow(NPC.Center.ToTileCoordinates(), true);
+                                for (int i = -3; i <= 3; i++)
+                                {
+                                    if (Main.rand.NextFloat() < 0.9f)
+                                        continue;
+
+                                    Point p = CollisionUtils.FindSurfaceBelow(surface + new Point(i, 0));
+                                    WorldGen.KillTile(p.X, p.Y, effectOnly: true);
+                                }
                             }
                         }
                     }
@@ -401,7 +466,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
 
                             if (Exhaustion + 1 < ExhaustionCap)
                             {
-                                CurrentState = Main.rand.NextBool() ? DjinnState.SubmergedUppercut : DjinnState.TwisterPunch;
+                                CurrentState = Main.rand.NextBool() ? DjinnState.MudaMuda : DjinnState.TwisterPunch;
                                 Exhaustion += 1;
                             }
                             else
@@ -421,7 +486,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         {
                             Vector2 midPoint = (NPC.Center + Target.Center) / 2f;
                             Point ground = CollisionUtils.FindSurfaceBelow(midPoint.ToTileCoordinates(), true);
-                            AttackVector = new Vector2(midPoint.X, (ground.Y * 16f + 8f) - 360);
+                            AttackVector = new Vector2(midPoint.X, MathF.Min((ground.Y * 16f + 8f) - 360, Target.Center.Y - 240f));
                         }
                         else
                         {
@@ -443,13 +508,26 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         {
                             FrameX = 2;
 
+                            NPC.direction = Target.Center.X > NPC.Center.X ? 1 : -1;
                             AttackVector = NPC.DirectionTo(Target.Center);
                             NPC.rotation = AttackVector.ToRotation();
                             if (NPC.direction == -1)
                                 NPC.rotation = MathHelper.WrapAngle(NPC.rotation + MathHelper.Pi);
 
                             if (Time == 9 && !CollisionUtils.RayCast(NPC.Center, AttackVector, 800f, out _).HasValue)
-                                Time--;
+                            {
+                                if (AttackCounter++ >= 30)
+                                {
+                                    Time = 30;
+                                    AttackCounter = 0;
+                                    return;
+                                }
+                                else
+                                {
+                                    Time--;
+                                    AttackCounter++;
+                                }
+                            }
                         }
                         else if(Time >= 30)
                         {
@@ -459,7 +537,16 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                                 FrameX = 3;
                             }
 
-                            if (Collision.SolidCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
+                            if(NPC.DistanceSQ(Target.Center) > 640000) //800^2
+                            {
+                                Time = 10;
+                                CurrentState = DjinnState.SubmergedUppercut;
+                                AttackFlag = true;
+                                Exhaustion -= 1;
+                                return;
+                            }
+
+                            if ((NPC.Bottom.Y + NPC.velocity.Y) > Target.Bottom.Y && CollisionUtils.SurfaceCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
                             {
                                 SoundEngine.PlaySound(SoundID.DD2_MonkStaffGroundImpact, NPC.Center);
                                 Time = -90;
@@ -467,31 +554,87 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                                 for (int i = -3; i <= 3; i++)
                                 {
                                     Point s = NPC.Center.ToTileCoordinates() - new Point(-i * NPC.direction, 8);
-                                    Point g = CollisionUtils.FindSurfaceBelow(s, true);
+                                    Point g = CollisionUtils.FindSurfaceBelow(s);
                                     WorldGen.KillTile(g.X, g.Y, effectOnly: true);
                                 }
 
                                 Point start = NPC.Center.ToTileCoordinates() - new Point(-2 * NPC.direction, 8);
-                                Point ground = CollisionUtils.FindSurfaceBelow(start, true);
-                                GroundWave particle = new(ground, 16, 32, NPC.direction == 1, 54, 1, 16);
+                                Point ground = CollisionUtils.FindSurfaceBelow(start);
+                                GroundWave particle = new(ground, 32, NPC.direction == 1, 54, 1, 16);
                                 ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
                                 int dir = (NPC.direction == 1 ? 1 : -1);
 
-                                Projectile proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(16 * dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), 10, 0f);
+                                Projectile proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(16 * dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), 10, 0f, ai1: 10);
                                 proj.timeLeft = particle.Lifetime - 12;
                                 proj.height /= 2;
 
                                 start = NPC.Center.ToTileCoordinates() - new Point(2 * NPC.direction, 8);
-                                ground = CollisionUtils.FindSurfaceBelow(start, true);
-                                particle = new(ground, 16, 32, NPC.direction != 1, 54, 1, 16);
+                                ground = CollisionUtils.FindSurfaceBelow(start);
+                                particle = new(ground, 32, NPC.direction != 1, 54, 1, 16);
                                 ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
 
-                                proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(16 * -dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), 10, 0f);
+                                proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(16 * -dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), 10, 0f, ai1: 10);
                                 proj.timeLeft = particle.Lifetime - 12;
                                 proj.height /= 2;
                                 return;
                             }
                         }
+                    }
+                    break;
+                case DjinnState.MudaMuda:
+                    if (Time <= 30)
+                    {
+                        if (Time == 0)
+                        {
+                            NPC.damage = 0;
+                            AttackVector = Target.velocity.SafeNormalize(Vector2.UnitX * (NPC.Center.X > Target.Center.X ? -1 : 1));
+                        }
+                        NPC.Center = Vector2.Lerp(NPC.Center, Target.Center + (AttackVector * 128), Time / 30f);
+                        NPC.direction = NPC.Center.X > Target.Center.X ? -1 : 1;
+                        NPC.Opacity = MathF.Cos(Time / 30f * MathHelper.TwoPi) / 2f + 0.5f;
+                        NPC.rotation = MathHelper.Lerp(0f, (-AttackVector).ToRotation(), MathUtils.SineOutEasing(MathHelper.Clamp((Time - 15) / 15f, 0f, 1f)));
+                        NPC.dontTakeDamage = true;
+                        if (NPC.direction == -1)
+                            NPC.rotation = MathHelper.WrapAngle(NPC.rotation + MathHelper.Pi);
+                    }
+                    else if (Time >= 40)
+                    {
+                        if (Time == 40)
+                        {
+                            NPC.velocity = AttackVector * -10f;
+                            FrameX = 1;
+                            NPC.direction = -Math.Sign(AttackVector.X);
+                            NPC.rotation = (-AttackVector).ToRotation();
+                            if (NPC.direction == -1)
+                                NPC.rotation = MathHelper.WrapAngle(NPC.rotation + MathHelper.Pi);
+                            NPC.damage = NPC.defDamage;
+                        }
+                        else
+                            NPC.velocity *= 0.98f;
+
+                        if (Time >= 90)
+                        {
+                            Time = 0;
+                            AttackFlag = false;
+                            NPC.rotation = 0f;
+
+                            if (Exhaustion + 1 < ExhaustionCap)
+                            {
+                                CurrentState = Main.rand.NextBool() ? DjinnState.TwisterPunch : DjinnState.MudaMuda;
+                                Exhaustion += 1;
+                            }
+                            else
+                            {
+                                FrameX = 0;
+                                CurrentState = DjinnState.RecoverFlex;
+                            }
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        FrameX = 2;
+                        NPC.dontTakeDamage = false;
                     }
                     break;
             }
@@ -563,15 +706,21 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
 
         }
 
+        public override void DrawBehind(int index)
+        {
+            if (NPC.hide)
+                Main.instance.DrawCacheNPCsBehindNonSolidTiles.Add(index);
+        }
+
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;
             NPC.spriteDirection = NPC.direction;
 
             if (!Target.ZoneDesert)
-                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, texture, NPC.Center - Main.screenPosition, NPC.velocity, 7, NPC.frame, Color.Goldenrod, NPC.scale, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection());
+                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, texture, NPC.Center - Main.screenPosition, NPC.velocity, 7, NPC.frame, Color.Goldenrod * NPC.Opacity, NPC.scale, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection());
 
-            spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, NPC.SpriteEffectDirection(), 0);
+            spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor * NPC.Opacity, NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, NPC.SpriteEffectDirection(), 0);
 
             return false;
         }

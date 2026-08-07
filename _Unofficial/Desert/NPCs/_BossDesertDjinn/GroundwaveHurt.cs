@@ -30,10 +30,10 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
 
         public override void PostAI()
         {
-            Vector2 ground = CollisionUtils.FindSurfaceBelow((Projectile.Center + Vector2.UnitX * Projectile.ai[0]).ToTileCoordinates(), true).ToWorldCoordinates();
+            Vector2 ground = CollisionUtils.FindSurfaceBelow((Projectile.Center + Vector2.UnitX * Projectile.ai[0]).ToTileCoordinates()).ToWorldCoordinates();
             Projectile.Bottom = new(Projectile.Center.X, ground.Y);
 
-            if (Projectile.ai[0] < 8)
+            if (Projectile.ai[0] < Projectile.ai[1])
                 Projectile.position -= Projectile.velocity;
 
             Projectile.ai[0]++;
@@ -44,7 +44,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
             base.ModifyDamageHitbox(ref hitbox);
         }
 
-        private static HashSet<int> ImmuneNPCs = 
+        private static readonly HashSet<int> ImmuneNPCs = 
         [
             ModContent.NPCType<DesertDjinn_Unofficial>(),
             ModContent.NPCType<DesertDjinn>(),
@@ -72,7 +72,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
             else
                 target.velocity = Projectile.velocity + Vector2.UnitY * -16;
 
-            target.velocity *= Projectile.height / 100f;
+            target.velocity *= Projectile.height == 150 ? 1f : 0.6f;
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
@@ -82,7 +82,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
 
             Vector2 maxVelocity = Projectile.velocity * 1.5f + Vector2.UnitY * -24;
 
-            target.velocity += Vector2.Lerp(Vector2.Zero, maxVelocity, target.knockBackResist) * Projectile.height / 100f;
+            target.velocity += Vector2.Lerp(Vector2.Zero, maxVelocity, target.knockBackResist) * (Projectile.height == 150 ? 1f : 0.6f);
         }
     }
 }
