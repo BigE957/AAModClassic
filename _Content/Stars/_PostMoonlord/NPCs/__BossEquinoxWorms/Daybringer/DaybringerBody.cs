@@ -1,8 +1,10 @@
 ﻿using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer
 {
+    [AutoloadBossHead]
     public class DaybringerBody : DaybringerHead
 	{
         public override void SetStaticDefaults()
