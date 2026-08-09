@@ -56,7 +56,7 @@ Inflicts Daybroken"); */
 
 		public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
-			if (Main.rand.NextBool(10))
+			if (player.whoAmI == Main.myPlayer && Main.rand.NextBool(10))
 			{
 				SoundEngine.PlaySound(SoundID.Item124, player.Center);
 				Vector2 vector12 = new Vector2(0,0);

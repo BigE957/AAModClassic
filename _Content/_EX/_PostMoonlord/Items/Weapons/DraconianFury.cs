@@ -61,7 +61,7 @@ Reign of Fire EX"); */
 
 		public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
-			if (Main.rand.NextBool(8))
+			if (player.whoAmI == Main.myPlayer && Main.rand.NextBool(8))
 			{
 				SoundEngine.PlaySound(SoundID.Item124, player.Center);
 				SoundEngine.PlaySound(SoundID.Item124, player.Center);
