@@ -11,6 +11,8 @@ using AAModClassic.Globals;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.UI.World;
+using AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn
 {
@@ -42,7 +44,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<DesertDjinn>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.DesertDjinn"), false);
+            AAModGlobalNPC.SpawnBoss(player, WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? ModContent.NPCType<DesertDjinn_Unofficial>() : ModContent.NPCType<DesertDjinn>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.DesertDjinn"), false);
             SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }

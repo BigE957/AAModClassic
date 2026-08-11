@@ -17,7 +17,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
         public override void SetDefaults()
         {
             Projectile.width = 180;
-            Projectile.height = 100;
+            Projectile.height = 16;
             Projectile.hostile = true;
             Projectile.friendly = true;
             Projectile.tileCollide = false;
@@ -30,6 +30,9 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
 
         public override void PostAI()
         {
+            if (Projectile.ai[0] <= Projectile.ai[1])
+                Projectile.Resize(Projectile.width, (int)(Projectile.ai[2] * (Projectile.ai[0] / Projectile.ai[1])));
+
             Vector2 ground = CollisionUtils.FindSurfaceBelow((Projectile.Center + Vector2.UnitX * Projectile.ai[0]).ToTileCoordinates()).ToWorldCoordinates();
             Projectile.Bottom = new(Projectile.Center.X, ground.Y);
 
@@ -37,11 +40,6 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                 Projectile.position -= Projectile.velocity;
 
             Projectile.ai[0]++;
-        }
-
-        public override void ModifyDamageHitbox(ref Rectangle hitbox)
-        {
-            base.ModifyDamageHitbox(ref hitbox);
         }
 
         private static readonly HashSet<int> ImmuneNPCs = 
