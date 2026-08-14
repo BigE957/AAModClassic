@@ -57,8 +57,57 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
         public bool AttemptFailedFlag = false;
         public Vector2 AttackVector = Vector2.Zero;
         public int AttackCounter = 0;
+        public int AttackAmount = -1;
 
-        public bool Phase2 => NPC.life / (float)NPC.lifeMax <= 0.5f;
+        #region Balancing Values
+        public bool Phase2 = false;
+
+        // Recovery Flex
+        public int RecoverTime => 240;
+
+        // Grand Slam
+        public static int GrandSlamWaveDamage => 20;
+
+        // Twister Punch
+        public int TwisterDamage => 20;
+        public int TwisterDelay => 30;
+        public static float TwisterOffset => 96f;
+        public int TwisterPunchDelay => Phase2 ? 48 : 60;
+        public static float TwisterPunchOffset => 192f;
+        public int TwisterPunchDuration => Phase2 ? 30 : 60;
+        public float TwisterPunchSpeed => Phase2 ? 48f : 24f;
+        public float TwisterPunchDecay => Phase2 ? 0.9f : 0.95f;
+
+        // Submerged Uppercut
+        public static int FallTime => 5;
+        public int BurrowTime => Phase2 ? 25 : 55;
+        public int HoldTime => Phase2 ? 20 : 30;
+        public float UppercutSpeed => 24f;
+        public float UppercutDecay => 0.9f;
+        public static float UppercutRotationDecay => 0.92f;
+
+        // Dive
+        public static float GroundOffset => 360;
+        public static float PlayerOffset => 240;
+        public int DiveRepositionTime => 30;
+        public int DiveTargettingTime => 10;
+        public int DiveMercyTime => 30;
+        public int DiveDelay => 20;
+        public float DiveSpeed => Phase2 ? 48f : 32f;
+        public static int DiveWaveDamage => 10;
+        public int DiveStuckTime => Main.masterMode ? 10 : Main.expertMode ? 15 : 20;
+        public static float DiveRotationDecay => 0.9f;
+        public int DiveSegwayTime => 60;
+
+        // Muda Muda
+        public int MudaMudaRepositionTime => Phase2 ? 20 : 30;
+        public int MudaMudaDelay => Phase2 ? (Main.masterMode ? 10 : 15) : 10;
+        public int GetMudaMudaAmount() => Phase2 ? Main.rand.Next(2, 4) : Main.rand.Next(1, 4);
+        public static float MudaMudaOffset => 128f;
+        public float MudaMudaSpeed => Phase2 ? 20f : 10f;
+
+        public int MudaMudaDuration => Phase2 ? 25 : 40;
+        #endregion
 
         public Player Target => Main.player[NPC.target];
 
@@ -91,7 +140,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                     NPC.velocity = ((Target.Center - Vector2.UnitY * 96f) - NPC.Center) / 90f;
                     if(Time > 120)
                     {
-                        CurrentState = DjinnState.MudaMuda;
+                        CurrentState = DjinnState.TwisterPunch;
                         Time = 0;
                         Exhaustion++;
                         return;
@@ -100,20 +149,17 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                 case DjinnState.RecoverFlex:
                     NPC.TargetClosest();
 
-                    if (Time < 240)
+                    if (Time < RecoverTime)
                     {
                         NPC.velocity *= 0.95f;
                         if(Time <= 30f)
-                        {
                             NPC.Center = Vector2.Lerp(NPC.Center, CollisionUtils.FindSurfaceBelow(NPC.Center.ToTileCoordinates(), true).ToWorldCoordinates(8f, -NPC.height), Time / 30f);
-                        }
                     }
                     else
                         NPC.velocity = ((Target.Center - Vector2.UnitY * 96f) - NPC.Center) / 90f;
 
-                    if (Time >= 30 && Time < 240)
-                    {
-                        NPC.damage = 0;
+                    if (Time >= 30 && Time < RecoverTime)
+                    {               
                         if (Time == 30)
                         {
                             NPC.frameCounter = -1;
@@ -122,14 +168,15 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         FrameX = 5;
                     }
                     else
-                    {
-                        NPC.damage = NPC.defDamage;
                         FrameX = 0;
-                    }
 
-
-                    if (Time >= 300)
+                    NPC.damage = 0;
+                    if (Time >= RecoverTime + 60)
                     {
+                        if (NPC.life / (float)NPC.lifeMax <= 0.5f)
+                            Phase2 = true;
+
+                        NPC.damage = NPC.defDamage;
                         List<DjinnState> options = [DjinnState.GrandSlam, DjinnState.TwisterPunch, DjinnState.SubmergedUppercut, DjinnState.Dive];
                         options.Remove(PreviousStartingState);
 
@@ -138,6 +185,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         AttackFlag = false;
                         Time = 0;
                         Exhaustion = CurrentState == DjinnState.GrandSlam ? 2 : 1;
+                        NPC.netUpdate = true;
                         return;
                     }
                     break;
@@ -184,7 +232,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                                 ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
                                 int dir = (NPC.direction == 1 ? 1 : -1);
 
-                                Projectile proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(16 * dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), 10, 0f, ai1: 10, ai2: 150);
+                                Projectile proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(16 * dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), GrandSlamWaveDamage, 0f, ai1: 10, ai2: 150);
                                 proj.timeLeft = particle.Lifetime - 12;
                                 proj.position.Y -= 25;
 
@@ -237,12 +285,12 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                     }
                     break;
                 case DjinnState.TwisterPunch:
-                    if(Time == 30)
+                    if(Time == TwisterDelay)
                     { 
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Target.Top - Vector2.UnitX * 96, Vector2.Zero, ModContent.ProjectileType<DesertDjinn_Djinnado>(), 20, 1f, ai2: 60);
-                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Target.Top + Vector2.UnitX * 96, Vector2.Zero, ModContent.ProjectileType<DesertDjinn_Djinnado>(), 20, 1f, ai2: 60);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Target.Top - Vector2.UnitX * TwisterOffset, Vector2.Zero, ModContent.ProjectileType<DesertDjinn_Djinnado>(), TwisterDamage, 1f, ai2: TwisterPunchDelay);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), Target.Top + Vector2.UnitX * TwisterOffset, Vector2.Zero, ModContent.ProjectileType<DesertDjinn_Djinnado>(), TwisterDamage, 1f, ai2: TwisterPunchDelay);
                     }
-                    else if(Time < 30)
+                    else if(Time < TwisterDelay)
                     {
                         if (Time == 0)
                             FrameX = 2;
@@ -250,9 +298,9 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         Point hitPos = Point.Zero;
                         int mod = (int)Time % 4;
                         if (mod == 0)
-                            hitPos = CollisionUtils.FindSurfaceBelow((Target.Center - Vector2.UnitX * 96).ToTileCoordinates());
+                            hitPos = CollisionUtils.FindSurfaceBelow((Target.Center - Vector2.UnitX * TwisterOffset).ToTileCoordinates());
                         else if(mod == 2)
-                            hitPos = CollisionUtils.FindSurfaceBelow((Target.Center + Vector2.UnitX * 96).ToTileCoordinates());
+                            hitPos = CollisionUtils.FindSurfaceBelow((Target.Center + Vector2.UnitX * TwisterOffset).ToTileCoordinates());
                             
                         if(hitPos != Point.Zero)
                         {
@@ -262,28 +310,29 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         }
                     }
 
-                    if (Time < 90)
+                    if (Time < TwisterDelay + TwisterPunchDelay)
                     {
                         NPC.TargetClosest();
                         int side = NPC.Center.X > Target.Center.X ? 1 : -1;
-                        NPC.velocity.X = (Target.Center.X + (192 * side) - NPC.Center.X) / 10f;
-                        float lerp = MathHelper.Clamp((Time - 30) / 60f, 0f, 1f);
+                        NPC.velocity.X = (Target.Center.X + (TwisterPunchOffset * side) - NPC.Center.X) / 10f;
+                        float lerp = MathHelper.Clamp((Time - TwisterDelay) / (float)TwisterPunchDelay, 0f, 1f);
                         NPC.velocity.Y = (Target.Center.Y - NPC.Center.Y) * MathHelper.Lerp(Phase2 ? 0.2f : 0.1f, 0f, lerp);
                         //NPC.velocity.Y = MathHelper.Clamp(NPC.velocity.Y, -8, 8);
                     }
                     else
                     {
-                        int side = NPC.Center.X > Target.Center.X ? 1 : -1;
-                        if (Time == 90)
+                        int side = NPC.Center.X < Target.Center.X ? 1 : -1;
+                        if (Time == TwisterDelay + TwisterPunchDelay)
                         {
-                            NPC.velocity = Vector2.UnitX * (Phase2 ? -48 : -24) * side;
+                            SoundEngine.PlaySound(SoundID.Item1, NPC.Center);
+                            NPC.velocity = Vector2.UnitX * TwisterPunchSpeed * side;
                             FrameX = 3;
                         }
                         else
-                            NPC.velocity *= Phase2 ? 0.9f : 0.95f;
+                            NPC.velocity *= TwisterPunchDecay;
                     }
 
-                    if (Time > (Phase2 ? 120 : 150))
+                    if (Time > TwisterDelay + TwisterPunchDelay + TwisterPunchDuration)
                     {
                         Time = 0;
                         AttackFlag = false;
@@ -350,13 +399,9 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                     else
                     {
                         //Maintian velocity for a few frames to submerge
-                        int fallTime = 5;
-
-                        if(Time > fallTime)
+                        if(Time > FallTime)
                         {
-                            int burrowTime = Phase2 ? 25 : 55;
-                            int holdTime = Phase2 ? 20 : 30;
-                            if (Time < fallTime + burrowTime)
+                            if (Time < FallTime + BurrowTime)
                             {
                                 NPC.Center = CollisionUtils.FindSurfaceBelow(Target.Center.ToTileCoordinates(), true).ToWorldCoordinates() + Vector2.UnitY * 196;
                                 NPC.velocity = Vector2.Zero;
@@ -374,11 +419,11 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                                     WorldGen.KillTile(p.X, p.Y, effectOnly: true);
                                 }
                             }
-                            else if (Time > fallTime + burrowTime + holdTime)
+                            else if (Time > FallTime + BurrowTime + HoldTime)
                             {
                                 if (Collision.SolidCollision(NPC.position, NPC.width, NPC.height))
                                 {
-                                    NPC.velocity = Vector2.UnitY * -24f;
+                                    NPC.velocity = Vector2.UnitY * -UppercutSpeed;
                                     Point surface = CollisionUtils.FindSurfaceBelow(NPC.Center.ToTileCoordinates(), true);
                                     for (int i = -3; i <= 3; i++)
                                     {
@@ -412,11 +457,11 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                                 else
                                 {
                                     if (NPC.Center.Y > Target.Bottom.Y + 16)
-                                        NPC.velocity = Vector2.UnitY * -24f;
+                                        NPC.velocity = Vector2.UnitY * -UppercutSpeed;
                                     else
-                                        NPC.velocity *= 0.9f;
+                                        NPC.velocity *= UppercutDecay;
 
-                                    NPC.rotation *= 0.92f;
+                                    NPC.rotation *= UppercutRotationDecay;
                                     if (Math.Abs(NPC.rotation) < 0.1f)
                                     {
                                         FrameX = 0;
@@ -467,8 +512,8 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                 case DjinnState.Dive:
                     if(Time < 0)
                     {
-                        if(Time > -75)
-                            NPC.rotation *= 0.9f;
+                        if(Time > -(DiveRepositionTime + 10))
+                            NPC.rotation *= DiveRotationDecay;
 
                         if (Math.Abs(NPC.rotation) < 0.1f)
                         {
@@ -514,12 +559,12 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         {
                             Vector2 midPoint = (NPC.Center + Target.Center) / 2f;
                             Point ground = CollisionUtils.FindSurfaceBelow(midPoint.ToTileCoordinates(), true);
-                            AttackVector = new Vector2(midPoint.X, MathF.Min((ground.Y * 16f + 8f) - 360, Target.Center.Y - 240f));
+                            AttackVector = new Vector2(midPoint.X, MathF.Min((ground.Y * 16f + 8f) - GroundOffset, Target.Center.Y - PlayerOffset));
                         }
                         else
                         {
-                            NPC.Center = Vector2.Lerp(NPC.Center, AttackVector, Time / 30f);
-                            if (Time == 30)
+                            NPC.Center = Vector2.Lerp(NPC.Center, AttackVector, Time / (float)DiveRepositionTime);
+                            if (Time == DiveRepositionTime)
                             {
                                 AttackFlag = true;
                                 Time = 0;
@@ -532,7 +577,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                     }
                     else
                     {
-                        if(Time < 10)
+                        if(Time < DiveTargettingTime)
                         {
                             FrameX = 2;
 
@@ -543,11 +588,11 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                             if (NPC.direction == -1)
                                 NPC.rotation = MathHelper.WrapAngle(NPC.rotation + MathHelper.Pi);
 
-                            if (Time == 9 && !CollisionUtils.RayCast(NPC.Center, AttackVector, 800f, out _).HasValue)
+                            if (Time == (DiveTargettingTime - 1) && !CollisionUtils.RayCast(NPC.Center, AttackVector, 800f, out _).HasValue)
                             {
-                                if (AttackCounter++ >= 30)
+                                if (AttackCounter++ >= DiveMercyTime)
                                 {
-                                    Time = 30;
+                                    Time = DiveTargettingTime + DiveDelay;
                                     AttackCounter = 0;
                                     return;
                                 }
@@ -558,17 +603,17 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                                 }
                             }
                         }
-                        else if(Time >= 30)
+                        else if(Time >= DiveTargettingTime + DiveDelay)
                         {
-                            if (Time == 30)
+                            if (Time == DiveTargettingTime + DiveDelay)
                             {
-                                NPC.velocity = AttackVector * (Phase2 ? 48f: 32f);
+                                NPC.velocity = AttackVector * DiveSpeed;
                                 FrameX = 3;
                             }
 
                             if(NPC.DistanceSQ(Target.Center) > 640000) //800^2
                             {
-                                Time = 10;
+                                Time = FallTime;
                                 CurrentState = DjinnState.SubmergedUppercut;
                                 AttackFlag = true;
                                 Exhaustion -= 1;
@@ -578,7 +623,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                             if ((NPC.Bottom.Y + NPC.velocity.Y) > Target.Bottom.Y && CollisionUtils.SurfaceCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
                             {
                                 SoundEngine.PlaySound(SoundID.DD2_MonkStaffGroundImpact, NPC.Center);
-                                Time = -90;
+                                Time = -(DiveStuckTime + DiveSegwayTime + 10);
 
                                 for (int i = -3; i <= 3; i++)
                                 {
@@ -593,7 +638,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                                 ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
                                 int dir = (NPC.direction == 1 ? 1 : -1);
 
-                                Projectile proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(16 * dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), 10, 0f, ai1: 10, ai2: Phase2 ? 90 : 50);
+                                Projectile proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(16 * dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), DiveWaveDamage, 0f, ai1: 10, ai2: Phase2 ? 90 : 50);
                                 proj.timeLeft = particle.Lifetime - 12;
 
                                 start = NPC.Center.ToTileCoordinates() - new Point(2 * NPC.direction, 8);
@@ -601,7 +646,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                                 particle = new(ground, Phase2 ? 38 : 32, NPC.direction != 1, Phase2 ? 94 : 54, 1, 16);
                                 ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
 
-                                proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(16 * -dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), 10, 0f, ai1: 10, ai2: Phase2 ? 90 : 50);
+                                proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(16 * -dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), DiveWaveDamage, 0f, ai1: 10, ai2: Phase2 ? 90 : 50);
                                 proj.timeLeft = particle.Lifetime - 12;
                                 return;
                             }
@@ -609,27 +654,34 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                     }
                     break;
                 case DjinnState.MudaMuda:
-                    if (Time <= 30)
+                    if (Time <= MudaMudaRepositionTime)
                     {
                         if (Time == 0)
                         {
+                            if (AttackAmount == -1)
+                            {
+                                AttackAmount = GetMudaMudaAmount();
+                                AttackCounter = 1;
+                                NPC.netUpdate = true;
+                            }
                             FrameX = 0;
                             NPC.damage = 0;
                             AttackVector = Target.velocity.SafeNormalize(Vector2.UnitX * (NPC.Center.X > Target.Center.X ? -1 : 1));
                         }
-                        NPC.Center = Vector2.Lerp(NPC.Center, Target.Center + (AttackVector * 128), Time / 30f);
+                        NPC.Center = Vector2.Lerp(NPC.Center, Target.Center + (AttackVector * MudaMudaOffset), Time / (float)MudaMudaRepositionTime);
+                        NPC.velocity = Vector2.Zero;
                         NPC.direction = NPC.Center.X > Target.Center.X ? -1 : 1;
-                        NPC.Opacity = MathF.Cos(Time / 30f * MathHelper.TwoPi) / 2f + 0.5f;
-                        NPC.rotation = MathHelper.Lerp(0f, (-AttackVector).ToRotation(), MathUtils.SineOutEasing(MathHelper.Clamp((Time - 15) / 15f, 0f, 1f)));
+                        NPC.Opacity = MathF.Cos(Time / (float)MudaMudaRepositionTime * MathHelper.TwoPi) / 2f + 0.5f;
+                        NPC.rotation = MathHelper.Lerp(0f, (-AttackVector).ToRotation(), MathUtils.SineOutEasing(MathHelper.Clamp((Time - MudaMudaRepositionTime / 2) / (float)(MudaMudaRepositionTime / 2), 0f, 1f)));
                         NPC.dontTakeDamage = true;
                         if (NPC.direction == -1)
                             NPC.rotation = MathHelper.WrapAngle(NPC.rotation + MathHelper.Pi);
                     }
-                    else if (Time >= 40)
+                    else if (Time >= MudaMudaRepositionTime + MudaMudaDelay)
                     {
-                        if (Time == 40)
+                        if (Time == MudaMudaRepositionTime + MudaMudaDelay)
                         {
-                            NPC.velocity = AttackVector * (Phase2 ? -20f : -10f);
+                            NPC.velocity = AttackVector * -MudaMudaSpeed;
                             FrameX = 1;
                             NPC.direction = -Math.Sign(AttackVector.X);
                             NPC.rotation = (-AttackVector).ToRotation();
@@ -643,7 +695,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         if (Time % 5 == 0)
                             SoundEngine.PlaySound(SoundID.Item1, NPC.Center);
 
-                        if (Time >= (Phase2 ? 65 : 90))
+                        if (Time >= MudaMudaRepositionTime + MudaMudaDelay + MudaMudaDuration)
                         {
                             Time = 0;
                             AttackFlag = false;
@@ -652,22 +704,18 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
 
                             if (Exhaustion + 1 < ExhaustionCap)
                             {
-                                if(Phase2)
+                                if (AttackCounter < AttackAmount)
                                 {
-                                    if (AttackCounter <= (Main.masterMode ? 2 : Main.expertMode ? 1 : 0))
-                                        CurrentState = DjinnState.MudaMuda;
-                                    else if (Main.rand.NextBool(AttackCounter - (Main.masterMode ? 1 : Main.expertMode ? 0 : -1)))
-                                        CurrentState = DjinnState.MudaMuda;
-                                    else
-                                        CurrentState = DjinnState.TwisterPunch;
+                                    CurrentState = DjinnState.MudaMuda;
+                                    AttackCounter++;
                                 }
                                 else
-                                    CurrentState = Main.rand.NextBool(AttackCounter + 2) ? DjinnState.MudaMuda : DjinnState.TwisterPunch;
-                                
-                                if (CurrentState == DjinnState.TwisterPunch)
+                                {
+                                    CurrentState = Main.rand.NextBool() ? DjinnState.TwisterPunch : DjinnState.Dive;
+                                    AttackAmount = -1;
                                     AttackCounter = 0;
-                                else
-                                    AttackCounter++;
+                                }
+
 
                                 Exhaustion += 1;
                             }
