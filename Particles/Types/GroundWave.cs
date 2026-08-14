@@ -43,7 +43,6 @@ namespace AAModClassic.Particles.Types
         private readonly int GridHeight;
         private readonly Vector3[] _localLight;
         private readonly bool[] _localFilled;
-        private readonly Vector3[] _staticRealLight;
         private readonly bool[] _staticRealFilled;
 
         private readonly List<Point> _hiddenRealTiles;
@@ -160,7 +159,6 @@ namespace AAModClassic.Particles.Types
 
             GridHeight = MaxShiftTiles + maxColumnDepth;
 
-            _staticRealLight = new Vector3[Count * GridHeight];
             _staticRealFilled = new bool[Count * GridHeight];
             for (int i = 0; i < Count; i++)
             {
@@ -169,8 +167,6 @@ namespace AAModClassic.Particles.Types
                     int idx = Index(i, r);
                     int worldX = StartPosition.X + i * Direction;
                     int worldY = ColumnPositions[i].Y - MaxShiftTiles + r;
-
-                    _staticRealLight[idx] = SampleRealLight(worldX, worldY);
 
                     Tile t = Framing.GetTileSafely(new Point(worldX, worldY));
                     _staticRealFilled[idx] = t != null && t.HasTile;
@@ -392,6 +388,7 @@ namespace AAModClassic.Particles.Types
             for (int i = 0; i < Count; i++)
             {
                 int myDepth = ColumnDepths[i];
+                int worldX = StartPosition.X + i * Direction;
 
                 for (int r = 0; r < GridHeight; r++)
                 {
@@ -403,7 +400,11 @@ namespace AAModClassic.Particles.Types
                     _localFilled[idx] = withinTrackedDepth || _staticRealFilled[idx];
 
                     int depthInColumn = r - top;
-                    _localLight[idx] = withinTrackedDepth ? SampleRealLight(StartPosition.X + i * Direction, ColumnPositions[i].Y + depthInColumn) : _staticRealLight[idx];
+                    int sampleWorldY = withinTrackedDepth
+                        ? ColumnPositions[i].Y + depthInColumn
+                        : ColumnPositions[i].Y - MaxShiftTiles + r;
+
+                    _localLight[idx] = SampleRealLight(worldX, sampleWorldY);
                 }
             }
 
