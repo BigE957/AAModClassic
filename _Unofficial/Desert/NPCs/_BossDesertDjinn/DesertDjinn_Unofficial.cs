@@ -47,7 +47,8 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
             TwisterPunch,
             SubmergedUppercut,
             Dive,
-            MudaMuda
+            MudaMuda,
+            CactusBaseball
         }
 
         public DjinnState CurrentState { get => (DjinnState)NPC.ai[0]; set => NPC.ai[0] = (float)value; }
@@ -58,12 +59,11 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
         public Vector2 AttackVector = Vector2.Zero;
         public int AttackCounter = 0;
         public int AttackAmount = -1;
-
-        #region Balancing Values
         public bool Phase2 = false;
 
+        #region Balancing Values
         // Recovery Flex
-        public int RecoverTime => 240;
+        public static int RecoverTime => Main.masterMode ? 180 : Main.expertMode ? 240 : 270;
 
         // Grand Slam
         public static int GrandSlamWaveDamage => 20;
@@ -102,7 +102,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
         // Muda Muda
         public int MudaMudaRepositionTime => Phase2 ? 20 : 30;
         public int MudaMudaDelay => Phase2 ? (Main.masterMode ? 10 : 15) : 10;
-        public int GetMudaMudaAmount() => Phase2 ? Main.rand.Next(2, 4) : Main.rand.Next(1, 4);
+        public int GetMudaMudaAmount() => Phase2 ? Main.rand.Next(2, 4) : Main.rand.Next(1, 3);
         public static float MudaMudaOffset => 128f;
         public float MudaMudaSpeed => Phase2 ? 20f : 10f;
 
@@ -140,7 +140,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                     NPC.velocity = ((Target.Center - Vector2.UnitY * 96f) - NPC.Center) / 90f;
                     if(Time > 120)
                     {
-                        CurrentState = DjinnState.TwisterPunch;
+                        CurrentState = DjinnState.CactusBaseball;
                         Time = 0;
                         Exhaustion++;
                         return;
@@ -177,7 +177,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                             Phase2 = true;
 
                         NPC.damage = NPC.defDamage;
-                        List<DjinnState> options = [DjinnState.GrandSlam, DjinnState.TwisterPunch, DjinnState.SubmergedUppercut, DjinnState.Dive];
+                        List<DjinnState> options = [DjinnState.GrandSlam, DjinnState.TwisterPunch, DjinnState.SubmergedUppercut, DjinnState.Dive, DjinnState.CactusBaseball];
                         options.Remove(PreviousStartingState);
 
                         CurrentState = options[Main.rand.Next(options.Count)];
@@ -270,7 +270,13 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
 
                                 if (Exhaustion + 1 < ExhaustionCap)
                                 {
-                                    CurrentState = AttemptFailedFlag ? DjinnState.MudaMuda : DjinnState.SubmergedUppercut;
+                                    if (!AttemptFailedFlag)
+                                    {
+                                        DjinnState[] options = [DjinnState.SubmergedUppercut, DjinnState.MudaMuda, DjinnState.CactusBaseball];
+                                        CurrentState = options[Main.rand.Next(options.Length)];
+                                    }
+                                    else
+                                        CurrentState = Main.rand.NextBool() ? DjinnState.CactusBaseball : DjinnState.MudaMuda;
                                     Exhaustion++;
                                 }
                                 else
@@ -345,7 +351,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         }
                         else if(Exhaustion + 1 < ExhaustionCap)
                         {
-                            CurrentState = DjinnState.SubmergedUppercut;
+                            CurrentState = Main.rand.NextBool() ? DjinnState.CactusBaseball : DjinnState.SubmergedUppercut;
                             Exhaustion += 1;
                         }
                         else
@@ -371,7 +377,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         {
                             NPC.velocity.Y += 0.6f;
 
-                            if (NPC.Bottom.Y > Target.Bottom.Y && Collision.SolidCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
+                            if (NPC.velocity.Y > 0 && NPC.Bottom.Y > Target.Bottom.Y && Collision.SolidCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
                             {
                                 SoundEngine.PlaySound(SoundID.DD2_MonkStaffGroundImpact, NPC.Center);
                                 Time = 0;
@@ -711,7 +717,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                                 }
                                 else
                                 {
-                                    CurrentState = Main.rand.NextBool() ? DjinnState.TwisterPunch : DjinnState.Dive;
+                                    CurrentState = Main.rand.NextBool() ? DjinnState.CactusBaseball : DjinnState.SubmergedUppercut;
                                     AttackAmount = -1;
                                     AttackCounter = 0;
                                 }
@@ -732,6 +738,73 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                     {
                         FrameX = 2;
                         NPC.dontTakeDamage = false;
+                    }
+                    break;
+                case DjinnState.CactusBaseball:
+                    float cactusOffset = 56f;
+                    if(Time == 0)
+                    {
+                        FrameX = 2;
+                        NPC.TargetClosest();
+                        AttackVector = NPC.Center - (NPC.DirectionTo(Target.Center) * cactusOffset);
+                        Point tileCoords = CollisionUtils.FindSurfaceBelow(AttackVector.ToTileCoordinates(), true);
+                        Vector2 cactusSpawn = tileCoords.ToWorldCoordinates(8, 32);
+                        float minimumHeight = NPC.height + 128;
+                        if (cactusSpawn.Y - minimumHeight < AttackVector.Y)
+                            AttackVector.Y = cactusSpawn.Y - minimumHeight;
+
+                        float desiredHeight = Math.Abs((AttackVector.Y - cactusSpawn.Y) - 96f);
+                        float neededSpeed = MathF.Sqrt(2 * 0.3f * desiredHeight);
+                        AttackCounter = Projectile.NewProjectile(NPC.GetSource_FromThis(), cactusSpawn, Vector2.UnitY * -neededSpeed, ModContent.ProjectileType<CactusBaseball>(), 10, 0.5f);
+                        SoundEngine.PlaySound(SoundID.Item39, cactusSpawn);
+                        WorldGen.KillTile(tileCoords.X, tileCoords.Y, effectOnly: true);
+                    }
+
+                    Vector2 goalPos = AttackVector + (Target.DirectionTo(AttackVector) * cactusOffset);
+                    NPC.velocity = (goalPos - NPC.Center) / 4f;
+                    NPC.direction = (NPC.Center + NPC.velocity).X > Target.Center.X ? -1 : 1;
+                    NPC.rotation = (NPC.Center + NPC.velocity).AngleTo(Target.Center) + (NPC.direction == -1 ? MathHelper.Pi : 0);
+
+                    Vector2 a = (NPC.Center + NPC.velocity).DirectionTo(Main.projectile[AttackCounter].Center);
+                    Vector2 b = (NPC.Center + NPC.velocity).DirectionTo(Target.Center);
+                    float cross = (a.X * b.Y) - (a.Y * b.X);
+
+                    if (FrameX == 2 && Main.projectile[AttackCounter].velocity.Y > 0)
+                    {            
+                        if (cross * NPC.direction < 0f)
+                        {
+                            FrameX = 3;
+                            Main.projectile[AttackCounter].velocity = b * 28f;
+                            Main.projectile[AttackCounter].tileCollide = true;
+                            Main.projectile[AttackCounter].ai[1] = 1;
+                            Time = 120;
+                            SoundEngine.PlaySound(SoundID.Dig, NPC.Center);
+                        }
+                    }
+
+                    if (Time > 150)
+                    {
+                        Time = 0;
+                        NPC.rotation = 0;
+                        AttackFlag = false;
+
+                        if (Main.rand.NextBool() && Exhaustion + 2 < ExhaustionCap)
+                        {
+                            FrameX = 4;
+                            CurrentState = DjinnState.GrandSlam;
+                            Exhaustion += 2;
+                        }
+                        else if (Exhaustion + 1 < ExhaustionCap)
+                        {
+                            CurrentState = DjinnState.Dive;
+                            Exhaustion += 1;
+                        }
+                        else
+                        {
+                            FrameX = 0;
+                            CurrentState = DjinnState.RecoverFlex;
+                        }
+                        return;
                     }
                     break;
             }
