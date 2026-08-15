@@ -234,7 +234,7 @@ namespace AAModClassic.Particles.Types
 
         private float GetColumnPeak(int i)
         {
-            float heightRatio = MathHelper.Lerp(0.05f, 0.95f, i / (float)Count);
+            float heightRatio = MathHelper.Lerp(0.01f, 0.99f, i / (float)Count);
             return MathF.Sin(heightRatio * MathHelper.Pi) * Peak;
         }
 
