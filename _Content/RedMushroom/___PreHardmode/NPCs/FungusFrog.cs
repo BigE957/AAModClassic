@@ -1,4 +1,4 @@
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 using AAModClassic._Content.RedMushroom.World.Biomes;
@@ -75,7 +75,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneMush && NPCExtensions.BeenKilled<MushroomMonarch>() ? .3f : 0f;
+            return spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneMush && AADowned.downedMushroomMonarch ? .3f : 0f;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

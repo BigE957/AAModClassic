@@ -30,7 +30,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Quest
 
         public override bool IsAnglerQuestAvailable()
         {
-            return !ContentReplacementSystem.NeedToReplaceContent && NPCExtensions.BeenKilled<HydraBody>();
+            return !ContentReplacementSystem.NeedToReplaceContent && AADowned.downedHydra;
         }
 
         public override void AnglerQuestChat(ref string description, ref string catchLocation)

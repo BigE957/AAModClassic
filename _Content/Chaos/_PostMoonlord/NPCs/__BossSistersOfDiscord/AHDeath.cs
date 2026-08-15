@@ -1,4 +1,4 @@
-using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -46,7 +46,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord
 
             if (AAConfigClient.Instance.NoBossDialogue)
             {
-                AAWorld.downedSisters = true;
+                AADowned.downedSistersOfDiscord = true;
+                AADowned.SyncWorldData();
                 NPC.active = false;
             }
 
@@ -55,7 +56,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord
 
             if (NPC.ai[1] == 240)
             {
-                if (AAWorld.downedSisters)
+                if (AADowned.downedSistersOfDiscord)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.1"), new Color(102, 20, 48));
@@ -69,7 +70,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord
 
             if (NPC.ai[1] == 360)
             {
-                if (AAWorld.downedSisters)
+                if (AADowned.downedSistersOfDiscord)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.2"), new Color(72, 78, 117));
@@ -83,7 +84,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord
 
             if (NPC.ai[1] == 600)
             {
-                if (AAWorld.downedSisters)
+                if (AADowned.downedSistersOfDiscord)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.3"), new Color(102, 20, 48));
@@ -100,7 +101,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.First.4"), new Color(102, 20, 48));
-                AAWorld.downedSisters = true;
+                AADowned.downedSistersOfDiscord = true;
+                AADowned.SyncWorldData();
                 NPC.active = false;
             }
         }

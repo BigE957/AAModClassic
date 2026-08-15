@@ -52,7 +52,7 @@ namespace AAModClassic._Content.Inferno.World.Biomes
 
         public override int Music =>
             Main.LocalPlayer.ZoneRockLayerHeight ? MusicManagementSystem.MusicSlots["Inferno_Underground"] :
-            (AAWorld.downedAllAncients && !AAWorld.downedShen) ? MusicManagementSystem.MusicSlots["Chaos_PreShen"] :
+            (AADowned.DownedAllAncients && !AADowned.DownedShen) ? MusicManagementSystem.MusicSlots["Chaos_PreShen"] :
             !Main.dayTime ? MusicManagementSystem.MusicSlots["Inferno_Night"] :
             MusicManagementSystem.MusicSlots["Inferno_Surface"];
 

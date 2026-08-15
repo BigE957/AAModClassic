@@ -1,4 +1,4 @@
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
@@ -91,7 +91,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Day
         {
             public bool CanDrop(DropAttemptInfo info)
             {
-				return AAWorld.downedEquinox;
+				return AADowned.downedEquinoxWorms;
             }
 
             public bool CanShowItemDropInUI() => true;

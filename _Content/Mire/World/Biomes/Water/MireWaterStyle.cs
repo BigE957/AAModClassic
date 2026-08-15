@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria.ModLoader;
@@ -14,7 +14,7 @@ namespace AAModClassic._Content.Mire.World.Biomes.Water
 
             if (Main.bgStyle == Mod.GetSurfaceBgStyleSlot("MireSurfaceBgStyle") || Main.bgStyle == Mod.GetSurfaceBgStyleSlot("MireDesertBgStyle") || (player.ZoneSnow && player.GetModPlayer<AAPlayer>().ZoneMire))
             {
-                if (!Main.dayTime || AAWorld.downedYamata || player.position.Y > Main.worldSurface * 16.0)
+                if (!Main.dayTime || AADowned.DownedYamata || player.position.Y > Main.worldSurface * 16.0)
                 {
                     return true;
                 }

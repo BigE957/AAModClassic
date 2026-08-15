@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.World.Tiles
@@ -19,7 +19,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles
         /*
         public override void KillWall(int i, int j, ref bool fail)
         {
-            if (AAWorld.downedShen)
+            if (AADowned.DownedShen)
             {
                 fail = false;
             }

@@ -55,7 +55,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nigh
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<EquinoxWormsTreasureBag>()));
 
             LeadingConditionRule lastWorm = new(new LastWorm());
-            LeadingConditionRule loreCondition = new(new LoreItemDropCondition(() => AAWorld.downedEquinox));
+            LeadingConditionRule loreCondition = new(new LoreItemDropCondition(() => AADowned.downedEquinoxWorms));
             lastWorm.OnSuccess(loreCondition).OnSuccess(new PerPlayerDropRule(ModContent.ItemType<EquinoxWormsLore>(), 1));
 
             npcLoot.Add(lastWorm);

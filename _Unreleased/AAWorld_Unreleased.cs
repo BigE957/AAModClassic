@@ -35,8 +35,8 @@ namespace AAModClassic._Unreleased
 
         public static Point lostKeepOrigin = Point.Zero;
 
-        public static bool DownedSoC => (NPCExtensions.BeenKilled<SoulOfCthulhu>() && !Main.expertMode) || NPCExtensions.BeenKilled<Cthulhu>();
-        public static bool DownedIZ => NPCExtensions.BeenKilled<InfinityZero>();
+        public static bool DownedSoC => (AADowned.downedSoulOfCthulhu && !Main.expertMode) || AADowned.downedCthulhu;
+        public static bool DownedIZ => AADowned.downedInfinityZero;
         public static bool Compass;
 
         public static int StormTiles = 0;

@@ -63,7 +63,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "MushroomMonarch",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<MushroomMonarch>(), false)
+                    new FlagObjective(() => AADowned.downedMushroomMonarch, false)
                 ],
                 ["GripsOfChaos"],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<MushroomMonarch>()]],
@@ -73,7 +73,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "FeudalFungus",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<FeudalFungus>(), false)
+                    new FlagObjective(() => AADowned.downedFeudalFungus, false)
                 ],
                 ["GripsOfChaos"],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<FeudalFungus>()]],
@@ -83,7 +83,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "GripsOfChaos",
                 [
-                    new FlagObjective(() => AAWorld.downedGrips, false)
+                    new FlagObjective(() => AADowned.downedGripsOfChaos, false)
                 ],
                 ["Broodmother", "Hydra"],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<GripOfChaosInferno>()]],
@@ -93,7 +93,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "Broodmother",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<Broodmother>(), false)
+                    new FlagObjective(() => AADowned.downedBroodmother, false)
                 ],
                 ["SubzeroSerpent", "DesertDjinn"],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Broodmother>()]],
@@ -103,7 +103,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "Hydra",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<HydraBody>(), false)
+                    new FlagObjective(() => AADowned.downedHydra, false)
                 ],
                 ["SubzeroSerpent", "DesertDjinn"],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<HydraHead1>()]],
@@ -113,7 +113,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "DesertDjinn",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<DesertDjinn>(), false)
+                    new FlagObjective(() => AADowned.downedDesertDjinn, false)
                 ],
                 ["Sagittarius"],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<DesertDjinn>()]],
@@ -123,7 +123,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "SubzeroSerpent",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<SubzeroSerpentHead>(), false)
+                    new FlagObjective(() => AADowned.downedSubzeroSerpent, false)
                 ],
                 ["Sagittarius"],
                 ModContent.Request<Texture2D>("AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpentHead_Boss"),
@@ -133,7 +133,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "Sagittarius",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<Sagittarius>(), false)
+                    new FlagObjective(() => AADowned.downedSagittarius, false)
                 ],
                 ["Retriever", "OrthrusX", "RaiderUltima"],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Sagittarius>()]],
@@ -143,7 +143,7 @@ namespace AAModClassic._Unofficial
             Questlines["LegendscribeEarlyGame"].AddQuest(
                     "Retriever",
                     [
-                        new FlagObjective(() => NPCExtensions.BeenKilled<Retriever>(), false)
+                        new FlagObjective(() => AADowned.downedRetriever, false)
                     ],
                     ["Anubis"],
                     TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Retriever>()]],
@@ -153,7 +153,7 @@ namespace AAModClassic._Unofficial
             Questlines["LegendscribeEarlyGame"].AddQuest(
                 "OrthrusX",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<OrthrusXBody>(), false)
+                    new FlagObjective(() => AADowned.downedOrthrusX, false)
                 ],
                 ["Anubis"],
                 TextureAssets.Item[ModContent.ItemType<BlueOrthrusXMask>()],
@@ -163,7 +163,7 @@ namespace AAModClassic._Unofficial
             Questlines["LegendscribeEarlyGame"].AddQuest(
                 "RaiderUltima",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<RaiderUltima>(), false)
+                    new FlagObjective(() => AADowned.downedRaiderUltima, false)
                 ],
                 ["Anubis"],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<RaiderUltima>()]],
@@ -173,7 +173,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "Anubis",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<Anubis>(), false)
+                    new FlagObjective(() => AADowned.downedAnubis, false)
                 ],
                 ["Athena", "Greed"],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<AnubisUnreleased>()]],
@@ -183,7 +183,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "Athena",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<Athena>(), false)
+                    new FlagObjective(() => AADowned.downedAthena, false)
                 ],
                 ["Rajah"],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Athena>()]],
@@ -193,7 +193,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "Greed",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<GreedHead>(), false)
+                    new FlagObjective(() => AADowned.downedGreed, false)
                 ],
                 ["Rajah"],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<GreedHead>()]],
@@ -203,7 +203,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "Rajah",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<RajahRabbit>(), false)
+                    new FlagObjective(() => AADowned.downedRajahRabbit, false)
                 ],
                 [/*"ForsakenAnubis"*/],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<RajahRabbit>()]],
@@ -233,7 +233,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "ForsakenAnubis",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<AnubisA>(), false)
+                    new FlagObjective(() => AADowned.downedForsakenAnubis, false)
                 ],
                 ["GreedA", "AthenaA"],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<AnubisA>()]],
@@ -243,7 +243,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "AthenaA",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<AthenaA>(), false)
+                    new FlagObjective(() => AADowned.downedAthenaA, false)
                 ],
                 ["Equinox"],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<AthenaA>()]],
@@ -253,7 +253,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "GreedA",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<GreedAHead>(), false)
+                    new FlagObjective(() => AADowned.downedGreedA, false)
                 ],
                 ["Equinox"],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<GreedAHead>()]],
@@ -263,7 +263,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "Equinox",
                 [
-                    new FlagObjective(() => AAWorld.downedEquinox, false)
+                    new FlagObjective(() => AADowned.downedEquinoxWorms, false)
                 ],
                 ["Sisters"],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<DaybringerHead>()]],
@@ -273,7 +273,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "Sisters",
                 [
-                    new FlagObjective(() => AAWorld.downedSisters, false)
+                    new FlagObjective(() => AADowned.downedSistersOfDiscord, false)
                 ],
                 ["Akuma", "Yamata", "Zero"],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Ashe>()]],
@@ -283,7 +283,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "Akuma",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<AkumaHead>(), false)
+                    new FlagObjective(() => AADowned.DownedAkuma, false)
                 ],
                 ["Shen", "SoulOfCthulhu"],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<AkumaHead>()]],
@@ -293,7 +293,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "Yamata",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<YamataBody>(), false)
+                    new FlagObjective(() => AADowned.DownedYamata, false)
                 ],
                 ["Shen", "SoulOfCthulhu"],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<YamataHead>()]], 
@@ -303,7 +303,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "Zero",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<Zero>(), false)
+                    new FlagObjective(() => AADowned.DownedZero, false)
                 ],
                 ["InfinityZero", "SoulOfCthulhu"],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<Zero>()]],
@@ -313,7 +313,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "Shen",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<ShenDoragon>(), false)
+                    new FlagObjective(() => AADowned.DownedShen, false)
                 ],
                 [],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<ShenDoragon>()]],
@@ -323,7 +323,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "InfinityZero",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<InfinityZero>(), false)
+                    new FlagObjective(() => AADowned.downedInfinityZero, false)
                 ],
                 [],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<InfinityZero>()]],
@@ -333,7 +333,7 @@ namespace AAModClassic._Unofficial
             Questlines[legendscribeQuestID].AddQuest(
                 "SoulOfCthulhu",
                 [
-                    new FlagObjective(() => NPCExtensions.BeenKilled<SoulOfCthulhu>(), false)
+                    new FlagObjective(() => AADowned.downedSoulOfCthulhu, false)
                 ],
                 [],
                 TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<SoulOfCthulhu>()]],

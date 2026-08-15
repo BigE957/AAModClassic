@@ -44,7 +44,7 @@ namespace AAModClassic._Content.Void.World.Biomes
         }
 
         public override int Music =>
-            (AAWorld.downedZero && !AAWorld_Unreleased.DownedIZ) ? MusicManagementSystem.MusicSlots["Void_PreIZ"] :
+            (AADowned.DownedZero && !AAWorld_Unreleased.DownedIZ) ? MusicManagementSystem.MusicSlots["Void_PreIZ"] :
             NPC.downedMoonlord ? MusicManagementSystem.MusicSlots["Void_PostML"] :
             MusicManagementSystem.MusicSlots["Void"];
 
@@ -61,7 +61,7 @@ namespace AAModClassic._Content.Void.World.Biomes
     {
         public override void OnEnterWorld()
         {
-            if (AAWorld.downedZero)
+            if (AADowned.DownedZero)
                 VoidSky.Alpha = 1f;
         }
     }
@@ -112,7 +112,7 @@ namespace AAModClassic._Content.Void.World.Biomes
 
         public override void Update(GameTime gameTime)
         {
-            if (!Main.gameMenu && AAWorld.downedZero && Alpha != -1)
+            if (!Main.gameMenu && AADowned.DownedZero && Alpha != -1)
             {
                 Alpha += 0.05f;
                 if (Alpha > 1f) Alpha = 1f;
@@ -231,7 +231,7 @@ namespace AAModClassic._Content.Void.World.Biomes
                 Asteroidpos1.Y += (float)Math.Sin(asteroidPercent1) * 16f;
                 Asteroidpos2.Y += (float)Math.Sin(asteroidPercent2) * -30f;
                 Asteroidpos3.Y += (float)Math.Sin(asteroidPercent3) * 20f;
-                if (!AAWorld.downedZero || Alpha <= 0)
+                if (!AADowned.DownedZero || Alpha <= 0)
                 {
                     spriteBatch.Draw(Stars, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White * Intensity);
                 }
@@ -256,7 +256,7 @@ namespace AAModClassic._Content.Void.World.Biomes
                         }
 
                         if(!anyIZ)
-                            spriteBatch.Draw(Echo, echoPos, null, GetGlowAlpha(true) * riftIntensity * Alpha, 0f, new Vector2(Echo.Width >> 1, Echo.Height >> 1), AAWorld.downedAllAncients ? 0.4f : .3f, SpriteEffects.None, 1f);
+                            spriteBatch.Draw(Echo, echoPos, null, GetGlowAlpha(true) * riftIntensity * Alpha, 0f, new Vector2(Echo.Width >> 1, Echo.Height >> 1), AADowned.DownedAllAncients ? 0.4f : .3f, SpriteEffects.None, 1f);
                     }
                 }
                 Color astroGlow = Color.White * MathHelper.Lerp(0.7f, 1f, Main.mouseTextColor / 255f);

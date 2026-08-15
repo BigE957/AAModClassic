@@ -1,4 +1,4 @@
-using AAModClassic._Content._Misc.__Hardmode.Items.Materials.Mushrooms;
+﻿using AAModClassic._Content._Misc.__Hardmode.Items.Materials.Mushrooms;
 using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables;
@@ -107,7 +107,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
 
         public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
         {
-            if (!AAConfigClient.Instance.NoAATownNPC && NPCExtensions.BeenKilled<MushroomMonarch>())
+            if (!AAConfigClient.Instance.NoAATownNPC && AADowned.downedMushroomMonarch)
                 return true;
             return false;
         }

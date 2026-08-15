@@ -1,4 +1,4 @@
-using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
+﻿using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
@@ -71,7 +71,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs._Surface._Nigh
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (NPCExtensions.BeenKilled<Retriever>())
+            if (AADowned.downedRetriever)
             {
                 return SpawnCondition.OverworldNightMonster.Chance * 0.08f;
             }

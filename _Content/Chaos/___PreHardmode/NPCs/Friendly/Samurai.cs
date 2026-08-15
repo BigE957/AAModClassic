@@ -1,4 +1,4 @@
-using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
+﻿using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother;
@@ -84,7 +84,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.Friendly
                     Player player = Main.player[k];
                     if (player.active)
                     {
-                        if (AAWorld.downedGrips == true)
+                        if (AADowned.downedGripsOfChaos == true)
                         {
                             return true;
                         }

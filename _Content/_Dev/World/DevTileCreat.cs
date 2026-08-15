@@ -1,4 +1,4 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
 using AAModClassic._Content.Mire.World.Tiles;
@@ -15,7 +15,7 @@ namespace AAModClassic._Content._Dev.World
             {
                 if(DevWorld.CCBoxSetOK)
                 {
-                    if(AAWorld.downedEquinox)
+                    if(AADowned.downedEquinoxWorms)
                     {
                         bool canplace = (type == ModContent.TileType<MireGrass_Tile>() || type == ModContent.TileType<Depthstone_Tile>()) && (Main.tile[i + 1, j - 1].TileType == ModContent.TileType<MireGrass_Tile>() || type == ModContent.TileType<Depthstone_Tile>()) && !Main.tile[i, j - 1].HasTile && !Main.tile[i + 1, j - 1].HasTile && j > Main.worldSurface + 200;
                         if(canplace)
