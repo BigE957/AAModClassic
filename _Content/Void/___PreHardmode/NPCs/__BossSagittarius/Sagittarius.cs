@@ -494,6 +494,12 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
             return false;
         }
 
+
+        public override void OnKill()
+        {
+            AADowned.downedSagittarius = true;
+            AADowned.SyncWorldData();
+        }
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<SagittariusTreasureBag>()));

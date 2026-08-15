@@ -610,6 +610,8 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
 
         public override void OnKill()
         {
+        AADowned.downedAthena = true;
+        AADowned.SyncWorldData();
             if ((!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.downedMoonlord) || (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && AADowned.downedForsakenAnubis))
             {
                 AADowned.AthenaAwakened = true;

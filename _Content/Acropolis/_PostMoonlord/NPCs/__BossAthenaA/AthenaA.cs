@@ -662,6 +662,8 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
 
         public override void OnKill()
         {
+        AADowned.downedAthenaA = true;
+        AADowned.SyncWorldData();
             if (!NPCExtensions.BeenKilled<AthenaA>(true))
             {
                 int p = NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaDefeat>(), 0, 0, 0, 1);

@@ -866,6 +866,8 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 
         public override void OnKill()
         {
+        AADowned.downedSubzeroSerpent = true;
+        AADowned.SyncWorldData();
             foreach (NPC n in Main.ActiveNPCs)
             {
                 if (n.whoAmI == NPC.whoAmI)

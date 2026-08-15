@@ -224,6 +224,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 
         public override void OnKill()
         {
+        AADowned.downedYamataA = true;
+        AADowned.SyncWorldData();
             if (!Main.expertMode)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)

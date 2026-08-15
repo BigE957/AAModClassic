@@ -1190,6 +1190,8 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 
         public override void OnKill()
         {
+        AADowned.downedRajahRabbit = true;
+        AADowned.SyncWorldData();
             if (isSupreme)
             {
                 if (!Main.dedServ)

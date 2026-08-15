@@ -240,6 +240,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 
         public override void OnKill()
         {
+        AADowned.downedYamata = true;
+        AADowned.SyncWorldData();
             Dead = true;
 
             if (!Main.expertMode)

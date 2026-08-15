@@ -240,6 +240,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
         public override void OnKill()
         {
+        AADowned.downedSoulOfCthulhu = true;
+        AADowned.SyncWorldData();
             if (Main.expertMode)
                 NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<CthulhuPortal>(), 0, 0);
             else

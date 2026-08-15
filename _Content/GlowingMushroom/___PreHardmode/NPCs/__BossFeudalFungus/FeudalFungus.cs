@@ -215,6 +215,8 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
 
         public override void OnKill()
         {
+        AADowned.downedFeudalFungus = true;
+        AADowned.SyncWorldData();
             Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, NPC.velocity, ModContent.ProjectileType<FeudalFungusLeave>(), 0, 0, 255, NPC.scale);
         }
 

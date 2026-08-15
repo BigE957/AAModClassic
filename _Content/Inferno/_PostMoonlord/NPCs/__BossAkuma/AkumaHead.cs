@@ -589,6 +589,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 
         public override void OnKill()
         {
+        AADowned.downedAkuma = true;
+        AADowned.SyncWorldData();
             if (!Main.expertMode)
             {
                 if (!NPC.BeenKilled(true))

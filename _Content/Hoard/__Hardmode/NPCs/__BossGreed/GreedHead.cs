@@ -504,6 +504,8 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
 
         public override void OnKill()
         {
+        AADowned.downedGreed = true;
+        AADowned.SyncWorldData();
             if ((!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.downedMoonlord) || (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && AADowned.downedForsakenAnubis))
             {
                 AADowned.GreedAwakened = true;

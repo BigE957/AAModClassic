@@ -52,6 +52,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
             bestiaryEntry.AddTags([new AwakenedShenDoragonBestiaryBackground()]);
         }
 
+
+        public override void OnKill()
+        {
+            AADowned.downedShenA = true;
+            AADowned.SyncWorldData();
+        }
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             LeadingConditionRule expert = new(new Conditions.IsExpert());

@@ -471,6 +471,12 @@ public class BiomiteCore : ModNPC
 		}
 	}
 
+
+    public override void OnKill()
+    {
+        AADowned.downedBiomiteCore = true;
+        AADowned.SyncWorldData();
+    }
     public override void ModifyNPCLoot(NPCLoot npcLoot)
     {
         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TerraPrism>(), 1, 1, 4));

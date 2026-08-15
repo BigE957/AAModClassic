@@ -110,6 +110,12 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
             }
         }
 
+
+        public override void OnKill()
+        {
+            AADowned.downedRetriever = true;
+            AADowned.SyncWorldData();
+        }
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<RetrieverTreasureBag>()));

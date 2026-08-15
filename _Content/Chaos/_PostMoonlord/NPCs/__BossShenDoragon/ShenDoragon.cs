@@ -1007,6 +1007,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
         public override void OnKill()
         {
+        AADowned.downedShen = true;
+        AADowned.SyncWorldData();
             if (!IsAwakened)
             {
                 if (!Main.expertMode)

@@ -422,6 +422,12 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             potionType = ItemID.GreaterHealingPotion;
         }
 
+
+        public override void OnKill()
+        {
+            AADowned.downedTechnoTruffle = true;
+            AADowned.SyncWorldData();
+        }
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<TechnoTruffleTreasureBag>()));

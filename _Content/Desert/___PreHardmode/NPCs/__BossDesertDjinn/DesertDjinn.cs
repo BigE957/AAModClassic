@@ -563,6 +563,12 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
             potionType = ItemID.HealingPotion;
         }
 
+
+        public override void OnKill()
+        {
+            AADowned.downedDesertDjinn = true;
+            AADowned.SyncWorldData();
+        }
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<DesertDjinnTreasureBag>()));

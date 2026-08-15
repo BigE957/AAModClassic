@@ -138,6 +138,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 
         public override void OnKill()
         {
+        AADowned.downedZeroP = true;
+        AADowned.SyncWorldData();
             if (Main.expertMode)
             {
                 Projectile.NewProjectile(NPC.GetSource_Death(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, 0f), ModContent.ProjectileType<ZeroDeath1>(), 0, 0);
