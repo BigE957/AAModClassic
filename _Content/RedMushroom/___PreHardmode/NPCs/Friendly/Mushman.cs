@@ -497,10 +497,10 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
             shop.Add(ItemID.SuperManaPotion, Condition.DownedMoonLord);
 
             //TODO: Give these text
-            shop.Add<GrandHealingPotion>(AAConditions.DownedAnyLateAncient);
-            shop.Add<GrandManaPotion>(AAConditions.DownedAnyLateAncient);
+            shop.Add<GrandHealingPotion>([new((LocalizedText)null, () => AADowned.DownedAncient)]);
+            shop.Add<GrandManaPotion>([new((LocalizedText)null, () => AADowned.DownedAncient)]);
 
-            shop.Add<TheBigOne>(AAConditions.DownedAnySuperancient);
+            shop.Add<TheBigOne>([new((LocalizedText)null, () => AADowned.DownedSAncient)]);
 
             shop.Register();
         }

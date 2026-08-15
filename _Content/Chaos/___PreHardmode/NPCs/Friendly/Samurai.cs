@@ -155,12 +155,12 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.Friendly
             shop.Add(ItemID.RedDynastyShingles, Condition.TimeDay);
             shop.Add<ScorchedSeeds>(Condition.TimeDay);
             shop.Add<Sunpowder>(Condition.TimeDay);
-            shop.Add<AncientBell>(Condition.TimeDay, AAConditions.DownedBroodmother);
+            shop.Add<AncientBell>(Condition.TimeDay, new((LocalizedText)null, () => AADowned.downedBroodmother));
 
             shop.Add(ItemID.BlueDynastyShingles, Condition.TimeNight);
             shop.Add<DankSeeds>(Condition.TimeNight);
             shop.Add<Moonpowder>(Condition.TimeNight);
-            shop.Add<HydraChow>(Condition.TimeNight, AAConditions.DownedHydra);
+            shop.Add<HydraChow>(Condition.TimeNight, new((LocalizedText)null, () => AADowned.downedHydra));
 
             shop.Add(new Item(ModContent.ItemType<LuckyCracker>()) { shopCustomPrice = 2000000 });
             shop.Add(new Item(ModContent.ItemType<RoninPotion>()) { shopCustomPrice = 50000 });
