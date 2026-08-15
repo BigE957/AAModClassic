@@ -1,4 +1,4 @@
-using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
 using AAModClassic._Content.Mire.World.Biomes;
@@ -176,7 +176,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                 Main.dust[dust2].noGravity = true;
 
             }
-            if (!AAWorld.downedYamata)
+            if (!AADowned.DownedYamata)
             {
                 if (NPC.life <= NPC.lifeMax / 4 * 3 && threeQuarterHealth == false)
                 {
@@ -194,7 +194,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                     tenthHealth = true;
                 }
             }
-            if (AAWorld.downedYamata)
+            if (AADowned.DownedYamata)
             {
                 if (NPC.life <= NPC.lifeMax / 4 * 3 && threeQuarterHealth == false)
                 {

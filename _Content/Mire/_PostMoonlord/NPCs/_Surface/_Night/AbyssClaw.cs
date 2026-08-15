@@ -1,4 +1,4 @@
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Mire.World.Biomes;
@@ -71,7 +71,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs._Surface._Night
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (AAWorld.downedSisters)
+            if (AADowned.downedSistersOfDiscord)
             {
                 return SpawnCondition.OverworldNightMonster.Chance * 0.04f;
             }

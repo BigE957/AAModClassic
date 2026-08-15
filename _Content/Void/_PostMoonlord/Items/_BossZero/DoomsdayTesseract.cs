@@ -74,27 +74,27 @@ N0N-C0NSUMABLE"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            if (!AAWorld.downedZero && !Main.expertMode)
+            if (!AADowned.DownedZero && !Main.expertMode)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroTesseractTrue"), Color.Red.R, Color.Red.G, Color.Red.B);
             }
 
-            if (!AAWorld.downedZero && Main.expertMode)
+            if (!AADowned.DownedZero && Main.expertMode)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroTesseractTrue"), Color.Red.R, Color.Red.G, Color.Red.B);
             }
-            if (!Main.expertMode && AAWorld.downedZero)
+            if (!Main.expertMode && AADowned.DownedZero)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroTesseractDownedTrue"), Color.Red.R, Color.Red.G, Color.Red.B);
             }
-            if (Main.expertMode && AAWorld.downedZero)
+            if (Main.expertMode && AADowned.DownedZero)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroTesseractDownedTrue"), Color.Red.R, Color.Red.G, Color.Red.B);
             }
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                AAWorld.zeroUS = true;
+                AADowned.zeroUS = true;
                 if (!NPC.AnyNPCs(ModContent.NPCType<ZeroDeactivated>()))
                     NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X, (int)player.position.Y - 300, ModContent.NPCType<Zero>());
             }

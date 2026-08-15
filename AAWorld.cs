@@ -1,4 +1,4 @@
-using AAModClassic._Content._Dev.World.Biomes;
+﻿using AAModClassic._Content._Dev.World.Biomes;
 using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
@@ -136,52 +136,7 @@ namespace AAModClassic
         //Messages
         public static bool AMessage;
         public static bool Empowered;
-        //Boss Bools
-        public static bool Ancients;
-        public static bool downedGrips;
 
-        public static bool downedDB;
-        public static bool downedNC;
-        public static bool downedEquinox;
-
-        public static bool downedAncient => downedAkuma || downedYamata || downedZero;
-        public static bool downedSAncient => downedShen || AAWorld_Unreleased.DownedIZ || AAWorld_Unreleased.DownedSoC;
-        public static bool downedAnySiegeUnits => NPCExtensions.BeenKilled<Retriever>() || NPCExtensions.BeenKilled<OrthrusXBody>() || NPCExtensions.BeenKilled<RaiderUltima>();
-        public static bool downedAllSiegeUnits => NPCExtensions.BeenKilled<Retriever>() && NPCExtensions.BeenKilled<OrthrusXBody>() && NPCExtensions.BeenKilled<RaiderUltima>();
-        public static bool downedAkuma => (NPCExtensions.BeenKilled<AkumaHead>() && !Main.expertMode) || NPCExtensions.BeenKilled<AkumaAHead>();
-        public static bool downedYamata => (NPCExtensions.BeenKilled<YamataBody>() && !Main.expertMode) || NPCExtensions.BeenKilled<YamataABody>();
-        public static bool zeroUS;
-        public static bool downedZero => (NPCExtensions.BeenKilled<Zero>() && !Main.expertMode) || NPCExtensions.BeenKilled<ZeroA>();
-        public static bool downedAllAncients => downedAkuma && downedYamata && downedZero;
-        private static bool previousDownedAllAncients = false;
-        public static bool ShenSummoned;
-        public static bool downedShen => (NPCExtensions.BeenKilled<ShenDoragon>() && !Main.expertMode) || NPCExtensions.BeenKilled<ShenDoragonA>();
-
-        public static bool downedAshe;
-        public static bool downedHaruka;     
-        public static bool downedSisters;
-        public static bool SistersSummoned;
-
-        public static bool AthenaHerald;
-
-        public static bool downedAABoss;
-        /*
-        public static bool downedLucifer;
-        public static bool downedKraken;
-        */
-        public static bool AnubisAwakened;
-        public static bool AthenaAwakened;
-        public static bool GreedAwakened;
-
-        public static bool WormActive;
-        public static bool StarActive;
-        public static bool GravActive;
-
-        public static bool Terra1 => NPCExtensions.BeenKilled<Broodmother>() || NPCExtensions.BeenKilled<HydraBody>() || NPC.downedBoss2;
-		public static bool Terra2 => NPC.downedPlantBoss;
-		public static bool Terra3 => downedShen;
-
-        public static bool spawnGrips;
         //Points
         public static Point WHERESDAVOIDAT;
 
@@ -215,37 +170,21 @@ namespace AAModClassic
         public override void PreWorldGen()
         {
             //Bosses
-            downedGrips = false;
-            downedEquinox = false;
-            zeroUS = false;
-            ShenSummoned = false;
-            downedAshe = false ;
-            downedHaruka = false;
-            downedSisters = false;
-            SistersSummoned = false;
-            AthenaHerald = false;
-            downedAABoss = false;
             //downedLucifer = false;
 
-            AnubisAwakened = false;
-            WormActive = false;
-            StarActive = false;
-            GravActive = false;
-
-            spawnGrips = false;
             //World Changes
             TerrariumEnemies = NPC.downedBoss2;
-            ChaosOres = downedGrips;
+            ChaosOres = AADowned.downedGripsOfChaos;
             DjinnSerpent = NPC.downedBoss3;
             HallowedOre = NPC.downedMechBossAny;
-            FulguriteOre = downedAnySiegeUnits;
+            FulguriteOre = AADowned.DownedAnySiegeUnits;
             AMessage = NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3;
             Luminite = NPC.downedMoonlord;
-            RadiumOre = downedEquinox;
-            DiscordOres = downedSisters;
+            RadiumOre = AADowned.downedEquinoxWorms;
+            DiscordOres = AADowned.downedSistersOfDiscord;
             ChaosStripes = Main.hardMode;
             ModContentGenerated = false;
-            Empowered = downedShen;
+            Empowered = AADowned.DownedShen;
             mirePos = new Vector2(0, 0);
             infernoPos = new Vector2(0, 0);
             InfernoCenter = -Vector2.One;
@@ -297,25 +236,10 @@ namespace AAModClassic
         public override void SaveWorldData(TagCompound tag)/* tModPorter Suggestion: Edit tag parameter instead of returning new TagCompound */
         {
             var downed = new List<string>();
-            if (downedGrips) downed.Add("GrabbyHands");
             if (AMessage) downed.Add("AMessage");
-            if (downedEquinox) downed.Add("Equinox");
-            if (Ancients) downed.Add("AA");
-            if (ShenSummoned) downed.Add("ShenS");
             if (ChaosStripes) downed.Add("IStripe");
-            if (downedAshe) downed.Add("BetterDragonWaifu");
-            if (downedHaruka) downed.Add("TrashDragonWaifu");
-            if (downedSisters) downed.Add("Sisters");
             if (ModContentGenerated) downed.Add("WorldGenned");
-            if (SistersSummoned) downed.Add("Summoned");
-            if (zeroUS) downed.Add("ZUS");
-            if (AthenaHerald) downed.Add("BitchBird");
             //if (downedLucifer) downed.Add("L");
-
-            if (AnubisAwakened) downed.Add("AnuA");
-            if (WormActive) downed.Add("WormA");
-            if (StarActive) downed.Add("StarA");
-            if (GravActive) downed.Add("GravA");
 
             tag.Add("downed", downed);
 
@@ -352,32 +276,17 @@ namespace AAModClassic
         {
             var downed = tag.GetList<string>("downed");
             //bosses
-            downedGrips = downed.Contains("GrabbyHands");
             AMessage = downed.Contains("AMessage");
-            downedEquinox = downed.Contains("Equinox");
-            Ancients = downed.Contains("AA");
-            ShenSummoned = downed.Contains("ShenS");
-            downedAshe = downed.Contains("BetterDragonWaifu");
-            downedHaruka = downed.Contains("TrashDragonWaifu");
-            downedSisters = downed.Contains("Sisters");
-            SistersSummoned = downed.Contains("Summoned");
-            zeroUS = downed.Contains("ZUS");
-            AthenaHerald = downed.Contains("BitchBird");
-
-            AnubisAwakened = downed.Contains("AnuA");
-            WormActive = downed.Contains("WormA");
-            StarActive = downed.Contains("StarA");
-            GravActive = downed.Contains("GravA");
 
             //World Changes
-            ChaosOres = downedGrips;
+            ChaosOres = AADowned.downedGripsOfChaos;
             DjinnSerpent = NPC.downedBoss3;
             HallowedOre = NPC.downedMechBossAny;
-            FulguriteOre = downedAnySiegeUnits;
+            FulguriteOre = AADowned.DownedAnySiegeUnits;
             AMessage = NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3;
             Luminite = NPC.downedMoonlord;
-            RadiumOre = downedEquinox;
-            DiscordOres = downedSisters;
+            RadiumOre = AADowned.downedEquinoxWorms;
+            DiscordOres = AADowned.downedSistersOfDiscord;
             ChaosStripes = downed.Contains("IStripe");
             ModContentGenerated = downed.Contains("WorldGenned");
 
@@ -417,32 +326,17 @@ namespace AAModClassic
                 acropolisPos = new Point((int)(Main.maxTilesX * 0.65f), 100);
 
             TerrariumEnemies = NPC.downedBoss2;
-            previousDownedAllAncients = downedAllAncients;
             AMessage = NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3;
         }
         //Idt this is actually needed
         public override void NetSend(BinaryWriter writer)
         {
             BitsByte flags = new();
-            flags[0] = StarActive;
-            flags[1] = downedGrips;
             flags[2] = ModContentGenerated;
-            flags[3] = zeroUS;
-            flags[4] = downedAshe;
-            flags[5] = downedHaruka;
-            flags[6] = SistersSummoned;
-            flags[7] = AnubisAwakened;
             writer.Write(flags);
 
             BitsByte flags2 = new();
-            flags2[0] = downedSisters;
-            flags2[1] = downedEquinox;
             flags2[2] = ChaosStripes;
-            flags2[3] = GravActive;
-            flags2[4] = Ancients;
-            flags2[5] = ShenSummoned;
-            flags2[6] = AthenaHerald;
-            flags2[7] = WormActive;
             writer.Write(flags2);
 
             writer.WriteVector2(MireCenter);
@@ -475,24 +369,10 @@ namespace AAModClassic
         public override void NetReceive(BinaryReader reader)
         {
             BitsByte flags = reader.ReadByte();
-            StarActive = flags[0];
-            downedGrips = flags[1];
             ModContentGenerated = flags[2];
-            zeroUS = flags[3];
-            downedAshe = flags[4];
-            downedHaruka = flags[5];
-            SistersSummoned = flags[6];
-            AnubisAwakened = flags[7];
 
             BitsByte flags2 = reader.ReadByte();
-            downedSisters = flags2[0];
-            downedEquinox = flags2[1];
             ChaosStripes = flags2[2];
-            GravActive = flags2[3];
-            Ancients = flags2[4];
-            ShenSummoned = flags2[5];
-            AthenaHerald = flags2[6];
-            WormActive = flags2[7];
 
             MireCenter = reader.ReadVector2();
 			InfernoCenter = reader.ReadVector2();		
@@ -1181,7 +1061,7 @@ namespace AAModClassic
 
         public override void OnWorldLoad()
         {
-            if (downedZero)
+            if (AADowned.DownedZero)
                 VoidSky.Alpha = 0f;
         }
 
@@ -1190,7 +1070,7 @@ namespace AAModClassic
 
         public override void PostUpdateWorld()
         {
-            if (NPCExtensions.BeenKilled<AnubisA>() && !AthenaHerald && !NPCExtensions.BeenKilled<AthenaA>())
+            if (AADowned.downedForsakenAnubis && !AADowned.AthenaHerald && !AADowned.downedAthenaA)
             {
                 if (HeraldTimer > 0)
                 {
@@ -1206,7 +1086,8 @@ namespace AAModClassic
                     {
                         Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0);
                     }
-                    AthenaHerald = true;
+                    AADowned.AthenaHerald = true;
+                    AADowned.SyncWorldData();
                 }
             }
 
@@ -1216,7 +1097,7 @@ namespace AAModClassic
                 {
                     if (Main.time == 1 && !WorldGen.spawnEye)
                     {
-                        if (!downedGrips && Main.netMode != NetmodeID.MultiplayerClient)
+                        if (!AADowned.downedGripsOfChaos && Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             bool flag3 = false;
                             for (int n = 0; n < 255; n++)
@@ -1239,7 +1120,7 @@ namespace AAModClassic
                                 }
                                 if (num8 >= 4)
                                 {
-                                    spawnGrips = true;
+                                    AADowned.spawnGrips = true;
                                     if (Main.netMode == NetmodeID.SinglePlayer)
                                     {
                                         Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossSummonsInfo.GripsAwoken"), 50, 255, 130);
@@ -1252,7 +1133,7 @@ namespace AAModClassic
                             }
                         }
                     }
-                    if (spawnGrips && Main.netMode != NetmodeID.MultiplayerClient && Main.time > 4860.0)
+                    if (AADowned.spawnGrips && Main.netMode != NetmodeID.MultiplayerClient && Main.time > 4860.0)
                     {
                         for (int k = 0; k < 255; k++)
                         {
@@ -1267,7 +1148,7 @@ namespace AAModClassic
                                     }
                                 AAModGlobalNPC.SpawnBoss(Main.player[k], ModContent.NPCType<GripOfChaosMire>(), false, 1, 0);
                                 AAModGlobalNPC.SpawnBoss(Main.player[k], ModContent.NPCType<GripOfChaosInferno>(), false, -1, 0);
-                                spawnGrips = false;
+                                AADowned.spawnGrips = false;
                                 break;
                             }
                         }
@@ -1275,7 +1156,7 @@ namespace AAModClassic
                 }
             }
 
-            if (downedEquinox)
+            if (AADowned.downedEquinoxWorms)
             {
                 if (RadiumOre == false)
                 {
@@ -1318,12 +1199,6 @@ namespace AAModClassic
             }
             if (NPC.downedMoonlord)
             {
-                if (Ancients == false)
-                {
-                    Ancients = true;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) 
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedMoonlordInfo1"), Color.ForestGreen);
-                }
                 if (Luminite == false)
                 {
                     Luminite = true;
@@ -1354,7 +1229,7 @@ namespace AAModClassic
                 }
             }
 
-            if (downedAnySiegeUnits)
+            if (AADowned.DownedAnySiegeUnits)
             {
                 if (FulguriteOre == false)
                 {
@@ -1366,7 +1241,7 @@ namespace AAModClassic
                 }
             }
 
-            if (downedSisters)
+            if (AADowned.downedSistersOfDiscord)
             {
                 if (!DiscordOres)
                 {
@@ -1447,22 +1322,6 @@ namespace AAModClassic
                 }
                 
             }       
-
-            if (downedAllAncients && !previousDownedAllAncients)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                {
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedAllAncientsInfo1"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
-                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
-                    {
-                        // im removing this one bcuz its for iz who isnt post-ancients hes post-zero specifically
-                        //Main.NewText("You feel as if you are being watched by something...malicious...", new Color(158, 3, 32));
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedAllAncientsInfo2"), Color.Cyan);
-                    }
-                }
-            }
-
-            previousDownedAllAncients = downedAllAncients;
 
             if (Main.hardMode)
             {

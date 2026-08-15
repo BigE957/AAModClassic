@@ -55,7 +55,7 @@ Non-Consumable"); */
         {
             SoundEngine.PlaySound(SoundID.Roar, player.position);
 
-            if (AAWorld.SistersSummoned && !AAWorld.downedSisters)
+            if (AADowned.SistersSummoned && !AADowned.downedSistersOfDiscord)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.SistersDownedInfo1"), new Color(102, 20, 48));
@@ -66,7 +66,7 @@ Non-Consumable"); */
                 AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Haruka>(), false, 1, 0, "Haruka Yamata", false);
                 return true;
             }
-            else if (AAWorld.SistersSummoned && AAWorld.downedSisters)
+            else if (AADowned.SistersSummoned && AADowned.downedSistersOfDiscord)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.SistersInfo1"), new Color(72, 78, 117));
 
@@ -78,7 +78,8 @@ Non-Consumable"); */
             else
             {
                 AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<AHSpawn>(), false, 0, 0);
-                AAWorld.SistersSummoned = true;
+                AADowned.SistersSummoned = true;
+                AADowned.SyncWorldData();
                 return true;
             }
         }

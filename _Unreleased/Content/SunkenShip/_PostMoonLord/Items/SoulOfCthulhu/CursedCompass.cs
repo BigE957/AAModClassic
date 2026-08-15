@@ -24,7 +24,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             // Tooltip.SetDefault(@"An old Compass. Who knows what it's for?");
         }
 
-        private static bool CthulhuActive => AAWorld.downedAllAncients && !AAWorld_Unreleased.DownedSoC;
+        private static bool CthulhuActive => AADowned.DownedAllAncients && !AAWorld_Unreleased.DownedSoC;
 
         public override void SetDefaults()
         {
@@ -41,7 +41,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
-            bool canFightSoC = AAWorld.downedAllAncients;
+            bool canFightSoC = AADowned.DownedAllAncients;
             foreach (TooltipLine line in list)
             {
                 if (line.Mod == "Terraria" && line.Name == "ItemName")
@@ -69,7 +69,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 
         public override bool CanUseItem(Player player)
         {
-            if (!AAWorld.downedAllAncients || !player.GetModPlayer<ZAAPlayer>().ZoneShip)
+            if (!AADowned.DownedAllAncients || !player.GetModPlayer<ZAAPlayer>().ZoneShip)
                 return false;
 
             bool anyCthulhus = false;
@@ -133,7 +133,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
         {
             Recipe r = CreateRecipe();
             r.AddIngredient(ItemID.Compass);
-            r.AddCondition(new Condition("Mods.AAModClassic.Common.Conditions.InSunkenShipPreSoC", () => Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneShip && AAWorld.downedAllAncients));
+            r.AddCondition(new Condition("Mods.AAModClassic.Common.Conditions.InSunkenShipPreSoC", () => Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneShip && AADowned.DownedAllAncients));
             r.Register();
         }
     }

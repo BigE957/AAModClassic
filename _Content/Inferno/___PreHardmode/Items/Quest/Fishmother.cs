@@ -32,7 +32,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Quest
 
         public override bool IsAnglerQuestAvailable()
         {
-            return !ContentReplacementSystem.NeedToReplaceContent && NPCExtensions.BeenKilled<Broodmother>();
+            return !ContentReplacementSystem.NeedToReplaceContent && AADowned.downedBroodmother;
         }
 
         public override void AnglerQuestChat(ref string description, ref string catchLocation)

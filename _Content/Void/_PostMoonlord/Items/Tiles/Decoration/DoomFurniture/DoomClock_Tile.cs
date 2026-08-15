@@ -1,4 +1,4 @@
-using AAModClassic.Dusts;
+﻿using AAModClassic.Dusts;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -24,7 +24,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
 
         public override bool RightClick(int x, int y)
         {
-            if (!AAWorld.downedZero)
+            if (!AADowned.DownedZero)
             {
                 Main.NewText(Language.GetTextValue("Mods.AAModClassic.Tiles.DoomClock_Tile.FlavorText.PreZero"), 200, 0, 0);
             }
@@ -56,7 +56,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
             int height = 16;
             Texture2D tex = TextureAssets.Tile[Type].Value;
             Texture2D Glow = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-            if (AAWorld.downedZero)
+            if (AADowned.DownedZero)
             {
                 tex = ModContent.Request<Texture2D>(Texture + "_0").Value;
                 Glow = ModContent.Request<Texture2D>(Texture + "_0_Glow").Value;

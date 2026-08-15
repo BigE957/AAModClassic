@@ -1,4 +1,4 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Mire.World.Biomes;
@@ -197,7 +197,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
             npcLoot.Add(ItemDropRule.BossBagByCondition(lastStandingAlways.condition, ModContent.ItemType<SistersOfDiscordTreasureBag>()));
 
-            LeadingConditionRule loreCondition = new(new LoreItemDropCondition(() => AAWorld.downedSisters));
+            LeadingConditionRule loreCondition = new(new LoreItemDropCondition(() => AADowned.downedSistersOfDiscord));
             lastStandingAlways.OnSuccess(loreCondition).OnSuccess(new PerPlayerDropRule(ModContent.ItemType<SistersOfDiscordLore>(), 1));
 
             LeadingConditionRule masterMode = new(new MissingSisterInMaster());
@@ -246,7 +246,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             {
                 if (NPC.life < NPC.lifeMax / 4)
                 {
-                    if (internalAI[9]++ >= 480 && AAWorld.downedSisters)
+                    if (internalAI[9]++ >= 480 && AADowned.downedSistersOfDiscord)
                     {
                         NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HarukaFall>());
                         NPC.active = false;

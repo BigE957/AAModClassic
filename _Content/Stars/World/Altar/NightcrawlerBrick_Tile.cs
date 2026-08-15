@@ -18,8 +18,8 @@ namespace AAModClassic._Content.Stars.World.Altar
             DustType = ModContent.DustType<Dusts.DarkmatterDust>();
         }
 
-        public override bool CanKillTile(int i, int j, ref bool blockDamaged) => AAWorld.downedEquinox;
+        public override bool CanKillTile(int i, int j, ref bool blockDamaged) => AADowned.downedEquinoxWorms;
 
-        public override bool CanReplace(int i, int j, int tileTypeBeingPlaced) => AAWorld.downedEquinox;
+        public override bool CanReplace(int i, int j, int tileTypeBeingPlaced) => AADowned.downedEquinoxWorms;
     }
 }

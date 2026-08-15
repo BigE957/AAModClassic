@@ -1,4 +1,4 @@
-using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
+﻿using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -74,7 +74,7 @@ public class CoreDoor_Tile : ModTile
 
 	public override void NearbyEffects(int i, int j, bool closer)
 	{
-		if (NPCExtensions.BeenKilled<BiomiteCore>())
+		if (AADowned.downedBiomiteCore)
 		{
 			Main.tileSolid[Type] = false;
 			_activated = false;

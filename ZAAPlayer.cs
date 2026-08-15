@@ -392,7 +392,7 @@ namespace AAModClassic
 
         private void ResetAccessoryEffect()
         {
-            AshCurse = !Main.dayTime && !AAWorld.downedAkuma;
+            AshCurse = !Main.dayTime && !AADowned.DownedAkuma;
             DiscordShredder = false;
             RStar = false;
             DVoid = false;
@@ -962,7 +962,7 @@ namespace AAModClassic
 
             if (Player.GetModPlayer<ZAAPlayer>().ZoneMire || Player.GetModPlayer<ZAAPlayer>().ZoneRisingMoonLake)
             {
-                if (Main.dayTime && !AAWorld.downedYamata)
+                if (Main.dayTime && !AADowned.DownedYamata)
                 {
                     Player.AddBuff(ModContent.BuffType<Clueless_Buff>(), 5);
                 }
@@ -994,7 +994,7 @@ namespace AAModClassic
 
             if (Player.GetModPlayer<ZAAPlayer>().ZoneRisingMoonLake || Player.GetModPlayer<ZAAPlayer>().ZoneRisingSunPagoda)
             {
-                if (((!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && AAWorld.downedAllAncients) || (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && AAWorld.downedAkuma && AAWorld.downedYamata)) && !AAWorld.downedShen)
+                if (((!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && AADowned.DownedAllAncients) || (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && AADowned.DownedAkuma && AADowned.DownedYamata)) && !AADowned.DownedShen)
                 {
                     EmberRain(Player);
                 }

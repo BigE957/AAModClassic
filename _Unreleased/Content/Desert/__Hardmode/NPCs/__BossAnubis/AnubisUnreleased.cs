@@ -815,10 +815,11 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
 
         public override bool PreKill()
         {
-            if (NPC.downedMoonlord && NPCExtensions.BeenKilled<Anubis>())
+            if (NPC.downedMoonlord && AADowned.downedAnubis)
             {
-                if (!AAWorld.AnubisAwakened)
-                    AAWorld.AnubisAwakened = true;
+                if (!AADowned.AnubisAwakened)
+                    AADowned.AnubisAwakened = true;
+                AADowned.SyncWorldData();
 
                 NPC.boss = false;
             }
@@ -1178,7 +1179,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                 {
                     if (AttackTimer++ < 420)
                     {
-                        if (!NPCExtensions.BeenKilled<Anubis>())
+                        if (!AADowned.downedAnubis)
                         {
                             if (AttackTimer == 60)
                             {

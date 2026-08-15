@@ -1,4 +1,4 @@
-using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
 using AAModClassic._Content._Misc.__Hardmode.Items.Ammo;
 using AAModClassic._Content._Misc.__Hardmode.Items.Materials;
 using AAModClassic._Content._Misc.__Hardmode.Items.Weapons;
@@ -291,7 +291,7 @@ namespace AAModClassic.Globals
 
         public override void PostAI(NPC npc)
         {
-            if (npc.CountsAsACritter && !npc.dontTakeDamage && NPCExtensions.BeenKilled<RajahRabbitA>() && IsBunny(npc))
+            if (npc.CountsAsACritter && !npc.dontTakeDamage && AADowned.downedRajahRabbitR && IsBunny(npc))
             {
                 npc.dontTakeDamage = true;
             }
@@ -1008,7 +1008,7 @@ namespace AAModClassic.Globals
             {
                 ClearPoolWithExceptions(pool);
 
-                if ((spawnInfo.Player.position.Y < (Main.worldSurface * 16.0)) && (Main.dayTime || AAWorld.downedAkuma))
+                if ((spawnInfo.Player.position.Y < (Main.worldSurface * 16.0)) && (Main.dayTime || AADowned.DownedAkuma))
                 {
                     if (!ContentReplacementSystem.NeedToReplaceContent)
                     {
@@ -1025,7 +1025,7 @@ namespace AAModClassic.Globals
                         pool.Add(ModContent.NPCType<BlazePhoenix>(), ContentReplacementSystem.NeedToReplaceContent ? 1f : .1f);
                     }
 
-                    if (AAWorld.downedSisters)
+                    if (AADowned.downedSistersOfDiscord)
                     {
                         pool.Add(ModContent.NPCType<BlazeClaw>(), ContentReplacementSystem.NeedToReplaceContent ? 0.5f : .05f);
                     }
@@ -1068,7 +1068,7 @@ namespace AAModClassic.Globals
             {
                 ClearPoolWithExceptions(pool);
 
-                if ((spawnInfo.Player.position.Y < (Main.worldSurface * 16.0)) && (!Main.dayTime || AAWorld.downedYamata))
+                if ((spawnInfo.Player.position.Y < (Main.worldSurface * 16.0)) && (!Main.dayTime || AADowned.DownedYamata))
                 {
                     if (!ContentReplacementSystem.NeedToReplaceContent)
                     {
@@ -1086,7 +1086,7 @@ namespace AAModClassic.Globals
                         pool.Add(ModContent.NPCType<Kappa>(), ContentReplacementSystem.NeedToReplaceContent ? 1f : .025f);
                     }
 
-                    if (AAWorld.downedSisters)
+                    if (AADowned.downedSistersOfDiscord)
                     {
                         pool.Add(ModContent.NPCType<AbyssClaw>(), ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f);
                     }
@@ -1118,7 +1118,7 @@ namespace AAModClassic.Globals
                 if (NPC.downedMoonlord)
                     pool.Add(ModContent.NPCType<Soulsucker>(), ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f);
 
-                if (!AAWorld.downedSisters && NPCExtensions.BeenKilled<HydraBody>() && !NPC.AnyNPCs(ModContent.NPCType<HarukaShadow>()))
+                if (!AADowned.downedSistersOfDiscord && AADowned.downedHydra && !NPC.AnyNPCs(ModContent.NPCType<HarukaShadow>()))
                     pool.Add(ModContent.NPCType<HarukaShadow>(), ContentReplacementSystem.NeedToReplaceContent ? 0.0005f : .00005f);
             }
 
@@ -1126,7 +1126,7 @@ namespace AAModClassic.Globals
             {
                 ClearPoolWithExceptions(pool);
 
-                if (NPCExtensions.BeenKilled<Sagittarius>())
+                if (AADowned.downedSagittarius)
                 {
                     pool.Add(ModContent.NPCType<ShadowScout>(), .005f);
                 }
@@ -1141,7 +1141,7 @@ namespace AAModClassic.Globals
                 {
                     pool.Add(ModContent.NPCType<Searcher>(), .005f);
 
-                    if (AAWorld.downedZero)
+                    if (AADowned.DownedZero)
                         pool.Add(ModContent.NPCType<Null>(), .005f);
                 }
                 else
@@ -1179,7 +1179,7 @@ namespace AAModClassic.Globals
                     pool.Add(ModContent.NPCType<UnityWatcher>(), .07f);
                     pool.Add(ModContent.NPCType<TerraSquire>(), .07f);
                 }
-                else if (AAWorld.Terra1)
+                else if (AADowned.Terra1)
                 {
                     pool.Add(ModContent.NPCType<PurityWeaverHead>(), .05f);
                     pool.Add(ModContent.NPCType<PuritySphere>(), .05f);
@@ -1187,7 +1187,7 @@ namespace AAModClassic.Globals
                     pool.Add(ModContent.NPCType<PuritySquid>(), .05f);
                 }
 
-                if(AAWorld.downedEquinox)
+                if(AADowned.downedEquinoxWorms)
                     pool.Add(ModContent.NPCType<TerraSerpentHead>(), .025f);
             }
 
@@ -1220,7 +1220,7 @@ namespace AAModClassic.Globals
             {
                 ClearPoolWithExceptions(pool);
 
-                if (AAWorld.downedEquinox && spawnInfo.Water)
+                if (AADowned.downedEquinoxWorms && spawnInfo.Water)
                 {
                     pool.Add(ModContent.NPCType<DimensionDiver>(), .6f);
                     pool.Add(ModContent.NPCType<TrenchSquid>(), .5f);
@@ -1248,7 +1248,7 @@ namespace AAModClassic.Globals
                     break;
                 case NPCID.Dryad:
                     shop.Add<MyceliumSeeds>(Condition.InGlowshroom);
-                    shop.Add<GoldenCarrot>(new Condition(Language.GetText("Mods.AAModClassic.Common.Conditions.DownedRajah"), () => NPCExtensions.BeenKilled<RajahRabbit>()));
+                    shop.Add<GoldenCarrot>(new Condition(Language.GetText("Mods.AAModClassic.Common.Conditions.DownedRajah"), () => AADowned.downedRajahRabbit));
                     shop.ActiveEntries.First(e => e.Item.type == ModContent.ItemType<GoldenCarrot>()).Item.shopCustomPrice = Item.sellPrice(0, 30, 0, 0);
                     break;
                 case NPCID.Truffle:

@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
@@ -23,10 +23,10 @@ namespace AAModClassic._Content.Void.World.Tiles
 
         public override bool CanKillTile(int i, int j, ref bool blockDamaged)
         {
-            return AAWorld.downedZero;
+            return AADowned.DownedZero;
         }
 
-        public override bool CanReplace(int i, int j, int tileTypeBeingPlaced) => AAWorld.downedZero;
+        public override bool CanReplace(int i, int j, int tileTypeBeingPlaced) => AADowned.DownedZero;
 
         public static bool PlaceObject(int x, int y, int type, bool mute = false, int style = 0, int random = -1, int direction = -1)
         {

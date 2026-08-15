@@ -355,7 +355,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                AAWorld.zeroUS = false;
+                AADowned.zeroUS = false;
             }
 
             for (int m = NPC.oldPos.Length - 1; m > 0; m--)

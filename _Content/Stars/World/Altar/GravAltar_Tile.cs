@@ -34,7 +34,7 @@ namespace AAModClassic._Content.Stars.World.Altar
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
-            if (AAWorld.GravActive)
+            if (AADowned.GravActive)
             {
                 frame = 1;
             }
@@ -46,7 +46,7 @@ namespace AAModClassic._Content.Stars.World.Altar
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
-            if (AAWorld.StarActive)
+            if (AADowned.StarActive)
             {
                 r = Color.DarkBlue.R / 2;
                 g = Color.DarkBlue.G / 2;
@@ -58,7 +58,7 @@ namespace AAModClassic._Content.Stars.World.Altar
         {
             Player player = Main.LocalPlayer;
             int type = ModContent.ItemType<GravitySphere>();
-            if (BasePlayer.HasItem(player, type, 1) && !AAWorld.GravActive)
+            if (BasePlayer.HasItem(player, type, 1) && !AADowned.GravActive)
             {
                 for (int m = 0; m < 50; m++)
                 {
@@ -66,7 +66,8 @@ namespace AAModClassic._Content.Stars.World.Altar
                     if (item != null && item.type == type && item.stack >= 1)
                     {
                         item.stack--;
-                        AAWorld.GravActive = true;
+                        AADowned.GravActive = true;
+                        AADowned.SyncWorldData();
                         break;
                     }
                 }

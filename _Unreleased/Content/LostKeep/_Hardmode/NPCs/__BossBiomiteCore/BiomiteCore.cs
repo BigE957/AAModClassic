@@ -108,7 +108,7 @@ public class BiomiteCore : ModNPC
 		{
 			NPC.ai[3] = 1f;
 		}
-		if (internalAI[0] != 1f && !NPCExtensions.BeenKilled<BiomiteCore>())
+		if (internalAI[0] != 1f && !AADowned.downedBiomiteCore)
 		{
 			NPC.dontTakeDamage = true;
 			NPC.Center = val2;

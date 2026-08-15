@@ -832,7 +832,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
                 if (NPC.life <= NPC.lifeMax * 0.80f && !Health4)
                 {
-                    if (AAWorld.downedShen)
+                    if (AADowned.DownedShen)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Health.80.Repeat"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     }
@@ -845,7 +845,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 }
                 if (NPC.life <= NPC.lifeMax * 0.66f && !Health3)
                 {
-                    if (AAWorld.downedShen)
+                    if (AADowned.DownedShen)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Health.66.Repeat"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     }
@@ -858,7 +858,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 }
                 if (NPC.life <= NPC.lifeMax * 0.30f && !Health1)
                 {
-                    if (AAWorld.downedShen)
+                    if (AADowned.DownedShen)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Health.30.Repeat"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     }
@@ -876,7 +876,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 {
                     SpawnMinionPhaseCharacters = true;
 
-                    if (AAWorld.downedShen)
+                    if (AADowned.DownedShen)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Summon.Repeat.Shen"), Color.DarkMagenta);
                         if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Summon.Repeat.Ashe"), new Color(102, 20, 48));
@@ -895,7 +895,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
                 if (NPC.life <= NPC.lifeMax * 0.9f && !Health9)
                 {
-                    if (AAWorld.downedShen)
+                    if (AADowned.DownedShen)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Health.90.Repeat"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     }
@@ -908,7 +908,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 }
                 if (NPC.life <= NPC.lifeMax * 0.8f && !Health8)
                 {
-                    if (AAWorld.downedShen)
+                    if (AADowned.DownedShen)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Health.80.Repeat"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     }
@@ -921,7 +921,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 }
                 if (NPC.life <= NPC.lifeMax * 0.7f && !Health7)
                 {
-                    if (AAWorld.downedShen)
+                    if (AADowned.DownedShen)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Health.70.Repeat"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     }
@@ -934,7 +934,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 }
                 if (NPC.life <= NPC.lifeMax * 0.6f && !Health6)
                 {
-                    if (AAWorld.downedShen)
+                    if (AADowned.DownedShen)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Health.60.Repeat"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     }
@@ -953,7 +953,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 }
                 if (NPC.life <= NPC.lifeMax * 0.3f && !Health3)
                 {
-                    if (AAWorld.downedShen)
+                    if (AADowned.DownedShen)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Health.30.Repeat"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     }
@@ -966,7 +966,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 }
                 if (NPC.life <= NPC.lifeMax * 0.2f && !Health2)
                 {
-                    if (AAWorld.downedShen)
+                    if (AADowned.DownedShen)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Health.20.Repeat"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     }
@@ -979,7 +979,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 }
                 if (NPC.life <= NPC.lifeMax * 0.1f && !Health1)
                 {
-                    if (AAWorld.downedShen)
+                    if (AADowned.DownedShen)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Health.10.Repeat"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     }

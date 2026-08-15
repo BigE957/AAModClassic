@@ -1,4 +1,4 @@
-using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
+﻿using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
@@ -64,7 +64,8 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
             int blueGripExists = NPC.CountNPCS(ModContent.NPCType<GripOfChaosMire>());
             if (blueGripExists == 0)
             {
-                AAWorld.downedGrips = true;
+                AADowned.downedGripsOfChaos = true;
+                AADowned.SyncWorldData();
                 if (NPC.playerInteraction[Main.myPlayer])
                     GripsOfChaosKilled.Condition.Complete();
             }
@@ -90,7 +91,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
 
             lastStandingAlways.OnSuccess(ItemDropRule.BossBag(ModContent.ItemType<GripsOfChaosTreasureBag>()));
 
-            LeadingConditionRule loreCondition = new(new LoreItemDropCondition(() => AAWorld.downedGrips));
+            LeadingConditionRule loreCondition = new(new LoreItemDropCondition(() => AADowned.downedGripsOfChaos));
             lastStandingAlways.OnSuccess(loreCondition).OnSuccess(new PerPlayerDropRule(ModContent.ItemType<GripsOfChaosLore>(), 1));
 
             lastStandingAlways.OnSuccess(ItemDropRule.ByCondition(new MasterRevDropRule(), ModContent.ItemType<GripsOfChaosRelic>()));

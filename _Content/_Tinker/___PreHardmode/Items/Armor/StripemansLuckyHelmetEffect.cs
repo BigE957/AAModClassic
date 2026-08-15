@@ -724,7 +724,7 @@ namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor
                 }
                 else if (itemtype == ModContent.ItemType<ApocalyptiteOre>())
                 {
-                    if (Main.rand.NextFloat(chance) < 1 && type == ModContent.TileType<Doomstone_Tile>() && AAWorld.downedZero)
+                    if (Main.rand.NextFloat(chance) < 1 && type == ModContent.TileType<Doomstone_Tile>() && AADowned.DownedZero)
                     {
                         return itemtype;
                     }
@@ -741,10 +741,10 @@ namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Armor
                 }
                 else
                 {
-                    chance /= 2 * (1 + (NPC.downedPlantBoss ? 1 : 0) + (NPC.downedMoonlord ? 1 : 0) + (AAWorld.downedEquinox ? 1 : 0) + (AAWorld.downedShen ? 1 : 0));
-                    int digcheck = 500 + (NPC.downedPlantBoss ? 200 : 0) + (NPC.downedMoonlord ? 110 : 0) + (AAWorld.downedEquinox ? 20 : 0);
+                    chance /= 2 * (1 + (NPC.downedPlantBoss ? 1 : 0) + (NPC.downedMoonlord ? 1 : 0) + (AADowned.downedEquinoxWorms ? 1 : 0) + (AADowned.DownedShen ? 1 : 0));
+                    int digcheck = 500 + (NPC.downedPlantBoss ? 200 : 0) + (NPC.downedMoonlord ? 110 : 0) + (AADowned.downedEquinoxWorms ? 20 : 0);
                     bool flag = AALuckyConfig.LuckyOre[itemtype] <= digcheck;
-                    if (flag || AAWorld.downedShen)
+                    if (flag || AADowned.DownedShen)
                     {
                         if (Main.rand.NextFloat(chance) < 1)
                         {

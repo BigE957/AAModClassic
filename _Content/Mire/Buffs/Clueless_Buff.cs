@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.Buffs
@@ -16,7 +16,7 @@ namespace AAModClassic._Content.Mire.Buffs
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-            if (player.GetModPlayer<ZAAPlayer>().ZoneMire && Main.dayTime && !AAWorld.downedYamata && !player.ZoneUnderworldHeight && !player.ZoneRockLayerHeight)
+            if (player.GetModPlayer<ZAAPlayer>().ZoneMire && Main.dayTime && !AADowned.DownedYamata && !player.ZoneUnderworldHeight && !player.ZoneRockLayerHeight)
             {
                 player.GetModPlayer<ZAAPlayer>().Clueless = true;
                 player.buffTime[buffIndex] = 5;

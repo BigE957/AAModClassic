@@ -35,7 +35,7 @@ namespace AAModClassic._Content.Stars.World.Altar
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
-            if (AAWorld.StarActive)
+            if (AADowned.StarActive)
             {
                 if (frame < 1) frame = 1;
                 if (++frameCounter >= 5)
@@ -52,7 +52,7 @@ namespace AAModClassic._Content.Stars.World.Altar
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
-            if (AAWorld.StarActive)
+            if (AADowned.StarActive)
             {
                 r = Color.DarkGoldenrod.R / 2;
                 g = Color.DarkGoldenrod.G / 2;
@@ -90,7 +90,7 @@ namespace AAModClassic._Content.Stars.World.Altar
         {
             Player player = Main.LocalPlayer;
             int type = ModContent.ItemType<StarChart>();
-            if (BasePlayer.HasItem(player, type, 1) && !AAWorld.StarActive)
+            if (BasePlayer.HasItem(player, type, 1) && !AADowned.StarActive)
             {
                 for (int m = 0; m < 50; m++)
                 {
@@ -98,7 +98,8 @@ namespace AAModClassic._Content.Stars.World.Altar
                     if (item != null && item.type == type && item.stack >= 1)
                     {
                         item.stack--;
-                        AAWorld.StarActive = true;
+                        AADowned.StarActive = true;
+                        AADowned.SyncWorldData();
                         break;
                     }
                 }
