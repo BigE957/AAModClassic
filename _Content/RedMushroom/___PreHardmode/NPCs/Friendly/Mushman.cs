@@ -8,6 +8,7 @@ using AAModClassic._Content.RedMushroom.World.Biomes;
 using AAModClassic._Content.RedMushroom.World.Tiles;
 using AAModClassic.Achievements;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -496,10 +497,10 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
             shop.Add(ItemID.SuperManaPotion, Condition.DownedMoonLord);
 
             //TODO: Give these text
-            shop.Add<GrandHealingPotion>([new((LocalizedText)null, () => AAWorld.downedAncient)]);
-            shop.Add<GrandManaPotion>([new((LocalizedText)null, () => AAWorld.downedAncient)]);
+            shop.Add<GrandHealingPotion>(AAConditions.DownedAnyLateAncient);
+            shop.Add<GrandManaPotion>(AAConditions.DownedAnyLateAncient);
 
-            shop.Add<TheBigOne>([new((LocalizedText)null, () => AAWorld.downedSAncient)]);
+            shop.Add<TheBigOne>(AAConditions.DownedAnySuperancient);
 
             shop.Register();
         }

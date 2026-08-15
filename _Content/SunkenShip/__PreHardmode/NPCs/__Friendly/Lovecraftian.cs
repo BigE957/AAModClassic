@@ -21,6 +21,7 @@ using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Humanizer;
 using System.Collections.Generic;
 using Terraria;
@@ -514,20 +515,20 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
         public override void AddShops()
         {
             NPCShop shop = new(Type);
-            shop.Add<PurityFlask>(new Condition((LocalizedText)null, () => AAWorld.squid1 >= 5));
-            shop.Add<AshJar>(new Condition((LocalizedText)null, () => AAWorld.squid2 >= 5));
-            shop.Add<DarkwaterFlask>(new Condition((LocalizedText)null, () => AAWorld.squid3 >= 5));
-            shop.Add<CorruptionFlask>(new Condition((LocalizedText)null, () => AAWorld.squid4 >= 5));
-            shop.Add<CrimsonFlask>(new Condition((LocalizedText)null, () => AAWorld.squid5 >= 5));
-            shop.Add<HallowFlask>(new Condition((LocalizedText)null, () => AAWorld.squid6 >= 5));
-            shop.Add<VoidFlask>(new Condition((LocalizedText)null, () => AAWorld.squid7 >= 5));
-            shop.Add<Fungicide>(new Condition((LocalizedText)null, () => AAWorld.squid8 >= 5));
-            shop.Add<SporeBag>(new Condition((LocalizedText)null, () => AAWorld.squid9 >= 5));
-            shop.Add<GlowingSporeBag>(new Condition((LocalizedText)null, () => AAWorld.squid10 >= 5));
-            shop.Add<JungleFlask>(new Condition((LocalizedText)null, () => AAWorld.squid11 >= 5));
-            shop.Add<IceFlask>(new Condition((LocalizedText)null, () => AAWorld.squid12 >= 1));
-            shop.Add<IcemeltFlask>(new Condition((LocalizedText)null, () => AAWorld.squid12 >= 1));
-            shop.Add<ForestFlask>(new Condition((LocalizedText)null, () => AAWorld.squid13 >= 5));
+            shop.Add<PurityFlask>(AAConditions.LovecraftianQuestPurity);
+            shop.Add<AshJar>(AAConditions.LovecraftianQuestInferno);
+            shop.Add<DarkwaterFlask>(AAConditions.LovecraftianQuestMire);
+            shop.Add<CorruptionFlask>(AAConditions.LovecraftianQuestCorruption);
+            shop.Add<CrimsonFlask>(AAConditions.LovecraftianQuestCrimson);
+            shop.Add<HallowFlask>(AAConditions.LovecraftianQuestHallow);
+            shop.Add<VoidFlask>(AAConditions.LovecraftianQuestVoid);
+            shop.Add<Fungicide>(AAConditions.LovecraftianQuestAntiMushroom);
+            shop.Add<SporeBag>(AAConditions.LovecraftianQuestRedMushroom);
+            shop.Add<GlowingSporeBag>(AAConditions.LovecraftianQuestGlowingMushroom);
+            shop.Add<JungleFlask>(AAConditions.LovecraftianQuestJungle);
+            shop.Add<IceFlask>(AAConditions.LovecraftianQuestIce);
+            shop.Add<IcemeltFlask>(AAConditions.LovecraftianQuestAntiIce);
+            shop.Add<ForestFlask>(AAConditions.LovecraftianQuestForest);
             shop.Register();
         }
 

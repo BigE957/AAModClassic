@@ -26,7 +26,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.Tiles.Function
 
         // firtst three are inferno pylon stuff, last two are ocean pylon light and dust
         public virtual int PylonItemID => ModContent.ItemType<InfernoPylon>();
-        public virtual Condition ShopCondition => InfernoConditions.InAnyInferno;
+        public virtual Condition ShopCondition => AAConditions.InAnyInferno;
         public virtual bool TeleportBiomeRequirements => AAWorld.infernoTiles > 100;
         public virtual (float, float, float) LightColor => (0.4f, 0.4f, 1.15f);
         public virtual Color DustColor => new Color(0.2f, 0.2f, 0.95f, 1f);

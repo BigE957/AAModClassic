@@ -11,6 +11,7 @@ using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic._Content.Mire.__Hardmode.Items.Consumables;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -154,12 +155,12 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.Friendly
             shop.Add(ItemID.RedDynastyShingles, Condition.TimeDay);
             shop.Add<ScorchedSeeds>(Condition.TimeDay);
             shop.Add<Sunpowder>(Condition.TimeDay);
-            shop.Add<AncientBell>(Condition.TimeDay, new((LocalizedText)null, () => NPCExtensions.BeenKilled<Broodmother>()));
+            shop.Add<AncientBell>(Condition.TimeDay, AAConditions.DownedBroodmother);
 
             shop.Add(ItemID.BlueDynastyShingles, Condition.TimeNight);
             shop.Add<DankSeeds>(Condition.TimeNight);
             shop.Add<Moonpowder>(Condition.TimeNight);
-            shop.Add<HydraChow>(Condition.TimeNight, new((LocalizedText)null, () => NPCExtensions.BeenKilled<HydraBody>()));
+            shop.Add<HydraChow>(Condition.TimeNight, AAConditions.DownedHydra);
 
             shop.Add(new Item(ModContent.ItemType<LuckyCracker>()) { shopCustomPrice = 2000000 });
             shop.Add(new Item(ModContent.ItemType<RoninPotion>()) { shopCustomPrice = 50000 });
