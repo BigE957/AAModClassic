@@ -25,11 +25,24 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
             Projectile.trap = false;
         }
 
-        public ref float Time => ref Projectile.ai[2];
+        public ref float Time => ref Projectile.ai[0];
         public bool BeenHit { get => Projectile.ai[1] == 1; set => Projectile.ai[1] = (value ? 1  : 0); }
 
         public override void AI()
         {
+            if (Time == 0)
+            {
+                SoundEngine.PlaySound(SoundID.Item39, Projectile.Center);
+                Point tileCoords = Projectile.Center.ToTileCoordinates();
+                WorldGen.KillTile(tileCoords.X, tileCoords.Y, effectOnly: true);
+            }
+            else if (Time < 0)
+            {
+                Projectile.Center -= Projectile.velocity;
+                Time++;
+                return;
+            }
+
             if (!NPC.AnyNPCs(ModContent.NPCType<DesertDjinn_Unofficial>()))
                 Projectile.tileCollide = true;
 

@@ -32,6 +32,8 @@ namespace AAModClassic.Particles.Types
         private readonly Point[] ColumnPositions;
         private readonly float[] ColumnOffsets;
         private readonly int[] ColumnDepths;
+        private readonly float[] ColumnVelocities;
+        private readonly float[] ColumnGravities;
 
         private readonly int Count = 1;
         private readonly int Direction = 1;
@@ -113,7 +115,7 @@ namespace AAModClassic.Particles.Types
             Velocity = Vector2.Zero;
             Scale = Vector2.One;
             Duration = duration;
-            Lifetime = Duration + (columnDelay * count);
+            Lifetime = Duration + (columnDelay * count); // Lifetime is predictable again!
             Color = Color.White;
             Count = count;
             Peak = peak;
@@ -122,18 +124,27 @@ namespace AAModClassic.Particles.Types
 
             ColumnPositions = new Point[Count];
             ColumnOffsets = new float[Count];
+            ColumnVelocities = new float[Count];
+            ColumnGravities = new float[Count];
+
             int surfaceOffset = 0;
             for (int i = 0; i < Count; i++)
             {
                 ColumnPositions[i] = CollisionUtils.FindSurfaceAround(StartPosition + new Point(i * Direction, surfaceOffset));
                 surfaceOffset = ColumnPositions[i].Y - StartPosition.Y;
                 ColumnOffsets[i] = 0f;
+
+                float myPeak = GetColumnPeak(i);
+
+                // Calculate unique velocity and gravity so this column perfectly fits the Duration
+                ColumnVelocities[i] = (4f * myPeak) / Duration;
+                ColumnGravities[i] = (8f * myPeak) / (Duration * Duration);
             }
 
             MaxShiftTiles = (int)MathF.Ceiling(Peak / 16f);
-
             ColumnDepths = new int[Count];
             _hiddenRealTiles = new List<Point>();
+
             int maxColumnDepth = 0;
             for (int i = 0; i < Count; i++)
             {
@@ -144,7 +155,7 @@ namespace AAModClassic.Particles.Types
                     int revealCount = Math.Min(naturalDepth, (int)MathF.Ceiling(GetColumnPeak(i) / 16f));
                     for (int k = 0; k < revealCount; k++)
                     {
-                        int row = naturalDepth - 1 - k; // from the bottom tile upward
+                        int row = naturalDepth - 1 - k;
                         _hiddenRealTiles.Add(ColumnPositions[i] + new Point(0, row));
                     }
                 }
@@ -237,21 +248,33 @@ namespace AAModClassic.Particles.Types
 
             for (int i = 0; i < Count; i++)
             {
-                float ratio = MathHelper.Clamp((Time - (ColumnDelay * i)) / (float)Duration, 0f, 1f);
+                int myStartTime = ColumnDelay * i;
+                int myEndTime = myStartTime + Duration;
 
-                float myPeak = GetColumnPeak(i);
-                ColumnOffsets[i] = MathF.Sin(ratio * MathHelper.Pi) * myPeak;
-
-                if (Time == (ColumnDelay * i))
+                if (Time >= myStartTime && Time <= myEndTime)
                 {
-                    Tile t = Framing.GetTileSafely(ColumnPositions[i]);
-                    int amt = WorldGen.KillTile_GetTileDustAmount(false, t, ColumnPositions[i].X, ColumnPositions[i].Y);
-                    amt = (int)(amt * (myPeak / 96f));
-                    for (int j = 0; j < amt; j++)
+                    float myPeak = GetColumnPeak(i);
+
+                    if (Time == myStartTime)
                     {
-                        int d = WorldGen.KillTile_MakeTileDust(ColumnPositions[i].X, ColumnPositions[i].Y, t);
-                        Main.dust[d].position.Y -= myPeak * 0.5f * Main.rand.NextFloat();
-                        Main.dust[d].velocity.Y -= myPeak / 18f * Main.rand.NextFloat();
+                        Tile t = Framing.GetTileSafely(ColumnPositions[i]);
+                        int amt = WorldGen.KillTile_GetTileDustAmount(false, t, ColumnPositions[i].X, ColumnPositions[i].Y);
+                        amt = (int)(amt * (myPeak / 96f));
+                        for (int j = 0; j < amt; j++)
+                        {
+                            int d = WorldGen.KillTile_MakeTileDust(ColumnPositions[i].X, ColumnPositions[i].Y, t);
+                            Main.dust[d].position.Y -= myPeak * 0.5f * Main.rand.NextFloat();
+                            Main.dust[d].velocity.Y -= myPeak / 18f * Main.rand.NextFloat();
+                        }
+                    }
+
+                    ColumnOffsets[i] += ColumnVelocities[i];
+                    ColumnVelocities[i] -= ColumnGravities[i];
+
+                    if (ColumnOffsets[i] <= 0f && Time > myStartTime)
+                    {
+                        ColumnOffsets[i] = 0f;
+                        ColumnVelocities[i] = 0f;
                     }
                 }
             }

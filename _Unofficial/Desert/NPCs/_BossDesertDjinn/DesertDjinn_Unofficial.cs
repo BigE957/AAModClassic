@@ -343,6 +343,11 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         Time = 0;
                         AttackFlag = false;
 
+                        if (Main.expertMode && Phase2)
+                        {
+                            Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), Target.Center, Vector2.Zero, ProjectileID.SandnadoHostileMark, TwisterDamage, 1f).hostile = false;
+                        }
+
                         if (Main.rand.NextBool() && Exhaustion + 2 < ExhaustionCap)
                         {
                             FrameX = 4;
@@ -755,9 +760,22 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
 
                         float desiredHeight = Math.Abs((AttackVector.Y - cactusSpawn.Y) - 96f);
                         float neededSpeed = MathF.Sqrt(2 * 0.3f * desiredHeight);
-                        AttackCounter = Projectile.NewProjectile(NPC.GetSource_FromThis(), cactusSpawn, Vector2.UnitY * -neededSpeed, ModContent.ProjectileType<CactusBaseball>(), 10, 0.5f);
-                        SoundEngine.PlaySound(SoundID.Item39, cactusSpawn);
-                        WorldGen.KillTile(tileCoords.X, tileCoords.Y, effectOnly: true);
+                        Projectile.NewProjectile(NPC.GetSource_FromThis(), cactusSpawn, Vector2.UnitY * -neededSpeed, ModContent.ProjectileType<CactusBaseball>(), 10, 0.5f);
+                        if (Phase2)
+                        {
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), cactusSpawn, Vector2.UnitY * -neededSpeed, ModContent.ProjectileType<CactusBaseball>(), 10, 0.5f, -1, -15);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), cactusSpawn, Vector2.UnitY * -neededSpeed, ModContent.ProjectileType<CactusBaseball>(), 10, 0.5f, -1, -30);
+                        }
+                    }
+
+                    Projectile nextCactus = null;
+                    foreach(Projectile p in Main.projectile)
+                    {
+                        if (p.type != ModContent.ProjectileType<CactusBaseball>() || p.ai[1] == 1)
+                            continue;
+
+                        if (nextCactus == null || nextCactus.ai[0] < p.ai[0])
+                            nextCactus = p;
                     }
 
                     Vector2 goalPos = AttackVector + (Target.DirectionTo(AttackVector) * cactusOffset);
@@ -765,20 +783,37 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                     NPC.direction = (NPC.Center + NPC.velocity).X > Target.Center.X ? -1 : 1;
                     NPC.rotation = (NPC.Center + NPC.velocity).AngleTo(Target.Center) + (NPC.direction == -1 ? MathHelper.Pi : 0);
 
-                    Vector2 a = (NPC.Center + NPC.velocity).DirectionTo(Main.projectile[AttackCounter].Center);
-                    Vector2 b = (NPC.Center + NPC.velocity).DirectionTo(Target.Center);
-                    float cross = (a.X * b.Y) - (a.Y * b.X);
-
-                    if (FrameX == 2 && Main.projectile[AttackCounter].velocity.Y > 0)
-                    {            
-                        if (cross * NPC.direction < 0f)
+                    if (nextCactus != null)
+                    {
+                        if (FrameX == 2)
                         {
-                            FrameX = 3;
-                            Main.projectile[AttackCounter].velocity = b * 28f;
-                            Main.projectile[AttackCounter].tileCollide = true;
-                            Main.projectile[AttackCounter].ai[1] = 1;
-                            Time = 120;
-                            SoundEngine.PlaySound(SoundID.Dig, NPC.Center);
+                            if (nextCactus.velocity.Y > 0)
+                            {
+                                Vector2 a = (NPC.Center + NPC.velocity).DirectionTo(nextCactus.Center);
+                                Vector2 b = (NPC.Center + NPC.velocity).DirectionTo(Target.Center);
+                                float cross = (a.X * b.Y) - (a.Y * b.X);
+
+                                if (cross * NPC.direction < 0f)
+                                {
+                                    FrameX = 3;
+                                    nextCactus.velocity = b * 28f;
+                                    nextCactus.tileCollide = true;
+                                    nextCactus.ai[1] = 1;
+                                    Time = 120;
+                                    SoundEngine.PlaySound(SoundID.Dig, NPC.Center);
+                                    AttackCounter = 0;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (AttackCounter >= 5)
+                            {
+                                FrameX = 2;
+                                AttackCounter = 0;
+                            }
+                            else
+                                AttackCounter++;
                         }
                     }
 
