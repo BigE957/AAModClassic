@@ -400,9 +400,7 @@ namespace AAModClassic.Particles.Types
                     _localFilled[idx] = withinTrackedDepth || _staticRealFilled[idx];
 
                     int depthInColumn = r - top;
-                    int sampleWorldY = withinTrackedDepth
-                        ? ColumnPositions[i].Y + depthInColumn
-                        : ColumnPositions[i].Y - MaxShiftTiles + r;
+                    int sampleWorldY = withinTrackedDepth ? ColumnPositions[i].Y + depthInColumn : ColumnPositions[i].Y - MaxShiftTiles + r;
 
                     _localLight[idx] = SampleRealLight(worldX, sampleWorldY);
                 }
