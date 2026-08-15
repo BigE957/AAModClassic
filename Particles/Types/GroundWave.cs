@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.GameContent.Drawing;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -333,6 +334,36 @@ namespace AAModClassic.Particles.Types
                         continue;
                     }
 
+                    //Holy fuck I hate vanilla
+                    int leftI = i - Direction;
+                    int rightI = i + Direction;
+                    int leftYDiff = (leftI >= 0 && leftI < Count) ? start.Y - ColumnPositions[leftI].Y : 0;
+                    int rightYDiff = (rightI >= 0 && rightI < Count) ? start.Y - ColumnPositions[rightI].Y : 0;
+
+                    Tile leftTile = (leftI >= 0 && leftI < Count)
+                        ? Framing.GetTileSafely(ColumnPositions[leftI] + new Point(0, j + leftYDiff))
+                        : Framing.GetTileSafely(myTilePosition + new Point(-1, 0));
+                    Tile rightTile = (rightI >= 0 && rightI < Count)
+                        ? Framing.GetTileSafely(ColumnPositions[rightI] + new Point(0, j + rightYDiff))
+                        : Framing.GetTileSafely(myTilePosition + new Point(1, 0));
+
+                    bool leftIsHalfBrick = leftTile != null && leftTile.IsHalfBlock;
+                    bool rightIsHalfBrick = rightTile != null && rightTile.IsHalfBlock;
+
+                    bool needsHalfBrickNotch = !TileID.Sets.Platforms[t.TileType]
+                        && !TileID.Sets.IgnoresNearbyHalfbricksWhenDrawn[t.TileType]
+                        && Main.tileSolid[t.TileType]
+                        && !TileID.Sets.NotReallySolid[t.TileType]
+                        && !t.IsHalfBlock
+                        && (leftIsHalfBrick || rightIsHalfBrick);
+
+                    if (needsHalfBrickNotch)
+                    {
+                        Color color = new(GetLocalLight(i, r));
+                        DrawHalfBrickNotch(spritebatch, tileTex, drawPosition, myTilePosition, t, addFrX, addFrY, tileWidth, tileHeight, tileSpriteEffect, color, leftIsHalfBrick, rightIsHalfBrick);
+                        continue;
+                    }
+
                     GetLocalTileSlices(i, r, ref _blendedSlices);
 
                     int actualVisibleHeight = tileHeight - halfBrickHeight;
@@ -366,6 +397,46 @@ namespace AAModClassic.Particles.Types
                         }
                     }
                 }
+            }
+        }
+
+        private static void DrawHalfBrickNotch(SpriteBatch spritebatch, Texture2D tileTex, Vector2 drawPosition, Point myTilePosition, Tile t, int addFrX, int addFrY, int tileWidth, int tileHeight, SpriteEffects tileSpriteEffect, Color color, bool leftIsHalfBrick, bool rightIsHalfBrick)
+        {
+            int frameX = t.TileFrameX;
+            int frameY = t.TileFrameY;
+
+            if (leftIsHalfBrick && rightIsHalfBrick)
+            {
+                spritebatch.Draw(tileTex, drawPosition + new Vector2(0f, 8f), new Rectangle(frameX + addFrX, addFrY + frameY + 8, tileWidth, 8), color, 0f, Vector2.Zero, 1f, tileSpriteEffect, 0f);
+
+                Rectangle notch = new(126 + addFrX, addFrY, 16, 8);
+                Tile aboveTile = Framing.GetTileSafely(myTilePosition + new Point(0, -1));
+                if (aboveTile != null && aboveTile.HasTile && !aboveTile.BottomSlope && aboveTile.TileType == t.TileType)
+                    notch = new Rectangle(90 + addFrX, addFrY, 16, 8);
+
+                spritebatch.Draw(tileTex, drawPosition, notch, color, 0f, Vector2.Zero, 1f, tileSpriteEffect, 0f);
+            }
+            else if (leftIsHalfBrick)
+            {
+                int inset = TileID.Sets.AllBlocksWithSmoothBordersToResolveHalfBlockIssue[t.TileType] ? 2 : 4;
+
+                spritebatch.Draw(tileTex, drawPosition + new Vector2(0f, 8f), new Rectangle(frameX + addFrX, addFrY + frameY + 8, tileWidth, 8), color, 0f, Vector2.Zero, 1f, tileSpriteEffect, 0f);
+                spritebatch.Draw(tileTex, drawPosition + new Vector2(inset, 0f), new Rectangle(frameX + inset + addFrX, addFrY + frameY, tileWidth - inset, tileHeight), color, 0f, Vector2.Zero, 1f, tileSpriteEffect, 0f);
+                spritebatch.Draw(tileTex, drawPosition, new Rectangle(144 + addFrX, addFrY, inset, 8), color, 0f, Vector2.Zero, 1f, tileSpriteEffect, 0f);
+
+                if (inset == 2)
+                    spritebatch.Draw(tileTex, drawPosition, new Rectangle(148 + addFrX, addFrY, 2, 2), color, 0f, Vector2.Zero, 1f, tileSpriteEffect, 0f);
+            }
+            else
+            {
+                int inset = TileID.Sets.AllBlocksWithSmoothBordersToResolveHalfBlockIssue[t.TileType] ? 2 : 4;
+
+                spritebatch.Draw(tileTex, drawPosition + new Vector2(0f, 8f), new Rectangle(frameX + addFrX, addFrY + frameY + 8, tileWidth, 8), color, 0f, Vector2.Zero, 1f, tileSpriteEffect, 0f);
+                spritebatch.Draw(tileTex, drawPosition, new Rectangle(frameX + addFrX, addFrY + frameY, tileWidth - inset, tileHeight), color, 0f, Vector2.Zero, 1f, tileSpriteEffect, 0f);
+                spritebatch.Draw(tileTex, drawPosition + new Vector2(16 - inset, 0f), new Rectangle(144 + (16 - inset), 0, inset, 8), color, 0f, Vector2.Zero, 1f, tileSpriteEffect, 0f);
+
+                if (inset == 2)
+                    spritebatch.Draw(tileTex, drawPosition + new Vector2(14f, 0f), new Rectangle(156, 0, 2, 2), color, 0f, Vector2.Zero, 1f, tileSpriteEffect, 0f);
             }
         }
 
