@@ -61,11 +61,11 @@ Non-Consumable"); */
 		{
             SpawnBoss(player, ModContent.NPCType<YamataBody>(), true, new Vector2(player.Center.X, player.Center.Y - 100),  Language.GetTextValue("Mods.AAModClassic.Common.Yamata"));
             SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/YamataRoar"), player.position);
-            if (!AAWorld.downedYamata)
+            if (!AADowned.DownedYamata)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadSigilTrue1"), AAColor.YamataDialogue);
             }
-            if (AAWorld.downedYamata)
+            if (AADowned.DownedYamata)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadSigilTrue2"), AAColor.YamataDialogue);
             }
@@ -82,7 +82,7 @@ Non-Consumable"); */
             }
             if (player.ZoneAnyMire())
 			{
-                if (!ContentReplacementSystem.NeedToReplaceContent && !AAWorld.downedYamata && !player.GetModPlayer<ZAAPlayer>().ZoneRisingMoonLake)
+                if (!ContentReplacementSystem.NeedToReplaceContent && !AADowned.DownedYamata && !player.GetModPlayer<ZAAPlayer>().ZoneRisingMoonLake)
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadSigilMireFalse"), AAColor.YamataDialogue, false);
                     return false;

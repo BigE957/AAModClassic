@@ -1,4 +1,4 @@
-using AAModClassic._Content._Misc.__Hardmode.Items.Materials.Mushrooms;
+﻿using AAModClassic._Content._Misc.__Hardmode.Items.Materials.Mushrooms;
 using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables;
@@ -106,7 +106,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
 
         public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
         {
-            if (!AAConfigClient.Instance.NoAATownNPC && NPCExtensions.BeenKilled<MushroomMonarch>())
+            if (!AAConfigClient.Instance.NoAATownNPC && AADowned.downedMushroomMonarch)
                 return true;
             return false;
         }
@@ -496,10 +496,10 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
             shop.Add(ItemID.SuperManaPotion, Condition.DownedMoonLord);
 
             //TODO: Give these text
-            shop.Add<GrandHealingPotion>([new((LocalizedText)null, () => AAWorld.downedAncient)]);
-            shop.Add<GrandManaPotion>([new((LocalizedText)null, () => AAWorld.downedAncient)]);
+            shop.Add<GrandHealingPotion>([new((LocalizedText)null, () => AADowned.DownedAncient)]);
+            shop.Add<GrandManaPotion>([new((LocalizedText)null, () => AADowned.DownedAncient)]);
 
-            shop.Add<TheBigOne>([new((LocalizedText)null, () => AAWorld.downedSAncient)]);
+            shop.Add<TheBigOne>([new((LocalizedText)null, () => AADowned.DownedSAncient)]);
 
             shop.Register();
         }

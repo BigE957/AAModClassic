@@ -1,4 +1,4 @@
-using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
+﻿using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad;
@@ -94,7 +94,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.Player.ZoneGlowshroom && NPCExtensions.BeenKilled<FeudalFungus>() ? .3f : 0f;
+            return spawnInfo.Player.ZoneGlowshroom && AADowned.downedFeudalFungus ? .3f : 0f;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

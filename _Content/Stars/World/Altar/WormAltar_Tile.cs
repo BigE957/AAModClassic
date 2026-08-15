@@ -57,7 +57,7 @@ namespace AAModClassic._Content.Stars.World.Altar
             bool Worms = NPC.AnyNPCs(ModContent.NPCType<WormSpawn>());
             if (BasePlayer.HasItem(player, type, 1) && !Worms)
             {
-                if (AAWorld.StarActive && AAWorld.GravActive)
+                if (AADowned.StarActive && AADowned.GravActive)
                 {
                     for (int m = 0; m < 50; m++)
                     {
@@ -66,7 +66,7 @@ namespace AAModClassic._Content.Stars.World.Altar
                         {
                             item.stack--;
                             player.QuickSpawnItem(Item.GetSource_NaturalSpawn(), ModContent.ItemType<EquinoxWorm>());
-                            if (!AAWorld.WormActive)
+                            if (!AADowned.WormActive)
                             {
                                 BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.WormAltarOK"), new Color(75, 175, 255));
                                 SpawnBoss(player, ModContent.NPCType<WormSpawn>(), false, player.Center);
@@ -90,14 +90,14 @@ namespace AAModClassic._Content.Stars.World.Altar
 
         public override bool CanKillTile(int i, int j, ref bool blockDamaged)
         {
-            return AAWorld.downedEquinox;
+            return AADowned.downedEquinoxWorms;
         }
 
-        public override bool CanReplace(int i, int j, int tileTypeBeingPlaced) => AAWorld.downedEquinox;
+        public override bool CanReplace(int i, int j, int tileTypeBeingPlaced) => AADowned.downedEquinoxWorms;
 
         public override bool CanExplode(int i, int j)
         {
-            return AAWorld.downedEquinox;
+            return AADowned.downedEquinoxWorms;
         }
 
         public override void MouseOver(int i, int j)

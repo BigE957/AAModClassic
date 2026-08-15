@@ -1,4 +1,4 @@
-using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
@@ -191,7 +191,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
 
                     if (internalAI[3]++ < 420)
                     {
-                        if (!NPCExtensions.BeenKilled<Athena>())
+                        if (!AADowned.downedAthena)
                         {
 
                             if (internalAI[3] == 60)
@@ -229,7 +229,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                                 NPC.netUpdate = true;
                             }
                         }
-                        else if (AAWorld.AthenaHerald && !NPCExtensions.BeenKilled<AthenaA>())
+                        else if (AADowned.AthenaHerald && !AADowned.downedAthenaA)
                         {
                             if (internalAI[3] == 60)
                             {
@@ -588,7 +588,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
 
         public override bool PreKill()
         {
-            if ((!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.downedMoonlord) || (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPCExtensions.BeenKilled<AnubisA>()))
+            if ((!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.downedMoonlord) || (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && AADowned.downedForsakenAnubis))
                 NPC.boss = false;
 
             return true;
@@ -598,7 +598,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
         {
             if(NPC.life <= 0)
             {
-                if (((!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.downedMoonlord) || WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial)) && NPCExtensions.BeenKilled<AnubisA>() && NPCExtensions.BeenKilled<AthenaA>())
+                if (((!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.downedMoonlord) || WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial)) && AADowned.downedForsakenAnubis && AADowned.downedAthenaA)
                     CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Transition.Repeat"));
                 else
                     CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Defeat"));
@@ -607,11 +607,12 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
 
         public override void OnKill()
         {
-            if ((!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.downedMoonlord) || (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPCExtensions.BeenKilled<AnubisA>()))
+            if ((!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.downedMoonlord) || (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && AADowned.downedForsakenAnubis))
             {
-                AAWorld.AthenaAwakened = true;
+                AADowned.AthenaAwakened = true;
+                AADowned.SyncWorldData();
 
-                if (!NPCExtensions.BeenKilled<AthenaA>())
+                if (!AADowned.downedAthenaA)
                 {
                     int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaDefeat>());
                     Main.npc[a].Center = NPC.Center;

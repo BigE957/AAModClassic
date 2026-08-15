@@ -496,7 +496,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
 
         public override bool PreKill()
         {
-            if((!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.downedMoonlord) || (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPCExtensions.BeenKilled<AnubisA>()))
+            if((!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.downedMoonlord) || (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && AADowned.downedForsakenAnubis))
                 NPC.boss = false;
 
             return true;
@@ -504,9 +504,10 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
 
         public override void OnKill()
         {
-            if ((!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.downedMoonlord) || (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPCExtensions.BeenKilled<AnubisA>()))
+            if ((!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.downedMoonlord) || (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && AADowned.downedForsakenAnubis))
             {
-                AAWorld.GreedAwakened = true;
+                AADowned.GreedAwakened = true;
+                AADowned.SyncWorldData();
                 int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<GreedTransition>());
                 Main.npc[a].Center = NPC.Center;
             }

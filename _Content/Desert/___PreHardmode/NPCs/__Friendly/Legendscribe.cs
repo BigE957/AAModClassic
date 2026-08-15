@@ -1,4 +1,4 @@
-using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
@@ -333,12 +333,12 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
                 button2 = AnubisT;
                 AnubisB = true;
             }
-            else if (ChatNumber == 9 + siegeOffset && NPCExtensions.BeenKilled<Anubis>())
+            else if (ChatNumber == 9 + siegeOffset && AADowned.downedAnubis)
             {
                 button2 = AthenaT;
                 Athena = true;
             }
-            else if (ChatNumber == 10 + siegeOffset && NPCExtensions.BeenKilled<Anubis>())
+            else if (ChatNumber == 10 + siegeOffset && AADowned.downedAnubis)
             {
                 button2 = GreedT;
                 Greed = true;
@@ -348,52 +348,52 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
                 button2 = RajahT;
                 Rajah = true;
             }
-            else if (ChatNumber == 12 + siegeOffset && NPC.downedMoonlord && NPCExtensions.BeenKilled<Anubis>())
+            else if (ChatNumber == 12 + siegeOffset && NPC.downedMoonlord && AADowned.downedAnubis)
             {
                 button2 = AnubisFT;
                 AnubisF = true;
             }
-            else if (ChatNumber == 13 + siegeOffset && NPC.downedMoonlord && NPCExtensions.BeenKilled<AnubisA>() && NPCExtensions.BeenKilled<Athena>())
+            else if (ChatNumber == 13 + siegeOffset && NPC.downedMoonlord && AADowned.downedForsakenAnubis && AADowned.downedAthena)
             {
                 button2 = AthenaAT;
                 AthenaA = true;
             }
-            else if (ChatNumber == 14 + siegeOffset && NPC.downedMoonlord && NPCExtensions.BeenKilled<AnubisA>() && NPCExtensions.BeenKilled<GreedHead>())
+            else if (ChatNumber == 14 + siegeOffset && NPC.downedMoonlord && AADowned.downedForsakenAnubis && AADowned.downedGreed)
             {
                 button2 = GreedAT;
                 GreedA = true;
             }
-            else if (ChatNumber == 15 + siegeOffset && NPCExtensions.BeenKilled<GreedAHead>() && NPCExtensions.BeenKilled<AthenaA>())
+            else if (ChatNumber == 15 + siegeOffset && AADowned.downedGreedA && AADowned.downedAthenaA)
             {
                 button2 = EquinoxT;
                 Equinox = true;
             }
-            else if (ChatNumber == 16 + siegeOffset && NPC.downedMoonlord && AAWorld.downedEquinox)
+            else if (ChatNumber == 16 + siegeOffset && NPC.downedMoonlord && AADowned.downedEquinoxWorms)
             {
                 button2 = SistersT;
                 Sisters = true;
             }
-            else if (ChatNumber == 17 + siegeOffset && NPC.downedMoonlord && AAWorld.downedSisters)
+            else if (ChatNumber == 17 + siegeOffset && NPC.downedMoonlord && AADowned.downedSistersOfDiscord)
             {
                 button2 = AkumaT;
                 Akuma = true;
             }
-            else if (ChatNumber == 18 + siegeOffset && NPC.downedMoonlord && AAWorld.downedSisters)
+            else if (ChatNumber == 18 + siegeOffset && NPC.downedMoonlord && AADowned.downedSistersOfDiscord)
             {
                 button2 = YamataT;
                 Yamata = true;
             }
-            else if (ChatNumber == 19 + siegeOffset && NPC.downedMoonlord && AAWorld.downedNC)
+            else if (ChatNumber == 19 + siegeOffset && NPC.downedMoonlord && AADowned.downedNC)
             {
                 button2 = ZeroT;
                 Zero = true;
             }
-            else if (ChatNumber == 20 + siegeOffset && NPCExtensions.BeenKilled<RajahRabbitA>())
+            else if (ChatNumber == 20 + siegeOffset && AADowned.downedRajahRabbitR)
             {
                 button2 = RajahCT;
                 RajahC = true;
             }
-            else if (ChatNumber == 21 + siegeOffset && AAWorld.downedAllAncients)
+            else if (ChatNumber == 21 + siegeOffset && AADowned.DownedAllAncients)
             {
                 button2 = ShenT;
                 Shen = true;
@@ -604,52 +604,52 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             Player player = Main.LocalPlayer;
             if (Mushroom)
             {
-                return NPCExtensions.BeenKilled<MushroomMonarch>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedMonarchY") : 
+                return AADowned.downedMushroomMonarch ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedMonarchY") : 
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedMonarchN");
             }
             else if (Glowshroom)
             {
-                return NPCExtensions.BeenKilled<FeudalFungus>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedFungusY") : 
+                return AADowned.downedFeudalFungus ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedFungusY") : 
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedFungusN");
             }
             else if (Grips)
             {
-                return AAWorld.downedGrips ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGripsY") : 
+                return AADowned.downedGripsOfChaos ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGripsY") : 
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGripsN");
             }
             else if (Brood)
             {
-                return NPCExtensions.BeenKilled<Broodmother>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedBroodY") :
+                return AADowned.downedBroodmother ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedBroodY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedBroodN");
             }
             else if (Hydra)
             {
-                return NPCExtensions.BeenKilled<HydraBody>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedHydraY") : 
+                return AADowned.downedHydra ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedHydraY") : 
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedHydraN");
             }
             else if (Djinn)
             {
-                return NPCExtensions.BeenKilled<DesertDjinn>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedDjinnY") : 
+                return AADowned.downedDesertDjinn ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedDjinnY") : 
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedDjinnN");
             }
             else if (Serpent)
             {
-                return NPCExtensions.BeenKilled<SubzeroSerpentHead>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedSerpentY") : 
+                return AADowned.downedSubzeroSerpent ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedSerpentY") : 
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedSerpentN");
             }
             else if (Retriever)
             {
-                return NPCExtensions.BeenKilled<SubzeroSerpentHead>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRetrieverY") :
+                return AADowned.downedSubzeroSerpent ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRetrieverY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRetrieverN");
             }
             else if (OrthrusX)
             {
-                return NPCExtensions.BeenKilled<SubzeroSerpentHead>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedOrthrusXY") :
+                return AADowned.downedSubzeroSerpent ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedOrthrusXY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedOrthrusXN");
             }
             else if (RaiderUltima)
             {
-                return NPCExtensions.BeenKilled<SubzeroSerpentHead>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRaiderUltimaY") :
+                return AADowned.downedSubzeroSerpent ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRaiderUltimaY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRaiderUltimaN");
             }
             else if (AnubisB)
@@ -660,73 +660,73 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisScapterLost"); 
                 }
 
-                return NPCExtensions.BeenKilled<Anubis>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAnubisBY") :
+                return AADowned.downedAnubis ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAnubisBY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAnubisBN");
             }
             else if (Athena)
             {
-                return NPCExtensions.BeenKilled<Athena>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAthenaY") :
+                return AADowned.downedAthena ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAthenaY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAthenaN");
             }
             else if (Greed)
             {
-                return NPCExtensions.BeenKilled<GreedHead>() ? player.GetModPlayer<ZAAPlayer>().AnubisBook ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGreedYBookY") : 
+                return AADowned.downedGreed ? player.GetModPlayer<ZAAPlayer>().AnubisBook ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGreedYBookY") : 
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGreedYBookN") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGreedN");
             }
             else if (Rajah)
             {
-                return NPCExtensions.BeenKilled<RajahRabbit>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRajahY") :
+                return AADowned.downedRajahRabbit ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRajahY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRajahN");
             }
             else if (AnubisF)
             {
-                return NPCExtensions.BeenKilled<AnubisA>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedFAnubisY") :
+                return AADowned.downedForsakenAnubis ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedFAnubisY") :
                     Language.GetOrRegister("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedFAnubisN").FormatWith(player.name);
             }
             else if (AthenaA)
             {
-                return NPCExtensions.BeenKilled<AthenaA>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAthenaAY") :
+                return AADowned.downedAthenaA ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAthenaAY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAthenaAN");
             }
             else if (GreedA)
             {
-                return NPCExtensions.BeenKilled<GreedAHead>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGreedAY") :
+                return AADowned.downedGreedA ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGreedAY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGreedAN");
             }
             else if (Equinox)
             {
-                return AAWorld.downedEquinox ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedEquinoxY") : 
+                return AADowned.downedEquinoxWorms ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedEquinoxY") : 
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedEquinoxN");
             }
             else if (Sisters)
             {
-                return AAWorld.downedSisters ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedSistersY") : 
+                return AADowned.downedSistersOfDiscord ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedSistersY") : 
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedSistersN");
             }
             else if (Akuma)
             {
-                return AAWorld.downedAkuma ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAkumaY") : 
+                return AADowned.DownedAkuma ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAkumaY") : 
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAkumaN");
             }
             else if (Yamata)
             {
-                return AAWorld.downedYamata ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedYamataY") :
+                return AADowned.DownedYamata ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedYamataY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedYamataN");
             }
             else if (Zero)
             {
-                return AAWorld.downedZero ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedZeroY") : 
+                return AADowned.DownedZero ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedZeroY") : 
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedZeroN");
             }
             else if (Shen)
             {
-                return AAWorld.downedShen ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedShenY") :
+                return AADowned.DownedShen ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedShenY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedShenN");
             }
             else if (RajahC)
             {
-                return AAWorld.downedShen ?  Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRajahCY") :
+                return AADowned.DownedShen ?  Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRajahCY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRajahCN");
             }
             else
@@ -739,12 +739,12 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
         {
             WeightedRandom<string> chat = new WeightedRandom<string>();
 
-            if (!AAWorld.downedYamata)
+            if (!AADowned.DownedYamata)
             {
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AkumaGuideChat"));
             }
 
-            if (!AAWorld.downedAkuma)
+            if (!AADowned.DownedAkuma)
             {
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.YamataGuideChat"));
             }
@@ -763,7 +763,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.HardModeGuideChat2"));
             }
 
-            if (AAWorld.downedEquinox)
+            if (AADowned.downedEquinoxWorms)
             {
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.EquinoxBossGuideChat"));
             }
@@ -827,7 +827,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             if ((player.armor[0].type == ModContent.ItemType<AnubisMask>() || player.armor[10].type == ModContent.ItemType<AnubisMask>()) && Main.rand.NextBool(4))
                 return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChatMask");
 
-            if (NPCExtensions.BeenKilled<DesertDjinn>())
+            if (AADowned.downedDesertDjinn)
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisChat8"));
 
             if (BirthdayParty.GenuineParty || BirthdayParty.ManualParty)
@@ -861,7 +861,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
 
             if (CalamityMod.IsEnabled)
             {
-                if (NPCExtensions.BeenKilled<GreedAHead>() && (bool)CalamityMod.Call("GetBossDowned", "devourerofgods"))
+                if (AADowned.downedGreedA && (bool)CalamityMod.Call("GetBossDowned", "devourerofgods"))
                 {
                     chat.Add("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.GreedACalamityMod");
                 }
@@ -896,7 +896,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
                 }
             }
 
-            if (NPCExtensions.BeenKilled<AnubisA>() && !BasePlayer.HasItem(player, ModContent.ItemType<WormIdol>()))
+            if (AADowned.downedForsakenAnubis && !BasePlayer.HasItem(player, ModContent.ItemType<WormIdol>()))
             {
                 if (!mPlayer.GivenWormIdol)
                 {

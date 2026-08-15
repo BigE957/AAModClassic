@@ -1,4 +1,4 @@
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic.Base.BaseMod.Base;
@@ -74,7 +74,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord
 
             if (NPC.ai[1] == 360)
             {
-                if (NPCExtensions.BeenKilled<Inferno.___PreHardmode.NPCs.__BossBroodmother.Broodmother>())
+                if (AADowned.downedBroodmother)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Spawn.2.Broodmother"), new Color(102, 20, 48));
@@ -88,9 +88,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord
 
             if (NPC.ai[1] == 600)
             {
-                if (NPCExtensions.BeenKilled<HydraBody>())
+                if (AADowned.downedHydra)
                 {
-                    if (NPCExtensions.BeenKilled<Inferno.___PreHardmode.NPCs.__BossBroodmother.Broodmother>())
+                    if (AADowned.downedBroodmother)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                             BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Spawn.3.Both"), new Color(72, 78, 117));

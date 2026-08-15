@@ -60,7 +60,7 @@ Non-consumable"); */
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                if (!NPCExtensions.BeenKilled<RajahRabbitA>())
+                if (!AADowned.downedRajahRabbitR)
                 {
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DiamondCarrotRajahText1"), 107, 137, 179);
                 }

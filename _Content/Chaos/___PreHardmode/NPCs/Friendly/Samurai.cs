@@ -1,4 +1,4 @@
-using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
+﻿using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother;
@@ -83,7 +83,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.Friendly
                     Player player = Main.player[k];
                     if (player.active)
                     {
-                        if (AAWorld.downedGrips == true)
+                        if (AADowned.downedGripsOfChaos == true)
                         {
                             return true;
                         }
@@ -154,12 +154,12 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.Friendly
             shop.Add(ItemID.RedDynastyShingles, Condition.TimeDay);
             shop.Add<ScorchedSeeds>(Condition.TimeDay);
             shop.Add<Sunpowder>(Condition.TimeDay);
-            shop.Add<AncientBell>(Condition.TimeDay, new((LocalizedText)null, () => NPCExtensions.BeenKilled<Broodmother>()));
+            shop.Add<AncientBell>(Condition.TimeDay, new((LocalizedText)null, () => AADowned.downedBroodmother));
 
             shop.Add(ItemID.BlueDynastyShingles, Condition.TimeNight);
             shop.Add<DankSeeds>(Condition.TimeNight);
             shop.Add<Moonpowder>(Condition.TimeNight);
-            shop.Add<HydraChow>(Condition.TimeNight, new((LocalizedText)null, () => NPCExtensions.BeenKilled<HydraBody>()));
+            shop.Add<HydraChow>(Condition.TimeNight, new((LocalizedText)null, () => AADowned.downedHydra));
 
             shop.Add(new Item(ModContent.ItemType<LuckyCracker>()) { shopCustomPrice = 2000000 });
             shop.Add(new Item(ModContent.ItemType<RoninPotion>()) { shopCustomPrice = 50000 });

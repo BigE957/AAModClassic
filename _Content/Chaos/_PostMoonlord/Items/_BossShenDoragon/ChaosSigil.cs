@@ -64,7 +64,7 @@ Non-Consumable"); */
         // We use the CanUseItem hook to prevent a player from using this item while the boss is present in the world.
         public override bool CanUseItem(Player player)
         {
-            if (!AAWorld.downedAkuma || !AAWorld.downedYamata)
+            if (!AADowned.DownedAkuma || !AADowned.DownedYamata)
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ChaosSigilFalse5"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B, false);
                 return false;
@@ -89,7 +89,7 @@ Non-Consumable"); */
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ChaosSigilFalse3"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B, false);
                 return false;
             }
-            if (!ContentReplacementSystem.NeedToReplaceContent && !AAWorld.downedShen && !player.GetModPlayer<ZAAPlayer>().ZoneRisingSunPagoda && !player.GetModPlayer<ZAAPlayer>().ZoneRisingMoonLake)
+            if (!ContentReplacementSystem.NeedToReplaceContent && !AADowned.DownedShen && !player.GetModPlayer<ZAAPlayer>().ZoneRisingSunPagoda && !player.GetModPlayer<ZAAPlayer>().ZoneRisingMoonLake)
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ChaosSigilFalse4"), Color.DarkMagenta, false);
                 return false;
@@ -103,16 +103,17 @@ Non-Consumable"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            if (AAWorld.ShenSummoned)
+            if (AADowned.ShenSummoned)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(AAWorld.downedShen ? Language.GetTextValue("Mods.AAModClassic.Common.ChaosSigilTrue1") : Language.GetTextValue("Mods.AAModClassic.Common.ChaosSigilTrue2"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(AADowned.DownedShen ? Language.GetTextValue("Mods.AAModClassic.Common.ChaosSigilTrue1") : Language.GetTextValue("Mods.AAModClassic.Common.ChaosSigilTrue2"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
 
                 AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<ShenDoragon>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.ShenDoragon"), false);
             }
             else
             {
                 AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<ShenDoragonSpawn>(), false, 0, 0);
-                AAWorld.ShenSummoned = true;
+                AADowned.ShenSummoned = true;
+                AADowned.SyncWorldData();
             }
 
             SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/ShenRoar"), player.position);

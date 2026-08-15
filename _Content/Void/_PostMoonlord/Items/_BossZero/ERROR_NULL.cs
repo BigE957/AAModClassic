@@ -80,7 +80,7 @@ N0N-C0NSUMABLE"); */
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                AAWorld.zeroUS = true;
+                AADowned.zeroUS = true;
                 if (!NPC.AnyNPCs(ModContent.NPCType<ZeroDeactivated>()))
                     NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X, (int)player.position.Y - 300, ModContent.NPCType<ZeroA>());
             }

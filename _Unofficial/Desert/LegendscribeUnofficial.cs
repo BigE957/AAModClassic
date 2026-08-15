@@ -1,4 +1,4 @@
-using AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly;
+﻿using AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly;
 using AAModClassic._Content.Desert.__Hardmode.Items.Quest;
 using AAModClassic._Content.Desert.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
@@ -1044,14 +1044,14 @@ namespace AAModClassic._Unofficial.Desert
 
         public override void SetChatButtons(ref string button, ref string button2)
         {
-            bool fAnubisTime = NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>();
+            bool fAnubisTime = NPC.downedMoonlord && !AADowned.downedForsakenAnubis;
             bool hasGreedBook = !Main.LocalPlayer.GetModPlayer<ZAAPlayer>().AnubisBook && Main.LocalPlayer.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>()) >= 0;
             if (!fAnubisTime && hasGreedBook)
                 button = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LegendscribeUnofficial.Buttons.Book");
             else
                 button = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LegendscribeUnofficial.Buttons.Help");
 
-            if(!NPC.downedMoonlord || NPCExtensions.BeenKilled<AnubisA>())
+            if(!NPC.downedMoonlord || AADowned.downedForsakenAnubis)
                 button2 = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LegendscribeUnofficial.Buttons.Next");
         }
 
@@ -1061,20 +1061,20 @@ namespace AAModClassic._Unofficial.Desert
             {
                 Player player = Main.LocalPlayer;
 
-                if (!NPCExtensions.BeenKilled<Anubis>() && player.GetModPlayer<ZAAPlayer>().GivenAnuSummon && !BasePlayer.HasItem(player, ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>()))
+                if (!AADowned.downedAnubis && player.GetModPlayer<ZAAPlayer>().GivenAnuSummon && !BasePlayer.HasItem(player, ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>()))
                 {
                     player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>(), 1);
                     Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisScapterLost");
                     return;
                 }
 
-                if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>())
+                if (NPC.downedMoonlord && !AADowned.downedForsakenAnubis)
                 {
                     Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.Help");
                     return;
                 }
 
-                if (!player.GetModPlayer<ZAAPlayer>().AnubisBook && NPCExtensions.BeenKilled<GreedHead>())
+                if (!player.GetModPlayer<ZAAPlayer>().AnubisBook && AADowned.downedGreed)
                 {
                     int Item = player.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>());
                     if (Item >= 0)
@@ -1111,7 +1111,7 @@ namespace AAModClassic._Unofficial.Desert
 
             Main.BestiaryTracker.Chats.RegisterChatStartWith(ContentSamples.NpcsByNetId[ModContent.NPCType<Legendscribe>()]);
 
-            if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>())
+            if (NPC.downedMoonlord && !AADowned.downedForsakenAnubis)
             {
                 if (!p.HasLostToForsakenAnubis)
                 {
@@ -1136,7 +1136,7 @@ namespace AAModClassic._Unofficial.Desert
                         return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.Repeat.FirstDeath" + Main.rand.Next(2));
                 }
             }
-            else if (!p.HasSpokenToAnubisPostForsakenAnubis && NPCExtensions.BeenKilled<AnubisA>())
+            else if (!p.HasSpokenToAnubisPostForsakenAnubis && AADowned.downedForsakenAnubis)
             {
                 p.HasSpokenToAnubisPostForsakenAnubis = true;
                 return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostVictory");

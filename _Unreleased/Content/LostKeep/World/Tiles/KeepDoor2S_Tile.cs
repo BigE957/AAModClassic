@@ -71,7 +71,7 @@ public class KeepDoor2S_Tile : ModTile
 
 	public override void NearbyEffects(int i, int j, bool closer)
 	{
-		if (AAWorld.Terra2)
+		if (AADowned.Terra2)
 		{
 			Main.tileSolid[Type] = false;
 			_activated = false;

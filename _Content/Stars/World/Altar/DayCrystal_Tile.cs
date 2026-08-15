@@ -49,7 +49,7 @@ namespace AAModClassic._Content.Stars.World.Altar
 
         public static Color c()
         {
-            if (AAWorld.StarActive)
+            if (AADowned.StarActive)
             {
                 return AAColor.COLOR_WHITEFADE1;
             }

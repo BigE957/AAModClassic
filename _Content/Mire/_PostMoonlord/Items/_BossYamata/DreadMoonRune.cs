@@ -78,7 +78,7 @@ Non-Consumable"); */
             }
             if (player.ZoneAnyMire())
             {
-                if (!ContentReplacementSystem.NeedToReplaceContent && !player.GetModPlayer<ZAAPlayer>().ZoneRisingMoonLake && !AAWorld.downedYamata)
+                if (!ContentReplacementSystem.NeedToReplaceContent && !player.GetModPlayer<ZAAPlayer>().ZoneRisingMoonLake && !AADowned.DownedYamata)
                 {
                     if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) 
                         if (Main.netMode != NetmodeID.MultiplayerClient) 

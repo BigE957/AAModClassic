@@ -44,7 +44,7 @@ Can only be used in Greed's Hoard at the Altar of Desire
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
-            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) || (!NPCExtensions.BeenKilled<AthenaA>() && !AAWorld.AthenaAwakened))
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) || (!AADowned.downedAthenaA && !AADowned.AthenaAwakened))
                 return;
 
             int indexToInsert = -1;
@@ -69,7 +69,7 @@ Can only be used in Greed's Hoard at the Altar of Desire
             list.RemoveAt(indexToRemove);
         }
 
-        public override bool CanUseItem(Player player) => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && player.GetModPlayer<ZAAPlayer>().ZoneHoard && (NPCExtensions.BeenKilled<GreedAHead>() || AAWorld.GreedAwakened);
+        public override bool CanUseItem(Player player) => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && player.GetModPlayer<ZAAPlayer>().ZoneHoard && (AADowned.downedGreedA || AADowned.GreedAwakened);
 
         public override bool? UseItem(Player player)
         {

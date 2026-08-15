@@ -65,7 +65,7 @@ Non-Consumable"); */
                 return false;
             }
 
-            if (!ContentReplacementSystem.NeedToReplaceContent && !AAWorld.downedAkuma && !player.GetModPlayer<ZAAPlayer>().ZoneRisingSunPagoda)
+            if (!ContentReplacementSystem.NeedToReplaceContent && !AADowned.DownedAkuma && !player.GetModPlayer<ZAAPlayer>().ZoneRisingSunPagoda)
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem)
                     if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -100,12 +100,12 @@ Non-Consumable"); */
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
 
-            if (!AAWorld.downedAkuma)
+            if (!AADowned.DownedAkuma)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianSignalTrue1"), new Color(180, 41, 32));
             }
-            if (AAWorld.downedAkuma)
+            if (AADowned.DownedAkuma)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianSignalTrue2"), new Color(180, 41, 32));
