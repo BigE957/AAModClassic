@@ -127,6 +127,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
         {
             NPC.CloneDefaults(ModContent.NPCType<DesertDjinn>());
             Music = MusicManagementSystem.MusicSlots["Djinn"];
+            NPC.npcSlots = 6f;
         }
 
         public override void AI()

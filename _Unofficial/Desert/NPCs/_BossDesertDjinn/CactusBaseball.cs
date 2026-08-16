@@ -17,6 +17,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
         {
             Projectile.CloneDefaults(ProjectileID.RollingCactus);
             Projectile.friendly = false;
+            Projectile.hostile = false;
             Projectile.aiStyle = 0;
             AIType = ProjectileID.None;
             Projectile.tileCollide = false;
@@ -49,11 +50,11 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
             Projectile.velocity.Y += 0.3f;
 
             if (!BeenHit)
-            {
                 Projectile.rotation += Projectile.velocity.Y * Projectile.direction;
-            }
             else
                 Projectile.rotation += Projectile.velocity.X * Projectile.direction;
+
+            Projectile.hostile = BeenHit;
             Time++;
         }
 
