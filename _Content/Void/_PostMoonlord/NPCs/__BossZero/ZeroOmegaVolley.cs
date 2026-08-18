@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
+using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -116,7 +117,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             {
                 NPC.oldPos[m] = NPC.oldPos[m - 1];
             }
-            NPC.oldPos[0] = NPC.position;
+            NPC.oldPos[0] = NPC.Center;
 
             int probeNumber = ((Zero)zero.ModNPC).WeaponCount;
             if (rotValue == -1f) rotValue = NPC.ai[0] % probeNumber * ((float)Math.PI * 2f / probeNumber);
@@ -154,7 +155,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
         {
             Texture2D tex = TextureAssets.Npc[NPC.type].Value;
             Texture2D glowTex = Glowmask.Value;
-            DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, tex, NPC.Center - screenPos, NPC.velocity, 6, NPC.frame, Color.DarkRed, NPC.scale, [NPC.rotation - MathHelper.PiOver2], NPC.frame.Size() * 0.5f, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None);
+            DrawingUtils.DrawAfterimage(spriteBatch, tex, NPC.oldPos.Take(6).ToArray(), NPC.frame, Color.DarkRed, NPC.scale, [NPC.rotation - MathHelper.PiOver2], NPC.frame.Size() * 0.5f);
             spriteBatch.Draw(tex, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation - MathHelper.PiOver2, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
             spriteBatch.Draw(glowTex, NPC.Center - screenPos, NPC.frame, AAColor.COLOR_WHITEFADE1, NPC.rotation - MathHelper.PiOver2, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
             return false;
