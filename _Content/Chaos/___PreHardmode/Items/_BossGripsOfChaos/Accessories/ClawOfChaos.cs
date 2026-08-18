@@ -36,7 +36,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Acc
 
         public override void RegisterEquipEffects()
         {
-            damageMap.GetDamage(DamageClass.Default).Flat += 5;
+            damageMap.GetDamage(DamageClass.Generic).Flat += 5;
         }
 
         public override bool CanAccessoryBeEquippedWith(Item equippedItem, Item incomingItem, Player player)
