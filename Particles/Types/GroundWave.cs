@@ -40,6 +40,7 @@ namespace AAModClassic.Particles.Types
         private readonly float Peak = 16f;
         private readonly int ColumnDelay = 0;
         private readonly int Duration = 30;
+        private readonly float HumpPosition;
 
         private Vector3[] _blendedSlices = new Vector3[9];
         private readonly int MaxShiftTiles;
@@ -108,7 +109,7 @@ namespace AAModClassic.Particles.Types
             }
         }
 
-        public GroundWave(Point tilePosition, int count, bool rightwards, float peak, int columnDelay = 0, int duration = 30)
+        public GroundWave(Point tilePosition, int count, bool rightwards, float peak, int columnDelay = 0, int duration = 30, float humpPosition = 0.25f)
         {
             StartPosition = tilePosition;
             Position = tilePosition.ToWorldCoordinates(0, 0);
@@ -121,6 +122,7 @@ namespace AAModClassic.Particles.Types
             Peak = peak;
             ColumnDelay = columnDelay;
             Direction = rightwards ? 1 : -1;
+            HumpPosition = MathHelper.Clamp(humpPosition, 0.001f, 0.999f);
 
             ColumnPositions = new Point[Count];
             ColumnOffsets = new float[Count];
@@ -193,7 +195,8 @@ namespace AAModClassic.Particles.Types
         {
             endedOnGap = false;
             Point columnStart = ColumnPositions[column];
-            int maxDepth = GetTilesToScreenBottom(columnStart.Y) + (int)MathF.Ceiling(GetColumnPeak(column) / 16f);
+            int MaxDepthCap = 56;
+            int maxDepth = MaxDepthCap + (int)MathF.Ceiling(GetColumnPeak(column) / 16f);
 
             int consecutiveDarkTiles = 0;
             for (int k = 0; k < maxDepth; k++)
@@ -225,17 +228,19 @@ namespace AAModClassic.Particles.Types
             return maxDepth;
         }
 
-        private static int GetTilesToScreenBottom(int startTileY)
-        {
-            int screenBottomWorldY = (int)Main.screenPosition.Y + Main.screenHeight;
-            int screenBottomTileY = screenBottomWorldY / 16;
-            return Math.Max(screenBottomTileY - startTileY + 1, 1);
-        }
-
         private float GetColumnPeak(int i)
         {
-            float heightRatio = MathHelper.Lerp(0.01f, 0.99f, i / (float)Count);
-            return MathF.Sin(heightRatio * MathHelper.Pi) * Peak;
+            float t;
+            if (Count <= 1)
+                t = 0.5f;
+            else
+                t = i / (float)(Count - 1);
+
+            float p = MathHelper.Clamp(0.75f, 0.001f, 0.999f);
+
+            float heightRatio = t <= p ? MathF.Sin((t / p) * MathHelper.PiOver2) : MathF.Cos(((t - p) / (1f - p)) * MathHelper.PiOver2);
+
+            return heightRatio * Peak;
         }
 
         public override void Update()
@@ -496,7 +501,12 @@ namespace AAModClassic.Particles.Types
                     int depthInColumn = r - top;
                     int sampleWorldY = withinTrackedDepth ? ColumnPositions[i].Y + depthInColumn : ColumnPositions[i].Y - MaxShiftTiles + r;
 
-                    _localLight[idx] = SampleRealLight(worldX, sampleWorldY);
+                    Vector3 sampled = SampleRealLight(worldX, sampleWorldY);
+
+                    if (!withinTrackedDepth && r >= top + myDepth && !_staticRealFilled[idx])
+                        sampled = Vector3.Zero;
+
+                    _localLight[idx] = sampled;
                 }
             }
 
@@ -525,9 +535,21 @@ namespace AAModClassic.Particles.Types
             int end = topToBottom ? GridHeight : -1;
             int step = topToBottom ? 1 : -1;
 
+            int shiftTiles = (int)(ColumnOffsets[i] / 16f);
+            int top = MaxShiftTiles - shiftTiles;
+            int myDepth = ColumnDepths[i];
+
             for (int r = start; r != end; r += step)
             {
                 int idx = Index(i, r);
+
+                if (!topToBottom && !_localFilled[idx] && r >= top + myDepth)
+                {
+                    running = Vector3.Zero;
+                    _localLight[idx] = Vector3.Zero;
+                    continue;
+                }
+
                 running = Vector3.Max(running, _localLight[idx]);
                 _localLight[idx] = running;
                 running *= _localFilled[idx] ? decaySolid : decayAir;
@@ -541,9 +563,23 @@ namespace AAModClassic.Particles.Types
             int end = leftToRight ? Count : -1;
             int step = leftToRight ? 1 : -1;
 
+            int currentR = r;
+
             for (int i = start; i != end; i += step)
             {
-                int idx = Index(i, r);
+                if (i != start)
+                {
+                    int prevI = i - step;
+                    currentR += ColumnPositions[prevI].Y - ColumnPositions[i].Y;
+                }
+
+                if (currentR < 0 || currentR >= GridHeight)
+                {
+                    running = Vector3.Zero;
+                    continue;
+                }
+
+                int idx = Index(i, currentR);
                 running = Vector3.Max(running, _localLight[idx]);
                 _localLight[idx] = running;
                 running *= _localFilled[idx] ? decaySolid : decayAir;

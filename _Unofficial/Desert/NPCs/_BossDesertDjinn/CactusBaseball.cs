@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.Particles;
+using AAModClassic.Particles.Types;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -36,6 +38,16 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                 SoundEngine.PlaySound(SoundID.Item39, Projectile.Center);
                 Point tileCoords = Projectile.Center.ToTileCoordinates();
                 WorldGen.KillTile(tileCoords.X, tileCoords.Y, effectOnly: true);
+
+                if (Framing.GetTileSafely(tileCoords).TileType == TileID.Sand)
+                {
+                    Vector2 spawnPos = tileCoords.ToWorldCoordinates();
+                    for (int j = 0; j < 5; j++)
+                    {
+                        LargeDust d = new(spawnPos + Main.rand.NextVector2Circular(8f, 4f), new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, -5 - (j * 2))), new Color(212, 192, 100), new Color(212, 192, 100) * 0.5f, Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
+                        ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
+                    }
+                }
             }
             else if (Time < 0)
             {
