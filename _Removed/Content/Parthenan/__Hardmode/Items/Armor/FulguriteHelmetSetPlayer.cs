@@ -14,7 +14,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Armor
     {
         public override void DoEffect(Player player)
         {
-            player.GetModPlayer<OlympianWingsPlayer>().effect = true;
+            player.GetModPlayer<FulguriteHelmetSetPlayer>().effect = true;
         }
     }
 

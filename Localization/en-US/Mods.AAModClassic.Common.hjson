@@ -346,4 +346,25 @@ Conditions: {
 	GoblinsDefeated: If the Goblin Army has been defeated
 	DownedGobSummoner: If the Goblin Warlock has been defeated
 	DownedMoth: If Mothron has been defeated
+	DownedBroodmother: If the Broodmother has been defeated
+	DownedHydra: If the Hydra has been defeated
+	DownedAnyLateAncient: Any late Ancient has been defeated
+	DownedAnySuperancient: Any Superancient has been defeated
+
+	LovecraftianQuest: {
+		Purity: If the Lovecraftian's Purity quest has been completed
+		Inferno: If the Lovecraftian's Inferno quest has been completed
+		Mire: If the Lovecraftian's Mire quest has been completed
+		Corruption: If the Lovecraftian's Corruption quest has been completed
+		Crimson: If the Lovecraftian's Crimson quest has been completed
+		Hallow: If the Lovecraftian's Hallow quest has been completed
+		Void: If the Lovecraftian's Void quest has been completed
+		AntiMushroom: If the Lovecraftian's Anti-Mushroom quest has been completed
+		RedMushroom: If the Lovecraftian's Red Mushroom quest has been completed
+		GlowingMushroom: If the Lovecraftian's Glowing Mushroom quest has been completed
+		Jungle: If the Lovecraftian's Jungle quest has been completed
+		Ice: If the Lovecraftian's Ice quest has been completed
+		AntiIce: If the Lovecraftian's Anti-Ice quest has been completed
+		Forest: If the Lovecraftian's Forest quest has been completed
+	}
 }
