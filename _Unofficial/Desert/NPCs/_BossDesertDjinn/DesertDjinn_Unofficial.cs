@@ -230,7 +230,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
 
                                 Point start = NPC.Center.ToTileCoordinates() - new Point(-2 * NPC.direction, 8);
                                 Point ground = CollisionUtils.FindSurfaceBelow(start);
-                                GroundWave particle = new(ground, 32, NPC.direction == 1, 162, 1, 24);
+                                GroundWave particle = new(ground, 32, NPC.direction == 1, 162, 1, 24, strong: true);
                                 ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
                                 int dir = (NPC.direction == 1 ? 1 : -1);
 
@@ -721,7 +721,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
 
                                 Point start = NPC.Center.ToTileCoordinates() - new Point(-2 * NPC.direction, 8);
                                 Point ground = CollisionUtils.FindSurfaceBelow(start);
-                                GroundWave particle = new(ground, Phase2 ? 38 : 32, NPC.direction == 1, Phase2 ? 94 : 54, 1, 16);
+                                GroundWave particle = new(ground, Phase2 ? 38 : 32, NPC.direction == 1, Phase2 ? 94 : 54, 1, 16, strong: true);
                                 ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
                                 int dir = (NPC.direction == 1 ? 1 : -1);
 
@@ -730,7 +730,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
 
                                 start = NPC.Center.ToTileCoordinates() - new Point(2 * NPC.direction, 8);
                                 ground = CollisionUtils.FindSurfaceBelow(start);
-                                particle = new(ground, Phase2 ? 38 : 32, NPC.direction != 1, Phase2 ? 94 : 54, 1, 16);
+                                particle = new(ground, Phase2 ? 38 : 32, NPC.direction != 1, Phase2 ? 94 : 54, 1, 16, strong: true);
                                 ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
 
                                 proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(16 * -dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), DiveWaveDamage, 0f, ai1: 10, ai2: Phase2 ? 90 : 50);
@@ -765,7 +765,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         {
                             if (AttackAmount == -1)
                             {
-                                AttackAmount = 100;// GetMudaMudaAmount();
+                                AttackAmount = GetMudaMudaAmount();
                                 AttackCounter = 1;
                                 NPC.netUpdate = true;
                             }
@@ -840,6 +840,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                             }
                             else
                             {
+                                AttackAmount = -1;
                                 AttackCounter = 0;
                                 FrameX = 0;
                                 CurrentState = DjinnState.RecoverFlex;
@@ -907,7 +908,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                                     nextCactus.velocity = b * 28f;
                                     nextCactus.tileCollide = true;
                                     nextCactus.ai[1] = 1;
-                                    Time = 120;
+                                    Time = 240;
                                     SoundEngine.PlaySound(SoundID.Dig, NPC.Center);
                                     AttackCounter = 0;
                                 }
@@ -925,7 +926,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         }
                     }
 
-                    if (Time > 150)
+                    if (Time > 270)
                     {
                         Time = 0;
                         NPC.rotation = 0;

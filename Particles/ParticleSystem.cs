@@ -28,6 +28,7 @@ public class ParticleSystem : ModSystem
     internal static readonly Dictionary<DrawLayer, List<Particle>> alphablendParticles = [];
     internal static readonly Dictionary<DrawLayer, List<Particle>> additiveParticles = [];
     private static readonly List<Particle> particleInstances = [];
+    private static readonly List<Particle> spawnQueue = [];
 
     private const int MaxParticles = 500;
     private static int activeCount = 0;
@@ -125,7 +126,10 @@ public class ParticleSystem : ModSystem
 
     public override void PostUpdateDusts()
     {
-        if (Main.dedServ) return;
+        if (Main.dedServ)
+            return;
+
+        FlushSpawnQueue();
         UpdateLayer(alphablendParticles);
         UpdateLayer(additiveParticles);
     }
@@ -187,13 +191,7 @@ public class ParticleSystem : ModSystem
         if (Main.dedServ)
             return;
 
-        if (activeCount >= MaxParticles && !TryEvictOldest())
-            return;
-
-        p.SpawnOrder = spawnCounter++;
-        (p.Additive ? additiveParticles : alphablendParticles)[p.Layer].Add(p);
-        activeCount++;
-        p.OnSpawn();
+        spawnQueue.Add(p);
     }
 
     public static void SpawnParticle(Particle p, DrawLayer layer)
@@ -218,6 +216,24 @@ public class ParticleSystem : ModSystem
                     if (particle == p)
                         particle.Active = false;
         }
+    }
+
+    private static void FlushSpawnQueue()
+    {
+        for (int i = 0; i < spawnQueue.Count; i++)
+        {
+            Particle p = spawnQueue[i];
+
+            if (activeCount >= MaxParticles && !TryEvictOldest())
+                continue;
+
+            p.SpawnOrder = spawnCounter++;
+            (p.Additive ? additiveParticles : alphablendParticles)[p.Layer].Add(p);
+            activeCount++;
+            p.OnSpawn();
+        }
+
+        spawnQueue.Clear();
     }
 
     private static bool TryEvictOldest()

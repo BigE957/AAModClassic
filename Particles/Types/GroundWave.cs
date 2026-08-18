@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent;
-using Terraria.GameContent.Drawing;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -40,7 +39,8 @@ namespace AAModClassic.Particles.Types
         private readonly float Peak = 16f;
         private readonly int ColumnDelay = 0;
         private readonly int Duration = 30;
-        private readonly float HumpPosition;
+        private readonly float HumpPosition = 0.25f;
+        private readonly bool Strong = false;
 
         private Vector3[] _blendedSlices = new Vector3[9];
         private readonly int MaxShiftTiles;
@@ -109,7 +109,7 @@ namespace AAModClassic.Particles.Types
             }
         }
 
-        public GroundWave(Point tilePosition, int count, bool rightwards, float peak, int columnDelay = 0, int duration = 30, float humpPosition = 0.25f)
+        public GroundWave(Point tilePosition, int count, bool rightwards, float peak, int columnDelay = 0, int duration = 30, float humpPosition = 0.25f, bool strong = false)
         {
             StartPosition = tilePosition;
             Position = tilePosition.ToWorldCoordinates(0, 0);
@@ -123,6 +123,7 @@ namespace AAModClassic.Particles.Types
             ColumnDelay = columnDelay;
             Direction = rightwards ? 1 : -1;
             HumpPosition = MathHelper.Clamp(humpPosition, 0.001f, 0.999f);
+            Strong = strong;
 
             ColumnPositions = new Point[Count];
             ColumnOffsets = new float[Count];
@@ -145,7 +146,7 @@ namespace AAModClassic.Particles.Types
 
             MaxShiftTiles = (int)MathF.Ceiling(Peak / 16f);
             ColumnDepths = new int[Count];
-            _hiddenRealTiles = new List<Point>();
+            _hiddenRealTiles = [];
 
             int maxColumnDepth = 0;
             for (int i = 0; i < Count; i++)
@@ -269,11 +270,24 @@ namespace AAModClassic.Particles.Types
                         {
                             int d = WorldGen.KillTile_MakeTileDust(ColumnPositions[i].X, ColumnPositions[i].Y, t);
                             Main.dust[d].position.Y -= myPeak * 0.5f * Main.rand.NextFloat();
-                            Main.dust[d].velocity.Y -= myPeak / 18f * Main.rand.NextFloat();
+                            Main.dust[d].velocity.Y -= myPeak / 20f * Main.rand.NextFloat();
+                        }
+
+                        if (Strong && t.TileType == TileID.Sand)
+                        {
+                            Vector2 spawnPos = ColumnPositions[i].ToWorldCoordinates();
+                            for (int j = 0; j < 3; j++)
+                            {
+                                LargeDust d = new(spawnPos + Main.rand.NextVector2Circular(8f, 4f), new Vector2(Main.rand.NextFloat(-2, 2), -Main.rand.NextFloat(ColumnVelocities[i] / 2f, ColumnVelocities[i] * 1.25f)), new Color(212, 192, 100), new Color(212, 192, 100) * 0.5f, Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
+                                ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
+                            }
+                            LargeDust du = new(spawnPos + Main.rand.NextVector2Circular(8f, 4f), new Vector2(Main.rand.NextFloat(-2, 2), -ColumnVelocities[i] * 1.25f), new Color(212, 192, 100), new Color(212, 192, 100) * 0.5f, Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
+                            ParticleSystem.SpawnParticle(du, DrawLayer.AfterPlayers);
                         }
                     }
 
                     ColumnOffsets[i] += ColumnVelocities[i];
+                    float oldVelo = ColumnVelocities[i];
                     ColumnVelocities[i] -= ColumnGravities[i];
 
                     if (ColumnOffsets[i] <= 0f && Time > myStartTime)
