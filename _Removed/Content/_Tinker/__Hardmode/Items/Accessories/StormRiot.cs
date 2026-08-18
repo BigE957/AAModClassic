@@ -34,7 +34,7 @@ namespace AAModClassic._Removed.Content._Tinker.__Hardmode.Items.Accessories
 
         public override void RegisterEquipEffects()
         {
-            damageMap.GetDamage(DamageClass.Default).Flat += 20;
+            damageMap.GetDamage(DamageClass.Generic).Flat += 20;
             AddEffect<StormClawEffect>();
             AddEffect<ShieldOfCthulhuDashEffect>();
         }
