@@ -64,7 +64,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture = ModContent.Request<Texture2D>(Texture + Projectile.ai[0]).Value;
+            Texture2D texture = ModContent.Request<Texture2D>(Texture + Utils.Clamp((int)Projectile.ai[0], 1, 5)).Value;
             Main.spriteBatch.Draw(texture, new Vector2(Projectile.Center.X - Main.screenPosition.X, Projectile.Center.Y - Main.screenPosition.Y + 2),
                         new Rectangle(0, 0, texture.Width, texture.Height), Color.White, Projectile.rotation,
                         new Vector2(Projectile.width * 0.5f, Projectile.height * 0.5f), 1f, SpriteEffects.None, 0f);
