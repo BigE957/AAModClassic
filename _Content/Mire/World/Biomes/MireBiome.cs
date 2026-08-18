@@ -3,6 +3,7 @@ using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened.Skies;
 using AAModClassic._Content.Mire.World.Biomes.Water;
+using AAModClassic._CrossMod;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
@@ -30,7 +31,7 @@ namespace AAModClassic._Content.Mire.World.Biomes
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            bool rllyActive = ((isActive && player.Center.Y <= Main.worldSurface * 16) || player.GetModPlayer<ZAAPlayer>().MoonAltar) && !ModContent.GetInstance<YamataASkyScene>().IsSceneEffectActive(player);
+            bool rllyActive = (!ContentReplacementSystem.NeedToReplaceContent && (isActive && player.Center.Y <= Main.worldSurface * 16) || player.GetModPlayer<ZAAPlayer>().MoonAltar) && !ModContent.GetInstance<YamataASkyScene>().IsSceneEffectActive(player);
             player.ManageSpecialBiomeVisuals("AAModClassic:MireSky", rllyActive);
         }
 
