@@ -45,7 +45,7 @@ namespace AAModClassic._Content.Inferno.World.Biomes
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            bool rllyActive = ((isActive && player.Center.Y <= Main.worldSurface * 16) || player.GetModPlayer<ZAAPlayer>().SunAltar) && !ModContent.GetInstance<AkumaASkyScene>().IsSceneEffectActive(player);
+            bool rllyActive = (!ContentReplacementSystem.NeedToReplaceContent && (isActive && player.Center.Y <= Main.worldSurface * 16) || player.GetModPlayer<ZAAPlayer>().SunAltar) && !ModContent.GetInstance<AkumaASkyScene>().IsSceneEffectActive(player);
             player.ManageSpecialBiomeVisuals("AAModClassic:InfernoSky", rllyActive);
             player.ManageSpecialBiomeVisuals("HeatDistortion", rllyActive && Main.UseHeatDistortion);
         }

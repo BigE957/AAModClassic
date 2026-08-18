@@ -663,7 +663,7 @@ namespace AAModClassic
              GetNewRecipe(ItemID.BattlePotion, 1)
             .AddIngredient(ItemID.BottledWater, 1)
             .AddIngredient(ItemID.Deathweed, 1)
-            .AddIngredient(ModContent.ItemType<MirePod>(), 1)
+            .AddIngredient(ModContent.ItemType<DragonScale>(), 1)
             .AddTile(TileID.Bottles)
             .Register();
 

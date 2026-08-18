@@ -159,7 +159,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                         }
                     }
 
-                    if (Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height) && internalAI[3] < 180)
+                    if (Main.netMode != NetmodeID.MultiplayerClient && Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height) && internalAI[3] < 180)
                     {
                         Seen = true;
                         NPC.netUpdate = true;
@@ -182,9 +182,12 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                         if (internalAI[4] >= 300)
                         {
                             CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.AthenaChat2"));
-                            NPC.active = false;
-                            int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
-                            Main.npc[p].Center = NPC.Center;
+                            if (Main.netMode != NetmodeID.MultiplayerClient)
+                            {
+                                NPC.active = false;
+                                int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
+                                Main.npc[p].Center = NPC.Center;
+                            }
                         }
                         return;
                     }
@@ -288,7 +291,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                 {
                     NPC.TargetClosest();
                     internalAI[6]++;
-                    if (Main.player[NPC.target].dead || !Main.player[NPC.target].active || ((Math.Abs(Vector2.Distance(NPC.position, Main.player[NPC.target].position)) > 5000 || !Main.player[NPC.target].GetModPlayer<ZAAPlayer>().ZoneAcropolis) && internalAI[6] > 3000))
+                    if (Main.netMode != NetmodeID.MultiplayerClient && (Main.player[NPC.target].dead || !Main.player[NPC.target].active || ((Math.Abs(Vector2.Distance(NPC.position, Main.player[NPC.target].position)) > 5000 || !Main.player[NPC.target].GetModPlayer<ZAAPlayer>().ZoneAcropolis) && internalAI[6] > 3000)))
                     {
                         CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Kill"));
                         int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());

@@ -10,7 +10,8 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Ourob
 		public override void SetStaticDefaults()
 		{
             // DisplayName.SetDefault("Ouroboros Wood Platform");
-		}
+            Item.ResearchUnlockCount = 200;
+        }
 
 		public override void SetDefaults()
 		{

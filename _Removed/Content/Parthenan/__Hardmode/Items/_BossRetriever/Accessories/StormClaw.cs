@@ -32,7 +32,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetrieve
 
         public override void RegisterEquipEffects()
         {
-            damageMap.GetDamage(DamageClass.Default).Flat += 20;
+            damageMap.GetDamage(DamageClass.Generic).Flat += 20;
             AddEffect<StormClawEffect>();
         }
 

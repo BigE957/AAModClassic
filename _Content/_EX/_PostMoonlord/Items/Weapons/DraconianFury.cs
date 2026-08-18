@@ -61,7 +61,7 @@ Reign of Fire EX"); */
 
 		public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
-			if (Main.rand.NextBool(8))
+			if (player.whoAmI == Main.myPlayer && Main.rand.NextBool(8))
 			{
 				SoundEngine.PlaySound(SoundID.Item124, player.Center);
 				SoundEngine.PlaySound(SoundID.Item124, player.Center);
@@ -91,20 +91,7 @@ Reign of Fire EX"); */
 				float num83 = vector13.Y;
 				float speedX5 = num82;
 				float speedY6 = num83 + Main.rand.Next(-30, 30) * 0.02f;
-				int p = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, speedX5, speedY6, ModContent.ProjectileType<DraconianFury_Meteor>(), Item.damage/2, Item.knockBack, Main.myPlayer);
-				switch (Main.rand.Next(5))
-				{
-					case 0: Main.projectile[p].ai[0] = 1f;
-					break;
-					case 1: Main.projectile[p].ai[0] = 2f;
-					break;
-					case 2: Main.projectile[p].ai[0] = 3f;
-					break;
-					case 3: Main.projectile[p].ai[0] = 4f;
-					break;
-					case 4: Main.projectile[p].ai[0] = 5f;
-					break;
-				}
+				Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, speedX5, speedY6, ModContent.ProjectileType<DraconianFury_Meteor>(), Item.damage/2, Item.knockBack, Main.myPlayer, Main.rand.Next(1, 6));
 			}
 			return base.UseItem(player);
 		}

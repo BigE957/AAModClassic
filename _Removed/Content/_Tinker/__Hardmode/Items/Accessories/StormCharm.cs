@@ -46,7 +46,7 @@ namespace AAModClassic._Removed.Content._Tinker.__Hardmode.Items.Accessories
         public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Generic) += .15f;
-            damageMap.GetDamage(DamageClass.Default).Flat += 20;
+            damageMap.GetDamage(DamageClass.Generic).Flat += 20;
             AddEffect(new EnduranceEffect(0.15f));
             AddEffect<StormClawEffect>();
             AddEffect<ShieldOfCthulhuDashEffect>();
