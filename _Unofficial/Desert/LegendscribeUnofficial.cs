@@ -6,6 +6,7 @@ using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -1101,7 +1102,17 @@ namespace AAModClassic._Unofficial.Desert
                     QuestSystem.Questlines["LegendscribeEarlyGame"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeEarlyGame.Greed.Description.FoundBook");
                 else
                     QuestSystem.Questlines["LegendscribeEarlyGame"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeEarlyGame.Greed.Description.Complete");
+
                 LegendscribeQuestUISystem.OpenLegendscribeUI(NPC.whoAmI);
+
+                Questline questline = LegendscribeQuestUI.CurrentQuestline;
+                if (!questline.Started)
+                {
+                    questline.Started = true;
+
+                    if (Main.netMode == NetmodeID.MultiplayerClient)
+                        AANet.SendNetMessage<QuestlineStartPacket>(questline.ID);
+                }
             }
         }
 
