@@ -482,7 +482,6 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
             shop.Add(ItemID.RecallPotion);
             shop.Add(ItemID.MushroomGrassSeeds);
             shop.Add<MyceliumSeeds>();
-            shop.Add(ItemID.MushroomGrassSeeds);
             shop.Add(ItemID.LesserHealingPotion);
             shop.Add(ItemID.LesserManaPotion);
 
