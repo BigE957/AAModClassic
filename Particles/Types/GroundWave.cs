@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -273,16 +274,20 @@ namespace AAModClassic.Particles.Types
                             Main.dust[d].velocity.Y -= myPeak / 20f * Main.rand.NextFloat();
                         }
 
-                        if (Strong && t.TileType == TileID.Sand)
+                        if (Strong)
                         {
-                            Vector2 spawnPos = ColumnPositions[i].ToWorldCoordinates();
-                            for (int j = 0; j < 3; j++)
+                            //SoundEngine.PlaySound(SoundID.Dig with { Volume = 0.5f, Pitch = (myPeak / Peak) - 0.5f });
+                            if (t.TileType == TileID.Sand)
                             {
-                                LargeDust d = new(spawnPos + Main.rand.NextVector2Circular(8f, 4f), new Vector2(Main.rand.NextFloat(-2, 2), -Main.rand.NextFloat(ColumnVelocities[i] / 2f, ColumnVelocities[i] * 1.25f)), new Color(212, 192, 100), new Color(212, 192, 100) * 0.5f, Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
-                                ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
+                                Vector2 spawnPos = ColumnPositions[i].ToWorldCoordinates();
+                                for (int j = 0; j < 3; j++)
+                                {
+                                    LargeDust d = new(spawnPos + Main.rand.NextVector2Circular(8f, 4f), new Vector2(Main.rand.NextFloat(-2, 2), -Main.rand.NextFloat(ColumnVelocities[i] / 2f, ColumnVelocities[i] * 1.25f)), new Color(212, 192, 100), new Color(212, 192, 100) * 0.5f, Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
+                                    ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
+                                }
+                                LargeDust du = new(spawnPos + Main.rand.NextVector2Circular(8f, 4f), new Vector2(Main.rand.NextFloat(-2, 2), -ColumnVelocities[i] * 1.25f), new Color(212, 192, 100), new Color(212, 192, 100) * 0.5f, Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
+                                ParticleSystem.SpawnParticle(du, DrawLayer.AfterPlayers);
                             }
-                            LargeDust du = new(spawnPos + Main.rand.NextVector2Circular(8f, 4f), new Vector2(Main.rand.NextFloat(-2, 2), -ColumnVelocities[i] * 1.25f), new Color(212, 192, 100), new Color(212, 192, 100) * 0.5f, Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
-                            ParticleSystem.SpawnParticle(du, DrawLayer.AfterPlayers);
                         }
                     }
 
