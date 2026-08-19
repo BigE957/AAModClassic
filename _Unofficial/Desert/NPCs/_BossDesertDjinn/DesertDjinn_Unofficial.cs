@@ -175,6 +175,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                             AttackFlag = true;
                             NPC.Center += NPC.velocity + Vector2.UnitY * 24f;
                             NPC.velocity = Vector2.Zero;
+                            NPC.dontTakeDamage = true;
 
                             for (int i = -3; i <= 3; i++)
                             {
@@ -322,6 +323,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         AttackCounter = 0;
                         Exhaustion = CurrentState == DjinnState.GrandSlam ? 2 : 1;
                         NPC.immortal = false;
+                        NPC.dontTakeDamage = false;
                         NPC.netUpdate = true;
                         return;
                     }
