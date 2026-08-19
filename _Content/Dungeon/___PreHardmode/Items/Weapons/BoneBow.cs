@@ -52,7 +52,8 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons
         {
             if (type == ProjectileID.WoodenArrowFriendly)
             {
-                type = ProjectileID.BoneArrow;
+                Projectile.NewProjectile(source, position, velocity, ProjectileID.BoneArrow, damage, knockback, player.whoAmI);
+                return false;
             }
             return true; // return true to allow tmodloader to call Projectile.NewProjectile as normal
         }
