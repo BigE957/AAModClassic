@@ -1498,86 +1498,142 @@ namespace AAModClassic
             CloudTiles = tileCounts[ModContent.TileType<SkymarbleBrick_Tile>()] + tileCounts[ModContent.TileType<SkycrystalBrick_Tile>()];
         }
 
+        private static int RollInfernoX(int side)
+        {
+            return (Main.maxTilesX >= 8000)
+                ? (side == 1 ? WorldGen.genRand.Next(2000, 2300) : (Main.maxTilesX - WorldGen.genRand.Next(2000, 2300)))
+                : (side == 1 ? WorldGen.genRand.Next(1500, 1700) : (Main.maxTilesX - WorldGen.genRand.Next(1500, 1700)));
+        }
+
+        private static int RollMireX(int infernoSide)
+        {
+            return (Main.maxTilesX >= 8000)
+                ? (infernoSide != 1 ? WorldGen.genRand.Next(2000, 2300) : (Main.maxTilesX - WorldGen.genRand.Next(2000, 2300)))
+                : (infernoSide != 1 ? WorldGen.genRand.Next(1500, 1700) : (Main.maxTilesX - WorldGen.genRand.Next(1500, 1700)));
+        }
+
+        private static int FindBiomeSurfaceY(int x)
+        {
+            int y = (int)GenVars.worldSurfaceLow - 30;
+            while (Main.tile[x, y] != null && !Main.tile[x, y].HasTile)
+                y++;
+
+            for (int l = x - 25; l < x + 25; l++)
+            {
+                for (int m = y - 6; m < y + 90; m++)
+                {
+                    if (Main.tile[l, m] != null && Main.tile[l, m].HasTile)
+                    {
+                        int type = Main.tile[l, m].TileType;
+                        if (type == TileID.Cloud || type == TileID.RainCloud || type == TileID.Sunplate)
+                        {
+                            y++;
+                        }
+                    }
+                }
+            }
+
+            return y;
+        }
+
+        private static Rectangle GetInfernoFootprint(Point origin)
+        {
+            int worldSize = WorldGenUtils.GetWorldSize();
+            int biomeRadius = worldSize == 3 ? 240 : worldSize == 2 ? 200 : 180;
+
+            int texWidth = InfernoTexGenAssets.VolcanoTileData.Width;
+            int texHeight = InfernoTexGenAssets.VolcanoTileData.Height;
+
+            int halfWidth = Math.Max(biomeRadius, texWidth / 2);
+            int top = origin.Y - biomeRadius;
+            int bottom = Math.Max(origin.Y + biomeRadius, origin.Y - 80 + texHeight);
+
+            return new Rectangle(origin.X - halfWidth, top, halfWidth * 2, bottom - top);
+        }
+
+        private static Rectangle GetMireFootprint(Point origin)
+        {
+            int worldSize = WorldGenUtils.GetWorldSize();
+            int biomeRadius = worldSize == 3 ? 240 : worldSize == 2 ? 200 : 180;
+
+            int texWidth = MireTexGenAssets.LakeTileData.Width;
+            int texHeight = MireTexGenAssets.LakeTileData.Height;
+
+            int halfWidth = Math.Max(biomeRadius, texWidth / 2);
+            int top = origin.Y - biomeRadius;
+            int bottom = Math.Max(origin.Y + biomeRadius, origin.Y - 30 + texHeight);
+
+            return new Rectangle(origin.X - halfWidth, top, halfWidth * 2, bottom - top);
+        }
+
+        private static (Point SurfacePoint, Point PlacementOrigin) FindSafeBiomeOrigin(Func<int> rollX, Func<Point, Rectangle> getFootprint, StructureMap structures, string biomeNameForLog, int maxAttempts = 300)
+        {
+            Point fallbackSurface = default;
+            Point fallbackOrigin = default;
+
+            for (int attempt = 0; attempt < maxAttempts; attempt++)
+            {
+                int x = rollX();
+                int surfaceY = FindBiomeSurfaceY(x);
+                Point surfacePoint = new Point(x, surfaceY);
+
+                Point placementOrigin = surfacePoint;
+                placementOrigin.Y = WorldGenUtils.GetFirstTileFloor(placementOrigin.X, placementOrigin.Y, true);
+
+                if (attempt == 0)
+                {
+                    fallbackSurface = surfacePoint;
+                    fallbackOrigin = placementOrigin;
+                }
+
+                Rectangle footprint = getFootprint(placementOrigin);
+
+                if (structures.CanPlace(footprint, WorldGenUtils.AllTilesAllowed, 0))
+                {
+                    AAMod.instance.Logger.Info(biomeNameForLog + " placed successfully after " + attempt + " attempt(s).");
+                    return (surfacePoint, placementOrigin);
+                }
+            }
+
+            AAMod.instance.Logger.Warn(biomeNameForLog + " could not find a clear location after " + maxAttempts + " attempts; falling back to the first candidate, which may overlap another structure.");
+            return (fallbackSurface, fallbackOrigin);
+        }
+
         private void MireAndInferno(GenerationProgress progress)
         {
             if (ContentReplacementSystem.NeedToReplaceContent)
                 return;
 
             infernoSide = (Main.dungeonX > Main.maxTilesX / 2) ? (-1) : 1;
-            infernoPos.X = (Main.maxTilesX >= 8000) ? (infernoSide == 1 ? WorldGen.genRand.Next(2000, 2300) : (Main.maxTilesX - WorldGen.genRand.Next(2000, 2300))) : (infernoSide == 1 ? WorldGen.genRand.Next(1500, 1700) : (Main.maxTilesX - WorldGen.genRand.Next(1500, 1700)));
-            mirePos.X = (Main.maxTilesX >= 8000) ? (infernoSide != 1 ? WorldGen.genRand.Next(2000, 2300) : (Main.maxTilesX - WorldGen.genRand.Next(2000, 2300))) : (infernoSide != 1 ? WorldGen.genRand.Next(1500, 1700) : (Main.maxTilesX - WorldGen.genRand.Next(1500, 1700)));
-            int j = (int)GenVars.worldSurfaceLow - 30;
-            while (Main.tile[(int)infernoPos.X, j] != null && !Main.tile[(int)infernoPos.X, j].HasTile)
-            {
-                j++;
-            }
-            for (int l = (int)infernoPos.X - 25; l < (int)infernoPos.X + 25; l++)
-            {
-                for (int m = j - 6; m < j + 90; m++)
-                {
-                    if (Main.tile[l, m] != null && Main.tile[l, m].HasTile)
-                    {
-                        int type = Main.tile[l, m].TileType;
-                        if (type == TileID.Cloud || type == TileID.RainCloud || type == TileID.Sunplate)
-                        {
-                            j++;
-                            if (!Main.tile[l, m].HasTile)
-                            {
-                                j++;
-                            }
-                        }
-                    }
-                }
-            }
-            infernoPos.Y = j;
-            int q = (int)GenVars.worldSurfaceLow - 30;
-            while (Main.tile[(int)mirePos.X, q] != null && !Main.tile[(int)mirePos.X, q].HasTile)
-            {
-                q++;
-            }
-            for (int l = (int)mirePos.X - 25; l < (int)mirePos.X + 25; l++)
-            {
-                for (int m = q - 6; m < q + 90; m++)
-                {
-                    if (Main.tile[l, m] != null && Main.tile[l, m].HasTile)
-                    {
-                        int type = Main.tile[l, m].TileType;
-                        if (type == TileID.Cloud || type == TileID.RainCloud || type == TileID.Sunplate)
-                        {
-                            q++;
-                        }
-                    }
-                }
-            }
-            mirePos.Y = q;
-
-            InfernoCenter = infernoPos;
-
-            MireCenter = mirePos;
 
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildChaos");
-
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildInferno");
 
-            {
-                Point origin = new((int)infernoPos.X, (int)infernoPos.Y);
-                origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
-                InfernoGeneration biome = new();
-                InfernoDelete delete = new();
-                delete.Place(origin, GenVars.structures);
-                biome.Place(origin, GenVars.structures);
-            }
+            var (infernoSurface, infernoOrigin) = FindSafeBiomeOrigin(() => RollInfernoX(infernoSide), GetInfernoFootprint, GenVars.structures, "Inferno");
+
+            infernoPos.X = infernoSurface.X;
+            infernoPos.Y = infernoSurface.Y;
+            InfernoCenter = infernoPos;
+
+            InfernoGeneration infBiome = new();
+            InfernoDelete infDelete = new();
+            infDelete.Place(infernoOrigin, GenVars.structures);
+            infBiome.Place(infernoOrigin, GenVars.structures);
+            WorldGenUtils.AddProtectedStructure(GetInfernoFootprint(infernoOrigin), 20);
 
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildMire");
 
-            {
-                Point origin = new((int)mirePos.X, (int)mirePos.Y);
-                origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
-                MireDelete delete = new();
-                MireGeneration biome = new();
-                delete.Place(origin, GenVars.structures);
-                biome.Place(origin, GenVars.structures);
-            }
+            var (mireSurface, mireOrigin) = FindSafeBiomeOrigin(() => RollMireX(infernoSide), GetMireFootprint, GenVars.structures, "Mire");
+
+            mirePos.X = mireSurface.X;
+            mirePos.Y = mireSurface.Y;
+            MireCenter = mirePos;
+
+            MireDelete mireDelete = new();
+            MireGeneration mireBiome = new();
+            mireDelete.Place(mireOrigin, GenVars.structures);
+            mireBiome.Place(mireOrigin, GenVars.structures);
+            WorldGenUtils.AddProtectedStructure(GetMireFootprint(mireOrigin), 20);
         }
 
         private void BogwoodConvert(GenerationProgress progress)
