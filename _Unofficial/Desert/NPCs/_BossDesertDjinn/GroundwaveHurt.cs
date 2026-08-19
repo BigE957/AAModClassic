@@ -56,6 +56,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
             modifiers.DisableKnockback();
+            modifiers.FinalDamage *= 10f;
         }
 
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)

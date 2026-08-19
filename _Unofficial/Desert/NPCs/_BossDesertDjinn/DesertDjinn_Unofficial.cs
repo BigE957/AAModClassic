@@ -42,6 +42,8 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
         public enum DjinnState
         {
             Spawn,
+            PhaseSwitch,
+            Defeat,
             RecoverFlex,
             GrandSlam,
             TwisterPunch,
@@ -113,6 +115,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
         public Player Target => Main.player[NPC.target];
 
         private int FrameX = 0;
+        private Vector2 DrawOffset = Vector2.Zero;
 
         public override void SetStaticDefaults()
         {
@@ -148,19 +151,149 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         return;
                     }
                     break;
+                case DjinnState.PhaseSwitch:
+                    NPC.hide = true;
+
+                    if (!AttackFlag)
+                    {
+                        FrameX = 0;
+                        DrawOffset = Vector2.Zero;
+
+                        if (Time == 0)
+                            NPC.velocity = new Vector2(-4 * NPC.direction, -8f);
+                        else
+                            NPC.velocity.Y += 0.5f;
+
+                        NPC.rotation = NPC.velocity.ToRotation() + MathHelper.Pi;
+                        if (NPC.direction == -1)
+                            NPC.rotation = MathHelper.WrapAngle(NPC.rotation + MathHelper.Pi);
+
+                        if (NPC.velocity.Y > 0 && Collision.SolidCollision(NPC.position, NPC.width, NPC.height))
+                        {
+                            SoundEngine.PlaySound(SoundID.DD2_MonkStaffGroundImpact, NPC.Center);
+                            Time = 0;
+                            AttackFlag = true;
+                            NPC.Center += NPC.velocity + Vector2.UnitY * 24f;
+                            NPC.velocity = Vector2.Zero;
+
+                            for (int i = -3; i <= 3; i++)
+                            {
+                                Point s = NPC.Center.ToTileCoordinates() - new Point(-i * NPC.direction, 8);
+                                Point g = CollisionUtils.FindSurfaceBelow(s);
+                                WorldGen.KillTile(g.X, g.Y, effectOnly: true);
+                            }
+
+                            Point start = NPC.Center.ToTileCoordinates() - new Point(-2 * NPC.direction, 8);
+                            Point ground = CollisionUtils.FindSurfaceBelow(start);
+                            GroundWave particle = new(ground, 8, NPC.direction == 1, 24, 2, 16, 0.5f);
+                            ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
+
+                            start = NPC.Center.ToTileCoordinates() - new Point(2 * NPC.direction, 8);
+                            ground = CollisionUtils.FindSurfaceBelow(start);
+                            ParticleSystem.SpawnParticle(new GroundWave(ground, 8, NPC.direction != 1, 24, 2, 16, 0.5f), DrawLayer.AfterPlayers);
+
+                            start = NPC.Center.ToTileCoordinates() - new Point(0, 8);
+                            ground = CollisionUtils.FindSurfaceBelow(start);
+                            for (int i = -4; i <= 4; i++)
+                            {
+                                Point spawnTile = CollisionUtils.FindSurfaceAround(ground + new Point(i, 0), true);
+                                WorldGen.KillTile(spawnTile.X, spawnTile.Y, effectOnly: true);
+                                if (Framing.GetTileSafely(spawnTile).TileType == TileID.Sand)
+                                {
+                                    Vector2 spawnPos = spawnTile.ToWorldCoordinates();
+                                    for (int j = 0; j < 3; j++)
+                                    {
+                                        LargeDust d = new(spawnPos, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-1, -1 - j)), new Color(212, 192, 100), new Color(212, 192, 100) * 0.5f, Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
+                                        ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //Count out
+                        switch(Time)
+                        {
+                            case 60:
+                                CombatText.NewText(NPC.Hitbox, Color.Goldenrod, "10!");
+                                break;
+                            case 120:
+                                CombatText.NewText(NPC.Hitbox, Color.Goldenrod, "9!");
+                                break;
+                            case 180:
+                                CombatText.NewText(NPC.Hitbox, Color.Goldenrod, "8!");
+                                break;
+                            case 240:
+                                CombatText.NewText(NPC.Hitbox, Color.Goldenrod, "7!");
+                                break;
+                            case 300:
+                                CombatText.NewText(NPC.Hitbox, Color.Goldenrod, "6!");
+                                break;
+                            case 360:
+                                CombatText.NewText(NPC.Hitbox, Color.Goldenrod, "5!");
+                                break;
+                            case 420:
+                                CombatText.NewText(NPC.Hitbox, Color.Goldenrod, "4!");
+                                break;
+                            case 480:
+                                CombatText.NewText(NPC.Hitbox, Color.Goldenrod, "3-");
+                                break;
+                        }
+
+                        if(Time >= 360)
+                        {
+                            if (Time >= 480)
+                            {
+                                DrawOffset = Vector2.Zero;
+                                if (Time == 480)
+                                {
+                                    Phase2 = true;
+                                    NPC.velocity = Vector2.UnitY * -48f;
+                                    FrameX = 0;
+                                }
+                                else
+                                {
+                                    NPC.velocity *= 0.75f;
+                                    NPC.rotation *= 0.9f;
+
+                                    if (Time == 540)
+                                    {
+                                        Time = 30;
+                                        AttackFlag = false;
+                                        NPC.rotation = 0f;
+                                        NPC.hide = false;
+                                        FrameX = 0;
+                                        CurrentState = DjinnState.RecoverFlex;
+                                        return;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                NPC.hide = true;
+                                DrawOffset = Main.rand.NextVector2Circular(8, 8) * ((Time - 360) / 120f);
+                            }
+                        }
+                        else
+                            NPC.hide = true;
+                    }
+                    break;
                 case DjinnState.RecoverFlex:
                     NPC.TargetClosest();
 
-                    if (Time < RecoverTime)
+                    int trueRecoveryTime = Phase2 ? 120 : RecoverTime;
+
+                    if (Time < trueRecoveryTime)
                     {
                         NPC.velocity *= 0.95f;
-                        if(Time <= 30f)
+                        if(!Phase2 && Time <= 30f)
                             NPC.Center = Vector2.Lerp(NPC.Center, CollisionUtils.FindSurfaceBelow(NPC.Center.ToTileCoordinates(), true).ToWorldCoordinates(8f, -NPC.height), Time / 30f);
                     }
                     else
                         NPC.velocity = ((Target.Center - Vector2.UnitY * 96f) - NPC.Center) / 90f;
 
-                    if (Time >= 30 && Time < RecoverTime)
+                    if (Time >= 30 && Time < trueRecoveryTime)
                     {               
                         if (Time == 30)
                         {
@@ -173,7 +306,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         FrameX = 0;
 
                     NPC.damage = 0;
-                    if (Time >= RecoverTime + 60)
+                    if (Time >= trueRecoveryTime + 60)
                     {
                         if (NPC.life / (float)NPC.lifeMax <= 0.5f)
                             Phase2 = true;
@@ -186,7 +319,9 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         PreviousStartingState = CurrentState;
                         AttackFlag = false;
                         Time = 0;
+                        AttackCounter = 0;
                         Exhaustion = CurrentState == DjinnState.GrandSlam ? 2 : 1;
+                        NPC.immortal = false;
                         NPC.netUpdate = true;
                         return;
                     }
@@ -286,6 +421,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                             {
                                 Time = 0;
                                 AttackFlag = false;
+                                AttackCounter = 0;
 
                                 if (Exhaustion + 1 < ExhaustionCap)
                                 {
@@ -342,7 +478,6 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         NPC.velocity.X = (Target.Center.X + (TwisterPunchOffset * side) - NPC.Center.X) / 10f;
                         float lerp = MathHelper.Clamp((Time - TwisterDelay) / (float)TwisterPunchDelay, 0f, 1f);
                         NPC.velocity.Y = (Target.Center.Y - NPC.Center.Y) * MathHelper.Lerp(Phase2 ? 0.2f : 0.1f, 0f, lerp);
-                        //NPC.velocity.Y = MathHelper.Clamp(NPC.velocity.Y, -8, 8);
                     }
                     else
                     {
@@ -361,6 +496,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                     {
                         Time = 0;
                         AttackFlag = false;
+                        AttackCounter = 0;
 
                         if (Main.expertMode && Phase2)
                         {
@@ -982,11 +1118,14 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                     Main.dust[d].noGravity = false;
                 }
             }
-
-            NPC.position.X = NPC.position.X + NPC.width / 2;
-            NPC.position.Y = NPC.position.Y + NPC.height / 2;
-            NPC.position.X = NPC.position.X - NPC.width / 2;
-            NPC.position.Y = NPC.position.Y - NPC.height / 2;
+            else if(!Phase2 && (CurrentState != DjinnState.PhaseSwitch || !AttackFlag) && NPC.life <= NPC.lifeMax / 2)
+            {
+                CurrentState = DjinnState.PhaseSwitch;
+                NPC.immortal = true;
+                Time = 0;
+                AttackFlag = false;
+                NPC.direction = -hit.HitDirection;
+            }
         }
 
         public override void FindFrame(int frameHeight)
@@ -1041,7 +1180,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                 DrawingUtils.DrawCenteredAfterimages(spriteBatch, NPC, NPCID.Sets.TrailingMode[Type], Color.Goldenrod);
             }
 
-            spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, drawColor * NPC.Opacity, NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, NPC.SpriteEffectDirection(), 0);
+            spriteBatch.Draw(texture, NPC.Center + DrawOffset - screenPos, NPC.frame, drawColor * NPC.Opacity, NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, NPC.SpriteEffectDirection(), 0);
 
             return false;
         }
