@@ -1,7 +1,10 @@
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.BossStandard;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Tools;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tools;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
@@ -239,6 +242,8 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<FeudalFungusMask>(), 7));
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GlowingMushium>(), 1, 25, 35));
+
+            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, [ModContent.ItemType<GlowingMushpick>(), ModContent.ItemType<GlowingMushmallet>()]));
 
             npcLoot.Add(notExpertRule);
         }
