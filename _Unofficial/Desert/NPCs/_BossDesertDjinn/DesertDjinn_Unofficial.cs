@@ -1099,7 +1099,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
             Time++;
         }
 
-        //Credit to Sprit Reforged
+        //Credit to Spirit Reforged
         public void ManageSandstormffects()
         {
             foreach (Player Player in Main.player.Where(p => p.active && !p.dead))
