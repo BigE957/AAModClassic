@@ -1,17 +1,27 @@
 using AAModClassic._Content._Dev.World.Biomes;
+using AAModClassic._Content.Acropolis._PostMoonlord.Items.Tiles.Decoration;
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs;
+using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
+using AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Hallow.__Hardmode.Items.Materials;
 using AAModClassic._Content.Hell.World.Biomes;
 using AAModClassic._Content.Hoard.World.Biomes;
+using AAModClassic._Content.Hoard.World.Tiles;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
+using AAModClassic._Content.Inferno.World.BiomeChest;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
@@ -25,25 +35,38 @@ using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Mire.World.BiomeChest.Tiles;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._Content.Mire.World.Tiles;
+using AAModClassic._Content.RedMushroom.World.Tiles;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Stars.World.Altar;
 using AAModClassic._Content.Stars.World.Biomes;
 using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic._Content.Terrarium.World.Tiles;
+using AAModClassic._Content.Underground.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OuroborosWoodFurniture;
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Void.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
+using AAModClassic._Content.Void.World.BiomeChest;
 using AAModClassic._Content.Void.World.Biomes;
+using AAModClassic._Content.Void.World.Tiles;
+using AAModClassic._Content.Void.World.Tiles.Trees;
+using AAModClassic._CrossMod;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
+using AAModClassic._Unreleased;
 using AAModClassic._Unreleased.Content.LostKeep.World.Biomes;
+using AAModClassic._Unreleased.Content.LostKeep.World.Tiles;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Conversions;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
@@ -60,30 +83,6 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.Utilities;
 using Terraria.WorldBuilding;
-using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
-using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
-using AAModClassic._Content.Acropolis._PostMoonlord.NPCs;
-using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
-using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
-using AAModClassic._Content.Void.World.Tiles;
-using AAModClassic._Content.Acropolis.World.Tiles;
-using AAModClassic._Content.RedMushroom.World.Tiles;
-using AAModClassic._Content.Hoard.World.Tiles;
-using AAModClassic._Unreleased.Content.LostKeep.World.Tiles;
-using AAModClassic._Content.Inferno.World.BiomeChest;
-using AAModClassic._Content.Void.World.BiomeChest;
-using AAModClassic._Content.Stars.World.Altar;
-using AAModClassic._Content.Void.World.Tiles.Trees;
-using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
-using AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons;
-using AAModClassic._Content.Underground.___PreHardmode.Items.Materials;
-using AAModClassic._CrossMod;
-using AAModClassic.UI.World;
-using AAModClassic._Unreleased;
-using AAModClassic._Content.Acropolis._PostMoonlord.Items.Tiles.Decoration;
-using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OuroborosWoodFurniture;
 
 namespace AAModClassic
 {
@@ -130,6 +129,7 @@ namespace AAModClassic
         public Vector2 MireCenter = -Vector2.One;
         public static Vector2 shipPos = new(0, 0);
         public static Point acropolisPos = Point.Zero;
+        public static Point terrariumCenter = Point.Zero;
         public string nums = "1234567890";
         public static bool ModContentGenerated;
 
@@ -564,12 +564,12 @@ namespace AAModClassic
             {
                 tasks.Insert(liquidsIndex + 1, new PassLegacy("LostKeep", delegate (GenerationProgress progress, GameConfiguration config)
                 {
-                    LostKeep(progress);
+                    ReserveLostKeep(progress);
                 }));
 
                 tasks.Insert(liquidsIndex + 1, new PassLegacy("Terrarium", delegate (GenerationProgress progress, GameConfiguration config)
                 {
-                    Terrarium(progress);
+                    ReserveTerrarium(progress);
                 }));
             }
 
@@ -582,26 +582,16 @@ namespace AAModClassic
                 }));
             }
 
-            if (ModLoader.HasMod("CalamityMod"))
+            int shiniesIndex1 = tasks.FindIndex(genpass => genpass.Name.Equals("Larva"));
+
+            if (shiniesIndex1 > -1)
             {
-                tasks.Insert(tasks.Count - 3, new PassLegacy("The Pit", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(ChaosIndex + 2, new PassLegacy("The Pit", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     ThePit(progress);
                 }));
             }
-            else
-            {
-                int shiniesIndex1 = tasks.FindIndex(genpass => genpass.Name.Equals("Larva"));
 
-                if (shiniesIndex1 > -1)
-                {
-                    tasks.Insert(ChaosIndex + 2, new PassLegacy("The Pit", delegate (GenerationProgress progress, GameConfiguration config)
-                    {
-                        ThePit(progress);
-                    }));
-                }
-            }
-            
             int shiniesIndex2 = tasks.FindIndex(genpass => genpass.Name.Equals("Final Cleanup"));
             if(shiniesIndex2 > -1)
             {
@@ -616,27 +606,37 @@ namespace AAModClassic
                     BogwoodConvert(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 2, new PassLegacy("Hoard", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(shiniesIndex2 + 2, new PassLegacy("Altars", delegate (GenerationProgress progress, GameConfiguration config)
+                {
+                    Terrarium(progress);
+                }));
+
+                tasks.Insert(shiniesIndex2 + 3, new PassLegacy("Altars", delegate (GenerationProgress progress, GameConfiguration config)
+                {
+                    LostKeep(progress);
+                }));
+
+                tasks.Insert(shiniesIndex2 + 4, new PassLegacy("Hoard", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     Hoard(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 3, new PassLegacy("Acropolis", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(shiniesIndex2 + 5, new PassLegacy("Acropolis", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     Acropolis(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 4, new PassLegacy("Void Islands", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(shiniesIndex2 + 6, new PassLegacy("Void Islands", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     VoidIslands(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 5, new PassLegacy("Altars", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(shiniesIndex2 + 7, new PassLegacy("Altars", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     Altars(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 6, new PassLegacy("Equinox", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(shiniesIndex2 + 8, new PassLegacy("Equinox", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     EquinoxAlt(progress);
                 }));
@@ -1647,15 +1647,45 @@ namespace AAModClassic
             biome.Place(origin, GenVars.structures);
         }
 
-        private static void Terrarium(GenerationProgress progress)
+        private static void ReserveTerrarium(GenerationProgress progress)
         {
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 return;
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildTerrarium");
             Point origin = new((int)(Main.maxTilesX * 0.5f), (int)(Main.maxTilesY * 0.4f));
-            origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
-            new TerrariumDelete().Place(origin, GenVars.structures);
-            new TerrariumGeneration().Place(origin, GenVars.structures);
+
+            if (ModLoader.HasMod("Spooky"))
+                origin.Y += 150;
+
+            TexGenData Terrasphere;
+            if (WorldGenUtils.GetWorldSize() == 1)
+                Terrasphere = TerrariumTexGenAssets.TerrariumSmallDeletionData;
+            else
+                Terrasphere = TerrariumTexGenAssets.TerrariumMediumDeletionData;
+
+            WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, Terrasphere.Width, Terrasphere.Height), 20);
+
+            terrariumCenter = origin;
+        }
+
+        private static void Terrarium(GenerationProgress progress)
+        {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                return;
+            progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildTerrarium");
+
+            new TerrariumDelete().Place(terrariumCenter, GenVars.structures);
+            new TerrariumGeneration().Place(terrariumCenter, GenVars.structures);
+        }
+
+        private static void ReserveLostKeep(GenerationProgress progress)
+        {
+            Point origin = new((int)(Main.maxTilesX * 0.35f), (int)((float)Main.maxTilesY * 0.38f));
+            if (Main.dungeonX < Main.maxTilesX / 2)
+                origin = new((int)(Main.maxTilesX * 0.65f), (int)((float)Main.maxTilesY * 0.38f));
+
+            AAWorld_Unreleased.lostKeepOrigin = LostKeepGeneration.FindValidLostKeepPosition(origin, GenVars.structures);
+            WorldGenUtils.AddProtectedStructure(new Rectangle(AAWorld_Unreleased.lostKeepOrigin.X, AAWorld_Unreleased.lostKeepOrigin.Y, LostKeepTexGenAssets.KeepTileData.Width, LostKeepTexGenAssets.KeepTileData.Height), 20);
         }
 
         private static void LostKeep(GenerationProgress progress)
@@ -1663,11 +1693,8 @@ namespace AAModClassic
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
                 return;
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildLostKeep");
-            Point val = new((int)((float)Main.maxTilesX * 0.35f), (int)((float)Main.maxTilesY * 0.38f));
-            if (Main.dungeonX < Main.maxTilesX / 2)
-                val = new((int)((float)Main.maxTilesX * 0.65f), (int)((float)Main.maxTilesY * 0.38f));
 
-            new LostKeepGeneration().Place(val, GenVars.structures);
+            new LostKeepGeneration().Place(AAWorld_Unreleased.lostKeepOrigin, GenVars.structures);
         }
 
         private static void Acropolis(GenerationProgress progress)
@@ -1714,8 +1741,11 @@ namespace AAModClassic
         {
             progress.Message = "Sinking the Pit";
 
-            //Added to save Lucifer from the Brimstone Crags
-            int offset = ModLoader.HasMod("CalamityMod") && GenVars.dungeonX > Main.maxTilesX / 2 ? 600 : 500;
+            //Dodge Azafure, Profaned Temple and Eye Valley
+            int offset = 500;
+            bool dungeonRight = GenVars.dungeonX > Main.maxTilesX / 2;
+            if ((ModLoader.HasMod("CalamityMod") && dungeonRight) || (ModLoader.HasMod("Spooky") && !dungeonRight) || ModLoader.HasMod("InfernumMode"))
+                offset = WorldGenUtils.GetWorldSize() == 2 ? 1600 : 2000;
 
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
             {
