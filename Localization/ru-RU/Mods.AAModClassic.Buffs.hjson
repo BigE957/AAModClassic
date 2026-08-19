@@ -675,6 +675,6 @@ InfinityGauntletEffect_InfinityBurnout: {
 }
 
 PortaProbe_Buff: {
-	// DisplayName: Porta Probe_ Buff
-	// Description: Mods.AAModClassic.Buffs.PortaProbe_Buff.Description
+	// DisplayName: Mini Probe
+	// Description: Seeks out life and treasure for you
 }

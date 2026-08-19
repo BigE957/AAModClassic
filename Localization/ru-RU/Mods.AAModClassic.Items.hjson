@@ -1269,6 +1269,6 @@ GoblinTinkererDoll: {
 }
 
 PortaProbe: {
-	// DisplayName: Porta Probe
-	// Tooltip: ""
+	// DisplayName: Porta-Probe
+	// Tooltip: Take a little life-seeking robot with you!
 }
