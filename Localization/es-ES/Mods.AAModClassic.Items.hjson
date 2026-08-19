@@ -1270,3 +1270,8 @@ GoblinTinkererDoll: {
 	DisplayName: Muñeco del Duende Chapucero
 	Tooltip: ""
 }
+
+PortaProbe: {
+	// DisplayName: Porta Probe
+	// Tooltip: ""
+}

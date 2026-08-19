@@ -1267,3 +1267,8 @@ GoblinTinkererDoll: {
 	DisplayName: Кукла гоблина-изобретателя
 	Tooltip: ""
 }
+
+PortaProbe: {
+	// DisplayName: Porta Probe
+	// Tooltip: ""
+}

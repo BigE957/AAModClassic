@@ -1271,3 +1271,8 @@ GoblinTinkererDoll: {
 	DisplayName: Goblin Tinkerer Doll
 	Tooltip: ""
 }
+
+PortaProbe: {
+	DisplayName: Porta-Probe
+	Tooltip: Take a little life-seeking robot with you!
+}

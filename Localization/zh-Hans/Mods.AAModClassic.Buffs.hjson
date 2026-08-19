@@ -673,3 +673,8 @@ InfinityGauntletEffect_InfinityBurnout: {
 	DisplayName: 无限残烬
 	Description: 它们应该冲着我的头砍
 }
+
+PortaProbe_Buff: {
+	// DisplayName: Porta Probe_ Buff
+	// Description: Mods.AAModClassic.Buffs.PortaProbe_Buff.Description
+}
