@@ -8,9 +8,12 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.Creative;
+using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -137,6 +140,8 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
         public override void AI()
         {
             NPC.hide = CurrentState == DjinnState.SubmergedUppercut;
+
+            ManageSandstormffects();
 
             switch (CurrentState)
             {
@@ -1092,6 +1097,27 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
             }
 
             Time++;
+        }
+
+        //Credit to Sprit Reforged
+        public void ManageSandstormffects()
+        {
+            foreach (Player Player in Main.player.Where(p => p.active && !p.dead))
+                Player.buffImmune[BuffID.WindPushed] = true;
+
+            if (!Phase2 || CreativePowerManager.Instance.GetPower<CreativePowers.FreezeWindDirectionAndStrength>().Enabled || CreativePowerManager.Instance.GetPower<CreativePowers.FreezeTime>().Enabled)
+                return;
+
+            Sandstorm.Happening = true;
+            Sandstorm.TimeLeft = 60;
+
+            //Sandstorm ramps up as the fight progresses
+            float intendedSandstormPower = 0.2f + 0.8f * Utils.GetLerpValue(0.5f, 0.1f, NPC.life / (float)NPC.lifeMax, true);
+            float sandstormPower = Math.Max(MathHelper.Lerp(Sandstorm.Severity, intendedSandstormPower, 0.2f), 0.2f);
+
+            Sandstorm.Severity = Math.Max(Sandstorm.Severity, sandstormPower);
+            Sandstorm.IntendedSeverity = Math.Max(Sandstorm.IntendedSeverity, sandstormPower);
+            Main.windSpeedTarget = 0.8f;
         }
 
         public override void HitEffect(NPC.HitInfo hit)
