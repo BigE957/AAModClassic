@@ -59,16 +59,16 @@ ShenDoragonDeath.DisplayName: Muerte de Discordia
 ShenDoragonDefeat.DisplayName: Derrota de Discordia
 ShenDoragonSpawn.DisplayName: Discordia
 ShenDoragonTransition.DisplayName: Despertar Discordiano
-FuryAshe.DisplayName: Furia Ashe
+FuryAshe.DisplayName: Furia de Ashe
 FuryAsheVanish.DisplayName: Ashe Akuma
 FuryFlameVortex.DisplayName: Vértice de Llamas
 ShenlingBody1.DisplayName: Serpiente Discordiana
 ShenlingBody2.DisplayName: Serpiente Discordiana
 ShenlingHead.DisplayName: Serpiente Discordiana
 ShenlingTail.DisplayName: Serpiente Discordiana
-WrathHaruka.DisplayName: Wrath Haruka
-WrathHarukaClone.DisplayName: Wrath Haruka
-WrathHarukaVanish.DisplayName: Wrath Haruka
+WrathHaruka.DisplayName: Ira de Haruka
+WrathHarukaClone.DisplayName: Ira de Haruka
+WrathHarukaVanish.DisplayName: Ira de Haruka
 AHDeath.DisplayName: Derrota de las Hermanas
 AHSpawn.DisplayName: Hermanas de la Discordia
 Ashe.DisplayName: Ashe Akuma
@@ -93,7 +93,7 @@ Anubis.DisplayName: Anubis Escriba de Leyendas
 EyeSentry.DisplayName: Centinela Ocular
 HorusHawk.DisplayName: Halcón de Horus
 Locust.DisplayName: Langosta
-MinionRitual.DisplayName: Ritual de Esbirro
+MinionRitual.DisplayName: Ritual de Esbirros
 Scarab.DisplayName: Escarabajo
 UraeusBody.DisplayName: Uraeus
 UraeusHead.DisplayName: Cabeza de Uraeus
@@ -111,7 +111,7 @@ FeudalFungus_FungalSpore.DisplayName: Espora Fúngica
 FeudalFungus_FungusFlier.DisplayName: Volador Fúngico
 FeudalFungusAsleep.DisplayName: Hongo Luminoso Muy Grande
 FeudalFungusWakeUp.DisplayName: ¿Hongo Luminoso Muy Grande...?
-GlowingMushling.DisplayName: Champiñón Luminoso
+GlowingMushling.DisplayName: Honguito Brillante
 GregariousGlowshrooms.DisplayName: Champiñones Luminosos Gregarios
 LuminousAccordyceps.DisplayName: Cordyceps Luminoso
 TruffleToad.DisplayName: Sapo de Trufa
@@ -131,24 +131,24 @@ SingularityOfDesire.DisplayName: Singularidad de Deseo
 Broodmini.DisplayName: Mininido
 Broodmother.DisplayName: La Madre de la Brote
 DragonEgg.DisplayName: Huevo de Dragón
-InfernalSlime.DisplayName: Limo Infernal
+InfernalSlime.DisplayName: Slime Infernal
 DragonClaw_NPC.DisplayName: Garra de Dragón
 FlameBrute.DisplayName: Bruto de Llamas
-Singemander.DisplayName: Singemander
-WyrmlingBody.DisplayName: Dragontino
-WyrmlingHead.DisplayName: Dragontino
-WyrmlingTail1.DisplayName: Dragontino
-WyrmlingTail2.DisplayName: Dragontino
+Singemander.DisplayName: Chamuscandra
+WyrmlingBody.DisplayName: Dragoncito
+WyrmlingHead.DisplayName: Dragoncito
+WyrmlingTail1.DisplayName: Dragoncito
+WyrmlingTail2.DisplayName: Dragoncito
 BlazePhoenix.DisplayName: Fénix Ígneo
-InfernalGhoul.DisplayName: Goul Infernal
-PigronInferno.DisplayName: Chanchicerdo
+InfernalGhoul.DisplayName: Ghul Infernal
+PigronInferno.DisplayName: Cerdidragón
 ChaoticDawn.DisplayName: Amanecer Caótico
-InfernoMimic.DisplayName: Mímico Infernal
-WyrmBody1.DisplayName: Wyrm
-WyrmBody2.DisplayName: Wyrm
-WyrmBody3.DisplayName: Wyrm
-WyrmBody4.DisplayName: Wyrm
-WyrmHead.DisplayName: Wyrm
+InfernoMimic.DisplayName: Cofre Falso del Infierno
+WyrmBody1.DisplayName: Dragón
+WyrmBody2.DisplayName: Dragón
+WyrmBody3.DisplayName: Dragón
+WyrmBody4.DisplayName: Dragón
+WyrmHead.DisplayName: Dragón
 MagmaSwimmer.DisplayName: Nadador de Magma
 AkumaBody.DisplayName: Akuma, Demonio Draconiano
 AkumaHead.DisplayName: Akuma; Demonio Draconiano
@@ -163,7 +163,7 @@ AncientLungBody.DisplayName: Pulmón Ancestral
 AncientLungHead.DisplayName: Pulmón Ancestral
 AncientLungTail.DisplayName: Pulmón Ancestral
 MadnessBat.DisplayName: Murciélago de la Locura
-MadnessSlime.DisplayName: Limo de la Locura
+MadnessSlime.DisplayName: Slime de la Locura
 HarukaShadowPostHydra.DisplayName: ...
 HarukaShadow.DisplayName: ...
 HydraBody.DisplayName: Hidra
@@ -176,18 +176,18 @@ HydraHead6.DisplayName: Hidra
 HydraHead7.DisplayName: Hidra
 HydraHead8.DisplayName: Hidra
 HydraHead9.DisplayName: Hidra
-MurkySlime.DisplayName: Limo Turbio
+MurkySlime.DisplayName: Slime Turbio
 HydraClaw_NPC.DisplayName: Garra de Hidra
 Mosster.DisplayName: Monsstruo
 Newt.DisplayName: Tritón
 Skulker.DisplayName: Merodeador
 Kappa.DisplayName: Kappa
 Toxitoad.DisplayName: Sapo Tóxico
-ShadowGhoul.DisplayName: Goul de las Sombras
-PigronMire.DisplayName: Chanchicerdo
+ShadowGhoul.DisplayName: Ghul de las Sombras
+PigronMire.DisplayName: Cerdidragón
 ChaoticTwilight.DisplayName: Crepúsculo Caótico
-MireMimic.DisplayName: Mímico del Lodazal
-Miresquito.DisplayName: Miresquito
+MireMimic.DisplayName: Cofre Falso del Lodazal
+Miresquito.DisplayName: Mosquito del Lodazal
 FogAngler.DisplayName: Pescador de la Niebla
 MireSoul.DisplayName: Alma del Lodazal
 YamataABody.DisplayName: Cuerpo de Yamata A
@@ -199,17 +199,17 @@ YamataHeadFake1.DisplayName: Yamata
 YamataHeadFake2.DisplayName: Yamata
 YamataTransition.DisplayName: Espíritu de Ira
 AbyssClaw.DisplayName: Garra Abisal
-Soulsucker.DisplayName: Succiona almas
-Mushling.DisplayName: Champiñón
-MushroomMonarch.DisplayName: Monarca Champiñón
+Soulsucker.DisplayName: Succiona-almas
+Mushling.DisplayName: Honguito
+MushroomMonarch.DisplayName: Monarca Fúngico
 MushroomMonarchAsleep.DisplayName: Hongo Muy Grande
 MushroomMonarchWakeUp.DisplayName: ¿Hongo Muy Grande...?
 FungusFrog.DisplayName: Rana Fúngica
-Mushbug.DisplayName: Bicho Hongo
-MushroomCrab.DisplayName: Cangrejo de Hongo
-MushroomJelly.DisplayName: Gelatina de Hongo
-MushroomZombie.DisplayName: Zombi de Hongo
-MushroomZombie2.DisplayName: Zombi de Hongo
+Mushbug.DisplayName: Insecto Fúngico
+MushroomCrab.DisplayName: Cangrejo Fúngico
+MushroomJelly.DisplayName: Medusa Fúngica
+MushroomZombie.DisplayName: Zombi Fúngico
+MushroomZombie2.DisplayName: Zombi Fúngico
 ElderDragon.DisplayName: Dragón Anciano
 IceCrystal.DisplayName: Cristal de Hielo
 SubzeroSerpentBody.DisplayName: "{$NPCs.SubzeroSerpentHead.DisplayName}"
@@ -218,10 +218,10 @@ SubzeroSerpentTail.DisplayName: "{$NPCs.SubzeroSerpentHead.DisplayName}"
 SnowSerpentBody.DisplayName: Serpiente de Nieve
 SnowSerpentHead.DisplayName: Serpiente de Nieve
 SnowSerpentTail.DisplayName: Serpiente de Nieve
-DaybringerBody.DisplayName: Portador del Día
-DaybringerHead.DisplayName: Portador del Día
-DaybringerTail.DisplayName: Portador del Día
-Equiprobe.DisplayName: Equiprobador
+DaybringerBody.DisplayName: Portador Diurno
+DaybringerHead.DisplayName: Portador Diurno
+DaybringerTail.DisplayName: Portador Diurno
+Equiprobe.DisplayName: Equisonda
 NightCloud.DisplayName: Nube Nocturna
 NightcrawlerBody.DisplayName: Reptador Nocturno
 NightcrawlerHead.DisplayName: Reptador Nocturno
@@ -229,14 +229,14 @@ NightcrawlerTail.DisplayName: Reptador Nocturno
 SunWatcher.DisplayName: Vigía Solar
 NightGuard.DisplayName: Guardia Nocturno
 DBPortal.DisplayName: Estrella Brillante
-NCPortal.DisplayName: Portal C. N.
+NCPortal.DisplayName: Portal R. N.
 WormSpawn.DisplayName: Voz Celestial
 PurityCrawler.DisplayName: Reptador de la Pureza
 PuritySphere.DisplayName: Esfera de la Pureza
 PuritySquid.DisplayName: Calamar de la Pureza
-PurityWeaverBody.DisplayName: Tejedor de Terra
-PurityWeaverHead.DisplayName: Tejedor de Terra
-PurityWeaverTail.DisplayName: Tejedor de Terra
+PurityWeaverBody.DisplayName: Tejedor de la Pureza
+PurityWeaverHead.DisplayName: Tejedor de la Pureza
+PurityWeaverTail.DisplayName: Tejedor de la Pureza
 TerraDeadshot.DisplayName: Tirador de Terra
 TerraKnight.DisplayName: Caballero de Terra
 TerraSquire.DisplayName: Escudero de Terra
@@ -258,11 +258,11 @@ VoidScout.DisplayName: Explorador del Vacío
 Vortex.DisplayName: Vórtice
 NullZP.DisplayName: Nulo
 Null.DisplayName: Nulo
-ZeroA.DisplayName: ZER0 PR0T0C0L
-ZeroEcho.DisplayName: 3CH0
-ZeroMini.DisplayName: ZER0 SELF 0RGANIZATI0N
+ZeroA.DisplayName: PR0T0C0L0 CER0
+ZeroEcho.DisplayName: 3C0
+ZeroMini.DisplayName: AUT0-0RGANIZACI0N CER0 
 ZeroTransition.DisplayName: Grieta Rota
-Zero.DisplayName: Zero
+Zero.DisplayName: Cero
 ZeroBrokenWeapon.DisplayName: Arma Rota
 ZeroGenocideCannon.DisplayName: Cañón de Genocidio
 ZeroGigataser.DisplayName: Gigatáser
@@ -276,11 +276,11 @@ Searcher.DisplayName: Buscador
 OrthrusXBody.DisplayName: Orthrus X
 OrthrusXHead.DisplayName: Orthrus X
 OrthrusXHead_OrthrusReticle.DisplayName: Retícula de Orthrus
-RaiderEgg.DisplayName: Huevo de Incursor
-RaiderUltima.DisplayName: El Incursor Última
+RaiderEgg.DisplayName: Huevo del Incursor
+RaiderUltima.DisplayName: Raider Ultima
 RaiderUltima_RaiderRocket.DisplayName: Cohete Incursor
 Raidmini.DisplayName: Miniincursor
-Retriever.DisplayName: El Recuperador
+Retriever.DisplayName: El Recolector
 CyberClaw.DisplayName: Garra Cibernética
 AmbientSoulOfCthulhu.DisplayName: ???
 OlympianDragon.DisplayName: Dragón Olímpico
@@ -296,8 +296,8 @@ Cthulhu.DisplayName: Cthulhu, Calamidad Cósmica
 DeityBrain.DisplayName: Lu'Kthu
 EyeOfAzathoth.DisplayName: Ojo de Azathoth
 DeityEater.DisplayName: Crom Cruach
-DeityEaterBody.DisplayName: Crom Cruach
-DeityEaterTail.DisplayName: Crom Cruach
+DeityEaterBody.DisplayName: "{$NPCs.DeityEater.DisplayName}"
+DeityEaterTail.DisplayName: "{$NPCs.DeityEater.DisplayName}"
 DeityEye.DisplayName: Cyaegha
 DeityLeviathan.DisplayName: Vile-Oct
 DeityShark.DisplayName: Tiburón de Deidad
@@ -310,19 +310,19 @@ DeityRoseSpore.DisplayName: Espora de Ei'Lor
 ShadowUrchin.DisplayName: Erizo de las Sombras
 DeitySkull.DisplayName: Rhan-Tegoth
 DeitySkull_Hand.DisplayName: Garra de Tegoth
-DeitySkull_Hand1.DisplayName: Garra de Tegoth
-DeitySkull_Hand2.DisplayName: Garra de Tegoth
-DeitySkull_Hand3.DisplayName: Garra de Tegoth
-DeitySkull_Hand4.DisplayName: Garra de Tegoth
-DeitySkull_Hand5.DisplayName: Garra de Tegoth
+DeitySkull_Hand1.DisplayName: "{$NPCs.DeitySkull_Hand.DisplayName}"
+DeitySkull_Hand2.DisplayName: "{$NPCs.DeitySkull_Hand.DisplayName}"
+DeitySkull_Hand3.DisplayName: "{$NPCs.DeitySkull_Hand.DisplayName}"
+DeitySkull_Hand4.DisplayName: "{$NPCs.DeitySkull_Hand.DisplayName}"
+DeitySkull_Hand5.DisplayName: "{$NPCs.DeitySkull_Hand.DisplayName}"
 CthulhuPortal.DisplayName: Portal Oscuro
 CthulhuSpawn.DisplayName: Portal Cuántico
-DeityDragon.DisplayName: Psyvern
-DeityDragon_Arms.DisplayName: Psyvern
-DeityDragon_Body1.DisplayName: Psyvern
-DeityDragon_Body2.DisplayName: Psyvern
-DeityDragon_Body3.DisplayName: Psyvern
-DeityDragon_Tail.DisplayName: Psyvern
+DeityDragon.DisplayName: Dragón Psíquico
+DeityDragon_Arms.DisplayName: Dragón Psíquico
+DeityDragon_Body1.DisplayName: Dragón Psíquico
+DeityDragon_Body2.DisplayName: Dragón Psíquico
+DeityDragon_Body3.DisplayName: Dragón Psíquico
+DeityDragon_Tail.DisplayName: Dragón Psíquico
 Portal.DisplayName: Portal de Grieta
 RiftVision.DisplayName: Visión de Grieta
 SoulOfCthulhu.DisplayName: Alma de Cthulhu
@@ -335,5 +335,5 @@ InfinityZeroHand2.DisplayName: Cero Encadenado
 InfinityZeroSpawn1.DisplayName: Muerte
 Oblivion.DisplayName: Olvido
 TerraSerpentBody.DisplayName: "{$NPCs.TerraSerpentHead.DisplayName}"
-// TerraSerpentHead.DisplayName: Terra Serpent
+TerraSerpentHead.DisplayName: Serpiente Terra
 TerraSerpentTail.DisplayName: "{$NPCs.TerraSerpentHead.DisplayName}"

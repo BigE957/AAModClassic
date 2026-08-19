@@ -127,22 +127,22 @@ Functional: {
 	}
 
 	InfernoPylon: {
-		DisplayName: Pilón del Infierno
+		DisplayName: Torre del Infierno
 		Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
 	}
 
 	MirePylon: {
-		DisplayName: Pilón del Lodazal
+		DisplayName: Torre del Lodazal
 		Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
 	}
 
 	RedMushroomPylon: {
-		DisplayName: Pilón de Champiñones Rojos
+		DisplayName: Torre de Champiñones Rojos
 		Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
 	}
 
 	VoidPylon: {
-		DisplayName: Pilón del Vacío
+		DisplayName: Torre del Vacío
 		Tooltip: "{$CommonItemTooltip.TeleportationPylon}"
 	}
 }

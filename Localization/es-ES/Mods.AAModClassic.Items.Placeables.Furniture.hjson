@@ -1,36 +1,36 @@
 Doom: {
 	DoomBathtub: {
-		DisplayName: Bañera de Doom
+		DisplayName: Bañera de la Perdición
 		Tooltip: ""
 	}
 
 	DoomBed: {
-		DisplayName: Cama de Doom
+		DisplayName: Cama de la Perdición
 		Tooltip: ""
 	}
 
 	DoomCandelabra: {
-		DisplayName: Candelabro de Doom
+		DisplayName: Candelabro de la Perdición
 		Tooltip: ""
 	}
 
 	DoomCandle: {
-		DisplayName: Vela de Doom
+		DisplayName: Vela de la Perdición
 		Tooltip: ""
 	}
 
 	DoomChair: {
-		DisplayName: Silla de Doom
+		DisplayName: Silla de la Perdición
 		Tooltip: ""
 	}
 
 	DoomChandelier: {
-		DisplayName: Lámpara de Doom
+		DisplayName: Lámpara de la Perdición
 		Tooltip: ""
 	}
 
 	DoomChest: {
-		DisplayName: Cofre de Doom
+		DisplayName: Cofre de la Perdición
 		Tooltip: ""
 	}
 
@@ -40,62 +40,62 @@ Doom: {
 	}
 
 	DoomCouch: {
-		DisplayName: Sofá de Doom
+		DisplayName: Sofá de la Perdición
 		Tooltip: ""
 	}
 
 	DoomDresser: {
-		DisplayName: Aparador de Doom
+		DisplayName: Aparador de la Perdición
 		Tooltip: ""
 	}
 
 	DoomLamp: {
-		DisplayName: Lámpara de Doom
+		DisplayName: Lámpara de la Perdición
 		Tooltip: ""
 	}
 
 	DoomLantern: {
-		DisplayName: Linterna de Doom
+		DisplayName: Linterna de la Perdición
 		Tooltip: ""
 	}
 
 	DoomPiano: {
-		DisplayName: Piano de Doom
+		DisplayName: Piano de la Perdición
 		Tooltip: ""
 	}
 
 	DoomSink: {
-		DisplayName: Fregadero de Doom
+		DisplayName: Fregadero de la Perdición
 		Tooltip: ""
 	}
 
 	DoomTable: {
-		DisplayName: Mesa de Doom
+		DisplayName: Mesa de la Perdición
 		Tooltip: ""
 	}
 
 	DoomWorkbench: {
-		DisplayName: Banco de Trabajo de Doom
+		DisplayName: Banco de Trabajo de la Perdición
 		Tooltip: ""
 	}
 
 	DoomBookcase: {
-		DisplayName: Librería de Doom
+		DisplayName: Librería de la Perdición
 		Tooltip: ""
 	}
 
 	DoomDoor: {
-		DisplayName: Puerta de Doom
+		DisplayName: Puerta de la Perdición
 		Tooltip: ""
 	}
 
 	DoomPlatform: {
-		DisplayName: Plataforma de Doom
+		DisplayName: Plataforma de la Perdición
 		Tooltip: ""
 	}
 
 	DoomToilet: {
-		DisplayName: Retrete de Doom
+		DisplayName: Retrete de la Perdición
 		Tooltip: ""
 	}
 }
@@ -413,87 +413,87 @@ OuroborosWood: {
 
 Keep: {
 	KeepBath: {
-		DisplayName: Bañera de Keep
+		DisplayName: Bañera del Bastión
 		Tooltip: ""
 	}
 
 	KeepBed: {
-		DisplayName: Cama de Keep
+		DisplayName: Cama del Bastión
 		Tooltip: ""
 	}
 
 	KeepBookcase: {
-		DisplayName: Librería de Keep
+		DisplayName: Librería del Bastión
 		Tooltip: ""
 	}
 
 	KeepCandelabra: {
-		DisplayName: Candelabro de Keep
+		DisplayName: Candelabro del Bastión
 		Tooltip: ""
 	}
 
 	KeepCandle: {
-		DisplayName: Vela de Keep
+		DisplayName: Vela del Bastión
 		Tooltip: ""
 	}
 
 	KeepChair: {
-		DisplayName: Silla de Keep
+		DisplayName: Silla del Bastión
 		Tooltip: ""
 	}
 
 	KeepChandelier: {
-		DisplayName: Lámpara de Keep
+		DisplayName: Lámpara del Bastión
 		Tooltip: ""
 	}
 
 	KeepClock: {
-		DisplayName: Reloj de Keep
+		DisplayName: Reloj del Bastión
 		Tooltip: ""
 	}
 
 	KeepCouch: {
-		DisplayName: Sofá de Keep
+		DisplayName: Sofá del Bastión
 		Tooltip: ""
 	}
 
 	KeepDoor: {
-		DisplayName: Puerta de Keep
+		DisplayName: Puerta del Bastión
 		Tooltip: ""
 	}
 
 	KeepDresser: {
-		DisplayName: Aparador de Keep
+		DisplayName: Aparador del Bastión
 		Tooltip: ""
 	}
 
 	KeepLamp: {
-		DisplayName: Lámpara de Keep
+		DisplayName: Lámpara del Bastión
 		Tooltip: ""
 	}
 
 	KeepLantern: {
-		DisplayName: Linterna de Keep
+		DisplayName: Linterna del Bastión
 		Tooltip: ""
 	}
 
 	KeepPiano: {
-		DisplayName: Piano de Keep
+		DisplayName: Piano del Bastión
 		Tooltip: ""
 	}
 
 	KeepSink: {
-		DisplayName: Fregadero de Keep
+		DisplayName: Fregadero del Bastión
 		Tooltip: ""
 	}
 
 	KeepTable: {
-		DisplayName: Mesa de Keep
+		DisplayName: Mesa del Bastión
 		Tooltip: ""
 	}
 
 	KeepWorkbench: {
-		DisplayName: Banco de Trabajo de Keep
+		DisplayName: Banco de Trabajo del Bastión
 		Tooltip: ""
 	}
 
@@ -503,7 +503,7 @@ Keep: {
 	}
 
 	KeepToilet: {
-		DisplayName: Retrete de Keep
+		DisplayName: Retrete del Bastión
 		Tooltip: ""
 	}
 }

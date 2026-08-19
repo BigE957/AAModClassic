@@ -220,33 +220,33 @@ KeepDoor3_Tile.MapEntry: Puerta de Keep
 
 TerraStatue_Tile: {
 	MapEntry: Estatua de Héroe Perdido
-	// FlavorText: The Hero who saved us all from the brink of chaos
+	FlavorText: El Héroe que nos salvó a todos del borde del caos
 }
 
 SunkenChest_Tile.MapEntry: Cofre Hundido
-InfernoPylon_Tile.MapEntry: Pilón del Infierno
-MirePylon_Tile.MapEntry: Pilón del Lodazal
-RedMushroomPylon_Tile.MapEntry: Pilón de Champiñones Rojos
-VoidPylon_Tile.MapEntry: Pilón del Vacío
-// FulguriteShard_Tile.MapEntry: Fulgurite Shard
-// RedmushBed_Tile.MapEntry: Mushroom Bed
-// RedmushBench_Tile.MapEntry: Mushroom Bench
-// RedmushBookcase_Tile.MapEntry: Mushroom Bookcase
-// RedmushCandelabra_Tile.MapEntry: Mushroom Candelabra
-// RedmushCandle_Tile.MapEntry: Mushroom Candle
-// RedmushChair_Tile.MapEntry: Mushroom Chair
-// RedmushChandelier_Tile.MapEntry: Mushroom Chandelier
-// RedmushChest_Tile.MapEntry: Mushroom Chest
-// RedmushClock_Tile.MapEntry: Mushroom Clock
-// RedmushCouch_Tile.MapEntry: Mushroom Couch
-// RedmushDoorClosed_Tile.MapEntry: Mushroom Door
-// RedmushDoorOpen_Tile.MapEntry: Mushroom Door
-// RedmushDresser_Tile.MapEntry: Mushroom Dresser
-// RedmushLamp_Tile.MapEntry: Mushroom Lamp
-// RedmushLantern_Tile.MapEntry: Mushroom Lantern
-// RedmushPiano_Tile.MapEntry: Mushroom Piano
-// RedmushSink_Tile.MapEntry: Mushroom Sink
-// RedmushTable_Tile.MapEntry: Mushroom Table
-// RedmushToilet_Tile.MapEntry: Mushroom Toilet
-// RedmushTub_Tile.MapEntry: Mushroom Tub
-// RedmushWorkbench_Tile.MapEntry: Mushroom Workbench
+InfernoPylon_Tile.MapEntry: Torre del Infierno
+MirePylon_Tile.MapEntry: Torre del Lodazal
+RedMushroomPylon_Tile.MapEntry: Torre de Champiñones Rojos
+VoidPylon_Tile.MapEntry: Torre del Vacío
+FulguriteShard_Tile.MapEntry: Esquirla de fulgurita
+RedmushBed_Tile.MapEntry: Cama de Champiñón
+RedmushBench_Tile.MapEntry: Banco de Champiñón
+RedmushBookcase_Tile.MapEntry: Librería de Champiñón
+RedmushCandelabra_Tile.MapEntry: Candelabro de Champiñón
+RedmushCandle_Tile.MapEntry: Vela de Champiñón
+RedmushChair_Tile.MapEntry: Silla de Champiñón
+RedmushChandelier_Tile.MapEntry: Lámpara de Araña de Champiñón
+RedmushChest_Tile.MapEntry: Cofre de Champiñón
+RedmushClock_Tile.MapEntry: Reloj de Champiñón
+RedmushCouch_Tile.MapEntry: Sofá de Champiñón
+RedmushDoorClosed_Tile.MapEntry: Puerta de Champiñón
+RedmushDoorOpen_Tile.MapEntry: Puerta de Champiñón
+RedmushDresser_Tile.MapEntry: Aparador de Champiñón
+RedmushLamp_Tile.MapEntry: Lámpara de Champiñón
+RedmushLantern_Tile.MapEntry: Farol de Champiñón
+RedmushPiano_Tile.MapEntry: Piano de Champiñón
+RedmushSink_Tile.MapEntry: Fregadero de Champiñón
+RedmushTable_Tile.MapEntry: Mesa de Champiñón
+RedmushToilet_Tile.MapEntry: Retrete de Champiñón
+RedmushTub_Tile.MapEntry: Bañera de Champiñón
+RedmushWorkbench_Tile.MapEntry: Banco de Trabajo de Champiñón

@@ -449,7 +449,7 @@ GreedAHead_Warning.DisplayName: Advertencia
 SingularityOfDesire_DesireBeam.DisplayName: Rayo de deseo
 SingularityOfDesire_DesireBlast.DisplayName: Explosión de deseo
 GreedGold.DisplayName: Oro
-ScorchedEgg_Broodmini.DisplayName: Mininido
+ScorchedEgg_Broodmini.DisplayName: Minicría
 DragonArrow_Proj.DisplayName: Flechas de dragón
 AshJar_Proj.DisplayName: Tarro de ceniza
 Sunpowder_Proj.DisplayName: Polvo solar
@@ -634,8 +634,8 @@ BrownSolution_Proj.DisplayName: Solución marrón
 SporeBag_Proj.DisplayName: Saco de esporas
 Musharang_Proj.DisplayName: Musharang
 Mushmace_Holdout.DisplayName: Mazo de champiñones
-MushroomMonarch_FakeMushroom.DisplayName: Monarca champiñón: champiñón falso
-MushroomMonarch_RUNAWAY.DisplayName: Monarca champiñón
+MushroomMonarch_FakeMushroom.DisplayName: Monarca Fúngico: champiñón falso
+MushroomMonarch_RUNAWAY.DisplayName: Monarca Fúngico
 Mushman_Throwshroom.DisplayName: Mushman: champiñón arrojadizo
 CloudEdge_Cloud.DisplayName: Nube
 DragonBlade_TinySword.DisplayName: Espada pequeña
@@ -834,7 +834,7 @@ HydrasFury_Holdout.DisplayName: Furia de hidra
 HydrasFuryDamage.DisplayName: Daño de furia de hidra
 HydrasFuryDamage2.DisplayName: Daño de furia de hidra 2
 HydrasFuryEffect.DisplayName: Efecto de furia de hidra
-CyberneticEgg_Raidmini.DisplayName: Mininido
+CyberneticEgg_Raidmini.DisplayName: Minicría
 FulguriteHelmetSetPlayer_FulguriteRing.DisplayName: Anillo de fulgurita
 CyberBaton_CyberClaw.DisplayName: Garra cibernética
 FulguriteTazerblaster_Taserblast.DisplayName: Ráfaga de táser
@@ -908,4 +908,4 @@ TheGripsOfChaos_HookMire.DisplayName: Garra del Caos
 DragonsGrip_Hook.DisplayName: Garra de Dragón
 HydraBite_Hook.DisplayName: Mordisco de Hidra
 BiomiteCore_RainbowBack.DisplayName: Arcoíris
-// PortaProbe_MiniProbe.DisplayName: Porta Probe_ Mini Probe
+PortaProbe_MiniProbe.DisplayName: Mini Sonda

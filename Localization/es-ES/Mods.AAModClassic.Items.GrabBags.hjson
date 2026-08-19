@@ -1,6 +1,6 @@
 TreasureBags: {
 	ShenDoragonTreasureBag: {
-		DisplayName: Alijo de Tesoro (Shen Doragon)
+		DisplayName: Bolsa de Tesoro (Shen Doragon)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -35,7 +35,7 @@ TreasureBags: {
 	}
 
 	ZeroTreasureBag: {
-		DisplayName: Bolsa de Tesoro (Zero)
+		DisplayName: Bolsa de Tesoro (Cero)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -50,17 +50,17 @@ TreasureBags: {
 	}
 
 	RetrieverTreasureBag: {
-		DisplayName: Bolsa de Tesoro (Retriever)
+		DisplayName: Bolsa de Tesoro (Recolector)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
 	TechnoTruffleTreasureBag: {
-		DisplayName: Bolsa de Tesoro (Techno Trufa)
+		DisplayName: Bolsa de Tesoro (Tecnotrufa)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
 	InfinityZeroTreasureBag: {
-		DisplayName: Alijo de Tesoro (Infinity Zero)
+		DisplayName: Alijo del Tesoro (Cero Infinito)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -80,12 +80,12 @@ TreasureBags: {
 	}
 
 	RajahRabbitATreasureBag: {
-		DisplayName: Alijo de Tesoro (Campeón de los Inocentes)
+		DisplayName: Alijo del Tesoro (Campeón de los Inocentes)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
 	GripsOfChaosTreasureBag: {
-		DisplayName: Bolsa de Tesoro (Agarres del Caos)
+		DisplayName: Bolsa de Tesoro (Garras del Caos)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -105,22 +105,22 @@ TreasureBags: {
 	}
 
 	TruffleToadTreasureBag: {
-		DisplayName: Bolsa de Tesoro (Sapo Trufa)
+		DisplayName: Bolsa de Tesoro (Sapo de Trufa)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
 	GreedTreasureBag: {
-		DisplayName: Bolsa de Tesoro (Codicia)
+		DisplayName: Bolsa de Tesoro (Avaricia)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
 	GreedATreasureBag: {
-		DisplayName: Bolsa de Tesoro (Codicia, el Rey Gusano)
+		DisplayName: Bolsa de Tesoro (Avaricia, el Rey Gusano)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
 	MushroomMonarchTreasureBag: {
-		DisplayName: Bolsa de Tesoro (Monarca Champiñón)
+		DisplayName: Bolsa de Tesoro (Monarca Fúngico)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -144,7 +144,7 @@ TreasureBags: {
 	}
 
 	SoulOfCthulhuTreasureBag: {
-		DisplayName: Alijo de Tesoro (Alma de Cthulhu)
+		DisplayName: Alijo del Tesoro (Alma de Cthulhu)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 }
