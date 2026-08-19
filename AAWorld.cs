@@ -1468,9 +1468,12 @@ namespace AAModClassic
             {
                 if (ChaosStripes == false)
                 {
-                    ConversionHandler.ConvertDownBoth((int)MireCenter.X, (int)InfernoCenter.X, 0, 120);
-                    if (Main.netMode != NetmodeID.MultiplayerClient) 
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.hardModeInfo"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
+                    if (!ContentReplacementSystem.NeedToReplaceContent)
+                    {
+                        ConversionHandler.ConvertDownBoth((int)MireCenter.X, (int)InfernoCenter.X, 0, 120);
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.hardModeInfo"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
+                    }
                     ChaosStripes = true;
                 }
             }
