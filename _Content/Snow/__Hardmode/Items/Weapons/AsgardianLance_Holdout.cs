@@ -20,7 +20,7 @@ namespace AAModClassic._Content.Snow.__Hardmode.Items.Weapons
 			Projectile.width = 40;  //The width of the .png file in pixels divided by 2.
 			//Projectile.aiStyle = ProjAIStyleID.Spear;
 			Projectile.DamageType = DamageClass.Melee;  //Dictates whether this is a melee-class weapon.
-			Projectile.timeLeft = 90;
+			Projectile.timeLeft = 120;
 			Projectile.height = 40;  //The height of the .png file in pixels divided by 2.
 			Projectile.friendly = true;
 			Projectile.hostile = false;
@@ -60,10 +60,10 @@ namespace AAModClassic._Content.Snow.__Hardmode.Items.Weapons
                 Projectile.netUpdate = true;
             }
 
-            if (syncedItemAnimation < itemAnimationMax / 3f) // Reel back
-                Projectile.ai[0] -= 2.4f;
+            if (syncedItemAnimation < itemAnimationMax / 2f) // Reel back
+                Projectile.ai[0] -= 2.5f;
             else // Move forward
-                Projectile.ai[0] += 2.1f;
+                Projectile.ai[0] += 2.5f;
 
             // If at the end of the animation, kill the projectile.
             //Checking if == 0 is too late, lets the projectile linger into chained item uses.
