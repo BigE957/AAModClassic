@@ -1,6 +1,8 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._CrossMod;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
@@ -38,6 +40,17 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
         }
 
 		const int frameHeightPlusFluff = 78; //the 2 pixels per frame
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (ContentReplacementSystem.NeedToReplaceContent || (!Main.dayTime && !AAWorld.downedAkuma))
+                return 0f;
+
+            if (spawnInfo.Player.ZoneAnyInferno() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.25f;
+
+            return 0f;
+        }
 
         public override void AI()
         {

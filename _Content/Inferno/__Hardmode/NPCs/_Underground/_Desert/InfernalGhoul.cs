@@ -5,8 +5,10 @@ using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
+using AAModClassic._CrossMod;
 using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -42,6 +44,17 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Desert
 			Banner = Item.NPCtoBanner(NPCID.DesertGhoul);
 			BannerItem = ItemID.DesertGhoulBanner;
             SpawnModBiomes = [ModContent.GetInstance<UndergroundInfernoBiome>().Type];
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (!Main.dayTime && !AAWorld.downedAkuma)
+                return 0f;
+
+            if (Main.hardMode && !spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneDesert && spawnInfo.Player.ZoneAnyInferno() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return ContentReplacementSystem.NeedToReplaceContent ? 1f : 0.1f;
+
+            return 0f;
         }
 
         public override void HitEffect(NPC.HitInfo hit)

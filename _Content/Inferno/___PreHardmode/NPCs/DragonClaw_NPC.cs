@@ -72,6 +72,17 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
             ]);
         }
 
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (ContentReplacementSystem.NeedToReplaceContent || (!Main.dayTime && !AAWorld.downedAkuma))
+                return 0f;
+
+            if (spawnInfo.Player.ZoneAnyInferno() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.05f;
+
+            return 0f;
+        }
+
         public override void AI()
         {
             if (WasSpawnedByGripOfChaos)

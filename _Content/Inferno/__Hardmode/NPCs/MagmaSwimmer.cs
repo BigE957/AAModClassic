@@ -1,6 +1,8 @@
 using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._CrossMod;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
@@ -8,6 +10,7 @@ using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Utilities;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.NPCs
 {
@@ -41,6 +44,17 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (!Main.dayTime && !AAWorld.downedAkuma)
+                return 0f;
+
+            if (Main.hardMode && spawnInfo.Player.ZoneAnyInferno() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return SpawnCondition.WaterCritter.Chance * (ContentReplacementSystem.NeedToReplaceContent ? 2f : 0.2f);
+
+            return 0f;
         }
 
         public override void AI()

@@ -1005,66 +1005,6 @@ namespace AAModClassic.Globals
             if (aaBiomeZone && !pillarZone)
                 pool[0] = 0f;
 
-            if (spawnInfo.Player.ZoneAnyInferno())
-            {
-                ClearPoolWithExceptions(pool);
-
-                if ((spawnInfo.Player.position.Y < (Main.worldSurface * 16.0)) && (Main.dayTime || AAWorld.downedAkuma))
-                {
-                    if (!ContentReplacementSystem.NeedToReplaceContent)
-                    {
-                        pool.Add(ModContent.NPCType<WyrmlingHead>(), .25f);
-                        pool.Add(ModContent.NPCType<InfernalSlime>(), .05f);
-                        pool.Add(ModContent.NPCType<FlameBrute>(), .25f);
-                        pool.Add(ModContent.NPCType<Singemander>(), .5f);
-                        pool.Add(ModContent.NPCType<DragonClaw_NPC>(), .05f);
-                    }
-
-                    if (Main.hardMode)
-                    {
-                        pool.Add(ModContent.NPCType<MagmaSwimmer>(), SpawnCondition.WaterCritter.Chance * (ContentReplacementSystem.NeedToReplaceContent ? 2f : 0.2f));
-                        pool.Add(ModContent.NPCType<BlazePhoenix>(), ContentReplacementSystem.NeedToReplaceContent ? 1f : .1f);
-                    }
-
-                    if (AAWorld.downedSisters)
-                    {
-                        pool.Add(ModContent.NPCType<BlazeClaw>(), ContentReplacementSystem.NeedToReplaceContent ? 0.5f : .05f);
-                    }
-                }
-                else if (spawnInfo.Player.position.Y > (Main.worldSurface * 16.0))
-                {
-                    if (!ContentReplacementSystem.NeedToReplaceContent)
-                    {
-                        pool.Add(ModContent.NPCType<WyrmlingHead>(), .25f);
-                        pool.Add(ModContent.NPCType<FlameBrute>(), .25f);
-                        pool.Add(ModContent.NPCType<Singemander>(), .5f);
-                        pool.Add(ModContent.NPCType<DragonClaw_NPC>(), .05f);
-                    }
-
-                    if (Main.hardMode)
-                    {
-                        pool.Add(ModContent.NPCType<MagmaSwimmer>(), SpawnCondition.WaterCritter.Chance * (ContentReplacementSystem.NeedToReplaceContent ? 2f : 0.2f));
-                        pool.Add(ModContent.NPCType<WyrmHead>(), ContentReplacementSystem.NeedToReplaceContent ? 0.08f : .008f);
-                        pool.Add(ModContent.NPCType<ChaoticDawn>(), ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f);
-
-                        if (spawnInfo.Player.ZoneSnow)
-                        {
-                            pool.Add(ModContent.NPCType<PigronInferno>(), ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f);
-                        }
-
-                        if (spawnInfo.Player.ZoneUndergroundDesert)
-                        {
-                            pool.Add(ModContent.NPCType<InfernalGhoul>(), ContentReplacementSystem.NeedToReplaceContent ? 1f : .1f);
-                        }
-                    }
-                }
-
-                if (NPC.downedMoonlord)
-                {
-                    pool.Add(ModContent.NPCType<AncientLungHead>(), ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f);
-                }
-            }
-
             if (spawnInfo.Player.ZoneAnyMire())
             {
                 ClearPoolWithExceptions(pool);
