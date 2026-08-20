@@ -991,18 +991,19 @@ namespace AAModClassic.Globals
 
         public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
         {
-            if (spawnInfo.Player.ZoneTowerNebula || spawnInfo.Player.ZoneTowerSolar || spawnInfo.Player.ZoneTowerStardust || spawnInfo.Player.ZoneTowerVortex || 
-                Main.eclipse || 
-                Main.invasionType == InvasionID.MartianMadness ||
-                Main.invasionType == InvasionID.CachedPumpkinMoon ||
-                Main.invasionType == InvasionID.CachedFrostMoon)
-            {
-                return;
-            }
-            if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneStars)
-            {
-                pool.Add(Main.dayTime ? ModContent.NPCType<SunWatcher>() : ModContent.NPCType<NightGuard>(), .2f);
-            }
+            bool pillarZone = spawnInfo.Player.ZoneTowerNebula || spawnInfo.Player.ZoneTowerSolar || spawnInfo.Player.ZoneTowerStardust || spawnInfo.Player.ZoneTowerVortex;
+
+            bool aaBiomeZone = spawnInfo.Player.AAPlayer().ZoneInferno ||
+                spawnInfo.Player.AAPlayer().ZoneMire ||
+                spawnInfo.Player.AAPlayer().ZoneVoid ||
+                spawnInfo.Player.AAPlayer().ZoneTerrarium ||
+                spawnInfo.Player.AAPlayer().ZoneAcropolis ||
+                spawnInfo.Player.AAPlayer().ZoneHoard ||
+                spawnInfo.Player.AAPlayer().ZoneShip;
+
+            //Nukes vanilla spawns
+            if (aaBiomeZone && !pillarZone)
+                pool[0] = 0f;
 
             if (spawnInfo.Player.ZoneAnyInferno())
             {
@@ -1191,41 +1192,14 @@ namespace AAModClassic.Globals
                     pool.Add(ModContent.NPCType<TerraSerpentHead>(), .025f);
             }
 
-            if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneAcropolis)
+            if (!NPCUtils.AnyEvents(spawnInfo.Player) && spawnInfo.Player.AAPlayer().ZoneAcropolis)
+                pool[NPCID.Harpy] = 0.06f;
+
+            if (!NPCUtils.AnyEvents(spawnInfo.Player) && spawnInfo.Player.AAPlayer().ZoneHoard)
             {
-                ClearPoolWithExceptions(pool);
-                pool.Add(NPCID.Harpy, .06f);
-                if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
-                    pool.Add(ModContent.NPCType<OlympianDragon>(), .025f);
-                if (NPC.downedPlantBoss)
-                    pool.Add(ModContent.NPCType<Seraph>(), .03f);
-            }
-
-            if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneHoard)
-            {
-                ClearPoolWithExceptions(pool);
-
-                if (!NPC.AnyNPCs(ModContent.NPCType<GreedHead>()) && !NPC.AnyNPCs(ModContent.NPCType<GreedAHead>()))
-                {
-                    pool.Add(NPCID.GiantWormHead, .005f);
-                    pool.Add(NPCID.GoldWorm, .001f);
-                    pool.Add(NPCID.Worm, .005f);
-
-                    if (NPC.downedPlantBoss)
-                        pool.Add(ModContent.NPCType<ScavengerHead>(), .03f);
-                }
-            }
-
-            if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneShip)
-            {
-                ClearPoolWithExceptions(pool);
-
-                if (AAWorld.downedEquinox && spawnInfo.Water)
-                {
-                    pool.Add(ModContent.NPCType<DimensionDiver>(), .6f);
-                    pool.Add(ModContent.NPCType<TrenchSquid>(), .5f);
-                    pool.Add(ModContent.NPCType<RiftShark>(), .7f);
-                }
+                pool[NPCID.GiantWormHead] = 0.005f;
+                pool[NPCID.GoldWorm] = 0.001f;
+                pool[NPCID.Worm] = 0.005f;
             }
         }
 
@@ -1265,14 +1239,6 @@ namespace AAModClassic.Globals
             }
         }
 
-        // SpawnBoss(player, "MyBoss", true, 0, 0, "DerpyBoi", false);
-        public static void SpawnBoss(Player player, string type, bool spawnMessage = true, int overrideDirection = 0, int overrideDirectionY = 0, string overrideDisplayName = "", bool namePlural = false)
-        {
-            Mod mod = AAMod.instance;
-            SpawnBoss(player, mod.Find<ModNPC>(type).Type, spawnMessage, overrideDirection, overrideDirectionY, overrideDisplayName, namePlural);
-        }
-
-        // SpawnBoss(player, mod.NPCType("MyBoss"), true, 0, 0, "DerpyBoi 2", false);
         public static void SpawnBoss(Player player, int bossType, bool spawnMessage = true, int overrideDirection = 0, int overrideDirectionY = 0, string overrideDisplayName = "", bool namePlural = false)
         {
             if (overrideDirection == 0)
@@ -1288,13 +1254,6 @@ namespace AAModClassic.Globals
             Vector2 npcCenter = player.Center + new Vector2(Main.rand.NextFloat(500, 800) * overrideDirection, 800f * overrideDirectionY);
 
             SpawnBoss(player, bossType, spawnMessage, npcCenter, overrideDisplayName, namePlural);
-        }
-
-        // SpawnBoss(player, "MyBoss", true, player.Center + new Vector2(0, -800f), "DerpFromAbove", false);
-        public static void SpawnBoss(Player player, string type, bool spawnMessage = true, Vector2 npcCenter = default, string overrideDisplayName = "", bool namePlural = false)
-        {
-            Mod mod = AAMod.instance;
-            SpawnBoss(player, mod.Find<ModNPC>(type).Type, spawnMessage, npcCenter, overrideDisplayName, namePlural);
         }
 
         // SpawnBoss(player, mod.NPCType("MyBoss"), true, player.Center + new Vector2(0, 800f), "DerpFromBelow", false);

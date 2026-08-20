@@ -66,6 +66,14 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
             ]);
         }
 
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (NPC.downedPlantBoss && spawnInfo.Player.AAPlayer().ZoneHoard && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.03f;
+
+            return 0f;
+        }
+
         public override void AI()
         {
             if(NPC.AnyNPCs(ModContent.NPCType<GreedHead>()) || NPC.AnyNPCs(ModContent.NPCType<GreedAHead>()))
