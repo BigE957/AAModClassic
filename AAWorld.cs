@@ -521,16 +521,6 @@ namespace AAModClassic
         }
         #endregion
 
-        private string NumberRand(int size)
-        {
-            char[] chars = new char[size];
-            for (int i = 0; i < size; i++)
-            {
-                chars[i] = nums[Main.rand.Next(nums.Length)];
-            }
-            return new string(chars);
-        }
-
         public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
         {
             
@@ -818,7 +808,7 @@ namespace AAModClassic
             ModContentGenerated = true;
         }
 
-        private void GenIncinerite()
+        private static void GenIncinerite()
         {
             if (ContentReplacementSystem.NeedToReplaceContent)
                 return;
@@ -836,7 +826,7 @@ namespace AAModClassic
             }
         }
 
-        private void GenEverleaf()
+        private static void GenEverleaf()
         {
             //I do not know what an 'EverleafRoot' is.
             /*
@@ -854,7 +844,7 @@ namespace AAModClassic
             */
         }
 
-        private void GenAbyssium()
+        private static void GenAbyssium()
         {
             int x = Main.maxTilesX;
             int y = Main.maxTilesY;
@@ -869,7 +859,7 @@ namespace AAModClassic
             }
         }
 
-        private void GenRelicOre()
+        private static void GenRelicOre()
         {
             int x = Main.maxTilesX;
             int y = Main.maxTilesY;
@@ -903,25 +893,19 @@ namespace AAModClassic
 
         public void VoidIslands(GenerationProgress progress)
         {
-            progress.Message = "0" + NumberRand(1) + "0" + NumberRand(1) + "0" + NumberRand(1) + "0" + NumberRand(1) + "0" + NumberRand(1) + "0" + NumberRand(1) + "0" + NumberRand(1) + "0" + NumberRand(1) + "0" + NumberRand(1) + "0";
+            progress.Message = $"0{Main.rand.Next(2)}0{Main.rand.Next(2)}0{Main.rand.Next(2)}0{Main.rand.Next(2)}0{Main.rand.Next(2)}0{Main.rand.Next(2)}0{Main.rand.Next(2)}0{Main.rand.Next(2)}0{Main.rand.Next(2)}0";
 
-            progress.Set(0f);
             int VoidHeight = 90;
-            progress.Set(0.1f);
             int IslandNumber = 2;
             if (WorldGenUtils.GetWorldSize() != 1)
             {
                 IslandNumber = 4;
                 VoidHeight = 120;
             }
-            progress.Set(0.4f);
             Point center = new((Main.maxTilesX / 15 * 14) + (Main.maxTilesX / 15 / 2) - 100, center.Y = VoidHeight);
             WHERESDAVOIDAT = center;
-            progress.Set(0.5f);
             Point oldposition = new(1, 1);
-            progress.Set(0.6f);
             List<Point> posIslands = new();
-            progress.Set(0.7f);
             
 
             for (int i = 0; i < IslandNumber; i++)
@@ -954,8 +938,9 @@ namespace AAModClassic
                         WorldGen.TileRunner(randompoint.X, randompoint.Y, WorldGen.genRand.Next(5, 8), WorldGen.genRand.Next(6, 13), ModContent.TileType<ApocalyptiteOre_Tile>(), false, 0f, 0f, false, true);
                     }
                 }
+
+                progress.Set(MathHelper.Lerp(0f, 0.5f, i / (float)(IslandNumber - 1)));
             }
-            progress.Set(0.85f);
             ChestNumber = 0;
             for (int j = 0; j < posIslands.Count; ++j)
             {
@@ -963,8 +948,9 @@ namespace AAModClassic
                 position.X -= 4;
                 position.Y -= 11;
                 VoidHouses(position.X, position.Y, (ushort)ModContent.TileType<DoomiteScrap_Tile>(), 10, 7);
+
+                progress.Set(MathHelper.Lerp(0.5f, 1f, j / (float)(posIslands.Count - 1)));
             }
-            progress.Set(1f);
         }
 
         public static int BlockLining(double x, double y, int repeats, int tileType, bool random, int max, int min = 3)

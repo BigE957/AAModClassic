@@ -44,16 +44,14 @@ namespace AAModClassic.Conversions
             AAMod.instance.Logger.Info($"Start Position: ({startX}, {startY})");
             AAMod.instance.Logger.Info("Width: " + genWidth);
 
-            int convType = conversionType == ConversionType.MIRE
-                ? ModContent.GetInstance<MireConversion>().Type
-                : ModContent.GetInstance<InfernoConversion>().Type;
+            int convType = conversionType == ConversionType.MIRE ? ModContent.GetInstance<MireConversion>().Type : ModContent.GetInstance<InfernoConversion>().Type;
 
             int iterations = 0;
             int finalY = startY;
             for (int x1 = -genWidth; x1 < genWidth; x1++)
             {
                 int y = startY;
-                while (y < Main.maxTilesY - 50)
+                while (y < Main.UnderworldLayer)
                 {
                     if (WorldGen.InWorld(startX + x1, y))
                     {
