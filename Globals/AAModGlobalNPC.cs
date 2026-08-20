@@ -1123,47 +1123,6 @@ namespace AAModClassic.Globals
                     pool.Add(ModContent.NPCType<HarukaShadow>(), ContentReplacementSystem.NeedToReplaceContent ? 0.0005f : .00005f);
             }
 
-            if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneTerrarium)
-            {
-                ClearPoolWithExceptions(pool);
-
-                if (NPC.downedPlantBoss)
-                {
-                    pool.Add(ModContent.NPCType<PurityWeaverHead>(), .03f);
-                    pool.Add(ModContent.NPCType<PuritySphere>(), .03f);
-                    pool.Add(ModContent.NPCType<PurityCrawler>(), .03f);
-                    pool.Add(ModContent.NPCType<PuritySquid>(), .03f);
-
-                    pool.Add(ModContent.NPCType<TerraKnight>(), .05f);
-                    pool.Add(ModContent.NPCType<TerraDeadshot>(), .05f);
-                    pool.Add(ModContent.NPCType<TerraWizard>(), .05f);
-                    pool.Add(ModContent.NPCType<TerraWarlock>(), .05f);
-
-                    return;
-                }
-                else if (Main.hardMode)
-                {
-                    pool.Add(ModContent.NPCType<PurityWeaverHead>(), .03f);
-                    pool.Add(ModContent.NPCType<PuritySphere>(), .03f);
-                    pool.Add(ModContent.NPCType<PurityCrawler>(), .03f);
-                    pool.Add(ModContent.NPCType<PuritySquid>(), .03f);
-
-                    pool.Add(ModContent.NPCType<UnityProbe>(), .07f);
-                    pool.Add(ModContent.NPCType<UnityWatcher>(), .07f);
-                    pool.Add(ModContent.NPCType<TerraSquire>(), .07f);
-                }
-                else if (AAWorld.Terra1)
-                {
-                    pool.Add(ModContent.NPCType<PurityWeaverHead>(), .05f);
-                    pool.Add(ModContent.NPCType<PuritySphere>(), .05f);
-                    pool.Add(ModContent.NPCType<PurityCrawler>(), .05f);
-                    pool.Add(ModContent.NPCType<PuritySquid>(), .05f);
-                }
-
-                if(AAWorld.downedEquinox)
-                    pool.Add(ModContent.NPCType<TerraSerpentHead>(), .025f);
-            }
-
             if (!NPCUtils.AnyEvents(spawnInfo.Player) && spawnInfo.Player.AAPlayer().ZoneAcropolis)
                 pool[NPCID.Harpy] = 0.06f;
 

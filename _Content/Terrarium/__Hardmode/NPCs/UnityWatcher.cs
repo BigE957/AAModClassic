@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -33,6 +34,14 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.UnityWatcherBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if ((Main.hardMode && !NPC.downedPlantBoss) && spawnInfo.Player.AAPlayer().ZoneTerrarium && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.07f;
+
+            return 0f;
         }
 
         public override void HitEffect(NPC.HitInfo hit)
