@@ -1,6 +1,8 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._CrossMod;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
@@ -37,6 +39,14 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
             //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<ChaoticTwilightBanner>();
             SpawnModBiomes = [ModContent.GetInstance<UndergroundMireBiome>().Type];
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (Main.hardMode && !spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return ContentReplacementSystem.NeedToReplaceContent ? 0.05f : .005f;
+
+            return 0f;
         }
 
         public override void AI()

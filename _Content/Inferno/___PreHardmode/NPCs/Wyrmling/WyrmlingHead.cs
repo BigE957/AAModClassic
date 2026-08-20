@@ -66,7 +66,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (ContentReplacementSystem.NeedToReplaceContent || (!Main.dayTime && !AAWorld.downedAkuma))
+            if (ContentReplacementSystem.NeedToReplaceContent || (!Main.dayTime && !AAWorld.downedAkuma && spawnInfo.Player.ZoneSurface()))
                 return 0f;
 
             if (spawnInfo.Player.ZoneAnyInferno() && !NPCUtils.AnyEvents(spawnInfo.Player))

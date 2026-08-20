@@ -1,6 +1,8 @@
 ﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.Projectiles;
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._CrossMod;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -46,7 +48,18 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
 			//BannerItem = ModContent.ItemType<NewtBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
-        
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (ContentReplacementSystem.NeedToReplaceContent || (Main.dayTime && !AAWorld.downedYamata && spawnInfo.Player.ZoneSurface()))
+                return 0f;
+
+            if (spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.05f;
+
+            return 0f;
+        }
+
         private bool tongueAttack;
         private int tongueFrame;
         private int tongueCounter;

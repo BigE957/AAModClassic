@@ -43,7 +43,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (ContentReplacementSystem.NeedToReplaceContent || (!Main.dayTime && !AAWorld.downedAkuma))
+            if (ContentReplacementSystem.NeedToReplaceContent || (!Main.dayTime && !AAWorld.downedAkuma && spawnInfo.Player.ZoneSurface()))
                 return 0f;
 
             if (spawnInfo.Player.ZoneAnyInferno() && !NPCUtils.AnyEvents(spawnInfo.Player))
@@ -113,11 +113,6 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FlamebruteGoreFrontLeg").Type, 1f);
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FlamebruteGoreHead").Type, 1f);
             }
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneInferno && Main.dayTime ? 1f : 0f;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

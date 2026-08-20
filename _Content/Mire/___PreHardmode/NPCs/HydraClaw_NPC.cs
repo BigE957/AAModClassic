@@ -3,6 +3,7 @@ using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._CrossMod;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using AAModClassic.Utilities.Interfaces;
 using System;
@@ -66,6 +67,17 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             [
                 new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.HydraClaw")
             ]);
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (ContentReplacementSystem.NeedToReplaceContent || (Main.dayTime && !AAWorld.downedYamata && spawnInfo.Player.ZoneSurface()))
+                return 0f;
+
+            if (spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.025f;
+
+            return 0f;
         }
 
         public override void AI()

@@ -1005,64 +1005,6 @@ namespace AAModClassic.Globals
             if (aaBiomeZone && !pillarZone)
                 pool[0] = 0f;
 
-            if (spawnInfo.Player.ZoneAnyMire())
-            {
-                ClearPoolWithExceptions(pool);
-
-                if ((spawnInfo.Player.position.Y < (Main.worldSurface * 16.0)) && (!Main.dayTime || AAWorld.downedYamata))
-                {
-                    if (!ContentReplacementSystem.NeedToReplaceContent)
-                    {
-                        pool.Add(ModContent.NPCType<Mosster>(), .025f);
-                        pool.Add(ModContent.NPCType<Newt>(), .05f);
-                        pool.Add(ModContent.NPCType<HydraClaw_NPC>(), .025f);
-                        pool.Add(ModContent.NPCType<Skulker>(), .02f);
-                        pool.Add(ModContent.NPCType<MurkySlime>(), .025f);
-                    }
-
-                    if (Main.hardMode)
-                    {
-                        pool.Add(ModContent.NPCType<FogAngler>(), SpawnCondition.WaterCritter.Chance * (ContentReplacementSystem.NeedToReplaceContent ? 0.5f : 0.05f));
-                        pool.Add(ModContent.NPCType<Toxitoad>(), .005f);
-                        pool.Add(ModContent.NPCType<Kappa>(), ContentReplacementSystem.NeedToReplaceContent ? 1f : .025f);
-                    }
-
-                    if (AAWorld.downedSisters)
-                    {
-                        pool.Add(ModContent.NPCType<AbyssClaw>(), ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f);
-                    }
-                }
-                else if (spawnInfo.Player.position.Y > (Main.worldSurface * 16.0))
-                {
-                    if (!ContentReplacementSystem.NeedToReplaceContent)
-                    { 
-                        pool.Add(ModContent.NPCType<Mosster>(), .025f);
-                        pool.Add(ModContent.NPCType<Newt>(), .05f);
-                        pool.Add(ModContent.NPCType<HydraClaw_NPC>(), .025f);
-                        pool.Add(ModContent.NPCType<Skulker>(), .02f);
-                    }
-
-                    if (Main.hardMode)
-                    {
-                        pool.Add(ModContent.NPCType<FogAngler>(), SpawnCondition.WaterCritter.Chance * (ContentReplacementSystem.NeedToReplaceContent ? 1f : 0.1f));
-                        pool.Add(ModContent.NPCType<Miresquito>(), ContentReplacementSystem.NeedToReplaceContent ? 0.25f : .025f);
-                        pool.Add(ModContent.NPCType<ChaoticTwilight>(), ContentReplacementSystem.NeedToReplaceContent ? 0.05f : .005f);
-
-                        if (spawnInfo.Player.ZoneSnow)
-                            pool.Add(ModContent.NPCType<PigronMire>(), ContentReplacementSystem.NeedToReplaceContent ? 0.05f : .005f);
-
-                        if (spawnInfo.Player.ZoneUndergroundDesert)
-                            pool.Add(ModContent.NPCType<ShadowGhoul>(), ContentReplacementSystem.NeedToReplaceContent ? 0.25f : .025f);
-                    }
-                }
-
-                if (NPC.downedMoonlord)
-                    pool.Add(ModContent.NPCType<Soulsucker>(), ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f);
-
-                if (!AAWorld.downedSisters && NPCExtensions.BeenKilled<HydraBody>() && !NPC.AnyNPCs(ModContent.NPCType<HarukaShadow>()))
-                    pool.Add(ModContent.NPCType<HarukaShadow>(), ContentReplacementSystem.NeedToReplaceContent ? 0.0005f : .00005f);
-            }
-
             if (!NPCUtils.AnyEvents(spawnInfo.Player) && spawnInfo.Player.AAPlayer().ZoneAcropolis)
                 pool[NPCID.Harpy] = 0.06f;
 

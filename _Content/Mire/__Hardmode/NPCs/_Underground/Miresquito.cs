@@ -1,6 +1,8 @@
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._CrossMod;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -37,6 +39,14 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
             //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<MiresquitoBanner>();
             SpawnModBiomes = [ModContent.GetInstance<UndergroundMireBiome>().Type];
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (Main.hardMode && !spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return ContentReplacementSystem.NeedToReplaceContent ? 0.25f : .025f;
+
+            return 0f;
         }
 
         public override void FindFrame(int frameHeight)

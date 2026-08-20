@@ -2,7 +2,9 @@ using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._CrossMod;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using System;
 using Terraria;
@@ -37,6 +39,17 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs._Surface._Night
             //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AbyssClawBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (Main.dayTime && !AAWorld.downedYamata)
+                return 0f;
+
+            if (AAWorld.downedSisters && spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f;
+
+            return 0f;
         }
 
         public override void AI()

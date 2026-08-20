@@ -46,9 +46,6 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (!Main.dayTime && !AAWorld.downedAkuma)
-                return 0f;
-
             if (Main.hardMode && !spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyInferno() && !NPCUtils.AnyEvents(spawnInfo.Player))
                 return ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f;
 

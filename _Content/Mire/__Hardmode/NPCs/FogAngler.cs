@@ -1,6 +1,8 @@
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._CrossMod;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
@@ -8,6 +10,7 @@ using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Utilities;
 
 namespace AAModClassic._Content.Mire.__Hardmode.NPCs
 {
@@ -41,6 +44,17 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs
             //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<FogAnglerBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (ContentReplacementSystem.NeedToReplaceContent || (Main.dayTime && !AAWorld.downedYamata && spawnInfo.Player.ZoneSurface()))
+                return 0f;
+
+            if (Main.hardMode && spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return SpawnCondition.WaterCritter.Chance * (ContentReplacementSystem.NeedToReplaceContent ? 1f : 0.1f);
+
+            return 0f;
         }
 
         public override void AI()
