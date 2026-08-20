@@ -1273,6 +1273,6 @@ GoblinTinkererDoll: {
 }
 
 PortaProbe: {
-	// DisplayName: Porta-Probe
-	// Tooltip: Take a little life-seeking robot with you!
+	DisplayName: 虚空之门探测器
+	Tooltip: 让一个小型生命搜索器跟着你！
 }
