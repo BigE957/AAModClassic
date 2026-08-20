@@ -1123,34 +1123,6 @@ namespace AAModClassic.Globals
                     pool.Add(ModContent.NPCType<HarukaShadow>(), ContentReplacementSystem.NeedToReplaceContent ? 0.0005f : .00005f);
             }
 
-            if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneVoid)
-            {
-                ClearPoolWithExceptions(pool);
-
-                if (NPCExtensions.BeenKilled<Sagittarius>())
-                {
-                    pool.Add(ModContent.NPCType<ShadowScout>(), .005f);
-                }
-
-                if (NPC.downedPlantBoss)
-                {
-                    pool.Add(ModContent.NPCType<Vortex>(), 0.002f);
-                    pool.Add(ModContent.NPCType<VoidScout>(), .005f);
-                }
-
-                if (NPC.downedMoonlord)
-                {
-                    pool.Add(ModContent.NPCType<Searcher>(), .005f);
-
-                    if (AAWorld.downedZero)
-                        pool.Add(ModContent.NPCType<Null>(), .005f);
-                }
-                else
-                {
-                    pool.Add(ModContent.NPCType<StoneSearcher>(), .005f);
-                }
-            }
-
             if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneTerrarium)
             {
                 ClearPoolWithExceptions(pool);

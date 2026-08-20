@@ -1,10 +1,12 @@
 ﻿using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -46,7 +48,15 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
-		public int frameCount = 0;
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (spawnInfo.Player.AAPlayer().ZoneVoid && NPCExtensions.BeenKilled<Sagittarius>() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.005f;
+
+            return 0f;
+        }
+
+        public int frameCount = 0;
 		public int frameCounter = 0;
         public int IdleTimer = 0;
 

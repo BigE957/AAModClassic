@@ -3,6 +3,7 @@ using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void.Projectiles;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -41,6 +42,14 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs
             //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SearcherBanner>();
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (NPC.downedMoonlord && spawnInfo.Player.AAPlayer().ZoneVoid && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.005f;
+
+            return 0f;
         }
 
         public override void HitEffect(NPC.HitInfo hit)

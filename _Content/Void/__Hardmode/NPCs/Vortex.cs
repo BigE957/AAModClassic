@@ -1,8 +1,10 @@
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Unofficial.Content.Void.__Hardmode.Items.Tools;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -50,6 +52,14 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
             //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.VortexBanner>();
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (spawnInfo.Player.AAPlayer().ZoneVoid && NPC.downedPlantBoss && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.002f;
+
+            return 0f;
         }
 
         public float Rotation = 0;
