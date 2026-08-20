@@ -44,7 +44,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs._Surface._Day
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (!AAWorld.downedSisters)
+            if (!AAWorld.downedSisters || spawnInfo.Player.ZoneAnyMire())
                 return 0f;
 
             if (spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyInferno() && (Main.dayTime || AAWorld.downedAkuma) && !NPCUtils.AnyEvents(spawnInfo.Player))
