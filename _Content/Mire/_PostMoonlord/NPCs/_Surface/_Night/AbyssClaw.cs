@@ -43,13 +43,13 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs._Surface._Night
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (Main.dayTime && !AAWorld.downedYamata)
+            if (!AAWorld.downedSisters)
                 return 0f;
 
-            if (AAWorld.downedSisters && spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyMire() && (!Main.dayTime || AAWorld.downedYamata) && !NPCUtils.AnyEvents(spawnInfo.Player))
                 return ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f;
 
-            return 0f;
+            return SpawnCondition.OverworldNightMonster.Chance * 0.04f;
         }
 
         public override void AI()
@@ -80,15 +80,6 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs._Surface._Night
                     NPC.frame.Y = 0;
                 }
             }
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (AAWorld.downedSisters)
-            {
-                return SpawnCondition.OverworldNightMonster.Chance * 0.04f;
-            }
-            return 0;
         }
 
         public override void HitEffect(NPC.HitInfo hit)

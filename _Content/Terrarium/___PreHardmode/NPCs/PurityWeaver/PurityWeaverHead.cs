@@ -48,14 +48,6 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if ((AAWorld.Terra1 || Main.hardMode || NPC.downedPlantBoss) && spawnInfo.Player.AAPlayer().ZoneTerrarium && !NPCUtils.AnyEvents(spawnInfo.Player))
-                return (Main.hardMode || NPC.downedPlantBoss) ? 0.03f : 0.05f;
-
-            return 0f;
-        }
-
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.Info.AddRange(
@@ -66,8 +58,8 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (NPC.downedPlantBoss && spawnInfo.Player.AAPlayer().ZoneTerrarium && !NPCUtils.AnyEvents(spawnInfo.Player))
-                return 0.03f;
+            if ((AAWorld.Terra1 || Main.hardMode || NPC.downedPlantBoss) && spawnInfo.Player.AAPlayer().ZoneTerrarium && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return (Main.hardMode || NPC.downedPlantBoss) ? 0.03f : 0.05f;
 
             return 0f;
         }
