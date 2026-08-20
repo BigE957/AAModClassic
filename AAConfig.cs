@@ -26,6 +26,7 @@ namespace AAModClassic
         public bool DisableNewAAReminderMessage;
 
         [DefaultValue(true)]
+        [ReloadRequired]
         public bool EnableContentReplacement;
 
         [DefaultValue(false)]
