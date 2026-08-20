@@ -74,7 +74,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (ContentReplacementSystem.NeedToReplaceContent)
+            if (ContentReplacementSystem.NeedToReplaceContent || spawnInfo.Player.ZoneAnyMire())
                 return 0f;
 
             if (spawnInfo.Player.ZoneAnyInferno() && (Main.dayTime || AAWorld.downedAkuma || !spawnInfo.Player.ZoneSurface()) && !NPCUtils.AnyEvents(spawnInfo.Player))
