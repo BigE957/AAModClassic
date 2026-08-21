@@ -24,7 +24,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
             Item.useAnimation = 45;
             Item.useTime = 45;
             Item.UseSound = SoundID.Item1;
-            Item.damage = 8;
+            Item.damage = 16;
             Item.knockBack = 7;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.shoot = ModContent.ProjectileType<Pyrosphere_Holdout>();

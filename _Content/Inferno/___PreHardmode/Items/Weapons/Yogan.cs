@@ -13,7 +13,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
         {
 			Item.CloneDefaults(ItemID.Sunfury);
 
-            Item.damage = 24; 
+            Item.damage = 48; 
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */; 
             Item.width = 46; 
             Item.height = 66;    

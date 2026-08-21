@@ -27,7 +27,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
             Item.knockBack = 15f;
             Item.width = 20;
             Item.height = 20;
-            Item.damage = 45;
+            Item.damage = 90;
             Item.shoot = ModContent.ProjectileType<ChaosChain_Holdout>();
             Item.shootSpeed = 14f;
             Item.UseSound = SoundID.Item10;

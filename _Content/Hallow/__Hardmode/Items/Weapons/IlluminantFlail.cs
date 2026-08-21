@@ -12,7 +12,7 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Weapons   //where is loc
         {
 			Item.CloneDefaults(ItemID.SolarEruption);
 
-            Item.damage = 26;            
+            Item.damage = 52;            
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
             Item.width = 56;              
             Item.height = 56;             
