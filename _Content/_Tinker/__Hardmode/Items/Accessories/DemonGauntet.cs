@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Globals;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
@@ -86,13 +87,17 @@ namespace AAModClassic._Content._Tinker.__Hardmode.Items.Accessories
         public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Melee) += 0.14f;
-            damageMap.GetAttackSpeed(DamageClass.Melee) += 0.1f;
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                damageMap.GetAttackSpeed(DamageClass.Melee) += 0.12f;
+            else
+                damageMap.GetAttackSpeed(DamageClass.Melee) += 0.1f;
             damageMap.GetKnockback(DamageClass.Melee) += 2f;
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddEffect<MeleeSizeEffect>();
             AddEffect(new AggroEffect(5));
             int buff = WorldGen.crimson ? BuffID.Ichor : BuffID.CursedInferno;
             AddEffect(new AttacksInflictBuffEffect(DamageClass.Melee, (buff, 100)));
             AddEffect<DemonGauntletEffect>();
-
         }
 
         public override void AddRecipes()

@@ -486,4 +486,5 @@ Effect: {
 		The snap has a 5 minute cooldown
 		'''
 	DemonHelmetSetEffect: A loyal imp servant will fight for you, no matter the season or condition
+	MeleeSizeEffect: Increases the size of melee weapons
 }
