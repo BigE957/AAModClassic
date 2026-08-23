@@ -1,3 +1,4 @@
+global using Terraria;
 using AAModClassic._Content._Dev.___PreHardmode.Items.Currency;
 using AAModClassic._Content._Dev.__Hardmode.Items.Accessories;
 using AAModClassic._Content._EX._PostMoonlord.Items.Accessories;
@@ -74,7 +75,6 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.UI;
 using Terraria.Graphics;

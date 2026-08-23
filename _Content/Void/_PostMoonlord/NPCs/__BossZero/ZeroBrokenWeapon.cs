@@ -52,6 +52,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             }
             NPC.dontTakeDamage = true;
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
         }
 
         public override bool CheckActive()

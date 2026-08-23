@@ -25,6 +25,9 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
             base.SetDefaults();
             NPC.dontCountMe = true;
             NPC.alpha = 255;
+            NPC.boss = false;
+
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -254,4 +257,6 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
             return false;
         }
     }
+
+
 }

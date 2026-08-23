@@ -1,10 +1,12 @@
 ﻿using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
+using AAModClassic.UI.World;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler
 {
-    //[AutoloadBossHead]
+    [AutoloadBossHead]
     public class NightcrawlerBody : NightcrawlerHead
 	{
         public override void SetStaticDefaults()
@@ -18,6 +20,14 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nigh
             NPC.dontCountMe = true;
             nightcrawler = true;
             NPC.npcSlots = 0;
+            NPC.boss = false;
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
+        }
+
+        public override void BossHeadSlot(ref int index)
+        {
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
+                index = -1;
         }
 
         public override bool PreKill()

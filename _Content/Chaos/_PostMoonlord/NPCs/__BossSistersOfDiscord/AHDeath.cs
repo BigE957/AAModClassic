@@ -31,7 +31,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord
             NPC.aiStyle = -1;
             NPC.timeLeft = 10;
             Music = MusicManagementSystem.MusicSlots["Sisters_Outro"];
-            NPC.boss = true;
+            NPC.boss = false;
 
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
