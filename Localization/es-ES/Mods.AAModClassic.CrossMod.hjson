@@ -1,25 +1,25 @@
 BossChecklist: {
 	MushroomMonarch: {
-		Name: Monarca Champiñón
-		Spawn: Usa un {0} durante el día.
-		Despawn: "[c/F08080:El Monarca Champiñón escapa hacia el cielo]"
+		Name: Monarca Fúngico
+		Spawn: Usa {0} durante el día.
+		Despawn: "[c/F08080:El Monarca Fúngico escapa hacia el cielo]"
 	}
 
 	FeudalFungus: {
 		Name: Hongo Feudal
-		Spawn: Usa un {0} en un bioma de Champiñones Luminosos.
+		Spawn: Usa {0} en un bioma de Champiñones Brillantes.
 		Despawn: "[c/70FFF3:El Hongo Feudal se desvanece]"
 	}
 
 	GripsOfChaos: {
 		Name: Garras del Caos
-		Spawn: Usa un {0} o un {1} por la noche.
+		Spawn: Usa {0} o {1} por la noche.
 		Despawn: "[c/75008C:Las Garras se van volando tras haber acabado contigo]"
 	}
 
 	TruffleToad: {
 		Name: Sapo de Trufa
-		Spawn: Usa un {0} en un bioma de Champiñones Luminosos.
+		Spawn: Usa {0} en un bioma de Champiñones Brillantes.
 		Despawn: "[c/70FFF3:El Sapo de Trufa croa y luego se desvanece]"
 	}
 
@@ -31,44 +31,44 @@ BossChecklist: {
 
 	Hydra: {
 		Name: Hidra
-		Spawn: Usa un {0} en el Lodazal por la noche.
+		Spawn: Usa {0} en el Lodazal por la noche.
 		Despawn: "[c/483D8B:La Hidra se desliza de vuelta a su guarida oscura]"
 	}
 
 	SubzeroSerpent: {
 		Name: Serpiente Subcero
-		Spawn: Usa un {0} en la Tundra por la noche.
+		Spawn: Usa {0} en la Tundra por la noche.
 		Despawn: "[c/6495ED:La Serpiente Subcero se entierra de vuelta en la nieve]"
 	}
 
 	DesertDjinn: {
-		Name: Djinn del Desierto
-		Spawn: Usa un {0} en el Desierto durante el día.
-		Despawn: "[c/F4A460:El Djinn del Desierto flexiona sus músculos sobre ti triunfalmente]"
+		Name: Genio del Desierto
+		Spawn: Usa {0} en el Desierto durante el día.
+		Despawn: "[c/F4A460:El Genio del Desierto flexiona sus músculos sobre ti triunfalmente]"
 	}
 
 	Sagittarius: {
 		Name: Sagitario
-		Spawn: Usa un {0} en el Vacío.
+		Spawn: Usa {0} en el Vacío.
 		Despawn: "[c/FF0000:Sagitario galopa hacia la oscuridad infinita...]"
 	}
 
 	TechnoTruffle: {
-		Name: Techno Trufa
-		Spawn: Usa un {0} por la noche.
-		Despawn: "[c/eb34eb:Techno Trufa eliminó a su objetivo.]"
+		Name: Tecnotrufa
+		Spawn: Usa {0} por la noche.
+		Despawn: "[c/eb34eb:Tecnotrufa eliminó a su objetivo.]"
 	}
 
 	Retriever: {
-		Name: El Retriever
-		Spawn: Usa un {0} por la noche.
-		Despawn: "[c/eb34eb:El Retriever recibe su recompensa.]"
+		Name: El Recolector
+		Spawn: Usa {0} por la noche.
+		Despawn: "[c/eb34eb:El Recolector recibe su recompensa.]"
 	}
 
 	OrthrusX: {
-		Name: Ortros X
+		Name: Orthrus X
 		Spawn: Usa un {0} por la noche.
-		Despawn: "[c/eb34eb:Ortros se teletransporta a la base.]"
+		Despawn: "[c/eb34eb:Orthrus X se teletransporta a la base.]"
 	}
 
 	RaiderUltima: {
@@ -79,127 +79,127 @@ BossChecklist: {
 
 	Anubis: {
 		Name: Anubis
-		Spawn: Usa un {0} en el Desierto.
+		Spawn: Usa {0} en el Desierto.
 		Despawn: "[c/FFD700:Anubis bromea y luego regresa a su forma.]"
 	}
 
 	BiomiteCore: {
 		Name: Núcleo de Biomita
-		Spawn: Usa un {0} en el pedestal del Bastión Perdido.
+		Spawn: Usa {0} en el pedestal del Bastión Perdido.
 		Despawn: "[c/228B22:Los mecanismos del bastión se detienen por completo.]"
 	}
 
 	Athena: {
-		Name: Athena
-		Spawn: Usa un {0} en el altar del búho en la Acrópolis, o hiere a un Serafín en la Acrópolis.
-		Despawn: "[c/008AA6:Athena te regaña antes de irse volando.]"
+		Name: Atenea
+		Spawn: Usa {0} en el altar del búho en la Acrópolis, o hiere a un Serafín en la Acrópolis.
+		Despawn: "[c/008AA6:Atenea te regaña antes de irse volando.]"
 	}
 
 	Greed: {
 		Name: Avaricia
-		Spawn: Usa un {0} en el Altar del Deseo en el Alijo, o abre 3 cofres de Avaricia en el Alijo.
+		Spawn: Usa {0} en el Altar del Deseo en el Alijo, o abre 3 cofres de Avaricia en el Alijo.
 		Despawn: "[c/E39F00:La Avaricia vuelve a contar sus cosas brillantes.]"
 	}
 
 	RajahRabbit: {
 		Name: Rajah Rabbit
-		Spawn: Usa una {0} o mata 100 conejos como un imbécil.
+		Spawn: Usa {0} o mata 100 conejos como un imbécil.
 		Despawn: "[c/D3D3D3:La justicia del Castigador Saltarín ha sido servida.]"
 	}
 
 	ForsakenAnubis: {
-		Name: Anubis Abandonado
+		Name: Anubis; Juez Abandonado
 		Spawn: Desafía al Escriba de la Leyenda tras haber derrotado al Señor de la Luna.
 		Despawn: "[c/228B22:El poder del Juez se revierte, su decepción es inconmensurable.]"
 	}
 
 	AthenaA: {
-		Name: Athena Olímpica
+		Name: Atenea Olímpica
 		Spawn: Desafía a Atenea tras haber demostrado tu valía ante Anubis.
 		Despawn: "[c/008AA6:La Diosa se eleva por los aires, completamente complacida.]"
 	}
 
 	GreedA: {
-		Name: Rey Gusano Avaricia
+		Name: Avaricia; Rey Gusano
 		Spawn: Desafía a Avaricia tras haber demostrado tu valía ante Anubis.
 		Despawn: "[c/E39F00:El Acaparador se desliza en su guarida, un tesoro más para la pila.]"
 	}
 
 	EquinoxWorms: {
-		Name: Portador del Día y Rondador Nocturno
-		Spawn: Usa el {0}.
+		Name: Portador Diurno y Reptador Nocturno
+		Spawn: Usa {0}.
 		Despawn: "[c/2F1F6C:La pareja desaparece entre las estrellas para continuar con su equilibrio.]"
 	}
 
 	SistersOfDiscord: {
 		Name: Hermanas de la Discordia
-		Spawn: Usa el {0}.
+		Spawn: Usa {0}.
 		Despawn: "[c/FF00FF:Las hermanas se escabullen a casa para contarles a sus padres sobre su victoria.]"
 	}
 
 	Akuma: {
 		Name: Akuma
-		Spawn: Usa el {0} en el Infierno durante el día.
+		Spawn: Usa {0} en el Infierno durante el día.
 		Despawn: "[c/92251E:El Demonio regresa a su Pagoda, poco entusiasmado con la batalla.]"
 	}
 
 	AkumaA: {
 		Name: Oni Akuma
-		Spawn: Derrota a Akuma en Modo Experto o usa el {0}.
+		Spawn: Derrota a Akuma en Modo Experto o usa {0}.
 		Despawn: "[c/00BFFF:El Demonio se arrastra de vuelta a su Pagoda, furioso por la batalla.]"
 	}
 
 	Yamata: {
 		Name: Yamata
-		Spawn: Usa el {0} en el Lodazal por la noche.
+		Spawn: Usa {0} en el Lodazal por la noche.
 		Despawn: "[c/35397E:El Demonio se retira al Lago de las Almas para deleitarse con su victoria.]"
 	}
 
 	YamataA: {
 		Name: Yamata No Orochi
-		Spawn: Derrota a Yamata en Modo Experto o usa el {0}.
+		Spawn: Derrota a Yamata en Modo Experto o usa {0}.
 		Despawn: "[c/921E44:El Demonio se desliza de vuelta al Lago de las Almas para lamerse las heridas.]"
 	}
 
 	Zero: {
-		Name: Zero
-		Spawn: Usa el {0} en el Vacío.
+		Name: Cero
+		Spawn: Usa {0} en el Vacío.
 		Despawn: "[c/FF0000:La máquina ejecuta el protocolo de retorno y reanuda su vigilia silenciosa.]"
 	}
 
 	ZeroP: {
-		Name: Protocolo Zero
-		Spawn: Derrota a Zero en Modo Experto o usa el {0}.
+		Name: Protocolo Cero
+		Spawn: Derrota a Cero en Modo Experto o usa el {0}.
 		Despawn: "[c/FF0000:La máquina ejecuta el protocolo de reparación antes de reanudar su vigilia silenciosa.]"
 	}
 
 	RajahRabbitR: {
 		Name: Venganza de Rajah Rabbit
-		Spawn: Usa la {0} o mata 100 conejos después de haber matado al menos 1000.
+		Spawn: Usa {0} o mata 100 conejos después de haber matado al menos 1000.
 		Despawn: "[c/D3D3D3:La justicia del Campeón de los Inocentes ha sido servida.]"
 	}
 
 	Shen: {
 		Name: Shen Doragon
-		Spawn: Usa el {0}.
-		Despawn: "[c/FF00FF:El caos sigue reinando de todos modos, el heraldo de la discordia continúa su discordia.]"
+		Spawn: Usa {0}.
+		Despawn: "[c/FF00FF:El caos sigue reinando de todos modos, el profeta del apocalipsis discordiano continúa su discordia.]"
 	}
 
 	ShenA: {
-		Name: Shen Doragon Despertado
-		Spawn: Derrota a Shen Doragon en Modo Experto o usa el {0}.
+		Name: Despertar de Shen Doragon
+		Spawn: Derrota a Shen Doragon en Modo Experto o usa {0}.
 		Despawn: "[c/FF00FF:A pesar de tus mejores esfuerzos, el caos sigue reinando de todos modos.]"
 	}
 
 	InfinityZero: {
-		Name: Infinity Zero
-		Spawn: Usa el {0}.
+		Name: Cero Infinito
+		Spawn: Usa {0}.
 		Despawn: "[c/A9A9A9:Con su directiva completada con éxito, la malicia mecánica aguarda a otro.]"
 	}
 
 	SoulOfCthulhu: {
 		Name: Alma de Cthulhu
-		Spawn: Usa el {0}.
+		Spawn: Usa {0}.
 		Despawn: "[c/00FFFF:Con la ira de los antiguos dioses promulgada, la calamidad cósmica regresa a su letargo.]"
 	}
 

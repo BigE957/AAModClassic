@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -36,6 +37,14 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
             //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<StoneSearcherBanner>();
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (!NPC.downedMoonlord && spawnInfo.Player.AAPlayer().ZoneVoid && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.005f;
+
+            return 0f;
         }
 
         public override void HitEffect(NPC.HitInfo hit)

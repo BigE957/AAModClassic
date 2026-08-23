@@ -1,5 +1,7 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._CrossMod;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -39,6 +41,17 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs._Surface._Day
             //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<InfernalSlimeBanner>();
             SpawnModBiomes = [ModContent.GetInstance<InfernoBiome>().Type];
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (ContentReplacementSystem.NeedToReplaceContent || (!Main.dayTime && !AAWorld.downedAkuma))
+                return 0f;
+
+            if (spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyInferno() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.05f;
+
+            return 0f;
         }
 
         public override bool PreAI()

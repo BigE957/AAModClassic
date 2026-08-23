@@ -1,4 +1,6 @@
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._CrossMod;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -41,6 +43,14 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Snow
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.Info.Add(new FlavorTextBestiaryInfoElement("CommonBestiaryFlavor.Pigron"));
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (Main.hardMode && !spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneSnow && spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return ContentReplacementSystem.NeedToReplaceContent ? 0.05f : .005f;
+
+            return 0f;
         }
 
         public override void AI()

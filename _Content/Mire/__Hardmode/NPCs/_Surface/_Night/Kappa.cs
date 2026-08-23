@@ -1,5 +1,7 @@
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._CrossMod;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
@@ -40,6 +42,17 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
             //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<KappaBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (Main.dayTime && !AAWorld.downedYamata)
+                return 0f;
+
+            if (Main.hardMode && spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return ContentReplacementSystem.NeedToReplaceContent ? 1f : .025f;
+
+            return 0f;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

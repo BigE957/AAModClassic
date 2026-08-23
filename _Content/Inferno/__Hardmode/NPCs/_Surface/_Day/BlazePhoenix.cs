@@ -1,6 +1,7 @@
 using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._CrossMod;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
@@ -12,6 +13,7 @@ using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Utilities;
 
 
 namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Surface._Day
@@ -51,6 +53,17 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Surface._Day
             //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<BlazePhoenixBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (!Main.dayTime && !AAWorld.downedAkuma)
+                return 0f;
+
+            if (Main.hardMode && spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyInferno() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return ContentReplacementSystem.NeedToReplaceContent ? 1f : .1f;
+
+            return 0f;
         }
 
         public override void AI()

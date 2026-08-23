@@ -86,7 +86,7 @@ Akuma: {
 		2: 你知道吗，小子…
 		3: 扇风可不能灭火…
 		4: 邪鬼巨龙已经觉醒！
-		5: 只会让它们更猛烈！
+		5: 只会让它们越烧越旺！
 		6: 你周围的空气开始升温…
 	}
 
@@ -480,7 +480,7 @@ Zero: {
 	Defeat: {
 		Expert: 物 理 零 械 单 元 处 于 严 重 损 坏 状 态. 予 以 废 弃，启 动 末 日 协 议.
 		NotExpert: 末 日 协 议 故 障. MAIN.EXPERTM0DE = FALSE.
-		Status: 零械单元对虚空的黑暗影响已经消散。此地的厄劫矿石现在可以开采了。
+		Status: 零械单元对虚空的黑暗影响已经消散。现在可以挖掘此地的厄劫石了。
 	}
 
 	Awakened: {
@@ -492,8 +492,8 @@ Zero: {
 			2: 正 在 以 自 组 织 模 式 启 动...
 
 			3: {
-				Normal: 允 许 {0}\\M0DS\\AAM0D\\ZER0\\自 组 织.EXE ? <Y/N>...
-				Streaming: 观 众 投 票: 允 许 自 组 织.EXE ? <Y/N>...
+				Normal: 允 许 {0}\M0DS\AAM0D\ZER0\自 组 织.EXE 启 动 ? <Y/N>...
+				Streaming: 观 众 投 票: 允 许 自 组 织.EXE 启 动 ? <Y/N>...
 			}
 
 			4: ===大 屠 戮===
@@ -519,7 +519,7 @@ Zero: {
 	ZeroBoss9: 旋 风 协 议 已 启 动
 	ZeroBoss11: 重 新 装 备 武 器 单 元
 	ZeroAwakened2: 警 告. 检 测 到 严 重 损 坏, 故 障 即 将 发 生. 启 动 全 攻 击 协 议
-	ZeroAwakened3: 警 告. 再 次 检 测 到 严 重 损 坏, 故 障 即 将 发 生. 启 动 全 攻 击 协 议 0MEGA
+	ZeroAwakened3: 警 告. 再 次 检 测 到 严 重 损 坏，故 障 即 将 发 生. 启 动 全 攻 击 协 议 0MEGA
 	ZeroAwakened5: 你 的 作 弊 工 具 在 这 里 也 救 不 了 你
 	ZeroDeath2: 任 务 失 败. 正 在 再 次 尝 试 求 救 信 号.
 }
@@ -744,7 +744,7 @@ InfinityZero: {
 
 			6: {
 				Normal: ...{0}...
-				Streaming: "...而且没有观众时...   "
+				Streaming: "...而且这里没有观众时...   "
 
 				Hardcore: {
 					Normal: 干得好，{0}。来，给你一张贴纸。

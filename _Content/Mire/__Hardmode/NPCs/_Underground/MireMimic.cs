@@ -2,6 +2,7 @@ using AAModClassic._Content.Mire.__Hardmode.Items.Accessories;
 using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._Unofficial.Content.Mire.__Hardmode.Items.Tools;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -40,7 +41,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             Player player = spawnInfo.Player;
-            if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneMire && Main.hardMode && !spawnInfo.PlayerSafe)
+            if (spawnInfo.Player.ZoneAnyMire() && Main.hardMode && !spawnInfo.PlayerSafe && !NPCUtils.AnyEvents(spawnInfo.Player))
             {
                 return SpawnCondition.UndergroundMimic.Chance;
             }

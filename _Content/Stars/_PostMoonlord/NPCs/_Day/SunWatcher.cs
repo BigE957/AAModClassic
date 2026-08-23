@@ -1,9 +1,6 @@
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Inferno.___PreHardmode.NPCs;
-using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars.Projectiles;
-using AAModClassic._Content.Stars.World.Biomes;
+using AAModClassic._CrossMod.CalamityMod;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
@@ -47,6 +44,14 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Day
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
 			bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Sky);
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (Main.dayTime && spawnInfo.Player.AAPlayer().ZoneStars && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.2f;
+
+            return 0f;
         }
 
 		public override void HitEffect(NPC.HitInfo hit)

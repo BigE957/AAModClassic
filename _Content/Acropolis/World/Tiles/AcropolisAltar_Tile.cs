@@ -81,7 +81,8 @@ namespace AAModClassic._Content.Acropolis.World.Tiles
                     Item item = player.inventory[m];
                     if (item != null && item.type == type && item.stack >= 1)
                     {
-                        item.stack--;
+                        if(item.consumable)
+                            item.stack--;
 
                         Vector2 npcCenter = player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * (Main.rand.NextBool() ? -1 : 1), -800f);
                         for (int a = 0; a < 8; a++)

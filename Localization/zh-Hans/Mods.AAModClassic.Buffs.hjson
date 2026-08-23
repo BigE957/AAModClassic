@@ -5,7 +5,7 @@ APageOfTheRuneBookEffect_Buff: {
 
 PrettyPony_Buff: {
 	DisplayName: 你也是马
-	Description: 嘶嘶嘶.
+	Description: 嘶嘶嘶
 }
 
 CerberusWhistle_Buff: {
@@ -30,7 +30,7 @@ MudFishBall_Buff: {
 
 RoyalStar_Buff: {
 	DisplayName: 皇族小猫
-	Description: “真漂亮!”
+	Description: “真漂亮！”
 }
 
 ShinyFishBall_Buff: {
@@ -40,7 +40,7 @@ ShinyFishBall_Buff: {
 
 AleisterStaff_BeBanished: {
 	DisplayName: 放逐
-	Description: 你被召唤魔法标记了
+	Description: 你被召唤兽魔法标记了
 }
 
 AleisterStaff_InvokerOfMadness: {
@@ -110,7 +110,7 @@ PerfectChaosRitual_Buff: {
 
 SoccOnAStick_Buff: {
 	DisplayName: 棉袜神
-	Description: 袜神.
+	Description: 袜神
 }
 
 TartarusReaper_CursedHellfire: {
@@ -183,8 +183,8 @@ RoninPotion_Buff: {
 }
 
 PaperBomb_Buff: {
-	DisplayName: 砰!!!
-	Description: 实际上并不会爆炸...暂时还不会。
+	DisplayName: 砰！！！
+	Description: 实际上并不会爆炸…暂时还不会。
 }
 
 InfinityOverload_Buff: {
@@ -392,7 +392,7 @@ DevilStaff_Buff: {
 
 CharmOfDesire_Desire: {
 	DisplayName: 贪婪
-	Description: 更多金币，更多力量！！！
+	Description: 更多钱，更多力量！！！
 }
 
 Earthbreaker_Falling: {
@@ -447,7 +447,7 @@ DragonFire_Buff: {
 
 GlowingMossBall_Buff: {
 	DisplayName: 发光苔球
-	Description: 别问什么让它发光. 相信我.
+	Description: 别问什么让它发光。相信我。
 }
 
 HydraBody_Hunted: {
@@ -471,7 +471,7 @@ YamataABody_TrueAbyssalGravity: {
 
 YamataBody_AbyssalGravity: {
 	DisplayName: 潭渊重力
-	Description: “别 想 远 离 我,臭 小 子!”
+	Description: “别 想 远 离 我，臭 小 子！”
 }
 
 Clueless_Buff: {
@@ -501,7 +501,7 @@ Atlantean_Buff: {
 
 Seashroom_Buff: {
 	DisplayName: 鲨可梦
-	Description: 不会咬人...真是...
+	Description: 不会咬人…真是…
 }
 
 SnakeStaff_Buff: {
@@ -585,7 +585,7 @@ DoomiteSignal_Buff: {
 }
 
 VoidProbeControlUnit_Buff: {
-	DisplayName: 小探测器
+	DisplayName: 虚空探针
 	Description: 召唤一个虚空探针为你而战
 }
 
@@ -666,10 +666,15 @@ Impaled_Buff: {
 
 SpearStuck_Buff: {
 	DisplayName: 刺穿
-	Description: 一支长矛扎进了你的身体里, 啊！
+	Description: 一支长矛扎进了你的身体里，啊！
 }
 
 InfinityGauntletEffect_InfinityBurnout: {
 	DisplayName: 无限残烬
 	Description: 它们应该冲着我的头砍
+}
+
+PortaProbe_Buff: {
+	DisplayName: 小探测器
+	Description: 为你搜索生物和宝藏
 }

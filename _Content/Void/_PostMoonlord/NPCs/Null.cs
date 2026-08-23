@@ -3,6 +3,7 @@ using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -44,7 +45,15 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
-		public int frameCount = 0;
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (spawnInfo.Player.AAPlayer().ZoneVoid && (NPC.downedMoonlord && AAWorld.downedZero) && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.005f;
+
+            return 0f;
+        }
+
+        public int frameCount = 0;
 		public int frameCounter = 0;
 		public override void PostAI()
 		{

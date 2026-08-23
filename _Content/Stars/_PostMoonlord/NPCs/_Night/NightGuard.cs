@@ -1,6 +1,5 @@
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars.Projectiles;
-using AAModClassic._Content.Stars.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
@@ -47,6 +46,14 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Night
             bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Sky);
         }
 
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (Main.dayTime && spawnInfo.Player.AAPlayer().ZoneStars && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.2f;
+
+            return 0f;
+        }
+
         public override void HitEffect(NPC.HitInfo hit)
 		{		
 			bool isDead = NPC.life <= 0;
@@ -75,15 +82,6 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Night
 				}
 			}
 		}
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (AAWorld.Darkmatter < 5)
-            {
-                return 0f;
-            }
-            return SpawnCondition.Underground.Chance * 0.1f;
-        }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {

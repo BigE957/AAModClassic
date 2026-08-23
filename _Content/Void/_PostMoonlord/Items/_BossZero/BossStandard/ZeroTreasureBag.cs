@@ -88,7 +88,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<ZeroCore>(), 10));
+            itemLoot.Add(ItemDropRule.OneFromOptions(10, [ModContent.ItemType<ZeroCore>(), ModContent.ItemType<PortaProbe>()]));
 
             LeadingConditionRule notUnofficialRule = new(new AAConditions.NotUnofficial());
 

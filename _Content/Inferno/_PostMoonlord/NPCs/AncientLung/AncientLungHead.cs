@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._CrossMod;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
@@ -69,6 +70,14 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung
             [
                 new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.AncientLung")
             ]);
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (NPC.downedMoonlord && spawnInfo.Player.ZoneAnyInferno() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f;
+
+            return 0f;
         }
 
         public override bool PreAI()

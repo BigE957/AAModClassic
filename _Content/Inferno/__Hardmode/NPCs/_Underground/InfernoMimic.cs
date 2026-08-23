@@ -6,6 +6,7 @@ using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
 using AAModClassic._CrossMod.Thorium.Weapons.Healer;
 using AAModClassic._Unofficial.Content.Inferno.__Hardmode.Items.Tools;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -46,7 +47,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             Player player = spawnInfo.Player;
-            if (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneInferno && Main.hardMode && !spawnInfo.PlayerSafe)
+            if (spawnInfo.Player.ZoneAnyInferno() && Main.hardMode && !spawnInfo.PlayerSafe && !NPCUtils.AnyEvents(spawnInfo.Player))
             {
                 return SpawnCondition.UndergroundMimic.Chance;
             }

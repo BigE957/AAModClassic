@@ -1,6 +1,8 @@
 using AAModClassic._Content.Madness.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._CrossMod;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -37,6 +39,17 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs._Surface._Night
 			Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<MurkySlimeBanner>();
 			SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (ContentReplacementSystem.NeedToReplaceContent || (Main.dayTime && !AAWorld.downedYamata))
+                return 0f;
+
+            if (spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.025f;
+
+            return 0f;
         }
 
         public override void HitEffect(NPC.HitInfo hit)

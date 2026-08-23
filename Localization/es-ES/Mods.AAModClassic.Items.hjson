@@ -97,7 +97,7 @@ BossSummon: {
 		DisplayName: Garra Cibernética
 		Tooltip:
 			'''
-			Invoca al Retriever
+			Invoca al Recolector
 			Solo se puede usar por la noche
 			'''
 	}
@@ -203,7 +203,7 @@ BossSummon: {
 		Tooltip:
 			'''
 			Invoca al Hongo Feudal
-			Solo se puede usar en un bioma de champiñones luminosos
+			Solo se puede usar en un bioma de champiñones brillantes
 			'''
 	}
 
@@ -211,8 +211,8 @@ BossSummon: {
 		DisplayName: Seta Sospechosa
 		Tooltip:
 			'''
-			Sapo de Trufa
-			Solo se puede usar en un bioma de champiñones luminosos
+			Invoca al Sapo de Trufa
+			Solo se puede usar en un bioma de champiñones brillantes
 			'''
 	}
 
@@ -220,13 +220,13 @@ BossSummon: {
 		DisplayName: Larva Dorada
 		Tooltip:
 			'''
-			Invoca a la Codicia
-			Solo se puede usar en el Tesoro de la Codicia en el Altar del Deseo
+			Invoca a Avaricia
+			Solo se puede usar en el Alijo de la Avaricia en el Altar del Deseo
 			'Brilla muchísimo.'
 			'''
-		TooltipAlt1: Solo se puede usar en el Alijo de Codicia
-		TooltipAlt2: Úsalo en el Altar del Deseo para invocar a Codicia
-		TooltipAlt3: Úsalo directamente para invocar al Rey Gusano, Codicia
+		TooltipAlt1: Solo se puede usar en el Alijo de Avaricia
+		TooltipAlt2: Úsalo en el Altar del Deseo para invocar a Avaricia
+		TooltipAlt3: Úsalo directamente para invocar al Rey Gusano, Avaricia
 	}
 
 	AncientBell: {
@@ -271,7 +271,7 @@ BossSummon: {
 
 	IntimidatingLookingMushroom: {
 		DisplayName: Champiñón de Aspecto Intimidador
-		Tooltip: Invoca al Monarca Champiñón
+		Tooltip: Invoca al Monarca Fúngico
 	}
 
 	SubzeroCrystal: {
@@ -302,7 +302,7 @@ BossSummon: {
 		DisplayName: Champiñón Cibernético
 		Tooltip:
 			'''
-			Invoca a Techno Trufa
+			Invoca a Tecnotrufa
 			Solo se puede usar por la noche
 			'''
 	}
@@ -330,15 +330,15 @@ BossSummon: {
 
 	Masshroom: {
 		DisplayName: Masa de Champiñones
-		Tooltip: Invoca a un montón de Monarcas Champiñón
+		Tooltip: Invoca a un montón de Monarcas Fúngicos
 	}
 
 	GlowingMasshroom: {
-		DisplayName: Masa de Champiñones Luminosos
+		DisplayName: Masa de Champiñones Brillantes
 		Tooltip:
 			'''
 			Invoca a un montón de Hongos Feudales
-			Solo se puede usar en biomas de champiñones luminosos
+			Solo se puede usar en biomas de champiñones brillantes
 			'''
 	}
 }
@@ -472,8 +472,8 @@ Consumables: {
 	}
 
 	GlowingSporeBag: {
-		DisplayName: Bolsa de Esporas Luminosas
-		Tooltip: Propaga los champiñones luminosos
+		DisplayName: Bolsa de Esporas Brillantes
+		Tooltip: Propaga los champiñones brillantes
 	}
 
 	HallowFlask: {
@@ -482,7 +482,7 @@ Consumables: {
 	}
 
 	GildedKey: {
-		DisplayName: Llave Dorada
+		DisplayName: Llave Lujosa
 		Tooltip: Esto probablemente desbloquea... ¿algo?
 	}
 
@@ -858,7 +858,7 @@ LovecraftiansResearchList: {
 		5. Una escama de algo en el Infierno. Estoy intentando averiguar cómo estas cosas son tan resistentes al fuego.
 		6. Muestras de esporas de la selva. Estos champiñones son muy molestos, tal vez pueda hacer algo para acabar con ellos.
 		7. Algún tipo de parte de criatura que inyecte veneno o algo así. Mi jeringa se rompió y esa enfermera no me deja usar ninguna de las suyas.
-		8. Una muestra de lo que sea que estén hechos el Monarca Champiñón y el Hongo Feudal. Aunque podría necesitar algo de ayuda para estudiar esto...
+		8. Una muestra de lo que sea que estén hechos el Monarca Fúngico y el Hongo Feudal. Aunque podría necesitar algo de ayuda para estudiar esto...
 		9. Un trozo de chatarra de esas islas flotantes al oeste de aquí. Ese material parece interesante para fabricar equipo.
 		10. Una máquina de hielo sería bastante agradable de tener.
 		11. Conejos. No para fines de pruebas, solo pienso que son lindos y quiero un par como mascotas.
@@ -912,7 +912,7 @@ GlitchFish: {
 Lore: {
 	Calamity: {
 		MushroomMonarchLore: {
-			DisplayName: Monarca Champiñón
+			DisplayName: Monarca Fúngico
 			Tooltip: ""
 			Lore:
 				'''
@@ -933,7 +933,7 @@ Lore: {
 		}
 
 		GripsOfChaosLore: {
-			DisplayName: Agarre del Caos
+			DisplayName: Garras del Caos
 			Tooltip: ""
 			Lore:
 				'''
@@ -988,7 +988,7 @@ Lore: {
 		}
 
 		SubzeroSerpentLore: {
-			DisplayName: Serpiente Bajo Cero
+			DisplayName: Serpiente Subcero
 			Tooltip: ""
 			Lore:
 				'''
@@ -1046,7 +1046,7 @@ Lore: {
 		}
 
 		RetrieverLore: {
-			DisplayName: The Retriever
+			DisplayName: El Recolector
 			Tooltip: ""
 			Lore:
 				'''
@@ -1081,7 +1081,7 @@ Lore: {
 		}
 
 		GreedLore: {
-			DisplayName: Codicia
+			DisplayName: Avaricia
 			Tooltip: ""
 			Lore:
 				'''
@@ -1129,7 +1129,7 @@ Lore: {
 		}
 
 		WormKingGreedLore: {
-			DisplayName: Rey Gusano Codicia
+			DisplayName: Rey Gusano Avaricia
 			Tooltip: ""
 			Lore:
 				'''
@@ -1154,7 +1154,7 @@ Lore: {
 		}
 
 		SistersOfDiscordLore: {
-			DisplayName: Las Hermanas del Discordia
+			DisplayName: Las Hermanas de la Discordia
 			Tooltip: ""
 			Lore:
 				'''
@@ -1192,7 +1192,7 @@ Lore: {
 		}
 
 		ZeroLore: {
-			DisplayName: Zero
+			DisplayName: Cero
 			Tooltip: ""
 			Lore:
 				'''
@@ -1230,7 +1230,7 @@ Lore: {
 		}
 
 		InfinityZeroLore: {
-			DisplayName: Infinity Zero
+			DisplayName: Cero Infinito
 			Tooltip: ""
 			Lore:
 				'''
@@ -1269,4 +1269,9 @@ TimeStone: {
 GoblinTinkererDoll: {
 	DisplayName: Muñeco del Duende Chapucero
 	Tooltip: ""
+}
+
+PortaProbe: {
+	DisplayName: Porta-Sonda
+	Tooltip: ¡Lleva contigo a un pequeño robot buscador de vida!
 }

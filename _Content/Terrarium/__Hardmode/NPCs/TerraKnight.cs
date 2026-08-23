@@ -1,6 +1,7 @@
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._Content.Terrarium.World.Biomes;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
@@ -42,6 +43,15 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraKnightBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (NPC.downedPlantBoss && spawnInfo.Player.AAPlayer().ZoneTerrarium && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.05f;
+
+            return 0f;
+        }
+
         public override void AI()
         {
             NPC.reflectsProjectiles = false;

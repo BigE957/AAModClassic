@@ -21,7 +21,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weap
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.Flairon);
-            Item.damage = 175;
+            Item.damage = 350;
             Item.rare = ItemRarityID.Purple;
             Item.shoot = ModContent.ProjectileType<EmperorFlairon_Holdout>();
             Item.channel = true;

@@ -31,17 +31,17 @@ Masks: {
 	}
 
 	InfernoGripMask: {
-		DisplayName: Máscara del Agarre del Caos Infernal
+		DisplayName: Máscara de Garra del Caos del Infierno
 		Tooltip: ""
 	}
 
 	DaybringerMask: {
-		DisplayName: Máscara del Portador del Día
+		DisplayName: Máscara del Portador Diurno
 		Tooltip: ""
 	}
 
 	NightcrawlerMask: {
-		DisplayName: Máscara del Noctámbulo
+		DisplayName: Máscara del Reptador Nocturno
 		Tooltip: ""
 	}
 
@@ -56,12 +56,12 @@ Masks: {
 	}
 
 	RetrieverMask: {
-		DisplayName: Máscara de Retriever
+		DisplayName: Máscara de Recolector
 		Tooltip: ""
 	}
 
 	TechnoTruffleMask: {
-		DisplayName: Máscara de Techno Trufa
+		DisplayName: Máscara de Tecnotrufa
 		Tooltip: ""
 	}
 
@@ -76,7 +76,7 @@ Masks: {
 	}
 
 	MireGripMask: {
-		DisplayName: Máscara del Agarre del Caos del Lodazal
+		DisplayName: Máscara de Garra del Caos del Lodazal
 		Tooltip: ""
 	}
 
@@ -111,17 +111,17 @@ Masks: {
 	}
 
 	TruffleToadMask: {
-		DisplayName: Máscara de Sapo Trufa
+		DisplayName: Máscara de Sapo de Trufa
 		Tooltip: ""
 	}
 
 	GreedMask: {
-		DisplayName: Máscara de Codicia
+		DisplayName: Máscara de Avaricia
 		Tooltip: ""
 	}
 
 	GreedAMask: {
-		DisplayName: Máscara de Codicia Rey Gusano
+		DisplayName: Máscara de Rey Gusano Avaricia
 		Tooltip: ""
 	}
 
@@ -171,7 +171,7 @@ Masks: {
 	}
 
 	SubzeroSerpentMask: {
-		DisplayName: Máscara de Serpiente Subzero
+		DisplayName: Máscara de Serpiente Subcero
 		Tooltip: ""
 	}
 
@@ -181,7 +181,7 @@ Masks: {
 	}
 
 	ZeroMask: {
-		DisplayName: Máscara de Zero
+		DisplayName: Máscara de Cero
 		Tooltip: ""
 	}
 
@@ -216,12 +216,12 @@ Masks: {
 	}
 
 	InfinityZeroMask: {
-		DisplayName: Máscara de Infinity Zero
+		DisplayName: Máscara de Cero Infinito
 		Tooltip: ""
 	}
 
 	ZeroAMask: {
-		DisplayName: Máscara de Protocolo Zero
+		DisplayName: Máscara de Protocolo Cero
 		Tooltip: ""
 	}
 
@@ -301,8 +301,8 @@ Pets: {
 	}
 
 	ZeroCore: {
-		DisplayName: Núcleo Zero
-		Tooltip: Invoca un ZER0 lite detector de criaturas
+		DisplayName: Núcleo Cero
+		Tooltip: Invoca un CER0 lite detector de criaturas
 	}
 }
 

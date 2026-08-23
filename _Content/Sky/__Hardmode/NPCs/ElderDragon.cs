@@ -1,6 +1,7 @@
 using AAModClassic._Content.Sky.__Hardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -86,10 +87,9 @@ namespace AAModClassic._Content.Sky.__Hardmode.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (spawnInfo.PlayerSafe || !Main.hardMode)
-            {
+            if (spawnInfo.PlayerSafe || !Main.hardMode || spawnInfo.Player.AAPlayer().ZoneVoid || NPCUtils.AnyEvents(spawnInfo.Player))
                 return 0f;
-            }
+            
             return SpawnCondition.Sky.Chance * 0.10f;
         }
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)

@@ -673,3 +673,8 @@ InfinityGauntletEffect_InfinityBurnout: {
 	DisplayName: Desgaste del Infinito
 	Description: No apuntaron a la cabeza.
 }
+
+PortaProbe_Buff: {
+	DisplayName: Mini Sonda
+	Description: Busca vida y tesoros para ti
+}

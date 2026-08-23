@@ -25,42 +25,5 @@ namespace AAModClassic._Content.Mire.World.Tiles
             AddMapEntry(new Color(0, 50, 140));
             RegisterItemDrop(ModContent.ItemType<Depthstone>());
         }
-
-        public override void RandomUpdate(int i, int j)
-        {
-            if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(500))
-            {
-                int style = 23; // mushroom
-                if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), true, style))
-                    NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MireFoliage_Tile>(), style, 0, -1, -1);
-
-            }
-            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(40))
-            {
-                // okay man
-                if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(20))
-                {
-                    int style = Main.rand.Next(23);
-                    if (style == 9) // dont be the orchid
-                        style = 7;
-                    if (PlaceObject(i, j - 1, ModContent.TileType<MireFoliage_Tile>(), false, style))
-                        NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<MireFoliage_Tile>(), style, 0, -1, -1);
-                }
-            }
-        }
-
-        public static bool PlaceObject(int x, int y, int type, bool mute = false, int style = 0, int random = -1, int direction = -1)
-        {
-            if (!TileObject.CanPlace(x, y, type, style, direction, out TileObject toBePlaced, false))
-            {
-                return false;
-            }
-            toBePlaced.random = random;
-            if (TileObject.Place(toBePlaced) && !mute)
-            {
-                WorldGen.SquareTileFrame(x, y, true);
-            }
-            return false;
-        }
     }
 }

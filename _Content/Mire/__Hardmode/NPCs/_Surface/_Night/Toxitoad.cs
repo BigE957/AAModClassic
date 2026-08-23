@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content.Mire.Projectiles;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._CrossMod;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -49,10 +50,12 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (Main.hardMode && (spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneMire || ContentReplacementSystem.InNewMire(spawnInfo.Player)))
-            {
-                return SpawnCondition.OverworldNightMonster.Chance * 0.25f;
-            }
+            if (Main.dayTime && !AAWorld.downedYamata)
+                return 0f;
+
+            if (Main.hardMode && spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return ContentReplacementSystem.NeedToReplaceContent ? 0.05f : .005f;
+
             return 0f;
         }
 

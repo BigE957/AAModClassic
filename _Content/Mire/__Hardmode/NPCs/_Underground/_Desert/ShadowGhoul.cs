@@ -2,7 +2,9 @@ using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._CrossMod;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -32,6 +34,14 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Desert
             Banner = Item.NPCtoBanner(NPCID.DesertGhoul);
             BannerItem = ItemID.DesertGhoulBanner;
             SpawnModBiomes = [ModContent.GetInstance<UndergroundMireBiome>().Type];
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (Main.hardMode && !spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneDesert && spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return ContentReplacementSystem.NeedToReplaceContent ? 0.25f : .025f;
+
+            return 0f;
         }
 
         public override void HitEffect(NPC.HitInfo hit)

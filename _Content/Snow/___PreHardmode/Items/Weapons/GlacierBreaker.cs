@@ -13,7 +13,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Weapons   //where is l
         {
 			Item.CloneDefaults(ItemID.SolarEruption);
 
-            Item.damage = 9;            
+            Item.damage = 18;            
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
             Item.width = 32;              
             Item.height = 46;             

@@ -3,6 +3,7 @@ using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
@@ -48,6 +49,13 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
             //Banner = NPC.type;
         }
 
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (AAWorld.downedEquinox && spawnInfo.Water && spawnInfo.Player.AAPlayer().ZoneShip && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.7f;
+
+            return 0f;
+        }
 
         public override void AI()
         {

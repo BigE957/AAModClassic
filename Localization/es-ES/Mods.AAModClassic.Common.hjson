@@ -346,25 +346,25 @@ Conditions: {
 	GoblinsDefeated: Si el Ejército de duendes ha sido derrotado
 	DownedGobSummoner: Si el Invocador Duende ha sido derrotado
 	DownedMoth: Si Polillón ha sido derrotado
-	// DownedBroodmother: If the Broodmother has been defeated
-	// DownedHydra: If the Hydra has been defeated
-	// DownedAnyLateAncient: Any late Ancient has been defeated
-	// DownedAnySuperancient: Any Superancient has been defeated
+	DownedBroodmother: Si la Madre de la Camada ha sido derrotada
+	DownedHydra: Si la Hidra ha sido derrotada
+	DownedAnyLateAncient: Cualquier Anciano tardío ha sido derrotado
+	DownedAnySuperancient: Cualquier Superanciano ha sido derrotado
 
 	LovecraftianQuest: {
-		// Purity: If the Lovecraftian's Purity quest has been completed
-		// Inferno: If the Lovecraftian's Inferno quest has been completed
-		// Mire: If the Lovecraftian's Mire quest has been completed
-		// Corruption: If the Lovecraftian's Corruption quest has been completed
-		// Crimson: If the Lovecraftian's Crimson quest has been completed
-		// Hallow: If the Lovecraftian's Hallow quest has been completed
-		// Void: If the Lovecraftian's Void quest has been completed
-		// AntiMushroom: If the Lovecraftian's Anti-Mushroom quest has been completed
-		// RedMushroom: If the Lovecraftian's Red Mushroom quest has been completed
-		// GlowingMushroom: If the Lovecraftian's Glowing Mushroom quest has been completed
-		// Jungle: If the Lovecraftian's Jungle quest has been completed
-		// Ice: If the Lovecraftian's Ice quest has been completed
-		// AntiIce: If the Lovecraftian's Anti-Ice quest has been completed
-		// Forest: If the Lovecraftian's Forest quest has been completed
+		Purity: Si se ha completado la misión de pureza del Lovecraftiano
+		Inferno: Si se ha completado la misión del infierno del Lovecraftiano
+		Mire: Si se ha completado la misión del lodazal del Lovecraftiano
+		Corruption: Si se ha completado la misión de corrupción del Lovecraftiano
+		Crimson: Si se ha completado la misión del carmesí del Lovecraftiano
+		Hallow: Si se ha completado la misión de la bendición del Lovecraftiano
+		Void: Si se ha completado la misión del vacío del Lovecraftiano
+		AntiMushroom: Si se ha completado la misión antihongos del Lovecraftiano
+		RedMushroom: Si se ha completado la misión de los hongos rojos del Lovecraftiano
+		GlowingMushroom: Si se ha completado la misión de los hongos luminosos del Lovecraftiano
+		Jungle: Si se ha completado la misión de la jungla del Lovecraftiano
+		Ice: Si se ha completado la misión de hielo del Lovecraftiano
+		AntiIce: Si se ha completado la misión antihielo del Lovecraftiano
+		Forest: Si se ha completado la misión del bosque del Lovecraftiano
 	}
 }

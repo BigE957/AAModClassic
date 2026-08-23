@@ -24,7 +24,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons
             Item.knockBack = 6.5f;
             Item.width = 30;
             Item.height = 10;
-            Item.damage = 45;
+            Item.damage = 90;
             Item.shoot = ModContent.ProjectileType<ThePunisher_Holdout>();
             Item.shootSpeed = 15f;
             Item.UseSound = SoundID.Item1;
