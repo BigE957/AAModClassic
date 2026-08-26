@@ -485,4 +485,5 @@ Effect: {
 		Перезарядка щелчка - 5 минут
 		'''
 	DemonHelmetSetEffect: Верный слуга-бес будет сражаться за вас, независимо от сезона и условий
+	// MeleeSizeEffect: Increases the size of melee weapons
 }

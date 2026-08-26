@@ -1,4 +1,4 @@
-using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Unofficial.Content.Void.__Hardmode.Items.Tools;
@@ -14,7 +14,7 @@ using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
+
 
 
 namespace AAModClassic._Content.Void.__Hardmode.NPCs

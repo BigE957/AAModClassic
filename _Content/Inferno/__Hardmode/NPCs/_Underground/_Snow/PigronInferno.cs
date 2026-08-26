@@ -1,4 +1,4 @@
-using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._CrossMod;
 using AAModClassic.Globals;
@@ -14,7 +14,7 @@ using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
+
 
 namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Snow
 {

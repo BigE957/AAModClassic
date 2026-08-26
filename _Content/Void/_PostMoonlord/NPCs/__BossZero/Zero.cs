@@ -1,4 +1,4 @@
-using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
+﻿using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.NPCs;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Ammo;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
@@ -32,7 +32,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
+
 
 
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero

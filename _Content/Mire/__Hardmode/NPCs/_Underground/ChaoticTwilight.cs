@@ -1,4 +1,4 @@
-using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._CrossMod;
 using AAModClassic.UI.World;
@@ -10,7 +10,7 @@ using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
+
 
 namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
 {

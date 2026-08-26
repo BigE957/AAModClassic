@@ -1,4 +1,4 @@
-using AAModClassic._Content.Inferno.__Hardmode.Items.Accessories;
+﻿using AAModClassic._Content.Inferno.__Hardmode.Items.Accessories;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Mire.__Hardmode.Items.Accessories;
@@ -13,7 +13,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
+
 
 namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
 {
