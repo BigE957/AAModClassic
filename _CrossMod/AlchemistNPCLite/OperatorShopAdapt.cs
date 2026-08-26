@@ -58,7 +58,7 @@ public class OperatorShopAdapt : ModSystem
         {
             ILCursor cursor = new(il);
 
-            if(cursor.TryGotoNext(x => x.MatchLdstr("CustomItems")))
+            if(cursor.TryGotoNext(x => x.MatchLdstr("ModBags3")))
             {
                 cursor.Index-=2;
                 cursor.EmitDelegate<Action>(AddItemToShop);
