@@ -1,5 +1,5 @@
-author = Big E
+﻿author = Big E
 version = 1.0.22
 displayName = Ancients Awakened: Classic
-loadAfter = AAMod, CalamityMod
+sortAfter = AAMod, CalamityMod,AlchemistNPCLite
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, *.sln
