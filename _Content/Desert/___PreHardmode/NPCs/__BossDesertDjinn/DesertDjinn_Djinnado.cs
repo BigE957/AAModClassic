@@ -65,6 +65,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
                 float topWorld = (topY + 1) * 16 + 8;
                 float bottomWorld = (bottomY - 1) * 16 + 8;
                 float distance = bottomWorld - topWorld;
+                Main.instance.LoadProjectile(ProjectileID.SandnadoFriendly);
                 Texture2D texture = TextureAssets.Projectile[ProjectileID.SandnadoFriendly].Value;
                 float baseRotation = -(float)Math.PI / 50f * counter;
                 float distTravelled = 0f;
