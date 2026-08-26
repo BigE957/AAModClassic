@@ -364,8 +364,7 @@ Conditions: {
 	}
 
 	BossDowned: {
-		// Rajah: After defeating Rajah Rabbit
-		// GobSummoner: If the Goblin Warlock has been defeated
+		// Rajah: If the Rajah Rabbit has been defeated
 		// Broodmother: If the Broodmother has been defeated
 		// Hydra: If the Hydra has been defeated
 		// MushroomMonarch: If the Mushroom Monarch has been defeated
@@ -401,7 +400,7 @@ Conditions: {
 		// InfinityZero: If Infinity Zero has been defeated
 		// SoulOfCthulhu: If the Soul of Cthulhu has been defeated
 		// Cthulhu: If Cthulhu has been defeated
-		// AnyLateAncient: Any late Ancient has been defeated
-		// AnySuperancient: Any Superancient has been defeated
+		// AnyLateAncient: If any late Ancient has been defeated
+		// AnySuperancient: If any Superancient has been defeated
 	}
 }
