@@ -58,6 +58,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             {
                 NPC.buffImmune[k] = true;
             }
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
         }
 
         public override void OnKill()

@@ -452,49 +452,6 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
 
         }
 
-        /*
-         * Drops an item from a codable, and returns the item's whoAmI. Mostly convenience for mp support.
-         * If it drops more then one item it will return the last item dropped's whoAmI.
-         * 
-         * amt : the amount of the item to drop.
-         * maxStack : The max stack count per item. (only applies if clusterItem == true)
-         * chance : 0-1. The percent chance of the item drop. If projectile is not 100 and the item does not drop, projectile method returns -1.
-         * clusterItem : If true, it will stick the drops into stacks that fit to the item's maxStack value. If false it drops them as individual items.
-         */
-        public static int DropItem(Entity codable, int type, int amt, int maxStack, float chance, bool clusterItem = false, bool sync = false)
-        {
-            int itemID = -1;
-            if ((sync || Main.netMode != NetmodeID.MultiplayerClient) && (float)Main.rand.NextDouble() <= chance)
-            {
-                if (clusterItem)
-                {
-                    int stackCount = 0;
-                    int stackCount2 = 0;
-                    while (stackCount != amt)
-                    {
-                        stackCount++; stackCount2++;
-                        if (stackCount == amt || stackCount2 == maxStack)
-                        {
-                            itemID = Item.NewItem(codable.GetSource_Loot(), (int)codable.position.X, (int)codable.position.Y, codable.width, codable.height, type, stackCount2, false, 0);
-                            if (sync) NetMessage.SendData(MessageID.SyncItem, -1, -1, null, itemID, 0f, 0f, 0f, 0, 0, 0);
-                            stackCount2 = 0;
-                        }
-                    }
-                }
-                else
-                {
-                    int count = 0;
-                    while (count < amt)
-                    {
-                        count++;
-                        itemID = Item.NewItem(codable.GetSource_Loot(), (int)codable.position.X, (int)codable.position.Y, codable.width, codable.height, type, 1, false, 0);
-                        if (sync) NetMessage.SendData(MessageID.SyncItem, -1, -1, null, itemID, 0f, 0f, 0f, 0, 0, 0);
-                    }
-                }
-            }
-            return itemID;
-        }
-
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             if (NPC.IsABestiaryIconDummy)

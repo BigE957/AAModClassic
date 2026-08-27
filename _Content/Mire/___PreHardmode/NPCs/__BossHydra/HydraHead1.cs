@@ -53,7 +53,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             NPC.npcSlots = 0;
             NPC.dontCountMe = true;
             NPC.noTileCollide = true;
-            NPC.boss = true;
+            NPC.boss = false;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.Item88;
             NPC.noGravity = true;
@@ -62,6 +62,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
                 NPC.buffImmune[k] = true;
             }
             Head = 0;
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */

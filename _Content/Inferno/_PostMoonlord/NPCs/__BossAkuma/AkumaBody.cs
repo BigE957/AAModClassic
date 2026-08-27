@@ -38,6 +38,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             NPC.height = 40;
             NPC.dontCountMe = true;
             NPC.chaseable = false;
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
         }
 
         public override bool PreAI()

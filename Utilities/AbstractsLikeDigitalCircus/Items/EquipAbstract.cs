@@ -721,6 +721,14 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount * -1, ChatUtils.IncreaseDecreaseTextType.IncreasesDecreases), ChatUtils.GetDisplayNumber(amount) * 100);
     }
 
+    public class MeleeSizeEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.meleeScaleGlove = true;
+        }
+    }
+
     public class AmmoCost75Effect : EquipmentEffectData
     {
         public override void DoEffect(Player player)
