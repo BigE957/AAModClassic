@@ -486,4 +486,5 @@ Effect: {
 		El chasquido tiene un tiempo de recarga de 5 minutos
 		'''
 	DemonHelmetSetEffect: Un leal sirviente diablillo luchará por ti, sin importar la estación o la condición
+	// MeleeSizeEffect: Increases the size of melee weapons
 }
