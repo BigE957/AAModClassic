@@ -1276,3 +1276,8 @@ PortaProbe: {
 	DisplayName: Porta-Probe
 	Tooltip: Take a little life-seeking robot with you!
 }
+
+RabbitTombstone: {
+	DisplayName: Rabbit Tombstone
+	Tooltip: ""
+}

@@ -1276,3 +1276,8 @@ PortaProbe: {
 	DisplayName: 虚空之门探测器
 	Tooltip: 让一个小型生命搜索器跟着你！
 }
+
+RabbitTombstone: {
+	// DisplayName: Rabbit Tombstone
+	// Tooltip: ""
+}
