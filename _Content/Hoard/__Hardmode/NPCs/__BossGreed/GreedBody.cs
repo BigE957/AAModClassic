@@ -9,11 +9,13 @@ using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.IO;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
+using Terraria.GameContent.UI.BigProgressBar;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -36,6 +38,9 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
             base.SetDefaults();
             NPC.dontCountMe = true;
             NPC.alpha = 255;
+            NPC.boss = false;
+
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)

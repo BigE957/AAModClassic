@@ -354,6 +354,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             npcLoot.Add(masterMode);
 
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<InfinityZeroTrophy>(), 10));
+
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Infinitium>(), 1, 25, 35));

@@ -21,9 +21,10 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 {
+    [AutoloadBossHead]
     public class Anubis : ModNPC
     {
-		public override void SetStaticDefaults()
+        public override void SetStaticDefaults()
 		{
 			// DisplayName.SetDefault("Anubis Legendscribe");
             Main.npcFrameCount[NPC.type] = 11;
