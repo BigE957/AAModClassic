@@ -552,12 +552,12 @@ namespace AAModClassic
             int liquidsIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Settle Liquids Again"));
             if (liquidsIndex != -1)
             {
-                tasks.Insert(liquidsIndex + 1, new PassLegacy("LostKeep", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(liquidsIndex + 1, new PassLegacy("Reserve Lost Keep", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     ReserveLostKeep(progress);
                 }));
 
-                tasks.Insert(liquidsIndex + 1, new PassLegacy("Terrarium", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(liquidsIndex + 1, new PassLegacy("Reserve Terrarium", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     ReserveTerrarium(progress);
                 }));
