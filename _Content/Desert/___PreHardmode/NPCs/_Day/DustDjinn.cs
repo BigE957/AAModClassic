@@ -1,6 +1,9 @@
 using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn;
+using AAModClassic._CrossMod;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Dusts;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
@@ -48,6 +51,9 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                return 0f;
+
             return (spawnInfo.Player.ZoneDesert || spawnInfo.Player.ZoneUndergroundDesert) &&
                 NPC.downedBoss3 && !spawnInfo.Player.ZoneBeach 
                 && Main.dayTime ? .1f : 0f;
@@ -76,34 +82,6 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
                 FireMagic(NPC, NPC.velocity);
                 NPC.ai[3] = 0;
             }
-            
-            NPC.frameCounter++;
-            if (NPC.frameCounter >= 10)
-            {
-                NPC.frameCounter = 0;
-                NPC.frame.Y += 66;
-                if (Shooty == true)
-                {
-                    if (NPC.frame.Y < 66 * 8)
-                    {
-                        NPC.frame.Y = 66 * 8;
-                    }
-                    if (NPC.frame.Y > 66 * 15 )
-                    {
-                        NPC.frameCounter = 0;
-                        NPC.frame.Y = 0;
-                        Shooty = false;
-                    }
-                }
-                else
-                {
-                    if (NPC.frame.Y > 66 * 7)
-                    {
-                        NPC.frameCounter = 0;
-                        NPC.frame.Y = 0;
-                    }
-                }
-            }
         }
 
         public void FireMagic(NPC npc, Vector2 velocity)
@@ -124,26 +102,44 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
             BaseAI.FireProjectile(player.Center, npc, Shoot, (int)(npc.damage * 0.25f), 0f, 2f);
         }
 
+        public override void FindFrame(int frameHeight)
+        {
+            NPC.frameCounter++;
+            if (NPC.frameCounter >= 10)
+            {
+                NPC.frameCounter = 0;
+                NPC.frame.Y += frameHeight;
+                if (Shooty)
+                {
+                    if (NPC.frame.Y < frameHeight * 8)
+                        NPC.frame.Y = frameHeight * 8;
+
+                    if (NPC.frame.Y > frameHeight * 15)
+                    {
+                        NPC.frame.Y = 0;
+                        Shooty = false;
+                    }
+                }
+                else
+                {
+                    if (NPC.frame.Y > frameHeight * 7)
+                        NPC.frame.Y = 0;
+                }
+            }
+        }
+
         public override void HitEffect(NPC.HitInfo hit)
         {
             if (NPC.life <= 0)
             {
-                NPC.position.X = NPC.position.X + NPC.width / 2;
-                NPC.position.Y = NPC.position.Y + NPC.height / 2;
-                NPC.width = 42;
-                NPC.height = 66;
-                NPC.position.X = NPC.position.X - NPC.width / 2;
-                NPC.position.Y = NPC.position.Y - NPC.height / 2;
-                int dust1 = ModContent.DustType<Dusts.SandDust>();
-                int dust2 = ModContent.DustType<Dusts.SandDust>();
-                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
-                Main.dust[dust1].velocity.X *= 0f;
-                Main.dust[dust1].scale *= 1.3f;
-                Main.dust[dust1].noGravity = false;
-                Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust2, 0f, 0f, 0);
-                Main.dust[dust2].velocity.X *= 0f;
-                Main.dust[dust2].scale *= 1.3f;
-                Main.dust[dust2].noGravity = false;
+                int d = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<SandDust>());
+                Main.dust[d].velocity.X *= 0f;
+                Main.dust[d].scale *= 1.3f;
+                Main.dust[d].noGravity = false;
+                d = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<SandDust>());
+                Main.dust[d].velocity.X *= 0f;
+                Main.dust[d].scale *= 1.3f;
+                Main.dust[d].noGravity = false;
             }
         }
 

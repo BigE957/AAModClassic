@@ -338,3 +338,4 @@ TerraSerpentBody.DisplayName: "{$NPCs.TerraSerpentHead.DisplayName}"
 TerraSerpentHead.DisplayName: Serpiente Terra
 TerraSerpentTail.DisplayName: "{$NPCs.TerraSerpentHead.DisplayName}"
 DesertDjinn_Unofficial.DisplayName: "{$NPCs.DesertDjinn.DisplayName}"
+// DustDjinn_Unofficial.DisplayName: Dust Djinn_ Unofficial
