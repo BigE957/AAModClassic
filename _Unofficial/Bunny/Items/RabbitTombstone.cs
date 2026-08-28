@@ -1,6 +1,7 @@
 ﻿using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
+using System.Collections.Generic;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Enums;
@@ -33,31 +34,58 @@ namespace AAModClassic._Unofficial.Bunny.Items
 
     public class RabbitTombstoneSystem : ModSystem
     {
-        private static Point queuedRabbitTombstonePosition = Point.Zero;
-        private const int MaxHorizontalSearchRange = 10;
+        internal readonly struct RabbitGraveData(Point point, bool golden)
+        {
+            internal readonly Point SpawnTile = point;
+            internal readonly bool Golden = golden;
+        }
+        private static readonly List<RabbitGraveData> queuedRabbitTombstonePositions = [];
+        private static int MaxHorizontalSearchRange => 10;
+
+        private static int GraveSpawnCooldown = 0;
+
+        public override void OnWorldUnload()
+        {
+            queuedRabbitTombstonePositions.Clear();
+            GraveSpawnCooldown = 0;
+        }
 
         public override void PostUpdateEverything()
         {
-            if (queuedRabbitTombstonePosition != Point.Zero)
-            {
-                foreach (Player p in Main.ActivePlayers)
-                    if (p.DistanceSQ(queuedRabbitTombstonePosition.ToWorldCoordinates()) < 1440000) //1200^2
-                        return;
+            if (GraveSpawnCooldown > 0)
+                GraveSpawnCooldown--;
 
-                PlaceRabbitTombstone(queuedRabbitTombstonePosition);
-                queuedRabbitTombstonePosition = Point.Zero;
+            for (int i = queuedRabbitTombstonePositions.Count - 1; i >= 0; i--)
+            {
+                var data = queuedRabbitTombstonePositions[i];
+
+                bool noPlayers = true;
+                foreach (Player p in Main.ActivePlayers)
+                {
+                    if (p.DistanceSQ(data.SpawnTile.ToWorldCoordinates()) < 1440000) //1200^2
+                    {
+                        noPlayers = false;
+                        break;
+                    }
+                }
+
+                if (noPlayers)
+                {
+                    PlaceRabbitTombstone(data);
+                    queuedRabbitTombstonePositions.RemoveAt(i);
+                }
             }
         }
 
-        public static void RegisterRabbitDeath(Vector2 deathPosition)
+        public static void RegisterRabbitDeath(Vector2 deathPosition, bool golden)
         {
-            if (!Main.rand.NextBool(3))
+            if (!golden && (GraveSpawnCooldown > 0 || !Main.rand.NextBool(3)))
                 return;
 
             if (TryFindTombstoneLocation(deathPosition.ToTileCoordinates(), out Point validTile))
             {
-                queuedRabbitTombstonePosition = validTile;
-
+                queuedRabbitTombstonePositions.Add(new(validTile, golden));
+                GraveSpawnCooldown = 1800;
                 //Main.NewText("Tomb Time");
             }
         }
@@ -116,8 +144,9 @@ namespace AAModClassic._Unofficial.Bunny.Items
             return TileObject.CanPlace(tilePos.X, tilePos.Y, tileType, 0, 0, out _);
         }
 
-        private static void PlaceRabbitTombstone(Point tilePos)
+        private static void PlaceRabbitTombstone(RabbitGraveData data)
         {
+            Point tilePos = data.SpawnTile;
             int tileType = ModContent.TileType<RabbitTombstone_Tile>();
 
             if (!TileObject.CanPlace(tilePos.X, tilePos.Y, tileType, 0, 0, out TileObject objectData))
