@@ -1,0 +1,36 @@
+Names: {
+	// 0: Bartholomew
+	// 1: Thumper
+	// 2: Daisy
+	// 3: Peanut
+	// 4: Willow
+	// 5: Snowball
+	// 6: Hazel
+	// 7: Clover
+	// 8: Poppy
+	// 9: Bun Bun
+	// 10: Bugs
+	// 11: Hopper
+	// 12: Binky
+}
+
+Introductions: {
+	// 0: Here lies {0}
+	// 1: Rest in peace, {0}
+	// 2: In Loving Memory of {0}
+	// 3: Beneath this stone sleeps {0}
+	// 4: Farewell, sweet {0}
+	// 5: Here rests the gentle soul of {0}
+	// 6: Always remembered, {0}
+}
+
+Quotes: {
+	// 0: We know they're munching on the Great Carrot in the sky.
+	// 1: A Loving Partner, Parent, and Friend
+	// 2: To know them was to love them
+	// 3: Gone too soon from Nature's embrace
+	// 4: Your empty burrow will never feel the same...
+	// 5: They did their best, but the world was too harsh.
+	// 6: If only we had protected you better.
+	// 7: May your fields be greener on the other side
+}

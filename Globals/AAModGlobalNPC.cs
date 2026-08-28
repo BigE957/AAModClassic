@@ -79,6 +79,7 @@ using AAModClassic._Content.Void.__Hardmode.NPCs;
 using AAModClassic._Content.Void._PostMoonlord.NPCs;
 using AAModClassic._CrossMod;
 using AAModClassic._Removed.Content.GoblinArmy._PostMoonlord.Items.Consumables;
+using AAModClassic._Unofficial.Bunny.Items;
 using AAModClassic._Unreleased;
 using AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs;
@@ -708,7 +709,12 @@ namespace AAModClassic.Globals
             }
             */
 
-            if (/*WorldTypeSystem.WorldType != AAWorldType.Beta &&*/ Main.hardMode && IsBunny(npc) && Rajah != -1)
+            bool bunnyKilled = IsBunny(npc);
+
+            if (bunnyKilled && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
+                RabbitTombstoneSystem.RegisterRabbitDeath(npc.Center);
+
+            if (Main.hardMode && bunnyKilled && Rajah != -1)
             {
                 Player player = Main.player[Player.FindClosest(npc.Center, npc.width, npc.height)];
 
