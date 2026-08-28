@@ -58,7 +58,7 @@ namespace AAModClassic._Unofficial.Bunny.Items
             {
                 queuedRabbitTombstonePosition = validTile;
 
-                Main.NewText("Tomb Time");
+                //Main.NewText("Tomb Time");
             }
         }
 
