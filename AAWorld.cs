@@ -596,12 +596,12 @@ namespace AAModClassic
                     BogwoodConvert(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 2, new PassLegacy("Altars", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(shiniesIndex2 + 2, new PassLegacy("Terrarium", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     Terrarium(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 3, new PassLegacy("Altars", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(shiniesIndex2 + 3, new PassLegacy("Lost Keep", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     LostKeep(progress);
                 }));
@@ -621,7 +621,7 @@ namespace AAModClassic
                     VoidIslands(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 7, new PassLegacy("Altars", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(shiniesIndex2 + 7, new PassLegacy("Chaos Altars", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     Altars(progress);
                 }));
