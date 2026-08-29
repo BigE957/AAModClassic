@@ -506,9 +506,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         AttackCounter = 0;
 
                         if (Main.expertMode && Phase2)
-                        {
                             Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), Target.Center, Vector2.Zero, ProjectileID.SandnadoHostileMark, TwisterDamage, 1f).hostile = false;
-                        }
 
                         if (Main.rand.NextBool() && Exhaustion + 2 < ExhaustionCap)
                         {
