@@ -583,7 +583,9 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
                     life += Body.Head1.lifeMax;
                     continue;
                 }
-                life += head.life;
+
+                if (head.life >= 0)
+                    life += head.life;
             }
 
             return true;
