@@ -556,6 +556,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
     public class TechnoTruffleBossBar : ModBossBar
     {
         private float _shieldMax = 0f;
+        private Asset<Texture2D> _icon = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/__Hardmode/NPCs/__BossTechnoTruffle/TechnoTruffle_Head_Boss");
 
         public override bool? ModifyInfo(ref BigProgressBarInfo info, ref float life, ref float lifeMax, ref float shield, ref float shieldMax)
         {
@@ -601,6 +602,8 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
 
             return true; 
         }
+
+        public override Asset<Texture2D> GetIconTexture(ref Rectangle? iconFrame) => _icon;
     }
 }
 

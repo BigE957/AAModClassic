@@ -548,6 +548,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
 
     public class HydraBossBar : ModBossBar
     {
+        private Asset<Texture2D> _icon = ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/___PreHardmode/NPCs/__BossHydra/HydraHead1_Head_Boss");
         public override bool? ModifyInfo(ref BigProgressBarInfo info, ref float life, ref float lifeMax, ref float shield, ref float shieldMax)
         {
 
@@ -588,9 +589,6 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             return true;
         }
 
-        public override Asset<Texture2D> GetIconTexture(ref Rectangle? iconFrame)
-        {
-            return ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/___PreHardmode/NPCs/__BossHydra/HydraHead1_Head_Boss");
-        }
+        public override Asset<Texture2D> GetIconTexture(ref Rectangle? iconFrame) => _icon;
     }
 }

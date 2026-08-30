@@ -863,6 +863,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
     public class ZeroBossBar : ModBossBar
     {
         private float _shieldMax = 0f;
+        private Asset<Texture2D> _icon = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/__BossZero/Zero_Head_Boss");
 
         // combine all arm's life as shield
         public override bool? ModifyInfo(ref BigProgressBarInfo info, ref float life, ref float lifeMax, ref float shield, ref float shieldMax)
@@ -919,9 +920,6 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             return true;
         }
 
-        public override Asset<Texture2D> GetIconTexture(ref Rectangle? iconFrame)
-        {
-            return ModContent.Request<Texture2D>("AAModClassic/_Content/Void/_PostMoonlord/NPCs/__BossZero/Zero_Head_Boss");
-        }
+        public override Asset<Texture2D> GetIconTexture(ref Rectangle? iconFrame) => _icon;
     }
 }
