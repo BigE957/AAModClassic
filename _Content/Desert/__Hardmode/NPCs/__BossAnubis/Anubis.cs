@@ -472,10 +472,11 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 
         public override bool PreKill()
         {
-            if (NPC.downedMoonlord && NPCExtensions.BeenKilled<Anubis>())
+            if (NPC.downedMoonlord && AADowned.downedAnubis)
             {
-                if (!AAWorld.AnubisAwakened)
-                    AAWorld.AnubisAwakened = true;
+                if (!AADowned.AnubisAwakened)
+                    AADowned.AnubisAwakened = true;
+                AADowned.SyncWorldData();
 
                 NPC.boss = false;
             }
@@ -484,6 +485,8 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 
         public override void OnKill()
         {
+        AADowned.downedAnubis = true;
+        AADowned.SyncWorldData();
             if (NPC.downedMoonlord && NPCExtensions.BeenKilled<Anubis>(true))
                 NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AnubisForsakenTransition>());
             else
@@ -717,7 +720,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
                 {
                     if (internalAI[1]++ < 420)
                     {
-                        if (!NPCExtensions.BeenKilled<Anubis>())
+                        if (!AADowned.downedAnubis)
                         {
                             if (internalAI[1] == 60)
                             {

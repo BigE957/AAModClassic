@@ -91,6 +91,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
 
         public override void OnKill()
         {
+        AADowned.downedHydra = true;
+        AADowned.SyncWorldData();
             if (!NPCExtensions.BeenKilled<HydraBody>(true))
                 NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X + (Main.rand.NextBool(2) ? 200 : -200), (int)NPC.position.Y - 200, ModContent.NPCType<HarukaShadowPostHydra>());
 

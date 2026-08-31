@@ -738,15 +738,16 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             int otherWormAlive = nightcrawler ? ModContent.NPCType<DaybringerHead>() : ModContent.NPCType<NightcrawlerHead>();
             if (!nightcrawler)
             {
-                AAWorld.downedDB = true;
+                AADowned.downedDB = true;
             }
             else
             {
-                AAWorld.downedNC = true;
+                AADowned.downedNC = true;
             }
             if (NPC.CountNPCS(otherWormAlive) == 0)
             {
-                AAWorld.downedEquinox = true;
+                AADowned.downedEquinoxWorms = true;
+                AADowned.SyncWorldData();
                 if (NPC.playerInteraction[Main.myPlayer])
                     EquinoxWormsKilled.Condition.Complete();
             }
@@ -757,7 +758,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<EquinoxWormsTreasureBag>()));
 
             LeadingConditionRule lastWorm = new(new LastWorm());
-            LeadingConditionRule loreCondition = new(new LoreItemDropCondition(() => AAWorld.downedEquinox));
+            LeadingConditionRule loreCondition = new(new LoreItemDropCondition(() => AADowned.downedEquinoxWorms));
             lastWorm.OnSuccess(loreCondition).OnSuccess(new PerPlayerDropRule(ModContent.ItemType<EquinoxWormsLore>(), 1));
 
             npcLoot.Add(lastWorm);

@@ -465,7 +465,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                         if (!spawnAshe)
                         {
                             spawnAshe = true;
-                            if (AAWorld.downedAkuma)
+                            if (AADowned.DownedAkuma)
                             {
                                 if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.AsheAppear.Akuma"), Color.DeepSkyBlue);
                                 if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.AsheAppear.Ashe"), new Color(102, 20, 48));
@@ -624,6 +624,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 
         public override void OnKill()
         {
+        AADowned.downedAkumaA = true;
+        AADowned.SyncWorldData();
             if (Main.expertMode)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -681,7 +683,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 
         public class ShenDefeated : IItemDropRuleCondition, IProvideItemConditionDescription
         {
-            public bool CanDrop(DropAttemptInfo info) => AAWorld.downedShen;
+            public bool CanDrop(DropAttemptInfo info) => AADowned.DownedShen;
             public bool CanShowItemDropInUI() => true;
             public string GetConditionDescription() => null;
         }

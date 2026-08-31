@@ -1,4 +1,4 @@
-using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
 using AAModClassic._Content._Misc.__Hardmode.Items.Ammo;
 using AAModClassic._Content._Misc.__Hardmode.Items.Materials;
 using AAModClassic._Content._Misc.__Hardmode.Items.Weapons;
@@ -292,7 +292,7 @@ namespace AAModClassic.Globals
 
         public override void PostAI(NPC npc)
         {
-            if (npc.CountsAsACritter && !npc.dontTakeDamage && NPCExtensions.BeenKilled<RajahRabbitA>() && IsBunny(npc))
+            if (npc.CountsAsACritter && !npc.dontTakeDamage && AADowned.downedRajahRabbitR && IsBunny(npc))
             {
                 npc.dontTakeDamage = true;
             }
@@ -1036,7 +1036,7 @@ namespace AAModClassic.Globals
                     break;
                 case NPCID.Dryad:
                     shop.Add<MyceliumSeeds>(Condition.InGlowshroom);
-                    shop.Add<GoldenCarrot>(new Condition(Language.GetText("Mods.AAModClassic.Common.Conditions.DownedRajah"), () => NPCExtensions.BeenKilled<RajahRabbit>()));
+                    shop.Add<GoldenCarrot>(new Condition(Language.GetText("Mods.AAModClassic.Common.Conditions.DownedRajah"), () => AADowned.downedRajahRabbit));
                     shop.ActiveEntries.First(e => e.Item.type == ModContent.ItemType<GoldenCarrot>()).Item.shopCustomPrice = Item.sellPrice(0, 30, 0, 0);
                     break;
                 case NPCID.Truffle:

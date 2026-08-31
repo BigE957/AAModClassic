@@ -219,6 +219,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
 
         public override void OnKill()
         {
+        AADowned.downedZero = true;
+        AADowned.SyncWorldData();
             if (Main.expertMode)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Defeat.Expert"), Color.Red.R, Color.Red.G, Color.Red.B);
@@ -290,7 +292,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 
             //TODO: BRING HIM BACK PLEASEEEEEEE
-            //if (Main.rand.Next(50) == 0 && AAWorld.downedAllAncients)
+            //if (Main.rand.Next(50) == 0 && AADowned.DownedAllAncients)
             //    Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<RealityStone>());
 
             LeadingConditionRule loreCondition = new(new LoreItemDropCondition<Zero>());
@@ -561,7 +563,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                AAWorld.zeroUS = false;
+                AADowned.zeroUS = false;
             }
 
             Player player = Main.player[NPC.target];

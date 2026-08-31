@@ -51,7 +51,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
                 NPC.AnyNPCs(ModContent.NPCType<DeityBrain>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<CthulhuPortal>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<Cthulhu>()) ||
-                (Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneShip && AAWorld.downedAllAncients && !AAWorld_Unreleased.DownedSoC);
+                (Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneShip && AADowned.DownedAllAncients && !AAWorld_Unreleased.DownedSoC);
 
             if (SkyManager.Instance["AAModClassic:CthulhuSky"] != null && ((isActive && useCthulhu) != SkyManager.Instance["AAModClassic:CthulhuSky"].IsActive()))
             {
@@ -64,7 +64,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
             CthulhuFog.Update(ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/World/Biomes/CthulhuSky_Clouds").Width(), 1);
         }
 
-        public override int Music => (AAWorld.downedAllAncients && !AAWorld_Unreleased.DownedSoC) ? MusicManagementSystem.MusicSlots["SunkenShip_PreSoC"] : MusicManagementSystem.MusicSlots["SunkenShip"];
+        public override int Music => (AADowned.DownedAllAncients && !AAWorld_Unreleased.DownedSoC) ? MusicManagementSystem.MusicSlots["SunkenShip_PreSoC"] : MusicManagementSystem.MusicSlots["SunkenShip"];
 
         public override SceneEffectPriority Priority => SceneEffectPriority.Event;
 
@@ -220,7 +220,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
                 NPC.AnyNPCs(ModContent.NPCType<DeityBrain>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<CthulhuPortal>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<Cthulhu>()) ||
-                (Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneShip && AAWorld.downedAllAncients && !AAWorld_Unreleased.DownedSoC);
+                (Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneShip && AADowned.DownedAllAncients && !AAWorld_Unreleased.DownedSoC);
 
             if (!backgroundFog && BasePlayer.HasAccessory(Main.LocalPlayer, ModContent.ItemType<Lantern>(), true, false)) 
                 useCthulhu = false;

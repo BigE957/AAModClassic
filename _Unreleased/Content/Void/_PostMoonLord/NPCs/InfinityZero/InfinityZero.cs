@@ -322,6 +322,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public override void OnKill()
 		{
+		AADowned.downedInfinityZero = true;
+		AADowned.SyncWorldData();
             NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Oblivion>(), 0, 0);
             ZAAPlayer.IZKills += 1;
         }

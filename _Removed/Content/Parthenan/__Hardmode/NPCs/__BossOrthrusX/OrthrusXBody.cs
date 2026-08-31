@@ -135,6 +135,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 
         public override void OnKill()
         {
+        AADowned.downedOrthrusX = true;
+        AADowned.SyncWorldData();
             StormingSiegeSystem.KillSiegeMech(1);
         }
 

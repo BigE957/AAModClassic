@@ -592,6 +592,8 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
 
         public override void OnKill()
         {
+        AADowned.downedGreedA = true;
+        AADowned.SyncWorldData();
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 TileProtectionSystem.UnprotectTiles(ModContent.TileType<GreedStone_Tile>(), ModContent.TileType<GreedBrick_Tile>());
         }

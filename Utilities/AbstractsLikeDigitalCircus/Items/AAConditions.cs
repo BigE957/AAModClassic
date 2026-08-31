@@ -28,11 +28,11 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public static Condition InAnyRedMushroom = new Condition("Mods.AAModClassic.Common.Conditions.InAnyRedMushroom", () => Main.LocalPlayer.InModBiome<RedMushroomBiome>());
 
         // downeds 
-        public static Condition DownedAnyLateAncient = new Condition("Mods.AAModClassic.Common.Conditions.DownedAnyLateAncient", () => AAWorld.downedAncient);
-        public static Condition DownedAnySuperancient = new Condition("Mods.AAModClassic.Common.Conditions.DownedAnySuperancient", () => AAWorld.downedSAncient);
+        public static Condition DownedAnyLateAncient = new Condition("Mods.AAModClassic.Common.Conditions.DownedAnyLateAncient", () => AADowned.DownedAncient);
+        public static Condition DownedAnySuperancient = new Condition("Mods.AAModClassic.Common.Conditions.DownedAnySuperancient", () => AADowned.DownedSAncient);
 
-        public static Condition DownedBroodmother = new Condition("Mods.AAModClassic.Common.Conditions.DownedBroodmother", () => NPCExtensions.BeenKilled<Broodmother>());
-        public static Condition DownedHydra = new Condition("Mods.AAModClassic.Common.Conditions.DownedHydra", () => NPCExtensions.BeenKilled<HydraBody>());
+        public static Condition DownedBroodmother = new Condition("Mods.AAModClassic.Common.Conditions.DownedBroodmother", () => AADowned.downedBroodmother);
+        public static Condition DownedHydra = new Condition("Mods.AAModClassic.Common.Conditions.DownedHydra", () => AADowned.downedHydra);
 
         // bullshit
         public static Condition LovecraftianQuestPurity = new Condition("Mods.AAModClassic.Common.Conditions.LovecraftianQuest.Purity", () => AAWorld.squid1 >= 5);
@@ -116,21 +116,21 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
 
         public class PostLateAncientsAndRemovedWorld : IItemDropRuleCondition, IProvideItemConditionDescription
         {
-            public bool CanDrop(DropAttemptInfo info) => AAWorld.downedAllAncients && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed);
+            public bool CanDrop(DropAttemptInfo info) => AADowned.DownedAllAncients && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed);
             public bool CanShowItemDropInUI() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed);
             public string GetConditionDescription() => Language.GetTextValue("Mods.AAModClassic.Common.Conditions.PostLateAncientsAndRemovedWorld");
         }
 
         public class PostLateAncientsAndRemovedWorldAndNotExpert : IItemDropRuleCondition, IProvideItemConditionDescription
         {
-            public bool CanDrop(DropAttemptInfo info) => AAWorld.downedAllAncients && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed) && !Main.expertMode;
+            public bool CanDrop(DropAttemptInfo info) => AADowned.DownedAllAncients && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed) && !Main.expertMode;
             public bool CanShowItemDropInUI() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed) && !Main.expertMode;
             public string GetConditionDescription() => Language.GetTextValue("Mods.AAModClassic.Common.Conditions.PostLateAncientsAndRemovedWorld");
         }
 
         public class PostLateAncientsAndRemovedWorldAndExpert : IItemDropRuleCondition, IProvideItemConditionDescription
         {
-            public bool CanDrop(DropAttemptInfo info) => AAWorld.downedAllAncients && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed) && Main.expertMode;
+            public bool CanDrop(DropAttemptInfo info) => AADowned.DownedAllAncients && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed) && Main.expertMode;
             public bool CanShowItemDropInUI() => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed) && Main.expertMode;
             public string GetConditionDescription() => Language.GetTextValue("Mods.AAModClassic.Common.Conditions.PostLateAncientsAndRemovedWorld");
         }

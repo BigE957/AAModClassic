@@ -383,6 +383,8 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
 
         public override void OnKill()
         {
+        AADowned.downedMushroomMonarch = true;
+        AADowned.SyncWorldData();
             Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2(0f, 0f), ModContent.ProjectileType<MushroomMonarch_RUNAWAY>(), 0, 0);
         }
 

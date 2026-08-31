@@ -96,7 +96,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs._Day
         {
             public bool CanDrop(DropAttemptInfo info)
             {
-				return AAWorld.downedEquinox;
+				return AADowned.downedEquinoxWorms;
             }
 
             public bool CanShowItemDropInUI() => true;

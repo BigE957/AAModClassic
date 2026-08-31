@@ -45,7 +45,7 @@ Can only be used in Greed's Hoard at the Altar of Desire
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
-            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) || (!NPCExtensions.BeenKilled<AthenaA>() && !AAWorld.AthenaAwakened))
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) || (!AADowned.downedAthenaA && !AADowned.AthenaAwakened))
                 return;
 
             int indexToInsert = -1;

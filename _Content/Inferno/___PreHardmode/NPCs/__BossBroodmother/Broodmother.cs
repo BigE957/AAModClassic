@@ -140,6 +140,12 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
             }
         }
 
+
+        public override void OnKill()
+        {
+            AADowned.downedBroodmother = true;
+            AADowned.SyncWorldData();
+        }
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<BroodmotherTreasureBag>()));

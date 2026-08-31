@@ -112,12 +112,14 @@ namespace AAModClassic._Content.Stars.World.Altar
 
                 if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.WormSpawn12") + name + ".", new Color(0, 255, 181));
 
-                AAWorld.WormActive = true;
+                AADowned.WormActive = true;
+                AADowned.SyncWorldData();
             }
 
             if (NPC.ai[0] >= 1880)
             {
-                AAWorld.WormActive = true;
+                AADowned.WormActive = true;
+                AADowned.SyncWorldData();
                 NPC.active = false;
                 NPC.netUpdate = true;
             }

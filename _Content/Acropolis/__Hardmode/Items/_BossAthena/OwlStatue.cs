@@ -46,7 +46,7 @@ Can only be used in the Acropolis at the Owl Altar
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
-            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) || (!NPCExtensions.BeenKilled<AthenaA>() && !AAWorld.AthenaAwakened))
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) || (!AADowned.downedAthenaA && !AADowned.AthenaAwakened))
                 return;
 
             int indexToInsert = -1;

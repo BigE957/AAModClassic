@@ -1,4 +1,4 @@
-using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Ammo;
+﻿using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Ammo;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Tools;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
@@ -193,7 +193,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
         {
             modifiers.TargetDamageMultiplier *= 0;
 
-            if (!AAWorld.downedYamata)
+            if (!AADowned.DownedYamata)
             {
                 if (NPC.life <= NPC.lifeMax / 4 * 3 && threeQuarterHealth == false)
                 {
@@ -242,6 +242,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 
         public override void OnKill()
         {
+        AADowned.downedYamata = true;
+        AADowned.SyncWorldData();
             Dead = true;
 
             if (!Main.expertMode)
@@ -431,7 +433,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                     Main.player[p].AddBuff(ModContent.BuffType<YamataBody_AbyssalGravity>(), 10, true);
                 }
                 NoFlyCountDown--;
-                if (!NoFly4U && NoFlyCountDown <= 0 && !AAWorld.downedYamata)
+                if (!NoFly4U && NoFlyCountDown <= 0 && !AADowned.DownedYamata)
                 {
                     NoFlyCountDown = 0;
                     NoFly4U = true;

@@ -1,4 +1,4 @@
-using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
+﻿using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Accessories;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
@@ -256,7 +256,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 
             if (isSupreme)
             {
-                if (CurrentAttack != RajahAttacks.CottonCane && !DefenseLine && !NPCExtensions.BeenKilled<RajahRabbitA>() && Main.netMode != NetmodeID.MultiplayerClient)
+                if (CurrentAttack != RajahAttacks.CottonCane && !DefenseLine && !AADowned.downedRajahRabbitR && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     DefenseLine = true;
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.PowerUp"), Color.MediumPurple);
@@ -269,7 +269,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         int bunnyKills = NPC.killCount[Item.NPCtoBanner(NPCID.Bunny)];
-                        bool evilMaxxing = bunnyKills >= 100 && !NPCExtensions.BeenKilled<RajahRabbitA>();
+                        bool evilMaxxing = bunnyKills >= 100 && !AADowned.downedRajahRabbitR;
 
                         if (Main.netMode != NetmodeID.SinglePlayer)
                         {
@@ -282,7 +282,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                         {
                             if (evilMaxxing)
                                 BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.LastStand.Singleplayer.Murderer"), 107, 137, 179);
-                            else if(!NPCExtensions.BeenKilled<RajahRabbitA>())
+                            else if(!AADowned.downedRajahRabbitR)
                                 BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.LastStand.Singleplayer.Normal"), 107, 137, 179);
                             else
                                 BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.LastStand.Singleplayer.Repeat", Main.LocalPlayer.name.ToUpper()), 107, 137, 179);
@@ -1190,6 +1190,8 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 
         public override void OnKill()
         {
+        AADowned.downedRajahRabbit = true;
+        AADowned.SyncWorldData();
             if (isSupreme)
             {
                 if (!Main.dedServ)

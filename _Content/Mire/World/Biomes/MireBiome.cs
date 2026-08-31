@@ -37,7 +37,7 @@ namespace AAModClassic._Content.Mire.World.Biomes
 
         public override int Music =>
             Main.LocalPlayer.ZoneRockLayerHeight ? MusicManagementSystem.MusicSlots["Mire_Underground"] :
-            (AAWorld.downedAllAncients && !AAWorld.downedShen) ? MusicManagementSystem.MusicSlots["Chaos_PreShen"] :
+            (AADowned.DownedAllAncients && !AADowned.DownedShen) ? MusicManagementSystem.MusicSlots["Chaos_PreShen"] :
             Main.dayTime ? MusicManagementSystem.MusicSlots["Mire_Day"] :
             MusicManagementSystem.MusicSlots["Mire_Surface"];
 
@@ -47,7 +47,7 @@ namespace AAModClassic._Content.Mire.World.Biomes
 
         public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<MireUgBgStyle>();
 
-        public override ModWaterStyle WaterStyle => Main.dayTime && !AAWorld.downedYamata && Main.LocalPlayer.position.Y < Main.worldSurface * 16.0 && !Main.LocalPlayer.buffImmune[ModContent.BuffType<Buffs.Clueless_Buff>()] ? ModContent.GetInstance<FogWaterStyle>() : ModContent.GetInstance<MireWaterStyle>();
+        public override ModWaterStyle WaterStyle => Main.dayTime && !AADowned.DownedYamata && Main.LocalPlayer.position.Y < Main.worldSurface * 16.0 && !Main.LocalPlayer.buffImmune[ModContent.BuffType<Buffs.Clueless_Buff>()] ? ModContent.GetInstance<FogWaterStyle>() : ModContent.GetInstance<MireWaterStyle>();
     }
 
     public class UndergroundMireBiome : ModBiome
@@ -332,7 +332,7 @@ namespace AAModClassic._Content.Mire.World.Biomes
 
             Player player = Main.LocalPlayer;
             bool inMire = Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneMire;
-            if (!backgroundFog && (BasePlayer.HasAccessory(player, AAMod.instance.Find<ModItem>("Lantern").Type, true, false) || AAWorld.downedYamata)) inMire = false;
+            if (!backgroundFog && (BasePlayer.HasAccessory(player, AAMod.instance.Find<ModItem>("Lantern").Type, true, false) || AADowned.DownedYamata)) inMire = false;
 
             fogOffsetX += 1;
             if (fogOffsetX >= texture.Width) fogOffsetX = 0;

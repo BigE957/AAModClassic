@@ -605,6 +605,8 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 
         public override void OnKill()
         {
+        AADowned.downedForsakenAnubis = true;
+        AADowned.SyncWorldData();
             NPC legendscribe = null;
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 legendscribe = NPC.NewNPCDirect(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<LegendscribeUnofficial>());

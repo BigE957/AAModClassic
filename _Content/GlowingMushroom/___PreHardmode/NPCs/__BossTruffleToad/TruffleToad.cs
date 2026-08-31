@@ -625,6 +625,12 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
             
         }
 
+
+        public override void OnKill()
+        {
+            AADowned.downedTruffleToad = true;
+            AADowned.SyncWorldData();
+        }
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<TruffleToadTreasureBag>()));

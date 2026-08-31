@@ -1,4 +1,4 @@
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Mire.World.Biomes;

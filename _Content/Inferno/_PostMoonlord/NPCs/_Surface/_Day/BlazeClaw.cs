@@ -1,4 +1,4 @@
-using AAModClassic._Content.Inferno.__Hardmode.Items.Accessories;
+﻿using AAModClassic._Content.Inferno.__Hardmode.Items.Accessories;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno.Buffs;

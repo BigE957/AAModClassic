@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -8,7 +8,7 @@ namespace AAModClassic.Dusts
 	{
 		public override void OnSpawn(Dust dust)
 		{
-            if (!Main.dayTime && !AAWorld.downedAkuma)
+            if (!Main.dayTime && !AADowned.DownedAkuma)
             {
                 dust.velocity.Y = Main.rand.Next(-10, 6) * 0.1f;
                 dust.velocity.X *= 0.3f;
@@ -19,7 +19,7 @@ namespace AAModClassic.Dusts
 
 		public override bool MidUpdate(Dust dust)
         {
-            if (!Main.dayTime && !AAWorld.downedAkuma)
+            if (!Main.dayTime && !AADowned.DownedAkuma)
             {
                 ZAAPlayer.Ashes = 0;
                 if (!dust.noGravity)

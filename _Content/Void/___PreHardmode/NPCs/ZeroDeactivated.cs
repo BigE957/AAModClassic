@@ -70,14 +70,14 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
 
 		public override void AI()
 		{
-            if(AAWorld.downedZero || NPC.AnyNPCs(ModContent.NPCType<Zero>()) || NPC.AnyNPCs(ModContent.NPCType<ZeroA>()))
+            if(AADowned.DownedZero || NPC.AnyNPCs(ModContent.NPCType<Zero>()) || NPC.AnyNPCs(ModContent.NPCType<ZeroA>()))
             {
                 NPC.active = false;
                 return;
             }
 
             RingRoatation += .01f;
-            if (Main.netMode != NetmodeID.MultiplayerClient && AAWorld.zeroUS == true)
+            if (Main.netMode != NetmodeID.MultiplayerClient && AADowned.zeroUS == true)
             {
                 NPC.Transform(ModContent.NPCType<Zero>());
                 return;
@@ -168,7 +168,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
             {
                 ZX = tag.GetInt("ZX");
                 ZY = tag.GetInt("ZY");
-				if(!AAWorld.downedZero)			
+				if(!AADowned.DownedZero)			
 					NPC.NewNPC(Entity.GetSource_NaturalSpawn(), ZX, ZY, ModContent.NPCType<ZeroDeactivated>());
             }
         }
@@ -176,7 +176,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
         public override void PostUpdateWorld()
         {
             if (Main.netMode != NetmodeID.MultiplayerClient && 
-                !AAWorld.downedZero && 
+                !AADowned.DownedZero && 
                 !NPC.AnyNPCs(ModContent.NPCType<ZeroTransition>()) &&
                 !NPC.AnyNPCs(ModContent.NPCType<Zero>()) && 
                 !NPC.AnyNPCs(ModContent.NPCType<ZeroA>()) && 

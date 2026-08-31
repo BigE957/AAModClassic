@@ -1,4 +1,4 @@
-using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
 using AAModClassic.Base.BaseMod.Base;
@@ -111,7 +111,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald4"), Color.CadetBlue);
                 }
-                if (!NPCExtensions.BeenKilled<GreedHead>())
+                if (!AADowned.downedGreed)
                 {
                     if (NPC.ai[0] >= 480)
                     {

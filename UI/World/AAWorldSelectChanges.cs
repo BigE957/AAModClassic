@@ -20,7 +20,7 @@ namespace AAModClassic.UI.World
 
         public override void SaveWorldHeader(TagCompound tag)
         {
-            if(AAWorld.downedSAncient)
+            if(AADowned.DownedSAncient)
                 tag["DefeatedAnySuperancient"] = true;
         }
 
