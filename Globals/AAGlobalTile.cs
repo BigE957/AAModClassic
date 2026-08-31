@@ -7,6 +7,7 @@ using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
 using AAModClassic._Content.Stars.World.Altar;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -247,11 +248,11 @@ namespace AAModClassic.Globals
                 }
             }
 
-            if (t.TileType == TileID.Grass && Main.hardMode)
+            if (Main.tile[i, j].TileType == TileID.Grass && Main.hardMode)
             {
-                if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(800))
+                if (!Framing.GetTileSafely(i, j - 1).IsTileSolid() && Main.rand.NextBool(800))
                 {
-                    if (PlaceObject(i, j - 1, ModContent.TileType<Carrot_Tile>(), false, 0))
+                    if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<Carrot_Tile>(), false, 0))
                     {
                         NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Carrot_Tile>(), 0, 0, -1, -1);
                     }

@@ -238,9 +238,10 @@ namespace AAModClassic.Globals
 
             ApplyDPSDebuff(CursedHellfire, 30, ref npc.lifeRegen);
             ApplyDPSDebuff(Moonraze, 100, ref npc.lifeRegen);
-            ApplyDPSDebuff(Hydratoxin, (int)npc.velocity.X * (npc.velocity.X > 0?  1 : -1) / 2, ref npc.lifeRegen);
+            ApplyDPSDebuff(Hydratoxin, (int)(Math.Abs(npc.velocity.X) / 2f), ref npc.lifeRegen);
             ApplyDPSDebuff(Electrified, 40, ref npc.lifeRegen);
-            if(npc.lifeMax > 0) ApplyDPSDebuff(FFlames, 40 * (npc.life / npc.lifeMax), ref npc.lifeRegen);
+            if(npc.lifeMax > 0)
+                ApplyDPSDebuff(FFlames, 40 * (npc.life / npc.lifeMax), ref npc.lifeRegen);
         }
 
         public static void ApplyDPSDebuff(bool debuff, int lifeRegenValue, int damageValue, ref int lifeRegen, ref int damage)
