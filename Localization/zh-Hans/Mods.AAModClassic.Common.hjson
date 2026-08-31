@@ -26,7 +26,7 @@ InvokerStaff1:
 	'''
 InvokerStaff2:
 	'''
-	左键发射召唤之矢。
+	左键发射召唤师之矢。
 	右键根据你的基础召唤伤害放逐所有的敌人。
 	放逐敌人会根据它们的生命上限治愈你。
 	但是代价是什么?
@@ -119,24 +119,24 @@ ShenDoragon: 上神应龙
 SupremeRajah: 至尊巨兔王公
 #AAPlayerChat
 
-WorldgenReminderInfo1: 嘿, 呃…小子？如果我哪里错了, 请纠正我, 但我认为你的世界不是由远古觉醒的内容而生成的。如果我是你, 我会完成一个新的世界。
+WorldgenReminderInfo1: 嘿，呃…小子？如果我哪里错了，请纠正我，但我认为你的世界不是由远古觉醒的内容而生成的。如果我是你，我会完成一个新的世界。
 WorldgenReminderInfo2: 你 这 个 笨 蛋！你 没 有 生 成 远 古 觉 醒 的 内 容！快 创 造 一 个 新 世 界！呃 啊 啊 啊 啊 啊 啊 啊 啊 啊 啊 啊 啊
-WorldgenReminderInfo3: 错0误。 世0界并没有0包含aamod.tmod的内0容。 请0创造0一个新世0界。
+WorldgenReminderInfo3: 错0误. 世0界并没有0包含aamod.tmod的内0容. 请0创造0一个新世0界.
 WorldgenReminderInfo4: 嘿！你没有在这个世界上创造出远古觉醒的东西！在我把你炸到火星之前赶紧创造一个新世界！
-WorldgenReminderInfo5: 嘿, 呃……这个世界里我看不到任何远古觉醒的内容。聪明点赶紧创一个新世界。
-WorldgenReminderInfo6: 嘿。说你呢。另一个次元的人。你可能在下载了mod之后忘记了创造一个新的世界。如果你想要所有的mod的内容, 创造一个新的世界。
+WorldgenReminderInfo5: 嘿，呃……这个世界里我看不到任何远古觉醒的内容。聪明点赶紧创一个新世界。
+WorldgenReminderInfo6: 嘿。说你呢。另一个次元的人。你可能在下载了mod之后忘记了创造一个新的世界。如果你想要所有的mod的内容，创造一个新的世界。
 WorldgenReminderInfo7: 创造……新世界……否则癫狂蘑菇……会压扁……你这个小泰拉人……
-WorldgenReminderInfo8: …凡人。如果我没有老眼昏花的话, 你的世界就没有远古觉醒的内容。创造一个新的世界最吼的。
+WorldgenReminderInfo8: …凡人。如果我没有老眼昏花的话，你的世界就没有远古觉醒的内容。创造一个新的世界也许是最佳方案。
 WorldgenReminderInfo9: 泰拉人..！这世界里没有远古觉醒的东西！真想玩这个mod的话就创个新世界……白痴……
-NewAAInfo1: 嘿孩子，你知道有一个更新版的远古觉醒可以玩吗？要我说的话，值得去看看。
-NewAAInfo2: 你 可 真 是 个 大 傻 瓜！你 大 概 还 不 知 道 有 一 个 更 新 版 的 远 古 觉 醒 可 以 玩 吧！
-NewAAInfo3: 警0告。未检0测到AAMod.tmod。建0议：尝试远0古觉0醒Beta版。
-NewAAInfo4: 嘿 你！别忘了去看看新版远古觉醒，否则！
-NewAAInfo5: 嘿, 呃……我不确定你是否知道, 不过有一个更新版的远古觉醒可以玩。你或许可以试试什么的……
-NewAAInfo6: 跨维度的存在啊。如果你还不知道的话，有一个更新版的远古觉醒可以玩。有空的话去看看吧。
+NewAAInfo1: 嘿孩子，你知道远古觉醒还有一个官方重制版可以玩吗？要我说的话，值得去看看。
+NewAAInfo2: 你 可 真 是 个 大 傻 瓜！你 八 成 连 远 古 觉 醒 有 个 官 方 重 制 版 可 以 玩 都 不 知 道 吧！
+NewAAInfo3: 警0告. 未检0测到AAMod.tmod. 建0议：尝试远0古觉0醒Beta版.
+NewAAInfo4: 嘿，你！别忘了去看看远古觉醒的官方重制版，不然有你受的！
+NewAAInfo5: 嘿，呃……我不确定你是否知道，不过远古觉醒有个官方重制版可以玩。你或许可以试试什么的……
+NewAAInfo6: 跨维度的存在啊。如果你还不知道的话，远古觉醒有一个官方重制版可以玩。有空的话去看看吧。
 NewAAInfo7: 快去玩新……远古觉醒……否则癫狂蘑菇……会压扁……小泰拉人……
-NewAAInfo8: …凡人。我听说有一个更新版的远古觉醒可以玩。或许尝试一下会是明智之举。
-NewAAInfo9: 地上的凡人！你该知道有个更新版的远古觉醒可以玩！不去试的话你就是个大傻子！
+NewAAInfo8: …凡人。我听说远古觉醒有一个官方重制版可以玩。或许尝试一下会是明智之举。
+NewAAInfo9: 地上的凡人！你该知道远古觉醒有个官方重制版可以玩吧！不去试的话你就是个大傻子！
 #AAWorldChangeInfo
 
 downedEquinoxInfo: 上神之礼在天空中闪耀...
@@ -206,7 +206,7 @@ RecipeGroups: {
 		HardmodeChaos: 困难模式混沌材料
 		HardmodeEvilOrChaos: 困难模式邪恶或混沌材料
 		EarlyAncient: 早期远古材料
-		LateAncient: 晚期远古材料
+		LateAncient: 后期远古材料
 		Superancient: 超远古材料
 	}
 
@@ -214,8 +214,8 @@ RecipeGroups: {
 		Altar: 祭坛
 		HardmodeAnvil: 困难模式砧
 		HardmodeForge: 困难模式熔炉
-		CelestialCraftingStation: 天界工作台
-		AncientCraftingStation: 远古工作台
+		CelestialCraftingStation: 天界制作站
+		AncientCraftingStation: 远古制作站
 	}
 
 	Weapons.EvilStaff: 邪恶法杖
@@ -239,79 +239,79 @@ BosshasAwoken: 已经苏醒！
 #BossSummonedInfo
 
 BosshaveAwoken: 已经苏醒！
-RajahGlobalInfo1: 杀害无辜者必须受到惩罚!
-RajahGlobalInfo2: 你 犯 了 不 可 饶 恕 的 罪 孽! 我 要 把 你 从 这 个 凡 人 的 国 度 里 抹 去! 准 备 好 接 受 真 正 的 痛 苦 和 惩 罚 吧,
-RajahGlobalInfo3: 一个愤怒的生物的眼睛注视着你…
-ChaosRuneYamataFalse: 一幅凶煞恶魔的图像在你脑海中一闪而过...
-ChaosRuneAkumaFalse: 一种七头梦魇的恐惧在你脑海中一闪而过...
-ChaosRuneFalse: 哈!我也希望有两个我能把你干翻!
-ChaosRuneTrue1: 上神应龙已经苏醒!
-ChaosRuneTrue2: 跳过乐趣时间? 懂了, 我欣赏你, 小子
-ChaosSigilFalse1: 只有蓝色印迹在发光...
-ChaosSigilFalse2: 只有红色印迹在发光...
-ChaosSigilFalse3: 哈!我也希望有两个我能把你干翻!
+RajahGlobalInfo1: 杀害无辜者必须受到惩罚！
+RajahGlobalInfo2: 你 犯 了 不 可 饶 恕 的 罪 孽！我 要 把 你 从 这 个 凡 人 的 国 度 里 抹 去! 准 备 好 接 受 真 正 的 痛 苦 和 惩 罚 吧，
+RajahGlobalInfo3: 一个愤怒的生物注视着你…
+ChaosRuneYamataFalse: 一幅凶煞恶魔的图像在你脑海中一闪而过…
+ChaosRuneAkumaFalse: 一种七头梦魇的恐惧在你脑海中一闪而过…
+ChaosRuneFalse: 哈！我也希望有两个我能把你干翻！
+ChaosRuneTrue1: 上神应龙已经苏醒！
+ChaosRuneTrue2: 跳过乐趣时间？懂了，我欣赏你，小子
+ChaosSigilFalse1: 只有蓝色印迹在发光…
+ChaosSigilFalse2: 只有红色印迹在发光…
+ChaosSigilFalse3: 哈！我也希望有两个我能把你干翻！
 ChaosSigilFalse4: 混沌印迹闪烁着，混沌神坛的图像在你的脑海中闪现
 ChaosSigilFalse5: 印迹没有生效
-ChaosSigilTrue1: 大错特错, 孩子...
-ChaosSigilTrue2: 哼...又来..?好吧, 让我们把这事安排的明明白白。
-ConfusingMushroomFalse1: 蘑菇发着光, 它的气味让你感到毛骨悚然.
-ConfusingMushroomFalse2: 真菌帝正要宰了你.
+ChaosSigilTrue1: 大错特错, 孩子…
+ChaosSigilTrue2: 哼…又来..？好吧，让我们把这事安排的明明白白。
+ConfusingMushroomFalse1: 蘑菇发着光，它的气味让你感到毛骨悚然。
+ConfusingMushroomFalse2: 真菌帝正要宰了你。
 CuriousClawFalse1: 混沌双爪已经在这了!
-CuriousClawFalse2: 爪子在你手中无力的伸开. 恶心的要死.
+CuriousClawFalse2: 爪子在你手中无力的伸开。恶心的要死。
 Grips.GripsofChaosAwoken: 混沌双爪已苏醒！
-DiamondCarrotRajahText1: 致 命 错 误, 泰拉人!
-DiamondCarrotRajahText2: 让我 看 看 你有什么本事,
-DjinnLampDesertFalse1: 你擦灯的时候, 它吐着沙子
+DiamondCarrotRajahText1: 致 命 错 误，泰拉人！
+DiamondCarrotRajahText2: 让我看看你有什么本事，
+DjinnLampDesertFalse1: 你擦灯的时候，它吐着沙子
 DjinnLampDesertFalse2: 再怎么擦也没用
 DraconianDayTimeFalse: 臭小子，龙不睡觉吗？早上再来。
-DraconianRuneFalse1: 一幅燎狱顶端焦塔的图像在你脑海一闪而过.
-DraconianRuneFalse2: 嘿, 小子, 你应该知道, 那符文只需要用一次就行.
-DraconianRuneInfernoFalse: 你只能在燎狱使用那个符文, 小子.
-DraconianRuneTrue1: 你周围的空气开始升温!
-DraconianRuneTrue2: 不浪费时间直奔主题...?懂了, 那好, 准备下地狱吧...!
-DraconianSigilFalse: 嘿, 小子, 你应该知道, 那印迹只需要用一次就行.
-DraconianSigilInfernoFalse: 你只能在燎狱使用那个印迹, 小子.
-DraconianSignalTrue1: 嘿, 小子, 我希望你准备好感受灼日的愤怒了.
-DraconianSignalTrue2: 还来, 小子? 你没别的正事干吗? 你都打赢过我一次了。好吧, 但我可不会对你心慈手软.
-DragonBellDayTimeFalse: 龙现在已经睡了, 听不见铃铛响.
+DraconianRuneFalse1: 一幅燎狱顶端焦塔的图像在你脑海一闪而过
+DraconianRuneFalse2: 嘿，小子，你应该知道，那符文只需要用一次就行。
+DraconianRuneInfernoFalse: 你只能在燎狱使用那个符文，小子。
+DraconianRuneTrue1: 你周围的空气开始升温！
+DraconianRuneTrue2: 不浪费时间直奔主题…？懂了，那好，准备下地狱吧…!
+DraconianSigilFalse: 嘿，小子，你应该知道，那印迹只需要用一次就行。
+DraconianSigilInfernoFalse: 你只能在燎狱使用那个印迹，小子。
+DraconianSignalTrue1: 嘿，小子，我希望你准备好感受灼日的愤怒了。
+DraconianSignalTrue2: 还来，小子？你没别的正事干吗？你都打赢过我一次了。好吧，但我可不会对你心慈手软。
+DragonBellDayTimeFalse: 龙现在已经睡了，听不见铃铛响。
 DragonBellFalse1: 育母炎龙已经被呼唤
-DragonBellFalse2: 龙不在这, 听不见铃铛响.
+DragonBellFalse2: 龙不在这，听不见铃铛响。
 DreadRuneTrue1: 八歧大蛇已经觉醒!
-DreadRuneTrue2: 是的, 是的, 我明白了, 我第一阶段很讨厌. 让我们用……来解决这个问题!
+DreadRuneTrue2: 是的，是的，我明白了，我第一阶段很讨厌。让我们用……来解决这个问题！
 DreadTimeFalse: 不！我现在不想战斗！我需要舒服的睡眠！晚上来！
 DreadFalse1: 一幅潭渊中心怪树的图像在你脑海一闪而过
-DreadFalse2: 你究竟在tm干什么? 我已经在这了!!!
-DreadMireFalse: 嘿, 小傻子！潭渊在那头！
-DreadSigilTrue1: 你 胆 敢 进入我的地盘, 泰拉人? !咿哈哈哈哈哈哈哈…!大错特错!
-DreadSigilTrue2: 再来要更多战利品……? !这一次你可没那么幸运, 你这个小鬼……!
-DreadSigilMireFalse: 你必须在潭渊中心的祭坛上使用! 相信我, 不会出事的!
-EquinoxWormawoken: 昼夜双虫已经苏醒!
-SistersDownedInfo1: 又是你...!? 上次还没学乖? 哦好, 我会用一个球把你炸成碎片!
-SistersDownedInfo2: 不管怎样, 让我们结束这一切吧.
+DreadFalse2: 你究竟在tm干什么？我已经在这了！！！
+DreadMireFalse: 嘿，小傻子！潭渊在那头！
+DreadSigilTrue1: 你 胆 敢 进入我的地盘，泰拉人？！咿哈哈哈哈哈哈哈…！大错特错！
+DreadSigilTrue2: 再来要更多战利品……？！这一次你可没那么幸运，你这个小鬼……！
+DreadSigilMireFalse: 你必须在潭渊中心的祭坛上使用！相信我，不会出事的！
+EquinoxWormawoken: 昼夜双虫已经苏醒！
+SistersDownedInfo1: 又是你…！？上次还没学乖？哦好，我会用一个球把你炸成碎片！
+SistersDownedInfo2: 不管怎样，让我们结束这一切吧。
 SistersInfo1: 咳……再来一次……
-SistersInfo2: 这 次 我 不 会 输!你会感觉到失败的味道, 你这可恶的常温动物!
-HydraChowTimeFalse: 什么也没发生. 潭渊的生物在睡觉.
-HydraChowFalse1: 九头蛇想吃那个食物.
-HydraChowFalse2: 什么也没发生. 一个拿着又臭又黏糊的球的你宛如一个白痴.
-InterestingClawFalse1: 混沌俩爪子都在这了!
-InterestingClawFalse2: 爪子在你手中无力的伸开. 恶心的要死. 呕...
-IntimidatingMushroomFalse1: 蘑菇和你大眼瞪小眼, 让你浑身冷的发抖。
+SistersInfo2: 这 次 我 不 会 输！你会感觉到失败的味道，你这可恶的常温动物！
+HydraChowTimeFalse: 什么也没发生。潭渊的生物在睡觉。
+HydraChowFalse1: 九头蛇想吃那个食物。
+HydraChowFalse2: 什么也没发生。一个拿着又臭又黏糊的球的你宛如一个白痴。
+InterestingClawFalse1: 混沌俩爪子都在这了！
+InterestingClawFalse2: 爪子在你手中无力的伸开。恶心的要死。呕…
+IntimidatingMushroomFalse1: 蘑菇和你大眼瞪小眼，让你浑身冷的发抖。
 IntimidatingMushroomFalse2: 赤孢皇正准备踩扁你
-LifescannerFalse: 生命扫描仪没起作用.
-ScepterBossFalse1: 你像个神经病一样挥着这个棍子. 无事发生.
-ScepterBossFalse2: 呃...你在搞什么?
+LifescannerFalse: 生命扫描仪没起作用。
+ScepterBossFalse1: 你像个神经病一样挥着这个棍子。无事发生。
+ScepterBossFalse2: 呃…你在搞什么?
 SubzeroCrystalSnowZoneFalse: 水晶中显露出临近冰原之景
 SubzeroCrystalFalse: 绝零冰蛇继续发起攻势
-ToadstoolFalse1: 蟾蜍臭菇呱呱叫..?
+ToadstoolFalse1: 蟾蜍臭菇呱呱叫..？
 ToadstoolFalse2: 松露蟾蜍呱呱叫
-ZeroUnitFalse: 错 误。零 单 元 已 经 激 活. 请 稍 后 重 新 尝 试.
-ZeroUnitVoidZoneFalse: 错 误。读 取 代 码 PLAYER.GETM0DPLAYER<AAPLAYER>(M0D).Z0NEV0ID == FALSE. 请 稍 后 重 新 尝 试.
+ZeroUnitFalse: 错 误. 零 单 元 已 经 激 活. 请 稍 后 重 新 尝 试.
+ZeroUnitVoidZoneFalse: 错 误. 读 取 代 码 PLAYER.GETM0DPLAYER<AAPLAYER>(M0D).Z0NEV0ID == FALSE. 请 稍 后 重 新 尝 试.
 ZeroUnitRuneTrue: 末 日 协 议 手 动 激 活. 终 结 系 统 全 功 率 充 能.
 ZeroTesseractTrue: 零 单 元 启 动. 加 载 末 日 执 行 层 协 议.
-ZeroTesseractDownedTrue: 目 标 锁 定. 本 次 终 结 你 失 败 的 几 率 为 零, 泰 拉 人.
-RoyalRabbitSummoned1: 残害无辜者必须受到惩罚!
-RoyalRabbitSummoned2: 你 要 为 你 的 罪 过 付 出 代 价,
-ScrapHeapFalse1: 你感到一阵静电冲击，也许它在尝试发送信号?
+ZeroTesseractDownedTrue: 目 标 锁 定. 本 次 终 结 你 失 败 的 几 率 为 零，泰 拉 人.
+RoyalRabbitSummoned1: 残害无辜者必须受到惩罚！
+RoyalRabbitSummoned2: 你 要 为 你 的 罪 过 付 出 代 价，
+ScrapHeapFalse1: 你感到一阵静电冲击，也许它在尝试发送信号？
 ScrapHeapFalse2: 食腐者想吃那个——还有你！
 CyberneticClawFalse1: 爪子无力地摊在你手中。
 CyberneticClawFalse2: 捕猎者还在试图抓住你！
@@ -331,7 +331,7 @@ Conditions: {
 	IsMaster: 大师模式下
 	Unofficial: 在启用非官方内容的世界中
 	NotUnofficial: 在未启用非官方内容的世界中
-	PostLateAncientsAndRemovedWorld: 击败后期远古者后
+	PostLateAncientsAndRemovedWorld: 后期远古者掉落
 	SpawnedByTruffleToad: 非松露蟾蜍召唤时
 	SpawnedByGrips: 非混沌双爪召唤时
 	InAnyInferno: 在燎狱生态群落

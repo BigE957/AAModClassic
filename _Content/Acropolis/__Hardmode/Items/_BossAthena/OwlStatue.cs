@@ -1,6 +1,9 @@
 ﻿using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
+using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
+using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
+using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
 using AAModClassic._Unofficial.Desert;
 using AAModClassic.Effects;
 using AAModClassic.UI.World;
@@ -68,7 +71,16 @@ Can only be used in the Acropolis at the Owl Altar
             list.RemoveAt(indexToRemove);
         }
 
-        public override bool CanUseItem(Player player) => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && player.GetModPlayer<ZAAPlayer>().ZoneAcropolis && (AADowned.downedAthenaA || AADowned.AthenaAwakened);
+        public override bool CanUseItem(Player player)
+        {
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                return false;
+
+            if (!player.GetModPlayer<ZAAPlayer>().ZoneAcropolis || (!NPCExtensions.BeenKilled<AthenaA>() && !AAWorld.AthenaAwakened))
+                return false;
+
+            return !NPC.AnyNPCs(ModContent.NPCType<Athena>()) && !NPC.AnyNPCs(ModContent.NPCType<AthenaA>());
+        }
 
         public override bool? UseItem(Player player)
         {

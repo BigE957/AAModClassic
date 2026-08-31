@@ -59,6 +59,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.boss = true;
             Music = MusicManagementSystem.MusicSlots["SoulOfCthulhu"];
             NPC.noGravity = true;
+            NPC.noTileCollide = true;
             NPC.netAlways = true;
             for (int m = 0; m < NPC.buffImmune.Length; m++) NPC.buffImmune[m] = true;
             SpawnModBiomes = [ModContent.GetInstance<SunkenShipBiome>().Type];

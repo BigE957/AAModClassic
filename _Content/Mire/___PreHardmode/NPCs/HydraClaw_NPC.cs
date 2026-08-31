@@ -3,6 +3,7 @@ using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._CrossMod;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using AAModClassic.Utilities.Interfaces;
 using System;
@@ -68,6 +69,17 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             ]);
         }
 
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (ContentReplacementSystem.NeedToReplaceContent || spawnInfo.Player.ZoneAnyInferno())
+                return 0f;
+
+            if (spawnInfo.Player.ZoneAnyMire() && (!Main.dayTime || AAWorld.downedYamata || !spawnInfo.Player.ZoneSurface()) && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.025f;
+
+            return SpawnCondition.OverworldNightMonster.Chance * 0.04f;
+        }
+
         public override void AI()
         {
             if (WasSpawnedByGripOfChaos)
@@ -103,11 +115,6 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
         {
             if (WasSpawnedByGripOfChaos)
                 NPC.FadeInOutBasedOnAliveEntities(false, 0, 5, ModContent.NPCType<GripOfChaosInferno>(), ModContent.NPCType<GripOfChaosMire>());
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return ContentReplacementSystem.NeedToReplaceContent ? 0 : SpawnCondition.OverworldNightMonster.Chance * 0.04f;
         }
 
         public override void HitEffect(NPC.HitInfo hit)

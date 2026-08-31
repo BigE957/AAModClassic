@@ -9,7 +9,7 @@ EquinoxBox: {
 }
 
 InfinityZeroBox: {
-	DisplayName: Caja de Música (Infinity Zero )
+	DisplayName: Caja de Música (Cero Infinito)
 	Tooltip: Reproduce 'Infinitum' de MaestroVGM
 }
 
@@ -39,12 +39,12 @@ RajahAwakenedBox: {
 }
 
 GripsBox: {
-	DisplayName: Caja de Música (Agarres del Caos)
+	DisplayName: Caja de Música (Garras del Caos)
 	Tooltip: Reproduce 'Twin Terror' de SpectralAves
 }
 
 ShenAwakenedBox: {
-	DisplayName: Caja de Música (Shen Doragon Despertado)
+	DisplayName: Caja de Música (Despertar de Shen Doragon)
 	Tooltip: Reproduce 'Discordant Coda' de MaestroVGM
 }
 
@@ -54,7 +54,7 @@ ShenBox: {
 }
 
 SistersBox: {
-	DisplayName: Caja de Música (Hermnas de la Discordia)
+	DisplayName: Caja de Música (Hermanas de la Discordia)
 	Tooltip: Reproduce 'United' de MaestroVGM
 }
 
@@ -74,7 +74,7 @@ AnubisBox: {
 }
 
 AnubisAwakenedBox: {
-	DisplayName: Caja de Música (Anubis Abandonado)
+	DisplayName: Caja de Música (Anubis, Juez Abandonado)
 	Tooltip: Reproduce 'Purgatorium' de Tyeski
 }
 
@@ -94,12 +94,12 @@ GreedBox: {
 }
 
 HoardBox: {
-	DisplayName: Caja de Música (Tesoro)
+	DisplayName: Caja de Música (Alijo)
 	Tooltip: Reproduce 'Cove' de Tyeski
 }
 
 GreedAwakenedBox: {
-	DisplayName: Caja de Música (Rey Gusano de la Codicia)
+	DisplayName: Caja de Música (Rey Gusano Avaricia)
 	Tooltip: Reproduce 'Ira De Riquezas Perdidas' de Tyeski
 }
 
@@ -169,12 +169,12 @@ MireLakeBox: {
 }
 
 MonarchBox: {
-	DisplayName: Caja de Música (Monarca Champiñón)
+	DisplayName: Caja de Música (Monarca Fúngico)
 	Tooltip: Reproduce 'Fungal Face-off' de SpectralAves
 }
 
 MushroomSurfaceBox: {
-	DisplayName: Caja de Música (Champiñón Rojo)
+	DisplayName: Caja de Música (Champiñónes Rojos)
 	Tooltip: Reproduce 'Overgrowth' de SpectralAves
 }
 
@@ -204,12 +204,12 @@ VoidBox: {
 }
 
 ZeroAwakenedBox: {
-	DisplayName: Caja de Música (Protocolo Zero)
+	DisplayName: Caja de Música (Protocolo Cero)
 	Tooltip: Reproduce 'Doomsday Arrives' de Saucecoie
 }
 
 ZeroBox: {
-	DisplayName: Caja de Música (Zero)
+	DisplayName: Caja de Música (Cero)
 	Tooltip: Reproduce 'Clockwork Catastrophe' de SpectralAves
 }
 
@@ -224,12 +224,12 @@ VoidPreIZBox: {
 }
 
 SiegeBox: {
-	DisplayName: Caja de Música (Unidad S.I.E.G.E.)
+	DisplayName: Caja de Música (Unidad de A.S.E.D.I.O.)
 	Tooltip: Reproduce 'Controlled Chaos' de ProduceVGM
 }
 
 ParthenanBox: {
-	DisplayName: Caja de Música (Parthenan)
+	DisplayName: Caja de Música (Partenón)
 	Tooltip: Reproduce 'Maelstrom' de Tyeski
 }
 

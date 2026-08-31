@@ -30,7 +30,7 @@ Chaos Chain EX"); */
             Item.knockBack = 1f;
             Item.width = 30;
             Item.height = 10;
-            Item.damage = 188;
+            Item.damage = 376;
             Item.shoot = ModContent.ProjectileType<PerfectChaosChain_Holdout>();
             Item.shootSpeed = 18f;
             Item.UseSound = SoundID.Item116;

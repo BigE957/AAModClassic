@@ -57,6 +57,9 @@ namespace AAModClassic._Content.Inferno.World.Tiles
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
+            if (WorldGen.generatingWorld)
+                throw (new("A mod attempted to generate over important AAModClassic tiles, causing an error"));
+
             int thinger = Main.rand.Next(5);
 
             if (thinger == 0)
@@ -95,16 +98,20 @@ namespace AAModClassic._Content.Inferno.World.Tiles
             }
             else
             {
-                Player player = Main.player[BaseAI.GetPlayer(new Vector2(i, j), -1)];
-                AAWorld.SmashDragonEgg = 2;
-                if (Main.dayTime)
+                int p = BaseAI.GetPlayer(new Vector2(i, j), -1);
+                if (p != -1)
                 {
-                    AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Broodmother>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Broodmother"));
-                }
-                else
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Tiles.TilesInfo.DragonEgg3"), Color.DarkOrange);
+                    Player player = Main.player[BaseAI.GetPlayer(new Vector2(i, j), -1)];
+                    AAWorld.SmashDragonEgg = 2;
+                    if (Main.dayTime)
+                    {
+                        AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Broodmother>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Broodmother"));
+                    }
+                    else
+                    {
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Tiles.TilesInfo.DragonEgg3"), Color.DarkOrange);
+                    }
                 }
             }
         }

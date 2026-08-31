@@ -76,47 +76,14 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Weapons
 			Vector2 perturbedSpeed2 = velocity.RotatedByRandom(MathHelper.ToRadians(5));
 			Vector2 perturbedSpeed3 = velocity.RotatedByRandom(MathHelper.ToRadians(5));
 			Vector2 perturbedSpeed4 = velocity.RotatedByRandom(MathHelper.ToRadians(8));
-			float speedX2 = perturbedSpeed2.X;
-			float speedY2 = perturbedSpeed2.Y;
-			float speedX3 = perturbedSpeed3.X;
-			float speedY3 = perturbedSpeed3.Y;
-			float speedX4 = perturbedSpeed4.X;
-			float speedY4 = perturbedSpeed4.Y;
-            int num45 = 0;
-            for (int num46 = 54; num46 < 58; num46++)
-            {
-                if (player.inventory[num46].stack > 0 && (player.inventory[num46].ammo == 931 || player.inventory[num46].ammo == 1614))
-                {
-                    num45 = player.inventory[num46].type;
-                    break;
-                }
-            }
-            if (num45 == 0)
-            {
-                for (int num47 = 0; num47 < 54; num47++)
-                {
-                    if (player.inventory[num47].stack > 0 && (player.inventory[num47].ammo == 931 || player.inventory[num47].ammo == 1614))
-                    {
-                        num45 = player.inventory[num47].type;
-                        break;
-                    }
-                }
-            }
-            if (num45 == 931)
-            {
-                num45 = 163;
-            }
-            else if (num45 == 1614)
-            {
-                num45 = 310;
-            }
-            Projectile p = Projectile.NewProjectileDirect(source, vector, new Vector2(speedX2, speedY2), num45, damage, knockback, player.whoAmI);
+
+            Projectile p = Projectile.NewProjectileDirect(source, vector, perturbedSpeed2, type, damage, knockback, player.whoAmI);
 			p.DamageType = DamageClass.Ranged;
-            p = Projectile.NewProjectileDirect(source, vector, velocity, num45, damage, knockback, player.whoAmI);
+            p = Projectile.NewProjectileDirect(source, vector, velocity, type, damage, knockback, player.whoAmI);
             p.DamageType = DamageClass.Ranged;
-            p = Projectile.NewProjectileDirect(source, vector, new Vector2(speedX3, speedY3), num45, damage, knockback, player.whoAmI);
+            p = Projectile.NewProjectileDirect(source, vector, perturbedSpeed3, type, damage, knockback, player.whoAmI);
             p.DamageType = DamageClass.Ranged;
-            p = Projectile.NewProjectileDirect(source, vector, new Vector2(speedX4, speedY4), num45, damage, knockback, player.whoAmI);
+            p = Projectile.NewProjectileDirect(source, vector, perturbedSpeed4, type, damage, knockback, player.whoAmI);
             p.DamageType = DamageClass.Ranged;
             return false;
 		}

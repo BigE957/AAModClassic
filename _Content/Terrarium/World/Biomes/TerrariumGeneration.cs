@@ -49,24 +49,15 @@ namespace AAModClassic._Content.Terrarium.World.Biomes
                 [Color.Black] = -1 //don't touch when genning		
             };
 
-
             Dictionary<Color, int> colorToWall = new Dictionary<Color, int>();
             colorToTile[new Color(0, 255, 0)] = -2;
             colorToTile[Color.Black] = -1; //don't touch when genning	
 
             TexGenData Terrasphere = null;
-
-            if (Terrasphere == null)
-            {
-                if (worldSize == 1)
-                {
-                    Terrasphere = TerrariumTexGenAssets.TerrariumSmallDeletionData;
-                }
-                else
-                {
-                    Terrasphere = TerrariumTexGenAssets.TerrariumMediumDeletionData;
-                }
-            }
+            if (worldSize == 1)
+                Terrasphere = TerrariumTexGenAssets.TerrariumSmallDeletionData;
+            else
+                Terrasphere = TerrariumTexGenAssets.TerrariumMediumDeletionData;
 
             TexGen gen = TexGen.GetTexGenerator(Terrasphere, colorToTile, Terrasphere, colorToWall);
             Point newOrigin = new Point(origin.X, origin.Y); //biomeRadius);

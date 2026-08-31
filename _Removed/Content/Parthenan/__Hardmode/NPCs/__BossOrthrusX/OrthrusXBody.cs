@@ -99,6 +99,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             NPC.noTileCollide = false;
             Music = MusicManagementSystem.MusicSlots["Siege"];
             SpawnModBiomes = [ModContent.GetInstance<ParthenanBiome>().Type];
+
+            NPC.BossBar = new OrthtusXBossBar();
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -381,6 +383,14 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                 spriteBatch.Draw(Glowmask2.Value, NPC.Center + new Vector2(0f, NPC.gfxOffY) - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0f);
             }
             return false;
+        }
+    }
+
+    public class OrthtusXBossBar : ModBossBar
+    {
+        public override Asset<Texture2D> GetIconTexture(ref Rectangle? iconFrame)
+        {
+            return ModContent.Request<Texture2D>("AAModClassic/_Removed/Content/Parthenan/__Hardmode/NPCs/__BossOrthrusX/OrthrusXHead_Head_Boss");
         }
     }
 }

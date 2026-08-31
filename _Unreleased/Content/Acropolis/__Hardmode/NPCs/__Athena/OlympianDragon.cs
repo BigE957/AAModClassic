@@ -3,6 +3,7 @@ using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -49,6 +50,14 @@ namespace AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Sky);
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (spawnInfo.Player.AAPlayer().ZoneAcropolis && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.025f;
+
+            return 0f;
         }
 
         public bool SpawnedByAthena => NPC.ai[1] == 1;

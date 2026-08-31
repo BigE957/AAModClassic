@@ -1271,3 +1271,8 @@ GoblinTinkererDoll: {
 	DisplayName: 哥布林工匠玩偶
 	Tooltip: ""
 }
+
+PortaProbe: {
+	DisplayName: 虚空之门探测器
+	Tooltip: 让一个小型生命搜索器跟着你！
+}

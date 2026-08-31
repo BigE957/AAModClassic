@@ -89,12 +89,12 @@ Effect: {
 	RajahRabbitsSashOfVengeanceEffect:
 		'''
 		每损失{0}%的生命值，你的最强伤害类型获得{1}%伤害加成
-		[c/{2}:当前伤害加成：+{3}% {4}伤害]
+		[c/{2}:当前伤害加成：+{3}%{4}伤害]
 		'''
 	RajahRabbitsCloakOfSupremacyEffect:
 		'''
 		每损失{0}%的生命值，你的最强伤害类型获得{1}%伤害加成，并增加{2}%移动速度
-		[c/{3}:当前伤害加成：+{4}% {5}伤害]
+		[c/{3}:当前伤害加成：+{4}%{5}伤害]
 		当前速度加成：+{6}%移动速度和最大奔跑速度
 		'''
 	MaxRunSpeedEffect: "{1}{0}%奔跑速度"
@@ -325,7 +325,7 @@ Effect: {
 	DynaskullHelmetSetEffect: 你的远程射弹相当强大，震荡力使得目标混乱
 	ManaRegenEffect: "{0}{1}魔力再生速率"
 	LifeRegenEffect: "{0}{1}生命再生速率"
-	GoblinSlayersHelmetSetDamageEffect: 挥动武器对哥布林造成5倍伤害并增加击退
+	GoblinSlayersHelmetSetDamageEffect: 你的挥舞类武器对哥布林造成5倍伤害并增加击退
 	GoblinSlayersHelmetSetEnduranceEffect: 哥布林对你造成的伤害减少80%
 	GoblinSlayersHelmetSetDescEffect: "'我猎杀哥布林，仅此而已。'"
 	MiningSpeedEffect: "{0}{1}%挖矿速度"
@@ -372,7 +372,7 @@ Effect: {
 	RadiumHelmetMeleeSetEffect:
 		'''
 		在附近敌人上方召唤光之护盾
-		护盾使他们受到的伤害提高 40%
+		护盾使他们受到的伤害提高40%
 		'''
 	RadiumHelmetRangedSetEffect:
 		'''
@@ -403,7 +403,7 @@ Effect: {
 		Day: 最大生命值增加20
 		Night: 最大魔力增加20
 		Void: 显示敌人的位置
-		Inferno: 免疫着火！
+		Inferno: 免疫着火了！
 		Mire: 免疫中毒
 		Terrarium: 增加5点防御力
 		Jungle: 魔力再生增加3
@@ -470,7 +470,7 @@ Effect: {
 		自动为放置的物品涂漆或涂层
 		'''
 	DangersenseEffect: 让你看见附近的危险源
-	ManaCostMultiplierEffect: 魔力消耗乘以 {0}
+	ManaCostMultiplierEffect: 魔力消耗乘以{0}
 	AnkhShieldEffect:
 		'''
 		免疫击退和火焰方块
@@ -487,4 +487,5 @@ Effect: {
 		响指有5分钟冷却时间
 		'''
 	DemonHelmetSetEffect: 一个忠诚的小恶魔仆从将为你而战，无论何时何地
+	// MeleeSizeEffect: Increases the size of melee weapons
 }

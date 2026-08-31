@@ -2,6 +2,7 @@ using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -39,6 +40,14 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
             //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PurityCrawlerBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if ((AAWorld.Terra1 || Main.hardMode || NPC.downedPlantBoss) && spawnInfo.Player.AAPlayer().ZoneTerrarium && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return (Main.hardMode || NPC.downedPlantBoss) ? 0.03f : 0.05f;
+
+            return 0f;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

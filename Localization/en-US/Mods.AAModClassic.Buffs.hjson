@@ -673,3 +673,8 @@ InfinityGauntletEffect_InfinityBurnout: {
 	DisplayName: Infinity Burnout
 	Description: They didn't go for the head.
 }
+
+PortaProbe_Buff: {
+	DisplayName: Mini Probe
+	Description: Seeks out life and treasure for you
+}

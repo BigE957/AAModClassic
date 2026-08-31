@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._CrossMod;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
@@ -61,6 +62,17 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
             [
                 new FlavorTextBestiaryInfoElement("Mods.AAModClassic.Bestiary.Wyrmling")
             ]);
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (ContentReplacementSystem.NeedToReplaceContent || (!Main.dayTime && !AAWorld.downedAkuma && spawnInfo.Player.ZoneSurface()))
+                return 0f;
+
+            if (spawnInfo.Player.ZoneAnyInferno() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.25f;
+
+            return 0f;
         }
 
         public override bool PreAI()

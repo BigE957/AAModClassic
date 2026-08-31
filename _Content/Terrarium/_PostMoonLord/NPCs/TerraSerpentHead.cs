@@ -46,6 +46,14 @@ namespace AAModClassic._Content.Terrarium._PostMoonLord.NPCs
             SpawnModBiomes = new int[1] { ModContent.GetInstance<TerrariumBiome>().Type };
         }
 
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (AAWorld.downedEquinox && spawnInfo.Player.AAPlayer().ZoneTerrarium && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.025f;
+
+            return 0f;
+        }
+
         public override bool PreAI()
         {
             NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 1.57f;

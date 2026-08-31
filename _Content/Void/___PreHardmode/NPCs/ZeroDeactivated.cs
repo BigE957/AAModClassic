@@ -196,9 +196,9 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
         public void SpawnDeactivatedZero()
         {
             int VoidHeight = WorldGenUtils.GetWorldSize() == 1 ? 110 : 140;
-			
-			Point spawnTilePos = new Point(Main.maxTilesX / 15 * 14 + Main.maxTilesX / 15 / 2 - 100, VoidHeight);				
-			Vector2 spawnPos = new Vector2(spawnTilePos.X * 16, spawnTilePos.Y * 16);
+
+            Point spawnTilePos = new((Main.maxTilesX / 15 * 14) + (Main.maxTilesX / 15 / 2) - 100, VoidHeight);
+			Vector2 spawnPos = new(spawnTilePos.X * 16, spawnTilePos.Y * 16);
 			bool anyZerosExist = NPC.AnyNPCs(ModContent.NPCType<ZeroDeactivated>()) || NPC.AnyNPCs(ModContent.NPCType<Zero>()) || NPC.AnyNPCs(ModContent.NPCType<ZeroA>());			
 			if (!anyZerosExist)
 			{

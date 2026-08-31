@@ -44,7 +44,7 @@ namespace AAModClassic._Content.Snow.__Hardmode.Items.Weapons
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Projectile.NewProjectile(source, position, velocity * 2f, ModContent.ProjectileType<AsgardianLance_Proj>(), damage, knockback, Main.myPlayer);
+            Projectile.NewProjectile(source, position + (velocity * 3f), velocity * 2f, ModContent.ProjectileType<AsgardianLance_Proj>(), damage, knockback, Main.myPlayer);
             return true;
         }
 

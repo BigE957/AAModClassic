@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
+using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
 using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Effects;
@@ -69,7 +70,16 @@ Can only be used in Greed's Hoard at the Altar of Desire
             list.RemoveAt(indexToRemove);
         }
 
-        public override bool CanUseItem(Player player) => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && player.GetModPlayer<ZAAPlayer>().ZoneHoard && (AADowned.downedGreedA || AADowned.GreedAwakened);
+        public override bool CanUseItem(Player player)
+        {
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                return false;
+
+            if (!player.GetModPlayer<ZAAPlayer>().ZoneHoard || (!NPCExtensions.BeenKilled<GreedAHead>() && !AAWorld.GreedAwakened))
+                return false;
+
+            return !NPC.AnyNPCs(ModContent.NPCType<GreedHead>()) && !NPC.AnyNPCs(ModContent.NPCType<GreedAHead>());
+        }
 
         public override bool? UseItem(Player player)
         {

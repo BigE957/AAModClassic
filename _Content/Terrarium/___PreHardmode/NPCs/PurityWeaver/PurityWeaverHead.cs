@@ -56,6 +56,14 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs.PurityWeaver
             ]);
         }
 
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if ((AAWorld.Terra1 || Main.hardMode || NPC.downedPlantBoss) && spawnInfo.Player.AAPlayer().ZoneTerrarium && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return (Main.hardMode || NPC.downedPlantBoss) ? 0.03f : 0.05f;
+
+            return 0f;
+        }
+
         public override Color? GetAlpha(Color drawColor)
         {
             return Color.White ;

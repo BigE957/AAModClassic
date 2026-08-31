@@ -3,8 +3,10 @@ using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._CrossMod;
 using AAModClassic.Globals;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using System;
 using Terraria;
@@ -40,6 +42,17 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs._Surface._Day
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (!AAWorld.downedSisters || spawnInfo.Player.ZoneAnyMire())
+                return 0f;
+
+            if (spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyInferno() && (Main.dayTime || AAWorld.downedAkuma) && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return ContentReplacementSystem.NeedToReplaceContent ? 0.5f : .05f;
+
+            return SpawnCondition.OverworldNightMonster.Chance * 0.04f;
+        }
+
         public override void AI()
         {
             AAAI.AIClaw(NPC, ref NPC.ai, false, true, 0.1f, 0.04f, 9f, 5f, 1f, 1f);
@@ -68,15 +81,6 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs._Surface._Day
                     NPC.frame.Y = 0;
                 }
             }
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (AADowned.downedSistersOfDiscord)
-            {
-                return SpawnCondition.OverworldNightMonster.Chance * 0.04f;
-            }
-            return 0;
         }
 
         public override void HitEffect(NPC.HitInfo hit)

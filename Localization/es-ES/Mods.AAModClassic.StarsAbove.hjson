@@ -37,7 +37,7 @@ PromptDialogue: {
 
 	TruffleToad: {
 		Seen: {
-			Asphodene: Un sapo hongo. Brilla. Terraria es raro, pero me está empezando a gustar.
+			Asphodene: Un sapo de trufa. Brilla. Terraria es raro, pero me está empezando a gustar.
 			Eridani: Ese sapo parece agitado. No dejes que su apariencia pequeña y linda te engañe.
 		}
 
@@ -74,12 +74,12 @@ PromptDialogue: {
 	SubzeroSerpent: {
 		Seen: {
 			Asphodene: ¿Una serpiente de hielo? Es hermosa pero probablemente letal. No te acerques demasiado.
-			Eridani: Serpiente Bajo Cero. Su aliento de fuego gélido no es broma; mantén la distancia cuando sea posible.
+			Eridani: Serpiente Subcero. Su aliento de fuego gélido no es broma; mantén la distancia cuando sea posible.
 		}
 
 		Defeat: {
 			Asphodene: Esa serpiente acaba de ser congelada. Hoy estoy en racha.
-			Eridani: La Serpiente Bajo Cero ha sido vencida. Tal vez la tundra sea un poco más segura de explorar ahora.
+			Eridani: La Serpiente Subcero ha sido vencida. Tal vez la tundra sea un poco más segura de explorar ahora.
 		}
 	}
 
@@ -134,7 +134,7 @@ PromptDialogue: {
 	Greed: {
 		Seen: {
 			Asphodene: Un gusano gigante cubierto de oro. Hortera Y mortal. Menuda combinación.
-			Eridani: Avaricia, la Glotona Dorada. Acumula tesoros y desprecia a los intrusos. Una motivación predecible.
+			Eridani: Avaricia, el Glotón Dorado. Acumula tesoros y desprecia a los intrusos. Una motivación predecible.
 		}
 
 		Defeat: {
@@ -146,7 +146,7 @@ PromptDialogue: {
 	Rajah: {
 		Seen: {
 			Asphodene: ¡Vaya, qué conejo tan grande! Y VAYA que parece enfadado.
-			Eridani: Rabbit Rajah, el Castigador Saltarín. Busca justicia, pero ¿qué hicimos para atraer su ira?
+			Eridani: Rajah Rabbit, el Castigador Saltarín. Busca justicia, pero ¿qué hicimos para atraer su ira?
 
 			Murderer: {
 				Asphodene: Te llamó asesino. {0}, ¿qué HICISTE?
@@ -209,7 +209,7 @@ PromptDialogue: {
 
 		Defeat: {
 			Asphodene: Se están desvaneciendo. Supongo que pasamos su prueba después de todo.
-			Eridani: Los gusanos del Equinocci se disuelven. Parece que hemos sido considerados dignos.
+			Eridani: Los gusanos del Equinoccio se disuelven. Parece que hemos sido considerados dignos.
 		}
 	}
 
@@ -290,12 +290,12 @@ PromptDialogue: {
 	Zero: {
 		Seen: {
 			Asphodene: Una máquina flotante con armas en órbita. Habla en código. Da escalofríos.
-			Eridani: Zero. Un artefacto del fin del mundo. Sus armas desatarán un asalto implacable. ¡Busca refugio! ¡Rápido!
+			Eridani: Cero. Un artefacto del fin del mundo. Sus armas desatarán un asalto implacable. ¡Busca refugio! ¡Rápido!
 		}
 
 		Defeat: {
 			NotExpert: {
-				Asphodene: Zero ha caído. Aunque parece que estaba intentando hacer algo al final... Tal vez tengamos suerte de que haya fallado.
+				Asphodene: Cero ha caído. Aunque parece que estaba intentando hacer algo al final... Tal vez tengamos suerte de que haya fallado.
 				Eridani: El artefacto cae, pero su 'Protocolo del Fin del Mundo' me preocupa. Puede que hayamos tenido suerte de que no lograra utilizarlo.
 			}
 		}
@@ -304,7 +304,7 @@ PromptDialogue: {
 	ZeroProtocol: {
 		Seen: {
 			Asphodene: ¡Vaya! ¡¿Acaba de deshacerse de su cuerpo físico?! ¡Este 'Protocolo del Fin del Mundo' no es broma! Ahora estamos luchando contra un fallo viviente.
-			Eridani: Descartando la Unidad Zero. Ahora estamos luchando contra algo completamente distinto. Se ha vuelto mucho más móvil. ¡No dejes que te alcance!
+			Eridani: Descartando la Unidad Cero. Ahora estamos luchando contra algo completamente distinto. Se ha vuelto mucho más móvil. ¡No dejes que te alcance!
 		}
 
 		Defeat: {

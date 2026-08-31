@@ -76,18 +76,21 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 				return true;
 			}
 
+			if (tile.TileType == ModContent.TileType<TerraCrystal_Tile>())
+				return true;
+
 			return false;
 		}
 
-        public override bool Place(Point origin, StructureMap structures)
-        {
+		public static Point FindValidLostKeepPosition(Point origin, StructureMap structures)
+		{
             int attempts = 0;
             int maxAttempts = 20000;
             Point placementPoint = origin;
             bool placementSucceeded = false;
-			int maxHeightUp = 550;
-			if (WorldGenUtils.GetWorldSize() == 1)
-				maxHeightUp = 300;
+            int maxHeightUp = 550;
+            if (WorldGenUtils.GetWorldSize() == 1)
+                maxHeightUp = 300;
 
             do
             {
@@ -134,12 +137,13 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
             } while (attempts++ < maxAttempts);
 
             if (!placementSucceeded)
-            {
                 AAMod.instance.Logger.Warn("Lost Keep placement failed after " + maxAttempts + " attempts.");
-            }
 
-            WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, LostKeepTexGenAssets.KeepTileData.Width, LostKeepTexGenAssets.KeepTileData.Height), 20);
+			return origin;
+        }
 
+        public override bool Place(Point origin, StructureMap structures)
+        {
             Dictionary<Color, int> ColorToTile = new Dictionary<Color, int>();
 			ColorToTile[new(128, 128, 128)] = ModContent.TileType<KeepBrick_Tile>();
 			ColorToTile[new(64, 64, 64)] = ModContent.TileType<TerraBrick_Tile>();
@@ -172,19 +176,15 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 			HashSet<int> unbreakableTiles = [TileID.Glass, ModContent.TileType<TerraWood_Tile>(), ModContent.TileType<PermeableTerraWood_Tile>(), ModContent.TileType<TerraLeaves_Tile>(), ModContent.TileType<ScorchedShingles_Tile>()];
 
 			TexGen texGenerator = TexGen.GetTexGenerator(LostKeepTexGenAssets.KeepTileData, colorToTile, LostKeepTexGenAssets.KeepWallData, colorToWall, null, LostKeepTexGenAssets.KeepSlopeData, unbreakableTiles: unbreakableTiles);
-			int placeX = origin.X;
-			int placeY = origin.Y;
 
-            AAWorld_Unreleased.lostKeepOrigin = new(placeX, placeY);
-
-            texGenerator.Generate(placeX, placeY, silent: true, sync: true);
+            texGenerator.Generate(origin.X, origin.Y, silent: true, sync: true);
 			Dictionary<Color, int> dictionary3 = new Dictionary<Color, int>();
 			dictionary3[new(255, 0, 0)] = TileID.AmberGemspark;
 			dictionary3[new(0, 255, 0)] = TileID.TopazGemspark;
 			dictionary3[new(255, 0, 255)] = TileID.AmethystGemspark;
 			dictionary3[Color.Black] = -1;
 			Dictionary<Color, int> colorToTile2 = dictionary3;
-			TexGen.GetTexGenerator(LostKeepTexGenAssets.KeepPlatformData, colorToTile2).Generate(placeX, placeY, silent: true, sync: true);
+			TexGen.GetTexGenerator(LostKeepTexGenAssets.KeepPlatformData, colorToTile2).Generate(origin.X, origin.Y, silent: true, sync: true);
 			for (int i = origin.X; i < origin.X + LostKeepTexGenAssets.KeepPlatformData.Width; i++)
 			{
 				for (int j = origin.Y; j < origin.Y + LostKeepTexGenAssets.KeepPlatformData.Height; j++)
@@ -228,7 +228,7 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
 			dictionary4[new(64, 0, 0)] = TileID.LivingCursedFire;
 			dictionary4[Color.Black] = -1;
 			Dictionary<Color, int> colorToTile3 = dictionary4;
-			TexGen.GetTexGenerator(LostKeepTexGenAssets.KeepObjectData, colorToTile3).Generate(placeX, placeY, silent: true, sync: true);
+			TexGen.GetTexGenerator(LostKeepTexGenAssets.KeepObjectData, colorToTile3).Generate(origin.X, origin.Y, silent: true, sync: true);
 			for (int i = origin.X; i < origin.X + LostKeepTexGenAssets.KeepObjectData.Width; i++)
 			{
 				for (int j = origin.Y; j < origin.Y + LostKeepTexGenAssets.KeepObjectData.Height; j++)

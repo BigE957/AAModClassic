@@ -14,7 +14,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
         {
 			Item.CloneDefaults(ItemID.SolarEruption);
 
-            Item.damage = 35; 
+            Item.damage = 70; 
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */; 
             Item.width = 46; 
             Item.height = 66;    

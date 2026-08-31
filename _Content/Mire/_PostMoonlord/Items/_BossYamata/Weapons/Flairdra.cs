@@ -36,7 +36,7 @@ Inflicts Moonraze"); */
             Item.useAnimation = 12;
             Item.useTime = 12;
             Item.knockBack = 3.5f;
-            Item.damage = 80;
+            Item.damage = 160;
             Item.noUseGraphic = true;
             Item.shoot = ModContent.ProjectileType<Flairdra_Holdout>();
             Item.shootSpeed = 24f;

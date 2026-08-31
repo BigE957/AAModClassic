@@ -2,6 +2,7 @@ using AAModClassic._Content.Void.Projectiles;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -40,7 +41,15 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
-		public override void HitEffect(NPC.HitInfo hit)
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (spawnInfo.Player.AAPlayer().ZoneVoid && NPC.downedPlantBoss && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.005f;
+
+            return 0f;
+        }
+
+        public override void HitEffect(NPC.HitInfo hit)
 		{		
 			bool isDead = NPC.life <= 0;
 			for (int m = 0; m < (isDead ? 25 : 5); m++)

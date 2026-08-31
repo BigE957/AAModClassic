@@ -3,6 +3,7 @@ using AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -37,6 +38,14 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraWizardBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (NPC.downedPlantBoss && spawnInfo.Player.AAPlayer().ZoneTerrarium && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.05f;
+
+            return 0f;
         }
 
         public float[] shootAI = new float[4];

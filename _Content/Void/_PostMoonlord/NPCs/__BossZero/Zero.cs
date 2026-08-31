@@ -264,7 +264,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
 
             LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ZeroCore>(), 10));
+            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(10, [ModContent.ItemType<ZeroCore>(), ModContent.ItemType<PortaProbe>()]));
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ZeroMask>(), 7));
 

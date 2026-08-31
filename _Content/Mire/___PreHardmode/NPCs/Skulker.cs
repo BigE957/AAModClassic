@@ -1,6 +1,8 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._CrossMod;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
@@ -39,6 +41,17 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<SkulkerBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (ContentReplacementSystem.NeedToReplaceContent || (Main.dayTime && !AAWorld.downedYamata && spawnInfo.Player.ZoneSurface()))
+                return 0f;
+
+            if (spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.02f;
+
+            return 0f;
         }
 
         private bool Shell = false;

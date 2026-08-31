@@ -1,6 +1,8 @@
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tools;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.RedMushroom.World.Biomes;
 using AAModClassic._CrossMod.CalamityMod;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
@@ -405,6 +407,8 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<MushroomMonarchMask>(), 7));
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Mushium>(), 1, 25, 35));
+
+            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, [ModContent.ItemType<Mushpick>(), ModContent.ItemType<Mushmallet>(), ModContent.ItemType<Musharang>(), ModContent.ItemType<MushroomBow>()]));
 
             npcLoot.AddLoreItemDrop<MushroomMonarch>(ModContent.ItemType<MushroomMonarchLore>());
 

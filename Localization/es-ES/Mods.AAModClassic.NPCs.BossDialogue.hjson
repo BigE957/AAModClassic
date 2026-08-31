@@ -1,14 +1,14 @@
-male: him
-fimale: her
-male2: HIM
-fimale2: HER
-boy: ", BOY"
-girl: ", GIRL"
+male: el
+fimale: ella
+male2: EL
+fimale2: ELLA
+boy: ", CHICO"
+girl: ", CHICA"
 FatPixie: YEET
 CoreSpawn: ¡El Núcleo de Biomita zumba y cobra vida!
 
 SistersOfDiscord: {
-	// Ambient.HarukaShadow: pathetic.
+	Ambient.HarukaShadow: Patético.
 
 	Spawn: {
 		1: ¡Vaya, hola! ¡Qué sorpresa verte a TI aquí~!
@@ -195,7 +195,7 @@ Athena: {
 		}
 
 		Repeat: {
-			1: Sigh...
+			1: Ah...
 			2: Acabemos con esto de una vez. No tengo todo el día.
 		}
 	}
@@ -240,7 +240,7 @@ Athena: {
 }
 
 SeraphHerald1: ¡HOLA! ¡CAMINANTE TERRESTRE! ¡SÍ, TÚ, ESTÚPIDO SIMIO!
-SeraphHerald2: ¡La Reina Athena exige tu presencia en la acrópolis de nuevo inmediatamente!
+SeraphHerald2: ¡La Reina Atenea exige tu presencia en la acrópolis de nuevo inmediatamente!
 SeraphHerald3: ¡Exige una revancha y esta vez no dejará que la derribes tan fácilmente!
 SeraphHerald4: Diría que te rompas una pierna, ¡pero podemos hacer eso nosotros mismos cuando aparezcas!
 SeraphHerald5: ¡Nos vemos, enano!
@@ -480,7 +480,7 @@ Zero: {
 	Defeat: {
 		Expert: UNIDAD ZER0 FÍSICA EN C0NDICIÓN CRÍTICA. DESCARTAND0 E INICIAND0 PR0TOC0L0 AP0CALÍPTIC0.
 		NotExpert: FALL0 EN EL PR0T0C0L0 AP0CALÍPTIC0. MAIN.EXPERTM0DE = FALSE.
-		Status: La oscura influencia de Zero sobre el vacío se ha disipado. La piedra del destino ahora se puede minar.
+		Status: La oscura influencia de Cero sobre el vacío se ha disipado. La piedra del destino ahora se puede minar.
 	}
 
 	Awakened: {
@@ -726,8 +726,8 @@ InfinityZero: {
 	}
 
 	Zeroes: {
-		Revived: Unidades Zero reparadas suficientemente. Reiniciando el sistema de defensa del Núcleo.
-		Defeated: Unidades Zero en condición crítica. Redireccionando recursos a sistemas de reparación. Defensa del Núcleo temporalmente desactivada.
+		Revived: Unidades Cero reparadas suficientemente. Reiniciando el sistema de defensa del Núcleo.
+		Defeated: Unidades Cero en condición crítica. Redireccionando recursos a sistemas de reparación. Defensa del Núcleo temporalmente desactivada.
 	}
 
 	Defeat: {
@@ -779,9 +779,9 @@ InfinityZero: {
 			2: ¿Cuatro veces? Debes de ser una especie de masoquista o algo así.
 			3: Sabes, yo no soy el agresor aquí...
 			4: No haces más que invocarme.
-			5: Solo aparecí porque destrozaste mi unidad Zero.
+			5: Solo aparecí porque destrozaste mi unidad Cero.
 			6: El vacío no te estaba haciendo daño. Está ahí sin más.
-			7: Tú fuiste quien entró a matar a mi unidad Zero.
+			7: Tú fuiste quien entró a matar a mi unidad Cero.
 			8: Como sea, toma los objetos de jefe y vete.
 		}
 

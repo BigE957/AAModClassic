@@ -63,8 +63,9 @@ namespace AAModClassic._Content.Hoard.World.Tiles
                     Item item = player.inventory[m];
                     if (item != null && item.type == type && item.stack >= 1)
                     {
-                        item.stack--;
-                        if (AADowned.downedGreed)
+                        if (item.consumable)
+                            item.stack--;
+                        if (NPCExtensions.BeenKilled<GreedHead>())
                         {
                             AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedHead>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Greed"));
                         }

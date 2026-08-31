@@ -1,6 +1,8 @@
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._CrossMod;
 using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -36,6 +38,14 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs
             //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<SoulsuckerBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (NPC.downedMoonlord && spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f;
+
+            return 0f;
         }
 
         public override void FindFrame(int frameHeight)

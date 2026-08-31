@@ -7,9 +7,9 @@ MoonBeeInAJar_Lunamini.DisplayName: 小月亮
 MudFishBall_Mudkip.DisplayName: 沼跃鱼
 RoyalStar_RoyalKitten.DisplayName: 皇族小猫
 ShinyFishBall_ShinyMudkip.DisplayName: 闪耀的沼跃鱼
-AleisterStaff_InvokedDamage.DisplayName: 召请伤害
-AleisterStaff_InvokedHeal.DisplayName: 召请治愈
-AleisterStaff_InvokedRune.DisplayName: 召请符文
+AleisterStaff_InvokedDamage.DisplayName: 召唤兽伤害
+AleisterStaff_InvokedHeal.DisplayName: 召唤兽治愈
+AleisterStaff_InvokedRune.DisplayName: 召唤兽符文
 AleisterStaff_Proj.DisplayName: 阿莱斯特之杖
 GameRaider_GameRocket.DisplayName: 游戏火箭
 GameRaider_MooBoom.DisplayName: 松露爆炸
@@ -899,7 +899,7 @@ InfinityZero_InfinityStorm.DisplayName: 无限风暴
 InfinityZero_InfinityZeroShot.DisplayName: 无限零射击
 ShockwaveBoom.DisplayName: 冲击波爆炸
 DummyExplosionTerra.DisplayName: 虚拟爆炸
-SistersTitle.DisplayName: 双胞胎姐妹标题
+SistersTitle.DisplayName: 混沌姐妹标题
 Title.DisplayName: 标题
 InfinityGauntletEffect_Snap.DisplayName: 响指
 ProtocolR_RaiderRocket.DisplayName: 侵入火箭
@@ -907,4 +907,5 @@ TheGripsOfChaos_HookInferno.DisplayName: 混沌之攫
 TheGripsOfChaos_HookMire.DisplayName: 混沌之攫
 DragonsGrip_Hook.DisplayName: 龙爪手
 HydraBite_Hook.DisplayName: 九头蛇之噬
-// BiomiteCore_RainbowBack.DisplayName: Rainbow
+BiomiteCore_RainbowBack.DisplayName: 彩虹
+PortaProbe_MiniProbe.DisplayName: 小探测器

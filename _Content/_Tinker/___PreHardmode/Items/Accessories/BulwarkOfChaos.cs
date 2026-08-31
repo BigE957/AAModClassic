@@ -30,7 +30,7 @@ namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories
 
         public override void RegisterEquipEffects()
         {
-            damageMap.GetDamage(DamageClass.Default).Flat += 5;
+            damageMap.GetDamage(DamageClass.Generic).Flat += 5;
             AddEffect<ShieldOfCthulhuDashEffect>();
         }
 

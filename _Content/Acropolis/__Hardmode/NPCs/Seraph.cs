@@ -6,6 +6,7 @@ using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
@@ -51,6 +52,14 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Sky);
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (NPC.downedPlantBoss && spawnInfo.Player.AAPlayer().ZoneAcropolis && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.03f;
+
+            return 0f;
         }
 
         public override bool PreAI()

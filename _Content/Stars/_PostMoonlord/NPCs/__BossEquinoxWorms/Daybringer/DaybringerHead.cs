@@ -168,50 +168,11 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
 			return NPC.timeLeft < 50;
 		}
 
-		public void HandleDayNightCycle()
-		{
-			bool daybringerExists = NPC.AnyNPCs(ModContent.NPCType<DaybringerHead>());
-			bool nightcrawlerExists = NPC.AnyNPCs(ModContent.NPCType<NightcrawlerHead>());
-
-            int rate = 1;
-
-			if (daybringerExists && nightcrawlerExists)
-            {
-                if(NPC.type == ModContent.NPCType<DaybringerHead>() && Main.dayTime && !preShootingSun || NPC.type == ModContent.NPCType<NightcrawlerHead>() && !Main.dayTime && !preDeathRay)
-                {
-                    if (Main.expertMode)
-                        rate = 20;
-                    else
-                        rate = 15;
-                }
-                else if(NPC.type == ModContent.NPCType<DaybringerHead>() && preShootingSun || NPC.type == ModContent.NPCType<NightcrawlerHead>() && (preDeathRay || isDeathRay))
-                {
-                    rate = 0;
-                    Main.time--;
-                }
-            }
-            else if (daybringerExists && !nightcrawlerExists)
-            {
-                Main.dayTime = true;
-                rate = 0;
-                if(preShootingSun)
-                    rate--;
-            }
-            else if (!daybringerExists && nightcrawlerExists)
-            {
-                Main.dayTime = false;
-                rate = 0;
-                if(preDeathRay || isDeathRay)
-                    rate--;
-            }
-
-            Main.time += rate - 1;
-		}
-        bool preDeathRay = false;
-        bool isDeathRay = false;
-        bool preShootingSun = false;
-		bool prevWormStronger = false;
-		bool initCustom = false;
+        internal bool preDeathRay = false;
+        internal bool isDeathRay = false;
+        internal bool preShootingSun = false;
+        internal bool prevWormStronger = false;
+        internal bool initCustom = false;
         public int CloudCount = Main.expertMode ? 8 : 6;
         public int CloudCooldown = 400;
 
@@ -227,10 +188,6 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                 internalAI[7] += NPC.whoAmI % 7 * 12; //so it doesn't pew all at once
                 NPC.velocity.X += 0.1f;
                 NPC.velocity.Y -= 4f;
-            }
-            if (isHead)
-            {
-                HandleDayNightCycle();
             }
 
             bool isDay = Main.dayTime;
@@ -1010,5 +967,46 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             spriteBatch.Draw(tex, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0); //GetAuraAlpha());				
             return false;
         }
+    }
+
+    public class EquinoxTimeSystem : ModSystem
+    {
+        public override void ModifyTimeRate(ref double timeRate, ref double tileUpdateRate, ref double eventUpdateRate)
+        {
+            int daybringerIndex = NPC.FindFirstNPC(ModContent.NPCType<DaybringerHead>());
+            bool daybringerExists = daybringerIndex != -1;
+            int nightcrawlerIndex = NPC.FindFirstNPC(ModContent.NPCType<NightcrawlerHead>());
+            bool nightcrawlerExists = nightcrawlerIndex != -1;
+
+            if (daybringerExists && nightcrawlerExists)
+            {
+                DaybringerHead daybringer = Main.npc[daybringerIndex].ModNPC as DaybringerHead;
+                NightcrawlerHead nightcrawler = Main.npc[nightcrawlerIndex].ModNPC as NightcrawlerHead;
+
+                if (Main.dayTime && !daybringer.preShootingSun || !Main.dayTime && !nightcrawler.preDeathRay)
+                    timeRate *= Main.expertMode ? 20 : 15;
+                else if (daybringer.preShootingSun || (nightcrawler.preDeathRay || nightcrawler.isDeathRay))
+                    timeRate *= 0;
+            }
+            else if (daybringerExists && !nightcrawlerExists)
+            {
+                DaybringerHead daybringer = Main.npc[daybringerIndex].ModNPC as DaybringerHead;
+
+                Main.dayTime = true;
+                
+                if (daybringer.preShootingSun)
+                    timeRate *= 0;
+            }
+            else if (!daybringerExists && nightcrawlerExists)
+            {
+                NightcrawlerHead nightcrawler = Main.npc[nightcrawlerIndex].ModNPC as NightcrawlerHead;
+
+                Main.dayTime = false;
+                
+                if (nightcrawler.preDeathRay || nightcrawler.isDeathRay)
+                    timeRate *= 0;
+            }
+        }
+
     }
 }

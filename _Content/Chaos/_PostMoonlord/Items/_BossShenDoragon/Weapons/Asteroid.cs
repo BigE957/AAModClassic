@@ -35,7 +35,7 @@ Inflicts Discordian Inferno"); */
             Item.useAnimation = 40;
             Item.useTime = 40;
             Item.knockBack = 7.5f;
-            Item.damage = 150;
+            Item.damage = 300;
             Item.noUseGraphic = true;
             Item.shoot = ModContent.ProjectileType<Asteroid_Holdout>();
             Item.shootSpeed = 32f;

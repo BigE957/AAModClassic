@@ -1,5 +1,7 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._CrossMod;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -51,6 +53,17 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
             //Banner = NPC.type;
 			//BannerItem = ModContent.ItemType<SingemanderBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (ContentReplacementSystem.NeedToReplaceContent || (!Main.dayTime && !AAWorld.downedAkuma && spawnInfo.Player.ZoneSurface()))
+                return 0f;
+
+            if (spawnInfo.Player.ZoneAnyInferno() && !NPCUtils.AnyEvents(spawnInfo.Player))
+                return 0.5f;
+
+            return 0f;
         }
 
         private bool biteAttack;

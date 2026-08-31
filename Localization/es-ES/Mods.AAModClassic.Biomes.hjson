@@ -4,8 +4,8 @@ AcropolisBiome: {
 }
 
 HoardBiome: {
-	DisplayName: El Tesoro
-	TownNPCDialogueName: el Tesoro
+	DisplayName: El Alijo
+	TownNPCDialogueName: el Alijo
 }
 
 InfernoBiome: {
@@ -44,13 +44,13 @@ LostKeepBiome: {
 }
 
 ParthenanBiome: {
-	DisplayName: El Parthenan
-	TownNPCDialogueName: el Parthenan
+	DisplayName: El Partenón
+	TownNPCDialogueName: el Partenón
 }
 
 RedMushroomBiome: {
-	DisplayName: Champiñón Rojo
-	TownNPCDialogueName: el Champiñón Rojo
+	DisplayName: Champiñones Rojos
+	TownNPCDialogueName: los Champiñones Rojos
 }
 
 StarsBiome: {

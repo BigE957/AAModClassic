@@ -162,6 +162,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             }
             NPC.chaseable = false;
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
+
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
