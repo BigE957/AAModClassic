@@ -1,4 +1,4 @@
-using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
+﻿using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
@@ -11,7 +11,7 @@ using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
+
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
 {

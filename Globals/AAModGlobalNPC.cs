@@ -1,4 +1,4 @@
-using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content._Dev.___PreHardmode.Items.Materials;
 using AAModClassic._Content._Misc.__Hardmode.Items.Ammo;
 using AAModClassic._Content._Misc.__Hardmode.Items.Materials;
 using AAModClassic._Content._Misc.__Hardmode.Items.Weapons;
@@ -104,8 +104,8 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.ModLoader.Utilities;
+using static AAModClassic.AAConditions;
 using static AAModClassic.Assets.AssetDirectory;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 namespace AAModClassic.Globals
 {
@@ -1036,7 +1036,7 @@ namespace AAModClassic.Globals
                     break;
                 case NPCID.Dryad:
                     shop.Add<MyceliumSeeds>(Condition.InGlowshroom);
-                    shop.Add<GoldenCarrot>(new Condition(Language.GetText("Mods.AAModClassic.Common.Conditions.DownedRajah"), () => NPCExtensions.BeenKilled<RajahRabbit>()));
+                    shop.Add<GoldenCarrot>(AAConditions.downedRajahRabbit);
                     shop.ActiveEntries.First(e => e.Item.type == ModContent.ItemType<GoldenCarrot>()).Item.shopCustomPrice = Item.sellPrice(0, 30, 0, 0);
                     break;
                 case NPCID.Truffle:

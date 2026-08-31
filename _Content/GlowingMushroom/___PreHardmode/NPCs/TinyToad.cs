@@ -1,4 +1,4 @@
-using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
+﻿using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad;
@@ -14,7 +14,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
+
 
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs

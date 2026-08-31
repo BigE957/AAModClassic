@@ -326,7 +326,6 @@ GlowingMassShroomFalse: Deja de agitar un montón de champiñones en mitad de la
 
 Conditions: {
 	Release: En mundos aún no publicados
-	DownedRajah: Después de derrotar a Rajah Rabbit
 	InSunkenShipPreSoC: Cerca del Barco Hundido después de derrotar a todos los Antiguos
 	IsMaster: En Modo Maestro
 	Unofficial: En mundos no oficiales
@@ -346,10 +345,6 @@ Conditions: {
 	GoblinsDefeated: Si el Ejército de duendes ha sido derrotado
 	DownedGobSummoner: Si el Invocador Duende ha sido derrotado
 	DownedMoth: Si Polillón ha sido derrotado
-	DownedBroodmother: Si la Madre de la Camada ha sido derrotada
-	DownedHydra: Si la Hidra ha sido derrotada
-	DownedAnyLateAncient: Cualquier Antiguo tardío ha sido derrotado
-	DownedAnySuperancient: Cualquier Superantiguo ha sido derrotado
 
 	LovecraftianQuest: {
 		Purity: Si se ha completado la misión de pureza del Lovecraftiano
@@ -366,5 +361,46 @@ Conditions: {
 		Ice: Si se ha completado la misión de hielo del Lovecraftiano
 		AntiIce: Si se ha completado la misión antihielo del Lovecraftiano
 		Forest: Si se ha completado la misión del bosque del Lovecraftiano
+	}
+
+	BossDowned: {
+		// Rajah: If the Rajah Rabbit has been defeated
+		// Broodmother: If the Broodmother has been defeated
+		// Hydra: If the Hydra has been defeated
+		// MushroomMonarch: If the Mushroom Monarch has been defeated
+		// FeudalFungus: If the Feudal Fungus has been defeated
+		// GripsOfChaos: If the Grips of Chaos have been defeated
+		// TruffleToad: If the Truffle Toad has been defeated
+		// SubzeroSerpent: If the Subzero Serpent has been defeated
+		// DesertDjinn: If the Desert Djinn has been defeated
+		// Sagittarius: If Sagittarius has been defeated
+		// TechnoTruffle: If the Techno Truffle has been defeated
+		// Retriever: If the Retriever has been defeated
+		// OrthrusX: If Orthrus X has been defeated
+		// RaiderUltima: If Raider Ultima has been defeated
+		// Anubis: If Anubis has been defeated
+		// BiomiteCore: If the Biomite Core has been defeated
+		// Athena: If Athena has been defeated
+		// Greed: If Greed has been defeated
+		// RajahRabbit: If Rajah Rabbit has been defeated
+		// ForsakenAnubis: If the Forsaken Anubis has been defeated
+		// AthenaA: If Awakened Athena has been defeated
+		// GreedA: If Awakened Greed has been defeated
+		// EquinoxWorms: If the Equinox Worms have been defeated
+		// SistersOfDiscord: If the Sisters of Discord have been defeated
+		// Akuma: If Akuma has been defeated
+		// AkumaA: If Oni Akuma has been defeated
+		// Yamata: If Yamata has been defeated
+		// YamataA: If Yamata no Orochi has been defeated
+		// Zero: If Zero has been defeated
+		// ZeroP: If Zero, Perfect Form has been defeated
+		// RajahRabbitR: If the revived Rajah Rabbit has been defeated
+		// Shen: If Shen Doragon has been defeated
+		// ShenA: If the Awakened Shen Doragon has been defeated
+		// InfinityZero: If Infinity Zero has been defeated
+		// SoulOfCthulhu: If the Soul of Cthulhu has been defeated
+		// Cthulhu: If Cthulhu has been defeated
+		// AnyLateAncient: If any late Ancient has been defeated
+		// AnySuperancient: If any Superancient has been defeated
 	}
 }

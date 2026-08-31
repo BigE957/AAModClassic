@@ -1,4 +1,4 @@
-using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
 using AAModClassic._Content.Mire.World.Biomes;
@@ -30,7 +30,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using static AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.AkumaAHead;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
+
 
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 {

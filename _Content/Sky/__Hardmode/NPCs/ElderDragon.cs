@@ -1,4 +1,4 @@
-using AAModClassic._Content.Sky.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Sky.__Hardmode.Items.Materials;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
@@ -8,7 +8,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
+
 
 namespace AAModClassic._Content.Sky.__Hardmode.NPCs
 {

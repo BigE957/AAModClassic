@@ -1,4 +1,4 @@
-#InvokerInfo
+﻿#InvokerInfo
 
 InvokerBookEX1:
 	'''
@@ -326,7 +326,6 @@ GlowingMassShroomFalse: 别在荒郊野外拿着几朵蘑菇像个疯子一样�
 
 Conditions: {
 	Release: 在未启用未发布内容的世界中
-	DownedRajah: 击败巨兔王公后
 	InSunkenShipPreSoC: 击败所有远古者后，在沉船附近
 	IsMaster: 大师模式下
 	Unofficial: 在启用非官方内容的世界中
@@ -346,10 +345,6 @@ Conditions: {
 	GoblinsDefeated: 如果哥布林军队被打败
 	DownedGobSummoner: 如果哥布林术士被打败
 	DownedMoth: 如果蛾怪被打败
-	// DownedBroodmother: If the Broodmother has been defeated
-	// DownedHydra: If the Hydra has been defeated
-	// DownedAnyLateAncient: Any late Ancient has been defeated
-	// DownedAnySuperancient: Any Superancient has been defeated
 
 	LovecraftianQuest: {
 		// Purity: If the Lovecraftian's Purity quest has been completed
@@ -366,5 +361,46 @@ Conditions: {
 		// Ice: If the Lovecraftian's Ice quest has been completed
 		// AntiIce: If the Lovecraftian's Anti-Ice quest has been completed
 		// Forest: If the Lovecraftian's Forest quest has been completed
+	}
+
+	BossDowned: {
+		Rajah: 如果⌈巨兔王公⌋被打败
+		Broodmother: 如果⌈育母炎龙⌋被打败
+		Hydra: 如果⌈九头渊蛇⌋被打败
+		MushroomMonarch: 如果⌈赤孢皇⌋被打败
+		FeudalFungus: 如果⌈真菌帝⌋被打败
+		GripsOfChaos: 如果⌈混沌双爪⌋被打败
+		TruffleToad: 如果⌈松露蟾蜍⌋被打败
+		SubzeroSerpent: 如果⌈绝零冰蛇⌋被打败
+		DesertDjinn: 如果⌈沙漠巨灵⌋被打败
+		Sagittarius: 如果⌈虚空人马⌋被打败
+		TechnoTruffle: 如果⌈电子化-机械松露怪⌋被打败
+		Retriever: 如果⌈捕猎者-电子猎犬爪⌋被打败
+		OrthrusX: 如果⌈食腐者-双头狗俄耳托斯X型⌋被打败
+		RaiderUltima: 如果⌈侵入者-创世哺育之母⌋被打败
+		Anubis: 如果⌈阿努比斯 史诗记述者⌋被打败
+		BiomiteCore: 如果⌈环境原核⌋被打败
+		Athena: 如果⌈雅典娜⌋被打败
+		Greed: 如果⌈金食饕餮⌋被打败
+		RajahRabbit: 如果⌈巨兔王公⌋被打败
+		ForsakenAnubis: 如果⌈觉醒之阿努比斯 逝落的断罪师⌋被打败
+		AthenaA: 如果⌈觉醒之奥林匹亚女武神 雅典娜⌋被打败
+		GreedA: 如果⌈觉醒之金食饕餮 鎏金万蟲王⌋被打败
+		EquinoxWorms: 如果⌈昼夜双虫⌋被打败
+		SistersOfDiscord: 如果⌈混沌姐妹⌋被打败
+		Akuma: 如果⌈邪鬼巨龙⌋被打败
+		AkumaA: 如果⌈狂煞魔豪鬼⌋被打败
+		Yamata: 如果⌈八歧大蛇⌋被打败
+		YamataA: 如果⌈八俣远吕智⌋被打败
+		Zero: 如果⌈零械单元 虚空之末日结构⌋被打败
+		ZeroP: 如果⌈零械汇编器 零.之.始.约.协.议⌋被打败
+		RajahRabbitR: 如果⌈至尊巨兔王公 无辜的保护者⌋被打败
+		Shen: 如果⌈上神应龙⌋被打败
+		ShenA: 如果⌈觉醒之上神应龙 冥昭瞢暗的化身⌋被打败
+		InfinityZero: 如果⌈无限零 机械恶意⌋被打败
+		SoulOfCthulhu: 如果⌈克苏鲁之魂 旧日之影⌋被打败
+		Cthulhu: 如果⌈克苏鲁 寰宇之灾⌋被打败
+		// AnyLateAncient: If any late Ancient has been defeated
+		// AnySuperancient: If any Superancient has been defeated
 	}
 }

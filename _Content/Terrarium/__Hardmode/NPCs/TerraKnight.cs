@@ -1,4 +1,4 @@
-using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Utilities;
@@ -9,7 +9,7 @@ using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
+
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
 {
