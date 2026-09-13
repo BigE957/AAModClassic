@@ -152,6 +152,8 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                         }
                     }
                 }
+                else
+                    SoundEngine.PlaySound(SoundID.DD2_SkeletonHurt, Projectile.Center);
             }
         }
 
