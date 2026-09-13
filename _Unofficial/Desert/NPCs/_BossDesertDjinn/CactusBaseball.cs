@@ -58,7 +58,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
         {
             if (Textures.Count > 1)
             {
-                Projectile.ai[2] = 1;// Main.rand.Next(Textures.Count);
+                Projectile.ai[2] = Main.rand.Next(Textures.Count);
                 string id = Textures[(int)Projectile.ai[2]].id;
                 if (id == "Stactus")
                     Projectile.frame = Main.rand.Next(6);
