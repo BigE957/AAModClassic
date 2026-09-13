@@ -9,7 +9,7 @@
 	</PropertyGroup>
 	<ItemGroup>
 	  <Reference Include="SpiritReforged">
-	    <HintPath>..lib\SpiritReforged.dll</HintPath>
+	    <HintPath>lib\SpiritReforged.dll</HintPath>
 	  </Reference>
 	</ItemGroup>
 
