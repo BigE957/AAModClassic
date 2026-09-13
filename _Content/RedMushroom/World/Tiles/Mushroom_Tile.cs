@@ -84,12 +84,10 @@ namespace AAModClassic._Content.RedMushroom.World.Tiles
                     }
                 }
 
-                bool flag = false;
-                if (Main.tile[i, j].TileType == type && WorldGen.EmptyTileCheck(i - num, i + num, j - num3, j - 3, type) && WorldGen.EmptyTileCheck(i - 1, i + 1, j - 2, j - 1, type))
-                    flag = true;
-
-                if (WorldGen.EmptyTileCheck(i - num, i + num, j - num3, j - 1, type))
-                    flag = true;
+                bool trunkColumnClear = WorldGen.EmptyTileCheck(i, i, j - num3, y - 1, -1);
+                bool leftClear = WorldGen.EmptyTileCheck(i - num, i - 1, j - num3, j - 1, -1);
+                bool rightClear = WorldGen.EmptyTileCheck(i + 1, i + num, j - num3, j - 1, -1);
+                bool flag = trunkColumnClear && leftClear && rightClear;
 
                 if (flag)
                 {
