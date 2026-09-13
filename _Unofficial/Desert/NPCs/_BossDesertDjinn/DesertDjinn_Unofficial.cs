@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
+using AAModClassic._CrossMod.Fables;
 using AAModClassic.Music;
 using AAModClassic.Particles;
 using AAModClassic.Particles.Types;
@@ -9,6 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -146,14 +148,170 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
             switch (CurrentState)
             {
                 case DjinnState.Spawn:
-                    NPC.TargetClosest();
-                    NPC.velocity = ((Target.Center - Vector2.UnitY * 96f) - NPC.Center) / 90f;
-                    if(Time > 120)
+                    int spawnBurrowTime = 240;
+                    int spawnHoldTime = 120;
+                    NPC.dontTakeDamage = false;
+                    NPC.hide = !AttackFlag;
+                    if (AttackFlag)
                     {
-                        CurrentState = DjinnState.MudaMuda;
-                        Time = 0;
-                        Exhaustion++;
-                        return;
+                        if(Time == 0)
+                        {
+                            NPC.frameCounter = -1;
+                            NPC.frame.Y = Main.rand.Next(3) * NPC.frame.Height * 3;
+                            NPC.velocity = Vector2.Zero;
+                            FrameX = 5;
+
+                            CalamityFables.Call("vfx.displayBossIntroCard", "Desert Djinn", "Dune-Bending Brawler", 120, false, Color.Gold, Color.SandyBrown, Color.Gold, Color.SandyBrown, "The Dust Bowl", "Tyeski");
+                        }
+
+                        if(Time <= 120)
+                        {
+                            if (Time <= 30)
+                                CameraSystem.InterpolateCamera((Main.LocalPlayer.Center + NPC.Center) / 2f, MathUtils.SineInOutEasing(Time / 30f));
+                            else
+                                CameraSystem.CameraCenter = (Main.LocalPlayer.Center + NPC.Center) / 2f;
+                        }
+
+                        if(Time == 180)
+                        {
+                            List<DjinnState> options = [DjinnState.GrandSlam, DjinnState.TwisterPunch, DjinnState.SubmergedUppercut, DjinnState.Dive, DjinnState.CactusBaseball];
+                            CurrentState = options[Main.rand.Next(options.Count)];
+                            PreviousStartingState = CurrentState;
+                            AttackFlag = false;
+                            Time = 0;
+                            AttackCounter = 0;
+                            Exhaustion = CurrentState == DjinnState.GrandSlam ? 2 : 1;
+                            NPC.immortal = false;
+                            NPC.dontTakeDamage = false;
+                            NPC.netUpdate = true;
+                            return;
+                        }
+                    }
+                    else if (Time < spawnBurrowTime)
+                    {
+                        NPC.Center = CollisionUtils.FindSurfaceBelow(Target.Center.ToTileCoordinates(), true).ToWorldCoordinates() + Vector2.UnitY * 196;
+                        NPC.velocity = Vector2.Zero;
+
+                        FrameX = 3;
+                        NPC.rotation = MathHelper.PiOver2 * -NPC.direction;
+
+                        if (Time >= 120)
+                        {
+                            Point surface = CollisionUtils.FindSurfaceBelow(NPC.Center.ToTileCoordinates(), true);
+                            for (int i = -3; i <= 3; i++)
+                            {
+                                if (Main.rand.NextFloat() < 0.9f)
+                                    continue;
+
+                                Point p = CollisionUtils.FindSurfaceBelow(surface + new Point(i, 0));
+                                WorldGen.KillTile(p.X, p.Y, effectOnly: true);
+
+                                if (Framing.GetTileSafely(p).TileType == TileID.Sand)
+                                {
+                                    LargeDust d = new(p.ToWorldCoordinates(), new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-1, -3)), new Color(212, 192, 100), new Color(212, 192, 100) * 0.5f, Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
+                                    ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
+                                }
+                            }
+                        }
+                    }
+                    else if (Time > spawnBurrowTime + spawnHoldTime)
+                    {
+                        if (Collision.SolidCollision(NPC.position, NPC.width, NPC.height))
+                        {
+                            NPC.velocity = Vector2.UnitY * -UppercutSpeed;
+                            Point surface = CollisionUtils.FindSurfaceBelow(NPC.Center.ToTileCoordinates(), true);
+                            for (int i = -3; i <= 3; i++)
+                            {
+                                if (Main.rand.NextFloat() < 0.9f)
+                                    continue;
+
+                                Point p = CollisionUtils.FindSurfaceBelow(surface + new Point(i, 0));
+                                WorldGen.KillTile(p.X, p.Y, effectOnly: true);
+                            }
+
+                            if (!Collision.SolidCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
+                            {
+                                SoundEngine.PlaySound(SoundID.DD2_MonkStaffGroundImpact, NPC.Center);
+                                for (int i = -3; i <= 3; i++)
+                                {
+                                    Point s = NPC.Center.ToTileCoordinates() - new Point(-i * NPC.direction, 8);
+                                    Point g = CollisionUtils.FindSurfaceBelow(s, true);
+                                    WorldGen.KillTile(g.X, g.Y, effectOnly: true);
+                                }
+
+                                Point start = NPC.Center.ToTileCoordinates() - new Point(-2 * NPC.direction, 8);
+                                Point ground = CollisionUtils.FindSurfaceBelow(start, true);
+                                GroundWave particle = new(ground, 8, NPC.direction == 1, 24, 2, 16, 0.5f);
+                                ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
+
+                                start = NPC.Center.ToTileCoordinates() - new Point(2 * NPC.direction, 8);
+                                ground = CollisionUtils.FindSurfaceBelow(start, true);
+                                ParticleSystem.SpawnParticle(new GroundWave(ground, 8, NPC.direction != 1, 24, 2, 16, 0.5f), DrawLayer.AfterPlayers);
+
+                                start = NPC.Center.ToTileCoordinates() - new Point(0, 8);
+                                ground = CollisionUtils.FindSurfaceBelow(start);
+                                for (int i = -4; i <= 4; i++)
+                                {
+                                    Point spawnTile = CollisionUtils.FindSurfaceAround(ground + new Point(i, 0), true);
+                                    WorldGen.KillTile(spawnTile.X, spawnTile.Y, effectOnly: true);
+                                    if (Framing.GetTileSafely(spawnTile).TileType == TileID.Sand)
+                                    {
+                                        Vector2 spawnPos = spawnTile.ToWorldCoordinates();
+                                        for (int j = 0; j < 5; j++)
+                                        {
+                                            LargeDust d = new(spawnPos, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-4, -5 - (j * 3))), new Color(212, 192, 100), new Color(212, 192, 100) * 0.5f, Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
+                                            ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (NPC.Center.Y > Target.Bottom.Y + 16)
+                                NPC.velocity = Vector2.UnitY * -UppercutSpeed;
+                            else
+                                NPC.velocity *= UppercutDecay;
+
+                            NPC.rotation *= UppercutRotationDecay;
+                            if (Math.Abs(NPC.rotation) < 0.1f)
+                            {
+                                Time = 0;
+                                AttackFlag = true;
+                                return;
+                            }
+
+                            if (Time > spawnHoldTime + spawnBurrowTime + 120 || (MathF.Abs(NPC.velocity.X) < 0.01f && MathF.Abs(NPC.velocity.Y) < 0.01f))
+                            {
+                                Time = 0;
+                                AttackFlag = true;
+                                return;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        NPC.TargetClosest(); //Turn towards nearest player for uppercut
+                        NPC.rotation = MathHelper.PiOver2 * -NPC.direction;
+
+                        Point surface = CollisionUtils.FindSurfaceBelow(NPC.Center.ToTileCoordinates(), true);
+                        for (int i = -3; i <= 3; i++)
+                        {
+                            if (Main.rand.NextFloat() < 0.9f)
+                                continue;
+
+                            Point p = CollisionUtils.FindSurfaceBelow(surface + new Point(i, 0));
+                            WorldGen.KillTile(p.X, p.Y, effectOnly: true);
+
+                            if (Framing.GetTileSafely(p).TileType == TileID.Sand)
+                            {
+                                for (int j = 0; j < 3; j++)
+                                {
+                                    LargeDust d = new(p.ToWorldCoordinates(), new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, -8)), new Color(212, 192, 100), new Color(212, 192, 100) * 0.5f, Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
+                                    ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
+                                }
+                            }
+                        }
                     }
                     break;
                 case DjinnState.PhaseSwitch:

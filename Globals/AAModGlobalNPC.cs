@@ -1076,6 +1076,7 @@ namespace AAModClassic.Globals
                     return;
 
                 NPC npc = NPC.NewNPCDirect(NPC.GetBossSpawnSource(player.whoAmI), (int)npcCenter.X, (int)npcCenter.Y, bossType);
+                npc.target = player.whoAmI;
                 npc.netUpdate = true;
 
                 if (spawnMessage)
