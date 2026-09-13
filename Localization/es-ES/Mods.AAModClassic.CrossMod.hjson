@@ -590,28 +590,12 @@ CalamityMod: {
 Fables: {
 	Nautilus: {
 		DesertDjinnActive: {
-			1: <m:SmallShake>¡Oh, qué alboroto tan ruidoso día y noche!</m><d:0.6> </d>¡Si todavía tuviera un poco más de movilidad, hace tiempo que habría echado a estos <c:F4A460>Genios</c> de estas ruinas yo mismo!
-			2: <m:Shake>¡Ese <c:F4A460>Genio...!</c></m><d:0.8> </d>¡Hasta sus subordinados son una desgracia, yendo y viniendo a su antojo para atormentarme!<d:0.6> </d>Debe de ser una influencia terrible para ellos, ¡nada que ver con cómo crecí con <d:0.05><s:1.1><c:28dcdc>Signathion!</d></s></c>
-		}
-
-		DesertDjinnDefeated: {
-			First: ¡Dios mio, qué gran favor me has hecho al expulsar a esos <c:F4A460>Genios</c> de estas ruinas!<d:0.4> </d>Por mucho que aprecie una distracción, <m:Empathis>¡simplemente eran demasiado!
-			Repeat: Ciertamente me resulta más fácil descansar sabiendo que el <c:F4A460>Genio</c> y sus gamberros ya no saquean mi viejo hogar. <m:Empathis><s:1.1><d:0.03>¡Te doy mis más sinceras gracias!
-		}
-	}
-
-	Squilium: Hola, ¡soy Squilium!
-}
-
-Fables: {
-	Nautilus: {
-		DesertDjinnActive: {
 			// 1: <m:SmallShake>Oh, such a raucous commotion day in and out!</m><d:0.6> </d>Were I still a little more able, I would have long driven these <c:F4A460>Djinn</c> out of these ruins myself!
-			// 2: <m:Shake>That <c:F4A460>Djinn...!</c></m><d:0.8> </d>Even his underlings are a disgrace, coming and going as they please to torment me!<d:0.6> </d>He must be a terrible influence on them -- nothing like how I'd grown up with <d:0.05><s:1.1><c:28dcdc>Signathion!</d></s></c>
+			// 2: <m:Shake>That <c:F4A460>Djinn...!</c></m><d:0.8> </d>Even his underlings are a disgrace, coming and going as they please to torment me!<d:0.6> </d>He must be a terrible influence on them - nothing like how I'd grown up with <d:0.05><s:1.1><c:28dcdc>Signathion!</d></s></c>
 		}
 
 		DesertDjinnDefeated: {
-			// First: Goodness, what a favor you've done me, driving those <c:F4A460>Djinn</c> out of these ruins!<d:0.4> </d>As much as I appreciate a distraction, they were simply too much!
+			// First: Goodness, what a favor you've done me, driving those <c:F4A460>Djinn</c> out of these ruins!<d:0.4> </d>As much as I appreciate a distraction, <m:Empathis>they were simply too much!
 			// Repeat: I certainly find it easier to pass on, knowing the <c:F4A460>Djinn</c> and his hooligans no longer maraud my old home. <m:Empathis><s:1.1><d:0.03>You have my utmost thanks!
 		}
 	}

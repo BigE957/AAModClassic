@@ -590,28 +590,12 @@ CalamityMod: {
 Fables: {
 	Nautilus: {
 		DesertDjinnActive: {
-			1: <m:SmallShake>唉，日日夜夜都这般喧闹嘈杂！</m><d:0.6> </d>若我尚有余力，早就把这些<c:F4A460>沙漠巨灵</c>赶出这片废墟了！
-			2: <m:Shake>那个<c:F4A460>沙漠巨灵……!</c></m><d:0.8> </d>就连他手底下那帮喽啰都如此不像话，想来就来，想走就走，专门跑来折腾我！<d:0.6> </d>肯定是他把他们带坏了——哪比得上与我从小一起长大的<d:0.05><s:1.1><c:28dcdc>辛伽锡恩！</d></s></c>
-		}
-
-		DesertDjinnDefeated: {
-			First: 老天，你可算帮了我大忙了，终于把那些<c:F4A460>沙漠巨灵</c> 赶出了这片废墟！<d:0.4> </d>虽然我确实觉得有点消遣也不错，<m:Empathis>但他们实在是太过分了！
-			Repeat: 如今得知那<c:F4A460>沙漠巨灵</c>和他的喽啰不再劫掠我的故园，我确实觉得心里宽慰了许多，也能更安心地离去了。<m:Empathis><s:1.1><d:0.03>我对你感激不尽！
-		}
-	}
-
-	Squilium: 嗨，我是Squilium！
-}
-
-Fables: {
-	Nautilus: {
-		DesertDjinnActive: {
 			// 1: <m:SmallShake>Oh, such a raucous commotion day in and out!</m><d:0.6> </d>Were I still a little more able, I would have long driven these <c:F4A460>Djinn</c> out of these ruins myself!
-			// 2: <m:Shake>That <c:F4A460>Djinn...!</c></m><d:0.8> </d>Even his underlings are a disgrace, coming and going as they please to torment me!<d:0.6> </d>He must be a terrible influence on them -- nothing like how I'd grown up with <d:0.05><s:1.1><c:28dcdc>Signathion!</d></s></c>
+			// 2: <m:Shake>That <c:F4A460>Djinn...!</c></m><d:0.8> </d>Even his underlings are a disgrace, coming and going as they please to torment me!<d:0.6> </d>He must be a terrible influence on them - nothing like how I'd grown up with <d:0.05><s:1.1><c:28dcdc>Signathion!</d></s></c>
 		}
 
 		DesertDjinnDefeated: {
-			// First: Goodness, what a favor you've done me, driving those <c:F4A460>Djinn</c> out of these ruins!<d:0.4> </d>As much as I appreciate a distraction, they were simply too much!
+			// First: Goodness, what a favor you've done me, driving those <c:F4A460>Djinn</c> out of these ruins!<d:0.4> </d>As much as I appreciate a distraction, <m:Empathis>they were simply too much!
 			// Repeat: I certainly find it easier to pass on, knowing the <c:F4A460>Djinn</c> and his hooligans no longer maraud my old home. <m:Empathis><s:1.1><d:0.03>You have my utmost thanks!
 		}
 	}
