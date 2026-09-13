@@ -19,7 +19,7 @@ ClassGlobalStats: {
 				Base: "{1}{0}{2}{3}{4}"
 				Additive: "{1}{0}%{2}{3}{4}{5}"
 				Multiplicative: "{2}{3}{4}乘以{0}%"
-				Flat: "{2}{3}{4}固定{1}{0}"
+				Flat: "{2}{3}{4}固定{1}{0}点"
 			}
 
 			Summoner: {

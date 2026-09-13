@@ -1,5 +1,5 @@
 author = Big E
-version = 1.0.24
+version = 1.0.26
 displayName = Ancients Awakened: Classic
 loadAfter = AAMod, CalamityMod
 sortAfter = CalamityFables, SpiritReforged
