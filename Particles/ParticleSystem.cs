@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Core;
 
 namespace AAModClassic.Particles;
 
@@ -52,7 +53,7 @@ public class ParticleSystem : ModSystem
         On_Main.DrawDust += DrawParticles_AfterDusts;
         On_Main.DrawInfernoRings += DrawParticles_AfterEverything;
 
-        foreach (Type type in Mod.Code.GetTypes())
+        foreach (Type type in AssemblyManager.GetLoadableTypes(Mod.Code))
         {
             if (type.IsAbstract || !type.IsSubclassOf(typeof(Particle)))
                 continue;
