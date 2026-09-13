@@ -717,6 +717,24 @@ Consumables: {
 		DisplayName: 哥布林工匠玩偶
 		Tooltip: '''"对不起，小家伙……"'''
 	}
+
+	CorruptCarrot: {
+		// DisplayName: Corrupt Carrot
+		/* Tooltip:
+			'''
+			Right Click to throw
+			That... Can't be healthy.
+			''' */
+	}
+
+	CrimsonCarrot: {
+		// DisplayName: Crimson Carrot
+		/* Tooltip:
+			'''
+			Right Click to throw
+			That... Can't be healthy.
+			''' */
+	}
 }
 
 Currency: {

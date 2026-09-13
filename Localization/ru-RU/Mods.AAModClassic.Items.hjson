@@ -713,6 +713,24 @@ Consumables: {
 		DisplayName: Кукла гоблина-изобретателя
 		Tooltip: «Прости, малыш...»
 	}
+
+	CorruptCarrot: {
+		// DisplayName: Corrupt Carrot
+		/* Tooltip:
+			'''
+			Right Click to throw
+			That... Can't be healthy.
+			''' */
+	}
+
+	CrimsonCarrot: {
+		// DisplayName: Crimson Carrot
+		/* Tooltip:
+			'''
+			Right Click to throw
+			That... Can't be healthy.
+			''' */
+	}
 }
 
 Currency: {

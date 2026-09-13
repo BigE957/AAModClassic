@@ -5,6 +5,7 @@ using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
 using AAModClassic._Content.Stars.World.Altar;
+using AAModClassic._Unofficial.Bunny.Items;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
@@ -231,13 +232,12 @@ namespace AAModClassic.Globals
 
         public override void RandomUpdate(int i, int j, int type)
         {
-            Tile t = Framing.GetTileSafely(i, j - 1);
-            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                Framing.GetTileSafely(i, j);
+            Tile t = Framing.GetTileSafely(i, j);
+            Tile tAbove = Framing.GetTileSafely(i, j - 1);
 
             if (t.TileType == TileID.MushroomGrass)
             {
-                if (!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(1000))
+                if (!tAbove.HasTile && Main.rand.NextBool(1000))
                 {
                     int style = Main.rand.Next(5);
 
@@ -248,14 +248,22 @@ namespace AAModClassic.Globals
                 }
             }
 
-            if (Main.tile[i, j].TileType == TileID.Grass && Main.hardMode)
+            if (Main.hardMode && !tAbove.IsTileSolid() && Main.rand.NextBool(800))
             {
-                if (!Framing.GetTileSafely(i, j - 1).IsTileSolid() && Main.rand.NextBool(800))
+                switch(t.TileType)
                 {
-                    if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<Carrot_Tile>(), false, 0))
-                    {
-                        NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Carrot_Tile>(), 0, 0, -1, -1);
-                    }
+                    case TileID.Grass:
+                        if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<Carrot_Tile>(), false, 0))
+                            NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<Carrot_Tile>(), 0, 0, -1, -1);
+                        break;
+                    case TileID.CorruptGrass:
+                        if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<CorruptCarrot_Tile>(), false, 0))
+                            NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<CorruptCarrot_Tile>(), 0, 0, -1, -1);
+                        break;
+                    case TileID.CrimsonGrass:
+                        if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<CrimsonCarrot_Tile>(), false, 0))
+                            NetMessage.SendObjectPlacement(-1, i, j - 1, ModContent.TileType<CrimsonCarrot_Tile>(), 0, 0, -1, -1);
+                        break;
                 }
             }
         }

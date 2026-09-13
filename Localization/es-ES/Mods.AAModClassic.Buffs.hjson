@@ -678,3 +678,13 @@ PortaProbe_Buff: {
 	DisplayName: Mini Sonda
 	Description: Busca vida y tesoros para ti
 }
+
+CorruptGastroenteritis_Buff: {
+	// DisplayName: Corrupt Gastroenteritis_ Buff
+	// Description: Mods.AAModClassic.Buffs.CorruptGastroenteritis_Buff.Description
+}
+
+CrimsonGastroenteritis_Buff: {
+	// DisplayName: Crimson Gastroenteritis_ Buff
+	// Description: Mods.AAModClassic.Buffs.CrimsonGastroenteritis_Buff.Description
+}

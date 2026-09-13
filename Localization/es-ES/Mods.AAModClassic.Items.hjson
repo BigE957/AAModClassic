@@ -716,6 +716,24 @@ Consumables: {
 		DisplayName: Muñeco del Duende Chapucero
 		Tooltip: "'Lo siento, pequeño...'"
 	}
+
+	CorruptCarrot: {
+		// DisplayName: Corrupt Carrot
+		/* Tooltip:
+			'''
+			Right Click to throw
+			That... Can't be healthy.
+			''' */
+	}
+
+	CrimsonCarrot: {
+		// DisplayName: Crimson Carrot
+		/* Tooltip:
+			'''
+			Right Click to throw
+			That... Can't be healthy.
+			''' */
+	}
 }
 
 Currency: {

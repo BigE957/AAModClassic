@@ -717,6 +717,24 @@ Consumables: {
 		DisplayName: Goblin Tinkerer Doll
 		Tooltip: "'I'm sorry, little one...'"
 	}
+
+	CorruptCarrot: {
+		DisplayName: Corrupt Carrot
+		Tooltip:
+			'''
+			Right Click to throw
+			That... Can't be healthy.
+			'''
+	}
+
+	CrimsonCarrot: {
+		DisplayName: Crimson Carrot
+		Tooltip:
+			'''
+			Right Click to throw
+			That... Can't be healthy.
+			'''
+	}
 }
 
 Currency: {

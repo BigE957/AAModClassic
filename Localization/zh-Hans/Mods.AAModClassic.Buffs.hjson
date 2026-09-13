@@ -678,3 +678,13 @@ PortaProbe_Buff: {
 	DisplayName: 小探测器
 	Description: 为你搜索生物和宝藏
 }
+
+CorruptGastroenteritis_Buff: {
+	// DisplayName: Corrupt Gastroenteritis_ Buff
+	// Description: Mods.AAModClassic.Buffs.CorruptGastroenteritis_Buff.Description
+}
+
+CrimsonGastroenteritis_Buff: {
+	// DisplayName: Crimson Gastroenteritis_ Buff
+	// Description: Mods.AAModClassic.Buffs.CrimsonGastroenteritis_Buff.Description
+}

@@ -678,3 +678,13 @@ PortaProbe_Buff: {
 	DisplayName: Mini Probe
 	Description: Seeks out life and treasure for you
 }
+
+CorruptGastroenteritis_Buff: {
+	DisplayName: Gastroenteritis
+	Description: Why would you eat that?!
+}
+
+CrimsonGastroenteritis_Buff: {
+	DisplayName: Gastroenteritis
+	Description: Why would you eat that?!
+}
