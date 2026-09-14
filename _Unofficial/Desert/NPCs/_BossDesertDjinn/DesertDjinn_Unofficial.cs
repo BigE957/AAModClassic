@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
 using AAModClassic._CrossMod.Fables;
+using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.Particles;
 using AAModClassic.Particles.Types;
@@ -13,10 +14,12 @@ using System.Linq;
 using System.Security.Policy;
 using Terraria;
 using Terraria.Audio;
+using Terraria.Chat;
 using Terraria.GameContent;
 using Terraria.GameContent.Creative;
 using Terraria.GameContent.Events;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
@@ -162,6 +165,13 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                             FrameX = 5;
 
                             CalamityFables.Call("vfx.displayBossIntroCard", "Desert Djinn", "Dune-Bending Brawler", 120, false, Color.Gold, Color.SandyBrown, Color.Gold, Color.SandyBrown, "The Dust Bowl", "Tyeski");
+
+                            if (Main.netMode == NetmodeID.SinglePlayer)
+                                BaseUtility.Chat(Language.GetTextValue("Announcement.HasAwoken", NPC.TypeName), 175, 75, 255, false);
+                            else if (Main.netMode == NetmodeID.Server)
+                                ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", [NetworkText.FromLiteral(NPC.TypeName)]), new Color(175, 75, 255));
+
+                            SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
                         }
 
                         if(Time <= 120)

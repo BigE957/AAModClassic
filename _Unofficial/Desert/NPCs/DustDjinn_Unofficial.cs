@@ -273,13 +273,12 @@ namespace AAModClassic._Unofficial.Desert.NPCs
                             break;
                         case 600:
                             CombatText.NewText(NPC.Hitbox, Color.Red, "Your wish is...");
+                            AAModGlobalNPC.SpawnBoss(Target, ModContent.NPCType<DesertDjinn_Unofficial>(), false, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.DesertDjinn"), false);
                             break;
-                        case 720:
+                        case 1020:
                             CombatText.NewText(NPC.Hitbox, Color.Red, "Granted.");
-                            AAModGlobalNPC.SpawnBoss(Target, ModContent.NPCType<DesertDjinn_Unofficial>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.DesertDjinn"), false);
-                            SoundEngine.PlaySound(SoundID.Roar, Target.Center);
                             break;
-                        case 900:
+                        case 1200:
                             State = DustDjinnState.BookIt;
                             Time = 0;
                             return;

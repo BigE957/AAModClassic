@@ -44,8 +44,9 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            AAModGlobalNPC.SpawnBoss(player, WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? ModContent.NPCType<DesertDjinn_Unofficial>() : ModContent.NPCType<DesertDjinn>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.DesertDjinn"), false);
-            SoundEngine.PlaySound(SoundID.Roar, player.position);
+            bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
+            int type = unofficial ? ModContent.NPCType<DesertDjinn_Unofficial>() : ModContent.NPCType<DesertDjinn>();
+            AAModGlobalNPC.SpawnBoss(player, type, !unofficial, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.DesertDjinn"), false);
             return true;
         }
 
