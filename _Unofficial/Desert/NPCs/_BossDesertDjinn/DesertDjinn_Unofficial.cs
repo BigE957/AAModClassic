@@ -690,6 +690,13 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                     {
                         if(Time == 0)
                         {
+                            if(Collision.SolidCollision(NPC.position + new Vector2(NPC.width / 4, 0), NPC.width - (NPC.width / 4), 2))
+                            {
+                                Time = 0;
+                                AttackFlag = true;
+                                return;
+                            }
+                            
                             int side = NPC.Center.X > Target.Center.X ? 1 : -1;
                             NPC.velocity = new Vector2(4 * side, -8);
                             FrameX = 4;
