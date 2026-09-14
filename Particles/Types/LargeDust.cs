@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
-using Terraria.Graphics.Renderers;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Particles.Types
@@ -35,10 +33,15 @@ namespace AAModClassic.Particles.Types
             Rotation = Main.rand.NextFloat(MathHelper.TwoPi);
             Spin = rotationSpeed;
             Variant = Main.rand.Next(FrameVariants);
+            Lifetime = 1000;
         }
 
         public override void Update()
         {
+            if (Opacity < 0)
+            {
+                ParticleSystem.RemoveParticle(this);
+            }
             Rotation += Spin * ((Velocity.X > 0) ? 1f : -1f);
             Velocity *= 0.85f;
 
@@ -49,14 +52,12 @@ namespace AAModClassic.Particles.Types
             }
             else
             {
-                Scale *= 0.975f;
+                //Scale += new Vector2(0.005f, 0.005f);
                 Opacity -= 2;
             }
 
-            if (Opacity < 0)
-                ParticleSystem.RemoveParticle(this);
-
-            Color = Color.Lerp(ColorFire, ColorFade, MathHelper.Clamp((float)((255 - Opacity) - 100) / 80f, 0f, 1f)) * (Opacity / 255f);
+            float lerp = MathHelper.Clamp((float)((255 - Opacity) - 100) / 80f, 0f, 1f);
+            Color = Color.Lerp(ColorFire, ColorFade, lerp) * (Opacity / 255f);
 
             base.Update();
         }
