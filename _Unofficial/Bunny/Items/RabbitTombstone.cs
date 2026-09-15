@@ -69,7 +69,7 @@ namespace AAModClassic._Unofficial.Bunny.Items
                 bool noPlayers = true;
                 foreach (Player p in Main.ActivePlayers)
                 {
-                    if (p.DistanceSQ(data.SpawnTile.ToWorldCoordinates()) < 1440000) //1200^2
+                    if (p.DistanceSQ(data.SpawnTile.ToWorldCoordinates()) < 2073600) //1440^2
                     {
                         noPlayers = false;
                         break;
