@@ -411,6 +411,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                                             case DiscordStatus.Server:
                                                 switch(text)
                                                 {
+                                                    case "Ancients Awakened":
+                                                        StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.5.Discord.Server.AACord"), color1);
+                                                        break;
                                                     case "Calamity Dev Server":
                                                         StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.5.Discord.Server.CalDev"), color1);
                                                         break;
