@@ -74,9 +74,6 @@ Can only be used in a glowing mushroom biome"); */
             }
         }
 
-        public override void UseStyle(Player player, Rectangle heldItemFrame) { BaseUseStyle.SetStyleBoss(player, Item, true, true); }
-        public override void UseItemFrame(Player p) => BaseUseStyle.SetFrameBoss(p, Item);
-
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);

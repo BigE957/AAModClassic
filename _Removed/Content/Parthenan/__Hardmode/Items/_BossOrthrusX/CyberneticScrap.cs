@@ -39,7 +39,7 @@ Can only be used at night"); */
             Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.useAnimation = 45;
             Item.useTime = 45;
-            Item.useStyle = 500;
+            Item.useStyle = ItemUseStyleID.HoldUp;
             Item.consumable = true;
         }
 
@@ -95,9 +95,6 @@ Can only be used at night"); */
                 }
             }
         }
-
-        public override void UseStyle(Player player, Rectangle heldItemFrame) { BaseUseStyle.SetStyleBoss(player, Item, true, true); }
-        public override void UseItemFrame(Player p) { BaseUseStyle.SetFrameBoss(p, Item); }
 
         public override void AddRecipes()
         {

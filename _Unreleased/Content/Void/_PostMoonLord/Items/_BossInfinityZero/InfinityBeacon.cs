@@ -44,7 +44,7 @@ Non-consumable");*/
             Item.rare = ItemRarityID.Green;
             Item.useAnimation = 45;
             Item.useTime = 45;
-            Item.useStyle = 500;
+            Item.useStyle = ItemUseStyleID.HoldUp;
         }
 
         public override void ModifyTooltips(List<TooltipLine> list)
@@ -145,9 +145,6 @@ Non-consumable");*/
 			int npcID = NPC.NewNPC(Item.GetSource_FromThis(), (int)player.Center.X, (int)player.Center.Y, bossType, 0, 0f);
 			Main.npc[npcID].Center = player.Center;
 			Main.npc[npcID].netUpdate2 = true;
-		}	
-
-		public override void UseStyle(Player player, Rectangle heldItemFrame) { BaseUseStyle.SetStyleBoss(player, Item, true, true); }
-		public override void UseItemFrame(Player player) { BaseUseStyle.SetFrameBoss(player, Item); }		
+		}		
 	}
 }

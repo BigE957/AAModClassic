@@ -87,9 +87,6 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn
             }
         }
 
-        public override void UseStyle(Player player, Rectangle heldItemFrame) { BaseUseStyle.SetStyleBoss(player, Item, true, true); }
-        public override void UseItemFrame(Player p) { BaseUseStyle.SetFrameBoss(p, Item); }
-
         public override void AddRecipes()
         {
             {
