@@ -651,6 +651,7 @@ ShenDoragon: {
 
 				YouBoss: I mean, shattering your own reflection come alive? That's impressive stuff.
 				Radiance: I didn't think that sun fairy was all too impressive until you managed to bring out her full power. That was a spectacle indeed!
+				NoxusBoss: Bringing that sun-swallowing rift to our doorstep? To be honest, that thing's even got me a little antsy!
 			}
 
 			30: {
@@ -919,6 +920,10 @@ InfinityZero: {
 					YouBoss: Can't you keep yourself occupied? like, literally, with that mirror guy.
 					Radiance: Doesn't that sun fairy have some new tricks? Go fight her instead.
 					Fables: Why not pay that nautilus pal of yours another visit? He actually likes fighting you.
+					NoxusBoss: {
+						PreNameless: Don't you have some grand test to be completing? Or did Solyn die for nothing?
+						PostNameless: Why not do that Test of Resolve thing instead? You got that Seed of Will, didn't you? Azathoth certainly likes fighting you more than I do.
+					}
 				}
 			}
 		}

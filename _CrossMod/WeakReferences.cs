@@ -1792,6 +1792,13 @@ namespace AAModClassic._CrossMod
                 Oblivion.CrossModDialogue.Add("JetshiftPort", (Language.GetOrRegister(izLocPath + "JetshiftPort"), () => true));
             }
 
+            if (ModLoader.TryGetMod("NoxusBoss", out Mod wotg))
+            {
+                ShenDoragonUtils.CrossModDialogue.Add("NoxusBoss", (Language.GetOrRegister(shenLocPath + "NoxusBoss"), () => NPC.downedMoonlord));
+                Oblivion.CrossModDialogue.Add("NoxusBoss", (Language.GetOrRegister(izLocPath + "NoxusBoss.PreNameless"), () => !(bool)wotg.Call("GetBossDefeated", "namelessdeity")));
+                Oblivion.CrossModDialogue.Add("NoxusBoss", (Language.GetOrRegister(izLocPath + "NoxusBoss.PostNameless"), () => (bool)wotg.Call("GetBossDefeated", "namelessdeity")));
+            }
+
             //(bool)ModSupport.GetModWorldConditions("GRealm", "MWorld", "downedMatriarch", false, true);
             //public bool DownedDuo => JetshiftMod.JetshiftWorld.downedCosmicMystery;
         }
