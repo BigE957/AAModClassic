@@ -1,4 +1,6 @@
-﻿using AAModClassic.Utilities;
+﻿using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
+using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -44,10 +46,15 @@ namespace AAModClassic._Unofficial.Bunny.Items
 
         private static int GraveSpawnCooldown = 0;
 
+        internal static readonly Dictionary<Point, DateTime> RecentlyPlacedTombstones = [];
+        private static bool ActiveRajah = false;
+
         public override void OnWorldUnload()
         {
             queuedRabbitTombstonePositions.Clear();
             GraveSpawnCooldown = 0;
+            ActiveRajah = false;
+            RecentlyPlacedTombstones.Clear();
         }
 
         public override void PostUpdateEverything()
@@ -72,6 +79,7 @@ namespace AAModClassic._Unofficial.Bunny.Items
                 if (noPlayers)
                 {
                     PlaceRabbitTombstone(data);
+                    RecentlyPlacedTombstones.Add(data.SpawnTile, DateTime.Now);
                     queuedRabbitTombstonePositions.RemoveAt(i);
                 }
             }
@@ -184,6 +192,22 @@ namespace AAModClassic._Unofficial.Bunny.Items
 
             return $"{introduction}\n{quote}\n{date}";
         }
+
+        internal static void SpawnRajahAtTombstone(Point p)
+        {
+            if(NPC.downedMoonlord && !NPCExtensions.BeenKilled<RajahRabbitA>())
+            {
+                //Natural Champion Rajah (maybe mourning rajah based on rabbits killed)
+            }
+            else if(Main.hardMode && !NPCExtensions.BeenKilled<RajahRabbit>())
+            {
+                //Natural Base Rajah (maybe mourning rajah based on rabbits killed)
+            }
+            else if(!Main.hardMode)
+            {
+                //Mourning Rajah (maybe natural base rajah based on rabbits killed)
+            }
+        }
     }
 
     public class RabbitTombstone_Tile : ModTile
@@ -222,6 +246,21 @@ namespace AAModClassic._Unofficial.Bunny.Items
 
         public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
         public override void KillMultiTile(int i, int j, int frameX, int frameY) => Sign.KillSign(i, j);
+
+        public override void NearbyEffects(int i, int j, bool closer)
+        {
+            if (closer)
+                return;
+
+            Point p = new(i, j);
+
+            if (RabbitTombstoneSystem.RecentlyPlacedTombstones.TryGetValue(p, out DateTime time))
+            {
+                if ((DateTime.Now - time).TotalMinutes < 5)
+                    RabbitTombstoneSystem.SpawnRajahAtTombstone(p);
+                RabbitTombstoneSystem.RecentlyPlacedTombstones.Remove(p);
+            }
+        }
     }
 
     public class RabbitTombstone_Projectile : ModProjectile
