@@ -51,13 +51,13 @@ Certain ores have special effects when shot"); */
 
         public override bool CanUseItem(Player player)
         {
-            int itemIndex = -1;
             if (player.itemAnimation == 0)
             {
-                if (BasePlayer.HasItem(player, [.. OreCannonSystem.OreData.Keys], ref itemIndex, default, false, false))
+                int itemIndex = player.FindItem([.. OreCannonSystem.OreData.Keys]);
+                if (itemIndex != -1)
                 {
- 					Item itemFired = player.inventory[itemIndex];
- 					BasePlayer.ReduceSlot(player, itemIndex, 1);
+                    Item itemFired = player.inventory[itemIndex];
+                    ItemLoader.ConsumeItem(itemFired, player);
                     projType = itemFired.type;
                     return true;
  				}

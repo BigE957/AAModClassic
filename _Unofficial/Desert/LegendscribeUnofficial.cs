@@ -1062,7 +1062,7 @@ namespace AAModClassic._Unofficial.Desert
             {
                 Player player = Main.LocalPlayer;
 
-                if (!NPCExtensions.BeenKilled<Anubis>() && player.GetModPlayer<ZAAPlayer>().GivenAnuSummon && !BasePlayer.HasItem(player, ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>()))
+                if (!NPCExtensions.BeenKilled<Anubis>() && player.GetModPlayer<ZAAPlayer>().GivenAnuSummon && !player.HasItem(ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>()))
                 {
                     player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>(), 1);
                     Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisScapterLost");

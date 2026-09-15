@@ -493,7 +493,7 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
                 }
                 else
                 {
-                    if (!BasePlayer.HasItem(player, ModContent.ItemType<LovecraftiansResearchList>()))
+                    if (!player.HasItem(ModContent.ItemType<LovecraftiansResearchList>()))
                     {
                         Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.SquidListChat");
                         int itemID = Item.NewItem(NPC.GetSource_GiftOrReward(), (int)player.position.X, (int)player.position.Y, player.width, player.height, ModContent.ItemType<LovecraftiansResearchList>(), 1, false, 0, false, false);

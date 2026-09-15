@@ -74,7 +74,7 @@ namespace AAModClassic._Content.Acropolis.World.Tiles
             Player player = Main.LocalPlayer;
             int type = ModContent.ItemType<OwlStatue>();
             bool Athena = NPC.AnyNPCs(ModContent.NPCType<Athena>()) || NPC.AnyNPCs(ModContent.NPCType<AthenaFlee>()) || NPC.AnyNPCs(ModContent.NPCType<AthenaDefeat>()) || NPC.AnyNPCs(ModContent.NPCType<AthenaA>());
-            if (BasePlayer.HasItem(player, type, 1) && !Athena)
+            if (player.HasItem(type) && !Athena)
             {
                 for (int m = 0; m < 50; m++)
                 {

@@ -654,7 +654,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             }
             else if (AnubisB)
             {
-                if (!BasePlayer.HasItem(player, ModContent.ItemType<__Hardmode.Items._BossAnubis.RasScepter>()))
+                if (!player.HasItem(ModContent.ItemType<__Hardmode.Items._BossAnubis.RasScepter>()))
                 {
                     player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<__Hardmode.Items._BossAnubis.RasScepter>(), 1);
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisScapterLost"); 
@@ -886,7 +886,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             #endregion
 
             #region progression
-            if (NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && !BasePlayer.HasItem(player, ModContent.ItemType<__Hardmode.Items._BossAnubis.RasScepter>()))
+            if (NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3 && !player.HasItem(ModContent.ItemType<__Hardmode.Items._BossAnubis.RasScepter>()))
             {
                 if (!mPlayer.GivenAnuSummon)
                 {
@@ -896,7 +896,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
                 }
             }
 
-            if (NPCExtensions.BeenKilled<AnubisA>() && !BasePlayer.HasItem(player, ModContent.ItemType<WormIdol>()))
+            if (NPCExtensions.BeenKilled<AnubisA>() && !player.HasItem(ModContent.ItemType<WormIdol>()))
             {
                 if (!mPlayer.GivenWormIdol)
                 {

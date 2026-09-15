@@ -90,7 +90,7 @@ namespace AAModClassic._Content.Stars.World.Altar
         {
             Player player = Main.LocalPlayer;
             int type = ModContent.ItemType<StarChart>();
-            if (BasePlayer.HasItem(player, type, 1) && !AAWorld.StarActive)
+            if (player.HasItem(type) && !AAWorld.StarActive)
             {
                 for (int m = 0; m < 50; m++)
                 {

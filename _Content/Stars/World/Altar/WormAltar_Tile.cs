@@ -55,7 +55,7 @@ namespace AAModClassic._Content.Stars.World.Altar
             Player player = Main.LocalPlayer;
             int type = ModContent.ItemType<WormIdol>();
             bool Worms = NPC.AnyNPCs(ModContent.NPCType<WormSpawn>());
-            if (BasePlayer.HasItem(player, type, 1) && !Worms)
+            if (player.HasItem(type) && !Worms)
             {
                 if (AAWorld.StarActive && AAWorld.GravActive)
                 {

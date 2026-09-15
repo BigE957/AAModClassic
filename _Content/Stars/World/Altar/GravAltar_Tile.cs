@@ -58,7 +58,7 @@ namespace AAModClassic._Content.Stars.World.Altar
         {
             Player player = Main.LocalPlayer;
             int type = ModContent.ItemType<GravitySphere>();
-            if (BasePlayer.HasItem(player, type, 1) && !AAWorld.GravActive)
+            if (player.HasItem(type) && !AAWorld.GravActive)
             {
                 for (int m = 0; m < 50; m++)
                 {

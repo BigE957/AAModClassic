@@ -56,7 +56,7 @@ namespace AAModClassic._Content.Hoard.World.Tiles
             }
             Player player = Main.LocalPlayer;
             int type = ModContent.ItemType<GoldenGrub>();
-            if (BasePlayer.HasItem(player, type, 1))
+            if (player.HasItem(type))
             {
                 for (int m = 0; m < 50; m++)
                 {
@@ -66,13 +66,9 @@ namespace AAModClassic._Content.Hoard.World.Tiles
                         if (item.consumable)
                             item.stack--;
                         if (NPCExtensions.BeenKilled<GreedHead>())
-                        {
                             AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedHead>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Greed"));
-                        }
                         else
-                        {
                             AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<SparkOfDesire>(), false, new Vector2(i * 16, (j * 16) - 200), Language.GetTextValue("Mods.AAModClassic.Common.Greed"));
-                        }
                     }
                 }
             }
