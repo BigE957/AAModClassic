@@ -1678,7 +1678,7 @@ namespace AAModClassic._CrossMod
             if (ModLoader.TryGetMod("Thorium", out Mod thorium))
             {
                 ShenDoragonUtils.CrossModDialogue.Add("Thorium", (Language.GetOrRegister(shenLocPath + "Thorium"), () => (bool)thorium.Call("GetBossDowned", "ThePrimordials")));
-                Oblivion.CrossModDialogue.Add("Throium", (Language.GetOrRegister(izLocPath + "Thorium"), () => true));
+                Oblivion.CrossModDialogue.Add("Thorium", (Language.GetOrRegister(izLocPath + "Thorium"), () => true));
             }
 
             if (ModLoader.TryGetMod("CalamityMod", out Mod cal))
@@ -1784,6 +1784,12 @@ namespace AAModClassic._CrossMod
                 ShenDoragonUtils.CrossModDialogue.Add("Ultranium.Aldin", (Language.GetOrRegister(shenLocPath + "Ultranium.Aldin"), () => (bool)ultranium.Call("aldin")));
                 ShenDoragonUtils.CrossModDialogue.Add("Ultranium.Erebus", (Language.GetOrRegister(shenLocPath + "Ultranium.Erebus"), () => !(bool)ultranium.Call("aldin") && (bool)ultranium.Call("erebus")));
                 Oblivion.CrossModDialogue.Add("Ultranium", (Language.GetOrRegister(izLocPath + "Ultranium"), () => true));
+            }
+
+            if (ModLoader.TryGetMod("JetshiftPort", out Mod jetshiftPort))
+            {
+                ShenDoragonUtils.CrossModDialogue.Add("JetshiftPort", (Language.GetOrRegister(shenLocPath + "JetshiftPort"), () => (bool)jetshiftPort.Call("Downed", "frezyn")));
+                Oblivion.CrossModDialogue.Add("JetshiftPort", (Language.GetOrRegister(izLocPath + "JetshiftPort"), () => true));
             }
 
             //(bool)ModSupport.GetModWorldConditions("GRealm", "MWorld", "downedMatriarch", false, true);
