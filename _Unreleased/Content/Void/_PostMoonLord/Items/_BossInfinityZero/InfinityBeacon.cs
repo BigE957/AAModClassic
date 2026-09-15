@@ -133,7 +133,7 @@ Non-consumable");*/
 
 		public override bool CanUseItem(Player player)
 		{
-            if (NPC.AnyNPCs(ModContent.NPCType<InfinityZero>()) || NPC.AnyNPCs(ModContent.NPCType<InfinityZeroSpawn1>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<InfinityZero>()) || NPC.AnyNPCs(ModContent.NPCType<InfinityZeroSpawn1>()) || NPC.AnyNPCs(ModContent.NPCType<Oblivion>()))
                 return false;
             return player.GetModPlayer<ZAAPlayer>().ZoneVoid;
 		}
