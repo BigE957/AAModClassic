@@ -45,8 +45,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
         public override void AI()
         {
             
-            Vector2 Acropolis = new Vector2(AAWorld.acropolisPos.X + 80 * 16, AAWorld.acropolisPos
-                .Y + 79 * 16);
+            Vector2 Acropolis = new((AAWorld.acropolisPos.X + 80) * 16, (AAWorld.acropolisPos.Y + 79) * 16);
             NPC.TargetClosest();
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
