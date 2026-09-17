@@ -634,6 +634,7 @@ ShenDoragon: {
 				SacredTools: 浇灭了那只深渊南瓜？那可真是大饱眼福！
 				Catalyst: 你确实把那坨紫色馒头打得满地找牙。
 				CalamityHunt: 把那些史莱姆打回原形肯定费了不少劲儿吧。真没看出来它们还挺能扑腾的！
+				// JetshiftPort: But when that ancient ice dragon let our its final dying roar? That was quite the eye-catcher.
 
 				Split: {
 					Seth: 我承认，把那个耍剑的暴脾气给收拾了，确实是一场好戏。
@@ -650,6 +651,7 @@ ShenDoragon: {
 
 				YouBoss: 我是说，把自己活过来的镜像给打碎？那可真了不起。
 				Radiance: 我本来没觉得那个太阳妖精有多惊艳，直到你成功逼出她的全部力量。那真是一出奇景！
+				// NoxusBoss: Bringing that sun-swallowing rift to our doorstep? To be honest, that thing's even got me a little antsy!
 			}
 
 			30: {
@@ -887,6 +889,7 @@ InfinityZero: {
 					Discord: {
 						Server: {
 							CalDev: 你跟我在这打什么？你不是还有个沉沦之海重做要搞还是什么的吗？
+							// AACord: I promise you no one in the Ancients Awakened server cares that you beat me. Just give it up already.
 							Default: 你不如回{0}去找个愿意搭理你的人烦，行吗？
 						}
 
@@ -906,6 +909,7 @@ InfinityZero: {
 					NoMod: 装个别的mod什么的。模组浏览器上多着呢。
 					#New Additions
 					Jetshift: 不能去烦那两个陨石佬吗？
+					// JetshiftPort: Why not go bother Shen? I hear there's a chance he can become Shifted. Yeah, go beat Shifted Awakened Shen Doragon.
 					StarsAbove: 去烦月读吧，或者去找你家星海旅者聊聊天，别来烦我。
 					LunarVeil: 你认识歌瑟樊吧？去跟她打。听说她很猛。
 					Catalyst: 干嘛不再去打一遍那个紫色馒头？我听说无伤打过它能掉特殊物品。
@@ -917,6 +921,11 @@ InfinityZero: {
 					YouBoss: 你不能自己打发点时间么？就是，字面意思，找那个镜子里的人。
 					Radiance: 那个太阳妖精不是有了新招吗？去跟她打啊。
 					Fables: 干嘛不拜访拜访你那位瑙提螺斯爵士？他可是真心喜欢跟你打架。
+
+					NoxusBoss: {
+						// PreNameless: Don't you have some grand test to be completing? Or did Solyn die for nothing?
+						// PostNameless: Why not do that Test of Resolve thing instead? You got that Seed of Will, didn't you? Azathoth certainly likes fighting you more than I do.
+					}
 				}
 			}
 		}

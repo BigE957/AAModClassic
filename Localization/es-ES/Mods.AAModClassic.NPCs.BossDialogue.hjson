@@ -634,6 +634,7 @@ ShenDoragon: {
 				SacredTools: ¿Apagar esa calabaza abisal? ¡Eso sí que fue todo un espectáculo de ver!
 				Catalyst: De verdad que barriste el suelo con esa pila de lodo morado.
 				CalamityHunt: Debió de costar los suyo poner a esos limos en su sitio. ¡Quién iba a decir que darían pelea!
+				// JetshiftPort: But when that ancient ice dragon let our its final dying roar? That was quite the eye-catcher.
 
 				Split: {
 					Seth: Lo admito, acabar con ese cabeza caliente blandidor de espadas fue todo un espectáculo de presenciar.
@@ -650,6 +651,7 @@ ShenDoragon: {
 
 				YouBoss: O sea, ¿destruir tu propio reflejo hecho realidad? Eso es impresionante.
 				Radiance: ¡No pensaba que esa hada del sol fuera para tanto hasta que lograste sacar todo su poder. ¡Eso sí que fue todo un espectáculo!
+				// NoxusBoss: Bringing that sun-swallowing rift to our doorstep? To be honest, that thing's even got me a little antsy!
 			}
 
 			30: {
@@ -887,6 +889,7 @@ InfinityZero: {
 					Discord: {
 						Server: {
 							CalDev: ¿Por qué demonios estás luchando contra mí? ¿No tienes que estar trabajando en una revisión de Sunken Sea o algo así?
+							// AACord: I promise you no one in the Ancients Awakened server cares that you beat me. Just give it up already.
 							Default: ¿Por qué no vuelves a {0} y buscas a alguien a quien molestar allí, vale?
 						}
 
@@ -906,6 +909,7 @@ InfinityZero: {
 					NoMod: Ve a instalarte otro mod o algo. Hay un montón en el navegador de mods para elegir.
 					#New Additions
 					Jetshift: ¿No puedes ir a molestar a esos dos tíos de los meteoritos?
+					// JetshiftPort: Why not go bother Shen? I hear there's a chance he can become Shifted. Yeah, go beat Shifted Awakened Shen Doragon.
 					StarsAbove: Ve a molestar a Tsukiyomi, o simplemente ponte a charlar con tu amigo navegante estelar en vez de molestarme a mí.
 					LunarVeil: Conoces a Gothiva, ¿verdad? Ve a luchar contra ella. He oído que es dura.
 					Catalyst: ¿Por qué no mueles a golpes otra vez a esa cosa de Astrageldon? He oído que si le ganas sin recibir golpes puedes conseguir un objeto especial.
@@ -917,6 +921,11 @@ InfinityZero: {
 					YouBoss: ¿No puedes mantenerte ocupado? O sea, literalmente, con ese tío del espejo.
 					Radiance: ¿Esa hada del sol no tiene trucos nuevos? Ve a luchar contra ella en su lugar.
 					Fables: ¿Por qué no le haces otra visita a ese colega tuyo el nautilus? A él la verdad es que le gusta luchar contigo.
+
+					NoxusBoss: {
+						// PreNameless: Don't you have some grand test to be completing? Or did Solyn die for nothing?
+						// PostNameless: Why not do that Test of Resolve thing instead? You got that Seed of Will, didn't you? Azathoth certainly likes fighting you more than I do.
+					}
 				}
 			}
 		}

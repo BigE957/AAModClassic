@@ -634,6 +634,7 @@ ShenDoragon: {
 				SacredTools: Ты залил ту пустотную тыкву? Вот это было зрелище!
 				Catalyst: Ты и впрямь надрал зад той фиолетовой куче слизи.
 				CalamityHunt: Должно быть, тебе потребовалось немало сил, чтобы поставить тех слизней на место. Кто бы мог подумать, что они смогут дать бой!
+				// JetshiftPort: But when that ancient ice dragon let our its final dying roar? That was quite the eye-catcher.
 
 				Split: {
 					Seth: Признаю, то, как ты уложил того горячеголового махателя мечом - было тем ещё зрелищем.
@@ -650,6 +651,7 @@ ShenDoragon: {
 
 				YouBoss: То есть, ты разбил своё же ожившее отражение? Прекрасная работа.
 				Radiance: Я не считал ту солнечную фею такой уж впечатляющей, пока тебе не удалось выявить её полную мощь. Вот это было зрелище!
+				// NoxusBoss: Bringing that sun-swallowing rift to our doorstep? To be honest, that thing's even got me a little antsy!
 			}
 
 			30: {
@@ -887,6 +889,7 @@ InfinityZero: {
 					Discord: {
 						Server: {
 							CalDev: Зачем ты сражаешься со мной? Разве у тебя нет Sunken Sea Overhaul, над которым ты должен работать?
+							// AACord: I promise you no one in the Ancients Awakened server cares that you beat me. Just give it up already.
 							Default: Почему бы тебе просто не вернуться в {0} и не найти кого-нибудь для приставаний там, а?
 						}
 
@@ -906,6 +909,7 @@ InfinityZero: {
 					NoMod: Пойди установи другой мод, например. В браузере модов много выборки.
 					#New Additions
 					Jetshift: Не мог бы ты пойти доставать тех двух метеоритных парней?
+					// JetshiftPort: Why not go bother Shen? I hear there's a chance he can become Shifted. Yeah, go beat Shifted Awakened Shen Doragon.
 					StarsAbove: Иди доставать Цукуёми, или поговори со своей астрой, не знаю.
 					LunarVeil: Ты знаешь Готиву, да? Иди сражайся с ней. Я слышал она сильна.
 					Catalyst: Может пойдёшь колотить Астрагельдона? Я слышал, что если убить его без урона, можно получить особую вещь.
@@ -917,6 +921,11 @@ InfinityZero: {
 					YouBoss: Почему бы тебе не занять себя самому? Ну, буквально самому, тем зеркальным парнем.
 					Radiance: Разве у той солнечной феи нет каких-то новых трюков? Сражайся с ней.
 					Fables: Почему бы тебе не навестить своего приятеля, Наутилуса? Ему явно нравится сражаться с тобой.
+
+					NoxusBoss: {
+						// PreNameless: Don't you have some grand test to be completing? Or did Solyn die for nothing?
+						// PostNameless: Why not do that Test of Resolve thing instead? You got that Seed of Will, didn't you? Azathoth certainly likes fighting you more than I do.
+					}
 				}
 			}
 		}
