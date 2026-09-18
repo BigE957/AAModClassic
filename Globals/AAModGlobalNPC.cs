@@ -68,6 +68,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.GameContent.Bestiary;
@@ -952,28 +953,28 @@ namespace AAModClassic.Globals
 
         }
 
-        public static void ClearPoolWithExceptions(IDictionary<int, float> pool)
-        {
-            try
-            {
-                Dictionary<int, float> keepPool = [];
-                foreach (var kvp in pool)
-                {
-                    int npcID = kvp.Key;
-                    ModNPC mnpc = NPCLoader.GetNPC(npcID);
-                    HashSet<string> modsToKeep = [AAMod.instance.Name, "AAMod", "GRealm"];
-                    if (mnpc != null && mnpc.Mod != null && modsToKeep.Contains(mnpc.Mod.Name)) //splitting so you can add other exceptions if need be
-                        keepPool.Add(npcID, kvp.Value);
-                }
-                pool.Clear();
+        private static readonly HashSet<string> modsToKeep = [AAMod.instance.Name, "AAMod", "GRealm"];
+        private delegate int? orig_ChooseSpawn(NPCSpawnInfo spawnInfo);
 
-                foreach (var newkvp in keepPool)
-                    pool.Add(newkvp.Key, newkvp.Value);
-            }
-            catch (Exception e)
+        public override void Load()
+        {
+            MonoModHooks.Add(
+                typeof(NPCLoader).GetMethod(nameof(NPCLoader.ChooseSpawn), BindingFlags.Public | BindingFlags.Static),
+                ChooseSpawnDetour);
+        }
+
+        private static int? ChooseSpawnDetour(orig_ChooseSpawn orig, NPCSpawnInfo spawnInfo)
+        {
+            int? chosen = orig(spawnInfo);
+
+            if (chosen is int type && spawnInfo.Player.AAPlayer().ZoneVoid)
             {
-                AAMod.instance.Logger.Error(e.StackTrace);
+                ModNPC mnpc = NPCLoader.GetNPC(type);
+                if (mnpc == null || !modsToKeep.Contains(mnpc.Mod.Name))
+                    return null;
             }
+
+            return chosen;
         }
 
         public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
@@ -991,10 +992,6 @@ namespace AAModClassic.Globals
             //Nukes vanilla spawns
             if (aaBiomeZone && !pillarZone)
                 pool.Remove(0);
-
-            //Nukes all non-AA spawns
-            if (spawnInfo.Player.AAPlayer().ZoneVoid)
-                ClearPoolWithExceptions(pool);
 
             bool anyEvents = NPCUtils.AnyEvents(spawnInfo.Player);
 
