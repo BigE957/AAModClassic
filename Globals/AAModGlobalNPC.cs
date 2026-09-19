@@ -953,30 +953,6 @@ namespace AAModClassic.Globals
 
         }
 
-        private static readonly HashSet<string> modsToKeep = [AAMod.instance.Name, "AAMod", "GRealm"];
-        private delegate int? orig_ChooseSpawn(NPCSpawnInfo spawnInfo);
-
-        public override void Load()
-        {
-            MonoModHooks.Add(
-                typeof(NPCLoader).GetMethod(nameof(NPCLoader.ChooseSpawn), BindingFlags.Public | BindingFlags.Static),
-                ChooseSpawnDetour);
-        }
-
-        private static int? ChooseSpawnDetour(orig_ChooseSpawn orig, NPCSpawnInfo spawnInfo)
-        {
-            int? chosen = orig(spawnInfo);
-
-            if (chosen is int type && spawnInfo.Player.AAPlayer().ZoneVoid)
-            {
-                ModNPC mnpc = NPCLoader.GetNPC(type);
-                if (mnpc == null || !modsToKeep.Contains(mnpc.Mod.Name))
-                    return null;
-            }
-
-            return chosen;
-        }
-
         public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
         {
             bool pillarZone = spawnInfo.Player.ZoneTowerNebula || spawnInfo.Player.ZoneTowerSolar || spawnInfo.Player.ZoneTowerStardust || spawnInfo.Player.ZoneTowerVortex;
@@ -1144,6 +1120,40 @@ namespace AAModClassic.Globals
             {
                 //I have no idea how to convert this to the standard system so im gonna post this method too lol
                 AANet.SendNetMessage<SummonNPCFromClient>((byte)player.whoAmI, (short)RajahType, spawnMessage, (int)npcCenter.X, (int)npcCenter.Y, overrideDisplayName, namePlural);
+            }
+        }
+    }
+
+    //This fucking blows
+    public class ZZZVoidSpawnClearing : GlobalNPC
+    {
+        private static readonly HashSet<string> modsToKeep = [AAMod.instance.Name, "AAMod", "GRealm"];
+
+        public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
+        {
+            //Nukes all non-AA spawns out of the void
+            if (spawnInfo.Player.AAPlayer().ZoneVoid)
+            {
+                try
+                {
+                    Dictionary<int, float> keepPool = [];
+                    foreach (var kvp in pool)
+                    {
+                        int npcID = kvp.Key;
+                        ModNPC mnpc = NPCLoader.GetNPC(npcID);
+
+                        if (mnpc != null && mnpc.Mod != null && modsToKeep.Contains(mnpc.Mod.Name)) //splitting so you can add other exceptions if need be
+                            keepPool.Add(npcID, kvp.Value);
+                    }
+                    pool.Clear();
+
+                    foreach (var newkvp in keepPool)
+                        pool.Add(newkvp.Key, newkvp.Value);
+                }
+                catch (Exception e)
+                {
+                    AAMod.instance.Logger.Error(e.StackTrace);
+                }
             }
         }
     }
