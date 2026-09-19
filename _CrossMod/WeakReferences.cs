@@ -1799,6 +1799,14 @@ namespace AAModClassic._CrossMod
                 Oblivion.CrossModDialogue.Add("NoxusBoss", (Language.GetOrRegister(izLocPath + "NoxusBoss.PostNameless"), () => (bool)wotg.Call("GetBossDefeated", "namelessdeity")));
             }
 
+            if (ModLoader.TryGetMod("SOTS", out var sots) && sots.TryFind<ModSystem>("SystemTweaks", out downed))
+            {
+                var field = downed.GetType().GetField("downedSubspace", BindingFlags.Static | BindingFlags.Public);
+                if (field != null)
+                    ShenDoragonUtils.CrossModDialogue.Add("SOTS", (Language.GetOrRegister(shenLocPath + "SOTS"), () => (bool)field.GetValue(null)));
+                Oblivion.CrossModDialogue.Add("SOTS", (Language.GetOrRegister(izLocPath + "SOTS"), () => true));
+            }
+
             //(bool)ModSupport.GetModWorldConditions("GRealm", "MWorld", "downedMatriarch", false, true);
             //public bool DownedDuo => JetshiftMod.JetshiftWorld.downedCosmicMystery;
         }

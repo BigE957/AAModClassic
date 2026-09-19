@@ -2,6 +2,6 @@ author = Big E
 version = 1.0.26
 displayName = Ancients Awakened: Classic
 loadAfter = AAMod, CalamityMod
-sortAfter = CalamityFables, SpiritReforged
+sortAfter = CalamityFables, SpiritReforged, SOTS
 weakReferences = SpiritReforged
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, *.sln

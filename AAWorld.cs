@@ -564,7 +564,7 @@ namespace AAModClassic
                 }));
             }
 
-            int ChaosIndex = SpiritReforgedManager.IsEnabled ? tasks.Count - 2 : tasks.FindIndex(genpass => genpass.Name.Equals("Micro Biomes"));
+            int ChaosIndex = (SpiritReforgedManager.IsEnabled || ModLoader.HasMod("SOTS")) ? tasks.Count - 2 : tasks.FindIndex(genpass => genpass.Name.Equals("Micro Biomes"));
             if(ChaosIndex > -1)
             {
                 tasks.Insert(ChaosIndex + 1, new PassLegacy("Mire and Inferno", delegate (GenerationProgress progress, GameConfiguration config)
@@ -612,7 +612,7 @@ namespace AAModClassic
                     Hoard(progress);
                 }));
 
-                tasks.Insert(shiniesIndex2 + 5, new PassLegacy("Acropolis", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(ModLoader.HasMod("SOTS") ? tasks.Count - 2 : shiniesIndex2 + 5, new PassLegacy("Acropolis", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     Acropolis(progress);
                 }));
@@ -993,7 +993,7 @@ namespace AAModClassic
             }
 
             int halfSize = size / 2;
-            WorldGenUtils.AddProtectedStructure(new(position.X - halfSize, position.Y - halfSize, size, size), 20);
+            WorldGenUtils.AddProtectedStructure(new(position.X - halfSize, position.Y - halfSize, size, size), 40);
         }
 
         public static readonly HashSet<int> DontSpawnAltarsOn =
@@ -1488,15 +1488,15 @@ namespace AAModClassic
         private static int RollInfernoX(int side)
         {
             return (Main.maxTilesX >= 8000)
-                ? (side == 1 ? WorldGen.genRand.Next(2000, 2300) : (Main.maxTilesX - WorldGen.genRand.Next(2000, 2300)))
-                : (side == 1 ? WorldGen.genRand.Next(1500, 1700) : (Main.maxTilesX - WorldGen.genRand.Next(1500, 1700)));
+                ? (side == 1 ? WorldGen.genRand.Next(1800, 2500) : (Main.maxTilesX - WorldGen.genRand.Next(1800, 2500)))
+                : (side == 1 ? WorldGen.genRand.Next(1400, 1800) : (Main.maxTilesX - WorldGen.genRand.Next(1400, 1800)));
         }
 
-        private static int RollMireX(int infernoSide)
+        private static int RollMireX(int side)
         {
             return (Main.maxTilesX >= 8000)
-                ? (infernoSide != 1 ? WorldGen.genRand.Next(2000, 2300) : (Main.maxTilesX - WorldGen.genRand.Next(2000, 2300)))
-                : (infernoSide != 1 ? WorldGen.genRand.Next(1500, 1700) : (Main.maxTilesX - WorldGen.genRand.Next(1500, 1700)));
+                ? (side != 1 ? WorldGen.genRand.Next(1800, 2500) : (Main.maxTilesX - WorldGen.genRand.Next(1800, 2500)))
+                : (side != 1 ? WorldGen.genRand.Next(1400, 1800) : (Main.maxTilesX - WorldGen.genRand.Next(1400, 1800)));
         }
 
         private static int FindBiomeSurfaceY(int x)
@@ -1558,6 +1558,11 @@ namespace AAModClassic
             Point fallbackSurface = default;
             Point fallbackOrigin = default;
 
+            Mod sots = null;
+            int charredWood = -1;
+            if (ModLoader.TryGetMod("SOTS", out sots))
+                charredWood = sots.Find<ModTile>("CharredWoodTile").Type;
+
             for (int attempt = 0; attempt < maxAttempts; attempt++)
             {
                 int x = rollX();
@@ -1574,6 +1579,29 @@ namespace AAModClassic
                 }
 
                 Rectangle footprint = getFootprint(placementOrigin);
+
+                if (sots != null)
+                {
+                    bool allClear = true;
+                    for (int tX = footprint.X; tX < footprint.Width; tX++)
+                    {
+                        for (int tY = footprint.Y; tY < footprint.Height; tY++)
+                        {
+                            Tile t = Framing.GetTileSafely(tX, tY);
+                            if (t.TileType == charredWood)
+                            {
+                                allClear = false;
+                                break;
+                            }
+                        }
+
+                        if (!allClear)
+                            break;
+                    }
+
+                    if (!allClear)
+                        continue;
+                }
 
                 if (structures.CanPlace(footprint, WorldGenUtils.AllTilesAllowed, 0))
                 {
@@ -1731,7 +1759,7 @@ namespace AAModClassic
             //Dodge Azafure, Profaned Temple and Eye Valley
             int offset = 500;
             bool dungeonRight = GenVars.dungeonX > Main.maxTilesX / 2;
-            if ((ModLoader.HasMod("CalamityMod") && dungeonRight) || (ModLoader.HasMod("Spooky") && !dungeonRight) || ModLoader.HasMod("InfernumMode"))
+            if ((ModLoader.HasMod("CalamityMod") && dungeonRight) || (ModLoader.HasMod("Spooky") && !dungeonRight) || ModLoader.HasMod("InfernumMode") || ModLoader.HasMod("SOTS"))
                 offset = WorldGenUtils.GetWorldSize() == 2 ? 1600 : 2000;
 
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
