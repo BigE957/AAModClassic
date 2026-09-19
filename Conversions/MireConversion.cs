@@ -90,12 +90,14 @@ namespace AAModClassic.Conversions
                 TileLoader.RegisterConversion(spirit.Find<ModTile>("SavannaFoliageCorrupt").Type, Type, ModContent.TileType<MireFoliage_Tile>());
                 TileLoader.RegisterConversion(spirit.Find<ModTile>("SavannaFoliageCrimson").Type, Type, ModContent.TileType<MireFoliage_Tile>());
                 TileLoader.RegisterConversion(spirit.Find<ModTile>("SavannaFoliageHallow").Type, Type, ModContent.TileType<MireFoliage_Tile>());
-
+                
+                //Reforged handles converting these automatically and having them here causes a JIT error so LOL
+                /*
                 TileLoader.RegisterConversion(spirit.Find<ModTile>("ElephantGrass").Type, Type, ModContent.TileType<ElephantGrassMire>());
                 TileLoader.RegisterConversion(spirit.Find<ModTile>("ElephantGrassCorrupt").Type, Type, ModContent.TileType<ElephantGrassMire>());
                 TileLoader.RegisterConversion(spirit.Find<ModTile>("ElephantGrassCrimson").Type, Type, ModContent.TileType<ElephantGrassMire>());
                 TileLoader.RegisterConversion(spirit.Find<ModTile>("ElephantGrassHallow").Type, Type, ModContent.TileType<ElephantGrassMire>());
-
+                */
                 TileLoader.RegisterConversion(spirit.Find<ModTile>("SavannaDirt").Type, Type, TileID.Mud);
 
 
