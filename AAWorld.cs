@@ -1762,6 +1762,9 @@ namespace AAModClassic
             if ((ModLoader.HasMod("CalamityMod") && dungeonRight) || (ModLoader.HasMod("Spooky") && !dungeonRight) || ModLoader.HasMod("InfernumMode") || ModLoader.HasMod("SOTS"))
                 offset = WorldGenUtils.GetWorldSize() == 2 ? 1600 : 2000;
 
+            if (ModLoader.HasMod("Redemption"))
+                offset = 3000;
+
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
             {
                 Point origin = new(Main.maxTilesX - offset, Main.maxTilesY - 170);
