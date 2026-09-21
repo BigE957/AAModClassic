@@ -45,7 +45,8 @@ namespace AAModClassic.Structures.Tools
                 }
                 else if(session.Phase == SchematicToolPhase.Idle)
                 {
-                    Place(SchematicExporter.OutputDirectory + "Test.aasch", Main.MouseWorld.ToTileCoordinates());
+                    SchematicExporter.OutputDirectory = null;
+                    Place(SchematicExporter.OutputDirectory + "/Test.aasch", Main.MouseWorld.ToTileCoordinates());
                 }
                 return true;
             }
@@ -68,12 +69,8 @@ namespace AAModClassic.Structures.Tools
             return true;
         }
 
-        private static void Place(string path, Point pos)
+        private static void Place(string path, Point pos, bool flip = false, SchematicAnchor anchor = SchematicAnchor.BottomCenter)
         {
-            bool flip = false;
-            SchematicAnchor anchor = SchematicAnchor.BottomCenter;
-
-            //string path = Path.Combine(SchematicExporter.OutputDirectory, args[1] + ".aasch");
             if (!File.Exists(path))
             {
                 Main.NewText($"No schematic found at '{path}'.", Color.Orange);
