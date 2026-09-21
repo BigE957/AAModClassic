@@ -1,46 +1,9 @@
 ﻿#if DEBUG
-using AAModClassic._Content._Dev.__Hardmode.Items.Accessories;
-using AAModClassic._Content._Dev.World.Biomes;
-using AAModClassic._Content._Dev.World.Tiles;
-using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Acropolis._PostMoonlord.Items.Tiles.Decoration;
-using AAModClassic._Content.Acropolis.World.Biomes;
-using AAModClassic._Content.Acropolis.World.Tiles;
-using AAModClassic._Content.Hell.World.Biomes;
-using AAModClassic._Content.Hell.World.Tiles;
-using AAModClassic._Content.Hoard.World.Biomes;
-using AAModClassic._Content.Hoard.World.Tiles;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture;
-using AAModClassic._Content.Inferno.World.Tiles;
-using AAModClassic._Content.Mire.World.Biomes;
-using AAModClassic._Content.Mire.World.Tiles;
-using AAModClassic._Content.Stars.World.Altar;
-using AAModClassic._Content.Stars.World.Biomes;
-using AAModClassic._Content.Terrarium.World.Biomes;
-using AAModClassic._Content.Terrarium.World.Tiles;
-using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration;
-using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration.Ancient;
-using AAModClassic._Unreleased;
-using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
-using AAModClassic._Unreleased.Content.LostKeep.World.Biomes;
-using AAModClassic._Unreleased.Content.LostKeep.World.Tiles;
-using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Keep;
-using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Terra;
-using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Paintings;
-using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
-using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
-using AAModClassic._Unreleased.Content.SunkenShip.World.Tiles;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.UI.World;
-using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.WorldBuilding;
-using static AAModClassic.Utilities.WorldGenUtils;
 
 namespace AAModClassic.Structures.Tools
 {
@@ -99,7 +62,7 @@ namespace AAModClassic.Structures.Tools
 
                 case SchematicToolPhase.AwaitingSecondCorner:
                     session.CompleteSelection(tile);
-                    Main.NewText($"Region set: {session.Region.Width}x{session.Region.Height} at ({session.Region.X}, {session.Region.Y}). Use /schem for commands.", Color.LightGreen);
+                    Main.NewText($"Region set: {session.Region.Width}x{session.Region.Height} at ({session.Region.X}, {session.Region.Y}).", Color.LightGreen);
                     break;
             }
 
