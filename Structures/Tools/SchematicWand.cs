@@ -1,11 +1,8 @@
 ﻿#if DEBUG
-using Ionic.Zlib;
 using Microsoft.Xna.Framework;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.ID;
-using Terraria.IO;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Structures.Tools
