@@ -385,6 +385,81 @@ namespace AAModClassic.Structures.Tools
             return name.Trim();
         }
         #endregion
+
+        public static SchematicData Capture(Action build, Point origin, int width, int height, ushort dummyTile, ushort dummyWall, List<string> warnings = null)
+        {
+            ArgumentNullException.ThrowIfNull(build);
+            if (width <= 0 || height <= 0)
+                throw new ArgumentException("Capture dimensions must be positive.");
+            if (origin.X < 0 || origin.Y < 0 || origin.X + width > Main.maxTilesX || origin.Y + height > Main.maxTilesY)
+                throw new ArgumentException("Capture area extends outside the world.");
+            if (Main.netMode != NetmodeID.SinglePlayer)
+                throw new InvalidOperationException("Schematic capture can only run in single-player.");
+
+            warnings ??= [];
+
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    Tile t = Main.tile[origin.X + x, origin.Y + y];
+                    t.ClearEverything();
+                    t.HasTile = true;
+                    t.TileType = dummyTile;
+                    t.WallType = dummyWall;
+                }
+            }
+
+            for (int x = origin.X; x < origin.X + width; x++)
+                for (int y = origin.Y; y < origin.Y + height; y++)
+                    WorldGen.TileFrame(x, y, false, false);
+
+            build();
+
+            var data = new SchematicData(width, height);
+            var warnedTiles = new HashSet<int>();
+            var warnedWalls = new HashSet<int>();
+
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    int i = data.CellIndex(x, y);
+                    Tile tile = Main.tile[origin.X + x, origin.Y + y];
+
+                    bool untouchedTile = tile.HasTile && tile.TileType == dummyTile;
+                    bool untouchedWall = tile.WallType == dummyWall;
+
+                    uint flags = 0;
+                    if (untouchedTile) flags |= SchematicCell.KeepTile;
+                    if (untouchedWall) flags |= SchematicCell.KeepWall;
+
+                    if (!(untouchedTile && untouchedWall))
+                    {
+                        if (!untouchedTile)
+                            flags = ExportTileLayer(data, i, tile, flags, warnedTiles, warnings);
+                        if (!untouchedWall)
+                            flags = ExportWallLayer(data, i, tile, flags, warnedWalls, warnings);
+                        flags = ExportWiresAndLiquid(data, i, tile, flags);
+                    }
+
+                    data.Flags[i] = flags;
+                }
+            }
+
+            return data;
+        }
+
+        public static string CaptureToFile(Action build, Point origin, int width, int height, ushort dummyTile, ushort dummyWall, string fileName, List<string> warnings = null)
+        {
+            SchematicData data = Capture(build, origin, width, height, dummyTile, dummyWall, warnings);
+
+            Directory.CreateDirectory(OutputDirectory);
+            string path = Path.Combine(OutputDirectory, SanitizeFileName(fileName) + ".aasch");
+            using (FileStream stream = File.Create(path))
+                SchematicIO.Write(stream, data);
+            return path;
+        }
     }
 }
 #endif

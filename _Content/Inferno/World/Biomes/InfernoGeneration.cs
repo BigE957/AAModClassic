@@ -30,20 +30,6 @@ namespace AAModClassic._Content.Inferno.World.Biomes
     {
         public override bool Place(Point origin, StructureMap structures)
         {
-            //this handles generating the actual tiles, but you still need to add things like treegen etc. I know next to nothing about treegen so you're on your own there, lol.
-
-            Mod mod = AAMod.instance;
-            //--- Initial variable creation
-            //ushort tileGrass = (ushort)mod.Find<ModTile>("InfernoGrass").Type, tileStone = (ushort)mod.Find<ModTile>("Torchstone").Type, tileSnow = (ushort)mod.Find<ModTile>("TorchAsh").Type,
-            //tileIce = (ushort)mod.Find<ModTile>("Torchice").Type, tileSand = (ushort)mod.Find<ModTile>("Torchsand").Type, tileSandHardened = (ushort)mod.Find<ModTile>("TorchsandHardened").Type, tileSandstone = (ushort)mod.Find<ModTile>("Torchsandstone").Type,
-            //LivingWood = (ushort)ModContent.TileType<LivingRazewood_Tile>(), LivingLeaves = (ushort)ModContent.TileType<LivingRazeleaves_Tile>();
-
-            ushort StoneWall = (ushort)ModContent.WallType<TorchstoneWall_Wall>(),
-            SandstoneWall = (ushort)ModContent.WallType<TorchsandstoneWall_Wall>(),
-            HardenedSandWall = (ushort)ModContent.WallType<TorchsandHardenedWall_Wall>(),
-            GrassWall = (ushort)ModContent.WallType<InfernoGrassWall_Wall>();
-
-
             int worldSize = GetWorldSize();
             int biomeRadius = worldSize == 3 ? 240 : worldSize == 2 ? 200 : 180;
 
