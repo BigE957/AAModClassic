@@ -101,7 +101,8 @@ namespace AAModClassic.Structures
 
             ClearFootprint(s, area, options.FlipHorizontal);
             WriteCells(resolved, area, options, unhandledFlipTypes);
-            Reframe(area);
+            if (!WorldGen.generatingWorld)
+                Reframe(area);
             PlaceChests(resolved, area, options, result);
             PlaceSigns(resolved, area, options, result);
             AddMarkers(s, area, options.FlipHorizontal, result);
@@ -110,7 +111,7 @@ namespace AAModClassic.Structures
                 result.Warnings.Add($"Tile '{TileName(type)}' has no flip handling and was mirrored as-is; check how it looks.");
 
             if (options.SyncToClients)
-                Sync(area);
+                NetMessage.SendTileSquare(-1, area.X, area.Y, area.Width, area.Height);
 
             result.Success = true;
             return result;
@@ -418,17 +419,6 @@ namespace AAModClassic.Structures
                 return 2;
 
             return TileObjectData.GetTileData(type, 0)?.Width ?? 2;
-        }
-
-        private static void Sync(Rectangle area)
-        {
-            if (Main.netMode != NetmodeID.Server)
-                return;
-
-            const int size = 32;
-            for (int x = area.X; x < area.Right; x += size)
-                for (int y = area.Y; y < area.Bottom; y += size)
-                    NetMessage.SendTileSquare(-1, x + (size - 1) / 2, y + (size - 1) / 2, size);
         }
 
         private static string TileName(int type) => type < TileID.Count ? TileID.Search.GetName(type) : TileLoader.GetTile(type)?.FullName ?? type.ToString();

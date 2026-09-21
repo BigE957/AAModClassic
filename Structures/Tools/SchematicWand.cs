@@ -46,7 +46,8 @@ namespace AAModClassic.Structures.Tools
                 else if(session.Phase == SchematicToolPhase.Idle)
                 {
                     SchematicExporter.OutputDirectory = null;
-                    Place(SchematicExporter.OutputDirectory + "/LostKeep.aasch", Main.MouseWorld.ToTileCoordinates(), anchor: SchematicAnchor.TopLeft);
+                    string path = Main.SavePath + "\\ModSources\\AAModClassic\\Structures\\Schematics\\";
+                    Place(path + "LostKeep.aasch", Main.MouseWorld.ToTileCoordinates(), anchor: SchematicAnchor.TopLeft);
                 }
                 return true;
             }
