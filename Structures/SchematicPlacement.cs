@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
+using System.Collections.Generic;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using AAModClassic.Globals;
 
 namespace AAModClassic.Structures
 {

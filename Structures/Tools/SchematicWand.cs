@@ -1,10 +1,25 @@
 ﻿#if DEBUG
-using AAModClassic._Content.Inferno.World.Biomes;
+using AAModClassic._Content._Dev.__Hardmode.Items.Accessories;
+using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Acropolis._PostMoonlord.Items.Tiles.Decoration;
+using AAModClassic._Content.Acropolis.World.Biomes;
+using AAModClassic._Content.Acropolis.World.Tiles;
+using AAModClassic._Content.Hoard.World.Biomes;
+using AAModClassic._Content.Hoard.World.Tiles;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture;
 using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._Content.Mire.World.Tiles;
+using AAModClassic._Content.Terrarium.World.Biomes;
+using AAModClassic._Content.Terrarium.World.Tiles;
+using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
+using AAModClassic._Unreleased.Content.LostKeep.World.Biomes;
+using AAModClassic._Unreleased.Content.LostKeep.World.Tiles;
+using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Keep;
+using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Terra;
+using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Paintings;
 using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Conversions;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -12,7 +27,6 @@ using System.IO;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
-using static AAModClassic.Utilities.WorldGenUtils;
 
 namespace AAModClassic.Structures.Tools
 {
@@ -55,7 +69,7 @@ namespace AAModClassic.Structures.Tools
                 else if(session.Phase == SchematicToolPhase.Idle)
                 {
                     SchematicExporter.OutputDirectory = null;
-                    bool place = true;
+                    bool place = false;
 
                     if (!place)
                     {
@@ -68,61 +82,65 @@ namespace AAModClassic.Structures.Tools
 
                         void build()
                         {
-                            Dictionary<Color, int> colorToTile = new()
+                            Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
                             {
-                                [new Color(0, 0, 255)] = ModContent.TileType<Depthstone_Tile>(),
-                                [new Color(255, 128, 0)] = ModContent.TileType<Darkmud_Tile>(),
-                                [new Color(0, 255, 255)] = ModContent.TileType<DepthMoss_Tile>(),
-                                [new Color(0, 255, 0)] = ModContent.TileType<AbyssGrass_Tile>(),
-                                [new Color(255, 0, 0)] = ModContent.TileType<AbyssWood_Tile>(),
-                                [new Color(128, 0, 0)] = ModContent.TileType<AbyssWoodSolid_Tile>(),
-                                [new Color(255, 255, 0)] = ModContent.TileType<AbyssVines_Tile>(),
-                                [new Color(255, 0, 255)] = ModContent.TileType<AbyssLeaves_Tile>(),
-                                [new Color(150, 150, 150)] = -2, //turn into air
-                                [Color.Black] = -1 //don't touch when genning
+                                [new Color(255, 0, 0)] = -2,
+                                [new Color(255, 255, 255)] = -2, //turn into air
+                                [Color.Black] = -1 //don't touch when genning		
                             };
 
-                            Dictionary<Color, int> colorToWall = new()
+                            TexGen gen = TexGen.GetTexGenerator(HoardTexGenAssets.HoardDeletionData, colorToTile);
+                            gen.Generate(origin.X, origin.Y, true, true);
+
+                            colorToTile = new Dictionary<Color, int>
                             {
-                                [new Color(0, 0, 255)] = ModContent.WallType<DepthstoneWall_Wall>(),
-                                [Color.Black] = -1 //don't touch when genning
+                                [new Color(255, 0, 0)] = ModContent.TileType<GreedStone_Tile>(),
+                                [new Color(0, 0, 255)] = ModContent.TileType<GreedBrick_Tile>(),
+                                [new Color(255, 255, 255)] = -2,
+                                [Color.Black] = -1
                             };
 
-                            TexGen gen = TexGen.GetTexGenerator(MireTexGenAssets.LakeTileData, colorToTile, MireTexGenAssets.LakeWallData, colorToWall, MireTexGenAssets.LakeLiquidData);
+                            Dictionary<Color, int> colorToWall = new Dictionary<Color, int>
+                            {
+                                [new Color(255, 0, 0)] = -2,
+                                [Color.Black] = -1
+                            };
 
-                            int genX = origin.X;
-                            int genY = origin.Y;
-                            gen.Generate(genX, genY, true, true);
+                            HashSet<int> protectedTiles = [
+                                ModContent.TileType<GreedStone_Tile>(),
+                                ModContent.TileType<GreedBrick_Tile>(),
+                            ];
 
+                            gen = TexGen.GetTexGenerator(HoardTexGenAssets.HoardTileData, colorToTile, HoardTexGenAssets.HoardWallData, colorToWall, unbreakableTiles: protectedTiles);
+                            gen.Generate(origin.X, origin.Y, true, true);
 
-                            WorldGen.PlaceObject(genX + 24, genY + 203, ModContent.TileType<HydraPod_Tile>());
-                            WorldGen.PlaceObject(genX + 43, genY + 211, ModContent.TileType<HydraPod_Tile>());
-                            WorldGen.PlaceObject(genX + 59, genY + 221, ModContent.TileType<HydraPod_Tile>());
-                            WorldGen.PlaceObject(genX + 81, genY + 223, ModContent.TileType<HydraPod_Tile>());
-                            WorldGen.PlaceObject(genX + 103, genY + 231, ModContent.TileType<HydraPod_Tile>());
-                            WorldGen.PlaceObject(genX + 124, genY + 222, ModContent.TileType<HydraPod_Tile>());
-                            WorldGen.PlaceObject(genX + 143, genY + 216, ModContent.TileType<HydraPod_Tile>());
-                            WorldGen.PlaceObject(genX + 161, genY + 214, ModContent.TileType<HydraPod_Tile>());
-                            WorldGen.PlaceObject(genX + 171, genY + 205, ModContent.TileType<HydraPod_Tile>());
-                            NetMessage.SendObjectPlacement(-1, genX + 25, genY + 204, ModContent.TileType<HydraPod_Tile>(), 0, 0, -1, -1);
-                            NetMessage.SendObjectPlacement(-1, genX + 43, genY + 211, ModContent.TileType<HydraPod_Tile>(), 0, 0, -1, -1);
-                            NetMessage.SendObjectPlacement(-1, genX + 59, genY + 221, ModContent.TileType<HydraPod_Tile>(), 0, 0, -1, -1);
-                            NetMessage.SendObjectPlacement(-1, genX + 81, genY + 223, ModContent.TileType<HydraPod_Tile>(), 0, 0, -1, -1);
-                            NetMessage.SendObjectPlacement(-1, genX + 103, genY + 231, ModContent.TileType<HydraPod_Tile>(), 0, 0, -1, -1);
-                            NetMessage.SendObjectPlacement(-1, genX + 124, genY + 222, ModContent.TileType<HydraPod_Tile>(), 0, 0, -1, -1);
-                            NetMessage.SendObjectPlacement(-1, genX + 143, genY + 216, ModContent.TileType<HydraPod_Tile>(), 0, 0, -1, -1);
-                            NetMessage.SendObjectPlacement(-1, genX + 161, genY + 214, ModContent.TileType<HydraPod_Tile>(), 0, 0, -1, -1);
-                            NetMessage.SendObjectPlacement(-1, genX + 171, genY + 205, ModContent.TileType<HydraPod_Tile>(), 0, 0, -1, -1);
+                            HoardGeneration.HoardChest(origin.X + 19, origin.Y + 55);
+                            HoardGeneration.HoardChest(origin.X + 38, origin.Y + 67, 1);
+                            HoardGeneration.HoardChest(origin.X + 25, origin.Y + 34);
+                            HoardGeneration.HoardChest(origin.X + 41, origin.Y + 27);
+                            HoardGeneration.HoardChest(origin.X + 53, origin.Y + 38);
+                            HoardGeneration.HoardChest(origin.X + 49, origin.Y + 54);
+                            HoardGeneration.HoardChest(origin.X + 67, origin.Y + 70, 2);
+                            HoardGeneration.HoardChest(origin.X + 79, origin.Y + 61);
+                            HoardGeneration.HoardChest(origin.X + 72, origin.Y + 41);
+                            HoardGeneration.HoardChest(origin.X + 95, origin.Y + 45);
+                            HoardGeneration.HoardChest(origin.X + 107, origin.Y + 57);
+                            HoardGeneration.HoardChest(origin.X + 121, origin.Y + 33);
+                            HoardGeneration.HoardChest(origin.X + 131, origin.Y + 48, 3);
+                            HoardGeneration.HoardChest(origin.X + 130, origin.Y + 69);
+
+                            WorldGen.PlaceObject(origin.X + 80, origin.Y + 88, ModContent.TileType<GreedAltar_Tile>());
+                            NetMessage.SendObjectPlacement(-1, origin.X + 80, origin.Y + 88, ModContent.TileType<GreedAltar_Tile>(), 0, 0, -1, -1);
                         }
 
                         string saved = SchematicExporter.CaptureToFile(
                             build: build,
                             origin: origin,
-                            width: MireTexGenAssets.LakeTileData.Width,
-                            height: MireTexGenAssets.LakeTileData.Height,
+                            width: HoardTexGenAssets.HoardTileData.Width,
+                            height: HoardTexGenAssets.HoardTileData.Height,
                             dummyTile: dummyTile,
                             dummyWall: dummyWall,
-                            fileName: "Mire_Lake",
+                            fileName: "Hoard",
                             warnings: warnings
                         );
 
@@ -131,7 +149,7 @@ namespace AAModClassic.Structures.Tools
                             Main.NewText("Warning: " + w, Color.Orange);
                     }
                     else
-                        Place(SchematicExporter.OutputDirectory + "/Mire_Lake.aasch", Main.MouseWorld.ToTileCoordinates(), anchor: SchematicAnchor.TopLeft);
+                        Place(SchematicExporter.OutputDirectory + "/LostKeep.aasch", Main.MouseWorld.ToTileCoordinates(), anchor: SchematicAnchor.TopLeft);
                 }
                 return true;
             }
