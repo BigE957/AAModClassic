@@ -1,7 +1,11 @@
 ﻿#if DEBUG
+using Ionic.Zlib;
 using Microsoft.Xna.Framework;
+using System;
+using System.IO;
 using Terraria;
 using Terraria.ID;
+using Terraria.IO;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Structures.Tools
@@ -42,6 +46,10 @@ namespace AAModClassic.Structures.Tools
                     session.Cancel();
                     Main.NewText("Schematic selection cancelled.", Color.Orange);
                 }
+                else if(session.Phase == SchematicToolPhase.Idle)
+                {
+                    Place(SchematicExporter.OutputDirectory + "Test.aasch", Main.MouseWorld.ToTileCoordinates());
+                }
                 return true;
             }
 
@@ -61,6 +69,45 @@ namespace AAModClassic.Structures.Tools
             }
 
             return true;
+        }
+
+        private static void Place(string path, Point pos)
+        {
+            bool flip = false;
+            SchematicAnchor anchor = SchematicAnchor.BottomCenter;
+
+            //string path = Path.Combine(SchematicExporter.OutputDirectory, args[1] + ".aasch");
+            if (!File.Exists(path))
+            {
+                Main.NewText($"No schematic found at '{path}'.", Color.Orange);
+                return;
+            }
+
+            try
+            {
+                SchematicData data = SchematicLoader.ReadFile(path);
+                ResolvedSchematic resolved = SchematicLoader.Resolve(data);
+
+                Rectangle area = SchematicPlacement.ResolveArea(pos, anchor, data.Width, data.Height);
+                if (area.X < 0 || area.Y < 0 || area.Right > Main.maxTilesX || area.Bottom > Main.maxTilesY)
+                {
+                    Main.NewText("That placement would extend outside the world.", Color.Orange);
+                    return;
+                }
+
+                var options = new SchematicPlaceOptions { Anchor = anchor, FlipHorizontal = flip };
+                PlacedSchematic placed = SchematicPlacement.Place(resolved, pos, options);
+
+                Main.NewText($"Placed '{Path.GetFileName(path)}' ({data.Width}x{data.Height}{(flip ? ", flipped" : string.Empty)}) at ({placed.Area.X}, {placed.Area.Y}).", Color.LightGreen);
+                foreach (PlacedMarker marker in placed.Markers)
+                    Main.NewText($"  marker '{marker.Name}' at ({marker.Area.X}, {marker.Area.Y}) {marker.Area.Width}x{marker.Area.Height}", Color.LightSkyBlue);
+                foreach (string warning in placed.Warnings)
+                    Main.NewText("Warning: " + warning, Color.Orange);
+            }
+            catch (Exception e)
+            {
+                Main.NewText("Placement failed: " + e.Message, Color.Red);
+            }
         }
     }
 }

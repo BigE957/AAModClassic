@@ -10,7 +10,6 @@ using AAModClassic.Globals;
 
 namespace AAModClassic.Structures
 {
-    /// <summary> Which point of the schematic the placement position refers to. </summary>
     public enum SchematicAnchor
     {
         TopLeft,
@@ -28,21 +27,16 @@ namespace AAModClassic.Structures
     {
         public SchematicAnchor Anchor { get; set; } = SchematicAnchor.TopLeft;
 
-        /// <summary> Mirrors the structure left-to-right. Use WorldGen.genRand for the decision so seeds stay deterministic. </summary>
         public bool FlipHorizontal { get; set; }
 
-        /// <summary> Tile/wall types whose placed cells are registered as unbreakable. </summary>
         public HashSet<int> UnbreakableTiles { get; set; }
         public HashSet<int> UnbreakableWalls { get; set; }
 
-        /// <summary> Called for every chest after the schematic's own items are in it, so code can add or override loot. </summary>
         public Action<Chest> OnChest { get; set; }
 
-        /// <summary> Sends the area to clients afterwards. Only does anything on a server; not needed during world generation. </summary>
         public bool SyncToClients { get; set; }
     }
 
-    /// <summary> A marker in world tile coordinates, already flip-adjusted. </summary>
     public readonly record struct PlacedMarker(string Name, Rectangle Area);
 
     public sealed class PlacedSchematic
@@ -67,11 +61,6 @@ namespace AAModClassic.Structures
         }
     }
 
-    /// <summary>
-    /// Places a <see cref="ResolvedSchematic"/> into the world.
-    /// Pipeline: clear what's in the way -> write cells raw -> one reframe pass -> chests, signs, markers -> optional sync.
-    /// Tiles are written without per-tile framing or syncing; frames are recomputed once at the end.
-    /// </summary>
     public static class SchematicPlacement
     {
         public static Rectangle ResolveArea(Point pos, SchematicAnchor anchor, int width, int height)
@@ -128,14 +117,8 @@ namespace AAModClassic.Structures
             return result;
         }
 
-        #region Clear
-        /// <summary>
-        /// Removes containers and frame-important tiles (multi-tile objects, trees, ...) inside the footprint so nothing is
-        /// left half-destroyed. Plain solid tiles need no special handling; they're simply overwritten.
-        /// </summary>
         private static void ClearFootprint(SchematicData s, Rectangle area, bool flip)
         {
-            // One pass over the chest list instead of a lookup per tile.
             for (int c = 0; c < Main.chest.Length; c++)
             {
                 Chest chest = Main.chest[c];
@@ -166,9 +149,7 @@ namespace AAModClassic.Structures
                 localX = s.Width - 1 - localX;
             return SchematicCell.Has(s.Flags[s.CellIndex(localX, worldY - area.Y)], SchematicCell.KeepTile);
         }
-        #endregion
 
-        #region Write
         private static void WriteCells(ResolvedSchematic r, Rectangle area, SchematicPlaceOptions options, HashSet<int> unhandledFlipTypes)
         {
             SchematicData s = r.Data;
@@ -176,7 +157,6 @@ namespace AAModClassic.Structures
 
             for (int x = 0; x < s.Width; x++)
             {
-                // When flipped, world column x takes its data from the mirrored schematic column.
                 int sourceX = flip ? s.Width - 1 - x : x;
 
                 for (int y = 0; y < s.Height; y++)
@@ -187,7 +167,7 @@ namespace AAModClassic.Structures
                     bool keepTile = SchematicCell.Has(flags, SchematicCell.KeepTile);
                     bool keepWall = SchematicCell.Has(flags, SchematicCell.KeepWall);
                     if (keepTile && keepWall)
-                        continue; // fully preserved cell: leave the world exactly as it is
+                        continue;
 
                     int wx = area.X + x;
                     int wy = area.Y + y;
@@ -231,7 +211,6 @@ namespace AAModClassic.Structures
             tile.TileFrameNumber = SchematicCell.GetTwoBit(flags, SchematicCell.TileFrameNumberShift);
             tile.TileColor = s.TileColor[i];
 
-            // Slopes mirror in pairs: 1 <-> 2 and 3 <-> 4.
             int slope = SchematicCell.GetSlope(flags);
             if (flip && slope != 0)
                 slope += slope % 2 == 0 ? -1 : 1;
@@ -280,21 +259,13 @@ namespace AAModClassic.Structures
             if (amount > 0)
                 Liquid.AddWater(wx, wy);
         }
-        #endregion
 
-        #region Flip
-        /// <summary>
-        /// Fixes a just-written tile's frames for a horizontal mirror. Block, platform and track frames are neighbor-derived and
-        /// handled by the reframe pass; this covers frames that encode state: multi-tile column order, left/right facing, and a
-        /// few tiles with hand-laid sheets. Anything else that's frame-important is reported rather than guessed at.
-        /// </summary>
         private static void FlipTileFrames(Tile tile, HashSet<int> unhandled)
         {
             int type = tile.TileType;
             if (!Main.tileFrameImportant[type])
                 return;
 
-            // Tiles with hand-laid sheets or no TileObjectData.
             if (type == TileID.Pots)
             {
                 tile.TileFrameX += (short)(tile.TileFrameX / 18 == 0 ? 18 : -18);
@@ -314,7 +285,6 @@ namespace AAModClassic.Structures
             }
             if (TileID.Sets.Torch[type])
             {
-                // Wall torches store which side they hang on: frame column 1 <-> 2 (22 px wide frames).
                 int column = tile.TileFrameX / 22;
                 if (column == 1) tile.TileFrameX += 22;
                 else if (column == 2) tile.TileFrameX -= 22;
@@ -327,7 +297,7 @@ namespace AAModClassic.Structures
             }
 
             if (TileID.Sets.Platforms[type] || type == TileID.MinecartTrack)
-                return; // recomputed from neighbors in the reframe pass
+                return;
 
             int style = 0, alt = 0;
             TileObjectData.GetTileInfo(tile, ref style, ref alt);
@@ -340,14 +310,12 @@ namespace AAModClassic.Structures
 
             int sheetSquare = 16 + data.CoordinatePadding;
 
-            // The mirrored column now sits where the original's opposite column was, so reverse the column index within the object.
             if (data.Width > 1)
             {
                 int column = tile.TileFrameX / sheetSquare % data.Width;
                 tile.TileFrameX += (short)((data.Width - 1 - 2 * column) * sheetSquare);
             }
 
-            // Directional objects (chairs, beds, ...) also swap to their opposite-facing variant.
             if (data.Direction != TileObjectDirection.None)
             {
                 int range = Math.Max(1, data.RandomStyleRange);
@@ -357,10 +325,7 @@ namespace AAModClassic.Structures
                     tile.TileFrameX -= (short)(sheetSquare * data.Width);
             }
         }
-        #endregion
 
-        #region Reframe
-        /// <summary> One framing pass over the area plus a one-tile border, so neighbors of the structure update too. </summary>
         private static void Reframe(Rectangle area)
         {
             int x0 = Math.Max(0, area.X - 1);
@@ -378,9 +343,7 @@ namespace AAModClassic.Structures
                 }
             }
         }
-        #endregion
 
-        #region Chests, signs, markers
         private static void PlaceChests(ResolvedSchematic r, Rectangle area, SchematicPlaceOptions options, PlacedSchematic result)
         {
             SchematicData s = r.Data;
@@ -447,7 +410,6 @@ namespace AAModClassic.Structures
             }
         }
 
-        /// <summary> Footprint width of the object whose top-left is at this schematic cell; falls back to 2 (chests, signs). </summary>
         private static int ObjectWidth(ResolvedSchematic r, int localX, int localY)
         {
             SchematicData s = r.Data;
@@ -458,9 +420,7 @@ namespace AAModClassic.Structures
 
             return TileObjectData.GetTileData(type, 0)?.Width ?? 2;
         }
-        #endregion
 
-        #region Sync / names
         private static void Sync(Rectangle area)
         {
             if (Main.netMode != NetmodeID.Server)
@@ -472,8 +432,6 @@ namespace AAModClassic.Structures
                     NetMessage.SendTileSquare(-1, x + (size - 1) / 2, y + (size - 1) / 2, size);
         }
 
-        private static string TileName(int type) =>
-            type < TileID.Count ? TileID.Search.GetName(type) : TileLoader.GetTile(type)?.FullName ?? type.ToString();
-        #endregion
+        private static string TileName(int type) => type < TileID.Count ? TileID.Search.GetName(type) : TileLoader.GetTile(type)?.FullName ?? type.ToString();
     }
 }
