@@ -294,9 +294,16 @@ namespace AAModClassic.Structures
             return ms.ToArray();
         }
 
-        private static void WritePlane(BinaryWriter w, uint[] plane) { foreach (uint v in plane) w.Write(v); }
-        private static void WritePlane(BinaryWriter w, ushort[] plane) { foreach (ushort v in plane) w.Write(v); }
-        private static void WritePlane(BinaryWriter w, short[] plane) { foreach (short v in plane) w.Write(v); }
+        private static void WritePlane(BinaryWriter w, uint[] plane) => WriteBlock(w, plane, sizeof(uint));
+        private static void WritePlane(BinaryWriter w, ushort[] plane) => WriteBlock(w, plane, sizeof(ushort));
+        private static void WritePlane(BinaryWriter w, short[] plane) => WriteBlock(w, plane, sizeof(short));
+
+        private static void WriteBlock(BinaryWriter w, Array plane, int elementSize)
+        {
+            byte[] bytes = new byte[plane.Length * elementSize];
+            Buffer.BlockCopy(plane, 0, bytes, 0, bytes.Length);
+            w.Write(bytes);
+        }
         #endregion
 
         #region Read
@@ -320,17 +327,19 @@ namespace AAModClassic.Structures
 
             var s = new SchematicData(width, height);
 
+            using var payload = new MemoryStream();
             if ((headerFlags & HeaderFlagDeflate) != 0)
             {
                 using var deflate = new DeflateStream(input, CompressionMode.Decompress, leaveOpen: true);
-                using var r = new BinaryReader(deflate, Encoding.UTF8, leaveOpen: true);
-                ReadPayload(r, s);
+                deflate.CopyTo(payload);
             }
             else
-            {
-                using var r = new BinaryReader(input, Encoding.UTF8, leaveOpen: true);
-                ReadPayload(r, s);
-            }
+                input.CopyTo(payload);
+
+            payload.Position = 0;
+
+            using var r = new BinaryReader(payload, Encoding.UTF8, leaveOpen: true);
+            ReadPayload(r, s);
 
             s.Validate();
             return s;
@@ -410,16 +419,18 @@ namespace AAModClassic.Structures
             }
         }
 
-        private static void ReadPlane(BinaryReader r, uint[] plane) { for (int i = 0; i < plane.Length; i++) plane[i] = r.ReadUInt32(); }
-        private static void ReadPlane(BinaryReader r, ushort[] plane) { for (int i = 0; i < plane.Length; i++) plane[i] = r.ReadUInt16(); }
-        private static void ReadPlane(BinaryReader r, short[] plane) { for (int i = 0; i < plane.Length; i++) plane[i] = r.ReadInt16(); }
+        private static void ReadPlane(BinaryReader r, uint[] plane) => ReadBlock(r, plane, sizeof(uint));
+        private static void ReadPlane(BinaryReader r, ushort[] plane) => ReadBlock(r, plane, sizeof(ushort));
+        private static void ReadPlane(BinaryReader r, short[] plane) => ReadBlock(r, plane, sizeof(short));
+        private static void ReadPlane(BinaryReader r, byte[] plane) => ReadBlock(r, plane, sizeof(byte));
 
-        private static void ReadPlane(BinaryReader r, byte[] plane)
+        private static void ReadBlock(BinaryReader r, Array plane, int elementSize)
         {
-            byte[] bytes = r.ReadBytes(plane.Length);
-            if (bytes.Length != plane.Length)
+            int byteCount = plane.Length * elementSize;
+            byte[] bytes = r.ReadBytes(byteCount);
+            if (bytes.Length != byteCount)
                 throw new InvalidDataException("Unexpected end of schematic data.");
-            Buffer.BlockCopy(bytes, 0, plane, 0, plane.Length);
+            Buffer.BlockCopy(bytes, 0, plane, 0, byteCount);
         }
         #endregion
     }

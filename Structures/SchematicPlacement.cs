@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -99,13 +100,28 @@ namespace AAModClassic.Structures
 
             var unhandledFlipTypes = new HashSet<int>();
 
+            //var sw = Stopwatch.StartNew();
             ClearFootprint(s, area, options.FlipHorizontal);
+            //Main.NewText("Clearing: " + sw.ElapsedMilliseconds);
+            //sw.Restart();
             WriteCells(resolved, area, options, unhandledFlipTypes);
+            //Main.NewText("Writing: " + sw.ElapsedMilliseconds);
+            //sw.Restart();
             if (!WorldGen.generatingWorld)
+            {
                 Reframe(area);
+                //Main.NewText("Reframing: " + sw.ElapsedMilliseconds);
+                //sw.Restart();
+            }
             PlaceChests(resolved, area, options, result);
+            //Main.NewText("Chests: " + sw.ElapsedMilliseconds);
+            //sw.Restart();
             PlaceSigns(resolved, area, options, result);
+            //Main.NewText("Signs: " + sw.ElapsedMilliseconds);
+            //sw.Restart();
             AddMarkers(s, area, options.FlipHorizontal, result);
+            //Main.NewText("Markers: " + sw.ElapsedMilliseconds);
+            //sw.Restart();
 
             foreach (int type in unhandledFlipTypes)
                 result.Warnings.Add($"Tile '{TileName(type)}' has no flip handling and was mirrored as-is; check how it looks.");

@@ -1,6 +1,7 @@
 ﻿#if DEBUG
 using Microsoft.Xna.Framework;
 using System;
+using System.Diagnostics;
 using System.IO;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -80,8 +81,13 @@ namespace AAModClassic.Structures.Tools
 
             try
             {
+                var sw = Stopwatch.StartNew();
                 SchematicData data = SchematicLoader.ReadFile(path);
+                Main.NewText("Reading: " + sw.ElapsedMilliseconds);
+                sw.Restart();
                 ResolvedSchematic resolved = SchematicLoader.Resolve(data);
+                Main.NewText("Resolving: " + sw.ElapsedMilliseconds);
+                sw.Restart();
 
                 Rectangle area = SchematicPlacement.ResolveArea(pos, anchor, data.Width, data.Height);
                 if (area.X < 0 || area.Y < 0 || area.Right > Main.maxTilesX || area.Bottom > Main.maxTilesY)
