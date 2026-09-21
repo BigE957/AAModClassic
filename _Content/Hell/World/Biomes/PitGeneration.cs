@@ -1,12 +1,8 @@
 ﻿using AAModClassic._Content.Hell.World.Tiles;
-using AAModClassic._Content.Hoard.World.Biomes;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 using static AAModClassic.Utilities.WorldGenUtils;
