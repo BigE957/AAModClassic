@@ -81,33 +81,42 @@ namespace AAModClassic._Content.Hoard.World.Biomes
             Point placementPoint = origin;
             bool placementSucceeded = false;
 
+            Point bestPlacementPoint = origin;
+            int bestInvalidTiles = int.MaxValue;
+
             do
             {
-                bool canGenerateInLocation = true;
+                int invalidTiles = 0;
+                bool tooManyInvalid = false;
 
-                for (int x = placementPoint.X; x < placementPoint.X + width; x++)
+                for (int x = placementPoint.X; x < placementPoint.X + width && !tooManyInvalid; x++)
                 {
-                    for (int y = placementPoint.Y; y < placementPoint.Y + height; y++)
+                    for (int y = placementPoint.Y; y < placementPoint.Y + height && !tooManyInvalid; y++)
                     {
                         if (ShouldAvoidLocation(new Point(x, y), attempts > 2500))
                         {
-                            canGenerateInLocation = false;
-                            break;
+                            invalidTiles++;
+                            if (bestInvalidTiles != int.MaxValue && invalidTiles >= bestInvalidTiles)
+                                tooManyInvalid = true;
                         }
                     }
-                    if (!canGenerateInLocation)
-                        break;
                 }
 
-                if (canGenerateInLocation && !structures.CanPlace(new Rectangle(placementPoint.X, placementPoint.Y, width, height)))
-                    canGenerateInLocation = false;
-
-                if (canGenerateInLocation)
+                if (!tooManyInvalid)
                 {
-                    AAMod.instance.Logger.Info("Hoard successfully placed after " + attempts + " attempts.");
-                    origin = placementPoint;
-                    placementSucceeded = true;
-                    break;
+                    if (invalidTiles == 0 && structures.CanPlace(new Rectangle(placementPoint.X, placementPoint.Y, width, height)))
+                    {
+                        AAMod.instance.Logger.Info("Hoard successfully placed after " + attempts + " attempts.");
+                        origin = placementPoint;
+                        placementSucceeded = true;
+                        break;
+                    }
+
+                    if (invalidTiles < bestInvalidTiles)
+                    {
+                        bestInvalidTiles = invalidTiles;
+                        bestPlacementPoint = placementPoint;
+                    }
                 }
 
                 placementPoint = origin + new Point(WorldGen.genRand.Next(-1000, 600), WorldGen.genRand.Next(-200, 300));
@@ -115,7 +124,10 @@ namespace AAModClassic._Content.Hoard.World.Biomes
             while (attempts++ < maxAttempts);
 
             if (!placementSucceeded)
-                AAMod.instance.Logger.Warn("Hoard placement failed after " + maxAttempts + " attempts.");
+            {
+                AAMod.instance.Logger.Warn($"Hoard placement failed after {maxAttempts} attempts. Falling back to best candidate with {bestInvalidTiles} invalid tiles.");
+                origin = bestPlacementPoint;
+            }
 
             WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, width, height), 20);
 
