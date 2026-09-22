@@ -104,7 +104,8 @@ namespace AAModClassic._Content.Hoard.World.Biomes
 
                 if (!tooManyInvalid)
                 {
-                    if (invalidTiles == 0 && structures.CanPlace(new Rectangle(placementPoint.X, placementPoint.Y, width, height)))
+                    bool canPlace = structures.CanPlace(new Rectangle(placementPoint.X, placementPoint.Y, width, height));
+                    if (invalidTiles == 0 && canPlace)
                     {
                         AAMod.instance.Logger.Info("Hoard successfully placed after " + attempts + " attempts.");
                         origin = placementPoint;
@@ -112,7 +113,7 @@ namespace AAModClassic._Content.Hoard.World.Biomes
                         break;
                     }
 
-                    if (invalidTiles < bestInvalidTiles)
+                    if (invalidTiles < bestInvalidTiles && canPlace)
                     {
                         bestInvalidTiles = invalidTiles;
                         bestPlacementPoint = placementPoint;
