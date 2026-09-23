@@ -1570,8 +1570,6 @@ namespace AAModClassic
                         if (t.TileType == TileID.BlueDungeonBrick || t.TileType == TileID.GreenDungeonBrick || t.TileType == TileID.PinkDungeonBrick || t.TileType == TileID.SandstoneBrick || t.TileType == charredWood)
                         {
                             allClear = false;
-                            if (biomeNameForLog == "Mire")
-                                AAMod.instance.Logger.Info("got cock blocked by " + t.TileType);
                             break;
                         }
                     }
@@ -1585,8 +1583,6 @@ namespace AAModClassic
                     AAMod.instance.Logger.Info(biomeNameForLog + " placed successfully after " + attempt + " attempt(s).");
                     return (surfacePoint, placementOrigin);
                 }
-                else if(allClear && biomeNameForLog == "Mire")
-                    AAMod.instance.Logger.Info("got cock blocked by structure");
             }
 
             AAMod.instance.Logger.Warn(biomeNameForLog + " could not find a clear location after " + maxAttempts + " attempts; falling back to the first candidate, which may overlap another structure.");
