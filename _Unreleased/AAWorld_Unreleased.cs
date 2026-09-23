@@ -363,7 +363,7 @@ namespace AAModClassic._Unreleased
                 else
                 {
                     int[] itemsToPlaceInSunkenChest = [ModContent.ItemType<CursedCompass>()];
-                    int itemsToPlaceInSunkenChestsChoice = 0;
+                    int itemsToPlaceInSunkenChestsChoice;
                     for (int chestIndex = 0; chestIndex < Main.maxChests; chestIndex++)
                     {
                         Chest chest = Main.chest[chestIndex];

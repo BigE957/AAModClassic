@@ -47,7 +47,9 @@ namespace AAModClassic._Content.Void.World.BiomeChest
             DustType = ModContent.DustType<Dusts.DoomDust>();
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.Containers };
-            TileID.Sets.BasicChest[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Doomsday Chest";
+            TileID.Sets.BasicChest[Type] = true;
+            TileID.Sets.IsAContainer[Type] = true;
+            Main.tileContainer[Type] = true;
             RegisterItemDrop(ModContent.ItemType<DoomsdayChest>());
         }
 

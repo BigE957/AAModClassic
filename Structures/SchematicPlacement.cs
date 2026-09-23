@@ -129,6 +129,9 @@ namespace AAModClassic.Structures
             if (options.SyncToClients)
                 NetMessage.SendTileSquare(-1, area.X, area.Y, area.Width, area.Height);
 
+            foreach (var warning in result.Warnings)
+                AAMod.instance.Logger.Warn("- " + warning);
+
             result.Success = true;
             return result;
         }
@@ -370,6 +373,18 @@ namespace AAModClassic.Structures
                 int localX = options.FlipHorizontal ? s.Width - exported.X - width : exported.X;
                 int wx = area.X + localX;
                 int wy = area.Y + exported.Y;
+
+                Tile tile = Main.tile[wx, wy];
+                if (tile.HasTile && TileID.Sets.IsAContainer[tile.TileType])
+                {
+                    wx -= (tile.TileFrameX % 36) / 18;
+                    wy -= (tile.TileFrameY % 36) / 18;
+                }
+                else
+                {
+                    result.Warnings.Add($"No chest found at ({wx}, {wy}).");
+                    continue;
+                }
 
                 int index = Chest.CreateChest(wx, wy);
                 if (index < 0)

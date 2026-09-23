@@ -44,7 +44,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
         public override bool Place(Point origin, StructureMap structures)
         {
             origin.Y -= 28;
-            ResolvedSchematic schem = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? SunkenShipSchematicAssets.Unofficial : SunkenShipSchematicAssets.Unofficial;
+            ResolvedSchematic schem = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? SunkenShipSchematicAssets.Unofficial : SunkenShipSchematicAssets.Official;
 
             int newOriginX = origin.X - (schem.Width / 2);
             int newOriginY = origin.Y - (schem.Height / 2) + 10;
@@ -62,7 +62,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
             PlacedSchematic placed = SchematicPlacement.Place(schem, origin, options);
 
             foreach (string warning in placed.Warnings)
-                AAMod.instance.Logger.Warn("Terrarium placement: " + warning);
+                AAMod.instance.Logger.Warn("Sunken Ship placement: " + warning);
 
             AAWorld_Unreleased.shipPos = new Point(newOriginX, newOriginY);
 

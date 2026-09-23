@@ -40,8 +40,10 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwo
             AddMapEntry(new Color(200, 140, 0), name, MapChestName);
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.Containers };
-			TileID.Sets.BasicChest[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Bogwood Chest";
-			RegisterItemDrop(ModContent.ItemType<BogwoodChest>());
+			TileID.Sets.BasicChest[Type] = true;
+            TileID.Sets.IsAContainer[Type] = true;
+            Main.tileContainer[Type] = true;
+            RegisterItemDrop(ModContent.ItemType<BogwoodChest>());
 		}
 
         public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("BogwoodChest").DisplayName;

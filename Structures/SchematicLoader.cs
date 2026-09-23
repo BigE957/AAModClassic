@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ObjectData;
 
 namespace AAModClassic.Structures
 {
@@ -66,6 +67,8 @@ namespace AAModClassic.Structures
                     resolved.Warnings.Add($"Wall '{data.Walls[i]}' could not be found; cells using it get no wall.");
             }
 
+            EnsureChestData(data, resolved);
+
             foreach (SchematicChest chest in data.Chests)
             {
                 foreach (SchematicChestItem item in chest.Items)
@@ -81,6 +84,63 @@ namespace AAModClassic.Structures
             }
 
             return resolved;
+        }
+
+        private static void EnsureChestData(SchematicData data, ResolvedSchematic resolved)
+        {
+            HashSet<Point> existingChests = [];
+
+            foreach (SchematicChest chest in data.Chests)
+                existingChests.Add(new Point(chest.X, chest.Y));
+
+            for (int x = 0; x < data.Width; x++)
+            {
+                for (int y = 0; y < data.Height; y++)
+                {
+                    int index = data.CellIndex(x, y);
+
+                    if (!SchematicCell.Has(data.Flags[index], SchematicCell.HasTile))
+                        continue;
+
+                    int tileIndex = data.TileIndex[index];
+
+                    if (tileIndex <= 0 || tileIndex >= resolved.TileIds.Length)
+                        continue;
+
+                    int tileType = resolved.TileIds[tileIndex];
+
+                    if (tileType < 0 || !TileID.Sets.IsAContainer[tileType])
+                        continue;
+
+                    TileObjectData objectData = TileObjectData.GetTileData(
+                        tileType,
+                        data.FrameX[index],
+                        data.FrameY[index]);
+
+                    if (objectData == null)
+                        continue;
+
+                    int sheet = 16 + objectData.CoordinatePadding;
+
+                    int originX = x - data.FrameX[index] / sheet % objectData.Width;
+                    int originY = y - data.FrameY[index] / sheet % objectData.Height;
+
+                    if ((uint)originX >= (uint)data.Width ||
+                        (uint)originY >= (uint)data.Height)
+                        continue;
+
+                    Point origin = new(originX, originY);
+
+                    if (!existingChests.Add(origin))
+                        continue;
+
+                    data.Chests.Add(new SchematicChest
+                    {
+                        X = originX,
+                        Y = originY
+                    });
+                }
+            }
         }
 
         private const string VanillaPrefix = "Terraria/";

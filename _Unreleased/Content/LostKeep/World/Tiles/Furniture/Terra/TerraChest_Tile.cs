@@ -44,7 +44,9 @@ public class TerraChest_Tile : ModTile
 		TileID.Sets.DisableSmartCursor[Type] = true;
 		base.AdjTiles = new int[1] { 21 };
 		TileID.Sets.BasicChest[Type] = true;
-		RegisterItemDrop(ModContent.ItemType<TerraChest>());
+        TileID.Sets.IsAContainer[Type] = true;
+        Main.tileContainer[Type] = true;
+        RegisterItemDrop(ModContent.ItemType<TerraChest>());
 	}
 
     public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("TerraChest").DisplayName;
