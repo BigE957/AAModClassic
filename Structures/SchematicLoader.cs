@@ -19,6 +19,9 @@ namespace AAModClassic.Structures
 
         public List<string> Warnings { get; } = [];
 
+        public int Width => Data.Width;
+        public int Height => Data.Height;
+
         internal ResolvedSchematic(SchematicData data)
         {
             Data = data;

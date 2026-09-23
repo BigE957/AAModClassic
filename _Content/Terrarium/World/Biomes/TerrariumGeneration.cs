@@ -1,81 +1,45 @@
 ﻿using AAModClassic._Content.Terrarium.World.Tiles;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Structures;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
 using System.Collections.Generic;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 
 namespace AAModClassic._Content.Terrarium.World.Biomes
 {
-    public class TerrariumTexGenAssets : ModSystem
+    public class TerrariumSchematicAssets : ModSystem
     {
-        public static TexGenData TerrariumSmallDeletionData;
-        public static TexGenData TerrariumMediumDeletionData;
+        public static ResolvedSchematic Small { get; private set; }
+        public static ResolvedSchematic Medium { get; private set; }
+        public static HashSet<int> UnbreakableTiles { get; } = [];
 
-        public static TexGenData TerrariumSmallTileData;
-        public static TexGenData TerrariumMediumTileData;
-
-        public static TexGenData TerrariumSmallWallData;
-        public static TexGenData TerrariumMediumWallData;
-
-        public override void OnModLoad()
+        public override void PostSetupContent()
         {
-            TerrariumSmallDeletionData = TexGen.GetTextureForGen("AAModClassic/_Content/Terrarium/World/Biomes/TerrariumDelete");
-            TerrariumMediumDeletionData = TexGen.GetTextureForGen("AAModClassic/_Content/Terrarium/World/Biomes/TerrariumMedDelete");
+            Small = LoadAndResolve("Terrarium_Small");
+            Medium = LoadAndResolve("Terrarium_Medium");
 
-            TerrariumSmallTileData = TexGen.GetTextureForGen("AAModClassic/_Content/Terrarium/World/Biomes/Terrarium");
-            TerrariumMediumTileData = TexGen.GetTextureForGen("AAModClassic/_Content/Terrarium/World/Biomes/TerrariumMed");
-
-            TerrariumSmallWallData = TexGen.GetTextureForGen("AAModClassic/_Content/Terrarium/World/Biomes/TerrariumWalls");
-            TerrariumMediumWallData = TexGen.GetTextureForGen("AAModClassic/_Content/Terrarium/World/Biomes/TerrariumMedWalls");
+            UnbreakableTiles.Add(ModContent.TileType<TerraCrystal_Tile>());
+            UnbreakableTiles.Add(ModContent.TileType<PermeableTerraWood_Tile>());
+            UnbreakableTiles.Add(ModContent.TileType<TerraLeaves_Tile>());
         }
-    }
 
-    public class TerrariumDelete : MicroBiome
-    {
-        public override bool Place(Point origin, StructureMap structures)
+        private static ResolvedSchematic LoadAndResolve(string name)
         {
-            //this handles generating the actual tiles, but you still need to add things like treegen etc. I know next to nothing about treegen so you're on your own there, lol.
+            SchematicData data = SchematicLoader.ReadFromMod(AAMod.instance, $"Structures/Schematics/{name}.aasch");
+            ResolvedSchematic resolved = SchematicLoader.Resolve(data);
 
-            int worldSize = WorldGenUtils.GetWorldSize();
-            int biomeRadius = worldSize == 3 ? 400 : worldSize == 2 ? 300 : 200;
+            foreach (string warning in resolved.Warnings)
+                AAMod.instance.Logger.Warn($"{name} schematic: " + warning);
 
-            Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
-            {
-                [new Color(0, 255, 0)] = -2,
-                [Color.Black] = -1 //don't touch when genning		
-            };
+            return resolved;
+        }
 
-            Dictionary<Color, int> colorToWall = new Dictionary<Color, int>();
-            colorToTile[new Color(0, 255, 0)] = -2;
-            colorToTile[Color.Black] = -1; //don't touch when genning	
-
-            TexGenData Terrasphere = null;
-            if (worldSize == 1)
-                Terrasphere = TerrariumTexGenAssets.TerrariumSmallDeletionData;
-            else
-                Terrasphere = TerrariumTexGenAssets.TerrariumMediumDeletionData;
-
-            TexGen gen = TexGen.GetTexGenerator(Terrasphere, colorToTile, Terrasphere, colorToWall);
-            Point newOrigin = new Point(origin.X, origin.Y); //biomeRadius);
-
-            WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //remove all fluids in sphere...
-            {
-                new WorldGenUtils.InWorld(),
-                new Modifiers.RadialDither(biomeRadius - 5, biomeRadius),
-                new Actions.SetLiquid(0, 0)
-            }));
-            WorldUtils.Gen(new Point(origin.X - (gen.width / 2), origin.Y - 20), new Shapes.Rectangle(gen.width, gen.height), Actions.Chain(new GenAction[] //remove all fluids in the volcano...
-            {
-                new WorldGenUtils.InWorld(),
-                new Actions.SetLiquid(0, 0)
-            }));
-            gen.Generate(origin.X - (gen.width / 2), origin.Y, true, true);
-
-            return true;
+        public override void Unload()
+        {
+            Small = null;
+            Medium = null;
+            UnbreakableTiles.Clear();
         }
     }
 
@@ -83,70 +47,38 @@ namespace AAModClassic._Content.Terrarium.World.Biomes
     {
         public override bool Place(Point origin, StructureMap structures)
         {
-            //this handles generating the actual tiles, but you still need to add things like treegen etc. I know next to nothing about treegen so you're on your own there, lol.
             int worldSize = WorldGenUtils.GetWorldSize();
             int biomeRadius = worldSize == 3 ? 400 : worldSize == 2 ? 300 : 200;
 
-            Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
+            ResolvedSchematic terrarium = worldSize == 1 ? TerrariumSchematicAssets.Small : TerrariumSchematicAssets.Medium;
+            if (terrarium == null)
             {
-                [new Color(0, 255, 0)] = ModContent.TileType<TerraCrystal_Tile>(),
-                [new Color(255, 0, 255)] = ModContent.TileType<PermeableTerraWood_Tile>(),
-                [new Color(255, 255, 0)] = ModContent.TileType<TerraLeaves_Tile>(),
-                [new Color(0, 0, 255)] = -2, //turn into air
-                [Color.Black] = -1 //don't touch when genning		
-            };
-
-            HashSet<int> protectedTiles = [
-                ModContent.TileType<TerraCrystal_Tile>(),
-                ModContent.TileType<PermeableTerraWood_Tile>(),
-                ModContent.TileType<TerraLeaves_Tile>(),
-            ];
-
-            Dictionary<Color, int> colorToWall = new Dictionary<Color, int>
-            {
-                [new Color(0, 255, 0)] = -2,
-                [Color.Black] = -1 //don't touch when genning				
-            };
-
-            TexGenData Terrasphere = null;
-
-            TexGenData TerraWalls = null;
-
-            if (Terrasphere == null)
-            {
-                if (worldSize == 1)
-                {
-                    Terrasphere = TerrariumTexGenAssets.TerrariumSmallTileData;
-
-                    TerraWalls = TerrariumTexGenAssets.TerrariumSmallWallData;
-                }
-                else
-                {
-                    Terrasphere = TerrariumTexGenAssets.TerrariumMediumTileData;
-
-                    TerraWalls = TerrariumTexGenAssets.TerrariumMediumWallData;
-                }
+                AAMod.instance.Logger.Warn("Terrarium schematic isn't loaded; skipping placement.");
+                return false;
             }
-
-            WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, Terrasphere.Width, Terrasphere.Height), 20);
-
-            TexGen gen = TexGen.GetTexGenerator(Terrasphere, colorToTile, TerraWalls, colorToWall, unbreakableTiles: protectedTiles);
-            Point newOrigin = new Point(origin.X, origin.Y); //biomeRadius);
-
-            WorldUtils.Gen(newOrigin, new Shapes.Circle(biomeRadius), Actions.Chain(new GenAction[] //remove all fluids in sphere...
-            {
+            
+            WorldUtils.Gen(origin, new Shapes.Circle(biomeRadius), Actions.Chain(
+            [
                 new WorldGenUtils.InWorld(),
                 new Modifiers.RadialDither(biomeRadius - 5, biomeRadius),
                 new Actions.SetLiquid(0, 0)
-            }));
-            WorldUtils.Gen(new Point(origin.X - (gen.width / 2), origin.Y - 20), new Shapes.Rectangle(gen.width, gen.height), Actions.Chain(new GenAction[] //remove all fluids in the volcano...
+            ]));
+            
+            var options = new SchematicPlaceOptions
             {
-                new WorldGenUtils.InWorld(),
-                new Actions.SetLiquid(0, 0)
-            }));
-            gen.Generate(origin.X - (gen.width / 2), origin.Y, true, true);
+                Anchor = SchematicAnchor.Center,
+                UnbreakableTiles = TerrariumSchematicAssets.UnbreakableTiles,
+            };
 
-            return true;
+            //Rectangle area = SchematicPlacement.ResolveArea(origin, options.Anchor, terrarium.Width, terrarium.Height);
+            //WorldGenUtils.AddProtectedStructure(area, 20);
+
+            PlacedSchematic placed = SchematicPlacement.Place(terrarium, origin, options);
+
+            foreach (string warning in placed.Warnings)
+                AAMod.instance.Logger.Warn("Terrarium placement: " + warning);
+
+            return placed.Success;
         }
     }
 }

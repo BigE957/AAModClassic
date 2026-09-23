@@ -342,8 +342,6 @@ namespace AAModClassic.Structures.Tools
         private UIButton<string> _undoButton;
         private UIButton<string> _redoButton;
         private UIButton<string> _cancelButton;
-        private bool? _lastCanUndo;
-        private bool? _lastCanRedo;
         private double _cancelArmedUntil = -1d;
 
         public bool MouseOverPanel { get; private set; }

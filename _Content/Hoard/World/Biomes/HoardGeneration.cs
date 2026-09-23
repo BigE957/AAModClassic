@@ -73,8 +73,8 @@ namespace AAModClassic._Content.Hoard.World.Biomes
                 return false;
             }
 
-            int width = hoard.Data.Width;
-            int height = hoard.Data.Height;
+            int width = hoard.Width;
+            int height = hoard.Height;
 
             int attempts = 0;
             int maxAttempts = 5000;

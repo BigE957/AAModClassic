@@ -139,8 +139,8 @@ namespace AAModClassic._Unreleased
             int attempts = 5000;
             while (attempts > 0)
             {
-                Point origin = new Point();
-                Point biomeCenter = new Point();
+                Point origin = new();
+                Point biomeCenter = new();
 
                 bool isInBounds = false;
                 bool isInCenter = false;
@@ -167,14 +167,14 @@ namespace AAModClassic._Unreleased
                     attempts--;
                 }
 
-                Dictionary<ushort, int> dictionary = new Dictionary<ushort, int>();
-                WorldUtils.Gen(origin, new Shapes.Rectangle(biomeWidth, biomeHeight), new Actions.TileScanner(new ushort[]
-                {
+                Dictionary<ushort, int> dictionary = [];
+                WorldUtils.Gen(origin, new Shapes.Rectangle(biomeWidth, biomeHeight), new Actions.TileScanner(
+                [
                     TileID.Grass,
                     TileID.Dirt,
                     TileID.Stone,
                     TileID.ClayBlock
-                }).Output(dictionary));
+                ]).Output(dictionary));
 
                 // we do this manually bcuz im stupid as fuuuuuuuuuuuck
                 int grassCount = 0;
@@ -196,21 +196,21 @@ namespace AAModClassic._Unreleased
                 int grassCountThreshold = worldSize == 3 ? 100 : worldSize == 2 ? 75 : 50;
                 int regularBlockCount = dictionary[TileID.Dirt] + dictionary[TileID.Stone] + dictionary[TileID.ClayBlock];
 
-                Ref<int> solidCount = new Ref<int>(0);
-                WorldUtils.Gen(origin, new Shapes.Rectangle(biomeWidth, biomeHeight), Actions.Chain(new GenAction[]
-                {
-                    new Actions.ContinueWrapper(Actions.Chain(new GenAction[]
-                    {
+                Ref<int> solidCount = new(0);
+                WorldUtils.Gen(origin, new Shapes.Rectangle(biomeWidth, biomeHeight), Actions.Chain(
+                [
+                    new Actions.ContinueWrapper(Actions.Chain(
+                    [
                         new Modifiers.IsSolid(),
                         new Actions.Scanner(solidCount)
-                    })),
-                }));
+                    ])),
+                ]));
 
                 if (grassCount > grassCountThreshold && regularBlockCount > (solidCount.Value * 0.9))
                 {
                     //TODO: this worldgen has to truth nuke the stupid fairy logs
                     attempts = 0;
-                    SurfaceMushroomGen_Refactored biome = new SurfaceMushroomGen_Refactored();
+                    SurfaceMushroomGen_Refactored biome = new();
                     biome.Place(origin, GenVars.structures);
                     //Main.spawnTileX = biomeCenter.X;
                     //Main.spawnTileY = biomeCenter.Y;
@@ -228,7 +228,7 @@ namespace AAModClassic._Unreleased
             int y = Main.maxTilesY;
             for (int biomes = 0; biomes < 0; biomes++)
             {
-                Point origin = new Point(WorldGen.genRand.Next(0, x), (int)GenVars.worldSurfaceLow);
+                Point origin = new(WorldGen.genRand.Next(0, x), (int)GenVars.worldSurfaceLow);
                 origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
                 RedMushroomGeneration biome = new();
                 biome.Place(origin, GenVars.structures);
@@ -240,8 +240,8 @@ namespace AAModClassic._Unreleased
             progress.Message = "Storming the Parthenan";
 
             int ParthenanHeight = WorldGenUtils.GetWorldSize() == 1 ? 60 : ModLoader.HasMod("Remnants") ? 90 : 120;
-            Point center = new Point((int)(Main.maxTilesX * 0.06f), center.Y = ParthenanHeight);
-            ParthenanGen biome = new ParthenanGen();
+            Point center = new((int)(Main.maxTilesX * 0.06f), center.Y = ParthenanHeight);
+            ParthenanGen biome = new();
             biome.Place(center, GenVars.structures);
         }
 
@@ -256,7 +256,7 @@ namespace AAModClassic._Unreleased
                 shipPos.Y += 36;
             progress.Message = "Sinking the ship";
 
-            Point origin = new Point((int)shipPos.X, (int)shipPos.Y);
+            Point origin = new((int)shipPos.X, (int)shipPos.Y);
             origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
             new SunkenShipGen().Place(origin, GenVars.structures);
         }
@@ -311,7 +311,7 @@ namespace AAModClassic._Unreleased
             {
                 if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 {
-                    Rectangle shipArea = new(shipPos.X, shipPos.Y, SunkenShipTexGenAssets.BigShipTileData.Width, SunkenShipTexGenAssets.BigShipTileData.Height);
+                    Rectangle shipArea = new(shipPos.X, shipPos.Y, SunkenShipSchematicAssets.Unofficial.Width, SunkenShipSchematicAssets.Unofficial.Height);
                     int chestCounter = 0;
 
                     foreach(Chest chest in Main.chest)

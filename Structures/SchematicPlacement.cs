@@ -2,11 +2,11 @@
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using Terraria.WorldBuilding;
 
 namespace AAModClassic.Structures
 {
@@ -438,5 +438,74 @@ namespace AAModClassic.Structures
         }
 
         private static string TileName(int type) => type < TileID.Count ? TileID.Search.GetName(type) : TileLoader.GetTile(type)?.FullName ?? type.ToString();
+    }
+
+    public readonly struct PlacementSearchResult(Point position, bool succeeded, int invalidTiles, int attempts)
+    {
+        public readonly Point Position = position;
+        public readonly bool Succeeded = succeeded;
+        public readonly int InvalidTiles = invalidTiles;
+        public readonly int Attempts = attempts;
+    }
+
+    public static class StructurePlacementSearch
+    {
+        public static PlacementSearchResult Find(Point origin, int width, int height, int maxAttempts, StructureMap structures, Func<Point, int, bool> shouldAvoidTile, Func<int, Point> nextCandidate, string logName, Func<Rectangle, bool> canPlace = null)
+        {
+            canPlace ??= rect => structures.CanPlace(rect);
+
+            Point candidate = origin;
+            Point bestCandidate = origin;
+            int bestInvalidTiles = int.MaxValue;
+
+            int attempts = 0;
+            do
+            {
+                int invalidTiles = 0;
+                bool tooManyInvalid = false;
+
+                for (int x = candidate.X; x < candidate.X + width && !tooManyInvalid; x++)
+                {
+                    for (int y = candidate.Y; y < candidate.Y + height && !tooManyInvalid; y++)
+                    {
+                        if (shouldAvoidTile(new Point(x, y), attempts))
+                        {
+                            invalidTiles++;
+
+                            if (bestInvalidTiles != int.MaxValue && invalidTiles >= bestInvalidTiles)
+                                tooManyInvalid = true;
+                        }
+                    }
+                }
+
+                if (!tooManyInvalid)
+                {
+                    bool candidatePlaceable = canPlace(new Rectangle(candidate.X, candidate.Y, width, height));
+                    if (invalidTiles == 0 && candidatePlaceable)
+                    {
+                        AAMod.instance.Logger.Info($"{logName} successfully placed after {attempts} attempts.");
+                        return new PlacementSearchResult(candidate, true, 0, attempts);
+                    }
+
+                    if (candidatePlaceable && invalidTiles < bestInvalidTiles)
+                    {
+                        bestInvalidTiles = invalidTiles;
+                        bestCandidate = candidate;
+                    }
+                }
+
+                candidate = nextCandidate(attempts);
+            }
+            while (attempts++ < maxAttempts);
+
+            if (bestInvalidTiles == int.MaxValue)
+            {
+                AAMod.instance.Logger.Warn($"{logName} placement failed after {maxAttempts} attempts; no candidate ever passed CanPlace.");
+                return new PlacementSearchResult(origin, false, -1, attempts);
+            }
+
+            AAMod.instance.Logger.Warn($"{logName} placement failed after {maxAttempts} attempts. Falling back to best candidate with {bestInvalidTiles} invalid tiles.");
+            return new PlacementSearchResult(bestCandidate, false, bestInvalidTiles, attempts);
+        }
     }
 }
