@@ -55,6 +55,8 @@ namespace AAModClassic.Structures.Tools
 
         public CellMask KeepTiles { get; } = new();
         public CellMask KeepWalls { get; } = new();
+        public int? KeepTileStandIn { get; set; }
+        public int? KeepWallStandIn { get; set; }
         public List<SessionMarker> Markers { get; } = [];
 
         public static Point ClampToWorld(Point p) =>
@@ -98,6 +100,8 @@ namespace AAModClassic.Structures.Tools
             Name = "Untitled";
             KeepTiles.Clear();
             KeepWalls.Clear();
+            KeepTileStandIn = null;
+            KeepWallStandIn = null;
             Markers.Clear();
         }
     }

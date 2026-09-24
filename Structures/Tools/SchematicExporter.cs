@@ -118,10 +118,11 @@ namespace AAModClassic.Structures.Tools
                 {
                     int wx = r.X + x;
                     int wy = r.Y + y;
+                    Tile tile = Main.tile[wx, wy];
                     int i = data.CellIndex(x, y);
 
-                    bool keepTile = session.KeepTiles[wx, wy];
-                    bool keepWall = session.KeepWalls[wx, wy];
+                    bool keepTile = session.KeepTiles[wx, wy] || (session.KeepTileStandIn.HasValue && tile.HasTile && tile.TileType == session.KeepTileStandIn.Value);
+                    bool keepWall = session.KeepWalls[wx, wy] || (session.KeepWallStandIn.HasValue && tile.WallType != 0 && tile.WallType == session.KeepWallStandIn.Value);
 
                     uint flags = 0;
                     if (keepTile)
@@ -131,8 +132,6 @@ namespace AAModClassic.Structures.Tools
 
                     if (!(keepTile && keepWall))
                     {
-                        Tile tile = Main.tile[wx, wy];
-
                         if (!keepTile)
                             flags = ExportTileLayer(data, i, tile, flags, warnedTiles, warnings);
                         if (!keepWall)

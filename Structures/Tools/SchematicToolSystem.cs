@@ -81,6 +81,7 @@ namespace AAModClassic.Structures.Tools
                     Settings.Reset();
                     SchematicRegionHandles.Reset();
                     SchematicCanvasTool.Reset();
+                    SchematicPicker.Reset();
                     SchematicCamera.Release();
                     break;
 
@@ -104,12 +105,20 @@ namespace AAModClassic.Structures.Tools
 
                     HandleHotkeys(session);
 
-                    SchematicCanvasTool.Update(session, Settings, History, overUi);
-
-                    if (Settings.Tool == EditTool.Region)
-                        SchematicRegionHandles.Update(session, overUi);
-                    else
+                    bool picking = SchematicPicker.Update(session, Settings, overUi);
+                    if (picking)
+                    {
                         SchematicRegionHandles.Reset();
+                        SchematicCanvasTool.Reset();
+                    }
+                    else
+                    {
+                        SchematicCanvasTool.Update(session, Settings, History, overUi);
+                        if (Settings.Tool == EditTool.Region)
+                            SchematicRegionHandles.Update(session, overUi);
+                        else
+                            SchematicRegionHandles.Reset();
+                    }
 
                     SchematicCamera.UpdateKeyboardPan();
                     break;
@@ -181,8 +190,11 @@ namespace AAModClassic.Structures.Tools
                 DrawMask(sb, pixel, session.KeepWalls, KeepWallColor * 0.35f);
                 DrawRegion(sb, pixel, session.Region, RegionColor);
                 DrawMarkers(sb, pixel, session);
+                DrawStandInMatches(sb, pixel, session);
 
-                if (Settings.Tool == EditTool.Region)
+                if (Settings.Picking != PickTarget.None)
+                    DrawPickerCursor(sb, pixel);
+                else if (Settings.Tool == EditTool.Region)
                     SchematicRegionHandles.Draw(sb, pixel, session.Region);
                 else
                     DrawCanvasCursor(sb, pixel);
@@ -279,15 +291,50 @@ namespace AAModClassic.Structures.Tools
                 DrawOutline(sb, pixel, screen, MarkerColor);
             }
         }
+
+        private static readonly Color StandInColor = Color.Violet;
+
+        private static void DrawStandInMatches(SpriteBatch sb, Texture2D pixel, SchematicEditSession session)
+        {
+            if (!session.KeepTileStandIn.HasValue && !session.KeepWallStandIn.HasValue)
+                return;
+
+            int startX = Math.Max(0, (int)(Main.screenPosition.X / 16f) - 1);
+            int startY = Math.Max(0, (int)(Main.screenPosition.Y / 16f) - 1);
+            int endX = Math.Min(Main.maxTilesX - 1, startX + Main.screenWidth / 16 + 3);
+            int endY = Math.Min(Main.maxTilesY - 1, startY + Main.screenHeight / 16 + 3);
+
+            for (int x = startX; x <= endX; x++)
+            {
+                for (int y = startY; y <= endY; y++)
+                {
+                    Tile tile = Main.tile[x, y];
+                    bool matchesTile = session.KeepTileStandIn.HasValue && tile.HasTile && tile.TileType == session.KeepTileStandIn.Value;
+                    bool matchesWall = session.KeepWallStandIn.HasValue && tile.WallType != WallID.None && tile.WallType == session.KeepWallStandIn.Value;
+
+                    if (matchesTile || matchesWall)
+                        sb.Draw(pixel, ToScreen(new Rectangle(x, y, 1, 1)), StandInColor * 0.45f);
+                }
+            }
+        }
+
+        private static void DrawPickerCursor(SpriteBatch sb, Texture2D pixel)
+        {
+            if (!SchematicPicker.HoverCell.HasValue)
+                return;
+
+            Rectangle cell = ToScreen(new Rectangle(SchematicPicker.HoverCell.Value.X, SchematicPicker.HoverCell.Value.Y, 1, 1));
+            DrawOutline(sb, pixel, cell, StandInColor);
+        }
         #endregion
     }
 
     public sealed class SchematicEditorState(SchematicEditSession session, SchematicToolSettings settings, SchematicEditHistory history) : UIState
     {
         private const float PanelWidth = 260f;
-        private const float PanelHeight = 476f;
+        private const float PanelHeight = 596f;
         private const float BodyTop = 104f;
-        private const float BodyHeight = 262f;
+        private const float BodyHeight = 380f;
         private const int CancelConfirmFrames = 180;
         private const int MarkersPerPage = 4;
 
@@ -330,6 +377,8 @@ namespace AAModClassic.Structures.Tools
         private UIButton<string> _layerWallButton;
         private UIButton<string> _brushButton;
         private UIButton<string> _fillButton;
+        private UIText _tileStandInText;
+        private UIText _wallStandInText;
 
         // Markers tab
         private SchematicTextBox _markerBox;
@@ -387,24 +436,24 @@ namespace AAModClassic.Structures.Tools
             BuildPaintTab();
             BuildMarkerTab();
 
-            _statusText = AddText(_panel, string.Empty, 10f, 372f, 0.7f);
+            _statusText = AddText(_panel, string.Empty, 10f, 492f, 0.7f);
 
-            _undoButton = AddButton(_panel, "Undo", 8f, 396f, 120f, 26f, Undo);
+            _undoButton = AddButton(_panel, "Undo", 8f, 516f, 120f, 26f, Undo);
             _undoButton.BackgroundColor = ButtonNormal;
             _undoButton.AltPanelColor = DisabledNormal;
             _undoButton.HoverPanelColor = ButtonHover;
             _undoButton.AltHoverPanelColor = DisabledHover;
             _undoButton.UseAltColors = () => !_history.CanUndo;
 
-            _redoButton = AddButton(_panel, "Redo", 132f, 396f, 120f, 26f, Redo);
+            _redoButton = AddButton(_panel, "Redo", 132f, 516f, 120f, 26f, Redo);
             _redoButton.BackgroundColor = ButtonNormal;
             _redoButton.AltPanelColor = DisabledNormal;
             _redoButton.HoverPanelColor = ButtonHover;
             _redoButton.AltHoverPanelColor = DisabledHover;
             _redoButton.UseAltColors = () => !_history.CanRedo;
 
-            AddButton(_panel, "Export", 8f, 434f, 120f, 34f, Export);
-            _cancelButton = AddButton(_panel, "Cancel", 132f, 434f, 120f, 34f, OnCancelClicked);
+            AddButton(_panel, "Export", 8f, 552f, 120f, 34f, Export);
+            _cancelButton = AddButton(_panel, "Cancel", 132f, 552f, 120f, 34f, OnCancelClicked);
             _cancelButton.BackgroundColor = new Color(150, 50, 50) * 0.8f;
             _cancelButton.HoverPanelColor = new Color(200, 70, 70) * 0.95f;
         }
@@ -475,6 +524,16 @@ namespace AAModClassic.Structures.Tools
             AddButton(_paintTab, "Clear this layer", 0f, 200f, 244f, 28f, ClearLayer);
 
             AddText(_paintTab, "Ctrl+Z / Ctrl+Y also undo and redo.", 2f, 236f, 0.65f);
+
+            AddText(_paintTab, "Keep stand-ins (eyedropper)", 2f, 246f, 0.7f);
+
+            _tileStandInText = AddText(_paintTab, string.Empty, 2f, 266f, 0.7f);
+            AddButton(_paintTab, "Pick tile", 0f, 286f, 78f, 26f, () => StartPicking(PickTarget.TileStandIn));
+            AddButton(_paintTab, "Clear", 82f, 286f, 78f, 26f, () => _session.KeepTileStandIn = null);
+
+            _wallStandInText = AddText(_paintTab, string.Empty, 2f, 318f, 0.7f);
+            AddButton(_paintTab, "Pick wall", 0f, 338f, 78f, 26f, () => StartPicking(PickTarget.WallStandIn));
+            AddButton(_paintTab, "Clear", 82f, 338f, 78f, 26f, () => _session.KeepWallStandIn = null);
         }
 
         private void BuildMarkerTab()
@@ -545,6 +604,9 @@ namespace AAModClassic.Structures.Tools
             _edgeTexts[(int)Edge.Right].SetText($"Right   {r.Right - 1}");
             _edgeTexts[(int)Edge.Top].SetText($"Top     {r.Y}");
             _edgeTexts[(int)Edge.Bottom].SetText($"Bottom  {r.Bottom - 1}");
+
+            _tileStandInText.SetText(_session.KeepTileStandIn.HasValue ? $"Tile: type {_session.KeepTileStandIn.Value}" : "Tile: (none)");
+            _wallStandInText.SetText(_session.KeepWallStandIn.HasValue ? $"Wall: type {_session.KeepWallStandIn.Value}" : "Wall: (none)");
         }
 
         private void RefreshPaintButtons()
@@ -553,6 +615,14 @@ namespace AAModClassic.Structures.Tools
             SetActive(_layerWallButton, _settings.Layer == PaintLayer.KeepWall);
             SetActive(_brushButton, _settings.Mode == PaintMode.Brush);
             SetActive(_fillButton, _settings.Mode == PaintMode.Fill);
+        }
+
+        private void StartPicking(PickTarget target)
+        {
+            _settings.Picking = target;
+            Main.NewText(target == PickTarget.TileStandIn
+                ? "Click a placed tile to use as the Keep-Tile stand-in. Right-click to cancel."
+                : "Click a tile with a wall to use as the Keep-Wall stand-in. Right-click to cancel.", Color.LightGreen);
         }
 
         private int MarkerSignature()
@@ -1615,6 +1685,95 @@ namespace AAModClassic.Structures.Tools
         }
     }
 
+    public enum PickTarget
+    {
+        None,
+        TileStandIn,
+        WallStandIn
+    }
+
+    public static class SchematicPicker
+    {
+        private static bool _wasMouseDown;
+        private static bool _wasRightDown;
+
+        public static Point? HoverCell { get; private set; }
+
+        public static void Reset()
+        {
+            _wasMouseDown = false;
+            _wasRightDown = false;
+            HoverCell = null;
+        }
+
+        public static bool Update(SchematicEditSession session, SchematicToolSettings settings, bool mouseOverUi)
+        {
+            bool leftDown = Main.mouseLeft;
+            bool leftPressed = leftDown && !_wasMouseDown;
+            _wasMouseDown = leftDown;
+
+            bool rightDown = Main.mouseRight;
+            bool rightPressed = rightDown && !_wasRightDown;
+            _wasRightDown = rightDown;
+
+            if (settings.Picking == PickTarget.None)
+            {
+                HoverCell = null;
+                return false;
+            }
+
+            if (rightPressed)
+            {
+                settings.Picking = PickTarget.None;
+                HoverCell = null;
+                Main.NewText("Pick cancelled.", Color.Orange);
+                return true;
+            }
+
+            if (mouseOverUi)
+            {
+                HoverCell = null;
+                return true;
+            }
+
+            Main.LocalPlayer.mouseInterface = true;
+
+            Point cell = Main.MouseWorld.ToTileCoordinates();
+            HoverCell = cell;
+
+            if (!leftPressed)
+                return true;
+
+            Tile tile = Main.tile[cell.X, cell.Y];
+
+            if (settings.Picking == PickTarget.TileStandIn)
+            {
+                if (!tile.HasTile)
+                {
+                    Main.NewText("That spot has no tile - pick a placed tile.", Color.Orange);
+                    return true;
+                }
+
+                session.KeepTileStandIn = tile.TileType;
+                Main.NewText($"Keep-Tile stand-in set to tile type {tile.TileType}.", Color.LightGreen);
+            }
+            else
+            {
+                if (tile.WallType == WallID.None)
+                {
+                    Main.NewText("That spot has no wall - pick a tile with a wall behind it.", Color.Orange);
+                    return true;
+                }
+
+                session.KeepWallStandIn = tile.WallType;
+                Main.NewText($"Keep-Wall stand-in set to wall type {tile.WallType}.", Color.LightGreen);
+            }
+
+            settings.Picking = PickTarget.None;
+            return true;
+        }
+    }
+
     public enum EditTool
     {
         Region,
@@ -1639,6 +1798,7 @@ namespace AAModClassic.Structures.Tools
         public EditTool Tool { get; set; } = EditTool.Region;
         public PaintLayer Layer { get; set; } = PaintLayer.KeepTile;
         public PaintMode Mode { get; set; } = PaintMode.Brush;
+        public PickTarget Picking { get; set; } = PickTarget.None;
         public string MarkerName { get; set; } = "Marker";
 
         public void Reset()
@@ -1646,6 +1806,7 @@ namespace AAModClassic.Structures.Tools
             Tool = EditTool.Region;
             Layer = PaintLayer.KeepTile;
             Mode = PaintMode.Brush;
+            Picking = PickTarget.None;
             MarkerName = "Marker";
         }
     }
