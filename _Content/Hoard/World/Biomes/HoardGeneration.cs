@@ -132,9 +132,9 @@ namespace AAModClassic._Content.Hoard.World.Biomes
 
             WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, width, height), 20);
 
-            Point odinChest = ResolveNamedPosition(hoard, origin, "OdinChest", OdinChestFallback);
-            Point romulusChest = ResolveNamedPosition(hoard, origin, "RomulusChest", RomulusChestFallback);
-            Point anubisChest = ResolveNamedPosition(hoard, origin, "AnubisChest", AnubisChestFallback);
+            Point odinChest = ResolveNamedPosition(hoard, origin, "Chest_Odin", OdinChestFallback);
+            Point romulusChest = ResolveNamedPosition(hoard, origin, "Chest_Romulus", RomulusChestFallback);
+            Point anubisChest = ResolveNamedPosition(hoard, origin, "Chest_Anubis", AnubisChestFallback);
 
             var options = new SchematicPlaceOptions
             {
