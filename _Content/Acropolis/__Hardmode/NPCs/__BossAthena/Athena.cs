@@ -2,17 +2,16 @@ using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
-using AAModClassic._Content.Acropolis.__Hardmode.Items.Tiles;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena;
-using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
-using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.BossStandard;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Effects;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.UI.Titles;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
@@ -23,7 +22,6 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -168,35 +166,89 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
 
                     if (!Seen)
                     {
-                        internalAI[4]++; 
-                        if (internalAI[4] == 60)
+                        internalAI[4]++;
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                         {
-                            CombatText.NewText(NPC.Hitbox, Color.CadetBlue, "...");
-                        }
-
-                        if (internalAI[4] == 180)
-                        {
-                            CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.AthenaChat1"));
-                        }
-
-                        if (internalAI[4] >= 300)
-                        {
-                            CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.AthenaChat2"));
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
-                                NPC.active = false;
-                                int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
-                                Main.npc[p].Center = NPC.Center;
+                                switch (internalAI[4])
+                                {
+                                    case 60:
+                                        DialogueDisplaySystem.StartDialogue("Mods.AAModClassic.Athena.Evaded", NPC, 0, 120, effects: new NearbyBossText());
+                                        break;
+                                    /*
+                                    case 180:
+                                        DialogueDisplaySystem.StartDialogue("Mods.AAModClassic.Athena.Evaded", NPC, 1, 90, effects: new NearbyBossText());
+                                        break;
+                                    */
+                                    case 300:
+                                        //DialogueDisplaySystem.StartDialogue("Mods.AAModClassic.Athena.Evaded", NPC, 2, 90, effects: new NearbyBossText());
+
+                                        NPC.active = false;
+                                        int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
+                                        Main.npc[p].Center = NPC.Center;
+                                        break;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (internalAI[4] == 60)
+                            {
+                                CombatText.NewText(NPC.Hitbox, Color.CadetBlue, "...");
+                            }
+
+                            if (internalAI[4] == 180)
+                            {
+                                CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.AthenaChat1"));
+                            }
+
+                            if (internalAI[4] >= 300)
+                            {
+                                CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.AthenaChat2"));
+                                if (Main.netMode != NetmodeID.MultiplayerClient)
+                                {
+                                    NPC.active = false;
+                                    int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
+                                    Main.npc[p].Center = NPC.Center;
+                                }
                             }
                         }
                         return;
                     }
 
-                    if (internalAI[3]++ < 420)
-                    {
-                        if (!NPCExtensions.BeenKilled<Athena>())
-                        {
+                    internalAI[3]++;
 
+                    if (!NPCExtensions.BeenKilled<Athena>())
+                    {
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        {
+                            switch(internalAI[3])
+                            {
+                                case 30:
+                                    int slot = DialogueDisplaySystem.GetSlot("Mods.AAModClassic.Athena.Intro.Multiplayer");
+                                    if (slot != -1)
+                                        DialogueDisplaySystem.RemoveDialogue(slot);
+                                    break;
+                                case 60:
+                                        
+                                    int activePlayers = 0;
+                                    foreach (Player p in Main.ActivePlayers)
+                                        activePlayers++;
+                                    if (activePlayers > 1)
+                                        DialogueDisplaySystem.StartDialogue("Mods.AAModClassic.Athena.Intro.Multiplayer", Main.LocalPlayer.Center, 0, 60, effects: new BossText());
+                                    else
+                                        DialogueDisplaySystem.StartDialogue("Mods.AAModClassic.Athena.Intro.Singleplayer", Main.LocalPlayer.Center, 0, 60, effects: new BossText());
+                                    break;
+                                case 720:
+                                    NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
+                                    internalAI[2] = 1;
+                                    NPC.netUpdate = true;
+                                    break;
+                            }
+                        }
+                        else
+                        {
                             if (internalAI[3] == 60)
                             {
                                 CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Intro.First.1"));
@@ -223,7 +275,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                                 CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Intro.First.4"));
                             }
 
-                            if (internalAI[3] >= 420)
+                            if (internalAI[3] >= 540)
                             {
                                 CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Intro.First.5"));
                                 NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
@@ -232,40 +284,40 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                                 NPC.netUpdate = true;
                             }
                         }
-                        else if (AAWorld.AthenaHerald && !NPCExtensions.BeenKilled<AthenaA>())
+                    }
+                    else if (AAWorld.AthenaHerald && !NPCExtensions.BeenKilled<AthenaA>())
+                    {
+                        if (internalAI[3] == 60)
                         {
-                            if (internalAI[3] == 60)
-                            {
-                                CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Intro.PreAthenaA.1"));
-                            }
-
-                            if (internalAI[3] == 180)
-                            {
-                                CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Intro.PreAthenaA.2"));
-                            }
-
-                            if (internalAI[3] == 300)
-                            {
-                                CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Intro.PreAthenaA.3"));
-                                NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
-                                internalAI[2] = 1;
-                                NPC.netUpdate = true;
-                            }
+                            CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Intro.PreAthenaA.1"));
                         }
-                        else
-                        {
-                            if (internalAI[3] == 60)
-                            {
-                                CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Intro.Repeat.1"));
-                            }
 
-                            if (internalAI[3] >= 180)
-                            {
-                                CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Intro.Repeat.2"));
-                                NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
-                                internalAI[2] = 1;
-                                NPC.netUpdate = true;
-                            }
+                        if (internalAI[3] == 180)
+                        {
+                            CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Intro.PreAthenaA.2"));
+                        }
+
+                        if (internalAI[3] == 300)
+                        {
+                            CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Intro.PreAthenaA.3"));
+                            NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
+                            internalAI[2] = 1;
+                            NPC.netUpdate = true;
+                        }
+                    }
+                    else
+                    {
+                        if (internalAI[3] == 60)
+                        {
+                            CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Intro.Repeat.1"));
+                        }
+
+                        if (internalAI[3] >= 180)
+                        {
+                            CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Intro.Repeat.2"));
+                            NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
+                            internalAI[2] = 1;
+                            NPC.netUpdate = true;
                         }
                     }
                 }

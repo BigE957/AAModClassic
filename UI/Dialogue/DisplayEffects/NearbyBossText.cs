@@ -6,9 +6,9 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.UI.Dialogue.DisplayEffects
 {
-    public class BossText : DisplayEffect
+    public class NearbyBossText : DisplayEffect
     {
-        public override bool FadeWhenTooFar => false;
+        public override bool FadeWhenTooFar => true;
 
         public override float TimeToAppear => 20;
 

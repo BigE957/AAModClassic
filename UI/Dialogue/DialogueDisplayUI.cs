@@ -1019,7 +1019,7 @@ namespace AAModClassic.UI.Dialogue
         /// <summary>
         /// Manually progresses dialogue
         /// </summary>
-        public static void ProgressDialogue(int slot)
+        public static void ProgressDialogue(int slot, int newUptime = -2)
         {
             if (DialogueDisplayUI.Dialogues.TryGetValue(slot, out var val))
             {
@@ -1032,7 +1032,14 @@ namespace AAModClassic.UI.Dialogue
                     display.textIndex = display.Text.Length - 1;
                 // If the text crawl has finished, progress to the next page or finish if we're out of pages
                 else
+                {
                     display.SwitchingPage = true;
+                    if (newUptime != -2)
+                    {
+                        display.Uptime = newUptime;
+                        val.upTime = newUptime;
+                    }
+                }
             }
         }
 
@@ -1090,6 +1097,8 @@ namespace AAModClassic.UI.Dialogue
 
             if (startIndex >= textData.PageCount)
                 startIndex = textData.PageCount - 1;
+
+            textData.Page = startIndex;
 
             DialogueDisplay display = new(textData.Pages[startIndex], effects, wrapWidth: wrapWidth)
             {

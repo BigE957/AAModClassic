@@ -1,0 +1,52 @@
+{
+  "Revision": 1,
+  "DefaultColor": "609ea0",
+  "DefaultSpeaker": "Athena",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "Hmpf..!"
+      ]
+    },
+    {
+      "Lines": [
+        "You! [Pause(0.33)]Earthwalkers!"
+      ]
+    },
+    {
+      "Lines": [
+        "My seraphs tell me you all have been attacking them! [Pause(0.33)][Shaking(2):Why?!]"
+      ]
+    },
+    {
+      "Lines": [
+        "I'm gonna teach you little brats a lesson!"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(3):[Scale(1.5):En Garde!]]"
+      ]
+    }
+  ]
+}

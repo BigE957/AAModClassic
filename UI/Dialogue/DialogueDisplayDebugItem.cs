@@ -18,12 +18,12 @@ namespace AAModClassic.UI.Dialogue
         }
         public override bool? UseItem(Player player)
         {
-            int slot = DialogueDisplaySystem.GetSlot("Mods.CalamityMod.DevourerOfGods.Phases");
+            int slot = DialogueDisplaySystem.GetSlot("Mods.AAModClassic.Athena.Intro.Singleplayer");
 
             if (slot != -1)
                 DialogueDisplaySystem.ProgressDialogue(slot);
             else
-                DialogueDisplaySystem.StartDialogue("Mods.CalamityMod.DevourerOfGods.Phases", player.Center, 0, -1, effects: new BossText());
+                DialogueDisplaySystem.StartDialogue("Mods.AAModClassic.Athena.Intro.Singleplayer", player.Center, 0, -1, effects: new BossText());
 
             return true;
         }
