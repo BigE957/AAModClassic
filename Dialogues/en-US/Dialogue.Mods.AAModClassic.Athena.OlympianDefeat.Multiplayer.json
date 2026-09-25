@@ -1,0 +1,67 @@
+{
+  "Revision": 1,
+  "DefaultColor": "609ea0",
+  "DefaultSpeaker": "Athena",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "...WHY?!"
+      ]
+    },
+    {
+      "Lines": [
+        "...Why can't I win?!"
+      ]
+    },
+    {
+      "Lines": [
+        "...You haven't heard the end of me, Earthwalkers..."
+      ]
+    },
+    {
+      "Lines": [
+        "I will win back my honor eventually..."
+      ]
+    },
+    {
+      "Lines": [
+        "...until then, watch your back."
+      ]
+    },
+    {
+      "Lines": [
+        "Dark, chaotic forces are waking up as of late."
+      ]
+    },
+    {
+      "Lines": [
+        "Hopefully HE doesn't come back..."
+      ]
+    },
+    {
+      "Lines": [
+        "Stay safe."
+      ]
+    }
+  ]
+}

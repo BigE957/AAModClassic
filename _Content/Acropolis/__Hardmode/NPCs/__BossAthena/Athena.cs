@@ -174,16 +174,9 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                                 switch (internalAI[4])
                                 {
                                     case 60:
-                                        DialogueDisplaySystem.StartDialogue("Mods.AAModClassic.Athena.Evaded", NPC, 0, 120, effects: new NearbyBossText());
+                                        DialogueDisplaySystem.StartDialogue("Mods.AAModClassic.Athena.Evaded", NPC, 0, 60, effects: new NearbyBossText());
                                         break;
-                                    /*
-                                    case 180:
-                                        DialogueDisplaySystem.StartDialogue("Mods.AAModClassic.Athena.Evaded", NPC, 1, 90, effects: new NearbyBossText());
-                                        break;
-                                    */
                                     case 300:
-                                        //DialogueDisplaySystem.StartDialogue("Mods.AAModClassic.Athena.Evaded", NPC, 2, 90, effects: new NearbyBossText());
-
                                         NPC.active = false;
                                         int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
                                         Main.npc[p].Center = NPC.Center;
