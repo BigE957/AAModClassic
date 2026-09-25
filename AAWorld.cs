@@ -55,6 +55,7 @@ using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Content.Void.World.Tiles;
 using AAModClassic._Content.Void.World.Tiles.Trees;
 using AAModClassic._CrossMod;
+using AAModClassic._CrossMod.CalamityMod;
 using AAModClassic._CrossMod.SpiritReforged;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX;
@@ -1730,23 +1731,31 @@ namespace AAModClassic
         {
             progress.Message = "Sinking the Pit";
 
-            //Dodge Azafure, Profaned Temple and Eye Valley
             int offset = 500;
+            bool flip = false;
             bool dungeonRight = GenVars.dungeonX > Main.maxTilesX / 2;
-            if ((ModLoader.HasMod("CalamityMod") && dungeonRight) || (ModLoader.HasMod("Spooky") && !dungeonRight) || ModLoader.HasMod("InfernumMode") || ModLoader.HasMod("SOTS"))
+
+            //Blazing Bastion Dodge
+            if (ModLoader.HasMod("Redemption"))
+                flip = true;
+
+            bool azafureDodge = CalamityMod.IsEnabled && ((dungeonRight && !flip) || (!dungeonRight && flip));
+            bool valleyOfEyesDodge = ModLoader.HasMod("Spooky") && ((!dungeonRight && !flip) || (dungeonRight && flip));
+            bool profanedTempleDodge = ModLoader.HasMod("InfernumMode") && (!flip || ModLoader.HasMod("SOTS"));
+            bool sanctuaryDodge = ModLoader.HasMod("SOTS") && (!flip || ModLoader.HasMod("InfernumMode"));
+
+            if (azafureDodge || valleyOfEyesDodge || profanedTempleDodge || sanctuaryDodge)
                 offset = WorldGenUtils.GetWorldSize() == 2 ? 1600 : 2000;
 
-            if (ModLoader.HasMod("Redemption"))
-                offset = 3000;
 
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
             {
-                Point origin = new(Main.maxTilesX - offset, Main.maxTilesY - 170);
+                Point origin = new(flip ? offset : Main.maxTilesX - offset, Main.maxTilesY - 170);
                 new PitTeaserGeneration().Place(origin, GenVars.structures);
             }
             else
             {
-                Point origin = new(Main.maxTilesX - offset, Main.maxTilesY - 200);
+                Point origin = new(flip ? offset : Main.maxTilesX - offset, Main.maxTilesY - 200);
                 new PitGeneration().Place(origin, GenVars.structures);
             }
         }

@@ -48,7 +48,7 @@ namespace AAModClassic._Content.Hell.World.Biomes
 
             WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, pit.Width, pit.Height), 20);
 
-            PlacedSchematic placed = SchematicPlacement.Place(pit, origin, new SchematicPlaceOptions { Anchor = SchematicAnchor.TopLeft });
+            PlacedSchematic placed = SchematicPlacement.Place(pit, origin, new SchematicPlaceOptions { Anchor = SchematicAnchor.TopLeft, FlipHorizontal = origin.X < Main.maxTilesX / 2 });
 
             foreach (string warning in placed.Warnings)
                 AAMod.instance.Logger.Warn("Pit placement: " + warning);

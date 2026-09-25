@@ -62,6 +62,8 @@ namespace AAModClassic._Content.Hell.___PreHardmode.NPCs.__Friendly
                 NPC.homeTileY = -1;
                 NPC.netUpdate = true;
             }
+
+            NPC.direction = NPC.spriteDirection = NPC.Center.X / 16 < Main.maxTilesX / 2 ? 1 : -1;
         }
 
         public override void FindFrame(int frameHeight)
