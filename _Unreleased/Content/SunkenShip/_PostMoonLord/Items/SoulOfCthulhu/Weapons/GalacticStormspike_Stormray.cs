@@ -11,8 +11,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons
 {
-	public class GalacticStormspike_Stormray : AAProjectile
-	{
+	public class GalacticStormspike_Stormray : ModProjectile
+    {
 
         public override string Texture => AssetDirectory.General.Nothing;
 

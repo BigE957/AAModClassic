@@ -11,8 +11,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons
 {
-    public class SagittariusCore_Orbiter : AAProjectile
-	{
+    public class SagittariusCore_Orbiter : ModProjectile
+    {
 		float rot = 0f;
 		float rotInit = -1f;
 

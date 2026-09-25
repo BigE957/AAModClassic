@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
 {
-    public class ChaosYari_Proj : AAProjectile
+    public class ChaosYari_Proj : ModProjectile
     {
         public bool spineEnd = false;
 

@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {
-    public class Sunstorm_Fireball : AAProjectile
+    public class Sunstorm_Fireball : ModProjectile
 	{
 		float rot = 0f;
 		float rotInit = -1f;

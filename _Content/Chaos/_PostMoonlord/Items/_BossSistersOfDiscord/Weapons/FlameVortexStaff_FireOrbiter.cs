@@ -8,8 +8,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons
 {
-    public class FlameVortexStaff_FireOrbiter : AAProjectile
-	{
+    public class FlameVortexStaff_FireOrbiter : ModProjectile
+    {
 		float rot = 0f;
 		float rotInit = -1f;
 		
