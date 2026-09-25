@@ -1,6 +1,5 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,7 +7,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Consumables
 {
     public class GlowingSporeBag : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Consumables";
         public override void SetDefaults()
         {
@@ -56,7 +55,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Consumables
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (type == ModContent.ProjectileType<GlowingSporeBag_Proj> ())
+            if (type == ModContent.ProjectileType<GlowingSporeBag_Proj>())
             {
                 Projectile.NewProjectile(source, position, velocity, type, 0, 0, Main.myPlayer, 4);
                 return false;

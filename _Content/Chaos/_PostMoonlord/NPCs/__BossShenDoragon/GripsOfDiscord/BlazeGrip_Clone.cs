@@ -1,14 +1,12 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.GameContent;
-using Terraria.ID;
-using Terraria.ModLoader;
-using System;
-
-using Terraria.Graphics.Shaders;
-using AAModClassic.Globals;
 using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic.Base;
+using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
+using System;
+using Terraria.GameContent;
+using Terraria.Graphics.Shaders;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord
 {
@@ -46,11 +44,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
 
             timecount++;
 
-            if(timecount < 100)
+            if (timecount < 100)
             {
                 Projectile.position = Main.npc[(int)Projectile.ai[0]].Center + 100f * Vector2.Normalize(Main.npc[(int)Projectile.ai[0]].DirectionTo(targetPlayer.Center)) + 200f * Projectile.ai[1] * Vector2.Normalize(Main.npc[(int)Projectile.ai[0]].DirectionTo(targetPlayer.Center).RotatedBy(3.1415926f / 2));
             }
-            else if(timecount == 100)
+            else if (timecount == 100)
             {
                 Projectile.position = Main.npc[(int)Projectile.ai[0]].Center + 100f * Vector2.Normalize(Main.npc[(int)Projectile.ai[0]].DirectionTo(targetPlayer.Center)) + 200f * Projectile.ai[1] * Vector2.Normalize(Main.npc[(int)Projectile.ai[0]].DirectionTo(targetPlayer.Center).RotatedBy(3.1415926f / 2));
                 Projectile.velocity = 24f * Vector2.Normalize(Main.npc[(int)Projectile.ai[0]].DirectionTo(targetPlayer.Center));
@@ -81,7 +79,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
         {
             Player targetPlayer = Main.player[Main.npc[(int)Projectile.ai[0]].target];
             Color Alpha = lightColor;
-            if(timecount < 10)
+            if (timecount < 10)
             {
                 Alpha.R = (byte)0f;
                 Alpha.G = (byte)0f;
@@ -90,7 +88,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                 Projectile.rotation = Main.npc[(int)Projectile.ai[0]].DirectionTo(targetPlayer.Center).ToRotation() + (Main.npc[(int)Projectile.ai[0]].position.X < targetPlayer.position.X ? 0 : (float)Math.PI);
                 Projectile.direction = Projectile.spriteDirection = Main.npc[(int)Projectile.ai[0]].position.X < targetPlayer.position.X ? -1 : 1;
             }
-            else if(timecount < 100)
+            else if (timecount < 100)
             {
                 Alpha.R = (byte)(float)(timecount * 2);
                 Alpha.G = (byte)(float)(timecount * 2);

@@ -8,7 +8,6 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -16,9 +15,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandard
 {
     public class HydraTreasureBag : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
-        
+
         public static Asset<Texture2D> Glowmask;
 
         public override void SetStaticDefaults()
@@ -33,14 +32,14 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandar
             ItemID.Sets.PreHardmodeLikeBossBag[Type] = true;
         }
 
-		public override void SetDefaults()
-		{
-			Item.maxStack = Item.CommonMaxStack;
-			Item.consumable = true;
-			Item.width = 36;
-			Item.height = 32;
-			Item.expert = true;
-		}
+        public override void SetDefaults()
+        {
+            Item.maxStack = Item.CommonMaxStack;
+            Item.consumable = true;
+            Item.width = 36;
+            Item.height = 32;
+            Item.expert = true;
+        }
 
         public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
         {
@@ -50,10 +49,10 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandar
         //public override int BossBagNPC => ModContent.NPCType<Hydra>();
 
         public override bool CanRightClick()
-		{
-			return true;
+        {
+            return true;
         }
-        
+
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
             Texture2D texture = Glowmask.Value;
@@ -76,7 +75,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandar
         }
 
         public override void RightClick(Player player)
-		{
+        {
             if (Main.rand.NextBool(10))
             {
                 ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
@@ -98,5 +97,5 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandar
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<HydraHide>(), 1, 50, 100));
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<AbyssiumOre>(), 1, 75, 125));
         }
-	}
+    }
 }

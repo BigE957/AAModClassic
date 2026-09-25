@@ -2,13 +2,9 @@
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
-using System;
-using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
@@ -23,18 +19,18 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
         public bool Condition(Player p) => Main.dayTime && p.GetModPlayer<ZAAPlayer>().Radium;
 
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Radium Mask");
-			/* Tooltip.SetDefault(@"'Shines with the light of a starry night sky'"); */
+        {
+            // DisplayName.SetDefault("Radium Mask");
+            /* Tooltip.SetDefault(@"'Shines with the light of a starry night sky'"); */
 
-		}
+        }
 
-		public override void SetDefaults()
-		{
-			Item.width = 20;
-			Item.height = 18;
-			Item.value = 300000;
-			Item.defense = 18;
+        public override void SetDefaults()
+        {
+            Item.width = 20;
+            Item.height = 18;
+            Item.value = 300000;
+            Item.defense = 18;
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
@@ -59,5 +55,5 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
-	}
+    }
 }

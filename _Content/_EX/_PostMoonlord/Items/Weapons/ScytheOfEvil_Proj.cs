@@ -1,7 +1,6 @@
 using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -20,7 +19,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         {
             return BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, AAColor.CursedInferno, AAColor.Ichor);
         }
-        
+
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Ichor, 1000);

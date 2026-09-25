@@ -1,8 +1,7 @@
-﻿using System;
-using AAModClassic.Base;
+﻿using AAModClassic.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
+using System;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -138,8 +137,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
                 Projectile.tileCollide = false;
             }
             if (player.HasMinionAttackTargetNPC)
-			{
-				NPC nPC2 = Main.npc[player.MinionAttackTargetNPC];
+            {
+                NPC nPC2 = Main.npc[player.MinionAttackTargetNPC];
                 if (nPC2.CanBeChasedBy(Projectile, false))
                 {
                     float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
@@ -150,9 +149,9 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
                         flag25 = true;
                     }
                 }
-			}
-			else
-			{
+            }
+            else
+            {
                 for (int num645 = 0; num645 < 200; num645++)
                 {
                     NPC nPC2 = Main.npc[num645];
@@ -271,11 +270,11 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
                         value20.Normalize();
                         Projectile.velocity = value20 * 8f;
                         Projectile.netUpdate = true;
-						int num659 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value20.X*8, value20.Y*8, ProjectileID.MiniRetinaLaser, Projectile.damage/2, 0f, Main.myPlayer, 0f, 0f);
-						Main.projectile[num659].minion = true;
-						Main.projectile[num659].usesLocalNPCImmunity = true;
-						Main.projectile[num659].localNPCHitCooldown = 0;
-						Main.projectile[num659].penetrate = 1;
+                        int num659 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value20.X * 8, value20.Y * 8, ProjectileID.MiniRetinaLaser, Projectile.damage / 2, 0f, Main.myPlayer, 0f, 0f);
+                        Main.projectile[num659].minion = true;
+                        Main.projectile[num659].usesLocalNPCImmunity = true;
+                        Main.projectile[num659].localNPCHitCooldown = 0;
+                        Main.projectile[num659].penetrate = 1;
                         Main.projectile[num659].timeLeft = 300;
                         Projectile.netUpdate = true;
                         return;

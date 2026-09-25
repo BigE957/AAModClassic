@@ -1,7 +1,6 @@
 ﻿using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -64,7 +63,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                Projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
@@ -93,7 +92,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                     )
                         selectedTarget = i;
                 }

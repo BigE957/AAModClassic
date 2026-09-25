@@ -1,32 +1,31 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.Projectiles
 {
     public class RajahCarrotEX : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Carrot");
-		}
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Projectile.DamageType = DamageClass.Melee;
-			Projectile.width = 10; 
-			Projectile.height = 10; 
-			Projectile.friendly = true; 
-			Projectile.hostile = false;  
-			Projectile.penetrate = 1;  
-			Projectile.timeLeft = 600;  
-			Projectile.ignoreWater = true;
-			Projectile.tileCollide = true;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 600;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = 0;
-		}
+        }
 
         public override void AI()
         {

@@ -1,7 +1,5 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using AAModClassic.Base;
 
 
 namespace AAModClassic.Dusts
@@ -12,13 +10,13 @@ namespace AAModClassic.Dusts
         {
             dust.position += dust.velocity;
             dust.rotation += dust.velocity.X;
-			BaseDrawing.AddLight(dust.position, new Color(38, 152, 166));
+            Lighting.AddLight(dust.position, new Color(38, 152, 166).ToVector3());
             dust.scale -= 0.03f;
             if (dust.scale < 0.5f)
             {
                 dust.active = false;
             }
             return false;
-        } 
+        }
     }
 }

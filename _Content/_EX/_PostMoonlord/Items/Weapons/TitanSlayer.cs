@@ -2,9 +2,7 @@ using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Mire.Buffs;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,21 +12,21 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
         private static bool RogueMaxxing = false;
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Titan Slayer");
             /* Tooltip.SetDefault(@"Left click to quickly swing the axe
 Right click to throw the axe
 Titan Axe EX"); */
             if (ModLoader.TryGetMod("CalamityMod", out _))
                 RogueMaxxing = true;
-		}
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Item.CloneDefaults(ItemID.Arkhalis);
             Item.damage = 300;
-            Item.width = 94; 
+            Item.width = 94;
             Item.height = 96;
             Item.noMelee = true;
             Item.noUseGraphic = true;
@@ -39,7 +37,7 @@ Titan Axe EX"); */
             Item.knockBack = 4f;
             Item.autoReuse = false;
             Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.shoot = ModContent.ProjectileType<TitanSlayer_Proj>(); 
+            Item.shoot = ModContent.ProjectileType<TitanSlayer_Proj>();
             Item.shootSpeed = 15f;
             Item.expert = true;
             Item.UseSound = SoundID.Item1;

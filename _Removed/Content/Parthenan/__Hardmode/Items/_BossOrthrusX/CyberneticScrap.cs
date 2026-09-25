@@ -1,12 +1,10 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX;
-using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima;
 using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.ID;
@@ -86,13 +84,13 @@ Can only be used at night"); */
                 string npcName = !string.IsNullOrEmpty(Main.npc[npcID].GivenName) ? Main.npc[npcID].GivenName : displayName;
                 if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Announcement.HasAwoken", npcName), 175, 75, 255, false); }
                 else
-                if (Main.netMode == NetmodeID.Server)
-                {
-                    ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", new object[]
+                    if (Main.netMode == NetmodeID.Server)
                     {
+                        ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", new object[]
+                        {
                         NetworkText.FromLiteral(npcName)
-                    }), new Color(175, 75, 255), -1);
-                }
+                        }), new Color(175, 75, 255), -1);
+                    }
             }
         }
 

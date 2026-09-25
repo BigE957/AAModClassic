@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -22,10 +21,10 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Materials
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.addTile(Type);
 
-            RegisterItemDrop(ModContent.ItemType<EventideAbyssiumBar>());   
+            RegisterItemDrop(ModContent.ItemType<EventideAbyssiumBar>());
             DustType = ModContent.DustType<Dusts.AbyssDust>();
             AddMapEntry(new Color(0, 0, 255));
-			MinPick = 0;
+            MinPick = 0;
         }
     }
 }

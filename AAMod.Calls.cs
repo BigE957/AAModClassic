@@ -14,7 +14,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic
 {
-    #nullable enable
+#nullable enable
     public partial class AAMod : Mod
     {
         //Credit to QuestionMark on Team Spirit for the autoloaded mod call system

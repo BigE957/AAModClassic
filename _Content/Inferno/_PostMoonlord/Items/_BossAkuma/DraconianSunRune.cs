@@ -1,20 +1,18 @@
-﻿using Terraria;
-using Microsoft.Xna.Framework;
-using Terraria.Audio;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using System.Collections.Generic;
-
-using Terraria.ID;
-using AAModClassic.Globals;
-using AAModClassic.Utilities;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
+using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic._CrossMod;
 using AAModClassic.Base;
+using AAModClassic.Globals;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma
 {

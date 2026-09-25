@@ -6,7 +6,6 @@ using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -18,7 +17,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
     public class WyrmlingHead : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Wyrmling");
             NPCID.Sets.NPCBestiaryDrawModifiers value = new()
             {
@@ -28,13 +27,13 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
-		public override void SetDefaults()
-		{
-			NPC.noTileCollide = true;
-			NPC.height = 16;
-			NPC.width = 30;
-			NPC.aiStyle = -1;
-			NPC.netAlways = true;
+        public override void SetDefaults()
+        {
+            NPC.noTileCollide = true;
+            NPC.height = 16;
+            NPC.width = 30;
+            NPC.aiStyle = -1;
+            NPC.netAlways = true;
             NPC.damage = 18;
             NPC.defense = 10;
             NPC.lifeMax = 100;
@@ -52,7 +51,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
                 NPC.alpha = 255;
             NPC.lavaImmune = true;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<WyrmlingBanner>();
+            //BannerItem = ModContent.ItemType<WyrmlingBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
@@ -129,116 +128,116 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
                     NPC.netUpdate = true;
                 }
             }
-            
+
             int minTilePosX = (int)(NPC.position.X / 16.0) - 1;
-			int maxTilePosX = (int)((NPC.position.X + NPC.width) / 16.0) + 2;
-			int minTilePosY = (int)(NPC.position.Y / 16.0) - 1;
-			int maxTilePosY = (int)((NPC.position.Y + NPC.height) / 16.0) + 2;
-			if (minTilePosX < 0)
-				minTilePosX = 0;
-			if (maxTilePosX > Main.maxTilesX)
-				maxTilePosX = Main.maxTilesX;
-			if (minTilePosY < 0)
-				minTilePosY = 0;
-			if (maxTilePosY > Main.maxTilesY)
-				maxTilePosY = Main.maxTilesY;
+            int maxTilePosX = (int)((NPC.position.X + NPC.width) / 16.0) + 2;
+            int minTilePosY = (int)(NPC.position.Y / 16.0) - 1;
+            int maxTilePosY = (int)((NPC.position.Y + NPC.height) / 16.0) + 2;
+            if (minTilePosX < 0)
+                minTilePosX = 0;
+            if (maxTilePosX > Main.maxTilesX)
+                maxTilePosX = Main.maxTilesX;
+            if (minTilePosY < 0)
+                minTilePosY = 0;
+            if (maxTilePosY > Main.maxTilesY)
+                maxTilePosY = Main.maxTilesY;
 
-			bool collision = true;
+            bool collision = true;
 
-			for (int i = minTilePosX; i < maxTilePosX; ++i)
-			{
-				for (int j = minTilePosY; j < maxTilePosY; ++j)
-				{
-					if (Main.tile[i, j] != null && (Main.tile[i, j].HasUnactuatedTile && (Main.tileSolid[Main.tile[i, j].TileType] || Main.tileSolidTop[Main.tile[i, j].TileType] && Main.tile[i, j].TileFrameY == 0) || Main.tile[i, j].LiquidAmount > 64))
-					{
-						Vector2 vector2;
-						vector2.X = i * 16;
-						vector2.Y = j * 16;
-						if (NPC.position.X + NPC.width > vector2.X && NPC.position.X < vector2.X + 16.0 && NPC.position.Y + NPC.height > (double)vector2.Y && NPC.position.Y < vector2.Y + 16.0)
-						{
-							collision = true;
-							if (Main.rand.NextBool(100) && Main.tile[i, j].HasUnactuatedTile)
-								WorldGen.KillTile(i, j, true, true, false);
-						}
-					}
-				}
-			}
-			float speed = 2f;
-			float acceleration = 0.1f;
+            for (int i = minTilePosX; i < maxTilePosX; ++i)
+            {
+                for (int j = minTilePosY; j < maxTilePosY; ++j)
+                {
+                    if (Main.tile[i, j] != null && (Main.tile[i, j].HasUnactuatedTile && (Main.tileSolid[Main.tile[i, j].TileType] || Main.tileSolidTop[Main.tile[i, j].TileType] && Main.tile[i, j].TileFrameY == 0) || Main.tile[i, j].LiquidAmount > 64))
+                    {
+                        Vector2 vector2;
+                        vector2.X = i * 16;
+                        vector2.Y = j * 16;
+                        if (NPC.position.X + NPC.width > vector2.X && NPC.position.X < vector2.X + 16.0 && NPC.position.Y + NPC.height > (double)vector2.Y && NPC.position.Y < vector2.Y + 16.0)
+                        {
+                            collision = true;
+                            if (Main.rand.NextBool(100) && Main.tile[i, j].HasUnactuatedTile)
+                                WorldGen.KillTile(i, j, true, true, false);
+                        }
+                    }
+                }
+            }
+            float speed = 2f;
+            float acceleration = 0.1f;
 
-			Vector2 npcCenter = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
-			float targetXPos = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2;
-			float targetYPos = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2;
+            Vector2 npcCenter = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
+            float targetXPos = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2;
+            float targetYPos = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2;
 
-			float targetRoundedPosX = (int)(targetXPos / 16.0) * 16;
-			float targetRoundedPosY = (int)(targetYPos / 16.0) * 16;
-			npcCenter.X = (int)(npcCenter.X / 16.0) * 16;
-			npcCenter.Y = (int)(npcCenter.Y / 16.0) * 16;
-			float dirX = targetRoundedPosX - npcCenter.X;
-			float dirY = targetRoundedPosY - npcCenter.Y;
-			NPC.TargetClosest(true);
-			float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
+            float targetRoundedPosX = (int)(targetXPos / 16.0) * 16;
+            float targetRoundedPosY = (int)(targetYPos / 16.0) * 16;
+            npcCenter.X = (int)(npcCenter.X / 16.0) * 16;
+            npcCenter.Y = (int)(npcCenter.Y / 16.0) * 16;
+            float dirX = targetRoundedPosX - npcCenter.X;
+            float dirY = targetRoundedPosY - npcCenter.Y;
+            NPC.TargetClosest(true);
+            float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
 
-			float absDirX = Math.Abs(dirX);
-			float absDirY = Math.Abs(dirY);
-			float newSpeed = speed / length;
-			dirX *= newSpeed * 2;
-			dirY *= newSpeed * 2;
-			if (NPC.velocity.X > 0.0 && dirX > 0.0 || NPC.velocity.X < 0.0 && dirX < 0.0 || NPC.velocity.Y > 0.0 && dirY > 0.0 || NPC.velocity.Y < 0.0 && dirY < 0.0)
-			{
-				if (NPC.velocity.X < dirX)
-					NPC.velocity.X = NPC.velocity.X + acceleration;
-				else if (NPC.velocity.X > dirX)
-					NPC.velocity.X = NPC.velocity.X - acceleration;
-				if (NPC.velocity.Y < dirY)
-					NPC.velocity.Y = NPC.velocity.Y + acceleration;
-				else if (NPC.velocity.Y > dirY)
-					NPC.velocity.Y = NPC.velocity.Y - acceleration;
-				if (Math.Abs(dirY) < speed * 0.2 && (NPC.velocity.X > 0.0 && dirX < 0.0 || NPC.velocity.X < 0.0 && dirX > 0.0))
-				{
-					if (NPC.velocity.Y > 0.0)
-						NPC.velocity.Y = NPC.velocity.Y + acceleration * 2f;
-					else
-						NPC.velocity.Y = NPC.velocity.Y - acceleration * 2f;
-				}
-				if (Math.Abs(dirX) < speed * 0.2 && (NPC.velocity.Y > 0.0 && dirY < 0.0 || NPC.velocity.Y < 0.0 && dirY > 0.0))
-				{
-					if (NPC.velocity.X > 0.0)
-						NPC.velocity.X = NPC.velocity.X + acceleration * 2f;
-					else
-						NPC.velocity.X = NPC.velocity.X - acceleration * 2f;
-				}
-			}
-			else if (absDirX > absDirY)
-			{
-				if (NPC.velocity.X < dirX)
-					NPC.velocity.X = NPC.velocity.X + acceleration * 1.1f;
-				else if (NPC.velocity.X > dirX)
-					NPC.velocity.X = NPC.velocity.X - acceleration * 1.1f;
+            float absDirX = Math.Abs(dirX);
+            float absDirY = Math.Abs(dirY);
+            float newSpeed = speed / length;
+            dirX *= newSpeed * 2;
+            dirY *= newSpeed * 2;
+            if (NPC.velocity.X > 0.0 && dirX > 0.0 || NPC.velocity.X < 0.0 && dirX < 0.0 || NPC.velocity.Y > 0.0 && dirY > 0.0 || NPC.velocity.Y < 0.0 && dirY < 0.0)
+            {
+                if (NPC.velocity.X < dirX)
+                    NPC.velocity.X = NPC.velocity.X + acceleration;
+                else if (NPC.velocity.X > dirX)
+                    NPC.velocity.X = NPC.velocity.X - acceleration;
+                if (NPC.velocity.Y < dirY)
+                    NPC.velocity.Y = NPC.velocity.Y + acceleration;
+                else if (NPC.velocity.Y > dirY)
+                    NPC.velocity.Y = NPC.velocity.Y - acceleration;
+                if (Math.Abs(dirY) < speed * 0.2 && (NPC.velocity.X > 0.0 && dirX < 0.0 || NPC.velocity.X < 0.0 && dirX > 0.0))
+                {
+                    if (NPC.velocity.Y > 0.0)
+                        NPC.velocity.Y = NPC.velocity.Y + acceleration * 2f;
+                    else
+                        NPC.velocity.Y = NPC.velocity.Y - acceleration * 2f;
+                }
+                if (Math.Abs(dirX) < speed * 0.2 && (NPC.velocity.Y > 0.0 && dirY < 0.0 || NPC.velocity.Y < 0.0 && dirY > 0.0))
+                {
+                    if (NPC.velocity.X > 0.0)
+                        NPC.velocity.X = NPC.velocity.X + acceleration * 2f;
+                    else
+                        NPC.velocity.X = NPC.velocity.X - acceleration * 2f;
+                }
+            }
+            else if (absDirX > absDirY)
+            {
+                if (NPC.velocity.X < dirX)
+                    NPC.velocity.X = NPC.velocity.X + acceleration * 1.1f;
+                else if (NPC.velocity.X > dirX)
+                    NPC.velocity.X = NPC.velocity.X - acceleration * 1.1f;
 
-				if (Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) < speed * 0.5)
-				{
-					if (NPC.velocity.Y > 0.0)
-						NPC.velocity.Y = NPC.velocity.Y + acceleration;
-					else
-						NPC.velocity.Y = NPC.velocity.Y - acceleration;
-				}
-			}
-			else
-			{
-				if (NPC.velocity.Y < dirY)
-					NPC.velocity.Y = NPC.velocity.Y + acceleration * 1.1f;
-				else if (NPC.velocity.Y > dirY)
-					NPC.velocity.Y = NPC.velocity.Y - acceleration * 1.1f;
+                if (Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) < speed * 0.5)
+                {
+                    if (NPC.velocity.Y > 0.0)
+                        NPC.velocity.Y = NPC.velocity.Y + acceleration;
+                    else
+                        NPC.velocity.Y = NPC.velocity.Y - acceleration;
+                }
+            }
+            else
+            {
+                if (NPC.velocity.Y < dirY)
+                    NPC.velocity.Y = NPC.velocity.Y + acceleration * 1.1f;
+                else if (NPC.velocity.Y > dirY)
+                    NPC.velocity.Y = NPC.velocity.Y - acceleration * 1.1f;
 
-				if (Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) < speed * 0.5)
-				{
-					if (NPC.velocity.X > 0.0)
-						NPC.velocity.X = NPC.velocity.X + acceleration;
-					else
-						NPC.velocity.X = NPC.velocity.X - acceleration;
-				}
-			}
+                if (Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y) < speed * 0.5)
+                {
+                    if (NPC.velocity.X > 0.0)
+                        NPC.velocity.X = NPC.velocity.X + acceleration;
+                    else
+                        NPC.velocity.X = NPC.velocity.X - acceleration;
+                }
+            }
             if (Main.player[NPC.target].dead)
             {
                 NPC.velocity.Y = NPC.velocity.Y + 1f;
@@ -271,16 +270,16 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
             }
 
             if (collision)
-			{
-				if (NPC.localAI[0] != 1)
-					NPC.netUpdate = true;
-				NPC.localAI[0] = 1f;
-			}
-			if ((NPC.velocity.X > 0.0 && NPC.oldVelocity.X < 0.0 || NPC.velocity.X < 0.0 && NPC.oldVelocity.X > 0.0 || NPC.velocity.Y > 0.0 && NPC.oldVelocity.Y < 0.0 || NPC.velocity.Y < 0.0 && NPC.oldVelocity.Y > 0.0) && !NPC.justHit)
-				NPC.netUpdate = true;
+            {
+                if (NPC.localAI[0] != 1)
+                    NPC.netUpdate = true;
+                NPC.localAI[0] = 1f;
+            }
+            if ((NPC.velocity.X > 0.0 && NPC.oldVelocity.X < 0.0 || NPC.velocity.X < 0.0 && NPC.oldVelocity.X > 0.0 || NPC.velocity.Y > 0.0 && NPC.oldVelocity.Y < 0.0 || NPC.velocity.Y < 0.0 && NPC.oldVelocity.Y > 0.0) && !NPC.justHit)
+                NPC.netUpdate = true;
 
-			return false;
-		}
+            return false;
+        }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
@@ -290,7 +289,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
             spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             return false;
         }
-        
+
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DragonScale>()));

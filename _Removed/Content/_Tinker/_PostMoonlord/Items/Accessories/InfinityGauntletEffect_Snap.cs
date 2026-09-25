@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories

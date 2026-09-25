@@ -1,14 +1,7 @@
-using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._CrossMod;
-using AAModClassic.Globals;
-using AAModClassic.UI.Core;
 using AAModClassic.Utilities;
-using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using System.Linq;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -20,13 +13,13 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Snow
 {
     public class PigronInferno : ModNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Pigron");
-			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[170];
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Pigron");
+            Main.npcFrameCount[NPC.type] = Main.npcFrameCount[170];
+        }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
         {
             NPC.width = 44;
             NPC.height = 36;
@@ -43,7 +36,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Snow
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             Banner = Item.NPCtoBanner(NPCID.PigronCorruption);
-			BannerItem = ItemID.PigronBanner;
+            BannerItem = ItemID.PigronBanner;
             SpawnModBiomes = [ModContent.GetInstance<UndergroundInfernoBiome>().Type];
         }
 
@@ -195,7 +188,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Snow
         }
 
         public override void HitEffect(NPC.HitInfo hit)
-		{
+        {
             if (NPC.life > 0)
             {
                 int num589 = 0;
@@ -214,7 +207,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Snow
                 Main.dust[num592].velocity *= 2f;
                 Main.dust[num592].noGravity = true;
             }
-            if(!Main.dedServ)
+            if (!Main.dedServ)
                 for (int num593 = 0; num593 < 4; num593++)
                 {
                     int num594 = Gore.NewGore(NPC.GetSource_OnHurt(null), new Vector2(NPC.position.X, NPC.position.Y + NPC.height / 2 - 10f), new Vector2(hit.HitDirection, 0f), 99, NPC.scale);

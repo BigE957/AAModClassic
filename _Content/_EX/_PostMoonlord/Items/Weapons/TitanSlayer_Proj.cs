@@ -1,6 +1,5 @@
 ﻿using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -9,8 +8,8 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     public class TitanSlayer_Proj : ModProjectile
-	{
-		public override void SetDefaults()
+    {
+        public override void SetDefaults()
         {
             Projectile.width = 36;
             Projectile.height = 36;
@@ -23,10 +22,10 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                 redemption.Call("setAxeProj", Projectile);
         }
 
-		public override void SetStaticDefaults()
-		{
-		    // DisplayName.SetDefault("Titan Slayer");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Titan Slayer");
+        }
 
         public override void AI()
         {
@@ -43,16 +42,16 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
-			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             Projectile.ai[0] = 1f;
             Projectile.velocity.X = -oldVelocity.X;
             Projectile.velocity.Y = -oldVelocity.Y;
             return false;
         }
-		
-		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-		{
-			target.immune[Projectile.owner] = 6;
-		}
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            target.immune[Projectile.owner] = 6;
+        }
     }
 }

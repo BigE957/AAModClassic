@@ -1,6 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using System.Collections.ObjectModel;
-using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI.Chat;

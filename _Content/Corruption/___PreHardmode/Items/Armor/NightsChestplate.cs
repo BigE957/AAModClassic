@@ -1,7 +1,5 @@
 ﻿using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -33,14 +31,14 @@ namespace AAModClassic._Content.Corruption.___PreHardmode.Items.Armor
 
         public override void AddRecipes()
         {
-            { 
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.ShadowScalemail, 1);
-            recipe.AddIngredient(ItemID.JungleSpores, 8);
-            recipe.AddIngredient(ItemID.Bone, 8);
-            recipe.AddIngredient(ModContent.ItemType<DevilSilk>(), 8);
-            recipe.AddTile(TileID.DemonAltar);
-            recipe.Register();
+            {
+                Recipe recipe = CreateRecipe();
+                recipe.AddIngredient(ItemID.ShadowScalemail, 1);
+                recipe.AddIngredient(ItemID.JungleSpores, 8);
+                recipe.AddIngredient(ItemID.Bone, 8);
+                recipe.AddIngredient(ModContent.ItemType<DevilSilk>(), 8);
+                recipe.AddTile(TileID.DemonAltar);
+                recipe.Register();
             }
         }
     }

@@ -1,20 +1,15 @@
 ﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena;
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
-using AAModClassic._Unofficial;
 using AAModClassic.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.IO;
-using Terraria;
-using Terraria.Chat;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
 using Terraria.ObjectData;
 
 namespace AAModClassic._Content.Acropolis.World.Tiles
@@ -81,7 +76,7 @@ namespace AAModClassic._Content.Acropolis.World.Tiles
                     Item item = player.inventory[m];
                     if (item != null && item.type == type && item.stack >= 1)
                     {
-                        if(item.consumable)
+                        if (item.consumable)
                             item.stack--;
 
                         Vector2 npcCenter = player.Center + new Vector2(MathHelper.Lerp(500f, 800f, (float)Main.rand.NextDouble()) * (Main.rand.NextBool() ? -1 : 1), -800f);

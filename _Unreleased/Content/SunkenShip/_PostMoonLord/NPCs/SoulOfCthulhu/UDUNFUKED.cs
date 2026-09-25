@@ -3,7 +3,6 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
@@ -58,7 +57,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Player player = Main.player[NPC.target];
             ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (player == null || player.dead || !player.active || !modPlayer.ZoneShip)
-            { 
+            {
                 NPC.TargetClosest(true);
                 player = Main.player[NPC.target];
                 modPlayer = player.GetModPlayer<ZAAPlayer>();
@@ -106,7 +105,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture2D13 = TextureAssets.Npc[NPC.type].Value;
-            Texture2D WheelTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/UDUNFUKED_Wheel").Value;;
+            Texture2D WheelTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/UDUNFUKED_Wheel").Value; ;
             Texture2D Rift = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/UDUNFUKED_Rift").Value;
             int y6 = 0;
             Vector2 drawCenter = new Vector2(NPC.Center.X, NPC.Center.Y);

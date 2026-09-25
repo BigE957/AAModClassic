@@ -1,18 +1,17 @@
 ﻿
+using AAModClassic._Content.Void.___PreHardmode.NPCs;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
+using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
+using AAModClassic.Base;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.Audio;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using Terraria.ID;
 using Terraria.DataStructures;
-using AAModClassic.Globals;
-using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
-using AAModClassic._Content.Void.___PreHardmode.NPCs;
-using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Base;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero
 {
@@ -20,7 +19,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero
     public class ERROR_NULL : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.BossSummon";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("ERR0R_NULL");

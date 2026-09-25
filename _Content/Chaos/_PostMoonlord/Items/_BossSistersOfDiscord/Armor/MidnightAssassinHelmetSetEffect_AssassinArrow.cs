@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,27 +5,27 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor
 {
     public class MidnightAssassinHelmetSetEffect_AssassinArrow : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
 
             // DisplayName.SetDefault("Assassin Arrow");    
-		}
+        }
 
-		public override void SetDefaults()
-		{
-			Projectile.width = 40;
-			Projectile.height = 14;
-			Projectile.aiStyle = ProjAIStyleID.Arrow;
-			Projectile.friendly = true;
-			Projectile.hostile = false;
-			Projectile.DamageType = DamageClass.Ranged;
-			Projectile.penetrate = 1;
-			Projectile.timeLeft = 600;
-			Projectile.light = 0.5f;
-			Projectile.ignoreWater = true;
-			Projectile.tileCollide = true;
-			Projectile.extraUpdates = 1;
+        public override void SetDefaults()
+        {
+            Projectile.width = 40;
+            Projectile.height = 14;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 600;
+            Projectile.light = 0.5f;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
+            Projectile.extraUpdates = 1;
             Projectile.knockBack = 0.1f;
             Projectile.arrow = true;
             AIType = ProjectileID.WoodenArrowFriendly;

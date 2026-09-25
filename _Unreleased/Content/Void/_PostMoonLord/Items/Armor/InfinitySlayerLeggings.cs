@@ -8,7 +8,6 @@ using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ModLoader;
 
 
@@ -17,22 +16,22 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.Armor
     [AutoloadEquip(EquipType.Legs)]
     [AutoloadEquipGlow(EquipType.Legs)]
     public class InfinitySlayerLeggings : EquipAbstract, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Armor.InfinitySlayer";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Infinity Slayer Greaves");
-			/* Tooltip.SetDefault(@"'Infinite power and malice flows through this armor'"); */
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Infinity Slayer Greaves");
+            /* Tooltip.SetDefault(@"'Infinite power and malice flows through this armor'"); */
+        }
 
-		public override void SetDefaults()
-		{
-			Item.width = 22;
-			Item.height = 16;
+        public override void SetDefaults()
+        {
+            Item.width = 22;
+            Item.height = 16;
             Item.value = Item.sellPrice(3, 0, 0, 0);
             Item.defense = 29;
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
-		}
+        }
 
         public override void RegisterEquipEffects()
         {

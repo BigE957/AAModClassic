@@ -1,13 +1,12 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus;
+using AAModClassic.Base;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.Audio;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Globals;
-using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Base;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus
 {
@@ -49,7 +48,7 @@ Can only be used in a glowing mushroom biome"); */
         {
             if (!player.ZoneGlowshroom)
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) 
+                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem)
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ConfusingMushroomFalse1"), Color.SkyBlue, false);
                 return false;

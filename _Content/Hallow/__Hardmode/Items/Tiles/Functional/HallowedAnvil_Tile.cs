@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -27,7 +26,7 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional
             DustType = ModContent.DustType<Dusts.DaybreakIncineriteDust>();
             AddMapEntry(new Color(50, 50, 50), name);
             TileID.Sets.DisableSmartCursor[Type] = true;
-            AdjTiles = new int[] { TileID.WorkBenches, TileID.MythrilAnvil, TileID.Anvils, TileID.CrystalBall, TileID.Autohammer};
+            AdjTiles = new int[] { TileID.WorkBenches, TileID.MythrilAnvil, TileID.Anvils, TileID.CrystalBall, TileID.Autohammer };
         }
     }
 }

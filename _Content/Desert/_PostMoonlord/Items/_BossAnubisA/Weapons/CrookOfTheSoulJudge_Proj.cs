@@ -1,7 +1,6 @@
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -10,7 +9,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons
 {
     public class CrookOfTheSoulJudge_Proj : ModProjectile
-	{
+    {
         public override void SetDefaults()
         {
             Projectile.width = 100;
@@ -24,8 +23,8 @@ namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons
 
         int HealAmt = 0;
 
-		public override void AI()
-		{
+        public override void AI()
+        {
             Player player = Main.player[Projectile.owner];
             for (int a = 0; a < HealAmt; a++)
             {
@@ -84,22 +83,22 @@ namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons
                     if (Projectile.velocity.X < 0f && distPlayerX > 0f) { Projectile.velocity.X += 10; }
                 }
                 else
-                if (Projectile.velocity.X > distPlayerX)
-                {
-                    Projectile.velocity.X -= 10;
-                    if (Projectile.velocity.X > 0f && distPlayerX < 0f) { Projectile.velocity.X -= 10; }
-                }
+                    if (Projectile.velocity.X > distPlayerX)
+                    {
+                        Projectile.velocity.X -= 10;
+                        if (Projectile.velocity.X > 0f && distPlayerX < 0f) { Projectile.velocity.X -= 10; }
+                    }
                 if (Projectile.velocity.Y < distPlayerY)
                 {
                     Projectile.velocity.Y += 10;
                     if (Projectile.velocity.Y < 0f && distPlayerY > 0f) { Projectile.velocity.Y += 10; }
                 }
                 else
-                if (Projectile.velocity.Y > distPlayerY)
-                {
-                    Projectile.velocity.Y -= 10;
-                    if (Projectile.velocity.Y > 0f && distPlayerY < 0f) { Projectile.velocity.Y -= 10; }
-                }
+                    if (Projectile.velocity.Y > distPlayerY)
+                    {
+                        Projectile.velocity.Y -= 10;
+                        if (Projectile.velocity.Y > 0f && distPlayerY < 0f) { Projectile.velocity.Y -= 10; }
+                    }
                 if (Main.myPlayer == Projectile.owner)
                 {
                     Rectangle rectangle = Projectile.Hitbox;
@@ -116,7 +115,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons
                             }
                             NetMessage.SendData(MessageID.SpiritHeal, -1, -1, null, Projectile.owner, 1, 0f, 0f, 0, 0, 0);
                         }
-                        Projectile.Kill(); 
+                        Projectile.Kill();
                     }
                 }
             }

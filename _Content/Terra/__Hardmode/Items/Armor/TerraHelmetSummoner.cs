@@ -1,14 +1,7 @@
-﻿using AAModClassic._Content.Bunny._PostMoonlord.Items.Armor;
-using AAModClassic._Content.Hell.___PreHardmode.Items.Armor;
+﻿using AAModClassic._Content.Hell.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
-using AAModClassic.UI.World;
-using AAModClassic.Utilities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor

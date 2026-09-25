@@ -2,7 +2,6 @@
 using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._CrossMod;
-using AAModClassic.Globals;
 using AAModClassic.UI.Core;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -11,9 +10,7 @@ using ReLogic.Content;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.UI.Elements;
@@ -96,7 +93,7 @@ namespace AAModClassic._Unofficial.Desert
                 innerBack = Color.Black;
                 labelBack = Color.Gold;
 
-                if(ContentReplacementSystem.NeedToReplaceContent)
+                if (ContentReplacementSystem.NeedToReplaceContent)
                     CurrentQuestID = "GripsOfChaos";
                 else
                     CurrentQuestID = "MushroomMonarch";
@@ -165,11 +162,11 @@ namespace AAModClassic._Unofficial.Desert
 
             Color baseColor = CurrentQuestline.ID == "LegendscribeEarlyGame" ? Color.White : forsakenTint;
 
-            QuestListBackground = new(tex, 
+            QuestListBackground = new(tex,
             [
-                new(farBack, 0.2f, new(0,-30), baseColor * 0.666f), 
-                new(farBack, 0.25f, new(56, 10), baseColor), 
-                new(mediumBack, 0.4f, new(0, 40), baseColor), 
+                new(farBack, 0.2f, new(0,-30), baseColor * 0.666f),
+                new(farBack, 0.25f, new(56, 10), baseColor),
+                new(mediumBack, 0.4f, new(0, 40), baseColor),
                 new(nearBack, 1f, new(0, 110), baseColor)
             ], 0.5f);
             QuestListBackground.MaxWidth.Pixels = QuestListBackground.Width.Pixels = 3000;
@@ -338,7 +335,7 @@ namespace AAModClassic._Unofficial.Desert
             QuestDetailsArea.Append(QuestRewardsArea);
             #endregion
             */
-            
+
             Area.Append(QuestDetailsArea);
 
             Append(Area);
@@ -366,7 +363,7 @@ namespace AAModClassic._Unofficial.Desert
             if (!QuestSystem.Questlines.ContainsKey("LegendscribeEarlyGame"))
                 return;
 
-            if(InEarlygameState && CurrentQuestline.ID != "LegendscribeEarlyGame")
+            if (InEarlygameState && CurrentQuestline.ID != "LegendscribeEarlyGame")
             {
                 OnInitialize();
             }
@@ -743,7 +740,7 @@ namespace AAModClassic._Unofficial.Desert
         public override void OnInitialize()
         {
             Texture2D node;
-            if(LegendscribeQuestUI.CurrentQuestline.ID == "LegendscribeEarlyGame")
+            if (LegendscribeQuestUI.CurrentQuestline.ID == "LegendscribeEarlyGame")
                 node = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Desert/__Hardmode/NPCs/__BossAnubis/Runes/AnubisCircle", AssetRequestMode.ImmediateLoad).Value;
             else
                 node = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Desert/__Hardmode/NPCs/__BossAnubis/Runes/ForsakenCircle", AssetRequestMode.ImmediateLoad).Value;
@@ -778,7 +775,7 @@ namespace AAModClassic._Unofficial.Desert
         {
             base.Update(gameTime);
 
-            if(Icon == null)
+            if (Icon == null)
             {
                 RemoveAllChildren();
                 OnInitialize();
@@ -928,7 +925,7 @@ namespace AAModClassic._Unofficial.Desert
                     break;
                 default:
                     int npcID;
-                    switch(NodeID % 3)
+                    switch (NodeID % 3)
                     {
                         case 0:
                             npcID = NPCID.YellowDragonfly;
@@ -1280,7 +1277,7 @@ namespace AAModClassic._Unofficial.Desert
                 {
                     spriteBatch.Draw(layer.Texture.Value, parentArea.TopLeft() + new Vector2(i, (parentArea.Height / 2)) + layer.Offset, null, layer.Color, 0, layer.Texture.Size() * 0.5f, imageScale, 0, 0);
                 }
-            }           
+            }
         }
     }
 
@@ -1309,7 +1306,7 @@ namespace AAModClassic._Unofficial.Desert
 
         public override void PostSetupContent()
         {
-            if(!Main.dedServ)
+            if (!Main.dedServ)
                 questUI.Activate();
         }
 

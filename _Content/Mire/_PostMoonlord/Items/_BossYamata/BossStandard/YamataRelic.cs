@@ -1,5 +1,4 @@
-﻿using Terraria;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard

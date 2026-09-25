@@ -5,14 +5,14 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class RajahRabbitMask : BaseAAItem, ILocalizedModType
-	{
+    public class RajahRabbitMask : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Masks";
-		public override void SetStaticDefaults()
+        public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Rajah Rabbit Mask");
-		}
+        }
 
         public override void SetDefaults()
         {

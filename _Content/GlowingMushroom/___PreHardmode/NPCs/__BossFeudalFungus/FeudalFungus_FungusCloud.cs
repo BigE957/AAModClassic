@@ -1,19 +1,18 @@
 ﻿using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus
 {
     public class FeudalFungus_FungusCloud : ModProjectile
     {
-    	
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Fungus Cloud");
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Fungus Cloud");
             Main.projFrames[Projectile.type] = 5;
-		}
-    	
+        }
+
         public override void SetDefaults()
         {
             Projectile.width = 28;
@@ -30,7 +29,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
 
         public override Color? GetAlpha(Color lightColor)
         {
-            if(Projectile.ai[1] == 1f)
+            if (Projectile.ai[1] == 1f)
             {
                 return AAColor.Glow;
             }
@@ -39,7 +38,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
 
         public override void AI()
         {
-            if(Projectile.ai[1] == 1f)
+            if (Projectile.ai[1] == 1f)
             {
                 Projectile.velocity *= 0.98f;
                 Projectile.alpha += 2;
@@ -50,7 +49,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
             }
             else
             {
-                if(Projectile.timeLeft < 120)
+                if (Projectile.timeLeft < 120)
                 {
                     Projectile.alpha += 2;
                     if (Projectile.alpha > 255)
@@ -58,7 +57,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
                         Projectile.Kill();
                     }
                 }
-                if(Projectile.ai[0] ++ < 50)
+                if (Projectile.ai[0]++ < 50)
                 {
                     Projectile.alpha -= 5;
                 }
@@ -72,8 +71,8 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
             {
                 Projectile.frame++;
                 Projectile.frameCounter = 0;
-                if (Projectile.frame > 4) 
-                    Projectile.frame = 0; 
+                if (Projectile.frame > 4)
+                    Projectile.frame = 0;
             }
             return true;
         }

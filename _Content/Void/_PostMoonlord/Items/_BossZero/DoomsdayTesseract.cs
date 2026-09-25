@@ -6,15 +6,11 @@ using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic.Base;
-using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using System.Collections.Generic;
-using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -49,7 +45,7 @@ N0N-C0NSUMABLE"); */
             Item.useStyle = ItemUseStyleID.HoldUp;
         }
 
-        
+
 
         // We use the CanUseItem hook to prevent a player from using this item while the boss is present in the world.
         public override bool CanUseItem(Player player)

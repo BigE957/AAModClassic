@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -46,7 +45,7 @@ namespace AAModClassic._Content.Crimson.___PreHardmode.Items.Weapons
                     Projectile.timeLeft = 2;
                 }
             }
-            
+
             float num633 = 700f;
             float num634 = 800f;
             float num635 = 1200f;

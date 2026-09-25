@@ -3,7 +3,6 @@ using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -36,7 +35,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 NPC.buffImmune[k] = true;
             }
         }
-        
+
         public bool Spawned = false;
         public int Speechtimer = 0;
 

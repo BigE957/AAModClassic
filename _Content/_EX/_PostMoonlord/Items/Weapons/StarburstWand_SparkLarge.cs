@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -28,7 +27,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 
         public override void AI()
         {
-            Projectile.timeLeft --;
+            Projectile.timeLeft--;
             if (Projectile.timeLeft <= 0)
             {
                 Projectile.Kill();

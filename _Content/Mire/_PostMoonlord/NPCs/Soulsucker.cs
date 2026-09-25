@@ -5,7 +5,6 @@ using AAModClassic.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,29 +13,29 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs
 {
     public class Soulsucker : ModNPC, IBannerNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Soulsucker");
-			Main.npcFrameCount[NPC.type] = 3;
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Soulsucker");
+            Main.npcFrameCount[NPC.type] = 3;
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             NPC.aiStyle = NPCAIStyleID.Slime;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             NPC.width = 64;
-			NPC.height = 64;
-			NPC.damage = 70;
-			NPC.defense = 30;
-			NPC.lifeMax = 1000;
+            NPC.height = 64;
+            NPC.damage = 70;
+            NPC.defense = 30;
+            NPC.lifeMax = 1000;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.value = 6000f;
             NPC.lavaImmune = false;
             NPC.knockBackResist = 0.5f;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<SoulsuckerBanner>();
+            //BannerItem = ModContent.ItemType<SoulsuckerBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 

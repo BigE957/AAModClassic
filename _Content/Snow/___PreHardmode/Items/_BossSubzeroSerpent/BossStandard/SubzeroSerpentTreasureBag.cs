@@ -3,7 +3,6 @@ using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Tools;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,7 +12,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Bo
     public class SubzeroSerpentTreasureBag : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Treasure Bag (Subzero Serpent)");

@@ -1,12 +1,11 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.GameContent;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ID;
-using System.IO;
-using AAModClassic.Utilities;
 using AAModClassic.Base;
+using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System.IO;
+using Terraria.GameContent;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis.Runes
 {
@@ -73,7 +72,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis.R
                 NPC.active = false;
                 return;
             }
-            
+
             if (internalAI == 0)
             {
                 NPC.alpha = 255;

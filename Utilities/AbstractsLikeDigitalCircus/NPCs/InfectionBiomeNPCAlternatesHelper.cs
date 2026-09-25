@@ -2,7 +2,6 @@
 using ReLogic.Content;
 using System;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs
@@ -27,7 +26,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs
         public abstract string AssetPath { get; }
 
         public virtual bool SeperateBiomeFolders => false;
-        
+
         public string BiomeType = "Default";
 
         public Texture2D GetCurrentTexture() => BiomeTextures[Type][BiomeType].Value;

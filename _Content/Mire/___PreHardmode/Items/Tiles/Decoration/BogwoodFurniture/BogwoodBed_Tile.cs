@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.BogwoodFurniture
 {
     public class BogwoodBed_Tile : ModTile
-	{
+    {
         public override void SetStaticDefaults()
         {
             this.SetUpBed(ModContent.ItemType<BogwoodBed>());

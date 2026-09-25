@@ -7,8 +7,8 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class VoidEyeLeggings : BaseAAItem, ILocalizedModType
-	{
+    public class VoidEyeLeggings : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.VoidEye";
         public override void SetStaticDefaults()
         {

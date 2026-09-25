@@ -1,13 +1,9 @@
-﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
-using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
 using AAModClassic.Globals;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items.Armor
@@ -28,18 +24,18 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items.Armor
         }
 
         public override void SetDefaults()
-		{
-			Item.width = 20;
-			Item.height = 24;
-			Item.value = Item.sellPrice(0, 5, 0, 0);
+        {
+            Item.width = 20;
+            Item.height = 24;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Yellow;
             Item.defense = 13;
-		}
+        }
 
-		public override bool IsArmorSet(Item head, Item body, Item legs)
-		{
-			return body.type == ModContent.ItemType<HoppingHoodlumChestplate>() && legs.type == ModContent.ItemType<HoppingHoodlumLeggings>();
-		}
+        public override bool IsArmorSet(Item head, Item body, Item legs)
+        {
+            return body.type == ModContent.ItemType<HoppingHoodlumChestplate>() && legs.type == ModContent.ItemType<HoppingHoodlumLeggings>();
+        }
 
         public override void RegisterEquipEffects()
         {

@@ -1,13 +1,12 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.Audio;
-using Terraria.ModLoader;
-using Terraria.ID;
 using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
 {
-	public class AthenaA_SwiftwindOrb : ModProjectile
+    public class AthenaA_SwiftwindOrb : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -21,8 +20,8 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
             Projectile.width = 28;
             Projectile.height = 28;
             Projectile.tileCollide = false;
-            Projectile.friendly = false; 
-			Projectile.hostile = true;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
             Projectile.timeLeft = 180;
         }
 

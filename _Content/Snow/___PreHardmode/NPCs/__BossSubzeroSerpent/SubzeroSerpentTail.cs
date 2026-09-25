@@ -1,12 +1,11 @@
 ﻿using AAModClassic.Music;
-using AAModClassic.Utilities;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;

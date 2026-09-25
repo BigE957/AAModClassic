@@ -1,7 +1,6 @@
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,13 +8,13 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 {
     public class TerraHelmetRangedSetEffect_TerraBullet : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Bullet");
-		}
+        }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
         {
             Projectile.width = 4;
             Projectile.height = 4;

@@ -1,5 +1,3 @@
-using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Unofficial.Content.Void.__Hardmode.Items.Tools;
 using AAModClassic.Base;
@@ -9,7 +7,6 @@ using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -50,7 +47,7 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
             NPC.noGravity = true;
             NPC.netAlways = true;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.VortexBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.VortexBanner>();
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 

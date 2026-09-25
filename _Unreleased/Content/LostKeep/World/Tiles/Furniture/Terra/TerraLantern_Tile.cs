@@ -2,7 +2,6 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent.Drawing;
 using Terraria.ID;
@@ -15,10 +14,10 @@ public class TerraLantern_Tile : ModTile
     private static Asset<Texture2D> FlameTexture = null;
 
     public override void SetStaticDefaults()
-	{
-		this.SetUpLantern(ModContent.ItemType<TerraLantern>());
+    {
+        this.SetUpLantern(ModContent.ItemType<TerraLantern>());
         DustType = DustID.Terra;
-	}
+    }
 
     public override void HitWire(int i, int j)
     {
@@ -27,15 +26,15 @@ public class TerraLantern_Tile : ModTile
 
     public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 
-	public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
-	{
-		if (Main.tile[i, j].TileFrameX < 18)
-		{
-			r = 0.9f;
-			g = 0.9f;
-			b = 0.9f;
-		}
-	}
+    public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
+    {
+        if (Main.tile[i, j].TileFrameX < 18)
+        {
+            r = 0.9f;
+            g = 0.9f;
+            b = 0.9f;
+        }
+    }
 
     public override bool PreDraw(int i, int j, SpriteBatch spriteBatch) => DrawingUtils.DrawSwayingMultiTile(i, j);
 

@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class HydraMask3 : BaseAAItem, ILocalizedModType
+    public class HydraMask3 : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Vanity.Masks";
         public static int type;
@@ -13,7 +13,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandar
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Hydra Mask");
-		}
+        }
 
         public override void SetDefaults()
         {

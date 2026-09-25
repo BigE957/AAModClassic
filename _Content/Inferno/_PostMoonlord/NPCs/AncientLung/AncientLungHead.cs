@@ -8,7 +8,6 @@ using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -22,7 +21,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung
         public bool loludided;
 
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Ancient Lung");
 
             NPCID.Sets.NPCBestiaryDrawModifiers value = new()
@@ -34,13 +33,13 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung
         }
 
         public override void SetDefaults()
-		{
-			NPC.noTileCollide = true;
-			NPC.height = 28;
-			NPC.width = 28;
-			NPC.aiStyle = -1;
-			NPC.netAlways = true;
-			NPC.knockBackResist = 0f;
+        {
+            NPC.noTileCollide = true;
+            NPC.height = 28;
+            NPC.width = 28;
+            NPC.aiStyle = -1;
+            NPC.netAlways = true;
+            NPC.knockBackResist = 0f;
             NPC.damage = 50;
             NPC.defense = 100;
             NPC.lifeMax = 10000;
@@ -86,8 +85,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung
 
             float speed = 18f;
             float acceleration = 0.09f;
-            
-            
+
+
             AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<Dusts.AkumaADust>(), 2, 12);
 
             NPC.spriteDirection = NPC.velocity.X > 0 ? -1 : 1;
@@ -120,12 +119,12 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung
 
                     for (int i = 0; i < 9; ++i)
                     {
-                        latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(),(int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AncientLungBody>(), NPC.whoAmI, 0, latestNPC);
+                        latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AncientLungBody>(), NPC.whoAmI, 0, latestNPC);
                         Main.npc[latestNPC].realLife = NPC.whoAmI;
                         Main.npc[latestNPC].ai[3] = NPC.whoAmI;
-                        
+
                     }
-                    
+
                     latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AncientLungTail>(), NPC.whoAmI, 0, latestNPC);
                     Main.npc[latestNPC].realLife = NPC.whoAmI;
                     Main.npc[latestNPC].ai[3] = NPC.whoAmI;
@@ -269,7 +268,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung
                 if (NPC.position.Y - NPC.height - NPC.velocity.Y >= Main.maxTilesY && Main.netMode != NetmodeID.MultiplayerClient) { BaseAI.KillNPC(NPC); NPC.netUpdate2 = true; }
             }
 
-            
+
 
             if (player.dead || Math.Abs(NPC.position.X - player.position.X) > 6000f || Math.Abs(NPC.position.Y - player.position.Y) > 6000f)
             {

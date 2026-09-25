@@ -1,7 +1,6 @@
 using AAModClassic.Assets;
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 
@@ -13,7 +12,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
         public int proType = 0;
         public override void SetStaticDefaults()
         {
-           // DisplayName.SetDefault("DNA");
+            // DisplayName.SetDefault("DNA");
         }
         public override void SetDefaults()
         {

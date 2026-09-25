@@ -13,11 +13,11 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             base.SetStaticDefaults();
             this.HideFromBestiary();
         }
-		
+
         public override void SetDefaults()
         {
-			base.SetDefaults();
-			leftHand = false;
+            base.SetDefaults();
+            leftHand = false;
         }
-	}
+    }
 }

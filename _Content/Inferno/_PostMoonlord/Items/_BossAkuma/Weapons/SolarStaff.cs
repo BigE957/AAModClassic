@@ -1,31 +1,27 @@
-﻿using System.Collections.Generic;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons   //where is located
 {
     public class SolarStaff : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Summon";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Solar Staff");
             /* Tooltip.SetDefault(@"Rains fire and fury upon your foes
 Inflicts Daybroken"); */
-            
+
         }
 
-        
+
         public override void SetDefaults()
         {
             Item.mana = 10;
@@ -46,7 +42,7 @@ Inflicts Daybroken"); */
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        
+
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
@@ -65,7 +61,7 @@ Inflicts Daybroken"); */
 
             return false;
         }
-        
+
         public override void AddRecipes()  //How to craft this sword
         {
             Recipe recipe = CreateRecipe();

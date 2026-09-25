@@ -1,37 +1,36 @@
 ﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
 {
     public class DreadTwilight : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Dread Twilight");
-			// Tooltip.SetDefault("The rising moon incarnate");
-		}
-		public override void SetDefaults()
-		{
-			Item.damage = 75;
-			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-			Item.width = 76;
-			Item.height = 76;
-			Item.useTime = 17;
-			Item.useAnimation = 17;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack = 3;
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Dread Twilight");
+            // Tooltip.SetDefault("The rising moon incarnate");
+        }
+        public override void SetDefaults()
+        {
+            Item.damage = 75;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 76;
+            Item.height = 76;
+            Item.useTime = 17;
+            Item.useAnimation = 17;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 3;
             Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.rare = ItemRarityID.Yellow;
-			Item.UseSound = SoundID.Item19;
-			Item.autoReuse = false;
-			Item.shoot = ModContent.ProjectileType<DreadTwilight_TwilightRay>();
+            Item.UseSound = SoundID.Item19;
+            Item.autoReuse = false;
+            Item.shoot = ModContent.ProjectileType<DreadTwilight_TwilightRay>();
             Item.shootSpeed = 10f;
-		}
+        }
 
         public override void MeleeEffects(Player player, Rectangle hitbox)
         {
@@ -60,5 +59,5 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
         {
             target.AddBuff(BuffID.Venom, 500);
         }
-	}
+    }
 }

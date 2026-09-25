@@ -1,10 +1,9 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.Localization;
+﻿using ReLogic.OS;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using ReLogic.OS;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic.UI
 {

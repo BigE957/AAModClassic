@@ -1,12 +1,7 @@
 ﻿using AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
-using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.Accessories;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetriever.Accessories;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -26,7 +21,7 @@ namespace AAModClassic._Removed.Content._Tinker.__Hardmode.Items.Accessories
             Item.accessory = true;
             Item.defense = 6;
         }
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Storm Riot Shield");

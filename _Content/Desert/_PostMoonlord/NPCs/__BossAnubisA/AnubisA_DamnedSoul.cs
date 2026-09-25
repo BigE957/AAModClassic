@@ -1,7 +1,6 @@
-using System;
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -25,7 +24,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
             Projectile.penetrate = 1;
             Projectile.timeLeft = 900;
             Projectile.hostile = true;
-            
+
         }
 
         public override void AI()
@@ -66,7 +65,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                Projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
@@ -91,7 +90,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
                     float distance = Projectile.Distance(n.Center);
                     if (distance <= homingMaximumRangeInPixels &&
                         (
-                            selectedTarget == -1 ||  Projectile.Distance(Main.player[selectedTarget].Center) > distance)
+                            selectedTarget == -1 || Projectile.Distance(Main.player[selectedTarget].Center) > distance)
                     )
                         selectedTarget = i;
                 }

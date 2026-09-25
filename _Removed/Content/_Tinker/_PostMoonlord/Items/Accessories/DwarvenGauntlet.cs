@@ -1,10 +1,7 @@
 using AAModClassic._Content._Tinker.__Hardmode.Items.Accessories;
-using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Accessories;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

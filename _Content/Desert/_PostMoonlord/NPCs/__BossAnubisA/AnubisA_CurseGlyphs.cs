@@ -1,8 +1,6 @@
-using System;
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-
-using Terraria;
+using System;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
@@ -10,11 +8,11 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 {
     public class AnubisA_CurseGlyphs : ModProjectile
-	{				
-		public override void SetStaticDefaults()
-		{
+    {
+        public override void SetStaticDefaults()
+        {
             Main.projFrames[Projectile.type] = 9;
-		}
+        }
 
         public override void SetDefaults()
         {
@@ -29,10 +27,10 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
         }
 
         public int body = -1;
-		public float rotValue = -1f;
-		public bool spawnedDust = false;
+        public float rotValue = -1f;
+        public bool spawnedDust = false;
 
-		public override void AI()
+        public override void AI()
         {
             if (body == -1)
             {
@@ -62,11 +60,11 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
             Projectile.oldPos[0] = Projectile.position;
         }
 
-		public override bool PreDraw(ref Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Width(), TextureAssets.Projectile[Projectile.type].Height() / 9, 0, 0);
             BaseDrawing.DrawAfterimage(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile, 3f, 0.9f, 6, true, 0f, 0f, Color.White, frame, 9);
             return false;
-		}		
-	}
+        }
+    }
 }

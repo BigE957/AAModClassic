@@ -3,7 +3,6 @@ using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic.Base;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,10 +10,10 @@ namespace AAModClassic._Content.Chaos.__Hardmode.NPCs
 {
     public class ChaosDragon : ModNPC, IBannerNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Chaos Dragon");
-			Main.npcFrameCount[NPC.type] = 4;
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Chaos Dragon");
+            Main.npcFrameCount[NPC.type] = 4;
 
             NPCID.Sets.NPCBestiaryDrawModifiers value = new()
             {
@@ -23,9 +22,9 @@ namespace AAModClassic._Content.Chaos.__Hardmode.NPCs
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
-		public override void SetDefaults()
-		{
-            NPC.lifeMax =  200;
+        public override void SetDefaults()
+        {
+            NPC.lifeMax = 200;
             NPC.defense = 20;
             NPC.damage = 50;
             NPC.width = 26;
@@ -108,6 +107,6 @@ namespace AAModClassic._Content.Chaos.__Hardmode.NPCs
                 Main.dust[dust2].noGravity = true;
             }
         }
-        
+
     }
 }

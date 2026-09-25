@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture
 {
     public class RazewoodCouch_Tile : ModTile
-	{
+    {
         public override void SetStaticDefaults()
         {
             this.SetUpSofa(ModContent.ItemType<RazewoodCouch>());

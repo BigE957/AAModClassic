@@ -1,14 +1,9 @@
-using Terraria;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Globals;
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {
@@ -25,7 +20,7 @@ Inflicts daybroken"); */
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.Terrarian);
-            Item.damage = 350;                            
+            Item.damage = 350;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.rare = ItemRarityID.Green;
             Item.knockBack = 1;
@@ -37,7 +32,7 @@ Inflicts daybroken"); */
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        
+
 
         public override void AddRecipes()  //How to craft this sword
         {

@@ -1,11 +1,9 @@
-using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -15,9 +13,9 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
     public class PurityCrawler : ModNPC, IBannerNPC
     {
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Purity Crawler");
-			Main.npcFrameCount[NPC.type] = 5;
+        {
+            // DisplayName.SetDefault("Purity Crawler");
+            Main.npcFrameCount[NPC.type] = 5;
         }
 
         public bool Val = false;
@@ -25,8 +23,8 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
         public int swapTicks = 0, swapTicksMax = 20;
 
         public override void SetDefaults()
-		{
-            NPC.lifeMax =  60;
+        {
+            NPC.lifeMax = 60;
             NPC.defense = 5;
             NPC.damage = 10;
             NPC.width = 26;
@@ -38,7 +36,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
             if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PurityCrawlerBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PurityCrawlerBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 

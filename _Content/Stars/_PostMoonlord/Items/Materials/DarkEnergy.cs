@@ -1,16 +1,13 @@
-﻿using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
 {
     public class DarkEnergy : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Materials";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dark Energy");
@@ -24,7 +21,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
         {
             Item.width = 22;
             Item.height = 22;
-			Item.maxStack = Item.CommonMaxStack;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Purple;
             Item.value = 10000;
         }

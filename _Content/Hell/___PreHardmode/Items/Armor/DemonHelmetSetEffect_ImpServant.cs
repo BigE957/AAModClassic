@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,7 +7,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
 {
     public class DemonHelmetSetEffect_ImpServant : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Imp Servant");
@@ -28,7 +27,7 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
             Projectile.ignoreWater = true;
             Projectile.minionSlots = 0;
         }
-        
+
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
@@ -191,11 +190,11 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
             Projectile.rotation = Projectile.velocity.X * 0.05f;
             if (flag)
             {
-                Projectile.spriteDirection = (vector - Projectile.Center).X > 0? -1: 1;
+                Projectile.spriteDirection = (vector - Projectile.Center).X > 0 ? -1 : 1;
             }
             else
             {
-                Projectile.spriteDirection =Projectile.velocity.X > 0? -1: 1;
+                Projectile.spriteDirection = Projectile.velocity.X > 0 ? -1 : 1;
             }
             if (Projectile.ai[1] > 0f)
             {
@@ -214,7 +213,7 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Armor
             {
                 float scaleFactor4 = 11f;
                 int num29 = 376;
-                
+
                 if (flag)
                 {
                     if ((vector - Projectile.Center).X > 0f)

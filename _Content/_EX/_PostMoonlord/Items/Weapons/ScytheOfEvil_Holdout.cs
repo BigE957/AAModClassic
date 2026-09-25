@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -26,11 +25,11 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons     //We need th
             Projectile.width = 140;
             Projectile.height = 140;
             Projectile.friendly = true;
-            Projectile.penetrate = -1; 
+            Projectile.penetrate = -1;
             Projectile.tileCollide = false;
-            Projectile.ignoreWater = true;  
+            Projectile.ignoreWater = true;
             Projectile.DamageType = DamageClass.Melee;
-            
+
         }
         public override void AI()
         {
@@ -92,8 +91,8 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons     //We need th
                     SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
                 }
             }
-            
- 
+
+
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)

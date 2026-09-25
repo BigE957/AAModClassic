@@ -30,7 +30,6 @@ using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -168,7 +167,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             switch (ZAAPlayer.IZKills)
             {
                 case 1:
-                    switch(OblivionSpeech)
+                    switch (OblivionSpeech)
                     {
                         case 180:
                             StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.1"), color1);
@@ -197,7 +196,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                                     StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Hardcore.Normal", PlayerIdentityHelper.GetRealName()), color1);
                                 Item.NewItem(NPC.GetSource_FromThis(), NPC.Center, ModContent.ItemType<Sticker>());
                             }
-                            else if(IsPlayerStreaming())
+                            else if (IsPlayerStreaming())
                                 StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Streaming"), color1);
                             else
                                 StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.First.6.Normal", PlayerIdentityHelper.GetRealName()), color1);
@@ -213,7 +212,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                         NPC.alpha += 5;
                     break;
                 case 2:
-                    switch(OblivionSpeech)
+                    switch (OblivionSpeech)
                     {
                         case 180:
                             StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Second.1"), color1);
@@ -238,7 +237,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                         NPC.alpha += 5;
                     break;
                 case 3:
-                    switch(OblivionSpeech)
+                    switch (OblivionSpeech)
                     {
                         case 180:
                             StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Third.1"), color1);
@@ -257,7 +256,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                         NPC.alpha += 5;
                     break;
                 case 4:
-                    switch(OblivionSpeech)
+                    switch (OblivionSpeech)
                     {
                         case 180:
                             StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Fourth.1"), color1);
@@ -288,10 +287,10 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                         NPC.alpha += 5;
                     break;
                 case 10:
-                    switch(OblivionSpeech)
+                    switch (OblivionSpeech)
                     {
                         case 90:
-                            if(player.difficulty != 2)
+                            if (player.difficulty != 2)
                                 player.KillMe(PlayerDeathReason.ByCustomReason(NetworkText.FromKey("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Tenth.Kill", player.name)), player.statLifeMax + 10, 0, false);
                             break;
                         case 180:
@@ -315,7 +314,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                         NPC.alpha += 5;
                     break;
                 default:
-                    switch(OblivionSpeech)
+                    switch (OblivionSpeech)
                     {
                         case 180:
                             string number = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(ZAAPlayer.IZKills.ToWords());
@@ -323,13 +322,13 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                             SpeechRand = Main.rand.Next(7);
                             break;
                         case 360:
-                            switch(SpeechRand)
+                            switch (SpeechRand)
                             {
                                 case 0:
                                     if (SteamAPI.IsSteamRunning())
                                     {
                                         int friendCount = SteamFriends.GetFriendCount(EFriendFlags.k_EFriendFlagImmediate);
-                                        if(friendCount <= 0)
+                                        if (friendCount <= 0)
                                         {
                                             StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.0.Friends.Friendless"), color1);
                                             break;
@@ -400,7 +399,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                                     {
                                         var (text, status) = GetDiscordContext();
-                                        switch(status)
+                                        switch (status)
                                         {
                                             case DiscordStatus.None:
                                                 StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.5.Default"), color1);
@@ -409,7 +408,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                                                 StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.5.Discord.DM", text), color1);
                                                 break;
                                             case DiscordStatus.Server:
-                                                switch(text)
+                                                switch (text)
                                                 {
                                                     case "Ancients Awakened":
                                                         StartMessage(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Other.2.5.Discord.Server.AACord"), color1);
@@ -459,7 +458,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         private void StartMessage(string message, Color color)
         {
-            if(!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
                 Main.NewText(message, color);
                 return;
@@ -751,7 +750,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     // If either of these "stain" files exist, they've done it.
                     if (File.Exists(Path.Combine(utPath, "system_information_962")))
                         return GenocideState.Erased;
-                    if(File.Exists(Path.Combine(utPath, "system_information_963")))
+                    if (File.Exists(Path.Combine(utPath, "system_information_963")))
                         return GenocideState.Sold;
 
                     return GenocideState.None;
@@ -828,7 +827,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                         NPC.frame.Y = (Main.rand.NextBool(9) ? 13 : 6);
                         break;
                 }
-            
+
             NPC.frame.Y *= NPC.frame.Height;
             if ((NPC.frameCounter / 5) % realFrames == 0 && NPC.frameCounter != 0)
                 NPC.frameCounter = 0;
@@ -862,7 +861,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             DrawingUtils.DrawAura(spriteBatch, glow, NPC, auraPercent, 1f, 0f, 0f, Color.White * NPC.Opacity, true);
             spriteBatch.Draw(glow, NPC.Center - screenPos, NPC.frame, Color.White * NPC.Opacity, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
 
-            if(!NPC.IsABestiaryIconDummy && unofficial && StaticActive)
+            if (!NPC.IsABestiaryIconDummy && unofficial && StaticActive)
             {
                 Effect effect = Terraria.Graphics.Effects.Filters.Scene["AAModClassic:Mask"].GetShader().Shader;
                 effect.Parameters["offset"].SetValue(Main.rand.NextVector2Square(0, 600));
@@ -1099,10 +1098,10 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 return null;
             }
         }
-    
+
         private static string TryGetEnvironmentName()
         {
-            if(Environment.UserName.Equals("user", StringComparison.InvariantCultureIgnoreCase))
+            if (Environment.UserName.Equals("user", StringComparison.InvariantCultureIgnoreCase))
                 return null;
             return Environment.UserName;
         }
@@ -1132,7 +1131,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         private const string PipePrefix = "discord-ipc-";
         private const string ClientID = "1500954635790323722D";
 
-        private static readonly string TokenCachePath = Path.Combine(Main.SavePath,"AAModClassic", "discord_token.json");
+        private static readonly string TokenCachePath = Path.Combine(Main.SavePath, "AAModClassic", "discord_token.json");
 
         public static async Task<bool> IsUserStreamingAsync()
         {

@@ -1,23 +1,15 @@
-using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Terra;
 using AAModClassic.Utilities;
-using Microsoft.Xna.Framework;
-using System;
-using Terraria;
-using Terraria.Audio;
-using Terraria.DataStructures;
-using Terraria.Enums;
 using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Keep;
 
 public class KeepDresser_Tile : ModTile
 {
-	public override void SetStaticDefaults()
-	{
+    public override void SetStaticDefaults()
+    {
         this.SetUpDresser(ModContent.ItemType<KeepDresser>());
         DustType = DustID.Terra;
     }

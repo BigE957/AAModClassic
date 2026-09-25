@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
 namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
 {
@@ -38,7 +32,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
         {
             base.OnHitByProjectile(proj, hurtInfo);
 
-            OnHitByAnything(hurtInfo, null,  proj);
+            OnHitByAnything(hurtInfo, null, proj);
         }
     }
 }

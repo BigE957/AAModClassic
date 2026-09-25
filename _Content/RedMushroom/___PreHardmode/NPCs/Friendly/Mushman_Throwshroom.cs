@@ -9,13 +9,13 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(ProjectileID.Shuriken);
-            Projectile.penetrate = -1;  
+            Projectile.penetrate = -1;
             Projectile.width = 20;
             Projectile.height = 22;
-			Projectile.friendly = true;
-			Projectile.hostile = false;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
             Projectile.timeLeft = 150;
-            
+
         }
     }
 }

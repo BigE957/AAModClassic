@@ -1,9 +1,7 @@
-﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.FuryAshe.Shenling;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
 using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic.Assets;
 using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
@@ -13,7 +11,6 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -67,7 +64,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             Music = MusicManagementSystem.MusicSlots["Shen_Awakened"];
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
-        
+
         public int[] Vortexes = null;
 
         public bool RuneCrash = false;
@@ -165,10 +162,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                     {
                         NPC.ai[0]++;
                         NPC.ai[1] = 0;
-                        NPC.velocity = NPC.DirectionTo(player.Center) * (NPC.life < NPC.lifeMax/3 ? 50:40);
-                        if(NPC.velocity.Length() < 40f)
+                        NPC.velocity = NPC.DirectionTo(player.Center) * (NPC.life < NPC.lifeMax / 3 ? 50 : 40);
+                        if (NPC.velocity.Length() < 40f)
                         {
-                            NPC.velocity = Vector2.Normalize(NPC.DirectionTo(targetPos)) * (NPC.life < NPC.lifeMax/3 ? 50:40);
+                            NPC.velocity = Vector2.Normalize(NPC.DirectionTo(targetPos)) * (NPC.life < NPC.lifeMax / 3 ? 50 : 40);
                         }
                     }
                     break;
@@ -188,11 +185,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                     {
                         NPC.ai[1] = 0;
                         NPC.ai[2] = 0;
-                        if (++NPC.ai[3] >= (NPC.life < NPC.lifeMax/3 ? 4:3)) //dash three/Four times
+                        if (++NPC.ai[3] >= (NPC.life < NPC.lifeMax / 3 ? 4 : 3)) //dash three/Four times
                         {
-                            if(NPC.life < NPC.lifeMax / 3)
+                            if (NPC.life < NPC.lifeMax / 3)
                             {
-                                NPC.ai[0] = Main.rand.NextBool(4) ? 4:9;
+                                NPC.ai[0] = Main.rand.NextBool(4) ? 4 : 9;
                             }
                             else
                             {
@@ -218,14 +215,14 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                 case 9:
                     if (!AliveCheck(player))
                         break;
-                    
+
                     if (NPC.ai[1] == 100)
                     {
-                        pos = - pos;//ChangePos
+                        pos = -pos;//ChangePos
                     }
                     if (NPC.ai[1] > 100)
                     {
-                        MoveToPoint(player.Center + new Vector2((player.velocity.X > 0? 1 : -1) * 600, -400));
+                        MoveToPoint(player.Center + new Vector2((player.velocity.X > 0 ? 1 : -1) * 600, -400));
                     }
                     else
                     {
@@ -239,13 +236,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                     {
                         if (NPC.life < NPC.lifeMax / 3)
                         {
-                            for(int i = 0; i < 8; i++)
+                            for (int i = 0; i < 8; i++)
                             {
                                 Vector2 shoot = new Vector2((float)Math.Sin(i * 0.25f * 3.1415926f), (float)Math.Cos(i * 0.25f * 3.1415926f));
                                 shoot *= 8f;
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, shoot.X, shoot.Y, ModContent.ProjectileType<FuryAshe_FuryFireBomb>(), 20, 5, -1);
                             }
-                            if(Main.rand.NextBool(3)) 
+                            if (Main.rand.NextBool(3))
                             {
                                 NPC.netUpdate = true;
                                 goto case 5;
@@ -271,7 +268,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                     MoveToPoint(wantedVelocity);
                     if (NPC.ai[1]++ > 200)
                     {
-                        if(Main.netMode != NetmodeID.MultiplayerClient)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y - 100, ModContent.NPCType<ShenlingHead>());
                             NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y + 100, ModContent.NPCType<ShenlingHead>());
@@ -298,7 +295,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
             if (NPC.ai[0] == 2 || NPC.ai[0] == 3 || NPC.ai[0] == 8)
             {
-                if(NPC.ai[1] == 0 && (Main.rand.NextBool(6) || NPC.life < NPC.lifeMax * 0.66f && Main.rand.NextBool(3)) || NPC.life < NPC.lifeMax * 0.33f) RuneCrash = true;
+                if (NPC.ai[1] == 0 && (Main.rand.NextBool(6) || NPC.life < NPC.lifeMax * 0.66f && Main.rand.NextBool(3)) || NPC.life < NPC.lifeMax * 0.33f) RuneCrash = true;
             }
             else
             {
@@ -307,13 +304,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
             if (RuneCrash)
             {
-                if(NPC.ai[2]++ > 5)
+                if (NPC.ai[2]++ > 5)
                 {
-                    if(Main.netMode != NetmodeID.MultiplayerClient)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        Vector2 Runeposition = new Vector2(0,0);
+                        Vector2 Runeposition = new Vector2(0, 0);
                         Runeposition = player.Center + new Vector2((250f + 4f * Main.rand.Next(-7, 7)) * (float)Math.Sin(5.18f * Main.rand.Next(30) * 3.1415926f), (250f + 4f * Main.rand.Next(-7, 7)) * (float)Math.Cos(5.18f * Main.rand.Next(30) * 3.1415926f));
-                        
+
                         float RunepositionX = Runeposition.X;
                         float RunepositionY = Runeposition.Y;
                         int id = NPC.NewNPC(NPC.GetSource_FromThis(), (int)RunepositionX, (int)RunepositionY, ModContent.NPCType<AsheRune>(), 0, RunepositionX, RunepositionY, 36, NPC.whoAmI, player.whoAmI);
@@ -364,7 +361,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                     Frame++;
                 }
             }
-            
+
             if (NPC.ai[0] == 5)
             {
                 if (Frame < 8 || Frame > 10)
@@ -494,7 +491,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
         public static int VortexDamage()
         {
-            return  1 + NPC.CountNPCS(ModContent.NPCType<FuryFlameVortex>()) / 15;
+            return 1 + NPC.CountNPCS(ModContent.NPCType<FuryFlameVortex>()) / 15;
         }
 
         public void FireMagic(NPC npc)
@@ -503,13 +500,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             {
                 if (Health)
                 {
-                    for(int i = 0; i < 200; i++)
+                    for (int i = 0; i < 200; i++)
                     {
-                        if(Main.npc[i].type == ModContent.NPCType<FuryFlameVortex>())
+                        if (Main.npc[i].type == ModContent.NPCType<FuryFlameVortex>())
                         {
                             Main.npc[i].life = 0;
                             Main.npc[i].active = false;
-                        } 
+                        }
                     }
                 }
                 const float distance = 125f;
@@ -589,7 +586,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
-            NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * balance);  
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.6f * balance);
             NPC.damage = (int)(NPC.damage * 0.6f);
         }
 
@@ -749,7 +746,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                 {
                     scale = 1f;
 
-                    if(NPC.CountNPCS(ModContent.NPCType<FuryFlameVortex>()) < OrbiterCount)
+                    if (NPC.CountNPCS(ModContent.NPCType<FuryFlameVortex>()) < OrbiterCount)
                     {
                         Health = true;
                         NPC.netUpdate = true;
@@ -796,7 +793,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                 }
             }
 
-            if(scale >= 1f || scale2 >= 1f)
+            if (scale >= 1f || scale2 >= 1f)
             {
                 NPC.dontTakeDamage = true;
             }

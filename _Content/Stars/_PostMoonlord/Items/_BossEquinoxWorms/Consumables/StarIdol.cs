@@ -1,37 +1,35 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-
-using Terraria.Localization;
+﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+using AAModClassic.Base;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Base;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Consumables
 {
     public class StarIdol : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Consumables";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Blessing of the Stars");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Blessing of the Stars");
             /* Tooltip.SetDefault(@"It sparkles like the stars in the sky
-Can only be used if there arent many radium stars in the world."); */	
-		}
+Can only be used if there arent many radium stars in the world."); */
+        }
 
         public override void SetDefaults()
         {
             Item.width = 20;
             Item.height = 20;
             Item.rare = ItemRarityID.Lime;
-			Item.expert = true;
+            Item.expert = true;
             Item.value = Item.sellPrice(0, 15, 0, 0);
 
-			Item.useStyle = ItemUseStyleID.Swing;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 45;
             Item.useTime = 45;
-            Item.consumable = true;		
+            Item.consumable = true;
         }
 
         public override bool CanUseItem(Player player)
@@ -51,12 +49,12 @@ Can only be used if there arent many radium stars in the world."); */
                         {
                             if (Main.dayTime)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) 
+                                if (Main.netMode != NetmodeID.MultiplayerClient)
                                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedEquinoxInfoFailure"), new Color(43, 178, 245));
                             }
                             else
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) 
+                                if (Main.netMode != NetmodeID.MultiplayerClient)
                                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedEquinoxInfoFailure"), new Color(0, 255, 181));
                             }
                             return false;
@@ -71,7 +69,7 @@ Can only be used if there arent many radium stars in the world."); */
         //TODO: if this is a copy of the radium star gen, then make it use that instead of doing this
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            
+
             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedEquinoxInfo"), Color.Violet);
             for (int i = 0; i < Main.maxTilesX / 50; ++i)
             {
@@ -106,6 +104,6 @@ Can only be used if there arent many radium stars in the world."); */
                 }
             }
             return true;
-		}
-	}
+        }
+    }
 }

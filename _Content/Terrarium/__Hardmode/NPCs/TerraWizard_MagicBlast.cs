@@ -1,20 +1,19 @@
-﻿using System;
-using AAModClassic._Content.Terrarium.Buffs;
+﻿using AAModClassic._Content.Terrarium.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
 {
     public class TerraWizard_MagicBlast : ModProjectile
     {
-    	
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Magic Blast");
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Magic Blast");
             Main.projFrames[Projectile.type] = 4;
-		}
-    	
+        }
+
         public override void SetDefaults()
         {
             Projectile.width = 10;
@@ -73,7 +72,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
         {
             target.AddBuff(ModContent.BuffType<Terrablaze_Buff>(), 600);
         }
-        
+
 
         public override bool PreDraw(ref Color lightColor)
         {
@@ -82,8 +81,8 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             {
                 Projectile.frame++;
                 Projectile.frameCounter = 0;
-                if (Projectile.frame > 3) 
-                    Projectile.frame = 0; 
+                if (Projectile.frame > 3)
+                    Projectile.frame = 0;
             }
             return true;
         }

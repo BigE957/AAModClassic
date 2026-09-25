@@ -7,11 +7,11 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class GibsLeggings : BaseAAItem, ILocalizedModType
-	{
+    public class GibsLeggings : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Gibs";
         public override void SetStaticDefaults()
-		{
+        {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Revenant Legs");
             // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Developers!'");

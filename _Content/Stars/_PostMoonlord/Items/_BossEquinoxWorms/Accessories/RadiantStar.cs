@@ -1,9 +1,4 @@
-﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Steamworks;
-using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -22,7 +17,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Acce
             Item.accessory = true;
             Item.expert = true;
         }
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Radiant Star");

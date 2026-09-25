@@ -1,6 +1,5 @@
-using System;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Enums;

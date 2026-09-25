@@ -6,7 +6,6 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -31,15 +30,15 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
             NPC.aiStyle = -1;
             NPC.width = 40;
             NPC.height = 60;
-			NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = SoundID.NPCDeath1;		
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
             NPC.lavaImmune = true;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<FlamebruteBanner>();
+            //BannerItem = ModContent.ItemType<FlamebruteBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
-		const int frameHeightPlusFluff = 78; //the 2 pixels per frame
+        const int frameHeightPlusFluff = 78; //the 2 pixels per frame
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
@@ -54,22 +53,23 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
 
         public override void AI()
         {
-			Player player = Main.player[NPC.target];
-			float playerDistX = Math.Abs(player.Center.X - NPC.Center.X);
-			float playerDistY = Math.Abs(player.Center.Y - NPC.Center.Y);
-			bool smashAttack = playerDistX < 15f && playerDistY < 40f;
+            Player player = Main.player[NPC.target];
+            float playerDistX = Math.Abs(player.Center.X - NPC.Center.X);
+            float playerDistY = Math.Abs(player.Center.Y - NPC.Center.Y);
+            bool smashAttack = playerDistX < 15f && playerDistY < 40f;
             Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255f, Color.DarkOrange.G / 255f, Color.DarkOrange.B / 255f);
 
             if (smashAttack) //Stop moving to smash players
-			{
-				NPC.velocity.X *= 0.9f;
-				if(NPC.velocity.X < 0.2f) NPC.velocity.X = 0;
-				NPC.spriteDirection = NPC.Center.X < player.Center.X ? 1 : -1;	
-			}else
-			{
-				BaseAI.AIZombie(NPC, ref NPC.ai, false, true, -1, 0.1f, 2f, 5, 7, 120);	
-				NPC.spriteDirection = NPC.velocity.X > 0 ? 1 : -1;				
-			}
+            {
+                NPC.velocity.X *= 0.9f;
+                if (NPC.velocity.X < 0.2f) NPC.velocity.X = 0;
+                NPC.spriteDirection = NPC.Center.X < player.Center.X ? 1 : -1;
+            }
+            else
+            {
+                BaseAI.AIZombie(NPC, ref NPC.ai, false, true, -1, 0.1f, 2f, 5, 7, 120);
+                NPC.spriteDirection = NPC.velocity.X > 0 ? 1 : -1;
+            }
         }
 
         public override void FindFrame(int frameHeight)

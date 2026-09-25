@@ -1,10 +1,7 @@
-using System;
 using AAModClassic._Content.Void.Projectiles;
 using AAModClassic.Base;
-using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-
-using Terraria;
+using System;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
@@ -13,8 +10,8 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapo
 {
     public class SagittariusCore_Orbiter : ModProjectile
     {
-		float rot = 0f;
-		float rotInit = -1f;
+        float rot = 0f;
+        float rotInit = -1f;
 
         public override void SetDefaults()
         {
@@ -28,35 +25,35 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapo
             Projectile.penetrate = -1;
             Projectile.minion = true;
             Projectile.minionSlots = 1;
-            Projectile.ignoreWater = true;		
+            Projectile.ignoreWater = true;
         }
 
-		public void SetRot()
-		{
-			float oldInit = rotInit;
-			int[] projs = BaseAI.GetProjectiles(Main.player[Projectile.owner].Center, Projectile.type, Projectile.owner, 200f);
-			rotInit = projs.Length == 0 ? 0f : (float)Math.PI * 2f / projs.Length;
+        public void SetRot()
+        {
+            float oldInit = rotInit;
+            int[] projs = BaseAI.GetProjectiles(Main.player[Projectile.owner].Center, Projectile.type, Projectile.owner, 200f);
+            rotInit = projs.Length == 0 ? 0f : (float)Math.PI * 2f / projs.Length;
 
-			if (rotInit != oldInit)
-			{
-				int projSlot = 0;
-				for(int m = 0; m < projs.Length; m++)
-				{
-					if (projs[m] == Projectile.identity) { projSlot = m; }
-				}
-				rot = rotInit * (projSlot + 1f);
-			}
-		}
+            if (rotInit != oldInit)
+            {
+                int projSlot = 0;
+                for (int m = 0; m < projs.Length; m++)
+                {
+                    if (projs[m] == Projectile.identity) { projSlot = m; }
+                }
+                rot = rotInit * (projSlot + 1f);
+            }
+        }
 
         public override void AI()
-		{
-			Player player = Main.player[Projectile.owner];
+        {
+            Player player = Main.player[Projectile.owner];
             ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (player.dead || !player.HasBuff(ModContent.BuffType<SagittariusCore_Buff>())) Projectile.Kill();
             if (modPlayer.SagOrbiter)
             {
-				Projectile.timeLeft = 2;
-				player.AddBuff(ModContent.BuffType<SagittariusCore_Buff>(), 2, true);
+                Projectile.timeLeft = 2;
+                player.AddBuff(ModContent.BuffType<SagittariusCore_Buff>(), 2, true);
             }
 
             Projectile.ai[0] = player.GetDamage(DamageClass.Summon).ApplyTo(30);
@@ -68,8 +65,8 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapo
             int Width = 0;
 
             if (player.HasMinionAttackTargetNPC)
-			{
-				NPC nPC2 = Main.npc[player.MinionAttackTargetNPC];
+            {
+                NPC nPC2 = Main.npc[player.MinionAttackTargetNPC];
                 if (nPC2.CanBeChasedBy(Projectile, false))
                 {
                     float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
@@ -82,9 +79,9 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapo
                         Width = nPC2.width;
                     }
                 }
-			}
-			else
-			{
+            }
+            else
+            {
                 for (int num645 = 0; num645 < 200; num645++)
                 {
                     NPC nPC2 = Main.npc[num645];
@@ -111,21 +108,21 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapo
                     Main.projectile[id].minion = true;
                 }
             }
-			
+
             if (Projectile.active) { SetRot(); }
-			BaseAI.AIRotate(Projectile, ref Projectile.rotation, ref rot, player.Center, true, 80f, 20f, 0.07f, true);
-		}
+            BaseAI.AIRotate(Projectile, ref Projectile.rotation, ref rot, player.Center, true, 80f, 20f, 0.07f, true);
+        }
 
         public override bool PreDraw(ref Color lightColor)
         {
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Width(), TextureAssets.Projectile[Projectile.type].Height(), 0, 2);
-            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, 0, 0, 4, frame, drawColor, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, 0, 0, 4, frame, lightColor, true);
             return false;
         }
 
         public override void OnKill(int timeLeft)
-		{
-			int[] projs = BaseAI.GetProjectiles(Projectile.Center, Projectile.type, Projectile.owner, 200f);
-		}
-	}
+        {
+            int[] projs = BaseAI.GetProjectiles(Projectile.Center, Projectile.type, Projectile.owner, 200f);
+        }
+    }
 }

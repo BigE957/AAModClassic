@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
@@ -9,7 +8,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Explosion");     
-            Main.projFrames[Projectile.type] = 7;     
+            Main.projFrames[Projectile.type] = 7;
         }
 
         public override void SetDefaults()

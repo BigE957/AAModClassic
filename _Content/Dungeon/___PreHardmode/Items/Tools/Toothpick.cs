@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -32,7 +31,7 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Tools
             // DisplayName.SetDefault("Toothpick");
         }
 
-        public override void AddRecipes()  
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Bone, 12);

@@ -2,7 +2,6 @@
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -37,9 +36,9 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
         {
             Texture2D Tex = TextureAssets.Projectile[Projectile.type].Value;
             Rectangle frame = new Rectangle(0, 0, Tex.Width, Tex.Height);
-            BaseDrawing.DrawAfterimage(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, 
-                Projectile.position, Projectile.width, Projectile.height, Projectile.oldPos, 
-                Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 
+            BaseDrawing.DrawAfterimage(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0,
+                Projectile.position, Projectile.width, Projectile.height, Projectile.oldPos,
+                Projectile.scale, Projectile.rotation, Projectile.spriteDirection,
                 1, frame, 1.5f, 1, 5, false, 0, 0, Projectile.GetAlpha(AAColor.ZeroShield));
             return true;
         }

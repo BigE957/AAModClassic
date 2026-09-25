@@ -4,7 +4,6 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -14,10 +13,10 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.FuryAshe.Shenling
 {
     public class ShenlingHead : ModNPC
-	{
+    {
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Discordian Serpent");
+        {
+            // DisplayName.SetDefault("Discordian Serpent");
             Main.npcFrameCount[NPC.type] = 2;
 
             NPCID.Sets.NPCBestiaryDrawModifiers value = new()
@@ -37,13 +36,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
         }
 
         public override void SetDefaults()
-		{
-			NPC.noTileCollide = true;
-			NPC.height = 16;
-			NPC.width = 16;
-			NPC.aiStyle = -1;
-			NPC.netAlways = true;
-			NPC.knockBackResist = 0f;
+        {
+            NPC.noTileCollide = true;
+            NPC.height = 16;
+            NPC.width = 16;
+            NPC.aiStyle = -1;
+            NPC.netAlways = true;
+            NPC.knockBackResist = 0f;
             NPC.damage = 50;
             NPC.defense = 90;
             NPC.lifeMax = 8000;
@@ -139,7 +138,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                         NPC.netUpdate = true;
                     }
                     int num10 = ModContent.NPCType<ShenlingTail>();
-                    if(Main.netMode != NetmodeID.MultiplayerClient)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         int num11 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)(NPC.position.X + NPC.width / 2), (int)(NPC.position.Y + NPC.height), num10, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
                         if (Main.netMode == NetmodeID.Server && num11 < 200) NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, num11);

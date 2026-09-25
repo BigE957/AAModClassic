@@ -1,10 +1,4 @@
-﻿using AAModClassic._Content.Inferno.__Hardmode.Items.Tools;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using Terraria;
-using Terraria.GameContent;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ID;
 using Terraria.ModLoader;
 

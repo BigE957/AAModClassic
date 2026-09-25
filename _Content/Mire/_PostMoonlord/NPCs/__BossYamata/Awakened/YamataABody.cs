@@ -21,7 +21,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -156,11 +155,11 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             NPC.lifeMax = (int)(NPC.lifeMax * 0.5f * balance);
             NPC.damage = (int)(NPC.damage * .7f);
         }
-        
+
         public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
             modifiers.TargetDamageMultiplier *= 0;
-            
+
             int dust1 = ModContent.DustType<Dusts.YamataADust>();
             int dust2 = ModContent.DustType<Dusts.YamataADust>();
             if (NPC.life <= 0)
@@ -387,35 +386,35 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                                     TrueHead = npc2;
                                 }
                                 else
-                                if (Head2 == null && npc2.type == ModContent.NPCType<YamataAHeadFake>() && npc2.ai[0] == NPC.whoAmI)
-                                {
-                                    Head2 = npc2;
-                                }
-                                else
-                                if (Head3 == null && npc2.type == ModContent.NPCType<YamataAHeadFake>() && npc2.ai[0] == NPC.whoAmI)
-                                {
-                                    Head3 = npc2;
-                                }
-                                else
-                                if (Head4 == null && npc2.type == ModContent.NPCType<YamataAHeadFake>() && npc2.ai[0] == NPC.whoAmI)
-                                {
-                                    Head4 = npc2;
-                                }
-                                else
-                                if (Head5 == null && npc2.type == ModContent.NPCType<YamataAHeadFake>() && npc2.ai[0] == NPC.whoAmI)
-                                {
-                                    Head5 = npc2;
-                                }
-                                else
-                                if (Head6 == null && npc2.type == ModContent.NPCType<YamataAHeadFake>() && npc2.ai[0] == NPC.whoAmI)
-                                {
-                                    Head6 = npc2;
-                                }
-                                else
-                                if (Head7 == null && npc2.type == ModContent.NPCType<YamataAHeadFake>() && npc2.ai[0] == NPC.whoAmI)
-                                {
-                                    Head7 = npc2;
-                                }
+                                    if (Head2 == null && npc2.type == ModContent.NPCType<YamataAHeadFake>() && npc2.ai[0] == NPC.whoAmI)
+                                    {
+                                        Head2 = npc2;
+                                    }
+                                    else
+                                        if (Head3 == null && npc2.type == ModContent.NPCType<YamataAHeadFake>() && npc2.ai[0] == NPC.whoAmI)
+                                        {
+                                            Head3 = npc2;
+                                        }
+                                        else
+                                            if (Head4 == null && npc2.type == ModContent.NPCType<YamataAHeadFake>() && npc2.ai[0] == NPC.whoAmI)
+                                            {
+                                                Head4 = npc2;
+                                            }
+                                            else
+                                                if (Head5 == null && npc2.type == ModContent.NPCType<YamataAHeadFake>() && npc2.ai[0] == NPC.whoAmI)
+                                                {
+                                                    Head5 = npc2;
+                                                }
+                                                else
+                                                    if (Head6 == null && npc2.type == ModContent.NPCType<YamataAHeadFake>() && npc2.ai[0] == NPC.whoAmI)
+                                                    {
+                                                        Head6 = npc2;
+                                                    }
+                                                    else
+                                                        if (Head7 == null && npc2.type == ModContent.NPCType<YamataAHeadFake>() && npc2.ai[0] == NPC.whoAmI)
+                                                        {
+                                                            Head7 = npc2;
+                                                        }
                             }
                         }
                     }
@@ -498,7 +497,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                     if (NPC.alpha >= 255)
                     {
                         NPC.alpha = 255;
-                        Vector2 tele = playerTarget.Center + new Vector2(0, -100) +  (playerTarget.velocity == new Vector2(0,0)? new Vector2(0,0) : Vector2.Normalize(playerTarget.velocity) * playerTarget.velocity.Length() * 54.33f);
+                        Vector2 tele = playerTarget.Center + new Vector2(0, -100) + (playerTarget.velocity == new Vector2(0, 0) ? new Vector2(0, 0) : Vector2.Normalize(playerTarget.velocity) * playerTarget.velocity.Length() * 54.33f);
                         TeleportMe1 = true;
                         TeleportMe2 = true;
                         TeleportMe3 = true;
@@ -680,23 +679,23 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                 if (Math.Abs(npc.velocity.Y) > 0.3f) npc.velocity.Y *= 0.9f;
             }
             else
-            if (npc.direction == -1 && npc.velocity.X > -maxSpeedX)
-            {
-                npc.velocity.X -= moveInterval * 0.5f;
-                if (npc.velocity.X > maxSpeedX) { npc.velocity.X -= 0.1f; }
+                if (npc.direction == -1 && npc.velocity.X > -maxSpeedX)
+                {
+                    npc.velocity.X -= moveInterval * 0.5f;
+                    if (npc.velocity.X > maxSpeedX) { npc.velocity.X -= 0.1f; }
+                    else
+                        if (npc.velocity.X > 0f) { npc.velocity.X += 0.05f; }
+                    if (npc.velocity.X < -maxSpeedX) { npc.velocity.X = -maxSpeedX; }
+                }
                 else
-                    if (npc.velocity.X > 0f) { npc.velocity.X += 0.05f; }
-                if (npc.velocity.X < -maxSpeedX) { npc.velocity.X = -maxSpeedX; }
-            }
-            else
-            if (npc.direction == 1 && npc.velocity.X < maxSpeedX)
-            {
-                npc.velocity.X += moveInterval * 0.5f;
-                if (npc.velocity.X < -maxSpeedX) { npc.velocity.X += 0.1f; }
-                else
-                    if (npc.velocity.X < 0f) { npc.velocity.X -= 0.05f; }
-                if (npc.velocity.X > maxSpeedX) { npc.velocity.X = maxSpeedX; }
-            }
+                    if (npc.direction == 1 && npc.velocity.X < maxSpeedX)
+                    {
+                        npc.velocity.X += moveInterval * 0.5f;
+                        if (npc.velocity.X < -maxSpeedX) { npc.velocity.X += 0.1f; }
+                        else
+                            if (npc.velocity.X < 0f) { npc.velocity.X -= 0.05f; }
+                        if (npc.velocity.X > maxSpeedX) { npc.velocity.X = maxSpeedX; }
+                    }
 
 
             if (npc.directionY == -1 && (double)npc.velocity.Y > -hoverMaxSpeed)
@@ -708,14 +707,14 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                 if ((double)npc.velocity.Y < -hoverMaxSpeed) { npc.velocity.Y = -hoverMaxSpeed; }
             }
             else
-            if (npc.directionY == 1 && (double)npc.velocity.Y < hoverMaxSpeed)
-            {
-                npc.velocity.Y += hoverInterval;
-                if ((double)npc.velocity.Y < -hoverMaxSpeed) { npc.velocity.Y += 0.05f; }
-                else
-                if (npc.velocity.Y < 0f) { npc.velocity.Y -= hoverInterval - 0.01f; }
-                if ((double)npc.velocity.Y > hoverMaxSpeed) { npc.velocity.Y = hoverMaxSpeed; }
-            }
+                if (npc.directionY == 1 && (double)npc.velocity.Y < hoverMaxSpeed)
+                {
+                    npc.velocity.Y += hoverInterval;
+                    if ((double)npc.velocity.Y < -hoverMaxSpeed) { npc.velocity.Y += 0.05f; }
+                    else
+                        if (npc.velocity.Y < 0f) { npc.velocity.Y -= hoverInterval - 0.01f; }
+                    if ((double)npc.velocity.Y > hoverMaxSpeed) { npc.velocity.Y = hoverMaxSpeed; }
+                }
         }
 
         public bool TargetClosest()

@@ -10,7 +10,6 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
@@ -73,7 +72,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
         public int[] internalAI = new int[8];
 
         public int[] ShadowNPC = new int[3];
-        
+
         public Vector2 ShadowkingPosition = Vector2.Zero;
 
         public bool SpawnClone = false;
@@ -154,7 +153,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
         {
             scale = 1.5f;
-            if(Invisible || internalAI[0] == AISTATE_Shadowkilling) return false;
+            if (Invisible || internalAI[0] == AISTATE_Shadowkilling) return false;
             return null;
         }
 
@@ -181,7 +180,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
         public int Shadowdashcounter = 0;
 
-        public static int AISTATE_PROJ = 0, AISTATE_SLASH = 1, AISTATE_SPIN = 2, AISTATE_IDLE = 3, AISTATE_Shadowkilling = 4; 
+        public static int AISTATE_PROJ = 0, AISTATE_SLASH = 1, AISTATE_SPIN = 2, AISTATE_IDLE = 3, AISTATE_Shadowkilling = 4;
 
 
         public override void AI()
@@ -192,7 +191,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             Vector2 wantedVelocity = player.Center - new Vector2(pos, 0);
             NPC.direction = NPC.spriteDirection = NPC.position.X < player.position.X ? 1 : -1;
 
-            if(SHADOWCONTER <= 0)
+            if (SHADOWCONTER <= 0)
             {
                 NPC.dontTakeDamage = false;
                 SHADOWCONTER = 0;
@@ -242,7 +241,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
                 InvisTimer2 = 1100;
 
-                if(Main.expertMode) internalAI[6]++;
+                if (Main.expertMode) internalAI[6]++;
             }
             if (NPC.life < NPC.lifeMax * .33f)
             {
@@ -250,7 +249,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
                 InvisTimer2 = 900;
 
-                if(Main.expertMode) internalAI[6]+=2;
+                if (Main.expertMode) internalAI[6] += 2;
             }
             if (internalAI[5] > InvisTimer1)
             {
@@ -281,7 +280,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             {
                 internalAI[7] = 3000;
             }
-            
+
             if (Invisible)
             {
                 NPC.dontTakeDamage = true;
@@ -301,7 +300,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                 NPC.dontTakeDamage = false;
             }
 
-            if(Shadowkill && NPC.alpha > 250)
+            if (Shadowkill && NPC.alpha > 250)
             {
                 internalAI[0] = AISTATE_Shadowkilling;
                 internalAI[1] = 0;
@@ -311,7 +310,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                 Invisible = false;
                 NPC.netUpdate = true;
             }
-            
+
             if (ProjectileShoot == 0 || internalAI[0] == AISTATE_SLASH)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -336,21 +335,21 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             }
 
             //TODO: THe conditions for this to happen never actually occur as far as I can tell
-            if(Main.expertMode && internalAI[0] != AISTATE_Shadowkilling && internalAI[0] != AISTATE_SPIN && SHADOWCONTER <= 0 && !Invisible)
+            if (Main.expertMode && internalAI[0] != AISTATE_Shadowkilling && internalAI[0] != AISTATE_SPIN && SHADOWCONTER <= 0 && !Invisible)
             {
                 //Main.NewText("oooooh imma strike back");
-                foreach(Projectile p in Main.ActiveProjectiles)
+                foreach (Projectile p in Main.ActiveProjectiles)
                 {
-                    if(p.friendly && !p.minion && Main.player[p.owner].heldProj != p.whoAmI && p.damage > 0 && NPC.Hitbox.Intersects(p.Hitbox))
+                    if (p.friendly && !p.minion && Main.player[p.owner].heldProj != p.whoAmI && p.damage > 0 && NPC.Hitbox.Intersects(p.Hitbox))
                     {
-                        if(internalAI[6] >= 2000)
+                        if (internalAI[6] >= 2000)
                         {
                             p.Kill();
                             internalAI[6] -= 2000;
-                            strikebackproj ++;
+                            strikebackproj++;
                             internalAI[0] = AISTATE_SPIN;
                         }
-                        else if(internalAI[7] >= 3000)
+                        else if (internalAI[7] >= 3000)
                         {
                             internalAI[7] = 0;
                             SHADOWDOG = true;
@@ -361,24 +360,24 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                 }
             }
 
-            if(SHADOWDOG)
+            if (SHADOWDOG)
             {
-                SHADOWCONTER ++;
+                SHADOWCONTER++;
                 NPC.dontTakeDamage = true;
                 internalAI[0] = AISTATE_IDLE;
-                if(InvisTimer1 - internalAI[5] <= 360)
+                if (InvisTimer1 - internalAI[5] <= 360)
                 {
                     internalAI[5] -= 360;
                 }
-                if(internalAI[5] < 0)
+                if (internalAI[5] < 0)
                 {
                     internalAI[5] = 0;
                 }
-                if(SHADOWCONTER >= 180)
+                if (SHADOWCONTER >= 180)
                 {
                     SHADOWDOG = false;
                     internalAI[0] = AISTATE_SLASH;
-                    if(internalAI[6] >= 800)
+                    if (internalAI[6] >= 800)
                     {
                         internalAI[0] = AISTATE_SPIN;
                         internalAI[6] -= 800;
@@ -389,7 +388,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
             if (internalAI[0] == AISTATE_IDLE)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) 
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     internalAI[3]++;
 
@@ -397,13 +396,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                     {
                         internalAI[3] = 0;
                         internalAI[0] = Main.rand.Next(2);
-                        if(internalAI[6] >= 1500 && Main.expertMode)
+                        if (internalAI[6] >= 1500 && Main.expertMode)
                         {
                             internalAI[6] -= 1500;
                             Shadowkill = true;
                             Invisible = true;
                         }
-                        else if(Main.rand.NextBool(4) && internalAI[6] >= 500)
+                        else if (Main.rand.NextBool(4) && internalAI[6] >= 500)
                         {
                             internalAI[0] = AISTATE_SPIN;
                             internalAI[6] -= 500;
@@ -411,7 +410,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                         NPC.ai = new float[4];
                         NPC.netUpdate = true;
                     }
-                    else if(internalAI[3] >= 95)
+                    else if (internalAI[3] >= 95)
                     {
                         internalAI[3] = 0;
                     }
@@ -448,7 +447,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, 16, 5);
                         }
                     }
-                    if ((internalAI[2] < 4 || internalAI[2] > 6) && Main.netMode != NetmodeID.MultiplayerClient) 
+                    if ((internalAI[2] < 4 || internalAI[2] > 6) && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         internalAI[1] = 0;
                         internalAI[2] = 4;
@@ -533,7 +532,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             {
                 internalAI[3]++;
 
-                if(SHADOWCONTER > 0)
+                if (SHADOWCONTER > 0)
                 {
                     SHADOWCONTER--;
                 }
@@ -561,7 +560,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                             internalAI[2] = 0;
                             internalAI[3] = 0;
                             internalAI[4] = 0;
-                            if(internalAI[6] >= 500 && Main.rand.NextBool(2))
+                            if (internalAI[6] >= 500 && Main.rand.NextBool(2))
                             {
                                 internalAI[0] = AISTATE_SPIN;
                                 internalAI[6] -= 500;
@@ -580,8 +579,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             else if (internalAI[0] == AISTATE_SPIN)
             {
                 internalAI[4]++;
-                
-                if(SHADOWCONTER > 0)
+
+                if (SHADOWCONTER > 0)
                 {
                     SHADOWCONTER--;
                 }
@@ -598,12 +597,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                         internalAI[2] = 13;
                     }
 
-                    if(internalAI[4] < 100)
+                    if (internalAI[4] < 100)
                     {
                         SelectPoint = true;
                     }
 
-                    if(InvisTimer1 - internalAI[5] <= 120)
+                    if (InvisTimer1 - internalAI[5] <= 120)
                     {
                         internalAI[5] -= 120;
                     }
@@ -616,30 +615,30 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
                     if (strikebackproj != 0)
                     {
-                        foreach(Projectile p in Main.ActiveProjectiles)
+                        foreach (Projectile p in Main.ActiveProjectiles)
                         {
-                            if(p.friendly && p.damage > 0 && NPC.Hitbox.Intersects(p.Hitbox))
+                            if (p.friendly && p.damage > 0 && NPC.Hitbox.Intersects(p.Hitbox))
                             {
-                                strikebackproj ++;
+                                strikebackproj++;
                                 break;
                             }
                         }
                     }
-                    
+
 
                     if (internalAI[4] > 200)
                     {
                         NPC.frameCounter = 0;
                         Frame = 0;
 
-                        if(internalAI[6] >= 2000 && Main.expertMode)
+                        if (internalAI[6] >= 2000 && Main.expertMode)
                         {
                             internalAI[6] -= 2000;
                             Shadowkill = true;
                             Invisible = true;
                             NPC.netUpdate = true;
                         }
-                        else if(Main.rand.NextBool(2))
+                        else if (Main.rand.NextBool(2))
                         {
                             internalAI[0] = AISTATE_PROJ;
                             NPC.netUpdate = true;
@@ -656,7 +655,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                         internalAI[4] = 0;
                         pos *= -1f;
                         NPC.ai = new float[4];
-                        
+
                         int projType = ModContent.ProjectileType<WrathHaruka_WrathNightSlash>();
                         float spread = 45f * 0.0174f;
                         Vector2 dir = Vector2.Normalize(player.Center - NPC.Center);
@@ -664,14 +663,14 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                         float baseSpeed = (float)Math.Sqrt(dir.X * dir.X + dir.Y * dir.Y);
                         double startAngle = Math.Atan2(dir.X, dir.Y) - .1d;
                         double deltaAngle = spread / 6f;
-                        if(Main.netMode != NetmodeID.MultiplayerClient)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             for (int i = 0; i < 3; i++)
                             {
                                 double offsetAngle = startAngle + deltaAngle * i;
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, 16, 0);
                             }
-                            if(strikebackproj != 0)
+                            if (strikebackproj != 0)
                             {
                                 startAngle -= .1d * (strikebackproj / 2);
                                 deltaAngle = spread / 3f;
@@ -684,7 +683,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                         }
                         strikebackproj = 0;
                     }
-                    else if(internalAI[4] > 100)
+                    else if (internalAI[4] > 100)
                     {
                         MovePoint = player.Center - new Vector2(pos * 1.5f, 0);
                     }
@@ -694,7 +693,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             {
                 ShadowNPC[0] = NPC.whoAmI;
                 internalAI[4]++;
-                if(NPC.alpha >= 255)
+                if (NPC.alpha >= 255)
                 {
                     SpawnClone = true;
                 }
@@ -735,7 +734,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             }
             else if (internalAI[0] == AISTATE_SPIN)
             {
-                if(SHADOWCONTER > 0)
+                if (SHADOWCONTER > 0)
                 {
                     LOOPPOINT(player.Center + new Vector2(500f, 0), player.Center - new Vector2(500f, 0));
                 }
@@ -746,7 +745,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             }
             else if (internalAI[0] == AISTATE_SLASH) //When charging the player
             {
-                if(SHADOWCONTER > 0)
+                if (SHADOWCONTER > 0)
                 {
                     LOOPPOINT(player.Center + new Vector2(500f, 0), player.Center - new Vector2(500f, 0));
                 }
@@ -887,18 +886,18 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
         {
             double Pi = Math.PI;
             Vector2 playerLocation = Main.player[NPC.target].position + new Vector2(Main.player[NPC.target].width * 0.5f, Main.player[NPC.target].height * 0.5f);
-            
+
             Vector2[] spawnpoint = new Vector2[3];
             spawnpoint[0] = playerLocation + 275f * new Vector2((float)Math.Sin(0.5f * Pi), (float)Math.Cos(0.5f * Pi));
             spawnpoint[1] = playerLocation + 275f * new Vector2((float)Math.Sin(1.16f * Pi), (float)Math.Cos(1.13f * Pi));
             spawnpoint[2] = playerLocation + 275f * new Vector2((float)Math.Sin(1.83f * Pi), (float)Math.Cos(1.83f * Pi));
 
-            if(!SpawnClone && (ShadowNPC[0] == -1 || ShadowNPC[1] == -1 || ShadowNPC[2] == -1))
+            if (!SpawnClone && (ShadowNPC[0] == -1 || ShadowNPC[1] == -1 || ShadowNPC[2] == -1))
             {
                 return;
             }
 
-            if(NPC.alpha >= 255 && SpawnClone)
+            if (NPC.alpha >= 255 && SpawnClone)
             {
                 int k = Main.rand.Next(3);
                 NPC.position = spawnpoint[k];
@@ -912,7 +911,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                 {
                     k2 = 0;
                 }
-                if(Main.netMode != NetmodeID.MultiplayerClient)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     ShadowNPC[1] = NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnpoint[k1].X, (int)spawnpoint[k1].Y, ModContent.NPCType<WrathHarukaClone>(), 0, NPC.whoAmI);
                     NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, ShadowNPC[1], 0f, 0f, 0f, 0, 0, 0);
@@ -921,7 +920,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                     NPC.alpha = 250;
                 }
                 NPC.netUpdate = true;
-                if(ShadowNPC[1] != -1 && ShadowNPC[2] != -1)
+                if (ShadowNPC[1] != -1 && ShadowNPC[2] != -1)
                 {
                     Main.npc[ShadowNPC[1]].alpha = NPC.alpha;
                     Main.npc[ShadowNPC[2]].alpha = NPC.alpha;
@@ -938,13 +937,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                 Main.npc[ShadowNPC[1]].velocity = Main.player[NPC.target].velocity;
                 Main.npc[ShadowNPC[2]].velocity = Main.player[NPC.target].velocity;
 
-                
+
 
                 NPC.alpha -= 8;
                 Main.npc[ShadowNPC[1]].alpha = NPC.alpha;
                 Main.npc[ShadowNPC[2]].alpha = NPC.alpha;
             }
-            else if(!NPC.active || NPC.life <= 0)
+            else if (!NPC.active || NPC.life <= 0)
             {
                 NPC.velocity = Main.player[NPC.target].velocity;
                 Main.npc[ShadowNPC[1]].velocity = Main.player[NPC.target].velocity;
@@ -955,12 +954,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             }
             else
             {
-                if(internalAI[4] < 90)
+                if (internalAI[4] < 90)
                 {
                     NPC.velocity = Main.player[NPC.target].velocity;
                     Main.npc[ShadowNPC[1]].velocity = Main.player[NPC.target].velocity;
                     Main.npc[ShadowNPC[2]].velocity = Main.player[NPC.target].velocity;
-                    
+
                     ShadowkingPosition = playerLocation;
                 }
                 else
@@ -970,10 +969,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                     Main.npc[ShadowNPC[2]].alpha = NPC.alpha;
                     Vector2[] dist = new Vector2[3];
                     int k = 0;
-                    while(k < 3)
+                    while (k < 3)
                     {
                         dist[k] = ShadowkingPosition - Main.npc[ShadowNPC[k]].Center;
-                        if(k == 0) NPC.velocity = Vector2.Normalize(dist[k]) * 15f;
+                        if (k == 0) NPC.velocity = Vector2.Normalize(dist[k]) * 15f;
                         else Main.npc[ShadowNPC[k]].velocity = Vector2.Normalize(dist[k]) * 15f;
                         if (ShadowkingPosition.X > Main.npc[ShadowNPC[k]].Center.X)
                         {
@@ -988,15 +987,15 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                 }
             }
 
-            if(internalAI[4] >= 160 || Main.npc[ShadowNPC[1]].Hitbox.Intersects(Main.npc[ShadowNPC[0]].Hitbox) || Main.npc[ShadowNPC[1]].Hitbox.Intersects(Main.npc[ShadowNPC[2]].Hitbox) || Main.npc[ShadowNPC[2]].Hitbox.Intersects(Main.npc[ShadowNPC[0]].Hitbox))
+            if (internalAI[4] >= 160 || Main.npc[ShadowNPC[1]].Hitbox.Intersects(Main.npc[ShadowNPC[0]].Hitbox) || Main.npc[ShadowNPC[1]].Hitbox.Intersects(Main.npc[ShadowNPC[2]].Hitbox) || Main.npc[ShadowNPC[2]].Hitbox.Intersects(Main.npc[ShadowNPC[0]].Hitbox))
             {
-                if(Main.netMode != NetmodeID.MultiplayerClient)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     Projectile.NewProjectile(NPC.GetSource_FromThis(), ShadowkingPosition.X, ShadowkingPosition.Y, 0, 0, ModContent.ProjectileType<Haruka_DepthKillingBlast>(), 40, 5);
 
                     Vector2 shoot = Vector2.Zero;
                     int projType = ModContent.ProjectileType<WrathHaruka_WrathNightSlash>();
-                    for(int i = 0; i < 16; i++)
+                    for (int i = 0; i < 16; i++)
                     {
                         shoot = new Vector2((float)Math.Sin(i * 0.125f * Pi), (float)Math.Cos(i * 0.125f * Pi));
                         shoot *= 14f;
@@ -1008,7 +1007,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
                 Main.npc[ShadowNPC[2]].boss = false;
                 Main.npc[ShadowNPC[1]].active = false;
                 Main.npc[ShadowNPC[2]].active = false;
-                
+
                 ShadowNPC[0] = -1;
                 ShadowNPC[1] = -1;
                 ShadowNPC[2] = -1;
@@ -1023,12 +1022,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
         {
             Vector2 playerLocation = Main.player[NPC.target].Center;
             Vector2 playerVelocity = Main.player[NPC.target].velocity;
-            if(playerVelocity.X < 0)
+            if (playerVelocity.X < 0)
             {
                 NPC.position.X = playerLocation.X - 250f;
                 NPC.position.Y = playerLocation.Y;
             }
-            else if(playerVelocity.X > 0)
+            else if (playerVelocity.X > 0)
             {
                 NPC.position.X = playerLocation.X + 250f;
                 NPC.position.Y = playerLocation.Y;
@@ -1043,22 +1042,22 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
         public void LOOPPOINT(Vector2 point1, Vector2 point2)
         {
-            Shadowdashcounter ++;
+            Shadowdashcounter++;
 
-            if(Shadowdashcounter < 20)
+            if (Shadowdashcounter < 20)
             {
                 MoveToPoint(point2);
             }
-            else if(Shadowdashcounter < 40)
+            else if (Shadowdashcounter < 40)
             {
                 MoveToPoint(point1);
             }
-            else if((NPC.Center - point1).Length() < 40f)
+            else if ((NPC.Center - point1).Length() < 40f)
             {
                 MoveToPoint(point2);
                 Shadowdashcounter = 0;
             }
-            else if((NPC.Center - point2).Length() < 40f)
+            else if ((NPC.Center - point2).Length() < 40f)
             {
                 MoveToPoint(point1);
                 Shadowdashcounter = 21;
@@ -1075,7 +1074,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             if (internalAI[0] == AISTATE_SPIN)
             {
                 moveSpeed = 20f;
-                if(SHADOWCONTER > 0)
+                if (SHADOWCONTER > 0)
                 {
                     moveSpeed = 55f;
                 }
@@ -1083,7 +1082,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             if (Vector2.Distance(NPC.Center, point) > 500)
             {
                 moveSpeed = 25f;
-                if(SHADOWCONTER > 0)
+                if (SHADOWCONTER > 0)
                 {
                     moveSpeed = 55f;
                 }
@@ -1091,7 +1090,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             if (internalAI[0] == AISTATE_SLASH)
             {
                 moveSpeed = 25f;
-                if(SHADOWCONTER > 0)
+                if (SHADOWCONTER > 0)
                 {
                     moveSpeed = 55f;
                 }
@@ -1126,7 +1125,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
 
         public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
-            if(strikebackproj > 0 && internalAI[0] == AISTATE_SPIN)
+            if (strikebackproj > 0 && internalAI[0] == AISTATE_SPIN)
             {
                 modifiers.TargetDamageMultiplier *= 0f;
             }
@@ -1144,54 +1143,54 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
             Texture2D slash = Slash.Value;
             if (internalAI[0] == AISTATE_SPIN)
             {
-                if(strikebackproj > 0)
-                BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Red);
+                if (strikebackproj > 0)
+                    BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Red);
                 else
-                BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
+                    BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
             }
-            else if(internalAI[0] == AISTATE_Shadowkilling)
+            else if (internalAI[0] == AISTATE_Shadowkilling)
             {
                 BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
-            
-                if(internalAI[4] < 90)
+
+                if (internalAI[4] < 90)
                 {
                     Vector2 playerLocation = Main.player[NPC.target].Center;
                     Texture2D texture = Danger.Value;
                     float scaleFactor = 1f + internalAI[4] / 30f;
                     float scaleFactor2 = (float)Math.Cos(6.2831855f * (internalAI[4] / 60f));
-                    if(scaleFactor < 2.2f)
+                    if (scaleFactor < 2.2f)
                     {
                         Color Alpha = drawColor;
                         Alpha.R = (byte)(float)(255 - internalAI[4] * 3);
                         Alpha.G = (byte)(float)(255 - internalAI[4] * 3);
                         Alpha.B = (byte)(float)(255 - internalAI[4] * 3);
                         Alpha.A = (byte)(float)(255 - internalAI[4] * 3);
-                        spriteBatch.Draw(texture, playerLocation - new Vector2(texture.Width/2 * .6f * scaleFactor, texture.Height/2 * .6f * scaleFactor + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(Alpha), 0f, default, 0.6f * scaleFactor, NPC.SpriteEffectDirection(true), 0f);
+                        spriteBatch.Draw(texture, playerLocation - new Vector2(texture.Width / 2 * .6f * scaleFactor, texture.Height / 2 * .6f * scaleFactor + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(Alpha), 0f, default, 0.6f * scaleFactor, NPC.SpriteEffectDirection(true), 0f);
                     }
-                    spriteBatch.Draw(texture, playerLocation - new Vector2(texture.Width/2 * .6f, texture.Height/2 * .6f + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(drawColor) * (0.6f + 0.4f * scaleFactor2), 0f, default, 0.6f, NPC.SpriteEffectDirection(true), 0f);
+                    spriteBatch.Draw(texture, playerLocation - new Vector2(texture.Width / 2 * .6f, texture.Height / 2 * .6f + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(drawColor) * (0.6f + 0.4f * scaleFactor2), 0f, default, 0.6f, NPC.SpriteEffectDirection(true), 0f);
                 }
             }
-            else if(SHADOWDOG && !Invisible)
+            else if (SHADOWDOG && !Invisible)
             {
                 Vector2 Position = NPC.position;
-                Position.X = NPC.position.X + (SHADOWCONTER > 60? 60:SHADOWCONTER) * 1f;
+                Position.X = NPC.position.X + (SHADOWCONTER > 60 ? 60 : SHADOWCONTER) * 1f;
                 Color Alpha = drawColor;
-                Alpha.R = (byte)(float)(255 - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 3);
-                Alpha.G = (byte)(float)(255 - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 3);
-                Alpha.B = (byte)(float)(255 - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 3);
-                Alpha.A = (byte)(float)(255 - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 3);
+                Alpha.R = (byte)(float)(255 - (SHADOWCONTER > 60 ? 60 : SHADOWCONTER) * 3);
+                Alpha.G = (byte)(float)(255 - (SHADOWCONTER > 60 ? 60 : SHADOWCONTER) * 3);
+                Alpha.B = (byte)(float)(255 - (SHADOWCONTER > 60 ? 60 : SHADOWCONTER) * 3);
+                Alpha.A = (byte)(float)(255 - (SHADOWCONTER > 60 ? 60 : SHADOWCONTER) * 3);
                 BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, Position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 28, NPC.frame, NPC.GetAlpha(Alpha), false);
-                Position.X = NPC.position.X - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 1f;
+                Position.X = NPC.position.X - (SHADOWCONTER > 60 ? 60 : SHADOWCONTER) * 1f;
                 BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, Position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 28, NPC.frame, NPC.GetAlpha(Alpha), false);
             }
-            if(internalAI[0] == AISTATE_SLASH && SHADOWCONTER > 0)
+            if (internalAI[0] == AISTATE_SLASH && SHADOWCONTER > 0)
             {
                 BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
             }
             spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
-            if (Invisible) 
+            if (Invisible)
                 return false;
-            
+
             spriteBatch.Draw(slash, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
 
             BaseDrawing.DrawAfterimage(spriteBatch, glowTex, 0, NPC, 1f, 1f, 7, true, 0f, 0f, AAColor.YamataA);

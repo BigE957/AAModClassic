@@ -1,16 +1,12 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._CrossMod.Overhaul;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using AAModClassic.Globals;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic._CrossMod.Overhaul;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
 {
@@ -42,14 +38,14 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
-        
+
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 35);
             recipe.AddIngredient(ModContent.ItemType<DarkmatterBar>(), 25);
-		    recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
 
@@ -60,7 +56,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
 
         // Doesn't get called unless item.shoot is defined.
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        { 
+        {
             return Saber.IsChargedShot(player);
         }
 

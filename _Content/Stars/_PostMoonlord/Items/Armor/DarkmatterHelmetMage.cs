@@ -1,18 +1,12 @@
 ﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
-using AAModClassic.Projectiles;
 using AAModClassic.Rarities;
 using AAModClassic.UI.World;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using Terraria;
-using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
@@ -28,11 +22,11 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 
         public override void SetStaticDefaults()
         {
-            
-            // DisplayName.SetDefault("Darkmatter Mask");
-			/* Tooltip.SetDefault(@"'Dark, yet still barely visible'"); */
 
-		}
+            // DisplayName.SetDefault("Darkmatter Mask");
+            /* Tooltip.SetDefault(@"'Dark, yet still barely visible'"); */
+
+        }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
@@ -56,18 +50,18 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
         }
 
         public override void SetDefaults()
-		{
-			Item.width = 20;
-			Item.height = 18;
-			Item.value = 300000;
-			Item.defense = 20;
+        {
+            Item.width = 20;
+            Item.height = 18;
+            Item.value = 300000;
+            Item.defense = 20;
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
-		{
-			return body.type == ModContent.ItemType<DarkmatterChestplate>() && legs.type == ModContent.ItemType<DarkmatterLeggings>();
-		}
+        {
+            return body.type == ModContent.ItemType<DarkmatterChestplate>() && legs.type == ModContent.ItemType<DarkmatterLeggings>();
+        }
 
         public override void RegisterEquipEffects()
         {
@@ -89,7 +83,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
-	}
+    }
 
-    
+
 }

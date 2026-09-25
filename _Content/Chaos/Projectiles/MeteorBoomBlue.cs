@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,7 +9,7 @@ namespace AAModClassic._Content.Chaos.Projectiles
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Meteor Strike");     
-            Main.projFrames[Projectile.type] = 7;     
+            Main.projFrames[Projectile.type] = 7;
         }
 
         public override void SetDefaults()

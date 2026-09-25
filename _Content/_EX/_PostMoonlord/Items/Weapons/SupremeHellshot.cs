@@ -1,11 +1,9 @@
 ﻿using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;

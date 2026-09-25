@@ -18,13 +18,11 @@ using AAModClassic._Content.Terrarium.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Humanizer;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.Personalities;
@@ -36,7 +34,7 @@ using Terraria.Utilities;
 namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
 {
     [AutoloadHead]
-	public class Lovecraftian : ModNPC, ILocalizedModType
+    public class Lovecraftian : ModNPC, ILocalizedModType
     {
         public new string LocalizationCategory => "NPCs.TownNPCs";
 
@@ -105,12 +103,12 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
         public override bool CanGoToStatue(bool toKingStatue) => !toKingStatue;
 
         public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
-		{
-            return ["Aletheia", "C'thalpa", "D’endrrah", "Ycnagnnisssz", "Yidhra"];			
-		}
-        
+        {
+            return ["Aletheia", "C'thalpa", "D’endrrah", "Ycnagnnisssz", "Yidhra"];
+        }
+
         public override string GetChat()
-        {   
+        {
             WeightedRandom<string> chat = new WeightedRandom<string>();
 
             int Pirate = NPC.FindFirstNPC(NPCID.Pirate);
@@ -132,7 +130,7 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.LovecraftianChat6"));
 
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Lovecraftian.LovecraftianChat7"));
-            
+
 
             //If Pirate is present
             if (Pirate >= 0)
@@ -162,7 +160,7 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
 
             //Providing materials
 
-            return chat; 
+            return chat;
         }
 
         public override void SetChatButtons(ref string button, ref string button2)
@@ -218,7 +216,7 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
 
                     if (Main.netMode == NetmodeID.MultiplayerClient)
                     {
-						AANet.SendNetMessage<UpdateLovecraftianCount>((byte)1);
+                        AANet.SendNetMessage<UpdateLovecraftianCount>((byte)1);
                     }
                     AAWorld.squid1++;
                     SoundEngine.PlaySound(SoundID.Chat);
@@ -240,7 +238,7 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
 
                     if (Main.netMode == NetmodeID.MultiplayerClient)
                     {
-						AANet.SendNetMessage<UpdateLovecraftianCount>((byte)2);
+                        AANet.SendNetMessage<UpdateLovecraftianCount>((byte)2);
                     }
                     AAWorld.squid2++;
                     SoundEngine.PlaySound(SoundID.Chat);
@@ -260,10 +258,10 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
                         Main.npcChatCornerItem = ModContent.ItemType<DarkwaterFlask>();
                     }
 
-					if(Main.netMode == NetmodeID.MultiplayerClient)
-					{
-						AANet.SendNetMessage<UpdateLovecraftianCount>((byte)3);
-					}
+                    if (Main.netMode == NetmodeID.MultiplayerClient)
+                    {
+                        AANet.SendNetMessage<UpdateLovecraftianCount>((byte)3);
+                    }
                     AAWorld.squid3++;
                     SoundEngine.PlaySound(SoundID.Chat);
                 }
@@ -282,10 +280,10 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
                         Main.npcChatCornerItem = ModContent.ItemType<CorruptionFlask>();
                     }
 
-					if(Main.netMode == NetmodeID.MultiplayerClient)
-					{
-						AANet.SendNetMessage<UpdateLovecraftianCount>((byte)4);
-					}
+                    if (Main.netMode == NetmodeID.MultiplayerClient)
+                    {
+                        AANet.SendNetMessage<UpdateLovecraftianCount>((byte)4);
+                    }
                     AAWorld.squid4++;
                     SoundEngine.PlaySound(SoundID.Chat);
                 }
@@ -303,10 +301,10 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<CrimsonFlask>(), 5);
                         Main.npcChatCornerItem = ModContent.ItemType<CrimsonFlask>();
                     }
-					if(Main.netMode == NetmodeID.MultiplayerClient)
-					{
-						AANet.SendNetMessage<UpdateLovecraftianCount>((byte)5);
-					}
+                    if (Main.netMode == NetmodeID.MultiplayerClient)
+                    {
+                        AANet.SendNetMessage<UpdateLovecraftianCount>((byte)5);
+                    }
                     AAWorld.squid5++;
                     SoundEngine.PlaySound(SoundID.Chat);
                 }
@@ -324,10 +322,10 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<HallowFlask>(), 5);
                         Main.npcChatCornerItem = ModContent.ItemType<HallowFlask>();
                     }
-					if(Main.netMode == NetmodeID.MultiplayerClient)
-					{
-						AANet.SendNetMessage<UpdateLovecraftianCount>((byte)6);
-					}
+                    if (Main.netMode == NetmodeID.MultiplayerClient)
+                    {
+                        AANet.SendNetMessage<UpdateLovecraftianCount>((byte)6);
+                    }
                     AAWorld.squid6++;
                     SoundEngine.PlaySound(SoundID.Chat);
                 }
@@ -345,10 +343,10 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<VoidFlask>(), 5);
                         Main.npcChatCornerItem = ModContent.ItemType<DoomiteScrap>();
                     }
-					if(Main.netMode == NetmodeID.MultiplayerClient)
-					{
-						AANet.SendNetMessage<UpdateLovecraftianCount>((byte)7);
-					}
+                    if (Main.netMode == NetmodeID.MultiplayerClient)
+                    {
+                        AANet.SendNetMessage<UpdateLovecraftianCount>((byte)7);
+                    }
                     AAWorld.squid7++;
                     SoundEngine.PlaySound(SoundID.Chat);
                 }
@@ -366,10 +364,10 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<Fungicide>(), 5);
                         Main.npcChatCornerItem = ModContent.ItemType<Fungicide>();
                     }
-					if(Main.netMode == NetmodeID.MultiplayerClient)
-					{
-						AANet.SendNetMessage<UpdateLovecraftianCount>((byte)8);
-					}
+                    if (Main.netMode == NetmodeID.MultiplayerClient)
+                    {
+                        AANet.SendNetMessage<UpdateLovecraftianCount>((byte)8);
+                    }
                     AAWorld.squid8++;
                     SoundEngine.PlaySound(SoundID.Chat);
                 }
@@ -393,10 +391,10 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<SporeBag>(), 5);
                         Main.npcChatCornerItem = ModContent.ItemType<SporeBag>();
                     }
-					if(Main.netMode == NetmodeID.MultiplayerClient)
-					{
-						AANet.SendNetMessage<UpdateLovecraftianCount>((byte)9);
-					}
+                    if (Main.netMode == NetmodeID.MultiplayerClient)
+                    {
+                        AANet.SendNetMessage<UpdateLovecraftianCount>((byte)9);
+                    }
                     AAWorld.squid9++;
                     SoundEngine.PlaySound(SoundID.Chat);
                 }
@@ -420,10 +418,10 @@ namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
                         player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<GlowingSporeBag>(), 5);
                         Main.npcChatCornerItem = ModContent.ItemType<GlowingSporeBag>();
                     }
-					if(Main.netMode == NetmodeID.MultiplayerClient)
-					{
-						AANet.SendNetMessage<UpdateLovecraftianCount>((byte)10);
-					}
+                    if (Main.netMode == NetmodeID.MultiplayerClient)
+                    {
+                        AANet.SendNetMessage<UpdateLovecraftianCount>((byte)10);
+                    }
                     AAWorld.squid10++;
                     SoundEngine.PlaySound(SoundID.Chat);
                 }

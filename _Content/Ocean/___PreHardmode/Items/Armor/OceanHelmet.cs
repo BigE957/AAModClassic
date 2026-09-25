@@ -1,26 +1,23 @@
-﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class OceanHelmet : EquipAbstract, ILocalizedModType
-	{
+    public class OceanHelmet : EquipAbstract, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Armor.Ocean";
-		public override void SetStaticDefaults()
-		{
-			base.SetStaticDefaults();
-			// DisplayName.SetDefault("Ocean Helmet");
+        public override void SetStaticDefaults()
+        {
+            base.SetStaticDefaults();
+            // DisplayName.SetDefault("Ocean Helmet");
         }
 
-		public override void SetDefaults()
-		{
-			Item.width = 22;
-			Item.height = 24;
+        public override void SetDefaults()
+        {
+            Item.width = 22;
+            Item.height = 24;
             Item.value = Item.sellPrice(0, 0, 5, 0);
             Item.rare = ItemRarityID.Orange;
             Item.defense = 2;
@@ -41,13 +38,13 @@ namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Armor
         }
 
         public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.Coral, 3);
-			recipe.AddIngredient(ItemID.Starfish, 2);
-			recipe.AddIngredient(ItemID.Seashell);
-			recipe.AddTile(TileID.Anvils);
-			recipe.Register();
-		}
-	}
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ItemID.Coral, 3);
+            recipe.AddIngredient(ItemID.Starfish, 2);
+            recipe.AddIngredient(ItemID.Seashell);
+            recipe.AddTile(TileID.Anvils);
+            recipe.Register();
+        }
+    }
 }

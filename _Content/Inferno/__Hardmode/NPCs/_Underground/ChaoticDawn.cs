@@ -1,5 +1,4 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
-using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._CrossMod;
 using AAModClassic.UI.World;
@@ -7,7 +6,6 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,21 +15,21 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
 {
     public class ChaoticDawn : ModNPC, IBannerNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Chaotic Dawn");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Chaotic Dawn");
             //Main.npcFrameCount[npc.type] = 4;
-		}
+        }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
         {
             NPC.width = 66;
             NPC.height = 68;
             NPC.damage = 60;
-			NPC.defense = 25;
-			NPC.lifeMax = 250;
-			NPC.HitSound = SoundID.NPCHit4;
-			NPC.DeathSound = SoundID.NPCDeath6;
+            NPC.defense = 25;
+            NPC.lifeMax = 250;
+            NPC.HitSound = SoundID.NPCHit4;
+            NPC.DeathSound = SoundID.NPCDeath6;
             NPC.value = 24000f;
             NPC.knockBackResist = .30f;
             NPC.aiStyle = -1;
@@ -40,7 +38,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<ChaoticDawnBanner>();
+            //BannerItem = ModContent.ItemType<ChaoticDawnBanner>();
             SpawnModBiomes = [ModContent.GetInstance<UndergroundInfernoBiome>().Type];
         }
 
@@ -147,16 +145,16 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
             }
         }*/
 
-		public override void HitEffect(NPC.HitInfo hit)
-		{
+        public override void HitEffect(NPC.HitInfo hit)
+        {
             int dust1 = ModContent.DustType<Dusts.BroodmotherDust>();
             if (NPC.life <= 0)
-			{
+            {
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
             }
-		}
+        }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {

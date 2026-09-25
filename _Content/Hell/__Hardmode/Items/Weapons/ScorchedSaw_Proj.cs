@@ -1,7 +1,5 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -15,7 +13,7 @@ namespace AAModClassic._Content.Hell.__Hardmode.Items.Weapons
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(ProjectileID.LightDisc);
-            Projectile.penetrate = 1;  
+            Projectile.penetrate = 1;
             Projectile.width = 32;
             Projectile.height = 32;
         }

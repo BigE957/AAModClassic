@@ -1,6 +1,5 @@
 using AAModClassic._Content.Sky.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -34,9 +33,9 @@ namespace AAModClassic._Content.Sky.__Hardmode.Items.Weapons   //where is locate
 
         public override void AddRecipes()  //How to craft this sword
         {
-            Recipe recipe = CreateRecipe();      
-            recipe.AddIngredient(ModContent.ItemType<DragonSpirit>(), 20);		
-            recipe.AddTile(TileID.MythrilAnvil);   
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<DragonSpirit>(), 20);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
 
         }

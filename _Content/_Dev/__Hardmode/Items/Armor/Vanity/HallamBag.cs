@@ -1,7 +1,6 @@
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
@@ -20,7 +19,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
             Item.consumable = true;
             Item.width = 32;
             Item.height = 32;
-            Item.expert = true;  
+            Item.expert = true;
         }
 
         public override bool CanRightClick()
@@ -28,7 +27,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
             return true;
         }
 
- 		public override void RightClick(Player player)
+        public override void RightClick(Player player)
         {
             if (player.GetModPlayer<ZAAPlayer>().ShinyCheck())
             {
@@ -41,7 +40,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
                 }
                 return;
             }
-			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<HallamHelmet>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<HallamHelmet>());
             player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<HallamChestplate>());
             player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<HallamLeggings>());
 

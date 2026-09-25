@@ -4,15 +4,13 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityRose
 {
-    public class DeityRoseHook: ModNPC
-	{
+    public class DeityRoseHook : ModNPC
+    {
 
         public override void SetStaticDefaults()
         {
@@ -203,7 +201,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 while (num440 < hit.Damage / (double)NPC.lifeMax * 100.0)
                 {
                     Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), hit.HitDirection, -1f, 0, default, 1f);
-                    
+
                     num440++;
                 }
                 return;
@@ -211,7 +209,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             for (int num441 = 0; num441 < 150; num441++)
             {
                 Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), 2 * hit.HitDirection, -2f, 0, default, 1f);
-                
+
             }
         }
 

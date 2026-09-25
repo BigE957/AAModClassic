@@ -1,7 +1,5 @@
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -39,14 +37,14 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
             return projHitbox.Intersects(targetHitbox);
         }
 
-		public bool spawnSound = false;
+        public bool spawnSound = false;
         public override void AI()
         {
-			if(Main.netMode != NetmodeID.Server && !spawnSound)
-			{
-				SoundEngine.PlaySound(SoundID.Item33, Projectile.position);				
-				spawnSound = true;
-			}
+            if (Main.netMode != NetmodeID.Server && !spawnSound)
+            {
+                SoundEngine.PlaySound(SoundID.Item33, Projectile.position);
+                spawnSound = true;
+            }
             Projectile.rotation = Projectile.velocity.ToRotation() + 1.57f;
 
             if (Main.rand.Next(1) == 0)
@@ -61,7 +59,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
             Main.projFrames[Projectile.type] = 5;
         }
 
-        
+
         public override Color? GetAlpha(Color lightColor)
         {
             return Color.Violet;
@@ -70,9 +68,9 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
         public override bool PreDraw(ref Color lightColor)
         {
             Projectile.frameCounter++;
-            if (Projectile.frameCounter >= 5) 
+            if (Projectile.frameCounter >= 5)
             {
-                Projectile.frame++; 
+                Projectile.frame++;
                 Projectile.frameCounter = 0;
                 if (Projectile.frame > 4)
                 {

@@ -1,6 +1,4 @@
-﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables;
-using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;

@@ -1,37 +1,32 @@
-﻿using AAModClassic.Globals;
-using AAModClassic.Rarities;
+﻿using AAModClassic.Rarities;
 using AAModClassic.UI.World;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
-using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class FuryWitchsHelmet : EquipAbstract, ILocalizedModType
-	{
+    public class FuryWitchsHelmet : EquipAbstract, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Armor.FuryWitchs";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Fury Witch's Cowl");
-			/* Tooltip.SetDefault(@"'A hood enchanted with the firey spirit of a supreme dragon acolyte'"); */
-		}
+            /* Tooltip.SetDefault(@"'A hood enchanted with the firey spirit of a supreme dragon acolyte'"); */
+        }
 
-		public override void SetDefaults()
-		{
-			Item.width = 16;
-			Item.height = 16;
+        public override void SetDefaults()
+        {
+            Item.width = 16;
+            Item.height = 16;
             Item.value = 300000;
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
             Item.defense = 24;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
-		{
-			return body.type == ModContent.ItemType<FuryWitchsChestplate>() && legs.type == ModContent.ItemType<FuryWitchsLeggings>();
+        {
+            return body.type == ModContent.ItemType<FuryWitchsChestplate>() && legs.type == ModContent.ItemType<FuryWitchsLeggings>();
         }
 
         public override void RegisterEquipEffects()

@@ -1,16 +1,15 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.Audio;
-using Terraria.ModLoader;
-using Terraria.ID;
 using AAModClassic.Base;
+using Microsoft.Xna.Framework;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Madness.___PreHardmode.Items.Weapons
 {
     public class MadnessStaff_MadnessSphere : ModProjectile
-	{
-		public override void SetDefaults()
-		{
+    {
+        public override void SetDefaults()
+        {
             Projectile.width = 24;
             Projectile.height = 24;
             Projectile.aiStyle = -1;
@@ -19,14 +18,14 @@ namespace AAModClassic._Content.Madness.___PreHardmode.Items.Weapons
             Projectile.DamageType = DamageClass.Magic;
             Projectile.ignoreWater = true;
         }
-		
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Madness Sphere");
-		}
 
-		public override void AI()
-		{
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Madness Sphere");
+        }
+
+        public override void AI()
+        {
             Projectile.ai[0] += 1f;
             if (Projectile.ai[0] > 15f)
             {

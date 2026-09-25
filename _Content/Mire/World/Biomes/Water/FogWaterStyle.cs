@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.World.Biomes.Water
 {
     public class FogWaterStyle : ModWaterStyle
-	{
+    {
         /*
 		public override bool ChooseWaterStyle()
 		{
@@ -44,15 +44,15 @@ namespace AAModClassic._Content.Mire.World.Biomes.Water
 
 
         public override void LightColorMultiplier(ref float r, ref float g, ref float b)
-		{
-			r = 1f;
-			g = 1f;
-			b = 1f;
-		}
+        {
+            r = 1f;
+            g = 1f;
+            b = 1f;
+        }
 
-		public override Color BiomeHairColor()
-		{
-			return Color.DarkBlue;
-		}
-	}
+        public override Color BiomeHairColor()
+        {
+            return Color.DarkBlue;
+        }
+    }
 }

@@ -1,11 +1,10 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
 {
@@ -38,14 +37,14 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
             Item.autoReuse = true;
             Item.value = Item.sellPrice(0, 1, 0, 0);
         }
-		
-		public override void UseStyle(Player player, Rectangle heldItemFrame)
-		{
-			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-			{
-				player.AddBuff(Item.buffType, 3600, true);
-			}
-		}
+
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
+        {
+            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
+            {
+                player.AddBuff(Item.buffType, 3600, true);
+            }
+        }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
@@ -81,14 +80,14 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
             Projectile.NewProjectile(source, vector2.X, vector2.Y, num78, num79, ModContent.ProjectileType<DoomiteSignal_DoomiteProbe>(), num73, num74, i, 0f, 0f);
             return false;
         }
-		
-		public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 2);
-			recipe.AddIngredient(ModContent.ItemType<DoomiteScrap>(), 10);
-			recipe.AddTile(TileID.Anvils);
-			recipe.Register();
-		}
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<DoomiteBar>(), 2);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteScrap>(), 10);
+            recipe.AddTile(TileID.Anvils);
+            recipe.Register();
+        }
     }
 }

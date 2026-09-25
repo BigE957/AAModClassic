@@ -17,7 +17,6 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
@@ -189,7 +188,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
         }
         public override void HitEffect(NPC.HitInfo hit)
         {
-			bool isDead = NPC.life <= 0;
+            bool isDead = NPC.life <= 0;
             if (isDead && !Main.dedServ)          //this make so when the npc has 0 life(dead) he will spawn this
             {
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGoreBack").Type, 1f);
@@ -215,10 +214,10 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
 				}
                 */
             }
-			for (int m = 0; m < (isDead ? 45 : 6); m++)
-			{
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, isDead? 3f : 1.5f);
-			}	
+            for (int m = 0; m < (isDead ? 45 : 6); m++)
+            {
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, isDead ? 3f : 1.5f);
+            }
         }
 
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
@@ -229,13 +228,13 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
             }
         }
 
-		public int projectileInterval = 300; //how long until you fire projectiles
+        public int projectileInterval = 300; //how long until you fire projectiles
         private int projectileTimer = 0;
         private float pos = 250;
         private readonly int MaxMinions = Main.hardMode ? 4 : 3;
-		public const float AISTATE_RUNAWAY = -1f, AISTATE_FLYABOVEPLAYER = 0f, AISTATE_FIREBREATH = 1f, AISTATE_FIREBOMB = 2f, AISTATE_SPAWNEGGS = 3f;
+        public const float AISTATE_RUNAWAY = -1f, AISTATE_FLYABOVEPLAYER = 0f, AISTATE_FIREBREATH = 1f, AISTATE_FIREBOMB = 2f, AISTATE_SPAWNEGGS = 3f;
 
-		public override void AI()
+        public override void AI()
         {
             damage = 18;
             if (internalAI[1] == AISTATE_RUNAWAY)
@@ -255,7 +254,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
                     NPC.velocity.Y -= 0.1f;
                     if (NPC.velocity.Y > 15f) NPC.velocity.Y = 15f;
                     NPC.rotation = 0f;
-                    if(NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient) { BaseAI.KillNPC(NPC); NPC.netUpdate = true; }
+                    if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient) { BaseAI.KillNPC(NPC); NPC.netUpdate = true; }
                 }
                 return;
             }
@@ -272,10 +271,10 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
                     NPC.ai[1] = 1 + Main.rand.Next(2);
                 }
                 else
-                if (internalAI[1] == AISTATE_SPAWNEGGS)
-                {
-                    NPC.ai[1] = NPC.ai[1] == 0 ? 1 : 0;
-                }
+                    if (internalAI[1] == AISTATE_SPAWNEGGS)
+                    {
+                        NPC.ai[1] = NPC.ai[1] == 0 ? 1 : 0;
+                    }
                 NPC.netUpdate = true;
             }
             pos = NPC.ai[1] == 0 ? -250 : 250;
@@ -334,21 +333,21 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
                     internalAI[2]++;
                     if (internalAI[2] > 10f)
                     {
-                        if(Collision.CanHit(NPC.position, NPC.width, NPC.height, player.position, player.width, player.height))
+                        if (Collision.CanHit(NPC.position, NPC.width, NPC.height, player.position, player.width, player.height))
                         {
                             BaseAI.ShootPeriodic(NPC, player.position, player.width, player.height, ModContent.ProjectileType<Broodmother_FireBreath>(), ref internalAI[3], 5, damage, 12, true, new Vector2(0, 40f));
                         }
                         else
                         {
-                            int j = (int) NPC.position.Y / 16;
-                            int i = (int) player.position.Y / 16;
-                            if(i > j && internalAI[2] % 90 == 0 && Main.netMode != NetmodeID.MultiplayerClient)
+                            int j = (int)NPC.position.Y / 16;
+                            int i = (int)player.position.Y / 16;
+                            if (i > j && internalAI[2] % 90 == 0 && Main.netMode != NetmodeID.MultiplayerClient)
                             {
-                                for(int index = -2; index < 2; index++)
+                                for (int index = -2; index < 2; index++)
                                 {
-                                    for(int loop = i; loop > j; loop--)
+                                    for (int loop = i; loop > j; loop--)
                                     {
-                                        if(Main.tile[(int) player.position.X / 16 + index * 20, loop].HasTile && Main.tileSolid[Main.tile[(int) player.position.X / 16 + index * 10, loop].TileType] && (Main.tile[(int) player.position.X / 16 + index * 20, loop + 1].HasTile || !Main.tileSolid[Main.tile[(int) player.position.X / 16 + index * 20, loop + 1].TileType]))
+                                        if (Main.tile[(int)player.position.X / 16 + index * 20, loop].HasTile && Main.tileSolid[Main.tile[(int)player.position.X / 16 + index * 10, loop].TileType] && (Main.tile[(int)player.position.X / 16 + index * 20, loop + 1].HasTile || !Main.tileSolid[Main.tile[(int)player.position.X / 16 + index * 20, loop + 1].TileType]))
                                         {
                                             int id = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position.X + index * 320, loop * 16, 0, 12f, ProjectileID.GeyserTrap, damage, 0, Main.myPlayer, 0f, 0f);
                                             Main.projectile[id].hostile = true;
@@ -356,9 +355,9 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
                                             break;
                                         }
                                     }
-                                    for(int loop = i + 20; loop > j; loop--)
+                                    for (int loop = i + 20; loop > j; loop--)
                                     {
-                                        if(Main.tile[(int) player.position.X / 16 + index * 20 - 10, loop].HasTile && Main.tileSolid[Main.tile[(int) player.position.X / 16 + index * 10 - 10, loop].TileType] && (Main.tile[(int) player.position.X / 16 + index * 20 - 10, loop - 1].HasTile || !Main.tileSolid[Main.tile[(int) player.position.X / 16 + index * 20 - 10, loop - 1].TileType]))
+                                        if (Main.tile[(int)player.position.X / 16 + index * 20 - 10, loop].HasTile && Main.tileSolid[Main.tile[(int)player.position.X / 16 + index * 10 - 10, loop].TileType] && (Main.tile[(int)player.position.X / 16 + index * 20 - 10, loop - 1].HasTile || !Main.tileSolid[Main.tile[(int)player.position.X / 16 + index * 20 - 10, loop - 1].TileType]))
                                         {
                                             int id = Projectile.NewProjectile(NPC.GetSource_FromThis(), player.position.X + index * 320 - 160, loop * 16, 0, -12f, ProjectileID.GeyserTrap, damage, 0, Main.myPlayer, 0f, 0f);
                                             Main.projectile[id].hostile = true;
@@ -420,7 +419,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
             }
         }
 
-		public override void BossHeadSpriteEffects(ref SpriteEffects spriteEffects)
+        public override void BossHeadSpriteEffects(ref SpriteEffects spriteEffects)
         {
             spriteEffects = NPC.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
         }

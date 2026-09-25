@@ -1,16 +1,15 @@
 ﻿
+using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic.Base;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Globals;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Base;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos
 {
@@ -69,11 +68,11 @@ Can only be used at night"); */
             AAWorld.spawnGrips = false;
             if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.Grips.GripsofChaosAwoken"), 175, 75, 255, false); }
             else if (Main.netMode == NetmodeID.Server)
-            if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.Grips.GripsofChaosAwoken"), 175, 75, 255, false); }
-            else if (Main.netMode == NetmodeID.Server)
-            {
-                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.AAModClassic.Common.Grips.GripsofChaosAwoken")), new Color(175, 75, 255), -1);
-            }
+                if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.Grips.GripsofChaosAwoken"), 175, 75, 255, false); }
+                else if (Main.netMode == NetmodeID.Server)
+                {
+                    ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.AAModClassic.Common.Grips.GripsofChaosAwoken")), new Color(175, 75, 255), -1);
+                }
             AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GripOfChaosMire>(), false, 1, 0);
             AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GripOfChaosInferno>(), false, -1, 0);
             SoundEngine.PlaySound(SoundID.Roar, player.position);

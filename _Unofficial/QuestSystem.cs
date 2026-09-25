@@ -38,7 +38,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
@@ -295,7 +294,7 @@ namespace AAModClassic._Unofficial
                     new FlagObjective(() => NPCExtensions.BeenKilled<YamataBody>(), false)
                 ],
                 ["Shen", "SoulOfCthulhu"],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<YamataHead>()]], 
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<YamataHead>()]],
                 hasCompleteText: true
             );
 
@@ -713,7 +712,7 @@ namespace AAModClassic._Unofficial
                 Questlines["LegendscribeEarlyGame"].Quests["GripsOfChaos"].Icon = TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ContentReplacementSystem.NewAA.Find<ModNPC>("InfernoGrip").Type]];
                 Questlines["LegendscribeEarlyGame"].Quests["MushroomMonarch"].Icon = TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ContentReplacementSystem.NewAA.Find<ModNPC>("MushMon").Type]];
 
-                if(newAADownedInfo.Count == 0 && ContentReplacementSystem.NewAA.TryFind("AABossDowned", out ModSystem downed))
+                if (newAADownedInfo.Count == 0 && ContentReplacementSystem.NewAA.TryFind("AABossDowned", out ModSystem downed))
                 {
                     newAADownedInfo.Add("GripsDowned", downed.GetType().GetField("downedGrips", BindingFlags.Static | BindingFlags.Public));
                     newAADownedInfo.Add("MonarchDowned", downed.GetType().GetField("downedMonarch", BindingFlags.Static | BindingFlags.Public));

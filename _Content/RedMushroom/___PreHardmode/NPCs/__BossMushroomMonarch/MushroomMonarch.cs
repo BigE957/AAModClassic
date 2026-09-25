@@ -4,7 +4,6 @@ using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tools;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.RedMushroom.World.Biomes;
-using AAModClassic._CrossMod.CalamityMod;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base;
 using AAModClassic.Globals;
@@ -14,8 +13,6 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using System.IO;
-using Terraria;
-using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -26,29 +23,29 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
     [AutoloadBossHead]
     public class MushroomMonarch : ModNPC
     {
-		public override void SendExtraAI(BinaryWriter writer)
-		{
-			base.SendExtraAI(writer);
-			if(Main.netMode == NetmodeID.Server || Main.dedServ)
-			{
-				writer.Write(internalAI[0]);
-				writer.Write(internalAI[1]);
+        public override void SendExtraAI(BinaryWriter writer)
+        {
+            base.SendExtraAI(writer);
+            if (Main.netMode == NetmodeID.Server || Main.dedServ)
+            {
+                writer.Write(internalAI[0]);
+                writer.Write(internalAI[1]);
                 writer.Write(internalAI[2]);
                 writer.Write(internalAI[3]);
             }
-		}
+        }
 
-		public override void ReceiveExtraAI(BinaryReader reader)
-		{
-			base.ReceiveExtraAI(reader);
-			if(Main.netMode == NetmodeID.MultiplayerClient)
-			{
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+            base.ReceiveExtraAI(reader);
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+            {
                 internalAI[0] = reader.ReadSingle();
                 internalAI[1] = reader.ReadSingle();
                 internalAI[2] = reader.ReadSingle();
                 internalAI[3] = reader.ReadSingle();
-            }	
-		}	
+            }
+        }
 
         public override void SetStaticDefaults()
         {
@@ -96,8 +93,8 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
         }
 
         public static int AISTATE_WALK = 0, AISTATE_JUMP = 1, AISTATE_CHARGE = 2, AISTATE_FLY = 3;
-		public float[] internalAI = new float[4];
-		
+        public float[] internalAI = new float[4];
+
         public override void AI()
         {
             NPC.TargetClosest();
@@ -133,25 +130,26 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
                 }
 
                 if (NPC.frameCounter >= FrameSpeed)
-				{
-					NPC.frameCounter = 0;
-					NPC.frame.Y += 108;
-					if (NPC.frame.Y > 108 * 4)
-					{
-						NPC.frameCounter = 0;
-						NPC.frame.Y = 0;
-					}
-				}
-                if(NPC.velocity.Y != 0)
+                {
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y += 108;
+                    if (NPC.frame.Y > 108 * 4)
+                    {
+                        NPC.frameCounter = 0;
+                        NPC.frame.Y = 0;
+                    }
+                }
+                if (NPC.velocity.Y != 0)
                 {
                     if (NPC.velocity.Y < 0)
                     {
                         NPC.frame.Y = 648;
-                    }else
-                    if (NPC.velocity.Y > 0)
-                    {
-                        NPC.frame.Y = 756;
                     }
+                    else
+                        if (NPC.velocity.Y > 0)
+                        {
+                            NPC.frame.Y = 756;
+                        }
                 }
             }
             else if (internalAI[1] == AISTATE_FLY)
@@ -170,22 +168,25 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
                 if (NPC.velocity.Y == 0)
                 {
                     NPC.frame.Y = 540;
-                }else
+                }
+                else
                 {
                     if (NPC.velocity.Y < 0)
                     {
                         NPC.frame.Y = 648;
-                    }else
-                    if (NPC.velocity.Y > 0)
-                    {
-                        NPC.frame.Y = 756;
                     }
+                    else
+                        if (NPC.velocity.Y > 0)
+                        {
+                            NPC.frame.Y = 756;
+                        }
                 }
             }
             if (player.Center.X > NPC.Center.X) // so it faces the player
             {
                 NPC.spriteDirection = -1;
-            }else
+            }
+            else
             {
                 NPC.spriteDirection = 1;
             }
@@ -195,7 +196,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
                 NPC.velocity.Y = -4f;
                 internalAI[1] = AISTATE_CHARGE;
             }
-            else if (player.Center.Y - NPC.Center.Y < -150f && (internalAI[1] == AISTATE_WALK || internalAI[1] == AISTATE_CHARGE) || Collision.SolidCollision(new Vector2(NPC.Center.X, NPC.position.Y - NPC.height/2 + 10), NPC.width, NPC.height))
+            else if (player.Center.Y - NPC.Center.Y < -150f && (internalAI[1] == AISTATE_WALK || internalAI[1] == AISTATE_CHARGE) || Collision.SolidCollision(new Vector2(NPC.Center.X, NPC.position.Y - NPC.height / 2 + 10), NPC.width, NPC.height))
             {
                 internalAI[1] = AISTATE_FLY;
                 NPC.ai = new float[4];
@@ -208,7 +209,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
                 NPC.ai = new float[4];
                 NPC.netUpdate = true;
             }
-            else if(internalAI[1] != AISTATE_WALK)
+            else if (internalAI[1] != AISTATE_WALK)
             {
                 internalAI[3] = internalAI[1];
             }
@@ -217,9 +218,9 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
                 internalAI[1] = internalAI[3];
             }
 
-            
-			if(Main.netMode != NetmodeID.MultiplayerClient)
-			{
+
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+            {
                 if (internalAI[1] != AISTATE_FLY)
                 {
                     internalAI[0]++;
@@ -231,9 +232,9 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
                     NPC.ai = new float[4];
                     NPC.netUpdate = true;
                 }
-			}
-			if(internalAI[1] == AISTATE_WALK) //fighter
-			{
+            }
+            if (internalAI[1] == AISTATE_WALK) //fighter
+            {
                 NPC.noGravity = false;
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
@@ -257,62 +258,63 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
                     }
                     internalAI[2] = 0;
                 }
-                AAAI.InfernoFighterAI(NPC, ref NPC.ai, true, false, 0, 0.07f, 3f, 3, 4, 60, true, 10, 60, true, null, false);	
-			}else
-			if(internalAI[1] == AISTATE_JUMP)//jumper
-			{
-                NPC.noGravity = false;
-                NPC.noTileCollide = false;
-                if(NPC.ai[0] < -10) NPC.ai[0] = -10; //force rapid jumping
-                NPC.AISlime(ref NPC.ai, true, 30, 6f, -8f, 6f, -10f);
-								
-			}
-            else if (internalAI[1] == AISTATE_FLY)//fly
-            {
-                NPC.noTileCollide = true;
-                NPC.noGravity = true;
-                if(player.Center.Y - NPC.Center.Y > 60f)
-                {  
-                    if (NPC.CountNPCS(ModContent.NPCType<Mushling>()) < 6)
-                    {
-                        for (int i = 0; i < 2; i++)
-                        {
-                            int Minion = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Mushling>(), 0);
-                            Main.npc[Minion].netUpdate = true;
-                        }
-                    }
-                    MoveToPoint(player.Center);
-                    
-                }
-                else
-                {
-                    BaseAI.AISpaceOctopus(NPC, ref NPC.ai, .05f, 8, 250, 0, null);
-                }
-                
-                
-                NPC.rotation = 0;
-                if (player.Center.Y - NPC.Center.Y > 30f && !Collision.SolidCollision(new Vector2(NPC.Center.X, NPC.position.Y - NPC.height/2 + 10), NPC.width, NPC.height))
-                {
-                    NPC.rotation = 0;
-                    NPC.noGravity = false;
-                    internalAI[0] = 0;
-                    internalAI[1] = Main.rand.Next(3);
-                    NPC.ai = new float[4];
-                    NPC.netUpdate = true;
-                    NPC.noTileCollide = false;
-                }
+                AAAI.InfernoFighterAI(NPC, ref NPC.ai, true, false, 0, 0.07f, 3f, 3, 4, 60, true, 10, 60, true, null, false);
             }
-            else //charger
-			{
-                BaseAI.AICharger(NPC, ref NPC.ai, 0.07f, 10f, false, 30);				
-			}
+            else
+                if (internalAI[1] == AISTATE_JUMP)//jumper
+                {
+                    NPC.noGravity = false;
+                    NPC.noTileCollide = false;
+                    if (NPC.ai[0] < -10) NPC.ai[0] = -10; //force rapid jumping
+                    NPC.AISlime(ref NPC.ai, true, 30, 6f, -8f, 6f, -10f);
+
+                }
+                else if (internalAI[1] == AISTATE_FLY)//fly
+                {
+                    NPC.noTileCollide = true;
+                    NPC.noGravity = true;
+                    if (player.Center.Y - NPC.Center.Y > 60f)
+                    {
+                        if (NPC.CountNPCS(ModContent.NPCType<Mushling>()) < 6)
+                        {
+                            for (int i = 0; i < 2; i++)
+                            {
+                                int Minion = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Mushling>(), 0);
+                                Main.npc[Minion].netUpdate = true;
+                            }
+                        }
+                        MoveToPoint(player.Center);
+
+                    }
+                    else
+                    {
+                        BaseAI.AISpaceOctopus(NPC, ref NPC.ai, .05f, 8, 250, 0, null);
+                    }
+
+
+                    NPC.rotation = 0;
+                    if (player.Center.Y - NPC.Center.Y > 30f && !Collision.SolidCollision(new Vector2(NPC.Center.X, NPC.position.Y - NPC.height / 2 + 10), NPC.width, NPC.height))
+                    {
+                        NPC.rotation = 0;
+                        NPC.noGravity = false;
+                        internalAI[0] = 0;
+                        internalAI[1] = Main.rand.Next(3);
+                        NPC.ai = new float[4];
+                        NPC.netUpdate = true;
+                        NPC.noTileCollide = false;
+                    }
+                }
+                else //charger
+                {
+                    BaseAI.AICharger(NPC, ref NPC.ai, 0.07f, 10f, false, 30);
+                }
         }
 
         public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
         {
-            if(Main.rand.NextBool(5))
+            if (Main.rand.NextBool(5))
             {
-                if(Main.rand.NextBool(10))
+                if (Main.rand.NextBool(10))
                 {
                     int i = Item.NewItem(NPC.GetSource_OnHurt(projectile), (int)NPC.Center.X, (int)NPC.Center.Y, 16, 16, 5, 1, false, 0, false, false);
                     if (Main.netMode == NetmodeID.MultiplayerClient && i > 0)
@@ -329,9 +331,9 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
 
         public override void ModifyHitByItem(Player player, Item item, ref NPC.HitModifiers modifiers)
         {
-            if(Main.rand.NextBool(5))
+            if (Main.rand.NextBool(5))
             {
-                if(Main.rand.NextBool(10))
+                if (Main.rand.NextBool(10))
                 {
                     int i = Item.NewItem(NPC.GetSource_OnHurt(player), (int)NPC.Center.X, (int)NPC.Center.Y, 16, 16, 5, 1, false, 0, false, false);
                     if (Main.netMode == NetmodeID.MultiplayerClient && i > 0)
@@ -345,7 +347,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
                 }
             }
         }
-        
+
         public void MoveToPoint(Vector2 point)
         {
             float moveSpeed = 8f;

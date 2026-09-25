@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -21,7 +20,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
             // DisplayName.SetDefault("Infinitium");
             // Tooltip.SetDefault("Pure, unpredictable malice");
             // ticksperframe, frameCount
-            
+
             Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 10));
             ItemID.Sets.AnimatesAsSoul[Type] = true;
             if (Main.netMode != NetmodeID.Server)

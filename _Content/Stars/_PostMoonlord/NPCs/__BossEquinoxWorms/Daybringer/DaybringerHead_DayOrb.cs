@@ -1,6 +1,5 @@
 ﻿using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,11 +9,11 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
 {
     public class DaybringerHead_DayOrb : ModProjectile
     {
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Day Orb");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Day Orb");
             Main.projFrames[Projectile.type] = 4;
-		}
+        }
 
         public override void SetDefaults()
         {
@@ -24,9 +23,9 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             Projectile.scale = 1f;
             Projectile.ignoreWater = true;
             Projectile.penetrate = -1;
-			Projectile.extraUpdates = 2;
-			Projectile.timeLeft = 1800;
-        }	
+            Projectile.extraUpdates = 2;
+            Projectile.timeLeft = 1800;
+        }
         public override void AI()
         {
             for (int m = Projectile.oldPos.Length - 1; m > 0; m--)
@@ -44,22 +43,22 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                     Projectile.frame = 0;
                 }
             }
-            
+
             Lighting.AddLight((int)(Projectile.Center.X / 16f), (int)(Projectile.Center.Y / 16f), .98f, .96f, .67f);
             NPC npc = Main.npc[(int)Projectile.ai[1]];
             Player target = Main.player[npc.target];
 
-            if(Projectile.timeLeft <= 0)
+            if (Projectile.timeLeft <= 0)
             {
                 Projectile.Kill();
             }
 
-            if(Projectile.ai[0] == 0)
+            if (Projectile.ai[0] == 0)
             {
                 Projectile.velocity *= 0.985f;
             }
 
-            if(Projectile.velocity.Length() < .01f && Projectile.localAI[0] ++ > 40)
+            if (Projectile.velocity.Length() < .01f && Projectile.localAI[0]++ > 40)
             {
                 Projectile.ai[0] = 1f;
                 Projectile.velocity = Projectile.DirectionTo(target.Center + target.velocity * ((Projectile.Center - target.Center).Length() / 6f)) * 6f;
@@ -79,7 +78,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
 
         public override bool PreDraw(ref Color lightColor)
         {
-            if(Projectile.ai[0] == 1f)
+            if (Projectile.ai[0] == 1f)
             {
                 Vector2 drawOrigin = new Vector2(TextureAssets.Projectile[Projectile.type].Width() * 0.5f, Projectile.height * 0.5f);
                 for (int k = 0; k < 3; k++)

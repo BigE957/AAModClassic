@@ -1,14 +1,14 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
     [AutoloadEquip(EquipType.Head)]
-	public class CerberusHelmet : BaseAAItem, ILocalizedModType
-	{
+    public class CerberusHelmet : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Cerberus";
         public override void SetStaticDefaults()
         {

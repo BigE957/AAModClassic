@@ -2,10 +2,8 @@
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -15,7 +13,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
     public class Genocide : ModItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Ranged";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Genocide");
@@ -25,15 +23,15 @@ Doesn't require ammo"); */
         }
 
         public override void SetDefaults()
-        {          
+        {
             Item.damage = 500;
             Item.noMelee = true;
             Item.DamageType = DamageClass.Ranged;
             Item.width = 74;
             Item.height = 24;
             Item.useTime = 20;
-            Item.useAnimation = 20; 
-            Item.useStyle = ItemUseStyleID.Shoot; 
+            Item.useAnimation = 20;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.shoot = ModContent.ProjectileType<Genocide_Antimatter>();
             Item.knockBack = 12;
             Item.value = Item.sellPrice(1, 0, 0, 0);
@@ -41,7 +39,7 @@ Doesn't require ammo"); */
             Item.UseSound = SoundID.Item75;
             Item.autoReuse = true;
             Item.shootSpeed = 8f;
-            Item.crit = 5; 
+            Item.crit = 5;
         }
 
 

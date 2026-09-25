@@ -2,7 +2,6 @@
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,7 +11,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Bos
     public class DesertDjinnTreasureBag : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Treasure Bag (Desert Djinn)");
@@ -49,7 +48,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Bos
             {
                 ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
                 modPlayer.PHMDevArmor();
-            }		
+            }
         }
 
         public override void ModifyItemLoot(ItemLoot itemLoot)

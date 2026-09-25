@@ -1,7 +1,5 @@
-﻿using AAModClassic._Content.Inferno.World.Tiles;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.GameContent.Metadata;
@@ -49,11 +47,11 @@ namespace AAModClassic._Content.Inferno.World.Tiles.Trees
 
         public override void RandomUpdate(int i, int j)
         {
-            if(WorldGen.genRand.NextBool(20))
+            if (WorldGen.genRand.NextBool(20))
             {
                 bool isPlayerNear = WorldGen.PlayerLOS(i, j);
                 bool success = WorldGen.GrowPalmTree(i, j);
-                if(success && isPlayerNear)
+                if (success && isPlayerNear)
                 {
                     WorldGen.TreeGrowFXCheck(i, j);
                 }
@@ -62,7 +60,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles.Trees
 
         public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects)
         {
-            if(i % 2 == 1)
+            if (i % 2 == 1)
             {
                 spriteEffects = SpriteEffects.FlipHorizontally;
             }

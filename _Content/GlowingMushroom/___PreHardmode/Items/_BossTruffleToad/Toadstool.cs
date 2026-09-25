@@ -5,7 +5,6 @@ using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
@@ -16,7 +15,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
     public class Toadstool : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.BossSummon";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Toadstool");

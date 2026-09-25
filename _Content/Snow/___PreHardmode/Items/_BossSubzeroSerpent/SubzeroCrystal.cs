@@ -3,7 +3,6 @@ using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic.Base;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.ID;
@@ -14,9 +13,9 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent
 {
     //imported from my tAPI mod because I'm lazy
     public class SubzeroCrystal : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.BossSummon";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Subzero Crystal");
@@ -25,19 +24,19 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent
             Item.ResearchUnlockCount = 3;
         }
 
-		public override void SetDefaults()
-		{
-			Item.width = 32;
-			Item.height = 24;
-			Item.maxStack = Item.CommonMaxStack;
-			Item.rare = ItemRarityID.Green;
+        public override void SetDefaults()
+        {
+            Item.width = 32;
+            Item.height = 24;
+            Item.maxStack = Item.CommonMaxStack;
+            Item.rare = ItemRarityID.Green;
             Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.useAnimation = 45;
-			Item.useTime = 45;
-			Item.useStyle = ItemUseStyleID.HoldUp;
-			Item.UseSound = SoundID.Item44;
-			Item.consumable = true;
-		}
+            Item.useTime = 45;
+            Item.useStyle = ItemUseStyleID.HoldUp;
+            Item.UseSound = SoundID.Item44;
+            Item.consumable = true;
+        }
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
@@ -98,13 +97,13 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent
                 string npcName = !string.IsNullOrEmpty(Main.npc[npcID].GivenName) ? Main.npc[npcID].GivenName : displayName;
                 if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Announcement.HasAwoken", npcName), 175, 75, 255, false); }
                 else
-                if (Main.netMode == NetmodeID.Server)
-                {
-                    ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", new object[]
+                    if (Main.netMode == NetmodeID.Server)
                     {
+                        ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", new object[]
+                        {
                         NetworkText.FromLiteral(npcName)
-                    }), new Color(175, 75, 255), -1);
-                }
+                        }), new Color(175, 75, 255), -1);
+                    }
             }
         }
 
@@ -116,5 +115,5 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent
             recipe.AddTile(TileID.IceMachine);
             recipe.Register();
         }
-	}
+    }
 }

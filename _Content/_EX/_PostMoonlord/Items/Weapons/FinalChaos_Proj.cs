@@ -1,7 +1,6 @@
 ﻿using AAModClassic.Assets;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,8 +12,8 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         public override string Texture => AssetDirectory.General.Nothing;
 
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Chaos Scythe");
+        {
+            // DisplayName.SetDefault("Chaos Scythe");
         }
 
         bool NoScythes = false;
@@ -47,10 +46,10 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].alpha = 20;
             }
-                Projectile.ai[aislotHomingCooldown]++;
+            Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                Projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
@@ -81,9 +80,9 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                     if (distance <= homingMaximumRangeInPixels &&
                     (
                         selectedTarget == -1 || //there is no selected target
-                        Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                        Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                     )
-                    selectedTarget = i;
+                        selectedTarget = i;
                 }
             }
 

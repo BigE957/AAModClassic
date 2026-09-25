@@ -1,11 +1,7 @@
 ﻿using AAModClassic._Content.Dungeon.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
-using AAModClassic.Utilities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 

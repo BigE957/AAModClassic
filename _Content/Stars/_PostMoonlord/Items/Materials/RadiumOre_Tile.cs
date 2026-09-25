@@ -2,7 +2,6 @@ using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
@@ -15,21 +14,21 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-			Main.tileMergeDirt[Type] = false;
+            Main.tileMergeDirt[Type] = false;
             Main.tileSpelunker[Type] = true;
             Main.tileBlendAll[Type] = false;
-            Main.tileBlockLight[Type] = true;  
+            Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            Main.tileOreFinderPriority[Type] = 830; 
+            Main.tileOreFinderPriority[Type] = 830;
             HitSound = SoundID.Tink;
             RegisterItemDrop(ModContent.ItemType<RadiumOre>());
             DustType = ModContent.DustType<Dusts.RadiumDust>();
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Celestial Ore");
             AddMapEntry(new Color(160, 150, 0), name);
-			MinPick = 225;
+            MinPick = 225;
         }
-        
+
 
         public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
         {
@@ -95,7 +94,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)   //light colors
         {
-            r = Main.dayTime ? 0.5f : 0f ;
+            r = Main.dayTime ? 0.5f : 0f;
             g = .2f;
             b = Main.dayTime ? 0f : 0.5f;
         }

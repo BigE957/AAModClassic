@@ -1,20 +1,17 @@
-using System;
-using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
 {
     public class HydrasFury_Holdout : ModProjectile
-	{
+    {
         public override bool IsLoadingEnabled(Mod mod) => ThoriumMod.IsEnabled;
 
         public override void SetDefaults()
-		{
-			Projectile.width = 130;
-			Projectile.height = 130;
+        {
+            Projectile.width = 130;
+            Projectile.height = 130;
             Projectile.aiStyle = 0;
             Projectile.light = 0.2f;
             Projectile.friendly = true;

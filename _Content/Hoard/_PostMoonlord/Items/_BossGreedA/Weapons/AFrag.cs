@@ -1,11 +1,9 @@
+using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
-
 using Terraria.ModLoader;
-using AAModClassic.Base;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
 {
@@ -15,7 +13,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
         {
             Projectile.width = 10;
             Projectile.height = 10;
-			Projectile.aiStyle = -1;
+            Projectile.aiStyle = -1;
             Projectile.friendly = true;
             Projectile.penetrate = 6;
             Projectile.DamageType = DamageClass.Ranged;
@@ -23,11 +21,11 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
             Projectile.timeLeft = 180;
         }
 
-		public override void SetStaticDefaults()
-		{
-		    // DisplayName.SetDefault("Ore");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Ore");
             Main.projFrames[Projectile.type] = 4;
-		}
+        }
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {

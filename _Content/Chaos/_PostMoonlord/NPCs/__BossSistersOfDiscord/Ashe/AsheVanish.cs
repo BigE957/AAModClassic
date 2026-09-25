@@ -3,7 +3,6 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -64,7 +63,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
             int blue = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
             int red = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
-            
+
             spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
             spriteBatch.Draw(glowTex, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
             spriteBatch.Draw(eyeTex, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);

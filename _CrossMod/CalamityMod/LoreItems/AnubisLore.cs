@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

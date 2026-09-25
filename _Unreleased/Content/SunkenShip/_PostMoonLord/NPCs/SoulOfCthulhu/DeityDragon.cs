@@ -3,7 +3,6 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -73,12 +72,12 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 NPC.alpha = 0;
             }
-            
+
             bool flag = false;
             float num4 = 0.2f;
             int num5 = NPC.type;
             flag = true;
-            
+
             if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead || flag && Main.player[NPC.target].position.Y < Main.worldSurface * 16.0)
             {
                 NPC.TargetClosest(true);
@@ -96,7 +95,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             }
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                
+
                 if (NPC.ai[0] == 0f)
                 {
                     NPC.ai[3] = NPC.whoAmI;
@@ -163,18 +162,18 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             float num38 = 0.07f;
             num37 = 20f;
             num38 = 0.55f;
-           
+
             Vector2 vector2 = new Vector2(NPC.position.X + NPC.width * 0.5f, NPC.position.Y + NPC.height * 0.5f);
             float num40 = Main.player[NPC.target].position.X + Main.player[NPC.target].width / 2;
             float num41 = Main.player[NPC.target].position.Y + Main.player[NPC.target].height / 2;
-            
+
             num40 = (int)(num40 / 16f) * 16;
             num41 = (int)(num41 / 16f) * 16;
             vector2.X = (int)(vector2.X / 16f) * 16;
             vector2.Y = (int)(vector2.Y / 16f) * 16;
             num40 -= vector2.X;
             num41 -= vector2.Y;
-            
+
             float num53 = (float)Math.Sqrt((double)(num40 * num40 + num41 * num41));
             if (NPC.ai[1] > 0f && NPC.ai[1] < Main.npc.Length)
             {

@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;

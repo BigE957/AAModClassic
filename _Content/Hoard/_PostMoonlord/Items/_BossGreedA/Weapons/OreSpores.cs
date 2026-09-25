@@ -1,5 +1,4 @@
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,8 +7,8 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
     public class OreSpores : ModProjectile
     {
         public override void SetStaticDefaults()
-        {    
-            Main.projFrames[Projectile.type] = 3;     
+        {
+            Main.projFrames[Projectile.type] = 3;
         }
 
         public override void SetDefaults()

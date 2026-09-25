@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -16,14 +15,14 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.We
 
         public override void SetDefaults()
         {
-            Item.damage = 23;    
+            Item.damage = 23;
             Item.DamageType = DamageClass.Magic;
             Item.width = 24;
-            Item.height = 28; 
-            Item.useTime = 17;  
+            Item.height = 28;
+            Item.useTime = 17;
             Item.useAnimation = 17;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.noMelee = true; 
+            Item.noMelee = true;
             Item.knockBack = 1;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Orange;

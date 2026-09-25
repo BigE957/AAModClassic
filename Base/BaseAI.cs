@@ -1,13 +1,12 @@
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
-using Terraria;
+using System.Linq;
 using Terraria.Audio;
 using Terraria.GameContent.Drawing;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using System.Linq;
 
 namespace AAModClassic.Base
 {
@@ -164,24 +163,24 @@ namespace AAModClassic.Base
                     codable.velocity.X *= Math.Abs(codable.velocity.X) > 0.01f ? 0.8f : 0f;
                 }
                 else
-                if (codable.velocity.X < -maxSpeed || codable.velocity.X > maxSpeed)
-                {
-                    if (codable.velocity.Y == 0f) { codable.velocity *= 0.85f; }
-                }
-                else
-                if (codable.velocity.X < maxSpeed && moveDirection == 1)
-                {
-                    if (codable.velocity.X < 0) { codable.velocity.X *= 0.85f; }
-                    codable.velocity.X += moveInterval * (codable.velocity.X < 0 ? 2f : 1f);
-                    if (codable.velocity.X > maxSpeed) { codable.velocity.X = maxSpeed; }
-                }
-                else
-                if (codable.velocity.X > -maxSpeed && moveDirection == -1)
-                {
-                    if (codable.velocity.X > 0) { codable.velocity.X *= 0.8f; }
-                    codable.velocity.X -= moveInterval * (codable.velocity.X > 0 ? 2f : 1f);
-                    if (codable.velocity.X < -maxSpeed) { codable.velocity.X = -maxSpeed; }
-                }
+                    if (codable.velocity.X < -maxSpeed || codable.velocity.X > maxSpeed)
+                    {
+                        if (codable.velocity.Y == 0f) { codable.velocity *= 0.85f; }
+                    }
+                    else
+                        if (codable.velocity.X < maxSpeed && moveDirection == 1)
+                        {
+                            if (codable.velocity.X < 0) { codable.velocity.X *= 0.85f; }
+                            codable.velocity.X += moveInterval * (codable.velocity.X < 0 ? 2f : 1f);
+                            if (codable.velocity.X > maxSpeed) { codable.velocity.X = maxSpeed; }
+                        }
+                        else
+                            if (codable.velocity.X > -maxSpeed && moveDirection == -1)
+                            {
+                                if (codable.velocity.X > 0) { codable.velocity.X *= 0.8f; }
+                                codable.velocity.X -= moveInterval * (codable.velocity.X > 0 ? 2f : 1f);
+                                if (codable.velocity.X < -maxSpeed) { codable.velocity.X = -maxSpeed; }
+                            }
                 WalkupHalfBricks(codable, ref gfxOffY, ref stepSpeed);
                 if (HitTileOnSide(codable, 3))
                 {
@@ -265,12 +264,12 @@ namespace AAModClassic.Base
                     }
                 }
                 else
-                if (moveTowards)
-                {
-                    codable.velocity = AIVelocityLinear(codable, rotateCenter, rotAmount, rotAmount, true);
-                    rotation = BaseUtility.RotationTo(codable.Center, rotateCenter) - 1.57f;
-                }
-                else { codable.velocity *= 0.95f; }
+                    if (moveTowards)
+                    {
+                        codable.velocity = AIVelocityLinear(codable, rotateCenter, rotAmount, rotAmount, true);
+                        rotation = BaseUtility.RotationTo(codable.Center, rotateCenter) - 1.57f;
+                    }
+                    else { codable.velocity *= 0.95f; }
             }
         }
 
@@ -403,7 +402,7 @@ namespace AAModClassic.Base
                 p.velocity.X *= xScalar;
             }
             else
-            if (!spin) { p.rotation = BaseUtility.RotationTo(p.Center, p.Center + p.velocity) + 1.57f; }
+                if (!spin) { p.rotation = BaseUtility.RotationTo(p.Center, p.Center + p.velocity) + 1.57f; }
             if (p.velocity.Y > maxSpeedY) { p.velocity.Y = maxSpeedY; }
         }
 
@@ -465,22 +464,22 @@ namespace AAModClassic.Base
                         if (p.velocity.X < 0f && distPlayerX > 0f) { p.velocity.X += speedInterval; }
                     }
                     else
-                    if (p.velocity.X > distPlayerX)
-                    {
-                        p.velocity.X -= speedInterval;
-                        if (p.velocity.X > 0f && distPlayerX < 0f) { p.velocity.X -= speedInterval; }
-                    }
+                        if (p.velocity.X > distPlayerX)
+                        {
+                            p.velocity.X -= speedInterval;
+                            if (p.velocity.X > 0f && distPlayerX < 0f) { p.velocity.X -= speedInterval; }
+                        }
                     if (p.velocity.Y < distPlayerY)
                     {
                         p.velocity.Y += speedInterval;
                         if (p.velocity.Y < 0f && distPlayerY > 0f) { p.velocity.Y += speedInterval; }
                     }
                     else
-                    if (p.velocity.Y > distPlayerY)
-                    {
-                        p.velocity.Y -= speedInterval;
-                        if (p.velocity.Y > 0f && distPlayerY < 0f) { p.velocity.Y -= speedInterval; }
-                    }
+                        if (p.velocity.Y > distPlayerY)
+                        {
+                            p.velocity.Y -= speedInterval;
+                            if (p.velocity.Y > 0f && distPlayerY < 0f) { p.velocity.Y -= speedInterval; }
+                        }
                 }
                 if (Main.myPlayer == p.owner)
                 {
@@ -560,51 +559,51 @@ namespace AAModClassic.Base
                 }
             }
             else
-            if (ai[0] == 1f)
-            {
-                float meleeSpeed1 = 14f / meleeSpeed;
-                float meleeSpeed2 = 0.9f / meleeSpeed;
-                float maxBallDistance = chainDistance + 140f;
-                Math.Abs(pointX);
-                Math.Abs(pointY);
-                if (ai[1] == 1f) { p.tileCollide = false; }
-                if (!channel || pointDist > maxBallDistance || !p.tileCollide)
+                if (ai[0] == 1f)
                 {
-                    ai[1] = 1f;
-                    if (p.tileCollide) { p.netUpdate = true; }
-                    p.tileCollide = false;
-                    if (!noKill && pointDist < 20f)
+                    float meleeSpeed1 = 14f / meleeSpeed;
+                    float meleeSpeed2 = 0.9f / meleeSpeed;
+                    float maxBallDistance = chainDistance + 140f;
+                    Math.Abs(pointX);
+                    Math.Abs(pointY);
+                    if (ai[1] == 1f) { p.tileCollide = false; }
+                    if (!channel || pointDist > maxBallDistance || !p.tileCollide)
                     {
-                        p.Kill();
+                        ai[1] = 1f;
+                        if (p.tileCollide) { p.netUpdate = true; }
+                        p.tileCollide = false;
+                        if (!noKill && pointDist < 20f)
+                        {
+                            p.Kill();
+                        }
+                    }
+                    if (!p.tileCollide) { meleeSpeed2 *= 2f; }
+                    if (pointDist > 60f || !p.tileCollide)
+                    {
+                        pointDist = meleeSpeed1 / pointDist;
+                        pointX *= pointDist;
+                        pointY *= pointDist;
+                        float pointX2 = pointX - p.velocity.X;
+                        float pointY2 = pointY - p.velocity.Y;
+                        float pointDist2 = (float)Math.Sqrt(pointX2 * pointX2 + pointY2 * pointY2);
+                        pointDist2 = meleeSpeed2 / pointDist2;
+                        pointX2 *= pointDist2;
+                        pointY2 *= pointDist2;
+                        p.velocity.X *= 0.98f;
+                        p.velocity.Y *= 0.98f;
+                        p.velocity.X += pointX2;
+                        p.velocity.Y += pointY2;
+                    }
+                    else
+                    {
+                        if (Math.Abs(p.velocity.X) + Math.Abs(p.velocity.Y) < 6f)
+                        {
+                            p.velocity.X *= 0.96f;
+                            p.velocity.Y += 0.2f;
+                        }
+                        if (connectedPointVelocity.X == 0f) { p.velocity.X *= 0.96f; }
                     }
                 }
-                if (!p.tileCollide) { meleeSpeed2 *= 2f; }
-                if (pointDist > 60f || !p.tileCollide)
-                {
-                    pointDist = meleeSpeed1 / pointDist;
-                    pointX *= pointDist;
-                    pointY *= pointDist;
-                    float pointX2 = pointX - p.velocity.X;
-                    float pointY2 = pointY - p.velocity.Y;
-                    float pointDist2 = (float)Math.Sqrt(pointX2 * pointX2 + pointY2 * pointY2);
-                    pointDist2 = meleeSpeed2 / pointDist2;
-                    pointX2 *= pointDist2;
-                    pointY2 *= pointDist2;
-                    p.velocity.X *= 0.98f;
-                    p.velocity.Y *= 0.98f;
-                    p.velocity.X += pointX2;
-                    p.velocity.Y += pointY2;
-                }
-                else
-                {
-                    if (Math.Abs(p.velocity.X) + Math.Abs(p.velocity.Y) < 6f)
-                    {
-                        p.velocity.X *= 0.96f;
-                        p.velocity.Y += 0.2f;
-                    }
-                    if (connectedPointVelocity.X == 0f) { p.velocity.X *= 0.96f; }
-                }
-            }
             p.rotation = (float)Math.Atan2(pointY, pointX) - p.velocity.X * 0.1f;
         }
 
@@ -1044,10 +1043,10 @@ namespace AAModClassic.Base
             }
             if (npc.velocity.X < speedX1) { npc.velocity.X += moveInterval; }
             else
-            if (npc.velocity.X > speedX1) { npc.velocity.X -= moveInterval; }
+                if (npc.velocity.X > speedX1) { npc.velocity.X -= moveInterval; }
             if (npc.velocity.Y < speedY1) { npc.velocity.Y += moveInterval; }
             else
-            if (npc.velocity.Y > speedY1) { npc.velocity.Y -= moveInterval; }
+                if (npc.velocity.Y > speedY1) { npc.velocity.Y -= moveInterval; }
             npc.rotation = (float)Math.Atan2(speedY1, speedX1) - 1.57f;
             if (npc.collideX)
             {
@@ -1108,30 +1107,30 @@ namespace AAModClassic.Base
                 else { ai[1] = 0f; }
             }
             else
-            if (dist < 250f)
-            {
-                ai[0] += 0.9f;
-                if (ai[0] > 0f) { npc.velocity.Y += closeIncrement; } else { npc.velocity.Y -= closeIncrement; }
-                if (ai[0] < -100f || ai[0] > 100f) { npc.velocity.X += closeIncrement; } else { npc.velocity.X -= closeIncrement; }
-                if (ai[0] > 200f) { ai[0] = -200f; }
-            }
+                if (dist < 250f)
+                {
+                    ai[0] += 0.9f;
+                    if (ai[0] > 0f) { npc.velocity.Y += closeIncrement; } else { npc.velocity.Y -= closeIncrement; }
+                    if (ai[0] < -100f || ai[0] > 100f) { npc.velocity.X += closeIncrement; } else { npc.velocity.X -= closeIncrement; }
+                    if (ai[0] > 200f) { ai[0] = -200f; }
+                }
             if (dist > maxDistance)
             {
                 distanceAmt = maxDistanceAmt + maxDistanceAmt / 4f;
                 increment = 0.3f;
             }
             else
-            if (dist > maxDistance - maxDistance / 7f)
-            {
-                distanceAmt = maxDistanceAmt - maxDistanceAmt / 4f;
-                increment = 0.2f;
-            }
-            else
-            if (dist > maxDistance - 2 * (maxDistance / 7f))
-            {
-                distanceAmt = maxDistanceAmt / 2.66f;
-                increment = 0.1f;
-            }
+                if (dist > maxDistance - maxDistance / 7f)
+                {
+                    distanceAmt = maxDistanceAmt - maxDistanceAmt / 4f;
+                    increment = 0.2f;
+                }
+                else
+                    if (dist > maxDistance - 2 * (maxDistance / 7f))
+                    {
+                        distanceAmt = maxDistanceAmt / 2.66f;
+                        increment = 0.1f;
+                    }
             dist = distanceAmt / dist;
             distX *= dist; distY *= dist;
             if (Main.player[npc.target].dead)
@@ -1141,10 +1140,10 @@ namespace AAModClassic.Base
             }
             if (npc.velocity.X < distX) { npc.velocity.X += increment; }
             else
-            if (npc.velocity.X > distX) { npc.velocity.X -= increment; }
+                if (npc.velocity.X > distX) { npc.velocity.X -= increment; }
             if (npc.velocity.Y < distY) { npc.velocity.Y += increment; }
             else
-            if (npc.velocity.Y > distY) { npc.velocity.Y -= increment; }
+                if (npc.velocity.Y > distY) { npc.velocity.Y -= increment; }
         }
 
         /*
@@ -1170,7 +1169,7 @@ namespace AAModClassic.Base
                 bool inRangeY = false;
                 if (npc.position.X > ai[0] - tileDist && npc.position.X < ai[0] + tileDist)
                     inRangeX = true;
-                else if(npc.velocity.X < 0f && npc.direction > 0 || npc.velocity.X > 0f && npc.direction < 0)
+                else if (npc.velocity.X < 0f && npc.direction > 0 || npc.velocity.X > 0f && npc.direction < 0)
                     inRangeX = true;
                 tileDist += 24;
                 if (npc.position.Y > ai[1] - tileDist && npc.position.Y < ai[1] + tileDist)
@@ -1291,13 +1290,13 @@ namespace AAModClassic.Base
             }
             else
                 if (npc.directionY == 1 && (double)npc.velocity.Y < hoverMaxSpeed)
-            {
-                npc.velocity.Y += hoverInterval;
-                if ((double)npc.velocity.Y < -hoverMaxSpeed) { npc.velocity.Y += 0.05f; }
-                else
-                    if (npc.velocity.Y < 0f) { npc.velocity.Y -= hoverInterval - 0.01f; }
-                if ((double)npc.velocity.Y > hoverMaxSpeed) { npc.velocity.Y = hoverMaxSpeed; }
-            }
+                {
+                    npc.velocity.Y += hoverInterval;
+                    if ((double)npc.velocity.Y < -hoverMaxSpeed) { npc.velocity.Y += 0.05f; }
+                    else
+                        if (npc.velocity.Y < 0f) { npc.velocity.Y -= hoverInterval - 0.01f; }
+                    if ((double)npc.velocity.Y > hoverMaxSpeed) { npc.velocity.Y = hoverMaxSpeed; }
+                }
         }
 
         /*
@@ -1518,7 +1517,7 @@ namespace AAModClassic.Base
                 ai[3] += 1f;
             }
             else
-            if (Math.Abs(npc.velocity.X) > 0.9 && ai[3] > 0f) { ai[3] -= 1f; }
+                if (Math.Abs(npc.velocity.X) > 0.9 && ai[3] > 0f) { ai[3] -= 1f; }
             if (ai[3] > ticksUntilBoredom * 10) { ai[3] = 0f; }
             if (npc.justHit) { ai[3] = 0f; }
             if (ai[3] == ticksUntilBoredom) { npc.netUpdate = true; }
@@ -1530,28 +1529,28 @@ namespace AAModClassic.Base
                 npc.TargetClosest();
             }
             else
-            if (ai[2] <= 0f)//if 'bored'
-            {
-                if (fleeWhenDay && Main.dayTime && npc.position.Y / 16f < Main.worldSurface && npc.timeLeft > 10)
+                if (ai[2] <= 0f)//if 'bored'
                 {
-                    npc.timeLeft = 10;
-                }
-                if (npc.velocity.X == 0f)
-                {
-                    if (npc.velocity.Y == 0f)
+                    if (fleeWhenDay && Main.dayTime && npc.position.Y / 16f < Main.worldSurface && npc.timeLeft > 10)
                     {
-                        ai[0] += 1f;
-                        if (ai[0] >= 2f)
+                        npc.timeLeft = 10;
+                    }
+                    if (npc.velocity.X == 0f)
+                    {
+                        if (npc.velocity.Y == 0f)
                         {
-                            npc.direction *= -1;
-                            npc.spriteDirection = npc.direction;
-                            ai[0] = 0f;
+                            ai[0] += 1f;
+                            if (ai[0] >= 2f)
+                            {
+                                npc.direction *= -1;
+                                npc.spriteDirection = npc.direction;
+                                ai[0] = 0f;
+                            }
                         }
                     }
+                    else { ai[0] = 0f; }
+                    if (npc.direction == 0) { npc.direction = 1; }
                 }
-                else { ai[0] = 0f; }
-                if (npc.direction == 0) { npc.direction = 1; }
-            }
             //if velocity is less than -1 or greater than 1...
             if (npc.velocity.X < -velMax || npc.velocity.X > velMax)
             {
@@ -1559,17 +1558,17 @@ namespace AAModClassic.Base
                 if (npc.velocity.Y == 0f) { npc.velocity *= 0.8f; }
             }
             else
-            if (npc.velocity.X < velMax && npc.direction == 1) //handles movement to the right. Clamps at velMaxX.
-            {
-                npc.velocity.X += moveInterval;
-                if (npc.velocity.X > velMax) { npc.velocity.X = velMax; }
-            }
-            else
-            if (npc.velocity.X > -velMax && npc.direction == -1) //handles movement to the left. Clamps at -velMaxX.
-            {
-                npc.velocity.X -= moveInterval;
-                if (npc.velocity.X < -velMax) { npc.velocity.X = -velMax; }
-            }
+                if (npc.velocity.X < velMax && npc.direction == 1) //handles movement to the right. Clamps at velMaxX.
+                {
+                    npc.velocity.X += moveInterval;
+                    if (npc.velocity.X > velMax) { npc.velocity.X = velMax; }
+                }
+                else
+                    if (npc.velocity.X > -velMax && npc.direction == -1) //handles movement to the left. Clamps at -velMaxX.
+                    {
+                        npc.velocity.X -= moveInterval;
+                        if (npc.velocity.X < -velMax) { npc.velocity.X = -velMax; }
+                    }
             WalkupHalfBricks(npc);
             //if allowed to open doors and is currently doing so, reduce npc velocity on the X axis to 0. (so it stops moving)
             if (openDoors != -1 && AttemptOpenDoor(npc, ref ai[1], ref ai[2], ref ai[3], ticksUntilBoredom, doorBeatCounterMax, doorCounterMax, openDoors))
@@ -1577,7 +1576,7 @@ namespace AAModClassic.Base
                 npc.velocity.X = 0;
             }
             else //if no door to open, reset ai.
-            if (openDoors != -1) { ai[1] = 0f; ai[2] = 0f; }
+                if (openDoors != -1) { ai[1] = 0f; ai[2] = 0f; }
             //if there's a solid floor under us...
             if (HitTileOnSide(npc, 3))
             {
@@ -1659,14 +1658,14 @@ namespace AAModClassic.Base
             }
             else //controls momentum when going right on the x axis and clamps velocity at velMaxX.
                 if (npc.direction == 1 && npc.velocity.X < velMaxX)
-            {
-                npc.velocity.X += moveIntervalX;
-                if (npc.velocity.X < -velMaxX) { npc.velocity.X += 0.1f; }
-                else
-                    if (npc.velocity.X < 0f) { npc.velocity.X -= 0.05f; }
+                {
+                    npc.velocity.X += moveIntervalX;
+                    if (npc.velocity.X < -velMaxX) { npc.velocity.X += 0.1f; }
+                    else
+                        if (npc.velocity.X < 0f) { npc.velocity.X -= 0.05f; }
 
-                if (npc.velocity.X > velMaxX) { npc.velocity.X = velMaxX; }
-            }
+                    if (npc.velocity.X > velMaxX) { npc.velocity.X = velMaxX; }
+                }
             //controls momentum when going up on the Y axis and clamps velocity at -velMaxY.
             if (npc.directionY == -1 && (double)npc.velocity.Y > -velMaxY)
             {
@@ -1679,14 +1678,14 @@ namespace AAModClassic.Base
             }
             else //controls momentum when going down on the Y axis and clamps velocity at velMaxY.
                 if (npc.directionY == 1 && (double)npc.velocity.Y < velMaxY)
-            {
-                npc.velocity.Y += moveIntervalY;
-                if ((double)npc.velocity.Y < -velMaxY) { npc.velocity.Y += 0.05f; }
-                else
-                    if (npc.velocity.Y < 0f) { npc.velocity.Y -= 0.03f; }
+                {
+                    npc.velocity.Y += moveIntervalY;
+                    if ((double)npc.velocity.Y < -velMaxY) { npc.velocity.Y += 0.05f; }
+                    else
+                        if (npc.velocity.Y < 0f) { npc.velocity.Y -= 0.03f; }
 
-                if ((double)npc.velocity.Y > velMaxY) { npc.velocity.Y = velMaxY; }
-            }
+                    if ((double)npc.velocity.Y > velMaxY) { npc.velocity.Y = velMaxY; }
+                }
             if (!ignoreWet && npc.wet) //if don't ignore being wet and is wet, accelerate upwards to get out.
             {
                 if (npc.velocity.Y > 0f) { npc.velocity.Y *= 0.95f; }
@@ -1858,18 +1857,18 @@ namespace AAModClassic.Base
                                 }
                             }
                             else
-                            if (tileX > tileItX)
-                            {
-                                for (int x = tileItX; x < tileX; x++)
+                                if (tileX > tileItX)
                                 {
-                                    Tile tile = Framing.GetTileSafely(x, tileY + 1);
-                                    if (x != tileItX && !tile.HasUnactuatedTile)
+                                    for (int x = tileItX; x < tileX; x++)
                                     {
-                                        newVelocity.Y -= 0.0325f;
-                                        newVelocity.X += direction * 0.255f;
+                                        Tile tile = Framing.GetTileSafely(x, tileY + 1);
+                                        if (x != tileItX && !tile.HasUnactuatedTile)
+                                        {
+                                            newVelocity.Y -= 0.0325f;
+                                            newVelocity.X += direction * 0.255f;
+                                        }
                                     }
                                 }
-                            }
                         }
                     }
                 }
@@ -2013,29 +2012,29 @@ namespace AAModClassic.Base
                 tilePosHeight = (int)(position.Y + height) / 16;
             }
             else
-            if (dir == 1) //right
-            {
-                tilePosX = (int)(position.X + width + 8f) / 16;
-                tilePosY = (int)position.Y / 16;
-                tilePosWidth = tilePosX + 1;
-                tilePosHeight = (int)(position.Y + height) / 16;
-            }
-            else
-            if (dir == 2) //up, ie ceiling
-            {
-                tilePosX = (int)position.X / 16;
-                tilePosY = (int)(position.Y - 8f) / 16;
-                tilePosWidth = (int)(position.X + width) / 16;
-                tilePosHeight = tilePosY + 1;
-            }
-            else
-            if (dir == 3) //down, ie floor
-            {
-                tilePosX = (int)position.X / 16;
-                tilePosY = (int)(position.Y + height + 8f) / 16;
-                tilePosWidth = (int)(position.X + width) / 16;
-                tilePosHeight = tilePosY + 1;
-            }
+                if (dir == 1) //right
+                {
+                    tilePosX = (int)(position.X + width + 8f) / 16;
+                    tilePosY = (int)position.Y / 16;
+                    tilePosWidth = tilePosX + 1;
+                    tilePosHeight = (int)(position.Y + height) / 16;
+                }
+                else
+                    if (dir == 2) //up, ie ceiling
+                    {
+                        tilePosX = (int)position.X / 16;
+                        tilePosY = (int)(position.Y - 8f) / 16;
+                        tilePosWidth = (int)(position.X + width) / 16;
+                        tilePosHeight = tilePosY + 1;
+                    }
+                    else
+                        if (dir == 3) //down, ie floor
+                        {
+                            tilePosX = (int)position.X / 16;
+                            tilePosY = (int)(position.Y + height + 8f) / 16;
+                            tilePosWidth = (int)(position.X + width) / 16;
+                            tilePosHeight = tilePosY + 1;
+                        }
             for (int x2 = tilePosX; x2 < tilePosWidth; x2++)
             {
                 for (int y2 = tilePosY; y2 < tilePosHeight; y2++)
@@ -2371,7 +2370,7 @@ namespace AAModClassic.Base
         {
             return GetNPCs(center, npcType, Array.Empty<int>(), distance, canAdd);
         }
-        
+
         /*
          * Gets all NPCs of the given type within a given distance from the center.
          *
@@ -2445,7 +2444,7 @@ namespace AAModClassic.Base
         {
             return GetPlayers(center, default, true, distance, canAdd);
         }
-        
+
         /*
          * Gets all players within a given distance from the center.
          *
@@ -2521,11 +2520,11 @@ namespace AAModClassic.Base
                 nPc2.rotation = rotation;
             }
             else
-            if (c is Projectile projectile2)
-            {
-                projectile2.spriteDirection = spriteDirection;
-                projectile2.rotation = rotation;
-            }
+                if (c is Projectile projectile2)
+                {
+                    projectile2.spriteDirection = spriteDirection;
+                    projectile2.rotation = rotation;
+                }
         }
 
         /*
@@ -2551,46 +2550,46 @@ namespace AAModClassic.Base
                 if (spriteDirection == 1) { rotation -= (float)Math.PI; }
             }
             else
-            if (lookType == 1)
-            {
-                if (lookTarget.X > center.X) { spriteDirection = -1; } else { spriteDirection = 1; }
-                if (flipSpriteDir) { spriteDirection *= -1; }
-            }
-            else
-            if (lookType == 2)
-            {
-                float rotX = lookTarget.X - center.X;
-                float rotY = lookTarget.Y - center.Y;
-                rotation = -((float)Math.Atan2(rotX, rotY) - 1.57f + rotAddon);
-            }
-            else
-            if (lookType is 3 or 4)
-            {
-                int oldDirection = spriteDirection;
-                if (lookType == 3 && lookTarget.X > center.X) { spriteDirection = -1; } else { spriteDirection = 1; }
-                if (lookType == 3 && flipSpriteDir) { spriteDirection *= -1; }
-                if (oldDirection != spriteDirection)
+                if (lookType == 1)
                 {
-                    rotation += (float)Math.PI * spriteDirection;
-                }
-                float pi2 = (float)Math.PI * 2f;
-                float rotX = lookTarget.X - center.X;
-                float rotY = lookTarget.Y - center.Y;
-                float rot = (float)Math.Atan2(rotY, rotX) + rotAddon;
-                if (spriteDirection == 1) { rot += (float)Math.PI; }
-                if (rot > pi2) { rot -= pi2; } else if (rot < 0) { rot += pi2; }
-                if (rotation > pi2) { rotation -= pi2; } else if (rotation < 0) { rotation += pi2; }
-                if (rotation < rot)
-                {
-                    if ((double)(rot - rotation) > (float)Math.PI) { rotation -= rotAmount; } else { rotation += rotAmount; }
+                    if (lookTarget.X > center.X) { spriteDirection = -1; } else { spriteDirection = 1; }
+                    if (flipSpriteDir) { spriteDirection *= -1; }
                 }
                 else
-                if (rotation > rot)
-                {
-                    if ((double)(rotation - rot) > (float)Math.PI) { rotation += rotAmount; } else { rotation -= rotAmount; }
-                }
-                if (rotation > rot - rotAmount && rotation < rot + rotAmount) { rotation = rot; }
-            }
+                    if (lookType == 2)
+                    {
+                        float rotX = lookTarget.X - center.X;
+                        float rotY = lookTarget.Y - center.Y;
+                        rotation = -((float)Math.Atan2(rotX, rotY) - 1.57f + rotAddon);
+                    }
+                    else
+                        if (lookType is 3 or 4)
+                        {
+                            int oldDirection = spriteDirection;
+                            if (lookType == 3 && lookTarget.X > center.X) { spriteDirection = -1; } else { spriteDirection = 1; }
+                            if (lookType == 3 && flipSpriteDir) { spriteDirection *= -1; }
+                            if (oldDirection != spriteDirection)
+                            {
+                                rotation += (float)Math.PI * spriteDirection;
+                            }
+                            float pi2 = (float)Math.PI * 2f;
+                            float rotX = lookTarget.X - center.X;
+                            float rotY = lookTarget.Y - center.Y;
+                            float rot = (float)Math.Atan2(rotY, rotX) + rotAddon;
+                            if (spriteDirection == 1) { rot += (float)Math.PI; }
+                            if (rot > pi2) { rot -= pi2; } else if (rot < 0) { rot += pi2; }
+                            if (rotation > pi2) { rotation -= pi2; } else if (rotation < 0) { rotation += pi2; }
+                            if (rotation < rot)
+                            {
+                                if ((double)(rot - rotation) > (float)Math.PI) { rotation -= rotAmount; } else { rotation += rotAmount; }
+                            }
+                            else
+                                if (rotation > rot)
+                                {
+                                    if ((double)(rotation - rot) > (float)Math.PI) { rotation += rotAmount; } else { rotation -= rotAmount; }
+                                }
+                            if (rotation > rot - rotAmount && rotation < rot + rotAmount) { rotation = rot; }
+                        }
         }
 
         public static Vector2 TracePlayer(Vector2 start, float distance, float rotation, int ignorePlayer, bool npcCheck = true, bool tileCheck = true, bool playerCheck = true, bool ignorePlatforms = true)
@@ -2718,11 +2717,11 @@ namespace AAModClassic.Base
         public static int ShootPeriodic(Entity codable, Vector2 position, int width, int height, int projType, ref float delayTimer, float delayTimerMax = 100f, int damage = -1, float speed = 10f, bool checkCanHit = true, Vector2 offset = default(Vector2))
         {
             int pID = -1;
-            if (damage == -1) 
-            { 
-                Projectile proj = new Projectile(); 
-                proj.SetDefaults(projType); 
-                damage = proj.damage; 
+            if (damage == -1)
+            {
+                Projectile proj = new Projectile();
+                proj.SetDefaults(projType);
+                damage = proj.damage;
             }
             bool properSide = (codable is NPC ? Main.netMode != NetmodeID.MultiplayerClient : codable is Projectile ? ((Projectile)codable).owner == Main.myPlayer : true);
             if (properSide)

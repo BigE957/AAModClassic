@@ -1,43 +1,42 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
     public class SkrallStaff : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Magic";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Skrall Staff");
             /* Tooltip.SetDefault(@"A skraltopian Diamond wrapped in a stick 
 It's the stick that's magic. The diamond is just for show
 -Kingskrall"); */
-			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
-		}
+            Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
+        }
 
-		public override void SetDefaults()
-		{
-			Item.damage = 170;
-			Item.DamageType = DamageClass.Magic;
-			Item.mana = 6;
-			Item.width = 58;
-			Item.height = 58;
-			Item.useTime = 5;
-			Item.useAnimation = 5;
-			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.noMelee = true; //so the item's animation doesn't do damage
-			Item.knockBack = 5;
-			Item.value = 1000000;
-			Item.rare = ItemRarityID.Purple;
-			Item.UseSound = SoundID.Item20;
-			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<SkrallStaff_Crystal>();
-			Item.shootSpeed = 20f;
-		}
+        public override void SetDefaults()
+        {
+            Item.damage = 170;
+            Item.DamageType = DamageClass.Magic;
+            Item.mana = 6;
+            Item.width = 58;
+            Item.height = 58;
+            Item.useTime = 5;
+            Item.useAnimation = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.noMelee = true; //so the item's animation doesn't do damage
+            Item.knockBack = 5;
+            Item.value = 1000000;
+            Item.rare = ItemRarityID.Purple;
+            Item.UseSound = SoundID.Item20;
+            Item.autoReuse = true;
+            Item.shoot = ModContent.ProjectileType<SkrallStaff_Crystal>();
+            Item.shootSpeed = 20f;
+        }
 
         public override bool AltFunctionUse(Player player)
         {
@@ -84,5 +83,5 @@ It's the stick that's magic. The diamond is just for show
             }
             return base.CanUseItem(player);
         }
-	}
+    }
 }

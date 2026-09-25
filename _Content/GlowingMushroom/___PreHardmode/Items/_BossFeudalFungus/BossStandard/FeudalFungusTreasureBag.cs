@@ -2,7 +2,6 @@
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Tools;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;

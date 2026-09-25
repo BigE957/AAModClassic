@@ -1,7 +1,6 @@
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata

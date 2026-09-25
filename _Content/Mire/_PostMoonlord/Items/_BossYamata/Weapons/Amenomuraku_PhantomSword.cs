@@ -1,7 +1,6 @@
-﻿using System;
-using AAModClassic.Base;
+﻿using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 

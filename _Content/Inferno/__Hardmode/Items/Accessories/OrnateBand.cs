@@ -1,7 +1,5 @@
 ﻿using AAModClassic.UI.World;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

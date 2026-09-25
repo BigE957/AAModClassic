@@ -1,18 +1,9 @@
-﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
-using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
-using AAModClassic._Content.Inferno.Buffs;
+﻿using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Mire.Buffs;
-using AAModClassic._Content.Mire.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using System;
-using Terraria;
 using Terraria.GameContent;
-using Terraria.ID;
 using Terraria.ModLoader;
 using static AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.ShenDoragonUtils;
 
@@ -21,7 +12,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
     public abstract class ShenDoragon_ChaosFireballAbstract : ModProjectile
     {
         public override string Texture => "AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/__BossShenDoragon/ShenDoragon_ChaosFireballAbstract";
-        
+
         public ChaosType Chaos = ChaosType.Discord;
         public bool IsSmall = false;
         public Rectangle BetterFrame = new Rectangle();
@@ -92,7 +83,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 Main.NewText("shen summoned a fireball without a chaos type. that isnt good! report this!");
                 Projectile.Kill();
             }
-            
+
             if (Projectile.frameCounter++ > 5)
             {
                 Projectile.frame++;

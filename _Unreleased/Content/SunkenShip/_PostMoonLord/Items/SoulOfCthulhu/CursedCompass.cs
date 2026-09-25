@@ -6,7 +6,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
@@ -49,9 +48,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 
                 if (line.Mod == "Terraria" && line.Name == "Tooltip0")
                 {
-                    if(CthulhuActive)
+                    if (CthulhuActive)
                         line.Text = Language.GetTextValue("Mods.AAModClassic.Items.BossSummon.CursedCompass.AltText0.Ready");
-                    else if(AAWorld_Unreleased.DownedSoC)
+                    else if (AAWorld_Unreleased.DownedSoC)
                         line.Text = Language.GetTextValue("Mods.AAModClassic.Items.BossSummon.CursedCompass.AltText0.Downed");
                 }
 
@@ -62,7 +61,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
                     if (line.Mod == "Terraria" && line.Name == "Tooltip2")
                         line.Hide();
                 }
-                else if(AAWorld_Unreleased.DownedSoC && line.Mod == "Terraria" && line.Name == "Tooltip1")
+                else if (AAWorld_Unreleased.DownedSoC && line.Mod == "Terraria" && line.Name == "Tooltip1")
                     line.Text = Language.GetTextValue("Mods.AAModClassic.Items.BossSummon.CursedCompass.AltText1");
             }
         }
@@ -113,7 +112,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             ArrowSpin += MathF.Sin(Main.GlobalTimeWrappedHourly) * 0.25f;
             Texture2D Arrow = ModContent.Request<Texture2D>(Texture + "_Arrow").Value;
             Vector2 offsetPos = position - Vector2.UnitY * 3;
-            spriteBatch.Draw(Arrow, offsetPos, null, drawColor, CthulhuActive? ArrowSpin : 0, Arrow.Size() * 0.5f, scale, SpriteEffects.None, 0f);
+            spriteBatch.Draw(Arrow, offsetPos, null, drawColor, CthulhuActive ? ArrowSpin : 0, Arrow.Size() * 0.5f, scale, SpriteEffects.None, 0f);
         }
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {

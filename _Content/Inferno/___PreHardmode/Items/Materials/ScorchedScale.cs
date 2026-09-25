@@ -1,6 +1,5 @@
-﻿using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ID;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Materials
@@ -18,7 +17,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Materials
             Item.value = 100;
         }
 
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Scorched Scale");

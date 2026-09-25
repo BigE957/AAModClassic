@@ -2,7 +2,6 @@
 using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero.Biomes;
-using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.ModLoader;
 

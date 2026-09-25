@@ -1,13 +1,7 @@
-﻿using Terraria;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Globals;
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.World.Tiles
 {

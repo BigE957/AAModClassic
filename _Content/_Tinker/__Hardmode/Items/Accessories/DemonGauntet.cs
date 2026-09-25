@@ -5,7 +5,6 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -36,7 +35,7 @@ namespace AAModClassic._Content._Tinker.__Hardmode.Items.Accessories
             Item.rare = ItemRarityID.Lime;
             Item.accessory = true;
             Item.defense = 8;
-            
+
         }
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {

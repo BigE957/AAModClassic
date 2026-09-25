@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
@@ -109,4 +108,4 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             return selectedTarget;
         }
     }
-}   
+}

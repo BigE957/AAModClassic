@@ -2,7 +2,6 @@ using AAModClassic.Base;
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;

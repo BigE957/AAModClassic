@@ -1,5 +1,4 @@
 using AAModClassic.Base;
-using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -20,7 +19,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
         {
             NPC.lifeMax = 50;
             NPC.damage = 6;
-            NPC.defense = 5; 
+            NPC.defense = 5;
             NPC.knockBackResist = 1f;
             NPC.value = Item.buyPrice(0, 0, 0, 0);
             NPC.aiStyle = -1;

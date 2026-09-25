@@ -4,9 +4,7 @@ using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX.Accessories;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.Accessories;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetriever.Accessories;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -15,7 +13,7 @@ namespace AAModClassic._Removed.Content._Tinker.__Hardmode.Items.Accessories
     public class StormCharm : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Storm Charm");
@@ -31,7 +29,7 @@ namespace AAModClassic._Removed.Content._Tinker.__Hardmode.Items.Accessories
             Item.defense = 3;
         }
 
-        
+
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
@@ -84,5 +82,5 @@ namespace AAModClassic._Removed.Content._Tinker.__Hardmode.Items.Accessories
             return true;
         }
     }
-    
+
 }

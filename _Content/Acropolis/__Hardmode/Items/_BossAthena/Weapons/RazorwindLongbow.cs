@@ -1,10 +1,9 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons
 {
@@ -19,7 +18,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons
 
         public override void SetDefaults()
         {
-            Item.damage = 50; 
+            Item.damage = 50;
             Item.noMelee = true;
             Item.DamageType = DamageClass.Ranged;
             Item.width = 24;

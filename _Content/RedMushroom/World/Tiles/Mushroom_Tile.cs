@@ -6,7 +6,7 @@ using Terraria.ObjectData;
 namespace AAModClassic._Content.RedMushroom.World.Tiles
 {
     public class Mushroom_Tile : ModTile
-	{
+    {
         public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
@@ -28,7 +28,7 @@ namespace AAModClassic._Content.RedMushroom.World.Tiles
         public override void NumDust(int i, int j, bool fail, ref int num)
         {
             num = 10;
-            
+
         }
 
         public override void RandomUpdate(int i, int j)

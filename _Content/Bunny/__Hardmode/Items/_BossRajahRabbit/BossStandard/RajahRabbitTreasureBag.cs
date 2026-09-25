@@ -4,7 +4,6 @@ using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
 using AAModClassic._CrossMod.Thorium.Weapons.Healer;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;

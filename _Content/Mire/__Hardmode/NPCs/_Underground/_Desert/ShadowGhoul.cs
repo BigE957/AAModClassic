@@ -1,11 +1,9 @@
-using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._CrossMod;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,11 +12,11 @@ using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AACondition
 namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Desert
 {
     public class ShadowGhoul : ModNPC
-	{
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Shadow Ghoul");
-			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.DesertGhoul];
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Shadow Ghoul");
+            Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.DesertGhoul];
 
             NPCID.Sets.NPCBestiaryDrawModifiers value = new()
             {
@@ -27,8 +25,8 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Desert
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             NPC.CloneDefaults(NPCID.DesertGhoul);
             AnimationType = NPCID.DesertGhoul;
             Banner = Item.NPCtoBanner(NPCID.DesertGhoul);
@@ -45,14 +43,14 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Desert
         }
 
         public override void HitEffect(NPC.HitInfo hit)
-		{
-			for (int i = 0; i < 10; i++)
-			{
-				int dustType = Main.rand.Next(139, 143);
-				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.AbyssiumDust>(), 0f, 0f, 200, default, 0.8f);
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                int dustType = Main.rand.Next(139, 143);
+                int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.AbyssiumDust>(), 0f, 0f, 200, default, 0.8f);
                 Main.dust[dustIndex].velocity *= 0.3f;
-			}
-		}
+            }
+        }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {

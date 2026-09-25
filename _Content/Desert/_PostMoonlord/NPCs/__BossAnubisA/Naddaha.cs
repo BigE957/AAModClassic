@@ -2,8 +2,6 @@ using AAModClassic.Base;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
@@ -13,11 +11,11 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 {
     public class Naddaha : ModNPC
-	{
-		public override void SetStaticDefaults()
-		{
+    {
+        public override void SetStaticDefaults()
+        {
             Main.npcFrameCount[NPC.type] = 16;
-		}
+        }
 
         public override void SetDefaults()
         {
@@ -45,15 +43,15 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
         }
 
         public override void HitEffect(NPC.HitInfo hit)
-		{
-			if (Main.netMode == NetmodeID.Server) { return; }
-			for (int m = 0; m < (NPC.life <= 0 ? 30 : 8); m++)
-			{
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.ForsakenDust>(), NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, 1.1f);
-			}		
-		}
+        {
+            if (Main.netMode == NetmodeID.Server) { return; }
+            for (int m = 0; m < (NPC.life <= 0 ? 30 : 8); m++)
+            {
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.ForsakenDust>(), NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, 1.1f);
+            }
+        }
 
-		public override void FindFrame(int frameHeight)
+        public override void FindFrame(int frameHeight)
         {
             NPC.frameCounter++;
             if (NPC.frameCounter >= 10)
@@ -125,6 +123,6 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
             spriteBatch.Draw(ModContent.Request<Texture2D>(Texture + "_Glow").Value, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
 
             return false;
-		}
-	}
+        }
+    }
 }

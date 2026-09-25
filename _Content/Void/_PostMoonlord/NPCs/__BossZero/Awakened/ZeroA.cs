@@ -20,9 +20,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -51,7 +49,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("ZER0 PR0T0C0L");
-            Main.npcFrameCount[NPC.type] = 7; 
+            Main.npcFrameCount[NPC.type] = 7;
             NPCID.Sets.TrailCacheLength[NPC.type] = 20;
             NPCID.Sets.TrailingMode[NPC.type] = 0;
 
@@ -104,7 +102,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
         public float[] Minion = new float[1];
         public int[] Counter = new int[3];
 
-        Vector2 ShootDir = new Vector2(0,0);
+        Vector2 ShootDir = new Vector2(0, 0);
 
         public override void SendExtraAI(BinaryWriter writer)
         {
@@ -213,7 +211,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    Teleport(Main.rand.NextBool(2) ? 1:2);
+                    Teleport(Main.rand.NextBool(2) ? 1 : 2);
                     NPC.ai[0] = 4;
                     NPC.ai[1] = 0;
                     NPC.ai[2] = 0;
@@ -223,7 +221,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                     NPC.netUpdate = true;
                 }
             }
-            else if(NPC.ai[0] != 4 && NPC.ai[0] != 2 && !isCharging)
+            else if (NPC.ai[0] != 4 && NPC.ai[0] != 2 && !isCharging)
             {
                 int TeleportChance = 1000 * (NPC.life / NPC.lifeMax);
                 if (TeleportChance < 10)
@@ -268,31 +266,31 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            if (auraDirection) 
-            { 
-                auraPercent += 0.1f; 
-                auraDirection = auraPercent < 1f; 
+            if (auraDirection)
+            {
+                auraPercent += 0.1f;
+                auraDirection = auraPercent < 1f;
             }
-            else 
-            { 
-                auraPercent -= 0.1f; 
-                auraDirection = auraPercent <= 0f; 
+            else
+            {
+                auraPercent -= 0.1f;
+                auraDirection = auraPercent <= 0f;
             }
 
-            if(NPC.IsABestiaryIconDummy || (!(NPC.ai[0] == 4 && NPC.CountNPCS(ModContent.NPCType<ZeroEcho>()) > 0 && !Counterattack)))
+            if (NPC.IsABestiaryIconDummy || (!(NPC.ai[0] == 4 && NPC.CountNPCS(ModContent.NPCType<ZeroEcho>()) > 0 && !Counterattack)))
             {
                 Color c = AAColor.Oblivion;
                 if (NPC.IsABestiaryIconDummy)
                     c = Color.Red;
 
                 //BaseDrawing.DrawAfterimage(spriteBatch, Trail.Value, 0, NPC, 1, 1, 8, true, 0, 0, Color.Black, NPC.frame, 7);
-                if(!NPC.IsABestiaryIconDummy)
+                if (!NPC.IsABestiaryIconDummy)
                     DrawingUtils.DrawCenteredAfterimages(NPC, NPCID.Sets.TrailingMode[NPC.type], Color.Black, 1, Trail.Value);
                 spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0f);
                 DrawingUtils.DrawAura(spriteBatch, Glowmask.Value, NPC, auraPercent, 1, 0, 0, c);
                 spriteBatch.Draw(Glowmask.Value, NPC.Center - screenPos, NPC.frame, c, NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, NPC.SpriteEffectDirection(), 0f);
             }
-            
+
             return false;
         }
 
@@ -316,18 +314,18 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                 NPC.chaseable = true;
                 NPC.defense = NPC.defDefense;
             }
-            
+
             int Repeats;
             if (NPC.life < NPC.life * (2 / 3))
             {
-                Counter[0] ++;
-                Counter[1] ++;
+                Counter[0]++;
+                Counter[1]++;
                 Repeats = 4;
             }
             else if (NPC.life < NPC.life / 3)
             {
-                Counter[0] ++;
-                Counter[1] ++;
+                Counter[0]++;
+                Counter[1]++;
                 Repeats = 5;
             }
             else
@@ -341,12 +339,12 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 
             if (!AliveCheck(player)) return;
 
-            if(Counter[0] >= 4000)
+            if (Counter[0] >= 4000)
             {
                 Counter[0] = 4000;
             }
 
-            if(Counter[1] >= 6000)
+            if (Counter[1] >= 6000)
             {
                 Counter[1] = 0;
                 isCharging = true;
@@ -435,13 +433,13 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                             Teleport(3);
                             if (NPC.life > NPC.lifeMax / 2)
                             {
-                                if(Main.netMode != NetmodeID.MultiplayerClient)
+                                if (Main.netMode != NetmodeID.MultiplayerClient)
                                 {
                                     if (Main.rand.NextBool(2))
                                     {
-                                        int dirY = player.velocity.Y > 0? 1:-1;
+                                        int dirY = player.velocity.Y > 0 ? 1 : -1;
 
-                                        int yPos = Math.Abs(player.velocity.Y) > 4f? -500 * dirY : -750 * dirY;
+                                        int yPos = Math.Abs(player.velocity.Y) > 4f ? -500 * dirY : -750 * dirY;
 
                                         for (int z = 0; z < 7; z++)
                                         {
@@ -454,14 +452,14 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                                     }
                                     else
                                     {
-                                        int dirX = player.velocity.X > 0? 1:-1;
+                                        int dirX = player.velocity.X > 0 ? 1 : -1;
 
-                                        int xPos = Math.Abs(player.velocity.X) > 4f? -500 * dirX : -750 * dirX;
+                                        int xPos = Math.Abs(player.velocity.X) > 4f ? -500 * dirX : -750 * dirX;
 
                                         for (int z = 0; z < 7; z++)
                                         {
-                                            int h1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, ModContent.ProjectileType<ZeroA_EchoGigablast>(), damage, 3, Main.myPlayer , 2f, 0f);
-                                            int h2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, ModContent.ProjectileType<ZeroA_EchoGigablast>(), damage, 3, Main.myPlayer , 3f, 0f);
+                                            int h1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, ModContent.ProjectileType<ZeroA_EchoGigablast>(), damage, 3, Main.myPlayer, 2f, 0f);
+                                            int h2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, ModContent.ProjectileType<ZeroA_EchoGigablast>(), damage, 3, Main.myPlayer, 3f, 0f);
                                             Main.projectile[h1].Center = player.Center + new Vector2(xPos, -500);
                                             Main.projectile[h2].Center = player.Center + new Vector2(xPos, 500);
                                             xPos += 250 * dirX;
@@ -471,13 +469,13 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                             }
                             else
                             {
-                                if(Main.netMode != NetmodeID.MultiplayerClient)
+                                if (Main.netMode != NetmodeID.MultiplayerClient)
                                 {
-                                    int dirX = player.velocity.X > 0? 1:-1;
-                                    int dirY = player.velocity.Y > 0? 1:-1;
+                                    int dirX = player.velocity.X > 0 ? 1 : -1;
+                                    int dirY = player.velocity.Y > 0 ? 1 : -1;
 
-                                    int xPos = Math.Abs(player.velocity.X) > 4f? -500 * dirX : -750 * dirX;
-                                    int yPos = Math.Abs(player.velocity.Y) > 4f? -500 * dirY : -750 * dirY;
+                                    int xPos = Math.Abs(player.velocity.X) > 4f ? -500 * dirX : -750 * dirX;
+                                    int yPos = Math.Abs(player.velocity.Y) > 4f ? -500 * dirY : -750 * dirY;
 
                                     for (int z = 0; z < 13; z++)
                                     {
@@ -489,8 +487,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                                     }
                                     for (int z = 0; z < 13; z++)
                                     {
-                                        int h1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, ModContent.ProjectileType<ZeroA_EchoGigablast>(), damage, 3, Main.myPlayer , 2f, 0f);
-                                        int h2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, ModContent.ProjectileType<ZeroA_EchoGigablast>(), damage, 3, Main.myPlayer , 3f, 0f);
+                                        int h1 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, ModContent.ProjectileType<ZeroA_EchoGigablast>(), damage, 3, Main.myPlayer, 2f, 0f);
+                                        int h2 = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(player.Center.X, player.Center.Y), Vector2.Zero, ModContent.ProjectileType<ZeroA_EchoGigablast>(), damage, 3, Main.myPlayer, 3f, 0f);
                                         Main.projectile[h1].Center = player.Center + new Vector2(xPos, -500);
                                         Main.projectile[h2].Center = player.Center + new Vector2(xPos, 500);
                                         xPos += 250 * dirX;
@@ -513,7 +511,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                         if (NPC.ai[2] == (NPC.life < NPC.lifeMax / 2 ? 200 : 300))
                         {
                             Teleport(3);
-                            if(Main.netMode != NetmodeID.MultiplayerClient)
+                            if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
                                 int a = Projectile.NewProjectile(NPC.GetSource_FromThis(), new Vector2(NPC.Center.X, NPC.Center.Y), new Vector2(0f, -12f), ModContent.ProjectileType<ZeroA_ProtoStarRay>(), damage, 3);
                                 Main.projectile[a].Center = NPC.Center + new Vector2(-100, 0);
@@ -564,7 +562,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                             break;
                         if (NPC.ai[2] < (NPC.life < NPC.lifeMax / 2 ? 360 : 270))
                         {
-                            if (NPC.ai[3] ++  > 60)
+                            if (NPC.ai[3]++ > 60)
                             {
                                 NPC.ai[3] = 0;
                                 Teleport(0);
@@ -573,7 +571,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                                     npc.Center = NPC.Center;
                             }
                         }
-                        if(NPC.ai[2] == (NPC.life < NPC.lifeMax / 2 ? 400 : 310))
+                        if (NPC.ai[2] == (NPC.life < NPC.lifeMax / 2 ? 400 : 310))
                         {
                             NPC.ai[1] = 1f;
                         }
@@ -581,7 +579,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                         {
                             NPC.ai[1] = 0f;
                         }
-                        if(NPC.ai[2] >= (NPC.life < NPC.lifeMax / 2 ? 480 : 390))
+                        if (NPC.ai[2] >= (NPC.life < NPC.lifeMax / 2 ? 480 : 390))
                         {
                             NPC.ai[0] = 1;
                             NPC.ai[1] = 0;
@@ -593,13 +591,13 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                     case 5:
                         if (!AliveCheck(player))
                             break;
-                        
+
                         Counterattack = false;
-                        
+
                         if (NPC.ai[1]++ == 100)
                         {
                             if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.4"), Color.Red.R, Color.Red.G, Color.Red.B);
-                            if (ShootDir == new Vector2(0,0)) ShootDir = NPC.DirectionTo(player.Center);
+                            if (ShootDir == new Vector2(0, 0)) ShootDir = NPC.DirectionTo(player.Center);
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + 60f * ShootDir, 10f * ShootDir, ModContent.ProjectileType<ZeroA_EchoDeathray>(), 100, 3f, Main.myPlayer, 0, NPC.whoAmI);
                             NPC.ai[3] = 1f;
                         }
@@ -608,14 +606,14 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                             NPC.ai[3] = 0f;
                         }
 
-                        if(NPC.ai[1] < 85)
+                        if (NPC.ai[1] < 85)
                         {
-                            if(NPC.ai[2] % (NPC.life < NPC.lifeMax / 2? 40:60) == 10)
+                            if (NPC.ai[2] % (NPC.life < NPC.lifeMax / 2 ? 40 : 60) == 10)
                             {
                                 Teleport(3);
-                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X + 50 * Main.rand.Next(4, 6) * (Main.rand.NextBool(2) ? -1:1), (int)player.Center.Y + 50 * Main.rand.Next(4, 6) * (Main.rand.NextBool(2) ? -1:1), ModContent.NPCType<ZeroMini>());
+                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X + 50 * Main.rand.Next(4, 6) * (Main.rand.NextBool(2) ? -1 : 1), (int)player.Center.Y + 50 * Main.rand.Next(4, 6) * (Main.rand.NextBool(2) ? -1 : 1), ModContent.NPCType<ZeroMini>());
                             }
-                            NPC.rotation = NPC.DirectionTo(player.Center).ToRotation() + (float)Math.PI/2;
+                            NPC.rotation = NPC.DirectionTo(player.Center).ToRotation() + (float)Math.PI / 2;
                             ShootDir = NPC.DirectionTo(player.Center);
                         }
 
@@ -628,7 +626,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                             NPC.ai[3] = 0;
                         }
                         break;
-                    
+
                     default:
                         if (!AliveCheck(player))
                             break;
@@ -636,28 +634,28 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                         goto case 0;
                 }
             }
-            else if(isCharging)
+            else if (isCharging)
             {
-                if(NPC.ai[2] == 10)
+                if (NPC.ai[2] == 10)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.1"), Color.Red.R, Color.Red.G, Color.Red.B);
                     if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.2"), Color.Red.R, Color.Red.G, Color.Red.B);
                 }
-                if(NPC.ai[2] == 40)
+                if (NPC.ai[2] == 40)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         string path = Main.SavePath;
-                        if(ModContent.GetInstance<AAConfigClient>().HideIdentifiableInfo)
+                        if (ModContent.GetInstance<AAConfigClient>().HideIdentifiableInfo)
                         {
                             string name = "";
                             string previous = "";
                             bool onName = false;
-                            for(int i = 0; i < path.Length; i++)
+                            for (int i = 0; i < path.Length; i++)
                             {
                                 if (path[i] == '\\')
                                 {
-                                    if(onName)
+                                    if (onName)
                                     {
                                         name = previous;
                                         break;
@@ -674,30 +672,30 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                         ChatUtils.Chat(Language.GetText("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.3." + (Oblivion.IsPlayerStreaming() ? "Streaming" : "Normal")).WithFormatArgs(path.ToUpper().Replace(" ", "").Replace("O", "0")).Value, Color.Red.R, Color.Red.G, Color.Red.B);
                     }
                 }
-                if(NPC.ai[2] == 110)
+                if (NPC.ai[2] == 110)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(@"[Y]", Color.Red.R, Color.Red.G, Color.Red.B);
                 }
-                NPC.rotation = NPC.DirectionTo(player.Center).ToRotation() + (float)Math.PI/2;
-                if(NPC.ai[2] % (NPC.life < NPC.lifeMax / 2? 60:80) == 20)
+                NPC.rotation = NPC.DirectionTo(player.Center).ToRotation() + (float)Math.PI / 2;
+                if (NPC.ai[2] % (NPC.life < NPC.lifeMax / 2 ? 60 : 80) == 20)
                 {
                     Teleport(3);
-                    if(Main.netMode != NetmodeID.MultiplayerClient) NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X + 50 * Main.rand.Next(4, 6) * (Main.rand.NextBool(2) ? -1:1), (int)player.Center.Y + 50 * Main.rand.Next(4, 6) * (Main.rand.NextBool(2) ? -1:1), ModContent.NPCType<ZeroMini>());
+                    if (Main.netMode != NetmodeID.MultiplayerClient) NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X + 50 * Main.rand.Next(4, 6) * (Main.rand.NextBool(2) ? -1 : 1), (int)player.Center.Y + 50 * Main.rand.Next(4, 6) * (Main.rand.NextBool(2) ? -1 : 1), ModContent.NPCType<ZeroMini>());
                 }
                 Counterattack = false;
                 NPC.ai[1] = 0f;
                 NPC.ai[3] = 0f;
             }
-            else if(Counterattack)
+            else if (Counterattack)
             {
-                NPC.ai[2] ++;
+                NPC.ai[2]++;
                 NPC.position = player.Center - new Vector2(0, 600);
                 if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                     NPC.Center = player.Center - new Vector2(0, 400);
                 NPC.netOffset = Vector2.Zero;
                 NPC.velocity = Vector2.Zero;
 
-                if(NPC.ai[2] == 240 && Main.netMode != NetmodeID.MultiplayerClient)
+                if (NPC.ai[2] == 240 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X, (int)player.Center.Y + 500, ModContent.NPCType<ZeroEcho>());
                     NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X, (int)player.Center.Y - 500, ModContent.NPCType<ZeroEcho>());
@@ -705,11 +703,11 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                     NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X - 500, (int)player.Center.Y, ModContent.NPCType<ZeroEcho>());
                     NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X + 500, (int)player.Center.Y + 500, ModContent.NPCType<ZeroEcho>());
                     NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X - 500, (int)player.Center.Y - 500, ModContent.NPCType<ZeroEcho>());
-                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X + 500, (int)player.Center.Y - 500 , ModContent.NPCType<ZeroEcho>());
+                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X + 500, (int)player.Center.Y - 500, ModContent.NPCType<ZeroEcho>());
                     NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X - 500, (int)player.Center.Y + 500, ModContent.NPCType<ZeroEcho>());
                 }
-                
-                if(NPC.ai[2] == 420)
+
+                if (NPC.ai[2] == 420)
                 {
                     NPC.ai[1] = 1f;
                 }
@@ -718,7 +716,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                     NPC.ai[1] = 0f;
                 }
 
-                if(NPC.ai[2] > 520)
+                if (NPC.ai[2] > 520)
                 {
                     Counterattack = false;
                     NPC.ai[0] = 2;
@@ -726,7 +724,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                     NPC.ai[2] = 0;
                     NPC.ai[3] = 0;
                 }
-                
+
             }
             else
             {
@@ -751,12 +749,12 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                 }
             }
 
-            if((NPC.Center - player.Center).Length() > 2000 && !isCharging && !Counterattack)
+            if ((NPC.Center - player.Center).Length() > 2000 && !isCharging && !Counterattack)
             {
                 Teleport(0);
             }
 
-            if(NPC.ai[0] != 5)
+            if (NPC.ai[0] != 5)
             {
                 NPC.direction = NPC.spriteDirection = 1;
                 NPC.rotation = 0;
@@ -772,19 +770,19 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                 NPC.ai[2] = 0;
                 if (NPC.ai[0] == 2 || NPC.ai[0] == 4)
                 {
-                    Teleport(Main.rand.NextBool(2) ? 1:2);
+                    Teleport(Main.rand.NextBool(2) ? 1 : 2);
                 }
                 else if (NPC.life < NPC.lifeMax * (3 / 4) && Main.rand.NextBool(3))
                 {
-                    Teleport(Main.rand.NextBool(2) ? 1:2);
+                    Teleport(Main.rand.NextBool(2) ? 1 : 2);
                 }
                 else if (NPC.life < NPC.lifeMax / 2 && Main.rand.NextBool(2))
                 {
-                    Teleport(Main.rand.NextBool(2) ? 1:2);
+                    Teleport(Main.rand.NextBool(2) ? 1 : 2);
                 }
                 if (NPC.life < NPC.lifeMax / 4)
                 {
-                    Teleport(Main.rand.NextBool(2) ? 1:2);
+                    Teleport(Main.rand.NextBool(2) ? 1 : 2);
                 }
             }
             NPC.netUpdate = true;
@@ -831,7 +829,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
         {
             bool safe = false;
             Player player = Main.player[NPC.target];
-            Vector2 targetPos = player.Center; 
+            Vector2 targetPos = player.Center;
             TPDust();
 
             if (a == 0)

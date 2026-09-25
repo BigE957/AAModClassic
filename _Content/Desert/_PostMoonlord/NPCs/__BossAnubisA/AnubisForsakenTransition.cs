@@ -4,7 +4,6 @@ using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -14,9 +13,9 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 {
     public class AnubisForsakenTransition : ModNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Anubis Legendscribe");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Anubis Legendscribe");
             Main.npcFrameCount[NPC.type] = 15;
             this.HideFromBestiary();
         }

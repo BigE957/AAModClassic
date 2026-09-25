@@ -1,12 +1,6 @@
 using AAModClassic._Content.Bunny.Projectiles;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using System;
-using Terraria;
-using Terraria.Audio;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons
@@ -26,7 +20,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
         public override float MaxRetractSpeed => base.MaxRetractSpeed;
 
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("The Avenger");
             base.SetStaticDefaults();
         }

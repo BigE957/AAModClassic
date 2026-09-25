@@ -1,21 +1,20 @@
+using AAModClassic._Content._Misc._PostMoonlord.Items.Buffs;
+using AAModClassic.Base;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
-using AAModClassic._Content._Misc._PostMoonlord.Items.Buffs;
-using AAModClassic.Base;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons
 {
     public class Excalihare_Proj : ModProjectile
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Excalihare");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Excalihare");
+        }
         public override void SetDefaults()
         {
             Projectile.width = 22;

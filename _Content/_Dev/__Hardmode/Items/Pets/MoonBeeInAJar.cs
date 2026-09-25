@@ -1,6 +1,5 @@
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,29 +10,29 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Pets
     {
         public new string LocalizationCategory => "Items.Vanity.Pets";
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Moon Bee in a Jar");
-			// Tooltip.SetDefault("Summons a Lunamini");
+        {
+            // DisplayName.SetDefault("Moon Bee in a Jar");
+            // Tooltip.SetDefault("Summons a Lunamini");
 
             Main.RegisterItemAnimation(Type, new DrawAnimationVertical(2, 2));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
             ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
-		public override void SetDefaults()
-		{
-			Item.CloneDefaults(ItemID.ZephyrFish);
-			Item.shoot = ModContent.ProjectileType<MoonBeeInAJar_Lunamini>();
+        public override void SetDefaults()
+        {
+            Item.CloneDefaults(ItemID.ZephyrFish);
+            Item.shoot = ModContent.ProjectileType<MoonBeeInAJar_Lunamini>();
             Item.buffType = ModContent.BuffType<MoonBeeInAJar_Buff>();
             Item.noUseGraphic = true;
-		}
+        }
 
-		public override void UseStyle(Player player, Rectangle heldItemFrame)
-		{
-			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-			{
-				player.AddBuff(Item.buffType, 3600, true);
-			}
-		}
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
+        {
+            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
+            {
+                player.AddBuff(Item.buffType, 3600, true);
+            }
+        }
     }
 }

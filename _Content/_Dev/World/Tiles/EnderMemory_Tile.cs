@@ -1,13 +1,12 @@
 ﻿
+using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
+using Terraria.DataStructures;
+using Terraria.Enums;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.DataStructures;
-using Terraria.Enums;
-using AAModClassic.Base;
 
 namespace AAModClassic._Content._Dev.World.Tiles
 {

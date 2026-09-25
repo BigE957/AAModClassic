@@ -2,7 +2,6 @@
 using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

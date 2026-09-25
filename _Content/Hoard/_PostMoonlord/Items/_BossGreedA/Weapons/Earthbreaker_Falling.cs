@@ -1,18 +1,17 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
 {
     public class Earthbreaker_Falling : ModBuff
-	{
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Falling");
-			Main.debuff[Type] = true;
-			Main.pvpBuff[Type] = false;
-			Main.buffNoSave[Type] = true;
-		}
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Falling");
+            Main.debuff[Type] = true;
+            Main.pvpBuff[Type] = false;
+            Main.buffNoSave[Type] = true;
+        }
 
         public override void Update(NPC npc, ref int buffIndex)
         {

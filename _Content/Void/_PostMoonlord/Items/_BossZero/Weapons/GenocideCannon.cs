@@ -1,10 +1,8 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -42,13 +40,13 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        
+
 
         public override Vector2? HoldoutOffset()
-		{
-			return new Vector2(-6, 0);
-		}
-		
+        {
+            return new Vector2(-6, 0);
+        }
+
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             Vector2 muzzleOffset = Vector2.Normalize(velocity) * 25f;

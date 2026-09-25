@@ -19,7 +19,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -181,10 +180,10 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
                         if (Main.netMode != NetmodeID.MultiplayerClient && NPC.CountNPCS(ModContent.NPCType<SingularityOfDesire>()) < 2)
                         {
                             int A = Main.rand.Next(-600, 600);
-                            int tileCheck1 = (int)((player.Center.X + A)/16f);
-                            int tileCheck2 = (int)((player.Center.Y + A)/16f);
+                            int tileCheck1 = (int)((player.Center.X + A) / 16f);
+                            int tileCheck2 = (int)((player.Center.Y + A) / 16f);
                             Tile TileCollide = Main.tile[tileCheck1, tileCheck2];
-                            if(!TileCollide.HasTile || !Main.tileSolid[TileCollide.TileType])
+                            if (!TileCollide.HasTile || !Main.tileSolid[TileCollide.TileType])
                             {
                                 int Minion = NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X + A, (int)player.Center.Y + A, ModContent.NPCType<SingularityOfDesire>(), 0);
                                 Main.npc[Minion].netUpdate = true;

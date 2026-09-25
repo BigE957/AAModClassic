@@ -1,6 +1,5 @@
 using AAModClassic._Content.Inferno.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe
@@ -10,7 +9,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dayfire");     
-            Main.projFrames[Projectile.type] = 5;     
+            Main.projFrames[Projectile.type] = 5;
         }
 
         public override void SetDefaults()
@@ -25,7 +24,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             Projectile.timeLeft = 600;
 
             DrawOffsetX = -49;
-			DrawOriginOffsetY = -49;
+            DrawOriginOffsetY = -49;
         }
 
         public override void AI()

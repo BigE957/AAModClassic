@@ -3,24 +3,23 @@ using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons
 {
     public class TerraSphere : ModNPC, IBannerNPC
-	{
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Terra Sphere");
-		}
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Terra Sphere");
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             NPC.width = 26;
             NPC.height = 26;
-            NPC.lifeMax =  350;
+            NPC.lifeMax = 350;
             NPC.defense = 20;
             NPC.damage = 10;
             NPC.HitSound = SoundID.NPCHit1;
@@ -31,7 +30,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraSphereBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraSphereBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 

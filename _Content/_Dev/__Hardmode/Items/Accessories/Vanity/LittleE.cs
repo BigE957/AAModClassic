@@ -4,7 +4,6 @@ using Humanizer;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -49,7 +48,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories.Vanity
                 if (line2.Mod == "Terraria" && line2.Name == "ItemName")
                     line2.OverrideColor = new Color(255, 0, 0);
 
-            string text = Language.GetTextValue("Mods.AAModClassic.Items.Vanity.BigE.LittleE.Tooltip").FormatWith(Main.LocalPlayer.name);       
+            string text = Language.GetTextValue("Mods.AAModClassic.Items.Vanity.BigE.LittleE.Tooltip").FormatWith(Main.LocalPlayer.name);
             if (Item.social)
                 tooltips.Insert(1, new(AAMod.instance, "Tooltip", text));
             else

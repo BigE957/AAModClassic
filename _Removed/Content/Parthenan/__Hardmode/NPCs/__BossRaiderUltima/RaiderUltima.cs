@@ -10,7 +10,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -180,10 +179,10 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
                     NPC.frame.Y = 192 * 4;
                 }
                 else
-                if (!isCharging && NPC.frame.Y >= 192 * 4)
-                {
-                    NPC.frame.Y = 192 * 0;
-                }
+                    if (!isCharging && NPC.frame.Y >= 192 * 4)
+                    {
+                        NPC.frame.Y = 192 * 0;
+                    }
             }
         }
 
@@ -265,10 +264,10 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
                         NPC.ai[1] = 1 + Main.rand.Next(2);
                     }
                     else
-                    if (internalAI[1] == AISTATE_SPAWNEGGS)
-                    {
-                        NPC.ai[1] = NPC.ai[1] == 0 ? 1 : 0;
-                    }
+                        if (internalAI[1] == AISTATE_SPAWNEGGS)
+                        {
+                            NPC.ai[1] = NPC.ai[1] == 0 ? 1 : 0;
+                        }
                     if (internalAI[1] == AISTATE_CHARGEATPLAYER)
                     {
                         SelectPoint = true;
@@ -328,7 +327,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
                         firePos = BaseUtility.RotateVector(NPC.Center, firePos, NPC.rotation); //+ (npc.direction == -1 ? (float)Math.PI : 0f)));
                         if (Minions < MaxMinions)
                         {
-                            int NPCID = NPC.NewNPC( NPC.GetSource_FromThis(), (int)firePos.X, (int)firePos.Y, ModContent.NPCType<RaiderEgg>(), NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
+                            int NPCID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)firePos.X, (int)firePos.Y, ModContent.NPCType<RaiderEgg>(), NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
                             Main.npc[NPCID].velocity.Y = 4f;
                             Main.npc[NPCID].netUpdate = true;
                         }

@@ -6,7 +6,6 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System.Collections.Generic;
 using System.Linq;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.UI.Elements;
 using Terraria.GameContent.UI.States;
@@ -47,7 +46,7 @@ namespace AAModClassic.UI.World
         public override void LoadWorldData(TagCompound tag)
         {
             enabledOptions.Clear();
-            if(tag.Get<bool>("RemovedContentEnabled"))
+            if (tag.Get<bool>("RemovedContentEnabled"))
                 enabledOptions.Add(AAWorldOption.Removed);
             if (tag.Get<bool>("UnreleasedContentEnabled"))
                 enabledOptions.Add(AAWorldOption.Unreleased);

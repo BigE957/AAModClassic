@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Mire.World.Tiles;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

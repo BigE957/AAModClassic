@@ -1,7 +1,6 @@
 ﻿using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord
@@ -43,13 +42,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
             }
             if (Projectile.timeLeft % 90 == 15)
             {
-                for(int i = 0; i < 16; i++)
+                for (int i = 0; i < 16; i++)
                 {
                     Vector2 shoot = new Vector2((float)Math.Sin((i * 0.125f + rotate * 0.067f) * 3.1415926f), (float)Math.Cos((i * 0.125f + rotate * 0.067f) * 3.1415926f));
                     shoot *= 16f;
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, shoot.X, shoot.Y, ModContent.ProjectileType<AbyssGrip_Orbiter2>(), Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
                 }
-                rotate ++;
+                rotate++;
             }
             if (Projectile.timeLeft == 0)
             {
@@ -75,7 +74,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                Projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
@@ -130,7 +129,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                     )
                         selectedTarget = i;
                 }

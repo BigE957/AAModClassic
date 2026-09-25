@@ -1,7 +1,5 @@
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Madness.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.Interfaces;
-using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -36,7 +34,7 @@ namespace AAModClassic._Content.Madness.___PreHardmode.NPCs
             NPC.DeathSound = SoundID.NPCDeath1;
             AIType = NPCID.CaveBat;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MadnessBatBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MadnessBatBanner>();
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

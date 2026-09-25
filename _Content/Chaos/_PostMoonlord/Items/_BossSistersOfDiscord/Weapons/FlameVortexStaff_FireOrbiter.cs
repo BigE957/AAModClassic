@@ -1,8 +1,5 @@
 using AAModClassic.Base;
-using AAModClassic.Globals;
 using System;
-
-using Terraria;
 using Terraria.ModLoader;
 
 
@@ -10,13 +7,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
 {
     public class FlameVortexStaff_FireOrbiter : ModProjectile
     {
-		float rot = 0f;
-		float rotInit = -1f;
-		
-		public override void SetStaticDefaults()
-		{
-			Main.projFrames[Projectile.type] = 4;
-		}
+        float rot = 0f;
+        float rotInit = -1f;
+
+        public override void SetStaticDefaults()
+        {
+            Main.projFrames[Projectile.type] = 4;
+        }
 
         public override void SetDefaults()
         {
@@ -30,29 +27,29 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
             Projectile.penetrate = -1;
             Projectile.minion = true;
             Projectile.minionSlots = 1;
-            Projectile.ignoreWater = true;		
+            Projectile.ignoreWater = true;
         }
 
-		public void SetRot()
-		{
-			float oldInit = rotInit;
-			int[] projs = BaseAI.GetProjectiles(Main.player[Projectile.owner].Center, Projectile.type, Projectile.owner, 200f);
-			rotInit = projs.Length == 0 ? 0f : (float)Math.PI * 2f / projs.Length;
+        public void SetRot()
+        {
+            float oldInit = rotInit;
+            int[] projs = BaseAI.GetProjectiles(Main.player[Projectile.owner].Center, Projectile.type, Projectile.owner, 200f);
+            rotInit = projs.Length == 0 ? 0f : (float)Math.PI * 2f / projs.Length;
 
-			if (rotInit != oldInit)
-			{
-				int projSlot = 0;
-				for(int m = 0; m < projs.Length; m++)
-				{
-					if (projs[m] == Projectile.identity) { projSlot = m; }
-				}
-				rot = rotInit * (projSlot + 1f);
-			}
-		}
+            if (rotInit != oldInit)
+            {
+                int projSlot = 0;
+                for (int m = 0; m < projs.Length; m++)
+                {
+                    if (projs[m] == Projectile.identity) { projSlot = m; }
+                }
+                rot = rotInit * (projSlot + 1f);
+            }
+        }
 
         public override void AI()
-		{
-			Projectile.frameCounter++;
+        {
+            Projectile.frameCounter++;
             if (Projectile.frameCounter >= 8)
             {
                 Projectile.frameCounter = 0;
@@ -62,23 +59,23 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
             {
                 Projectile.frame = 0;
             }
-			
-			Player player = Main.player[Projectile.owner];
+
+            Player player = Main.player[Projectile.owner];
             ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (player.dead || !player.HasBuff(ModContent.BuffType<FlameVortexStaff_Buff>())) Projectile.Kill();
             if (modPlayer.Orbiters)
             {
-				Projectile.timeLeft = 2;
-				player.AddBuff(ModContent.BuffType<FlameVortexStaff_Buff>(), 2, true);
+                Projectile.timeLeft = 2;
+                player.AddBuff(ModContent.BuffType<FlameVortexStaff_Buff>(), 2, true);
             }
-			
-            if (Projectile.active) { SetRot(); }
-			BaseAI.AIRotate(Projectile, ref Projectile.rotation, ref rot, player.Center, true, 40f, 20f, 0.07f, true);
-		}
 
-		public override void OnKill(int timeLeft)
-		{
-			int[] projs = BaseAI.GetProjectiles(Projectile.Center, Projectile.type, Projectile.owner, 200f);
-		}
-	}
+            if (Projectile.active) { SetRot(); }
+            BaseAI.AIRotate(Projectile, ref Projectile.rotation, ref rot, player.Center, true, 40f, 20f, 0.07f, true);
+        }
+
+        public override void OnKill(int timeLeft)
+        {
+            int[] projs = BaseAI.GetProjectiles(Projectile.Center, Projectile.type, Projectile.owner, 200f);
+        }
+    }
 }

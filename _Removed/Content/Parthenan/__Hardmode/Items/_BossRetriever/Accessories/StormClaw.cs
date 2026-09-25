@@ -1,11 +1,6 @@
-﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
-using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
+﻿using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
 using AAModClassic._Removed.Content._Tinker.__Hardmode.Items.Accessories;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -24,7 +19,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetrieve
             Item.expert = true;
             Item.accessory = true;
         }
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Storm Claw");

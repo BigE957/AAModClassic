@@ -1,11 +1,9 @@
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
 using AAModClassic.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
@@ -14,7 +12,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs
 {
     public class SeraphHerald : ModNPC
-	{
+    {
         public override void SetStaticDefaults()
         {
             this.HideFromBestiary();
@@ -34,7 +32,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs
             NPC.noGravity = true;
             NPC.aiStyle = -1;
             NPC.timeLeft = 10;
-            if(!NPC.IsABestiaryIconDummy)
+            if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
@@ -97,20 +95,20 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs
                     NPC.netUpdate = true;
                 }
                 else
-                if (NPC.ai[0] == 120)
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald2"), Color.CadetBlue);
-                }
-                else
-                if (NPC.ai[0] == 240)
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald3"), Color.CadetBlue);
-                }
-                else
-                if (NPC.ai[0] == 360)
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald4"), Color.CadetBlue);
-                }
+                    if (NPC.ai[0] == 120)
+                    {
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald2"), Color.CadetBlue);
+                    }
+                    else
+                        if (NPC.ai[0] == 240)
+                        {
+                            if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald3"), Color.CadetBlue);
+                        }
+                        else
+                            if (NPC.ai[0] == 360)
+                            {
+                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald4"), Color.CadetBlue);
+                            }
                 if (!NPCExtensions.BeenKilled<GreedHead>())
                 {
                     if (NPC.ai[0] >= 480)

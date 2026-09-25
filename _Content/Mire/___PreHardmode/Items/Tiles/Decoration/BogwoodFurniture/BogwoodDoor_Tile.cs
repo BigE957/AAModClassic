@@ -1,6 +1,5 @@
 using AAModClassic.Dusts;
 using AAModClassic.Utilities;
-using Terraria;
 using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
 using Terraria.ModLoader;

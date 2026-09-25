@@ -1,7 +1,5 @@
 ﻿using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

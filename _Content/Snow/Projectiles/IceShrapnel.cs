@@ -1,26 +1,25 @@
-using Terraria;
 using Terraria.Audio;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.Projectiles
 {
     public class IceShrapnel : ModProjectile
-	{
-		public override void SetStaticDefaults()
-		{
+    {
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Ice Shrapnel");
             Main.projFrames[Projectile.type] = 5;
-		}
+        }
 
-		public override void SetDefaults()
-		{
-			Projectile.CloneDefaults(ProjectileID.FrostArrow);
+        public override void SetDefaults()
+        {
+            Projectile.CloneDefaults(ProjectileID.FrostArrow);
             Projectile.hostile = false;
             Projectile.friendly = true;
-			Projectile.penetrate = 5;
+            Projectile.penetrate = 5;
             Projectile.DamageType = DamageClass.Melee;
-		}
+        }
         public override void PostAI()
         {
 

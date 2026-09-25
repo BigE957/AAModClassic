@@ -1,20 +1,10 @@
-﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma;
-using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStandard;
-using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic._Content.Mire.World.Biomes;
-using AAModClassic.Achievements;
-using AAModClassic.Globals;
-using AAModClassic.Music;
-using AAModClassic.UI.Titles;
-using AAModClassic.UI.World;
+﻿using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -149,7 +139,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                 shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
             else
                 shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
-            DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) => {
+            DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) =>
+            {
                 spriteBatch.Draw(ArmlessBodyGlow.Value, NPC.Center - screenPos, null, Color.White * NPC.Opacity, NPC.rotation, (ArmlessBody.Size() * 0.5f), NPC.scale, NPC.SpriteEffectDirection(true), 0);
             });
             return false;
@@ -160,10 +151,10 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
         public static void DrawBackArm(SpriteBatch spriteBatch, Vector2 center, Color drawColor, float rotation, int dir, float scale, float time, bool flaming)
         {
             Rectangle upperBackArmFrame = UpperArm.Frame(2, frameX: 1);
-            
+
             Vector2 upperBackArmPos = center + (new Vector2(0 * dir, -8).RotatedBy(rotation + MathHelper.PiOver2) * scale);
             float bodyFacingAngle = rotation;
-            
+
             Vector2 upperBackArmOrigin = new(12, 8);
             if (dir == 1)
                 upperBackArmOrigin.X = upperBackArmFrame.Width - upperBackArmOrigin.X;
@@ -179,7 +170,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                 shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
             else
                 shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
-            DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) => {
+            DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) =>
+            {
                 spriteBatch.Draw(UpperArmGlow.Value, upperBackArmPos, upperBackArmFrame, Color.White, upperWorldRot, upperBackArmOrigin, scale, dir == 1 ? SpriteEffects.FlipHorizontally : 0, 0);
             });
 
@@ -200,7 +192,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             float lowerWorldRot = bodyFacingAngle + upperBackArmRotation + lowerBackArmRotation + lowerBackArmRotationOffset;
 
             spriteBatch.Draw(LowerArm.Value, lowerBackArmPos, lowerBackArmFrame, drawColor, lowerWorldRot, lowerBackArmOrigin, scale, dir == 1 ? SpriteEffects.FlipHorizontally : 0, 0);
-            DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) => {
+            DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) =>
+            {
                 spriteBatch.Draw(LowerArmGlow.Value, lowerBackArmPos, lowerBackArmFrame, Color.White, lowerWorldRot, lowerBackArmOrigin, scale, dir == 1 ? SpriteEffects.FlipHorizontally : 0, 0);
             });
         }
@@ -229,7 +222,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                 shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
             else
                 shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingOceanDye);
-            DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) => {
+            DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) =>
+            {
                 spriteBatch.Draw(UpperArmGlow.Value, upperFrontArmPos, upperFrontArmFrame, Color.White, upperFrontWorldRot, upperFrontArmOrigin, scale, dir == 1 ? SpriteEffects.FlipHorizontally : 0, 0);
             });
 
@@ -250,7 +244,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             float lowerFrontWorldRot = frontBodyFacingAngle + upperFrontArmRotation + lowerFrontArmRotation + lowerFrontArmRotationOffset;
 
             spriteBatch.Draw(LowerArm.Value, lowerFrontArmPos, lowerFrontArmFrame, drawColor, lowerFrontWorldRot, lowerFrontArmOrigin, scale, dir == 1 ? SpriteEffects.FlipHorizontally : 0, 0);
-            DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) => {
+            DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) =>
+            {
                 spriteBatch.Draw(LowerArmGlow.Value, lowerFrontArmPos, lowerFrontArmFrame, Color.White, lowerFrontWorldRot, lowerFrontArmOrigin, scale, dir == 1 ? SpriteEffects.FlipHorizontally : 0, 0);
             });
         }

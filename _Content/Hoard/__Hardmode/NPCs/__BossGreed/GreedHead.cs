@@ -15,7 +15,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -26,21 +25,21 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
 {
     [AutoloadBossHead]
-	public class GreedHead : ModNPC
-	{
+    public class GreedHead : ModNPC
+    {
         public int damage = 0;
         bool loludided = false;
 
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Greed");
+        {
+            // DisplayName.SetDefault("Greed");
             Main.npcFrameCount[NPC.type] = 3;
             NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
-		public override void SetDefaults()
-		{
-			NPC.npcSlots = 5f;
+        public override void SetDefaults()
+        {
+            NPC.npcSlots = 5f;
             NPC.width = 38;
             NPC.height = 38;
             NPC.damage = 35;
@@ -474,10 +473,10 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
-		{
-			NPC.lifeMax = (int)(NPC.lifeMax * 0.75f * balance);
-			NPC.damage = (int)(NPC.damage * 0.85f);
-		}
+        {
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.75f * balance);
+            NPC.damage = (int)(NPC.damage * 0.85f);
+        }
 
         public override void HitEffect(NPC.HitInfo hit)
         {
@@ -496,7 +495,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
 
         public override bool PreKill()
         {
-            if((!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.downedMoonlord) || (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPCExtensions.BeenKilled<AnubisA>()))
+            if ((!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.downedMoonlord) || (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPCExtensions.BeenKilled<AnubisA>()))
                 NPC.boss = false;
 
             return true;

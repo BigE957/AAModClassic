@@ -4,7 +4,6 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -45,7 +44,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             AIType = NPCID.GraniteGolem;  //npc behavior
             AnimationType = NPCID.GraniteGolem;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraSquireBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraSquireBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 

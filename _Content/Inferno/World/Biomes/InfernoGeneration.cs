@@ -44,8 +44,8 @@ namespace AAModClassic._Content.Inferno.World.Biomes
             [
                 new InWorld(),
                 new Modifiers.RadialDither(biomeRadius - 5, biomeRadius),
-				new ConvertTile(ModContent.GetInstance<InfernoConversion>().Type)
-			]));
+                new ConvertTile(ModContent.GetInstance<InfernoConversion>().Type)
+            ]));
 
             PlacedSchematic placed = SchematicPlacement.Place(volcano, newOrigin, new SchematicPlaceOptions { Anchor = SchematicAnchor.Center });
 

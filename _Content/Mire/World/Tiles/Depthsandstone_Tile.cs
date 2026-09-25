@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.World.Tiles
@@ -14,9 +13,9 @@ namespace AAModClassic._Content.Mire.World.Tiles
             Terraria.ID.TileID.Sets.Conversion.Sandstone[Type] = true;
             Main.tileLighted[Type] = false;
             DustType = ModContent.DustType<Dusts.DeepAbyssiumDust>();
-            RegisterItemDrop(ModContent.ItemType<Depthsandstone>());   
+            RegisterItemDrop(ModContent.ItemType<Depthsandstone>());
             AddMapEntry(new Color(0, 20, 127));
-			MinPick = 65;
+            MinPick = 65;
         }
     }
 }

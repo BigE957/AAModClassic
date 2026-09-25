@@ -14,7 +14,6 @@ using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using AAModClassic.Utilities.Components;
 using Microsoft.Xna.Framework;
@@ -24,7 +23,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -150,7 +148,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             NPC.netAlways = true;
             frameWidth = 162;
             frameHeight = 118;
-            if(!NPC.IsABestiaryIconDummy)
+            if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
             NPC.frame = BaseDrawing.GetFrame(frameCount, frameWidth, frameHeight, 0, 2);
             frameBottom = BaseDrawing.GetFrame(frameCount, frameWidth, 54, 0, 2);
@@ -182,7 +180,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
         public override void BossLoot(ref int potionType)
         {
             if (!Main.expertMode)
-            potionType = ItemID.SuperHealingPotion;
+                potionType = ItemID.SuperHealingPotion;
             else
             {
                 potionType = 0;
@@ -362,30 +360,30 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                             if (npc2 != null)
                             {
                                 if (TrueHead == null && npc2.type == ModContent.NPCType<YamataHead>() && npc2.ai[0] == NPC.whoAmI)
-                                TrueHead = npc2;
+                                    TrueHead = npc2;
                                 else
-                                if (Head2 == null && npc2.type == ModContent.NPCType<YamataHeadFake1>() && npc2.ai[0] == NPC.whoAmI)
-                                Head2 = npc2;
-                                else
-                                if (Head3 == null && npc2.type == ModContent.NPCType<YamataHeadFake1>() && npc2.ai[0] == NPC.whoAmI)
-                                Head3 = npc2;
-                                else
-                                if (Head4 == null && npc2.type == ModContent.NPCType<YamataHeadFake1>() && npc2.ai[0] == NPC.whoAmI)
-                                Head4 = npc2;
-                                else
-                                if (Head5 == null && npc2.type == ModContent.NPCType<YamataHeadFake2>() && npc2.ai[0] == NPC.whoAmI)
-                                Head5 = npc2;
-                                else
-                                if (Head6 == null && npc2.type == ModContent.NPCType<YamataHeadFake2>() && npc2.ai[0] == NPC.whoAmI)
-                                Head6 = npc2;
-                                else
-                                if (Head7 == null && npc2.type == ModContent.NPCType<YamataHeadFake2>() && npc2.ai[0] == NPC.whoAmI)
-                                Head7 = npc2;
+                                    if (Head2 == null && npc2.type == ModContent.NPCType<YamataHeadFake1>() && npc2.ai[0] == NPC.whoAmI)
+                                        Head2 = npc2;
+                                    else
+                                        if (Head3 == null && npc2.type == ModContent.NPCType<YamataHeadFake1>() && npc2.ai[0] == NPC.whoAmI)
+                                            Head3 = npc2;
+                                        else
+                                            if (Head4 == null && npc2.type == ModContent.NPCType<YamataHeadFake1>() && npc2.ai[0] == NPC.whoAmI)
+                                                Head4 = npc2;
+                                            else
+                                                if (Head5 == null && npc2.type == ModContent.NPCType<YamataHeadFake2>() && npc2.ai[0] == NPC.whoAmI)
+                                                    Head5 = npc2;
+                                                else
+                                                    if (Head6 == null && npc2.type == ModContent.NPCType<YamataHeadFake2>() && npc2.ai[0] == NPC.whoAmI)
+                                                        Head6 = npc2;
+                                                    else
+                                                        if (Head7 == null && npc2.type == ModContent.NPCType<YamataHeadFake2>() && npc2.ai[0] == NPC.whoAmI)
+                                                            Head7 = npc2;
                             }
                         }
                     }
                     if (TrueHead != null && Head2 != null && Head3 != null && Head4 != null && Head5 != null && Head6 != null && Head7 != null)
-                    HeadsSpawned = true;
+                        HeadsSpawned = true;
                 }
             }
         }
@@ -398,7 +396,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             HandleHeads();
 
             if (SayTheLineYamata <= 0)
-            SayTheLineYamata = 300;
+                SayTheLineYamata = 300;
 
             if (Main.dayTime)
             {
@@ -409,7 +407,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 }
                 NPC.alpha += 10;
                 if (NPC.alpha >= 255)
-                NPC.active = false;
+                    NPC.active = false;
                 return;
             }
 
@@ -431,7 +429,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 {
                     Player t = Main.player[p];
                     if (t.active && !t.dead)
-                    Main.player[p].AddBuff(ModContent.BuffType<YamataBody_AbyssalGravity>(), 10, true);
+                        Main.player[p].AddBuff(ModContent.BuffType<YamataBody_AbyssalGravity>(), 10, true);
                 }
                 NoFlyCountDown--;
                 if (!NoFly4U && NoFlyCountDown <= 0 && !AAWorld.downedYamata)
@@ -520,14 +518,14 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 
             NPC.alpha += 10;
             if (NPC.alpha >= 255)
-            NPC.active = false;
+                NPC.active = false;
         }
 
         public void AIMovementNormal(float playerDistance)
         {
             bool playerTooFar = playerDistance > playerTooFarDist;
             HandleYamataBody(NPC, ref NPC.ai, true, 0.2f, 3.5f, 8f, 0.07f, 1.5f, 4);
-            if (playerTooFar) 
+            if (playerTooFar)
                 NPC.position += playerTarget.position - playerTarget.oldPosition;
             NPC.rotation = 0f;
         }
@@ -543,7 +541,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 int tileDist = 16;
                 bool inRangeX = false;
                 bool inRangeY = false;
-                if (npc.position.X > ai[0] - tileDist && npc.position.X < ai[0] + tileDist) 
+                if (npc.position.X > ai[0] - tileDist && npc.position.X < ai[0] + tileDist)
                     inRangeX = true;
                 else if (npc.velocity.X < 0f && npc.direction > 0 || npc.velocity.X > 0f && npc.direction < 0)
                     inRangeX = true;
@@ -554,9 +552,9 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 {
                     ai[2] += 1f;
                     if (ai[2] >= 30f && tileDist == 16)
-                    flyUpward = true;
+                        flyUpward = true;
                     if (ai[2] >= 60f)
-                    ai[2] = 0f;
+                        ai[2] = 0f;
                 }
                 else
                 {
@@ -570,7 +568,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             {
                 ai[2] += 1f;
                 if (Main.player[npc.target].position.X + Main.player[npc.target].width / 2 > npc.position.X + npc.width / 2)
-                npc.direction = -1;
+                    npc.direction = -1;
                 else
                 {
                     npc.direction = 1;
@@ -606,7 +604,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             {
                 npc.velocity.Y += moveInterval;
                 if (npc.velocity.Y > 9f)
-                npc.velocity.Y = 9f;
+                    npc.velocity.Y = 9f;
             }
             else
             {
@@ -644,12 +642,12 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             else if (npc.direction == 1 && npc.velocity.X < maxSpeedX)
             {
                 npc.velocity.X += moveInterval * 0.5f;
-                if (npc.velocity.X < -maxSpeedX) 
+                if (npc.velocity.X < -maxSpeedX)
                     npc.velocity.X += 0.1f;
-                else if (npc.velocity.X < 0f) 
+                else if (npc.velocity.X < 0f)
                     npc.velocity.X -= 0.05f;
 
-                if (npc.velocity.X > maxSpeedX) 
+                if (npc.velocity.X > maxSpeedX)
                     npc.velocity.X = maxSpeedX;
             }
 
@@ -659,7 +657,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 npc.velocity.Y -= hoverInterval;
                 if ((double)npc.velocity.Y > hoverMaxSpeed)
                     npc.velocity.Y -= 0.05f;
-                else if (npc.velocity.Y > 0f) 
+                else if (npc.velocity.Y > 0f)
                     npc.velocity.Y += hoverInterval - 0.01f;
 
                 if ((double)npc.velocity.Y < -hoverMaxSpeed)
@@ -668,16 +666,16 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             else if (npc.directionY == 1 && (double)npc.velocity.Y < hoverMaxSpeed)
             {
                 npc.velocity.Y += hoverInterval;
-                if ((double)npc.velocity.Y < -hoverMaxSpeed) 
+                if ((double)npc.velocity.Y < -hoverMaxSpeed)
                     npc.velocity.Y += 0.05f;
-                else if (npc.velocity.Y < 0f) 
+                else if (npc.velocity.Y < 0f)
                     npc.velocity.Y -= hoverInterval - 0.01f;
 
-                if ((double)npc.velocity.Y > hoverMaxSpeed) 
+                if ((double)npc.velocity.Y > hoverMaxSpeed)
                     npc.velocity.Y = hoverMaxSpeed;
             }
 
-            
+
         }
 
         public bool TargetClosest()
@@ -827,13 +825,13 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                         new(new(-20, -10), 90, 80, true, true, -7), //Front Left
                         new(new(20, -10), 90, 80, true, false, -7)
                     ];
-                    foreach(var (offset, lengthA, lengthB, frontSet, leftSet, yOffset) in dummyLegs)
-                        DrawYamataLeg(spriteBatch, NPC, NPC.Center + (offset * NPC.scale), 
+                    foreach (var (offset, lengthA, lengthB, frontSet, leftSet, yOffset) in dummyLegs)
+                        DrawYamataLeg(spriteBatch, NPC, NPC.Center + (offset * NPC.scale),
                             NPC.Center + (offset * NPC.scale) + new Vector2(lengthA * NPC.scale * (leftSet ? -1 : 1), 0).RotatedBy(leftSet ? 0.2f : -0.2f),
                             NPC.Center + (offset * NPC.scale) + new Vector2(lengthA * NPC.scale * (leftSet ? -1 : 1), 0).RotatedBy(leftSet ? 0.2f : -0.2f) + Vector2.UnitY * lengthB * NPC.scale,
                             leftSet, frontSet, true);
                 }
-                else if(unofficialLegs != null)
+                else if (unofficialLegs != null)
                 {
                     foreach (IKLeg leg in unofficialLegs)
                         DrawYamataLeg(spriteBatch, NPC, leg.Start, leg.Middle, leg.End, leg.LeftSet, leg.FrontSet);
@@ -847,7 +845,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                     {
                         Vector2 start = NPC.Center + new Vector2(i == 3 || i == 1 ? -40f : 40f, 0f);
                         Vector2 end = NPC.Bottom;
-                        switch(i)
+                        switch (i)
                         {
                             case 0:
                                 end += new Vector2(60, 0);
@@ -880,16 +878,16 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 }
             }
 
-            if(NPC.IsABestiaryIconDummy)
+            if (NPC.IsABestiaryIconDummy)
             {
                 bool isSmall = NPC.scale == 0.7f;
                 List<Vector2> heads = [
                     new Vector2(isSmall ? -12 : -32, -12),
                     new Vector2(isSmall ? 12 : 32, -12),
                     new Vector2(isSmall ? 36 : 64, 0),
-                    new Vector2(isSmall ? -36 : -64, 0), 
-                    new Vector2(isSmall ? -18 : -72, isSmall ? 26 : 44),     
-                    new Vector2(isSmall ? 18 : 72, isSmall ? 26 : 44), 
+                    new Vector2(isSmall ? -36 : -64, 0),
+                    new Vector2(isSmall ? -18 : -72, isSmall ? 26 : 44),
+                    new Vector2(isSmall ? 18 : 72, isSmall ? 26 : 44),
                 ];
                 foreach (Vector2 headPos in heads)
                 {

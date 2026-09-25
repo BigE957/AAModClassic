@@ -1,9 +1,7 @@
-﻿using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -38,7 +36,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Materials
             Item.value = Terraria.Item.sellPrice(0, 3, 0, 0);
         }
         public override void AddRecipes()
-        {                                                   
+        {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumOre>(), 5);
             recipe.AddIngredient(ModContent.ItemType<DeepAbyssiumBar>(), 1);

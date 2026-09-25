@@ -1,10 +1,7 @@
 ﻿using AAModClassic._Content.Hell.___PreHardmode.Items.Materials;
 using AAModClassic.UI.World;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Armor

@@ -5,7 +5,6 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -51,7 +50,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
             NPC.lavaImmune = true;
             NPC.buffImmune[BuffID.OnFire] = true;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<SingemanderBanner>();
+            //BannerItem = ModContent.ItemType<SingemanderBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
@@ -89,7 +88,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
         {
             Player player = Main.player[NPC.target];
             Lighting.AddLight(NPC.Center, Color.DarkOrange.R / 255f, Color.DarkOrange.G / 255f, Color.DarkOrange.B / 255f);
-            
+
             if (NPC.velocity.X > 0) // so it faces the player
             {
                 NPC.spriteDirection = -1;

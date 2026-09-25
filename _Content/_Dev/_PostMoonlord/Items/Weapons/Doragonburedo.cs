@@ -1,8 +1,4 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using Terraria;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -20,7 +16,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 
         public override void SetDefaults()
         {
-			Item.CloneDefaults(ItemID.Arkhalis);
+            Item.CloneDefaults(ItemID.Arkhalis);
             Item.glowMask = customGlowMask;
             Item.damage = 220;            //Sword damage
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            //if it's melee
@@ -30,7 +26,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             Item.useTime = 6;
             Item.useAnimation = 6;
             Item.knockBack = 6;      //Sword knockback
-            Item.value = 100000;        
+            Item.value = 100000;
             Item.rare = ItemRarityID.Lime;
             Item.autoReuse = true;   //if it's capable of autoswing.
             Item.useTurn = true;

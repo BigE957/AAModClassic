@@ -5,7 +5,6 @@ using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -26,10 +25,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
-	    public override void SetDefaults()
+        public override void SetDefaults()
         {
-			base.SetDefaults();
-			NPC.lifeMax = 70000;
+            base.SetDefaults();
+            NPC.lifeMax = 70000;
             NPC.damage = 60;
             NPC.defense = 60;
             NPC.boss = true;
@@ -38,7 +37,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
             offsetBasePoint = new Vector2(-280f, 0f);
             SpawnModBiomes = [ModContent.GetInstance<InfernoBiome>().Type];
             NPCID.Sets.BossBestiaryPriority.Add(Type);
-        }	
+        }
 
         public override void HitEffect(NPC.HitInfo hit)
         {

@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,8 +7,8 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class BogwoodLeggings : BaseAAItem, ILocalizedModType
-	{
+    public class BogwoodLeggings : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Armor.Bogwood";
         public override void SetStaticDefaults()
         {

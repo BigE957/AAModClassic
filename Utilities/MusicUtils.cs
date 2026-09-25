@@ -1,12 +1,4 @@
-﻿using AAModClassic.Music;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
-
-namespace AAModClassic.Utilities
+﻿namespace AAModClassic.Utilities
 {
     public static class MusicUtils
     {

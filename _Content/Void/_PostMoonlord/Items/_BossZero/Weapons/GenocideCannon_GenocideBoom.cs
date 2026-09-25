@@ -1,6 +1,5 @@
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
@@ -11,7 +10,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Genocide Boom");     
-            Main.projFrames[Projectile.type] = 5;     
+            Main.projFrames[Projectile.type] = 5;
         }
 
         public override void SetDefaults()

@@ -1,7 +1,5 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Tools;
-using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

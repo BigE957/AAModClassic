@@ -5,7 +5,6 @@ using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -23,19 +22,19 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
             NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
-	    public override void SetDefaults()
+        public override void SetDefaults()
         {
-			base.SetDefaults();
-			NPC.lifeMax = 60000;
+            base.SetDefaults();
+            NPC.lifeMax = 60000;
             NPC.damage = 80;
             NPC.defense = 50;
             NPC.boss = true;
             NPC.buffImmune[BuffID.Poisoned] = true;
 
-			offsetBasePoint = new Vector2(280f, 0f);
+            offsetBasePoint = new Vector2(280f, 0f);
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
-		
+
         public override void HitEffect(NPC.HitInfo hit)
         {
             if (NPC.life <= 0) //this make so when the npc has 0 life(dead) he will spawn this

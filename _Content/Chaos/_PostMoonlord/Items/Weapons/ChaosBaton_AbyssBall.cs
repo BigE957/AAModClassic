@@ -1,7 +1,6 @@
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -29,7 +28,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Weapons
             Projectile.timeLeft = 900;
             Projectile.friendly = true;
             Projectile.hostile = false;
-            
+
         }
 
         public override void AI()
@@ -51,7 +50,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Weapons
                 Projectile.velocity.Y * 0.2f, 100, Color.White, 2f);
             Main.dust[dustId3].noGravity = true;
         }
-        
+
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {

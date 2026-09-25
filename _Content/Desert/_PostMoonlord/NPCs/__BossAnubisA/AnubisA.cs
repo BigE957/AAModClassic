@@ -14,7 +14,6 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -27,9 +26,9 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
     [AutoloadBossHead]
     public class AnubisA : ModNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Anubis; Forsaken Judge");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Anubis; Forsaken Judge");
             Main.npcFrameCount[NPC.type] = 12;
 
             NPCID.Sets.NPCBestiaryDrawModifiers value = new()
@@ -150,15 +149,15 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
                 }
             }
             else
-            if (internalAI[0] == 1)
-            {
-                NPC.velocity.Y -= 0.002f;
-                if (NPC.velocity.Y < -.1f)
+                if (internalAI[0] == 1)
                 {
-                    internalAI[0] = 0f;
-                    NPC.netUpdate = true;
+                    NPC.velocity.Y -= 0.002f;
+                    if (NPC.velocity.Y < -.1f)
+                    {
+                        internalAI[0] = 0f;
+                        NPC.netUpdate = true;
+                    }
                 }
-            }
 
             if (NPC.life < NPC.lifeMax / 3)
             {
@@ -272,7 +271,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 
                     if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[1] == 10)
                     {
-                        if (Main.rand.NextBool(2) && NPC.life < NPC.lifeMax * (2/3))
+                        if (Main.rand.NextBool(2) && NPC.life < NPC.lifeMax * (2 / 3))
                         {
                             if (NPC.life < NPC.lifeMax / 3)
                             {
@@ -360,7 +359,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
                         Max = 4;
                     }
 
-                    if (NPC.ai[1] > 120 &&  Main.netMode != NetmodeID.MultiplayerClient)
+                    if (NPC.ai[1] > 120 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         float rotation = 2f * (float)Math.PI / Max;
                         Vector2 vel = NPC.velocity;
@@ -608,7 +607,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
             NPC legendscribe = null;
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 legendscribe = NPC.NewNPCDirect(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<LegendscribeUnofficial>());
-            else 
+            else
                 legendscribe = NPC.NewNPCDirect(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<Legendscribe>());
             legendscribe.ShimmerNPC();
 
@@ -686,7 +685,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
                 NPC.frame.Y += frameHeight;
                 if (NPC.ai[0] == 2 && NPC.ai[1] >= 120)
                 {
-                    if (NPC.frame.Y > frameHeight * 11 || NPC.frame.Y < frameHeight * 6 )
+                    if (NPC.frame.Y > frameHeight * 11 || NPC.frame.Y < frameHeight * 6)
                     {
                         NPC.frame.Y = frameHeight * 6;
                     }

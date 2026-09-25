@@ -1,36 +1,31 @@
-﻿using AAModClassic.Globals;
-using AAModClassic.Rarities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
-using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class MidnightAssassinHelmet : EquipAbstract, ILocalizedModType
-	{
+    public class MidnightAssassinHelmet : EquipAbstract, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Armor.MidnightAssassin";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Midnight Assassin Hood");
-			/* Tooltip.SetDefault(@"'A dark hood infused with the shadow of midnight'"); */
-		}
+            /* Tooltip.SetDefault(@"'A dark hood infused with the shadow of midnight'"); */
+        }
 
-		public override void SetDefaults()
-		{
-			Item.width = 16;
-			Item.height = 16;
+        public override void SetDefaults()
+        {
+            Item.width = 16;
+            Item.height = 16;
             Item.value = 300000;
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
             Item.defense = 25;
-		}
+        }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
-		{
-			return body.type == ModContent.ItemType<MidnightAssassinChestplate>() && legs.type == ModContent.ItemType<MidnightAssassinLeggings>();
+        {
+            return body.type == ModContent.ItemType<MidnightAssassinChestplate>() && legs.type == ModContent.ItemType<MidnightAssassinLeggings>();
         }
 
         public override void RegisterEquipEffects()

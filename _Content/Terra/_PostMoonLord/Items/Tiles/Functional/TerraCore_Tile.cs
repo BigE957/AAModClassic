@@ -3,7 +3,6 @@ using AAModClassic._Content.Hell.___PreHardmode.Items.Tiles.Functional;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -85,7 +84,7 @@ namespace AAModClassic._Content.Terra._PostMoonLord.Items.Tiles.Functional
             int height = tile.TileFrameY == 36 ? 18 : 16;
             int animate = Main.tileFrame[Type] * AnimationFrameHeight;
 
-            if(texture != null)
+            if (texture != null)
                 spriteBatch.Draw(texture, new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY + animate, 16, height), Lighting.GetColor(i, j), 0f, default, 1f, SpriteEffects.None, 0f);
             spriteBatch.Draw(ModContent.Request<Texture2D>(Texture + "_Glow").Value, new Vector2((i * 16) - (int)Main.screenPosition.X, (j * 16) - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY + animate, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             return false;

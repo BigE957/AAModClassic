@@ -1,8 +1,7 @@
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.World.Tiles
 {
@@ -24,7 +23,7 @@ namespace AAModClassic._Content.Void.World.Tiles
             Item.createWall = ModContent.WallType<DoomitePlatingWall_Wall>(); //put your CustomBlock Tile name
         }
 
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Doomite Plating Wall");

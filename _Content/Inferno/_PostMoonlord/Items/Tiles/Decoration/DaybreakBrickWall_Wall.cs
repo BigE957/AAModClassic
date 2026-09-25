@@ -2,13 +2,12 @@ using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Tiles.Decoration
 {
     public class DaybreakBrickWall_Wall : ModWall
-	{
+    {
         public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;

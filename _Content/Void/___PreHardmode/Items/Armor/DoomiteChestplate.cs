@@ -2,11 +2,9 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Globals;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -22,18 +20,18 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
         public bool Condition(Player p) => p.GetModPlayer<DoomiteHelmetSetPlayer>().effect;
 
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Doomite Plate");
-		}
+        {
+            // DisplayName.SetDefault("Doomite Plate");
+        }
 
-		public override void SetDefaults()
-		{
-			Item.width = 26;
-			Item.height = 20;
-			Item.rare = ItemRarityID.LightRed;
+        public override void SetDefaults()
+        {
+            Item.width = 26;
+            Item.height = 20;
+            Item.rare = ItemRarityID.LightRed;
             Item.defense = 7;
             Item.value = 9000;
-		}
+        }
 
         public override void RegisterEquipEffects()
         {

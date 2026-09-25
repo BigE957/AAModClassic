@@ -1,12 +1,10 @@
 using log4net;
+using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Chat;
 using Terraria.ID;
 using Terraria.Localization;
-using Terraria.ModLoader;
 using Terraria.Utilities;
-using Microsoft.Xna.Framework;
 
 namespace AAModClassic.Base
 {
@@ -19,7 +17,7 @@ namespace AAModClassic.Base
         //------------------------------------------------------//
         //  Author(s): Grox the Great                           //
         //------------------------------------------------------// 
-	
+
 
         public static void LogFancy(string prefix, Exception e)
         {
@@ -198,9 +196,9 @@ namespace AAModClassic.Base
         {
             if (Main.netMode == NetmodeID.SinglePlayer) { Main.NewText(s, colorR, colorG, colorB); }
             else
-            if (Main.netMode == NetmodeID.MultiplayerClient) { Main.NewText(s, colorR, colorG, colorB); }
-            else //if(sync){ NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), Main.myPlayer); } }else
-            if (sync && Main.netMode == NetmodeID.Server) { ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB)); }
+                if (Main.netMode == NetmodeID.MultiplayerClient) { Main.NewText(s, colorR, colorG, colorB); }
+                else //if(sync){ NetMessage.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB), Main.myPlayer); } }else
+                    if (sync && Main.netMode == NetmodeID.Server) { ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(s), new Color(colorR, colorG, colorB)); }
         }
     }
 }

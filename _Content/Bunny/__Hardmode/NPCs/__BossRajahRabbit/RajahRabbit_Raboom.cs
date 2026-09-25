@@ -1,6 +1,5 @@
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
@@ -10,7 +9,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Raboom");     
-            Main.projFrames[Projectile.type] = 5;     
+            Main.projFrames[Projectile.type] = 5;
         }
 
         public override void SetDefaults()

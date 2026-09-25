@@ -1,7 +1,7 @@
-﻿using Terraria.ID;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
+using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
 {
@@ -29,8 +29,8 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
             Item.DamageType = DamageClass.Ranged;
             Item.crit = 10;
         }
-		
-		public override Vector2? HoldoutOffset()
+
+        public override Vector2? HoldoutOffset()
         {
             return new Vector2(-7, 0);
         }

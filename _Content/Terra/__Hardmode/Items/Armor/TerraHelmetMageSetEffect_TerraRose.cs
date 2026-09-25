@@ -1,8 +1,6 @@
-using System;
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-
-using Terraria;
+using System;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,14 +9,14 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 {
     public class TerraHelmetMageSetEffect_TerraRose : ModProjectile
-	{
-		public static Color lightColor = new Color(0, 150, 50);
+    {
+        public static Color lightColor = new Color(0, 150, 50);
 
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Terra Rose");
-			Main.projFrames[Projectile.type] = 2;
-		}	
+            Main.projFrames[Projectile.type] = 2;
+        }
 
         public override void SetDefaults()
         {
@@ -36,43 +34,43 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
             Projectile.DamageType = DamageClass.Magic;
         }
 
-		public override void AI()
-		{
-			BaseAI.AIVilethorn(Projectile, 70, 4, 10);
-			if (Projectile.ai[1] == 10)
-			{
-				Projectile.frame = 0;
-			}
-			else
-			{
-				Projectile.frame = 1;
-			}
-		}
+        public override void AI()
+        {
+            BaseAI.AIVilethorn(Projectile, 70, 4, 10);
+            if (Projectile.ai[1] == 10)
+            {
+                Projectile.frame = 0;
+            }
+            else
+            {
+                Projectile.frame = 1;
+            }
+        }
 
-		public override void PostAI()
-		{
-			if (Main.netMode != NetmodeID.Server && Projectile.alpha < 170 && Projectile.alpha + 5 >= 170)
-			{
-				for (int j = 0; j < 4; j++)
-				{
-					Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Cobalt, Projectile.velocity.X * 0.025f, Projectile.velocity.Y * 0.025f, 107, Color.White, j == 0 ? 1.1f : 1.2f);
-				}
-			}
-		}
+        public override void PostAI()
+        {
+            if (Main.netMode != NetmodeID.Server && Projectile.alpha < 170 && Projectile.alpha + 5 >= 170)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Cobalt, Projectile.velocity.X * 0.025f, Projectile.velocity.Y * 0.025f, 107, Color.White, j == 0 ? 1.1f : 1.2f);
+                }
+            }
+        }
 
-		public override bool PreDraw(ref Color lightColor)
-		{
-			Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, 34, 34, 0, 0);
+        public override bool PreDraw(ref Color lightColor)
+        {
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, 34, 34, 0, 0);
 
-			Color newLightColor = new Color(Math.Max(0, lightColor.R + Math.Min(0, -Projectile.alpha + 20)), Math.Max(0, lightColor.G + Math.Min(0, -Projectile.alpha + 20)), Math.Max(0, lightColor.B + Math.Min(0, -Projectile.alpha + 20)));
-			BaseDrawing.AddLight(Projectile.Center, newLightColor);
-			BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 2, frame, Projectile.GetAlpha(Color.White), true);
-			return false;
-		}
+            Color newLightColor = new Color(Math.Max(0, lightColor.R + Math.Min(0, -Projectile.alpha + 20)), Math.Max(0, lightColor.G + Math.Min(0, -Projectile.alpha + 20)), Math.Max(0, lightColor.B + Math.Min(0, -Projectile.alpha + 20)));
+            Lighting.AddLight(Projectile.Center, newLightColor.ToVector3());
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 2, frame, Projectile.GetAlpha(Color.White), true);
+            return false;
+        }
 
-		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-		{
-			Item.NewItem(target.GetSource_OnHurt(Projectile), target.Hitbox, ItemID.Star, Main.rand.Next(1, 3));
-		}
-	}
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            Item.NewItem(target.GetSource_OnHurt(Projectile), target.Hitbox, ItemID.Star, Main.rand.Next(1, 3));
+        }
+    }
 }

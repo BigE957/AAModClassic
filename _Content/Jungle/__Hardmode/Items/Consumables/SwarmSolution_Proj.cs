@@ -1,10 +1,9 @@
-using System;
+using AAModClassic._Content.RedMushroom.World.Tiles;
+using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Assets;
-using AAModClassic._Content.RedMushroom.World.Tiles;
 
 namespace AAModClassic._Content.Jungle.__Hardmode.Items.Consumables
 {

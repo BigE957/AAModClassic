@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,7 +10,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
     {
         public override void SetStaticDefaults()
         {
-            Main.projFrames[Projectile.type] = 4;      
+            Main.projFrames[Projectile.type] = 4;
         }
 
         public override void SetDefaults()

@@ -2,12 +2,9 @@
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.UI.Elements;
-using Terraria.GameContent.UI.States;
 using Terraria.Localization;
 using Terraria.UI;
 
@@ -124,7 +121,8 @@ namespace AAModClassic.UI.Core
 
         private static void AddDynamicResize(UIElement container, UIText text)
         {
-            text.OnInternalTextChange += delegate {
+            text.OnInternalTextChange += delegate
+            {
                 container.Height = new StyleDimension(text.MinHeight.Pixels, 0f);
             };
         }

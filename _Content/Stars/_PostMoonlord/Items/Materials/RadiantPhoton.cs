@@ -1,9 +1,8 @@
-﻿using Terraria;
+﻿using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using AAModClassic.Globals;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
@@ -11,7 +10,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
     public class RadiantPhoton : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Materials";
-        
+
         public override void SetStaticDefaults()
         {
             Main.RegisterItemAnimation(Type, new DrawAnimationVertical(5, 4));

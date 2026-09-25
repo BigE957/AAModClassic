@@ -1,7 +1,6 @@
 using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
@@ -78,7 +77,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
         {
             return SpawnCondition.OverworldDayGrassCritter.Chance * (NPC.downedGolemBoss ? .005f : 0f);
         }
-        
+
         public override bool CanHitPlayer(Player target, ref int cooldownSlot)
         {
             return false;

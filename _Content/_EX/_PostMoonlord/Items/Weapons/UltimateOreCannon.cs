@@ -1,12 +1,10 @@
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -37,10 +35,10 @@ OreCannonEX"); */
             Item.useAnimation = 45;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 0;
-			Item.shoot = ProjectileID.PurificationPowder;
+            Item.shoot = ProjectileID.PurificationPowder;
             Item.UseSound = SoundID.Item14;
             Item.shootSpeed = 14f;
-            Item.expert = true; 
+            Item.expert = true;
             Item.autoReuse = true;
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
@@ -69,26 +67,26 @@ OreCannonEX"); */
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-		{
+        {
             int p = Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, velocity, ModContent.ProjectileType<OreChunk>(), damage + Damage(), knockback, player.whoAmI, ai1: projType);
             Main.projectile[p].TriggerOreOnSpawn();
             return false;
-		}
+        }
 
         public int Damage()
         {
             int orevalue = 0;
-            if(AALuckyConfig.LuckyOre.TryGetValue(projType, out orevalue))
+            if (AALuckyConfig.LuckyOre.TryGetValue(projType, out orevalue))
             {
-                return (int)Math.Exp(orevalue * 0.94/100);
+                return (int)Math.Exp(orevalue * 0.94 / 100);
             }
-            else if(projType == ItemID.Hellstone)
+            else if (projType == ItemID.Hellstone)
             {
-                return (int)Math.Exp(500 * 0.94/100);
+                return (int)Math.Exp(500 * 0.94 / 100);
             }
             else
             {
-                return (int)Math.Exp(100 * 0.94/100);
+                return (int)Math.Exp(100 * 0.94 / 100);
             }
         }
 

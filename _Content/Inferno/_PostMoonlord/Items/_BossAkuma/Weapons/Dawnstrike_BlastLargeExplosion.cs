@@ -1,9 +1,8 @@
+using AAModClassic.Base;
+using Microsoft.Xna.Framework;
 using Terraria.GameContent;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
-using AAModClassic.Base;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {
@@ -12,7 +11,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dayfire");     
-            Main.projFrames[Projectile.type] = 5;     
+            Main.projFrames[Projectile.type] = 5;
         }
 
         public override void SetDefaults()

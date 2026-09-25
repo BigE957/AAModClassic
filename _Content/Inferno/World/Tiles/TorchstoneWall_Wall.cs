@@ -1,11 +1,10 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.World.Tiles
 {
     public class TorchstoneWall_Wall : ModWall
-	{
+    {
         public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;

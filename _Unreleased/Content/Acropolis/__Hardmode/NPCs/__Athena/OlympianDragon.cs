@@ -5,11 +5,9 @@ using AAModClassic.Base;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 
 namespace AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena
 {

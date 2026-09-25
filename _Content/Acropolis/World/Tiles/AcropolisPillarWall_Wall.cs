@@ -1,23 +1,22 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.World.Tiles
 {
     public class AcropolisPillarWall_Wall : ModWall
-	{
-		public override void SetStaticDefaults()
-		{
+    {
+        public override void SetStaticDefaults()
+        {
             Main.wallHouse[Type] = true;
             DustType = DustID.Marble;
-			AddMapEntry(new Color(0, 0, 25));
-		}
+            AddMapEntry(new Color(0, 0, 25));
+        }
 
         public override void NumDust(int i, int j, bool fail, ref int num)
-		{
-			num = fail ? 1 : 3;
-		}
+        {
+            num = fail ? 1 : 3;
+        }
         /*
         public override void KillWall(int i, int j, ref bool fail)
         {

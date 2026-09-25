@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.World.Biomes.Water
 {
     public class MireWaterStyle : ModWaterStyle
-	{
+    {
         /*
 		public override bool ChooseWaterStyle()
         {
@@ -50,16 +50,16 @@ namespace AAModClassic._Content.Mire.World.Biomes.Water
         public override int GetDropletGore() => DropletGore;
         public override Asset<Texture2D> GetRainTexture() => RainTexture ??= ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/World/Biomes/Water/MireRain");
 
-		public override void LightColorMultiplier(ref float r, ref float g, ref float b)
-		{
-			r = 1f;
-			g = 1f;
-			b = 1f;
-		}
+        public override void LightColorMultiplier(ref float r, ref float g, ref float b)
+        {
+            r = 1f;
+            g = 1f;
+            b = 1f;
+        }
 
-		public override Color BiomeHairColor()
-		{
-			return Color.DarkBlue;
-		}
-	}
+        public override Color BiomeHairColor()
+        {
+            return Color.DarkBlue;
+        }
+    }
 }

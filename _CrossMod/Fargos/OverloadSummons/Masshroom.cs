@@ -1,13 +1,11 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch;
+using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
+using AAModClassic.Base;
+using Microsoft.Xna.Framework;
 using Terraria.Audio;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch;
-using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Base;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic._CrossMod.Fargos.OverloadSummons
@@ -45,7 +43,7 @@ namespace AAModClassic._CrossMod.Fargos.OverloadSummons
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.MassShroomInitiated"), new Color(216, 110, 40), false);
             for (int i = 0; i < 10; i++)
             {
-                 NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X + Main.rand.Next(-1000, 1000), (int)player.position.Y + Main.rand.Next(-1000, -400), ModContent.NPCType<MushroomMonarch>());
+                NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X + Main.rand.Next(-1000, 1000), (int)player.position.Y + Main.rand.Next(-1000, -400), ModContent.NPCType<MushroomMonarch>());
             }
 
             SoundEngine.PlaySound(SoundID.Roar, player.position);
@@ -58,7 +56,7 @@ namespace AAModClassic._CrossMod.Fargos.OverloadSummons
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem)
                     if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.IntimidatingMushroomFalse2"), new Color(216, 110, 40), false);
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.IntimidatingMushroomFalse2"), new Color(216, 110, 40), false);
                 return false;
             }
             return true;

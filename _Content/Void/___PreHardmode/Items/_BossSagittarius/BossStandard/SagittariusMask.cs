@@ -5,14 +5,14 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class SagittariusMask : BaseAAItem, ILocalizedModType
-	{
+    public class SagittariusMask : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Masks";
-		public override void SetStaticDefaults()
+        public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Sagittarius Mask");
-		}
+        }
 
         public override void SetDefaults()
         {

@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content._Dev._PostMoonlord.Items.Weapons
@@ -15,10 +14,10 @@ namespace AAModClassic._Unreleased.Content._Dev._PostMoonlord.Items.Weapons
             Projectile.penetrate = 1;
             Main.projFrames[Projectile.type] = 4;
             Projectile.hostile = false;
-            Projectile.minion = true; 
-            Projectile.tileCollide = false; 
+            Projectile.minion = true;
+            Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
-			Projectile.timeLeft = 90;
+            Projectile.timeLeft = 90;
         }
 
         public override void SetStaticDefaults()
@@ -38,7 +37,7 @@ namespace AAModClassic._Unreleased.Content._Dev._PostMoonlord.Items.Weapons
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                Projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = (int)Projectile.ai[1];
                 if (foundTarget != -1)

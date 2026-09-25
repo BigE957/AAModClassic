@@ -1,17 +1,16 @@
 ﻿
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.Audio;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables;
-using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Base;
+using Microsoft.Xna.Framework;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother
 {
@@ -54,8 +53,8 @@ Only useable during the day"); */
         {
             if (!Main.dayTime)
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) 
-                    if (Main.netMode != NetmodeID.MultiplayerClient) 
+                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DragonBellDayTimeFalse"), Color.DarkOrange.R, Color.DarkOrange.G, Color.DarkOrange.B, false);
                 return false;
             }
@@ -63,8 +62,8 @@ Only useable during the day"); */
             {
                 if (NPC.AnyNPCs(ModContent.NPCType<Broodmother>()))
                 {
-                    if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) 
-                        if (Main.netMode != NetmodeID.MultiplayerClient) 
+                    if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                             BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DragonBellFalse1"), Color.DarkOrange.R, Color.DarkOrange.G, Color.DarkOrange.B, false);
                     return false;
                 }

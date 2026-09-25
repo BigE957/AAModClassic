@@ -6,7 +6,6 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -15,10 +14,10 @@ using Terraria.ModLoader.Utilities;
 namespace AAModClassic._Content.Inferno.__Hardmode.NPCs
 {
     public class MagmaSwimmer : ModNPC, IBannerNPC
-	{
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Magma Swimmer");
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Magma Swimmer");
             Main.npcFrameCount[NPC.type] = 4;
 
             NPCID.Sets.NPCBestiaryDrawModifiers value = new()
@@ -29,15 +28,15 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
         {
             NPC.width = 86;
             NPC.height = 38;
             NPC.damage = 60;
-			NPC.defense = 30;
-			NPC.lifeMax = 110;
-			NPC.HitSound = SoundID.NPCHit1;
-			NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.defense = 30;
+            NPC.lifeMax = 110;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
             NPC.value = 5000;
             NPC.knockBackResist = .10f;
             NPC.aiStyle = -1;

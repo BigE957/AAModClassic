@@ -1,8 +1,7 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
 using Terraria.Audio;
-using Terraria.ModLoader;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons
 {
@@ -23,15 +22,15 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.ignoreWater = true;
             Projectile.extraUpdates = 2;
-			Projectile.penetrate = 1;
-			Projectile.usesLocalNPCImmunity = true;
-			Projectile.localNPCHitCooldown = 0;
-			Projectile.tileCollide = false;
+            Projectile.penetrate = 1;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 0;
+            Projectile.tileCollide = false;
         }
 
         public override void AI()
         {
-			if (++Projectile.frameCounter >= 5)
+            if (++Projectile.frameCounter >= 5)
             {
                 Projectile.frameCounter = 0;
                 if (++Projectile.frame >= 2)
@@ -77,7 +76,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                Projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
@@ -104,9 +103,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
                     if (distance <= homingMaximumRangeInPixels &&
                     (
                         selectedTarget == -1 || //there is no selected target
-                        Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                        Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                     )
-                    selectedTarget = i;
+                        selectedTarget = i;
                 }
             }
 
@@ -114,8 +113,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
         }
 
         public override void OnKill(int timeLeft)
-		{
-			SoundEngine.PlaySound(SoundID.NPCDeath52 with { Volume = 0.4f }, Projectile.position);
+        {
+            SoundEngine.PlaySound(SoundID.NPCDeath52 with { Volume = 0.4f }, Projectile.position);
             Projectile.position = Projectile.Center;
             Projectile.width = Projectile.height = 160;
             Projectile.Center = Projectile.position;

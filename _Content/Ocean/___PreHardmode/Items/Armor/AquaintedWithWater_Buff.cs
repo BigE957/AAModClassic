@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Armor

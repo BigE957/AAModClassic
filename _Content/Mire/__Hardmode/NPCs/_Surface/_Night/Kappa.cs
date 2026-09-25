@@ -5,7 +5,6 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -15,10 +14,10 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
     // Party Zombie is a pretty basic clone of a vanilla NPC. To learn how to further adapt vanilla NPC behaviors, see https://github.com/blushiemagic/tModLoader/wiki/Advanced-Vanilla-Code-Adaption#example-npc-npc-clone-with-modified-projectile-hoplite
     public class Kappa : ModNPC, IBannerNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Kappa");
-			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.CreatureFromTheDeep];
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Kappa");
+            Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.CreatureFromTheDeep];
 
             NPCID.Sets.NPCBestiaryDrawModifiers value = new()
             {
@@ -27,20 +26,20 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
-		public override void SetDefaults()
-		{
-			NPC.width = 18;
-			NPC.height = 40;
-			NPC.damage = 90;
-			NPC.defense = 16;
-			NPC.lifeMax = 300;
-			NPC.HitSound = SoundID.NPCHit1;
-			NPC.DeathSound = SoundID.NPCDeath2;
-			NPC.value = 450f;
-			NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
-			AnimationType = NPCID.CreatureFromTheDeep;
+        public override void SetDefaults()
+        {
+            NPC.width = 18;
+            NPC.height = 40;
+            NPC.damage = 90;
+            NPC.defense = 16;
+            NPC.lifeMax = 300;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath2;
+            NPC.value = 450f;
+            NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
+            AnimationType = NPCID.CreatureFromTheDeep;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<KappaBanner>();
+            //BannerItem = ModContent.ItemType<KappaBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
@@ -108,7 +107,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
                 if (num2 < 5f)
                 {
                     NPC.velocity = (NPC.velocity * 24f + value2) / 25f;
-                        return;
+                    return;
                 }
                 NPC.velocity = (NPC.velocity * 9f + value2) / 10f;
                 return;
@@ -139,12 +138,12 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
                     }
                     if (NPC.velocity.X > 0f)
                     {
-                            NPC.direction = 1;
+                        NPC.direction = 1;
                     }
                     NPC.spriteDirection = NPC.direction;
                 }
             }
-            
+
             bool flag4 = false;
             if (NPC.velocity.X == 0f)
             {
@@ -155,7 +154,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
                 flag4 = false;
             }
             int num36 = 60;
-            
+
             bool flag5 = false;
             bool flag6 = true;
             bool flag7 = false;
@@ -189,7 +188,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
             }
             if (NPC.ai[3] < num36 && (!Main.dayTime || NPC.position.Y > Main.worldSurface * 16.0))
             {
-                
+
                 NPC.TargetClosest(true);
             }
             else if (NPC.ai[2] <= 0f)
@@ -288,7 +287,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
                     }
                 }
             }
-            
+
             if (NPC.velocity.Y >= 0f)
             {
                 int num171 = 0;
@@ -363,7 +362,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
                     NPC.ai[3] = 0f;
                     if (NPC.ai[2] >= 60f)
                     {
-                       
+
                         NPC.velocity.X = 0.5f * -NPC.direction;
                         int num179 = 5;
                         if (Main.tile[num177, num178 - 1].TileType == TileID.TallGateClosed)
@@ -371,7 +370,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
                             num179 = 2;
                         }
                         NPC.ai[1] += num179;
-                        
+
                         NPC.ai[2] = 0f;
                         if (NPC.ai[1] >= 10f)
                         {
@@ -424,7 +423,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
                             NPC.velocity.Y = -5f;
                         }
                     }
-                    
+
                 }
             }
             else if (flag6)

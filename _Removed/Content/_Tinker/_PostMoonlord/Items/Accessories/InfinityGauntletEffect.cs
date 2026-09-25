@@ -1,15 +1,10 @@
-using AAModClassic;
 using AAModClassic._Content.Void.___PreHardmode.NPCs;
-using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories;
 using AAModClassic._Removed.Dusts;
 using AAModClassic.Base;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using System.Linq;
-using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.Localization;

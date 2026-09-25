@@ -5,8 +5,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
-using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -64,7 +62,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             spriteBatch.Draw(glowTex, NPC.Center - screenPos, NPC.frame, color, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
             return false;
         }
-        
+
         public override void AI()
         {
             if (NPC.velocity.Y == 0f)

@@ -1,12 +1,5 @@
-using System;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.GameContent;
-using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons
 {
@@ -17,17 +10,17 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons
         public override float DrawRotationOffset => MathHelper.PiOver2;
 
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Mushmace");
             base.SetStaticDefaults();
-		}
+        }
         public override void SetDefaults()
         {
             Projectile.width = 16;
             Projectile.height = 16;
             base.SetDefaults();
         }
-		
+
         /*
 		public override void AI()
 		{

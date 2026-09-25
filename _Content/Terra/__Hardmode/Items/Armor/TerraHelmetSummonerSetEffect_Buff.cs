@@ -1,5 +1,3 @@
-using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor

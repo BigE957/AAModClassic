@@ -21,9 +21,9 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
             Projectile.ignoreWater = true;
         }
 
-		public override void SetStaticDefaults()
-		{
-		    // DisplayName.SetDefault("Omega Shot");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Omega Shot");
+        }
     }
 }

@@ -1,9 +1,6 @@
-﻿using AAModClassic.Globals;
-using AAModClassic.Rarities;
+﻿using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;

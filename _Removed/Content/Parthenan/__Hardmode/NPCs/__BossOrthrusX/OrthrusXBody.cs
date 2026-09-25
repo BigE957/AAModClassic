@@ -11,7 +11,6 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -22,7 +21,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 {
     [AutoloadBossHead]
     public class OrthrusXBody : YamataBoss
-	{
+    {
         public OrthrusXHead HeadBlue => blueIndex != -1 && Main.npc[blueIndex].active && Main.npc[blueIndex].ModNPC is OrthrusXHead head ? head : null;
         private short blueIndex = -1;
         public OrthrusXHead HeadRed => redIndex != -1 && Main.npc[redIndex].active && Main.npc[redIndex].ModNPC is OrthrusXHead head ? head : null;
@@ -164,13 +163,13 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
         public float[] internalAI = new float[2];
 
         //clientside stuff
-		public const int fWidth = 200;
-		public const int fHeight = 102;
+        public const int fWidth = 200;
+        public const int fHeight = 102;
 
         public Color color;
 
-		public void HandleHeads()
-		{
+        public void HandleHeads()
+        {
             if (HeadBlue is OrthrusXHead)
                 headsSpawned = false;
             if (HeadBlue == null || HeadRed == null)
@@ -199,7 +198,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                 headsSpawned = true;
             }
         }
-		
+
         public override void AI()
         {
             if (!Main.dedServ)
@@ -209,17 +208,17 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             }
 
             NPC.TargetClosest();
-			
-			HandleHeads();
+
+            HandleHeads();
 
             Player playerTarget = Main.player[NPC.target];
 
             if (!playerTarget.active || playerTarget.dead || Main.dayTime) //fleeing
-			{
+            {
                 NPC.noTileCollide = true;
                 NPC.dontTakeDamage = true;
-                NPC.noGravity = true;	
-				NPC.noTileCollide = true;
+                NPC.noGravity = true;
+                NPC.noTileCollide = true;
                 NPC.velocity.Y -= .05f;
                 int SHLOOPX = 34;
                 int SHLOOPY = 60;
@@ -232,45 +231,45 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                 }
                 if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient) { NPC.active = false; NPC.netUpdate = true; }
                 return;
-			}
+            }
             else
-			{	
-				if (internalAI[1] == AISTATE_TURRET)
-				{
-					NPC.noGravity = false;		
-					NPC.noTileCollide = false;				
-					NPC.velocity.X *= 0.8f;
-					if (Math.Abs(playerTarget.Center.X - NPC.Center.X) < 380f) 
-					{
-						
-					}
-                    else if(Main.netMode != NetmodeID.MultiplayerClient)
-					{
-						internalAI[1] = AISTATE_FLY;
-						NPC.netUpdate = true;
-						if(HeadBlue != null && HeadRed != null)
-						{
-							HeadBlue.NPC.ai[1] = AISTATE_FLY;
-							HeadRed.NPC.ai[1] = AISTATE_FLY;							 
-							HeadBlue.NPC.netUpdate = true;
-							HeadRed.NPC.netUpdate = true;						
-						}
-					}
-				}
+            {
+                if (internalAI[1] == AISTATE_TURRET)
+                {
+                    NPC.noGravity = false;
+                    NPC.noTileCollide = false;
+                    NPC.velocity.X *= 0.8f;
+                    if (Math.Abs(playerTarget.Center.X - NPC.Center.X) < 380f)
+                    {
+
+                    }
+                    else if (Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        internalAI[1] = AISTATE_FLY;
+                        NPC.netUpdate = true;
+                        if (HeadBlue != null && HeadRed != null)
+                        {
+                            HeadBlue.NPC.ai[1] = AISTATE_FLY;
+                            HeadRed.NPC.ai[1] = AISTATE_FLY;
+                            HeadBlue.NPC.netUpdate = true;
+                            HeadRed.NPC.netUpdate = true;
+                        }
+                    }
+                }
                 else if (internalAI[1] == AISTATE_FLY)
-				{
-                    NPC.noGravity = true;	
-					NPC.noTileCollide = true;
-					if (Math.Abs(playerTarget.Center.X - NPC.Center.X) > 380f || Collision.SolidCollision(NPC.position, NPC.width, NPC.height)) //make it less then what makes it rise so it doesn't keep locking between them
-					{
-						playerTarget.Center += new Vector2(0f, -32f);
-						for(int m = 0; m < 4; m++)
-						{
-							BaseAI.AIEye(NPC, ref NPC.ai, false, true, 0.15f, 0.4f, 8f, 2f, 0.5f, 0.5f);
-						}
-						playerTarget.Center += new Vector2(0f, 32f);						
-						int SHLOOPX = 34;
-						int SHLOOPY = 60;
+                {
+                    NPC.noGravity = true;
+                    NPC.noTileCollide = true;
+                    if (Math.Abs(playerTarget.Center.X - NPC.Center.X) > 380f || Collision.SolidCollision(NPC.position, NPC.width, NPC.height)) //make it less then what makes it rise so it doesn't keep locking between them
+                    {
+                        playerTarget.Center += new Vector2(0f, -32f);
+                        for (int m = 0; m < 4; m++)
+                        {
+                            BaseAI.AIEye(NPC, ref NPC.ai, false, true, 0.15f, 0.4f, 8f, 2f, 0.5f, 0.5f);
+                        }
+                        playerTarget.Center += new Vector2(0f, 32f);
+                        int SHLOOPX = 34;
+                        int SHLOOPY = 60;
                         if (HeadBlue != null && HeadRed != null)
                         {
                             HeadBlue.NPC.Center = NPC.Center + new Vector2(SHLOOPX, -SHLOOPY) + NPC.velocity;
@@ -280,24 +279,24 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                         }
                     }
                     else if (Main.netMode != NetmodeID.MultiplayerClient) //digs itself out of the ground
-					{
-						internalAI[1] = AISTATE_TURRET;							
-						NPC.netUpdate = true;
-						if(HeadBlue != null && HeadRed != null)
-						{
-							HeadBlue.NPC.ai[1] = AISTATE_TURRET;
-							HeadRed.NPC.ai[1] = AISTATE_TURRET;							 
-							HeadBlue.NPC.netUpdate = true;
-							HeadRed.NPC.netUpdate = true;						
-						}				
-					}
-				}
+                    {
+                        internalAI[1] = AISTATE_TURRET;
+                        NPC.netUpdate = true;
+                        if (HeadBlue != null && HeadRed != null)
+                        {
+                            HeadBlue.NPC.ai[1] = AISTATE_TURRET;
+                            HeadRed.NPC.ai[1] = AISTATE_TURRET;
+                            HeadBlue.NPC.netUpdate = true;
+                            HeadRed.NPC.netUpdate = true;
+                        }
+                    }
+                }
             }
-            
+
 
             if (internalAI[1] == AISTATE_TURRET) //Standing
             {
-				NPC.frameCounter++;				
+                NPC.frameCounter++;
                 if (NPC.frameCounter >= 8)
                 {
                     NPC.frameCounter = 0;
@@ -310,7 +309,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             }
             else //Following
             {
-				NPC.frameCounter++;				
+                NPC.frameCounter++;
                 if (NPC.frameCounter >= 5)
                 {
                     NPC.frameCounter = 0;
@@ -325,7 +324,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             {
                 NPC.oldPos[m] = NPC.oldPos[m - 1];
             }
-            NPC.oldPos[0] = NPC.position;			
+            NPC.oldPos[0] = NPC.position;
         }
 
         public Color purple;

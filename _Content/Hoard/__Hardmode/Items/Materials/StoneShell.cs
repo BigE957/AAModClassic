@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -18,7 +17,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items.Materials
         {
             Item.width = 14;
             Item.height = 24;
-			Item.maxStack = Item.CommonMaxStack;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Yellow;
         }
     }

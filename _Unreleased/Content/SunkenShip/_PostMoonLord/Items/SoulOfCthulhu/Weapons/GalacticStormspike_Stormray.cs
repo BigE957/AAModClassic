@@ -1,29 +1,27 @@
 using AAModClassic.Assets;
 using AAModClassic.Base;
-using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons
 {
-	public class GalacticStormspike_Stormray : ModProjectile
+    public class GalacticStormspike_Stormray : ModProjectile
     {
 
         public override string Texture => AssetDirectory.General.Nothing;
 
         public override void SetStaticDefaults()
-		{
+        {
             //displayName = "Stormray";
 
             mainTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/Items/SoulOfCthulhu/Weapons/GalacticStormspike_StormShockChainEnd3");
             chainTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/Items/SoulOfCthulhu/Weapons/GalacticStormspike_StormShockChain");
             chainEndTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/Items/SoulOfCthulhu/Weapons/GalacticStormspike_StormShockChainEnd");
-        }		
+        }
 
         public override void SetDefaults()
         {
@@ -41,139 +39,141 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Projectile.DamageType = DamageClass.Magic;
         }
 
-		public static Color boltColor = new Color(60, 119, 60, 220);
-		public static Asset<Texture2D> mainTex;
-		public static Asset<Texture2D> chainTex;
-		public static Asset<Texture2D> chainEndTex;
+        public static Color boltColor = new Color(60, 119, 60, 220);
+        public static Asset<Texture2D> mainTex;
+        public static Asset<Texture2D> chainTex;
+        public static Asset<Texture2D> chainEndTex;
 
-		public int maxTargets = 32;
-		public Vector2 endPos;
-		public Vector2[] targetPosStart = new Vector2[0];
-		public Vector2[] targetPos = new Vector2[0];
-		public int lifeTimer = 12;
-		public float minRange = 0f;
-		public float maxRange = 100f;
-		public float maxDistance = 1000f;
-		public bool hasVel = false;
-		public float velRot = 0f;
-		public Vector2 vel;
-		public int drawDelay = 2;
+        public int maxTargets = 32;
+        public Vector2 endPos;
+        public Vector2[] targetPosStart = new Vector2[0];
+        public Vector2[] targetPos = new Vector2[0];
+        public int lifeTimer = 12;
+        public float minRange = 0f;
+        public float maxRange = 100f;
+        public float maxDistance = 1000f;
+        public bool hasVel = false;
+        public float velRot = 0f;
+        public Vector2 vel;
+        public int drawDelay = 2;
 
-		public override void AI()
-		{
-			lifeTimer--; if (!Main.player[Projectile.owner].active || Main.player[Projectile.owner].dead || lifeTimer <= 0) { Projectile.Kill(); return; }
-			Projectile.Center = GetOwnerCenter();
-			if (!hasVel) { hasVel = true; vel = Projectile.velocity; velRot = BaseUtility.RotationTo(Projectile.Center, Projectile.Center + Projectile.velocity); Projectile.velocity = default; }
-			endPos = BaseAI.TracePlayer(Projectile.Center, maxDistance, velRot, Projectile.owner, false, true, false);
-			Vector2 damagePos = Projectile.Center;
-			int count = (int)Vector2.Distance(damagePos, endPos) / 32;
-			Vector2 distVec = vel; distVec.Normalize(); distVec *= 32f;
-			List<Vector2> targets = new List<Vector2>(), targetsStart = new List<Vector2>();
-			for (int m = 0; m < count; m++)
-			{
-				Vector2[] targets2 = FindAndHitTargets(damagePos); 
-				Vector2[] targetsStart2 = new Vector2[targets2.Length];
-				for(int n = 0; n < targetsStart2.Length; n++){ targetsStart2[n] = damagePos; }
-				targets.AddRange(targets2); targetsStart.AddRange(targetsStart2);
-				damagePos += distVec;
-			}
-			targetPos = targets.ToArray(); targetPosStart = targetsStart.ToArray();
-			CleanupPoints(targetPos, targetPosStart);
-		}
+        public override void AI()
+        {
+            lifeTimer--; if (!Main.player[Projectile.owner].active || Main.player[Projectile.owner].dead || lifeTimer <= 0) { Projectile.Kill(); return; }
+            Projectile.Center = GetOwnerCenter();
+            if (!hasVel) { hasVel = true; vel = Projectile.velocity; velRot = BaseUtility.RotationTo(Projectile.Center, Projectile.Center + Projectile.velocity); Projectile.velocity = default; }
+            endPos = BaseAI.TracePlayer(Projectile.Center, maxDistance, velRot, Projectile.owner, false, true, false);
+            Vector2 damagePos = Projectile.Center;
+            int count = (int)Vector2.Distance(damagePos, endPos) / 32;
+            Vector2 distVec = vel; distVec.Normalize(); distVec *= 32f;
+            List<Vector2> targets = new List<Vector2>(), targetsStart = new List<Vector2>();
+            for (int m = 0; m < count; m++)
+            {
+                Vector2[] targets2 = FindAndHitTargets(damagePos);
+                Vector2[] targetsStart2 = new Vector2[targets2.Length];
+                for (int n = 0; n < targetsStart2.Length; n++) { targetsStart2[n] = damagePos; }
+                targets.AddRange(targets2); targetsStart.AddRange(targetsStart2);
+                damagePos += distVec;
+            }
+            targetPos = targets.ToArray(); targetPosStart = targetsStart.ToArray();
+            CleanupPoints(targetPos, targetPosStart);
+        }
 
-		public void CleanupPoints(Vector2[] targetVec, Vector2[] startVec)
-		{
-			List<Vector2> vecList = new List<Vector2>(), startList = new List<Vector2>();
-			for(int nextID = 0; nextID < targetVec.Length - 1; nextID++)
-			{
-				for (int m = nextID + 1; m < targetVec.Length; m++)
-				{
-					if (m == targetVec.Length - 1 || targetVec[m - 1] != targetVec[m])
-					{
-						int id = m == targetVec.Length - 1 ? m : m - 1;
-						vecList.Add(targetVec[id]); startList.Add(startVec[id]); nextID = m; break;
-					}
-				}
-			}
-			targetPos = vecList.ToArray(); targetPosStart = startList.ToArray();
-		}
+        public void CleanupPoints(Vector2[] targetVec, Vector2[] startVec)
+        {
+            List<Vector2> vecList = new List<Vector2>(), startList = new List<Vector2>();
+            for (int nextID = 0; nextID < targetVec.Length - 1; nextID++)
+            {
+                for (int m = nextID + 1; m < targetVec.Length; m++)
+                {
+                    if (m == targetVec.Length - 1 || targetVec[m - 1] != targetVec[m])
+                    {
+                        int id = m == targetVec.Length - 1 ? m : m - 1;
+                        vecList.Add(targetVec[id]); startList.Add(startVec[id]); nextID = m; break;
+                    }
+                }
+            }
+            targetPos = vecList.ToArray(); targetPosStart = startList.ToArray();
+        }
 
-		public Vector2 GetOwnerCenter()
-		{
-			return Main.player[Projectile.owner].Center + BaseUtility.RotateVector(default, new Vector2(ModContent.GetModItem(ModContent.ItemType<GalacticStormspike>()).Item.width, 0f), velRot);
-		}
+        public Vector2 GetOwnerCenter()
+        {
+            return Main.player[Projectile.owner].Center + BaseUtility.RotateVector(default, new Vector2(ModContent.GetModItem(ModContent.ItemType<GalacticStormspike>()).Item.width, 0f), velRot);
+        }
 
-		public Vector2[] FindAndHitTargets(Vector2 startPos)
-		{
-			List<Entity> list = new List<Entity>();
-			List<Vector2> list1 = new List<Vector2>();
-			List<Vector2> list2 = new List<Vector2>();
-			if (Main.myPlayer == Projectile.owner && Main.player[Projectile.owner].wet && !Main.player[Projectile.owner].immune) 
-			{
-				list.Add(Main.player[Projectile.owner]); list1.Add(Main.player[Projectile.owner].Center);
-			}
-			int[] players = BaseAI.GetPlayers(startPos, new int[]{ Projectile.owner }, true, maxRange);
-			foreach (int i1 in players)
-			{
-				if (list1.Count >= maxTargets) { break; }
-				Player player = Main.player[i1];
-				if (CanTarget(player))
-				{
-					if (Vector2.Distance(player.Center, startPos) > 15f) list1.Add(player.Center);
-					list.Add(player);
-				}
-			}
-			int[] npcs = BaseAI.GetNPCs(startPos, -1, default, maxRange);
-			foreach (int i in npcs)
-			{
-				if (list1.Count >= maxTargets) { break; }
-				NPC npc = Main.npc[i];
-				if (CanTarget(npc))
-				{
-					if (Vector2.Distance(npc.Center, startPos) > 15f) list1.Add(npc.Center);
-					list.Add(npc);
-				}
-			}
-			Vector2 oldPos = Projectile.position;
-			foreach (Entity codable in list)
-			{
-				if (codable is NPC)
-				{
-					NPC npc = (NPC)codable;
-					if (Projectile.owner == Main.myPlayer && npc.immune[Projectile.owner] <= 0)
-					{
-						Projectile.position = npc.position; Projectile.Damage(); Projectile.position = oldPos;
-					}
-				}else
-				if (codable is Player)
-				{
-					Player player = (Player)codable;
-					if (player.whoAmI == Main.myPlayer && !player.immune)
-					{
-						if (player.whoAmI == Projectile.owner) { Projectile.friendly = false; Projectile.hostile = true; }
-						Projectile.position = player.position; Projectile.Damage(); Projectile.position = oldPos;
-						if (player.whoAmI == Projectile.owner) { Projectile.friendly = true; Projectile.hostile = false; }
-					}
-				}
-			}
-			return list1.ToArray();
-		}
+        public Vector2[] FindAndHitTargets(Vector2 startPos)
+        {
+            List<Entity> list = new List<Entity>();
+            List<Vector2> list1 = new List<Vector2>();
+            List<Vector2> list2 = new List<Vector2>();
+            if (Main.myPlayer == Projectile.owner && Main.player[Projectile.owner].wet && !Main.player[Projectile.owner].immune)
+            {
+                list.Add(Main.player[Projectile.owner]); list1.Add(Main.player[Projectile.owner].Center);
+            }
+            int[] players = BaseAI.GetPlayers(startPos, new int[] { Projectile.owner }, true, maxRange);
+            foreach (int i1 in players)
+            {
+                if (list1.Count >= maxTargets) { break; }
+                Player player = Main.player[i1];
+                if (CanTarget(player))
+                {
+                    if (Vector2.Distance(player.Center, startPos) > 15f) list1.Add(player.Center);
+                    list.Add(player);
+                }
+            }
+            int[] npcs = BaseAI.GetNPCs(startPos, -1, default, maxRange);
+            foreach (int i in npcs)
+            {
+                if (list1.Count >= maxTargets) { break; }
+                NPC npc = Main.npc[i];
+                if (CanTarget(npc))
+                {
+                    if (Vector2.Distance(npc.Center, startPos) > 15f) list1.Add(npc.Center);
+                    list.Add(npc);
+                }
+            }
+            Vector2 oldPos = Projectile.position;
+            foreach (Entity codable in list)
+            {
+                if (codable is NPC)
+                {
+                    NPC npc = (NPC)codable;
+                    if (Projectile.owner == Main.myPlayer && npc.immune[Projectile.owner] <= 0)
+                    {
+                        Projectile.position = npc.position; Projectile.Damage(); Projectile.position = oldPos;
+                    }
+                }
+                else
+                    if (codable is Player)
+                    {
+                        Player player = (Player)codable;
+                        if (player.whoAmI == Main.myPlayer && !player.immune)
+                        {
+                            if (player.whoAmI == Projectile.owner) { Projectile.friendly = false; Projectile.hostile = true; }
+                            Projectile.position = player.position; Projectile.Damage(); Projectile.position = oldPos;
+                            if (player.whoAmI == Projectile.owner) { Projectile.friendly = true; Projectile.hostile = false; }
+                        }
+                    }
+            }
+            return list1.ToArray();
+        }
 
-		public bool CanTarget(Entity codable)
-		{
-			if (codable == null) return false;
-			if (codable is NPC)
-			{
-				NPC npc = (NPC)codable;
-				return !npc.friendly && !npc.dontTakeDamage && (npc.lifeMax == 1 || npc.lifeMax > 5);
-			}else
-			if (codable is Player)
-			{
-				Player player = (Player)codable;
-				return !player.immune && player.hostile && (Main.player[Projectile.owner].team == 0 || player.team == 0 || Main.player[Projectile.owner].team != player.team);
-			}
-			return false;
-		}
+        public bool CanTarget(Entity codable)
+        {
+            if (codable == null) return false;
+            if (codable is NPC)
+            {
+                NPC npc = (NPC)codable;
+                return !npc.friendly && !npc.dontTakeDamage && (npc.lifeMax == 1 || npc.lifeMax > 5);
+            }
+            else
+                if (codable is Player)
+                {
+                    Player player = (Player)codable;
+                    return !player.immune && player.hostile && (Main.player[Projectile.owner].team == 0 || player.team == 0 || Main.player[Projectile.owner].team != player.team);
+                }
+            return false;
+        }
 
         public override bool PreDraw(ref Color lightColor)
         {
@@ -248,7 +248,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
                 Way += Jump;
                 currentPoint = vend;
                 subJump += Jump;
-                BaseDrawing.AddLight(vend, boltColor, vend == endPos ? 1f : 2f);
+                Lighting.AddLight(vend, boltColor.ToVector3() / (vend == endPos ? 1f : 2f));
 
                 iters++;
                 if (iters > maxIters)

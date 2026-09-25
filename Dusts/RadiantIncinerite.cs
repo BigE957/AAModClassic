@@ -1,5 +1,4 @@
-﻿using Terraria;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
 namespace AAModClassic.Dusts
 {
@@ -24,6 +23,6 @@ namespace AAModClassic.Dusts
                 dust.active = false;
             }
             return false;
-        } 
+        }
     }
 }

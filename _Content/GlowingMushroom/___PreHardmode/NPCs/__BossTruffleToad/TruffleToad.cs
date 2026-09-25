@@ -1,7 +1,5 @@
-﻿using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard;
-using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
+﻿using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.BossStandard;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons;
-using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base;
 using AAModClassic.Globals;
@@ -13,14 +11,12 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos.GripOfChaosAbstract;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad
 {
@@ -129,9 +125,9 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
             Player player = Main.player[NPC.target]; // makes it so you can reference the player the npc is targetting
             AAModGlobalNPC.Toad = NPC.whoAmI;
 
-            Vector2 tile = new Vector2(NPC.Center.X,NPC.Center.Y + NPC.height / 2);
+            Vector2 tile = new Vector2(NPC.Center.X, NPC.Center.Y + NPC.height / 2);
             bool tileCheck = Main.tile[(int)(tile.X / 16), (int)(tile.Y / 16)].HasTile && (TileID.Sets.Platforms[Main.tile[(int)(tile.X / 16), (int)(tile.Y / 16)].TileType] || Main.tileSolid[Main.tile[(int)(tile.X / 16), (int)(tile.Y / 16)].TileType]);
-            if (player.Center.Y + player.height / 2 >= NPC.Center.Y + NPC.height / 2 + 20f && tileCheck) 
+            if (player.Center.Y + player.height / 2 >= NPC.Center.Y + NPC.height / 2 + 20f && tileCheck)
             {
                 NPC.noTileCollide = true;
                 internalAI[4] = 1f;
@@ -140,10 +136,10 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
             {
                 NPC.noTileCollide = true;
                 NPC.noGravity = false;
-                if (player.Center.Y + player.height / 2 <= NPC.Center.Y + NPC.height / 2) 
+                if (player.Center.Y + player.height / 2 <= NPC.Center.Y + NPC.height / 2)
                 {
                     NPC.noTileCollide = false;
-                    if(tileCheck)
+                    if (tileCheck)
                     {
                         NPC.velocity.X *= .2f;
                         NPC.velocity.Y = 0f;
@@ -154,7 +150,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
             else if (internalAI[4] == 2f)
             {
                 NPC.noTileCollide = false;
-                if(tileCheck)
+                if (tileCheck)
                 {
                     NPC.velocity.X *= .2f;
                     NPC.velocity.Y = 0f;
@@ -178,16 +174,16 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
 
             if (player != null)
             {
-                if(TeleCooldown > 0)
+                if (TeleCooldown > 0)
                 {
-                    TeleCooldown --;
+                    TeleCooldown--;
                 }
                 float dist = NPC.Distance(player.Center);
-                Vector2 tileabove = new Vector2(NPC.Center.X,NPC.Center.Y - NPC.height / 2);
-                Vector2 tileleft = new Vector2(NPC.Center.X - NPC.width / 2,NPC.Center.Y);
-                Vector2 tileright = new Vector2(NPC.Center.X + NPC.width / 2,NPC.Center.Y);
-                Vector2 tile1 = new Vector2(NPC.Center.X - NPC.width / 2,NPC.Center.Y - NPC.height / 2);
-                Vector2 tile2 = new Vector2(NPC.Center.X + NPC.width / 2,NPC.Center.Y - NPC.height / 2);
+                Vector2 tileabove = new Vector2(NPC.Center.X, NPC.Center.Y - NPC.height / 2);
+                Vector2 tileleft = new Vector2(NPC.Center.X - NPC.width / 2, NPC.Center.Y);
+                Vector2 tileright = new Vector2(NPC.Center.X + NPC.width / 2, NPC.Center.Y);
+                Vector2 tile1 = new Vector2(NPC.Center.X - NPC.width / 2, NPC.Center.Y - NPC.height / 2);
+                Vector2 tile2 = new Vector2(NPC.Center.X + NPC.width / 2, NPC.Center.Y - NPC.height / 2);
                 bool tileCheckabove = Main.tile[(int)(tileabove.X / 16), (int)(tileabove.Y / 16)].HasTile && Main.tileSolid[Main.tile[(int)(tileabove.X / 16), (int)(tileabove.Y / 16)].TileType];
                 bool tileCheckleft = Main.tile[(int)(tileleft.X / 16), (int)(tileleft.Y / 16)].HasTile && Main.tileSolid[Main.tile[(int)(tileleft.X / 16), (int)(tileleft.Y / 16)].TileType];
                 bool tileCheckright = Main.tile[(int)(tileright.X / 16), (int)(tileright.Y / 16)].HasTile && Main.tileSolid[Main.tile[(int)(tileright.X / 16), (int)(tileright.Y / 16)].TileType];
@@ -226,7 +222,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
                 float ShroomCount = 1 + Shrooms.Length / 10;
                 NPC.damage = (int)(NPC.defDamage * ShroomCount);
                 NPC.defense = (int)(NPC.defDefense * ShroomCount);
-                if(internalAI[3] ++ > 20)
+                if (internalAI[3]++ > 20)
                 {
                     if (NPC.life < NPC.lifeMax)
                     {
@@ -622,7 +618,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
         }
         public override void BossLoot(ref int potionType)
         {
-            
+
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
@@ -852,7 +848,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
                                     Main.dust[num538].noGravity = true;
                                     num = num537;
                                 }
-                                if(!Main.dedServ)
+                                if (!Main.dedServ)
                                     for (int num539 = 0; num539 < 4; num539 = num + 1)
                                     {
                                         int num540 = Gore.NewGore(NPC.GetSource_FromThis(), vector68 + new Vector2(50 * Main.rand.Next(100) / 100f, 50 * Main.rand.Next(100) / 100f) - Vector2.One * 10f, default, Main.rand.Next(61, 64), 1f);

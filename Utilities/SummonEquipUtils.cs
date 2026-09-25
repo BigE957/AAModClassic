@@ -1,16 +1,6 @@
-﻿using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Accessories;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Weapons;
-using AAModClassic.Base;
+﻿using AAModClassic.Base;
 using AAModClassic.UI.World;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
 using Terraria.ModLoader;
-using static AAModClassic.Assets.AssetDirectory;
-using static AAModClassic.Utilities.SummonEquipUtils;
 
 namespace AAModClassic.Utilities
 {

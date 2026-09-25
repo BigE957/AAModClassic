@@ -1,12 +1,9 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.World.Tiles;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic.Dusts;
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.GameContent.Metadata;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,7 +14,7 @@ namespace AAModClassic._Unreleased.Content.Inferno.World.Tiles
     //TODO: is this accurate to weeds in 1.4? can we make this support flower boots?
     [LegacyName("Hotshroom_Tile")]
     public class InfernoFoliage_Tile : ModTile
-	{
+    {
         public override void SetStaticDefaults()
         {
             Main.tileCut[Type] = true;

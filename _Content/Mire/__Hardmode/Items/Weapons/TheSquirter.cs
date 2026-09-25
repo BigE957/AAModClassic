@@ -1,10 +1,9 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
 {
@@ -33,8 +32,8 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
             Item.shootSpeed = 14f;
 
         }
-		
-		public override Vector2? HoldoutOffset()
+
+        public override Vector2? HoldoutOffset()
         {
             return new Vector2(2, -2);
         }

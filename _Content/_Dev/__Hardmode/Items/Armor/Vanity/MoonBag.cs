@@ -1,8 +1,7 @@
-using Terraria;
-using Terraria.ModLoader;
+using AAModClassic._Content._Dev.__Hardmode.Items.Accessories;
 using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic._Content._Dev.__Hardmode.Items.Accessories;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
@@ -21,7 +20,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
             Item.consumable = true;
             Item.width = 32;
             Item.height = 32;
-            Item.expert = true;  
+            Item.expert = true;
         }
 
         public override bool CanRightClick()
@@ -29,7 +28,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
             return true;
         }
 
- 		public override void RightClick(Player player)
+        public override void RightClick(Player player)
         {
             if (Main.hardMode)
             {
@@ -43,7 +42,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
                 player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonLeggingsS>());
                 return;
             }
-			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonHelmet>());
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonHelmet>());
             player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonChestplate>());
             player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<MoonLeggings>());
         }

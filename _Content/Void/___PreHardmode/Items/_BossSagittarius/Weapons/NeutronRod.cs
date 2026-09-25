@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -32,6 +31,6 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapo
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<NeutronRod_NovaStar>();
             Item.shootSpeed = 7f;
-        }   
+        }
     }
 }

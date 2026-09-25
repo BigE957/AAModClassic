@@ -1,6 +1,5 @@
 ﻿using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -9,8 +8,8 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
     public class TitanAxe_Proj : ModProjectile
-	{
-		public override void SetDefaults()
+    {
+        public override void SetDefaults()
         {
             Projectile.width = 36;
             Projectile.height = 36;
@@ -23,10 +22,10 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
                 redemption.Call("setAxeProj", Projectile);
         }
 
-		public override void SetStaticDefaults()
-		{
-		    // DisplayName.SetDefault("Titan Axe");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Titan Axe");
+        }
 
         public override void AI()
         {
@@ -43,11 +42,11 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
-			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             Projectile.ai[0] = 1f;
             Projectile.velocity.X = -oldVelocity.X;
             Projectile.velocity.Y = -oldVelocity.Y;
             return false;
         }
-	}
+    }
 }

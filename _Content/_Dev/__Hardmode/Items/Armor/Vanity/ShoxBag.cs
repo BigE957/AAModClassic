@@ -1,6 +1,5 @@
-using Terraria.ModLoader;
-using Terraria;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {

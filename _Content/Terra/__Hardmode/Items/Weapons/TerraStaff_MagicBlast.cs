@@ -1,19 +1,18 @@
 ﻿using AAModClassic._Content.Terrarium.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Weapons
 {
     public class TerraStaff_MagicBlast : ModProjectile
     {
-    	
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Magic Blast");
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Magic Blast");
             Main.projFrames[Projectile.type] = 4;
-		}
-    	
+        }
+
         public override void SetDefaults()
         {
             Projectile.width = 10;
@@ -70,7 +69,7 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Weapons
         {
             target.AddBuff(ModContent.BuffType<Terrablaze_Buff>(), 600);
         }
-        
+
 
         public override bool PreDraw(ref Color lightColor)
         {

@@ -1,7 +1,6 @@
 ﻿using AAModClassic._Unreleased.Content.Mire.__Hardmode.Items.Tiles.Decoration;
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,7 +10,7 @@ namespace AAModClassic._Unreleased.Content.Inferno.__Hardmode.Items.Tiles.Decora
     {
         public override void SetStaticDefaults()
         {
-            Main.tileLighted[Type] = true; 
+            Main.tileLighted[Type] = true;
 
             TileID.Sets.CanPlaceNextToNonSolidTile[Type] = true;
 

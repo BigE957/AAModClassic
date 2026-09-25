@@ -345,12 +345,12 @@ namespace AAModClassic.Structures.Tools
         private static readonly Color DisabledNormal = new Color(60, 60, 75) * 0.7f;
         private static readonly Color DisabledHover = new Color(75, 75, 95) * 0.8f;
 
-        private enum Edge 
-        { 
-            Left, 
-            Right, 
-            Top, 
-            Bottom 
+        private enum Edge
+        {
+            Left,
+            Right,
+            Top,
+            Bottom
         }
 
         private readonly SchematicEditSession _session = session;
@@ -1446,7 +1446,7 @@ namespace AAModClassic.Structures.Tools
             int target = Signature(layer, start.X, start.Y);
             bool targetPainted = mask[start.X, start.Y];
             if (targetPainted == value)
-                 return 0;
+                return 0;
             var visited = new bool[r.Width * r.Height];
             var stack = new Stack<int>();
             int changed = 0;

@@ -56,14 +56,14 @@ namespace AAModClassic._Content.Terrarium.World.Biomes
                 AAMod.instance.Logger.Warn("Terrarium schematic isn't loaded; skipping placement.");
                 return false;
             }
-            
+
             WorldUtils.Gen(origin, new Shapes.Circle(biomeRadius), Actions.Chain(
             [
                 new WorldGenUtils.InWorld(),
                 new Modifiers.RadialDither(biomeRadius - 5, biomeRadius),
                 new Actions.SetLiquid(0, 0)
             ]));
-            
+
             var options = new SchematicPlaceOptions
             {
                 Anchor = SchematicAnchor.Center,

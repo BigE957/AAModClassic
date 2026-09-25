@@ -1,6 +1,5 @@
 using System;
 using System.Threading;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

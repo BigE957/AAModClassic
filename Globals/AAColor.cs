@@ -2,11 +2,10 @@ using AAModClassic.Base;
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 
 namespace AAModClassic.Globals
 {
-	public static class AAColor
+    public static class AAColor
     {
         public static Color PostEquinoxRarityColor => new Color(239, 0, 243);
 
@@ -106,8 +105,8 @@ namespace AAModClassic.Globals
 
         public static Color DragonFire => BaseUtility.MultiLerpColor(((int)(Main.GlobalTimeWrappedHourly * 60)) % 100 / 100f, new Color(125, 10, 50), new Color(212, 45, 40), new Color(125, 10, 50));
 
-        public static Color Uranium => BaseUtility.MultiLerpColor(((int)(Main.GlobalTimeWrappedHourly * 60)) % 100 / 100f, BaseDrawing.GetLightColor(Main.LocalPlayer.position), BaseDrawing.GetLightColor(Main.LocalPlayer.position), Color.Green, Color.Green, BaseDrawing.GetLightColor(Main.LocalPlayer.position));
-        
+        public static Color Uranium => BaseUtility.MultiLerpColor(((int)(Main.GlobalTimeWrappedHourly * 60)) % 100 / 100f, Lighting.GetColor((Main.LocalPlayer.position).ToTileCoordinates()), Lighting.GetColor((Main.LocalPlayer.position).ToTileCoordinates()), Color.Green, Color.Green, Lighting.GetColor((Main.LocalPlayer.position).ToTileCoordinates()));
+
         public static Color FlashGlow => BaseUtility.MultiLerpColor(((int)(Main.GlobalTimeWrappedHourly * 60)) % 100 / 100f, Color.Transparent, Color.White, Color.White, Color.Transparent);
 
         public static Color Oblivion
@@ -144,9 +143,9 @@ namespace AAModClassic.Globals
 
 
         public static Color Rainbow1 => BaseUtility.MultiLerpColor(((int)(Main.GlobalTimeWrappedHourly * 60)) % 100 / 100f, Color.Red, Color.Green, Color.Blue);
-        
+
         public static Color Rainbow2 => BaseUtility.MultiLerpColor(((int)(Main.GlobalTimeWrappedHourly * 60)) % 100 / 100f, Color.Green, Color.Blue, Color.Red);
-        
+
         public static Color Rainbow3 => BaseUtility.MultiLerpColor(((int)(Main.GlobalTimeWrappedHourly * 60)) % 100 / 100f, Color.Blue, Color.Red, Color.Green);
 
 

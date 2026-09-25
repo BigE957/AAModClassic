@@ -3,7 +3,6 @@ using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -75,7 +74,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons
                 }
             }
 
-                return false;
+            return false;
         }
 
         public override void AddRecipes()

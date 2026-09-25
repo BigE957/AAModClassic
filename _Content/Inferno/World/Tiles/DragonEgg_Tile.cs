@@ -1,15 +1,14 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ObjectData;
-using Terraria.Localization;
-using Terraria.ID;
-using AAModClassic.Globals;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Pets;
-using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 using AAModClassic.Base;
+using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
+using Terraria.ObjectData;
 
 namespace AAModClassic._Content.Inferno.World.Tiles
 {

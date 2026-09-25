@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -23,9 +22,9 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Materials
             TileObjectData.addTile(Type);
 
             DustType = DustID.Ice;
-            RegisterItemDrop(ModContent.ItemType<RelicBar>());   
+            RegisterItemDrop(ModContent.ItemType<RelicBar>());
             AddMapEntry(new Color(0, 0, 255));
-			MinPick = 0;
+            MinPick = 0;
         }
     }
 }

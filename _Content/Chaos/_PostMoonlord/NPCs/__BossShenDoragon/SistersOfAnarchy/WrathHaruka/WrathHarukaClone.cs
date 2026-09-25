@@ -1,11 +1,10 @@
-﻿using Terraria;
+﻿using AAModClassic.Base;
+using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Utilities;
-using AAModClassic.Base;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOfAnarchy.WrathHaruka
 {
@@ -52,13 +51,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Siste
         public override void AI()
         {
             NPC Haruka = Main.npc[(int)NPC.ai[0]];
-            if(!Main.npc[(int)NPC.ai[0]].active || Main.npc[(int)NPC.ai[0]].life <= 0)
+            if (!Main.npc[(int)NPC.ai[0]].active || Main.npc[(int)NPC.ai[0]].life <= 0)
             {
                 NPC.life = 0;
                 NPC.active = false;
                 return;
             }
-            if(((WrathHaruka)Haruka.ModNPC).internalAI[0] != 4)
+            if (((WrathHaruka)Haruka.ModNPC).internalAI[0] != 4)
             {
                 NPC.boss = false;
                 NPC.life = 0;

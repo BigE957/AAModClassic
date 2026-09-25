@@ -1,11 +1,9 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Hallow.__Hardmode.Items.Weapons
 {
@@ -38,14 +36,14 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Weapons
             Item.buffType = ModContent.BuffType<TrueHallowStaff_Buff>();
             Item.autoReuse = true;
         }
-		
-		public override void UseStyle(Player player, Rectangle heldItemFrame)
-		{
-			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-			{
-				player.AddBuff(Item.buffType, 3600, true);
-			}
-		}
+
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
+        {
+            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
+            {
+                player.AddBuff(Item.buffType, 3600, true);
+            }
+        }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {

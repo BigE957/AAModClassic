@@ -1,6 +1,5 @@
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,7 +7,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
 {
     public class AbyssalArc_Proj : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             //TODO: ??????
@@ -16,20 +15,20 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
         }
 
         public override void SetDefaults()
-		{
+        {
 
-			Projectile.width = 18;
-			Projectile.height = 40;
-			Projectile.aiStyle = ProjAIStyleID.Boomerang;
-			Projectile.friendly = true;
-			Projectile.DamageType = DamageClass.Melee;
-			Projectile.penetrate = 5;
-			Projectile.timeLeft = 600;
-			Projectile.light = 0.9f;
-			Projectile.extraUpdates = 1;
-			
-			
-		}
+            Projectile.width = 18;
+            Projectile.height = 40;
+            Projectile.aiStyle = ProjAIStyleID.Boomerang;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.penetrate = 5;
+            Projectile.timeLeft = 600;
+            Projectile.light = 0.9f;
+            Projectile.extraUpdates = 1;
+
+
+        }
 
         public override void AI()
         {

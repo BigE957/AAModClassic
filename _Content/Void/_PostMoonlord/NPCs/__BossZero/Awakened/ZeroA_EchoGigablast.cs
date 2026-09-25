@@ -1,8 +1,7 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 {
@@ -10,7 +9,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
     {
         public override void SetStaticDefaults()
         {
-            Main.projFrames[Projectile.type] = 4; 
+            Main.projFrames[Projectile.type] = 4;
         }
         public override void SetDefaults()
         {

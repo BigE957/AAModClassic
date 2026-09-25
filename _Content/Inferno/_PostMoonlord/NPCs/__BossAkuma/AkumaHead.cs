@@ -16,7 +16,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -576,7 +575,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             {
                 spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, NPC.IsABestiaryIconDummy ? Color.White : NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             }
-            
+
             return false;
         }
 
@@ -597,7 +596,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Defeat.Status"), Color.DarkOrange.R, Color.DarkOrange.G, Color.DarkOrange.B, false);
                 }
-                
+
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                     ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Defeat.NotExpert"), new Color(180, 41, 32));
 

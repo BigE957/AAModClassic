@@ -1,7 +1,6 @@
 using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -10,7 +9,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 {
     public class AnubisA_CrookOfTheSoulJudge : ModProjectile
-	{
+    {
         public override void SetDefaults()
         {
             Projectile.width = 100;
@@ -24,8 +23,8 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 
         public int master = -1;
 
-		public override void AI()
-		{
+        public override void AI()
+        {
             if (master >= 0 && (Main.npc[master] == null || !Main.npc[master].active || Main.npc[master].type != ModContent.NPCType<AnubisA>())) master = -1;
             if (master == -1)
             {
@@ -33,7 +32,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
                 if (master == -1) master = -2;
             }
             if (master == -1) { return; }
-			if (master < 0 || !Main.npc[master].active || Main.npc[master].life <= 0) { Projectile.Kill(); return; }
+            if (master < 0 || !Main.npc[master].active || Main.npc[master].life <= 0) { Projectile.Kill(); return; }
 
             if (Main.rand.NextBool(2))
             {

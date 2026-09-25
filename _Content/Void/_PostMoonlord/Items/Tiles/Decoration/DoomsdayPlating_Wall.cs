@@ -1,30 +1,29 @@
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Base;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
 {
     public class DoomsdayPlating_Wall : ModWall
-	{
-		public override void SetStaticDefaults()
+    {
+        public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;
             DustType = ModContent.DustType<Dusts.DoomDust>();
-			AddMapEntry(new Color(30, 30, 30));
+            AddMapEntry(new Color(30, 30, 30));
             HitSound = SoundID.Tink;
             RegisterItemDrop(ModContent.ItemType<DoomsdayPlatingWall>());
             Main.wallHouse[Type] = true;
             Main.wallLargeFrames[Type] = 2;
         }
 
-		public override void NumDust(int i, int j, bool fail, ref int num)
-		{
-			num = fail ? 1 : 3;
-		}
+        public override void NumDust(int i, int j, bool fail, ref int num)
+        {
+            num = fail ? 1 : 3;
+        }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {

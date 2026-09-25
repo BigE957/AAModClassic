@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,14 +10,14 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-			Main.tileMergeDirt[Type] = true;
+            Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             //true for block to emit light
             HitSound = SoundID.Tink;
-            RegisterItemDrop(ModContent.ItemType<DoomstoneBrick>());   
+            RegisterItemDrop(ModContent.ItemType<DoomstoneBrick>());
             DustType = ModContent.DustType<Dusts.DoomDust>();
             AddMapEntry(new Color(40, 20, 20));
-			MinPick = 225;
+            MinPick = 225;
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)

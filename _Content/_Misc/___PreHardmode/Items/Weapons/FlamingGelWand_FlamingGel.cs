@@ -2,7 +2,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -57,16 +56,16 @@ namespace AAModClassic._Content._Misc.___PreHardmode.Items.Weapons
 
         public override void AI()
         {
-                                                          //this make that the projectile faces the right way
+            //this make that the projectile faces the right way
             Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
             Projectile.localAI[0] += 1f;
             Projectile.alpha = (int)Projectile.localAI[0] * 2;
-           
+
             if (Projectile.localAI[0] > 60f) //projectile time left before disappears
             {
                 Projectile.Kill();
             }
-           
+
         }
     }
 }

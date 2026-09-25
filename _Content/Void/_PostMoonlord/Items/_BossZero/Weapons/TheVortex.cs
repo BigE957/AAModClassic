@@ -1,9 +1,7 @@
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,7 +12,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
         public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetStaticDefaults()
         {
-            
+
             // DisplayName.SetDefault("The Vortex");
             // Tooltip.SetDefault(@"Spins fast enough to drag all enemies into its gravitational pull");
         }
@@ -22,7 +20,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.Terrarian);
-            Item.damage = 475;                            
+            Item.damage = 475;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.rare = ItemRarityID.Green;
             Item.knockBack = 1;
@@ -34,7 +32,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        
+
 
         public override void AddRecipes()  //How to craft this sword
         {

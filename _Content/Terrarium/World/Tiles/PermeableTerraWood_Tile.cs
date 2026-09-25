@@ -2,7 +2,6 @@ using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,7 +11,7 @@ namespace AAModClassic._Content.Terrarium.World.Tiles
     public class PermeableTerraWood_Tile : ModTile
     {
 
-        public bool glow = true; 
+        public bool glow = true;
         public override void SetStaticDefaults()
         {
             MineResist = 2f;

@@ -1,8 +1,8 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Tools;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria.ModLoader;
 using Terraria.UI;
-using ReLogic.Content;
-using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Tools;
 
 namespace AAModClassic.UI.Tools
 {

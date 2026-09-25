@@ -1,8 +1,6 @@
-﻿using AAModClassic.Dusts;
-using AAModClassic.UI.World;
+﻿using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEye

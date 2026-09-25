@@ -5,7 +5,6 @@ using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -14,7 +13,6 @@ using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Events;
@@ -28,7 +26,7 @@ using Terraria.ModLoader.IO;
 namespace AAModClassic._Unofficial.Desert
 {
     [AutoloadHead]
-	public class LegendscribeUnofficial : ModNPC, ILocalizedModType
+    public class LegendscribeUnofficial : ModNPC, ILocalizedModType
     {
         public new string LocalizationCategory => "NPCs.TownNPCs";
 
@@ -102,17 +100,17 @@ namespace AAModClassic._Unofficial.Desert
         }
 
         public override void SetStaticDefaults()
-		{
-			NPCID.Sets.AttackFrameCount[NPC.type] = 2;
+        {
+            NPCID.Sets.AttackFrameCount[NPC.type] = 2;
             NPCID.Sets.ExtraFramesCount[NPC.type] = NPCID.Sets.AttackFrameCount[NPC.type] + 5;
             Main.npcFrameCount[NPC.type] = NPCID.Sets.ExtraFramesCount[NPC.type] + 10;
 
             NPCID.Sets.DangerDetectRange[NPC.type] = -1;
-			NPCID.Sets.AttackType[NPC.type] = 2;
-			NPCID.Sets.AttackTime[NPC.type] = 40;
-			NPCID.Sets.AttackAverageChance[NPC.type] = 1;
+            NPCID.Sets.AttackType[NPC.type] = 2;
+            NPCID.Sets.AttackTime[NPC.type] = 40;
+            NPCID.Sets.AttackAverageChance[NPC.type] = 1;
 
-			NPCID.Sets.HatOffsetY[NPC.type] = 3;
+            NPCID.Sets.HatOffsetY[NPC.type] = 3;
 
             NPCID.Sets.ShimmerTownTransform[Type] = true;
 
@@ -167,7 +165,7 @@ namespace AAModClassic._Unofficial.Desert
             }
         }
 
-		public override bool CanTownNPCSpawn(int numTownNPCs)
+        public override bool CanTownNPCSpawn(int numTownNPCs)
         {
             return !NPC.AnyNPCs(ModContent.NPCType<AnubisUnreleased>()) && !NPC.AnyNPCs(ModContent.NPCType<Anubis>()) && !NPC.AnyNPCs(ModContent.NPCType<LegendscribeUnofficial>()) && !NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) && !NPC.AnyNPCs(ModContent.NPCType<AnubisA>());
 
@@ -202,7 +200,7 @@ namespace AAModClassic._Unofficial.Desert
         }
 
         public override List<string> SetNPCNameList()
-		{
+        {
             return ["Anubis"];
         }
 
@@ -1052,7 +1050,7 @@ namespace AAModClassic._Unofficial.Desert
             else
                 button = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LegendscribeUnofficial.Buttons.Help");
 
-            if(!NPC.downedMoonlord || NPCExtensions.BeenKilled<AnubisA>())
+            if (!NPC.downedMoonlord || NPCExtensions.BeenKilled<AnubisA>())
                 button2 = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LegendscribeUnofficial.Buttons.Next");
         }
 
@@ -1141,7 +1139,7 @@ namespace AAModClassic._Unofficial.Desert
                         p.HasSpokenToAnubisAfterDyingToForsakenAnubis = true;
                         return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.First");
                     }
-                    else if(p.HasLostMultipleTimesToForsakenAnubis)
+                    else if (p.HasLostMultipleTimesToForsakenAnubis)
                         return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.Repeat.MultipleDeaths." + Main.rand.Next(3));
                     else
                         return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.Repeat.FirstDeath" + Main.rand.Next(2));
@@ -1185,16 +1183,16 @@ namespace AAModClassic._Unofficial.Desert
 
         #region attack values
         public override void TownNPCAttackStrength(ref int damage, ref float knockback)
-		{
-			damage = 30;
-			knockback = 4f;
-		}
+        {
+            damage = 30;
+            knockback = 4f;
+        }
 
-		public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
-		{
-			cooldown = 20;
-			randExtraCooldown = 20;
-		}
+        public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
+        {
+            cooldown = 20;
+            randExtraCooldown = 20;
+        }
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {

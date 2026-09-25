@@ -9,18 +9,18 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Terra;
 
 public class TerraChair_Tile : ModTile
 {
-	public override void SetStaticDefaults()
-	{
+    public override void SetStaticDefaults()
+    {
         this.SetUpChair(ModContent.ItemType<TerraChair>());
         DustType = DustID.Terra;
 
         VanillaFallbackOnModDeletion = TileID.Chairs;
     }
 
-	public override void NumDust(int i, int j, bool fail, ref int num)
-	{
-		num = (fail ? 1 : 3);
-	}
+    public override void NumDust(int i, int j, bool fail, ref int num)
+    {
+        num = (fail ? 1 : 3);
+    }
 
     public override void ModifySittingTargetInfo(int i, int j, ref TileRestingInfo info) => FurnitureUtils.ChairSitInfo(i, j, ref info);
 

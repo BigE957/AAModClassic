@@ -5,8 +5,6 @@ using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
@@ -28,18 +26,18 @@ Only useable at night"); */
         }
 
         public override void SetDefaults()
-		{
-			Item.width = 32;
-			Item.height = 24;
-			Item.maxStack = Item.CommonMaxStack;
-			Item.rare = ItemRarityID.Green;
+        {
+            Item.width = 32;
+            Item.height = 24;
+            Item.maxStack = Item.CommonMaxStack;
+            Item.rare = ItemRarityID.Green;
             Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.useAnimation = 45;
-			Item.useTime = 45;
-			Item.useStyle = ItemUseStyleID.HoldUp;
-			Item.UseSound = SoundID.Item44;
-			Item.consumable = true;
-		}
+            Item.useTime = 45;
+            Item.useStyle = ItemUseStyleID.HoldUp;
+            Item.UseSound = SoundID.Item44;
+            Item.consumable = true;
+        }
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
@@ -77,5 +75,5 @@ Only useable at night"); */
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }
-	}
+    }
 }

@@ -1,7 +1,6 @@
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.ObjectInteractions;
@@ -11,18 +10,18 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OuroborosWoodFurniture
 {
     public class OuroborosWoodChair_Tile : ModTile
-	{
-		public override void SetStaticDefaults()
-		{
+    {
+        public override void SetStaticDefaults()
+        {
             this.SetUpChair(ModContent.ItemType<OuroborosWoodChair>());
             DustType = ModContent.DustType<Dusts.DoomDust>();
 
             VanillaFallbackOnModDeletion = TileID.Chairs;
         }
 
-		public override void NumDust(int i, int j, bool fail, ref int num)
-		{
-			num = fail ? 1 : 3;
+        public override void NumDust(int i, int j, bool fail, ref int num)
+        {
+            num = fail ? 1 : 3;
         }
 
         public override void ModifySittingTargetInfo(int i, int j, ref TileRestingInfo info) => FurnitureUtils.ChairSitInfo(i, j, ref info);

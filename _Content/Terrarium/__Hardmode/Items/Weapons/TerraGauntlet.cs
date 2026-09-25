@@ -1,6 +1,5 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -29,7 +28,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
             Item.shootSpeed = 1f;
             Item.mana = 10;
         }
-		
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Gauntlet");
@@ -56,12 +55,12 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
             {
                 return false;
             }
-			
-			ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
-			modPlayer.TerraSummon = true;
-			player.AddBuff(ModContent.BuffType<TerraGauntlet_Buff>(), 2, true);
 
-			Vector2 point = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY);
+            ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
+            modPlayer.TerraSummon = true;
+            player.AddBuff(ModContent.BuffType<TerraGauntlet_Buff>(), 2, true);
+
+            Vector2 point = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY);
 
             int shootMe = Main.rand.Next(3);
             switch (shootMe)

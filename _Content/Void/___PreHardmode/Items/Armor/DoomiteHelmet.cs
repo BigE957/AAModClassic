@@ -2,13 +2,10 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Globals;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
@@ -60,5 +57,5 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
-	}
+    }
 }

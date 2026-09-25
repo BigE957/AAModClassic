@@ -5,7 +5,6 @@ using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -34,7 +33,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord
             NPC.noGravity = true;
             NPC.aiStyle = -1;
             NPC.timeLeft = 10;
-                
+
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
                 NPC.buffImmune[k] = true;

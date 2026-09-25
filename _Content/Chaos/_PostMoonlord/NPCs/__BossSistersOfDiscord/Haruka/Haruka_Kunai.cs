@@ -1,7 +1,6 @@
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,18 +8,18 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka
 {
     public class Haruka_Kunai : ModProjectile
-	{
-		public override void SetDefaults()
-		{
-			Projectile.width = 14;
-			Projectile.height = 34;
-			Projectile.friendly = false;
+    {
+        public override void SetDefaults()
+        {
+            Projectile.width = 14;
+            Projectile.height = 34;
+            Projectile.friendly = false;
             Projectile.hostile = true;
-			Projectile.timeLeft = 1200;
-			Projectile.penetrate = 1;
+            Projectile.timeLeft = 1200;
+            Projectile.penetrate = 1;
             Projectile.extraUpdates = 1;
             Projectile.aiStyle = -1;
-		}
+        }
 
         public override void AI()
         {
@@ -28,16 +27,16 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         }
 
         public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
-		{
-			// For going through platforms and such, javelins use a tad smaller size
-			width = height = 10; // notice we set the width to the height, the height to 10. so both are 10
-			return true;
-		}
+        {
+            // For going through platforms and such, javelins use a tad smaller size
+            width = height = 10; // notice we set the width to the height, the height to 10. so both are 10
+            return true;
+        }
 
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Abyssal Kunai");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Abyssal Kunai");
+        }
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
@@ -46,13 +45,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         }
 
         public override void OnKill(int timeLeft)
-		{
-			for (int k = 0; k < 5; k++)
-			{
-			     Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, ModContent.DustType<Dusts.CthulhuAuraDust>(), Projectile.oldVelocity.X * 0.1f, Projectile.oldVelocity.Y * 0.1f);
-			}
-			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
-			
-		}
-	}
+        {
+            for (int k = 0; k < 5; k++)
+            {
+                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, ModContent.DustType<Dusts.CthulhuAuraDust>(), Projectile.oldVelocity.X * 0.1f, Projectile.oldVelocity.Y * 0.1f);
+            }
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
+
+        }
+    }
 }

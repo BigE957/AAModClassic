@@ -4,11 +4,9 @@ using AAModClassic._Content.Inferno._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Armor;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -53,10 +51,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
         }
 
         public override void SetDefaults()
-		{
-			Item.width = 26;
-			Item.height = 20;
-			Item.value = Item.sellPrice(3, 0, 0, 0);
+        {
+            Item.width = 26;
+            Item.height = 20;
+            Item.value = Item.sellPrice(3, 0, 0, 0);
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
             Item.defense = 60;
         }

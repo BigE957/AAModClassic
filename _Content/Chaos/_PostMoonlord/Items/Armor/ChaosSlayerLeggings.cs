@@ -4,11 +4,9 @@ using AAModClassic._Content.Inferno._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Armor;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
@@ -16,7 +14,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
     [AutoloadEquip(EquipType.Legs)]
     [AutoloadEquipGlow(EquipType.Legs)]
     public class ChaosSlayerLeggings : EquipAbstract, ILocalizedModType, ICustomEquipGlow
-	{
+    {
         public new string LocalizationCategory => "Items.Armor.ChaosSlayer";
         public Color Color => AAColor.Shen3;
 
@@ -40,13 +38,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
         }
 
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Chaos Slayer Greaves");
+        {
+            // DisplayName.SetDefault("Chaos Slayer Greaves");
             /* Tooltip.SetDefault(@"'The power of discordian rage radiates from this armor'"); */
         }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Item.width = 22;
             Item.height = 16;
             Item.value = Item.sellPrice(3, 0, 0, 0);

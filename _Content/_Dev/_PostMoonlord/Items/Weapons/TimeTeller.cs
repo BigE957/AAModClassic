@@ -1,11 +1,10 @@
-using Terraria;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using System.Collections.Generic;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic._CrossMod;
 using AAModClassic.Base;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
@@ -63,21 +62,21 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             if (player.accWatch < 3)
                 player.accWatch = 3;
         }
-		
-		public static float CalcDamageMultiplierFromTimeOfDay(int baseDamage)
-		{
-			int minDamage = baseDamage; //this is the damage you set in SetDefaults.
-			int maxDamage = 350; //this is the damage you get at midday/midnight.
 
-			float maxMultiplier = maxDamage / (float)minDamage;		
-			float time = (int)Main.time;
-			float calcTimeMax = 0f;
-			if(Main.dayTime)
-				calcTimeMax = 54000f; //max time in a day
-			else
-				calcTimeMax = 32400f; //max time in a night
+        public static float CalcDamageMultiplierFromTimeOfDay(int baseDamage)
+        {
+            int minDamage = baseDamage; //this is the damage you set in SetDefaults.
+            int maxDamage = 350; //this is the damage you get at midday/midnight.
 
-			return BaseUtility.MultiLerp(time / calcTimeMax, 1f, maxMultiplier, 1f);
-		}
+            float maxMultiplier = maxDamage / (float)minDamage;
+            float time = (int)Main.time;
+            float calcTimeMax = 0f;
+            if (Main.dayTime)
+                calcTimeMax = 54000f; //max time in a day
+            else
+                calcTimeMax = 32400f; //max time in a night
+
+            return BaseUtility.MultiLerp(time / calcTimeMax, 1f, maxMultiplier, 1f);
+        }
     }
 }

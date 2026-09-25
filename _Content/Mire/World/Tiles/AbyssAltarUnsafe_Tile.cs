@@ -1,32 +1,31 @@
+using AAModClassic._Content.Chaos.__Hardmode.NPCs;
+using AAModClassic.Dusts;
+using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria.DataStructures;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using AAModClassic.Dusts;
-using System.Collections.Generic;
-using AAModClassic._Content.Chaos.__Hardmode.NPCs;
-using AAModClassic.UI.World;
 
 namespace AAModClassic._Content.Mire.World.Tiles
 {
     public class AbyssAltarUnsafe_Tile : ModTile
-	{
-		public override void SetStaticDefaults()
-		{
-			Main.tileFrameImportant[Type] = true;
-			Main.tileLavaDeath[Type] = false;
-			TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
+    {
+        public override void SetStaticDefaults()
+        {
+            Main.tileFrameImportant[Type] = true;
+            Main.tileLavaDeath[Type] = false;
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
             TileObjectData.newTile.Origin = new Point16(0, 0);
             TileObjectData.addTile(Type);
             Main.tileHammer[Type] = true;
-			TileID.Sets.DisableSmartCursor[Type] = true;
-			LocalizedText name = CreateMapEntryName();
-			// name.SetDefault("Abyss Altar");
+            TileID.Sets.DisableSmartCursor[Type] = true;
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Abyss Altar");
             DustType = ModContent.DustType<AbyssiumDust>();
-            AddMapEntry(new Color(0, 0 ,100), name);
+            AddMapEntry(new Color(0, 0, 100), name);
             AdjTiles = new int[] { TileID.DemonAltar };
         }
 
@@ -76,9 +75,9 @@ namespace AAModClassic._Content.Mire.World.Tiles
                         n.Transform(ModContent.NPCType<ChaosDragon>());
         }
 
-        public static void DamagePlayer (Player player)
+        public static void DamagePlayer(Player player)
         {
             player.statLife -= player.statLifeMax / 10;
         }
-	}
+    }
 }

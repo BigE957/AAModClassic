@@ -1,11 +1,10 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Dusts
 {
     public class ShadowDust : ModDust
-	{
+    {
         public override void OnSpawn(Dust dust)
         {
             dust.velocity.Y = Main.rand.Next(-10, 6) * 0.1f;

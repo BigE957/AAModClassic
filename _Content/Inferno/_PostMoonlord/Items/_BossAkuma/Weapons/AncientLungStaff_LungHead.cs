@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
 using AAModClassic._Content.Inferno.Projectiles;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
-using Terraria;
+using System;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -51,7 +48,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
         {
             Texture2D texture2D13 = TextureAssets.Projectile[Projectile.type].Value;
             int num214 = TextureAssets.Projectile[Projectile.type].Height() / Main.projFrames[Projectile.type];
-            if(flaming) Projectile.frame = 1;
+            if (flaming) Projectile.frame = 1;
             else Projectile.frame = 0;
             int y6 = num214 * Projectile.frame;
             Main.spriteBatch.Draw(texture2D13, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Rectangle(0, y6, texture2D13.Width, num214),

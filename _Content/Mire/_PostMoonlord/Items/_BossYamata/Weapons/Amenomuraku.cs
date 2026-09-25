@@ -1,10 +1,8 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic._Content.Corruption.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,7 +12,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons   /
     public class Amenomuraku : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Amenomuraku");
@@ -22,21 +20,21 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons   /
 Inflicts Moonrazed"); */
         }
 
-        
+
         public override void SetDefaults()
         {
             Item.shoot = ModContent.ProjectileType<Amenomuraku_PhantomSword>();
-            Item.damage = 220;            
-            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
-            Item.width = 86;              
-            Item.height = 86;             
-            Item.useTime = 13;          
-            Item.useAnimation = 13;     
-            Item.useStyle = ItemUseStyleID.Swing;        
-            Item.knockBack = 3f;      
+            Item.damage = 220;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 86;
+            Item.height = 86;
+            Item.useTime = 13;
+            Item.useAnimation = 13;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 3f;
             Item.value = Item.sellPrice(0, 30, 0, 0);
-            Item.UseSound = SoundID.Item20;      
-            Item.autoReuse = true;   
+            Item.UseSound = SoundID.Item20;
+            Item.autoReuse = true;
             Item.useTurn = true;
             Item.shootSpeed = 20f;
             Item.rare = ModContent.RarityType<AncientsRarity>();

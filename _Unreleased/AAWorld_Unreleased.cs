@@ -2,9 +2,7 @@
 using AAModClassic._CrossMod;
 using AAModClassic._Removed;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration;
-using AAModClassic._Unofficial.Content.SunkenShip.___PreHardmode.Items;
 using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
-using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
@@ -14,11 +12,8 @@ using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using Terraria;
 using Terraria.GameContent.Generation;
 using Terraria.ID;
 using Terraria.IO;
@@ -106,7 +101,7 @@ namespace AAModClassic._Unreleased
                     ParthenanIsland(progress);
                 }));
 
-                if(!ContentReplacementSystem.NeedToReplaceContent)
+                if (!ContentReplacementSystem.NeedToReplaceContent)
                     tasks.Insert(shiniesIndex2, new PassLegacy("Mush", delegate (GenerationProgress progress, GameConfiguration config)
                     {
                         Mush_Refactored(progress);

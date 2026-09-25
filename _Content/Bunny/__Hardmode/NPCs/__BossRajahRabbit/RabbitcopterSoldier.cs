@@ -1,12 +1,6 @@
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System.IO;
-using Terraria;
-using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -56,15 +50,15 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 
         public override void HitEffect(NPC.HitInfo hit)
         {
-			bool isDead = NPC.life <= 0;		
+            bool isDead = NPC.life <= 0;
             if (isDead)          //this make so when the npc has 0 life(dead) he will spawn this
             {
 
             }
-			for (int m = 0; m < (isDead ? 10 : 3); m++)
+            for (int m = 0; m < (isDead ? 10 : 3); m++)
             {
                 Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, default, isDead ? 2f : 1.5f);
-            }			
+            }
         }
 
         public override void PostAI()
@@ -124,7 +118,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 NPC.AnyNPCs(ModContent.NPCType<RajahRabbitA>())))
             {
                 if (NPC.timeLeft > 5)
-					NPC.timeLeft = 5;
+                    NPC.timeLeft = 5;
                 NPC.velocity.Y = NPC.velocity.Y - 0.2f;
                 if (NPC.velocity.Y < -8f)
                 {

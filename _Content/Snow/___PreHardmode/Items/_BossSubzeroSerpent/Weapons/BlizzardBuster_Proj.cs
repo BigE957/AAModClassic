@@ -1,6 +1,5 @@
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,7 +8,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.We
 
 {
     public class BlizzardBuster_Proj : ModProjectile
-	{
+    {
         public override string Texture => ModContent.GetInstance<BlizzardBuster>().Texture;
 
         public override void SetStaticDefaults()

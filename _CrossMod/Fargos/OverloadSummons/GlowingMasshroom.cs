@@ -1,14 +1,11 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus;
+using AAModClassic.Base;
+using Microsoft.Xna.Framework;
 using Terraria.Audio;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus;
-using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus;
-using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Base;
+using Terraria.ModLoader;
 
 namespace AAModClassic._CrossMod.Fargos.OverloadSummons
 {
@@ -43,7 +40,7 @@ Can only be used in glowing mushroom biomes"); */
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem)
                 if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.GlowingMassShroomInitiated"), Color.SkyBlue, false); 
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.GlowingMassShroomInitiated"), Color.SkyBlue, false);
 
             for (int i = 0; i < 10; i++)
             {
@@ -60,7 +57,7 @@ Can only be used in glowing mushroom biomes"); */
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem)
                     if (Main.netMode != NetmodeID.MultiplayerClient)
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.GlowingMassShroomFalse"),  Color.SkyBlue, false);
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.GlowingMassShroomFalse"), Color.SkyBlue, false);
                 return false;
             }
             if (NPC.AnyNPCs(ModContent.NPCType<FeudalFungus>()))

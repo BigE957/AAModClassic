@@ -3,7 +3,6 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
@@ -33,7 +32,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
         public override bool PreDraw(ref Color lightColor)
         {
             Texture2D tex = TextureAssets.Projectile[Projectile.type].Value;
-            Main.spriteBatch.Draw(tex, Projectile.Center - Main.screenPosition, null, Projectile.GetAlpha(lightColor), Projectile.velocity.X > 0 ? Projectile.rotation : Projectile.rotation - (float)Math.PI/2, tex.Size() / 2f, Projectile.scale, Projectile.velocity.X > 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+            Main.spriteBatch.Draw(tex, Projectile.Center - Main.screenPosition, null, Projectile.GetAlpha(lightColor), Projectile.velocity.X > 0 ? Projectile.rotation : Projectile.rotation - (float)Math.PI / 2, tex.Size() / 2f, Projectile.scale, Projectile.velocity.X > 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             return false;
         }
 

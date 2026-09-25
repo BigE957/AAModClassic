@@ -4,7 +4,6 @@ using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Enums;
@@ -17,7 +16,7 @@ using Terraria.ObjectData;
 namespace AAModClassic._Content.Void.World.BiomeChest
 {
     public class DoomsdayChest_Tile : ModTile
-	{
+    {
         public override void SetStaticDefaults()
         {
             Main.tileSpelunker[Type] = true;
@@ -290,7 +289,7 @@ namespace AAModClassic._Content.Void.World.BiomeChest
         public override void PostDraw(int x, int y, SpriteBatch sb)
         {
             Tile tile = Main.tile[x, y];
-            Texture2D LockTex = ModContent.Request<Texture2D>(Texture+ "_LockedFrame").Value;
+            Texture2D LockTex = ModContent.Request<Texture2D>(Texture + "_LockedFrame").Value;
             Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
 
             int frameX = tile != null && tile.HasTile ? tile.TileFrameX + (Main.tileFrame[Type] * 36) : 0;

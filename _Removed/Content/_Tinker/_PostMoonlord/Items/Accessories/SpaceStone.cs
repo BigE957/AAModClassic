@@ -1,7 +1,6 @@
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -42,7 +41,7 @@ You are immune to the Chaos State Debuff
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             base.ModifyTooltips(list);
-            
+
             foreach (TooltipLine line2 in list)
             {
                 if (line2.Mod == "Terraria" && line2.Name == "ItemName")

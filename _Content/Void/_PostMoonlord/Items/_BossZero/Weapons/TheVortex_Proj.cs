@@ -2,7 +2,6 @@ using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,17 +12,17 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
     {
         public override void SetDefaults()
         {
-            Projectile.penetrate = 2;  
+            Projectile.penetrate = 2;
             Projectile.width = 20;
             Projectile.height = 20;
-			Projectile.friendly = true;
-			Projectile.hostile = false;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
             Projectile.timeLeft = 900;
             Projectile.DamageType = DamageClass.Melee;
         }
-		
-		public override void AI()
-		{
+
+        public override void AI()
+        {
             int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), -Projectile.velocity.X * 0.2f,
                        -Projectile.velocity.Y * 0.2f, 46, default, 1.184211f);
             Main.dust[num469].noGravity = true;
@@ -37,7 +36,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                Projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
@@ -89,7 +88,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                     )
                         selectedTarget = i;
                 }
@@ -113,9 +112,9 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 
 
         public override void SetStaticDefaults()
-		{
-		    // DisplayName.SetDefault("The Vortex");
-		}
+        {
+            // DisplayName.SetDefault("The Vortex");
+        }
 
         public override bool PreDraw(ref Color lightColor)
         {

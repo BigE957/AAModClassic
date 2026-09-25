@@ -1,36 +1,35 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
 {
     public class FlamingFury : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-        
+
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Flaming Fury");
-			// Tooltip.SetDefault("Forged with the kindled rage of ancient dragons.");
+        {
+            // DisplayName.SetDefault("Flaming Fury");
+            // Tooltip.SetDefault("Forged with the kindled rage of ancient dragons.");
         }
-		public override void SetDefaults()
-		{
-            
-			Item.damage = 26;
-			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-			Item.width = 44;
-			Item.height = 48;
-			Item.useTime = 27;
-			Item.useAnimation = 27;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack = 5;
-			Item.value = 3000;
-			Item.rare = ItemRarityID.Green;
-			Item.UseSound = SoundID.Item20;
-			Item.autoReuse = false;
+        public override void SetDefaults()
+        {
+
+            Item.damage = 26;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 44;
+            Item.height = 48;
+            Item.useTime = 27;
+            Item.useAnimation = 27;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 5;
+            Item.value = 3000;
+            Item.rare = ItemRarityID.Green;
+            Item.UseSound = SoundID.Item20;
+            Item.autoReuse = false;
         }
 
         public override void MeleeEffects(Player player, Rectangle hitbox)
@@ -44,16 +43,16 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
         }
 
         public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
+        {
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 12);
-			recipe.AddTile(TileID.Anvils);
-			recipe.Register();
-		}
-		
-		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+            recipe.AddTile(TileID.Anvils);
+            recipe.Register();
+        }
+
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 300);
         }
-	}
+    }
 }

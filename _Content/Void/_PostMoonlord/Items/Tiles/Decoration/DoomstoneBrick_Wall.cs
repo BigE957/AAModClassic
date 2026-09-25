@@ -1,20 +1,19 @@
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Base;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
 {
     public class DoomstoneBrick_Wall : ModWall
-	{
-		public override void SetStaticDefaults()
+    {
+        public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;
             DustType = ModContent.DustType<Dusts.DoomDust>();
-			AddMapEntry(new Color(10, 10, 10));
+            AddMapEntry(new Color(10, 10, 10));
             HitSound = SoundID.Tink;
             RegisterItemDrop(ModContent.ItemType<DoomstoneBrickWall>());
             Main.wallHouse[Type] = true;
@@ -34,8 +33,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
         }
 
         public override void NumDust(int i, int j, bool fail, ref int num)
-		{
-			num = fail ? 1 : 3;
-		}
+        {
+            num = fail ? 1 : 3;
+        }
     }
 }

@@ -6,7 +6,6 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -16,9 +15,9 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs
 {
     public class FogAngler : ModNPC, IBannerNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Fog Angler");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Fog Angler");
             Main.npcFrameCount[NPC.type] = 4;
 
             NPCID.Sets.NPCBestiaryDrawModifiers value = new()
@@ -29,20 +28,20 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
         {
             NPC.width = 68;
             NPC.height = 38;
             NPC.damage = 80;
-			NPC.defense = 20;
-			NPC.lifeMax = 70;
-			NPC.HitSound = SoundID.NPCHit1;
-			NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.defense = 20;
+            NPC.lifeMax = 70;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
             NPC.value = 5000;
             NPC.knockBackResist = .10f;
             NPC.aiStyle = -1;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<FogAnglerBanner>();
+            //BannerItem = ModContent.ItemType<FogAnglerBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 

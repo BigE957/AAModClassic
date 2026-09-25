@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,7 +7,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons   //The directo
 {
     public class TimeTeller_Holdout : ModProjectile   //make sure the sprite file is named like the class name (CustomYoyoProjectile)
     {
- 
+
         public override void SetDefaults()
         {
             Projectile.extraUpdates = 0;

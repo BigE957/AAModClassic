@@ -1,10 +1,9 @@
-﻿using System;
-using AAModClassic._Content.Inferno.Buffs;
+﻿using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
@@ -53,7 +52,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
             float num635 = 1200f;
             float num636 = 150f;
             float num637 = 0.05f;
-            foreach(Projectile p in Main.ActiveProjectiles)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
                 if (p.whoAmI != Projectile.whoAmI && p.owner == Projectile.owner && Math.Abs(Projectile.position.X - p.position.X) + Math.Abs(Projectile.position.Y - p.position.Y) < Projectile.width)
                 {
@@ -232,7 +231,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(Main.rand.NextBool() ? ModContent.BuffType<DragonFire_Buff>() : ModContent.BuffType<HydraToxin_Buff>(), 180); 
+            target.AddBuff(Main.rand.NextBool() ? ModContent.BuffType<DragonFire_Buff>() : ModContent.BuffType<HydraToxin_Buff>(), 180);
         }
 
         public override bool PreDraw(ref Color lightColor)

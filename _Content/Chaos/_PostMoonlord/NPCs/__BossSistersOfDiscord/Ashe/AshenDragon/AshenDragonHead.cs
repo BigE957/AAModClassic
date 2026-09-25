@@ -1,12 +1,9 @@
 using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -138,7 +135,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                             type = ModContent.NPCType<AshenDragonTail>();
                         }
 
-                        if(Main.netMode != NetmodeID.MultiplayerClient)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             int newNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)(NPC.position.Y + NPC.height), type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
                             if (Main.netMode == NetmodeID.Server && newNPC < 200) NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, newNPC);
@@ -355,11 +352,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         public override void FindFrame(int frameHeight)
         {
             int Frame = 0;
-            if(NPC.frameCounter < 5.0)
+            if (NPC.frameCounter < 5.0)
             {
                 Frame = 0;
             }
-            else if(NPC.frameCounter < 10.0)
+            else if (NPC.frameCounter < 10.0)
             {
                 Frame = 1;
             }

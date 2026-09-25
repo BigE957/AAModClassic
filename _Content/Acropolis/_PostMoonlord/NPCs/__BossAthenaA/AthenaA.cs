@@ -21,7 +21,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -143,11 +142,11 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
                         break;
                     targetPos = player.Center;
                     targetPos.X += 500 * (NPC.Center.X < targetPos.X ? -1 : 1);
-                    
-                    for(int pos = -200; pos < 200; pos += 50)
+
+                    for (int pos = -200; pos < 200; pos += 50)
                     {
                         targetPos.Y = player.Center.Y - pos;
-                        if(Collision.CanHit(targetPos, NPC.width, NPC.height, player.position, player.width, player.height))
+                        if (Collision.CanHit(targetPos, NPC.width, NPC.height, player.position, player.width, player.height))
                         {
                             break;
                         }
@@ -200,10 +199,10 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
                     targetPos = player.Center;
                     targetPos.X += 500 * (NPC.Center.X < targetPos.X ? -1 : 1);
 
-                    for(int pos = -200; pos < 200; pos += 50)
+                    for (int pos = -200; pos < 200; pos += 50)
                     {
                         targetPos.Y = player.Center.Y - pos;
-                        if(Collision.CanHit(targetPos, NPC.width, NPC.height, player.position, player.width, player.height))
+                        if (Collision.CanHit(targetPos, NPC.width, NPC.height, player.position, player.width, player.height))
                         {
                             break;
                         }
@@ -370,7 +369,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
 
         public int Repeats()
         {
-            if (NPC.life < NPC.lifeMax * (2/3))
+            if (NPC.life < NPC.lifeMax * (2 / 3))
             {
                 return 5;
             }

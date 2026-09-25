@@ -1,7 +1,6 @@
 using AAModClassic._Content.Inferno.Projectiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -24,9 +23,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 
         public override void AI()
         {
-			if (Projectile.direction == 1) 	Projectile.rotation += 0.1f;
-			else Projectile.rotation -= 0.1f;
-			
+            if (Projectile.direction == 1) Projectile.rotation += 0.1f;
+            else Projectile.rotation -= 0.1f;
+
             if (Projectile.position.Y > Main.player[Projectile.owner].position.Y - 300f)
             {
                 Projectile.tileCollide = true;
@@ -40,7 +39,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
             for (int num189 = 0; num189 < 1; num189++)
             {
                 int num190 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaDust>(), 0f, 0f, 0);
-                
+
                 Main.dust[num190].scale *= 1.3f;
                 Main.dust[num190].fadeIn = 1f;
                 Main.dust[num190].noGravity = true;
@@ -49,7 +48,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 
         public override void OnKill(int timeLeft)
         {
-            for(int num468 = 0; num468 < 20; num468++)
+            for (int num468 = 0; num468 < 20; num468++)
             {
                 int num469 = Dust.NewDust(Projectile.Center, Projectile.width, 1, ModContent.DustType<Dusts.AkumaDust>(), -Projectile.velocity.X * 0.2f,
                     -Projectile.velocity.Y * 0.2f, 100, default, 2f);

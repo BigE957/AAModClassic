@@ -3,7 +3,6 @@ using AAModClassic.Base;
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.Localization;
@@ -13,17 +12,17 @@ using Terraria.ObjectData;
 namespace AAModClassic._Content.Inferno.World.Tiles
 {
     public class DragonAltarUnsafe_Tile : ModTile
-	{
-		public override void SetStaticDefaults()
-		{
-			Main.tileFrameImportant[Type] = true;
-			Main.tileLavaDeath[Type] = false;
-			TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
+    {
+        public override void SetStaticDefaults()
+        {
+            Main.tileFrameImportant[Type] = true;
+            Main.tileLavaDeath[Type] = false;
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
             TileObjectData.newTile.Origin = new Point16(0, 0);
             TileObjectData.addTile(Type);
             Main.tileHammer[Type] = true;
-			TileID.Sets.DisableSmartCursor[Type] = true;
-			LocalizedText name = CreateMapEntryName();
+            TileID.Sets.DisableSmartCursor[Type] = true;
+            LocalizedText name = CreateMapEntryName();
             Main.tileLighted[Type] = true;
             // name.SetDefault("Dragon Altar");
             DustType = ModContent.DustType<Dusts.IncineriteDust>();
@@ -77,9 +76,9 @@ namespace AAModClassic._Content.Inferno.World.Tiles
                         n.Transform(ModContent.NPCType<ChaosDragon>());
         }
 
-        public static void DamagePlayer (Player player)
+        public static void DamagePlayer(Player player)
         {
             player.statLife -= player.statLifeMax / 10;
         }
-	}
+    }
 }

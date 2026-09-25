@@ -1,13 +1,11 @@
-﻿using Terraria;
-using Terraria.Audio;
-using Terraria.GameContent;
-using Terraria.ModLoader;
+﻿using AAModClassic.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
 using System;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
-using AAModClassic.Base;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {

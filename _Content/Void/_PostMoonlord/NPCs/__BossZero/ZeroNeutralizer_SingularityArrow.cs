@@ -1,7 +1,6 @@
 using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -10,17 +9,17 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
 {
     public class ZeroNeutralizer_SingularityArrow : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Singularity Arrow");    
-		}
+        }
 
-		public override void SetDefaults()
-		{
-			Projectile.width = 14;
-			Projectile.height = 14;
-			Projectile.aiStyle = ProjAIStyleID.Arrow;        
+        public override void SetDefaults()
+        {
+            Projectile.width = 14;
+            Projectile.height = 14;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
             Projectile.hostile = true;
             Projectile.ignoreWater = true;
             Projectile.penetrate = 1;

@@ -1,6 +1,4 @@
 using AAModClassic.Base;
-using AAModClassic.Utilities;
-using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -49,7 +47,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
         public override void HitEffect(NPC.HitInfo hit)
         {
             bool isDead = NPC.life <= 0;
-            if (isDead) 
+            if (isDead)
             {
 
             }

@@ -1,38 +1,37 @@
-﻿using Terraria;
+﻿using AAModClassic._Content._Dev.Projectiles;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
 using Terraria.Audio;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using System.Collections.Generic;
-using System;
-using AAModClassic._Content._Dev.Projectiles;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
 {
     public class FuryForger : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Fury Forger");
-			// Tooltip.SetDefault(@"Striking enemies causes sparks to fly from them");
-		}
-		public override void SetDefaults()
-		{
-			Item.damage = 100;
-			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-			Item.width = 48;
-			Item.height = 52;
-			Item.useTime = 32;
-			Item.useAnimation = 32;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack = 4;
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Fury Forger");
+            // Tooltip.SetDefault(@"Striking enemies causes sparks to fly from them");
+        }
+        public override void SetDefaults()
+        {
+            Item.damage = 100;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 48;
+            Item.height = 52;
+            Item.useTime = 32;
+            Item.useAnimation = 32;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 4;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Cyan;
-			Item.UseSound = SoundID.Item1;
-			Item.autoReuse = true;
-		}
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+        }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
@@ -44,8 +43,8 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Weapons
                 }
             }
         }
-        
-		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Forge"));
             float spread = 45f * 0.0174f;

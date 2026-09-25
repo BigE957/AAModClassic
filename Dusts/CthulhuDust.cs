@@ -1,11 +1,10 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Dusts
 {
     public class CthulhuDust : ModDust
-	{
+    {
         public override void OnSpawn(Dust dust)
         {
         }
@@ -45,7 +44,7 @@ namespace AAModClassic.Dusts
                     num61 = 1f;
                 }
                 Lighting.AddLight((int)(dust.position.X / 16f), (int)(dust.position.Y / 16f), num61 * 0.3f, num61 * 0.3f, num61 * 0.7f);
-                
+
             }
             return true;
         }

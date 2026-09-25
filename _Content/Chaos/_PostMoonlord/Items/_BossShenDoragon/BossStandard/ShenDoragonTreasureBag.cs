@@ -6,14 +6,13 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard
 {
     public class ShenDoragonTreasureBag : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public static Asset<Texture2D> Glowmask;
 
@@ -25,14 +24,14 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossS
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
-		public override void SetDefaults()
-		{
-			Item.maxStack = Item.CommonMaxStack;
-			Item.consumable = true;
-			Item.width = 36;
-			Item.height = 32;
-			Item.expert = true;
-		}
+        public override void SetDefaults()
+        {
+            Item.maxStack = Item.CommonMaxStack;
+            Item.consumable = true;
+            Item.width = 36;
+            Item.height = 32;
+            Item.expert = true;
+        }
 
         //public override int BossBagNPC => ModContent.NPCType<ShenA>();
 
@@ -58,12 +57,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossS
         }
 
         public override bool CanRightClick()
-		{
-			return true;
-		}
+        {
+            return true;
+        }
 
-		public override void RightClick(Player player)
-		{
+        public override void RightClick(Player player)
+        {
             if (Main.rand.NextFloat() < 0.01f)
             {
                 ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
@@ -82,5 +81,5 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossS
             int[] lootTable = { ModContent.ItemType<ChaosSlayer>(), ModContent.ItemType<MeteorStrike>(), ModContent.ItemType<Skyfall>(), ModContent.ItemType<Asteroid>(), ModContent.ItemType<DraconicRipper>(), ModContent.ItemType<FlamingTwilight>(), ModContent.ItemType<DiscordianTerratool>(), ModContent.ItemType<Timesplitter>() };
             itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
         }
-	}
+    }
 }

@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -98,7 +97,7 @@ namespace AAModClassic._Content.Dungeon.__Hardmode.Items.Weapons
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                Projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
@@ -125,7 +124,7 @@ namespace AAModClassic._Content.Dungeon.__Hardmode.Items.Weapons
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                     )
                         selectedTarget = i;
                 }
@@ -136,7 +135,7 @@ namespace AAModClassic._Content.Dungeon.__Hardmode.Items.Weapons
 
         public override void OnKill(int timeLeft)
         {
-			Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, 0, 0, ModContent.ProjectileType<TrueDeathlyLongbow_GhastBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, 0, 0, ModContent.ProjectileType<TrueDeathlyLongbow_GhastBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
             Projectile.position = Projectile.Center;
             Projectile.width = Projectile.height = 160;
             Projectile.Center = Projectile.position;

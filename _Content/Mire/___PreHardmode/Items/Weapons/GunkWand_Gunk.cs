@@ -1,8 +1,7 @@
+using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
-using AAModClassic.Base;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
 {
@@ -14,11 +13,11 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
         }
         public override void SetDefaults()
         {
-            Projectile.penetrate = 1;  
+            Projectile.penetrate = 1;
             Projectile.width = 28;
             Projectile.height = 28;
-			Projectile.friendly = true;
-			Projectile.hostile = false;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
             Projectile.timeLeft = 300;
             Projectile.aiStyle = -1;
             Projectile.alpha = 70;

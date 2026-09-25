@@ -1,13 +1,12 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
 {
     public class RadiumBrickWall_Wall : ModWall
-	{
-		public override void SetStaticDefaults()
+    {
+        public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;
             DustType = ModContent.DustType<Dusts.RadiumDust>();
@@ -17,9 +16,9 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
             Main.wallHouse[Type] = true;
         }
 
-		public override void NumDust(int i, int j, bool fail, ref int num)
-		{
-			num = fail ? 1 : 3;
-		}
+        public override void NumDust(int i, int j, bool fail, ref int num)
+        {
+            num = fail ? 1 : 3;
+        }
     }
 }

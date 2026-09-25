@@ -1,5 +1,4 @@
 ﻿using AAModClassic._Content.Terrarium.Buffs;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

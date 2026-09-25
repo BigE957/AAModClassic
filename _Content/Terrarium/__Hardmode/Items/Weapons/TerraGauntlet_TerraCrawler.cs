@@ -1,20 +1,19 @@
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
 {
     public class TerraGauntlet_TerraCrawler : ModProjectile
-	{
-		public override void SetStaticDefaults()
-		{
+    {
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Terra Crawler");
-			Main.projFrames[Projectile.type] = 5;
-		}		
-		
+            Main.projFrames[Projectile.type] = 5;
+        }
+
         public override void SetDefaults()
         {
             Projectile.width = 26;
@@ -24,12 +23,12 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
             Projectile.friendly = true;
             Projectile.hostile = false;
             Projectile.tileCollide = false;
-			Projectile.damage = 1;
+            Projectile.damage = 1;
             Projectile.penetrate = -1;
             Projectile.netImportant = true;
             Projectile.minionSlots = 1f;
             Projectile.minion = true;
-			ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;		
+            ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
         }
 
         public static int frameWidth = 26, frameHeight = 18;
@@ -40,20 +39,20 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
 
         public Entity target = null;
 
-		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
-		{
-			fallThrough = false;
-			return true;
-		}
-		
+        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
+        {
+            fallThrough = false;
+            return true;
+        }
+
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
             ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
-			if (modPlayer.TerraSummon)
-			{
-				Projectile.timeLeft = 2;
-			}
+            if (modPlayer.TerraSummon)
+            {
+                Projectile.timeLeft = 2;
+            }
             if (player.dead)
             {
                 modPlayer.TerraSummon = false;
@@ -104,12 +103,12 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
                 target = null;
             }
             if (player.HasMinionAttackTargetNPC)
-			{
-				NPC targetNPC = Main.npc[player.MinionAttackTargetNPC];
+            {
+                NPC targetNPC = Main.npc[player.MinionAttackTargetNPC];
                 float prevDist = 900;
                 float dist = Vector2.Distance(startPos, targetNPC.Center);
                 if (CanTarget(targetNPC, startPos) && dist < prevDist) { target = targetNPC; prevDist = dist; }
-			}
+            }
             else if (target == null || target == Main.player[Projectile.owner])
             {
                 int[] npcs = BaseAI.GetNPCs(startPos, -1, default, 900);

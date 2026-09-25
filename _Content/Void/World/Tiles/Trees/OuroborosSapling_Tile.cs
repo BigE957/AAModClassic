@@ -1,7 +1,5 @@
-﻿using AAModClassic._Content.Void.World.Tiles;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.GameContent.Metadata;

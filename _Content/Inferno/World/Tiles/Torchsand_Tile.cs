@@ -1,8 +1,7 @@
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
 
 namespace AAModClassic._Content.Inferno.World.Tiles
 {

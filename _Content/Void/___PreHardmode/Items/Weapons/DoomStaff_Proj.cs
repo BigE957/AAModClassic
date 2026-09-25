@@ -1,7 +1,6 @@
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -10,25 +9,25 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
 {
     public class DoomStaff_Proj : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Doom"); 
-		}
+        }
 
-		public override void SetDefaults()
-		{
-			Projectile.width = 16;
-			Projectile.height = 16;
-			Projectile.aiStyle = ProjAIStyleID.Arrow;
-			Projectile.friendly = true;
-			Projectile.hostile = false;
-			Projectile.DamageType = DamageClass.Magic;
-			Projectile.penetrate = 1;
-			Projectile.timeLeft = 600;
-			Projectile.ignoreWater = true;
-			Projectile.tileCollide = true;
-			AIType = -1;
+        public override void SetDefaults()
+        {
+            Projectile.width = 16;
+            Projectile.height = 16;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 600;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
+            AIType = -1;
         }
 
         public override bool PreDraw(ref Color lightColor)

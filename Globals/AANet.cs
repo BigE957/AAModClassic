@@ -1,11 +1,7 @@
-
-using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Terraria;
-using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -47,7 +43,7 @@ namespace AAModClassic.Globals
             }
 
             try
-			{
+            {
                 instances[msg].HandlePacket(bb, sender);
             }
             catch (Exception e)
@@ -58,7 +54,7 @@ namespace AAModClassic.Globals
                 AAMod.instance.Logger.Info(e.StackTrace);
                 AAMod.instance.Logger.Info("-------");
             }
-		}
+        }
 
         public static void SendNetMessage<T>(params object[] param) where T : AAPacket
         {

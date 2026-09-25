@@ -1,10 +1,5 @@
-﻿using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
-using AAModClassic.Globals;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using System.Collections.Generic;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -40,6 +35,6 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items.Materials
             Item.createTile = ModContent.TileType<EventideAbyssiumOre_Tile>(); //put your CustomBlock Tile name
         }
 
-        
+
     }
 }

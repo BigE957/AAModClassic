@@ -6,21 +6,21 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.World.Tiles
 {
     public class AbyssGrass_Tile : ModTile
-	{
-		public override void SetStaticDefaults()
-		{
-			Main.tileSolid[Type] = true;
+    {
+        public override void SetStaticDefaults()
+        {
+            Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = true;
-			Main.tileBlendAll[Type] = true;
-            
+            Main.tileBlendAll[Type] = true;
+
             TileID.Sets.Grass[Type] = true;
             TileUtils.Merge(Type, TileID.Mud);
 
             TileID.Sets.NeedsGrassFraming[Type] = true;
             TileID.Sets.JungleSpecial[Type] = true;
             DustType = ModContent.DustType<Dusts.YamataADust>();
-			AddMapEntry(new Color(100, 0, 30));
-		}
+            AddMapEntry(new Color(100, 0, 30));
+        }
 
         public override bool CanKillTile(int i, int j, ref bool blockDamaged)
         {
@@ -40,5 +40,5 @@ namespace AAModClassic._Content.Mire.World.Tiles
             g = 0;
             b = 0f;
         }
-	}
+    }
 }

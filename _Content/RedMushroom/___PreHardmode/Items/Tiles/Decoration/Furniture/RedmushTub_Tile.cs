@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoration.Furniture
 {
-    public class RedmushTub_Tile : ModTile 
+    public class RedmushTub_Tile : ModTile
     {
         public override void SetStaticDefaults()
         {

@@ -1,11 +1,10 @@
+using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
-using AAModClassic.Base;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 {
@@ -40,8 +39,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
         {
             Projectile.hide = false;
 
-            Frames(); 
-            
+            Frames();
+
             if (Projectile.velocity.X < 0)
             {
                 Projectile.direction = -1;
@@ -67,7 +66,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 
             if (Projectile.localAI[1] == 0)
             {
-                Projectile.localAI[1] = 1; 
+                Projectile.localAI[1] = 1;
                 int pieCut = 20;
                 SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
                 for (int m = 0; m < pieCut; m++)

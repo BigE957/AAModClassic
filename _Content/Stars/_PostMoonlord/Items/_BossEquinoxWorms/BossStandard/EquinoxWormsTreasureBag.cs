@@ -4,7 +4,6 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,7 +11,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard
 {
     public class EquinoxWormsTreasureBag : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public static Asset<Texture2D> DaybringerTreasureBagTex;
         public static Asset<Texture2D> DaybringerTreasureBagGlowmask;
@@ -34,14 +33,14 @@ Contained loot depends on the time of day"); */
             ItemID.Sets.BossBag[Type] = true;
         }
 
-		public override void SetDefaults()
-		{
-			Item.maxStack = Item.CommonMaxStack;
-			Item.consumable = true;
-			Item.width = 32;
-			Item.height = 36;
-			Item.rare = ItemRarityID.Purple;
-			Item.expert = true;
+        public override void SetDefaults()
+        {
+            Item.maxStack = Item.CommonMaxStack;
+            Item.consumable = true;
+            Item.width = 32;
+            Item.height = 36;
+            Item.rare = ItemRarityID.Purple;
+            Item.expert = true;
         }
 
         public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
@@ -182,12 +181,12 @@ Contained loot depends on the time of day"); */
         }
 
         public override bool CanRightClick()
-		{
+        {
             return true;
-		}
+        }
 
-		public override void RightClick(Player player)
-		{
+        public override void RightClick(Player player)
+        {
             if (Main.rand.NextBool(20))
             {
                 ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();

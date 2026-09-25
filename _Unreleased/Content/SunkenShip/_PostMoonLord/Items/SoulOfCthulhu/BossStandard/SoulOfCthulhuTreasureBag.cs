@@ -1,8 +1,6 @@
-﻿using AAModClassic._Unofficial.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard;
-using AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossSoulOfCthulhu.BossStandard;
+﻿using AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossSoulOfCthulhu.BossStandard;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,9 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.BossStandard
 {
     public class SoulOfCthulhuTreasureBag : ModItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
-        
+
         public override void SetStaticDefaults()
         {
 
@@ -23,14 +21,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             ItemID.Sets.BossBag[Type] = true;
         }
 
-		public override void SetDefaults()
-		{
-			Item.maxStack = Item.CommonMaxStack;
-			Item.consumable = true;
-			Item.width = 36;
-			Item.height = 32;
-			Item.expert = true;
-		}
+        public override void SetDefaults()
+        {
+            Item.maxStack = Item.CommonMaxStack;
+            Item.consumable = true;
+            Item.width = 36;
+            Item.height = 32;
+            Item.expert = true;
+        }
 
         public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
         {
@@ -38,9 +36,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
         }
 
         public override bool CanRightClick()
-		{
-			return true;
-		}
+        {
+            return true;
+        }
 
         public override void RightClick(Player player)
         {

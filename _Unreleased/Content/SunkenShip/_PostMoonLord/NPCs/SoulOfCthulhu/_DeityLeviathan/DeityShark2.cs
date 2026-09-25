@@ -1,7 +1,6 @@
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,7 +8,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityLeviathan
 {
     public class DeityShark2 : ModNPC
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Deity Shark");

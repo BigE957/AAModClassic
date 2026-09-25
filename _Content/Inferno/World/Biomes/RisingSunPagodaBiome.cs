@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Music;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.World.Biomes

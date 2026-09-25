@@ -4,32 +4,29 @@ using AAModClassic._Content.Inferno.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Snow.___PreHardmode.Items.Armor;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class ChaosHelmetMelee : EquipAbstract, ILocalizedModType
-	{
+    public class ChaosHelmetMelee : EquipAbstract, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Armor.Chaos";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Chaos Kabuto");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Chaos Kabuto");
         }
 
-		public override void SetDefaults()
-		{
-			Item.width = 24;
-			Item.height = 20;
-			Item.value = 100000;
+        public override void SetDefaults()
+        {
+            Item.width = 24;
+            Item.height = 20;
+            Item.value = 100000;
             Item.rare = ItemRarityID.Lime;
             Item.defense = 26;
-		}
+        }
 
         public override void RegisterEquipEffects()
         {
@@ -60,5 +57,5 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }
-	}
+    }
 }

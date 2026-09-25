@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,32 +8,32 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles;
 public class KeepBrick : BaseAAItem, ILocalizedModType
 {
     public new string LocalizationCategory => "Items.Placeables";
-	public override void SetDefaults()
-	{
-		Item.width = 16;
-		Item.height = 16;
-		Item.maxStack = Item.CommonMaxStack;
-		Item.useTurn = true;
-		Item.autoReuse = true;
-		Item.useAnimation = 15;
-		Item.useTime = 10;
-		Item.useStyle = ItemUseStyleID.Swing;
-		Item.consumable = true;
-		Item.createTile = ModContent.TileType<KeepBrickS_Tile>();
-	}
+    public override void SetDefaults()
+    {
+        Item.width = 16;
+        Item.height = 16;
+        Item.maxStack = Item.CommonMaxStack;
+        Item.useTurn = true;
+        Item.autoReuse = true;
+        Item.useAnimation = 15;
+        Item.useTime = 10;
+        Item.useStyle = ItemUseStyleID.Swing;
+        Item.consumable = true;
+        Item.createTile = ModContent.TileType<KeepBrickS_Tile>();
+    }
 
-	public override void SetStaticDefaults()
-	{
+    public override void SetStaticDefaults()
+    {
         //((ModItem)this).DisplayName.SetDefault("Keep Brick");
         Item.ResearchUnlockCount = 100;
     }
 
-	public override void AddRecipes()
-	{
-		Recipe val = CreateRecipe(5);
-		val.AddIngredient(ModContent.ItemType<TerraShard>(), 1);
-		val.AddIngredient(ItemID.StoneBlock, 5);
-		val.AddTile(TileID.Furnaces);
-		val.Register();
-	}
+    public override void AddRecipes()
+    {
+        Recipe val = CreateRecipe(5);
+        val.AddIngredient(ModContent.ItemType<TerraShard>(), 1);
+        val.AddIngredient(ItemID.StoneBlock, 5);
+        val.AddTile(TileID.Furnaces);
+        val.Register();
+    }
 }

@@ -1,7 +1,6 @@
 using AAModClassic._Content.RedMushroom.World.Biomes;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,9 +9,9 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
 {
     public class MushroomJelly : ModNPC, IBannerNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Mushroom Jelly");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Mushroom Jelly");
             Main.npcFrameCount[NPC.type] = 4;
 
             NPCID.Sets.NPCBestiaryDrawModifiers value = new()
@@ -22,7 +21,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
         {
             NPC.CloneDefaults(NPCID.FungoFish);
             AnimationType = NPCID.FungoFish;
@@ -39,21 +38,21 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             NPC.alpha = 20;
             NPC.npcSlots = 0.3f;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MushroomJellyBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MushroomJellyBanner>();
             SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
         }
 
         public override void HitEffect(NPC.HitInfo hit)
-		{
+        {
 
             int dust1 = ModContent.DustType<Dusts.MushDust>();
             if (NPC.life <= 0)
-			{
+            {
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
             }
-		}
+        }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

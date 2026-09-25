@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -38,7 +37,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
 
         public override void OnKill(int timeleft)
         {
-			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             for (int num468 = 0; num468 < 20; num468++)
             {
                 int num469 = Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.AcidDust>(), -Projectile.velocity.X * 0.2f,

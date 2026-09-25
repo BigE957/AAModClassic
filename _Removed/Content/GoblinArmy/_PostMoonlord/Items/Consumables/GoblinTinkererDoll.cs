@@ -3,8 +3,6 @@ using AAModClassic.Base;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -31,7 +29,7 @@ namespace AAModClassic._Removed.Content.GoblinArmy._PostMoonlord.Items.Consumabl
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             base.ModifyTooltips(list);
-            
+
             foreach (TooltipLine line2 in list)
             {
                 if (line2.Mod == "Terraria" && line2.Name == "ItemName")
@@ -52,7 +50,7 @@ namespace AAModClassic._Removed.Content.GoblinArmy._PostMoonlord.Items.Consumabl
                         Player player = Main.LocalPlayer;
                         player.QuickSpawnItem(player.GetSource_GiftOrReward(), ModContent.ItemType<SoulStone>());
                         Main.npc[i].StrikeInstantKill();
-                        if (Main.netMode != NetmodeID.MultiplayerClient) 
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                             BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.InfinityGauntlet.SoulStoneStatus"), 180, 120, 0);
                     }
                 }

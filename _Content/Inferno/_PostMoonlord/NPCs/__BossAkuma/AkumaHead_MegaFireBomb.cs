@@ -2,7 +2,6 @@
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -80,7 +79,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             SoundEngine.PlaySound(SoundID.Item124);
             float spread = 12f * 0.0174f;
             double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
-            double deltaAngle = spread / (Main.expertMode ? 6: 3);
+            double deltaAngle = spread / (Main.expertMode ? 6 : 3);
             double offsetAngle;
             int i;
             for (i = 0; i < (Main.expertMode ? 6 : 3); i++)

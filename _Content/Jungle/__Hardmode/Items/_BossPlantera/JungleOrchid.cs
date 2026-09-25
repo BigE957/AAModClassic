@@ -1,14 +1,13 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.Jungle.__Hardmode.Items.Materials;
+using AAModClassic.Base;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Globals;
-using AAModClassic._Content.Jungle.__Hardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Base;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Jungle.__Hardmode.Items._BossPlantera
 {
@@ -66,13 +65,13 @@ Can only be used in the underground jungle"); */
                 string npcName = !string.IsNullOrEmpty(Main.npc[npcID].GivenName) ? Main.npc[npcID].GivenName : displayName;
                 if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Announcement.HasAwoken", npcName), 175, 75, 255, false); }
                 else
-                if (Main.netMode == NetmodeID.Server)
-                {
-                    ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", new object[]
+                    if (Main.netMode == NetmodeID.Server)
                     {
+                        ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", new object[]
+                        {
                         NetworkText.FromLiteral(npcName)
-                    }), new Color(175, 75, 255), -1);
-                }
+                        }), new Color(175, 75, 255), -1);
+                    }
             }
         }
 

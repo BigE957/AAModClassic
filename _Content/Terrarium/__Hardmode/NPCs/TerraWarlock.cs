@@ -9,7 +9,6 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System.IO;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -51,14 +50,14 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
         }
 
         public override void SendExtraAI(BinaryWriter writer)
-		{
-			base.SendExtraAI(writer);
-			if(Main.netMode == NetmodeID.Server || Main.dedServ)
-			{
-				writer.Write(internalAI[0]);
-				writer.Write(internalAI[1]);
-			}
-		}
+        {
+            base.SendExtraAI(writer);
+            if (Main.netMode == NetmodeID.Server || Main.dedServ)
+            {
+                writer.Write(internalAI[0]);
+                writer.Write(internalAI[1]);
+            }
+        }
 
         public override void PostAI()
         {
@@ -68,13 +67,13 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
                 //NPC.life = 0;
             }
         }
-      
-		public static int AISTATE_WALK = 0, AISTATE_SUMMON = 1;
-		public float[] internalAI = new float[2];
+
+        public static int AISTATE_WALK = 0, AISTATE_SUMMON = 1;
+        public float[] internalAI = new float[2];
         public int SummonThis = 0;
-		
+
         public override void AI()
-        {           
+        {
             Player player = Main.player[NPC.target]; // makes it so you can reference the player the npc is targetting
 
             if (internalAI[1] == AISTATE_SUMMON)
@@ -106,20 +105,21 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
                     internalAI[1] = AISTATE_WALK;
                 }
             }
-            
+
             if (player.Center.X > NPC.Center.X) // so it faces the player
             {
                 NPC.spriteDirection = -1;
-            }else
+            }
+            else
             {
                 NPC.spriteDirection = 1;
             }
-			if(Main.netMode != NetmodeID.MultiplayerClient)
-			{
-				internalAI[0]++;
-				if (internalAI[0] >= 240)
-				{
-					internalAI[0] = 0;
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                internalAI[0]++;
+                if (internalAI[0] >= 240)
+                {
+                    internalAI[0] = 0;
                     if (internalAI[1] == AISTATE_SUMMON)
                     {
                         internalAI[1] = AISTATE_WALK;
@@ -128,16 +128,16 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
                     {
                         internalAI[1] = AISTATE_SUMMON;
                     }
-					NPC.ai = new float[4];
-					NPC.netUpdate = true;
-				}
-			}
-			if(internalAI[1] == AISTATE_WALK) //fighter
-			{
-                BaseAI.AIZombie(NPC, ref NPC.ai, false, false, 0, 0.07f, 3f, 3, 4, 60, true, 10, 60, true, null, false);				
-			}
+                    NPC.ai = new float[4];
+                    NPC.netUpdate = true;
+                }
+            }
+            if (internalAI[1] == AISTATE_WALK) //fighter
+            {
+                BaseAI.AIZombie(NPC, ref NPC.ai, false, false, 0, 0.07f, 3f, 3, 4, 60, true, 10, 60, true, null, false);
+            }
             else
-			{
+            {
                 NPC.velocity.X = 0;
             }
         }

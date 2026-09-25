@@ -1,12 +1,10 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ID;
-using AAModClassic.Utilities;
-using Terraria.GameContent;
 using AAModClassic.Base;
+using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria.GameContent;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons
 {

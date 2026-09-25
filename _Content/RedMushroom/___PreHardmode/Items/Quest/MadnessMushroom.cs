@@ -1,5 +1,4 @@
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest

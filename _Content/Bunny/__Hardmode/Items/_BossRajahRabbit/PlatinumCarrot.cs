@@ -1,16 +1,15 @@
-﻿using Terraria;
-using Terraria.Chat;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using Microsoft.Xna.Framework;
-using AAModClassic.Globals;
-using Terraria.Audio;
-using AAModClassic._Content._Misc.__Hardmode.Items.Consumables;
+﻿using AAModClassic._Content._Misc.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Base;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using Terraria.Audio;
+using Terraria.Chat;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit
 {
@@ -84,22 +83,22 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit
                     {
                         if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(npcName + Language.GetTextValue("Mods.AAModClassic.Common.BosshasAwoken"), 175, 75, 255, false); }
                         else
-                        if (Main.netMode == NetmodeID.Server)
-                        {
-                            ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(npcName + Language.GetTextValue("Mods.AAModClassic.Common.BosshasAwoken")), new Color(175, 75, 255), -1);
-                        }
+                            if (Main.netMode == NetmodeID.Server)
+                            {
+                                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(npcName + Language.GetTextValue("Mods.AAModClassic.Common.BosshasAwoken")), new Color(175, 75, 255), -1);
+                            }
                     }
                     else
                     {
                         if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Announcement.HasAwoken", npcName), 175, 75, 255, false); }
                         else
-                        if (Main.netMode == NetmodeID.Server)
-                        {
-                            ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", new object[]
+                            if (Main.netMode == NetmodeID.Server)
                             {
+                                ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", new object[]
+                                {
                             NetworkText.FromLiteral(npcName)
-                            }), new Color(175, 75, 255), -1);
-                        }
+                                }), new Color(175, 75, 255), -1);
+                            }
                     }
                 }
             }

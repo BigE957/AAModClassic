@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

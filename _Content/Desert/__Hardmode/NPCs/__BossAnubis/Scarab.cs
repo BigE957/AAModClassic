@@ -2,8 +2,6 @@ using AAModClassic.Base;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
@@ -13,11 +11,11 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 {
     public class Scarab : ModNPC
-	{
-		public override void SetStaticDefaults()
-		{
+    {
+        public override void SetStaticDefaults()
+        {
             Main.npcFrameCount[NPC.type] = 3;
-		}
+        }
 
         public override void SetDefaults()
         {
@@ -44,15 +42,15 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
         }
 
         public override void HitEffect(NPC.HitInfo hit)
-		{
-			if (Main.netMode == NetmodeID.Server) { return; }
-			for (int m = 0; m < (NPC.life <= 0 ? 30 : 8); m++)
-			{
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GoldCoin, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, 1.1f);
-			}		
-		}
+        {
+            if (Main.netMode == NetmodeID.Server) { return; }
+            for (int m = 0; m < (NPC.life <= 0 ? 30 : 8); m++)
+            {
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GoldCoin, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, 1.1f);
+            }
+        }
 
-		public override void FindFrame(int dummy)
+        public override void FindFrame(int dummy)
         {
             NPC.frameCounter++;
             if (NPC.frameCounter >= 2)
@@ -66,15 +64,15 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
             }
         }
 
-		public override void AI()
-		{
-			NPC.TargetClosest(true);
-			Player player = Main.player[NPC.target];
-			for (int m = NPC.oldPos.Length - 1; m > 0; m--)
-			{
-				NPC.oldPos[m] = NPC.oldPos[m - 1];
-			}
-			NPC.oldPos[0] = NPC.position;
+        public override void AI()
+        {
+            NPC.TargetClosest(true);
+            Player player = Main.player[NPC.target];
+            for (int m = NPC.oldPos.Length - 1; m > 0; m--)
+            {
+                NPC.oldPos[m] = NPC.oldPos[m - 1];
+            }
+            NPC.oldPos[0] = NPC.position;
             BaseAI.AIFlier(NPC, ref NPC.ai, false, 0.3f, 0.2f, 6f, 4.5f, false, 250);
             if (player.Center.X < NPC.Center.X)
             {
@@ -82,7 +80,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
             }
             else
             {
-                NPC.direction = NPC.spriteDirection  = 1;
+                NPC.direction = NPC.spriteDirection = 1;
             }
         }
 
@@ -90,11 +88,11 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
         {
             Texture2D bodyTex = TextureAssets.Npc[NPC.type].Value;
             Color lightColor = BaseDrawing.GetNPCColor(NPC, null);
-			if(Main.player[NPC.target] != null && Main.player[NPC.target].active && !Main.player[NPC.target].dead)
+            if (Main.player[NPC.target] != null && Main.player[NPC.target].active && !Main.player[NPC.target].dead)
                 DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, bodyTex, NPC.Center - Main.screenPosition, NPC.velocity, 4, NPC.frame, lightColor, NPC.scale, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.direction == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 3, 0.9f);
             BaseDrawing.DrawAfterimage(spriteBatch, bodyTex, 0, NPC, 3f, 0.9f, 4, true, 0f, 0f, lightColor);
             spriteBatch.Draw(bodyTex, NPC.Center - screenPos, NPC.frame, lightColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
-			return false;
-		}
-	}
+            return false;
+        }
+    }
 }

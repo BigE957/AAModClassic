@@ -3,7 +3,6 @@ using AAModClassic.Conversions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -71,7 +70,7 @@ namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Consumables
 
                     if (Math.Sqrt(x * x + y * y) <= radius + 0.5)   //circle
                     {
-                        WorldGen.Convert(xPosition, yPosition, ModContent.GetInstance<JungleConversion>().Type, 1 ,true, true);
+                        WorldGen.Convert(xPosition, yPosition, ModContent.GetInstance<JungleConversion>().Type, 1, true, true);
                     }
                 }
             }

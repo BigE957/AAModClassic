@@ -1,7 +1,6 @@
 ﻿using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic._Content.Terrarium.World.Biomes.Waters;
 using AAModClassic.Music;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes

@@ -1,9 +1,8 @@
+using AAModClassic._Content.Inferno.World.Tiles;
+using AAModClassic.Assets;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Assets;
-using AAModClassic._Content.Inferno.World.Tiles;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Consumables
 {

@@ -1,17 +1,16 @@
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
 {
     public class BrokenCodeTeleportEffect_Glitched : ModBuff
-	{
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Glitched");
-			// Description.SetDefault("Your head is like 10 feet in front of you");
-			Main.persistentBuff[Type] = true;
-			Main.meleeBuff[Type] = true;
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Glitched");
+            // Description.SetDefault("Your head is like 10 feet in front of you");
+            Main.persistentBuff[Type] = true;
+            Main.meleeBuff[Type] = true;
             BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
 
         }

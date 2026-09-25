@@ -1,12 +1,4 @@
-﻿using Ionic.Zlib;
-using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria.GameContent.ItemDropRules;
+﻿using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -117,12 +109,12 @@ namespace AAModClassic.Utilities
             int totalLength = 0;
             foreach (T[] array in arrays)
             {
-                if (array == null) 
+                if (array == null)
                     continue;
                 totalLength += array.Length;
             }
             T[] finalArray = new T[totalLength];
-            
+
             int currentLength = 0;
             int startingPoint = 0;
             foreach (T[] array in arrays)

@@ -1,8 +1,7 @@
-﻿using Terraria;
-using Terraria.ModLoader;
+﻿using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
-using AAModClassic.UI.World;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
 {
@@ -78,7 +77,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
                 target.AddBuff(BuffID.Poisoned, 300);
         }
     }

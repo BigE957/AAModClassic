@@ -1,10 +1,8 @@
-using AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.TerraWeaver;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Base;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,15 +10,15 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons
 {
     public class TerraCrawler : ModNPC, IBannerNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Terra Crawler");
-			Main.npcFrameCount[NPC.type] = 5;
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Terra Crawler");
+            Main.npcFrameCount[NPC.type] = 5;
+        }
 
-		public override void SetDefaults()
-		{
-            NPC.lifeMax =  350;
+        public override void SetDefaults()
+        {
+            NPC.lifeMax = 350;
             NPC.defense = 20;
             NPC.damage = 50;
             NPC.width = 26;
@@ -32,7 +30,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons
             if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraCrawlerBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraCrawlerBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 

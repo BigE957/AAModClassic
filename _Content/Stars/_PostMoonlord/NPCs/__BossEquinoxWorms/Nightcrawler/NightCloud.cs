@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,9 +12,9 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nigh
 {
     public class NightCloud : ModNPC
     {
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Night Cloud");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Night Cloud");
             Main.npcFrameCount[NPC.type] = 4;
             this.HideFromBestiary();
         }
@@ -80,7 +79,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nigh
                 NPC.alpha = 0;
             }
 
-            if(NPC.alpha == 205)
+            if (NPC.alpha == 205)
             {
                 SpawnDust();
             }

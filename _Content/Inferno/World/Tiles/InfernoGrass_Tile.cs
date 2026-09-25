@@ -44,7 +44,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles
                 {
                     if (Main.tile[i, j - 1].WallType >= WallID.None && WallID.Sets.AllowsPlantsToGrow[Main.tile[i, j - 1].WallType] && Main.tile[i, j].WallType >= WallID.None && Main.tile[i, j].WallType < WallLoader.WallCount && WallID.Sets.AllowsPlantsToGrow[Main.tile[i, j].WallType])
                     {
-                        if (WorldGen.genRand.NextBool(50) || WorldGen.genRand.NextBool(40)) 
+                        if (WorldGen.genRand.NextBool(50) || WorldGen.genRand.NextBool(40))
                         {
                             int style = 23; // mushroom
                             if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<InfernoFoliage_Tile>(), false, style))
@@ -65,7 +65,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles
                     }
                 }
             }
-            else if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) &&!Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(40))
+            else if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !Framing.GetTileSafely(i, j - 1).HasTile && Main.rand.NextBool(40))
             {
                 int style = Main.rand.Next(23);
                 if (WorldGen.PlaceObject(i, j - 1, ModContent.TileType<InfernoFoliage_Tile>(), false, style))
@@ -82,7 +82,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles
         }
 
         public override void NumDust(int i, int j, bool fail, ref int num) => num = 3;
-        
+
         public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
         {
             if (!effectOnly)

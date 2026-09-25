@@ -1,6 +1,5 @@
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -9,24 +8,24 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     public class Catastrophe_CatastropheSphere : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Demise Sphere");
             Main.projFrames[Projectile.type] = 3;
-		}
+        }
 
-		public override void SetDefaults()
-		{
-			Projectile.width = 32;
-			Projectile.height = 36;
-			Projectile.friendly = true; 
-			Projectile.hostile = false;
-			Projectile.DamageType = DamageClass.Melee;
-			Projectile.penetrate = 1;
-			Projectile.timeLeft = 600;
-			Projectile.alpha = 20;
-			Projectile.ignoreWater = true;
+        public override void SetDefaults()
+        {
+            Projectile.width = 32;
+            Projectile.height = 36;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 600;
+            Projectile.alpha = 20;
+            Projectile.ignoreWater = true;
             Projectile.tileCollide = true;
         }
 
@@ -54,7 +53,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 
         public override void OnKill(int timeleft)
         {
-			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             int p = Projectile.NewProjectile(Projectile.GetSource_Death(), (int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<Catastrophe_CatastropheExplosion>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
             Main.projectile[p].Center = Projectile.Center;
             for (int num468 = 0; num468 < 10; num468++)
@@ -64,7 +63,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
             }
-            
+
         }
     }
 }

@@ -1,15 +1,12 @@
-using System;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
-using Terraria;
-using Terraria.GameContent;
+using System;
+using System.Collections.Generic;
 using Terraria.DataStructures;
-using Terraria.UI;
-using Terraria.ModLoader;
+using Terraria.GameContent;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic.Base
 {
@@ -51,7 +48,7 @@ namespace AAModClassic.Base
          */
         public static Color GetNPCColor(NPC npc, Vector2? position = null, bool effects = true, float shadowOverride = 0f)
         {
-            return npc.GetAlpha(BuffEffects(npc, GetLightColor(position != null ? (Vector2)position : npc.Center), (shadowOverride != 0f ? shadowOverride : 0f), effects, npc.poisoned, npc.onFire, npc.onFire2, Main.LocalPlayer.detectCreature, false, false, false, npc.venom, npc.midas, npc.ichor, npc.onFrostBurn, false, false, npc.dripping, npc.drippingSlime, npc.loveStruck, npc.stinky));
+            return npc.GetAlpha(BuffEffects(npc, Lighting.GetColor((position != null ? (Vector2)position : npc.Center).ToTileCoordinates()), (shadowOverride != 0f ? shadowOverride : 0f), effects, npc.poisoned, npc.onFire, npc.onFire2, Main.LocalPlayer.detectCreature, false, false, false, npc.venom, npc.midas, npc.ichor, npc.onFrostBurn, false, false, npc.dripping, npc.drippingSlime, npc.loveStruck, npc.stinky));
         }
 
         /*
@@ -60,30 +57,7 @@ namespace AAModClassic.Base
          */
         public static Color GetPlayerColor(Player p, Vector2? position = null, bool effects = false, float shadowOverride = 0f)
         {
-            return p.GetImmuneAlpha(BuffEffects(p, GetLightColor(position != null ? (Vector2)position : p.Center), (shadowOverride != 0f ? shadowOverride : 0/*p.shadow*/), effects, p.poisoned, p.onFire, p.onFire2, false, p.noItems, p.blind, p.bleed, p.venom, false, p.ichor, p.onFrostBurn, p.burned, p.honey, p.dripping, p.drippingSlime, p.loveStruck, p.stinky), 0f/*p.shadow*/);
-        }
-
-        /*
-         * Convenience method for getting lighting color using an npc or projectile position.
-         */
-        public static Color GetLightColor(Vector2 position)
-        {
-            return Lighting.GetColor((int)(position.X / 16f), (int)(position.Y / 16f));
-        }
-
-        /*
-         * Convenience method for adding lighting using an npc or projectile position, using a Color instance for color.
-         */
-        public static void AddLight(Vector2 position, Color color, float brightnessDivider = 1F)
-        {
-            AddLight(position, color.R / 255F, color.G / 255F, color.B / 255F, brightnessDivider);
-        }
-        /*
-         * Convenience method for adding lighting using an npc or projectile position with 0F - 1F color values.
-         */
-        public static void AddLight(Vector2 position, float colorR, float colorG, float colorB, float brightnessDivider = 1F)
-        {
-            Lighting.AddLight((int)(position.X / 16f), (int)(position.Y / 16f), colorR / brightnessDivider, colorG / brightnessDivider, colorB / brightnessDivider);
+            return p.GetImmuneAlpha(BuffEffects(p, Lighting.GetColor((position != null ? (Vector2)position : p.Center).ToTileCoordinates()), (shadowOverride != 0f ? shadowOverride : 0/*p.shadow*/), effects, p.poisoned, p.onFire, p.onFire2, false, p.noItems, p.blind, p.bleed, p.venom, false, p.ichor, p.onFrostBurn, p.burned, p.honey, p.dripping, p.drippingSlime, p.loveStruck, p.stinky), 0f/*p.shadow*/);
         }
 
         /*
@@ -427,7 +401,7 @@ namespace AAModClassic.Base
         public static void DrawHeldSword(object sb, Texture2D tex, int shader, Vector2 position, Item item, int direction, float itemRotation, float itemScale, Color lightColor = default(Color), Color wepColor = default(Color), float xOffset = 0, float yOffset = 0, float gravDir = -1f, Entity entity = null, Rectangle? frame = null, int frameCount = 1)
         {
             if (frame == null) { frame = new Rectangle(0, 0, tex.Width, tex.Height); }
-            if (lightColor == default(Color)) { lightColor = GetLightColor(position); }
+            if (lightColor == default(Color)) { lightColor = Lighting.GetColor((position).ToTileCoordinates()); }
             xOffset *= direction;
             SpriteEffects spriteEffect = direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
             if (gravDir == -1f) { yOffset *= -1; spriteEffect = spriteEffect | SpriteEffects.FlipVertically; }
@@ -436,10 +410,10 @@ namespace AAModClassic.Base
                 Player drawPlayer = (Player)entity; yOffset -= drawPlayer.gfxOffY;
             }
             else
-            if (entity is NPC)
-            {
-                NPC drawNPC = (NPC)entity; yOffset -= drawNPC.gfxOffY;
-            }
+                if (entity is NPC)
+                {
+                    NPC drawNPC = (NPC)entity; yOffset -= drawNPC.gfxOffY;
+                }
             int drawType = item.type;
 
             Vector2 drawPos = position - Main.screenPosition;
@@ -455,7 +429,7 @@ namespace AAModClassic.Base
                     ((List<DrawData>)sb).Add(dd);
                 }
                 else
-                if (sb is SpriteBatch) ((SpriteBatch)sb).Draw(tex, drawPos, frame, item.GetAlpha(lightColor), itemRotation, rotOrigin, itemScale, spriteEffect, 0);
+                    if (sb is SpriteBatch) ((SpriteBatch)sb).Draw(tex, drawPos, frame, item.GetAlpha(lightColor), itemRotation, rotOrigin, itemScale, spriteEffect, 0);
 
                 if (wepColor != default(Color))
                 {
@@ -466,7 +440,7 @@ namespace AAModClassic.Base
                         ((List<DrawData>)sb).Add(dd);
                     }
                     else
-                    if (sb is SpriteBatch) ((SpriteBatch)sb).Draw(tex, drawPos, frame, item.GetColor(wepColor), itemRotation, rotOrigin, itemScale, spriteEffect, 0);
+                        if (sb is SpriteBatch) ((SpriteBatch)sb).Draw(tex, drawPos, frame, item.GetColor(wepColor), itemRotation, rotOrigin, itemScale, spriteEffect, 0);
                 }
             }
             else //normal gravity
@@ -482,7 +456,7 @@ namespace AAModClassic.Base
                     ((List<DrawData>)sb).Add(dd);
                 }
                 else
-                if (sb is SpriteBatch) ((SpriteBatch)sb).Draw(tex, drawPos, frame, item.GetAlpha(lightColor), itemRotation, rotOrigin, itemScale, spriteEffect, 0);
+                    if (sb is SpriteBatch) ((SpriteBatch)sb).Draw(tex, drawPos, frame, item.GetAlpha(lightColor), itemRotation, rotOrigin, itemScale, spriteEffect, 0);
 
                 if (wepColor != default(Color))
                 {
@@ -493,7 +467,7 @@ namespace AAModClassic.Base
                         ((List<DrawData>)sb).Add(dd);
                     }
                     else
-                    if (sb is SpriteBatch) ((SpriteBatch)sb).Draw(tex, drawPos, frame, item.GetColor(wepColor), itemRotation, rotOrigin, itemScale, spriteEffect, 0);
+                        if (sb is SpriteBatch) ((SpriteBatch)sb).Draw(tex, drawPos, frame, item.GetColor(wepColor), itemRotation, rotOrigin, itemScale, spriteEffect, 0);
                 }
             }
         }
@@ -511,7 +485,7 @@ namespace AAModClassic.Base
 
         public static void DrawAura(object sb, Texture2D texture, int shader, Vector2 position, int width, int height, float auraPercent, float distanceScalar = 1f, float scale = 1f, float rotation = 0f, int direction = 0, int framecount = 1, Rectangle frame = default(Rectangle), float offsetX = 0f, float offsetY = 0f, Color? overrideColor = null, bool centered = false)
         {
-            Color lightColor = overrideColor != null ? (Color)overrideColor : GetLightColor(position + new Vector2(width * 0.5f, height * 0.5f));
+            Color lightColor = overrideColor != null ? (Color)overrideColor : Lighting.GetColor((position + new Vector2(width * 0.5f, height * 0.5f)).ToTileCoordinates());
             float percentHalf = auraPercent * 5f * distanceScalar;
             float percentLight = MathHelper.Lerp(0.8f, 0.2f, auraPercent);
             lightColor.R = (byte)(lightColor.R * percentLight);
@@ -569,7 +543,7 @@ namespace AAModClassic.Base
         public static void DrawAfterimage(object sb, Texture2D texture, int shader, Vector2 position, int width, int height, Vector2[] oldPoints, float scale = 1f, float rotation = 0f, int direction = 0, int framecount = 1, Rectangle frame = default(Rectangle), float distanceScalar = 1.0F, float sizeScalar = 1f, int imageCount = 7, bool useOldPos = true, float offsetX = 0f, float offsetY = 0f, Color? overrideColor = null)
         {
             Vector2 origin = new Vector2((float)(texture.Width / 2), (float)(texture.Height / framecount / 2));
-            Color lightColor = overrideColor != null ? (Color)overrideColor : GetLightColor(position + new Vector2(width * 0.5f, height * 0.5f));
+            Color lightColor = overrideColor != null ? (Color)overrideColor : Lighting.GetColor((position + new Vector2(width * 0.5f, height * 0.5f)).ToTileCoordinates());
             Vector2 velAddon = default(Vector2);
             Vector2 originalpos = position;
             Vector2 offset = new Vector2(offsetX, offsetY);
@@ -599,7 +573,7 @@ namespace AAModClassic.Base
         {
             if (Jump <= 0)
             {
-                if(texture.Height > 2)
+                if (texture.Height > 2)
                     Jump = (texture.Height - 2f) * scale;
                 else
                     Jump = texture.Height * scale;
@@ -633,7 +607,7 @@ namespace AAModClassic.Base
          */
         public static void DrawTexture(object sb, Texture2D texture, int shader, Entity codable, int framecountX, Color? overrideColor = null, bool drawCentered = false, Vector2 overrideOrigin = default(Vector2))
         {
-            Color lightColor = (overrideColor != null ? (Color)overrideColor : codable is Item ? ((Item)codable).GetAlpha(GetLightColor(codable.Center)) : codable is NPC ? GetNPCColor(((NPC)codable), codable.Center, false) : codable is Projectile ? ((Projectile)codable).GetAlpha(GetLightColor(codable.Center)) : GetLightColor(codable.Center));
+            Color lightColor = (overrideColor != null ? (Color)overrideColor : codable is Item ? ((Item)codable).GetAlpha(Lighting.GetColor((codable.Center).ToTileCoordinates())) : codable is NPC ? GetNPCColor(((NPC)codable), codable.Center, false) : codable is Projectile ? ((Projectile)codable).GetAlpha(Lighting.GetColor((codable.Center).ToTileCoordinates())) : Lighting.GetColor((codable.Center).ToTileCoordinates()));
             int frameCount = (codable is Item ? 1 : codable is NPC ? Main.npcFrameCount[((NPC)codable).type] : 1);
             Rectangle frame = (codable is NPC ? ((NPC)codable).frame : new Rectangle(0, 0, texture.Width, texture.Height));
             float scale = (codable is Item ? ((Item)codable).scale : codable is NPC ? ((NPC)codable).scale : ((Projectile)codable).scale);
@@ -654,7 +628,7 @@ namespace AAModClassic.Base
         public static void DrawTexture(object sb, Texture2D texture, int shader, Vector2 position, int width, int height, float scale, float rotation, int direction, int framecount, int framecountX, Rectangle frame, Color? overrideColor = null, bool drawCentered = false, Vector2 overrideOrigin = default(Vector2))
         {
             Vector2 origin = overrideOrigin != default(Vector2) ? overrideOrigin : new Vector2((float)(frame.Width / framecountX / 2), (float)(texture.Height / framecount / 2));
-            Color lightColor = overrideColor != null ? (Color)overrideColor : GetLightColor(position + new Vector2(width * 0.5f, height * 0.5f));
+            Color lightColor = overrideColor != null ? (Color)overrideColor : Lighting.GetColor((position + new Vector2(width * 0.5f, height * 0.5f)).ToTileCoordinates());
             if (sb is List<DrawData>)
             {
                 DrawData dd = new DrawData(texture, GetDrawPosition(position, origin, width, height, texture.Width, texture.Height, frame, framecount, framecountX, scale, drawCentered), frame, lightColor, rotation, origin, scale, direction == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
@@ -727,103 +701,103 @@ namespace AAModClassic.Base
                 else sb.Draw(texture, drawPos, new Rectangle(frameX, frameY, 16, 2), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
             }
             else //sidebricks
-            if (!ignoreHalfBricks && Main.tileSolid[(int)tile.TileType] && !halfBrick && (Main.tile[x - 1, y].IsHalfBlock || Main.tile[x + 1, y].IsHalfBlock))
-            {
-                if (Main.tile[x - 1, y].IsHalfBlock && Main.tile[x + 1, y].IsHalfBlock)
+                if (!ignoreHalfBricks && Main.tileSolid[(int)tile.TileType] && !halfBrick && (Main.tile[x - 1, y].IsHalfBlock || Main.tile[x + 1, y].IsHalfBlock))
                 {
-                    sb.Draw(texture, drawPos + new Vector2(0f, 8f), new Rectangle(frameX, frameY + 8, fwidth, 8), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
-                    sb.Draw(texture, drawPos, new Rectangle(126, 0, 16, 8), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
-                }
-                else
-                if (Main.tile[x - 1, y].IsHalfBlock)
-                {
-                    sb.Draw(texture, drawPos + new Vector2(0f, 8f), new Rectangle(frameX, frameY + 8, fwidth, 8), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
-                    sb.Draw(texture, drawPos + new Vector2(4f, 0f), new Rectangle(frameX + 4, frameY, fwidth - 4, fheight), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
-                    sb.Draw(texture, drawPos, new Rectangle(126, 0, 4, 8), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
-                }
-                else
-                if (Main.tile[x + 1, y].IsHalfBlock)
-                {
-                    sb.Draw(texture, drawPos + new Vector2(0f, 8f), new Rectangle(frameX, frameY + 8, fwidth, 8), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
-                    sb.Draw(texture, drawPos, new Rectangle(frameX, frameY, fwidth - 4, fheight), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
-                    sb.Draw(texture, drawPos + new Vector2(12f, 0f), new Rectangle(138, 0, 4, 8), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
-                }
-                else
-                {
-                    sb.Draw(texture, drawPos, new Rectangle(frameX, frameY, fwidth, fheight), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
-                }
-            }
-            else
-            if (Lighting.LegacyEngine.Mode < 2 && Main.tileSolid[(int)tile.TileType] && !halfBrick && !tile.IsActuated)
-            {
-                if ((int)color.R > gfxCheck || (double)color.G > (double)gfxCheck * 1.1 || (double)color.B > (double)gfxCheck * 1.2)
-                {
-                    Color[] lightArray = new Color[9];
-                    Lighting.GetColor9Slice(x, y, ref lightArray);
-                    for (int m = 0; m < 9; m++)
+                    if (Main.tile[x - 1, y].IsHalfBlock && Main.tile[x + 1, y].IsHalfBlock)
                     {
-                        int offsetX = 0;
-                        int offsetY = 0;
-                        int width = 4;
-                        int height = 4;
-                        Color mixedrawColor = color;
-                        Color lightColor = lightArray[m];
-                        if (m == 1) { width = 8; offsetX = 4; }
-                        else
-                        if (m == 2) { offsetX = 12; }
-                        else
-                        if (m == 3) { height = 8; offsetY = 4; }
-                        else
-                        if (m == 4) { width = 8; height = 8; offsetX = 4; offsetY = 4; }
-                        else
-                        if (m == 5) { offsetX = 12; offsetY = 4; height = 8; }
-                        else
-                        if (m == 6) { offsetY = 12; }
-                        else
-                        if (m == 7) { width = 8; height = 4; offsetX = 4; offsetY = 12; }
-                        else
-                        if (m == 8) { offsetX = 12; offsetY = 12; }
-                        mixedrawColor.R = (byte)((color.R + lightColor.R) / 2);
-                        mixedrawColor.G = (byte)((color.G + lightColor.G) / 2);
-                        mixedrawColor.B = (byte)((color.B + lightColor.B) / 2);
-                        sb.Draw(texture, drawPos + new Vector2(offsetX, offsetY), new Rectangle(frameX + offsetX, frameY + offsetY, width, height), (overrideColor != null ? overrideColor(mixedrawColor) : mixedrawColor), 0f, default(Vector2), 1f, effects, 0f);
+                        sb.Draw(texture, drawPos + new Vector2(0f, 8f), new Rectangle(frameX, frameY + 8, fwidth, 8), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
+                        sb.Draw(texture, drawPos, new Rectangle(126, 0, 16, 8), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
                     }
+                    else
+                        if (Main.tile[x - 1, y].IsHalfBlock)
+                        {
+                            sb.Draw(texture, drawPos + new Vector2(0f, 8f), new Rectangle(frameX, frameY + 8, fwidth, 8), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
+                            sb.Draw(texture, drawPos + new Vector2(4f, 0f), new Rectangle(frameX + 4, frameY, fwidth - 4, fheight), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
+                            sb.Draw(texture, drawPos, new Rectangle(126, 0, 4, 8), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
+                        }
+                        else
+                            if (Main.tile[x + 1, y].IsHalfBlock)
+                            {
+                                sb.Draw(texture, drawPos + new Vector2(0f, 8f), new Rectangle(frameX, frameY + 8, fwidth, 8), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
+                                sb.Draw(texture, drawPos, new Rectangle(frameX, frameY, fwidth - 4, fheight), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
+                                sb.Draw(texture, drawPos + new Vector2(12f, 0f), new Rectangle(138, 0, 4, 8), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
+                            }
+                            else
+                            {
+                                sb.Draw(texture, drawPos, new Rectangle(frameX, frameY, fwidth, fheight), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
+                            }
                 }
                 else
-                if ((int)color.R > gfxCheck2 || (double)color.G > (double)gfxCheck2 * 1.1 || (double)color.B > (double)gfxCheck2 * 1.2)
-                {
-                    Color[] lightArray = new Color[4];
-                    Lighting.GetColor4Slice(x, y, ref lightArray);
-                    for (int m = 0; m < 4; m++)
+                    if (Lighting.LegacyEngine.Mode < 2 && Main.tileSolid[(int)tile.TileType] && !halfBrick && !tile.IsActuated)
                     {
-                        int offsetX = 0;
-                        int offsetY = 0;
-                        Color mixedrawColor = color;
-                        Color lightColor = lightArray[m];
-                        if (m == 1) { offsetX = 8; }
-                        if (m == 2) { offsetY = 8; }
-                        if (m == 3) { offsetX = 8; offsetY = 8; }
-                        mixedrawColor.R = (byte)((color.R + lightColor.R) / 2);
-                        mixedrawColor.G = (byte)((color.G + lightColor.G) / 2);
-                        mixedrawColor.B = (byte)((color.B + lightColor.B) / 2);
-                        sb.Draw(texture, drawPos + new Vector2(offsetX, offsetY), new Rectangle(frameX + offsetX, frameY + offsetY, 8, 8), (overrideColor != null ? overrideColor(mixedrawColor) : mixedrawColor), 0f, default(Vector2), 1f, effects, 0f);
+                        if ((int)color.R > gfxCheck || (double)color.G > (double)gfxCheck * 1.1 || (double)color.B > (double)gfxCheck * 1.2)
+                        {
+                            Color[] lightArray = new Color[9];
+                            Lighting.GetColor9Slice(x, y, ref lightArray);
+                            for (int m = 0; m < 9; m++)
+                            {
+                                int offsetX = 0;
+                                int offsetY = 0;
+                                int width = 4;
+                                int height = 4;
+                                Color mixedrawColor = color;
+                                Color lightColor = lightArray[m];
+                                if (m == 1) { width = 8; offsetX = 4; }
+                                else
+                                    if (m == 2) { offsetX = 12; }
+                                    else
+                                        if (m == 3) { height = 8; offsetY = 4; }
+                                        else
+                                            if (m == 4) { width = 8; height = 8; offsetX = 4; offsetY = 4; }
+                                            else
+                                                if (m == 5) { offsetX = 12; offsetY = 4; height = 8; }
+                                                else
+                                                    if (m == 6) { offsetY = 12; }
+                                                    else
+                                                        if (m == 7) { width = 8; height = 4; offsetX = 4; offsetY = 12; }
+                                                        else
+                                                            if (m == 8) { offsetX = 12; offsetY = 12; }
+                                mixedrawColor.R = (byte)((color.R + lightColor.R) / 2);
+                                mixedrawColor.G = (byte)((color.G + lightColor.G) / 2);
+                                mixedrawColor.B = (byte)((color.B + lightColor.B) / 2);
+                                sb.Draw(texture, drawPos + new Vector2(offsetX, offsetY), new Rectangle(frameX + offsetX, frameY + offsetY, width, height), (overrideColor != null ? overrideColor(mixedrawColor) : mixedrawColor), 0f, default(Vector2), 1f, effects, 0f);
+                            }
+                        }
+                        else
+                            if ((int)color.R > gfxCheck2 || (double)color.G > (double)gfxCheck2 * 1.1 || (double)color.B > (double)gfxCheck2 * 1.2)
+                            {
+                                Color[] lightArray = new Color[4];
+                                Lighting.GetColor4Slice(x, y, ref lightArray);
+                                for (int m = 0; m < 4; m++)
+                                {
+                                    int offsetX = 0;
+                                    int offsetY = 0;
+                                    Color mixedrawColor = color;
+                                    Color lightColor = lightArray[m];
+                                    if (m == 1) { offsetX = 8; }
+                                    if (m == 2) { offsetY = 8; }
+                                    if (m == 3) { offsetX = 8; offsetY = 8; }
+                                    mixedrawColor.R = (byte)((color.R + lightColor.R) / 2);
+                                    mixedrawColor.G = (byte)((color.G + lightColor.G) / 2);
+                                    mixedrawColor.B = (byte)((color.B + lightColor.B) / 2);
+                                    sb.Draw(texture, drawPos + new Vector2(offsetX, offsetY), new Rectangle(frameX + offsetX, frameY + offsetY, 8, 8), (overrideColor != null ? overrideColor(mixedrawColor) : mixedrawColor), 0f, default(Vector2), 1f, effects, 0f);
+                                }
+                            }
+                            else
+                            {
+                                sb.Draw(texture, drawPos, new Rectangle(frameX, frameY, fwidth, fheight), color, 0f, default(Vector2), 1f, effects, 0f);
+                            }
                     }
-                }
-                else
-                {
-                    sb.Draw(texture, drawPos, new Rectangle(frameX, frameY, fwidth, fheight), color, 0f, default(Vector2), 1f, effects, 0f);
-                }
-            }
-            else
-            if (halfBrickOffset == 8 && (!Main.tile[x, y + 1].HasTile || !Main.tileSolid[(int)Main.tile[x, y + 1].TileType] || Main.tile[x, y + 1].IsHalfBlock))
-            {
-                sb.Draw(texture, drawPos + new Vector2(0, halfBrickOffset), new Rectangle(frameX, frameY, fwidth, fheight - halfBrickOffset - 4), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
-                sb.Draw(texture, drawPos + new Vector2(0, 12f), new Rectangle(144, 66, fwidth, 4), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
-            }
-            else
-            {
-                sb.Draw(texture, drawPos + new Vector2(0, halfBrickOffset), new Rectangle(frameX, frameY, fwidth, fheight), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
-            }
+                    else
+                        if (halfBrickOffset == 8 && (!Main.tile[x, y + 1].HasTile || !Main.tileSolid[(int)Main.tile[x, y + 1].TileType] || Main.tile[x, y + 1].IsHalfBlock))
+                        {
+                            sb.Draw(texture, drawPos + new Vector2(0, halfBrickOffset), new Rectangle(frameX, frameY, fwidth, fheight - halfBrickOffset - 4), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
+                            sb.Draw(texture, drawPos + new Vector2(0, 12f), new Rectangle(144, 66, fwidth, 4), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
+                        }
+                        else
+                        {
+                            sb.Draw(texture, drawPos + new Vector2(0, halfBrickOffset), new Rectangle(frameX, frameY, fwidth, fheight), (overrideColor != null ? overrideColor(color) : color), 0f, default(Vector2), 1f, effects, 0f);
+                        }
         }
 
         public static void DrawWallTexture(SpriteBatch sb, Texture2D texture, int x, int y, bool drawOutline = false, Func<Color, Color> overrideColor = null, Vector2 offset = default(Vector2))
@@ -852,7 +826,7 @@ namespace AAModClassic.Base
             float tileColorFloat = (float)((double)tileColor * 0.53) / 255f;
             if (Lighting.LegacyEngine.Mode == 2) { tileColorFloat = (float)(Main.tileColor.R - 12) / 255f; }
             else
-            if (Lighting.LegacyEngine.Mode == 3) { tileColorFloat = (float)(tileColor - 12) / 255f; }
+                if (Lighting.LegacyEngine.Mode == 3) { tileColorFloat = (float)(tileColor - 12) / 255f; }
             Color color = (overrideColor != null ? overrideColor(default(Color)) : Lighting.GetColor(x, y));
             if (Lighting.LegacyEngine.Mode < 2)
             {
@@ -883,30 +857,30 @@ namespace AAModClassic.Base
                     }
                 }
                 else
-                if ((int)color.R > gfxCheck2 || (double)color.G > (double)gfxCheck2 * 1.1 || (double)color.B > (double)gfxCheck2 * 1.2)
-                {
-                    Color[] lightArray = new Color[4];
-                    Lighting.GetColor4Slice(x, y, ref lightArray);
-                    for (int n = 0; n < 4; n++)
+                    if ((int)color.R > gfxCheck2 || (double)color.G > (double)gfxCheck2 * 1.1 || (double)color.B > (double)gfxCheck2 * 1.2)
                     {
-                        int offsetX = 0;
-                        int offsetY = 0;
-                        Color color4 = color;
-                        Color color5 = lightArray[n];
-                        if (n == 1) { offsetX = 16; }
-                        if (n == 2) { offsetY = 16; }
-                        if (n == 3) { offsetX = 16; offsetY = 16; }
-                        color4.R = (byte)((color.R + color5.R) / 2);
-                        color4.G = (byte)((color.G + color5.G) / 2);
-                        color4.B = (byte)((color.B + color5.B) / 2);
-                        sb.Draw(texture, new Vector2((float)(x * 16 - (int)Main.screenPosition.X - 8 + offsetX), (float)(y * 16 - (int)Main.screenPosition.Y - 8 + offsetY)) + drawOffset, new Rectangle(wallFrameX + offsetX, wallFrameY + offsetY + frameOffsetY, 16, 16), (overrideColor != null ? overrideColor(color4) : color4), 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+                        Color[] lightArray = new Color[4];
+                        Lighting.GetColor4Slice(x, y, ref lightArray);
+                        for (int n = 0; n < 4; n++)
+                        {
+                            int offsetX = 0;
+                            int offsetY = 0;
+                            Color color4 = color;
+                            Color color5 = lightArray[n];
+                            if (n == 1) { offsetX = 16; }
+                            if (n == 2) { offsetY = 16; }
+                            if (n == 3) { offsetX = 16; offsetY = 16; }
+                            color4.R = (byte)((color.R + color5.R) / 2);
+                            color4.G = (byte)((color.G + color5.G) / 2);
+                            color4.B = (byte)((color.B + color5.B) / 2);
+                            sb.Draw(texture, new Vector2((float)(x * 16 - (int)Main.screenPosition.X - 8 + offsetX), (float)(y * 16 - (int)Main.screenPosition.Y - 8 + offsetY)) + drawOffset, new Rectangle(wallFrameX + offsetX, wallFrameY + offsetY + frameOffsetY, 16, 16), (overrideColor != null ? overrideColor(color4) : color4), 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+                        }
                     }
-                }
-                else
-                {
-                    Rectangle rect = new Rectangle(wallFrameX, wallFrameY + frameOffsetY, 32, 32);
-                    sb.Draw(texture, new Vector2((float)(x * 16 - (int)Main.screenPosition.X - 8), (float)(y * 16 - (int)Main.screenPosition.Y - 8)) + drawOffset, rect, color, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
-                }
+                    else
+                    {
+                        Rectangle rect = new Rectangle(wallFrameX, wallFrameY + frameOffsetY, 32, 32);
+                        sb.Draw(texture, new Vector2((float)(x * 16 - (int)Main.screenPosition.X - 8), (float)(y * 16 - (int)Main.screenPosition.Y - 8)) + drawOffset, rect, color, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+                    }
             }
             if (drawOutline && ((double)color.R > (double)gfxCheck2 * 0.4 || (double)color.G > (double)gfxCheck2 * 0.35 || (double)color.B > (double)gfxCheck2 * 0.3))
             {

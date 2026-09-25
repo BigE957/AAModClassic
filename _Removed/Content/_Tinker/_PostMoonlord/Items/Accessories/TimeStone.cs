@@ -1,8 +1,6 @@
-using AAModClassic;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,7 +10,7 @@ namespace AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories
     [AutoloadEquip(EquipType.Face)]
     public class TimeStone : EquipAbstract, ILocalizedModType
     {
-        
+
 
         public override void SetStaticDefaults()
         {
@@ -57,7 +55,7 @@ Using the Time stone like an item stops/resumes time.
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             base.ModifyTooltips(list);
-            
+
             foreach (TooltipLine line2 in list)
             {
                 if (line2.Mod == "Terraria" && line2.Name == "ItemName")

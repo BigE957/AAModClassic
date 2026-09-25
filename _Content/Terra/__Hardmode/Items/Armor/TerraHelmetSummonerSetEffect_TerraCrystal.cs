@@ -5,7 +5,6 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,14 +12,14 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 {
     public class TerraHelmetSummonerSetEffect_TerraCrystal : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Crystal");
             Main.projFrames[Projectile.type] = 3;
-		}
+        }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
         {
             Projectile.width = 22;
             Projectile.height = 42;
@@ -35,7 +34,7 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
             Projectile.minionSlots = 0;
         }
 
-		Vector2 PlayerPoint = Vector2.Zero;
+        Vector2 PlayerPoint = Vector2.Zero;
         float intAI = 0;
 
         public override void SendExtraAI(BinaryWriter writer)
@@ -57,8 +56,8 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
         }
 
         public override void AI()
-		{
-			Player player = Main.player[Projectile.owner];
+        {
+            Player player = Main.player[Projectile.owner];
             TerraHelmetSummonerSetPlayer modPlayer = player.GetModPlayer<TerraHelmetSummonerSetPlayer>();
             if (!modPlayer.effect)
             {
@@ -70,22 +69,22 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 
             switch (modPlayer.CrystalMode)
             {
-                case 0: 
-                    Projectile.frame = 0; 
+                case 0:
+                    Projectile.frame = 0;
                     break;
-                case 1: 
-                    Projectile.frame = 1; 
+                case 1:
+                    Projectile.frame = 1;
                     break;
-                case 2: 
-                    Projectile.frame = 2; 
+                case 2:
+                    Projectile.frame = 2;
                     break;
-                default: 
-                    Projectile.frame = 0; 
+                default:
+                    Projectile.frame = 0;
                     break;
             }
 
             if (modPlayer.CrystalMode != 1)
-			{
+            {
                 if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 {
                     PlayerPoint.X = player.Center.X;
@@ -97,8 +96,8 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
                     PlayerPoint.Y = player.Center.Y + Projectile.height / 2 + player.gfxOffY - 60f;
                 }
 
-				if (player.gravDir == -1f)
-				{
+                if (player.gravDir == -1f)
+                {
                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                         PlayerPoint.Y = player.Center.Y - player.gfxOffY + 60f;
                     else
@@ -106,11 +105,11 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
                         Projectile.position.Y = Projectile.position.Y + 120f;
                         Projectile.rotation = (float)Math.PI;
                     }
-				}
-				else
-				{
-					Projectile.rotation = 0f;
-				}
+                }
+                else
+                {
+                    Projectile.rotation = 0f;
+                }
 
                 MoveToPoint(PlayerPoint);
                 if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
@@ -121,53 +120,53 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
                 }
 
                 if (modPlayer.CrystalMode == 0)
-				{
-					if (Projectile.owner == Main.myPlayer)
-					{
-						if (intAI != 0f)
-						{
+                {
+                    if (Projectile.owner == Main.myPlayer)
+                    {
+                        if (intAI != 0f)
+                        {
                             intAI -= 1f;
-							return;
-						}
-						float num396 = Projectile.position.X;
-						float num397 = Projectile.position.Y;
-						float num398 = 700f;
-						bool flag11 = false;
-						for (int num399 = 0; num399 < 200; num399++)
-						{
-							if (Main.npc[num399].CanBeChasedBy(this, true))
-							{
-								float num400 = Main.npc[num399].position.X + Main.npc[num399].width / 2;
-								float num401 = Main.npc[num399].position.Y + Main.npc[num399].height / 2;
-								float num402 = Math.Abs(Projectile.position.X + Projectile.width / 2 - num400) + Math.Abs(Projectile.position.Y + Projectile.height / 2 - num401);
-								if (num402 < num398 && Collision.CanHit(Projectile.position, Projectile.width, Projectile.height, Main.npc[num399].position, Main.npc[num399].width, Main.npc[num399].height))
-								{
-									num398 = num402;
-									num396 = num400;
-									num397 = num401;
-									flag11 = true;
-								}
-							}
-						}
-						if (flag11)
-						{
-							float num403 = 12f;
-							Vector2 vector29 = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
-							float num404 = num396 - vector29.X;
-							float num405 = num397 - vector29.Y;
-							float num406 = (float)Math.Sqrt(num404 * num404 + num405 * num405);
-							num406 = num403 / num406;
-							num404 *= num406;
-							num405 *= num406;
-							int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 4f, Projectile.Center.Y, num404, num405, ModContent.ProjectileType<TerraSphere>(), Player.crystalLeafDamage, Player.crystalLeafKB, Projectile.owner, 0f, 0f);
-							Main.projectile[p].minion = true;
-							Main.projectile[p].minionSlots = 0;
+                            return;
+                        }
+                        float num396 = Projectile.position.X;
+                        float num397 = Projectile.position.Y;
+                        float num398 = 700f;
+                        bool flag11 = false;
+                        for (int num399 = 0; num399 < 200; num399++)
+                        {
+                            if (Main.npc[num399].CanBeChasedBy(this, true))
+                            {
+                                float num400 = Main.npc[num399].position.X + Main.npc[num399].width / 2;
+                                float num401 = Main.npc[num399].position.Y + Main.npc[num399].height / 2;
+                                float num402 = Math.Abs(Projectile.position.X + Projectile.width / 2 - num400) + Math.Abs(Projectile.position.Y + Projectile.height / 2 - num401);
+                                if (num402 < num398 && Collision.CanHit(Projectile.position, Projectile.width, Projectile.height, Main.npc[num399].position, Main.npc[num399].width, Main.npc[num399].height))
+                                {
+                                    num398 = num402;
+                                    num396 = num400;
+                                    num397 = num401;
+                                    flag11 = true;
+                                }
+                            }
+                        }
+                        if (flag11)
+                        {
+                            float num403 = 12f;
+                            Vector2 vector29 = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
+                            float num404 = num396 - vector29.X;
+                            float num405 = num397 - vector29.Y;
+                            float num406 = (float)Math.Sqrt(num404 * num404 + num405 * num405);
+                            num406 = num403 / num406;
+                            num404 *= num406;
+                            num405 *= num406;
+                            int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X - 4f, Projectile.Center.Y, num404, num405, ModContent.ProjectileType<TerraSphere>(), Player.crystalLeafDamage, Player.crystalLeafKB, Projectile.owner, 0f, 0f);
+                            Main.projectile[p].minion = true;
+                            Main.projectile[p].minionSlots = 0;
                             Main.projectile[p].DamageType = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) == true ? DamageClass.Summon : DamageClass.Melee;
                             intAI = 50f;
-							return;
-						}
-					}
-				}
+                            return;
+                        }
+                    }
+                }
                 else
                 {
                     if (player.statLife < player.statLifeMax2)
@@ -180,9 +179,9 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
                         }
                     }
                 }
-			}
-			else
-			{
+            }
+            else
+            {
                 Projectile.rotation = Projectile.velocity.X * 0.04f;
                 if (Math.Abs(Projectile.velocity.X) > 0.2)
                 {
@@ -400,7 +399,7 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
 
         //TODO: use this as the basis for other MoveToPoint guys, since theyre copypasted everywhere
         public void MoveToPoint(Vector2 point)
-		{
+        {
             float moveSpeed = 20f;
             float velMultiplier = 1f;
             Vector2 dist = point - Projectile.Center;
@@ -430,5 +429,5 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Armor
                 Projectile.velocity *= velMultiplier;
             }
         }
-	}
+    }
 }

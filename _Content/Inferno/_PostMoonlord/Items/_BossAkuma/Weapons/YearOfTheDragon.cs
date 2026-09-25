@@ -1,11 +1,9 @@
-﻿using System;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
-using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -45,7 +43,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
             Item.DamageType = DamageClass.Ranged;
         }
 
-        
+
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
@@ -53,7 +51,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
             int num112 = 3;
             for (int num113 = 0; num113 < num112; num113++)
             {
-                Vector2 vector2 = new Vector2(player.position.X + player.width * 0.5f + Main.rand.Next(201) * -(float)player.direction + (Main.mouseX + Main.screenPosition.X - player.position.X), player.MountedCenter.Y - - 600f);
+                Vector2 vector2 = new Vector2(player.position.X + player.width * 0.5f + Main.rand.Next(201) * -(float)player.direction + (Main.mouseX + Main.screenPosition.X - player.position.X), player.MountedCenter.Y - -600f);
                 vector2.X = (vector2.X + player.Center.X) / 2f + Main.rand.Next(-200, 201);
                 vector2.Y -= 100 * num113;
                 float num78 = Main.mouseX + Main.screenPosition.X - vector2.X + Main.rand.Next(-40, 41) * 0.03f;
@@ -72,7 +70,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
                 num79 *= num80;
                 float num114 = num78;
                 float num115 = num79 + Main.rand.Next(-40, 41) * 0.02f;
-                Projectile.NewProjectile(player.GetSource_ItemUse(Item), vector2.X, vector2.Y, num114 * 0.75f, num115 * -0.75f, ModContent.ProjectileType<YearOfTheDragon_Proj>(), damage/2, knockback, player.whoAmI, 0f, -0.5f + (float)Main.rand.NextDouble() * 0.3f);
+                Projectile.NewProjectile(player.GetSource_ItemUse(Item), vector2.X, vector2.Y, num114 * 0.75f, num115 * -0.75f, ModContent.ProjectileType<YearOfTheDragon_Proj>(), damage / 2, knockback, player.whoAmI, 0f, -0.5f + (float)Main.rand.NextDouble() * 0.3f);
             }
             return false;
         }

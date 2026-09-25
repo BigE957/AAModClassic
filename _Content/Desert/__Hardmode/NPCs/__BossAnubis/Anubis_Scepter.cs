@@ -3,8 +3,6 @@ using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
-
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,7 +10,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 {
     public class Anubis_Scepter : ModProjectile
-	{
+    {
         public override void SetDefaults()
         {
             Projectile.width = 50;
@@ -27,19 +25,19 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 
         public int master = -1;
 
-		public override void AI()
-		{
+        public override void AI()
+        {
             if (master >= 0 && (Main.npc[master] == null || !Main.npc[master].active || Main.npc[master].type != ModContent.NPCType<Anubis>())) master = -1;
             if (master == -1)
             {
-                if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
                     master = BaseAI.GetNPC(Projectile.Center, ModContent.NPCType<AnubisUnreleased>(), -1, null);
                 else
                     master = BaseAI.GetNPC(Projectile.Center, ModContent.NPCType<Anubis>(), -1, null);
                 if (master == -1) master = -2;
             }
             if (master == -1) { return; }
-			if (master < 0 || !Main.npc[master].active || Main.npc[master].life <= 0) { Projectile.Kill(); return; }
+            if (master < 0 || !Main.npc[master].active || Main.npc[master].life <= 0) { Projectile.Kill(); return; }
 
             if (Main.rand.NextBool(2))
             {

@@ -1,7 +1,6 @@
-using System;
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,9 +9,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
     public class FuryWitchsHelmetSetMinionEffect_FlameSoul : ModProjectile
     {
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Flame Soul");
-			Main.projFrames[Projectile.type] = 4;
+        {
+            // DisplayName.SetDefault("Flame Soul");
+            Main.projFrames[Projectile.type] = 4;
             //ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
             ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
             ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
@@ -51,7 +50,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
 
             float num8 = 0.1f;
             float num9 = Projectile.width * 2f;
-            foreach(Projectile p in Main.ActiveProjectiles)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
                 int j = p.whoAmI;
                 if (j != Projectile.whoAmI && p.active && p.owner == Projectile.owner && p.type == Projectile.type && Math.Abs(Projectile.position.X - p.position.X) + Math.Abs(Projectile.position.Y - p.position.Y) < num9)
@@ -261,7 +260,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
                             Vector2 value4 = vector - Projectile.Center;
                             value4.Normalize();
                             value4 *= scaleFactor4;
-                            int num33 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value4.X*1.5f, value4.Y*1.5f, num29, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
+                            int num33 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value4.X * 1.5f, value4.Y * 1.5f, num29, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
                             Main.projectile[num33].timeLeft = 300;
                             Main.projectile[num33].netUpdate = true;
                             Projectile.netUpdate = true;
@@ -300,9 +299,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
             glowColorB = BaseUtility.MultiLerp(player.statLife / player.statLifeMax2, glowColor.B, glowColor2.B);
 
             Projectile.scale = (1f - (player.statLife / (float)player.statLifeMax2)) + 0.5f;
-            if(Projectile.scale > 1f)
+            if (Projectile.scale > 1f)
                 Projectile.scale = 1f;
-            if(Projectile.scale < 0f)
+            if (Projectile.scale < 0f)
                 Projectile.scale = 0f;
 
             if (player.statLife > player.statLifeMax2 * .9f)

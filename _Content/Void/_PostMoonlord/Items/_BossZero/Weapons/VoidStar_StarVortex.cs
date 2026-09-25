@@ -1,10 +1,9 @@
-﻿using Terraria;
-using Terraria.GameContent;
-using Terraria.ModLoader;
+﻿using AAModClassic.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Utilities;
-using AAModClassic.Base;
+using Terraria.GameContent;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
@@ -58,7 +57,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                Projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
@@ -85,7 +84,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                     )
                         selectedTarget = i;
                 }

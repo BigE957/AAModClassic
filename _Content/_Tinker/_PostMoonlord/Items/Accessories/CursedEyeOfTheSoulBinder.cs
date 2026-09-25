@@ -1,13 +1,7 @@
-﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
-using AAModClassic._Content.Desert._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Desert._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Accessories;
 using AAModClassic._Content.OldOnesArmy.___PreHardmode.Items.Accessories;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Microsoft.Xna.Framework;
-using System;
-using Terraria;
-using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.ModLoader;
 

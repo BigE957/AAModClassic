@@ -6,7 +6,6 @@ using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -56,7 +55,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 
         public override void AI()
         {
-			NPC.TargetClosest();			
+            NPC.TargetClosest();
             Player player = Main.player[NPC.target];
             MoveToPoint(player.Center - new Vector2(0, 300f));
 
@@ -66,26 +65,26 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 NPC.Center = player.Center - new Vector2(0, 300f);
                 NPC.netOffset = Vector2.Zero;
             }
-			
-			if(Main.netMode != NetmodeID.Server) //clientside stuff
-			{
-				NPC.frameCounter++;
-				if (NPC.frameCounter >= 7)
-				{
-					NPC.frameCounter = 0;
-					NPC.frame.Y += TextureAssets.Npc[NPC.type].Height() / 4 ;
-				}
 
-				if (NPC.frame.Y > TextureAssets.Npc[NPC.type].Height() / 4 * 3)
-				{
-					NPC.frame.Y = 0 ;
-				}
-				if (NPC.ai[0] > 375)
-				{
-					if (NPC.alpha < 0)
-					{
-						NPC.alpha = 0;
-					}
+            if (Main.netMode != NetmodeID.Server) //clientside stuff
+            {
+                NPC.frameCounter++;
+                if (NPC.frameCounter >= 7)
+                {
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y += TextureAssets.Npc[NPC.type].Height() / 4;
+                }
+
+                if (NPC.frame.Y > TextureAssets.Npc[NPC.type].Height() / 4 * 3)
+                {
+                    NPC.frame.Y = 0;
+                }
+                if (NPC.ai[0] > 375)
+                {
+                    if (NPC.alpha < 0)
+                    {
+                        NPC.alpha = 0;
+                    }
                     else
                     {
                         NPC.alpha -= 5;
@@ -98,55 +97,55 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                     {
                         NPC.scale = 1;
                     }
-				}
-				if (NPC.ai[0] >= 375) //after he says 'nyeh' on the server, change music on the client
-				{
-					Music = MusicManagementSystem.MusicSlots["Yamata_Awakened"];
+                }
+                if (NPC.ai[0] >= 375) //after he says 'nyeh' on the server, change music on the client
+                {
+                    Music = MusicManagementSystem.MusicSlots["Yamata_Awakened"];
                     NPC.boss = true;
-				}
-				if (NPC.ai[0] >= 900) //after he says 'as if' on the server, transition color
-				{
-					RVal += 5;
-					BVal -= 5;
-					if (RVal <= 90)
-					{
-						BVal = 90;
-					}
-					if (RVal >= 255)
-					{
-						RVal = 255;
-					}
-				}
-			}
+                }
+                if (NPC.ai[0] >= 900) //after he says 'as if' on the server, transition color
+                {
+                    RVal += 5;
+                    BVal -= 5;
+                    if (RVal <= 90)
+                    {
+                        BVal = 90;
+                    }
+                    if (RVal >= 255)
+                    {
+                        RVal = 255;
+                    }
+                }
+            }
 
-			NPC.ai[0]++;
+            NPC.ai[0]++;
 
-			if (NPC.ai[0] == 375)    
-			{
-				if (Main.netMode != NetmodeID.MultiplayerClient) 
+            if (NPC.ai[0] == 375)
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.1"), AAColor.YamataDialogue);
-				NPC.netUpdate = true;
-			}
+                NPC.netUpdate = true;
+            }
             else if (NPC.ai[0] == 650)
-			{
-				if (Main.netMode != NetmodeID.MultiplayerClient) 
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.2"), AAColor.YamataDialogue);
-			}
+            }
             else if (NPC.ai[0] == 900)
-			{
-				if (Main.netMode != NetmodeID.MultiplayerClient) 
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.3"), AAColor.YamataDialogue);
-                if (Main.netMode != NetmodeID.MultiplayerClient) 
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.PlayerStatus"), Color.PaleVioletRed);
                 NPC.netUpdate = true;
-			}
+            }
             else if (NPC.ai[0] == 1100)
-			{
-				if (Main.netMode != NetmodeID.MultiplayerClient) 
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.4"), new Color(146, 30, 68));
-			}
+            }
             else if (NPC.ai[0] >= 1455 && !NPC.AnyNPCs(ModContent.NPCType<YamataABody>()))
-			{
+            {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<YamataABody>(), false, NPC.Center, "", false);
@@ -201,8 +200,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 }
 
                 NPC.netUpdate = true;
-				NPC.active = false;				
-			}
+                NPC.active = false;
+            }
         }
 
         public override bool PreAI()

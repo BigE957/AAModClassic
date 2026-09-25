@@ -1,7 +1,6 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -36,7 +35,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Materials
             Item.value = 1000000;
             Item.rare = ItemRarityID.Purple;
             Item.expert = true;
-            
+
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -69,7 +68,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Materials
                 int animTime = (int)(Main.GlobalTimeWrappedHourly * 15);
 
                 var v = context.Draw(tex, tilePosition, Main.DiscoColor, new SpriteFrame(1, 4, 0, (byte)(animTime % 4)), 1.25f, 1.25f, Alignment.Center);
-                if(v.IsMouseOver)
+                if (v.IsMouseOver)
                     text = item.Name;
             }
         }

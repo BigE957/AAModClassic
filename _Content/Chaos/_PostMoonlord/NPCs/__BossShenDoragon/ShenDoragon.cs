@@ -26,7 +26,6 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -242,11 +241,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             Main.dayTime = false;
             Main.time = 18000;
 
-            if (!AliveCheck(player)) 
+            if (!AliveCheck(player))
                 return;
 
             Dashing = false;
-            if (Roaring) 
+            if (Roaring)
                 roarTimer--;
 
             if (Dashing)
@@ -294,7 +293,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     for (int spawnDust = 0; spawnDust < 2; spawnDust++)
                     {
                         int dust = spawnDust == 1 ? ModContent.DustType<Dusts.AkumaADust>() : ModContent.DustType<Dusts.YamataADust>();
-                        if (Main.rand.NextBool(4)) 
+                        if (Main.rand.NextBool(4))
                             dust = ModContent.DustType<Dusts.Discord_Dust>();
                         if (IsAwakened)
                             dust = ModContent.DustType<Dusts.DiscordLight>();
@@ -365,12 +364,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         if (IsAwakened && Main.netMode != NetmodeID.MultiplayerClient)
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitX.RotatedBy(NPC.ai[3]), ModContent.ProjectileType<ShenDoragonA_Deathray>(), 40, 0f, -1, 0, NPC.whoAmI);
                     }
-                    else if(!Main.dedServ && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.ai[2] > 180 && NPC.ai[2] % 3 == 0)
+                    else if (!Main.dedServ && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.ai[2] > 180 && NPC.ai[2] % 3 == 0)
                     {
                         RandomizedFrameParticle lightning = telegraphParticles.RequestParticle();
                         Main.instance.LoadProjectile(ProjectileID.ScytheWhipProj);
                         lightning.SetBasicInfo(TextureAssets.Projectile[ProjectileID.ScytheWhipProj], null, Vector2.Zero, Main.rand.NextVector2Circular(8f, 8f));
-                        lightning.SetTypeInfo(Main.projFrames[ProjectileID.ScytheWhipProj], 2, 24f); 
+                        lightning.SetTypeInfo(Main.projFrames[ProjectileID.ScytheWhipProj], 2, 24f);
                         lightning.Velocity = (NPC.spriteDirection == -1 ? MathHelper.Pi : 0 + Main.rand.NextFloat(-MathHelper.PiOver4, MathHelper.PiOver4)).ToRotationVector2() * Main.rand.NextFloat(2, 4);
                         lightning.ColorTint = AAColor.Shen3;
                         lightning.LocalPosition = NPC.Center + new Vector2(190 * NPC.spriteDirection, 0);
@@ -495,7 +494,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                                 Roar(roarTimerMax, false);
                         }
-                        else if(!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        else if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                             Roar(roarTimerMax, false);
                     }
                     if (++NPC.ai[1] > 240 || (Math.Sign(NPC.velocity.X) > 0 ? NPC.Center.X > player.Center.X + 900 : NPC.Center.X < player.Center.X - 900))
@@ -549,10 +548,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     }
                     break;
 
-                case 7: 
+                case 7:
                     goto case 2;
 
-                case 8: 
+                case 8:
                     goto case 3;
 
                 case 9: //prepare for fishron dash
@@ -1037,7 +1036,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<ShenDoragonTransition>());
                 }
             }
-            else 
+            else
             {
                 if (Main.expertMode)
                 {
@@ -1086,7 +1085,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             Player player = Main.player[NPC.target];
             int frameWidth = TextureAssets.Npc[NPC.type].Width() / FRAMECOUNT_X;
 
-            if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 NPC.frame = new Rectangle(0, 0, frameWidth, Body.Height());
             else
                 NPC.frame = new Rectangle(0, Roaring ? frameHeight : 0, frameWidth, frameHeight);
@@ -1387,8 +1386,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         headTopOrigin.X = headTopFrame.Width - headTopOrigin.X;
 
                     headRotation = NPC.rotation;
-                    if(Lasering)
-                        headRotation -= (MathHelper.Pi / 6f + (MathF.Sin(Main.GlobalTimeWrappedHourly * 36) * MathHelper.Pi / 36f)) * NPC.spriteDirection; 
+                    if (Lasering)
+                        headRotation -= (MathHelper.Pi / 6f + (MathF.Sin(Main.GlobalTimeWrappedHourly * 36) * MathHelper.Pi / 36f)) * NPC.spriteDirection;
                     else if (!Dashing)
                     {
                         float goalAngle = (NPC.Center + headOffset).AngleTo(Main.player[NPC.target == -1 ? Main.myPlayer : NPC.target].Center);

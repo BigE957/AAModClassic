@@ -155,9 +155,9 @@ namespace AAModClassic._Content.Inferno.World.Biomes
             {
                 if (Main.gameMenu || Main.dayTime || Main.LocalPlayer.GetModPlayer<ZAAPlayer>().SunAltar)
                 {
-                    if(!WrathOfTheGods.IsEnabled || !(bool)WrathOfTheGods.Call("GetRiftEclipseActive"))
+                    if (!WrathOfTheGods.IsEnabled || !(bool)WrathOfTheGods.Call("GetRiftEclipseActive"))
                         spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
-                    
+
                     if (Main.gameMenu)
                         spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.OrangeRed * Intensity);
                     else
@@ -456,7 +456,7 @@ namespace AAModClassic._Content.Inferno.World.Biomes
             if (orig())
                 return true;
 
-            if(Sandstorm.Happening && Main.LocalPlayer.ZoneSandstorm && Main.bgStyle == Slot)
+            if (Sandstorm.Happening && Main.LocalPlayer.ZoneSandstorm && Main.bgStyle == Slot)
                 return Main.bgDelay < 50;
 
             return false;

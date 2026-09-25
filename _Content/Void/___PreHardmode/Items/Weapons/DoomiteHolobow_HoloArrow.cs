@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,7 +7,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
 {
     public class DoomiteHolobow_HoloArrow : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Holo Arrow");

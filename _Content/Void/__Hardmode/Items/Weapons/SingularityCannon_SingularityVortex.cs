@@ -1,10 +1,9 @@
-﻿using Terraria;
-using Terraria.GameContent;
-using Terraria.ModLoader;
+﻿using AAModClassic.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Utilities;
-using AAModClassic.Base;
+using Terraria.GameContent;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.__Hardmode.Items.Weapons
 {
@@ -44,7 +43,7 @@ namespace AAModClassic._Content.Void.__Hardmode.Items.Weapons
             {
                 Projectile.alpha = 80;
             }
-            
+
 
             if (Projectile.timeLeft < 60)
             {

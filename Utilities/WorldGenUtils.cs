@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework;
 using System;
 using System.Linq;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -190,7 +189,7 @@ namespace AAModClassic.Utilities
 
                             if (olddata != null && (olddata.Height != 1 || olddata.Width != 1))
                             {
-                                for(int i = 0; i < olddata.Width; i++)
+                                for (int i = 0; i < olddata.Width; i++)
                                     for (int j = 0; j < olddata.Height; j++)
                                     {
                                         if (i == 0 && j == 0)

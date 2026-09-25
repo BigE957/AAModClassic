@@ -1,6 +1,5 @@
 using AAModClassic.Dusts;
 using AAModClassic.Utilities;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoration.Furniture
@@ -33,12 +32,13 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoratio
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
-			Tile tile = Main.tile[i, j];
-			if (tile.TileFrameX == 0) {
-				r = 1.1f;
-				g = 0.5f;
-				b = 0.5f;
-			}
-		}
+            Tile tile = Main.tile[i, j];
+            if (tile.TileFrameX == 0)
+            {
+                r = 1.1f;
+                g = 0.5f;
+                b = 0.5f;
+            }
+        }
     }
 }

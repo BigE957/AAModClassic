@@ -7,8 +7,8 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class GroxLeggings : BaseAAItem, ILocalizedModType
-	{
+    public class GroxLeggings : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Grox";
         public override void SetStaticDefaults()
         {

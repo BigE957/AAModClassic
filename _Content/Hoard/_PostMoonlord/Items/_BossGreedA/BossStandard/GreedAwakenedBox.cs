@@ -1,8 +1,7 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
+﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.BossStandard
 {

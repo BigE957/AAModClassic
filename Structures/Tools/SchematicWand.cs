@@ -44,7 +44,7 @@ namespace AAModClassic.Structures.Tools
                     session.Cancel();
                     Main.NewText("Schematic selection cancelled.", Color.Orange);
                 }
-                else if(session.Phase == SchematicToolPhase.Idle)
+                else if (session.Phase == SchematicToolPhase.Idle)
                 {
                     SchematicExporter.OutputDirectory = null;
                     string path = Main.SavePath + "\\ModSources\\AAModClassic\\Structures\\Schematics\\";

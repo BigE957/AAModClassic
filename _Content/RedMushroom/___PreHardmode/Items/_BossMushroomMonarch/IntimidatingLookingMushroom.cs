@@ -1,13 +1,12 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
+using AAModClassic.Base;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.Audio;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Globals;
-using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Base;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch
 {

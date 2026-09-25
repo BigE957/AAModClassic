@@ -7,13 +7,13 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Quest
 {
     public class GRealmAdvertisement : BaseAAItem
-	{
-		public override void SetStaticDefaults()
-		{
+    {
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("GRealm Advertisement");
             /* Tooltip.SetDefault(@"'Want more AA content and more Grox-filled fun? Go play GRealm!'
 -Grox The Great"); */
-		}
+        }
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
@@ -26,11 +26,11 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Quest
         }
 
         public override void SetDefaults()
-		{
+        {
             Item.width = 22;
             Item.height = 22;
             Item.value = 0;
             Item.rare = ItemRarityID.White;
         }
-	}
+    }
 }

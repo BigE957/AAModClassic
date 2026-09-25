@@ -2,7 +2,6 @@ using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -14,8 +13,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Materials
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-			Main.tileMergeDirt[Type] = true;
-            Main.tileOreFinderPriority[Type] = 330; 
+            Main.tileMergeDirt[Type] = true;
+            Main.tileOreFinderPriority[Type] = 330;
             Main.tileSpelunker[Type] = true;
             Main.tileMerge[Type][ModContent.TileType<Depthstone_Tile>()] = true;
             Main.tileBlockLight[Type] = true;
@@ -23,12 +22,12 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Materials
             TileID.Sets.JungleSpecial[Type] = true;
             HitSound = SoundID.Tink;
             Main.tileLighted[Type] = true;
-            RegisterItemDrop(ModContent.ItemType<AbyssiumOre>());   
+            RegisterItemDrop(ModContent.ItemType<AbyssiumOre>());
             DustType = ModContent.DustType<Dusts.AbyssiumDust>();
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Abyssium Ore");
             AddMapEntry(new Color(0, 0, 51), name);
-			MinPick = 65;
+            MinPick = 65;
         }
 
 

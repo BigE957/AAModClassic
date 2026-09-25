@@ -1,7 +1,5 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -10,27 +8,27 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
 {
     public class AthenaA_ChargedVarianBurst : ModProjectile
-	{
+    {
         public override string Texture => ModContent.GetInstance<AthenaA_VarianBurst>().Texture;
 
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Charged Varian Burst");
             Main.projFrames[Projectile.type] = 3;
-		}
+        }
 
-		public override void SetDefaults()
-		{
-			Projectile.width = 32;
-			Projectile.height = 36;
-			Projectile.friendly = false; 
-			Projectile.hostile = true;
-			Projectile.DamageType = DamageClass.Melee;
-			Projectile.penetrate = 1;
-			Projectile.timeLeft = 30;
-			Projectile.alpha = 20;
+        public override void SetDefaults()
+        {
+            Projectile.width = 32;
+            Projectile.height = 36;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 30;
+            Projectile.alpha = 20;
             Projectile.tileCollide = false;
-			Projectile.ignoreWater = true;
+            Projectile.ignoreWater = true;
             Projectile.extraUpdates = 1;
         }
 
@@ -58,7 +56,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
 
         public override void OnKill(int timeleft)
         {
-			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             int p = NPC.NewNPC(Projectile.GetSource_FromThis(), (int)Projectile.Center.X, (int)Projectile.Center.Y, ModContent.NPCType<ChargedOwlRune>());
             Main.npc[p].Center = Projectile.Center;
             for (int num468 = 0; num468 < 10; num468++)
@@ -68,7 +66,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
             }
-            
+
         }
     }
 }

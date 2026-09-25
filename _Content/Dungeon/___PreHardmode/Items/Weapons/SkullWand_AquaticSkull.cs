@@ -1,13 +1,12 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons
 {
     public class SkullWand_AquaticSkull : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Aquatic Skull");
@@ -27,7 +26,7 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons
             Projectile.ignoreWater = true;
             Projectile.minionSlots = 1;
         }
-        
+
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
@@ -190,7 +189,7 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons
             }
             Projectile.rotation = Projectile.velocity.X * 0.05f;
 
-            Projectile.spriteDirection = Projectile.velocity.X > 0? 1: -1;
+            Projectile.spriteDirection = Projectile.velocity.X > 0 ? 1 : -1;
 
             if (Projectile.ai[1] > 0f)
             {
@@ -210,7 +209,7 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons
                 Projectile.frame = 1;
                 float scaleFactor4 = 11f;
                 int num29 = ModContent.ProjectileType<SkullWand_SkullShot>();
-                
+
                 if (flag)
                 {
                     if ((vector - Projectile.Center).X > 0f)

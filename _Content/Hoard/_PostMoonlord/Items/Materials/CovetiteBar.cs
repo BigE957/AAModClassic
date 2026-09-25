@@ -1,7 +1,5 @@
-﻿using AAModClassic.Globals;
-using AAModClassic.Rarities;
+﻿using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -16,7 +14,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items.Materials
             Item.width = 30;
             Item.height = 24;
             Item.maxStack = Item.CommonMaxStack;
-			Item.useTurn = true;
+            Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.value = 16000;
@@ -28,7 +26,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items.Materials
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
-        
+
 
         public override void SetStaticDefaults()
         {
@@ -37,8 +35,8 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items.Materials
             Item.ResearchUnlockCount = 25;
         }
 
-		public override void AddRecipes()
-        {                                                   
+        public override void AddRecipes()
+        {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<CovetiteOre>(), 3);
             recipe.AddTile(TileID.LunarCraftingStation);

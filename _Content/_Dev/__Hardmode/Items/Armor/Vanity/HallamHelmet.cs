@@ -1,23 +1,23 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
     [AutoloadEquip(EquipType.Head)]
-	public class HallamHelmet : BaseAAItem, ILocalizedModType
-	{
+    public class HallamHelmet : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Hallam";
-		public override void SetStaticDefaults()
+        public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Hallam's Dapper Top Hat");
             /* Tooltip.SetDefault(
 @"You can't help but feel fancy just wearing this
 'Great for impersonating Ancients Awakened Devs!'"); */
-		}
+        }
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
@@ -35,5 +35,5 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
             Item.rare = ItemRarityID.Cyan;
             Item.vanity = true;
         }
-	}
+    }
 }

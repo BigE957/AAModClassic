@@ -1,10 +1,8 @@
 using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Weapons;
 using AAModClassic._Content.Hoard._PostMoonlord.Items.Materials;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -34,10 +32,10 @@ Certain ores have special effects when shot"); */
             Item.useAnimation = 45;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 0;
-			Item.shoot = ProjectileID.PurificationPowder;
+            Item.shoot = ProjectileID.PurificationPowder;
             Item.UseSound = SoundID.Item14;
             Item.shootSpeed = 14f;
-            Item.expert = true; 
+            Item.expert = true;
             Item.autoReuse = true;
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
@@ -60,13 +58,13 @@ Certain ores have special effects when shot"); */
                     ItemLoader.ConsumeItem(itemFired, player);
                     projType = itemFired.type;
                     return true;
- 				}
- 			}
+                }
+            }
             return false;
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
- 		{
+        {
             int p = Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, velocity, ModContent.ProjectileType<OreChunk>(), damage, knockback, player.whoAmI, 0, projType);
             Main.projectile[p].TriggerOreOnSpawn();
             return false;

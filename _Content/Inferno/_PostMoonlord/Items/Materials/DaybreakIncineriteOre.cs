@@ -1,7 +1,4 @@
-﻿using AAModClassic.Globals;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using System.Collections.Generic;
-using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -26,7 +23,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Materials
             Item.createTile = ModContent.TileType<DaybreakIncineriteOre_Tile>(); //put your CustomBlock Tile name
         }
 
-        
+
 
         public override void SetStaticDefaults()
         {

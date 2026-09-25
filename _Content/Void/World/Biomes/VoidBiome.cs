@@ -1,5 +1,4 @@
-﻿using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
+﻿using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic._Content.Void.World.Biomes.Water;
 using AAModClassic._CrossMod;
@@ -15,7 +14,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
@@ -131,7 +129,7 @@ namespace AAModClassic._Content.Void.World.Biomes
 
             if (Intensity > 0 && WeakReferences.RealisticSky != null)
                 WeakReferences.RealisticSky.Call("temporarilydisable");
-            
+
             if (Main.gameMenu || NPC.downedMoonlord)
             {
                 if (ticksUntilNextBolt <= 0)
@@ -246,7 +244,7 @@ namespace AAModClassic._Content.Void.World.Biomes
                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !AAWorld_Unreleased.DownedIZ)
                     {
                         bool anyIZ = false;
-                        foreach(NPC n in Main.ActiveNPCs)
+                        foreach (NPC n in Main.ActiveNPCs)
                         {
                             if (n.type != ModContent.NPCType<InfinityZeroSpawn1>() && n.type != ModContent.NPCType<InfinityZero>())
                                 continue;
@@ -255,7 +253,7 @@ namespace AAModClassic._Content.Void.World.Biomes
                             break;
                         }
 
-                        if(!anyIZ)
+                        if (!anyIZ)
                             spriteBatch.Draw(Echo, echoPos, null, GetGlowAlpha(true) * riftIntensity * Alpha, 0f, new Vector2(Echo.Width >> 1, Echo.Height >> 1), AAWorld.downedAllAncients ? 0.4f : .3f, SpriteEffects.None, 1f);
                     }
                 }

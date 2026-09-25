@@ -1,6 +1,5 @@
 using AAModClassic._Content.Snow.Projectiles;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -29,7 +28,7 @@ namespace AAModClassic._Content.Snow.__Hardmode.Items.Weapons
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Asgardian Lance");
-		}
+        }
 
         public override void OnKill(int timeLeft)
         {

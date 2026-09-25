@@ -1,10 +1,5 @@
-﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
-using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Humanizer;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;

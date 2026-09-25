@@ -1,9 +1,7 @@
-﻿using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
-using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
+﻿using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard;
 using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Consumables;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
-using AAModClassic._Content.Stars.World.Biomes;
 using AAModClassic._CrossMod.CalamityMod;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories;
@@ -18,7 +16,6 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -29,10 +26,10 @@ using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AACondition
 
 namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer
 {
-    [AutoloadBossHead]	
-	public class DaybringerHead : ModNPC
-	{	
-		public bool nightcrawler = false;
+    [AutoloadBossHead]
+    public class DaybringerHead : ModNPC
+    {
+        public bool nightcrawler = false;
 
         public static Asset<Texture2D> DaybringerHeadBig;
         public static Asset<Texture2D> DaybringerBodyBig;
@@ -42,8 +39,8 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
         public static Asset<Texture2D> NightcrawlerTailBig;
 
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Daybringer");
+        {
+            // DisplayName.SetDefault("Daybringer");
             //Main.npcFrameCount[NPC.type] = 1;
             string filePath = Texture.Remove(Texture.Length - 14);
             string filePath2 = ModContent.GetInstance<NightcrawlerHead>().Texture.Remove(ModContent.GetInstance<NightcrawlerHead>().Texture.Length - 16);
@@ -63,8 +60,8 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             NPC.lifeMax = 100000;
             NPC.damage = 125;
             NPC.defense = 100;
@@ -78,13 +75,13 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             NPC.height = 68;
             NPC.boss = true;
             NPC.aiStyle = -1;
-			NPC.timeLeft = 500;
+            NPC.timeLeft = 500;
             NPC.lavaImmune = true;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             NPC.DeathSound = null;
-			NPC.HitSound = SoundID.NPCHit4;
-			NPC.DeathSound = SoundID.NPCDeath14;
+            NPC.HitSound = SoundID.NPCHit4;
+            NPC.DeathSound = SoundID.NPCDeath14;
             Music = MusicManagementSystem.MusicSlots["Equinox"];
             SceneEffectPriority = SceneEffectPriority.BossHigh;
         }
@@ -104,7 +101,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             base.SendExtraAI(writer);
             if (Main.netMode == NetmodeID.Server || Main.dedServ)
             {
-                if(NPC.type == ModContent.NPCType<DaybringerHead>() || NPC.type == ModContent.NPCType<NightcrawlerHead>())
+                if (NPC.type == ModContent.NPCType<DaybringerHead>() || NPC.type == ModContent.NPCType<NightcrawlerHead>())
                 {
                     writer.Write(internalAI[0]);
                     writer.Write(internalAI[1]);
@@ -114,7 +111,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                     writer.Write(internalAI[5]);
                     writer.Write(internalAI[6]);
                     writer.Write(internalAI[7]);
-                    
+
                     writer.Write(preShootingSun);
                     writer.Write(preDeathRay);
                     writer.Write(isDeathRay);
@@ -130,7 +127,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
-                if(NPC.type == ModContent.NPCType<DaybringerHead>() || NPC.type == ModContent.NPCType<NightcrawlerHead>())
+                if (NPC.type == ModContent.NPCType<DaybringerHead>() || NPC.type == ModContent.NPCType<NightcrawlerHead>())
                 {
                     internalAI[0] = reader.ReadSingle(); //DaybringerCounter
                     internalAI[1] = reader.ReadSingle(); //NightclawerCounter
@@ -140,7 +137,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                     internalAI[5] = reader.ReadSingle(); //VelocitySave
                     internalAI[6] = reader.ReadSingle(); //VelocitySave
                     internalAI[7] = reader.ReadSingle();
-                    
+
                     preShootingSun = reader.ReadBoolean();
                     preDeathRay = reader.ReadBoolean();
                     isDeathRay = reader.ReadBoolean();
@@ -158,15 +155,15 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
         }
 
         public override void BossHeadRotation(ref float rotation)
-		{
-			rotation = NPC.rotation;
-		}
+        {
+            rotation = NPC.rotation;
+        }
 
-		public override bool CheckActive()
-		{
-			NPC.timeLeft--;
-			return NPC.timeLeft < 50;
-		}
+        public override bool CheckActive()
+        {
+            NPC.timeLeft--;
+            return NPC.timeLeft < 50;
+        }
 
         internal bool preDeathRay = false;
         internal bool isDeathRay = false;
@@ -211,7 +208,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
 
             if (wormStronger)
             {
-                if(Main.netMode == NetmodeID.SinglePlayer) 
+                if (Main.netMode == NetmodeID.SinglePlayer)
                 {
                     NPC.width = 136;
                     NPC.height = 136;
@@ -249,19 +246,19 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             {
                 NPC.timeLeft = 300; //pieces should not despawn naturally, only despawn when the head does
             }
-            
+
             Player target = Main.player[NPC.target];
-            
+
             if (NPC.type == ModContent.NPCType<NightcrawlerHead>())
             {
-                if(isDeathRay)
+                if (isDeathRay)
                 {
                     goto ExtraAI;
                 }
-                if(preDeathRay)
+                if (preDeathRay)
                 {
                     NPC.defense = 9999;
-                    if((NPC.Center - target.Center).Length() < 300f)
+                    if ((NPC.Center - target.Center).Length() < 300f)
                     {
                         isDeathRay = true;
                         NPC.netUpdate = true;
@@ -292,8 +289,8 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                             NPC.velocity.Y -= 0.5f * 2;
                     }
 
-                    if(NPC.velocity.X > 30f) NPC.velocity.X = 30f;
-                    if(NPC.velocity.Y > 30f) NPC.velocity.Y = 30f;
+                    if (NPC.velocity.X > 30f) NPC.velocity.X = 30f;
+                    if (NPC.velocity.Y > 30f) NPC.velocity.Y = 30f;
 
                     internalAI[5] = NPC.velocity.X;
                     internalAI[6] = NPC.velocity.Y;
@@ -301,7 +298,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             }
             if (NPC.type == ModContent.NPCType<DaybringerHead>())
             {
-                if(preShootingSun)
+                if (preShootingSun)
                 {
                     NPC.defense = 9999;
                     NPC.TargetClosest(false);
@@ -309,35 +306,35 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                 }
             }
 
-            if(!isHead)
+            if (!isHead)
             {
                 NPC.defense = Main.npc[NPC.realLife].defense;
             }
             goto Normal;
 
-            ExtraAI:
-            if(NPC.type == ModContent.NPCType<NightcrawlerHead>())
+        ExtraAI:
+            if (NPC.type == ModContent.NPCType<NightcrawlerHead>())
             {
                 NPC.defense = 9999;
                 NPC.TargetClosest(false);
                 NPC.velocity = new Vector2(internalAI[5], internalAI[6]);
-                
-                if(internalAI[2] < 120)
+
+                if (internalAI[2] < 120)
                 {
-                    Vector2 newvelocity = NPC.velocity + Vector2.Normalize(NPC.velocity.RotatedBy((float)Math.PI/2)) * 0.58f;
+                    Vector2 newvelocity = NPC.velocity + Vector2.Normalize(NPC.velocity.RotatedBy((float)Math.PI / 2)) * 0.58f;
                     NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 1.57f;
                     NPC.velocity = Vector2.Normalize(newvelocity) * 16f;
                 }
                 else
                 {
-                    Vector2 newvelocity = NPC.velocity + Vector2.Normalize(NPC.velocity.RotatedBy((float)Math.PI/2)) * 0.03625f;
+                    Vector2 newvelocity = NPC.velocity + Vector2.Normalize(NPC.velocity.RotatedBy((float)Math.PI / 2)) * 0.03625f;
                     NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 1.57f;
                     NPC.velocity = Vector2.Normalize(newvelocity) * 4f;
                 }
 
                 if (internalAI[2]++ == 90)
                 {
-                    for (int i = 0; i < Main.maxNPCs; i+=2)
+                    for (int i = 0; i < Main.maxNPCs; i += 2)
                     {
                         if (Main.npc[i].active && Main.npc[i].type == ModContent.NPCType<NightcrawlerBody>() && Main.npc[i].realLife == NPC.whoAmI)
                         {
@@ -351,9 +348,9 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                 }
                 if (internalAI[2] >= 90)
                 {
-                    for(int deathRay = 0; deathRay < Main.maxProjectiles; deathRay++)
+                    for (int deathRay = 0; deathRay < Main.maxProjectiles; deathRay++)
                     {
-                        if(Main.projectile[deathRay].active && Main.projectile[deathRay].type == ModContent.ProjectileType<NightcrawlerHead_NightDeathraySmall>() || Main.projectile[deathRay].type == ModContent.ProjectileType<NightcrawlerHead_NightDeathray>() && Main.projectile[deathRay].ai[1] == NPC.whoAmI)
+                        if (Main.projectile[deathRay].active && Main.projectile[deathRay].type == ModContent.ProjectileType<NightcrawlerHead_NightDeathraySmall>() || Main.projectile[deathRay].type == ModContent.ProjectileType<NightcrawlerHead_NightDeathray>() && Main.projectile[deathRay].ai[1] == NPC.whoAmI)
                         {
                             return false;
                         }
@@ -363,7 +360,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                 internalAI[5] = NPC.velocity.X;
                 internalAI[6] = NPC.velocity.Y;
 
-                if(internalAI[2] > 400)
+                if (internalAI[2] > 400)
                 {
                     internalAI[2] = 0;
                     isDeathRay = false;
@@ -371,7 +368,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                     NPC.netUpdate = true;
                 }
             }
-            if(NPC.type == ModContent.NPCType<DaybringerHead>())
+            if (NPC.type == ModContent.NPCType<DaybringerHead>())
             {
                 NPC.defense = 9999;
                 NPC.TargetClosest(false);
@@ -380,22 +377,22 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                 Vector2 targetpos2 = target.Center - new Vector2(1000f, 1000f);
                 Vector2 targetpos3 = target.Center - new Vector2(-1000f, 1000f);
 
-                if(internalAI[4] == 0)
+                if (internalAI[4] == 0)
                 {
-                    if(Math.Abs(NPC.Center.X - targetpos.X) + Math.Abs(NPC.Center.Y - targetpos.Y) < 100f)
+                    if (Math.Abs(NPC.Center.X - targetpos.X) + Math.Abs(NPC.Center.Y - targetpos.Y) < 100f)
                     {
                         internalAI[4] = 1f;
                     }
                 }
-                else if(internalAI[4] == 1)
+                else if (internalAI[4] == 1)
                 {
                     targetpos = targetpos2;
-                    if(Math.Abs(NPC.Center.X - targetpos.X) + Math.Abs(NPC.Center.Y - targetpos.Y) < 100f)
+                    if (Math.Abs(NPC.Center.X - targetpos.X) + Math.Abs(NPC.Center.Y - targetpos.Y) < 100f)
                     {
                         internalAI[4] = 2f;
-                        if(Main.netMode != NetmodeID.MultiplayerClient)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
-                            for (int i = 0; i < Main.maxNPCs; i+= 3)
+                            for (int i = 0; i < Main.maxNPCs; i += 3)
                             {
                                 if (Main.npc[i].active && Main.npc[i].type == ModContent.NPCType<DaybringerBody>() && Main.npc[i].realLife == NPC.whoAmI && AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<DaybringerHead_DaySun>()) < 3)
                                 {
@@ -406,15 +403,15 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                         }
                     }
                 }
-                else if(internalAI[4] == 2)
+                else if (internalAI[4] == 2)
                 {
                     targetpos = targetpos3;
-                    if(Math.Abs(NPC.Center.X - targetpos.X) + Math.Abs(NPC.Center.Y - targetpos.Y) < 100f)
+                    if (Math.Abs(NPC.Center.X - targetpos.X) + Math.Abs(NPC.Center.Y - targetpos.Y) < 100f)
                     {
                         internalAI[4] = 1f;
-                        if(Main.netMode != NetmodeID.MultiplayerClient)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
-                            for (int i = 0; i < Main.maxNPCs; i+= 3)
+                            for (int i = 0; i < Main.maxNPCs; i += 3)
                             {
                                 if (Main.npc[i].active && Main.npc[i].type == ModContent.NPCType<DaybringerBody>() && Main.npc[i].realLife == NPC.whoAmI && AAGlobalProjectile.CountProjectiles(ModContent.ProjectileType<DaybringerHead_DaySun>()) < 3)
                                 {
@@ -455,15 +452,15 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                         NPC.velocity.Y -= 0.5f * 2;
                 }
 
-                if(NPC.velocity.X > 30f) NPC.velocity.X = 30f;
-                if(NPC.velocity.Y > 30f) NPC.velocity.Y = 30f;
+                if (NPC.velocity.X > 30f) NPC.velocity.X = 30f;
+                if (NPC.velocity.Y > 30f) NPC.velocity.Y = 30f;
 
                 NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 1.57f;
 
                 internalAI[5] = NPC.velocity.X;
                 internalAI[6] = NPC.velocity.Y;
 
-                if(internalAI[3]++ > 700)
+                if (internalAI[3]++ > 700)
                 {
                     internalAI[3] = 0;
                     internalAI[5] = 0;
@@ -474,7 +471,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             }
             return false;
 
-            Normal:
+        Normal:
 
             NPC.spriteDirection = 1;
             prevWormStronger = wormStronger;
@@ -489,16 +486,16 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                 }
             }
 
-            if(isDay && !preShootingSun)
+            if (isDay && !preShootingSun)
             {
-                if(isHead && NPC.type == ModContent.NPCType<DaybringerHead>())
+                if (isHead && NPC.type == ModContent.NPCType<DaybringerHead>())
                 {
                     internalAI[0] += 1f;
-                    if(internalAI[0] % 360 == 0)
+                    if (internalAI[0] % 360 == 0)
                     {
-                        for(int playerid = 0; playerid < 255; playerid++)
+                        for (int playerid = 0; playerid < 255; playerid++)
                         {
-                            if(Main.player[playerid].active && !Main.player[playerid].dead && Main.player[playerid] != null && Main.player[playerid].ownedProjectileCounts[ModContent.ProjectileType<DaybringerHead_DayStar>()] <= 0)
+                            if (Main.player[playerid].active && !Main.player[playerid].dead && Main.player[playerid] != null && Main.player[playerid].ownedProjectileCounts[ModContent.ProjectileType<DaybringerHead_DayStar>()] <= 0)
                             {
                                 if (NPC.life > NPC.lifeMax / 2)
                                 {
@@ -535,7 +532,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                             }
                         }
                     }
-                    if(internalAI[0] % 120 == 30 && Main.netMode != NetmodeID.MultiplayerClient)
+                    if (internalAI[0] % 120 == 30 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         for (int i = 0; i < Main.maxNPCs; i += 2)
                         {
@@ -548,9 +545,9 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                             }
                         }
                     }
-                    if(internalAI[0] % 120 == 60 && Main.netMode != NetmodeID.MultiplayerClient)
+                    if (internalAI[0] % 120 == 60 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        for (int i = 0; i < Main.maxNPCs; i+=4)
+                        for (int i = 0; i < Main.maxNPCs; i += 4)
                         {
                             if (Main.npc[i].active && Main.npc[i].type == ModContent.NPCType<DaybringerBody>() && Main.npc[i].realLife == NPC.whoAmI && Main.rand.NextBool(15))
                             {
@@ -561,31 +558,31 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                             }
                         }
                     }
-                    
 
-                    if(internalAI[0] > 1200)
+
+                    if (internalAI[0] > 1200)
                     {
-                        if(Main.expertMode) preShootingSun = true;
+                        if (Main.expertMode) preShootingSun = true;
                         internalAI[0] = 0f;
                         NPC.netUpdate = true;
                     }
                 }
             }
-            if(!isDay && !preDeathRay)
+            if (!isDay && !preDeathRay)
             {
-                if(isHead && NPC.type == ModContent.NPCType<NightcrawlerHead>())
+                if (isHead && NPC.type == ModContent.NPCType<NightcrawlerHead>())
                 {
                     internalAI[1] += 1f;
                     if (Main.netMode != NetmodeID.MultiplayerClient && CloudCooldown <= 0)
                     {
-                        for(int i = 0; i < 200; i++)
+                        for (int i = 0; i < 200; i++)
                         {
-                            if(Main.npc[i].type == ModContent.NPCType<NightCloud>())
+                            if (Main.npc[i].type == ModContent.NPCType<NightCloud>())
                             {
                                 Main.npc[i].life = 0;
                                 Main.npc[i].NPCLoot();
                                 Main.npc[i].active = false;
-                            } 
+                            }
                         }
                         CloudCooldown = 400;
                         float rotation = 2f * (float)Math.PI / CloudCount;
@@ -596,10 +593,10 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                                 NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
                         }
                     }
-                    
-                    if(internalAI[1] % 380 == 90 && Main.netMode != NetmodeID.MultiplayerClient)
+
+                    if (internalAI[1] % 380 == 90 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        for (int i = 0; i < Main.maxNPCs; i+= 4)
+                        for (int i = 0; i < Main.maxNPCs; i += 4)
                         {
                             if (Main.npc[i].active && Main.npc[i].type == ModContent.NPCType<NightcrawlerBody>() && Main.npc[i].realLife == NPC.whoAmI)
                             {
@@ -611,15 +608,15 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                         }
                     }
 
-                    
-                    if(internalAI[1] % 120 == 90 && Main.netMode != NetmodeID.MultiplayerClient)
+
+                    if (internalAI[1] % 120 == 90 && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         for (int i = 0; i < Main.maxNPCs; i++)
                         {
                             if (Main.npc[i].active && Main.npc[i].type == ModContent.NPCType<NightcrawlerBody>() && Main.npc[i].realLife == NPC.whoAmI && Main.rand.NextBool(10))
                             {
                                 Vector2 speed = Vector2.Normalize(new Vector2(1f, 0f).RotatedBy(Main.npc[i].rotation + 3.1415f));
-                                speed = (Main.rand.NextBool(2) ? 1: -1) * speed;
+                                speed = (Main.rand.NextBool(2) ? 1 : -1) * speed;
                                 float ai = Main.rand.Next(120);
                                 Vector2 speedR = Vector2.Normalize(speed.RotatedByRandom(0.6)) * 20f;
                                 Projectile.NewProjectile(Main.npc[i].GetSource_FromThis(), Main.npc[i].Center.X, Main.npc[i].Center.Y, speedR.X, speedR.Y, ModContent.ProjectileType<NightcrawlerHead_NightLaser>(), 42, 0, Main.myPlayer, speed.ToRotation() + 1000f, ai);
@@ -627,10 +624,10 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                         }
                     }
 
-                    if(internalAI[1] > 1200)
+                    if (internalAI[1] > 1200)
                     {
                         internalAI[1] = 0f;
-                        if(Main.expertMode) preDeathRay = true;
+                        if (Main.expertMode) preDeathRay = true;
                         NPC.netUpdate = true;
                     }
                 }
@@ -638,28 +635,28 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             return false;
         }
 
-		public int playerTooFarDist = 16000; //1000 tile radius, these worms move fast!		
-		public bool TargetClosest()
-		{
-			int[] players = BaseAI.GetPlayers(NPC.Center, Math.Min(20000f, playerTooFarDist * 3));
-			float dist = 999999999f;
-			int foundPlayer = -1;
-			for (int m = 0; m < players.Length; m++)
-			{
-				Player p = Main.player[players[m]];
-				if (Vector2.Distance(p.Center, NPC.Center) < dist)
-				{
-					dist = Vector2.Distance(p.Center, NPC.Center);
-					foundPlayer = p.whoAmI;
-				}
-			}
-			if (foundPlayer != -1)
-			{
-				BaseAI.SetTarget(NPC, foundPlayer);
-				return true;
-			}
-			return false;
-		}
+        public int playerTooFarDist = 16000; //1000 tile radius, these worms move fast!		
+        public bool TargetClosest()
+        {
+            int[] players = BaseAI.GetPlayers(NPC.Center, Math.Min(20000f, playerTooFarDist * 3));
+            float dist = 999999999f;
+            int foundPlayer = -1;
+            for (int m = 0; m < players.Length; m++)
+            {
+                Player p = Main.player[players[m]];
+                if (Vector2.Distance(p.Center, NPC.Center) < dist)
+                {
+                    dist = Vector2.Distance(p.Center, NPC.Center);
+                    foundPlayer = p.whoAmI;
+                }
+            }
+            if (foundPlayer != -1)
+            {
+                BaseAI.SetTarget(NPC, foundPlayer);
+                return true;
+            }
+            return false;
+        }
 
         public override void BossLoot(ref int potionType)
         {
@@ -667,29 +664,29 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
-		{
-			NPC.lifeMax = (int)(NPC.lifeMax * 0.65f * balance);
-			NPC.damage = (int)(NPC.damage * 0.85f);
-		}
+        {
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.65f * balance);
+            NPC.damage = (int)(NPC.damage * 0.85f);
+        }
 
-		bool spawnedGore = false;
+        bool spawnedGore = false;
         public override void HitEffect(NPC.HitInfo hit)
         {
-			int dustType = nightcrawler ? ModContent.DustType<Dusts.NightcrawlerDust>() : ModContent.DustType<Dusts.DaybringerDust>();
+            int dustType = nightcrawler ? ModContent.DustType<Dusts.NightcrawlerDust>() : ModContent.DustType<Dusts.DaybringerDust>();
             for (int k = 0; k < 5; k++)
             {
                 Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType, hit.HitDirection, -1f, 0, default, 1.2f);
             }
             if (NPC.life <= 0 || NPC.life - hit.Damage <= 0)
-            {			
-				Main.dayRate = 1;
+            {
+                Main.dayRate = 1;
                 Main.fastForwardTimeToDusk = false;
-                Main.fastForwardTimeToDawn = false;	
-				if(!spawnedGore)
-				{
-					spawnedGore = true;
-					bool isHead = NPC.type == ModContent.NPCType<DaybringerHead>() || NPC.type == ModContent.NPCType<NightcrawlerHead>();
-					bool isBody = NPC.type == ModContent.NPCType<DaybringerBody>() || NPC.type == ModContent.NPCType<NightcrawlerBody>();
+                Main.fastForwardTimeToDawn = false;
+                if (!spawnedGore)
+                {
+                    spawnedGore = true;
+                    bool isHead = NPC.type == ModContent.NPCType<DaybringerHead>() || NPC.type == ModContent.NPCType<NightcrawlerHead>();
+                    bool isBody = NPC.type == ModContent.NPCType<DaybringerBody>() || NPC.type == ModContent.NPCType<NightcrawlerBody>();
                     if (!Main.dedServ)
                     {
                         if (nightcrawler)
@@ -725,11 +722,11 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                             }
                         }
                     }
-					for (int k = 0; k < 15; k++)
-					{
-						Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType, hit.HitDirection, -1f, 0, default, 1.5f);
-					}
-				}
+                    for (int k = 0; k < 15; k++)
+                    {
+                        Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType, hit.HitDirection, -1f, 0, default, 1.5f);
+                    }
+                }
             }
         }
 
@@ -835,11 +832,11 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
         }
 
         public static Color GetAuraAlpha()
-		{
-			Color c = Color.White * (Main.mouseTextColor / 255f);
-			//c.A = 255;
-			return c;
-		}
+        {
+            Color c = Color.White * (Main.mouseTextColor / 255f);
+            //c.A = 255;
+            return c;
+        }
 
         public override void ModifyHitByItem(Player player, Item item, ref NPC.HitModifiers modifiers)
         {
@@ -853,9 +850,9 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             ModifyCritArea(NPC, ref modifiers);
             if (projectile.penetrate != 1)
             {
-                for(int i = 0; i < Main.maxNPCs; i ++)
+                for (int i = 0; i < Main.maxNPCs; i++)
                 {
-                    if(Main.npc[i].active && (Main.npc[i].whoAmI == NPC.realLife || Main.npc[i].realLife >= 0 && Main.npc[i].realLife == NPC.realLife))
+                    if (Main.npc[i].active && (Main.npc[i].whoAmI == NPC.realLife || Main.npc[i].realLife >= 0 && Main.npc[i].realLife == NPC.realLife))
                     {
                         Main.npc[i].immune[projectile.owner] = 10;
                     }
@@ -929,9 +926,9 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             {
                 if (NPC.type == ModContent.NPCType<DaybringerHead>())
                     tex = DaybringerHeadBig.Value;
-                else if (NPC.type == ModContent.NPCType<DaybringerBody>()) 
+                else if (NPC.type == ModContent.NPCType<DaybringerBody>())
                     tex = DaybringerBodyBig.Value;
-                else if (NPC.type == ModContent.NPCType<DaybringerTail>()) 
+                else if (NPC.type == ModContent.NPCType<DaybringerTail>())
                     tex = DaybringerTailBig.Value;
                 else if (NPC.type == ModContent.NPCType<NightcrawlerHead>())
                     tex = NightcrawlerHeadBig.Value;
@@ -960,7 +957,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                     head = wormStronger ? DaybringerHeadBig.Value : tex;
                     body = wormStronger ? DaybringerBodyBig.Value : TextureAssets.Npc[ModContent.NPCType<DaybringerBody>()].Value;
                 }
-                return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, head, body, wormStronger ? 2 : 3, wormStronger ? 72 : 42, 0.25f, new Vector2(wormStronger ? 32 : 0, 0), wormStronger ? 3 : 2, 20, wormStronger ? -54: -24, flip: true);
+                return DrawingUtils.DrawAnimatedBestiaryWorm(spriteBatch, NPC, drawColor, head, body, wormStronger ? 2 : 3, wormStronger ? 72 : 42, 0.25f, new Vector2(wormStronger ? 32 : 0, 0), wormStronger ? 3 : 2, 20, wormStronger ? -54 : -24, flip: true);
             }
 
             spriteBatch.Draw(tex, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0); //GetAuraAlpha());				
@@ -992,7 +989,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                 DaybringerHead daybringer = Main.npc[daybringerIndex].ModNPC as DaybringerHead;
 
                 Main.dayTime = true;
-                
+
                 if (daybringer.preShootingSun)
                     timeRate *= 0;
             }
@@ -1001,7 +998,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                 NightcrawlerHead nightcrawler = Main.npc[nightcrawlerIndex].ModNPC as NightcrawlerHead;
 
                 Main.dayTime = false;
-                
+
                 if (nightcrawler.preDeathRay || nightcrawler.isDeathRay)
                     timeRate *= 0;
             }

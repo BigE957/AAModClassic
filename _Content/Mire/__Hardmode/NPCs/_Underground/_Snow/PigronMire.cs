@@ -3,7 +3,6 @@ using AAModClassic._CrossMod;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -15,13 +14,13 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Snow
 {
     public class PigronMire : ModNPC, IBannerNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Pigron");
-			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[170];
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Pigron");
+            Main.npcFrameCount[NPC.type] = Main.npcFrameCount[170];
+        }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
         {
             NPC.width = 44;
             NPC.height = 36;
@@ -187,7 +186,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Snow
         }
 
         public override void HitEffect(NPC.HitInfo hit)
-		{
+        {
             if (NPC.life > 0)
             {
                 int num589 = 0;
@@ -206,7 +205,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Snow
                 Main.dust[num592].velocity *= 2f;
                 Main.dust[num592].noGravity = true;
             }
-            if(!Main.dedServ)
+            if (!Main.dedServ)
                 for (int num593 = 0; num593 < 4; num593++)
                 {
                     int num594 = Gore.NewGore(NPC.GetSource_OnHurt(null), new Vector2(NPC.position.X, NPC.position.Y + NPC.height / 2 - 10f), new Vector2(hit.HitDirection, 0f), 99, NPC.scale);

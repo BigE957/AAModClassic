@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.GameContent.Drawing;
@@ -116,7 +115,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
             overrideWindCycle = 1f;
             windPushPowerY = 0;
 
-            if(glowTextures.TryGetValue(Type, out var glow))
+            if (glowTextures.TryGetValue(Type, out var glow))
             {
                 glowTexture = glow.Value;
                 glowColor = Color.White;

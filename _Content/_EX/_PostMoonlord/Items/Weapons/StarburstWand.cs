@@ -1,8 +1,6 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -32,9 +30,9 @@ Wand of Sparking EX"); */
             Item.channel = true;
             Item.sellPrice(3, 0, 0, 0);
             Item.noMelee = true;
-			Item.rare = ItemRarityID.Purple;
-			Item.shootSpeed = 12f;
-			Item.noUseGraphic = true;
+            Item.rare = ItemRarityID.Purple;
+            Item.shootSpeed = 12f;
+            Item.noUseGraphic = true;
             Item.expert = true;
         }
 

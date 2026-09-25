@@ -1,11 +1,9 @@
-﻿using Terraria;
+﻿using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons
 {
@@ -42,23 +40,23 @@ Spirits deal 2x damage, pierce up to 10 enemies and go through tiles
             Item.shootSpeed = 8f;
         }
 
-        
-		
-		public override bool CanConsumeAmmo(Item ammo, Player player)
-		{
-			return Main.rand.NextFloat() >= .77f;
-		}
+
+
+        public override bool CanConsumeAmmo(Item ammo, Player player)
+        {
+            return Main.rand.NextFloat() >= .77f;
+        }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-			if (Main.rand.NextBool(15))
-			{
+            if (Main.rand.NextBool(15))
+            {
                 Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, velocity, ModContent.ProjectileType<MizuArashi_MizuSpirit>(), damage * 2, knockback, player.whoAmI);
             }
-			else
-			{
-				Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, velocity, type, damage, knockback, player.whoAmI, 0f, 0f);
-			}
+            else
+            {
+                Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, velocity, type, damage, knockback, player.whoAmI, 0f, 0f);
+            }
             return false;
         }
     }

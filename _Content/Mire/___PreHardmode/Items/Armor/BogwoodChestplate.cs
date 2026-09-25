@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

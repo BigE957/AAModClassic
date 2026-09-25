@@ -1,7 +1,5 @@
-using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeitySkull;
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,7 +7,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons
 {
     public class Djinnerang_Proj : ModProjectile
-	{
+    {
         public override string Texture => ModContent.GetInstance<Djinnerang>().Texture;
 
         public override void SetStaticDefaults()
@@ -18,13 +16,13 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Wea
         }
 
         public override void SetDefaults()
-		{
-			Projectile.width = 18;
-			Projectile.height = 18;
-			Projectile.aiStyle = -1;
-			Projectile.friendly = true;
-			Projectile.timeLeft = 550;
-			Projectile.extraUpdates = 2;
+        {
+            Projectile.width = 18;
+            Projectile.height = 18;
+            Projectile.aiStyle = -1;
+            Projectile.friendly = true;
+            Projectile.timeLeft = 550;
+            Projectile.extraUpdates = 2;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.penetrate = -1;
         }

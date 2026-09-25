@@ -32,7 +32,7 @@ namespace AAModClassic.Conversions
             TileLoader.RegisterConversion(TileID.Grass, Type, ModContent.TileType<MireGrass_Tile>());
             TileLoader.RegisterConversion(TileID.JungleGrass, Type, ModContent.TileType<MireGrass_Tile>());
             WallLoader.RegisterConversion(WallID.Grass, Type, ModContent.WallType<MireGrassWall_Wall>());
-            
+
             TileLoader.RegisterConversion(TileID.Dirt, Type, TileID.Mud); //Unofficial: This just makes sense to me
             WallLoader.RegisterConversion(WallID.DirtUnsafe, Type, WallID.MudUnsafe);
             WallLoader.RegisterConversion(WallID.DirtUnsafe1, Type, WallID.MudUnsafe);
@@ -61,15 +61,15 @@ namespace AAModClassic.Conversions
 
             TileLoader.RegisterConversion(TileID.Stone, Type, ModContent.TileType<Depthstone_Tile>());
             WallLoader.RegisterConversion(WallID.Stone, Type, ModContent.WallType<DepthstoneWall_Wall>());
-            
+
             TileLoader.RegisterConversion(TileID.Sand, Type, ModContent.TileType<Depthsand_Tile>());
             TileLoader.RegisterConversion(TileID.HardenedSand, Type, ModContent.TileType<DepthsandHardened_Tile>());
             WallLoader.RegisterConversion(WallID.HardenedSand, Type, ModContent.WallType<DepthsandHardenedWall_Wall>());
             TileLoader.RegisterConversion(TileID.Sandstone, Type, ModContent.TileType<Depthsandstone_Tile>());
             WallLoader.RegisterConversion(WallID.Sandstone, Type, ModContent.WallType<DepthsandstoneWall_Wall>());
-            
+
             TileLoader.RegisterConversion(TileID.IceBlock, Type, ModContent.TileType<IndigoIce_Tile>());
-            
+
             TileLoader.RegisterConversion(TileID.LivingWood, Type, ModContent.TileType<LivingBogwood_Tile>());
             WallLoader.RegisterConversion(WallID.LivingWood, Type, ModContent.WallType<LivingBogwoodWall_Wall>());
             WallLoader.RegisterConversion(WallID.LivingWoodUnsafe, Type, ModContent.WallType<LivingBogwoodWall_Wall>());
@@ -79,7 +79,7 @@ namespace AAModClassic.Conversions
             TileLoader.RegisterConversion(TileID.LivingMahogany, Type, ModContent.TileType<LivingBogwood_Tile>());
             TileLoader.RegisterConversion(TileID.LivingMahoganyLeaves, Type, ModContent.TileType<LivingBogleaf_Tile>());
 
-            if(ModLoader.TryGetMod("SpiritReforged", out var spirit))
+            if (ModLoader.TryGetMod("SpiritReforged", out var spirit))
             {
                 TileLoader.RegisterConversion(spirit.Find<ModTile>("SavannaGrass").Type, Type, ModContent.TileType<MireGrass_Tile>());
                 TileLoader.RegisterConversion(spirit.Find<ModTile>("SavannaGrassCorrupt").Type, Type, ModContent.TileType<MireGrass_Tile>());
@@ -90,7 +90,7 @@ namespace AAModClassic.Conversions
                 TileLoader.RegisterConversion(spirit.Find<ModTile>("SavannaFoliageCorrupt").Type, Type, ModContent.TileType<MireFoliage_Tile>());
                 TileLoader.RegisterConversion(spirit.Find<ModTile>("SavannaFoliageCrimson").Type, Type, ModContent.TileType<MireFoliage_Tile>());
                 TileLoader.RegisterConversion(spirit.Find<ModTile>("SavannaFoliageHallow").Type, Type, ModContent.TileType<MireFoliage_Tile>());
-                
+
                 //Reforged handles converting these automatically and having them here causes a JIT error so LOL
                 /*
                 TileLoader.RegisterConversion(spirit.Find<ModTile>("ElephantGrass").Type, Type, ModContent.TileType<ElephantGrassMire>());

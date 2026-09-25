@@ -12,7 +12,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -29,7 +28,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
             if (AAWorld_Unreleased.ShipTiles > 1)
                 return true;
 
-            foreach(NPC n in Main.ActiveNPCs)
+            foreach (NPC n in Main.ActiveNPCs)
             {
                 if (n.type == ModContent.NPCType<SoulOfCthulhu>() || n.type == ModContent.NPCType<Cthulhu>() || n.type == ModContent.NPCType<CthulhuPortal>())
                     return true;
@@ -40,7 +39,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            bool useCthulhu = 
+            bool useCthulhu =
                 NPC.AnyNPCs(ModContent.NPCType<SoulOfCthulhu>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<DeitySkull>()) ||
                 NPC.AnyNPCs(ModContent.NPCType<DeityEater>()) ||
@@ -222,24 +221,24 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Biomes
                 NPC.AnyNPCs(ModContent.NPCType<Cthulhu>()) ||
                 (Main.LocalPlayer.GetModPlayer<ZAAPlayer>().ZoneShip && AAWorld.downedAllAncients && !AAWorld_Unreleased.DownedSoC);
 
-            if (!backgroundFog && BasePlayer.HasAccessory(Main.LocalPlayer, ModContent.ItemType<Lantern>(), true, false)) 
+            if (!backgroundFog && BasePlayer.HasAccessory(Main.LocalPlayer, ModContent.ItemType<Lantern>(), true, false))
                 useCthulhu = false;
 
             fogOffsetX = fogOffsetX + mult;
-            if (fogOffsetX >= width) 
+            if (fogOffsetX >= width)
                 fogOffsetX = fogOffsetX - width;
             if (fogOffsetX <= -width)
                 fogOffsetX = fogOffsetX + width * 2;
             if (useCthulhu)
             {
                 fadeOpacity += 0.05f;
-                if (fadeOpacity > 1f) 
+                if (fadeOpacity > 1f)
                     fadeOpacity = 1f;
             }
             else
             {
                 fadeOpacity -= 0.05f;
-                if (fadeOpacity < 0f) 
+                if (fadeOpacity < 0f)
                     fadeOpacity = 0f;
             }
             if (backgroundFog)

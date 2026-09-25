@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hell.World.Tiles
@@ -9,8 +8,8 @@ namespace AAModClassic._Content.Hell.World.Tiles
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-			Main.tileMergeDirt[Type] = true;
-            Main.tileBlockLight[Type] = false;   
+            Main.tileMergeDirt[Type] = true;
+            Main.tileBlockLight[Type] = false;
             AddMapEntry(new Color(99, 54, 6));
         }
 

@@ -1,12 +1,7 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
-using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -16,7 +11,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
 
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Morning Glory");
@@ -44,7 +39,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        
+
 
         public override void AddRecipes()
         {

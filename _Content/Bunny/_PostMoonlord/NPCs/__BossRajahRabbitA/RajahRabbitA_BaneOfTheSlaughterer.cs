@@ -1,7 +1,6 @@
 using AAModClassic.Base;
 using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
@@ -46,7 +45,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
         {
             if (Projectile.ai[0] == 1f)
             {
-               ;
+                ;
             }
         }
 

@@ -1,6 +1,5 @@
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord
@@ -10,7 +9,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Explosion");     
-            Main.projFrames[Projectile.type] = 7;     
+            Main.projFrames[Projectile.type] = 7;
         }
 
         public override void SetDefaults()

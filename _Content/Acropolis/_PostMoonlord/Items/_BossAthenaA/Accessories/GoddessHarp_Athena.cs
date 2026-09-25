@@ -1,4 +1,3 @@
-using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
 using AAModClassic._Content.Acropolis.Projectiles;
 using AAModClassic.Base;
 using AAModClassic.Dusts;
@@ -6,7 +5,6 @@ using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -76,7 +74,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Acces
             float num635 = 1200f;
             float num636 = 150f;
             float num637 = 0.05f;
-            foreach(Projectile p in Main.ActiveProjectiles)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
                 bool flag23 = p.type == ModContent.ProjectileType<GoddessHarp_Athena>();
                 if (p.whoAmI != Projectile.whoAmI && p.owner == Projectile.owner && flag23 && Math.Abs(Projectile.position.X - p.position.X) + Math.Abs(Projectile.position.Y - p.position.Y) < Projectile.width)

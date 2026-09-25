@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
@@ -9,7 +8,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("b00m");     
-            Main.projFrames[Projectile.type] = 7;     
+            Main.projFrames[Projectile.type] = 7;
         }
 
         public override void SetDefaults()

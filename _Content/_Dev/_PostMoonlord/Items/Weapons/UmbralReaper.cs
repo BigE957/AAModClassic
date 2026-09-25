@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,29 +9,29 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
     public class UmbralReaper : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Magic";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Umbral Reaper");
             // Tooltip.SetDefault("Left clicking shoots homing spears \n" + "Right clicking shoots a wave of void energy \n" + "'I never touched Valkyrie' \n'" + "-CMD");
-		}
+        }
 
-		public override void SetDefaults()
-		{
-			Item.damage = 130;
+        public override void SetDefaults()
+        {
+            Item.damage = 130;
             Item.mana = 8;
-			Item.DamageType = DamageClass.Magic;
-			Item.width = 72;
-			Item.height = 72;
-			Item.useTime = 26;
-			Item.useAnimation = 26;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack = 6;
-			Item.value = 100000;
-			Item.rare = ItemRarityID.Cyan;
-			Item.UseSound = SoundID.Item43;
-			Item.autoReuse = true;
+            Item.DamageType = DamageClass.Magic;
+            Item.width = 72;
+            Item.height = 72;
+            Item.useTime = 26;
+            Item.useAnimation = 26;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 6;
+            Item.value = 100000;
+            Item.rare = ItemRarityID.Cyan;
+            Item.UseSound = SoundID.Item43;
+            Item.autoReuse = true;
             Item.noMelee = true;
             Item.shootSpeed = 12f;
         }
@@ -49,12 +48,12 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
         }
 
         public override bool AltFunctionUse(Player player)
-		{
-			return true;
-		}
+        {
+            return true;
+        }
 
-		public override bool CanUseItem(Player player)
-		{
+        public override bool CanUseItem(Player player)
+        {
 
             if (player.altFunctionUse == 2)
             {
@@ -69,7 +68,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
                 Item.shoot = ModContent.ProjectileType<UmbralReaper_VoidSpear>();
             }
             return base.CanUseItem(player);
-		}
+        }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {

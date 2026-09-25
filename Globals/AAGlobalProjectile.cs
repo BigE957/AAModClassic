@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -72,7 +71,7 @@ namespace AAModClassic.Globals
             }
             if (!projectile.minion && projectile.type > ProjectileID.None && !projectile.CountsAsClass(DamageClass.Melee) && !projectile.CountsAsClass(DamageClass.Magic) && !projectile.CountsAsClass(DamageClass.Ranged))
             {
-                foreach(Projectile p in Main.ActiveProjectiles)
+                foreach (Projectile p in Main.ActiveProjectiles)
                 {
                     if (p.sentry && p.type + 1 == projectile.type)
                     {
@@ -82,20 +81,20 @@ namespace AAModClassic.Globals
                 }
             }
             if ((projectile.minion || projectile.sentry) && !ProjectileID.Sets.StardustDragon[projectile.type] && !LongMinion)
-			{
-				if (setDefMinionDamage)
-				{
-					DefMinionDamageMultiply = Main.player[projectile.owner].GetDamage(DamageClass.Summon).Multiplicative;
-					DefMinionDamage = (int)(projectile.damage / DefMinionDamageMultiply);
-					setDefMinionDamage = false;
-				}
-				if (Main.player[projectile.owner].GetDamage(DamageClass.Summon).Flat != DefMinionDamageMultiply)
-				{
-					int damage = (int)(Main.player[projectile.owner].GetDamage(DamageClass.Summon)).ApplyTo(DefMinionDamage);
-                    if(damage <= 0) damage = 1;
-					projectile.damage = damage;
-				}
-			}
+            {
+                if (setDefMinionDamage)
+                {
+                    DefMinionDamageMultiply = Main.player[projectile.owner].GetDamage(DamageClass.Summon).Multiplicative;
+                    DefMinionDamage = (int)(projectile.damage / DefMinionDamageMultiply);
+                    setDefMinionDamage = false;
+                }
+                if (Main.player[projectile.owner].GetDamage(DamageClass.Summon).Flat != DefMinionDamageMultiply)
+                {
+                    int damage = (int)(Main.player[projectile.owner].GetDamage(DamageClass.Summon)).ApplyTo(DefMinionDamage);
+                    if (damage <= 0) damage = 1;
+                    projectile.damage = damage;
+                }
+            }
         }
 
         public Vector2 reflectvelocity = Vector2.Zero;
@@ -110,6 +109,6 @@ namespace AAModClassic.Globals
 
         public float DefMinionDamageMultiply = 1f;
 
-		public int DefMinionDamage;
+        public int DefMinionDamage;
     }
 }

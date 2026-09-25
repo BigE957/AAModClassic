@@ -9,7 +9,6 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -158,8 +157,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
             spriteEffects = NPC.spriteDirection == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
         }
 
-		public Vector2 offsetBasePoint = new Vector2(240, 0);
-		
+        public Vector2 offsetBasePoint = new Vector2(240, 0);
+
         public float moveSpeed = 10f;
 
         public override void AI()
@@ -180,7 +179,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                     NPC.active = false;
                     return;
                 }
-            }       
+            }
 
             if (Main.dayTime)
             {
@@ -196,9 +195,9 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
             bool Dive2 = NPC.life < NPC.lifeMax * .5f;
             bool Dive3 = NPC.life < NPC.lifeMax * .2f;
             int DiveSpeed = Dive1 ? 14 : Dive2 ? 17 : 20;
-			int ShootLaserRate = 10;
-			offsetBasePoint.X = customAI[2];
-			
+            int ShootLaserRate = 10;
+            offsetBasePoint.X = customAI[2];
+
             if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[0] != 2 && NPC.ai[0] != 3)
             {
                 int stopValue = 60;
@@ -262,11 +261,11 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                 MoveToPoint(point);
                 if (Main.netMode != NetmodeID.MultiplayerClient && Vector2.Distance(NPC.Center, point) < 10f)
                 {
-					NPC.ai[0] = Dive3 ? 5 : 0;
+                    NPC.ai[0] = Dive3 ? 5 : 0;
                     NPC.ai[1] = Dive3 ? targetPlayer.Center.X : 0;
                     NPC.ai[2] = Dive3 ? targetPlayer.Center.Y : 0;
                     NPC.ai[3] = 0;
-					NPC.netUpdate2 = true;
+                    NPC.netUpdate2 = true;
                 }
                 BaseAI.Look(NPC, 0, 0f, 0.1f, false);
             }
@@ -278,11 +277,11 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                 MoveToPoint(point);
                 if (Main.netMode != NetmodeID.MultiplayerClient && Vector2.Distance(NPC.Center, point) < 10f)
                 {
-					NPC.ai[0] = 0;
-					NPC.ai[1] = 0;
-					NPC.ai[2] = 0;
-					NPC.ai[3] = 0;
-					NPC.netUpdate = true;
+                    NPC.ai[0] = 0;
+                    NPC.ai[1] = 0;
+                    NPC.ai[2] = 0;
+                    NPC.ai[3] = 0;
+                    NPC.netUpdate = true;
                 }
                 BaseAI.Look(NPC, 0, 0f, 0.1f, false);
             }
@@ -295,20 +294,20 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                 NPC.direction = NPC.Center.X > targetPlayer.Center.X ? -1 : 1;
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-					customAI[0]++;
-					if(customAI[0] > 200)
-					{
-						NPC.ai[0] = 0;
-						NPC.ai[1] = 0;
-						NPC.ai[2] = 0;
-						NPC.ai[3] = 0;
-						customAI[0] = 0;
-						NPC.netUpdate = true;						
-					}
-					if(Vector2.Distance(NPC.Center, point) < 10f || customAI[0] > 50)
-					{
-						BaseAI.ShootPeriodic(NPC, targetPlayer.position, targetPlayer.width, targetPlayer.height, ModContent.ProjectileType<Retriever_Shot>(), ref customAI[1], ShootLaserRate, 40, 12f, false);
-					}
+                    customAI[0]++;
+                    if (customAI[0] > 200)
+                    {
+                        NPC.ai[0] = 0;
+                        NPC.ai[1] = 0;
+                        NPC.ai[2] = 0;
+                        NPC.ai[3] = 0;
+                        customAI[0] = 0;
+                        NPC.netUpdate = true;
+                    }
+                    if (Vector2.Distance(NPC.Center, point) < 10f || customAI[0] > 50)
+                    {
+                        BaseAI.ShootPeriodic(NPC, targetPlayer.position, targetPlayer.width, targetPlayer.height, ModContent.ProjectileType<Retriever_Shot>(), ref customAI[1], ShootLaserRate, 40, 12f, false);
+                    }
                 }
             }
             else if (NPC.ai[0] == 7) //shoot lasers left
@@ -320,22 +319,22 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                 NPC.direction = NPC.Center.X > targetPlayer.Center.X ? -1 : 1;
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-					customAI[0]++;
-					if(customAI[0] > 200)
-					{
-						NPC.ai[0] = 0;
-						NPC.ai[1] = 0;
-						NPC.ai[2] = 0;
-						NPC.ai[3] = 0;
-						customAI[0] = 0;
-						NPC.netUpdate = true;						
-					}	
-					if(Vector2.Distance(NPC.Center, point) < 10f)
-					{						
-						BaseAI.ShootPeriodic(NPC, targetPlayer.position, targetPlayer.width, targetPlayer.height, ModContent.ProjectileType<Retriever_Shot>(), ref customAI[1], ShootLaserRate, 40, 12f, false);
-					}
+                    customAI[0]++;
+                    if (customAI[0] > 200)
+                    {
+                        NPC.ai[0] = 0;
+                        NPC.ai[1] = 0;
+                        NPC.ai[2] = 0;
+                        NPC.ai[3] = 0;
+                        customAI[0] = 0;
+                        NPC.netUpdate = true;
+                    }
+                    if (Vector2.Distance(NPC.Center, point) < 10f)
+                    {
+                        BaseAI.ShootPeriodic(NPC, targetPlayer.position, targetPlayer.width, targetPlayer.height, ModContent.ProjectileType<Retriever_Shot>(), ref customAI[1], ShootLaserRate, 40, 12f, false);
+                    }
                 }
-            }				
+            }
             else //standard movement
             {
                 moveSpeed = 8;
@@ -354,29 +353,30 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                         {
                             offsetBasePoint.X = -240;
                         }
-						customAI[2] = offsetBasePoint.X;
-						if(Main.rand.Next(3) == 0) //lasers
-						{
-							NPC.ai[0] = offsetBasePoint.X < 0 ? 7 : 6;
-							NPC.ai[1] = 0;
-							NPC.ai[2] = 0;
-							NPC.ai[3] = 0;
-							NPC.netUpdate2 = true;						
-						}else
-						{
-							NPC.ai[0] = 1;
-							NPC.ai[1] = 0;
-							NPC.ai[2] = 0;
-							NPC.ai[3] = 0;
-							NPC.netUpdate2 = true;
-						}
+                        customAI[2] = offsetBasePoint.X;
+                        if (Main.rand.Next(3) == 0) //lasers
+                        {
+                            NPC.ai[0] = offsetBasePoint.X < 0 ? 7 : 6;
+                            NPC.ai[1] = 0;
+                            NPC.ai[2] = 0;
+                            NPC.ai[3] = 0;
+                            NPC.netUpdate2 = true;
+                        }
+                        else
+                        {
+                            NPC.ai[0] = 1;
+                            NPC.ai[1] = 0;
+                            NPC.ai[2] = 0;
+                            NPC.ai[3] = 0;
+                            NPC.netUpdate2 = true;
+                        }
                     }
                 }
                 BaseAI.LookAt(targetPlayer.Center, NPC, 0, 0f, 0.1f, false);
                 NPC.direction = NPC.Center.X > targetPlayer.Center.X ? -1 : 1;
             }
         }
-		
+
         public override void FindFrame(int frameHeight)
         {
             if (NPC.ai[0] == 6 || NPC.ai[0] == 7) //firing lasers
@@ -390,7 +390,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                     {
                         NPC.frame.Y = frameHeight * 10;
                     }
-                }				
+                }
             }
             else
             {
@@ -400,15 +400,15 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
                     NPC.frameCounter = 0;
                     NPC.frame.Y += frameHeight;
                 }
-				if (NPC.frame.Y > frameHeight * 3)
-				{
-					NPC.frameCounter = 0;
-					NPC.frame.Y = 0;
-				}				
+                if (NPC.frame.Y > frameHeight * 3)
+                {
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y = 0;
+                }
             }
 
         }
-		
+
 
         public void FindFrameOld(int frameHeight)
         {
@@ -486,14 +486,14 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
         public void MoveToPoint(Vector2 point, bool goUpFirst = false)
         {
             if (moveSpeed == 0f || NPC.Center == point) return; //don't move if you have no move speed
-			float moveSpd = moveSpeed;			
+            float moveSpd = moveSpeed;
             Vector2 dist = point - NPC.Center;
             float length = dist == Vector2.Zero ? 0f : dist.Length();
-			if(length < 50f)
-				moveSpd /= 2f;
+            if (length < 50f)
+                moveSpd /= 2f;
             if (length < moveSpd)
             {
-				moveSpd = length;
+                moveSpd = length;
             }
             NPC.velocity = length <= 5f ? Vector2.Zero : Vector2.Normalize(dist);
             NPC.velocity *= moveSpd;

@@ -7,11 +7,11 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class CerberusLeggings : BaseAAItem, ILocalizedModType
-	{
+    public class CerberusLeggings : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Cerberus";
         public override void SetStaticDefaults()
-		{
+        {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Invoker Boots");
             /* Tooltip.SetDefault(@"The enchanted boots of Aleister the 'Mega Therion'

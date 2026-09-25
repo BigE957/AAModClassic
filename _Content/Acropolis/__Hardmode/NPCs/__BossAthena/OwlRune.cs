@@ -1,11 +1,8 @@
 ﻿using AAModClassic._Content.Acropolis.Projectiles;
 using AAModClassic._Content.Acropolis.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;

@@ -1,20 +1,19 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Misc.__Hardmode.Items.Weapons
 {
-	public class MidasGun : BaseAAItem, ILocalizedModType
+    public class MidasGun : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Ranged";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Midas Blaster");
-			// Tooltip.SetDefault("Shoot stuff and get more money.");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Midas Blaster");
+            // Tooltip.SetDefault("Shoot stuff and get more money.");
+        }
         public override void SetDefaults()
         {
             Item.damage = 50;
@@ -35,12 +34,12 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Weapons
             Item.useAmmo = AmmoID.Bullet;
             Item.scale *= .8f;
         }
-		
-		public override Vector2? HoldoutOffset()
-		{
-			return new Vector2(-1, -6);
-		}
-		
+
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(-1, -6);
+        }
+
         public override void AddRecipes()
         {
             Recipe recipe;
@@ -56,7 +55,7 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Weapons
             {
                 type = ProjectileID.BulletHighVelocity;
             }
-            return true; 
+            return true;
         }
     }
 }

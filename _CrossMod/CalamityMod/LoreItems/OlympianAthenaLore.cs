@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossStandard;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

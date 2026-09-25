@@ -6,7 +6,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
@@ -162,7 +161,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
                         for (int i = 0; i < 3; i++)
                         {
                             Vector2 vector83 = Vector2.Normalize(vector82.RotatedByRandom(0.78539818525314331)) * 20f;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector83.X , vector83.Y, ModContent.ProjectileType<ZeroGigataser_TaserShock>(), 20, 0f, -1, vector82.ToRotation(), ai);
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector83.X, vector83.Y, ModContent.ProjectileType<ZeroGigataser_TaserShock>(), 20, 0f, -1, vector82.ToRotation(), ai);
                         }
                     }
                 }

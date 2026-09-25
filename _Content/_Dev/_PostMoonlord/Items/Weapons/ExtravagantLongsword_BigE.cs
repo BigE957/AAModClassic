@@ -1,7 +1,6 @@
 ﻿using AAModClassic.Base;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,10 +9,10 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
     public class ExtravagantLongsword_BigE : ModProjectile
     {
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Big E");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Big E");
+        }
 
         public override void SetDefaults()
         {

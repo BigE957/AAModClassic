@@ -2,7 +2,6 @@ using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -11,7 +10,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
     public class InfinityZero_InfinityStorm : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Infinity Storm");
@@ -19,7 +18,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         }
 
         public override void SetDefaults()
-		{
+        {
 
             Projectile.width = 80;
             Projectile.height = 80;
@@ -61,7 +60,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 Vector2[] playerPositions = new Vector2[5];
                 int foundPlayer = 0;
                 float maxDist = 2000f;
-                foreach(Player p in Main.ActivePlayers)
+                foreach (Player p in Main.ActivePlayers)
                 {
                     if (p.active && !p.dead)
                     {
@@ -157,10 +156,10 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Color lightColour = BaseDrawing.GetLightColor(Projectile.Center);
+            Color lightColour = Lighting.GetColor((Projectile.Center).ToTileCoordinates());
             for (int m = Projectile.oldPos.Length - 1; m > 0; m--) { Projectile.oldPos[m] = Projectile.oldPos[m - 1]; }
             Projectile.oldPos[0] = Projectile.position;
-            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value,        0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 3, frame, lightColour, true);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 3, frame, lightColour, true);
             BaseDrawing.DrawTexture(Main.spriteBatch, ModContent.Request<Texture2D>(Texture + "_Glow").Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.spriteDirection, 3, frame, AAColor.Oblivion, true);
 
             return false;

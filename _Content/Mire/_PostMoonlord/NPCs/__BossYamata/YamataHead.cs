@@ -7,7 +7,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
@@ -29,7 +28,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 
         public override void SetDefaults()
         {
-			NPC.lifeMax = 550000;
+            NPC.lifeMax = 550000;
             NPC.damage = 90;
             NPC.defense = 100;
             NPC.width = 78;
@@ -116,17 +115,17 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             int attackpower = 130;
             damage = 45;
 
-	        if (Body == null)
+            if (Body == null)
             {
                 NPC npcBody = Main.npc[(int)NPC.ai[0]];
                 if (npcBody.type == ModContent.NPCType<YamataBody>() || npcBody.type == ModContent.NPCType<YamataABody>())
                 {
                     Body = npcBody;
-					yamata = (YamataBody)npcBody.ModNPC;
+                    yamata = (YamataBody)npcBody.ModNPC;
                 }
             }
-			if(Body == null)
-				return;
+            if (Body == null)
+                return;
             if (!Body.active)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) //force a kill to prevent 'ghost hands'
@@ -139,10 +138,10 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             }
 
             NPC.realLife = Body.whoAmI;
-			NPC.timeLeft = 100;
+            NPC.timeLeft = 100;
             NPC.TargetClosest(true);
             Player player = Main.player[NPC.target];
-            
+
             NPC.alpha = Body.alpha;
             if (NPC.alpha > 0)
             {
@@ -260,7 +259,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                                 Projectile.NewProjectile(NPC.GetSource_FromThis(), PlayerDistance.X, PlayerDistance.Y, PlayerPosX * 2f, PlayerPosY * 2f, ModContent.ProjectileType<YamataHead_AbyssalWrath>(), projDamage, 0f, Main.myPlayer);
                             }
                         }
-                        
+
                     }
                     if (attackTimer >= 80)
                     {

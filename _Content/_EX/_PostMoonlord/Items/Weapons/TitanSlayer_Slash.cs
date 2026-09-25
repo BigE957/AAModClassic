@@ -1,7 +1,6 @@
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -102,7 +101,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 
         public override Color? GetAlpha(Color lightColor)
         {
-            return Color.White ;
+            return Color.White;
         }
     }
 }

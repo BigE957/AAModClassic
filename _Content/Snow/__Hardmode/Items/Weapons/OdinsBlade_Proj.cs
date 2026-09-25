@@ -1,9 +1,7 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Snow.Projectiles;
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -67,7 +65,7 @@ namespace AAModClassic._Content.Snow.__Hardmode.Items.Weapons
                 p.velocity.X *= xScalar;
             }
             else
-            if (!spin) { p.rotation = (float)Math.Atan2(p.velocity.Y, p.velocity.X) + 2.355f; }
+                if (!spin) { p.rotation = (float)Math.Atan2(p.velocity.Y, p.velocity.X) + 2.355f; }
             if (p.velocity.Y > maxSpeedY) { p.velocity.Y = maxSpeedY; }
         }
 

@@ -3,7 +3,6 @@ using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,7 +10,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OuroborosWoodFurniture
 {
     public class OuroborosWoodBed_Tile : ModTile
-	{
+    {
         public override void SetStaticDefaults()
         {
             this.SetUpBed(ModContent.ItemType<OuroborosWoodBed>());
@@ -38,5 +37,5 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Ourob
             int height = tile.TileFrameY == 36 ? 18 : 16;
             Main.spriteBatch.Draw(ModContent.Request<Texture2D>(Texture + "_Glow").Value, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), AAColor.Glow, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
-	}
+    }
 }

@@ -1,14 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
 {
     public class BreakingDawn_MorningStar : ModProjectile
-	{
+    {
 
         public override void SetDefaults()
-		{
+        {
             Projectile.width = 50;
             Projectile.height = 50;
             Projectile.alpha = 30;
@@ -46,7 +45,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                Projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
@@ -73,7 +72,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                     )
                         selectedTarget = i;
                 }

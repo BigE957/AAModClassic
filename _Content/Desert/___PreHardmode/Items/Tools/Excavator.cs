@@ -1,8 +1,7 @@
-﻿using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria;
-using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items.Tools
 {
@@ -27,7 +26,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items.Tools
             Item.useTurn = true;
         }
 
-        public override void AddRecipes()  
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DynaskullFossil>(), 15);

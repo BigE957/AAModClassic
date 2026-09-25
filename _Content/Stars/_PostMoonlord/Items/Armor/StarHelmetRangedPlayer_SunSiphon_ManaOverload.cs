@@ -1,5 +1,4 @@
-﻿using Terraria;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
@@ -15,7 +14,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
             Main.buffNoSave[Type] = true;
             BuffID.Sets.LongerExpertDebuff[Type] = false;
         }
-        
+
     }
     public class ManaOverloadEffect : ModPlayer
     {

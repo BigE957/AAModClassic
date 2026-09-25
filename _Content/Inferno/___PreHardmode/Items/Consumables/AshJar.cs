@@ -1,7 +1,6 @@
 ﻿using AAModClassic._Content.Inferno.__Hardmode.Items.Consumables;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;

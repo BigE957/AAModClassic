@@ -2,14 +2,11 @@ using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
-using AAModClassic._Content.Acropolis.__Hardmode.Items.Tiles;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena;
-using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
-using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.BossStandard;
 using AAModClassic.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Effects;
@@ -23,7 +20,6 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -168,7 +164,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
 
                     if (!Seen)
                     {
-                        internalAI[4]++; 
+                        internalAI[4]++;
                         if (internalAI[4] == 60)
                         {
                             CombatText.NewText(NPC.Hitbox, Color.CadetBlue, "...");
@@ -408,7 +404,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                                 NPC Seraph1 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y + 100, ModContent.NPCType<SeraphA>())];
                                 for (int i = 0; i < 3; i++)
                                 {
-                                   Dust d = Main.dust[Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0)];
+                                    Dust d = Main.dust[Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0)];
                                 }
                                 NPC Seraph2 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 100, (int)NPC.Center.Y - 50, ModContent.NPCType<SeraphA>())];
                                 for (int i = 0; i < 3; i++)
@@ -599,7 +595,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
 
         public override void HitEffect(NPC.HitInfo hit)
         {
-            if(NPC.life <= 0)
+            if (NPC.life <= 0)
             {
                 if (((!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && NPC.downedMoonlord) || WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial)) && NPCExtensions.BeenKilled<AnubisA>() && NPCExtensions.BeenKilled<AthenaA>())
                     CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Transition.Repeat"));

@@ -1,17 +1,16 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Dusts
 {
     public class Moonraze : ModDust
-	{
-		public override void OnSpawn(Dust dust)
-		{
+    {
+        public override void OnSpawn(Dust dust)
+        {
             dust.velocity.Y = Main.rand.Next(-10, 6) * 0.1f;
             dust.velocity.X *= 0.3f;
-		}
-		
+        }
+
         public override bool MidUpdate(Dust dust)
         {
             if (!dust.noGravity)
@@ -28,11 +27,11 @@ namespace AAModClassic.Dusts
                 Lighting.AddLight(dust.position, 0.3f * strength, 0.3f * strength, 0.7f * strength);
             }
             return false;
-        }		
+        }
 
-		public override Color? GetAlpha(Dust dust, Color lightColor)
-		{
-			return  new Color(255, 255, 255, 150);
-		}
-	}
+        public override Color? GetAlpha(Dust dust, Color lightColor)
+        {
+            return new Color(255, 255, 255, 150);
+        }
+    }
 }

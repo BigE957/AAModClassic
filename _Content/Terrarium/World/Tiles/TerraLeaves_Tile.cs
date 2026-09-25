@@ -2,7 +2,6 @@ using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -28,7 +27,7 @@ namespace AAModClassic._Content.Terrarium.World.Tiles
             DustType = DustID.Terra;
             AddMapEntry(new Color(100, 100, 100));
         }
-        
+
         public override void PostDraw(int x, int y, SpriteBatch sb)
         {
             Tile tile = Main.tile[x, y];

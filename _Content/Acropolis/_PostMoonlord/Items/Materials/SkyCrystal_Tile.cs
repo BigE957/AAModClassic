@@ -1,7 +1,6 @@
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
@@ -16,11 +15,11 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials
             Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = false;
             Main.tileSpelunker[Type] = true;
-            Main.tileOreFinderPriority[Type] = 825; 
+            Main.tileOreFinderPriority[Type] = 825;
             Main.tileBlendAll[Type] = false;
             HitSound = SoundID.Tink;
             Main.tileLighted[Type] = true;
-            RegisterItemDrop(ModContent.ItemType<SkyCrystal>()); 
+            RegisterItemDrop(ModContent.ItemType<SkyCrystal>());
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("SkyCrystal");
             DustType = DustID.BlueCrystalShard;

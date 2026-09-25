@@ -1,23 +1,10 @@
-using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.BossStandard;
-using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Tools;
-using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Weapons;
-using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
 using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Music;
-using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
 using System;
-using System.IO;
-using Terraria;
 using Terraria.GameContent;
-using Terraria.GameContent.ItemDropRules;
-using Terraria.GameContent.UI.BigProgressBar;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed

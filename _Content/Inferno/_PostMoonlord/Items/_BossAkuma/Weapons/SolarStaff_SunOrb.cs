@@ -2,21 +2,20 @@ using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {
     public class SolarStaff_SunOrb : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Sun Portal");
             Main.projFrames[Projectile.type] = 1;
         }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Projectile.width = 32;
             Projectile.height = 32;
             Projectile.aiStyle = -1;
@@ -37,13 +36,13 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 
         public override void AI()
         {
-			Player player = Main.player[Projectile.owner];
+            Player player = Main.player[Projectile.owner];
             Rotation += .0008f;
             Projectile.rotation += .0008f;
             Projectile.velocity = Vector2.Zero;
             if (Projectile.direction == 0)
             {
-                    Projectile.direction = Main.player[Projectile.owner].direction;
+                Projectile.direction = Main.player[Projectile.owner].direction;
             }
             Projectile.rotation -= Projectile.direction * 6.28318548f / 120f;
             Projectile.scale = Projectile.Opacity;
@@ -86,12 +85,12 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
             if (Projectile.ai[0] < 0f)
             {
                 Projectile.ai[0] += 1f;
-                
-                    Projectile.ai[1] -= Projectile.direction * 0.3926991f / 50f;
-                
+
+                Projectile.ai[1] -= Projectile.direction * 0.3926991f / 50f;
+
             }
-			
-			float num633 = 700f;
+
+            float num633 = 700f;
             float num634 = 800f;
             float num635 = 1200f;
             float num636 = 150f;
@@ -231,7 +230,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
                         Vector2 value19 = vector46 - Projectile.Center;
                         value19.Normalize();
                         value19 *= 8;
-						Vector2 perturbedSpeed = value19.RotatedByRandom(MathHelper.ToRadians(10));
+                        Vector2 perturbedSpeed = value19.RotatedByRandom(MathHelper.ToRadians(10));
                         int num659 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<SolarStaff_FlamingMeteor>(), Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
                         Main.projectile[num659].timeLeft = 300;
                         Projectile.netUpdate = true;

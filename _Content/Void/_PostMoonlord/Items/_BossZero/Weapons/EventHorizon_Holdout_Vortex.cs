@@ -1,20 +1,19 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using AAModClassic.Base;
+using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic.Base;
 
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 {
     // to investigate: Projectile.Damage, (8843)
     public class EventHorizon_Holdout_Vortex : ModProjectile
-	{
+    {
         public override void SetDefaults()
-		{
-            
+        {
+
             Projectile.width = 64;
             Projectile.height = 64;
             Projectile.alpha = 100;
@@ -30,7 +29,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = -1;
         }
-		
+
         public override void AI()
         {
             Projectile.rotation += .05f;

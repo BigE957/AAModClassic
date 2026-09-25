@@ -1,9 +1,5 @@
 ﻿using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using System.Collections.Generic;
-using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -20,7 +16,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Dyes
             // Tooltip.SetDefault("Gives a blazing touch to whatever this dye is applied to");
         }
 
-        
+
 
         public override void SetDefaults()
         {

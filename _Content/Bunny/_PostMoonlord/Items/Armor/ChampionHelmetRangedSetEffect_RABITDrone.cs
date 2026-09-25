@@ -1,8 +1,7 @@
-using Terraria;
-using Terraria.ModLoader;
+using AAModClassic.Base;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
-using AAModClassic.Base;
+using Terraria.ModLoader;
 
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor

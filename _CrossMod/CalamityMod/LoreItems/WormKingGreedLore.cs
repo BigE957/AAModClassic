@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.BossStandard;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

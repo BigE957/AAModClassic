@@ -1,7 +1,6 @@
 ﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.Localization;

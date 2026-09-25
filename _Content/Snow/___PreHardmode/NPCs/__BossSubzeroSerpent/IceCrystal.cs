@@ -3,7 +3,6 @@ using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
@@ -33,9 +32,9 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             NPC.DeathSound = SoundID.Item27;
         }
 
-		public override void SetStaticDefaults()
-		{
-		    // DisplayName.SetDefault("Ice Crystal");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Ice Crystal");
             Main.npcFrameCount[NPC.type] = 1;
             base.SetStaticDefaults();
         }

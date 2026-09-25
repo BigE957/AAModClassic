@@ -2,7 +2,6 @@ using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
@@ -60,7 +59,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapo
         public static void DrawAfterimage(object sb, Texture2D texture, int shader, Vector2 position, int width, int height, Vector2[] oldPoints, float scale = 1f, float rotation = 0f, int direction = 0, int framecount = 1, Rectangle frame = default, float distanceScalar = 1.0F, float sizeScalar = 1f, int imageCount = 7, bool useOldPos = true, float offsetX = 0f, float offsetY = 0f, bool drawCentered = false, Color? overrideColor = null)
         {
             Vector2 origin = new Vector2(texture.Width / 2, texture.Height / framecount / 2);
-            Color lightColor = overrideColor != null ? (Color)overrideColor : BaseDrawing.GetLightColor(position + new Vector2(width * 0.5f, height * 0.5f));
+            Color lightColor = overrideColor != null ? (Color)overrideColor : Lighting.GetColor((position + new Vector2(width * 0.5f, height * 0.5f)).ToTileCoordinates());
             Vector2 velAddon = default;
             Vector2 originalpos = position;
             Vector2 offset = new Vector2(offsetX, offsetY);

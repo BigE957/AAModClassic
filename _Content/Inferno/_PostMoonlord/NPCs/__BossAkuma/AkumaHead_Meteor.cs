@@ -1,8 +1,7 @@
-﻿using System;
-using AAModClassic._Content.Inferno.Buffs;
+﻿using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -12,12 +11,12 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 {
     public class AkumaHead_Meteor : ModProjectile
     {
-    	
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Dayfire");
-		}
-    	
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Dayfire");
+        }
+
         public override void SetDefaults()
         {
             Projectile.width = 10;

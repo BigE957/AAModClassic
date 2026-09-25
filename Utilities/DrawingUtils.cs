@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Drawing;
 using Terraria.Graphics.Shaders;
@@ -310,7 +309,7 @@ namespace AAModClassic.Utilities
 
             GameShaders.Armor.Apply(shader, null, null);
             action.Invoke(spriteBatch);
-            
+
             spriteBatch.End();
             spriteBatch.Begin(snap);
         }
@@ -375,7 +374,7 @@ namespace AAModClassic.Utilities
 
             return false;
         }
-    
+
         public static void DrawGrapplingHookChain(Projectile proj, Asset<Texture2D> chainTexture)
         {
             Vector2 playerCenter = Main.player[proj.owner].MountedCenter;
@@ -385,7 +384,7 @@ namespace AAModClassic.Utilities
             float distanceToPlayer = directionToPlayer.Length();
 
             Color drawColor = Lighting.GetColor((int)center.X / 16, (int)(center.Y / 16));
-            
+
             // Draw initial chain
             Main.EntitySpriteDraw(chainTexture.Value, center - Main.screenPosition,
                 chainTexture.Value.Bounds, drawColor, chainRotation,

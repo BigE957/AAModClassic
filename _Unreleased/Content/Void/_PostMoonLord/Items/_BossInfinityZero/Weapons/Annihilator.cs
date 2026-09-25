@@ -3,40 +3,38 @@ using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Weapons
 {
     public class Annihilator : ModItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Ranged";
-        
+
         public override void SetStaticDefaults()
         {
             // Tooltip.SetDefault("Fires a quantum laser that creates an immensely powerful singularity");
-            
+
         }
 
         public override void SetDefaults()
-		{
-			Item.damage = 420;
-			Item.DamageType = DamageClass.Ranged;
-			Item.width = 34;
-			Item.height = 58;
-			Item.useTime = 10;
-			Item.useAnimation = 10;
-			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.noMelee = true; //so the item's animation doesn't do damage
-			Item.knockBack = 0;
+        {
+            Item.damage = 420;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 34;
+            Item.height = 58;
+            Item.useTime = 10;
+            Item.useAnimation = 10;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.noMelee = true; //so the item's animation doesn't do damage
+            Item.knockBack = 0;
             Item.value = Item.buyPrice(1, 0, 0, 0);
             Item.UseSound = SoundID.Item75;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<Annihilator_Annihilation>();
-			Item.shootSpeed = 8f;
+            Item.shootSpeed = 8f;
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 

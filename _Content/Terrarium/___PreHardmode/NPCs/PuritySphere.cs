@@ -5,7 +5,6 @@ using AAModClassic.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,16 +13,16 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
 {
     public class PuritySphere : ModNPC, IBannerNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Purity Sphere");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Purity Sphere");
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             NPC.width = 26;
             NPC.height = 26;
-            NPC.lifeMax =  60;
+            NPC.lifeMax = 60;
             NPC.defense = 5;
             NPC.damage = 10;
             NPC.HitSound = SoundID.NPCHit1;
@@ -34,7 +33,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
             NPC.noGravity = true;
             NPC.noTileCollide = false;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PuritySphereBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PuritySphereBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 

@@ -2,7 +2,6 @@ using AAModClassic._Content.Sky.__Hardmode.Items.Materials;
 using AAModClassic.Base;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
-using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -42,7 +41,7 @@ namespace AAModClassic._Content.Sky.__Hardmode.NPCs
             NPC.lavaImmune = true;
             NPC.netAlways = true;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.ElderDragonBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.ElderDragonBanner>();
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -55,7 +54,7 @@ namespace AAModClassic._Content.Sky.__Hardmode.NPCs
 
         public override void AI()
         {
-            if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.3f, 0.08f, 7f, 6f, false, 300);
             else
                 BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.8f, 0.04f, 8f, 7f, false, 300);
@@ -89,7 +88,7 @@ namespace AAModClassic._Content.Sky.__Hardmode.NPCs
         {
             if (spawnInfo.PlayerSafe || !Main.hardMode || spawnInfo.Player.AAPlayer().ZoneVoid || NPCUtils.AnyEvents(spawnInfo.Player))
                 return 0f;
-            
+
             return SpawnCondition.Sky.Chance * 0.10f;
         }
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)

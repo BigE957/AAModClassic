@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad
@@ -8,7 +7,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Glowing Explosion");     
-            Main.projFrames[Projectile.type] = 7;     
+            Main.projFrames[Projectile.type] = 7;
         }
 
         public override void SetDefaults()

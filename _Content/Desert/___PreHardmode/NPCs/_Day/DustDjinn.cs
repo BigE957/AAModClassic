@@ -1,10 +1,7 @@
-using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn;
 using AAModClassic.Base;
-using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -49,7 +46,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return (spawnInfo.Player.ZoneDesert || spawnInfo.Player.ZoneUndergroundDesert) &&
-                NPC.downedBoss3 && !spawnInfo.Player.ZoneBeach 
+                NPC.downedBoss3 && !spawnInfo.Player.ZoneBeach
                 && Main.dayTime ? .1f : 0f;
         }
 
@@ -76,7 +73,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
                 FireMagic(NPC, NPC.velocity);
                 NPC.ai[3] = 0;
             }
-            
+
             NPC.frameCounter++;
             if (NPC.frameCounter >= 10)
             {
@@ -88,7 +85,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
                     {
                         NPC.frame.Y = 66 * 8;
                     }
-                    if (NPC.frame.Y > 66 * 15 )
+                    if (NPC.frame.Y > 66 * 15)
                     {
                         NPC.frameCounter = 0;
                         NPC.frame.Y = 0;

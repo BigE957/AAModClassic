@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,12 +8,12 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     public class Apocalypse_FlamingJack : ModProjectile
     {
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Apocalypse");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Apocalypse");
             Main.projFrames[Projectile.type] = 3;
         }
-    	
+
         public override void SetDefaults()
         {
             Projectile.width = 30;
@@ -68,7 +67,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                Projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
@@ -95,7 +94,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                     )
                         selectedTarget = i;
                 }

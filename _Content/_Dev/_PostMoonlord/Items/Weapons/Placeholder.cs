@@ -1,25 +1,25 @@
-﻿using Terraria.ID;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
 using System.Collections.Generic;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
     public class Placeholder : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Magic";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Placeholder");
-			/* Tooltip.SetDefault(@"'They will die SoonTM'
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Placeholder");
+            /* Tooltip.SetDefault(@"'They will die SoonTM'
 -Fargo"); */
-		}
-		public override void SetDefaults()
-		{
-			Item.damage = 220;
+        }
+        public override void SetDefaults()
+        {
+            Item.damage = 220;
             Item.useStyle = ItemUseStyleID.Swing;
-			Item.DamageType = DamageClass.Magic;
+            Item.DamageType = DamageClass.Magic;
             Item.mana = 5;
             Item.useAnimation = 27;
             Item.useTime = 27;
@@ -34,7 +34,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             Item.autoReuse = true;
             Item.noMelee = true;
             Item.shoot = ModContent.ProjectileType<Placeholder_SoonTM>();
-		}
+        }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
@@ -46,5 +46,5 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
                 }
             }
         }
-	}
+    }
 }

@@ -3,10 +3,8 @@ using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,27 +15,27 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
     public class InfinityBlade : ModItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-        
+
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Infinity Blade");
+        {
+            // DisplayName.SetDefault("Infinity Blade");
         }
 
-		public override void SetDefaults()
-		{          
-			Item.damage = 400;
-			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-			Item.width = 94;
-			Item.height = 94;
-			Item.useTime = 13;
+        public override void SetDefaults()
+        {
+            Item.damage = 400;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 94;
+            Item.height = 94;
+            Item.useTime = 13;
             Item.shoot = ModContent.ProjectileType<InfinityBlade_Rift>();
             Item.shootSpeed = 14f;
             Item.useAnimation = 13;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack = 3;
-			Item.value = Item.buyPrice(1, 0, 0, 0);
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 3;
+            Item.value = Item.buyPrice(1, 0, 0, 0);
             Item.UseSound = SoundID.Item15;
-			Item.autoReuse = true;
+            Item.autoReuse = true;
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
@@ -80,7 +78,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
         {
             Dust dust;
             dust = Dust.NewDustDirect(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, ModContent.DustType<Dusts.VoidDust_Unreleased>(), 0f, 0f, 46, default, 1.25f);
-			dust.noGravity = true;
+            dust.noGravity = true;
         }
-	}
+    }
 }

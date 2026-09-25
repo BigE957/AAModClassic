@@ -8,18 +8,18 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.BogwoodFurniture
 {
     public class BogwoodChair_Tile : ModTile
-	{
-		public override void SetStaticDefaults()
-		{
+    {
+        public override void SetStaticDefaults()
+        {
             this.SetUpChair(ModContent.ItemType<BogwoodChair>());
             DustType = ModContent.DustType<Dusts.BogwoodDust>();
 
             VanillaFallbackOnModDeletion = TileID.Chairs;
         }
 
-		public override void NumDust(int i, int j, bool fail, ref int num)
-		{
-			num = fail ? 1 : 3;
+        public override void NumDust(int i, int j, bool fail, ref int num)
+        {
+            num = fail ? 1 : 3;
         }
 
         public override void ModifySittingTargetInfo(int i, int j, ref TileRestingInfo info) => FurnitureUtils.ChairSitInfo(i, j, ref info);

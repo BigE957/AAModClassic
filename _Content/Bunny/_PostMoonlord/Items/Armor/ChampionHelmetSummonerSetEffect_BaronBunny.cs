@@ -4,7 +4,6 @@ using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -14,12 +13,12 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
 {
     public class ChampionHelmetSummonerSetEffect_BaronBunny : ModProjectile
     {
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Baron Bunny");
-			Main.projFrames[Projectile.type] = 8;
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Baron Bunny");
+            Main.projFrames[Projectile.type] = 8;
         }
-    	
+
         public override void SetDefaults()
         {
             Projectile.width = 20;
@@ -62,7 +61,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                 }
                 else if ((float)player.statLife < (float)player.statLifeMax2 * (2f / 5f))
                 {
-                    MeterF = 3; 
+                    MeterF = 3;
                     shootInterval = 40f;
                     Projectile.damage = (int)player.GetDamage(DamageClass.Summon).ApplyTo(210);
                 }
@@ -100,133 +99,133 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
             }
 
             float num633 = 700f;
-			float num634 = 800f;
-			float num635 = 1200f;
-			float num636 = 150f;
-			float num637 = 0.05f;
-			foreach(Projectile p in Main.ActiveProjectiles)
-			{
-				bool flag23 = p.type == ModContent.ProjectileType<ChampionHelmetSummonerSetEffect_BaronBunny>();
-				if (p.whoAmI != Projectile.whoAmI && p.owner == Projectile.owner && flag23 && Math.Abs(Projectile.position.X - p.position.X) + Math.Abs(Projectile.position.Y - p.position.Y) < Projectile.width)
-				{
-					if (Projectile.position.X < p.position.X)
-					{
-						Projectile.velocity.X = Projectile.velocity.X - num637;
-					}
-					else
-					{
-						Projectile.velocity.X = Projectile.velocity.X + num637;
-					}
-					if (Projectile.position.Y < p.position.Y)
-					{
-						Projectile.velocity.Y = Projectile.velocity.Y - num637;
-					}
-					else
-					{
-						Projectile.velocity.Y = Projectile.velocity.Y + num637;
-					}
-				}
-			}
-			bool flag24 = false;
-			if (flag24)
-			{
-				return;
-			}
-			Vector2 vector46 = Projectile.position;
-			bool flag25 = false;
-			if (Projectile.ai[0] != 1f)
-			{
-				Projectile.tileCollide = false;
-			}
-			if (Projectile.tileCollide && WorldGen.SolidTile(Framing.GetTileSafely((int)Projectile.Center.X / 16, (int)Projectile.Center.Y / 16)))
-			{
-				Projectile.tileCollide = false;
-			}
-			for (int num645 = 0; num645 < 200; num645++)
-			{
-				NPC nPC2 = Main.npc[num645];
-				if (nPC2.CanBeChasedBy(Projectile, false))
-				{
-					float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
-					if ((Vector2.Distance(Projectile.Center, vector46) > num646 && num646 < num633 || !flag25) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
-					{
-						num633 = num646;
-						vector46 = nPC2.Center;
-						flag25 = true;
-					}
-				}
-			}
-			float num647 = num634;
-			if (flag25)
-			{
-				num647 = num635;
-			}
-			if (Vector2.Distance(player.Center, Projectile.Center) > num647)
-			{
-				Projectile.ai[0] = 1f;
-				Projectile.tileCollide = false;
-				Projectile.netUpdate = true;
-			}
-			if (flag25 && Projectile.ai[0] == 0f)
-			{
-				Vector2 vector47 = vector46 - Projectile.Center;
-				float num648 = vector47.Length();
-				vector47.Normalize();
-				if (num648 > 200f)
-				{
-					float scaleFactor2 = 6f;
-					vector47 *= scaleFactor2;
-					Projectile.velocity = (Projectile.velocity * 40f + vector47) / 41f;
-				}
-				else
-				{
-					float num649 = 4f;
-					vector47 *= -num649;
-					Projectile.velocity = (Projectile.velocity * 40f + vector47) / 41f;
-				}
-			}
-			else
-			{
-				bool flag26 = false;
-				if (!flag26)
-				{
-					flag26 = Projectile.ai[0] == 1f;
-				}
-				float num650 = 6f;
-				if (flag26)
-				{
-					num650 = 15f;
-				}
-				Vector2 center2 = Projectile.Center;
-				Vector2 vector48 = player.Center - center2 + new Vector2(0f, -60f);
-				float num651 = vector48.Length();
-				if (num651 > 200f && num650 < 8f)
-				{
-					num650 = 8f;
-				}
-				if (num651 < num636 && flag26 && !Collision.SolidCollision(Projectile.position, Projectile.width, Projectile.height))
-				{
-					Projectile.ai[0] = 0f;
-					Projectile.netUpdate = true;
-				}
-				if (num651 > 2000f)
-				{
-					Projectile.position.X = Main.player[Projectile.owner].Center.X - Projectile.width / 2;
-					Projectile.position.Y = Main.player[Projectile.owner].Center.Y - Projectile.height / 2;
-					Projectile.netUpdate = true;
-				}
-				if (num651 > 70f)
-				{
-					vector48.Normalize();
-					vector48 *= num650;
-					Projectile.velocity = (Projectile.velocity * 40f + vector48) / 41f;
-				}
-				else if (Projectile.velocity.X == 0f && Projectile.velocity.Y == 0f)
-				{
-					Projectile.velocity.X = -0.15f;
-					Projectile.velocity.Y = -0.05f;
-				}
-			}
+            float num634 = 800f;
+            float num635 = 1200f;
+            float num636 = 150f;
+            float num637 = 0.05f;
+            foreach (Projectile p in Main.ActiveProjectiles)
+            {
+                bool flag23 = p.type == ModContent.ProjectileType<ChampionHelmetSummonerSetEffect_BaronBunny>();
+                if (p.whoAmI != Projectile.whoAmI && p.owner == Projectile.owner && flag23 && Math.Abs(Projectile.position.X - p.position.X) + Math.Abs(Projectile.position.Y - p.position.Y) < Projectile.width)
+                {
+                    if (Projectile.position.X < p.position.X)
+                    {
+                        Projectile.velocity.X = Projectile.velocity.X - num637;
+                    }
+                    else
+                    {
+                        Projectile.velocity.X = Projectile.velocity.X + num637;
+                    }
+                    if (Projectile.position.Y < p.position.Y)
+                    {
+                        Projectile.velocity.Y = Projectile.velocity.Y - num637;
+                    }
+                    else
+                    {
+                        Projectile.velocity.Y = Projectile.velocity.Y + num637;
+                    }
+                }
+            }
+            bool flag24 = false;
+            if (flag24)
+            {
+                return;
+            }
+            Vector2 vector46 = Projectile.position;
+            bool flag25 = false;
+            if (Projectile.ai[0] != 1f)
+            {
+                Projectile.tileCollide = false;
+            }
+            if (Projectile.tileCollide && WorldGen.SolidTile(Framing.GetTileSafely((int)Projectile.Center.X / 16, (int)Projectile.Center.Y / 16)))
+            {
+                Projectile.tileCollide = false;
+            }
+            for (int num645 = 0; num645 < 200; num645++)
+            {
+                NPC nPC2 = Main.npc[num645];
+                if (nPC2.CanBeChasedBy(Projectile, false))
+                {
+                    float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
+                    if ((Vector2.Distance(Projectile.Center, vector46) > num646 && num646 < num633 || !flag25) && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, nPC2.position, nPC2.width, nPC2.height))
+                    {
+                        num633 = num646;
+                        vector46 = nPC2.Center;
+                        flag25 = true;
+                    }
+                }
+            }
+            float num647 = num634;
+            if (flag25)
+            {
+                num647 = num635;
+            }
+            if (Vector2.Distance(player.Center, Projectile.Center) > num647)
+            {
+                Projectile.ai[0] = 1f;
+                Projectile.tileCollide = false;
+                Projectile.netUpdate = true;
+            }
+            if (flag25 && Projectile.ai[0] == 0f)
+            {
+                Vector2 vector47 = vector46 - Projectile.Center;
+                float num648 = vector47.Length();
+                vector47.Normalize();
+                if (num648 > 200f)
+                {
+                    float scaleFactor2 = 6f;
+                    vector47 *= scaleFactor2;
+                    Projectile.velocity = (Projectile.velocity * 40f + vector47) / 41f;
+                }
+                else
+                {
+                    float num649 = 4f;
+                    vector47 *= -num649;
+                    Projectile.velocity = (Projectile.velocity * 40f + vector47) / 41f;
+                }
+            }
+            else
+            {
+                bool flag26 = false;
+                if (!flag26)
+                {
+                    flag26 = Projectile.ai[0] == 1f;
+                }
+                float num650 = 6f;
+                if (flag26)
+                {
+                    num650 = 15f;
+                }
+                Vector2 center2 = Projectile.Center;
+                Vector2 vector48 = player.Center - center2 + new Vector2(0f, -60f);
+                float num651 = vector48.Length();
+                if (num651 > 200f && num650 < 8f)
+                {
+                    num650 = 8f;
+                }
+                if (num651 < num636 && flag26 && !Collision.SolidCollision(Projectile.position, Projectile.width, Projectile.height))
+                {
+                    Projectile.ai[0] = 0f;
+                    Projectile.netUpdate = true;
+                }
+                if (num651 > 2000f)
+                {
+                    Projectile.position.X = Main.player[Projectile.owner].Center.X - Projectile.width / 2;
+                    Projectile.position.Y = Main.player[Projectile.owner].Center.Y - Projectile.height / 2;
+                    Projectile.netUpdate = true;
+                }
+                if (num651 > 70f)
+                {
+                    vector48.Normalize();
+                    vector48 *= num650;
+                    Projectile.velocity = (Projectile.velocity * 40f + vector48) / 41f;
+                }
+                else if (Projectile.velocity.X == 0f && Projectile.velocity.Y == 0f)
+                {
+                    Projectile.velocity.X = -0.15f;
+                    Projectile.velocity.Y = -0.05f;
+                }
+            }
 
             int thisBugIsImportant = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 3 : 4;
             Projectile.frameCounter++;
@@ -240,7 +239,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                 Projectile.frame = 0;
             }
 
-			if (Projectile.ai[1] > 0f)
+            if (Projectile.ai[1] > 0f)
             {
                 Projectile.ai[1] += Main.rand.Next(1, 4);
             }
@@ -250,15 +249,15 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                 Projectile.netUpdate = true;
             }
 
-			if (Projectile.ai[0] == 0f)
-			{
-				float scaleFactor3 = 10f;
-				if (flag25 && Projectile.ai[1] == 0f)
-				{
-					Projectile.ai[1] += 1f;
+            if (Projectile.ai[0] == 0f)
+            {
+                float scaleFactor3 = 10f;
+                if (flag25 && Projectile.ai[1] == 0f)
+                {
+                    Projectile.ai[1] += 1f;
                     int num658 = Main.rand.Next(3);
                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-					{
+                    {
                         switch (num658)
                         {
                             case 0:
@@ -275,7 +274,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                     }
 
                     if (Main.myPlayer == Projectile.owner && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, vector46, 0, 0))
-					{
+                    {
                         if (num658 == ModContent.ProjectileType<ChampionHelmetSummonerSetEffect_Carrot>())
                         {
                             float spread = 45f * 0.0174f;
@@ -303,8 +302,8 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
                         }
                         Projectile.netUpdate = true;
                     }
-				}
-			}
+                }
+            }
 
             Projectile.rotation = 0;
         }
@@ -347,7 +346,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
             }
 
             BaseDrawing.DrawTexture(Main.spriteBatch, tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 8, frame, lightColor, true);
-            
+
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
                 if ((float)player.statLife < (float)player.statLifeMax2 * (3f / 5f))

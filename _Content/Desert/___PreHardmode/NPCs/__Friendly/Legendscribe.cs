@@ -20,7 +20,6 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
 using AAModClassic._CrossMod.CalamityMod;
 using AAModClassic._Unofficial.Desert;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -28,7 +27,6 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System.Collections.Generic;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -42,7 +40,7 @@ using Terraria.Utilities;
 namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
 {
     [AutoloadHead]
-	public class Legendscribe : ModNPC, ILocalizedModType
+    public class Legendscribe : ModNPC, ILocalizedModType
     {
         public new string LocalizationCategory => "NPCs.TownNPCs";
 
@@ -146,13 +144,13 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             }
         }
 
-		public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
+        public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
         {
             return !NPC.AnyNPCs(ModContent.NPCType<AnubisUnreleased>()) && !NPC.AnyNPCs(ModContent.NPCType<Anubis>()) && !NPC.AnyNPCs(ModContent.NPCType<LegendscribeUnofficial>()) && !NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) && !NPC.AnyNPCs(ModContent.NPCType<AnubisA>());
-		}
+        }
 
-		public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
-		{
+        public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
+        {
             return ["Anubis"];
         }
 
@@ -214,10 +212,10 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             Shen = false;
             RajahC = false;
         }
-        
+
         public override void SetChatButtons(ref string button, ref string button2)
         {
-			string SwitchInfoT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons1");
+            string SwitchInfoT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons1");
 
             string DoNextT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons2");
 
@@ -268,14 +266,14 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             string ShenT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons19");
 
             string RajahCT = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.SetChatButtons26");
-            
+
             button = SwitchInfoT;
 
             int siegeOffset = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed) ? 3 : 0;
 
             if (ChatNumber == 0)
-			{
-			    button2 = DoNextT;
+            {
+                button2 = DoNextT;
                 DoNext = true;
             }
             else if (ChatNumber == 1)
@@ -432,18 +430,18 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             RajahC = false;
         }
 
-		public override void OnChatButtonClicked(bool firstButton, ref string shopName)
-		{
-			if (firstButton)
-			{
+        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
+        {
+            if (firstButton)
+            {
                 ResetBools();
-				ChatNumber += 1;
-				if (ChatNumber > 21)
-				{
-					ChatNumber = 0;
-				}
-			}
-			else
+                ChatNumber += 1;
+                if (ChatNumber > 21)
+                {
+                    ChatNumber = 0;
+                }
+            }
+            else
             {
                 Player player = Main.LocalPlayer;
                 int Item = player.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>());
@@ -462,12 +460,12 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
                     return;
                 }
                 Main.npcChatText = BossChat();
-			}
-		}
+            }
+        }
 
         public override bool PreAI()
         {
-            if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
                 NPC.Transform(ModContent.NPCType<LegendscribeUnofficial>());
                 return false;
@@ -604,17 +602,17 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             Player player = Main.LocalPlayer;
             if (Mushroom)
             {
-                return NPCExtensions.BeenKilled<MushroomMonarch>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedMonarchY") : 
+                return NPCExtensions.BeenKilled<MushroomMonarch>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedMonarchY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedMonarchN");
             }
             else if (Glowshroom)
             {
-                return NPCExtensions.BeenKilled<FeudalFungus>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedFungusY") : 
+                return NPCExtensions.BeenKilled<FeudalFungus>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedFungusY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedFungusN");
             }
             else if (Grips)
             {
-                return AAWorld.downedGrips ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGripsY") : 
+                return AAWorld.downedGrips ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGripsY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGripsN");
             }
             else if (Brood)
@@ -624,17 +622,17 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             }
             else if (Hydra)
             {
-                return NPCExtensions.BeenKilled<HydraBody>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedHydraY") : 
+                return NPCExtensions.BeenKilled<HydraBody>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedHydraY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedHydraN");
             }
             else if (Djinn)
             {
-                return NPCExtensions.BeenKilled<DesertDjinn>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedDjinnY") : 
+                return NPCExtensions.BeenKilled<DesertDjinn>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedDjinnY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedDjinnN");
             }
             else if (Serpent)
             {
-                return NPCExtensions.BeenKilled<SubzeroSerpentHead>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedSerpentY") : 
+                return NPCExtensions.BeenKilled<SubzeroSerpentHead>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedSerpentY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedSerpentN");
             }
             else if (Retriever)
@@ -657,7 +655,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
                 if (!player.HasItem(ModContent.ItemType<__Hardmode.Items._BossAnubis.RasScepter>()))
                 {
                     player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<__Hardmode.Items._BossAnubis.RasScepter>(), 1);
-                    return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisScapterLost"); 
+                    return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisScapterLost");
                 }
 
                 return NPCExtensions.BeenKilled<Anubis>() ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAnubisBY") :
@@ -670,7 +668,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             }
             else if (Greed)
             {
-                return NPCExtensions.BeenKilled<GreedHead>() ? player.GetModPlayer<ZAAPlayer>().AnubisBook ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGreedYBookY") : 
+                return NPCExtensions.BeenKilled<GreedHead>() ? player.GetModPlayer<ZAAPlayer>().AnubisBook ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGreedYBookY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGreedYBookN") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedGreedN");
             }
@@ -696,17 +694,17 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             }
             else if (Equinox)
             {
-                return AAWorld.downedEquinox ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedEquinoxY") : 
+                return AAWorld.downedEquinox ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedEquinoxY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedEquinoxN");
             }
             else if (Sisters)
             {
-                return AAWorld.downedSisters ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedSistersY") : 
+                return AAWorld.downedSisters ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedSistersY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedSistersN");
             }
             else if (Akuma)
             {
-                return AAWorld.downedAkuma ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAkumaY") : 
+                return AAWorld.downedAkuma ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAkumaY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAkumaN");
             }
             else if (Yamata)
@@ -716,7 +714,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             }
             else if (Zero)
             {
-                return AAWorld.downedZero ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedZeroY") : 
+                return AAWorld.downedZero ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedZeroY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedZeroN");
             }
             else if (Shen)
@@ -726,7 +724,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
             }
             else if (RajahC)
             {
-                return AAWorld.downedShen ?  Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRajahCY") :
+                return AAWorld.downedShen ? Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRajahCY") :
                     Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedRajahCN");
             }
             else
@@ -917,21 +915,21 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
         public static string WHATTHEFUCKDOIDOANUBIS()
         {
             WeightedRandom<string> chat = new WeightedRandom<string>();
-            
+
             return chat;
         }
 
         public override void TownNPCAttackStrength(ref int damage, ref float knockback)
-		{
-			damage = 30;
-			knockback = 4f;
-		}
+        {
+            damage = 30;
+            knockback = 4f;
+        }
 
-		public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
-		{
-			cooldown = 20;
-			randExtraCooldown = 20;
-		}
+        public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
+        {
+            cooldown = 20;
+            randExtraCooldown = 20;
+        }
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {

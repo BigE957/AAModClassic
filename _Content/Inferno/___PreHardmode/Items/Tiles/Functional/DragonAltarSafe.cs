@@ -1,21 +1,18 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
-using Terraria;
-using Terraria.ID;
+﻿using AAModClassic._Content.Chaos.World.Tiles;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Chaos.World.Tiles;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Functional
 {
     public class DragonAltarSafe : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables.Functional";
-        
+
         public override void SetStaticDefaults()
         {
-            
+
             // DisplayName.SetDefault("Dragon Altar");
         }
 

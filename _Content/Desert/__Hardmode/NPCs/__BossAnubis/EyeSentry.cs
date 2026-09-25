@@ -3,7 +3,6 @@ using AAModClassic.Base;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -12,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 {
-	public class EyeSentry : ModNPC
+    public class EyeSentry : ModNPC
     {
         public override void SetStaticDefaults()
         {
@@ -114,7 +113,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            if(NPC.IsABestiaryIconDummy)
+            if (NPC.IsABestiaryIconDummy)
                 NPC.alpha = 0;
 
             spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(ColorUtils.COLOR_GLOWPULSE), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, 0, 0);

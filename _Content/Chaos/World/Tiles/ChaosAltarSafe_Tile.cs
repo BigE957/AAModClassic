@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -9,19 +8,19 @@ using Terraria.ObjectData;
 namespace AAModClassic._Content.Chaos.World.Tiles
 {
     public class ChaosAltarSafe_Tile : ModTile
-	{
-		public override void SetStaticDefaults()
-		{
-			Main.tileFrameImportant[Type] = true;
-			Main.tileLavaDeath[Type] = true;
-			TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
-			TileObjectData.newTile.StyleHorizontal = true;
-			TileObjectData.newTile.StyleWrapLimit = 36;
-			TileObjectData.addTile(Type);
-			DustType = DustID.WoodFurniture;
-			TileID.Sets.DisableSmartCursor[Type] = true;
-			LocalizedText name = CreateMapEntryName();
-			// name.SetDefault("Chaos Altar");
+    {
+        public override void SetStaticDefaults()
+        {
+            Main.tileFrameImportant[Type] = true;
+            Main.tileLavaDeath[Type] = true;
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
+            TileObjectData.newTile.StyleHorizontal = true;
+            TileObjectData.newTile.StyleWrapLimit = 36;
+            TileObjectData.addTile(Type);
+            DustType = DustID.WoodFurniture;
+            TileID.Sets.DisableSmartCursor[Type] = true;
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Chaos Altar");
             DustType = ModContent.DustType<Dusts.Discord_Dust>();
             AddMapEntry(new Color(120, 0, 160), name);
             AdjTiles = new int[] { TileID.DemonAltar };
@@ -43,5 +42,5 @@ namespace AAModClassic._Content.Chaos.World.Tiles
         {
             return false;
         }
-	}
+    }
 }

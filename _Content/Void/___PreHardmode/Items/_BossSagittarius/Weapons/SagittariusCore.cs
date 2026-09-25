@@ -1,8 +1,5 @@
-﻿using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,10 +7,10 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons
 {
     public class SagittariusCore : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Summon";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Sagittarius Core");
             // Tooltip.SetDefault("Activates probes that orbit you and defend you from surrounding enemies");			
         }
@@ -36,13 +33,13 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapo
             Item.damage = 50;
             Item.mana = 10;
         }
-		
-		public override void UseStyle(Player player, Rectangle heldItemFrame)
-		{
-			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-			{
-				player.AddBuff(ModContent.BuffType<SagittariusCore_Buff>(), 2, true);
-			}
-		}
+
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
+        {
+            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
+            {
+                player.AddBuff(ModContent.BuffType<SagittariusCore_Buff>(), 2, true);
+            }
+        }
     }
 }

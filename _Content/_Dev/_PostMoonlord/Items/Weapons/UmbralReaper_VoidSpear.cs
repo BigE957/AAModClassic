@@ -1,7 +1,6 @@
-using System;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
@@ -44,8 +43,8 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
             Projectile.ai[1] += 1f;
             Projectile.alpha = (int)Projectile.localAI[0] * 2;
-           
-            if (Projectile.ai[1] > 180f) 
+
+            if (Projectile.ai[1] > 180f)
             {
                 Projectile.Kill();
             }
@@ -57,7 +56,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                Projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
@@ -84,7 +83,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                     )
                         selectedTarget = i;
                 }

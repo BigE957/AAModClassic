@@ -1,17 +1,12 @@
 ﻿using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
-using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
-using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
-using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
-using AAModClassic._Unofficial.Desert;
 using AAModClassic.Effects;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -87,7 +82,7 @@ Can only be used in the Acropolis at the Owl Altar
             Vector2 spawnPos = player.Center - Vector2.UnitY * 128;
             int a = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<AthenaA>());
             int b = Projectile.NewProjectile(NPC.GetBossSpawnSource(player.whoAmI), spawnPos.X, spawnPos.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
-            
+
             CombatText.NewText(Main.npc[a].Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.AwakenedSummon"));
             return true;
         }

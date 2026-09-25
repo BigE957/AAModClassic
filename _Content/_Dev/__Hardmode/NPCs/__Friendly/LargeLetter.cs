@@ -12,7 +12,6 @@ using AAModClassic._Unofficial.Content._Dev.__Hardmode.Items.Consumables;
 using AAModClassic._Unofficial.Desert;
 using AAModClassic.UI.World;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.Personalities;
@@ -24,7 +23,7 @@ using Terraria.Utilities;
 namespace AAModClassic._Content._Dev.__Hardmode.NPCs.__Friendly
 {
     [AutoloadHead]
-	public class LargeLetter : ModNPC, ILocalizedModType
+    public class LargeLetter : ModNPC, ILocalizedModType
     {
         public new string LocalizationCategory => "NPCs.TownNPCs";
 
@@ -35,41 +34,41 @@ namespace AAModClassic._Content._Dev.__Hardmode.NPCs.__Friendly
         //}
 
         public override void SetStaticDefaults()
-		{
-			Main.npcFrameCount[NPC.type] = 25;
-			NPCID.Sets.ExtraFramesCount[NPC.type] = 10;
-			NPCID.Sets.AttackFrameCount[NPC.type] = 5;
-			NPCID.Sets.DangerDetectRange[NPC.type] = 700;
-			NPCID.Sets.AttackType[NPC.type] = 0;
-			NPCID.Sets.AttackTime[NPC.type] = 40;
-			NPCID.Sets.AttackAverageChance[NPC.type] = 20;
-			NPCID.Sets.HatOffsetY[NPC.type] = 3;
+        {
+            Main.npcFrameCount[NPC.type] = 25;
+            NPCID.Sets.ExtraFramesCount[NPC.type] = 10;
+            NPCID.Sets.AttackFrameCount[NPC.type] = 5;
+            NPCID.Sets.DangerDetectRange[NPC.type] = 700;
+            NPCID.Sets.AttackType[NPC.type] = 0;
+            NPCID.Sets.AttackTime[NPC.type] = 40;
+            NPCID.Sets.AttackAverageChance[NPC.type] = 20;
+            NPCID.Sets.HatOffsetY[NPC.type] = 3;
 
-			NPC.Happiness
-				.SetNPCAffection(ModContent.NPCType<Legendscribe>(), AffectionLevel.Like)
-				.SetNPCAffection(ModContent.NPCType<LegendscribeUnofficial>(), AffectionLevel.Like)
-				.SetNPCAffection(ModContent.NPCType<Lovecraftian>(), AffectionLevel.Like)
-				.SetNPCAffection(ModContent.NPCType<Samurai>(), AffectionLevel.Like)
-				.SetNPCAffection(ModContent.NPCType<Mushman>(), AffectionLevel.Like)
-				.SetNPCAffection(ModContent.NPCType<GoblinSlayer>(), AffectionLevel.Hate);
+            NPC.Happiness
+                .SetNPCAffection(ModContent.NPCType<Legendscribe>(), AffectionLevel.Like)
+                .SetNPCAffection(ModContent.NPCType<LegendscribeUnofficial>(), AffectionLevel.Like)
+                .SetNPCAffection(ModContent.NPCType<Lovecraftian>(), AffectionLevel.Like)
+                .SetNPCAffection(ModContent.NPCType<Samurai>(), AffectionLevel.Like)
+                .SetNPCAffection(ModContent.NPCType<Mushman>(), AffectionLevel.Like)
+                .SetNPCAffection(ModContent.NPCType<GoblinSlayer>(), AffectionLevel.Hate);
         }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Main.npcFrameCount[NPC.type] = 25;
             NPC.townNPC = true;
-			NPC.friendly = true;
-			NPC.width = 18;
-			NPC.height = 40;
-			NPC.aiStyle = NPCAIStyleID.Passive;
-			NPC.damage = 40;
-			NPC.defense = 38;
-			NPC.lifeMax = 600;
-			NPC.HitSound = SoundID.NPCHit1;
-			NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.friendly = true;
+            NPC.width = 18;
+            NPC.height = 40;
+            NPC.aiStyle = NPCAIStyleID.Passive;
+            NPC.damage = 40;
+            NPC.defense = 38;
+            NPC.lifeMax = 600;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
             AnimationType = NPCID.Guide;
-		}
+        }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
@@ -81,27 +80,27 @@ namespace AAModClassic._Content._Dev.__Hardmode.NPCs.__Friendly
         }
 
         public override void HitEffect(NPC.HitInfo hit)
-		{
+        {
 
-		}
+        }
 
         public override bool CanTownNPCSpawn(int numTownNPCs)
         {
-			for (int k = 0; k < 255; k++)
-			{
-				Player player = Main.player[k];
-				if (player.active && Main.expertMode)
-				{
-					if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && !Main.hardMode)
-						return false;
-					return true;
-				}
-			}
-			return false;
-		}
+            for (int k = 0; k < 255; k++)
+            {
+                Player player = Main.player[k];
+                if (player.active && Main.expertMode)
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && !Main.hardMode)
+                        return false;
+                    return true;
+                }
+            }
+            return false;
+        }
 
-		public override List<string> SetNPCNameList()
-		{
+        public override List<string> SetNPCNameList()
+        {
             return ["Big E"];
         }
 
@@ -114,38 +113,38 @@ namespace AAModClassic._Content._Dev.__Hardmode.NPCs.__Friendly
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LargeLetter.Chat3"));
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LargeLetter.Chat4"));
 
-			return chat;
-		}
+            return chat;
+        }
 
-		public override void PostAI()
-		{
-			if (!Main.expertMode)
-			{
-				NPC.life = 0;
-				NPC.active = false;
-			}
-		}
+        public override void PostAI()
+        {
+            if (!Main.expertMode)
+            {
+                NPC.life = 0;
+                NPC.active = false;
+            }
+        }
 
-		public override void SetChatButtons(ref string button, ref string button2)
-		{
-			button = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LargeLetter.Button1");
-			button2 = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LargeLetter.Button2");
-		}
+        public override void SetChatButtons(ref string button, ref string button2)
+        {
+            button = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LargeLetter.Button1");
+            button2 = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LargeLetter.Button2");
+        }
 
-		public override void OnChatButtonClicked(bool firstButton, ref string shopName)
-		{
-			if (firstButton)
+        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
+        {
+            if (firstButton)
                 shopName = "VanityShop";
-			else
+            else
                 shopName = "WeaponShop";
-		}
+        }
 
         public override void AddShops()
         {
-			NPCShop vanityShop = new(Type, "VanityShop");
+            NPCShop vanityShop = new(Type, "VanityShop");
             #region Vanity Shop
-            vanityShop.Add(new Item(ModContent.ItemType<ApawnBag>()) 
-			{
+            vanityShop.Add(new Item(ModContent.ItemType<ApawnBag>())
+            {
                 shopCustomPrice = 5,
                 shopSpecialCurrency = AAMod.AncientCoin
             });
@@ -391,16 +390,16 @@ namespace AAModClassic._Content._Dev.__Hardmode.NPCs.__Friendly
         }
 
         public override void TownNPCAttackStrength(ref int damage, ref float knockback)
-		{
-			damage = 30;
-			knockback = 4f;
-		}
+        {
+            damage = 30;
+            knockback = 4f;
+        }
 
-		public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
-		{
-			cooldown = 20;
-			randExtraCooldown = 20;
-		}
+        public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
+        {
+            cooldown = 20;
+            randExtraCooldown = 20;
+        }
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {

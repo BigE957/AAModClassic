@@ -1,6 +1,5 @@
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
@@ -8,12 +7,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Weapons
 {
     public class ManaRose_Proj : ModProjectile
-	{
-		public override void SetStaticDefaults()
-		{
+    {
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Mana Rose");
-			Main.projFrames[Projectile.type] = 2;
-		}	
+            Main.projFrames[Projectile.type] = 2;
+        }
 
         public override void SetDefaults()
         {
@@ -31,24 +30,24 @@ namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Weapons
             Projectile.DamageType = DamageClass.Magic;
         }
 
-		public override void AI()
-		{
-			BaseAI.AIVilethorn(Projectile, 50, 6, 12);
-			if (Projectile.ai[1] == 12)
-			{
-				Projectile.frame = 0;
-			}
-			else
-			{
-				Projectile.frame = 1;
-			}
-		}
+        public override void AI()
+        {
+            BaseAI.AIVilethorn(Projectile, 50, 6, 12);
+            if (Projectile.ai[1] == 12)
+            {
+                Projectile.frame = 0;
+            }
+            else
+            {
+                Projectile.frame = 1;
+            }
+        }
 
-		public override bool PreDraw(ref Color lightColor)
-		{
-			Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, 34, 34, 0, 0);
-			BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 2, frame, Projectile.GetAlpha(Color.White), true);
-			return false;
-		}
-	}
+        public override bool PreDraw(ref Color lightColor)
+        {
+            Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, 34, 34, 0, 0);
+            BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, Projectile.direction, 2, frame, Projectile.GetAlpha(Color.White), true);
+            return false;
+        }
+    }
 }

@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -10,7 +9,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons
 {
     public class FluffyFury_Carrow : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Carrow");
@@ -18,22 +17,22 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
             ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
         }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Projectile.DamageType = DamageClass.Ranged;
-			Projectile.width = 10; 
-			Projectile.height = 10; 
-			Projectile.aiStyle = ProjAIStyleID.Arrow;   
-			Projectile.friendly = true; 
-			Projectile.hostile = false;  
-			Projectile.penetrate = 1;  
-			Projectile.timeLeft = 600;  
-			Projectile.ignoreWater = true;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 600;
+            Projectile.ignoreWater = true;
             Projectile.extraUpdates = 1;
-			Projectile.tileCollide = true;
-			AIType = ProjectileID.WoodenArrowFriendly;
+            Projectile.tileCollide = true;
+            AIType = ProjectileID.WoodenArrowFriendly;
             Projectile.noDropItem = true;
-		}
+        }
 
         public override void OnKill(int timeleft)
         {

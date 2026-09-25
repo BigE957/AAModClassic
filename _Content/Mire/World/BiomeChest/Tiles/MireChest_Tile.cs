@@ -1,7 +1,6 @@
 using AAModClassic._Content.Mire.__Hardmode.Items.Consumables;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Enums;
@@ -14,7 +13,7 @@ using Terraria.ObjectData;
 namespace AAModClassic._Content.Mire.World.BiomeChest.Tiles
 {
     public class MireChest_Tile : ModTile
-	{
+    {
         public override void SetStaticDefaults()
         {
             Main.tileSpelunker[Type] = true;
@@ -89,24 +88,24 @@ namespace AAModClassic._Content.Mire.World.BiomeChest.Tiles
         }
 
         public override void NumDust(int i, int j, bool fail, ref int num)
-		{
-			num = 1;
-		}
+        {
+            num = 1;
+        }
 
-		public override bool CanKillTile(int i, int j, ref bool blockDamaged)
-		{
-			Tile tile = Main.tile[i, j];
-			int left = i;
-			int top = j;
-			if (tile.TileFrameX % 36 != 0)
-			{
-				left--;
-			}
-			if (tile.TileFrameY != 0)
-			{
-				top--;
-			}
-			return Chest.CanDestroyChest(left, top);
+        public override bool CanKillTile(int i, int j, ref bool blockDamaged)
+        {
+            Tile tile = Main.tile[i, j];
+            int left = i;
+            int top = j;
+            if (tile.TileFrameX % 36 != 0)
+            {
+                left--;
+            }
+            if (tile.TileFrameY != 0)
+            {
+                top--;
+            }
+            return Chest.CanDestroyChest(left, top);
         }
 
         public override bool CanReplace(int i, int j, int tileTypeBeingPlaced)
@@ -126,13 +125,13 @@ namespace AAModClassic._Content.Mire.World.BiomeChest.Tiles
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-			Chest.DestroyChest(i, j);
-		}
+        {
+            Chest.DestroyChest(i, j);
+        }
 
         public override bool RightClick(int i, int j)
         {
-			Player player = Main.LocalPlayer;
+            Player player = Main.LocalPlayer;
             Tile tile = Main.tile[i, j];
             Main.mouseRightRelease = false;
             int left = i;

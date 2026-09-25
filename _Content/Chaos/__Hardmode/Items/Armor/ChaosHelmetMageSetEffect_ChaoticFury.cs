@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
@@ -16,9 +15,9 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
         public override void Update(Player player, ref int buffIndex)
         {
             player.GetDamage(DamageClass.Magic) += 0.20f;
-			player.GetCritChance(DamageClass.Magic) += 15;
-			player.manaCost -= 0.20f;
-			player.statDefense += 12;
+            player.GetCritChance(DamageClass.Magic) += 15;
+            player.manaCost -= 0.20f;
+            player.statDefense += 12;
         }
     }
 }

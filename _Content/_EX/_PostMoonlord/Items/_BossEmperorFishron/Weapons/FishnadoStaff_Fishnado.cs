@@ -1,6 +1,5 @@
-using System;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,12 +10,12 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weap
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Fishnado");
-			Main.projFrames[Projectile.type] = 6;
+            Main.projFrames[Projectile.type] = 6;
             ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
             ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
             ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
         }
-		
+
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(407);
@@ -255,7 +254,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weap
                             Vector2 value4 = vector - Projectile.Center;
                             value4.Normalize();
                             value4 *= scaleFactor4;
-                            int num33 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value4.X*4, value4.Y*4, num29, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
+                            int num33 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value4.X * 4, value4.Y * 4, num29, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
                             Main.projectile[num33].extraUpdates = 1;
                             Main.projectile[num33].minion = true;
                             Main.projectile[num33].timeLeft = 300;

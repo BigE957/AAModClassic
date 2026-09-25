@@ -1,6 +1,5 @@
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -39,14 +38,14 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
             return projHitbox.Intersects(targetHitbox);
         }
 
-		public bool spawnSound = false;
+        public bool spawnSound = false;
         public override void AI()
         {
-			if(Main.netMode != NetmodeID.Server && !spawnSound)
-			{
-				SoundEngine.PlaySound(SoundID.Item33, Projectile.position);				
-				spawnSound = true;
-			}
+            if (Main.netMode != NetmodeID.Server && !spawnSound)
+            {
+                SoundEngine.PlaySound(SoundID.Item33, Projectile.position);
+                spawnSound = true;
+            }
             Projectile.rotation = Projectile.velocity.ToRotation() + 1.57f;
 
             if (Main.rand.NextBool(1))
@@ -65,7 +64,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
         {
             Main.projFrames[Projectile.type] = 5;
         }
-        
+
         public override Color? GetAlpha(Color lightColor)
         {
             return Color.Violet;
@@ -74,9 +73,9 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
         public override bool PreDraw(ref Color lightColor)
         {
             Projectile.frameCounter++;
-            if (Projectile.frameCounter >= 5) 
+            if (Projectile.frameCounter >= 5)
             {
-                Projectile.frame++; 
+                Projectile.frame++;
                 Projectile.frameCounter = 0;
                 if (Projectile.frame > 4)
                 {

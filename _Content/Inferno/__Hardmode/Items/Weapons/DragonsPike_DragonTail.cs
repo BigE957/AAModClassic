@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
+using System.Collections.Generic;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
@@ -62,7 +61,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
             Player player = Main.player[Projectile.owner];
             ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 
-            if ((int) Main.time % 120 == 0) Projectile.netUpdate = true;
+            if ((int)Main.time % 120 == 0) Projectile.netUpdate = true;
             if (!player.active)
             {
                 Projectile.active = false;
@@ -100,7 +99,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
                 Projectile.netUpdate = true;
             }
 
-            int byUUID = Projectile.GetByUUID(Projectile.owner, (int) Projectile.ai[0]);
+            int byUUID = Projectile.GetByUUID(Projectile.owner, (int)Projectile.ai[0]);
             if (byUUID >= 0 && Main.projectile[byUUID].active)
             {
                 flag67 = true;
@@ -143,7 +142,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
             Projectile.rotation = vector134.ToRotation() + 1.57079637f;
             Projectile.position = Projectile.Center;
             Projectile.scale = scaleFactor17;
-            Projectile.width = Projectile.height = (int) (num1038 * Projectile.scale);
+            Projectile.width = Projectile.height = (int)(num1038 * Projectile.scale);
             Projectile.Center = Projectile.position;
             if (vector134 != Vector2.Zero) Projectile.Center = value67 - Vector2.Normalize(vector134) * scaleFactor16 * scaleFactor17;
             Projectile.spriteDirection = vector134.X > 0f ? 1 : -1;

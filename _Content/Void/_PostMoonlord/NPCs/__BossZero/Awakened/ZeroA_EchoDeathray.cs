@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.Enums;
 using Terraria.GameContent;
@@ -20,7 +19,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
         public static Asset<Texture2D> Tail;
 
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Echo Blast");
 
             ProjectileID.Sets.DrawScreenCheckFluff[Type] = 10000;
@@ -28,7 +27,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
             Body = ModContent.Request<Texture2D>(Texture + "_Body");
             Tail = ModContent.Request<Texture2D>(Texture + "_Tail");
         }
-    	
+
         public override void SetDefaults()
         {
             Projectile.width = 48;
@@ -61,7 +60,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                 Projectile.velocity = -Vector2.UnitY;
             }
             int ai1 = (int)Projectile.ai[1];
-            
+
             if (Main.projectile[ai1].active && Main.projectile[ai1].type == ModContent.ProjectileType<ZeroA_EchoGigablast>())
             {
                 Projectile.Center = Main.projectile[ai1].Center;
@@ -69,11 +68,11 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
             else if (Main.npc[ai1].active && (Main.npc[ai1].type == ModContent.NPCType<ZeroEcho>() || Main.npc[ai1].type == ModContent.NPCType<ZeroMini>() || Main.npc[ai1].type == ModContent.NPCType<ZeroA>()))
             {
                 Projectile.Center = Main.npc[ai1].Center;
-                if(Main.npc[ai1].type == ModContent.NPCType<ZeroEcho>())
+                if (Main.npc[ai1].type == ModContent.NPCType<ZeroEcho>())
                 {
                     Projectile.Center = Main.npc[ai1].Center + 20f * Projectile.velocity;
                 }
-                else if(Main.npc[ai1].type == ModContent.NPCType<ZeroA>())
+                else if (Main.npc[ai1].type == ModContent.NPCType<ZeroA>())
                 {
                     Projectile.Center = Main.npc[ai1].Center + 50f * Projectile.velocity;
                 }
@@ -91,7 +90,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
             {
                 SoundEngine.PlaySound(SoundID.Zombie104, Projectile.position);
             }
-            float num801 = NPC.AnyNPCs(ModContent.NPCType<ZeroA>()) ? 2f:1f;
+            float num801 = NPC.AnyNPCs(ModContent.NPCType<ZeroA>()) ? 2f : 1f;
             Projectile.localAI[0] += 1f;
             if (Projectile.localAI[0] >= maxTime)
             {

@@ -1,11 +1,10 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using AAModClassic._Content.Bunny.Projectiles;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic._Content.Bunny.Projectiles;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons
 {
@@ -39,20 +38,20 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons
             Item.DamageType = DamageClass.Magic;
         }
 
-		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-		{
-		    float spread = 45f * 0.0174f;
-		    float baseSpeed = (float)Math.Sqrt(velocity.X * velocity.X + velocity.Y * velocity.Y);
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            float spread = 45f * 0.0174f;
+            float baseSpeed = (float)Math.Sqrt(velocity.X * velocity.X + velocity.Y * velocity.Y);
             double startAngle = Math.Atan2(velocity.X, velocity.Y) - .1d;
-		    double deltaAngle = spread / 6f;
-		    double offsetAngle;
-		    for (int i = 0; i < 3; i++)
-		    {
-		    	offsetAngle = startAngle + deltaAngle * i;
-		    	int proj = Projectile.NewProjectile(player.GetSource_ItemUse(Item), position.X, position.Y, baseSpeed*(float)Math.Sin(offsetAngle), baseSpeed*(float)Math.Cos(offsetAngle), type, damage, knockback, Main.myPlayer);
+            double deltaAngle = spread / 6f;
+            double offsetAngle;
+            for (int i = 0; i < 3; i++)
+            {
+                offsetAngle = startAngle + deltaAngle * i;
+                int proj = Projectile.NewProjectile(player.GetSource_ItemUse(Item), position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), type, damage, knockback, Main.myPlayer);
                 Main.projectile[proj].DamageType = DamageClass.Magic;
             }
-		    return false;
-		}
+            return false;
+        }
     }
 }

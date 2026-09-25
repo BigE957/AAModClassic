@@ -1,13 +1,10 @@
 ﻿using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic.Base;
-using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
-using Terraria.ModLoader;
 
 namespace AAModClassic.Utilities.Components
 {
@@ -166,7 +163,7 @@ namespace AAModClassic.Utilities.Components
         public void DrawLeg(SpriteBatch sb, NPC npc)
         {
             Vector2 drawPos = position - new Vector2(0f, VelOffsetY);
-            Color lightColor = npc.GetAlpha(BaseDrawing.GetLightColor(Center));
+            Color lightColor = npc.GetAlpha(Lighting.GetColor((Center).ToTileCoordinates()));
             bool awakened = npc.type == ModContent.NPCType<YamataABody>();
             Asset<Texture2D>[] textures = awakened ? awakenedTextures : normalTextures;
             if (!leftLeg)

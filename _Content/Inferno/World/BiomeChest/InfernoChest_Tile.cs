@@ -1,7 +1,6 @@
 using AAModClassic._Content.Inferno.__Hardmode.Items.Consumables;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Enums;
@@ -14,27 +13,27 @@ using Terraria.ObjectData;
 namespace AAModClassic._Content.Inferno.World.BiomeChest
 {
     public class InfernoChest_Tile : ModTile
-	{
-		public override void SetStaticDefaults()
-		{
-			Main.tileSpelunker[Type] = true;
-			Main.tileContainer[Type] = true;
-			Main.tileShine2[Type] = true;
-			Main.tileShine[Type] = 1200;
-			Main.tileFrameImportant[Type] = true;
-			Main.tileNoAttach[Type] = true;
-			Main.tileOreFinderPriority[Type] = 500;
+    {
+        public override void SetStaticDefaults()
+        {
+            Main.tileSpelunker[Type] = true;
+            Main.tileContainer[Type] = true;
+            Main.tileShine2[Type] = true;
+            Main.tileShine[Type] = 1200;
+            Main.tileFrameImportant[Type] = true;
+            Main.tileNoAttach[Type] = true;
+            Main.tileOreFinderPriority[Type] = 500;
             TileID.Sets.HasOutlines[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
-			TileObjectData.newTile.Origin = new Point16(0, 1);
-			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
-			TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook(new Func<int, int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
-			TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(new Func<int, int, int, int, int, int, int>(Chest.AfterPlacement_Hook), -1, 0, false);
-			TileObjectData.newTile.AnchorInvalidTiles = new int[] { 127 };
-			TileObjectData.newTile.StyleHorizontal = true;
-			TileObjectData.newTile.LavaDeath = false;
-			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
-			TileObjectData.addTile(Type);
+            TileObjectData.newTile.Origin = new Point16(0, 1);
+            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
+            TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook(new Func<int, int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
+            TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(new Func<int, int, int, int, int, int, int>(Chest.AfterPlacement_Hook), -1, 0, false);
+            TileObjectData.newTile.AnchorInvalidTiles = new int[] { 127 };
+            TileObjectData.newTile.StyleHorizontal = true;
+            TileObjectData.newTile.LavaDeath = false;
+            TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
+            TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Inferno Chest");
             AddMapEntry(new Color(150, 75, 0), name, MapChestName);

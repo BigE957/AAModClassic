@@ -1,13 +1,12 @@
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
-    public class Chronos_Holdout : ModProjectile 
+    public class Chronos_Holdout : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -18,11 +17,11 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         {
             Projectile.extraUpdates = 0;
             Projectile.width = 14;
-            Projectile.height = 14;          
+            Projectile.height = 14;
             Projectile.aiStyle = ProjAIStyleID.Yoyo;
             Projectile.friendly = true;
             Projectile.penetrate = -1;
-            Projectile.DamageType = DamageClass.Melee;    
+            Projectile.DamageType = DamageClass.Melee;
             ProjectileID.Sets.YoyosLifeTimeMultiplier[Projectile.type] = -1f;
             ProjectileID.Sets.YoyosMaximumRange[Projectile.type] = 400f;
             ProjectileID.Sets.YoyosTopSpeed[Projectile.type] = 18f;

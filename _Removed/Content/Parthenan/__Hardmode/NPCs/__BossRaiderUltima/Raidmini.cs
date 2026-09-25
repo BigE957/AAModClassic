@@ -3,8 +3,6 @@ using AAModClassic.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
-using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -60,7 +58,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
                 target.AddBuff(BuffID.Electrified, Main.rand.Next(100, 180));       //Main.rand.Next part is the length of the buff, so 8.3 seconds to 16.6 seconds
             }
         }
-        
+
         public Color color;
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
@@ -79,7 +77,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             NPC.lifeMax = (int)(NPC.lifeMax * 0.3f * balance);
             NPC.damage = (int)(NPC.damage * 0.6f);
         }
-        
+
         public override void AI()
         {
             NPC.noTileCollide = false;

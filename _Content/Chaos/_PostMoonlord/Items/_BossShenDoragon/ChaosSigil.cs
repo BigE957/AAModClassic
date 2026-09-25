@@ -1,34 +1,32 @@
-﻿using Terraria;
-using Microsoft.Xna.Framework;
-using Terraria.Audio;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using System.Collections.Generic;
-
-using Terraria.ID;
-using AAModClassic.Globals;
-using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata;
-using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
-using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma;
-using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
-using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
+using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata;
+using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._CrossMod;
 using AAModClassic.Base;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon
 {
     public class ChaosSigil : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.BossSummon";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Chaos Sigil");

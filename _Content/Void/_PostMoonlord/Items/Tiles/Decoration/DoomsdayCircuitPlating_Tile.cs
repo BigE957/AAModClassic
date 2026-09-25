@@ -4,7 +4,6 @@ using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -19,11 +18,11 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
             Main.tileBlockLight[Type] = true;
             //true for block to emit light
             HitSound = SoundID.Tink;
-            RegisterItemDrop(ModContent.ItemType<DoomsdayCircuitPlating>());   
+            RegisterItemDrop(ModContent.ItemType<DoomsdayCircuitPlating>());
             DustType = ModContent.DustType<Dusts.DoomDust>();
             AddMapEntry(new Color(70, 50, 50
                 ));
-			MinPick = 225;
+            MinPick = 225;
         }
 
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)

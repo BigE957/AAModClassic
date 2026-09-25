@@ -1,15 +1,13 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     public class ScourgeOfTheShadows : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetStaticDefaults()
         {
@@ -18,23 +16,23 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         }
 
         public override void SetDefaults()
-		{
+        {
             Item.autoReuse = true;
-			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.shootSpeed = 14f;
-			Item.shoot = ModContent.ProjectileType<ScourgeOfTheShadows_Proj>();
-			Item.damage = 130;
-			Item.width = 18;
-			Item.height = 20;
-			Item.UseSound = SoundID.Item39;
-			Item.useAnimation = 10;
-			Item.useTime = 10;
-			Item.noUseGraphic = true;
-			Item.noMelee = true;
-			Item.value = Item.sellPrice(0, 50, 0, 0);
-			Item.knockBack = 5f;
-			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-			Item.rare = ItemRarityID.Purple;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.shootSpeed = 14f;
+            Item.shoot = ModContent.ProjectileType<ScourgeOfTheShadows_Proj>();
+            Item.damage = 130;
+            Item.width = 18;
+            Item.height = 20;
+            Item.UseSound = SoundID.Item39;
+            Item.useAnimation = 10;
+            Item.useTime = 10;
+            Item.noUseGraphic = true;
+            Item.noMelee = true;
+            Item.value = Item.sellPrice(0, 50, 0, 0);
+            Item.knockBack = 5f;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.rare = ItemRarityID.Purple;
         }
 
         public override void AddRecipes()
@@ -44,6 +42,6 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             recipe.AddIngredient(ModContent.ItemType<EXSoul>());
             recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
-		}
+        }
     }
 }

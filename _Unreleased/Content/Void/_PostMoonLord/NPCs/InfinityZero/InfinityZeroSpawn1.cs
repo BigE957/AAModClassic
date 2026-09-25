@@ -5,7 +5,6 @@ using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -26,7 +25,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             NPC.lifeMax = 1;
             NPC.dontTakeDamage = true;
             NPC.width = 342;
-            NPC.height = 420; 
+            NPC.height = 420;
             NPC.npcSlots = 100;
             NPC.dontCountMe = true;
             NPC.noTileCollide = true;
@@ -48,7 +47,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         private int Frame = 0;
         private int FrameCounter = 0;
         private int HoldTimer = 90;
-		public int spawnState = 0;
+        public int spawnState = 0;
         public int StartTimer = 200;
 
         public override void AI()
@@ -91,15 +90,15 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     }
                 }
             }
-			
+
         }
 
-		public void SummonInfinity()
-		{
-			//roar is now handled when infinity spawns so his mouth opens
-             if(Main.netMode != NetmodeID.MultiplayerClient)
-			{
-				int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<InfinityZero>());
+        public void SummonInfinity()
+        {
+            //roar is now handled when infinity spawns so his mouth opens
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                int npcID = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<InfinityZero>());
                 for (int i = 0; i < Main.player.Length; i++)
                 {
                     Player player2 = Main.player[i];
@@ -109,9 +108,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     }
                 }
                 Main.npc[npcID].Center = NPC.Center;
-				Main.npc[npcID].netUpdate = true;
-			}
-		}
+                Main.npc[npcID].netUpdate = true;
+            }
+        }
 
         public override void DrawBehind(int index)
         {
@@ -137,11 +136,11 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             Texture2D infinityTex = ModContent.Request<Texture2D>(Texture + "_Shadow" + (unofficial ? "_Unofficial" : "")).Value;
 
             NPC.frame = infinityTex.Frame(1, 8, 0, Frame);
-			Rectangle darkFrame = infinityTex.Frame(1, 8);
-			Texture2D drawTexture = spawnState == 0 ? SFrame1 : spawnState == 1 ? SFrame2 : spawnState == 2 ? SFrame3 : spawnState == 3 ? SFrame4 : spawnState == 4 ? SFrame5 : SFrame6;
+            Rectangle darkFrame = infinityTex.Frame(1, 8);
+            Texture2D drawTexture = spawnState == 0 ? SFrame1 : spawnState == 1 ? SFrame2 : spawnState == 2 ? SFrame3 : spawnState == 3 ? SFrame4 : spawnState == 4 ? SFrame5 : SFrame6;
 
             int offset = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 108 : 72;
-            
+
             NPC.position.Y += offset;
             if (StartTimer <= 0)
             {
@@ -149,7 +148,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 BaseDrawing.DrawTexture(spriteBatch, drawTexture, 0, NPC.position + new Vector2(0f, NPC.gfxOffY), NPC.width, NPC.height, unofficial ? 1.4f : 3f, NPC.rotation, NPC.spriteDirection, 7, NPC.frame, InfinityZero.GetGlowAlpha(true));
             }
             NPC.position.Y -= offset;
-			return false;
+            return false;
         }
     }
 }

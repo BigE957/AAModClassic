@@ -1,17 +1,15 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional;
+using AAModClassic._Content.Hell.___PreHardmode.Items.Tiles.Functional;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Base;
+using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-
-using Terraria.ID;
-using AAModClassic.Globals;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional;
-using AAModClassic._Content.Hell.___PreHardmode.Items.Tiles.Functional;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic.Base;
 
 namespace AAModClassic._Content.Terra._PostMoonLord.Items.Tiles.Functional
 {

@@ -1,15 +1,8 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic.Base;
-using AAModClassic.Effects;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.Audio;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -71,7 +64,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 
                 if (NPC.ai[1] == 540)
                 {
-                    if(Main.netMode != NetmodeID.SinglePlayer)
+                    if (Main.netMode != NetmodeID.SinglePlayer)
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.First.3.Multiplayer"), new Color(180, 41, 32), false);
                     else
                         BaseUtility.Chat(Language.GetOrRegister("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.First.3.Singleplayer").Format(Main.LocalPlayer.name), new Color(180, 41, 32), false);
@@ -113,7 +106,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.Repeat.3.Multiplayer"), new Color(180, 41, 32), false);
                     else
                     {
-                        if(Main.LocalPlayer.Male)
+                        if (Main.LocalPlayer.Male)
                             BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.Repeat.3.Singleplayer.Male"), AAColor.YamataDialogue, false);
                         else
                             BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.ShenDoragon.Awakened.Defeat.Repeat.3.Singleplayer.Female"), AAColor.YamataDialogue, false);

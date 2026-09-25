@@ -1,21 +1,20 @@
-﻿using Terraria;
-using Terraria.Audio;
-using Terraria.Localization;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using Terraria.DataStructures;
-using AAModClassic.Globals;
-using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
-using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Base;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using Terraria.Audio;
+using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord
 {

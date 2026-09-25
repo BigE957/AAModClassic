@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -28,18 +27,18 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Tools
             Item.useTurn = true;
         }
 
-    public override void SetStaticDefaults()
-    {
-      // DisplayName.SetDefault("Unity Pickaxe");
-      // Tooltip.SetDefault("Can mine mythril and orichalcum.");
-    }
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Unity Pickaxe");
+            // Tooltip.SetDefault("Can mine mythril and orichalcum.");
+        }
 
-        public override void AddRecipes()  
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.PixieDust, 12);   
-			recipe.AddIngredient(ItemID.CrystalShard, 15);
-            recipe.AddTile(TileID.Anvils);   
+            recipe.AddIngredient(ItemID.PixieDust, 12);
+            recipe.AddIngredient(ItemID.CrystalShard, 15);
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
     }

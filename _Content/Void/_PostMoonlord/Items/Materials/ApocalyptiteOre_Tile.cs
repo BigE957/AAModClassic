@@ -1,12 +1,11 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.Localization;
-using Terraria.ModLoader;
-using Terraria.ID;
-using AAModClassic.Globals;
 using AAModClassic._Content.Void.World.Tiles;
 using AAModClassic.Base;
+using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Materials
 {
@@ -27,7 +26,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Materials
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Apocalyptite Ore");
             AddMapEntry(new Color(70, 20, 20), name);
-			MinPick = 225;
+            MinPick = 225;
         }
 
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)

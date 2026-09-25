@@ -3,7 +3,6 @@ using AAModClassic.Conversions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -61,7 +60,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables
                 Main.dust[dustID].noLight = false;
                 Main.dust[dustID].noGravity = true;
             }
-            
+
             for (int x = -radius; x <= radius; x++)
             {
                 for (int y = -radius; y <= radius; y++)

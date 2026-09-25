@@ -1,19 +1,14 @@
-using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables;
-using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
-using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic._Content.Mire.__Hardmode.Items.Consumables;
-using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.Personalities;
 using Terraria.ID;
@@ -24,7 +19,7 @@ using Terraria.Utilities;
 namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.Friendly
 {
     [AutoloadHead]
-	public class Samurai : ModNPC, ILocalizedModType
+    public class Samurai : ModNPC, ILocalizedModType
     {
         public new string LocalizationCategory => "NPCs.TownNPCs";
 
@@ -37,15 +32,15 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.Friendly
         //}
 
         public override void SetStaticDefaults()
-		{
-			Main.npcFrameCount[NPC.type] = 26;
-			NPCID.Sets.ExtraFramesCount[NPC.type] = 10;
-			NPCID.Sets.AttackFrameCount[NPC.type] = 5;
-			NPCID.Sets.DangerDetectRange[NPC.type] = 700;
-			NPCID.Sets.AttackType[NPC.type] = 0;
-			NPCID.Sets.AttackTime[NPC.type] = 40;
-			NPCID.Sets.AttackAverageChance[NPC.type] = 20;
-			NPCID.Sets.HatOffsetY[NPC.type] = 3;
+        {
+            Main.npcFrameCount[NPC.type] = 26;
+            NPCID.Sets.ExtraFramesCount[NPC.type] = 10;
+            NPCID.Sets.AttackFrameCount[NPC.type] = 5;
+            NPCID.Sets.DangerDetectRange[NPC.type] = 700;
+            NPCID.Sets.AttackType[NPC.type] = 0;
+            NPCID.Sets.AttackTime[NPC.type] = 40;
+            NPCID.Sets.AttackAverageChance[NPC.type] = 20;
+            NPCID.Sets.HatOffsetY[NPC.type] = 3;
 
             NPC.Happiness
                 .SetBiomeAffection<InfernoBiome>(AffectionLevel.Like)
@@ -54,28 +49,28 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.Friendly
                 .SetNPCAffection(NPCID.DD2Bartender, AffectionLevel.Dislike);
         }
 
-		public override void SetDefaults()
-		{
-			NPC.townNPC = true;
-			NPC.friendly = true;
-			NPC.width = 18;
-			NPC.height = 40;
-			NPC.aiStyle = NPCAIStyleID.Passive;
-			NPC.damage = 40;
-			NPC.defense = 38;
-			NPC.lifeMax = 600;
-			NPC.HitSound = SoundID.NPCHit1;
-			NPC.DeathSound = SoundID.NPCDeath1;
+        public override void SetDefaults()
+        {
+            NPC.townNPC = true;
+            NPC.friendly = true;
+            NPC.width = 18;
+            NPC.height = 40;
+            NPC.aiStyle = NPCAIStyleID.Passive;
+            NPC.damage = 40;
+            NPC.defense = 38;
+            NPC.lifeMax = 600;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
             AnimationType = NPCID.Guide;
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
 
-		public override void HitEffect(NPC.HitInfo hit)
-		{
-		}
+        public override void HitEffect(NPC.HitInfo hit)
+        {
+        }
 
-		public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
+        public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
         {
             if (!AAConfigClient.Instance.NoAATownNPC)
             {
@@ -90,22 +85,22 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.Friendly
                         }
                     }
                 }
-			}
-			return false;
-		}
+            }
+            return false;
+        }
 
-		public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
-		{
+        public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
+        {
             return ["Nobunaga", "Hattori", "Hanzo", "Genji", "Oda", "Hideyoshi"];
-		}
+        }
 
         public override string GetChat()
         {
             WeightedRandom<string> chat = new WeightedRandom<string>();
 
             int TravellingMerchant = NPC.FindFirstNPC(NPCID.TravellingMerchant);
-			if (TravellingMerchant >= 0 && Main.rand.NextBool(4))
-			{
+            if (TravellingMerchant >= 0 && Main.rand.NextBool(4))
+            {
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat1") + Main.npc[TravellingMerchant].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat2"));
             }
             int DD2Bartender = NPC.FindFirstNPC(NPCID.DD2Bartender);
@@ -116,27 +111,27 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.Friendly
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat5"));
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat6"));
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat7"));
-			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat8"));
-			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat9"));
-			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat10"));
-			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat11"));
-			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat12"));
-			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat13"));
-			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat14"));
-			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat15"));
-			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat16"));
-			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat17"));
-			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat18"));
-			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat19"));
-			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat20"));
-			chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat21"));
-            return chat; 
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat8"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat9"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat10"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat11"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat12"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat13"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat14"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat15"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat16"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat17"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat18"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat19"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat20"));
+            chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Samurai.SamuraiChat21"));
+            return chat;
         }
-        
-		public override void SetChatButtons(ref string button, ref string button2)
-		{
-			button = Language.GetTextValue("LegacyInterface.28");
-		}
+
+        public override void SetChatButtons(ref string button, ref string button2)
+        {
+            button = Language.GetTextValue("LegacyInterface.28");
+        }
 
         public override void OnChatButtonClicked(bool firstButton, ref string shopName)
         {
@@ -192,16 +187,16 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.Friendly
         }
 
         public override void TownNPCAttackStrength(ref int damage, ref float knockback)
-		{
-			damage = 30;
-			knockback = 4f;
-		}
+        {
+            damage = 30;
+            knockback = 4f;
+        }
 
-		public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
-		{
-			cooldown = 20;
-			randExtraCooldown = 20;
-		}
+        public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
+        {
+            cooldown = 20;
+            randExtraCooldown = 20;
+        }
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {

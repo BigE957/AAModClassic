@@ -2,10 +2,7 @@ using AAModClassic.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
@@ -17,14 +14,14 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-			Main.tileMergeDirt[Type] = true;
+            Main.tileMergeDirt[Type] = true;
             Main.tileSpelunker[Type] = true;
             Main.tileBlockLight[Type] = true;  //true for block to emit light
             Main.tileLighted[Type] = true;
             HitSound = SoundID.Tink;
             DustType = ModContent.DustType<FulguriteDust>();
             AddMapEntry(new Color(204, 0, 150), CreateMapEntryName());
-			MinPick = 180;
+            MinPick = 180;
         }
 
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)

@@ -1,21 +1,18 @@
-﻿using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic._Content.Mire.World.Biomes;
+﻿using AAModClassic._Content.Mire.World.Biomes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameInput;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
-using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened.Skies
 {
-    
+
 
     public class YamataASkyScene : ModSceneEffect
     {
@@ -49,7 +46,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened.Sk
         public override void OnLoad()
         {
             string filePath = "AAModClassic/_Content/Mire/_PostMoonlord/NPCs/__BossYamata/Awakened/Skies/";
-            
+
             MoonTex = ModContent.Request<Texture2D>(filePath + "YamataASky_Moon");
             BeamTex = ModContent.Request<Texture2D>(filePath + "YamataASky_Beam");
             for (int i = 0; i < RockTex.Length; i++)

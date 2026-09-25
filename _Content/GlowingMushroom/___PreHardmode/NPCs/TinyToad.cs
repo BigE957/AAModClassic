@@ -1,20 +1,14 @@
-using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad;
-using AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using AAModClassic.Utilities.Interfaces;
-using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs
@@ -22,7 +16,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs
     public class TinyToad : ModNPC, IBannerNPC
     {
         public bool WasSpawnedByTruffleToad = false;
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Tiny Toad");
@@ -65,13 +59,13 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs
                 Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, default, isDead ? 2f : 1.5f);
             }
         }
-        
+
         public override void AI()
         {
             NPC.TargetClosest(true);
             NPC.LookAtTargetWhileNotMovingLookTowardsDirectionWhileMoving();
 
-            if (NPC.ai[0] < -10) 
+            if (NPC.ai[0] < -10)
                 NPC.ai[0] = -10; //force rapid jumping
 
             NPC.AISlime(ref NPC.ai, false, 30, 6f, -6f, 6f, -8f);

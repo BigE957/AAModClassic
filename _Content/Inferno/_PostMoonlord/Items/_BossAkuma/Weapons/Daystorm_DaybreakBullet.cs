@@ -1,7 +1,6 @@
 using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -42,9 +41,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
                 Projectile.spriteDirection = 1;
                 Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(-90f);
             }
-            if(Projectile.alpha < 170)
+            if (Projectile.alpha < 170)
             {
-                for (int num165 = 0; num165 < 2; num165 ++)
+                for (int num165 = 0; num165 < 2; num165++)
                 {
                     float x2 = Projectile.position.X + Projectile.width / 2 - Projectile.velocity.X / 2f * num165;
                     float y2 = Projectile.position.Y + Projectile.height / 2 - Projectile.velocity.Y / 2f * num165;

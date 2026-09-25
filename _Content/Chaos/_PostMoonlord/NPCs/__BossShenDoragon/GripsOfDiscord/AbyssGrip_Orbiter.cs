@@ -1,13 +1,11 @@
-using System;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.GameContent;
-using Terraria.ID;
-
-using Terraria.ModLoader;
-using Terraria.Graphics.Shaders;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Base;
+using Microsoft.Xna.Framework;
+using System;
+using Terraria.GameContent;
+using Terraria.Graphics.Shaders;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord
 {
@@ -58,16 +56,16 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
             Vector2 Center = new Vector2();
             NPC centerNPC = Main.npc[(int)Projectile.ai[0]];
 
-            if(proj == 0) Center = centerNPC.Center;
+            if (proj == 0) Center = centerNPC.Center;
 
-            timecount ++;
+            timecount++;
 
-            foreach(Projectile p in Main.ActiveProjectiles)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
-                if(p.friendly && !p.minion && Main.player[p.owner].heldProj != p.whoAmI && p.damage > 0 && p.Hitbox.Intersects(Projectile.Hitbox))
+                if (p.friendly && !p.minion && Main.player[p.owner].heldProj != p.whoAmI && p.damage > 0 && p.Hitbox.Intersects(Projectile.Hitbox))
                     p.Kill();
-                
-                if(p.type == ModContent.ProjectileType<AbyssGrip_AbyssalBomb>() && proj == 0)
+
+                if (p.type == ModContent.ProjectileType<AbyssGrip_AbyssalBomb>() && proj == 0)
                 {
                     Center = p.Center;
                     proj = p.whoAmI;
@@ -77,13 +75,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
             if (rotValue == -1f) rotValue = Projectile.ai[1];
             rotValue += 0.05f;
             while (rotValue > (float)Math.PI * 2f) rotValue -= (float)Math.PI * 2f;
-            
 
 
 
-            if(proj != 0 && !shooting)
+
+            if (proj != 0 && !shooting)
             {
-                if(Main.projectile[proj].timeLeft <= 5 || !Main.projectile[proj].active) 
+                if (Main.projectile[proj].timeLeft <= 5 || !Main.projectile[proj].active)
                 {
                     Projectile.velocity = 18f * Vector2.Normalize(Main.projectile[proj].DirectionTo(Projectile.Center));
                     shooting = true;
@@ -99,7 +97,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                     Projectile.Center = BaseUtility.RotateVector(Center, Center + new Vector2(140f, 0f), rotValue);
                 }
             }
-            else if(centerNPC.active && centerNPC.life > 0 && centerNPC.type == ModContent.NPCType<AbyssGrip>() && !shooting)
+            else if (centerNPC.active && centerNPC.life > 0 && centerNPC.type == ModContent.NPCType<AbyssGrip>() && !shooting)
             {
                 for (int m = Projectile.oldPos.Length - 1; m > 0; m--)
                 {
@@ -108,12 +106,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                 Projectile.oldPos[0] = Projectile.position;
                 Projectile.Center = BaseUtility.RotateVector(Center, Center + new Vector2(140f, 0f), rotValue);
             }
-            else if((!centerNPC.active || centerNPC.life <= 0 || centerNPC.type != ModContent.NPCType<AbyssGrip>()) && !shooting)
+            else if ((!centerNPC.active || centerNPC.life <= 0 || centerNPC.type != ModContent.NPCType<AbyssGrip>()) && !shooting)
             {
                 Projectile.velocity = 18f * Vector2.Normalize(centerNPC.DirectionTo(Projectile.Center));
                 shooting = true;
             }
-            
+
         }
 
         public override void OnKill(int timeLeft)
@@ -129,14 +127,14 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
         public override bool PreDraw(ref Color lightColor)
         {
             Color Alpha = lightColor;
-            if(timecount < 10)
+            if (timecount < 10)
             {
                 Alpha.R = (byte)0f;
                 Alpha.G = (byte)0f;
                 Alpha.B = (byte)0f;
                 Alpha.A = (byte)0f;
             }
-            else if(timecount < 100)
+            else if (timecount < 100)
             {
                 Alpha.R = (byte)(float)(timecount * 2);
                 Alpha.G = (byte)(float)(timecount * 2);

@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.ModLoader;
 namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Weapons
 {

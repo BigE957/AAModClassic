@@ -1,7 +1,6 @@
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,7 +8,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 {
     public class RajahRabbit_RajahRocket : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Rajah Rocket");

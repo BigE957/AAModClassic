@@ -6,9 +6,9 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
     {
         public override void SetDefaults()
         {
-			base.SetDefaults();
-			leftHead = true;
+            base.SetDefaults();
+            leftHead = true;
             NPC.BossBar = Main.BigBossProgressBar.NeverValid;
         }
-	}
+    }
 }

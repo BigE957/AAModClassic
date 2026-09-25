@@ -8,7 +8,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -58,7 +57,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             writer.Write(NPC.localAI[0]);
             writer.Write(HandTimer);
         }
-    
+
         public override void ReceiveExtraAI(BinaryReader reader)
         {
             NPC.localAI[0] = reader.ReadSingle();

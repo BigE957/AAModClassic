@@ -30,7 +30,6 @@ using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tools;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -131,7 +130,7 @@ namespace AAModClassic._CrossMod
 
         public override void OnModLoad()
         {
-            if(NewAA != null)
+            if (NewAA != null)
             {
                 NewAA.TryFind<ModBiome>("InfernoSurfaceBiome", out NewInfernoSurface);
                 NewAA.TryFind<ModBiome>("InfernoUndergroundBiome", out NewInfernoUnderground);

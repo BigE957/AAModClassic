@@ -1,8 +1,6 @@
-﻿using System;
-using AAModClassic.Base;
-using AAModClassic.Globals;
+﻿using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -54,8 +52,8 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
         {
             Color newLightColor = new Color(Math.Max(0, Color.Orange.R + Math.Min(0, -Projectile.alpha + 20)), Math.Max(0, Color.Orange.G + Math.Min(0, -Projectile.alpha + 20)), Math.Max(0, Color.Orange.B + Math.Min(0, -Projectile.alpha + 20)));
             Color newLightColor2 = new Color(Math.Max(0, Color.Indigo.R + Math.Min(0, -Projectile.alpha + 20)), Math.Max(0, Color.Indigo.G + Math.Min(0, -Projectile.alpha + 20)), Math.Max(0, Color.Indigo.B + Math.Min(0, -Projectile.alpha + 20)));
-            BaseDrawing.AddLight(Projectile.Center, newLightColor);
-            BaseDrawing.AddLight(Projectile.Center, newLightColor2);
+            Lighting.AddLight(Projectile.Center, newLightColor.ToVector3());
+            Lighting.AddLight(Projectile.Center, newLightColor2.ToVector3());
             BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile);
             return false;
         }

@@ -18,7 +18,6 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -30,14 +29,14 @@ using Terraria.ModLoader.IO;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
-	[AutoloadBossHead]
-	public class InfinityZero : ModNPC
-	{
+    [AutoloadBossHead]
+    public class InfinityZero : ModNPC
+    {
         public static Asset<Texture2D> glowTex;
 
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Infinity Zero; Mechanical Malice");
+        {
+            // DisplayName.SetDefault("Infinity Zero; Mechanical Malice");
             glowTex = ModContent.Request<Texture2D>(Texture + "_Glow");
             Main.npcFrameCount[NPC.type] = 4;
             NPCID.Sets.BossBestiaryPriority.Add(Type);
@@ -51,30 +50,30 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             };
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
-		public override void SetDefaults()
-		{
-			NPC.damage = 0;
-            NPC.width = 420; 			
+        public override void SetDefaults()
+        {
+            NPC.damage = 0;
+            NPC.width = 420;
             NPC.height = 342;
             NPC.npcSlots = 100;
             NPC.scale = 1.4f;
             NPC.dontTakeDamage = true;
-			NPC.lifeMax = 2500000;
-			NPC.knockBackResist = 0f;
-			NPC.aiStyle = -1;
-			NPC.value = Item.buyPrice(30, 0, 0, 0);
-			NPC.boss = true;
-			for (int k = 0; k < NPC.buffImmune.Length; k++)
-			{
-				NPC.buffImmune[k] = true;
-			}
-			NPC.noGravity = true;
-			NPC.noTileCollide = true;
-			NPC.netAlways = true;
-			NPC.chaseable = true;
-			Music = MusicManagementSystem.MusicSlots["InfinityZero"];
-			NPC.HitSound = SoundID.NPCHit44;
-			NPC.DeathSound = new SoundStyle("AAModClassic/_Unreleased/Sounds/IZRoar");
+            NPC.lifeMax = 2500000;
+            NPC.knockBackResist = 0f;
+            NPC.aiStyle = -1;
+            NPC.value = Item.buyPrice(30, 0, 0, 0);
+            NPC.boss = true;
+            for (int k = 0; k < NPC.buffImmune.Length; k++)
+            {
+                NPC.buffImmune[k] = true;
+            }
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
+            NPC.netAlways = true;
+            NPC.chaseable = true;
+            Music = MusicManagementSystem.MusicSlots["InfinityZero"];
+            NPC.HitSound = SoundID.NPCHit44;
+            NPC.DeathSound = new SoundStyle("AAModClassic/_Unreleased/Sounds/IZRoar");
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
@@ -90,7 +89,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
         {
             NPC.lifeMax = (int)(NPC.lifeMax * 0.8f * balance);
-            NPC.damage = (int)(NPC.damage * 1.1f); 
+            NPC.damage = (int)(NPC.damage * 1.1f);
         }
 
         public float[] customAI = new float[4];
@@ -171,7 +170,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         }
 
         public override void AI()
-		{
+        {
             NPC.timeLeft = 200;
             if (testime > 0)
                 testime--;
@@ -187,32 +186,32 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
 
             if (!Main.dedServ)
-			{
-				int ThreeQuartersHealth = NPC.lifeMax * (int).75f;
-				int HalfHealth = NPC.lifeMax * (int).5f;
-				int QuarterHealth = NPC.lifeMax * (int).25f;
-				
-				if(roarTimer > -1) roarTimer--;
-				if (NPC.life <= ThreeQuartersHealth && !roared[0])
-				{
-					roared[0] = true;
-					roarTimer = 200;
-				}
-				if (NPC.life <= HalfHealth && !roared[1])
-				{
-					roared[1] = true;
-					roarTimer = 200;
-				}
-				if (NPC.life <= QuarterHealth && !roared[2])
-				{
-					roared[2] = true;
-					roarTimer = 200;
-				}
-				if (roarTimer == 180)
-				{
-					SoundEngine.PlaySound(new SoundStyle("AAModClassic/_Unreleased/Sounds/IZRoar"), NPC.Center);
-				}
-			}
+            {
+                int ThreeQuartersHealth = NPC.lifeMax * (int).75f;
+                int HalfHealth = NPC.lifeMax * (int).5f;
+                int QuarterHealth = NPC.lifeMax * (int).25f;
+
+                if (roarTimer > -1) roarTimer--;
+                if (NPC.life <= ThreeQuartersHealth && !roared[0])
+                {
+                    roared[0] = true;
+                    roarTimer = 200;
+                }
+                if (NPC.life <= HalfHealth && !roared[1])
+                {
+                    roared[1] = true;
+                    roarTimer = 200;
+                }
+                if (NPC.life <= QuarterHealth && !roared[2])
+                {
+                    roared[2] = true;
+                    roarTimer = 200;
+                }
+                if (roarTimer == 180)
+                {
+                    SoundEngine.PlaySound(new SoundStyle("AAModClassic/_Unreleased/Sounds/IZRoar"), NPC.Center);
+                }
+            }
 
             Player player = Main.player[NPC.target];
             float movementMax = 1.5f;
@@ -276,7 +275,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 movementMax = MathHelper.Lerp(1f, 4f, Math.Min(1f, Math.Max(0f, Vector2.Distance(NPC.Center, player.Center) / 1000f)));
             }
 
-			//customAI is used here because the original ai and localAI are both used elsewhere. It is synced above.
+            //customAI is used here because the original ai and localAI are both used elsewhere. It is synced above.
             BaseAI.AIElemental(NPC, ref customAI, false, 0, false, false, 800f, 600f, 60, movementMax);
             if (!ZerosSpawned)
             {
@@ -306,7 +305,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 ZerosSpawned = true;
                 NPC.netUpdate = true;
             }
-            
+
             if (testime == 0 && (Zero1 == null || Zero2 == null || Zero3 == null || Zero4 == null || Zero5 == null || Zero6 == null || !Zero1.active || !Zero2.active || !Zero3.active || !Zero4.active || !Zero5.active || !Zero6.active))
             {
                 Reseting = true;
@@ -321,8 +320,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         }
 
         public override void OnKill()
-		{
-            if(!NPC.AnyNPCs(ModContent.NPCType<Oblivion>()))
+        {
+            if (!NPC.AnyNPCs(ModContent.NPCType<Oblivion>()))
                 NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Oblivion>(), 0, 0);
             ZAAPlayer.IZKills += 1;
 
@@ -374,23 +373,23 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         }
 
         public override void BossLoot(ref int potionType)
-		{
-			potionType = ModContent.ItemType<GrandHealingPotion>();
+        {
+            potionType = ModContent.ItemType<GrandHealingPotion>();
         }
-		
-		public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
-		{
-			scale = 3f;
-			return null;
-		}
-		
-		public override bool CanHitPlayer(Player target, ref int cooldownSlot)
-		{
-			return false;
-		}
-		
+
+        public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
+        {
+            scale = 3f;
+            return null;
+        }
+
+        public override bool CanHitPlayer(Player target, ref int cooldownSlot)
+        {
+            return false;
+        }
+
         public override void HitEffect(NPC.HitInfo hit)
-		{
+        {
             if (OpenCore)
                 NPC.defense = 50;
             else if (NPC.life <= NPC.lifeMax / 10)
@@ -439,12 +438,12 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 }
                 if (CoreTimer <= 0)
                 {
-                    if(Main.netMode != NetmodeID.MultiplayerClient)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Zeroes.Revived"), new Color(158, 3, 32));
                     NPC.ai[3] = 0;
                     OpenCore = false;
                     CoreTimer = 600;
-                    foreach(NPC n in Main.npc)
+                    foreach (NPC n in Main.npc)
                     {
                         if (n.ModNPC == null || n.ModNPC is not InfinityZeroHand1 hand)
                             continue;
@@ -457,8 +456,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 Music = MusicManagementSystem.MusicSlots["Superancients_Pinch"];
             }
-			if (NPC.life <= 0)
-			{
+            if (NPC.life <= 0)
+            {
                 if (!Main.dedServ)
                 {
                     float randomSpread = Main.rand.Next(-50, 50) / 100;
@@ -470,31 +469,31 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 }
 
                 NPC.position.X = NPC.position.X + NPC.width / 2;
-				NPC.position.Y = NPC.position.Y + NPC.height / 2;
-				NPC.width = 400;
-				NPC.height = 350;
-				NPC.position.X = NPC.position.X - NPC.width / 2;
-				NPC.position.Y = NPC.position.Y - NPC.height / 2;
-				for (int num621 = 0; num621 < 60; num621++)
-				{
-					int num622 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.VoidDust_Unreleased>(), 0f, 0f, 100, default, 2f);
-					Main.dust[num622].velocity *= 3f;
-					if (Main.rand.NextBool(2))
-					{
-						Main.dust[num622].scale = 0.5f;
-						Main.dust[num622].fadeIn = 1f + Main.rand.Next(10) * 0.1f;
-					}
-				}
-				for (int num623 = 0; num623 < 90; num623++)
-				{
-					int num624 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.VoidDust_Unreleased>(), 0f, 0f, 100, default, 3f);
-					Main.dust[num624].noGravity = true;
-					Main.dust[num624].velocity *= 5f;
-					num624 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.CopperCoin, 0f, 0f, 100, default, 2f);
-					Main.dust[num624].velocity *= 2f;
-				}
-			}
-		}
+                NPC.position.Y = NPC.position.Y + NPC.height / 2;
+                NPC.width = 400;
+                NPC.height = 350;
+                NPC.position.X = NPC.position.X - NPC.width / 2;
+                NPC.position.Y = NPC.position.Y - NPC.height / 2;
+                for (int num621 = 0; num621 < 60; num621++)
+                {
+                    int num622 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.VoidDust_Unreleased>(), 0f, 0f, 100, default, 2f);
+                    Main.dust[num622].velocity *= 3f;
+                    if (Main.rand.NextBool(2))
+                    {
+                        Main.dust[num622].scale = 0.5f;
+                        Main.dust[num622].fadeIn = 1f + Main.rand.Next(10) * 0.1f;
+                    }
+                }
+                for (int num623 = 0; num623 < 90; num623++)
+                {
+                    int num624 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, ModContent.DustType<Dusts.VoidDust_Unreleased>(), 0f, 0f, 100, default, 3f);
+                    Main.dust[num624].noGravity = true;
+                    Main.dust[num624].velocity *= 5f;
+                    num624 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.CopperCoin, 0f, 0f, 100, default, 2f);
+                    Main.dust[num624].velocity *= 2f;
+                }
+            }
+        }
 
         public static void DrawCore(SpriteBatch spriteBatch, string coreTex, NPC core, Color drawColor, bool DrawUnder)
         {
@@ -511,9 +510,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public static Color GetRedAlpha() => new Color(233, 53, 53) * (Main.mouseTextColor / 255f);
 
-		public static Vector2 GetConnectionPoint(int handType)
-		{
-			float offsetX = 0, offsetY = 0;
+        public static Vector2 GetConnectionPoint(int handType)
+        {
+            float offsetX = 0, offsetY = 0;
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
                 switch (handType)
@@ -538,10 +537,10 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     case 5: offsetX = 46; offsetY = -20; break;
                 }
             }
-			offsetX *= 2f;
-			offsetY *= 2f;
-			return new Vector2(offsetX, offsetY);
-		}
+            offsetX *= 2f;
+            offsetY *= 2f;
+            return new Vector2(offsetX, offsetY);
+        }
 
         public override void DrawBehind(int index)
         {
@@ -610,15 +609,15 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            if (auraDirection) 
-            { 
-                auraPercent += 0.1f; 
-                auraDirection = auraPercent < 1f; 
+            if (auraDirection)
+            {
+                auraPercent += 0.1f;
+                auraDirection = auraPercent < 1f;
             }
-            else 
-            { 
-                auraPercent -= 0.1f; 
-                auraDirection = auraPercent <= 0f; 
+            else
+            {
+                auraPercent -= 0.1f;
+                auraDirection = auraPercent <= 0f;
             }
 
             bool unofficialWorld = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
@@ -634,7 +633,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 spriteBatch.Draw(texture, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, unofficialWorld ? NPC.frame.Size() * 0.5f : Vector2.Zero, NPC.scale, 0, 0);
                 BaseDrawing.DrawAura(spriteBatch, glow, 0, NPC, auraPercent, 1f, 0f, 0f, GetRedAlpha(), unofficialWorld);
                 BaseDrawing.DrawTexture(spriteBatch, glow, 0, NPC, GetRedAlpha(), unofficialWorld);
-                if(unofficialWorld)
+                if (unofficialWorld)
                 {
                     if (CoreFrame != -1)
                     {
@@ -678,13 +677,13 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             //bottom arms
             DrawZero(spriteBatch, Zero6);
-	        DrawZero(spriteBatch, Zero3);	
+            DrawZero(spriteBatch, Zero3);
             //middle arms
-	        DrawZero(spriteBatch, Zero5);		
+            DrawZero(spriteBatch, Zero5);
             DrawZero(spriteBatch, Zero2);
-			//top arms
-			DrawZero(spriteBatch, Zero4);		
-			DrawZero(spriteBatch, Zero1);
+            //top arms
+            DrawZero(spriteBatch, Zero4);
+            DrawZero(spriteBatch, Zero1);
             return false;
         }
 
@@ -694,7 +693,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         {
             if (Zero != null && Zero.active && Zero.ModNPC != null && (Zero.ModNPC is InfinityZeroHand1 || Zero.ModNPC is InfinityZeroHand2))
             {
-				InfinityZeroHand1 handNPC = (InfinityZeroHand1)Zero.ModNPC;
+                InfinityZeroHand1 handNPC = (InfinityZeroHand1)Zero.ModNPC;
                 Vector2 start = new Vector2(NPC.Center.X, NPC.Center.Y) + GetConnectionPoint(handNPC.HandType);
                 Vector2 end = Zero.Center;
                 if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
@@ -745,5 +744,5 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
         }
     }
-	
+
 }

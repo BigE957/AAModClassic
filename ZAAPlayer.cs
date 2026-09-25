@@ -6,7 +6,6 @@ using AAModClassic._Content._Dev.__Hardmode.Items.Mounts;
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Tools;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
-using AAModClassic._Content._EX._PostMoonlord.Items.Accessories;
 using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using AAModClassic._Content._Misc.___PreHardmode.Items.Accessories.Vanity;
 using AAModClassic._Content._Misc.___PreHardmode.Items.Consumables;
@@ -16,15 +15,10 @@ using AAModClassic._Content._Tinker._PostMoonlord.Items.Accessories;
 using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic._Content.Bunny._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Armor;
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
 using AAModClassic._Content.Chaos.Buffs;
-using AAModClassic._Content.Desert.___PreHardmode.Items.Tiles.Decoration;
-using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
-using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Accessories;
 using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
-using AAModClassic._Content.Hell.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Hoard.World.Biomes;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Quest;
@@ -44,19 +38,15 @@ using AAModClassic._Content.Mire.__Hardmode.Items.Tiles.Functional;
 using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Mire.__Hardmode.NPCs._Underground;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
-using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
-using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._Content.RedMushroom.World.Biomes;
-using AAModClassic._Content.Snow.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
 using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
 using AAModClassic._Content.Stars.World.Biomes;
 using AAModClassic._Content.SunkenShip.__PreHardmode.Items.Tools;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._Content.Terrarium.World.Biomes;
-using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Accessories;
 using AAModClassic._Content.Void.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Void.___PreHardmode.Items.Quest;
 using AAModClassic._Content.Void.__Hardmode.Items.Consumables;
@@ -66,8 +56,6 @@ using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Unofficial.Content._Dev.__Hardmode.Items.Consumables;
 using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
-using AAModClassic._Unreleased.Content.Void.Buffs;
-using AAModClassic.Achievements;
 using AAModClassic.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Dusts;
@@ -81,9 +69,7 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Reflection;
-using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
@@ -331,7 +317,7 @@ namespace AAModClassic
             ImpServant = false;
             ImpSlave = false;
             MoonBee = false;
-        
+
             enderMinion = false;
             enderMinionEX = false;
             BabyPhoenix = false;
@@ -459,14 +445,14 @@ namespace AAModClassic
 
         #region Hit Effects
 
-        public override void ModifyHitByNPC(NPC npc, ref Player.HurtModifiers modifiers) 
-		{
-			if (npc.HasBuff(ModContent.BuffType<Lifeline_ForsakenWeak>()))
-			{
+        public override void ModifyHitByNPC(NPC npc, ref Player.HurtModifiers modifiers)
+        {
+            if (npc.HasBuff(ModContent.BuffType<Lifeline_ForsakenWeak>()))
+            {
                 modifiers.FinalDamage.Flat -= modifiers.FinalDamage.Flat / 5;
-			}
+            }
 
-            if(luckythorns)
+            if (luckythorns)
             {
                 if (Player.whoAmI == Main.myPlayer && !Player.immune && !npc.dontTakeDamage)
                 {
@@ -479,40 +465,40 @@ namespace AAModClassic
                     Player.ApplyDamageToNPC(npc, RDamage, 10f, -direc, false);
                 }
             }
-		}
+        }
 
         public override void OnHitNPCWithProj(Projectile proj, NPC target, NPC.HitInfo hit, int damageDone)/* tModPorter If you don't need the Projectile, consider using OnHitNPC instead */
         {
             if (target.HasBuff(ModContent.BuffType<Lifeline_Forsaken>()) && proj.type == ModContent.ProjectileType<Lifeline_EnchancedMummyArrow>())
             {
-				float num1 = 9f;
-				Vector2 vector2 = new Vector2(Player.position.X + Player.width * 0.5f, Player.position.Y + Player.height * 0.5f);
-				float f1 = target.Center.X - vector2.X;
-				float f2 = target.Center.Y - vector2.Y;
-				float num4 = (float)Math.Sqrt(f1 * (double)f1 + f2 * (double)f2);
-				float num5;
-				if (float.IsNaN(f1) && float.IsNaN(f2) || f1 == 0.0 && f2 == 0.0)
-				{
-					f1 = Player.direction;
-					f2 = 0.0f;
-					num5 = num1;
-				}
-				else
-					num5 = num1 / num4;
-				float SpeedX = f1 * num5;
-				float SpeedY = f2 * num5;
+                float num1 = 9f;
+                Vector2 vector2 = new Vector2(Player.position.X + Player.width * 0.5f, Player.position.Y + Player.height * 0.5f);
+                float f1 = target.Center.X - vector2.X;
+                float f2 = target.Center.Y - vector2.Y;
+                float num4 = (float)Math.Sqrt(f1 * (double)f1 + f2 * (double)f2);
+                float num5;
+                if (float.IsNaN(f1) && float.IsNaN(f2) || f1 == 0.0 && f2 == 0.0)
+                {
+                    f1 = Player.direction;
+                    f2 = 0.0f;
+                    num5 = num1;
+                }
+                else
+                    num5 = num1 / num4;
+                float SpeedX = f1 * num5;
+                float SpeedY = f2 * num5;
                 Vector2 velocity = new Vector2(SpeedX, SpeedY);
 
                 float numberProjectiles = 3;
-				float rotation = MathHelper.ToRadians(3);
-				vector2 += Vector2.Normalize(velocity) * 45f;
-				for (int i = 0; i < numberProjectiles; i++)
-				{
-					Vector2 perturbedSpeed = velocity.RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * 1f;
-					Projectile.NewProjectile(target.GetSource_OnHurt(proj), vector2.X, vector2.Y, perturbedSpeed.X*2, perturbedSpeed.Y*2, ModContent.ProjectileType<Lifeline_ForsakenArrow>(), damageDone / 2, proj.knockBack, Player.whoAmI);
-				}
-				target.buffImmune[ModContent.BuffType<Lifeline_Forsaken>()] = true;
-			}
+                float rotation = MathHelper.ToRadians(3);
+                vector2 += Vector2.Normalize(velocity) * 45f;
+                for (int i = 0; i < numberProjectiles; i++)
+                {
+                    Vector2 perturbedSpeed = velocity.RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * 1f;
+                    Projectile.NewProjectile(target.GetSource_OnHurt(proj), vector2.X, vector2.Y, perturbedSpeed.X * 2, perturbedSpeed.Y * 2, ModContent.ProjectileType<Lifeline_ForsakenArrow>(), damageDone / 2, proj.knockBack, Player.whoAmI);
+                }
+                target.buffImmune[ModContent.BuffType<Lifeline_Forsaken>()] = true;
+            }
         }
 
         public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo)
@@ -695,7 +681,7 @@ namespace AAModClassic
 
             if (Player.GetModPlayer<ZAAPlayer>().ZoneInferno)
             {
-                if(attempt.legendary)
+                if (attempt.legendary)
                 {
                     if (!Main.hardMode || Main.rand.NextBool())
                         itemDrop = ModContent.ItemType<SharpeningLavaFish>();
@@ -781,7 +767,7 @@ namespace AAModClassic
             }
             else
             {
-                TextureAssets.Sun = ModContent.Request<Texture2D>("Terraria/Images/Sun");;
+                TextureAssets.Sun = ModContent.Request<Texture2D>("Terraria/Images/Sun"); ;
                 TextureAssets.Sun3 = ModContent.Request<Texture2D>("Terraria/Images/Sun3");
             }
 
@@ -1010,7 +996,7 @@ namespace AAModClassic
             if (CrasyLucky)
             {
                 Main.rand = new AAFakeRand();
-                if(Main.raining)
+                if (Main.raining)
                 {
                     Main.rainTime = 300;
                     Main.maxRaining = .7f;
@@ -1030,72 +1016,72 @@ namespace AAModClassic
         public void SpecialQuickHeal()
         {
             if (Player.noItems)
-			{
-				return;
-			}
+            {
+                return;
+            }
             Item item = new Item();
             for (int i = 0; i < 58; i++)
-			{
+            {
                 item = Player.inventory[i];
-				if (item.type == ModContent.ItemType<RoninPotion>() && ItemLoader.CanUseItem(item, Player))
-				{
+                if (item.type == ModContent.ItemType<RoninPotion>() && ItemLoader.CanUseItem(item, Player))
+                {
                     break;
                 }
             }
-			if (item == null)
-			{
-				return;
-			}
-			if (Player.potionDelay > 0 || (Player.statLife == Player.statLifeMax2 && item.type != ModContent.ItemType<RoninPotion>()))
-			{
-				return;
-			}
-			SoundEngine.PlaySound(item.UseSound, Player.position);
-			if (item.potion)
-			{
-				if (item.type == ItemID.RestorationPotion)
-				{
-					Player.potionDelay = Player.restorationDelayTime;
-					Player.AddBuff(BuffID.PotionSickness, Player.potionDelay, true);
-				}
-				else
-				{
-					Player.potionDelay = Player.potionDelayTime;
-					Player.AddBuff(BuffID.PotionSickness, Player.potionDelay, true);
-				}
-			}
-			ItemLoader.UseItem(item, Player);
-			Player.statLife += item.healLife;
-			Player.statMana += item.healMana;
-			if (Player.statLife > Player.statLifeMax2)
-			{
-				Player.statLife = Player.statLifeMax2;
-			}
-			if (Player.statMana > Player.statManaMax2)
-			{
-				Player.statMana = Player.statManaMax2;
-			}
-			if (item.healLife > 0 && Main.myPlayer == Player.whoAmI)
-			{
-				Player.HealEffect(item.healLife, true);
-			}
-			if (item.healMana > 0)
-			{
-				Player.AddBuff(BuffID.ManaSickness, Player.manaSickTime, true);
-				if (Main.myPlayer == Player.whoAmI)
-				{
-					Player.ManaEffect(item.healMana);
-				}
-			}
-			if (ItemLoader.ConsumeItem(item, Player))
-			{
-				item.stack--;
-			}
-			if (item.stack <= 0)
-			{
-				item.TurnToAir();
-			}
-			Recipe.FindRecipes();
+            if (item == null)
+            {
+                return;
+            }
+            if (Player.potionDelay > 0 || (Player.statLife == Player.statLifeMax2 && item.type != ModContent.ItemType<RoninPotion>()))
+            {
+                return;
+            }
+            SoundEngine.PlaySound(item.UseSound, Player.position);
+            if (item.potion)
+            {
+                if (item.type == ItemID.RestorationPotion)
+                {
+                    Player.potionDelay = Player.restorationDelayTime;
+                    Player.AddBuff(BuffID.PotionSickness, Player.potionDelay, true);
+                }
+                else
+                {
+                    Player.potionDelay = Player.potionDelayTime;
+                    Player.AddBuff(BuffID.PotionSickness, Player.potionDelay, true);
+                }
+            }
+            ItemLoader.UseItem(item, Player);
+            Player.statLife += item.healLife;
+            Player.statMana += item.healMana;
+            if (Player.statLife > Player.statLifeMax2)
+            {
+                Player.statLife = Player.statLifeMax2;
+            }
+            if (Player.statMana > Player.statManaMax2)
+            {
+                Player.statMana = Player.statManaMax2;
+            }
+            if (item.healLife > 0 && Main.myPlayer == Player.whoAmI)
+            {
+                Player.HealEffect(item.healLife, true);
+            }
+            if (item.healMana > 0)
+            {
+                Player.AddBuff(BuffID.ManaSickness, Player.manaSickTime, true);
+                if (Main.myPlayer == Player.whoAmI)
+                {
+                    Player.ManaEffect(item.healMana);
+                }
+            }
+            if (ItemLoader.ConsumeItem(item, Player))
+            {
+                item.stack--;
+            }
+            if (item.stack <= 0)
+            {
+                item.TurnToAir();
+            }
+            Recipe.FindRecipes();
         }
 
         public override void PostUpdateRunSpeeds()
@@ -1246,7 +1232,7 @@ namespace AAModClassic
             {
                 return;
             }
-            
+
             if ((player.GetModPlayer<ZAAPlayer>().ZoneInferno || player.GetModPlayer<ZAAPlayer>().ZoneRisingSunPagoda) && player.GetModPlayer<ZAAPlayer>().AshCurse)
             {
                 if (Main.LocalPlayer.position.Y < Main.worldSurface * 16 && (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) || Framing.GetTileSafely(player.Center.ToTileCoordinates()).WallType == WallID.None))
@@ -1466,7 +1452,7 @@ namespace AAModClassic
                         break;
                     case 1:
                         Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<BigEBag>());
-                        
+
                         if (dropType >= 4)
                             Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<ExquisiteExtravagantGreatblade>());
                         else if (dropType >= 3)
@@ -1474,7 +1460,7 @@ namespace AAModClassic
 
                         if (dropType >= 4)
                             Player.QuickSpawnItem(Player.GetSource_GiftOrReward(), ModContent.ItemType<ExtravagantTerratool>());
-                        
+
                         spawnedDevItems = true;
                         break;
                     case 2:
@@ -2028,7 +2014,7 @@ namespace AAModClassic
 
                 Player.lifeRegenTime = 0;
                 Player.lifeRegen -= 8;
-                
+
             }
 
             if (riftbent)
@@ -2100,7 +2086,7 @@ namespace AAModClassic
         }
 
         public override void ModifyHurt(ref Player.HurtModifiers modifiers)
-		{
+        {
             if (Ronin)
             {
                 modifiers.Cancel();
@@ -2659,7 +2645,7 @@ namespace AAModClassic
             public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.HeldItem);
             protected override void Draw(ref PlayerDrawSet drawInfo)
             {
-                if(drawInfo.shadow != 0)
+                if (drawInfo.shadow != 0)
                 {
                     return;
                 }
@@ -2743,7 +2729,7 @@ namespace AAModClassic
                 }
             }
         }
-        
+
         public class GlowAfterShield : PlayerDrawLayer// = new PlayerDrawLayer("AAMod", "glAfterShield", PlayerDrawLayer.ShieldAcc, delegate (PlayerDrawSet drawInfo)
         {
             public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.HeldItem);
@@ -2813,7 +2799,7 @@ namespace AAModClassic
                 {
                     string texturePath = Main.dayTime ? FilePathUtils.TexturePath<Naitokurosu>() + "_Neck_Glow" : FilePathUtils.TexturePath<Naitokurosu>() + "A_Neck_Glow";
                     BaseDrawing.DrawPlayerTexture(drawInfo, ModContent.Request<Texture2D>(texturePath).Value, drawInfo.cShield, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(Color.White, drawInfo.shadow), drawPlayer.bodyFrame);
-                } 
+                }
             }
         }
 
@@ -2832,7 +2818,7 @@ namespace AAModClassic
                     Color GlowColor = WorldGen.crimson ? AAColor.Ichor : AAColor.CursedInferno;
 
                     BaseDrawing.DrawPlayerTexture(drawInfo, Glow, drawInfo.cHandOn, drawPlayer, drawInfo.Position, 1, 0f, 0f, drawPlayer.GetImmuneAlphaPure(GlowColor, drawInfo.shadow), drawPlayer.bodyFrame);
-                } 
+                }
             }
         }
 
@@ -2841,7 +2827,7 @@ namespace AAModClassic
             public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.OffhandAcc);
 
             protected override void Draw(ref PlayerDrawSet drawInfo)
-            {  
+            {
                 Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
 
@@ -2970,7 +2956,7 @@ namespace AAModClassic
             public override Position GetDefaultPosition() => PlayerDrawLayers.AfterLastVanillaLayer;
 
             protected override void Draw(ref PlayerDrawSet drawInfo)
-            { 
+            {
                 Mod mod = AAMod.instance;
                 Player drawPlayer = drawInfo.drawPlayer;
 
@@ -2985,7 +2971,7 @@ namespace AAModClassic
                     BaseDrawing.DrawTexture(Main.spriteBatch, Shield, 0, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<ZAAPlayer>().ShieldScale, 0, 0, 1, new Rectangle(0, 0, Shield.Width, Shield.Height), AAColor.ZeroShield, true);
 
                     Texture2D Ring = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/___PreHardmode/Items/_BossSagittarius/Accessories/SagittariusShield_Ring").Value;
-                    BaseDrawing.DrawTexture(Main.spriteBatch, Ring, 0, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<ZAAPlayer>().ShieldScale, drawPlayer.GetModPlayer<ZAAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, Ring.Width, Ring.Height), BaseDrawing.GetLightColor(new Vector2(drawPlayer.position.X, drawPlayer.position.Y)), true);
+                    BaseDrawing.DrawTexture(Main.spriteBatch, Ring, 0, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<ZAAPlayer>().ShieldScale, drawPlayer.GetModPlayer<ZAAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, Ring.Width, Ring.Height), Lighting.GetColor((new Vector2(drawPlayer.position.X, drawPlayer.position.Y).ToTileCoordinates())), true);
 
                     Texture2D RingGlow = ModContent.Request<Texture2D>("AAModClassic/_Content/Void/___PreHardmode/Items/_BossSagittarius/Accessories/SagittariusShield_RingActive").Value;
                     BaseDrawing.DrawTexture(Main.spriteBatch, RingGlow, 0, drawPlayer.position, drawPlayer.width, drawPlayer.height, drawPlayer.GetModPlayer<ZAAPlayer>().ShieldScale, drawPlayer.GetModPlayer<ZAAPlayer>().RingRotation, 0, 1, new Rectangle(0, 0, RingGlow.Width, RingGlow.Height), ColorUtils.COLOR_GLOWPULSE, true);

@@ -1,7 +1,6 @@
 ﻿using AAModClassic.Base;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -40,7 +39,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials
         }
 
         public override void AddRecipes()
-        {                                                   
+        {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<GlowingMushium>(), 3);              //example of how to craft with a modded item
             recipe.AddTile(TileID.Furnaces);

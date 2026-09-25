@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandard;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

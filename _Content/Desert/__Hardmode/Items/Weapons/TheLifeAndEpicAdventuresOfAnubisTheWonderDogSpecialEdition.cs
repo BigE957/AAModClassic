@@ -1,6 +1,5 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,32 +11,32 @@ namespace AAModClassic._Content.Desert.__Hardmode.Items.Weapons
         public new string LocalizationCategory => "Items.Weapons.Magic";
         public override void SetDefaults()
         {
-            Item.damage = 130;                        
-            Item.DamageType = DamageClass.Magic;                     
+            Item.damage = 130;
+            Item.DamageType = DamageClass.Magic;
             Item.width = 24;
             Item.height = 28;
             Item.useTime = 90;
             Item.useAnimation = 90;
-            Item.useStyle = ItemUseStyleID.Shoot;        
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.noUseGraphic = true;
             Item.knockBack = 8;
-            Item.mana = 20;             
-            Item.UseSound = SoundID.Item21;            
+            Item.mana = 20;
+            Item.UseSound = SoundID.Item21;
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition_BlockHorizontal>();  
+            Item.shoot = ModContent.ProjectileType<TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition_BlockHorizontal>();
             Item.shootSpeed = 11f;
             Item.rare = ItemRarityID.Yellow;
-        }   
+        }
 
         public override void SetStaticDefaults()
         {
-          /* DisplayName.SetDefault(
-@"The Life And Epic Adventures
-of Anubis the Wonder Dog
-~Special Edition~"); */
-          /* Tooltip.SetDefault(@"Left click to summon blocks that crush at your cursor's position Horizontally
-Right click for vertical blocks instead"); */
+            /* DisplayName.SetDefault(
+  @"The Life And Epic Adventures
+  of Anubis the Wonder Dog
+  ~Special Edition~"); */
+            /* Tooltip.SetDefault(@"Left click to summon blocks that crush at your cursor's position Horizontally
+  Right click for vertical blocks instead"); */
         }
 
         public override bool AltFunctionUse(Player player)

@@ -1,8 +1,7 @@
-﻿using System;
-using AAModClassic._Content.Inferno.Buffs;
+﻿using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;

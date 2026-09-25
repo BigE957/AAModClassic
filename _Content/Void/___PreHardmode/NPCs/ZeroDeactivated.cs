@@ -10,7 +10,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System.Linq;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
@@ -20,8 +19,8 @@ using Terraria.ModLoader.IO;
 
 namespace AAModClassic._Content.Void.___PreHardmode.NPCs
 {
-	public class ZeroDeactivated : ModNPC, IBestiaryCritterNPC
-	{
+    public class ZeroDeactivated : ModNPC, IBestiaryCritterNPC
+    {
         public static int ZeroShieldStrength = 0;
 
         public static Asset<Texture2D> Glowmask;
@@ -30,27 +29,27 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
         public static Asset<Texture2D> ShieldRingGlowmask => Zero.ShieldRingGlowmask;
 
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Strange Machine");
 
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
-		public override void SetDefaults()
-		{
-			NPC.aiStyle = -1;
-			NPC.lifeMax = 20000;
-			NPC.damage = 0;
-			NPC.defense = 20;
-			NPC.knockBackResist = 0f;
+        public override void SetDefaults()
+        {
+            NPC.aiStyle = -1;
+            NPC.lifeMax = 20000;
+            NPC.damage = 0;
+            NPC.defense = 20;
+            NPC.knockBackResist = 0f;
             NPC.width = 206;
             NPC.height = 208;
             NPC.HitSound = SoundID.NPCHit1;
-			NPC.DeathSound = SoundID.NPCDeath1;
-			NPC.noGravity = true;
-			NPC.noTileCollide = true;
-			NPC.alpha = 0;
-			NPC.dontTakeDamage = true;
-			NPC.boss = false;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.noGravity = true;
+            NPC.noTileCollide = true;
+            NPC.alpha = 0;
+            NPC.dontTakeDamage = true;
+            NPC.boss = false;
             NPC.npcSlots = 0;
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
@@ -64,13 +63,13 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
         }
 
         public override bool CheckActive()
-		{
-			return false;
-		}		
+        {
+            return false;
+        }
 
-		public override void AI()
-		{
-            if(AAWorld.downedZero || NPC.AnyNPCs(ModContent.NPCType<Zero>()) || NPC.AnyNPCs(ModContent.NPCType<ZeroA>()))
+        public override void AI()
+        {
+            if (AAWorld.downedZero || NPC.AnyNPCs(ModContent.NPCType<Zero>()) || NPC.AnyNPCs(ModContent.NPCType<ZeroA>()))
             {
                 NPC.active = false;
                 return;
@@ -83,24 +82,25 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
                 return;
             }
             NPC.timeLeft = 10;
-			if(NPC.ai[0] == 0)
-			{
-				NPC.velocity.Y += 0.003f;	
-				if(NPC.velocity.Y > .3f)
-				{
-					NPC.ai[0] = 1f;
-					NPC.netUpdate = true;
-				}	
-			}else
-			if(NPC.ai[0] == 1)
-			{
-				NPC.velocity.Y -= 0.003f;	
-				if(NPC.velocity.Y < -.3f)
-				{
-					NPC.ai[0] = 0f;
-					NPC.netUpdate = true;
-				}				
-			}
+            if (NPC.ai[0] == 0)
+            {
+                NPC.velocity.Y += 0.003f;
+                if (NPC.velocity.Y > .3f)
+                {
+                    NPC.ai[0] = 1f;
+                    NPC.netUpdate = true;
+                }
+            }
+            else
+                if (NPC.ai[0] == 1)
+                {
+                    NPC.velocity.Y -= 0.003f;
+                    if (NPC.velocity.Y < -.3f)
+                    {
+                        NPC.ai[0] = 0f;
+                        NPC.netUpdate = true;
+                    }
+                }
         }
 
         public float auraPercent = 0f;
@@ -130,7 +130,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
             BaseDrawing.DrawTexture(spriteBatch, ShieldTex.Value, 0, NPC.position, NPC.width, NPC.height, ShieldScale, 0, 0, 1, ShieldTex.Frame(), GetGlowAlpha(), true);
             BaseDrawing.DrawTexture(spriteBatch, ShieldRing.Value, 0, NPC.position, NPC.width, NPC.height, 1, RingRoatation, 0, 1, ShieldRing.Frame(), drawColor, true);
             BaseDrawing.DrawTexture(spriteBatch, ShieldRingGlowmask.Value, 0, NPC.position, NPC.width, NPC.height, 1, RingRoatation, 0, 1, ShieldRingGlowmask.Frame(), AAColor.COLOR_WHITEFADE1, true);
-            
+
             return false;
         }
 
@@ -168,18 +168,18 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
             {
                 ZX = tag.GetInt("ZX");
                 ZY = tag.GetInt("ZY");
-				if(!AAWorld.downedZero)			
-					NPC.NewNPC(Entity.GetSource_NaturalSpawn(), ZX, ZY, ModContent.NPCType<ZeroDeactivated>());
+                if (!AAWorld.downedZero)
+                    NPC.NewNPC(Entity.GetSource_NaturalSpawn(), ZX, ZY, ModContent.NPCType<ZeroDeactivated>());
             }
         }
 
         public override void PostUpdateWorld()
         {
-            if (Main.netMode != NetmodeID.MultiplayerClient && 
-                !AAWorld.downedZero && 
+            if (Main.netMode != NetmodeID.MultiplayerClient &&
+                !AAWorld.downedZero &&
                 !NPC.AnyNPCs(ModContent.NPCType<ZeroTransition>()) &&
-                !NPC.AnyNPCs(ModContent.NPCType<Zero>()) && 
-                !NPC.AnyNPCs(ModContent.NPCType<ZeroA>()) && 
+                !NPC.AnyNPCs(ModContent.NPCType<Zero>()) &&
+                !NPC.AnyNPCs(ModContent.NPCType<ZeroA>()) &&
                 !Main.projectile.Any(p => p.active && p.type == ModContent.ProjectileType<ZeroDeath1>()) &&
                 !Main.projectile.Any(p => p.active && p.type == ModContent.ProjectileType<ZeroDeath2>()))
             {
@@ -187,29 +187,29 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
             }
         }
 
-		public static void Reset()
-		{
-			ZX = -1;
-			ZY = -1;
-		}
+        public static void Reset()
+        {
+            ZX = -1;
+            ZY = -1;
+        }
 
         public void SpawnDeactivatedZero()
         {
             int VoidHeight = WorldGenUtils.GetWorldSize() == 1 ? 110 : 140;
 
             Point spawnTilePos = new((Main.maxTilesX / 15 * 14) + (Main.maxTilesX / 15 / 2) - 100, VoidHeight);
-			Vector2 spawnPos = new(spawnTilePos.X * 16, spawnTilePos.Y * 16);
-			bool anyZerosExist = NPC.AnyNPCs(ModContent.NPCType<ZeroDeactivated>()) || NPC.AnyNPCs(ModContent.NPCType<Zero>()) || NPC.AnyNPCs(ModContent.NPCType<ZeroA>());			
-			if (!anyZerosExist)
-			{
+            Vector2 spawnPos = new(spawnTilePos.X * 16, spawnTilePos.Y * 16);
+            bool anyZerosExist = NPC.AnyNPCs(ModContent.NPCType<ZeroDeactivated>()) || NPC.AnyNPCs(ModContent.NPCType<Zero>()) || NPC.AnyNPCs(ModContent.NPCType<ZeroA>());
+            if (!anyZerosExist)
+            {
                 int whoAmI = NPC.NewNPC(Entity.GetSource_NaturalSpawn(), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<ZeroDeactivated>());
                 ZX = (int)spawnPos.X;
-				ZY = (int)spawnPos.Y;				
-				if (Main.netMode == NetmodeID.Server && whoAmI != -1 && whoAmI < 200)
-				{					
-					NetMessage.SendData(MessageID.SyncNPC, number: whoAmI);
-				}			
-			}
+                ZY = (int)spawnPos.Y;
+                if (Main.netMode == NetmodeID.Server && whoAmI != -1 && whoAmI < 200)
+                {
+                    NetMessage.SendData(MessageID.SyncNPC, number: whoAmI);
+                }
+            }
         }
     }
 }

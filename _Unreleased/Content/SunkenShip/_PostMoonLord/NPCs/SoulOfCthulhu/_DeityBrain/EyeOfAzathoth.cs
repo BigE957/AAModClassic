@@ -7,7 +7,6 @@ using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -50,7 +49,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             if (body == -1)
             {
                 int npcID = NPC.FindFirstNPC(ModContent.NPCType<DeityBrain>());
-                if (npcID >= 0) 
+                if (npcID >= 0)
                     body = npcID;
             }
             if (body == -1)
@@ -62,9 +61,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.target = brain.target;
             Player targetPlayer = Main.player[NPC.target];
 
-            if (brain == null || brain.life <= 0 || !brain.active || brain.type != ModContent.NPCType<DeityBrain>()) 
+            if (brain == null || brain.life <= 0 || !brain.active || brain.type != ModContent.NPCType<DeityBrain>())
             {
-                BaseAI.KillNPCWithLoot(NPC); 
+                BaseAI.KillNPCWithLoot(NPC);
                 return;
             }
 
@@ -89,7 +88,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             bool outer = NPC.ai[0] % 2 == 0;
             RotValue = (NPC.ai[0] * (MathHelper.TwoPi / EoACount)) + (NPC.ai[1] * (outer ? -0.025f : 0.04f));
             //rotValue += 0.05f;
-            while (RotValue > MathHelper.TwoPi) 
+            while (RotValue > MathHelper.TwoPi)
                 RotValue -= (float)Math.PI * 2f;
             int dist = outer ? 280 : 180;
             NPC.Center = BaseUtility.RotateVector(brain.Center, brain.Center + new Vector2(dist, 0f), RotValue);
@@ -103,7 +102,8 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
             int group = (int)NPC.ai[0] % 3;
             int bassAmt = unofficial ? 100 : 50;
-            bool canFire = group switch {
+            bool canFire = group switch
+            {
                 0 => NPC.ai[1] % (bassAmt * 3) == 0,
                 1 => NPC.ai[1] % (bassAmt * 2) == 0 && NPC.ai[1] % (bassAmt * 2) != 0,
                 _ => NPC.ai[1] % bassAmt == 0 && NPC.ai[1] % (bassAmt * 2) != 0 && NPC.ai[1] % (bassAmt * 3) != 0

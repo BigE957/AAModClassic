@@ -1,41 +1,37 @@
-﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
-using AAModClassic.UI.World;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class GoblinSlayersHelmet : EquipAbstract, ILocalizedModType
-	{
+    public class GoblinSlayersHelmet : EquipAbstract, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Armor.GoblinSlayers";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Goblin Slayer's Helm");
-			// Tooltip.SetDefault(@"'An immense hatred of Goblinkind haunts this helm'");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Goblin Slayer's Helm");
+            // Tooltip.SetDefault(@"'An immense hatred of Goblinkind haunts this helm'");
 
-		}
+        }
 
-		public override void SetDefaults()
-		{
-			Item.width = 26;
-			Item.height = 22;
-			Item.value = Item.sellPrice (0, 0, 5, 0);
-			Item.rare = ItemRarityID.Orange;
-			Item.defense = 6;
-		}
+        public override void SetDefaults()
+        {
+            Item.width = 26;
+            Item.height = 22;
+            Item.value = Item.sellPrice(0, 0, 5, 0);
+            Item.rare = ItemRarityID.Orange;
+            Item.defense = 6;
+        }
 
-		public override bool IsArmorSet(Item head, Item body, Item legs)
-		{
-			return body.type == ModContent.ItemType<GoblinSlayersChestplate>() && legs.type == ModContent.ItemType<GoblinSlayersLeggings>();
-		}
+        public override bool IsArmorSet(Item head, Item body, Item legs)
+        {
+            return body.type == ModContent.ItemType<GoblinSlayersChestplate>() && legs.type == ModContent.ItemType<GoblinSlayersLeggings>();
+        }
 
         public override void RegisterEquipEffects()
         {

@@ -1,20 +1,19 @@
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 {
     public class RajahRabbit_Carrot : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Carrot");
-		}
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Projectile.CloneDefaults(ProjectileID.WoodenArrowHostile);
-		}
+        }
 
         public override void OnKill(int timeleft)
         {

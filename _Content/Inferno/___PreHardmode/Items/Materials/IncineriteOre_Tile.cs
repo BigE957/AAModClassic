@@ -4,7 +4,6 @@ using AAModClassic.Globals;
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -18,19 +17,19 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Materials
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-			Main.tileMergeDirt[Type] = true;
+            Main.tileMergeDirt[Type] = true;
             Main.tileSpelunker[Type] = true;
-            Main.tileOreFinderPriority[Type] = 340; 
+            Main.tileOreFinderPriority[Type] = 340;
             Main.tileMerge[Type][ModContent.TileType<Torchstone_Tile>()] = true;
             Main.tileBlockLight[Type] = true;  //true for block to emit light
             Main.tileLighted[Type] = true;
             HitSound = SoundID.Tink;
-            RegisterItemDrop(ModContent.ItemType<IncineriteOre>());   
+            RegisterItemDrop(ModContent.ItemType<IncineriteOre>());
             DustType = ModContent.DustType<Dusts.IncineriteDust>();
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Incinerite Ore");
             AddMapEntry(new Color(204, 102, 0), name);
-			MinPick = 65;
+            MinPick = 65;
         }
 
 

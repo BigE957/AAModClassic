@@ -1,16 +1,12 @@
-﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
-using AAModClassic._Content.Void.World.Biomes;
+﻿using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base;
 using AAModClassic.Globals;
-using AAModClassic.UI.Core;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
-using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -58,7 +54,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 
         public override void AI()
         {
-            if(NPC.ai[0] ++ == 5)
+            if (NPC.ai[0]++ == 5)
             {
                 SpawnDust();
             }

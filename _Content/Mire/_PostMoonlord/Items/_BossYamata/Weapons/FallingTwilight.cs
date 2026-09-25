@@ -1,19 +1,16 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using System.Collections.Generic;
-using AAModClassic.Globals;
-using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
     public class FallingTwilight : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Ranged";
         public override void SetStaticDefaults()
         {
@@ -41,7 +38,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        
+
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             float numberProjectiles = 4;
@@ -49,7 +46,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             position += Vector2.Normalize(velocity) * -45f;
             for (int i = 0; i < numberProjectiles; i++)
             {
-                Vector2 projectileOffset = velocity.RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) *5f;
+                Vector2 projectileOffset = velocity.RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * 5f;
                 projectileOffset.X *= MathHelper.Lerp(0.8f, 1.2f, (float)Main.rand.NextDouble());
                 projectileOffset.Y *= MathHelper.Lerp(0.8f, 1.2f, (float)Main.rand.NextDouble());
                 Vector2 newSpeed = velocity * MathHelper.Lerp(0.8f, 1.2f, (float)Main.rand.NextDouble());

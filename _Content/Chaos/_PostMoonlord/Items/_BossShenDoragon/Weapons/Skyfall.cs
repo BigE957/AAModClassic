@@ -1,25 +1,21 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
+using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using System;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-using System;
-using System.Collections.Generic;
-using AAModClassic.Globals;
-using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons
 {
     public class Skyfall : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Ranged";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Skyfall");
@@ -46,7 +42,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapo
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
-        
+
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {

@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -28,18 +27,18 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             Projectile.minion = true;
             Projectile.minionSlots = 1f;
         }
-		
-		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
-		{
-			fallThrough = false;
-			return true;
-		}
-		
-		public override bool OnTileCollide(Vector2 oldVelocity)
-		{
-			return false;
-		}
-        
+
+        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
+        {
+            fallThrough = false;
+            return true;
+        }
+
+        public override bool OnTileCollide(Vector2 oldVelocity)
+        {
+            return false;
+        }
+
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
@@ -87,7 +86,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             }
             if (Projectile.ai[1] == 0f)
             {
-				Projectile.tileCollide = true;
+                Projectile.tileCollide = true;
                 int num36 = 500;
                 num36 += 40 * Projectile.minionPos;
                 if (Projectile.localAI[0] > 0f)

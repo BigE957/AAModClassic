@@ -1,18 +1,17 @@
 
+using AAModClassic.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Terraria.Audio;
+using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
-using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Utilities;
-using AAModClassic.Base;
 
 namespace AAModClassic.Globals
 {
     public class AAAI
-	{
+    {
         public static ZAAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<ZAAPlayer>();
         public static void InfernoFighterAI(NPC npc, ref float[] ai, bool fleeWhenNight = true, bool allowBoredom = true, int openDoors = 1, float moveInterval = 0.07f, float velMax = 1f, int maxJumpTilesX = 3, int maxJumpTilesY = 4, int ticksUntilBoredom = 60, bool targetPlayers = true, int doorBeatCounterMax = 10, int doorCounterMax = 60, bool jumpUpPlatforms = false, Action<bool, bool, Vector2, Vector2> onTileCollide = null, bool ignoreJumpTiles = false)
         {
@@ -27,7 +26,7 @@ namespace AAModClassic.Globals
                 ai[3] += 1f;
             }
             else
-            if (Math.Abs(npc.velocity.X) > 0.9 && ai[3] > 0f) { ai[3] -= 1f; }
+                if (Math.Abs(npc.velocity.X) > 0.9 && ai[3] > 0f) { ai[3] -= 1f; }
             if (ai[3] > ticksUntilBoredom * 10) { ai[3] = 0f; }
             if (npc.justHit) { ai[3] = 0f; }
             if (ai[3] == ticksUntilBoredom) { npc.netUpdate = true; }
@@ -39,28 +38,28 @@ namespace AAModClassic.Globals
                 npc.TargetClosest(true);
             }
             else
-            if (ai[2] <= 0f)//if 'bored'
-            {
-                if (fleeWhenNight && !Main.dayTime && npc.position.Y / 16f < Main.worldSurface && npc.timeLeft > 10)
+                if (ai[2] <= 0f)//if 'bored'
                 {
-                    npc.timeLeft = 10;
-                }
-                if (npc.velocity.X == 0f)
-                {
-                    if (npc.velocity.Y == 0f)
+                    if (fleeWhenNight && !Main.dayTime && npc.position.Y / 16f < Main.worldSurface && npc.timeLeft > 10)
                     {
-                        ai[0] += 1f;
-                        if (ai[0] >= 2f)
+                        npc.timeLeft = 10;
+                    }
+                    if (npc.velocity.X == 0f)
+                    {
+                        if (npc.velocity.Y == 0f)
                         {
-                            npc.direction *= -1;
-                            npc.spriteDirection = npc.direction;
-                            ai[0] = 0f;
+                            ai[0] += 1f;
+                            if (ai[0] >= 2f)
+                            {
+                                npc.direction *= -1;
+                                npc.spriteDirection = npc.direction;
+                                ai[0] = 0f;
+                            }
                         }
                     }
+                    else { ai[0] = 0f; }
+                    if (npc.direction == 0) { npc.direction = 1; }
                 }
-                else { ai[0] = 0f; }
-                if (npc.direction == 0) { npc.direction = 1; }
-            }
             //if velocity is less than -1 or greater than 1...
             if (npc.velocity.X < -velMax || npc.velocity.X > velMax)
             {
@@ -68,17 +67,17 @@ namespace AAModClassic.Globals
                 if (npc.velocity.Y == 0f) { npc.velocity *= 0.8f; }
             }
             else
-            if (npc.velocity.X < velMax && npc.direction == 1) //handles movement to the right. Clamps at velMaxX.
-            {
-                npc.velocity.X += moveInterval;
-                if (npc.velocity.X > velMax) { npc.velocity.X = velMax; }
-            }
-            else
-            if (npc.velocity.X > -velMax && npc.direction == -1) //handles movement to the left. Clamps at -velMaxX.
-            {
-                npc.velocity.X -= moveInterval;
-                if (npc.velocity.X < -velMax) { npc.velocity.X = -velMax; }
-            }
+                if (npc.velocity.X < velMax && npc.direction == 1) //handles movement to the right. Clamps at velMaxX.
+                {
+                    npc.velocity.X += moveInterval;
+                    if (npc.velocity.X > velMax) { npc.velocity.X = velMax; }
+                }
+                else
+                    if (npc.velocity.X > -velMax && npc.direction == -1) //handles movement to the left. Clamps at -velMaxX.
+                    {
+                        npc.velocity.X -= moveInterval;
+                        if (npc.velocity.X < -velMax) { npc.velocity.X = -velMax; }
+                    }
             BaseAI.WalkupHalfBricks(npc);
             //if allowed to open doors and is currently doing so, reduce npc velocity on the X axis to 0. (so it stops moving)
             if (openDoors != -1 && BaseAI.AttemptOpenDoor(npc, ref ai[1], ref ai[2], ref ai[3], ticksUntilBoredom, doorBeatCounterMax, doorCounterMax, openDoors))
@@ -86,7 +85,7 @@ namespace AAModClassic.Globals
                 npc.velocity.X = 0;
             }
             else //if no door to open, reset ai.
-            if (openDoors != -1) { ai[1] = 0f; ai[2] = 0f; }
+                if (openDoors != -1) { ai[1] = 0f; ai[2] = 0f; }
             //if there's a solid floor under us...
             if (BaseAI.HitTileOnSide(npc, 3))
             {
@@ -297,7 +296,7 @@ namespace AAModClassic.Globals
             }
         }
 
-        public static void AIClaw (NPC npc, ref float[] ai, bool isDragonClaw = true, bool ignoreWet = false, float moveIntervalX = 0.1f, float moveIntervalY = 0.04f, float velMaxX = 4f, float velMaxY = 1.5f, float bounceScalarX = 1f, float bounceScalarY = 1f)
+        public static void AIClaw(NPC npc, ref float[] ai, bool isDragonClaw = true, bool ignoreWet = false, float moveIntervalX = 0.1f, float moveIntervalY = 0.04f, float velMaxX = 4f, float velMaxY = 1.5f, float bounceScalarX = 1f, float bounceScalarY = 1f)
         {
             //controls the npc's bouncing when it hits a wall.
             if (npc.collideX)
@@ -347,14 +346,14 @@ namespace AAModClassic.Globals
             }
             else //controls momentum when going right on the x axis and clamps velocity at velMaxX.
                 if (npc.direction == 1 && npc.velocity.X < velMaxX)
-            {
-                npc.velocity.X += moveIntervalX;
-                if (npc.velocity.X < -velMaxX) { npc.velocity.X += 0.1f; }
-                else
-                    if (npc.velocity.X < 0f) { npc.velocity.X -= 0.05f; }
+                {
+                    npc.velocity.X += moveIntervalX;
+                    if (npc.velocity.X < -velMaxX) { npc.velocity.X += 0.1f; }
+                    else
+                        if (npc.velocity.X < 0f) { npc.velocity.X -= 0.05f; }
 
-                if (npc.velocity.X > velMaxX) { npc.velocity.X = velMaxX; }
-            }
+                    if (npc.velocity.X > velMaxX) { npc.velocity.X = velMaxX; }
+                }
             //controls momentum when going up on the Y axis and clamps velocity at -velMaxY.
             if (npc.directionY == -1 && (double)npc.velocity.Y > -velMaxY)
             {
@@ -367,14 +366,14 @@ namespace AAModClassic.Globals
             }
             else //controls momentum when going down on the Y axis and clamps velocity at velMaxY.
                 if (npc.directionY == 1 && (double)npc.velocity.Y < velMaxY)
-            {
-                npc.velocity.Y += moveIntervalY;
-                if ((double)npc.velocity.Y < -velMaxY) { npc.velocity.Y += 0.05f; }
-                else
-                    if (npc.velocity.Y < 0f) { npc.velocity.Y -= 0.03f; }
+                {
+                    npc.velocity.Y += moveIntervalY;
+                    if ((double)npc.velocity.Y < -velMaxY) { npc.velocity.Y += 0.05f; }
+                    else
+                        if (npc.velocity.Y < 0f) { npc.velocity.Y -= 0.03f; }
 
-                if ((double)npc.velocity.Y > velMaxY) { npc.velocity.Y = velMaxY; }
-            }
+                    if ((double)npc.velocity.Y > velMaxY) { npc.velocity.Y = velMaxY; }
+                }
             if (!ignoreWet && npc.wet) //if don't ignore being wet and is wet, accelerate upwards to get out.
             {
                 if (npc.velocity.Y > 0f) { npc.velocity.Y *= 0.95f; }
@@ -399,7 +398,7 @@ namespace AAModClassic.Globals
                 ai[3] += 1f;
             }
             else
-            if (Math.Abs(npc.velocity.X) > 0.9 && ai[3] > 0f) { ai[3] -= 1f; }
+                if (Math.Abs(npc.velocity.X) > 0.9 && ai[3] > 0f) { ai[3] -= 1f; }
             if (ai[3] > ticksUntilBoredom * 10) { ai[3] = 0f; }
             if (npc.justHit) { ai[3] = 0f; }
             if (ai[3] == ticksUntilBoredom) { npc.netUpdate = true; }
@@ -411,28 +410,28 @@ namespace AAModClassic.Globals
                 npc.TargetClosest(true);
             }
             else
-            if (ai[2] <= 0f)//if 'bored'
-            {
-                if (!player.ZoneCorrupt && npc.position.Y / 16f < Main.worldSurface && npc.timeLeft > 10)
+                if (ai[2] <= 0f)//if 'bored'
                 {
-                    npc.timeLeft = 10;
-                }
-                if (npc.velocity.X == 0f)
-                {
-                    if (npc.velocity.Y == 0f)
+                    if (!player.ZoneCorrupt && npc.position.Y / 16f < Main.worldSurface && npc.timeLeft > 10)
                     {
-                        ai[0] += 1f;
-                        if (ai[0] >= 2f)
+                        npc.timeLeft = 10;
+                    }
+                    if (npc.velocity.X == 0f)
+                    {
+                        if (npc.velocity.Y == 0f)
                         {
-                            npc.direction *= -1;
-                            npc.spriteDirection = npc.direction;
-                            ai[0] = 0f;
+                            ai[0] += 1f;
+                            if (ai[0] >= 2f)
+                            {
+                                npc.direction *= -1;
+                                npc.spriteDirection = npc.direction;
+                                ai[0] = 0f;
+                            }
                         }
                     }
+                    else { ai[0] = 0f; }
+                    if (npc.direction == 0) { npc.direction = 1; }
                 }
-                else { ai[0] = 0f; }
-                if (npc.direction == 0) { npc.direction = 1; }
-            }
             //if velocity is less than -1 or greater than 1...
             if (npc.velocity.X < -velMax || npc.velocity.X > velMax)
             {
@@ -440,17 +439,17 @@ namespace AAModClassic.Globals
                 if (npc.velocity.Y == 0f) { npc.velocity *= 0.8f; }
             }
             else
-            if (npc.velocity.X < velMax && npc.direction == 1) //handles movement to the right. Clamps at velMaxX.
-            {
-                npc.velocity.X += moveInterval;
-                if (npc.velocity.X > velMax) { npc.velocity.X = velMax; }
-            }
-            else
-            if (npc.velocity.X > -velMax && npc.direction == -1) //handles movement to the left. Clamps at -velMaxX.
-            {
-                npc.velocity.X -= moveInterval;
-                if (npc.velocity.X < -velMax) { npc.velocity.X = -velMax; }
-            }
+                if (npc.velocity.X < velMax && npc.direction == 1) //handles movement to the right. Clamps at velMaxX.
+                {
+                    npc.velocity.X += moveInterval;
+                    if (npc.velocity.X > velMax) { npc.velocity.X = velMax; }
+                }
+                else
+                    if (npc.velocity.X > -velMax && npc.direction == -1) //handles movement to the left. Clamps at -velMaxX.
+                    {
+                        npc.velocity.X -= moveInterval;
+                        if (npc.velocity.X < -velMax) { npc.velocity.X = -velMax; }
+                    }
             BaseAI.WalkupHalfBricks(npc);
             //if allowed to open doors and is currently doing so, reduce npc velocity on the X axis to 0. (so it stops moving)
             if (openDoors != -1 && BaseAI.AttemptOpenDoor(npc, ref ai[1], ref ai[2], ref ai[3], ticksUntilBoredom, doorBeatCounterMax, doorCounterMax, openDoors))
@@ -458,7 +457,7 @@ namespace AAModClassic.Globals
                 npc.velocity.X = 0;
             }
             else //if no door to open, reset ai.
-            if (openDoors != -1) { ai[1] = 0f; ai[2] = 0f; }
+                if (openDoors != -1) { ai[1] = 0f; ai[2] = 0f; }
             //if there's a solid floor under us...
             if (BaseAI.HitTileOnSide(npc, 3))
             {
@@ -514,15 +513,15 @@ namespace AAModClassic.Globals
                 if (npc.velocity.X < -4f) { npc.velocity.X = -velMaxX; }
             }
             else //controls momentum when going right on the x axis and clamps velocity at velMaxX.
-            if (npc.direction == 1 && npc.velocity.X < velMaxX)
-            {
-                npc.velocity.X += moveIntervalX;
-                if (npc.velocity.X < -velMaxX) { npc.velocity.X += 0.1f; }
-                else
-                    if (npc.velocity.X < 0f) { npc.velocity.X -= 0.05f; }
+                if (npc.direction == 1 && npc.velocity.X < velMaxX)
+                {
+                    npc.velocity.X += moveIntervalX;
+                    if (npc.velocity.X < -velMaxX) { npc.velocity.X += 0.1f; }
+                    else
+                        if (npc.velocity.X < 0f) { npc.velocity.X -= 0.05f; }
 
-                if (npc.velocity.X > velMaxX) { npc.velocity.X = velMaxX; }
-            }
+                    if (npc.velocity.X > velMaxX) { npc.velocity.X = velMaxX; }
+                }
             //controls momentum when going up on the Y axis and clamps velocity at -velMaxY.
             if (npc.directionY == -1 && (double)npc.velocity.Y > -velMaxY)
             {
@@ -534,136 +533,141 @@ namespace AAModClassic.Globals
                 if ((double)npc.velocity.Y < -velMaxY) { npc.velocity.Y = -velMaxY; }
             }
             else //controls momentum when going down on the Y axis and clamps velocity at velMaxY.
-            if (npc.directionY == 1 && (double)npc.velocity.Y < velMaxY)
-            {
-                npc.velocity.Y += moveIntervalY;
-                if ((double)npc.velocity.Y < -velMaxY) { npc.velocity.Y += 0.05f; }
-                else
-                    if (npc.velocity.Y < 0f) { npc.velocity.Y -= 0.03f; }
+                if (npc.directionY == 1 && (double)npc.velocity.Y < velMaxY)
+                {
+                    npc.velocity.Y += moveIntervalY;
+                    if ((double)npc.velocity.Y < -velMaxY) { npc.velocity.Y += 0.05f; }
+                    else
+                        if (npc.velocity.Y < 0f) { npc.velocity.Y -= 0.03f; }
 
-                if ((double)npc.velocity.Y > velMaxY) { npc.velocity.Y = velMaxY; }
-            }
+                    if ((double)npc.velocity.Y > velMaxY) { npc.velocity.Y = velMaxY; }
+                }
         }
 
         public static void AIWorm(NPC npc, int[] wormTypes, int wormLength = 3, float partDistanceAddon = 0f, float maxSpeed = 8f, float gravityResist = 0.07f, bool fly = false, bool split = false, bool ignoreTiles = false, bool spawnTileDust = true, bool soundEffects = true, bool rotateAverage = false, Action<NPC, int, bool> onChangeType = null)
         {
-			bool diggingDummy = false;
-			AIWorm(npc, ref diggingDummy, wormTypes, wormLength, partDistanceAddon, maxSpeed, gravityResist, fly, split, ignoreTiles, spawnTileDust, soundEffects, rotateAverage, onChangeType);
-		}
+            bool diggingDummy = false;
+            AIWorm(npc, ref diggingDummy, wormTypes, wormLength, partDistanceAddon, maxSpeed, gravityResist, fly, split, ignoreTiles, spawnTileDust, soundEffects, rotateAverage, onChangeType);
+        }
 
         public static void AIWorm(NPC npc, ref bool isDigging, int[] wormTypes, int wormLength = 3, float partDistanceAddon = 0f, float maxSpeed = 8f, float gravityResist = 0.07f, bool fly = false, bool split = false, bool ignoreTiles = false, bool spawnTileDust = true, bool soundEffects = true, bool rotateAverage = false, Action<NPC, int, bool> onChangeType = null)
         {
             int[] wtypes = new int[(wormTypes.Length == 1 ? 1 : wormLength)];
             wtypes[0] = wormTypes[0];
-			if (wormTypes.Length > 1)
-			{
-				wtypes[wtypes.Length - 1] = wormTypes[2];
-				for (int m = 1; m < wtypes.Length - 1; m++)
-				{
-					wtypes[m] = wormTypes[1];
-				}
-			}
+            if (wormTypes.Length > 1)
+            {
+                wtypes[wtypes.Length - 1] = wormTypes[2];
+                for (int m = 1; m < wtypes.Length - 1; m++)
+                {
+                    wtypes[m] = wormTypes[1];
+                }
+            }
             AIWorm(npc, ref isDigging, wtypes, partDistanceAddon, maxSpeed, gravityResist, fly, split, ignoreTiles, spawnTileDust, soundEffects, rotateAverage, onChangeType);
         }
 
-		public static void AIWorm(NPC npc, int[] wormTypes, float partDistanceAddon = 0f, float maxSpeed = 8f, float gravityResist = 0.07f, bool fly = false, bool split = false, bool ignoreTiles = false, bool spawnTileDust = true, bool soundEffects = true, bool rotateAverage = false, Action<NPC, int, bool> onChangeType = null)
+        public static void AIWorm(NPC npc, int[] wormTypes, float partDistanceAddon = 0f, float maxSpeed = 8f, float gravityResist = 0.07f, bool fly = false, bool split = false, bool ignoreTiles = false, bool spawnTileDust = true, bool soundEffects = true, bool rotateAverage = false, Action<NPC, int, bool> onChangeType = null)
         {
-			bool diggingDummy = false;
-			AIWorm(npc, ref diggingDummy, wormTypes, partDistanceAddon, maxSpeed, gravityResist, fly, split, ignoreTiles, spawnTileDust, soundEffects, rotateAverage, onChangeType);
-		}
+            bool diggingDummy = false;
+            AIWorm(npc, ref diggingDummy, wormTypes, partDistanceAddon, maxSpeed, gravityResist, fly, split, ignoreTiles, spawnTileDust, soundEffects, rotateAverage, onChangeType);
+        }
 
         public static void AIWorm(NPC npc, ref bool isDigging, int[] wormTypes, float partDistanceAddon = 0f, float maxSpeed = 8f, float gravityResist = 0.07f, bool fly = false, bool split = false, bool ignoreTiles = false, bool spawnTileDust = true, bool soundEffects = true, bool rotateAverage = false, Action<NPC, int, bool> onChangeType = null)
         {
-			bool singlePiece = wormTypes.Length == 1;
-			bool isHead = npc.type == wormTypes[0];
-			bool isTail = npc.type == wormTypes[wormTypes.Length - 1];
-			bool isBody = !isHead && !isTail;
+            bool singlePiece = wormTypes.Length == 1;
+            bool isHead = npc.type == wormTypes[0];
+            bool isTail = npc.type == wormTypes[wormTypes.Length - 1];
+            bool isBody = !isHead && !isTail;
             int wormLength = wormTypes.Length;
 
             if (split)
             {
                 npc.realLife = -1;
-            }else
-            if (npc.ai[3] >= 0f)
-				npc.realLife = (int)npc.ai[3];
+            }
+            else
+                if (npc.ai[3] >= 0f)
+                    npc.realLife = (int)npc.ai[3];
 
-			if(npc.ai[0] == -1f)
-				npc.ai[0] = npc.whoAmI;
+            if (npc.ai[0] == -1f)
+                npc.ai[0] = npc.whoAmI;
             if (npc.target < 0 || npc.target == 255 || Main.player[npc.target].dead)
-				npc.TargetClosest(true);
-			if(isHead)
-			{
-				if((npc.target < 0 || npc.target == 255 || Main.player[npc.target].dead) && npc.timeLeft > 300)
-					npc.timeLeft = 300;
-			}else
-			{
-				npc.timeLeft = 50;
-			}
+                npc.TargetClosest(true);
+            if (isHead)
+            {
+                if ((npc.target < 0 || npc.target == 255 || Main.player[npc.target].dead) && npc.timeLeft > 300)
+                    npc.timeLeft = 300;
+            }
+            else
+            {
+                npc.timeLeft = 50;
+            }
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-				if (!singlePiece)
-				{
-					//spawn pieces (flying)
-					if (fly && isHead && npc.ai[0] == 0f)
-					{
-						npc.ai[3] = npc.whoAmI;
-						npc.realLife = npc.whoAmI;
-						int npcID = npc.whoAmI;
-						for (int m = 1; m < wormLength - 1; m++)
-						{
-							int npcType = wormTypes[m];
+                if (!singlePiece)
+                {
+                    //spawn pieces (flying)
+                    if (fly && isHead && npc.ai[0] == 0f)
+                    {
+                        npc.ai[3] = npc.whoAmI;
+                        npc.realLife = npc.whoAmI;
+                        int npcID = npc.whoAmI;
+                        for (int m = 1; m < wormLength - 1; m++)
+                        {
+                            int npcType = wormTypes[m];
 
-							float ai0 = 0;
-							float ai1 = npcID;
-							float ai2 = 0;
-							float ai3 = npc.ai[3];
+                            float ai0 = 0;
+                            float ai1 = npcID;
+                            float ai2 = 0;
+                            float ai3 = npc.ai[3];
 
-							int newnpcID = NPC.NewNPC(npc.GetSource_FromThis(), (int)(npc.Center.X), (int)(npc.Center.Y), npcType, npc.whoAmI, ai0, ai1, ai2, ai3);
-							Main.npc[npcID].ai[0] = newnpcID;
-							Main.npc[npcID].netUpdate = true;
-							npcID = newnpcID;
-						}
-					}else //spawn pieces
-					if ((isHead || isBody) && npc.ai[0] == 0f)
-					{
-						if(isHead)
-						{
-							if (!split)
-							{
-								npc.ai[3] = npc.whoAmI;
-								npc.realLife = npc.whoAmI;
-							}
-							npc.ai[2] = wormLength - 1;
-						}
-						float ai0 = 0;
-						float ai1 = npc.whoAmI;
-						float ai2 = npc.ai[2] - 1f;
-						float ai3 = npc.ai[3];
-						if(split)
-							npc.ai[3] = 0f;
+                            int newnpcID = NPC.NewNPC(npc.GetSource_FromThis(), (int)(npc.Center.X), (int)(npc.Center.Y), npcType, npc.whoAmI, ai0, ai1, ai2, ai3);
+                            Main.npc[npcID].ai[0] = newnpcID;
+                            Main.npc[npcID].netUpdate = true;
+                            npcID = newnpcID;
+                        }
+                    }
+                    else //spawn pieces
+                        if ((isHead || isBody) && npc.ai[0] == 0f)
+                        {
+                            if (isHead)
+                            {
+                                if (!split)
+                                {
+                                    npc.ai[3] = npc.whoAmI;
+                                    npc.realLife = npc.whoAmI;
+                                }
+                                npc.ai[2] = wormLength - 1;
+                            }
+                            float ai0 = 0;
+                            float ai1 = npc.whoAmI;
+                            float ai2 = npc.ai[2] - 1f;
+                            float ai3 = npc.ai[3];
+                            if (split)
+                                npc.ai[3] = 0f;
 
-						if (isHead)
-						{
-							npc.ai[0] = NPC.NewNPC(npc.GetSource_FromThis(), (int)(npc.Center.X), (int)(npc.Center.Y), wormTypes[1], npc.whoAmI, ai0, ai1, ai2, ai3);
-						}else
-						if (isBody && npc.ai[2] > 0f)
-						{
-							npc.ai[0] = NPC.NewNPC(npc.GetSource_FromThis(), (int)(npc.Center.X), (int)(npc.Center.Y), wormTypes[wormLength - (int)npc.ai[2]], npc.whoAmI, ai0, ai1, ai2, ai3);
-						}else
-						{
-							npc.ai[0] = NPC.NewNPC(npc.GetSource_FromThis(), (int)(npc.Center.X), (int)(npc.Center.Y), wormTypes[wormTypes.Length - 1], npc.whoAmI, ai0, ai1, ai2, ai3);
-						}
-						/*if (!split)
-						{
-							Main.npc[(int)npc.ai[0]].ai[3] = npc.ai[3];
-							Main.npc[(int)npc.ai[0]].realLife = npc.realLife;
-						}
-						Main.npc[(int)npc.ai[0]].ai[1] = (float)npc.whoAmI;
-						Main.npc[(int)npc.ai[0]].ai[2] = npc.ai[2] - 1f;*/
-					}
-				}
-				//if npc can split, check if pieces are dead and if so split.
-				if (!singlePiece && split)
+                            if (isHead)
+                            {
+                                npc.ai[0] = NPC.NewNPC(npc.GetSource_FromThis(), (int)(npc.Center.X), (int)(npc.Center.Y), wormTypes[1], npc.whoAmI, ai0, ai1, ai2, ai3);
+                            }
+                            else
+                                if (isBody && npc.ai[2] > 0f)
+                                {
+                                    npc.ai[0] = NPC.NewNPC(npc.GetSource_FromThis(), (int)(npc.Center.X), (int)(npc.Center.Y), wormTypes[wormLength - (int)npc.ai[2]], npc.whoAmI, ai0, ai1, ai2, ai3);
+                                }
+                                else
+                                {
+                                    npc.ai[0] = NPC.NewNPC(npc.GetSource_FromThis(), (int)(npc.Center.X), (int)(npc.Center.Y), wormTypes[wormTypes.Length - 1], npc.whoAmI, ai0, ai1, ai2, ai3);
+                                }
+                            /*if (!split)
+                            {
+                                Main.npc[(int)npc.ai[0]].ai[3] = npc.ai[3];
+                                Main.npc[(int)npc.ai[0]].realLife = npc.realLife;
+                            }
+                            Main.npc[(int)npc.ai[0]].ai[1] = (float)npc.whoAmI;
+                            Main.npc[(int)npc.ai[0]].ai[2] = npc.ai[2] - 1f;*/
+                        }
+                }
+                //if npc can split, check if pieces are dead and if so split.
+                if (!singlePiece && split)
                 {
                     if (!Main.npc[(int)npc.ai[1]].active && !Main.npc[(int)npc.ai[0]].active) //if this is in the middle and both parts are inactive, kill self
                     {
@@ -685,7 +689,7 @@ namespace AAModClassic.Globals
                     }
                     if (isBody && !Main.npc[(int)npc.ai[1]].active) //if the body was just split, turn it into a head
                     {
-						int oldType = npc.type;
+                        int oldType = npc.type;
                         npc.type = wormTypes[0];
                         int npcID = npc.whoAmI;
                         float lifePercent = npc.life / (float)npc.lifeMax;
@@ -696,50 +700,52 @@ namespace AAModClassic.Globals
                         npc.TargetClosest(true);
                         npc.netUpdate = true;
                         npc.whoAmI = npcID;
-						if(onChangeType != null) onChangeType(npc, oldType, true);
+                        if (onChangeType != null) onChangeType(npc, oldType, true);
                     }
                     else
-					if (isBody && !Main.npc[(int)npc.ai[0]].active) //if the body was just split, turn it into a tail
-					{
-						int oldType = npc.type;
-						npc.type = wormTypes[wormTypes.Length - 1];
-						int npcID = npc.whoAmI;
-						float lifePercent = npc.life / (float)npc.lifeMax;
-						float lastPiece = npc.ai[1];
-						npc.SetDefaults(npc.type);
-						npc.life = (int)(npc.lifeMax * lifePercent);
-						npc.ai[1] = lastPiece;
-						npc.TargetClosest(true);
-						npc.netUpdate = true;
-						npc.whoAmI = npcID;
-						if(onChangeType != null) onChangeType(npc, oldType, false);
-					}
+                        if (isBody && !Main.npc[(int)npc.ai[0]].active) //if the body was just split, turn it into a tail
+                        {
+                            int oldType = npc.type;
+                            npc.type = wormTypes[wormTypes.Length - 1];
+                            int npcID = npc.whoAmI;
+                            float lifePercent = npc.life / (float)npc.lifeMax;
+                            float lastPiece = npc.ai[1];
+                            npc.SetDefaults(npc.type);
+                            npc.life = (int)(npc.lifeMax * lifePercent);
+                            npc.ai[1] = lastPiece;
+                            npc.TargetClosest(true);
+                            npc.netUpdate = true;
+                            npc.whoAmI = npcID;
+                            if (onChangeType != null) onChangeType(npc, oldType, false);
+                        }
                 }
                 else
-				if (!singlePiece)
-                {
-                    if (npc.type != wormTypes[0] && (!Main.npc[(int)npc.ai[1]].active || Main.npc[(int)npc.ai[1]].aiStyle != npc.aiStyle))
+                    if (!singlePiece)
                     {
-                        npc.life = 0;
-                        npc.HitEffect(0, 10.0);
-                        npc.active = false;
+                        if (npc.type != wormTypes[0] && (!Main.npc[(int)npc.ai[1]].active || Main.npc[(int)npc.ai[1]].aiStyle != npc.aiStyle))
+                        {
+                            npc.life = 0;
+                            npc.HitEffect(0, 10.0);
+                            npc.active = false;
+                        }
+                        if (npc.type != wormTypes[wormTypes.Length - 1] && (!Main.npc[(int)npc.ai[0]].active || Main.npc[(int)npc.ai[0]].aiStyle != npc.aiStyle))
+                        {
+                            npc.life = 0;
+                            npc.HitEffect(0, 10.0);
+                            npc.active = false;
+                        }
                     }
-                    if (npc.type != wormTypes[wormTypes.Length - 1] && (!Main.npc[(int)npc.ai[0]].active || Main.npc[(int)npc.ai[0]].aiStyle != npc.aiStyle))
-                    {
-                        npc.life = 0;
-                        npc.HitEffect(0, 10.0);
-                        npc.active = false;
-                    }
-                }
                 if (!npc.active && Main.netMode == NetmodeID.Server)
-					NetMessage.SendData(MessageID.DamageNPC, -1, -1, NetworkText.FromLiteral(""), npc.whoAmI, 1, 0f, 0f, -1);
+                    NetMessage.SendData(MessageID.DamageNPC, -1, -1, NetworkText.FromLiteral(""), npc.whoAmI, 1, 0f, 0f, -1);
             }
             int tileX = (int)(npc.position.X / 16f) - 1;
             int tileCenterX = (int)((npc.Center.X) / 16f) + 2;
             int tileY = (int)(npc.position.Y / 16f) - 1;
             int tileCenterY = (int)((npc.Center.Y) / 16f) + 2;
-            if (tileX < 0) { tileX = 0; } if (tileCenterX > Main.maxTilesX) { tileCenterX = Main.maxTilesX; }
-            if (tileY < 0) { tileY = 0; } if (tileCenterY > Main.maxTilesY) { tileCenterY = Main.maxTilesY; }
+            if (tileX < 0) { tileX = 0; }
+            if (tileCenterX > Main.maxTilesX) { tileCenterX = Main.maxTilesX; }
+            if (tileY < 0) { tileY = 0; }
+            if (tileCenterY > Main.maxTilesY) { tileCenterY = Main.maxTilesY; }
             bool canMove = false;
             if (fly || ignoreTiles) { canMove = true; }
             if (!canMove || spawnTileDust)
@@ -748,7 +754,7 @@ namespace AAModClassic.Globals
                 {
                     for (int tY = tileY; tY < tileCenterY; tY++)
                     {
-						Tile checkTile = WorldGenUtils.GetTileSafely(tX, tY);
+                        Tile checkTile = WorldGenUtils.GetTileSafely(tX, tY);
                         if (checkTile != null && ((checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || (Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0))) || checkTile.LiquidAmount > 64))
                         {
                             Vector2 tPos;
@@ -787,7 +793,7 @@ namespace AAModClassic.Globals
             }
             if (fly)
             {
-                if (npc.velocity.X < 0f) { npc.spriteDirection = 1; }else if (npc.velocity.X > 0f) { npc.spriteDirection = -1; }
+                if (npc.velocity.X < 0f) { npc.spriteDirection = 1; } else if (npc.velocity.X > 0f) { npc.spriteDirection = -1; }
             }
             Vector2 npcCenter = npc.Center;
             float playerCenterX = Main.player[npc.target].Center.X;
@@ -796,7 +802,7 @@ namespace AAModClassic.Globals
             npcCenter.X = (int)(npcCenter.X / 16f) * 16; npcCenter.Y = (int)(npcCenter.Y / 16f) * 16;
             playerCenterX -= npcCenter.X; playerCenterY -= npcCenter.Y;
             float dist = (float)Math.Sqrt(playerCenterX * playerCenterX + playerCenterY * playerCenterY);
-			isDigging = canMove;
+            isDigging = canMove;
             if (npc.ai[1] >= 0f && npc.ai[1] < Main.npc.Length && npc.type != wormTypes[0])
             {
                 try
@@ -804,13 +810,15 @@ namespace AAModClassic.Globals
                     npcCenter = npc.Center;
                     playerCenterX = Main.npc[(int)npc.ai[1]].Center.X - npcCenter.X;
                     playerCenterY = Main.npc[(int)npc.ai[1]].Center.Y - npcCenter.Y;
-                }catch
+                }
+                catch
                 {
                 }
                 if (!rotateAverage || npc.type == wormTypes[0])
                 {
                     npc.rotation = (float)Math.Atan2(playerCenterY, playerCenterX) + 1.57f;
-                }else
+                }
+                else
                 {
                     NPC frontNPC = Main.npc[(int)npc.ai[1]];
                     Vector2 rotVec = BaseUtility.RotateVector(frontNPC.Center, frontNPC.Center + new Vector2(0f, 30f), frontNPC.rotation);
@@ -825,10 +833,12 @@ namespace AAModClassic.Globals
                 npc.position.Y = npc.position.Y + playerCenterY;
                 if (fly)
                 {
-                    if (playerCenterX < 0f) { npc.spriteDirection = 1; return;  }else
-                    if (playerCenterX > 0f) { npc.spriteDirection = -1; return; }
+                    if (playerCenterX < 0f) { npc.spriteDirection = 1; return; }
+                    else
+                        if (playerCenterX > 0f) { npc.spriteDirection = -1; return; }
                 }
-            }else
+            }
+            else
             {
                 if (!canMove)
                 {
@@ -851,7 +861,8 @@ namespace AAModClassic.Globals
                             {
                                 if (npc.velocity.X < 0f) { npc.velocity.X = npc.velocity.X + gravityResist * 0.9f; } else { npc.velocity.X = npc.velocity.X - gravityResist * 0.9f; }
                             }
-                }else
+                }
+                else
                 {
                     if (soundEffects && npc.soundDelay == 0)
                     {
@@ -934,7 +945,8 @@ namespace AAModClassic.Globals
                 if (!rotateAverage || npc.type == wormTypes[0])
                 {
                     npc.rotation = (float)Math.Atan2(npc.velocity.Y, npc.velocity.X) + 1.57f;
-                }else
+                }
+                else
                 {
                     NPC frontNPC = Main.npc[(int)npc.ai[1]];
                     Vector2 rotVec = BaseUtility.RotateVector(frontNPC.Center, frontNPC.Center + new Vector2(0f, 30f), frontNPC.rotation);
@@ -974,7 +986,7 @@ namespace AAModClassic.Globals
 
         public static void DrawAura(object sb, Texture2D texture, int shader, Vector2 position, int width, int height, float auraPercent, float distanceScalar = 1f, float scale = 1f, float rotation = 0f, int direction = 0, int framecount = 1, Rectangle frame = default, float offsetX = 0f, float offsetY = 0f, Color? overrideColor = null)
         {
-            Color lightColor = overrideColor != null ? (Color)overrideColor : BaseDrawing.GetLightColor(position + new Vector2(width * 0.5f, height * 0.5f));
+            Color lightColor = overrideColor != null ? (Color)overrideColor : Lighting.GetColor((position + new Vector2(width * 0.5f, height * 0.5f)).ToTileCoordinates());
             float percentHalf = auraPercent * 5f * distanceScalar;
             float percentLight = MathHelper.Lerp(0.8f, 0.2f, auraPercent);
             lightColor.R = (byte)(lightColor.R * percentLight);

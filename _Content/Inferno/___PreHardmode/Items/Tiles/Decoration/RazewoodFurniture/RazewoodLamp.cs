@@ -1,10 +1,9 @@
-﻿using Terraria;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture
 {
-    public class RazewoodLamp: ModItem, ILocalizedModType
+    public class RazewoodLamp : ModItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables.Furniture.Razewood";
         public override void SetStaticDefaults()

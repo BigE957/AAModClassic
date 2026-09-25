@@ -2,13 +2,12 @@ using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus
 {
-    public class FeudalFungusLeave: ModProjectile
+    public class FeudalFungusLeave : ModProjectile
     {
         public override void SetStaticDefaults()
         {

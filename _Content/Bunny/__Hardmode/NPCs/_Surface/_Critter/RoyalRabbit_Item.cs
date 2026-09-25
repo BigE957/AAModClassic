@@ -1,12 +1,11 @@
-using Terraria.Audio;
-using Terraria.ID;
-using Terraria;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using Terraria.Localization;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Base;
+using Microsoft.Xna.Framework;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
 {
@@ -64,7 +63,8 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
                             if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.RoyalRabbitSummoned2") + player.name.ToUpper() + "!", 107, 137, 179);
                             SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Rajah"), player.Center);
                             AAModGlobalNPC.SpawnRajah(player, true, new Vector2(player.Center.X, player.Center.Y - 2000), Language.GetTextValue("Mods.AAModClassic.Common.RajahRabbit"));
-                        };
+                        }
+                        ;
                     }
                 }
                 Item.active = false;

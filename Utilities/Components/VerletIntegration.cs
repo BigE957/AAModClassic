@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Terraria;
 
 namespace AAModClassic.Utilities.Components;
 
@@ -104,7 +103,7 @@ public static class VerletIntegration
 
             VerletPoint newPoint = new(spawnPos, i == 0 ? lockStart : i == count - 1 && lockEnd);
             output.Add(newPoint);
-            if(i != 0)
+            if (i != 0)
                 ConnectVerlets(output[i - 1], output[i], distBetween);
         }
 
@@ -158,7 +157,7 @@ public static class VerletIntegration
     public static void RemoveVerletPoint(this List<VerletPoint> myList, int index)
     {
         VerletPoint p = myList[index];
-        for(int i = 0; i < p.Connections.Count; i++)
+        for (int i = 0; i < p.Connections.Count; i++)
             BreakVerletConnection(p, p.Connections[i].Point);
 
         myList.RemoveAt(index);
@@ -169,7 +168,7 @@ public static class VerletIntegration
     }
 
     public static bool AffectVerletObject(VerletObject obj, float dampening, float cap, bool isChain = true)
-    {       
+    {
         if (obj == null)
             return false;
 
@@ -178,10 +177,10 @@ public static class VerletIntegration
         foreach (Player p in Main.ActivePlayers)
         {
             bool temp = MoveObjectBasedOnEntity(obj, p, dampening / 2f, cap / 2f, isChain);
-            if(temp)
+            if (temp)
                 notableMove = true;
         }
-                
+
         foreach (Projectile proj in Main.ActiveProjectiles)
         {
             //For some reason the True Eye of Cthulhu pet tends to have a -0 x velocity, causing erronious behavior
@@ -192,7 +191,7 @@ public static class VerletIntegration
             if (temp)
                 notableMove = true;
         }
-                
+
         return notableMove;
     }
 
@@ -240,7 +239,7 @@ public static class VerletIntegration
                         {
                             segment.Position += entityVelocity * currentMovementOffsetInterpolant;
                             mainSegmentHit = true;
-                            if(velocityAtCap)
+                            if (velocityAtCap)
                                 notableMove = true;
                         }
                         if (!next.Locked)

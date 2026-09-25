@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
@@ -9,7 +8,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Perfect Chaos Blast");     
-            Main.projFrames[Projectile.type] = 5;     
+            Main.projFrames[Projectile.type] = 5;
         }
 
         public override void SetDefaults()

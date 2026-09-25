@@ -1,28 +1,27 @@
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
 {
     public class RajahRabbitA_GoldenCarrot : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Carrot");
-		}
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Projectile.DamageType = DamageClass.Melee;
-			Projectile.width = 10; 
-			Projectile.height = 10;
+            Projectile.width = 10;
+            Projectile.height = 10;
             Projectile.friendly = false;
             Projectile.hostile = true;
-            Projectile.penetrate = 1;  
-			Projectile.timeLeft = 600;  
-			Projectile.ignoreWater = true;
-			Projectile.tileCollide = true;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 600;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
             Projectile.extraUpdates = 1;
         }
 

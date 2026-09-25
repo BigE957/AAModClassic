@@ -1,5 +1,4 @@
 using AAModClassic._Vanilla.Facsimiles._1._3._5._3;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
@@ -10,19 +9,19 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
         {
             //Projectile.CloneDefaults(ProjectileID.BoulderStaffOfEarth);
             base.SetDefaults();
-            Projectile.penetrate = -1;  
+            Projectile.penetrate = -1;
             Projectile.width = 44;
             Projectile.height = 44;
-			Projectile.friendly = true;
-			Projectile.hostile = false;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
             Projectile.timeLeft = 900;
             Projectile.DamageType = DamageClass.Magic;
         }
 
-		public override void SetStaticDefaults()
-		{
-		// DisplayName.SetDefault("Big Crystal");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Big Crystal");
+        }
 
 
     }

@@ -1,13 +1,11 @@
 using Microsoft.Xna.Framework;
-using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Dusts
 {
     public class MireSporeDust : ModDust
-	{
+    {
         public override void SetStaticDefaults()
         {
             UpdateType = DustID.JungleSpore; // probably not needed but keeping for good luck

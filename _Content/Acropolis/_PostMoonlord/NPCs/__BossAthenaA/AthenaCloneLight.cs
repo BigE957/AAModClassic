@@ -1,9 +1,7 @@
 using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic.UI.World;
-using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -35,7 +33,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
         {
             if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
-			NPC.dontTakeDamage = true;
+            NPC.dontTakeDamage = true;
             NPC.lifeMax = 2000;
             NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
             NPC.damage = 70;

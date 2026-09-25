@@ -2,7 +2,6 @@
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -41,7 +40,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
             if (Projectile.timeLeft < 60)
             {
-                Projectile.alpha+= 5;
+                Projectile.alpha += 5;
             }
             if (Projectile.timeLeft == 0)
             {

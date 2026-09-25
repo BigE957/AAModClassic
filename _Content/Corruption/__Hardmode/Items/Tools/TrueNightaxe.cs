@@ -1,7 +1,5 @@
 ﻿using AAModClassic._Content.Corruption.___PreHardmode.Items.Tools;
-using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -35,13 +33,13 @@ namespace AAModClassic._Content.Corruption.__Hardmode.Items.Tools
             // DisplayName.SetDefault("True Nightaxe");
         }
 
-        public override void AddRecipes()  
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<Nightaxe>());
             recipe.AddIngredient(ItemID.SoulofSight, 20);
             recipe.AddIngredient(ItemID.SoulofMight, 20);
-            recipe.AddIngredient(ItemID.SoulofFright, 20); 
+            recipe.AddIngredient(ItemID.SoulofFright, 20);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }

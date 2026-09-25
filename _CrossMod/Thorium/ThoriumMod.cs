@@ -1,11 +1,8 @@
-﻿using AAModClassic._CrossMod.StarsAbove;
-using AAModClassic.Utilities;
+﻿using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Terraria;
-using Terraria.Map;
 using Terraria.ModLoader;
 
 namespace AAModClassic._CrossMod.Thorium
@@ -30,7 +27,7 @@ namespace AAModClassic._CrossMod.Thorium
 
         public override void PostSetupContent()
         {
-            if(IsEnabled)
+            if (IsEnabled)
             {
                 baseThoriumPlayer = Thorium.Find<ModPlayer>("ThoriumPlayer");
 

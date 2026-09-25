@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,23 +7,23 @@ public class JojoBagginsPainting : ModItem, ILocalizedModType
 {
     public new string LocalizationCategory => "Items.Placeables";
     public override void SetStaticDefaults()
-	{
-		// ((ModItem)this).DisplayName.SetDefault("The Architect");
-		// ((ModItem)this).Tooltip.SetDefault("'Weird guy but boy was he ever a great builder.'");
-	}
+    {
+        // ((ModItem)this).DisplayName.SetDefault("The Architect");
+        // ((ModItem)this).Tooltip.SetDefault("'Weird guy but boy was he ever a great builder.'");
+    }
 
-	public override void SetDefaults()
-	{
-		Item.width = 20;
-		Item.height = 20;
-		Item.maxStack = Item.CommonMaxStack;
-		Item.useTurn = true;
-		Item.autoReuse = true;
-		Item.useAnimation = 15;
-		Item.useTime = 10;
-		Item.useStyle = ItemUseStyleID.Swing;
-		Item.consumable = true;
-		Item.rare = ItemRarityID.Blue;
+    public override void SetDefaults()
+    {
+        Item.width = 20;
+        Item.height = 20;
+        Item.maxStack = Item.CommonMaxStack;
+        Item.useTurn = true;
+        Item.autoReuse = true;
+        Item.useAnimation = 15;
+        Item.useTime = 10;
+        Item.useStyle = ItemUseStyleID.Swing;
+        Item.consumable = true;
+        Item.rare = ItemRarityID.Blue;
         Item.createTile = ModContent.TileType<JojoBagginsPainting_Tile>();
-	}
+    }
 }

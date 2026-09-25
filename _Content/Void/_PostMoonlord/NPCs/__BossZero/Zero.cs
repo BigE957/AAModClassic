@@ -1,6 +1,4 @@
-﻿using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
-using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
-using AAModClassic._Content.Void.___PreHardmode.NPCs;
+﻿using AAModClassic._Content.Void.___PreHardmode.NPCs;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Ammo;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Pets;
@@ -25,7 +23,6 @@ using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -246,7 +243,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
                 if (!NPC.BeenKilled(true))
                 {
                     NPC.OnGameEventClearedForTheFirstTime(-1);
-                    if (Main.netMode != NetmodeID.MultiplayerClient) 
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Defeat.Status"), Color.PaleVioletRed);
                     VoidSky.Alpha = 0f;
                 }
@@ -895,7 +892,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             foreach (NPC arm in Main.npc)
             {
                 if (
-                    arm.active && 
+                    arm.active &&
                         (
                             arm.type == ModContent.NPCType<ZeroVoidStar>() ||
                             arm.type == ModContent.NPCType<ZeroGigataser>() ||

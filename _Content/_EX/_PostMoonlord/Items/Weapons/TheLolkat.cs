@@ -1,10 +1,8 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,7 +12,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons   //where is loc
     public class TheLolkat : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("The Lolkat");
@@ -30,7 +28,7 @@ Meowmere EX"); */
             Item.width = 64;
             Item.height = 70;
             Item.useTime = 10;
-            Item.useAnimation = 10;     
+            Item.useAnimation = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 4;
             Item.value = Item.sellPrice(0, 30, 0, 0);
@@ -39,8 +37,8 @@ Meowmere EX"); */
             Item.autoReuse = true;
             Item.useTurn = true;
             Item.expert = true;
-			Item.shoot = ProjectileID.Meowmere;
-			Item.shootSpeed = 12f;
+            Item.shoot = ProjectileID.Meowmere;
+            Item.shootSpeed = 12f;
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

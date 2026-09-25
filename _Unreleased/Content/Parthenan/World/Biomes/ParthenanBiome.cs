@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
@@ -50,7 +49,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.World.Biomes
 
             public bool IsAlive;
         }
-        
+
         private Bolt[] bolts;
         public bool Active;
         public int ticksUntilNextBolt;
@@ -70,7 +69,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.World.Biomes
         {
             CloudTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/StormBiome_Clouds");
             BoltTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/StormBiome_Bolt");
-            FlashTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/StormBiome_Flash");;
+            FlashTex = ModContent.Request<Texture2D>("AAModClassic/_Unreleased/Content/Parthenan/World/Biomes/StormBiome_Flash"); ;
         }
 
         public override void Activate(Vector2 position, params object[] args)

@@ -1,16 +1,15 @@
 ﻿
+using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms;
+using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
+using AAModClassic.Base;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Terraria;
+using Terraria.DataStructures;
+using Terraria.Enums;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.DataStructures;
-using Terraria.Enums;
-using AAModClassic.Globals;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
-using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms;
-using AAModClassic.Base;
 
 namespace AAModClassic._Content.Stars.World.Altar
 {
@@ -76,7 +75,7 @@ namespace AAModClassic._Content.Stars.World.Altar
                 }
                 else
                 {
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.WormAltar"), new Color (75, 175, 255));
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.EquinoxDialogue.WormAltar"), new Color(75, 175, 255));
                 }
             }
             return true;

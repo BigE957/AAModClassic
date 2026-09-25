@@ -1,11 +1,9 @@
 ﻿using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
 using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.Localization;

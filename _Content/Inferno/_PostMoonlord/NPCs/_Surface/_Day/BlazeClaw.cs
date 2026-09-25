@@ -1,15 +1,11 @@
-using AAModClassic._Content.Inferno.__Hardmode.Items.Accessories;
-using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._CrossMod;
 using AAModClassic.Globals;
-using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using System;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;

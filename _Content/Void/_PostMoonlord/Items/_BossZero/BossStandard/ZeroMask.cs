@@ -8,7 +8,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
     public class ZeroMask : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Vanity.Masks";
         public static int type;
 
@@ -16,7 +16,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Zero Mask");
-		}
+        }
 
         public override void SetDefaults()
         {

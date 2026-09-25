@@ -13,7 +13,6 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -117,11 +116,11 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
                 StartSandstorm();
                 runonce += 1;
             }
-	        if (internalAI[0] == 2 && NPC.ai[3] < 60)
+            if (internalAI[0] == 2 && NPC.ai[3] < 60)
             {
-					NPC.velocity.X *= 0.97f;
-			}
-		
+                NPC.velocity.X *= 0.97f;
+            }
+
             if (internalAI[0] == 2 && NPC.ai[3] > 120)
             {
                 if (NPC.velocity.X > 0)
@@ -195,7 +194,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
                 internalAI[1]++;
                 if (internalAI[1] >= 300)
                 {
-					
+
                     selectPoint = true; ;
                     internalAI[0] = Main.rand.Next(3);
                     internalAI[1] = 0;
@@ -251,7 +250,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
             else if (internalAI[0] == 2)
             {
                 NPC.ai[3]++;
-				
+
                 NPC.damage = 50 * (Main.expertMode ? (int)(NPC.damage * 1.6f) : 1); ;
                 if (NPC.ai[3] < 120 && NPC.ai[3] > 60)
                 {
@@ -259,11 +258,11 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
                     {
                         if (selectPoint)
                         {
-							
-							 
+
+
                             float point = 700 * NPC.direction;
                             MovePoint = player.Center + new Vector2(point, 0);
-							MoveToPoint(MovePoint, 10f);
+                            MoveToPoint(MovePoint, 10f);
                             selectPoint = false;
                             NPC.netUpdate = true;
                         }
@@ -277,10 +276,10 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
                     {
                         if (NPC.ai[3] == 120)
                         {
-							 
+
                             //float point = 500 * npc.direction;
                             MovePoint = new Vector2(player.Center.X, NPC.position.Y);
-							MoveToPoint(MovePoint, 10f);
+                            MoveToPoint(MovePoint, 10f);
                             NPC.netUpdate = true;
                         }
                         NPC.damage = 40 * (Main.expertMode ? (int)(NPC.damage * 1.6f) : 1); ;
@@ -288,7 +287,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
                     }
                 }
 
-               
+
 
                 if (NPC.ai[3] > 160 && Main.netMode != NetmodeID.MultiplayerClient)
                 {
@@ -325,7 +324,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
                 else
                     NPC.frame.X = 0;
             }
-            
+
             NPC.frameCounter++;
             if (internalAI[0] == 0)
             {
@@ -388,7 +387,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
             else if (internalAI[0] == 2)
             {
                 if (NPC.ai[3] < 60)
-                {				
+                {
                     if (NPC.frameCounter > 9)
                     {
                         NPC.frame.Y += frameHeight;
@@ -400,7 +399,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
                     }
                 }
                 else
-                {			
+                {
                     if (NPC.frame.Y < FrameHeight * 4)
                     {
                         NPC.frame.Y = FrameHeight * 4;
@@ -410,13 +409,13 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
                         NPC.frame.Y += frameHeight;
                         NPC.frameCounter = 0;
                     }
-			        if (NPC.frame.Y > FrameHeight * 7)
+                    if (NPC.frame.Y > FrameHeight * 7)
                     {
-					
-                         NPC.frame.Y = FrameHeight * 5;
+
+                        NPC.frame.Y = FrameHeight * 5;
                     }
                 }
-               
+
                 return;
             }
             else

@@ -1,32 +1,31 @@
 ﻿using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 {
     public class GenocideCannon_VoidRocket : ModProjectile
-	{
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Void Rocket");
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Void Rocket");
             Main.projFrames[Projectile.type] = 3;
         }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Projectile.width = 14;
-			Projectile.height = 14;
-			Projectile.aiStyle = -1;
+            Projectile.height = 14;
+            Projectile.aiStyle = -1;
             Projectile.friendly = true;
             Projectile.hostile = false;
             Projectile.penetrate = 1;
             Projectile.tileCollide = true;
             Projectile.timeLeft = 180;
             Projectile.DamageType = DamageClass.Ranged;
-		}
+        }
 
         public override void AI()
         {
@@ -107,5 +106,5 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
                 Main.dust[dustIndex].velocity *= 1.4f;
             }
         }
-	}
+    }
 }

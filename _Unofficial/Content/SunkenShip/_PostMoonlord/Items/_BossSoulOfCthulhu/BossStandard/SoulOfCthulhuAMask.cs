@@ -5,14 +5,14 @@ using Terraria.ModLoader;
 namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.Items._BossSoulOfCthulhu.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class SoulOfCthulhuAMask : BaseAAItem, ILocalizedModType
+    public class SoulOfCthulhuAMask : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Vanity.Masks";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Cosmic Calamity Mask");
-		}
+        }
 
         public override void SetDefaults()
         {

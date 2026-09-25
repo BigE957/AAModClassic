@@ -5,7 +5,6 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -45,7 +44,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             NPC.height = 78;
             NPC.lavaImmune = false;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<MossterBanner>();
+            //BannerItem = ModContent.ItemType<MossterBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
@@ -72,7 +71,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MossterGoreHead").Type, 1f);
             }
         }
-        
+
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             SpriteEffects spriteEffects = SpriteEffects.None;

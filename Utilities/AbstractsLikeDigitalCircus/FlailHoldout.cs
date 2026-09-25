@@ -3,10 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -17,7 +13,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
     public abstract class FlailHoldout : ModProjectile
     {
         public abstract string ChainTexturePath { get; }
-        
+
         public virtual string ChainTextureExtraPath => null;
         public virtual int DustType => -1;
 
@@ -99,7 +95,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
             Vector2 mountedCenter = player.MountedCenter;
             bool doFastThrowDust = false;
             bool shouldOwnerHitCheck = false;
-            
+
             int ricochetTimeLimit = LaunchTimeLimit + 5;
 
             // Scaling these speeds and accelerations by the players melee speed makes the weapon more responsive if the player boosts it or general weapon speed
@@ -168,7 +164,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
                         shouldSwitchToRetracting |= Projectile.Distance(mountedCenter) >= MaxLaunchLength;
                         if (player.controlUseItem) // If the player clicks, transition to the Dropping state
                         {
-                            if(!Projectile.tileCollide)
+                            if (!Projectile.tileCollide)
                             {
                                 CurrentAIState = AIState.ForcedRetracting;
                                 StateTimer = 0f;
@@ -344,7 +340,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
                 Vector2 vectorFromPlayer = Projectile.DirectionFrom(mountedCenter).SafeNormalize(Vector2.Zero);
                 Projectile.rotation = vectorFromPlayer.ToRotation();// + MathHelper.PiOver2;
             }
-            
+
 
             Projectile.timeLeft = 2; // Makes sure the flail doesn't die (good when the flail is resting on the ground)
             player.heldProj = Projectile.whoAmI;

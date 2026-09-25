@@ -1,6 +1,4 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -34,7 +32,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
             recipe.AddIngredient(ModContent.ItemType<DoomsdayCircuitPlating>(), 14);
             recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
-            
+
         }
 
     }

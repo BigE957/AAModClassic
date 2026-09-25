@@ -1,21 +1,20 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
-using Terraria;
-using Terraria.ID;
-using System.Collections.Generic;
+﻿using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStandard;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard;
-using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStandard;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard
 {
     public class ShenBox : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
-            
-		public override void SetStaticDefaults()
-		{
+
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Music Box (Shen Doragon)");
             // Tooltip.SetDefault(@"Plays 'Wings of Duality' by MaestroVGM");
 
@@ -24,21 +23,21 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossS
         }
 
         public override void SetDefaults()
-		{
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.useTurn = true;
-			Item.useAnimation = 15;
-			Item.useTime = 10;
-			Item.autoReuse = true;
-			Item.consumable = true;
-			Item.createTile = ModContent.TileType<ShenBox_Tile>();
-			Item.width = 28;
-			Item.height = 28;
-			Item.rare = ItemRarityID.LightRed;
-			Item.value = 10000;
-			Item.accessory = true;
-            
-		}
+        {
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.consumable = true;
+            Item.createTile = ModContent.TileType<ShenBox_Tile>();
+            Item.width = 28;
+            Item.height = 28;
+            Item.rare = ItemRarityID.LightRed;
+            Item.value = 10000;
+            Item.accessory = true;
+
+        }
 
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)

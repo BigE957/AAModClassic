@@ -1,9 +1,5 @@
-using System;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons
 {
@@ -22,10 +18,10 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
         public override float MaxRetractSpeed => base.MaxRetractSpeed;
 
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Toad Tongue");
             base.SetStaticDefaults();
-		}
+        }
         public override void SetDefaults()
         {
             Projectile.width = 20;
@@ -34,9 +30,9 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
 
             base.SetDefaults();
         }
-		
-		public override void AI()
-		{
+
+        public override void AI()
+        {
             /*
             if (Main.rand.NextFloat() < 1f)
             {
@@ -154,9 +150,9 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
             }
             */
         }
-		
-		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-		{
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
             Player player = Main.player[Projectile.owner];
             float TargetVelocity = 0;
             if (!target.boss)
@@ -175,11 +171,11 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
                 target.velocity = new Vector2(TargetVelocity, 0);
             }
         }
- 
+
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
-        { 
-            return base.PreDraw(ref  lightColor);
+        {
+            return base.PreDraw(ref lightColor);
 
             /*
             Texture2D texture = ModContent.Request<Texture2D>(Texture + "_Chain").Value;

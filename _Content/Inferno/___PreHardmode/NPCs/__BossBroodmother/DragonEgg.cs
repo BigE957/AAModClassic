@@ -4,7 +4,6 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -40,21 +39,21 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
 
         public override void HitEffect(NPC.HitInfo hit)
         {
-			bool isDead = NPC.life <= 0;
+            bool isDead = NPC.life <= 0;
             if (isDead && !Main.dedServ)
             {
-				for(int m = 0; m < 4; m++)
-				{
-					Vector2 offset = new Vector2(Main.rand.Next(NPC.width), Main.rand.Next(NPC.height));
-					Gore.NewGore(NPC.GetSource_OnHurt(null), NPC.position + offset, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGorePlate3").Type, 1f); //reused brood gore, it looks right for the egg
-				}
+                for (int m = 0; m < 4; m++)
+                {
+                    Vector2 offset = new Vector2(Main.rand.Next(NPC.width), Main.rand.Next(NPC.height));
+                    Gore.NewGore(NPC.GetSource_OnHurt(null), NPC.position + offset, NPC.velocity * 0.2f, Mod.Find<ModGore>("BroodGorePlate3").Type, 1f); //reused brood gore, it looks right for the egg
+                }
             }
-			for (int m = 0; m < (isDead ? 20 : 5); m++)
-			{
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, 1.3f);
-			}
+            for (int m = 0; m < (isDead ? 20 : 5); m++)
+            {
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, 1.3f);
+            }
         }
-        
+
         public override void AI()
         {
             if (NPC.velocity.Y == 0f)
@@ -100,14 +99,14 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
             }
         }
 
-		public static Color GetGlowAlpha()
-		{
-			return ColorUtils.COLOR_GLOWPULSE;// new Color(255, 255, 255) * ((float)Main.mouseTextColor / 255f);
-		}
+        public static Color GetGlowAlpha()
+        {
+            return ColorUtils.COLOR_GLOWPULSE;// new Color(255, 255, 255) * ((float)Main.mouseTextColor / 255f);
+        }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-			BaseDrawing.DrawTexture(spriteBatch, ModContent.Request<Texture2D>(Texture + "_Glow").Value, 0, NPC, GetGlowAlpha());
-        }		
+            BaseDrawing.DrawTexture(spriteBatch, ModContent.Request<Texture2D>(Texture + "_Glow").Value, 0, NPC, GetGlowAlpha());
+        }
     }
 }

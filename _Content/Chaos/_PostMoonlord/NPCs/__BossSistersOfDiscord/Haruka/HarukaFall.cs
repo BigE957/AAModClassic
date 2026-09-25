@@ -2,7 +2,6 @@
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,9 +9,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 {
     public class HarukaFall : ModNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Haruka Yamata");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Haruka Yamata");
             Main.npcFrameCount[NPC.type] = 8;
             this.HideFromBestiary();
         }

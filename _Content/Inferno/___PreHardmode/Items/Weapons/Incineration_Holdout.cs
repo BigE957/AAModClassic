@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,7 +8,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons   //The dir
 {
     public class Incineration_Holdout : ModProjectile   //make sure the sprite file is named like the class name (CustomYoyoProjectile)
     {
- 
+
         public override void SetDefaults()
         {
             Projectile.extraUpdates = 0;
@@ -49,7 +48,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons   //The dir
 
             // DisplayName.SetDefault("Incineration");
         }
-                //dust = Main.dust[Terraria.Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 15, 0f, 0f, 46, new Color(255, 75, 0), 1.381579f)];
+        //dust = Main.dust[Terraria.Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 15, 0f, 0f, 46, new Color(255, 75, 0), 1.381579f)];
 
     }
 }

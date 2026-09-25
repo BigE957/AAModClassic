@@ -15,10 +15,8 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using SteelSeries.GameSense.DeviceZone;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -140,58 +138,58 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
         public bool TeleportMe2 = false;
         public bool TeleportMe3 = false;
 
-		public void HandleHeads()
-		{
-			if(Main.netMode != NetmodeID.MultiplayerClient)
-			{
-				if(!HeadsSpawned)
-				{
+        public void HandleHeads()
+        {
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                if (!HeadsSpawned)
+                {
                     headindex[0] = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HydraHead1>(), 0);
-					Head1 = Main.npc[headindex[0]];
-					Head1.ai[0] = NPC.whoAmI;
+                    Head1 = Main.npc[headindex[0]];
+                    Head1.ai[0] = NPC.whoAmI;
 
                     headindex[1] = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HydraHead2>(), 0);
-					Head2 = Main.npc[headindex[1]];
-					Head2.ai[0] = NPC.whoAmI;
+                    Head2 = Main.npc[headindex[1]];
+                    Head2.ai[0] = NPC.whoAmI;
 
                     headindex[2] = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HydraHead3>(), 0);
-					Head3 = Main.npc[headindex[2]];
-					Head3.ai[0] = NPC.whoAmI;					
+                    Head3 = Main.npc[headindex[2]];
+                    Head3.ai[0] = NPC.whoAmI;
 
-					Head1.netUpdate = true;
-					Head2.netUpdate = true;
-					Head3.netUpdate = true;
-					HeadsSpawned = true;
+                    Head1.netUpdate = true;
+                    Head2.netUpdate = true;
+                    Head3.netUpdate = true;
+                    HeadsSpawned = true;
                     NPC.netUpdate = true;
-				}
-			}
+                }
+            }
             else
-			{
-				if(!HeadsSpawned)
-				{
-                    if(headindex[0] != -1)
+            {
+                if (!HeadsSpawned)
+                {
+                    if (headindex[0] != -1)
                     {
                         Head1 = Main.npc[headindex[0]];
-					    Head1.ai[0] = NPC.whoAmI;
+                        Head1.ai[0] = NPC.whoAmI;
                     }
-                    if(headindex[1] != -1)
+                    if (headindex[1] != -1)
                     {
                         Head2 = Main.npc[headindex[1]];
-					    Head1.ai[0] = NPC.whoAmI;
+                        Head1.ai[0] = NPC.whoAmI;
                     }
-                    if(headindex[2] != -1)
+                    if (headindex[2] != -1)
                     {
                         Head3 = Main.npc[headindex[2]];
-					    Head1.ai[0] = NPC.whoAmI;
+                        Head1.ai[0] = NPC.whoAmI;
                     }
 
-					if(Head1 != null && Head2 != null && Head3 != null)
-					{
-						HeadsSpawned = true;
-					}
-				}
-			}
-		}
+                    if (Head1 != null && Head2 != null && Head3 != null)
+                    {
+                        HeadsSpawned = true;
+                    }
+                }
+            }
+        }
 
         public override void AI()
         {
@@ -280,7 +278,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
                 AIMovementRunAway();
                 return;
             }
-            
+
             bool noHeads = !NPC.AnyNPCs(ModContent.NPCType<HydraHead1>()) && !NPC.AnyNPCs(ModContent.NPCType<HydraHead2>()) && !NPC.AnyNPCs(ModContent.NPCType<HydraHead3>()) &&
                 !NPC.AnyNPCs(ModContent.NPCType<HydraHead4>()) && !NPC.AnyNPCs(ModContent.NPCType<HydraHead5>()) && !NPC.AnyNPCs(ModContent.NPCType<HydraHead6>()) &&
                 !NPC.AnyNPCs(ModContent.NPCType<HydraHead7>()) && !NPC.AnyNPCs(ModContent.NPCType<HydraHead8>()) && !NPC.AnyNPCs(ModContent.NPCType<HydraHead9>());
@@ -299,7 +297,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
 
         public float[] internalAI = new float[1];
 
-        public int[] headindex = {-1, -1, -1};
+        public int[] headindex = { -1, -1, -1 };
         public override void SendExtraAI(BinaryWriter writer)
         {
             base.SendExtraAI(writer);
@@ -495,7 +493,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
         {
             string headTex = Texture.Replace("Body", "Head");
 
-            if(NPC.IsABestiaryIconDummy)
+            if (NPC.IsABestiaryIconDummy)
             {
                 Rectangle frame = ModContent.Request<Texture2D>(headTex + "2").Frame(1, 2);
                 bool small = NPC.scale == 0.65f;

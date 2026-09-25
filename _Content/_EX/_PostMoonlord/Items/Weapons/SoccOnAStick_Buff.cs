@@ -1,10 +1,9 @@
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     public class SoccOnAStick_Buff : ModBuff
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Socc");

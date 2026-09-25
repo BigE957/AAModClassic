@@ -2,9 +2,6 @@ using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFung
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Tools;
-using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard;
-using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tools;
-using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base;
 using AAModClassic.Globals;
@@ -15,7 +12,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -30,31 +26,31 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
     {
         public int damage = 0;
 
-		public override void SendExtraAI(BinaryWriter writer)
-		{
-			base.SendExtraAI(writer);
-			if(Main.netMode == NetmodeID.Server || Main.dedServ)
-			{
-				writer.Write(internalAI[0]);
-				writer.Write(internalAI[1]);
+        public override void SendExtraAI(BinaryWriter writer)
+        {
+            base.SendExtraAI(writer);
+            if (Main.netMode == NetmodeID.Server || Main.dedServ)
+            {
+                writer.Write(internalAI[0]);
+                writer.Write(internalAI[1]);
                 writer.Write(internalAI[2]);
                 writer.Write(internalAI[3]);
                 writer.Write(internalAI[4]);
             }
-		}
+        }
 
-		public override void ReceiveExtraAI(BinaryReader reader)
-		{
-			base.ReceiveExtraAI(reader);
-			if(Main.netMode == NetmodeID.MultiplayerClient)
-			{
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+            base.ReceiveExtraAI(reader);
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+            {
                 internalAI[0] = reader.ReadSingle();
                 internalAI[1] = reader.ReadSingle();
                 internalAI[2] = reader.ReadSingle();
                 internalAI[3] = reader.ReadSingle();
                 internalAI[4] = reader.ReadSingle();
-            }	
-		}	
+            }
+        }
 
         public override void SetStaticDefaults()
         {
@@ -104,14 +100,14 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
         }
 
         public static int AISTATE_HOVER = 0, AISTATE_FLIER = 1, AISTATE_SHOOT = 2;
-		public float[] internalAI = new float[5];
-		
+        public float[] internalAI = new float[5];
+
         public override void AI()
         {
             damage = 12;
             NPC.TargetClosest();
             Player player = Main.player[NPC.target];
-             
+
             if (Main.dayTime && player.position.Y < Main.worldSurface || !player.ZoneGlowshroom)
             {
                 NPC.velocity *= 0;
@@ -153,7 +149,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
             NPC.noTileCollide = true;
 
             if (Main.netMode != NetmodeID.MultiplayerClient && internalAI[1] != AISTATE_SHOOT)
-			{
+            {
                 internalAI[0]++;
                 if (internalAI[0] >= 180)
                 {
@@ -163,13 +159,13 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
                     NPC.netUpdate = true;
                 }
             }
-			if(internalAI[1] == AISTATE_HOVER) 
+            if (internalAI[1] == AISTATE_HOVER)
             {
                 BaseAI.AISpaceOctopus(NPC, ref NPC.ai, player.Center, 0.15f, 4f, 170, 56f, FireMagic);
             }
-            else if (internalAI[1] == AISTATE_FLIER) 
+            else if (internalAI[1] == AISTATE_FLIER)
             {
-                BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.1f,0.04f, 5f, 3f, false, 1);
+                BaseAI.AIFlier(NPC, ref NPC.ai, true, 0.1f, 0.04f, 5f, 3f, false, 1);
             }
             else if (internalAI[1] == AISTATE_SHOOT)
             {
@@ -190,10 +186,10 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
 
             NPC.rotation = 0;
 
-            if (internalAI[4] ++ > 90 && Main.expertMode && Main.netMode != NetmodeID.MultiplayerClient)
+            if (internalAI[4]++ > 90 && Main.expertMode && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 internalAI[4] = 0;
-                Vector2 pos = new Vector2(player.Center.X + Main.rand.Next(70, 150) * (Main.rand.NextBool(2) ? 1: -1), player.Center.Y + Main.rand.Next(70, 150) * (Main.rand.NextBool(2) ? 1: -1));
+                Vector2 pos = new Vector2(player.Center.X + Main.rand.Next(70, 150) * (Main.rand.NextBool(2) ? 1 : -1), player.Center.Y + Main.rand.Next(70, 150) * (Main.rand.NextBool(2) ? 1 : -1));
                 Vector2 velocity = Vector2.Normalize(player.Center - pos) * .1f;
                 int proj = Projectile.NewProjectile(NPC.GetSource_FromThis(), pos.X, pos.Y, velocity.X, velocity.Y, ModContent.ProjectileType<FeudalFungus_FungusCloud>(), damage, 0, Main.myPlayer, 0f, 0f);
                 Main.projectile[proj].timeLeft = 720;
@@ -213,7 +209,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
         public override void BossLoot(ref int potionType)
         {   //boss drops
             potionType = ItemID.ManaPotion;
-            
+
         }
 
         public override void OnKill()
@@ -343,7 +339,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
         }
     }
 
-    
+
 }
 
 

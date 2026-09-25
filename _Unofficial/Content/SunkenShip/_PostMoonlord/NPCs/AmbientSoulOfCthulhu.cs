@@ -2,7 +2,6 @@
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
-using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.World;
@@ -12,7 +11,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Linq;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
@@ -59,7 +57,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
         public override void AI()
         {
             bool anyCthulhus = false;
-            if(!AAWorld.downedEquinox && !AAWorld.downedAllAncients)
+            if (!AAWorld.downedEquinox && !AAWorld.downedAllAncients)
                 foreach (NPC npc in Main.ActiveNPCs)
                     if (npc.type == ModContent.NPCType<UDUNFUKED>() || npc.type == ModContent.NPCType<SoulOfCthulhu>() || npc.type == ModContent.NPCType<Cthulhu>() || npc.type == ModContent.NPCType<CthulhuSpawn>() || npc.type == ModContent.NPCType<CthulhuPortal>())
                         anyCthulhus = true;
@@ -93,7 +91,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
                 VerletIntegration.AffectVerletObject(rope, 0.5f, 5f);
 
             VerletIntegration.VerletSimulation(Body, 10, gravity: 0.1f, windAffected: false);
-            foreach(var rope in Ropes)
+            foreach (var rope in Ropes)
                 VerletIntegration.VerletSimulation(rope, 10, gravity: 0.05f, windAffected: false);
 
             NPC.Center = (Body[0].Position + Body[2].Position) / 2f;
@@ -202,7 +200,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
                         Vector2 dir = start.DirectionTo(end);
 
                         Rectangle frame;
-                        if(i % 2 == 0)
+                        if (i % 2 == 0)
                             frame = new Rectangle(0, 0, 10, 8);
                         else
                             frame = new Rectangle(0, 8, 10, 8);
@@ -318,7 +316,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
 
         public override void SaveWorldData(TagCompound tag)
         {
-            if(RopeEnds.Length > 0)
+            if (RopeEnds.Length > 0)
                 tag.Add("RopeEnds", RopeEnds);
         }
 
@@ -341,7 +339,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
                 if (!NPC.AnyNPCs(ModContent.NPCType<AmbientSoulOfCthulhu>()) && !anyCthulhus)
                 {
                     Vector2 spawnPos;
-                    if(AAWorld_Unreleased.AmbientSoCPos != Point.Zero)
+                    if (AAWorld_Unreleased.AmbientSoCPos != Point.Zero)
                         spawnPos = (AAWorld_Unreleased.AmbientSoCPos + new Point(0, 0)).ToWorldCoordinates(0, 0);
                     else
                         spawnPos = (AAWorld_Unreleased.shipPos + new Point(141, 30)).ToWorldCoordinates();
@@ -429,7 +427,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
 
                                 Main.npc[n].Transform(ModContent.NPCType<UDUNFUKED>());
                             }
-                            else if(Main.netMode != NetmodeID.MultiplayerClient)
+                            else if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
                                 Vector2 spawnPos = tresspasser.Center + (Vector2.UnitY.RotatedBy(Main.rand.NextFloat(-MathHelper.PiOver2, MathHelper.PiOver2)) * 800);
                                 n = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<UDUNFUKED>());
@@ -462,7 +460,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
                 {
                     Ropes = new VerletObject[4];
 
-                    if(RopeEnds.Length == 0)
+                    if (RopeEnds.Length == 0)
                     {
                         Vector2 spawnPos = (AAWorld_Unreleased.shipPos + new Point(141, 41)).ToWorldCoordinates();
                         RopeEnds = new Vector2[4];
@@ -472,7 +470,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
                             float randAngle = Main.rand.NextFloat(-MathHelper.Pi / 9f, MathHelper.Pi / 5f) * Math.Sign(dir.X);
                             dir = dir.RotatedBy(randAngle);
                             Vector2? tileWorld = CollisionUtils.RayCast(spawnPos, dir, 1000, out _);
-                            RopeEnds[i] = tileWorld ?? dir * 128;                            
+                            RopeEnds[i] = tileWorld ?? dir * 128;
                         }
                     }
 
@@ -493,7 +491,7 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && Ropes.Length > 0)
             {
                 Texture2D RopeTex = ModContent.Request<Texture2D>("AAModClassic/_Unofficial/Content/SunkenShip/_PostMoonlord/NPCs/Rope").Value;
-                
+
                 Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);
 
                 foreach (var rope in Ropes)

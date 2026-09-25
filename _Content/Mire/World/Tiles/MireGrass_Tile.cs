@@ -1,5 +1,4 @@
 using AAModClassic.Dusts;
-using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
@@ -21,9 +20,9 @@ namespace AAModClassic._Content.Mire.World.Tiles
             TileID.Sets.CanBeDugByShovel[Type] = true;
             TileID.Sets.JungleSpecial[Type] = true;
 
-            Main.tileMergeDirt[Type] = true;        
+            Main.tileMergeDirt[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
-            
+
             DustType = ModContent.DustType<MireDust>();
             AddMapEntry(new Color(0, 50, 140));
             RegisterItemDrop(ItemID.MudBlock);

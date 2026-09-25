@@ -1,15 +1,12 @@
-﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Underground.___PreHardmode.Items.Armor
 {
-	[AutoloadEquip(EquipType.Body)]
-	public class AncientGoldChestplate : EquipAbstract, ILocalizedModType
-	{
+    [AutoloadEquip(EquipType.Body)]
+    public class AncientGoldChestplate : EquipAbstract, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Armor.AncientGold";
         public override void SetStaticDefaults()
         {
@@ -17,17 +14,17 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Armor
         }
 
         public override void SetDefaults()
-		{
-			Item.width = 18;
+        {
+            Item.width = 18;
             Item.height = 18;
             Item.defense = 4;
             Item.value = 10000;
             Item.expert = true;
-		}
+        }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
-		{
-			return head.type == ItemID.AncientGoldHelmet && legs.type == ModContent.ItemType<AncientGoldLeggings>();
+        {
+            return head.type == ItemID.AncientGoldHelmet && legs.type == ModContent.ItemType<AncientGoldLeggings>();
         }
 
         public override void RegisterEquipEffects()

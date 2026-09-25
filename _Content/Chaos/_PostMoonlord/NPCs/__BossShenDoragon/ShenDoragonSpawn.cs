@@ -1,14 +1,9 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic.Base;
-using AAModClassic.Effects;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
@@ -235,7 +230,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
         {
             return new Color(233, 0, 233) * (Main.mouseTextColor / 255f);
         }
-        
+
         public float auraPercent = 0f;
         public bool auraDirection = true;
         public bool saythelinezero = false;

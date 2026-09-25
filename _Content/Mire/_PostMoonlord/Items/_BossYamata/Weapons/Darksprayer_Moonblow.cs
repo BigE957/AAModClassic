@@ -1,7 +1,6 @@
-﻿using System;
-using AAModClassic._Content.Mire.Buffs;
+﻿using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -34,28 +33,29 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 
         public override void AI()
         {
-			if(Projectile.timeLeft < 60)
-			{
-				Projectile.velocity.Y += Projectile.velocity.Y > 0f ? 0.04f : -0.04f;
-				if(Projectile.velocity.Y <= -8f) Projectile.velocity.Y = -8f;
-				if(Projectile.velocity.Y >= 8f) Projectile.velocity.Y = 8f;
-			}
-			Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
-			for (int i = 0; i < 3; i++)
-			{
-				int d = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataDust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
-				if (Main.rand.NextBool(6))
-				{
-					Main.dust[d].noGravity = true;
-					Main.dust[d].velocity.X *= 2f;
-					Main.dust[d].velocity.Y *= 2f;
-				}else
-				{
-					Main.dust[d].noGravity = true;
-					Main.dust[d].velocity.X *= 1.2f;
-					Main.dust[d].velocity.Y *= 1.2f;
-				}
-			}
+            if (Projectile.timeLeft < 60)
+            {
+                Projectile.velocity.Y += Projectile.velocity.Y > 0f ? 0.04f : -0.04f;
+                if (Projectile.velocity.Y <= -8f) Projectile.velocity.Y = -8f;
+                if (Projectile.velocity.Y >= 8f) Projectile.velocity.Y = 8f;
+            }
+            Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
+            for (int i = 0; i < 3; i++)
+            {
+                int d = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataDust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
+                if (Main.rand.NextBool(6))
+                {
+                    Main.dust[d].noGravity = true;
+                    Main.dust[d].velocity.X *= 2f;
+                    Main.dust[d].velocity.Y *= 2f;
+                }
+                else
+                {
+                    Main.dust[d].noGravity = true;
+                    Main.dust[d].velocity.X *= 1.2f;
+                    Main.dust[d].velocity.Y *= 1.2f;
+                }
+            }
             const int aislotHomingCooldown = 0;
             const int homingDelay = 0;
             const float desiredFlySpeedInPixelsPerFrame = 15;
@@ -64,7 +64,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                Projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
@@ -91,7 +91,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                     )
                         selectedTarget = i;
                 }
@@ -100,10 +100,10 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             return selectedTarget;
         }
 
-        public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
-		{
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
             target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 500);
-        }		
+        }
 
         public override void OnKill(int timeLeft)
         {
@@ -209,8 +209,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
         }
 
         public override Color? GetAlpha(Color lightColor)
-		{
-			return new Color(Math.Max((int)Main.mouseTextColor, lightColor.R), Math.Max((int)Main.mouseTextColor, lightColor.G), Math.Max((int)Main.mouseTextColor, lightColor.B), Main.mouseTextColor);
-		}
-	}
+        {
+            return new Color(Math.Max((int)Main.mouseTextColor, lightColor.R), Math.Max((int)Main.mouseTextColor, lightColor.G), Math.Max((int)Main.mouseTextColor, lightColor.B), Main.mouseTextColor);
+        }
+    }
 }

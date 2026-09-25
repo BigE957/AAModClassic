@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration
@@ -12,7 +11,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration
             Main.tileMergeDirt[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(ModContent.ItemType<Bogwood>());   
+            RegisterItemDrop(ModContent.ItemType<Bogwood>());
             AddMapEntry(new Color(0, 0, 51));
             DustType = ModContent.DustType<Dusts.BogwoodDust>();
         }

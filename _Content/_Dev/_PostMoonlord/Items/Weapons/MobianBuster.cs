@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -30,9 +29,9 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             Item.channel = true;
             Item.sellPrice(0, 30, 0, 0);
             Item.noMelee = true;
-			Item.rare = ItemRarityID.Red;
-			Item.shootSpeed = 12f;
-			Item.noUseGraphic = true;
+            Item.rare = ItemRarityID.Red;
+            Item.shootSpeed = 12f;
+            Item.noUseGraphic = true;
         }
     }
 }

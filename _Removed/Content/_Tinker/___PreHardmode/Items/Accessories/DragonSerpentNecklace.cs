@@ -1,8 +1,6 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories;
 using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.Accessories;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,7 +9,7 @@ namespace AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories
     public class DragonSerpentNecklace : EquipAbstract, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Accessories";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dragon Serpent Necklace");
@@ -67,5 +65,5 @@ namespace AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories
             return true;
         }
     }
-    
+
 }

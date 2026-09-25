@@ -1,10 +1,8 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -82,12 +80,12 @@ Hydra Staff EX"); */
         }
 
         public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.StaffoftheFrostHydra);
-			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ItemID.StaffoftheFrostHydra);
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>());
             recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
-		}
+        }
     }
 }

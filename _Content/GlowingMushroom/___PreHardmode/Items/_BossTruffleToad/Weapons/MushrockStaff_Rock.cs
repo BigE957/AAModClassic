@@ -1,7 +1,6 @@
 using AAModClassic._Vanilla.Facsimiles._1._3._5._3;
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -19,9 +18,9 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
         {
             //Projectile.CloneDefaults(ProjectileID.BoulderStaffOfEarth);
             base.SetDefaults();
-            Projectile.penetrate = 1;  
-			Projectile.friendly = true;
-			Projectile.hostile = false;
+            Projectile.penetrate = 1;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
             Projectile.timeLeft = 300;
             Projectile.DamageType = DamageClass.Magic;
         }

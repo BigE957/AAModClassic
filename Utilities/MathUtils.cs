@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
-using Terraria;
 namespace AAModClassic.Utilities
 {
     public static class MathUtils

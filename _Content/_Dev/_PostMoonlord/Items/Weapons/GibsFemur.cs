@@ -1,7 +1,6 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -18,10 +17,10 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 
         public override void SetDefaults()
         {
-			Item.useTime = 25;
+            Item.useTime = 25;
             Item.CloneDefaults(ItemID.Bone);
             Item.DamageType = DamageClass.Ranged;
-            Item.damage = 120;                            
+            Item.damage = 120;
             Item.value = 600000;
             Item.rare = ItemRarityID.Purple;
             Item.knockBack = 5;
@@ -29,7 +28,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             Item.useAnimation = 24;
             Item.useTime = 24;
             Item.shoot = ModContent.ProjectileType<GibsFemur_AngryFemur>();
-			Item.width = 32;
+            Item.width = 32;
             Item.height = 32;
             Item.noMelee = true;
             Item.shootSpeed = 10f;

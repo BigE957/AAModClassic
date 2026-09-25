@@ -1,26 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.Globals;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {
     public class Sunstorm : BaseAAItem, ILocalizedModType
-  {
+    {
         public new string LocalizationCategory => "Items.Weapons.Magic";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Sunstorm");
-			/* Tooltip.SetDefault(@"Summons orbiting fireballs which home to enemies after some time
+            /* Tooltip.SetDefault(@"Summons orbiting fireballs which home to enemies after some time
 Right click and hold to release and aim manually"); */
         }
 
@@ -44,24 +41,24 @@ Right click and hold to release and aim manually"); */
             Item.UseSound = SoundID.Item124;
         }
 
-        
 
-		public override bool AltFunctionUse(Player player)
-		{
-			return true;
-		}
-		
-		public override bool CanUseItem(Player player)
-		{
-			if (player.altFunctionUse == 2)
-			{
-				return false;
-			}
-			else
-			{
-				return true;
-			}
-		}
+
+        public override bool AltFunctionUse(Player player)
+        {
+            return true;
+        }
+
+        public override bool CanUseItem(Player player)
+        {
+            if (player.altFunctionUse == 2)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {

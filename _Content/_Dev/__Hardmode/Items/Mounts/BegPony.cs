@@ -1,17 +1,14 @@
-using System;
-using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Mounts
 {
-	public class BegPony : ModMount
-	{
-		public override void SetStaticDefaults()
-		{
+    public class BegPony : ModMount
+    {
+        public override void SetStaticDefaults()
+        {
             MountData.spawnDust = DustID.Smoke;
             MountData.buff = ModContent.BuffType<PrettyPony_Buff>();
             MountData.heightBoost = 44;
@@ -75,8 +72,8 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Mounts
             }
         }
 
-		public override void UpdateEffects(Player player)
-		{
+        public override void UpdateEffects(Player player)
+        {
             player.GetJumpState(ExtraJump.UnicornMount).Enable();// = true/* tModPorter Suggestion: Call Enable() if setting this to true, otherwise call Disable(). */;
             if (Math.Abs(player.velocity.X) > player.mount.DashSpeed - player.mount.RunSpeed / 2f)
             {
@@ -137,5 +134,5 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Mounts
                 }
             }
         }
-	}
+    }
 }

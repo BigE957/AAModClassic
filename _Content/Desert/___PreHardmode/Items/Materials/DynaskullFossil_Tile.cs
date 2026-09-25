@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -12,8 +11,8 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items.Materials
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-			Main.tileMergeDirt[Type] = true;
-            Main.tileOreFinderPriority[Type] = 360; 
+            Main.tileMergeDirt[Type] = true;
+            Main.tileOreFinderPriority[Type] = 360;
             Main.tileSpelunker[Type] = true;
             Main.tileBlockLight[Type] = true;
             //true for block to emit light
@@ -24,7 +23,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items.Materials
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Dynaskull Fossil");
             AddMapEntry(new Color(100, 100, 0), name);
-			MinPick = 65;
+            MinPick = 65;
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)

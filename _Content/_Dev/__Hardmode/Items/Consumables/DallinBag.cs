@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -21,7 +20,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Consumables
             Item.consumable = true;
             Item.width = 32;
             Item.height = 32;
-            Item.expert = true;  
+            Item.expert = true;
         }
 
         public override bool CanRightClick()
@@ -29,12 +28,12 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Consumables
             return true;
         }
 
- 		public override void RightClick(Player player)
-		{
-			player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.Fez);	
-			player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.TheDoctorsShirt);		
-			player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.TheDoctorsPants);
-			player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.ReflectiveDye, 3);
+        public override void RightClick(Player player)
+        {
+            player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.Fez);
+            player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.TheDoctorsShirt);
+            player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.TheDoctorsPants);
+            player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.ReflectiveDye, 3);
             if (Main.hardMode)
             {
                 player.QuickSpawnItem(Item.GetSource_Loot(), ItemID.Hoverboard);

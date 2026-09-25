@@ -7,15 +7,15 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class ShoxLeggings : BaseAAItem, ILocalizedModType
-	{
+    public class ShoxLeggings : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Shox";
         public override void SetStaticDefaults()
-		{
+        {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Shock Lord's Boots");
             // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Contributors!'");
-		}
+        }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {

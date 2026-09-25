@@ -1,6 +1,5 @@
 ﻿using AAModClassic._CrossMod.CalamityMod;
 using System;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;

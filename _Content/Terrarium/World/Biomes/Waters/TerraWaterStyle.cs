@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Terrarium.World.Biomes.Waters
 {
     public class TerraWaterStyle : ModWaterStyle
-	{
+    {
         public static ModWaterStyle Instance { get; private set; }
         public static ModWaterfallStyle WaterfallStyle { get; private set; }
         public static int SplashDust { get; private set; }
@@ -33,18 +33,18 @@ namespace AAModClassic._Content.Terrarium.World.Biomes.Waters
         public override int ChooseWaterfallStyle() => WaterfallStyle.Slot;
         public override int GetSplashDust() => SplashDust;
         public override int GetDropletGore() => DropletGore;
-		public override Asset<Texture2D> GetRainTexture() => RainTexture ??= ModContent.Request<Texture2D>("AAModClassic/_Content/Terrarium/World/Biomes/Waters/TerraRain");
+        public override Asset<Texture2D> GetRainTexture() => RainTexture ??= ModContent.Request<Texture2D>("AAModClassic/_Content/Terrarium/World/Biomes/Waters/TerraRain");
 
-		public override void LightColorMultiplier(ref float r, ref float g, ref float b)
-		{
-			r = 1f;
-			g = 1f;
-			b = 1f;
-		}
+        public override void LightColorMultiplier(ref float r, ref float g, ref float b)
+        {
+            r = 1f;
+            g = 1f;
+            b = 1f;
+        }
 
-		public override Color BiomeHairColor()
-		{
-			return AAColor.TerraGlow;
-		}
-	}
+        public override Color BiomeHairColor()
+        {
+            return AAColor.TerraGlow;
+        }
+    }
 }

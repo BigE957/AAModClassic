@@ -1,6 +1,5 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -17,7 +16,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles
             Main.tileBlockLight[Type] = true;  //true for block to emit light
             Main.tileLighted[Type] = false;
             DustType = ModContent.DustType<Dusts.RazewoodDust>();
-            RegisterItemDrop(ModContent.ItemType<Razewood>());   
+            RegisterItemDrop(ModContent.ItemType<Razewood>());
             AddMapEntry(new Color(40, 40, 40));
             MinPick = 0;
         }

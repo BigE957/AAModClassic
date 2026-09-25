@@ -1,15 +1,14 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip.World.Tiles
 {
-	public class RottedPlatform_Tile : ModTile
-	{
-		public override void SetStaticDefaults()
-		{
+    public class RottedPlatform_Tile : ModTile
+    {
+        public override void SetStaticDefaults()
+        {
             Main.tileFrameImportant[Type] = true;
             Main.tileSolidTop[Type] = true;
             Main.tileSolid[Type] = true;
@@ -55,13 +54,13 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Tiles
         }
 
         public override void PostSetDefaults()
-		{
-			Main.tileNoSunLight[Type] = false;
-		}
+        {
+            Main.tileNoSunLight[Type] = false;
+        }
 
-		public override void NumDust(int i, int j, bool fail, ref int num)
-		{
-			num = fail ? 1 : 3;
-		}
-	}
+        public override void NumDust(int i, int j, bool fail, ref int num)
+        {
+            num = fail ? 1 : 3;
+        }
+    }
 }

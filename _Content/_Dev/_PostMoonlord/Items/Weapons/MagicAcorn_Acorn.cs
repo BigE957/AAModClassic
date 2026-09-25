@@ -1,10 +1,9 @@
+using AAModClassic.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
-using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Base;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {

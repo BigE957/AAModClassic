@@ -1,7 +1,6 @@
 ﻿using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,11 +10,11 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
     public class TerraFocus_MagicBlast : ModProjectile
     {
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Magic Blast");
+        {
+            // DisplayName.SetDefault("Magic Blast");
             Main.projFrames[Projectile.type] = 4;
-		}
-    	
+        }
+
         public override void SetDefaults()
         {
             Projectile.width = 10;
@@ -75,7 +74,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
         {
             target.AddBuff(ModContent.BuffType<Terrablaze_Buff>(), 600);
         }
-        
+
 
         public override bool PreDraw(ref Color lightColor)
         {
@@ -84,8 +83,8 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
             {
                 Projectile.frame++;
                 Projectile.frameCounter = 0;
-                if (Projectile.frame > 3) 
-                    Projectile.frame = 0; 
+                if (Projectile.frame > 3)
+                    Projectile.frame = 0;
             }
             return true;
         }

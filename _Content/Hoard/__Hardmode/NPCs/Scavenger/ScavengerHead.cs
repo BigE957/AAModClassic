@@ -1,5 +1,3 @@
-using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
-using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard;
 using AAModClassic._Content.Hoard.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
@@ -9,7 +7,6 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -76,7 +73,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
 
         public override void AI()
         {
-            if(NPC.AnyNPCs(ModContent.NPCType<GreedHead>()) || NPC.AnyNPCs(ModContent.NPCType<GreedAHead>()))
+            if (NPC.AnyNPCs(ModContent.NPCType<GreedHead>()) || NPC.AnyNPCs(ModContent.NPCType<GreedAHead>()))
             {
                 NPC.active = false;
                 return;

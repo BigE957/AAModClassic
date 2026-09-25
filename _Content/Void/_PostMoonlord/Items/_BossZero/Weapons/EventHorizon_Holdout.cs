@@ -2,7 +2,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.Enums;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -195,7 +194,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, Vector2.Zero, ModContent.ProjectileType<EventHorizon_Holdout_Vortex>(), Projectile.damage*2, 0, Projectile.owner, 0, 0);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, Vector2.Zero, ModContent.ProjectileType<EventHorizon_Holdout_Vortex>(), Projectile.damage * 2, 0, Projectile.owner, 0, 0);
         }
     }
 }

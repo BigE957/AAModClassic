@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,17 +6,17 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Ammo
 {
     public class SingularityArrow_Proj : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Singularity Arrow");    
-		}
+        }
 
-		public override void SetDefaults()
-		{
-			Projectile.width = 14;
-			Projectile.height = 14;
-			Projectile.aiStyle = ProjAIStyleID.Arrow;        
+        public override void SetDefaults()
+        {
+            Projectile.width = 14;
+            Projectile.height = 14;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.ignoreWater = true;
@@ -36,7 +35,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Ammo
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                Projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
@@ -63,7 +62,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Ammo
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                     )
                         selectedTarget = i;
                 }

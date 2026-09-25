@@ -2,29 +2,31 @@
 using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 {
     public class AkumaHead_Breath : FireProj
     {
-        public override MulticolorShift ColorShift 
-        { get {
-            Color color = new(176, 7, 65, 200);
-            Color color2 = new(255, 205, 20, 70);
-            Color color3 = Color.Lerp(new Color(176, 7, 65, 100), color2, 0.25f);
-            Color color4 = new(80, 80, 80, 100);
+        public override MulticolorShift ColorShift
+        {
+            get
+            {
+                Color color = new(176, 7, 65, 200);
+                Color color2 = new(255, 205, 20, 70);
+                Color color3 = Color.Lerp(new Color(176, 7, 65, 100), color2, 0.25f);
+                Color color4 = new(80, 80, 80, 100);
 
-            return new MulticolorShift
-            ([
-                new(Color.Transparent, 0f,   0.1f),   // fade in
+                return new MulticolorShift
+                ([
+                    new(Color.Transparent, 0f,   0.1f),   // fade in
                 new(color,             0f,   0.1f),   // to color2
                 new(color2,            0.15f, 0.35f), // hold then to color3
                 new(color3,            0f,   0.15f),  // to color4
                 new(color4,            0f,   0.15f)   // to final
-            ]);
-        }} 
+                ]);
+            }
+        }
 
         public override void SetStaticDefaults()
         {
@@ -46,7 +48,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 
         public override void AI()
         {
-            if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
                 base.AI();
                 return;

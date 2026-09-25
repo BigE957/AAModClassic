@@ -1,14 +1,9 @@
 using AAModClassic._Content.Inferno.__Hardmode.Items.Accessories;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic._Content.Mire.__Hardmode.Items.Accessories;
-using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
-using AAModClassic._CrossMod.Thorium.Weapons.Healer;
 using AAModClassic._Unofficial.Content.Inferno.__Hardmode.Items.Tools;
-using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -18,22 +13,22 @@ using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AACondition
 namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
 {
     public class InfernoMimic : ModNPC
-	{
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Inferno Mimic");
-			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[475];
-		}
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Inferno Mimic");
+            Main.npcFrameCount[NPC.type] = Main.npcFrameCount[475];
+        }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
         {
             NPC.width = 34;
             NPC.height = 42;
             NPC.damage = 50;
-			NPC.defense = 8;
-			NPC.lifeMax = 3500;
-			NPC.HitSound = SoundID.NPCHit4;
-			NPC.DeathSound = SoundID.NPCDeath6;
+            NPC.defense = 8;
+            NPC.lifeMax = 3500;
+            NPC.HitSound = SoundID.NPCHit4;
+            NPC.DeathSound = SoundID.NPCDeath6;
             NPC.value = 240000f;
             NPC.knockBackResist = .30f;
             NPC.aiStyle = NPCAIStyleID.BiomeMimic;
@@ -55,14 +50,14 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
         }
 
         public override void HitEffect(NPC.HitInfo hit)
-		{
-			if (NPC.life <= 0 && !Main.dedServ)
-			{
-				Gore.NewGore(NPC.GetSource_Death(), NPC.position, Vector2.Zero, 13);
-				Gore.NewGore(NPC.GetSource_Death(), NPC.position, Vector2.Zero, 12);
-				Gore.NewGore(NPC.GetSource_Death(), NPC.position, Vector2.Zero, 11);
-			}
-		}
+        {
+            if (NPC.life <= 0 && !Main.dedServ)
+            {
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, Vector2.Zero, 13);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, Vector2.Zero, 12);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, Vector2.Zero, 11);
+            }
+        }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {

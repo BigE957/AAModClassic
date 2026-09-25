@@ -1,19 +1,18 @@
 using AAModClassic.Globals;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.Buffs
 {
     public class DiscordianInferno_Buff : ModBuff
-	{
-		public override void SetStaticDefaults()
-		{
+    {
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Discordian Inferno");
             // Description.SetDefault("Your soul is tearing itself apart");
-			Main.debuff[Type] = true;
-			Main.pvpBuff[Type] = false;
-			Main.buffNoSave[Type] = true;
+            Main.debuff[Type] = true;
+            Main.pvpBuff[Type] = false;
+            Main.buffNoSave[Type] = true;
             BuffID.Sets.LongerExpertDebuff[Type] = true;
         }
 
@@ -23,8 +22,8 @@ namespace AAModClassic._Content.Chaos.Buffs
         }
 
         public override void Update(NPC npc, ref int buffIndex)
-		{
-			npc.GetGlobalNPC<AAModGlobalNPC>().DiscordInferno = true;
-		}
-	}
+        {
+            npc.GetGlobalNPC<AAModGlobalNPC>().DiscordInferno = true;
+        }
+    }
 }

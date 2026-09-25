@@ -2,9 +2,7 @@ using AAModClassic.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.GameContent;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened
@@ -46,7 +44,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
             {
                 draw = false;
             }
-            
+
             if (++Projectile.frameCounter >= 3)
             {
                 Projectile.frameCounter = 0;
@@ -85,10 +83,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
                 Tex = Red.Value;
             }
             else
-            if (Projectile.ai[0] == 1)
-            {
-                Tex = Blue.Value;
-            }
+                if (Projectile.ai[0] == 1)
+                {
+                    Tex = Blue.Value;
+                }
             BaseDrawing.DrawTexture(Main.spriteBatch, Tex, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 7, frame, Projectile.GetAlpha(Color.White), true);
             return false;
         }

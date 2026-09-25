@@ -64,7 +64,6 @@ using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZer
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Weapons;
 using System;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -102,178 +101,178 @@ namespace AAModClassic
             .AddTile(ModContent.TileType<HallowedForge_Tile>())
             .Register();
 
-             GetNewRecipe(ItemID.ShroomiteBar, 1)
-            .AddIngredient(ModContent.ItemType<MushiumBar>(), 1)
-            .AddIngredient(ItemID.GlowingMushroom, 5)
-            .AddTile(TileID.Autohammer)
-            .Register();
+            GetNewRecipe(ItemID.ShroomiteBar, 1)
+           .AddIngredient(ModContent.ItemType<MushiumBar>(), 1)
+           .AddIngredient(ItemID.GlowingMushroom, 5)
+           .AddTile(TileID.Autohammer)
+           .Register();
 
-             GetNewRecipe(ItemID.Mushroom, 3)
-            .AddIngredient(ModContent.ItemType<MushroomBlock>())
-            .AddTile(TileID.WorkBenches)
-            .Register();
+            GetNewRecipe(ItemID.Mushroom, 3)
+           .AddIngredient(ModContent.ItemType<MushroomBlock>())
+           .AddTile(TileID.WorkBenches)
+           .Register();
             #endregion
 
             #region Equipment
-             GetNewRecipe(ItemID.Zenith, 1)
-            .AddIngredient(ModContent.ItemType<TrueTerraBlade>())
-            .AddIngredient(ModContent.ItemType<TheLolkat>())
-            .AddIngredient(ModContent.ItemType<CosmicFury>())
-            .AddIngredient(ItemID.InfluxWaver)
-            .AddIngredient(ModContent.ItemType<Apocalypse>())
-            .AddIngredient(ItemID.Seedler)
-            .AddIngredient(ItemID.Starfury)
-            .AddIngredient(ItemID.BeeKeeper)
-            .AddIngredient(ItemID.Terragrim)
-            .AddIngredient(ModContent.ItemType<PrismaticGreatsword>())
-            .AddIngredient(ModContent.ItemType<BladeOfEvil>())
-            .AddIngredient(ModContent.ItemType<Ikari>())
-            .AddIngredient(ModContent.ItemType<InfinityBlade>()) //TODO: make this rift shredder in non-unofficial worlds... somehow
-            .AddIngredient(ModContent.ItemType<Verdict>())
-            .AddIngredient(ModContent.ItemType<SagittariusLeg>())
-            .AddIngredient(ModContent.ItemType<RomulusTazesaber>())
-            .AddIngredient(ModContent.ItemType<SubzeroSlasher>())
-            .AddIngredient(ModContent.ItemType<Olympia>())
-            .AddIngredient(ModContent.ItemType<Excalihare>())
-            .AddIngredient(ModContent.ItemType<CarnalCrusher>())
-            .AddIngredient(ModContent.ItemType<UltimaShortsword>())
-            .AddIngredient(ModContent.ItemType<EXSoul>())
-            .AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>())
-            .Register();
+            GetNewRecipe(ItemID.Zenith, 1)
+           .AddIngredient(ModContent.ItemType<TrueTerraBlade>())
+           .AddIngredient(ModContent.ItemType<TheLolkat>())
+           .AddIngredient(ModContent.ItemType<CosmicFury>())
+           .AddIngredient(ItemID.InfluxWaver)
+           .AddIngredient(ModContent.ItemType<Apocalypse>())
+           .AddIngredient(ItemID.Seedler)
+           .AddIngredient(ItemID.Starfury)
+           .AddIngredient(ItemID.BeeKeeper)
+           .AddIngredient(ItemID.Terragrim)
+           .AddIngredient(ModContent.ItemType<PrismaticGreatsword>())
+           .AddIngredient(ModContent.ItemType<BladeOfEvil>())
+           .AddIngredient(ModContent.ItemType<Ikari>())
+           .AddIngredient(ModContent.ItemType<InfinityBlade>()) //TODO: make this rift shredder in non-unofficial worlds... somehow
+           .AddIngredient(ModContent.ItemType<Verdict>())
+           .AddIngredient(ModContent.ItemType<SagittariusLeg>())
+           .AddIngredient(ModContent.ItemType<RomulusTazesaber>())
+           .AddIngredient(ModContent.ItemType<SubzeroSlasher>())
+           .AddIngredient(ModContent.ItemType<Olympia>())
+           .AddIngredient(ModContent.ItemType<Excalihare>())
+           .AddIngredient(ModContent.ItemType<CarnalCrusher>())
+           .AddIngredient(ModContent.ItemType<UltimaShortsword>())
+           .AddIngredient(ModContent.ItemType<EXSoul>())
+           .AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>())
+           .Register();
 
-             GetNewRecipe(ItemID.TerraBlade, 1)
-            .AddIngredient(ModContent.ItemType<TrueFleshrendClaymore>(), 1)
-            .AddIngredient(ItemID.TrueExcalibur, 1)
-            .AddIngredient(ItemID.BrokenHeroSword, 1)
-            .AddTile(TileID.MythrilAnvil)
-            .Register();
+            GetNewRecipe(ItemID.TerraBlade, 1)
+           .AddIngredient(ModContent.ItemType<TrueFleshrendClaymore>(), 1)
+           .AddIngredient(ItemID.TrueExcalibur, 1)
+           .AddIngredient(ItemID.BrokenHeroSword, 1)
+           .AddTile(TileID.MythrilAnvil)
+           .Register();
 
-             GetNewRecipe(ItemID.IceBlade)
-            .AddIngredient(ItemID.IceBlock, 30)
-            .AddIngredient(ItemID.Diamond, 1)
-            .AddIngredient(ItemID.Sapphire, 1)
-            .AddTile(TileID.Anvils)
-            .Register();
+            GetNewRecipe(ItemID.IceBlade)
+           .AddIngredient(ItemID.IceBlock, 30)
+           .AddIngredient(ItemID.Diamond, 1)
+           .AddIngredient(ItemID.Sapphire, 1)
+           .AddTile(TileID.Anvils)
+           .Register();
 
-             GetNewRecipe(ItemID.Starfury)
-            .AddIngredient(ItemID.PlatinumBroadsword)
-            .AddIngredient(ItemID.FallenStar, 10)
-            .AddIngredient(ItemID.ManaCrystal)
-            .AddTile(TileID.Anvils)
-            .Register();
-            
-             GetNewRecipe(ItemID.Starfury)
-            .AddIngredient(ItemID.GoldBroadsword)
-            .AddIngredient(ItemID.FallenStar, 10)
-            .AddIngredient(ItemID.ManaCrystal)
-            .AddTile(TileID.Anvils)
-            .Register();
+            GetNewRecipe(ItemID.Starfury)
+           .AddIngredient(ItemID.PlatinumBroadsword)
+           .AddIngredient(ItemID.FallenStar, 10)
+           .AddIngredient(ItemID.ManaCrystal)
+           .AddTile(TileID.Anvils)
+           .Register();
 
-             GetNewRecipe(ItemID.EnchantedSword)
-            .AddIngredient(ItemID.PlatinumBroadsword)
-            .AddIngredient(ItemID.ManaCrystal, 3)
-            .AddTile(TileID.Anvils)
-            .Register();
+            GetNewRecipe(ItemID.Starfury)
+           .AddIngredient(ItemID.GoldBroadsword)
+           .AddIngredient(ItemID.FallenStar, 10)
+           .AddIngredient(ItemID.ManaCrystal)
+           .AddTile(TileID.Anvils)
+           .Register();
 
-             GetNewRecipe(ItemID.EnchantedSword)
-            .AddIngredient(ItemID.GoldBroadsword)
-            .AddIngredient(ItemID.ManaCrystal, 3)
-            .AddTile(TileID.Anvils)
-            .Register();
+            GetNewRecipe(ItemID.EnchantedSword)
+           .AddIngredient(ItemID.PlatinumBroadsword)
+           .AddIngredient(ItemID.ManaCrystal, 3)
+           .AddTile(TileID.Anvils)
+           .Register();
 
-             GetNewRecipe(ItemID.Terragrim)
-            .AddIngredient(ItemID.EnchantedSword)
-            .AddIngredient(ItemID.Muramasa)
-            .AddTile(TileID.Anvils)
-            .Register();
+            GetNewRecipe(ItemID.EnchantedSword)
+           .AddIngredient(ItemID.GoldBroadsword)
+           .AddIngredient(ItemID.ManaCrystal, 3)
+           .AddTile(TileID.Anvils)
+           .Register();
 
-             GetNewRecipe(ItemID.CobaltShield)
-            .AddIngredient(ItemID.CobaltBar, 5)
-            .AddTile(TileID.Anvils)
-            .Register();
+            GetNewRecipe(ItemID.Terragrim)
+           .AddIngredient(ItemID.EnchantedSword)
+           .AddIngredient(ItemID.Muramasa)
+           .AddTile(TileID.Anvils)
+           .Register();
 
-             GetNewRecipe(ItemID.ObsidianShield)
-            .AddIngredient(ModContent.ItemType<PalladiumShield>())
-            .AddIngredient(ItemID.ObsidianSkull)
-            .AddTile(TileID.TinkerersWorkbench)
-            .Register();
+            GetNewRecipe(ItemID.CobaltShield)
+           .AddIngredient(ItemID.CobaltBar, 5)
+           .AddTile(TileID.Anvils)
+           .Register();
 
-             GetNewRecipe(ItemID.GravityGlobe, 1)
-            .AddIngredient(ItemID.SnowGlobe, 1)
-            .AddIngredient(ItemID.SoulofFlight, 5)
-            .AddIngredient(ItemID.SoulofNight, 10)
-            .AddIngredient(ItemID.SoulofLight, 10)
-            .AddTile(TileID.MythrilAnvil)
-            .Register();
+            GetNewRecipe(ItemID.ObsidianShield)
+           .AddIngredient(ModContent.ItemType<PalladiumShield>())
+           .AddIngredient(ItemID.ObsidianSkull)
+           .AddTile(TileID.TinkerersWorkbench)
+           .Register();
 
-             GetNewRecipe(ItemID.MagicMirror)
-            .AddIngredient(ItemID.Glass, 10)
-            .AddIngredient(ItemID.RecallPotion, 10)
-            .AddTile(TileID.GlassKiln)
-            .Register();
+            GetNewRecipe(ItemID.GravityGlobe, 1)
+           .AddIngredient(ItemID.SnowGlobe, 1)
+           .AddIngredient(ItemID.SoulofFlight, 5)
+           .AddIngredient(ItemID.SoulofNight, 10)
+           .AddIngredient(ItemID.SoulofLight, 10)
+           .AddTile(TileID.MythrilAnvil)
+           .Register();
 
-             GetNewRecipe(ItemID.IceMirror)
-            .AddIngredient(ItemID.IceBrick, 10)
-            .AddIngredient(ItemID.RecallPotion, 10)
-            .AddTile(TileID.IceMachine)
-            .Register();
+            GetNewRecipe(ItemID.MagicMirror)
+           .AddIngredient(ItemID.Glass, 10)
+           .AddIngredient(ItemID.RecallPotion, 10)
+           .AddTile(TileID.GlassKiln)
+           .Register();
+
+            GetNewRecipe(ItemID.IceMirror)
+           .AddIngredient(ItemID.IceBrick, 10)
+           .AddIngredient(ItemID.RecallPotion, 10)
+           .AddTile(TileID.IceMachine)
+           .Register();
             #endregion
 
             #region Miscellaneous
-             GetNewRecipe(ItemID.GuideVoodooDoll, 1)
-            .AddIngredient(ModContent.ItemType<DevilSilk>(), 5)
-            .AddIngredient(ItemID.Hay, 5)
-            .AddTile(TileID.Loom)
-            .Register();
+            GetNewRecipe(ItemID.GuideVoodooDoll, 1)
+           .AddIngredient(ModContent.ItemType<DevilSilk>(), 5)
+           .AddIngredient(ItemID.Hay, 5)
+           .AddTile(TileID.Loom)
+           .Register();
 
-             GetNewRecipe(ItemID.SnowGlobe, 1)
-            .AddIngredient(ItemID.Glass, 10)
-            .AddIngredient(ItemID.SnowBlock, 10)
-            .AddRecipeGroup("Wood")
-            .AddTile(TileID.GlassKiln)
-            .Register();
+            GetNewRecipe(ItemID.SnowGlobe, 1)
+           .AddIngredient(ItemID.Glass, 10)
+           .AddIngredient(ItemID.SnowBlock, 10)
+           .AddRecipeGroup("Wood")
+           .AddTile(TileID.GlassKiln)
+           .Register();
 
-             GetNewRecipe(ItemID.RodofDiscord)
-            .AddIngredient(ItemID.SoulofLight, 60)
-            .AddIngredient(ItemID.Pearlwood, 5)
-            .AddIngredient(ItemID.CrystalShard, 30)
-            .AddTile(TileID.MythrilAnvil)
-            .Register();
+            GetNewRecipe(ItemID.RodofDiscord)
+           .AddIngredient(ItemID.SoulofLight, 60)
+           .AddIngredient(ItemID.Pearlwood, 5)
+           .AddIngredient(ItemID.CrystalShard, 30)
+           .AddTile(TileID.MythrilAnvil)
+           .Register();
 
-             GetNewRecipe(ItemID.FragmentNebula)
-            .AddIngredient(ModContent.ItemType<RadiumBar>(), 1)
-            .AddIngredient(ItemID.LunarOre, 3)
-            .AddTile(TileID.LunarCraftingStation)
-            .Register();
+            GetNewRecipe(ItemID.FragmentNebula)
+           .AddIngredient(ModContent.ItemType<RadiumBar>(), 1)
+           .AddIngredient(ItemID.LunarOre, 3)
+           .AddTile(TileID.LunarCraftingStation)
+           .Register();
 
-             GetNewRecipe(ItemID.FragmentSolar)
-            .AddIngredient(ModContent.ItemType<RadiumBar>(), 1)
-            .AddIngredient(ItemID.LunarOre, 3)
-            .AddTile(TileID.LunarCraftingStation)
-            .Register();
+            GetNewRecipe(ItemID.FragmentSolar)
+           .AddIngredient(ModContent.ItemType<RadiumBar>(), 1)
+           .AddIngredient(ItemID.LunarOre, 3)
+           .AddTile(TileID.LunarCraftingStation)
+           .Register();
 
-             GetNewRecipe(ItemID.FragmentStardust)
-            .AddIngredient(ModContent.ItemType<DarkmatterBar>(), 1)
-            .AddIngredient(ItemID.LunarOre, 3)
-            .AddTile(TileID.LunarCraftingStation)
-            .Register();
+            GetNewRecipe(ItemID.FragmentStardust)
+           .AddIngredient(ModContent.ItemType<DarkmatterBar>(), 1)
+           .AddIngredient(ItemID.LunarOre, 3)
+           .AddTile(TileID.LunarCraftingStation)
+           .Register();
 
-             GetNewRecipe(ItemID.FragmentVortex)
-            .AddIngredient(ModContent.ItemType<DarkmatterBar>(), 1)
-            .AddIngredient(ItemID.LunarOre, 3)
-            .AddTile(TileID.LunarCraftingStation)
-            .Register();
+            GetNewRecipe(ItemID.FragmentVortex)
+           .AddIngredient(ModContent.ItemType<DarkmatterBar>(), 1)
+           .AddIngredient(ItemID.LunarOre, 3)
+           .AddTile(TileID.LunarCraftingStation)
+           .Register();
 
-             GetNewRecipe(ItemID.LavaBucket)
-            .AddIngredient(ItemID.EmptyBucket, 1)
-            .AddTile(ModContent.TileType<RazewoodSink_Tile>())
-            .Register();
+            GetNewRecipe(ItemID.LavaBucket)
+           .AddIngredient(ItemID.EmptyBucket, 1)
+           .AddTile(ModContent.TileType<RazewoodSink_Tile>())
+           .Register();
             #endregion
         }
 
         private static void RemoveZenithRecipe()
         {
-            foreach(Recipe recipe in Main.recipe)
+            foreach (Recipe recipe in Main.recipe)
             {
                 if (!recipe.HasResult(ItemID.Zenith))
                     continue;
@@ -284,7 +283,7 @@ namespace AAModClassic
 
         private static void RemoveNightsEdgeRecipe()
         {
-            foreach(var v in Main.recipe)
+            foreach (var v in Main.recipe)
             {
                 if (v.HasIngredient(ItemID.BloodButcherer) && v.HasIngredient(ItemID.BladeofGrass) && v.HasIngredient(ItemID.Muramasa) && v.HasIngredient(ItemID.FieryGreatsword) && v.HasTile(TileID.DemonAltar) && v.HasResult(ItemID.NightsEdge))
                     v.DisableRecipe();
@@ -300,345 +299,345 @@ namespace AAModClassic
             .AddTile(TileID.Sawmill)
             .Register();
 
-             GetNewRecipe(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.Wood, 30)
-            .AddIngredient(ItemID.LeadBar, 10)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.Wood, 30)
+           .AddIngredient(ItemID.LeadBar, 10)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxOverworldDay, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.GrassSeeds, 10)
-            .AddIngredient(ItemID.DirtBlock, 10)
-            .AddIngredient(ItemID.Wood, 10)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxOverworldDay, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.GrassSeeds, 10)
+           .AddIngredient(ItemID.DirtBlock, 10)
+           .AddIngredient(ItemID.Wood, 10)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxAltOverworldDay, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.GrassSeeds, 10)
-            .AddIngredient(ItemID.DirtBlock, 10)
-            .AddIngredient(ItemID.Wood, 10)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxAltOverworldDay, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.GrassSeeds, 10)
+           .AddIngredient(ItemID.DirtBlock, 10)
+           .AddIngredient(ItemID.Wood, 10)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxNight, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.Lens, 3)
-            .AddIngredient(ItemID.FallenStar, 5)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxNight, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.Lens, 3)
+           .AddIngredient(ItemID.FallenStar, 5)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxRain, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.BottledWater, 5)
-            .AddIngredient(ItemID.UmbrellaHat, 5)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxRain, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.BottledWater, 5)
+           .AddIngredient(ItemID.UmbrellaHat, 5)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxSnow, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.SnowBlock, 30)
-            .AddIngredient(ItemID.BorealWood, 30)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxSnow, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.SnowBlock, 30)
+           .AddIngredient(ItemID.BorealWood, 30)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxIce, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.IceBlock, 30)
-            .AddIngredient(ItemID.BorealWood, 30)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxIce, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.IceBlock, 30)
+           .AddIngredient(ItemID.BorealWood, 30)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxDesert, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.SandBlock, 40)
-            .AddIngredient(ItemID.Cactus, 15)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxDesert, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.SandBlock, 40)
+           .AddIngredient(ItemID.Cactus, 15)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxSandstorm, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.AncientBattleArmorMaterial, 1)
-            .AddIngredient(ItemID.SharkFin, 5)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxSandstorm, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.AncientBattleArmorMaterial, 1)
+           .AddIngredient(ItemID.SharkFin, 5)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxOcean, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.Coral, 3)
-            .AddIngredient(ItemID.Starfish, 3)
-            .AddIngredient(ItemID.Seashell, 3)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxOcean, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.Coral, 3)
+           .AddIngredient(ItemID.Starfish, 3)
+           .AddIngredient(ItemID.Seashell, 3)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxUnderground, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.DirtBlock, 50)
-            .AddIngredient(ItemID.IronOre, 10)
-            .AddIngredient(ItemID.StoneBlock, 50)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxUnderground, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.DirtBlock, 50)
+           .AddIngredient(ItemID.IronOre, 10)
+           .AddIngredient(ItemID.StoneBlock, 50)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxUnderground, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.DirtBlock, 50)
-            .AddIngredient(ItemID.LeadOre, 10)
-            .AddIngredient(ItemID.StoneBlock, 50)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxUnderground, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.DirtBlock, 50)
+           .AddIngredient(ItemID.LeadOre, 10)
+           .AddIngredient(ItemID.StoneBlock, 50)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxAltUnderground, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.DirtBlock, 50)
-            .AddIngredient(ItemID.LeadOre, 10)
-            .AddIngredient(ItemID.StoneBlock, 50)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxAltUnderground, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.DirtBlock, 50)
+           .AddIngredient(ItemID.LeadOre, 10)
+           .AddIngredient(ItemID.StoneBlock, 50)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxAltUnderground, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.DirtBlock, 50)
-            .AddIngredient(ItemID.IronOre, 10)
-            .AddIngredient(ItemID.StoneBlock, 50)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxAltUnderground, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.DirtBlock, 50)
+           .AddIngredient(ItemID.IronOre, 10)
+           .AddIngredient(ItemID.StoneBlock, 50)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxSpace, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.Feather, 20)
-            .AddIngredient(ItemID.SunplateBlock, 5)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxSpace, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.Feather, 20)
+           .AddIngredient(ItemID.SunplateBlock, 5)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxMushrooms, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.GlowingMushroom, 20)
-            .AddIngredient(ItemID.Mushroom, 10)
-            .AddIngredient(ItemID.MushroomGrassSeeds, 5)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxMushrooms, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.GlowingMushroom, 20)
+           .AddIngredient(ItemID.Mushroom, 10)
+           .AddIngredient(ItemID.MushroomGrassSeeds, 5)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxJungle, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.MudBlock, 20)
-            .AddIngredient(ItemID.JungleGrassSeeds, 5)
-            .AddIngredient(ItemID.RichMahogany, 30)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxJungle, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.MudBlock, 20)
+           .AddIngredient(ItemID.JungleGrassSeeds, 5)
+           .AddIngredient(ItemID.RichMahogany, 30)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxCorruption, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.RottenChunk, 10)
-            .AddIngredient(ItemID.CorruptSeeds, 5)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxCorruption, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.RottenChunk, 10)
+           .AddIngredient(ItemID.CorruptSeeds, 5)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxUndergroundCorruption, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.EbonstoneBlock, 30)
-            .AddIngredient(ItemID.RottenChunk, 10)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxUndergroundCorruption, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.EbonstoneBlock, 30)
+           .AddIngredient(ItemID.RottenChunk, 10)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxCrimson, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.Vertebrae, 10)
-            .AddIngredient(ItemID.CrimsonSeeds, 5)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxCrimson, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.Vertebrae, 10)
+           .AddIngredient(ItemID.CrimsonSeeds, 5)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxUndergroundCrimson, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.CrimstoneBlock, 30)
-            .AddIngredient(ItemID.Vertebrae, 10)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxUndergroundCrimson, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.CrimstoneBlock, 30)
+           .AddIngredient(ItemID.Vertebrae, 10)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxTheHallow, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.CrystalShard, 10)
-            .AddIngredient(ItemID.HallowedSeeds, 5)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxTheHallow, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.CrystalShard, 10)
+           .AddIngredient(ItemID.HallowedSeeds, 5)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxUndergroundHallow, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.PearlstoneBlock, 30)
-            .AddIngredient(ItemID.UnicornHorn, 10)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxUndergroundHallow, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.PearlstoneBlock, 30)
+           .AddIngredient(ItemID.UnicornHorn, 10)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxHell, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.AshBlock, 20)
-            .AddIngredient(ItemID.Hellstone, 15)
-            .AddIngredient(ItemID.ObsidianBrick, 10)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxHell, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.AshBlock, 20)
+           .AddIngredient(ItemID.Hellstone, 15)
+           .AddIngredient(ItemID.ObsidianBrick, 10)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxDungeon, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.BlueBrick, 20)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxDungeon, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.BlueBrick, 20)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxDungeon, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.GreenBrick, 20)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxDungeon, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.GreenBrick, 20)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxDungeon, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.PinkBrick, 20)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxDungeon, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.PinkBrick, 20)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxTemple, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.TempleKey, 1)
-            .AddIngredient(ItemID.LihzahrdBrick, 30)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxTemple, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.TempleKey, 1)
+           .AddIngredient(ItemID.LihzahrdBrick, 30)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxBoss1, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.ShadowScale, 15)
-            .AddIngredient(ItemID.DemoniteBar, 5)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxBoss1, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.ShadowScale, 15)
+           .AddIngredient(ItemID.DemoniteBar, 5)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxBoss1, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.SoulofFright, 10)
-            .AddIngredient(ItemID.HallowedBar, 5)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxBoss1, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.SoulofFright, 10)
+           .AddIngredient(ItemID.HallowedBar, 5)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxBoss2, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.GuideVoodooDoll, 1)
-            .AddIngredient(ModContent.ItemType<DevilSilk>(), 15)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxBoss2, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.GuideVoodooDoll, 1)
+           .AddIngredient(ModContent.ItemType<DevilSilk>(), 15)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxBoss2, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.SoulofSight, 10)
-            .AddIngredient(ItemID.HallowedBar, 5)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxBoss2, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.SoulofSight, 10)
+           .AddIngredient(ItemID.HallowedBar, 5)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxBoss2, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.TissueSample, 15)
-            .AddIngredient(ItemID.CrimtaneBar, 5)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxBoss2, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.TissueSample, 15)
+           .AddIngredient(ItemID.CrimtaneBar, 5)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxBoss3, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.SoulofMight, 10)
-            .AddIngredient(ItemID.HallowedBar, 5)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxBoss3, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.SoulofMight, 10)
+           .AddIngredient(ItemID.HallowedBar, 5)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxBoss4, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.BeetleHusk, 8)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxBoss4, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.BeetleHusk, 8)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxBoss5, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.BeeWax, 20)
-            .AddIngredient(ItemID.BottledHoney, 5)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxBoss5, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.BeeWax, 20)
+           .AddIngredient(ItemID.BottledHoney, 5)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxPlantera, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.JungleSpores, 10)
-            .AddIngredient(ModContent.ItemType<PlanteraPetal>(), 5)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxPlantera, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.JungleSpores, 10)
+           .AddIngredient(ModContent.ItemType<PlanteraPetal>(), 5)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxEerie, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.Meteorite, 20)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxEerie, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.Meteorite, 20)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxEerie, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.Shackle, 1)
-            .AddIngredient(ItemID.MoneyTrough, 1)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxEerie, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.Shackle, 1)
+           .AddIngredient(ItemID.MoneyTrough, 1)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxEclipse, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.LunarTabletFragment, 8)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxEclipse, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.LunarTabletFragment, 8)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxGoblins, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.GoblinBattleStandard, 1)
-            .AddIngredient(ItemID.SpikyBall, 30)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxGoblins, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.GoblinBattleStandard, 1)
+           .AddIngredient(ItemID.SpikyBall, 30)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxPirates, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.PirateMap, 1)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxPirates, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.PirateMap, 1)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxMartians, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.MartianConduitPlating, 30)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxMartians, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.MartianConduitPlating, 30)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxPumpkinMoon, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.PumpkinMoonMedallion)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxPumpkinMoon, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.PumpkinMoonMedallion)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxFrostMoon, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.NaughtyPresent, 1)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxFrostMoon, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.NaughtyPresent, 1)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxTowers, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.FragmentNebula, 3)
-            .AddIngredient(ItemID.FragmentSolar, 3)
-            .AddIngredient(ItemID.FragmentVortex, 3)
-            .AddIngredient(ItemID.FragmentStardust, 3)
-            .AddIngredient(ItemID.FallenStar, 5)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxTowers, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.FragmentNebula, 3)
+           .AddIngredient(ItemID.FragmentSolar, 3)
+           .AddIngredient(ItemID.FragmentVortex, 3)
+           .AddIngredient(ItemID.FragmentStardust, 3)
+           .AddIngredient(ItemID.FallenStar, 5)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxLunarBoss, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.LunarOre, 30)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxLunarBoss, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.LunarOre, 30)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ItemID.MusicBoxDD2, 1)
-            .AddIngredient(ItemID.MusicBox, 1)
-            .AddIngredient(ItemID.DefenderMedal, 15)
-            .AddTile(TileID.Sawmill)
-            .Register();
+            GetNewRecipe(ItemID.MusicBoxDD2, 1)
+           .AddIngredient(ItemID.MusicBox, 1)
+           .AddIngredient(ItemID.DefenderMedal, 15)
+           .AddTile(TileID.Sawmill)
+           .Register();
 
-             GetNewRecipe(ModContent.ItemType<AncientCoin>(), 5)
-            .AddRecipeGroup("AAModClassic:DevBag")
-            .Register();
+            GetNewRecipe(ModContent.ItemType<AncientCoin>(), 5)
+           .AddRecipeGroup("AAModClassic:DevBag")
+           .Register();
         }
 
         #region Potions
@@ -652,41 +651,41 @@ namespace AAModClassic
             .AddTile(TileID.Bottles)
             .Register();
 
-             GetNewRecipe(ItemID.WrathPotion, 1)
-            .AddIngredient(ItemID.BottledWater, 1)
-            .AddIngredient(ItemID.Deathweed, 1)
-            .AddIngredient(ModContent.ItemType<HydraClaw_Item>(), 3)
-            .AddIngredient(ModContent.ItemType<MirePod>(), 1)
-            .AddTile(TileID.Bottles)
-            .Register();
+            GetNewRecipe(ItemID.WrathPotion, 1)
+           .AddIngredient(ItemID.BottledWater, 1)
+           .AddIngredient(ItemID.Deathweed, 1)
+           .AddIngredient(ModContent.ItemType<HydraClaw_Item>(), 3)
+           .AddIngredient(ModContent.ItemType<MirePod>(), 1)
+           .AddTile(TileID.Bottles)
+           .Register();
 
-             GetNewRecipe(ItemID.BattlePotion, 1)
-            .AddIngredient(ItemID.BottledWater, 1)
-            .AddIngredient(ItemID.Deathweed, 1)
-            .AddIngredient(ModContent.ItemType<DragonScale>(), 1)
-            .AddTile(TileID.Bottles)
-            .Register();
+            GetNewRecipe(ItemID.BattlePotion, 1)
+           .AddIngredient(ItemID.BottledWater, 1)
+           .AddIngredient(ItemID.Deathweed, 1)
+           .AddIngredient(ModContent.ItemType<DragonScale>(), 1)
+           .AddTile(TileID.Bottles)
+           .Register();
 
-             GetNewRecipe(ItemID.BattlePotion, 1)
-            .AddIngredient(ItemID.BottledWater, 1)
-            .AddIngredient(ItemID.Deathweed, 1)
-            .AddIngredient(ModContent.ItemType<MirePod>(), 1)
-            .AddTile(TileID.Bottles)
-            .Register();
+            GetNewRecipe(ItemID.BattlePotion, 1)
+           .AddIngredient(ItemID.BottledWater, 1)
+           .AddIngredient(ItemID.Deathweed, 1)
+           .AddIngredient(ModContent.ItemType<MirePod>(), 1)
+           .AddTile(TileID.Bottles)
+           .Register();
 
-             GetNewRecipe(ItemID.WaterWalkingPotion, 1)
-            .AddIngredient(ItemID.BottledWater, 1)
-            .AddIngredient(ItemID.Waterleaf, 1)
-            .AddIngredient(ModContent.ItemType<MirePod>(), 2)
-            .AddTile(TileID.Bottles)
-            .Register();
+            GetNewRecipe(ItemID.WaterWalkingPotion, 1)
+           .AddIngredient(ItemID.BottledWater, 1)
+           .AddIngredient(ItemID.Waterleaf, 1)
+           .AddIngredient(ModContent.ItemType<MirePod>(), 2)
+           .AddTile(TileID.Bottles)
+           .Register();
 
-             GetNewRecipe(ItemID.ObsidianSkinPotion, 1)
-            .AddIngredient(ItemID.BottledWater, 1)
-            .AddIngredient(ItemID.Waterleaf, 1)
-            .AddIngredient(ModContent.ItemType<DragonScale>(), 2)
-            .AddTile(TileID.Bottles)
-            .Register();
+            GetNewRecipe(ItemID.ObsidianSkinPotion, 1)
+           .AddIngredient(ItemID.BottledWater, 1)
+           .AddIngredient(ItemID.Waterleaf, 1)
+           .AddIngredient(ModContent.ItemType<DragonScale>(), 2)
+           .AddTile(TileID.Bottles)
+           .Register();
         }
 
         private static void AddMushroomPotionRecipes()
@@ -767,11 +766,11 @@ namespace AAModClassic
                 recipe.Register();
 
                 // Rainbow s
-                 GetNewRecipe(potion.Item1)
-                .AddIngredient(ModContent.ItemType<RainbowMushroom>())
-                .AddIngredient(ItemID.BottledWater)
-                .AddTile(TileID.Bottles)
-                .Register();
+                GetNewRecipe(potion.Item1)
+               .AddIngredient(ModContent.ItemType<RainbowMushroom>())
+               .AddIngredient(ItemID.BottledWater)
+               .AddTile(TileID.Bottles)
+               .Register();
             }
         }
 
@@ -1088,7 +1087,7 @@ namespace AAModClassic
             RecipeGroup.RegisterGroup("AAModClassic:AncientCraftingStation", Group);
             #endregion
             #region Weapons
-            Group = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Weapons.EvilStaff"), new int[]
+            Group = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAModClassic.Common.RecipeGroups.Weapons.EvilStaff"), new int[]
             {
                 ModContent.ItemType<DemoniteStaff>(),
                 ModContent.ItemType<CrimeraStaff>()

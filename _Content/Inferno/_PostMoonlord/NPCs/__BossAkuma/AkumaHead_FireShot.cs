@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,7 +9,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
     {
         public override void SetStaticDefaults()
         {
-            Main.projFrames[Projectile.type] = 4;      
+            Main.projFrames[Projectile.type] = 4;
         }
 
         public override void SetDefaults()
@@ -26,7 +25,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             Projectile.timeLeft = 100;
             Projectile.DamageType = DamageClass.Magic;
             Projectile.ignoreWater = true;
-            
+
         }
 
         public override void AI()
@@ -75,6 +74,6 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0, 0, ModContent.ProjectileType<AkumaHead_Flare>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
 
-        
+
     }
 }

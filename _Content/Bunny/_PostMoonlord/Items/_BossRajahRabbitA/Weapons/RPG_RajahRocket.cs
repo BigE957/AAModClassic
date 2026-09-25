@@ -1,11 +1,10 @@
-using Terraria.Audio;
-using Terraria.ID;
+using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
+using AAModClassic._Content.Bunny.Projectiles;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic._Content.Bunny.Projectiles;
-using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons
 
@@ -36,7 +35,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
                 double offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
                 int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f) * 5, (float)(Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<RajahCarrotEX>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Main.projectile[proj].DamageType = DamageClass.Ranged;
-                 proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<RajahCarrotEX>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f) * 5, (float)(-Math.Cos(offsetAngle) * 3f) * 5, ModContent.ProjectileType<RajahCarrotEX>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Main.projectile[proj].DamageType = DamageClass.Ranged;
             }
         }

@@ -1,7 +1,6 @@
 using AAModClassic.Base;
 using AAModClassic.Utilities;
 using System.IO;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -79,9 +78,9 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
                 NPC.velocity.Y = 2.5f;
             }
             NPC.ai[1] = 1;
-            
+
             BaseAI.AISpore(NPC, ref internalAI, 0.1f, 0.02f, 5f, 1f);
-            
+
             if (Collision.SolidCollision(NPC.position, NPC.width, NPC.height))
             {
                 NPC.velocity *= .96f;

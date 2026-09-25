@@ -2,7 +2,6 @@ using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -17,20 +16,20 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Materials
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-			Main.tileMergeDirt[Type] = true;
+            Main.tileMergeDirt[Type] = true;
             Main.tileSpelunker[Type] = true;
-            Main.tileOreFinderPriority[Type] = 850; 
+            Main.tileOreFinderPriority[Type] = 850;
             Main.tileBlockLight[Type] = true;
             Main.tileMerge[TileID.Mud][Type] = true;
             //true for block to emit light
             HitSound = SoundID.Tink;
             Main.tileLighted[Type] = true;
-            RegisterItemDrop(ModContent.ItemType<DaybreakIncineriteOre>());   
+            RegisterItemDrop(ModContent.ItemType<DaybreakIncineriteOre>());
             DustType = ModContent.DustType<Dusts.AkumaADust>();
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Daybreak Incinerite Ore");
             AddMapEntry(new Color(100, 30, 0), name);
-			MinPick = 225;
+            MinPick = 225;
         }
 
         public override void PostDraw(int x, int y, SpriteBatch sb)

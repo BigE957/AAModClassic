@@ -1,6 +1,5 @@
 using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,31 +9,31 @@ public class TerraBrick : BaseAAItem, ILocalizedModType
 {
     public new string LocalizationCategory => "Items.Placeables";
     public override void SetDefaults()
-	{
-		Item.width = 16;
-		Item.height = 16;
-		Item.maxStack = Item.CommonMaxStack;
-		Item.useTurn = true;
-		Item.autoReuse = true;
-		Item.useAnimation = 15;
-		Item.useTime = 10;
-		Item.useStyle = ItemUseStyleID.Swing;
-		Item.consumable = true;
-		Item.createTile = ModContent.TileType<TerraBrickS_Tile>();
-	}
+    {
+        Item.width = 16;
+        Item.height = 16;
+        Item.maxStack = Item.CommonMaxStack;
+        Item.useTurn = true;
+        Item.autoReuse = true;
+        Item.useAnimation = 15;
+        Item.useTime = 10;
+        Item.useStyle = ItemUseStyleID.Swing;
+        Item.consumable = true;
+        Item.createTile = ModContent.TileType<TerraBrickS_Tile>();
+    }
 
-	public override void SetStaticDefaults()
-	{
+    public override void SetStaticDefaults()
+    {
         //((ModItem)this).DisplayName.SetDefault("Terra Brick");
         Item.ResearchUnlockCount = 100;
     }
 
-	public override void AddRecipes()
-	{
-		Recipe val = CreateRecipe(300);
-		val.AddIngredient(ModContent.ItemType<KeepBrick>(), 300);
-		val.AddIngredient(ModContent.ItemType<HeroRelics>(), 1);
-		val.AddTile(TileID.Furnaces);
-		val.Register();
-	}
+    public override void AddRecipes()
+    {
+        Recipe val = CreateRecipe(300);
+        val.AddIngredient(ModContent.ItemType<KeepBrick>(), 300);
+        val.AddIngredient(ModContent.ItemType<HeroRelics>(), 1);
+        val.AddTile(TileID.Furnaces);
+        val.Register();
+    }
 }

@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetriever.BossStandard;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

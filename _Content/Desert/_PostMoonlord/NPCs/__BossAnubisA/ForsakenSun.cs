@@ -4,24 +4,22 @@ using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 {
     public class ForsakenSun : ModNPC
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Forsaken Sun");
             this.HideFromBestiary();
         }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             NPC.width = 32;
             NPC.height = 32;
             NPC.aiStyle = -1;
@@ -54,7 +52,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
             {
                 NPC.alpha -= 5;
             }
-            
+
             NPC.velocity = Vector2.Zero;
             NPC.rotation -= NPC.direction * 6.28318548f / 120f;
             NPC.scale = NPC.Opacity;

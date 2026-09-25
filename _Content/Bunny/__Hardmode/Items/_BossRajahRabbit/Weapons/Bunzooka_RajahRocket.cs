@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -34,7 +33,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                Projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
@@ -71,7 +70,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons
                     (
                         selectedTarget == -1 || Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                     )
-                    selectedTarget = i;
+                        selectedTarget = i;
                 }
             }
             return selectedTarget;

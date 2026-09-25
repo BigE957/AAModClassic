@@ -1,8 +1,6 @@
-﻿using AAModClassic.Globals;
-using AAModClassic.Rarities;
+﻿using AAModClassic.Rarities;
 using AAModClassic.UI.Tools;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -31,7 +29,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Tools
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        
+
 
         public override void SetStaticDefaults()
         {
@@ -56,7 +54,7 @@ You may only have a maximum of 2 tool types active"); */
                 Item.damage = 0;
                 return false;
             }
-            else if(player.altFunctionUse != 2)
+            else if (player.altFunctionUse != 2)
             {
                 Item.pick = TerratoolZUI.Pick;
                 Item.axe = TerratoolZUI.Axe;

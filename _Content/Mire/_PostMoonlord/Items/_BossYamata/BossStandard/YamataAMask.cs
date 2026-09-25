@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class YamataAMask : BaseAAItem, ILocalizedModType
+    public class YamataAMask : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Vanity.Masks";
         public static int type;
@@ -13,7 +13,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandar
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Yamata No Orochi Mask");
-		}
+        }
 
         public override void SetDefaults()
         {

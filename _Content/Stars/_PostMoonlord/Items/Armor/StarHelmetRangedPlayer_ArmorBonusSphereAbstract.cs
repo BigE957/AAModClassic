@@ -1,8 +1,6 @@
-﻿using AAModClassic.Buffs;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 
@@ -21,7 +19,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
-            if(runOnce)
+            if (runOnce)
             {
                 runOnce = false;
                 shader = player.dye[1].dye;
@@ -46,12 +44,12 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
                 {
                     dyeMe.shader = GameShaders.Armor.GetSecondaryShader(shader, player);
                 }
-                    
+
             }
 
         }
-       
-        
+
+
         public override bool PreDraw(ref Color lightColor)
         {
             Player player = Main.player[Projectile.owner];
@@ -67,7 +65,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
         }
         public override void PostDraw(Color lightColor)
         {
-            
+
             Player player = Main.player[Projectile.owner];
             if (shader != 0)
             {
@@ -75,7 +73,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
                 Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.EffectMatrix);
             }
         }
-        
+
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             Projectile.localNPCImmunity[target.whoAmI] = -1;

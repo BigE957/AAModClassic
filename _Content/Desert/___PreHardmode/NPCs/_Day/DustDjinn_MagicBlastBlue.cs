@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,12 +7,12 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
 {
     public class DustDjinn_MagicBlastBlue : ModProjectile
     {
-    	
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Magic Blast");
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Magic Blast");
             Main.projFrames[Projectile.type] = 4;
-		}
+        }
 
         public override void SetDefaults()
         {

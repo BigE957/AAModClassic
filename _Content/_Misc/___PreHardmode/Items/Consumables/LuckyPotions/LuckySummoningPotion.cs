@@ -1,39 +1,38 @@
-﻿using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Misc.___PreHardmode.Items.Consumables.LuckyPotions
 {
     public class LuckySummoningPotion : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Consumables";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Lucky Summoning Potion");
-			// Tooltip.SetDefault("Increases your max number of minions and turrents");
-		}
-		
-		public override void SetDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Lucky Summoning Potion");
+            // Tooltip.SetDefault("Increases your max number of minions and turrents");
+        }
+
+        public override void SetDefaults()
+        {
             Item.UseSound = SoundID.Item3;
             Item.useStyle = ItemUseStyleID.EatFood;
-			Item.useTurn = true;
-			Item.useAnimation = 15;
-			Item.useTime = 15;
-			Item.maxStack = Item.CommonMaxStack;
-			Item.consumable = true;
-			Item.width = 16;
-			Item.height = 16;
-			Item.value = Item.sellPrice(0, 10, 0, 0);
-			Item.rare = ItemRarityID.Lime;
-			Item.buffType = ModContent.BuffType<LuckySummoning>();
-			Item.buffTime = 21600;
-		}
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 15;
+            Item.maxStack = Item.CommonMaxStack;
+            Item.consumable = true;
+            Item.width = 16;
+            Item.height = 16;
+            Item.value = Item.sellPrice(0, 10, 0, 0);
+            Item.rare = ItemRarityID.Lime;
+            Item.buffType = ModContent.BuffType<LuckySummoning>();
+            Item.buffTime = 21600;
+        }
 
-		public override void ModifyTooltips(List<TooltipLine> list)
+        public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)
             {
@@ -43,27 +42,27 @@ namespace AAModClassic._Content._Misc.___PreHardmode.Items.Consumables.LuckyPoti
                 }
             }
         }
-	}
+    }
 
-	public class LuckySummoning : ModBuff
-	{
-        public override string Texture =>  "Terraria/Images/Buff_110";
+    public class LuckySummoning : ModBuff
+    {
+        public override string Texture => "Terraria/Images/Buff_110";
 
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Summoning");
-			// Description.SetDefault("Increased max number of minions and turrents");
-			Main.debuff[Type] = false;
-			Main.pvpBuff[Type] = true;
-			Main.buffNoSave[Type] = false;
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Summoning");
+            // Description.SetDefault("Increased max number of minions and turrents");
+            Main.debuff[Type] = false;
+            Main.pvpBuff[Type] = true;
+            Main.buffNoSave[Type] = false;
             BuffID.Sets.LongerExpertDebuff[Type] = false;
         }
 
         public override void Update(Player player, ref int buffIndex)
-		{
-			player.buffImmune[110] = true;
-			player.maxMinions += 2;
-			player.maxTurrets ++;
-		}
-	}
+        {
+            player.buffImmune[110] = true;
+            player.maxMinions += 2;
+            player.maxTurrets++;
+        }
+    }
 }

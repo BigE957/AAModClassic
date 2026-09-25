@@ -1,7 +1,6 @@
-﻿using System;
-using AAModClassic.Base;
+﻿using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -66,7 +65,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         public override bool PreDraw(ref Color lightColor)
         {
             Color newLightColor = new Color(Math.Max(0, Color.Purple.R + Math.Min(0, -Projectile.alpha + 20)), Math.Max(0, Color.Purple.G + Math.Min(0, -Projectile.alpha + 20)), Math.Max(0, Color.Purple.B + Math.Min(0, -Projectile.alpha + 20)));
-            BaseDrawing.AddLight(Projectile.Center, newLightColor);
+            Lighting.AddLight(Projectile.Center, newLightColor.ToVector3());
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, TextureAssets.Projectile[Projectile.type].Width(), TextureAssets.Projectile[Projectile.type].Height() / 3, 0, 2);
             BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, Projectile.GetAlpha(Color.White), true);
             return false;

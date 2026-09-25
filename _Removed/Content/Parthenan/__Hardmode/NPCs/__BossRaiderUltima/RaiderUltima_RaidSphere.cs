@@ -1,7 +1,5 @@
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -30,7 +28,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
             Projectile.rotation += Projectile.velocity.Length() * 0.025f;
             Projectile.velocity.Y += .15f;
         }
-        
+
         public override void OnKill(int timeLeft)
         {
             for (int num468 = 0; num468 < 20; num468++)

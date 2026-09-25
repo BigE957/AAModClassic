@@ -4,7 +4,6 @@ using AAModClassic.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -12,8 +11,8 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons
 {
-	public class RajahsRage_RoyalRabbit : ModProjectile
-	{
+    public class RajahsRage_RoyalRabbit : ModProjectile
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Royal Rabbit");
@@ -36,8 +35,8 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
 
         public override void AI()
         {
-			bool flag64 = Projectile.type == ModContent.ProjectileType<RajahsRage_RoyalRabbit>();
-			Player player = Main.player[Projectile.owner];
+            bool flag64 = Projectile.type == ModContent.ProjectileType<RajahsRage_RoyalRabbit>();
+            Player player = Main.player[Projectile.owner];
             ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             if (!player.active)
             {
@@ -58,7 +57,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
             float num9 = Projectile.width;
             float num8 = 0.1f;
             num9 *= 2f;
-            foreach(Projectile p in Main.ActiveProjectiles)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
                 if (p.whoAmI != Projectile.whoAmI && p.owner == Projectile.owner && p.type == Projectile.type && Math.Abs(Projectile.position.X - p.position.X) + Math.Abs(Projectile.position.Y - p.position.Y) < num9)
                 {
@@ -231,7 +230,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
             {
                 float scaleFactor4 = 11f;
                 int num29 = ModContent.ProjectileType<RabbitBeam>();
-                
+
                 if (flag)
                 {
                     if ((vector - Projectile.Center).X > 0f)
@@ -250,7 +249,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
                             Vector2 value4 = vector - Projectile.Center;
                             value4.Normalize();
                             value4 *= scaleFactor4;
-                            int num33 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value4.X*2, value4.Y*2, num29, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
+                            int num33 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value4.X * 2, value4.Y * 2, num29, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
                             Main.projectile[num33].timeLeft = 300;
                             Main.projectile[num33].netUpdate = true;
                             Projectile.netUpdate = true;
@@ -258,7 +257,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
                     }
                 }
             }
-			if (++Projectile.frameCounter > 6)
+            if (++Projectile.frameCounter > 6)
             {
                 Projectile.frame++;
                 Projectile.frameCounter = 0;

@@ -4,7 +4,6 @@ using AAModClassic.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,10 +12,10 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
 {
     public class StoneSearcher : ModNPC, IBannerNPC
     {
-		
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Stone Searcher");
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Stone Searcher");
             Main.npcFrameCount[NPC.type] = 5;
         }
 
@@ -35,7 +34,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
             NPC.knockBackResist = 0.5f;
             NPC.noGravity = true;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<StoneSearcherBanner>();
+            //BannerItem = ModContent.ItemType<StoneSearcherBanner>();
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
@@ -68,7 +67,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
             BaseAI.AIEater(NPC, ref NPC.ai, .022f, 4, .6f, false, true);
             Player player = Main.player[NPC.target];
             bool playerActive = player != null && player.active && !player.dead;
-            BaseAI.LookAt(playerActive ? player.Center : NPC.Center + NPC.velocity, NPC, 0);         
+            BaseAI.LookAt(playerActive ? player.Center : NPC.Center + NPC.velocity, NPC, 0);
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

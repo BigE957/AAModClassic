@@ -1,13 +1,7 @@
-﻿using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Accessories;
-using AAModClassic.Utilities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Humanizer;
-using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
-using Terraria;
-using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 

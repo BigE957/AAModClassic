@@ -1,15 +1,13 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.GameContent;
-using Terraria.ID;
-using Terraria.Audio;
-using Terraria.ModLoader;
 using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityLeviathan
 {
     public class LeviathanBubble : ModNPC
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Leviathan Bubble");

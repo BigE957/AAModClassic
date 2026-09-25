@@ -1,6 +1,5 @@
 using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
@@ -10,7 +9,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Soulsplosion");     
-            Main.projFrames[Projectile.type] = 7;     
+            Main.projFrames[Projectile.type] = 7;
         }
 
         public override Color? GetAlpha(Color lightColor)

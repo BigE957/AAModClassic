@@ -5,7 +5,6 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
@@ -14,9 +13,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.AwakenedLung
 {
     public class AwakenedLungHead : ModNPC
-	{
+    {
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Awakened Lung");
             this.HideFromBestiary();
             /*
@@ -30,13 +29,13 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.
         }
 
         public override void SetDefaults()
-		{
-			NPC.noTileCollide = true;
-			NPC.height = 28;
-			NPC.width = 28;
-			NPC.aiStyle = -1;
-			NPC.netAlways = true;
-			NPC.knockBackResist = 0f;
+        {
+            NPC.noTileCollide = true;
+            NPC.height = 28;
+            NPC.width = 28;
+            NPC.aiStyle = -1;
+            NPC.netAlways = true;
+            NPC.knockBackResist = 0f;
             NPC.damage = 130;
             NPC.defense = 90;
             NPC.lifeMax = 9000;
@@ -69,7 +68,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.
         public override bool PreAI()
         {
             Player player = Main.player[NPC.target];
-       
+
             AAAI.DustOnNPCSpawn(NPC, ModContent.DustType<Dusts.AkumaADust>(), 2, 12);
 
             NPC.spriteDirection = NPC.velocity.X > 0 ? -1 : 1;
@@ -104,9 +103,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.
                         latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AwakenedLungBody>(), NPC.whoAmI, 0, latestNPC);
                         Main.npc[latestNPC].realLife = NPC.whoAmI;
                         Main.npc[latestNPC].ai[3] = NPC.whoAmI;
-                        
+
                     }
-                    
+
                     latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AwakenedLungTail>(), NPC.whoAmI, 0, latestNPC);
                     Main.npc[latestNPC].realLife = NPC.whoAmI;
                     Main.npc[latestNPC].ai[3] = NPC.whoAmI;
@@ -252,7 +251,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.
                 if (NPC.position.Y - NPC.height - NPC.velocity.Y >= Main.maxTilesY && Main.netMode != NetmodeID.MultiplayerClient) { BaseAI.KillNPC(NPC); NPC.netUpdate2 = true; }
             }
 
-            
+
 
             if (Main.player[NPC.target].dead || Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000f || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000f)
             {
@@ -291,7 +290,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.
 
             return false;
         }
-        
+
         public override void HitEffect(NPC.HitInfo hit)
         {
             if (NPC.life <= 0)

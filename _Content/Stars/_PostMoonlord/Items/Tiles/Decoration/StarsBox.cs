@@ -1,20 +1,17 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-
-using Microsoft.Xna.Framework.Graphics;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Base;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
 {
     public class StarsBox : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Music Box (Celestial Stars)");
@@ -56,7 +53,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
                     Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
-                BaseDrawing.GetLightColor(Item.position),
+                Lighting.GetColor((Item.position).ToTileCoordinates()),
                 rotation,
                 texture.Size() * 0.5f,
                 scale,

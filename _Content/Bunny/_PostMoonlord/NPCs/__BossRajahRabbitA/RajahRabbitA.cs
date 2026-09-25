@@ -6,7 +6,6 @@ using AAModClassic._Content.Bunny._PostMoonlord.Items.Materials;
 using AAModClassic._Unofficial.Content.Bunny._PostMoonlord.Items._RajahA.BossStandard;
 using AAModClassic.Music;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;

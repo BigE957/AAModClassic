@@ -1,10 +1,8 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -41,14 +39,14 @@ Raven Staff EX"); */
             Item.autoReuse = true;
             Item.value = Item.sellPrice(0, 50, 0, 0);
         }
-		
-		public override void UseStyle(Player player, Rectangle heldItemFrame)
-		{
-			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-			{
-				player.AddBuff(Item.buffType, 3600, true);
-			}
-		}
+
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
+        {
+            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
+            {
+                player.AddBuff(Item.buffType, 3600, true);
+            }
+        }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
@@ -89,7 +87,7 @@ Raven Staff EX"); */
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.RavenStaff);
-			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>());
             recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }

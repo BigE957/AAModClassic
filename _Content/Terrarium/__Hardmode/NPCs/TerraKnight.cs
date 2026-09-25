@@ -5,7 +5,6 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -15,10 +14,10 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
 {
     public class TerraKnight : ModNPC, IBannerNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Terra Knight");
-			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.SolarSolenian];
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Terra Knight");
+            Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.SolarSolenian];
 
             NPCID.Sets.NPCBestiaryDrawModifiers value = new()
             {
@@ -27,8 +26,8 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             NPC.lifeMax = 900;
             NPC.defense = 40;
             NPC.damage = 90;
@@ -40,7 +39,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             NPC.knockBackResist = 0.4f;
             AnimationType = NPCID.SolarSolenian;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraKnightBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraKnightBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 
@@ -191,7 +190,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             }
 
             if (Main.player[NPC.target].Center.Y + 100f < NPC.position.Y && Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height))
-            { 
+            {
                 {
                     NPC.velocity.Y = -5f;
                     NPC.ai[2] = 1f;
@@ -217,7 +216,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
                     }
                 }
             }
-            
+
             bool flag23 = false;
             if (NPC.velocity.Y == 0f)
             {
@@ -237,7 +236,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
                     }
                 }
             }
-            
+
             if (NPC.velocity.Y >= 0f)
             {
                 int num171 = 0;
@@ -297,7 +296,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
                 NPC.ai[1] = 0f;
                 NPC.ai[2] = 0f;
             }
-            
+
         }
 
         public override void HitEffect(NPC.HitInfo hit)

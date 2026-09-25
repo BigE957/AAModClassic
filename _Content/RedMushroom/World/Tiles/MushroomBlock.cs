@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoration.Furniture;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

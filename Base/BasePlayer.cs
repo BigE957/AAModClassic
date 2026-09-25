@@ -1,5 +1,3 @@
-using Terraria;
-
 namespace AAModClassic.Base
 {
     public class BasePlayer

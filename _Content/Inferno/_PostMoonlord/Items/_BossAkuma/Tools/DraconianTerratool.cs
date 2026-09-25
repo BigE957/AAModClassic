@@ -1,8 +1,6 @@
-﻿using AAModClassic.Globals;
-using AAModClassic.Rarities;
+﻿using AAModClassic.Rarities;
 using AAModClassic.UI.Tools;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -30,7 +28,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Tools
             Item.pick = 300;
         }
 
-        
+
 
         public override void SetStaticDefaults()
         {
@@ -56,7 +54,7 @@ You may only have a maximum of 2 tool types active
                 Item.damage = 0;
                 return false;
             }
-            else if(player.altFunctionUse != 2)
+            else if (player.altFunctionUse != 2)
             {
                 Item.pick = TerratoolAUI.Pick;
                 Item.axe = TerratoolAUI.Axe;

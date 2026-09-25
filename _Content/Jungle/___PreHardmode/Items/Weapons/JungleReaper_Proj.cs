@@ -1,7 +1,6 @@
-using System;
 using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -28,14 +27,14 @@ namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Weapons
             // DisplayName.SetDefault("JungleReaperP");
         }
 
- 
+
         public override void AI()
         {
-                                                          //this make that the projectile faces the right way
+            //this make that the projectile faces the right way
             Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
             Projectile.localAI[0] += 1f;
             Projectile.alpha = (int)Projectile.localAI[0] * 2;
-           
+
             if (Projectile.localAI[0] > 130f) //projectile time left before disappears
             {
                 Projectile.Kill();
@@ -64,8 +63,8 @@ namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Weapons
             {
                 Projectile.frame++;
                 Projectile.frameCounter = 0;
-                if (Projectile.frame > 3) 
-                    Projectile.frame = 0; 
+                if (Projectile.frame > 3)
+                    Projectile.frame = 0;
             }
             return false;
         }

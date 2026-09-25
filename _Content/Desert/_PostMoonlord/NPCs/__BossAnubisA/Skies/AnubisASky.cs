@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
@@ -42,7 +41,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA.Skies
         public override void OnLoad()
         {
             string filePath = "AAModClassic/_Content/Desert/_PostMoonlord/NPCs/__BossAnubisA/Skies/";
-            
+
             BeamTex = ModContent.Request<Texture2D>(filePath + "AnubisASky_Beam");
             for (int i = 0; i < RuneTex.Length; i++)
             {

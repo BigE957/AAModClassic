@@ -3,14 +3,13 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
 {
     public class OreConstruct_Nebula : ModProjectile
-	{
+    {
         public static Asset<Texture2D> Blue;
         public static Asset<Texture2D> Red;
 
@@ -23,18 +22,18 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
 
         }
 
-		public override void SetDefaults()
-		{
-			Projectile.width = 20;
-			Projectile.height = 20;
-			Projectile.friendly = false; 
-			Projectile.hostile = true;
-			Projectile.penetrate = 1;
-			Projectile.timeLeft = 240;
-			Projectile.alpha = 20;
-			Projectile.ignoreWater = true;
-            Projectile.tileCollide = true;          
-		}
+        public override void SetDefaults()
+        {
+            Projectile.width = 20;
+            Projectile.height = 20;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 240;
+            Projectile.alpha = 20;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
+        }
 
         public override void AI()
         {

@@ -13,10 +13,8 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -25,12 +23,12 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
 {
     [AutoloadBossHead]
     public class Sagittarius : ModNPC
-	{
+    {
         public static Asset<Texture2D> Glowmask;
 
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Sagittarius");
+        {
+            // DisplayName.SetDefault("Sagittarius");
             Main.npcFrameCount[NPC.type] = 9;
 
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
@@ -47,7 +45,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
             NPCID.Sets.BossBestiaryPriority.Add(Type);
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
         {
             NPC.lifeMax = 6000;
             NPC.boss = true;

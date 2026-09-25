@@ -3,7 +3,6 @@ using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -22,7 +21,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decorat
             DustType = ModContent.DustType<FulguriteDust>();
             AddMapEntry(new Color(70, 20, 90
                 ));
-			MinPick = 200;
+            MinPick = 200;
         }
 
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)

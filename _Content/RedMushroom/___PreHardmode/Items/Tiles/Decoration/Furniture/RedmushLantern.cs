@@ -1,5 +1,4 @@
 using AAModClassic._Content.RedMushroom.World.Tiles;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,12 +8,12 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoratio
     {
         public new string LocalizationCategory => "Items.Placeables.Furniture.RedMushroom";
 
-        public override void SetStaticDefaults() 
+        public override void SetStaticDefaults()
         {
-			Item.ResearchUnlockCount = 1;
-		}
+            Item.ResearchUnlockCount = 1;
+        }
 
-        public override void SetDefaults() 
+        public override void SetDefaults()
         {
             Item.width = 20;
             Item.height = 20;
@@ -30,11 +29,11 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoratio
             Item.autoReuse = true;
             Item.consumable = true;
 
-            Item.createTile = ModContent.TileType<RedmushLantern_Tile>(); 
+            Item.createTile = ModContent.TileType<RedmushLantern_Tile>();
             Item.rare = ItemRarityID.White;
         }
 
-        public override void AddRecipes() 
+        public override void AddRecipes()
         {
             CreateRecipe()
                 .AddIngredient(ModContent.ItemType<MushroomBlock>(), 6)

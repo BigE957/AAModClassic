@@ -1,14 +1,12 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using System;
+﻿using AAModClassic.Music;
+using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.IO;
 using Terraria.ID;
-using AAModClassic.Music;
-using AAModClassic.Utilities;
-using AAModClassic.UI.World;
-using AAModClassic.Base;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 {
@@ -83,16 +81,17 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 
         public OrthrusXBody Body => BodyNPC != null && BodyNPC.ModNPC is OrthrusXBody body ? body : null;
         public NPC BodyNPC => Main.npc[(int)NPC.ai[0]];
-        public OrthrusXHead_OrthrusReticle Reticle { 
-            get 
+        public OrthrusXHead_OrthrusReticle Reticle
+        {
+            get
             {
-                return reticalIndex == -1 || Main.npc[reticalIndex].ModNPC is not OrthrusXHead_OrthrusReticle ? null : 
+                return reticalIndex == -1 || Main.npc[reticalIndex].ModNPC is not OrthrusXHead_OrthrusReticle ? null :
                        Main.npc[reticalIndex].ModNPC as OrthrusXHead_OrthrusReticle;
-            } 
-            set 
+            }
+            set
             {
                 reticalIndex = (short)value.NPC.whoAmI;
-            } 
+            }
         }
         private short reticalIndex = -1;
         public bool redHead = false;
@@ -104,7 +103,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
         public override void AI()
         {
             NPC.TargetClosest();
-            
+
             if (BodyNPC == null || !BodyNPC.active)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient) //force a kill to prevent 'ghosting'
@@ -121,10 +120,10 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             Player targetPlayer = Main.player[NPC.target];
             if (!targetPlayer.active || targetPlayer.dead || Main.dayTime) //fleeing
             {
-                if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient) 
-                { 
-                    NPC.active = false; 
-                    NPC.netUpdate = true; 
+                if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    NPC.active = false;
+                    NPC.netUpdate = true;
                 }
                 return;
             }
@@ -132,7 +131,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             if (NPC.ai[1] == OrthrusXBody.AISTATE_TURRET)
             {
                 NPC.TargetClosest();
-                if (targetPlayer == null || !targetPlayer.active || targetPlayer.dead) 
+                if (targetPlayer == null || !targetPlayer.active || targetPlayer.dead)
                     targetPlayer = null; //deliberately set to null
 
                 if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -176,7 +175,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
                             }
                         }
                     }
-                   
+
                     if (NPC.localAI[1] >= 200) //pick random spot to move head to
                     {
                         NPC.localAI[1] = 0;
@@ -208,7 +207,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             NPC.position += Body.NPC.position - Body.NPC.oldPosition;
             NPC.rotation = 1.57f;
             NPC.spriteDirection = -1;
-            BaseDrawing.AddLight(NPC.Center, redHead ? new Color(255, 84, 84) : new Color(48, 232, 232));
+            Lighting.AddLight(NPC.Center, (redHead ? new Color(255, 84, 84) : new Color(48, 232, 232)).ToVector3());
         }
 
 
@@ -217,7 +216,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             return false;
         }
 
-        public float moveSpeed = 16f; 
+        public float moveSpeed = 16f;
         public void MoveToPoint(Vector2 point)
         {
             float velMultiplier = 1f;

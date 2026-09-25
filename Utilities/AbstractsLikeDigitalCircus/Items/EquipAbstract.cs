@@ -1,12 +1,6 @@
-﻿using AAModClassic._Content.Hell.___PreHardmode.NPCs.__Friendly;
-using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
-using AAModClassic._Content.Mire.Buffs;
-using Humanizer;
+﻿using Humanizer;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -1053,7 +1047,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
                     buffName = Lang.GetBuffName(id);
                 else
                     buffName = ModContent.GetModBuff(id).DisplayName.ToString();
-     
+
                 if (i < BuffLoader.BuffCount)
                 {
                     if (i != buffIDs.Length - 1)

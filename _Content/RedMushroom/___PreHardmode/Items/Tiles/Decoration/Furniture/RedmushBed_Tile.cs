@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoration.Furniture
 {
     public class RedmushBed_Tile : ModTile
-	{
+    {
         public override void SetStaticDefaults()
         {
             this.SetUpBed(ModContent.ItemType<RedmushBed>());
@@ -25,14 +25,14 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoratio
         public override void MouseOver(int i, int j) => FurnitureUtils.MouseOver(i, j, ModContent.ItemType<RedmushBed>());
 
         public override void ModifySmartInteractCoords(ref int width, ref int height, ref int frameWidth, ref int frameHeight, ref int extraY)
-		{
-			width = 2;
-			height = 2;
-		}
+        {
+            width = 2;
+            height = 2;
+        }
 
-		public override void ModifySleepingTargetInfo(int i, int j, ref TileRestingInfo info)
-		{
-			info.VisualOffset.Y += 4f;
-		}
-	}
+        public override void ModifySleepingTargetInfo(int i, int j, ref TileRestingInfo info)
+        {
+            info.VisualOffset.Y += 4f;
+        }
+    }
 }

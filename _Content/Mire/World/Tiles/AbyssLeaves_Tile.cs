@@ -2,7 +2,6 @@ using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -49,7 +48,7 @@ namespace AAModClassic._Content.Mire.World.Tiles
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)   //light colors
         {
-            r  = .05f;
+            r = .05f;
             g = 0f;
             b = 0f;
         }

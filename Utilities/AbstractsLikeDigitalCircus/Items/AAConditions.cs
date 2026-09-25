@@ -1,5 +1,4 @@
-﻿using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon;
-using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
 using AAModClassic._Content.Mire.World.Biomes;
@@ -7,12 +6,6 @@ using AAModClassic._Content.RedMushroom.World.Biomes;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._CrossMod.CalamityMod;
 using AAModClassic.UI.World;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.Localization;
 

@@ -21,7 +21,6 @@ using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -186,7 +185,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
                 IsJumping = reader.ReadBoolean();
-                IsFlying = reader.ReadBoolean(); 
+                IsFlying = reader.ReadBoolean();
                 isSupreme = reader.ReadBoolean();
 
                 CurrentAttack = (RajahAttacks)reader.ReadByte();
@@ -245,7 +244,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             AAModGlobalNPC.Rajah = NPC.whoAmI;
             WeaponPos = new Vector2(NPC.Center.X + (78 * NPC.spriteDirection), NPC.Center.Y - 9);
 
-            if (IsRoaring) 
+            if (IsRoaring)
                 RoarTimer--;
 
             if (Main.netMode != NetmodeID.MultiplayerClient && NPC.type == ModContent.NPCType<RajahRabbitA>() && isSupreme == false)
@@ -273,7 +272,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 
                         if (Main.netMode != NetmodeID.SinglePlayer)
                         {
-                            if(evilMaxxing)
+                            if (evilMaxxing)
                                 BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.LastStand.Multiplayer.Murderer"), 107, 137, 179);
                             else
                                 BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.LastStand.Multiplayer.Normal"), 107, 137, 179);
@@ -282,7 +281,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                         {
                             if (evilMaxxing)
                                 BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.LastStand.Singleplayer.Murderer"), 107, 137, 179);
-                            else if(!NPCExtensions.BeenKilled<RajahRabbitA>())
+                            else if (!NPCExtensions.BeenKilled<RajahRabbitA>())
                                 BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.LastStand.Singleplayer.Normal"), 107, 137, 179);
                             else
                                 BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Rajah.Awakened.LastStand.Singleplayer.Repeat", Main.LocalPlayer.name.ToUpper()), 107, 137, 179);
@@ -359,7 +358,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 
             if (CurrentMovement == RajahMovements.Idle)
             {
-                if(TargetPlayer.Center.Y + TargetPlayer.height / 2 < NPC.Center.Y + NPC.height / 2 - 30f || Math.Abs(NPC.Center.X - TargetPlayer.Center.X) + Math.Abs(NPC.Center.Y - TargetPlayer.Center.Y) > 2000 || isDashing)
+                if (TargetPlayer.Center.Y + TargetPlayer.height / 2 < NPC.Center.Y + NPC.height / 2 - 30f || Math.Abs(NPC.Center.X - TargetPlayer.Center.X) + Math.Abs(NPC.Center.Y - TargetPlayer.Center.Y) > 2000 || isDashing)
                 {
                     NPC.noTileCollide = true;
                     NPC.noGravity = true;
@@ -375,14 +374,14 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                     JumpAI();
                 }
             }
-            else if(CurrentMovement == RajahMovements.Stomp)
+            else if (CurrentMovement == RajahMovements.Stomp)
             {
                 NPC.noTileCollide = true;
                 NPC.noGravity = true;
                 isDashing = false;
-                if (TargetPlayer.Center.Y + TargetPlayer.height / 2 <= NPC.Center.Y + NPC.height / 2 + 20f) 
+                if (TargetPlayer.Center.Y + TargetPlayer.height / 2 <= NPC.Center.Y + NPC.height / 2 + 20f)
                 {
-                    if(NPC.collideY && NPC.velocity.Y > 0)
+                    if (NPC.collideY && NPC.velocity.Y > 0)
                     {
                         SoundEngine.PlaySound(SoundID.Item14, NPC.position);
                         for (int num622 = (int)NPC.position.X - 20; num622 < (int)NPC.position.X + NPC.width + 40; num622 += 20)
@@ -408,7 +407,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                     NPC.netUpdate = true;
                     return;
                 }
-                if(Math.Abs(NPC.Center.Y - TargetPlayer.Center.Y) > 1000)
+                if (Math.Abs(NPC.Center.Y - TargetPlayer.Center.Y) > 1000)
                 {
                     NPC.noTileCollide = true;
                     NPC.noGravity = true;
@@ -416,18 +415,18 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                     IsJumping = false;
                 }
             }
-            else if(CurrentMovement == RajahMovements.Fly)
+            else if (CurrentMovement == RajahMovements.Fly)
             {
                 NPC.noTileCollide = true;
                 NPC.noGravity = true;
                 FlyAI();
-                if(Math.Abs(NPC.Center.X - TargetPlayer.Center.X) < 50f && TargetPlayer.Center.Y > NPC.Center.Y + NPC.height / 2)
+                if (Math.Abs(NPC.Center.X - TargetPlayer.Center.X) < 50f && TargetPlayer.Center.Y > NPC.Center.Y + NPC.height / 2)
                 {
                     CurrentMovement = RajahMovements.BeginStomp;
                     NPC.netUpdate = true;
                 }
             }
-            else if(CurrentMovement == RajahMovements.BeginStomp)
+            else if (CurrentMovement == RajahMovements.BeginStomp)
             {
                 bool performStomp = false;
                 if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
@@ -566,7 +565,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                if (CurrentAttack == RajahAttacks.CottonCane) 
+                if (CurrentAttack == RajahAttacks.CottonCane)
                 {
                     // this kind of sucks but we cant use changeRateMinusOne = ChangeRate() - (ChangeRate() % 80) bcuz then the top instance will be 0 and nothing will be subtracted 
                     int changeRateMinusOne = ChangeRate() - 80;
@@ -652,7 +651,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                     int carrotType = isSupreme ? ModContent.ProjectileType<RajahRabbitA_GoldenCarrot>() : ModContent.ProjectileType<RajahRabbit_Carrot>();
                     float spread = 45f * 0.0174f * .5f;
                     Vector2 dir = Vector2.Normalize(TargetPlayer.Center - WeaponPos);
-                    dir *= ProjSpeed() + (isSupreme? 3 : 1);
+                    dir *= ProjSpeed() + (isSupreme ? 3 : 1);
                     float baseSpeed = (float)Math.Sqrt(dir.X * dir.X + dir.Y * dir.Y);
                     double startAngle = Math.Atan2(dir.X, dir.Y) - .1d;
                     double deltaAngle = spread / carrots * 2;
@@ -673,7 +672,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                     if (TimerPerformAttack == (isSupreme ? 40 : 60))
                     {
                         float time = (TargetPlayer.Center - WeaponPos).Length() / ProjSpeed();
-                        Vector2 dir = Vector2.Normalize(TargetPlayer.Center + (isSupreme? TargetPlayer.velocity * time : Vector2.Zero) - WeaponPos);
+                        Vector2 dir = Vector2.Normalize(TargetPlayer.Center + (isSupreme ? TargetPlayer.velocity * time : Vector2.Zero) - WeaponPos);
                         dir *= ProjSpeed();
                         Projectile.NewProjectile(NPC.GetSource_FromThis(), WeaponPos.X, WeaponPos.Y, dir.X, dir.Y, Javelin, damage, 5, Main.myPlayer);
                     }
@@ -699,12 +698,12 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                     int Arrows = Main.rand.Next(2, 4);
                     float spread = 45f * 0.0174f * .3f;
                     float time = (TargetPlayer.Center - WeaponPos).Length() / ProjSpeed();
-                    Vector2 dir = Vector2.Normalize(TargetPlayer.Center + (isSupreme? TargetPlayer.velocity * time : Vector2.Zero) - WeaponPos);
-                    dir *= ProjSpeed() + (isSupreme? 3 : 1);
+                    Vector2 dir = Vector2.Normalize(TargetPlayer.Center + (isSupreme ? TargetPlayer.velocity * time : Vector2.Zero) - WeaponPos);
+                    dir *= ProjSpeed() + (isSupreme ? 3 : 1);
                     float baseSpeed = (float)Math.Sqrt(dir.X * dir.X + dir.Y * dir.Y);
                     double startAngle = Math.Atan2(dir.X, dir.Y) - .1d;
                     double deltaAngle = spread / (Arrows * 2);
-                    float delay = isSupreme? 15 : 50;
+                    float delay = isSupreme ? 15 : 50;
                     if (TimerPerformAttack > delay)
                     {
                         TimerPerformAttack = 0;
@@ -748,7 +747,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                         NPC.netUpdate = true;
                     }
                 }
-                else if (CurrentAttack == RajahAttacks.CarrotFarmer) 
+                else if (CurrentAttack == RajahAttacks.CarrotFarmer)
                 {
                     if (CurrentlyHeldProj == null || CurrentlyHeldProj.active == false || CurrentlyHeldProj.type != ModContent.ProjectileType<RajahRabbit_CarrotFarmer>())
                     {
@@ -906,11 +905,11 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                     }
                     else
                     {
-                        
+
                         float num626 = 3f;
                         float longth = Math.Abs(NPC.Center.X - TargetPlayer.Center.X);
                         num626 = 3f + longth * .056f;
-                        
+
                         if (TargetPlayer.velocity.X != 0)
                         {
                             num626 += Math.Abs(TargetPlayer.velocity.X);
@@ -936,14 +935,14 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                     }
                 }
 
-                if(Math.Abs(NPC.Center.X - TargetPlayer.Center.X) < 50f && TargetPlayer.Center.Y > NPC.Center.Y + NPC.height / 2)
+                if (Math.Abs(NPC.Center.X - TargetPlayer.Center.X) < 50f && TargetPlayer.Center.Y > NPC.Center.Y + NPC.height / 2)
                 {
                     CurrentMovement = RajahMovements.BeginStomp;
                     IsJumping = false;
                     NPC.netUpdate = true;
                     return;
                 }
-                
+
             }
         }
 
@@ -993,69 +992,69 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         }
 
         public void AISpaceOctopus(NPC npc, Vector2 targetCenter = default, float moveSpeed = 0.15f, float velMax = 5f, float hoverDistance = 250f)
-		{
+        {
             float pos = 200f;
-            if(TargetPlayer.velocity.X == 0)
+            if (TargetPlayer.velocity.X == 0)
             {
                 pos = 0;
             }
             else
             {
-                pos = (TargetPlayer.velocity.X > 0? 1f: -1f) * 200f;
+                pos = (TargetPlayer.velocity.X > 0 ? 1f : -1f) * 200f;
             }
-			Vector2 wantedVelocity = targetCenter - npc.Center + new Vector2(pos, -hoverDistance);
-			float dist = (float)Math.Sqrt(wantedVelocity.X * wantedVelocity.X + wantedVelocity.Y * wantedVelocity.Y);
-			if (dist < 20f)
-			{
-				wantedVelocity = npc.velocity;
-			}
-			else if (dist < 40f)
-			{
-				wantedVelocity.Normalize();
-				wantedVelocity *= velMax * 0.35f;
-			}
-			else if (dist < 80f)
-			{
-				wantedVelocity.Normalize();
-				wantedVelocity *= velMax * 0.65f;
-			}
-			else
-			{
-				wantedVelocity.Normalize();
-				wantedVelocity *= velMax;
-			}
-			if (npc.velocity.X < wantedVelocity.X)
-			{
-				npc.velocity.X = npc.velocity.X + moveSpeed;
-				if (npc.velocity.X < 0f && wantedVelocity.X > 0f)
-				{
-					npc.velocity.X = npc.velocity.X + moveSpeed;
-				}
-			}
-			else if (npc.velocity.X > wantedVelocity.X)
-			{
-				npc.velocity.X = npc.velocity.X - moveSpeed;
-				if (npc.velocity.X > 0f && wantedVelocity.X < 0f)
-				{
-					npc.velocity.X = npc.velocity.X - moveSpeed;
-				}
-			}
-			if (npc.velocity.Y < wantedVelocity.Y)
-			{
-				npc.velocity.Y = npc.velocity.Y + moveSpeed;
-				if (npc.velocity.Y < 0f && wantedVelocity.Y > 0f)
-				{
-					npc.velocity.Y = npc.velocity.Y + moveSpeed;
-				}
-			}
-			else if (npc.velocity.Y > wantedVelocity.Y)
-			{
-				npc.velocity.Y = npc.velocity.Y - moveSpeed;
-				if (npc.velocity.Y > 0f && wantedVelocity.Y < 0f)
-				{
-					npc.velocity.Y = npc.velocity.Y - moveSpeed;
-				}
-			}
+            Vector2 wantedVelocity = targetCenter - npc.Center + new Vector2(pos, -hoverDistance);
+            float dist = (float)Math.Sqrt(wantedVelocity.X * wantedVelocity.X + wantedVelocity.Y * wantedVelocity.Y);
+            if (dist < 20f)
+            {
+                wantedVelocity = npc.velocity;
+            }
+            else if (dist < 40f)
+            {
+                wantedVelocity.Normalize();
+                wantedVelocity *= velMax * 0.35f;
+            }
+            else if (dist < 80f)
+            {
+                wantedVelocity.Normalize();
+                wantedVelocity *= velMax * 0.65f;
+            }
+            else
+            {
+                wantedVelocity.Normalize();
+                wantedVelocity *= velMax;
+            }
+            if (npc.velocity.X < wantedVelocity.X)
+            {
+                npc.velocity.X = npc.velocity.X + moveSpeed;
+                if (npc.velocity.X < 0f && wantedVelocity.X > 0f)
+                {
+                    npc.velocity.X = npc.velocity.X + moveSpeed;
+                }
+            }
+            else if (npc.velocity.X > wantedVelocity.X)
+            {
+                npc.velocity.X = npc.velocity.X - moveSpeed;
+                if (npc.velocity.X > 0f && wantedVelocity.X < 0f)
+                {
+                    npc.velocity.X = npc.velocity.X - moveSpeed;
+                }
+            }
+            if (npc.velocity.Y < wantedVelocity.Y)
+            {
+                npc.velocity.Y = npc.velocity.Y + moveSpeed;
+                if (npc.velocity.Y < 0f && wantedVelocity.Y > 0f)
+                {
+                    npc.velocity.Y = npc.velocity.Y + moveSpeed;
+                }
+            }
+            else if (npc.velocity.Y > wantedVelocity.Y)
+            {
+                npc.velocity.Y = npc.velocity.Y - moveSpeed;
+                if (npc.velocity.Y > 0f && wantedVelocity.Y < 0f)
+                {
+                    npc.velocity.Y = npc.velocity.Y - moveSpeed;
+                }
+            }
         }
 
         public int ChangeRate()
@@ -1178,7 +1177,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             int currentHorizFrameOffset = 0;
             if (IsRoaring)
                 currentHorizFrameOffset = rajahFrameWidth * 2;
-            if (IsFlying == true) 
+            if (IsFlying == true)
                 currentHorizFrameOffset += rajahFrameWidth;
             NPC.frame.X = currentHorizFrameOffset;
 
@@ -1249,7 +1248,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 
             notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RajahPelt>(), 1, 10, 26));
 
-            List<int> lootTable = [ ModContent.ItemType<BaneOfTheBunny>(), ModContent.ItemType<Bunzooka>(), ModContent.ItemType<RoyalScepter>(), ModContent.ItemType<ThePunisher>(), ModContent.ItemType<CottonCane>(), ModContent.ItemType<RabbitcopterWings>() ];
+            List<int> lootTable = [ModContent.ItemType<BaneOfTheBunny>(), ModContent.ItemType<Bunzooka>(), ModContent.ItemType<RoyalScepter>(), ModContent.ItemType<ThePunisher>(), ModContent.ItemType<CottonCane>(), ModContent.ItemType<RabbitcopterWings>()];
             if (ModLoader.TryGetMod("ThoriumMod", out _))
                 lootTable.Add(ModContent.ItemType<CarrotFarmer>());
 
@@ -1315,15 +1314,15 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            if (auraDirection) 
-            { 
-                auraPercent += 0.1f; 
-                auraDirection = auraPercent < 1f; 
+            if (auraDirection)
+            {
+                auraPercent += 0.1f;
+                auraDirection = auraPercent < 1f;
             }
-            else 
-            { 
-                auraPercent -= 0.1f; 
-                auraDirection = auraPercent <= 0f; 
+            else
+            {
+                auraPercent -= 0.1f;
+                auraDirection = auraPercent <= 0f;
             }
             bool RageMode = !isSupreme && NPC.life < NPC.lifeMax / 7;
             bool SupremeRageMode = isSupreme && NPC.life < NPC.lifeMax / 7;
@@ -1352,7 +1351,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 
             // draw self
             spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0);
-            
+
             if (CurrentAttack == RajahAttacks.RabbitsWrath)
             {
                 spriteBatch.Draw(WeaponTex, NPC.Center - screenPos, WeaponRectangle, drawColor, NPC.rotation, NPC.frame.Size() / 2, NPC.scale, NPC.SpriteEffectDirection(), 0);
@@ -1382,7 +1381,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
-            if(CurrentMovement == RajahMovements.Fly || CurrentMovement == RajahMovements.Stomp)
+            if (CurrentMovement == RajahMovements.Fly || CurrentMovement == RajahMovements.Stomp)
             {
                 target.wingTime = 0;
                 target.velocity.Y = 1f;

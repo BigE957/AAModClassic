@@ -1,16 +1,15 @@
-﻿using Terraria.ID;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Hell.___PreHardmode.Items.Tiles.Functional
 {
     public class HaphestusForge : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables.Functional";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Hephaestus Forge");

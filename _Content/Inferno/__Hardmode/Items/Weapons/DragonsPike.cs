@@ -1,7 +1,6 @@
-﻿using System.Linq;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System.Linq;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -36,14 +35,14 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
             Item.DamageType = DamageClass.Summon;
             Item.value = Item.sellPrice(0, 8, 0, 0);
         }
-		
-		public override void UseStyle(Player player, Rectangle heldItemFrame)
-		{
-			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-			{
-				player.AddBuff(Item.buffType, 3600, true);
-			}
-		}
+
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
+        {
+            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
+            {
+                player.AddBuff(Item.buffType, 3600, true);
+            }
+        }
 
         public override bool AltFunctionUse(Player player)
         {
@@ -107,7 +106,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
             //spawn more body segments
             else
             {
-                int previous = (int) Main.projectile[tailCheck].ai[0];
+                int previous = (int)Main.projectile[tailCheck].ai[0];
                 int current = 0;
 
                 for (int i = 0; i < 4; i++)
@@ -119,7 +118,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
                 }
 
                 Main.projectile[current].localAI[1] = tailCheck;
-                
+
                 Main.projectile[tailCheck].ai[0] = current;
                 Main.projectile[tailCheck].netUpdate = true;
                 Main.projectile[tailCheck].ai[1] = 1f;

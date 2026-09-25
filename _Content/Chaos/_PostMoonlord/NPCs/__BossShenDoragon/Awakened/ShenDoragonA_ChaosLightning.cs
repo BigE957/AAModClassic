@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
+using System;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,11 +10,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
 {
     public class ShenDoragonA_ChaosLightning : ModProjectile
     {
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Chaos Lightning");
-		}
-    	
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Chaos Lightning");
+        }
+
         public override void SetDefaults()
         {
             Projectile.width = 14;
@@ -34,7 +33,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
         {
             for (int i = 0; i < Projectile.oldPos.Length; i++)
             {
-                if(Projectile.oldPos[i] == Vector2.Zero)
+                if (Projectile.oldPos[i] == Vector2.Zero)
                     continue;
 
                 bool hit;
@@ -112,7 +111,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
                         Main.dust[num853].noGravity = true;
                         Main.dust[num853].scale = 1.2f;
                     }
-					
+
                     if (Main.rand.NextBool(5))
                     {
                         Vector2 value49 = Projectile.velocity.RotatedBy(1.5707963705062866) * ((float)Main.rand.NextDouble() - 0.5f) * Projectile.width;
@@ -164,9 +163,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
                 Projectile.velocity = Vector2.Zero;
                 Projectile.localAI[1] = 1f;
                 goto IL_230BF;
-                IL_230B7:
+            IL_230B7:
                 spinningpoint2 = vector85;
-                IL_230BF:
+            IL_230BF:
                 if (Projectile.velocity != Vector2.Zero)
                 {
                     Projectile.localAI[0] += spinningpoint2.X * (Projectile.extraUpdates + 1) * 2f * num855;
@@ -222,4 +221,3 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
         }
     }
 }
- 

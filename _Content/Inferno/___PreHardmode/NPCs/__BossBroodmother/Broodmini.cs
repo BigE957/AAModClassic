@@ -4,7 +4,6 @@ using AAModClassic.Base;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -40,7 +39,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
 
         public override void HitEffect(NPC.HitInfo hit)
         {
-			bool isDead = NPC.life <= 0;		
+            bool isDead = NPC.life <= 0;
             if (isDead && !Main.dedServ)          //this make so when the npc has 0 life(dead) he will spawn this
             {
                 //Gore.NewGore(NPC.GetSource_OnHurt(null), NPC.position, NPC.velocity, Mod.Find<ModGore>("BroodminiGore1").Type, 1f);
@@ -49,10 +48,10 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
                 //Gore.NewGore(NPC.GetSource_OnHurt(null), NPC.position, NPC.velocity, Mod.Find<ModGore>("BroodminiGore3").Type, 1f);
                 //Gore.NewGore(NPC.GetSource_OnHurt(null), NPC.position, NPC.velocity, Mod.Find<ModGore>("BroodminiGore3").Type, 1f);
             }
-			for (int m = 0; m < (isDead ? 35 : 6); m++)
-			{
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, isDead? 2f : 1.5f);
-			}			
+            for (int m = 0; m < (isDead ? 35 : 6); m++)
+            {
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, isDead ? 2f : 1.5f);
+            }
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
@@ -78,7 +77,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
             if (Main.player[NPC.target].GetModPlayer<ZAAPlayer>().ZoneInferno == false)
             {
                 if (NPC.timeLeft > 5)
-					NPC.timeLeft = 5;
+                    NPC.timeLeft = 5;
                 NPC.velocity.Y = NPC.velocity.Y - 0.2f;
                 if (NPC.velocity.Y < -8f)
                 {
@@ -310,17 +309,17 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
                 }
             }
         }
-		
-		
-		public static Color GetGlowAlpha()
-		{
-			return ColorUtils.COLOR_GLOWPULSE;
-		}
+
+
+        public static Color GetGlowAlpha()
+        {
+            return ColorUtils.COLOR_GLOWPULSE;
+        }
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-			BaseDrawing.DrawTexture(spriteBatch, ModContent.Request<Texture2D>(Texture + "_Glow").Value, 0, NPC, GetGlowAlpha());
-        }		
-		
+            BaseDrawing.DrawTexture(spriteBatch, ModContent.Request<Texture2D>(Texture + "_Glow").Value, 0, NPC, GetGlowAlpha());
+        }
+
     }
 }

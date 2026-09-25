@@ -4,7 +4,6 @@ using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -26,7 +25,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
             Projectile.penetrate = -1;
             Projectile.friendly = false;
             Projectile.hostile = true;
-			Projectile.extraUpdates = 1;
+            Projectile.extraUpdates = 1;
         }
 
 
@@ -46,54 +45,54 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                     Projectile.alpha = 0;
                 }
             }
-			if(Main.rand.NextBool(3))
-			{
-				for(int m = 0; m < 3; m++)
-				{
-					int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType, 0f, 0f, 100, Color.White, 1.6f);
-					Main.dust[dustID].velocity = -Projectile.velocity * 0.5f;
-					Main.dust[dustID].noLight = false;
-					Main.dust[dustID].noGravity = true;
-				}
-				int dustID2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType, 0f, 0f, 100, Color.Purple, 2f);
-				Main.dust[dustID2].velocity = -Projectile.velocity * 0.5f;
-				Main.dust[dustID2].noLight = false;
-				Main.dust[dustID2].noGravity = true;
-			}
+            if (Main.rand.NextBool(3))
+            {
+                for (int m = 0; m < 3; m++)
+                {
+                    int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType, 0f, 0f, 100, Color.White, 1.6f);
+                    Main.dust[dustID].velocity = -Projectile.velocity * 0.5f;
+                    Main.dust[dustID].noLight = false;
+                    Main.dust[dustID].noGravity = true;
+                }
+                int dustID2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType, 0f, 0f, 100, Color.Purple, 2f);
+                Main.dust[dustID2].velocity = -Projectile.velocity * 0.5f;
+                Main.dust[dustID2].noLight = false;
+                Main.dust[dustID2].noGravity = true;
+            }
         }
 
         public override void OnKill(int timeLeft)
         {
             int dustType = Projectile.ai[0] == 1 ? ModContent.DustType<Dusts.AkumaADust>() : ModContent.DustType<Dusts.YamataADust>();
             int pieCut = 20;
-			for(int m = 0; m < pieCut; m++)
-			{
-				int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType, 0f, 0f, 100, Color.White, 1.6f);
-				Main.dust[dustID].velocity = BaseUtility.RotateVector(default, new Vector2(6f, 0f), m / (float)pieCut * 6.28f);
-				Main.dust[dustID].noLight = false;
-				Main.dust[dustID].noGravity = true;
-			}
-			for(int m = 0; m < pieCut; m++)
-			{
-				int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType, 0f, 0f, 100, Color.White, 2f);
-				Main.dust[dustID].velocity = BaseUtility.RotateVector(default, new Vector2(9f, 0f), m / (float)pieCut * 6.28f);
-				Main.dust[dustID].noLight = false;
-				Main.dust[dustID].noGravity = true;
-			}
-			for(int m = 0; m < 15; m++)
-			{
-				int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType, 0f, 0f, 100, Color.White, 1.2f);
-				Main.dust[dustID].velocity = BaseUtility.RotateVector(default, new Vector2(8f + Main.rand.Next(6), 0f), MathHelper.Lerp((float)Main.rand.NextDouble(), 0f, 6.28f));
-				Main.dust[dustID].noLight = false;
-				Main.dust[dustID].noGravity = true;
-			}
+            for (int m = 0; m < pieCut; m++)
+            {
+                int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType, 0f, 0f, 100, Color.White, 1.6f);
+                Main.dust[dustID].velocity = BaseUtility.RotateVector(default, new Vector2(6f, 0f), m / (float)pieCut * 6.28f);
+                Main.dust[dustID].noLight = false;
+                Main.dust[dustID].noGravity = true;
+            }
+            for (int m = 0; m < pieCut; m++)
+            {
+                int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType, 0f, 0f, 100, Color.White, 2f);
+                Main.dust[dustID].velocity = BaseUtility.RotateVector(default, new Vector2(9f, 0f), m / (float)pieCut * 6.28f);
+                Main.dust[dustID].noLight = false;
+                Main.dust[dustID].noGravity = true;
+            }
+            for (int m = 0; m < 15; m++)
+            {
+                int dustID = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType, 0f, 0f, 100, Color.White, 1.2f);
+                Main.dust[dustID].velocity = BaseUtility.RotateVector(default, new Vector2(8f + Main.rand.Next(6), 0f), MathHelper.Lerp((float)Main.rand.NextDouble(), 0f, 6.28f));
+                Main.dust[dustID].noLight = false;
+                Main.dust[dustID].noGravity = true;
+            }
             SoundEngine.PlaySound(SoundID.Item62, Projectile.position);
         }
 
 
         public override Color? GetAlpha(Color lightColor)
         {
-            Color color = Projectile.ai[0] == 1 ? AAColor.AkumaA : AAColor.YamataA ;
+            Color color = Projectile.ai[0] == 1 ? AAColor.AkumaA : AAColor.YamataA;
             return new Color(color.R, color.G, color.B, 200);
         }
 

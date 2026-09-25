@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -12,18 +11,18 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Materials
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-			Main.tileMergeDirt[Type] = true;
+            Main.tileMergeDirt[Type] = true;
             Main.tileSpelunker[Type] = true;
-            Main.tileOreFinderPriority[Type] = 420; 
+            Main.tileOreFinderPriority[Type] = 420;
             TileID.Sets.Ore[Type] = true;
             HitSound = SoundID.Tink;
             Main.tileLighted[Type] = true;
-            RegisterItemDrop(ModContent.ItemType<Prism>());   
+            RegisterItemDrop(ModContent.ItemType<Prism>());
             DustType = DustID.Stone;
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Prism Ore");
             AddMapEntry(new Color(100, 100, 100), name);
-			MinPick = 65;
+            MinPick = 65;
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)

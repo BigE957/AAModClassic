@@ -2,10 +2,8 @@
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using SpiritReforged.Common.TileCommon;
-using SpiritReforged.Common.TileCommon.Conversion;
 using SpiritReforged.Content.Savanna.Tiles;
 using System.Collections.Generic;
-using Terraria.Enums;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 

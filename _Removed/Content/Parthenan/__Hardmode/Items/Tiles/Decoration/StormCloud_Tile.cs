@@ -1,10 +1,9 @@
+using AAModClassic.Base;
+using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Dusts;
-using AAModClassic.Base;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration
 {
@@ -20,7 +19,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decorat
             Main.tileMergeDirt[Type] = false;
             DustType = ModContent.DustType<FulguriteDust>();
             AddMapEntry(new Color(60, 20, 90));
-			MinPick = 9999;
+            MinPick = 9999;
         }
 
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)
@@ -35,7 +34,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decorat
         {
             Tile tile = Main.tile[x, y];
             color = BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.White, Color.White, Color.Violet, Color.White, Color.Violet, Color.White);
-            Vector2 zero=  new Vector2(Main.offScreenRange, Main.offScreenRange);
+            Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
             if (Main.drawToScreen)
             {
                 zero = Vector2.Zero;

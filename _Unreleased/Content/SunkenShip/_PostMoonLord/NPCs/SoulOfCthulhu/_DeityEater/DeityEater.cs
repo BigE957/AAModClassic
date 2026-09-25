@@ -1,5 +1,3 @@
-using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
-using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEye;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
@@ -11,7 +9,6 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -22,7 +19,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 {
     [AutoloadBossHead]
     public class DeityEater : ModNPC
-    {        
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Crom Cruach");
@@ -323,7 +320,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 }
             }
         }
-        
+
         public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
         {
             Player player = Main.player[NPC.target];
@@ -386,7 +383,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             return false;
         }
     }
-    
+
     public class DeityEaterBody : DeityEater
     {
         //public override string Texture { get { return "AAModClassic/_Unreleased/Content/SunkenShip/_PostMoonLord/NPCs/SoulOfCthulhu/Bosses/DeityEaterBody"; } }
@@ -402,7 +399,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             base.SetDefaults();
             NPC.dontCountMe = true;
         }
-        
+
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
         {
             return false;
@@ -491,7 +488,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             base.SetDefaults();
             NPC.dontCountMe = true;
         }
-        
+
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
         {
             return false;

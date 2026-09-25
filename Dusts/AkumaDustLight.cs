@@ -1,11 +1,10 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Dusts
 {
     public class AkumaDustLight : ModDust
-	{		
+    {
         public override void OnSpawn(Dust dust)
         {
             dust.velocity.Y = Main.rand.Next(-10, 6) * 0.1f;
@@ -34,6 +33,6 @@ namespace AAModClassic.Dusts
         public override Color? GetAlpha(Dust dust, Color lightColor)
         {
             return new Color(lightColor.R, lightColor.G, lightColor.B, 25);
-        }		
+        }
     }
 }

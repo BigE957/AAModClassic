@@ -1,9 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
-using Terraria.ModLoader;
-using Terraria.ID;
 using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch
 {
@@ -31,14 +30,14 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
         private bool isGrabbing = false;
 
         public override bool OnTileCollide(Vector2 oldVelocity)
-		{
-            if(isGrabbing)
+        {
+            if (isGrabbing)
             {
                 Projectile.velocity.X = 0f;
                 Projectile.velocity.Y = 0f;
             }
-			return false;
-		}
+            return false;
+        }
 
         public override void AI()
         {
@@ -64,15 +63,15 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
 
             Vector2 tile = new Vector2(Projectile.Center.X, Projectile.Center.Y + Projectile.height / 2);
             bool tileCheck = TileID.Sets.Platforms[Main.tile[(int)(tile.X / 16), (int)(tile.Y / 16)].TileType];
-            if (tileCheck) 
+            if (tileCheck)
             {
                 Projectile.velocity.X = 0f;
                 Projectile.velocity.Y = 0f;
             }
 
-            for(int i = 0; i < 200; i++)
+            for (int i = 0; i < 200; i++)
             {
-                if(Main.player[i].active && (Main.player[i].Center - Projectile.Center).Length() < 88)
+                if (Main.player[i].active && (Main.player[i].Center - Projectile.Center).Length() < 88)
                 {
                     if (Main.player[i].position.X + Main.player[i].width * 0.5 > Projectile.position.X + Projectile.width * 0.5)
                     {
@@ -121,7 +120,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
                     isGrabbing = true;
                 }
 
-                if(Main.player[i].active && (Main.player[i].Center - Projectile.Center).Length() < 10)
+                if (Main.player[i].active && (Main.player[i].Center - Projectile.Center).Length() < 10)
                 {
                     SoundEngine.PlaySound(SoundID.Item2, Projectile.position);
                     Main.player[i].HealEffect(-5, false);
@@ -134,7 +133,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
                     Projectile.Kill();
                 }
             }
-            
+
         }
     }
 }

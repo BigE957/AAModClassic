@@ -6,7 +6,6 @@ using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
@@ -131,7 +130,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 
         public override void AI()
         {
-			NPC.TargetClosest();			
+            NPC.TargetClosest();
             Player player = Main.player[NPC.target];
             MoveToPoint(player.Center - new Vector2(0, 300f));
 
@@ -141,76 +140,76 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
                 NPC.Center = player.Center - new Vector2(0, 300f);
                 NPC.netOffset = Vector2.Zero;
             }
-			
-			if(Main.netMode != NetmodeID.Server) //clientside stuff
-			{
-				NPC.frameCounter++;
-				if (NPC.frameCounter >= 5)
-				{
-					NPC.frameCounter = 0;
-					NPC.frame.Y += 42;
-				}
-				if (NPC.frame.Y > 42 * 7)
-				{
-					NPC.frame.Y = 0;
-				}
-				if (NPC.ai[0] > 300)
-				{
-					NPC.alpha -= 5;
-					if (NPC.alpha < 0)
-					{
-						NPC.alpha = 0;
-					}
-				}
-				if (NPC.ai[0] >= 300) //after he says 'heh' on the server, change music on the client
-				{
-					Music = MusicManagementSystem.MusicSlots["Akuma_Awakened"];
-                    NPC.boss = true;
-                }				
-				if (NPC.ai[0] >= 660) //after 660 on the server, transition color
-				{
-					RVal -= 5;
-					BVal += 5;
-					if (RVal <= 0)
-					{
-						RVal = 0;
-					}
-					if (BVal >= 255)
-					{
-						BVal = 255;
-					}
-				}
-			}
 
-			NPC.ai[0]++;	
-			if(NPC.ai[0] == 300)
-			{
-				NPC.netUpdate = true;
-			}
+            if (Main.netMode != NetmodeID.Server) //clientside stuff
+            {
+                NPC.frameCounter++;
+                if (NPC.frameCounter >= 5)
+                {
+                    NPC.frameCounter = 0;
+                    NPC.frame.Y += 42;
+                }
+                if (NPC.frame.Y > 42 * 7)
+                {
+                    NPC.frame.Y = 0;
+                }
+                if (NPC.ai[0] > 300)
+                {
+                    NPC.alpha -= 5;
+                    if (NPC.alpha < 0)
+                    {
+                        NPC.alpha = 0;
+                    }
+                }
+                if (NPC.ai[0] >= 300) //after he says 'heh' on the server, change music on the client
+                {
+                    Music = MusicManagementSystem.MusicSlots["Akuma_Awakened"];
+                    NPC.boss = true;
+                }
+                if (NPC.ai[0] >= 660) //after 660 on the server, transition color
+                {
+                    RVal -= 5;
+                    BVal += 5;
+                    if (RVal <= 0)
+                    {
+                        RVal = 0;
+                    }
+                    if (BVal >= 255)
+                    {
+                        BVal = 255;
+                    }
+                }
+            }
+
+            NPC.ai[0]++;
+            if (NPC.ai[0] == 300)
+            {
+                NPC.netUpdate = true;
+            }
             else if (NPC.ai[0] == 300)
-			{
-				if (Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.1"), new Color(180, 41, 32));
-				NPC.netUpdate = true;
-			}
+                NPC.netUpdate = true;
+            }
             else if (NPC.ai[0] == 525)
-			{
-				if (Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.2"), new Color(180, 41, 32));
-			}
-            else if(NPC.ai[0] == 750) //sync so the color transition occurs
+            }
+            else if (NPC.ai[0] == 750) //sync so the color transition occurs
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.6"), new Color(175, 75, 255));
                 NPC.netUpdate = true;
-			}
+            }
             else if (NPC.ai[0] == 976)
-			{
-				if (Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.3"), Color.DeepSkyBlue);
-			}
+            }
             else if (NPC.ai[0] >= 1200 && !NPC.AnyNPCs(ModContent.NPCType<AkumaAHead>()))
-			{
+            {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<AkumaAHead>(), false, NPC.Center, "", false);
@@ -221,8 +220,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
                     Main.projectile[b].Center = NPC.Center;
                 }
                 NPC.netUpdate = true;
-				NPC.active = false;
-			}
+                NPC.active = false;
+            }
         }
 
         public void MoveToPoint(Vector2 point)

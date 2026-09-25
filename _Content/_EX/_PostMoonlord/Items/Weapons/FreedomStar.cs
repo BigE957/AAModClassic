@@ -1,9 +1,7 @@
 ﻿using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -27,7 +25,7 @@ Mobian Buster EX"); */
             Item.width = 74;
             Item.height = 34;
             Item.DamageType = DamageClass.Ranged;
-            Item.damage = 250;  
+            Item.damage = 250;
             Item.shoot = ModContent.ProjectileType<FreedomStar_Holdout>();
             Item.useTime = 10;
             Item.useAnimation = 10;
@@ -35,9 +33,9 @@ Mobian Buster EX"); */
             Item.channel = true;
             Item.sellPrice(3, 0, 0, 0);
             Item.noMelee = true;
-			Item.rare = ItemRarityID.Purple;
-			Item.shootSpeed = 12f;
-			Item.noUseGraphic = true;
+            Item.rare = ItemRarityID.Purple;
+            Item.shootSpeed = 12f;
+            Item.noUseGraphic = true;
         }
 
         public override void AddRecipes()

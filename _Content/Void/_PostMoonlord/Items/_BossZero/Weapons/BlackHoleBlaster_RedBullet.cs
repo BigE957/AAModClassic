@@ -1,6 +1,5 @@
-using System;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -31,19 +30,19 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 
         public override void AI()
         {
-          for (int num163 = 0; num163 < 10; num163++) // Spawns 10 dust every ai update (I have projectile.extraUpdates = 1; so it may actually be 20 dust per ai update)
-                    {
-                        float x2 = Projectile.Center.X- Projectile.velocity.X / -10f * num163;
-                        float y2 = Projectile.Center.Y- Projectile.velocity.Y / -10f * num163;
-                        int num164 = Dust.NewDust(new Vector2(x2, y2), 1, 1, ModContent.DustType<Dusts.RealityDust>(), 0f, 0f, 0, default, 1f);
-                        Main.dust[num164].alpha = Projectile.alpha;
-                        Main.dust[num164].position.X = x2;
-                        Main.dust[num164].position.Y = y2;
-                        Main.dust[num164].velocity *= 0f;
-                        Main.dust[num164].noGravity = true;
-                        Main.dust[num164].fadeIn *= 1.8f;
-                        Main.dust[num164].scale = 0.7f;
-                    }
+            for (int num163 = 0; num163 < 10; num163++) // Spawns 10 dust every ai update (I have projectile.extraUpdates = 1; so it may actually be 20 dust per ai update)
+            {
+                float x2 = Projectile.Center.X - Projectile.velocity.X / -10f * num163;
+                float y2 = Projectile.Center.Y - Projectile.velocity.Y / -10f * num163;
+                int num164 = Dust.NewDust(new Vector2(x2, y2), 1, 1, ModContent.DustType<Dusts.RealityDust>(), 0f, 0f, 0, default, 1f);
+                Main.dust[num164].alpha = Projectile.alpha;
+                Main.dust[num164].position.X = x2;
+                Main.dust[num164].position.Y = y2;
+                Main.dust[num164].velocity *= 0f;
+                Main.dust[num164].noGravity = true;
+                Main.dust[num164].fadeIn *= 1.8f;
+                Main.dust[num164].scale = 0.7f;
+            }
 
             float num165 = (float)Math.Sqrt(Projectile.velocity.X * Projectile.velocity.X + Projectile.velocity.Y * Projectile.velocity.Y);
             float num166 = Projectile.localAI[0];

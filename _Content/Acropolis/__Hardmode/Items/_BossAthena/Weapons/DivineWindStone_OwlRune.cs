@@ -1,11 +1,9 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-
-using Microsoft.Xna.Framework.Graphics;
 using AAModClassic._Content.Acropolis.Projectiles;
-using Terraria.GameContent;
 using AAModClassic.Base;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria.GameContent;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons
 {
@@ -23,7 +21,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons
             Projectile.scale = .001f;
             Projectile.alpha = 255;
         }
-        
+
 
         public override void AI()
         {

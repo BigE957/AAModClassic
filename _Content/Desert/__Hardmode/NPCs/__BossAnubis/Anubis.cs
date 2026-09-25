@@ -11,7 +11,6 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -25,8 +24,8 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
     public class Anubis : ModNPC
     {
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Anubis Legendscribe");
+        {
+            // DisplayName.SetDefault("Anubis Legendscribe");
             Main.npcFrameCount[NPC.type] = 11;
 
             NPCID.Sets.NPCBestiaryDrawModifiers value = new()
@@ -137,15 +136,15 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
                 }
             }
             else
-            if (internalAI[3] == 1)
-            {
-                NPC.velocity.Y -= 0.002f;
-                if (NPC.velocity.Y < -.1f)
+                if (internalAI[3] == 1)
                 {
-                    internalAI[3] = 0f;
-                    NPC.netUpdate = true;
+                    NPC.velocity.Y -= 0.002f;
+                    if (NPC.velocity.Y < -.1f)
+                    {
+                        internalAI[3] = 0f;
+                        NPC.netUpdate = true;
+                    }
                 }
-            }
 
             if (NPC.life < NPC.lifeMax / 3 && internalAI[2] == 0)
             {
@@ -212,7 +211,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
                     int damage = 16;
                     if (NPC.ai[3] == 0 && proj == ModContent.ProjectileType<Anubis_Pumpkin>())
                     {
-                        CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Combat.PumpkinThrow"), true); 
+                        CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Combat.PumpkinThrow"), true);
                         damage = 300;
                     }
 
@@ -332,7 +331,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
                         CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Combat.BlockCrush"), true);
                     }
 
-                    if (NPC.life > NPC.lifeMax * (2/3))
+                    if (NPC.life > NPC.lifeMax * (2 / 3))
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[1] == 60)
                         {
@@ -618,7 +617,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
             int posY = Main.rand.Next(0, 400);
             if (posX > -150 && posX < 150)
             {
-                 posY = Main.rand.Next(150, 400);
+                posY = Main.rand.Next(150, 400);
             }
 
             NPC.position = new Vector2(targetPos.X + posX, targetPos.Y - posY);
@@ -729,7 +728,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
                                 foreach (Player p in Main.ActivePlayers)
                                     activePlayers++;
                                 string s = activePlayers > 1 ? "Multiplayer" : "Singleplayer";
-                                if (Main.netMode != NetmodeID.MultiplayerClient) 
+                                if (Main.netMode != NetmodeID.MultiplayerClient)
                                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Intro.1." + s), Color.Gold);
                             }
 

@@ -1,17 +1,16 @@
-using System;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
 {
     public class DoomiteRadio_DoomiteRadioProbe : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Doomite Radio Probe");
-			Main.projFrames[Projectile.type] = 4;
+            Main.projFrames[Projectile.type] = 4;
             ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
             ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
         }
@@ -95,8 +94,8 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
                 Projectile.tileCollide = false;
             }
             if (player.HasMinionAttackTargetNPC)
-			{
-				NPC nPC2 = Main.npc[player.MinionAttackTargetNPC];
+            {
+                NPC nPC2 = Main.npc[player.MinionAttackTargetNPC];
                 if (nPC2.CanBeChasedBy(Projectile, false))
                 {
                     float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
@@ -107,9 +106,9 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
                         flag25 = true;
                     }
                 }
-			}
-			else
-			{
+            }
+            else
+            {
                 for (int num645 = 0; num645 < 200; num645++)
                 {
                     NPC nPC2 = Main.npc[num645];
@@ -196,13 +195,13 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
                     Projectile.velocity.Y = -0.05f;
                 }
             }
-            if(flag25)
+            if (flag25)
             {
-                Projectile.spriteDirection = (vector46 - Projectile.Center).X > 0? 1: -1;
+                Projectile.spriteDirection = (vector46 - Projectile.Center).X > 0 ? 1 : -1;
             }
             else
             {
-                Projectile.spriteDirection =Projectile.velocity.X > 0? 1: -1;
+                Projectile.spriteDirection = Projectile.velocity.X > 0 ? 1 : -1;
             }
 
             Projectile.frameCounter++;
@@ -237,11 +236,11 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
                         value19.Normalize();
                         value19 *= scaleFactor3;
                         int num659 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, num658, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
-						Main.projectile[num659].minion = true;
+                        Main.projectile[num659].minion = true;
                         Main.projectile[num659].penetrate = 2;
                         Main.projectile[num659].timeLeft = 300;
-						Main.projectile[num659].usesLocalNPCImmunity = true;
-						Main.projectile[num659].localNPCHitCooldown = -1;
+                        Main.projectile[num659].usesLocalNPCImmunity = true;
+                        Main.projectile[num659].localNPCHitCooldown = -1;
                         Projectile.netUpdate = true;
                     }
                 }

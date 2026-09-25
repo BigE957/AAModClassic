@@ -1,8 +1,7 @@
-using System;
-using Terraria.ModLoader;
-using Terraria.ID;
-using Terraria;
 using Microsoft.Xna.Framework;
+using System;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.World.Tiles
 {

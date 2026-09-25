@@ -1,9 +1,7 @@
-using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
 using AAModClassic._Content.Terra.Projectiles;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

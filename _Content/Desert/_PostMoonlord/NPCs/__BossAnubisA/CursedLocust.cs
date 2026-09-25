@@ -3,8 +3,6 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
@@ -14,12 +12,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 {
     public class CursedLocust : ModNPC
-	{
-		public override void SetStaticDefaults()
-		{
+    {
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Cursed Locust");
             Main.npcFrameCount[NPC.type] = 4;
-		}
+        }
 
         public override void SetDefaults()
         {
@@ -46,15 +44,15 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
         }
 
         public override void HitEffect(NPC.HitInfo hit)
-		{
-			if (Main.netMode == NetmodeID.Server) { return; }
-			for (int m = 0; m < (NPC.life <= 0 ? 30 : 8); m++)
-			{
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.ForsakenDust>(), NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, 1.1f);
-			}		
-		}
+        {
+            if (Main.netMode == NetmodeID.Server) { return; }
+            for (int m = 0; m < (NPC.life <= 0 ? 30 : 8); m++)
+            {
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.ForsakenDust>(), NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, 1.1f);
+            }
+        }
 
-		public override void FindFrame(int dummy)
+        public override void FindFrame(int dummy)
         {
             NPC.frameCounter++;
             if (NPC.frameCounter >= 2)
@@ -68,15 +66,15 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
             }
         }
 
-		public override void AI()
-		{
-			NPC.TargetClosest(true);
-			Player player = Main.player[NPC.target];
-			for (int m = NPC.oldPos.Length - 1; m > 0; m--)
-			{
-				NPC.oldPos[m] = NPC.oldPos[m - 1];
-			}
-			NPC.oldPos[0] = NPC.position;
+        public override void AI()
+        {
+            NPC.TargetClosest(true);
+            Player player = Main.player[NPC.target];
+            for (int m = NPC.oldPos.Length - 1; m > 0; m--)
+            {
+                NPC.oldPos[m] = NPC.oldPos[m - 1];
+            }
+            NPC.oldPos[0] = NPC.position;
 
             BaseAI.AISkull(NPC, ref NPC.ai, true, 4, 250, .2f, .26f);
 
@@ -91,7 +89,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
             }
             else
             {
-                NPC.direction = NPC.spriteDirection  = 1;
+                NPC.direction = NPC.spriteDirection = 1;
             }
         }
 
@@ -104,6 +102,6 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
             spriteBatch.Draw(bodyTex, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
 
             return false;
-		}
-	}
+        }
+    }
 }

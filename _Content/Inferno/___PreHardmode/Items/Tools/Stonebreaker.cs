@@ -2,7 +2,6 @@
 using AAModClassic._Content.Ocean.___PreHardmode.Items.Tools;
 using AAModClassic._Content.Void.___PreHardmode.Items.Tools;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -34,7 +33,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tools
             // DisplayName.SetDefault("Stonebreaker");
         }
 
-        public override void AddRecipes()  
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DragonDigger>());

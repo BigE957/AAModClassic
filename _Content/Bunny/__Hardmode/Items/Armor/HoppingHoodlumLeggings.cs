@@ -1,24 +1,22 @@
 ﻿using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class HoppingHoodlumLeggings : EquipAbstract, ILocalizedModType
-	{
+    public class HoppingHoodlumLeggings : EquipAbstract, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Armor.HoppingHoodlum";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Hopping Hoodlum Paws");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Hopping Hoodlum Paws");
             /* Tooltip.SetDefault(@"'Hopping Mad'"); */
         }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Item.width = 22;
             Item.height = 16;
             Item.value = Item.sellPrice(0, 5, 0, 0);

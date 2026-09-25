@@ -6,7 +6,6 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -15,9 +14,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard
 {
     public class SistersOfDiscordTreasureBag : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Treasure Bag (Sisters of Discord)");
@@ -26,14 +25,14 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
             ItemID.Sets.BossBag[Type] = true;
         }
 
-		public override void SetDefaults()
-		{
-			Item.maxStack = Item.CommonMaxStack;
-			Item.consumable = true;
-			Item.width = 36;
-			Item.height = 32;
+        public override void SetDefaults()
+        {
+            Item.maxStack = Item.CommonMaxStack;
+            Item.consumable = true;
+            Item.width = 36;
+            Item.height = 32;
             Item.expert = true;
-		}
+        }
 
         public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
         {
@@ -131,5 +130,5 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<HeartOfPassion>()));
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<HeartOfSorrow>()));
         }
-	}
+    }
 }

@@ -6,7 +6,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -28,7 +27,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             NPC.life = NPC.lifeMax = 90000;
             NPC.height = NPC.width = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 128 : 206;
             NPC.npcSlots = 0;
-			NPC.aiStyle = -1;
+            NPC.aiStyle = -1;
             NPC.dontCountMe = true;
             NPC.noTileCollide = true;
             NPC.boss = false;
@@ -62,36 +61,36 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         InfinityZero Body => BodyNPC != null && BodyNPC.ModNPC is InfinityZero body ? body : null;
         public NPC BodyNPC => Main.npc[(int)NPC.ai[0]];
 
-		public int HandType => (int)NPC.ai[3]; //0 == left top, 1 == left middle, 2 == left bottom, 3 == right top, 4 == right middle, 5 == right bottom
-		public bool leftHand = true;
+        public int HandType => (int)NPC.ai[3]; //0 == left top, 1 == left middle, 2 == left bottom, 3 == right top, 4 == right middle, 5 == right bottom
+        public bool leftHand = true;
         public bool RepairMode = false;
 
         private bool ChargeAttack //actually charging the player
-		{
-			get
-			{
-				return NPC.ai[2] == 1;
-			}
-			set
-			{
-				float oldValue = NPC.ai[2];
-				NPC.ai[2] = value ? 1f : 0f;
-				if(NPC.ai[2] != oldValue) NPC.netUpdate = true;
-			}
-		}
+        {
+            get
+            {
+                return NPC.ai[2] == 1;
+            }
+            set
+            {
+                float oldValue = NPC.ai[2];
+                NPC.ai[2] = value ? 1f : 0f;
+                if (NPC.ai[2] != oldValue) NPC.netUpdate = true;
+            }
+        }
         private bool Charging //preparing to charge the player
-		{
-			get
-			{
-				return NPC.ai[1] == 1.5f;
-			}
-			set
-			{
-				float oldValue = NPC.ai[1];
-				NPC.ai[1] = value ? 1.5f : 0f;
-				if(NPC.ai[1] != oldValue) NPC.netUpdate = true;
-			}
-		}
+        {
+            get
+            {
+                return NPC.ai[1] == 1.5f;
+            }
+            set
+            {
+                float oldValue = NPC.ai[1];
+                NPC.ai[1] = value ? 1.5f : 0f;
+                if (NPC.ai[1] != oldValue) NPC.netUpdate = true;
+            }
+        }
 
         private int chargingCounter = 0;
         private int chargeUpCounter = 0;
@@ -110,7 +109,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             writer.Write(ZeroShot);
             writer.Write(goalOffset.X);
             writer.Write(goalOffset.Y);
-            writer.Write(shouldCharge);				
+            writer.Write(shouldCharge);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
@@ -123,14 +122,14 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             ZeroShot = reader.ReadInt32();
             goalOffset.X = reader.ReadSingle();
             goalOffset.Y = reader.ReadSingle();
-            shouldCharge = reader.ReadBoolean();				
+            shouldCharge = reader.ReadBoolean();
         }
 
 
         public override bool CheckActive() => false;
-        
+
         public override void AI()
-		{
+        {
             bool unofficial = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
             if (RepairMode)
                 NPC.life = NPC.lifeMax;
@@ -138,9 +137,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             NPC.TargetClosest();
             Player player = Main.player[NPC.target];
             ZeroShot++;
-            
+
             int aiTimerShoot = NPC.whoAmI % 3 == 0 ? 50 : NPC.whoAmI % 2 == 0 ? 150 : 100; //aiTimerFire is different per head by using whoAmI (which is usually different) 
-            if (leftHand) 
+            if (leftHand)
                 aiTimerShoot += 30;
             if (ZeroShot >= aiTimerShoot)
             {
@@ -175,9 +174,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 return;
             }
             if (Body == null)
-			{
+            {
                 NPC.ai[0] = NPC.FindFirstNPC(ModContent.NPCType<InfinityZero>());
-                if(NPC.ai[0] == -1)
+                if (NPC.ai[0] == -1)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient) //force a kill to prevent 'ghost hands'
                     {
@@ -187,11 +186,11 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     }
                     return;
                 }
-				NPC.localAI[3] = 30 * HandType; //so they start at different rotation points
+                NPC.localAI[3] = 30 * HandType; //so they start at different rotation points
                 goalOffset = GetVariance(false);
-				NPC.netUpdate = true;
-			}
-            
+                NPC.netUpdate = true;
+            }
+
             if (Body.NPC.active && NPC.timeLeft < 10)
                 NPC.timeLeft = 10;
 
@@ -210,69 +209,70 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             Player targetPlayer = player;
             bool playerAvailable = !(targetPlayer == null || !targetPlayer.active || targetPlayer.dead);
 
-			if(Main.netMode != NetmodeID.MultiplayerClient)
-			{
-				chargeCounter++;
-				int aiTimerFire = NPC.whoAmI % 3 == 0 ? 250 : NPC.whoAmI % 2 == 0 ? 250 : 200; //aiTimerFire is different per head by using whoAmI (which is usually different) 
-				if(leftHand)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                chargeCounter++;
+                int aiTimerFire = NPC.whoAmI % 3 == 0 ? 250 : NPC.whoAmI % 2 == 0 ? 250 : 200; //aiTimerFire is different per head by using whoAmI (which is usually different) 
+                if (leftHand)
                     aiTimerFire += 60;
 
                 if (chargeCounter >= 150 && !shouldCharge) //pick random spot to move head to
-				{
-					NPC.damage = DamageIdle;
+                {
+                    NPC.damage = DamageIdle;
                     goalOffset = GetVariance();
                     ChargeAttack = false;
                     Charging = false;
                     chargeCounter = 0;
-					NPC.netUpdate = true;
+                    NPC.netUpdate = true;
                     shouldCharge = Main.rand.NextBool(3); //wether or not to charge
                 }
-                else if(playerAvailable && chargeCounter >= aiTimerFire) //get ready to charge player
-				{
+                else if (playerAvailable && chargeCounter >= aiTimerFire) //get ready to charge player
+                {
                     Charging = true;
                     chargeUpCounter += 1;
                     if (chargeUpCounter >= ChargeTime) //actually charge player
                     {
-						ChargeAttack = true;
-						Vector2 diff = targetPlayer.Center - NPC.Center;
-						//diff = (Vector2.Normalize(diff) * 120);
-						if(Vector2.Distance(NPC.Center + diff, NPC.Center) > 2000f) //point is too far away from the body
-						{
-							diff = GetVariance(false);
-						}else
-						{
-							NPC.damage = DamageCharging;
-                            if(unofficial)
+                        ChargeAttack = true;
+                        Vector2 diff = targetPlayer.Center - NPC.Center;
+                        //diff = (Vector2.Normalize(diff) * 120);
+                        if (Vector2.Distance(NPC.Center + diff, NPC.Center) > 2000f) //point is too far away from the body
+                        {
+                            diff = GetVariance(false);
+                        }
+                        else
+                        {
+                            NPC.damage = DamageCharging;
+                            if (unofficial)
                                 NPC.velocity = NPC.DirectionTo(targetPlayer.Center) * (RepairMode ? 24 : 36f);
-						}
+                        }
                         chargeCounter = 0;
                         goalOffset = diff;
-						chargeUpCounter = 0;
+                        chargeUpCounter = 0;
                     }
                 }
             }
 
-			//random rotation code
-			if(NPC.frame.Y == 0 && !ChargeAttack && !Charging)
-			{
-				NPC.localAI[3] += Main.rand.Next(3);
-				if(NPC.localAI[3] > 150)
-				{
-					NPC.rotation += MathHelper.Lerp(0.3f, 0.005f, NPC.rotation / ((float)Math.PI * 2));
-					if(NPC.rotation >= (float)Math.PI * 2)
-					{
-						NPC.localAI[3] = 0;
-						NPC.rotation = 0f;
-					}
-				}
+            //random rotation code
+            if (NPC.frame.Y == 0 && !ChargeAttack && !Charging)
+            {
+                NPC.localAI[3] += Main.rand.Next(3);
+                if (NPC.localAI[3] > 150)
+                {
+                    NPC.rotation += MathHelper.Lerp(0.3f, 0.005f, NPC.rotation / ((float)Math.PI * 2));
+                    if (NPC.rotation >= (float)Math.PI * 2)
+                    {
+                        NPC.localAI[3] = 0;
+                        NPC.rotation = 0f;
+                    }
+                }
                 else
-					NPC.rotation = 0f;
-			}
+                    NPC.rotation = 0f;
+            }
             else
-			{
-				NPC.localAI[3] = 0;
-				if(playerAvailable && !ChargeAttack)
-					NPC.velocity = Vector2.Normalize(targetPlayer.Center - NPC.Center) * 0.005f;
+            {
+                NPC.localAI[3] = 0;
+                if (playerAvailable && !ChargeAttack)
+                    NPC.velocity = Vector2.Normalize(targetPlayer.Center - NPC.Center) * 0.005f;
 
                 NPC.rotation = NPC.velocity.ToRotation();
                 if (RepairMode && !ChargeAttack && !Charging && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
@@ -318,7 +318,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
             else
             {
-                if(unofficial)
+                if (unofficial)
                     NPC.velocity = (destination - NPC.Center) / 30f;
                 else
                 {
@@ -333,43 +333,43 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         }
 
         public Vector2 GetVariance(bool random = true)
-		{
-			float offsetX = 0, offsetY = 0;
-			switch(HandType)
-			{
-				case 0: 
-                    offsetX = -DistFromBodyX - 100; 
+        {
+            float offsetX = 0, offsetY = 0;
+            switch (HandType)
+            {
+                case 0:
+                    offsetX = -DistFromBodyX - 100;
                     offsetY = -DistFromBodyY;
                     break;
-				case 1: 
+                case 1:
                     offsetX = -DistFromBodyX - 50;
                     offsetY = 0;
                     break;
-				case 2: 
+                case 2:
                     offsetX = -DistFromBodyX;
                     offsetY = DistFromBodyY;
                     break;
-				case 3: 
+                case 3:
                     offsetX = DistFromBodyX + 100;
                     offsetY = -DistFromBodyY;
                     break;
-				case 4: 
+                case 4:
                     offsetX = DistFromBodyX + 50;
                     offsetY = 0;
                     break;
-				case 5: 
+                case 5:
                     offsetX = DistFromBodyX;
                     offsetY = DistFromBodyY;
-                    break;		
-				default: break;
-			}
-			if(random)
-			{
-				offsetX += Main.rand.Next(-MovementVariance, MovementVariance); 
-				offsetY += Main.rand.Next(-MovementVariance, MovementVariance); 
-			}
-			return new Vector2(offsetX, offsetY);
-		}
+                    break;
+                default: break;
+            }
+            if (random)
+            {
+                offsetX += Main.rand.Next(-MovementVariance, MovementVariance);
+                offsetY += Main.rand.Next(-MovementVariance, MovementVariance);
+            }
+            return new Vector2(offsetX, offsetY);
+        }
 
         public override void HitEffect(NPC.HitInfo hit)
         {
@@ -425,7 +425,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             else if (RepairMode)
                 NPC.frame.Y = 2 * frameHeight;
             else
-				NPC.frame.Y = 0;
+                NPC.frame.Y = 0;
         }
 
         public override bool PreKill() => false;

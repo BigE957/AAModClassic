@@ -1,8 +1,7 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using AAModClassic._Content._Misc.__Hardmode.Items.Consumables;
+﻿using AAModClassic._Content._Misc.__Hardmode.Items.Consumables;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.BossStandard
 {

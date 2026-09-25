@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Chaos.Projectiles;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,7 +11,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Fury Fire");
-			Main.projFrames[Projectile.type] = 7;
+            Main.projFrames[Projectile.type] = 7;
         }
 
         public override void SetDefaults()
@@ -26,10 +25,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
             Projectile.alpha = 255;
             Projectile.timeLeft = 100;
             Projectile.aiStyle = -1;
-			Projectile.DamageType = DamageClass.Magic;
+            Projectile.DamageType = DamageClass.Magic;
             Projectile.penetrate = 100;
         }
-        
+
         public override void AI()
         {
             if (Projectile.timeLeft > 60)
@@ -89,7 +88,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
         }
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             int Boom = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.position.X, Projectile.position.Y, 0, 0, ModContent.ProjectileType<MagicBoom>(), hit.Damage, hit.Knockback, Main.myPlayer, 0, 0);
             Main.projectile[Boom].Center = Projectile.Center;
         }

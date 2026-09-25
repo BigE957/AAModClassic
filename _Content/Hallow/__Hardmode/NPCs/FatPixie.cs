@@ -1,9 +1,7 @@
-using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic.Base;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -42,7 +40,7 @@ namespace AAModClassic._Content.Hallow.__Hardmode.NPCs
             NPC.HitSound = SoundID.NPCHit5;
             NPC.DeathSound = SoundID.NPCDeath7;
             Banner = NPC.type;
-			BannerItem = ModContent.ItemType<FatPixie_Banner>();
+            BannerItem = ModContent.ItemType<FatPixie_Banner>();
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -58,49 +56,51 @@ namespace AAModClassic._Content.Hallow.__Hardmode.NPCs
             return spawnInfo.Player.ZoneHallow && Main.hardMode ? .05f : 0f;
         }
 
-		int frameCounter = 0;
+        int frameCounter = 0;
         public override void AI()
         {
-			NPC.TargetClosest();
+            NPC.TargetClosest();
             Player player = Main.player[NPC.target];
             if (NPC.velocity.Y == 0 || NPC.velocity.Y < 0)
             {
-				frameCounter--;
-				if(frameCounter <= 0)
-				{
-					frameCounter = NPC.velocity.Y < 0 ? 3 : 10;
-					NPC.frame.Y = NPC.frame.Y == 0 ? NPC.frame.Height : 0;
-				}
-            }else
+                frameCounter--;
+                if (frameCounter <= 0)
+                {
+                    frameCounter = NPC.velocity.Y < 0 ? 3 : 10;
+                    NPC.frame.Y = NPC.frame.Y == 0 ? NPC.frame.Height : 0;
+                }
+            }
+            else
             {
                 if (NPC.velocity.Y > 0)
                 {
                     NPC.frame.Y = NPC.frame.Height * 2;
                 }
             }
-			if(NPC.velocity.X != 0)
-			{
-				if(NPC.collideX)
-					NPC.velocity.X *= -2f;
-				if (NPC.velocity.X > 0)
-				{
-					NPC.spriteDirection = 1;
-				}else
-				{
-					NPC.spriteDirection = -1;
-				}
-			}
-			float jumpWidth = 3f;
-			float jumpHeight = -1f;
-			if(NPC.whoAmI % 30 == 0) //THE LEGENDARY SUPER FAT PIXIE
-			{
-				jumpWidth = 8f;
-				jumpHeight = -25f;
+            if (NPC.velocity.X != 0)
+            {
+                if (NPC.collideX)
+                    NPC.velocity.X *= -2f;
+                if (NPC.velocity.X > 0)
+                {
+                    NPC.spriteDirection = 1;
+                }
+                else
+                {
+                    NPC.spriteDirection = -1;
+                }
+            }
+            float jumpWidth = 3f;
+            float jumpHeight = -1f;
+            if (NPC.whoAmI % 30 == 0) //THE LEGENDARY SUPER FAT PIXIE
+            {
+                jumpWidth = 8f;
+                jumpHeight = -25f;
                 if (NPC.ai[0] >= 0)
                     CombatText.NewText(NPC.Hitbox, Color.LightGoldenrodYellow, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.FatPixie"));
             }
             NPC.AISlime(ref NPC.ai, false, 150, 4f, 2f, jumpWidth, jumpHeight);
-			BaseDrawing.AddLight(NPC.Center, new Color(212, 208, 107), 2f);
+            Lighting.AddLight(NPC.Center, new Color(212, 208, 107).ToVector3() / 2f);
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
@@ -116,21 +116,21 @@ namespace AAModClassic._Content.Hallow.__Hardmode.NPCs
         {
             if (NPC.whoAmI % 30 == 0)
             {
-                if (auraDirection) 
-                { 
-                    auraPercent += 0.1f; 
-                    auraDirection = auraPercent < 1f; 
+                if (auraDirection)
+                {
+                    auraPercent += 0.1f;
+                    auraDirection = auraPercent < 1f;
                 }
-                else 
-                { 
-                    auraPercent -= 0.1f; 
-                    auraDirection = auraPercent <= 0f; 
+                else
+                {
+                    auraPercent -= 0.1f;
+                    auraDirection = auraPercent <= 0f;
                 }
                 BaseDrawing.DrawAura(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, auraPercent, 1f, 0f, 0f, Color.Gold);
             }
             spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
-			return false;
-		}
+            return false;
+        }
     }
 }
 

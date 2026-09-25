@@ -1,40 +1,39 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
     public class GentlemansRapier : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Gentleman's Rapier");
             /* Tooltip.SetDefault(@"Shoots spooky dapper top hats
 Right clicking thrusts the blade forward
 Left clicking swings the blade
 'Spoopy'
 -Tied"); */
-		}
+        }
 
-		public override void SetDefaults()
-		{
-			Item.damage = 200;
-			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-			Item.width = 64;
-			Item.height = 66;
-			Item.useTime = 10;
-			Item.useAnimation = 10;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack = 3;
-			Item.value = 100000;
-			Item.rare = ItemRarityID.Purple;
+        public override void SetDefaults()
+        {
+            Item.damage = 200;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 64;
+            Item.height = 66;
+            Item.useTime = 10;
+            Item.useAnimation = 10;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 3;
+            Item.value = 100000;
+            Item.rare = ItemRarityID.Purple;
             Item.shoot = ModContent.ProjectileType<GentlemansRapier_TopHat>();
             Item.UseSound = SoundID.Item1;
-			Item.autoReuse = true;
+            Item.autoReuse = true;
             Item.shootSpeed = 12f;
         }
 
@@ -50,12 +49,12 @@ Left clicking swings the blade
         }
 
         public override bool AltFunctionUse(Player player)
-		{
-			return true;
-		}
+        {
+            return true;
+        }
 
-		public override bool CanUseItem(Player player)
-		{
+        public override bool CanUseItem(Player player)
+        {
             if (player.altFunctionUse == 2)
             {
                 Item.useStyle = ItemUseStyleID.Thrust;
@@ -65,6 +64,6 @@ Left clicking swings the blade
                 Item.useStyle = ItemUseStyleID.Swing;
             }
             return base.CanUseItem(player);
-		}
-	}
+        }
+    }
 }

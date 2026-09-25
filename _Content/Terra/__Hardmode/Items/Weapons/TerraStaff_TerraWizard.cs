@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -81,7 +80,7 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Weapons
             num *= Main.essScale;
             Lighting.AddLight(Projectile.Center, 1f * num, 0f * num, 0.15f * num);
             Projectile.rotation = Projectile.velocity.X * 0.04f;
-            
+
             float num633 = 700f;
             float num634 = 800f;
             float num635 = 1200f;
@@ -143,8 +142,8 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Weapons
                 Projectile.tileCollide = false;
             }
             if (player.HasMinionAttackTargetNPC)
-			{
-				NPC nPC2 = Main.npc[player.MinionAttackTargetNPC];
+            {
+                NPC nPC2 = Main.npc[player.MinionAttackTargetNPC];
                 if (nPC2.CanBeChasedBy(Projectile, false))
                 {
                     float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
@@ -155,9 +154,9 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Weapons
                         flag25 = true;
                     }
                 }
-			}
-			else
-			{
+            }
+            else
+            {
                 for (int num645 = 0; num645 < 200; num645++)
                 {
                     NPC nPC2 = Main.npc[num645];
@@ -179,13 +178,13 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Weapons
                 num647 = num635;
             }
 
-            if(flag25)
+            if (flag25)
             {
-                Projectile.spriteDirection = (vector46 - Projectile.Center).X > 0? -1: 1;
+                Projectile.spriteDirection = (vector46 - Projectile.Center).X > 0 ? -1 : 1;
             }
             else
             {
-                Projectile.spriteDirection = Projectile.velocity.X > 0? -1: 1;
+                Projectile.spriteDirection = Projectile.velocity.X > 0 ? -1 : 1;
             }
 
             if (Vector2.Distance(player.Center, Projectile.Center) > num647)

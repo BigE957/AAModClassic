@@ -76,7 +76,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Terraria;
 using Terraria.Chat;
 using Terraria.GameContent.Generation;
 using Terraria.ID;
@@ -161,7 +160,7 @@ namespace AAModClassic
         public static bool downedShen => (NPCExtensions.BeenKilled<ShenDoragon>() && !Main.expertMode) || NPCExtensions.BeenKilled<ShenDoragonA>();
 
         public static bool downedAshe;
-        public static bool downedHaruka;     
+        public static bool downedHaruka;
         public static bool downedSisters;
         public static bool SistersSummoned;
 
@@ -181,8 +180,8 @@ namespace AAModClassic
         public static bool GravActive;
 
         public static bool Terra1 => NPCExtensions.BeenKilled<Broodmother>() || NPCExtensions.BeenKilled<HydraBody>() || NPC.downedBoss2;
-		public static bool Terra2 => NPC.downedPlantBoss;
-		public static bool Terra3 => downedShen;
+        public static bool Terra2 => NPC.downedPlantBoss;
+        public static bool Terra3 => downedShen;
 
         public static bool spawnGrips;
         //Points
@@ -222,7 +221,7 @@ namespace AAModClassic
             downedEquinox = false;
             zeroUS = false;
             ShenSummoned = false;
-            downedAshe = false ;
+            downedAshe = false;
             downedHaruka = false;
             downedSisters = false;
             SistersSummoned = false;
@@ -416,7 +415,7 @@ namespace AAModClassic
             SmashHydraPod = tag.GetInt("Pod");
 
             acropolisPos = tag.Get<Point>("acropolisPos");
-            if(acropolisPos == Point.Zero)
+            if (acropolisPos == Point.Zero)
                 acropolisPos = new Point((int)(Main.maxTilesX * 0.65f), 100);
 
             TerrariumEnemies = NPC.downedBoss2;
@@ -498,7 +497,7 @@ namespace AAModClassic
             WormActive = flags2[7];
 
             MireCenter = reader.ReadVector2();
-			InfernoCenter = reader.ReadVector2();		
+            InfernoCenter = reader.ReadVector2();
 
             squid1 = reader.ReadInt32();
             squid2 = reader.ReadInt32();
@@ -526,9 +525,9 @@ namespace AAModClassic
 
         public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
         {
-            
+
             int shiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
-            if(shiniesIndex > -1)
+            if (shiniesIndex > -1)
             {
                 tasks.Insert(shiniesIndex + 1, new PassLegacy("Prisms", delegate (GenerationProgress progress, GameConfiguration config)
                 {
@@ -567,7 +566,7 @@ namespace AAModClassic
             }
 
             int ChaosIndex = (SpiritReforgedManager.IsEnabled || ModLoader.HasMod("SOTS")) ? tasks.Count - 2 : tasks.FindIndex(genpass => genpass.Name.Equals("Micro Biomes"));
-            if(ChaosIndex > -1)
+            if (ChaosIndex > -1)
             {
                 tasks.Insert(ChaosIndex + 1, new PassLegacy("Mire and Inferno", delegate (GenerationProgress progress, GameConfiguration config)
                 {
@@ -586,7 +585,7 @@ namespace AAModClassic
             }
 
             int shiniesIndex2 = tasks.FindIndex(genpass => genpass.Name.Equals("Final Cleanup"));
-            if(shiniesIndex2 > -1)
+            if (shiniesIndex2 > -1)
             {
 
                 tasks.Insert(shiniesIndex2, new PassLegacy("Ender", delegate (GenerationProgress progress, GameConfiguration config)
@@ -680,7 +679,7 @@ namespace AAModClassic
                                         chest.item[4].stack = WorldGen.genRand.Next(15, 31);
                                         chest.item[5].SetDefaults(ItemID.GoldCoin, false);
                                         chest.item[5].stack = WorldGen.genRand.Next(1, 3);
-                                        placed = true ;
+                                        placed = true;
                                         break;
                                     }
                                     break;
@@ -795,7 +794,7 @@ namespace AAModClassic
                     }
                 }));
             }
-            
+
             ModContentGenerated = true;
         }
 
@@ -897,7 +896,7 @@ namespace AAModClassic
             WHERESDAVOIDAT = center;
             Point oldposition = new(1, 1);
             List<Point> posIslands = [];
-            
+
 
             for (int i = 0; i < IslandNumber; i++)
             {
@@ -1022,17 +1021,17 @@ namespace AAModClassic
                                 tile.TileType == ModContent.TileType<Torchice_Tile>() ||
                                 tile.TileType == ModContent.TileType<Torchsandstone_Tile>() ||
                                 tile.TileType == ModContent.TileType<Torchsand_Tile>() ||
-                                tile.TileType == ModContent.TileType<InfernoGrass_Tile>())  
+                                tile.TileType == ModContent.TileType<InfernoGrass_Tile>())
                                 && Altar == ModContent.TileType<AbyssAltarUnsafe_Tile>())
                             {
                                 Altar = ModContent.TileType<DragonAltarUnsafe_Tile>();
                             }
-                            if ((tile.TileType == ModContent.TileType<Depthstone_Tile>() || 
-                                tile.TileType == ModContent.TileType<Depthsand_Tile>() || 
+                            if ((tile.TileType == ModContent.TileType<Depthstone_Tile>() ||
+                                tile.TileType == ModContent.TileType<Depthsand_Tile>() ||
                                 tile.TileType == ModContent.TileType<IndigoIce_Tile>() ||
                                 tile.TileType == ModContent.TileType<Depthsandstone_Tile>() ||
                                 tile.TileType == ModContent.TileType<Depthsand_Tile>() ||
-                                tile.TileType == ModContent.TileType<MireGrass_Tile>()) 
+                                tile.TileType == ModContent.TileType<MireGrass_Tile>())
                                 && Altar == ModContent.TileType<DragonAltarUnsafe_Tile>())
                             {
                                 Altar = ModContent.TileType<AbyssAltarUnsafe_Tile>();
@@ -1043,7 +1042,7 @@ namespace AAModClassic
                 }
             }
         }
-        
+
         public int ChestNumber = 0;
 
         public void VoidHouses(int X, int Y, int type = 30, int sizeX = 10, int sizeY = 7)
@@ -1068,7 +1067,8 @@ namespace AAModClassic
                         WorldGen.PlaceWall(i, j, wallID);
                     }
                 }
-            };
+            }
+            ;
             //Side placements
             for (int i = Y; i < Y + sizeY - 1; ++i)
             {
@@ -1255,7 +1255,7 @@ namespace AAModClassic
                 if (RadiumOre == false)
                 {
                     RadiumOre = true;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) 
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedEquinoxInfo"), Color.Violet);
                     for (int i = 0; i < Main.maxTilesX / 50; ++i)
                     {
@@ -1296,13 +1296,13 @@ namespace AAModClassic
                 if (Ancients == false)
                 {
                     Ancients = true;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) 
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedMoonlordInfo1"), Color.ForestGreen);
                 }
                 if (Luminite == false)
                 {
                     Luminite = true;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) 
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedMoonlordInfo2"), Color.DarkSeaGreen);
                     for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 8E-05); k++)
                     {
@@ -1316,7 +1316,7 @@ namespace AAModClassic
                 if (HallowedOre == false)
                 {
                     HallowedOre = true;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) 
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedMechBossAnyInfo"), Color.Goldenrod);
                     int x = Main.maxTilesX;
                     int y = Main.maxTilesY;
@@ -1334,7 +1334,7 @@ namespace AAModClassic
                 if (FulguriteOre == false)
                 {
                     FulguriteOre = true;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) 
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedSiegeUnitAnyInfo"), Color.MediumPurple);
                     for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 6E-05); k++)
                         WorldGen.OreRunner(WorldGen.genRand.Next(0, Main.maxTilesX), WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 200), WorldGen.genRand.Next(10, 11), WorldGen.genRand.Next(10, 11), (ushort)ModContent.TileType<FulguriteShard_Tile>());
@@ -1346,7 +1346,7 @@ namespace AAModClassic
                 if (!DiscordOres)
                 {
                     DiscordOres = true;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) 
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedSistersInfo"), Color.Magenta);
                     int x = Main.maxTilesX;
                     int y = Main.maxTilesY;
@@ -1420,8 +1420,8 @@ namespace AAModClassic
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.downedMechBossInfo2"), Color.Orange.R, Color.Orange.G, Color.Orange.B);
                     }
                 }
-                
-            }       
+
+            }
 
             if (downedAllAncients && !previousDownedAllAncients)
             {
@@ -1458,10 +1458,10 @@ namespace AAModClassic
         {
             Main.SceneMetrics.SandTileCount += tileCounts[ModContent.TileType<Torchsand_Tile>()] + tileCounts[ModContent.TileType<Torchsandstone_Tile>()] + tileCounts[ModContent.TileType<TorchsandHardened_Tile>()] + tileCounts[ModContent.TileType<Depthsand_Tile>()] + tileCounts[ModContent.TileType<Depthsandstone_Tile>()] + tileCounts[ModContent.TileType<DepthsandHardened_Tile>()];
             Main.SceneMetrics.SnowTileCount += tileCounts[ModContent.TileType<Torchice_Tile>()] + tileCounts[ModContent.TileType<IndigoIce_Tile>()] + tileCounts[ModContent.TileType<TorchAsh_Tile>()];
-            mireTiles = tileCounts[ModContent.TileType<MireGrass_Tile>()]+ tileCounts[ModContent.TileType<Depthstone_Tile>()] + tileCounts[ModContent.TileType<Depthsand_Tile>()] + tileCounts[ModContent.TileType<Depthsandstone_Tile>()] + tileCounts[ModContent.TileType<DepthsandHardened_Tile>()] + tileCounts[ModContent.TileType<IndigoIce_Tile>()] + tileCounts[ModContent.TileType<LivingBogleaf_Tile>()] + tileCounts[ModContent.TileType<LivingBogwood_Tile>()] + tileCounts[ModContent.TileType<MireVines_Tile>()];
-            infernoTiles = tileCounts[ModContent.TileType<InfernoGrass_Tile>()]+ tileCounts[ModContent.TileType<Torchstone_Tile>()] + tileCounts[ModContent.TileType<Torchsand_Tile>()] + tileCounts[ModContent.TileType<Torchsandstone_Tile>()] + tileCounts[ModContent.TileType<TorchsandHardened_Tile>()] + tileCounts[ModContent.TileType<Torchice_Tile>()] + tileCounts[ModContent.TileType<TorchAsh_Tile>()] + tileCounts[ModContent.TileType<LivingRazeleaves_Tile>()] + tileCounts[ModContent.TileType<LivingRazewood_Tile>()];
+            mireTiles = tileCounts[ModContent.TileType<MireGrass_Tile>()] + tileCounts[ModContent.TileType<Depthstone_Tile>()] + tileCounts[ModContent.TileType<Depthsand_Tile>()] + tileCounts[ModContent.TileType<Depthsandstone_Tile>()] + tileCounts[ModContent.TileType<DepthsandHardened_Tile>()] + tileCounts[ModContent.TileType<IndigoIce_Tile>()] + tileCounts[ModContent.TileType<LivingBogleaf_Tile>()] + tileCounts[ModContent.TileType<LivingBogwood_Tile>()] + tileCounts[ModContent.TileType<MireVines_Tile>()];
+            infernoTiles = tileCounts[ModContent.TileType<InfernoGrass_Tile>()] + tileCounts[ModContent.TileType<Torchstone_Tile>()] + tileCounts[ModContent.TileType<Torchsand_Tile>()] + tileCounts[ModContent.TileType<Torchsandstone_Tile>()] + tileCounts[ModContent.TileType<TorchsandHardened_Tile>()] + tileCounts[ModContent.TileType<Torchice_Tile>()] + tileCounts[ModContent.TileType<TorchAsh_Tile>()] + tileCounts[ModContent.TileType<LivingRazeleaves_Tile>()] + tileCounts[ModContent.TileType<LivingRazewood_Tile>()];
             voidTiles = tileCounts[ModContent.TileType<Doomstone_Tile>()] + tileCounts[ModContent.TileType<ApocalyptiteOre_Tile>()] + tileCounts[ModContent.TileType<DoomGrass_Tile>()] + tileCounts[ModContent.TileType<DoomstoneB_Tile>()];
-            mushTiles = tileCounts[ModContent.TileType<Mycelium_Tile>() ];
+            mushTiles = tileCounts[ModContent.TileType<Mycelium_Tile>()];
             Main.SceneMetrics.JungleTileCount += mireTiles;
             pagodaTiles = tileCounts[ModContent.TileType<ScorchedDynastyWoodUnsafe_Tile>()];
             lakeTiles = tileCounts[ModContent.TileType<Darkmud_Tile>()] + tileCounts[ModContent.TileType<AbyssGrass_Tile>()] + tileCounts[ModContent.TileType<AbyssWood_Tile>()] + tileCounts[ModContent.TileType<AbyssWoodSolid_Tile>()];
@@ -1691,7 +1691,7 @@ namespace AAModClassic
         {
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildAcropolis");
             int height = 100;
-            if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 height = WorldGenUtils.GetWorldSize() == 1 ? 40 : ModLoader.HasMod("Remnants") ? 75 : 100;
             Point origin = new((int)(Main.maxTilesX * 0.65f), height);
             AcropolisGeneration biome = new();
@@ -1701,7 +1701,7 @@ namespace AAModClassic
         private static void Hoard(GenerationProgress progress)
         {
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildHoard");
-            Point origin = new((int)(Main.maxTilesX * (ModLoader.HasMod("Remnants") ? 0.275f : 0.3f)), (int)(Main.maxTilesY * (ModLoader.HasMod("Remnants") ?  0.75f : 0.65f)));
+            Point origin = new((int)(Main.maxTilesX * (ModLoader.HasMod("Remnants") ? 0.275f : 0.3f)), (int)(Main.maxTilesY * (ModLoader.HasMod("Remnants") ? 0.75f : 0.65f)));
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && Main.dungeonX > Main.maxTilesX / 2)
                 origin.X = (int)(Main.maxTilesX * (ModLoader.HasMod("Remnants") ? 0.675f : 0.7f));
             HoardGeneration biome = new();

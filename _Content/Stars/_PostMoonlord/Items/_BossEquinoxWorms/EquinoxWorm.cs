@@ -1,16 +1,15 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
+using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
+using AAModClassic._Content.Stars.World.Altar;
+using AAModClassic.Base;
+using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using Microsoft.Xna.Framework;
-using AAModClassic.Globals;
-using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer;
-using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler;
-using AAModClassic._Content.Stars.World.Altar;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Base;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms
 {

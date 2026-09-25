@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
@@ -49,7 +48,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Skies
         public override void OnLoad()
         {
             string filePath = "AAModClassic/_Content/Chaos/_PostMoonlord/NPCs/__BossShenDoragon/Skies/ShenDoragonSky_";
-            
+
             MeteorTex = ModContent.Request<Texture2D>(filePath + "Meteor");
             SkyTex = ModContent.Request<Texture2D>(filePath + "Sky");
         }

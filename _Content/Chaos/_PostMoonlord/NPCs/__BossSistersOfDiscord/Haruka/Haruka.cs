@@ -15,7 +15,6 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -86,7 +85,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         public int[] internalAI = new int[10];
 
         public int[] ShadowNPC = new int[3];
-        
+
         public Vector2 ShadowkingPosition = Vector2.Zero;
 
         public bool SpawnClone = false;
@@ -171,7 +170,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
         {
             scale = 1.5f;
-            if(Invisible || internalAI[0] == AISTATE_Shadowkilling) return false;
+            if (Invisible || internalAI[0] == AISTATE_Shadowkilling) return false;
             return null;
         }
 
@@ -322,7 +321,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
                 InvisTimer2 = 1100;
 
-                if(Main.expertMode) internalAI[6]++;
+                if (Main.expertMode) internalAI[6]++;
             }
             if (NPC.life < NPC.lifeMax * .33f)
             {
@@ -330,7 +329,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
                 InvisTimer2 = 900;
 
-                if(Main.expertMode) internalAI[6] += 2;
+                if (Main.expertMode) internalAI[6] += 2;
             }
             if (internalAI[5] > InvisTimer1)
             {
@@ -367,7 +366,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             {
                 internalAI[8] = 2000;
             }
-            
+
             if (Invisible)
             {
                 NPC.dontTakeDamage = true;
@@ -387,7 +386,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                 NPC.dontTakeDamage = false;
             }
 
-            if(Shadowkill && NPC.alpha > 250)
+            if (Shadowkill && NPC.alpha > 250)
             {
                 internalAI[0] = AISTATE_Shadowkilling;
                 internalAI[1] = 0;
@@ -396,7 +395,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                 internalAI[5] = 0;
                 Invisible = false;
             }
-            
+
             if (ProjectileShoot == 0 || internalAI[0] == AISTATE_SLASH)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -423,18 +422,18 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             //TODO: THe conditions for this to happen never actually occur as far as I can tell
             if (Main.expertMode && internalAI[0] != AISTATE_Shadowkilling && internalAI[0] != AISTATE_SPIN && SHADOWCONTER <= 0 && !Invisible)
             {
-                foreach(Projectile p in Main.ActiveProjectiles)
+                foreach (Projectile p in Main.ActiveProjectiles)
                 {
-                    if(p.friendly && !p.minion && Main.player[p.owner].heldProj != p.whoAmI && p.damage > 0 && NPC.Hitbox.Intersects(p.Hitbox))
+                    if (p.friendly && !p.minion && Main.player[p.owner].heldProj != p.whoAmI && p.damage > 0 && NPC.Hitbox.Intersects(p.Hitbox))
                     {
-                        if(internalAI[6] >= 3500)
+                        if (internalAI[6] >= 3500)
                         {
                             p.Kill();
                             internalAI[6] -= 3500;
                             strikebackproj++;
                             internalAI[0] = AISTATE_SPIN;
                         }
-                        else if(internalAI[7] >= 3000)
+                        else if (internalAI[7] >= 3000)
                         {
                             internalAI[7] = 0;
                             SHADOWDOG = true;
@@ -444,20 +443,20 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                 }
             }
 
-            if(SHADOWDOG)
+            if (SHADOWDOG)
             {
-                SHADOWCONTER ++;
+                SHADOWCONTER++;
                 NPC.dontTakeDamage = true;
                 internalAI[0] = AISTATE_IDLE;
-                if(InvisTimer1 - internalAI[5] <= 360)
+                if (InvisTimer1 - internalAI[5] <= 360)
                 {
                     internalAI[5] -= 360;
                 }
-                if(internalAI[5] < 0)
+                if (internalAI[5] < 0)
                 {
                     internalAI[5] = 0;
                 }
-                if(SHADOWCONTER >= 180)
+                if (SHADOWCONTER >= 180)
                 {
                     SHADOWDOG = false;
                     internalAI[0] = AISTATE_SLASH;
@@ -468,7 +467,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
             if (internalAI[0] == AISTATE_IDLE)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) 
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     internalAI[3]++;
 
@@ -476,21 +475,21 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                     {
                         internalAI[3] = 0;
                         internalAI[0] = Main.rand.Next(2);
-                        if(internalAI[6] >= 1500 && internalAI[8] >= 2000 && Main.expertMode)
+                        if (internalAI[6] >= 1500 && internalAI[8] >= 2000 && Main.expertMode)
                         {
                             internalAI[8] = 0;
                             internalAI[6] -= 1500;
                             Shadowkill = true;
                             Invisible = true;
                         }
-                        else if(Main.rand.NextBool(4) && internalAI[6] >= 500)
+                        else if (Main.rand.NextBool(4) && internalAI[6] >= 500)
                         {
                             internalAI[0] = AISTATE_SPIN;
                             internalAI[6] -= 500;
                         }
                         NPC.ai = new float[4];
                     }
-                    else if(internalAI[3] >= 95)
+                    else if (internalAI[3] >= 95)
                     {
                         internalAI[3] = 0;
                     }
@@ -526,7 +525,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, 18, 5);
                         }
                     }
-                    if ((internalAI[2] < 4 || internalAI[2] > 6) && Main.netMode != NetmodeID.MultiplayerClient) 
+                    if ((internalAI[2] < 4 || internalAI[2] > 6) && Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         internalAI[1] = 0;
                         internalAI[2] = 4;
@@ -609,7 +608,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             {
                 internalAI[3]++;
 
-                if(SHADOWCONTER > 0)
+                if (SHADOWCONTER > 0)
                 {
                     SHADOWCONTER--;
                 }
@@ -637,7 +636,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                             internalAI[2] = 0;
                             internalAI[3] = 0;
                             internalAI[4] = 0;
-                            if(internalAI[6] >= 500 && Main.rand.NextBool(2))
+                            if (internalAI[6] >= 500 && Main.rand.NextBool(2))
                             {
                                 internalAI[0] = AISTATE_SPIN;
                                 internalAI[6] -= 500;
@@ -664,12 +663,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                     internalAI[2] = 13;
                 }
 
-                if(internalAI[4] < 100)
+                if (internalAI[4] < 100)
                 {
                     SelectPoint = true;
                 }
 
-                if(InvisTimer1 - internalAI[5] <= 120)
+                if (InvisTimer1 - internalAI[5] <= 120)
                 {
                     internalAI[5] -= 120;
                 }
@@ -684,16 +683,16 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
                 if (strikebackproj != 0)
                 {
-                    foreach(Projectile p in Main.ActiveProjectiles)
+                    foreach (Projectile p in Main.ActiveProjectiles)
                     {
-                        if(p.friendly && p.damage > 0 && NPC.Hitbox.Intersects(p.Hitbox))
+                        if (p.friendly && p.damage > 0 && NPC.Hitbox.Intersects(p.Hitbox))
                         {
-                            strikebackproj ++;
+                            strikebackproj++;
                             break;
                         }
                     }
                 }
-                
+
 
                 if (internalAI[4] >= 200)
                 {
@@ -705,14 +704,14 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                     double startAngle = Math.Atan2(dir.X, dir.Y) - .1d;
                     double deltaAngle = spread / 6f;
 
-                    if(Main.netMode != NetmodeID.MultiplayerClient)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         for (int i = 0; i < 3; i++)
                         {
                             double offsetAngle = startAngle + deltaAngle * i;
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), projType, 18, 0);
                         }
-                        if(strikebackproj != 0)
+                        if (strikebackproj != 0)
                         {
                             startAngle -= .1d * (strikebackproj / 2);
                             deltaAngle = spread / 3f;
@@ -723,20 +722,20 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                             }
                         }
                     }
-                    
+
                     strikebackproj = 0;
 
                     NPC.frameCounter = 0;
                     Frame = 0;
 
-                    if(internalAI[6] >= 1500 && internalAI[8] >= 1200 && Main.expertMode)
+                    if (internalAI[6] >= 1500 && internalAI[8] >= 1200 && Main.expertMode)
                     {
                         internalAI[8] = 0;
                         internalAI[6] -= 1500;
                         Shadowkill = true;
                         Invisible = true;
                     }
-                    else if(Main.rand.NextBool(2))
+                    else if (Main.rand.NextBool(2))
                     {
                         internalAI[0] = AISTATE_PROJ;
                     }
@@ -752,7 +751,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                     pos *= -1f;
                     NPC.ai = new float[4];
                 }
-                else if(internalAI[4] > 100)
+                else if (internalAI[4] > 100)
                 {
                     MovePoint = player.Center - new Vector2(pos * 1.5f, 0);
                 }
@@ -761,7 +760,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             {
                 ShadowNPC[0] = NPC.whoAmI;
                 internalAI[4]++;
-                if(NPC.alpha >= 255)
+                if (NPC.alpha >= 255)
                 {
                     SpawnClone = true;
                 }
@@ -810,7 +809,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             }
             else if (internalAI[0] == AISTATE_SLASH) //When charging the player
             {
-                if(SHADOWCONTER > 0)
+                if (SHADOWCONTER > 0)
                 {
                     LOOPPOINT(player.Center + new Vector2(0, 700f), player.Center - new Vector2(0, 700f));
                 }
@@ -963,18 +962,18 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         {
             double Pi = Math.PI;
             Vector2 playerLocation = Main.player[NPC.target].position + new Vector2(Main.player[NPC.target].width * 0.5f, Main.player[NPC.target].height * 0.5f);
-            
+
             Vector2[] spawnpoint = new Vector2[3];
             spawnpoint[0] = playerLocation + 275f * new Vector2((float)Math.Sin(0.5f * Pi), (float)Math.Cos(0.5f * Pi));
             spawnpoint[1] = playerLocation + 275f * new Vector2((float)Math.Sin(1.16f * Pi), (float)Math.Cos(1.13f * Pi));
             spawnpoint[2] = playerLocation + 275f * new Vector2((float)Math.Sin(1.83f * Pi), (float)Math.Cos(1.83f * Pi));
 
-            if(!SpawnClone && (ShadowNPC[0] == -1 || ShadowNPC[1] == -1 || ShadowNPC[2] == -1))
+            if (!SpawnClone && (ShadowNPC[0] == -1 || ShadowNPC[1] == -1 || ShadowNPC[2] == -1))
             {
                 return;
             }
 
-            if(NPC.alpha >= 255 && SpawnClone)
+            if (NPC.alpha >= 255 && SpawnClone)
             {
                 int k = Main.rand.Next(3);
                 NPC.position = spawnpoint[k];
@@ -988,7 +987,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                 {
                     k2 = 0;
                 }
-                if(Main.netMode != NetmodeID.MultiplayerClient)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     ShadowNPC[1] = NPC.NewNPC(NPC.GetSource_FromThis(), (int)spawnpoint[k1].X, (int)spawnpoint[k1].Y, ModContent.NPCType<HarukaClone>(), 0, NPC.whoAmI);
                     NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, ShadowNPC[1], 0f, 0f, 0f, 0, 0, 0);
@@ -997,7 +996,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                 }
                 NPC.netUpdate = true;
                 NPC.alpha = 250;
-                if(ShadowNPC[1] != -1 && ShadowNPC[2] != -1)
+                if (ShadowNPC[1] != -1 && ShadowNPC[2] != -1)
                 {
                     Main.npc[ShadowNPC[1]].alpha = NPC.alpha;
                     Main.npc[ShadowNPC[2]].alpha = NPC.alpha;
@@ -1014,13 +1013,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                 Main.npc[ShadowNPC[1]].velocity = Main.player[NPC.target].velocity;
                 Main.npc[ShadowNPC[2]].velocity = Main.player[NPC.target].velocity;
 
-                
+
 
                 NPC.alpha -= 8;
                 Main.npc[ShadowNPC[1]].alpha = NPC.alpha;
                 Main.npc[ShadowNPC[2]].alpha = NPC.alpha;
             }
-            else if(!NPC.active || NPC.life <= 0)
+            else if (!NPC.active || NPC.life <= 0)
             {
                 NPC.velocity = Main.player[NPC.target].velocity;
                 Main.npc[ShadowNPC[1]].velocity = Main.player[NPC.target].velocity;
@@ -1031,12 +1030,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             }
             else
             {
-                if(internalAI[4] < 90)
+                if (internalAI[4] < 90)
                 {
                     NPC.velocity = Main.player[NPC.target].velocity;
                     Main.npc[ShadowNPC[1]].velocity = Main.player[NPC.target].velocity;
                     Main.npc[ShadowNPC[2]].velocity = Main.player[NPC.target].velocity;
-                    
+
                     ShadowkingPosition = playerLocation;
                 }
                 else
@@ -1046,10 +1045,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                     Main.npc[ShadowNPC[2]].alpha = NPC.alpha;
                     Vector2[] dist = new Vector2[3];
                     int k = 0;
-                    while(k < 3)
+                    while (k < 3)
                     {
                         dist[k] = ShadowkingPosition - Main.npc[ShadowNPC[k]].Center;
-                        if(k == 0) NPC.velocity = Vector2.Normalize(dist[k]) * 15f;
+                        if (k == 0) NPC.velocity = Vector2.Normalize(dist[k]) * 15f;
                         else Main.npc[ShadowNPC[k]].velocity = Vector2.Normalize(dist[k]) * 15f;
                         if (ShadowkingPosition.X > Main.npc[ShadowNPC[k]].Center.X)
                         {
@@ -1064,7 +1063,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                 }
             }
 
-            if(internalAI[4] >= 160 || Main.npc[ShadowNPC[1]].Hitbox.Intersects(Main.npc[ShadowNPC[0]].Hitbox) || Main.npc[ShadowNPC[1]].Hitbox.Intersects(Main.npc[ShadowNPC[2]].Hitbox) || Main.npc[ShadowNPC[2]].Hitbox.Intersects(Main.npc[ShadowNPC[0]].Hitbox))
+            if (internalAI[4] >= 160 || Main.npc[ShadowNPC[1]].Hitbox.Intersects(Main.npc[ShadowNPC[0]].Hitbox) || Main.npc[ShadowNPC[1]].Hitbox.Intersects(Main.npc[ShadowNPC[2]].Hitbox) || Main.npc[ShadowNPC[2]].Hitbox.Intersects(Main.npc[ShadowNPC[0]].Hitbox))
             {
                 Vector2 shoot;
                 if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -1083,7 +1082,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                 Main.npc[ShadowNPC[2]].boss = false;
                 Main.npc[ShadowNPC[1]].active = false;
                 Main.npc[ShadowNPC[2]].active = false;
-                
+
                 ShadowNPC[0] = -1;
                 ShadowNPC[1] = -1;
                 ShadowNPC[2] = -1;
@@ -1098,12 +1097,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         {
             Vector2 playerLocation = Main.player[NPC.target].Center;
             Vector2 playerVelocity = Main.player[NPC.target].velocity;
-            if(playerVelocity.X < 0)
+            if (playerVelocity.X < 0)
             {
                 NPC.position.X = playerLocation.X - 250f;
                 NPC.position.Y = playerLocation.Y;
             }
-            else if(playerVelocity.X > 0)
+            else if (playerVelocity.X > 0)
             {
                 NPC.position.X = playerLocation.X + 250f;
                 NPC.position.Y = playerLocation.Y;
@@ -1117,13 +1116,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
         public void LOOPPOINT(Vector2 point1, Vector2 point2)
         {
-            Shadowdashcounter ++;
+            Shadowdashcounter++;
 
-            if(Shadowdashcounter < 40)
+            if (Shadowdashcounter < 40)
             {
                 MoveToPoint(point2);
             }
-            else if(Shadowdashcounter < 80)
+            else if (Shadowdashcounter < 80)
             {
                 MoveToPoint(point1);
             }
@@ -1132,17 +1131,17 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                 Shadowdashcounter = 0;
             }
 
-            if(Math.Abs(NPC.Center.Y - point1.Y) < 150f)
+            if (Math.Abs(NPC.Center.Y - point1.Y) < 150f)
             {
                 MoveToPoint(point2);
                 Shadowdashcounter = 0;
             }
-            else if(Math.Abs(NPC.Center.Y - point2.Y) < 150f)
+            else if (Math.Abs(NPC.Center.Y - point2.Y) < 150f)
             {
                 MoveToPoint(point1);
                 Shadowdashcounter = 41;
             }
-            
+
         }
 
         public void MoveToPoint(Vector2 point)
@@ -1159,7 +1158,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             if (internalAI[0] == AISTATE_SLASH)
             {
                 moveSpeed = 25f;
-                if(SHADOWCONTER > 0)
+                if (SHADOWCONTER > 0)
                 {
                     moveSpeed = 70f;
                 }
@@ -1199,7 +1198,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
         public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
-            if(strikebackproj > 0 && internalAI[0] == AISTATE_SPIN)
+            if (strikebackproj > 0 && internalAI[0] == AISTATE_SPIN)
             {
                 modifiers.TargetDamageMultiplier *= 0;
             }
@@ -1211,53 +1210,53 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             Texture2D slash = Slash.Value;
             if (internalAI[0] == AISTATE_SPIN)
             {
-                if(strikebackproj > 0)
-                BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Red);
+                if (strikebackproj > 0)
+                    BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Red);
                 else
-                BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
+                    BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
             }
-            else if(internalAI[0] == AISTATE_Shadowkilling)
+            else if (internalAI[0] == AISTATE_Shadowkilling)
             {
                 BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
 
-                if(internalAI[4] < 90)
+                if (internalAI[4] < 90)
                 {
                     Vector2 playerLocation = Main.player[NPC.target].Center;
                     Texture2D texture = Danger.Value;
                     float scaleFactor = 1f + internalAI[4] / 30f;
                     float scaleFactor2 = (float)Math.Cos(6.2831855f * (internalAI[4] / 60f));
-                    if(scaleFactor < 2.2f)
+                    if (scaleFactor < 2.2f)
                     {
                         Color Alpha = drawColor;
                         Alpha.R = (byte)(float)(255 - internalAI[4] * 3);
                         Alpha.G = (byte)(float)(255 - internalAI[4] * 3);
                         Alpha.B = (byte)(float)(255 - internalAI[4] * 3);
                         Alpha.A = (byte)(float)(255 - internalAI[4] * 3);
-                        spriteBatch.Draw(texture, playerLocation - new Vector2(texture.Width/2 * .6f * scaleFactor, texture.Height/2 * .6f * scaleFactor + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(Alpha), 0f, default, 0.6f * scaleFactor, SpriteEffects.None, 0f);
+                        spriteBatch.Draw(texture, playerLocation - new Vector2(texture.Width / 2 * .6f * scaleFactor, texture.Height / 2 * .6f * scaleFactor + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(Alpha), 0f, default, 0.6f * scaleFactor, SpriteEffects.None, 0f);
                     }
-                    spriteBatch.Draw(texture, playerLocation - new Vector2(texture.Width/2 * .6f, texture.Height/2 * .6f + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(drawColor) * (0.6f + 0.4f * scaleFactor2), 0f, default, 0.6f, SpriteEffects.None, 0f);
+                    spriteBatch.Draw(texture, playerLocation - new Vector2(texture.Width / 2 * .6f, texture.Height / 2 * .6f + 95f) + Vector2.UnitY * Main.player[NPC.target].gfxOffY - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, texture.Width, texture.Height)), NPC.GetAlpha(drawColor) * (0.6f + 0.4f * scaleFactor2), 0f, default, 0.6f, SpriteEffects.None, 0f);
                 }
             }
-            else if(SHADOWDOG && !Invisible)
+            else if (SHADOWDOG && !Invisible)
             {
                 Vector2 Position = NPC.position;
-                Position.X = NPC.position.X + (SHADOWCONTER > 60? 60:SHADOWCONTER) * 1f;
+                Position.X = NPC.position.X + (SHADOWCONTER > 60 ? 60 : SHADOWCONTER) * 1f;
                 Color Alpha = drawColor;
-                Alpha.R = (byte)(float)(255 - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 3);
-                Alpha.G = (byte)(float)(255 - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 3);
-                Alpha.B = (byte)(float)(255 - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 3);
-                Alpha.A = (byte)(float)(255 - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 3);
+                Alpha.R = (byte)(float)(255 - (SHADOWCONTER > 60 ? 60 : SHADOWCONTER) * 3);
+                Alpha.G = (byte)(float)(255 - (SHADOWCONTER > 60 ? 60 : SHADOWCONTER) * 3);
+                Alpha.B = (byte)(float)(255 - (SHADOWCONTER > 60 ? 60 : SHADOWCONTER) * 3);
+                Alpha.A = (byte)(float)(255 - (SHADOWCONTER > 60 ? 60 : SHADOWCONTER) * 3);
                 BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, Position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 28, NPC.frame, NPC.GetAlpha(Alpha), false);
-                Position.X = NPC.position.X - (SHADOWCONTER > 60? 60:SHADOWCONTER) * 1f;
+                Position.X = NPC.position.X - (SHADOWCONTER > 60 ? 60 : SHADOWCONTER) * 1f;
                 BaseDrawing.DrawTexture(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, Position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.spriteDirection, 28, NPC.frame, NPC.GetAlpha(Alpha), false);
             }
-            if(internalAI[0] == AISTATE_SLASH && SHADOWCONTER > 0)
+            if (internalAI[0] == AISTATE_SLASH && SHADOWCONTER > 0)
             {
                 BaseDrawing.DrawAfterimage(spriteBatch, TextureAssets.Npc[NPC.type].Value, 0, NPC, 1.5f, 1f, 3, false, 0f, 0f, Color.Navy);
             }
             spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
             if (Invisible) return false;
-            
+
             spriteBatch.Draw(slash, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
             spriteBatch.Draw(glowTex, NPC.Center - screenPos, NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
             return false;

@@ -1,6 +1,5 @@
-using System;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Rain.__Hardmode.Items.Weapons
@@ -20,24 +19,24 @@ namespace AAModClassic._Content.Rain.__Hardmode.Items.Weapons
             Projectile.ignoreWater = true;
         }
 
-    public override void SetStaticDefaults()
-    {
-      // DisplayName.SetDefault("Electricity Shard");
-    }
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Electricity Shard");
+        }
 
- 
+
         public override void AI()
         {
-                                                          //this make that the projectile faces the right way
+            //this make that the projectile faces the right way
             Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
             Projectile.localAI[0] += 1f;
             Projectile.alpha = (int)Projectile.localAI[0] * 2;
-           
+
             if (Projectile.localAI[0] > 200f) //projectile time left before disappears
             {
                 Projectile.Kill();
             }
-           
+
         }
         public override bool PreDraw(ref Color lightColor)
         {
@@ -46,8 +45,8 @@ namespace AAModClassic._Content.Rain.__Hardmode.Items.Weapons
             {
                 Projectile.frame++;
                 Projectile.frameCounter = 0;
-                if (Projectile.frame > 3) 
-                    Projectile.frame = 0; 
+                if (Projectile.frame > 3)
+                    Projectile.frame = 0;
             }
             return true;
         }

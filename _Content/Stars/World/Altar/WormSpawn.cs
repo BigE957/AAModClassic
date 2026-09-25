@@ -4,7 +4,6 @@ using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -28,7 +27,7 @@ namespace AAModClassic._Content.Stars.World.Altar
             Music = MusicManagementSystem.MusicSlots["Equinox_Intro"];
             NPC.lifeMax = 1;
             NPC.boss = true;
-            NPC.dontTakeDamage = true; 
+            NPC.dontTakeDamage = true;
             NPC.noGravity = true;
             NPC.aiStyle = -1;
             NPC.timeLeft = 10000000;

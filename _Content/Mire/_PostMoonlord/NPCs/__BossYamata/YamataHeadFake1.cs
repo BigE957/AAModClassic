@@ -7,7 +7,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
@@ -18,7 +17,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
     [AutoloadBossHead]
     public class YamataHeadFake1 : ModNPC
     {
-		public bool isAwakened = false;
+        public bool isAwakened = false;
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Yamata");
@@ -78,14 +77,14 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             return 0f;
         }
 
-		public YamataBody Body = null;
+        public YamataBody Body = null;
         public YamataBody Head = null;
-        public bool killedbyplayer = true;	
-		public bool leftHead = false;
+        public bool killedbyplayer = true;
+        public bool leftHead = false;
         public bool fireAttack = false;
-		public int distFromBodyX = 110; //how far from the body to centeralize the movement points. (X coord)
-		public int distFromBodyY = 150; //how far from the body to centeralize the movement points. (Y coord)
-		public int movementVariance = 60; //how far from the center point to move.
+        public int distFromBodyX = 110; //how far from the body to centeralize the movement points. (X coord)
+        public int distFromBodyY = 150; //how far from the body to centeralize the movement points. (Y coord)
+        public int movementVariance = 60; //how far from the center point to move.
 
         public float NeckCurveIntensity = 0f;
 
@@ -101,7 +100,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 }
             }
             if (Body == null)
-                return;			
+                return;
 
             NPC.alpha = Body.NPC.alpha;
 
@@ -221,14 +220,14 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                     }
                 }
                 else
-                if (NPC.ai[1] >= 200) //pick random spot to move head to
-                {
-                    fireAttack = false;
-                    NPC.ai[1] = 0;
-                    NPC.ai[2] = Main.rand.Next(-movementVariance, movementVariance);
-                    NPC.ai[3] = Main.rand.Next(-movementVariance, movementVariance);
-                    NPC.netUpdate = true;
-                }
+                    if (NPC.ai[1] >= 200) //pick random spot to move head to
+                    {
+                        fireAttack = false;
+                        NPC.ai[1] = 0;
+                        NPC.ai[2] = Main.rand.Next(-movementVariance, movementVariance);
+                        NPC.ai[3] = Main.rand.Next(-movementVariance, movementVariance);
+                        NPC.netUpdate = true;
+                    }
             }
         }
 
@@ -291,8 +290,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
         {
             rotation = NPC.rotation;
         }
-        
-		
+
+
 
         public override bool CheckActive()
         {
@@ -317,7 +316,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            NPC.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            NPC.Distance(Main.npc[selectedTarget].Center) > distance)
                     )
                         selectedTarget = i;
                 }

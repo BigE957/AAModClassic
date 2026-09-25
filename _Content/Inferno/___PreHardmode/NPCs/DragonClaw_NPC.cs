@@ -1,6 +1,4 @@
 using AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos;
-using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
-using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._CrossMod;
@@ -9,11 +7,9 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using AAModClassic.Utilities.Interfaces;
 using System;
-using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 

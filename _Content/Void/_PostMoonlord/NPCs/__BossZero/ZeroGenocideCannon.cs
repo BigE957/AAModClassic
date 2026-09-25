@@ -6,7 +6,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.Graphics.Shaders;
@@ -16,7 +15,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
 {
     [AutoloadBossHead]
-    public class ZeroGenocideCannon: ModNPC
+    public class ZeroGenocideCannon : ModNPC
     {
         public static Asset<Texture2D> Glowmask;
 
@@ -115,10 +114,10 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             if (body == -1) return;
 
             NPC zero = Main.npc[body];
-            if (zero == null || zero.life <= 0 || !zero.active || zero.type != ModContent.NPCType<Zero>()) 
-            { 
-                NPC.active = false; 
-                return; 
+            if (zero == null || zero.life <= 0 || !zero.active || zero.type != ModContent.NPCType<Zero>())
+            {
+                NPC.active = false;
+                return;
             }
 
             for (int m = NPC.oldPos.Length - 1; m > 0; m--)
@@ -128,7 +127,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             int probeNumber = ((Zero)zero.ModNPC).WeaponCount;
             if (rotValue == -1f) rotValue = NPC.ai[0] % probeNumber * ((float)Math.PI * 2f / probeNumber);
             rotValue += Main.expertMode ? .05f : 0f;
-            while (rotValue > (float)Math.PI * 2f) 
+            while (rotValue > (float)Math.PI * 2f)
                 rotValue -= (float)Math.PI * 2f;
             NPC.Center = BaseUtility.RotateVector(zero.Center, zero.Center + new Vector2(((Zero)zero.ModNPC).Distance, 0f), rotValue);
             NPC.netOffset = Vector2.Zero;

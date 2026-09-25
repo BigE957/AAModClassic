@@ -1,17 +1,16 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.Void.Projectiles;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic._Content.Void.Projectiles;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
 {
     public class DoomPistol : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Ranged";
-        
+
         public override void SetDefaults()
         {
 
@@ -38,7 +37,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
             // DisplayName.SetDefault("Doom Pistol");
         }
 
-		public override Vector2? HoldoutOffset()
+        public override Vector2? HoldoutOffset()
         {
             return new Vector2(-4, 0);
         }

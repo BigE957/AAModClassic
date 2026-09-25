@@ -40,5 +40,5 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
             Item.rare = ItemRarityID.Cyan;
             Item.vanity = true;
         }
-	}
+    }
 }

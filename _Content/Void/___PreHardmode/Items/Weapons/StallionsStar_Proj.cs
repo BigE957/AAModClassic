@@ -1,25 +1,24 @@
-﻿using Terraria;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using AAModClassic.Globals;
-using AAModClassic._Content.Void.Projectiles;
-using Terraria.GameContent;
+﻿using AAModClassic._Content.Void.Projectiles;
 using AAModClassic.Base;
+using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria.GameContent;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
 {
     public class StallionsStar_Proj : ModProjectile
-	{
+    {
         public override void SetDefaults()
         {
             Projectile.aiStyle = -1;
             Projectile.width = 32;
-	        Projectile.height = 32;
-	        Projectile.friendly = true;
+            Projectile.height = 32;
+            Projectile.friendly = true;
             Projectile.hostile = false;
             Projectile.tileCollide = false;
-	        Projectile.penetrate = -1;
+            Projectile.penetrate = -1;
             Projectile.DamageType = DamageClass.Melee;
         }
         public float[] internalAI = new float[1];
@@ -34,7 +33,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
             {
                 NPC target = Main.npc[Target];
                 int id = BaseAI.ShootPeriodic(Projectile, target.position, 14, 14, ModContent.ProjectileType<Darkray>(), ref internalAI[0], 30, Projectile.damage, 7, true);
-                if(id != -1)
+                if (id != -1)
                     Main.projectile[id].DamageType = DamageClass.Melee;
             }
         }

@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
@@ -14,7 +13,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
     [AutoloadBossHead]
     public class YamataAHeadFake : ModNPC
     {
-		public bool isAwakened = false;
+        public bool isAwakened = false;
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Yamata no Orochi");
@@ -86,12 +85,12 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
         }
 
         public YamataABody Body = null;
-        public bool killedbyplayer = true;	
-		public bool leftHead = false;
+        public bool killedbyplayer = true;
+        public bool leftHead = false;
         public bool fireAttack = false;
-		public int distFromBodyX = 110; //how far from the body to centeralize the movement points. (X coord)
-		public int distFromBodyY = 150; //how far from the body to centeralize the movement points. (Y coord)
-		public int movementVariance = 60; //how far from the center point to move.
+        public int distFromBodyX = 110; //how far from the body to centeralize the movement points. (X coord)
+        public int distFromBodyY = 150; //how far from the body to centeralize the movement points. (Y coord)
+        public int movementVariance = 60; //how far from the center point to move.
 
         public override void AI()
         {
@@ -114,13 +113,13 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             }
 
             NPC.alpha = Body.NPC.alpha;
-            
+
             NPC.TargetClosest();
             Player targetPlayer = Main.player[NPC.target];
             if (targetPlayer == null || !targetPlayer.active || targetPlayer.dead) targetPlayer = null; //deliberately set to null
-            
+
             Vector2 nextTarget = Body.NPC.Center + new Vector2(NPC.ai[1], NPC.ai[2]);
-            
+
             switch ((int)internalAI[0])
             {
                 case 0: //charge up
@@ -145,7 +144,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                     break;
 
                 case 1: //idle while firing laser
-                    if (++internalAI[3] > 20) 
+                    if (++internalAI[3] > 20)
                     {
                         internalAI[3] = 0;
                         if (NPC.ai[3] == 3 && Main.netMode != NetmodeID.MultiplayerClient)
@@ -226,7 +225,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                     if (internalAI[2] > 360)
                     {
                         internalAI[2] = 0;
-                        if (Main.netMode != NetmodeID.MultiplayerClient) 
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.UnitY * 5, ModContent.ProjectileType<YamataAHeadFake_AbyssalStorm>(), 20, 0f, -1, NPC.target);
                     }
                     if (++internalAI[1] > 420)

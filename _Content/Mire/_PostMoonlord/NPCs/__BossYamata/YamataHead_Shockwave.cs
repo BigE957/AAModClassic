@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
@@ -8,7 +7,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Shockwave");     
-            Main.projFrames[Projectile.type] = 6;     
+            Main.projFrames[Projectile.type] = 6;
         }
 
         public override void SetDefaults()

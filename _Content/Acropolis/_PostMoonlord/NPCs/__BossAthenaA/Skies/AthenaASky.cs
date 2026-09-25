@@ -1,15 +1,11 @@
-﻿using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
-using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
-using AAModClassic.Base;
+﻿using AAModClassic.Base;
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
-using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
@@ -52,7 +48,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA.Skies
         public override void OnLoad()
         {
             string filePath = "AAModClassic/_Content/Acropolis/_PostMoonlord/NPCs/__BossAthenaA/Skies/AthenaASky_";
-            
+
             BoltTex = ModContent.Request<Texture2D>(filePath + "Bolt");
             FlashTex = ModContent.Request<Texture2D>(filePath + "Flash");
             FogTex = ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/World/Biomes/Backgrounds/FogTex");
@@ -211,13 +207,13 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA.Skies
 
         public void Update(Texture2D texture)
         {
-            if (Main.dedServ) 
+            if (Main.dedServ)
                 return; //BEGONE SERVER HEATHENS! UPDATE ONLY CLIENTSIDE!
 
             bool athena = NPC.AnyNPCs(ModContent.NPCType<AthenaA>());
 
             fogOffsetX += 1;
-            if (fogOffsetX >= texture.Width) 
+            if (fogOffsetX >= texture.Width)
                 fogOffsetX = 0;
             if (athena && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
             {

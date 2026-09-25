@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,10 +7,10 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
 {
     public class DaybringerHead_DaySun : ModProjectile
     {
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Day Sun");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Day Sun");
+        }
 
         public override void SetDefaults()
         {
@@ -22,7 +21,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.penetrate = -1;
-			Projectile.timeLeft = 400;
+            Projectile.timeLeft = 400;
         }
 
         public override void AI()
@@ -33,7 +32,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             }
 
             Projectile.rotation = Projectile.velocity.ToRotation() + 1.57079637f;
-            
+
             const int aislotHomingCooldown = 0;
             const int homingDelay = 15;
             const float desiredFlySpeedInPixelsPerFrame = 12f;
@@ -45,7 +44,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                 Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
-                if(Projectile.ai[1] == 0)
+                if (Projectile.ai[1] == 0)
                 {
                     if (foundTarget != -1)
                     {
@@ -54,7 +53,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                         Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
                     }
                 }
-                else if(Projectile.ai[1] == 1)
+                else if (Projectile.ai[1] == 1)
                 {
                     if (foundTarget != -1)
                     {
@@ -75,10 +74,10 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
         {
             const bool homingCanAimAtWetEnemies = true;
             const float homingMaximumRangeInPixels = 3000;
-            
+
             int selectedTarget = -1;
 
-            if(Projectile.ai[1] == 0)
+            if (Projectile.ai[1] == 0)
             {
                 for (int i = 0; i < Main.maxPlayers; i++)
                 {
@@ -89,13 +88,13 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                         if (distance <= homingMaximumRangeInPixels &&
                             (
                                 selectedTarget == -1 || //there is no selected target
-                                Projectile.Distance(Main.player[selectedTarget].Center) > distance) 
+                                Projectile.Distance(Main.player[selectedTarget].Center) > distance)
                         )
                             selectedTarget = i;
                     }
                 }
             }
-            else if(Projectile.ai[1] == 1)
+            else if (Projectile.ai[1] == 1)
             {
                 for (int i = 0; i < Main.maxNPCs; i++)
                 {
@@ -106,20 +105,20 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
                         if (distance <= homingMaximumRangeInPixels &&
                             (
                                 selectedTarget == -1 || //there is no selected target
-                                Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                                Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                         )
                             selectedTarget = i;
                     }
                 }
             }
-            
+
 
             return selectedTarget;
         }
 
         public override void OnKill(int timeLeft)
         {
-            for(int i = 0; i < 16; i++)
+            for (int i = 0; i < 16; i++)
             {
                 Vector2 shoot = new Vector2((float)Math.Sin(i * 0.125f * (float)Math.PI), (float)Math.Cos(i * 0.125f * (float)Math.PI));
                 shoot *= 12f;

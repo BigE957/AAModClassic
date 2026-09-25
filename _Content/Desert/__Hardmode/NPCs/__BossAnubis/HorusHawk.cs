@@ -2,7 +2,6 @@ using AAModClassic.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
@@ -11,12 +10,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 {
     public class HorusHawk : ModNPC
-	{
-		public override void SetStaticDefaults()
-		{
+    {
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Horus Hawk");
             Main.npcFrameCount[NPC.type] = 4;
-		}
+        }
 
         public override void SetDefaults()
         {
@@ -43,15 +42,15 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
         }
 
         public override void HitEffect(NPC.HitInfo hit)
-		{
-			if (Main.netMode == NetmodeID.Server) { return; }
-			for (int m = 0; m < (NPC.life <= 0 ? 30 : 8); m++)
-			{
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GoldCoin, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, 1.1f);
-			}		
-		}
+        {
+            if (Main.netMode == NetmodeID.Server) { return; }
+            for (int m = 0; m < (NPC.life <= 0 ? 30 : 8); m++)
+            {
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GoldCoin, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, Color.White, 1.1f);
+            }
+        }
 
-		public override void FindFrame(int dummy)
+        public override void FindFrame(int dummy)
         {
             NPC.frameCounter++;
             if (dash)
@@ -69,13 +68,13 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
             }
         }
         bool dash = false;
-		public override void AI()
-		{
+        public override void AI()
+        {
             dash = false;
 
             NPC.TargetClosest(true);
 
-			Player player = Main.player[NPC.target];
+            Player player = Main.player[NPC.target];
 
             NPC.direction = NPC.spriteDirection = NPC.velocity.X > 0 ? 1 : -1;
 
@@ -120,7 +119,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
                     goto case 0;
             }
             NPC.rotation = 0;
-		}
+        }
 
         private void DashMovement(Vector2 targetPos, float speedModifier)
         {
@@ -159,7 +158,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
             Texture2D bodyTex = TextureAssets.Npc[NPC.type].Value;
             Color lightColor = BaseDrawing.GetNPCColor(NPC, null);
             spriteBatch.Draw(bodyTex, NPC.Center - screenPos, NPC.frame, lightColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.spriteDirection == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
-			return false;
-		}
-	}
+            return false;
+        }
+    }
 }

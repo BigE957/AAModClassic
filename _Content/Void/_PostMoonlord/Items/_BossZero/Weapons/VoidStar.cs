@@ -1,20 +1,16 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
-using AAModClassic.Globals;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Rarities;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 {
     public class VoidStar : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Magic";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Void Star");
@@ -43,7 +39,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        
+
 
         public override void AddRecipes()
         {
