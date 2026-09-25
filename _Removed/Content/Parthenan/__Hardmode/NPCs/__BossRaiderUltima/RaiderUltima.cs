@@ -245,7 +245,9 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUl
                 {
                     NPC.velocity.Y -= 4;
                     NPC.netUpdate = true;
-                    if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient) { BaseAI.KillNPC(NPC); NPC.netUpdate = true; }
+                    if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient)
+                        NPC.active = false;
+
                     return;
                 }
                 return;

@@ -114,8 +114,9 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                             AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Athena>(), true, npcCenter, Language.GetTextValue("Mods.AAModClassic.Common.Athena"));
                     }
-                    BaseAI.KillNPC(NPC);
+                    NPC.active = false;
                     NPC.netUpdate = true;
+                    return;
                 }
             }
 

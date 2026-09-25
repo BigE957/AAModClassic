@@ -366,7 +366,12 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
                     loludided = true;
                 }
                 NPC.velocity.Y = NPC.velocity.Y + 1f;
-                if (NPC.position.Y - NPC.height - NPC.velocity.Y >= Main.maxTilesY && Main.netMode != NetmodeID.MultiplayerClient) { BaseAI.KillNPC(NPC); NPC.netUpdate2 = true; }
+                if (NPC.position.Y - NPC.height - NPC.velocity.Y >= Main.maxTilesY && Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    NPC.active = false;
+                    NPC.netUpdate = true;
+                    return;
+                }
             }
 
             if (Main.player[NPC.target].dead || Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000f || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000f)

@@ -818,7 +818,10 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                     NPC.ai[2] = 0;
                     NPC.ai[3] = 0;
                     if (NPC.position.Y + NPC.height - NPC.velocity.Y <= 0 && Main.netMode != NetmodeID.MultiplayerClient)
-                        BaseAI.KillNPC(NPC); NPC.netUpdate2 = true;
+                    {
+                        NPC.active = false;
+                        NPC.netUpdate = true;
+                    }
                     return false;
                 }
             }

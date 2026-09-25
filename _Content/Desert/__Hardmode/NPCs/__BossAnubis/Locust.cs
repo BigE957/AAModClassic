@@ -73,7 +73,11 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
             }
             if (body == -1) return;
             NPC anubis = Main.npc[body];
-            if (anubis == null || anubis.life <= 0 || !anubis.active || anubis.type != ModContent.NPCType<Anubis>() && anubis.type != ModContent.NPCType<AnubisUnreleased>()) { BaseAI.KillNPCWithLoot(NPC); return; }
+            if (anubis == null || anubis.life <= 0 || !anubis.active || anubis.type != ModContent.NPCType<Anubis>() && anubis.type != ModContent.NPCType<AnubisUnreleased>()) 
+            {
+                NPC.StrikeInstantKill();
+                return; 
+            }
 
             for (int m = NPC.oldPos.Length - 1; m > 0; m--)
             {

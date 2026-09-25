@@ -54,7 +54,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             }
             if (body == -1)
             {
-                BaseAI.KillNPCWithLoot(NPC);
+                NPC.StrikeInstantKill();
                 return;
             }
             NPC brain = Main.npc[body];
@@ -63,7 +63,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
             if (brain == null || brain.life <= 0 || !brain.active || brain.type != ModContent.NPCType<DeityBrain>())
             {
-                BaseAI.KillNPCWithLoot(NPC);
+                NPC.StrikeInstantKill();
                 return;
             }
 

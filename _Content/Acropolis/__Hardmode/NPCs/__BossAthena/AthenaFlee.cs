@@ -53,7 +53,12 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                     NPC.velocity.Y -= 0.5f;
                     if (NPC.velocity.Y < -8f) NPC.velocity.Y = -8f;
                 }
-                if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient) { BaseAI.KillNPC(NPC); NPC.netUpdate = true; }
+                if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient) 
+                { 
+                    NPC.active = false;
+                    NPC.netUpdate = true;
+                    return;
+                }
             }
         }
 

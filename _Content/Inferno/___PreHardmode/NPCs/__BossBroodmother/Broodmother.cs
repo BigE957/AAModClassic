@@ -254,7 +254,12 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother
                     NPC.velocity.Y -= 0.1f;
                     if (NPC.velocity.Y > 15f) NPC.velocity.Y = 15f;
                     NPC.rotation = 0f;
-                    if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient) { BaseAI.KillNPC(NPC); NPC.netUpdate = true; }
+                    if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        NPC.active = false;
+                        NPC.netUpdate = true;
+                        return;
+                    }
                 }
                 return;
             }

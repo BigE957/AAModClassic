@@ -77,7 +77,11 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
             }
             if (body == -1) return;
             NPC toad = Main.npc[body];
-            if (toad == null || toad.life <= 0 || !toad.active || toad.type != ModContent.NPCType<TruffleToad>()) { BaseAI.KillNPCWithLoot(NPC); return; }
+            if (toad == null || toad.life <= 0 || !toad.active || toad.type != ModContent.NPCType<TruffleToad>()) 
+            {
+                NPC.StrikeInstantKill();
+                return; 
+            }
 
         }
 

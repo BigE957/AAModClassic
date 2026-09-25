@@ -185,7 +185,12 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
             {
                 NPC.velocity.Y -= 4;
                 NPC.netUpdate2 = true;
-                if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient) { BaseAI.KillNPC(NPC); NPC.netUpdate2 = true; }
+                if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    NPC.active = false;
+                    NPC.netUpdate = true;
+                    return;
+                }
                 return;
             }
 

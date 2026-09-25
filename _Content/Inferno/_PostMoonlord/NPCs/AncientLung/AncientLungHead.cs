@@ -265,7 +265,12 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung
             if (!Main.dayTime)
             {
                 NPC.velocity.Y = NPC.velocity.Y - 1f;
-                if (NPC.position.Y - NPC.height - NPC.velocity.Y >= Main.maxTilesY && Main.netMode != NetmodeID.MultiplayerClient) { BaseAI.KillNPC(NPC); NPC.netUpdate2 = true; }
+                if (NPC.position.Y - NPC.height - NPC.velocity.Y >= Main.maxTilesY && Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    NPC.active = false;
+                    NPC.netUpdate = true;
+                    return false;
+                }
             }
 
 

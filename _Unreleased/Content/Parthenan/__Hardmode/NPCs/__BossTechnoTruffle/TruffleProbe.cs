@@ -53,7 +53,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             //every active probe when it decides whether it's invulnerable
             if (!NPC.AnyNPCs(ModContent.NPCType<TechnoTruffle>()))
             {
-                BaseAI.KillNPCWithLoot(NPC);
+                NPC.StrikeInstantKill();
                 return;
             }
 
@@ -71,7 +71,11 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             }
 
             //failsafe, a probe nobody can reach would keep the truffle invulnerable forever
-            if (++despawnTimer > 3600) { BaseAI.KillNPCWithLoot(NPC); return; }
+            if (++despawnTimer > 3600) 
+            {
+                NPC.StrikeInstantKill(); 
+                return; 
+            }
 
             if (body == -1)
             {
@@ -80,7 +84,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             }
             if (body == -1) return;
             NPC truffle = Main.npc[body];
-            if (truffle == null || truffle.life <= 0 || !truffle.active || truffle.type != ModContent.NPCType<TechnoTruffle>()) { BaseAI.KillNPCWithLoot(NPC); return; }
+            if (truffle == null || truffle.life <= 0 || !truffle.active || truffle.type != ModContent.NPCType<TechnoTruffle>()) { NPC.StrikeInstantKill(); return; }
 
             //the truffle's target can point at someone who died or left, which would fling the
             //probe off to a spot nobody can follow it to

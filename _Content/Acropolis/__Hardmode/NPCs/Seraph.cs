@@ -66,7 +66,11 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
             {
                 NPC.velocity.Y -= .2f;
                 NPC.velocity.X *= .95f;
-                if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient) { BaseAI.KillNPC(NPC); NPC.netUpdate = true; }
+                if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient) 
+                {
+                    NPC.active = false;
+                    NPC.netUpdate = true;
+                }
                 return false;
             }
             return true;
@@ -143,7 +147,9 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
                     {
                         Dust.NewDust(NPC.Center, 60, 40, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0);
                     }
-                    BaseAI.KillNPC(NPC);
+                    NPC.active = false;
+                    NPC.netUpdate = true;
+                    return;
                 }
             }
             else if (athenaAlive)

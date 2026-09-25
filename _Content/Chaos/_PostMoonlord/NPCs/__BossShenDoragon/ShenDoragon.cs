@@ -332,7 +332,11 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                             NPC.velocity.Y = -6f;
 
                         if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient)
-                            BaseAI.KillNPC(NPC); NPC.netUpdate = true;
+                        {
+                            NPC.active = false;
+                            NPC.netUpdate = true;
+                            return;
+                        }
                     }
                 }
                 else
@@ -758,8 +762,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 {
                     if (NPC.timeLeft > 60)
                         NPC.timeLeft = 60;
-                    BaseAI.KillNPC(NPC);
-                    NPC.netUpdate2 = true;
+                    
+                    NPC.active = false;
+                    NPC.netUpdate = true;
                     return false;
                 }
             }
