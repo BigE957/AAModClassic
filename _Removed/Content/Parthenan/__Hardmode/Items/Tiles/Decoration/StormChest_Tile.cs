@@ -42,6 +42,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decorat
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.Containers };
             TileID.Sets.BasicChest[Type] = true;
+            TileID.Sets.IsAContainer[Type] = true;
+            Main.tileContainer[Type] = true;
         }
 
 		public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)

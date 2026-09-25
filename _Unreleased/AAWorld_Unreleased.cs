@@ -32,6 +32,7 @@ namespace AAModClassic._Unreleased
     {
         public static Point shipPos = Point.Zero;
         private static int shipSide = 0;
+        public static Point AmbientSoCPos = Point.Zero;
 
         public static Point lostKeepOrigin = Point.Zero;
 
@@ -53,6 +54,7 @@ namespace AAModClassic._Unreleased
             tag.Add("Compass", Compass);
             tag.Add("ShipLocation", shipPos);
             tag.Add("lostKeepOrigin", lostKeepOrigin);
+            tag.Add("SoCPos", AmbientSoCPos);
         }
 
         public override void LoadWorldData(TagCompound tag)
@@ -60,6 +62,7 @@ namespace AAModClassic._Unreleased
             Compass = tag.GetBool("Compass");
             shipPos = tag.Get<Point>("ShipLocation");
             lostKeepOrigin = tag.Get<Point>("lostKeepOrigin");
+            AmbientSoCPos = tag.Get<Point>("SoCPos");
         }
 
         public override void NetSend(BinaryWriter writer)
@@ -139,8 +142,8 @@ namespace AAModClassic._Unreleased
             int attempts = 5000;
             while (attempts > 0)
             {
-                Point origin = new Point();
-                Point biomeCenter = new Point();
+                Point origin = new();
+                Point biomeCenter = new();
 
                 bool isInBounds = false;
                 bool isInCenter = false;
@@ -167,14 +170,14 @@ namespace AAModClassic._Unreleased
                     attempts--;
                 }
 
-                Dictionary<ushort, int> dictionary = new Dictionary<ushort, int>();
-                WorldUtils.Gen(origin, new Shapes.Rectangle(biomeWidth, biomeHeight), new Actions.TileScanner(new ushort[]
-                {
+                Dictionary<ushort, int> dictionary = [];
+                WorldUtils.Gen(origin, new Shapes.Rectangle(biomeWidth, biomeHeight), new Actions.TileScanner(
+                [
                     TileID.Grass,
                     TileID.Dirt,
                     TileID.Stone,
                     TileID.ClayBlock
-                }).Output(dictionary));
+                ]).Output(dictionary));
 
                 // we do this manually bcuz im stupid as fuuuuuuuuuuuck
                 int grassCount = 0;
@@ -196,21 +199,21 @@ namespace AAModClassic._Unreleased
                 int grassCountThreshold = worldSize == 3 ? 100 : worldSize == 2 ? 75 : 50;
                 int regularBlockCount = dictionary[TileID.Dirt] + dictionary[TileID.Stone] + dictionary[TileID.ClayBlock];
 
-                Ref<int> solidCount = new Ref<int>(0);
-                WorldUtils.Gen(origin, new Shapes.Rectangle(biomeWidth, biomeHeight), Actions.Chain(new GenAction[]
-                {
-                    new Actions.ContinueWrapper(Actions.Chain(new GenAction[]
-                    {
+                Ref<int> solidCount = new(0);
+                WorldUtils.Gen(origin, new Shapes.Rectangle(biomeWidth, biomeHeight), Actions.Chain(
+                [
+                    new Actions.ContinueWrapper(Actions.Chain(
+                    [
                         new Modifiers.IsSolid(),
                         new Actions.Scanner(solidCount)
-                    })),
-                }));
+                    ])),
+                ]));
 
                 if (grassCount > grassCountThreshold && regularBlockCount > (solidCount.Value * 0.9))
                 {
                     //TODO: this worldgen has to truth nuke the stupid fairy logs
                     attempts = 0;
-                    SurfaceMushroomGen_Refactored biome = new SurfaceMushroomGen_Refactored();
+                    SurfaceMushroomGen_Refactored biome = new();
                     biome.Place(origin, GenVars.structures);
                     //Main.spawnTileX = biomeCenter.X;
                     //Main.spawnTileY = biomeCenter.Y;
@@ -228,7 +231,7 @@ namespace AAModClassic._Unreleased
             int y = Main.maxTilesY;
             for (int biomes = 0; biomes < 0; biomes++)
             {
-                Point origin = new Point(WorldGen.genRand.Next(0, x), (int)GenVars.worldSurfaceLow);
+                Point origin = new(WorldGen.genRand.Next(0, x), (int)GenVars.worldSurfaceLow);
                 origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
                 RedMushroomGeneration biome = new();
                 biome.Place(origin, GenVars.structures);
@@ -240,8 +243,8 @@ namespace AAModClassic._Unreleased
             progress.Message = "Storming the Parthenan";
 
             int ParthenanHeight = WorldGenUtils.GetWorldSize() == 1 ? 60 : ModLoader.HasMod("Remnants") ? 90 : 120;
-            Point center = new Point((int)(Main.maxTilesX * 0.06f), center.Y = ParthenanHeight);
-            ParthenanGen biome = new ParthenanGen();
+            Point center = new((int)(Main.maxTilesX * 0.06f), center.Y = ParthenanHeight);
+            ParthenanGen biome = new();
             biome.Place(center, GenVars.structures);
         }
 
@@ -256,132 +259,9 @@ namespace AAModClassic._Unreleased
                 shipPos.Y += 36;
             progress.Message = "Sinking the ship";
 
-            Point origin = new Point((int)shipPos.X, (int)shipPos.Y);
+            Point origin = new((int)shipPos.X, (int)shipPos.Y);
             origin.Y = WorldGenUtils.GetFirstTileFloor(origin.X, origin.Y, true);
             new SunkenShipGen().Place(origin, GenVars.structures);
-        }
-
-
-        private static List<(int type, int min, int max)> GetLootPool(int chestID)
-        {
-            return chestID switch
-            {
-                0 =>    [   //Captain's Quarters
-                            (ModContent.ItemType<CursedCompass>(), 1, 1),
-                            (ItemID.TrifoldMap, 0, 1),
-                            (ItemID.Binoculars, 0, 1),
-                            (ItemID.Sextant, 0, 1),
-                            (ItemID.GoldBar, 8, 12),
-                            (ItemID.FlintlockPistol, 1, 1),
-                            (ItemID.Book, 1, 4),
-                        ],
-                9 =>    [   //Medical Ward
-                            (ItemID.HealingPotion, 3, 5),
-                            (ItemID.ManaPotion, 2, 4),
-                            (ModContent.ItemType<ShatteredMirror>(), 1, 1),
-                            (ItemID.RegenerationPotion, 0, 2),
-                            (ItemID.IronskinPotion, 0, 2),
-                            (ItemID.Silk, 8, 12),
-                            (ItemID.LifeCrystal, 1, 2),
-                        ],
-                10 =>   [   //Kitchen
-                            (ItemID.Bass, 4, 8),
-                            (ItemID.Tuna, 4, 8),
-                            (ItemID.Trout, 4, 8),
-                            (ItemID.FruitJuice, 3, 5),
-                            (ItemID.ShuckedOyster, 2, 3),
-                            (ItemID.BottledWater, 12, 18),
-                            (ItemID.Lemon, 3, 5),
-                        ],
-                _ =>    [   //Supplies Storage
-                            (ItemID.Rope, 18, 32),
-                            (ItemID.Sail, 6, 18),
-                            (ItemID.Rope, 18, 32),
-                            (ItemID.IronHammer, 0, 1),
-                            (ItemID.IronAxe, 0, 1),
-                            (ItemID.IronBar, 3, 6),
-                            (ItemID.Wood, 24, 48),
-                        ],
-            };
-        }
-
-        public override void PostWorldGen()
-        {
-            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
-            {
-                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                {
-                    Rectangle shipArea = new(shipPos.X, shipPos.Y, SunkenShipTexGenAssets.BigShipTileData.Width, SunkenShipTexGenAssets.BigShipTileData.Height);
-                    int chestCounter = 0;
-
-                    foreach(Chest chest in Main.chest)
-                    {
-                        if (chest is null)
-                            continue;
-
-                        if (!shipArea.Contains(chest.x, chest.y))
-                            continue;
-
-                        Tile tile = Main.tile[chest.x, chest.y];
-
-                        if (!Main.tileContainer[tile.TileType])
-                            continue;
-
-                        if (chestCounter == 0 && tile.TileType != ModContent.TileType<SunkenChest_Tile>())
-                            continue;
-
-                        var lootPool = GetLootPool(chestCounter);
-                        List<int> validIndices = Enumerable.Range(0, chest.item.Length).ToList();
-
-                        foreach (var (type, min, max) in lootPool)
-                        {
-                            int myStack = Main.rand.Next(min, max + 1);
-                            if (myStack == 0)
-                                continue;
-
-                            int rand = Main.rand.Next(validIndices.Count);
-                            int myIndex = validIndices[rand];
-                            validIndices.RemoveAt(rand);
-
-                            chest.item[myIndex].SetDefaults(type);
-                            chest.item[myIndex].stack = myStack;
-                        }
-
-                        int webCount = Main.rand.Next(4, 8);
-                        for(int i = 0; i < webCount; i++)
-                        {
-                            int rand = Main.rand.Next(validIndices.Count);
-                            int myIndex = validIndices[rand];
-                            validIndices.RemoveAt(rand);
-
-                            chest.item[myIndex].SetDefaults(ItemID.Cobweb);
-                        }
-
-                        chestCounter++;
-                    }
-                }
-                else
-                {
-                    int[] itemsToPlaceInSunkenChest = [ModContent.ItemType<CursedCompass>()];
-                    int itemsToPlaceInSunkenChestsChoice = 0;
-                    for (int chestIndex = 0; chestIndex < Main.maxChests; chestIndex++)
-                    {
-                        Chest chest = Main.chest[chestIndex];
-                        if (chest != null && Main.tile[chest.x, chest.y].TileType == ModContent.TileType<SunkenChest_Tile>()) // if glass chest
-                        {
-                            for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
-                            {
-                                if (chest.item[inventoryIndex].type == ItemID.None)
-                                {
-                                    itemsToPlaceInSunkenChestsChoice = Main.rand.Next(itemsToPlaceInSunkenChest.Length);
-                                    chest.item[0].SetDefaults(itemsToPlaceInSunkenChest[itemsToPlaceInSunkenChestsChoice]);
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
     }
 }

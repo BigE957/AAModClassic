@@ -55,6 +55,7 @@ using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Content.Void.World.Tiles;
 using AAModClassic._Content.Void.World.Tiles.Trees;
 using AAModClassic._CrossMod;
+using AAModClassic._CrossMod.CalamityMod;
 using AAModClassic._CrossMod.SpiritReforged;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX;
@@ -67,6 +68,7 @@ using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Conversions;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Structures;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -633,7 +635,7 @@ namespace AAModClassic
                 }));
             }
 
-            int DungeonChests = tasks.FindIndex((GenPass genpass) => genpass.Name.Equals("Dungeon"));
+            int DungeonChests = tasks.FindIndex(genpass => genpass.Name.Equals("Dungeon"));
             if (DungeonChests >= 0)
             {
                 tasks.Insert(DungeonChests + 1, new PassLegacy("InfernoChest", delegate (GenerationProgress progress, GameConfiguration config)
@@ -662,23 +664,19 @@ namespace AAModClassic
                                     {
                                         Chest chest = Main.chest[PlacementSuccess];
                                         chest.item[0].SetDefaults(ModContent.ItemType<DragonsPike>(), false);
-                                        chest.item[1].SetDefaults(Utils.Next(WorldGen.genRand, new int[]
-                                        { ModContent.ItemType<RadiantIncineriteBar>() }), false);
+                                        chest.item[1].SetDefaults(Utils.Next(WorldGen.genRand, [ModContent.ItemType<RadiantIncineriteBar>()]), false);
                                         chest.item[1].stack = WorldGen.genRand.Next(11, 20);
                                         Item item = chest.item[2];
                                         UnifiedRandom genRand = WorldGen.genRand;
-                                        int[] array = new int[]
-                                        { ModContent.ItemType<FlaskOfDragonfire>() };
+                                        int[] array = [ModContent.ItemType<FlaskOfDragonfire>()];
                                         item.SetDefaults(Utils.Next(genRand, array), false);
                                         chest.item[2].stack = WorldGen.genRand.Next(1, 4);
                                         Item item2 = chest.item[3];
                                         UnifiedRandom genRand2 = WorldGen.genRand;
-                                        int[] array2 = new int[]
-                                        { 302, 2327, 2351, 304, 2329 };
+                                        int[] array2 = [302, 2327, 2351, 304, 2329];
                                         item2.SetDefaults(Utils.Next(genRand2, array2), false);
                                         chest.item[3].stack = WorldGen.genRand.Next(1, 3);
-                                        chest.item[4].SetDefaults(Utils.Next(WorldGen.genRand, new int[]
-                                        { 282, 286 }), false);
+                                        chest.item[4].SetDefaults(Utils.Next(WorldGen.genRand, [282, 286]), false);
                                         chest.item[4].stack = WorldGen.genRand.Next(15, 31);
                                         chest.item[5].SetDefaults(ItemID.GoldCoin, false);
                                         chest.item[5].stack = WorldGen.genRand.Next(1, 3);
@@ -718,23 +716,19 @@ namespace AAModClassic
                                     {
                                         Chest chest = Main.chest[PlacementSuccess];
                                         chest.item[0].SetDefaults(ModContent.ItemType<BogBomb>(), false);
-                                        chest.item[1].SetDefaults(Utils.Next(WorldGen.genRand, new int[]
-                                        { ModContent.ItemType<DeepAbyssiumBar>() }), false);
+                                        chest.item[1].SetDefaults(Utils.Next(WorldGen.genRand, [ModContent.ItemType<DeepAbyssiumBar>()]), false);
                                         chest.item[1].stack = WorldGen.genRand.Next(11, 20);
                                         Item item = chest.item[2];
                                         UnifiedRandom genRand = WorldGen.genRand;
-                                        int[] array = new int[]
-                                        { ModContent.ItemType<FlaskOfHydratoxin>() };
+                                        int[] array = [ModContent.ItemType<FlaskOfHydratoxin>()];
                                         item.SetDefaults(Utils.Next(genRand, array), false);
                                         chest.item[2].stack = WorldGen.genRand.Next(1, 4);
                                         Item item2 = chest.item[3];
                                         UnifiedRandom genRand2 = WorldGen.genRand;
-                                        int[] array2 = new int[]
-                                        { 302, 2327, 2351, 304, 2329 };
+                                        int[] array2 = [302, 2327, 2351, 304, 2329];
                                         item2.SetDefaults(Utils.Next(genRand2, array2), false);
                                         chest.item[3].stack = WorldGen.genRand.Next(1, 3);
-                                        chest.item[4].SetDefaults(Utils.Next(WorldGen.genRand, new int[]
-                                        { 282, 286 }), false);
+                                        chest.item[4].SetDefaults(Utils.Next(WorldGen.genRand, [282, 286]), false);
                                         chest.item[4].stack = WorldGen.genRand.Next(15, 31);
                                         chest.item[5].SetDefaults(ItemID.GoldCoin, false);
                                         chest.item[5].stack = WorldGen.genRand.Next(1, 3);
@@ -775,23 +769,19 @@ namespace AAModClassic
                                     {
                                         Chest chest = Main.chest[PlacementSuccess];
                                         chest.item[0].SetDefaults(ModContent.ItemType<SingularityCannon>(), false);
-                                        chest.item[1].SetDefaults(Utils.Next(WorldGen.genRand, new int[]
-                                        { ModContent.ItemType<DoomiteScrap>() }), false);
+                                        chest.item[1].SetDefaults(Utils.Next(WorldGen.genRand, [ModContent.ItemType<DoomiteScrap>()]), false);
                                         chest.item[1].stack = WorldGen.genRand.Next(11, 20);
                                         Item item = chest.item[2];
                                         UnifiedRandom genRand = WorldGen.genRand;
-                                        int[] array = new int[]
-                                        { ModContent.ItemType<DoomiteBar>() };
+                                        int[] array = [ModContent.ItemType<DoomiteBar>()];
                                         item.SetDefaults(Utils.Next(genRand, array), false);
                                         chest.item[2].stack = WorldGen.genRand.Next(1, 4);
                                         Item item2 = chest.item[3];
                                         UnifiedRandom genRand2 = WorldGen.genRand;
-                                        int[] array2 = new int[]
-                                        { 302, 2327, 2351, 304, 2329 };
+                                        int[] array2 = [302, 2327, 2351, 304, 2329];
                                         item2.SetDefaults(Utils.Next(genRand2, array2), false);
                                         chest.item[3].stack = WorldGen.genRand.Next(1, 3);
-                                        chest.item[4].SetDefaults(Utils.Next(WorldGen.genRand, new int[]
-                                        { 282, 286 }), false);
+                                        chest.item[4].SetDefaults(Utils.Next(WorldGen.genRand, [282, 286]), false);
                                         chest.item[4].stack = WorldGen.genRand.Next(15, 31);
                                         chest.item[5].SetDefaults(ItemID.GoldCoin, false);
                                         chest.item[5].stack = WorldGen.genRand.Next(1, 3);
@@ -906,7 +896,7 @@ namespace AAModClassic
             Point center = new((Main.maxTilesX / 15 * 14) + (Main.maxTilesX / 15 / 2) - 100, center.Y = VoidHeight);
             WHERESDAVOIDAT = center;
             Point oldposition = new(1, 1);
-            List<Point> posIslands = new();
+            List<Point> posIslands = [];
             
 
             for (int i = 0; i < IslandNumber; i++)
@@ -1130,12 +1120,10 @@ namespace AAModClassic
             chest.item[1].stack = WorldGen.genRand.Next(4, 6);
             Item item = chest.item[2];
             UnifiedRandom genRand = WorldGen.genRand;
-            int[] array2 = new int[]
-            { 302, 2327, 2351, 304, 2329 };
+            int[] array2 = [302, 2327, 2351, 304, 2329];
             item.SetDefaults(Utils.Next(genRand, array2), false);
             chest.item[2].stack = WorldGen.genRand.Next(1, 3);
-            chest.item[3].SetDefaults(Utils.Next(WorldGen.genRand, new int[]
-            { 282, 286 }), false);
+            chest.item[3].SetDefaults(Utils.Next(WorldGen.genRand, [282, 286]), false);
             chest.item[3].stack = WorldGen.genRand.Next(15, 31);
             chest.item[4].SetDefaults(ItemID.GoldCoin, false);
             chest.item[4].stack = WorldGen.genRand.Next(1, 3);
@@ -1143,7 +1131,7 @@ namespace AAModClassic
 
         public override void PostWorldGen()
         {
-            int[] itemsToPlaceInDungeonChests = new int[] { ModContent.ItemType<SkullWand>() };
+            int[] itemsToPlaceInDungeonChests = [ModContent.ItemType<SkullWand>()];
             int itemsToPlaceInDungeonChestsChoice = 0;
             for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
             {
@@ -1506,19 +1494,13 @@ namespace AAModClassic
                 y++;
 
             for (int l = x - 25; l < x + 25; l++)
-            {
                 for (int m = y - 6; m < y + 90; m++)
-                {
                     if (Main.tile[l, m] != null && Main.tile[l, m].HasTile)
                     {
                         int type = Main.tile[l, m].TileType;
-                        if (type == TileID.Cloud || type == TileID.RainCloud || type == TileID.Sunplate)
-                        {
+                        if (type == TileID.Cloud || type == TileID.RainCloud || type == TileID.Sunplate || type == TileID.LeafBlock)
                             y++;
-                        }
                     }
-                }
-            }
 
             return y;
         }
@@ -1528,8 +1510,8 @@ namespace AAModClassic
             int worldSize = WorldGenUtils.GetWorldSize();
             int biomeRadius = worldSize == 3 ? 240 : worldSize == 2 ? 200 : 180;
 
-            int texWidth = InfernoTexGenAssets.VolcanoTileData.Width;
-            int texHeight = InfernoTexGenAssets.VolcanoTileData.Height;
+            int texWidth = InfernoSchematicAssets.Volcano.Width;
+            int texHeight = InfernoSchematicAssets.Volcano.Height;
 
             int halfWidth = Math.Max(biomeRadius, texWidth / 2);
             int top = origin.Y - biomeRadius;
@@ -1543,8 +1525,8 @@ namespace AAModClassic
             int worldSize = WorldGenUtils.GetWorldSize();
             int biomeRadius = worldSize == 3 ? 240 : worldSize == 2 ? 200 : 180;
 
-            int texWidth = MireTexGenAssets.LakeTileData.Width;
-            int texHeight = MireTexGenAssets.LakeTileData.Height;
+            int texWidth = MireSchematicAssets.Lake.Width;
+            int texHeight = MireSchematicAssets.Lake.Height;
 
             int halfWidth = Math.Max(biomeRadius, texWidth / 2);
             int top = origin.Y - biomeRadius;
@@ -1567,7 +1549,7 @@ namespace AAModClassic
             {
                 int x = rollX();
                 int surfaceY = FindBiomeSurfaceY(x);
-                Point surfacePoint = new Point(x, surfaceY);
+                Point surfacePoint = new(x, surfaceY);
 
                 Point placementOrigin = surfacePoint;
                 placementOrigin.Y = WorldGenUtils.GetFirstTileFloor(placementOrigin.X, placementOrigin.Y, true);
@@ -1580,30 +1562,24 @@ namespace AAModClassic
 
                 Rectangle footprint = getFootprint(placementOrigin);
 
-                if (sots != null)
+                bool allClear = true;
+                for (int tX = footprint.X; tX < footprint.X + footprint.Width; tX++)
                 {
-                    bool allClear = true;
-                    for (int tX = footprint.X; tX < footprint.Width; tX++)
+                    for (int tY = footprint.Y; tY < footprint.Y + footprint.Height; tY++)
                     {
-                        for (int tY = footprint.Y; tY < footprint.Height; tY++)
+                        Tile t = Framing.GetTileSafely(tX, tY);
+                        if (t.TileType == TileID.BlueDungeonBrick || t.TileType == TileID.GreenDungeonBrick || t.TileType == TileID.PinkDungeonBrick || t.TileType == TileID.SandstoneBrick || t.TileType == charredWood)
                         {
-                            Tile t = Framing.GetTileSafely(tX, tY);
-                            if (t.TileType == charredWood)
-                            {
-                                allClear = false;
-                                break;
-                            }
-                        }
-
-                        if (!allClear)
+                            allClear = false;
                             break;
+                        }
                     }
 
                     if (!allClear)
-                        continue;
+                        break;
                 }
 
-                if (structures.CanPlace(footprint, WorldGenUtils.AllTilesAllowed, 0))
+                if (allClear && structures.CanPlace(footprint, WorldGenUtils.AllTilesAllowed, 0))
                 {
                     AAMod.instance.Logger.Info(biomeNameForLog + " placed successfully after " + attempt + " attempt(s).");
                     return (surfacePoint, placementOrigin);
@@ -1631,8 +1607,6 @@ namespace AAModClassic
             InfernoCenter = infernoPos;
 
             InfernoGeneration infBiome = new();
-            InfernoDelete infDelete = new();
-            infDelete.Place(infernoOrigin, GenVars.structures);
             infBiome.Place(infernoOrigin, GenVars.structures);
             WorldGenUtils.AddProtectedStructure(GetInfernoFootprint(infernoOrigin), 20);
 
@@ -1644,9 +1618,7 @@ namespace AAModClassic
             mirePos.Y = mireSurface.Y;
             MireCenter = mirePos;
 
-            MireDelete mireDelete = new();
             MireGeneration mireBiome = new();
-            mireDelete.Place(mireOrigin, GenVars.structures);
             mireBiome.Place(mireOrigin, GenVars.structures);
             WorldGenUtils.AddProtectedStructure(GetMireFootprint(mireOrigin), 20);
         }
@@ -1667,18 +1639,20 @@ namespace AAModClassic
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 return;
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildTerrarium");
-            Point origin = new((int)(Main.maxTilesX * 0.5f), (int)(Main.maxTilesY * 0.4f));
+            Point origin = new((int)(Main.maxTilesX * 0.5f), (int)(Main.maxTilesY * 0.5f));
 
             if (ModLoader.HasMod("Spooky"))
                 origin.Y += 150;
 
-            TexGenData Terrasphere;
+            ResolvedSchematic Terrasphere;
             if (WorldGenUtils.GetWorldSize() == 1)
-                Terrasphere = TerrariumTexGenAssets.TerrariumSmallDeletionData;
+                Terrasphere = TerrariumSchematicAssets.Small;
             else
-                Terrasphere = TerrariumTexGenAssets.TerrariumMediumDeletionData;
+                Terrasphere = TerrariumSchematicAssets.Medium;
 
-            WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, Terrasphere.Width, Terrasphere.Height), 20);
+            Point topLeft = origin - new Point(Terrasphere.Width / 2, Terrasphere.Height / 2);
+
+            WorldGenUtils.AddProtectedStructure(new Rectangle(topLeft.X, topLeft.Y, Terrasphere.Width, Terrasphere.Height), 20);
 
             terrariumCenter = origin;
         }
@@ -1689,18 +1663,19 @@ namespace AAModClassic
                 return;
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildTerrarium");
 
-            new TerrariumDelete().Place(terrariumCenter, GenVars.structures);
             new TerrariumGeneration().Place(terrariumCenter, GenVars.structures);
         }
 
         private static void ReserveLostKeep(GenerationProgress progress)
         {
+            progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildTerrarium");
+
             Point origin = new((int)(Main.maxTilesX * 0.35f), (int)((float)Main.maxTilesY * 0.38f));
             if (Main.dungeonX < Main.maxTilesX / 2)
                 origin = new((int)(Main.maxTilesX * 0.65f), (int)((float)Main.maxTilesY * 0.38f));
 
             AAWorld_Unreleased.lostKeepOrigin = LostKeepGeneration.FindValidLostKeepPosition(origin, GenVars.structures);
-            WorldGenUtils.AddProtectedStructure(new Rectangle(AAWorld_Unreleased.lostKeepOrigin.X, AAWorld_Unreleased.lostKeepOrigin.Y, LostKeepTexGenAssets.KeepTileData.Width, LostKeepTexGenAssets.KeepTileData.Height), 20);
+            WorldGenUtils.AddProtectedStructure(new Rectangle(AAWorld_Unreleased.lostKeepOrigin.X, AAWorld_Unreleased.lostKeepOrigin.Y, LostKeepSchematicAssets.Keep.Width, LostKeepSchematicAssets.Keep.Height), 20);
         }
 
         private static void LostKeep(GenerationProgress progress)
@@ -1719,7 +1694,7 @@ namespace AAModClassic
             if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 height = WorldGenUtils.GetWorldSize() == 1 ? 40 : ModLoader.HasMod("Remnants") ? 75 : 100;
             Point origin = new((int)(Main.maxTilesX * 0.65f), height);
-            AcropolisGeneration biome = new AcropolisGeneration();
+            AcropolisGeneration biome = new();
             biome.Place(origin, GenVars.structures);
         }
 
@@ -1737,7 +1712,7 @@ namespace AAModClassic
         {
             progress.Message = Language.GetTextValue("Mods.AAModClassic.Common.AAWorldBuildEquinoxAlt");
             Point origin = new((int)(Main.maxTilesX * 0.15f), 100);
-            EquinoxShrineGeneration biome = new();
+            EquinoxAltarGeneration biome = new();
             biome.Place(origin, GenVars.structures);
         }
 
@@ -1756,23 +1731,31 @@ namespace AAModClassic
         {
             progress.Message = "Sinking the Pit";
 
-            //Dodge Azafure, Profaned Temple and Eye Valley
             int offset = 500;
+            bool flip = false;
             bool dungeonRight = GenVars.dungeonX > Main.maxTilesX / 2;
-            if ((ModLoader.HasMod("CalamityMod") && dungeonRight) || (ModLoader.HasMod("Spooky") && !dungeonRight) || ModLoader.HasMod("InfernumMode") || ModLoader.HasMod("SOTS"))
+
+            //Blazing Bastion Dodge
+            if (ModLoader.HasMod("Redemption"))
+                flip = true;
+
+            bool azafureDodge = CalamityMod.IsEnabled && ((dungeonRight && !flip) || (!dungeonRight && flip));
+            bool valleyOfEyesDodge = ModLoader.HasMod("Spooky") && ((!dungeonRight && !flip) || (dungeonRight && flip));
+            bool profanedTempleDodge = ModLoader.HasMod("InfernumMode") && (!flip || ModLoader.HasMod("SOTS"));
+            bool sanctuaryDodge = ModLoader.HasMod("SOTS") && (!flip || ModLoader.HasMod("InfernumMode"));
+
+            if (azafureDodge || valleyOfEyesDodge || profanedTempleDodge || sanctuaryDodge)
                 offset = WorldGenUtils.GetWorldSize() == 2 ? 1600 : 2000;
 
-            if (ModLoader.HasMod("Redemption"))
-                offset = 3000;
 
             if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
             {
-                Point origin = new(Main.maxTilesX - offset, Main.maxTilesY - 170);
+                Point origin = new(flip ? offset : Main.maxTilesX - offset, Main.maxTilesY - 170);
                 new PitTeaserGeneration().Place(origin, GenVars.structures);
             }
             else
             {
-                Point origin = new(Main.maxTilesX - offset, Main.maxTilesY - 200);
+                Point origin = new(flip ? offset : Main.maxTilesX - offset, Main.maxTilesY - 200);
                 new PitGeneration().Place(origin, GenVars.structures);
             }
         }

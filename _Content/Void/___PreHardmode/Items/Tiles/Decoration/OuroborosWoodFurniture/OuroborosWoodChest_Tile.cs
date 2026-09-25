@@ -43,7 +43,9 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Ourob
             AddMapEntry(new Color(150, 20, 0), name, MapChestName);
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.Containers };
-            TileID.Sets.BasicChest[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Ouroboros Chest";
+            TileID.Sets.BasicChest[Type] = true;
+            TileID.Sets.IsAContainer[Type] = true;
+            Main.tileContainer[Type] = true;
         }
 
         public override LocalizedText DefaultContainerName(int i, int j) => ModContent.GetInstance<OuroborosWoodChest>().DisplayName;

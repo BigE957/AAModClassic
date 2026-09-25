@@ -21,11 +21,18 @@ namespace AAModClassic._Content.Hell.World.Tiles
             Main.tileTable[Type] = false;
             TileObjectData.newTile.Width = 4;
             TileObjectData.newTile.Height = 5;
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16 };
+            TileObjectData.newTile.Direction = TileObjectDirection.PlaceLeft;
+            TileObjectData.newTile.StyleWrapLimit = 2;
+            TileObjectData.newTile.StyleMultiplier = 2;
+            TileObjectData.newTile.StyleHorizontal = true;
+            TileObjectData.newTile.CoordinateHeights = [ 16, 16, 16, 16, 16 ];
             TileObjectData.newTile.UsesCustomCanPlace = true;
             TileObjectData.newTile.CoordinateWidth = 16;
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
+            TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
+            TileObjectData.newAlternate.Direction = TileObjectDirection.PlaceRight;
+            TileObjectData.addAlternate(1);
             TileObjectData.addTile(Type);
             DustType = DustID.WoodFurniture;
             MinPick = 500;
@@ -37,21 +44,13 @@ namespace AAModClassic._Content.Hell.World.Tiles
         }
         public override void NearbyEffects(int i, int j, bool closer)
         {
-            Player player = Main.LocalPlayer;
-            var dist = (int)Vector2.Distance(player.Center / 16, new Vector2(i, j));
-            if (dist <= 100)
+            if (closer && !NPC.AnyNPCs(ModContent.NPCType<LuciferSitting>()))
             {
-                if (!NPC.AnyNPCs(ModContent.NPCType<LuciferSitting>()))
+                Vector2 worldPos = new Point(i + 2, j + 5).ToWorldCoordinates(i < Main.maxTilesX / 2 ? -2 : 2, 0);
+                int n = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)worldPos.X, (int)worldPos.Y, ModContent.NPCType<LuciferSitting>());
+                if (Main.netMode == NetmodeID.Server)
                 {
-                    i += 2;
-                    i *= 16;
-                    j += 5;
-                    j *= 16;
-                    int n = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), i + 1, j + 1, ModContent.NPCType<LuciferSitting>());
-                    if (Main.netMode == NetmodeID.Server)
-                    {
-                        NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
-                    }
+                    NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n);
                 }
             }
         }

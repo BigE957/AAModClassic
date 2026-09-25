@@ -49,7 +49,9 @@ namespace AAModClassic._Content.Hoard.World.Tiles
             DustType = DustID.Gold;
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.Containers };
-            TileID.Sets.BasicChest[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Greed Chest";
+            TileID.Sets.BasicChest[Type] = true;
+            TileID.Sets.IsAContainer[Type] = true;
+            Main.tileContainer[Type] = true;
             RegisterItemDrop(ModContent.ItemType<GreedChest>());
         }
 

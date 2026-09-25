@@ -41,7 +41,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip.World.Tiles
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.Containers };
 			TileID.Sets.BasicChest[Type] = true;
-		}
+            TileID.Sets.IsAContainer[Type] = true;
+			Main.tileContainer[Type] = true;
+        }
 
         public override LocalizedText DefaultContainerName(int i, int j) => Mod.Find<ModItem>("SunkenChest").DisplayName;
 
