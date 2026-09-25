@@ -1272,3 +1272,10 @@ PortaProbe: {
 	// DisplayName: Porta-Probe
 	// Tooltip: Take a little life-seeking robot with you!
 }
+
+Debug: {
+	DialogueDisplayDebugItem: {
+		// DisplayName: Dialogue Display Debug Item
+		// Tooltip: ""
+	}
+}

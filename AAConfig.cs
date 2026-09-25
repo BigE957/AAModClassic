@@ -28,6 +28,9 @@ namespace AAModClassic
         [DefaultValue(true)]
         [ReloadRequired]
         public bool EnableContentReplacement;
+        
+        [DefaultValue(true)]
+        public bool TextEffects;
 
         [DefaultValue(false)]
         public bool DisableAnticheat;

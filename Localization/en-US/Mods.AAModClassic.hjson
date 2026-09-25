@@ -61,6 +61,11 @@ Configs: {
 			Label: Hide Identifiable Info
 			Tooltip: Disables 4th wall breaking dialogue that makes use of personally identifiable information.
 		}
+
+		TextEffects: {
+			Label: Text Effects
+			Tooltip: ""
+		}
 	}
 }
 

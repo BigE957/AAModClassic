@@ -1275,3 +1275,10 @@ PortaProbe: {
 	DisplayName: Porta-Sonda
 	Tooltip: ¡Lleva contigo a un pequeño robot buscador de vida!
 }
+
+Debug: {
+	DialogueDisplayDebugItem: {
+		// DisplayName: Dialogue Display Debug Item
+		// Tooltip: ""
+	}
+}

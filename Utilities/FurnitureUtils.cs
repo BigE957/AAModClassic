@@ -1281,7 +1281,7 @@ namespace AAModClassic.Utilities
             TileObjectData.newTile.StyleLineSkip = 2;
             TileObjectData.addTile(mt.Type);
 
-            mt.AddMapEntry(mapColor, /*lava ? CalamityUtils.GetText("Tiles.LavaFountain") : */Language.GetText("MapObject.WaterFountain"));
+            mt.AddMapEntry(mapColor, /*lava ? MathUtils.GetText("Tiles.LavaFountain") : */Language.GetText("MapObject.WaterFountain"));
             mt.AnimationFrameHeight = 72;
         }
 
