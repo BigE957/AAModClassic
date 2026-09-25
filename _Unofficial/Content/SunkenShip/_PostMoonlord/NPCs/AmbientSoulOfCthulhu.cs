@@ -341,10 +341,11 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
                 if (!NPC.AnyNPCs(ModContent.NPCType<AmbientSoulOfCthulhu>()) && !anyCthulhus)
                 {
                     Vector2 spawnPos;
-                    if(AAWorld_Unreleased.shipPos.X > Main.maxTilesX / 2)
-                        spawnPos = (AAWorld_Unreleased.shipPos + new Point(141, 30)).ToWorldCoordinates();
+                    if(AAWorld_Unreleased.AmbientSoCPos != Point.Zero)
+                        spawnPos = (AAWorld_Unreleased.AmbientSoCPos + new Point(0, 0)).ToWorldCoordinates(0, 0);
                     else
-                        spawnPos = (AAWorld_Unreleased.shipPos + new Point(SunkenShipSchematicAssets.Official.Width - 141, 30)).ToWorldCoordinates();
+                        spawnPos = (AAWorld_Unreleased.shipPos + new Point(141, 30)).ToWorldCoordinates();
+
                     NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<AmbientSoulOfCthulhu>());
                     Ropes = [];
                     CthulhuCountdown = 10800;
