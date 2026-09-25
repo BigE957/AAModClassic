@@ -7,7 +7,7 @@ using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic.Achievements;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Core;

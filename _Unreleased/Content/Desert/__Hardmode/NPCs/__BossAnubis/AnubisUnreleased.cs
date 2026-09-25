@@ -6,7 +6,7 @@ using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis.Runes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;

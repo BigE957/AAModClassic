@@ -5,7 +5,7 @@ using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Acropolis.Projectiles;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Effects;
 using AAModClassic.UI.Titles;

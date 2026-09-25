@@ -2,7 +2,7 @@
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._Unofficial.Desert;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Effects;
 using AAModClassic.UI.Titles;
 using AAModClassic.UI.World;

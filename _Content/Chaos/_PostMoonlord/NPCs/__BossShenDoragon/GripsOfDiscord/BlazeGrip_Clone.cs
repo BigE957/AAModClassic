@@ -7,8 +7,8 @@ using System;
 
 using Terraria.Graphics.Shaders;
 using AAModClassic.Globals;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Content.Inferno.Buffs;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord
 {

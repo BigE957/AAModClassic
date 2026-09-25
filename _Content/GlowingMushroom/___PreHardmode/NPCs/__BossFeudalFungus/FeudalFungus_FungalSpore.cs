@@ -1,4 +1,4 @@
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities;
 using System.IO;
 using Terraria;

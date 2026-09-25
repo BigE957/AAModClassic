@@ -1,6 +1,6 @@
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Mire.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;

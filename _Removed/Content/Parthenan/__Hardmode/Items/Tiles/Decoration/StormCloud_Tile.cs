@@ -3,8 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
+using AAModClassic.Base;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration
 {

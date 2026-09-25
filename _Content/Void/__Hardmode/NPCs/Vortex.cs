@@ -2,7 +2,7 @@ using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Unofficial.Content.Void.__Hardmode.Items.Tools;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;

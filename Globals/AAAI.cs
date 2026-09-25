@@ -6,8 +6,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
+using AAModClassic.Base;
 
 namespace AAModClassic.Globals
 {

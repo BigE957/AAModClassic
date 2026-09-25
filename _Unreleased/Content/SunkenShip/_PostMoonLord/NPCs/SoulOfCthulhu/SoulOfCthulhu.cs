@@ -12,7 +12,7 @@ using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthul
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeitySkull;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Achievements;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.World;

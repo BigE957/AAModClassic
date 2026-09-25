@@ -1,4 +1,4 @@
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;

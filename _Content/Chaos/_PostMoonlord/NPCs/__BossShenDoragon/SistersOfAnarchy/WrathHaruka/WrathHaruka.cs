@@ -1,7 +1,7 @@
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
 using AAModClassic._Content.Mire.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;

@@ -4,12 +4,12 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.Localization;
 using Terraria.ID;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Pets;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content.Mire.World.Tiles
 {

@@ -1,5 +1,5 @@
 ﻿using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Ammo;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

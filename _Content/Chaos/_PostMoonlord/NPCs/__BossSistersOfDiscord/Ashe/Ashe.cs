@@ -8,7 +8,7 @@ using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unofficial.Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard;
 using AAModClassic.Achievements;
 using AAModClassic.Assets;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;

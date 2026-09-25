@@ -1,5 +1,5 @@
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;

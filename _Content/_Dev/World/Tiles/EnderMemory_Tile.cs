@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Terraria.Enums;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content._Dev.World.Tiles
 {

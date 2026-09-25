@@ -5,10 +5,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 using Terraria.ID;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using AAModClassic.UI.World;
+using AAModClassic.Base;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 {

@@ -3,9 +3,9 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using System.Collections.Generic;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic._CrossMod;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {

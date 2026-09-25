@@ -1,5 +1,5 @@
 ﻿using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

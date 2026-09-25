@@ -1,17 +1,15 @@
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Base.NPCs;
+using AAModClassic.Base;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
-using Terraria;
 using Terraria.GameContent.Events;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 {
-    public abstract class YamataBoss : ParentNPC
+    public abstract class YamataBoss : ModNPC
 	{
 		public int frameWidth = 0;
 
@@ -60,11 +58,6 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 			{
                 // DisplayName.SetDefault(value);
 			}
-		}
-
-		public override Vector4 GetFrameV4()
-		{
-			return new Vector4(0f, 0f, frameWidth, frameHeight + 2);
 		}
 
 		public override void SendExtraAI(BinaryWriter writer)

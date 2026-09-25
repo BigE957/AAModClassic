@@ -1,5 +1,5 @@
 ﻿using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

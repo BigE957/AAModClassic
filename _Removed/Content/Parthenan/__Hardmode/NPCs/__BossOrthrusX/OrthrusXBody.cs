@@ -2,7 +2,7 @@ using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX.BossStandard;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;

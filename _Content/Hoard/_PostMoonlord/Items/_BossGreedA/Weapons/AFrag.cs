@@ -5,7 +5,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 
 using Terraria.ModLoader;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
 {

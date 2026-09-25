@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using AAModClassic.Globals;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {

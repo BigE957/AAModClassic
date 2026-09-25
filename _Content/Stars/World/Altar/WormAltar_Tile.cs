@@ -7,10 +7,10 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Terraria.Enums;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
 using AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content.Stars.World.Altar
 {

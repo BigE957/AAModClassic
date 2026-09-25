@@ -1,7 +1,7 @@
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;

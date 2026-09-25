@@ -7,12 +7,12 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
 using Terraria.DataStructures;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Content.Void.___PreHardmode.NPCs;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero
 {

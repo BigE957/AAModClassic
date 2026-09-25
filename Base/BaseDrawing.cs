@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 
-namespace AAModClassic.Base.BaseMod.Base
+namespace AAModClassic.Base
 {
     public class BaseDrawing
     {

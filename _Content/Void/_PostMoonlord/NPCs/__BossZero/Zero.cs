@@ -12,7 +12,7 @@ using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories;
 using AAModClassic.Achievements;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Effects;
 using AAModClassic.Globals;
 using AAModClassic.Music;

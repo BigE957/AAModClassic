@@ -1,6 +1,6 @@
 using Terraria;
 
-namespace AAModClassic.Base.BaseMod.Base
+namespace AAModClassic.Base
 {
     public class BasePlayer
     {

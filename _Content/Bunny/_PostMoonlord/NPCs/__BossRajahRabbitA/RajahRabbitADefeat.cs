@@ -1,4 +1,4 @@
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;

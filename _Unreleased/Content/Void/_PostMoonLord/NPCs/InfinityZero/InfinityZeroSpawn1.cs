@@ -1,5 +1,5 @@
 using AAModClassic._Unreleased.Content.Void.Buffs;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;

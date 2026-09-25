@@ -2,7 +2,7 @@
 using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
 using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Effects;
 using AAModClassic.Globals;
 using AAModClassic.UI.World;

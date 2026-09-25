@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 using Terraria.ID;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content.Madness.___PreHardmode.Items.Weapons
 {

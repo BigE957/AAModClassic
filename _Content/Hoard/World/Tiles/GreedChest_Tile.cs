@@ -2,7 +2,7 @@ using AAModClassic._Content.Hoard.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
 using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
 using AAModClassic.Achievements;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using System;

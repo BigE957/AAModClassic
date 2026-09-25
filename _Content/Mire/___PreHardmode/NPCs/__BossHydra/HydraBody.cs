@@ -6,7 +6,7 @@ using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._CrossMod;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;

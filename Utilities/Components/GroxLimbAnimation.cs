@@ -1,6 +1,6 @@
 ﻿using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata;
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

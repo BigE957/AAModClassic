@@ -1,5 +1,5 @@
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

@@ -5,7 +5,7 @@ using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Weapons;
 using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
 using AAModClassic._Content.Hoard.World.Biomes;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
 using AAModClassic.UI.World;

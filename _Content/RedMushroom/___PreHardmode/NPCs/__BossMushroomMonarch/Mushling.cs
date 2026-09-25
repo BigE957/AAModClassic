@@ -1,5 +1,5 @@
 using AAModClassic._Content.RedMushroom.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

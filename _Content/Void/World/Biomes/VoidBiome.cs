@@ -7,7 +7,7 @@ using AAModClassic._Unreleased;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic.Achievements;
 using AAModClassic.Assets;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;

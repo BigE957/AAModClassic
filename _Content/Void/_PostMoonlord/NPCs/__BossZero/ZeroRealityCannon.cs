@@ -1,6 +1,6 @@
 ﻿using AAModClassic._Content.Void.Projectiles;
 using AAModClassic._Content.Void.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.Core;
 using Microsoft.Xna.Framework;

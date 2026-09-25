@@ -4,11 +4,11 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Base;
 
 namespace AAModClassic._CrossMod.Fargos.OverloadSummons
 {

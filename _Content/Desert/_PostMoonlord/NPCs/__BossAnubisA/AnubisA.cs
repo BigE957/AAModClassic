@@ -5,7 +5,7 @@ using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
 using AAModClassic._Content.Desert._PostMoonlord.Items.Materials;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unofficial.Desert;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.World;

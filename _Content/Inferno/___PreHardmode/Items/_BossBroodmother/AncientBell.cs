@@ -5,13 +5,13 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother
 {

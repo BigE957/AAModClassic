@@ -6,7 +6,7 @@ using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthul
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEye;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityLeviathan;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeitySkull;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

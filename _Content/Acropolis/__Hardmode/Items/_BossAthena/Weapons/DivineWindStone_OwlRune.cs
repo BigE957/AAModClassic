@@ -3,9 +3,9 @@ using Terraria;
 using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Content.Acropolis.Projectiles;
 using Terraria.GameContent;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons
 {

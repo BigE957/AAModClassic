@@ -5,8 +5,8 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Projectiles;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {

@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 using Terraria.Utilities;
 using Microsoft.Xna.Framework;
 
-namespace AAModClassic.Base.BaseMod.Base
+namespace AAModClassic.Base
 {
     public class BaseUtility
     {

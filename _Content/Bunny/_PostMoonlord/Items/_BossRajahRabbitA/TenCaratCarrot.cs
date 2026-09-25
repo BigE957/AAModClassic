@@ -5,7 +5,7 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities;

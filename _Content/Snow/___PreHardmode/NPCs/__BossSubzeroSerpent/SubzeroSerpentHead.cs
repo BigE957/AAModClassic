@@ -4,7 +4,7 @@ using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapon
 using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;

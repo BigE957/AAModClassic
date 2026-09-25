@@ -13,7 +13,7 @@ using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Achievements;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Core.BestiaryBackgrounds;

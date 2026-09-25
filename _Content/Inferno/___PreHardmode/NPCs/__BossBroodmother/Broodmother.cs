@@ -7,7 +7,7 @@ using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._CrossMod;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;

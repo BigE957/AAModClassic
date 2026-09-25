@@ -5,7 +5,7 @@ using AAModClassic._Content.Void.___PreHardmode.NPCs;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;

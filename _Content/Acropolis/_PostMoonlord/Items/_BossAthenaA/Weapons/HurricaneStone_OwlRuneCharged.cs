@@ -4,9 +4,9 @@ using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using Terraria.GameContent;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons
 {

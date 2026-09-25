@@ -1,6 +1,6 @@
 ﻿using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic._Content.Void.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;

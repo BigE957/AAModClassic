@@ -1,10 +1,10 @@
 using Microsoft.Xna.Framework;
 using Terraria;
-using AAModClassic.Base.BaseMod.Base;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using AAModClassic.Base;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Paintings;
 

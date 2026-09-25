@@ -1,7 +1,7 @@
 ﻿using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;

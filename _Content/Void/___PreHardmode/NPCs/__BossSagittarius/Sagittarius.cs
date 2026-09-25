@@ -3,7 +3,7 @@ using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;

@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using System.Linq;
 
-namespace AAModClassic.Base.BaseMod.Base
+namespace AAModClassic.Base
 {
     public class BaseAI
     {

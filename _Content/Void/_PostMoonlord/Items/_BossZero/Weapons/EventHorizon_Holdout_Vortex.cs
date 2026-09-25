@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 using AAModClassic.Globals;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons

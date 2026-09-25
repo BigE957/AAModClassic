@@ -1,5 +1,5 @@
 using AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;

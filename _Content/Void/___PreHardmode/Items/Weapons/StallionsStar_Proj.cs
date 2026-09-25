@@ -2,10 +2,10 @@
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic._Content.Void.Projectiles;
 using Terraria.GameContent;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
 {

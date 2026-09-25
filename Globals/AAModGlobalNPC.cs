@@ -59,7 +59,7 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
 using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechnoTruffle;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.UI.Core;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;

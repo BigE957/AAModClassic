@@ -1,6 +1,6 @@
 using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;

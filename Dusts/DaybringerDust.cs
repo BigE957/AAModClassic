@@ -1,7 +1,7 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 
 
 namespace AAModClassic.Dusts

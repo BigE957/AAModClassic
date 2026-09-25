@@ -4,7 +4,7 @@ using Terraria.GameContent;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AAModClassic.Globals;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Weapons
 {

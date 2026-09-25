@@ -1,4 +1,4 @@
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;

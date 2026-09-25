@@ -4,7 +4,7 @@ using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.Titles;
 using AAModClassic.Utilities;

@@ -6,7 +6,6 @@ using Terraria.Localization;
 using System.Collections.Generic;
 
 using Terraria.ID;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
@@ -19,6 +18,7 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Rarities;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._CrossMod;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma
 {

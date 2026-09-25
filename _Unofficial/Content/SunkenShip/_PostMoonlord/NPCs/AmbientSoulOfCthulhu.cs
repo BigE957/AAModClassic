@@ -3,7 +3,7 @@ using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthu
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;

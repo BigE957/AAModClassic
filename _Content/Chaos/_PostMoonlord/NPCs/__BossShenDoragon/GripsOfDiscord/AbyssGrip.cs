@@ -1,7 +1,7 @@
 
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Mire.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

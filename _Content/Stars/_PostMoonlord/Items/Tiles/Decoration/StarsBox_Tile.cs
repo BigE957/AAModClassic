@@ -6,8 +6,8 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
-using AAModClassic.Base.BaseMod.Base;
 using Terraria.ID;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
 {

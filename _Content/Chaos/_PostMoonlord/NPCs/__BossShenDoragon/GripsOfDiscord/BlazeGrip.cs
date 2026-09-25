@@ -1,6 +1,6 @@
 using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

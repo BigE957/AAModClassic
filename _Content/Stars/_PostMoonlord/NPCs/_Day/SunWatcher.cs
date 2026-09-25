@@ -1,7 +1,7 @@
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars.Projectiles;
 using AAModClassic._CrossMod.CalamityMod;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;

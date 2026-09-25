@@ -6,7 +6,7 @@ using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._CrossMod;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;

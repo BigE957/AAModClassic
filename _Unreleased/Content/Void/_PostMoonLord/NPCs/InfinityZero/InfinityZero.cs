@@ -6,7 +6,7 @@ using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossInfinityZer
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.BossStandard;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Weapons;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Core;

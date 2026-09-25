@@ -1,5 +1,5 @@
 using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.Utilities;

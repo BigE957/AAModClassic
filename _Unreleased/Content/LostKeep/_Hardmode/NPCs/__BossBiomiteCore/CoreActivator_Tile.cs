@@ -2,7 +2,7 @@ using AAModClassic._Content._Misc.__Hardmode.Items.Materials;
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 //using AAModClassic.NPCs.Bosses.Core;
 using Microsoft.Xna.Framework;

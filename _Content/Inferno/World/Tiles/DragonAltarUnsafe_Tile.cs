@@ -1,5 +1,5 @@
 using AAModClassic._Content.Chaos.__Hardmode.NPCs;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;

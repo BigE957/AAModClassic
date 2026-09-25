@@ -1,7 +1,7 @@
 ﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;

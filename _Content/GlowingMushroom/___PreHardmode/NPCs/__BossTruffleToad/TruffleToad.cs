@@ -3,7 +3,7 @@ using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToa
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.World;

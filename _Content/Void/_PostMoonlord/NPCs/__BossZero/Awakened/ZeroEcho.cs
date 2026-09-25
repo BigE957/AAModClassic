@@ -1,6 +1,6 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Void.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.Core;
 using AAModClassic.Utilities;

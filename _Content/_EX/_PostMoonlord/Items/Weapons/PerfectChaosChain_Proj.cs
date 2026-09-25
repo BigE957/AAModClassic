@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 using System;
 using Terraria.ID;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {

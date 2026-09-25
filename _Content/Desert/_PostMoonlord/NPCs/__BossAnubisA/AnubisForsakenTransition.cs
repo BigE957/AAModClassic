@@ -1,4 +1,4 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.Base;
 using AAModClassic.Effects;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;

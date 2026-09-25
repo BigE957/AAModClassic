@@ -4,7 +4,7 @@ using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.SistersOf
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic.Assets;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;

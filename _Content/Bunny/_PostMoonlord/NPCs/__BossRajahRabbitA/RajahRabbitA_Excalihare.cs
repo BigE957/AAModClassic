@@ -5,8 +5,8 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Content._Misc._PostMoonlord.Items.Buffs;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA
 {

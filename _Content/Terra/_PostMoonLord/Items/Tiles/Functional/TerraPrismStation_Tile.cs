@@ -7,11 +7,11 @@ using Terraria.ObjectData;
 
 using Terraria.ID;
 using AAModClassic.Globals;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional;
 using AAModClassic._Content.Hell.___PreHardmode.Items.Tiles.Functional;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content.Terra._PostMoonLord.Items.Tiles.Functional
 {

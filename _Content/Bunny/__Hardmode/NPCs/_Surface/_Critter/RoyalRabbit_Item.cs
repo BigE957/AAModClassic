@@ -4,9 +4,9 @@ using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.Localization;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
 {

@@ -4,7 +4,7 @@ using Terraria.GameContent;
 using Terraria.ModLoader;
 
 using System;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content.Acropolis.Projectiles
 {

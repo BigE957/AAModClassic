@@ -1,7 +1,7 @@
 ﻿using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle.BossStandard;
 using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;

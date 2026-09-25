@@ -2,7 +2,7 @@ using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._CrossMod;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;

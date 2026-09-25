@@ -6,7 +6,7 @@ using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.RedMushroom.World.Biomes;
 using AAModClassic._CrossMod.CalamityMod;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.Utilities;

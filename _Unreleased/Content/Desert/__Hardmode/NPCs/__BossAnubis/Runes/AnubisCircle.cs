@@ -5,8 +5,8 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
 using System.IO;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
+using AAModClassic.Base;
 
 namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis.Runes
 {

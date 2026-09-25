@@ -1,5 +1,5 @@
 using AAModClassic._Content.Sky.__Hardmode.Items.Materials;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Terraria;

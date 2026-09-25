@@ -5,10 +5,10 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria.Localization;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Globals;
 using AAModClassic._Content.Jungle.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Base;
 
 namespace AAModClassic._Content.Jungle.__Hardmode.Items._BossPlantera
 {

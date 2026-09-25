@@ -1,7 +1,7 @@
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe;
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;

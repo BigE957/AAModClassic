@@ -3,7 +3,7 @@ using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;

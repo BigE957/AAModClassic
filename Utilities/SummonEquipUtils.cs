@@ -1,6 +1,6 @@
 ﻿using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Accessories;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Weapons;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.UI.World;
 using System;
 using System.Collections.Generic;

@@ -2,7 +2,7 @@
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void.Projectiles;
 using AAModClassic._Content.Void.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;

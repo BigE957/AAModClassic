@@ -1,6 +1,6 @@
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._CrossMod;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;

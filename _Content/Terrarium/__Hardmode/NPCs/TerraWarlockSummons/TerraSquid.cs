@@ -1,6 +1,6 @@
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._Content.Terrarium.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria;

@@ -1,7 +1,7 @@
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRetriever.BossStandard;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;

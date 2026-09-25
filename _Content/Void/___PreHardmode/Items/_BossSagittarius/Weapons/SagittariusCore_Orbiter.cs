@@ -1,6 +1,6 @@
 using System;
 using AAModClassic._Content.Void.Projectiles;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 

@@ -8,7 +8,7 @@ using AAModClassic._Content.Hoard.World.Biomes;
 using AAModClassic._Content.Hoard.World.Tiles;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;

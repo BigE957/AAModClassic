@@ -3,7 +3,7 @@ using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityEye;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.World;

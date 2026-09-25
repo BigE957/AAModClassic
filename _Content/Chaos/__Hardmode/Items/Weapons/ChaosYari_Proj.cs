@@ -1,5 +1,5 @@
 ﻿using System;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Terraria;

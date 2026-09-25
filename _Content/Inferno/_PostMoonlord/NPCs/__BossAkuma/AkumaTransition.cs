@@ -1,5 +1,5 @@
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Effects;
 using AAModClassic.Globals;
 using AAModClassic.Music;

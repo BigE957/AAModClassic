@@ -9,7 +9,7 @@ using AAModClassic._Content.Acropolis.World.Tiles;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Music;

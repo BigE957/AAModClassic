@@ -1,6 +1,6 @@
 using System;
 using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;

@@ -1,7 +1,7 @@
 using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;

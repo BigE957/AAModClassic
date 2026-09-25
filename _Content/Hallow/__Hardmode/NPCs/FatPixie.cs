@@ -1,5 +1,5 @@
 using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

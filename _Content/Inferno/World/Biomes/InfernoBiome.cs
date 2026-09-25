@@ -6,7 +6,7 @@ using AAModClassic._Content.Inferno.World.Biomes.Waters;
 using AAModClassic._CrossMod;
 using AAModClassic._CrossMod.SpiritReforged;
 using AAModClassic._CrossMod.WrathOfTheGods;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

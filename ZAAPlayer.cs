@@ -68,7 +68,7 @@ using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic._Unreleased.Content.Void.Buffs;
 using AAModClassic.Achievements;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Buffs;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;

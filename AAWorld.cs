@@ -64,7 +64,7 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
 using AAModClassic._Unreleased;
 using AAModClassic._Unreleased.Content.LostKeep.World.Biomes;
 using AAModClassic._Unreleased.Content.LostKeep.World.Tiles;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Conversions;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;

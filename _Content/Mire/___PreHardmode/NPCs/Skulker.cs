@@ -1,7 +1,7 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._CrossMod;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Terraria;

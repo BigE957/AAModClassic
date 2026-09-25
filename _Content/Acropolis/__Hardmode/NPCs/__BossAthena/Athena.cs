@@ -10,7 +10,7 @@ using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.BossStandard;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Effects;
 using AAModClassic.UI.Titles;

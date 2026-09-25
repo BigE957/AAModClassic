@@ -1,5 +1,5 @@
 using AAModClassic._Content.Void.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;

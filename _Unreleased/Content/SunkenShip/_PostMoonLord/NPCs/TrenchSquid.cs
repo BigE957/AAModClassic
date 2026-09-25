@@ -1,5 +1,5 @@
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;

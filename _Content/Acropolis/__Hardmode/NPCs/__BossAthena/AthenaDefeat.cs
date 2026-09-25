@@ -1,5 +1,5 @@
 ﻿using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Effects;
 using AAModClassic.Globals;
 using AAModClassic.Music;

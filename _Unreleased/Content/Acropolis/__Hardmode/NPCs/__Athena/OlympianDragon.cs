@@ -1,7 +1,7 @@
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Acropolis.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;

@@ -5,7 +5,7 @@ using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
 using AAModClassic._Content.Stars.World.Altar;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;

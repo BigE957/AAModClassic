@@ -1,4 +1,4 @@
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;

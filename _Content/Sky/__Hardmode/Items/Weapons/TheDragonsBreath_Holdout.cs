@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System.IO;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 
 
 namespace AAModClassic._Content.Sky.__Hardmode.Items.Weapons   //The directory for your .cs and .png; Example: TutorialMOD/Projectiles

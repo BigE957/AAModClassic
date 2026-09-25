@@ -1,5 +1,5 @@
 using AAModClassic._Content.Terra.Projectiles;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;

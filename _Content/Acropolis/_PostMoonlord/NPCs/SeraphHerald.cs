@@ -1,7 +1,7 @@
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;

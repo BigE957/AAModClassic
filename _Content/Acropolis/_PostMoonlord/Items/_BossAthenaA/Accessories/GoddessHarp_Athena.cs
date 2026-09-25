@@ -1,6 +1,6 @@
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
 using AAModClassic._Content.Acropolis.Projectiles;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;

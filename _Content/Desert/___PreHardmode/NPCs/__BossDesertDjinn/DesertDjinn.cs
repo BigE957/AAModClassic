@@ -2,7 +2,7 @@ using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.BossSta
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.Utilities;

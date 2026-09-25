@@ -1,5 +1,5 @@
 using AAModClassic._Content.Inferno.World.Tiles;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
