@@ -470,7 +470,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
                 {
                     NPC.active = false;
                     NPC.netUpdate = true;
-                    return;
+                    return false;
                 }
             }
 

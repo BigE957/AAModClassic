@@ -1,5 +1,6 @@
 using AAModClassic.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -35,7 +36,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons     //We need th
         {
             Player player = Main.player[Projectile.owner];
 
-            Color color = ColorUtils.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, AAColor.CursedInferno, AAColor.Ichor);
+            Color color = ColorUtils.MulticolorLerp(Main.LocalPlayer.miscCounter % 100 / 100f, AAColor.CursedInferno, AAColor.Ichor);
             if (Main.myPlayer == Projectile.owner)
             {
                 if (!player.channel || player.noItems || player.CCed)

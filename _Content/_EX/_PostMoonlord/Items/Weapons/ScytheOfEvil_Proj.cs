@@ -1,5 +1,6 @@
 using AAModClassic.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,7 +18,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 
         public override Color? GetAlpha(Color lightColor)
         {
-            return ColorUtils.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, AAColor.CursedInferno, AAColor.Ichor);
+            return ColorUtils.MulticolorLerp(Main.LocalPlayer.miscCounter % 100 / 100f, AAColor.CursedInferno, AAColor.Ichor);
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)

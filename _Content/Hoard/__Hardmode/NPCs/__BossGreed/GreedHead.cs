@@ -370,7 +370,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
                 {
                     NPC.active = false;
                     NPC.netUpdate = true;
-                    return;
+                    return false;
                 }
             }
 

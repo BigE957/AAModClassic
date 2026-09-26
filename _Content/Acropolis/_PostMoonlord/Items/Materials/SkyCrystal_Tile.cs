@@ -1,4 +1,5 @@
 using AAModClassic.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
@@ -41,7 +42,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials
 
         public static Color C()
         {
-            return ColorUtils.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.SkyBlue, Color.Transparent, Color.Transparent, Color.SkyBlue);
+            return ColorUtils.MulticolorLerp(Main.LocalPlayer.miscCounter % 100 / 100f, Color.SkyBlue, Color.Transparent, Color.Transparent, Color.SkyBlue);
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)   //light colors

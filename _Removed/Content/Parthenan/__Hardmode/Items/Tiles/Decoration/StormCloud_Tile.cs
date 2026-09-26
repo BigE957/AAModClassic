@@ -1,5 +1,6 @@
 using AAModClassic.Base;
 using AAModClassic.Dusts;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
@@ -26,14 +27,14 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decorat
         {
             if (!glow) return;
             Tile tile = Main.tile[x, y];
-            Color color = ColorUtils.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.White, Color.White, Color.Violet, Color.White, Color.Violet, Color.White);
+            Color color = ColorUtils.MulticolorLerp(Main.LocalPlayer.miscCounter % 100 / 100f, Color.White, Color.White, Color.Violet, Color.White, Color.Violet, Color.White);
             r = color.R / 255f; g = color.G / 255f; b = color.B / 255f;
         }
 
         public override void PostDraw(int x, int y, SpriteBatch sb)
         {
             Tile tile = Main.tile[x, y];
-            color = ColorUtils.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.White, Color.White, Color.Violet, Color.White, Color.Violet, Color.White);
+            color = ColorUtils.MulticolorLerp(Main.LocalPlayer.miscCounter % 100 / 100f, Color.White, Color.White, Color.Violet, Color.White, Color.Violet, Color.White);
             Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
             if (Main.drawToScreen)
             {

@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Base;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
@@ -26,7 +27,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials
 
         public override Color? GetAlpha(Color lightColor)
         {
-            return ColorUtils.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.White, lightColor, lightColor, Color.White);
+            return ColorUtils.MulticolorLerp(Main.LocalPlayer.miscCounter % 100 / 100f, Color.White, lightColor, lightColor, Color.White);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AAModClassic.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.Localization;
@@ -10,7 +11,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decorat
 {
     public class AncientDataBank_Tile : ModTile, IGlowmaskTile
     {
-        public Color GlowColor => ColorUtils.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.White, Color.White, Color.Violet, Color.White, Color.Violet, Color.White, Color.White, Color.White, Color.White, Color.Violet, Color.White, Color.Violet);
+        public Color GlowColor => ColorUtils.MulticolorLerp(Main.LocalPlayer.miscCounter % 100 / 100f, Color.White, Color.White, Color.Violet, Color.White, Color.Violet, Color.White, Color.White, Color.White, Color.White, Color.Violet, Color.White, Color.Violet);
 
         public override void SetStaticDefaults()
         {

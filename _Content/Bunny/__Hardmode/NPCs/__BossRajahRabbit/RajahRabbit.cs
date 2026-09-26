@@ -1334,7 +1334,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 
             if (RageMode)
             {
-                Color RageColor = ColorUtils.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.Firebrick, drawColor, Color.Firebrick);
+                Color RageColor = ColorUtils.MulticolorLerp(Main.LocalPlayer.miscCounter % 100 / 100f, Color.Firebrick, drawColor, Color.Firebrick);
                 DrawingUtils.DrawAura(spriteBatch, TextureAssets.Npc[NPC.type].Value, NPC, auraPercent, overrideColor: RageColor);
             }
             else if (SupremeRageMode)

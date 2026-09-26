@@ -1,6 +1,7 @@
 using AAModClassic.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,7 +10,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
 {
     public class FulguriteShard_Tile : ModTile, IGlowmaskTile
     {
-        public Color GlowColor => ColorUtils.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.Black, Color.Violet, Color.Black, Color.Violet, Color.Black, Color.Black, Color.Black);
+        public Color GlowColor => ColorUtils.MulticolorLerp(Main.LocalPlayer.miscCounter % 100 / 100f, Color.Black, Color.Violet, Color.Black, Color.Violet, Color.Black, Color.Black, Color.Black);
 
         public override void SetStaticDefaults()
         {
@@ -27,7 +28,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)
         {
             Tile tile = Main.tile[x, y];
-            Color color = ColorUtils.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.Violet, Color.White, Color.White);
+            Color color = ColorUtils.MulticolorLerp(Main.LocalPlayer.miscCounter % 100 / 100f, Color.Violet, Color.White, Color.White);
             r = color.R / 255f; g = color.G / 255f; b = color.B / 255f;
         }
 

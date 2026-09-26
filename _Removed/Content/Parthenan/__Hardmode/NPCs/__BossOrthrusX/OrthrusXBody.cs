@@ -5,6 +5,7 @@ using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -203,7 +204,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
         {
             if (!Main.dedServ)
             {
-                color = ColorUtils.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Lighting.GetColor(NPC.Center.ToTileCoordinates()), Lighting.GetColor(NPC.Center.ToTileCoordinates()), Color.Violet, Lighting.GetColor(NPC.Center.ToTileCoordinates()), Color.Violet, Lighting.GetColor(NPC.Center.ToTileCoordinates()));
+                color = ColorUtils.MulticolorLerp(Main.LocalPlayer.miscCounter % 100 / 100f, Lighting.GetColor(NPC.Center.ToTileCoordinates()), Lighting.GetColor(NPC.Center.ToTileCoordinates()), Color.Violet, Lighting.GetColor(NPC.Center.ToTileCoordinates()), Color.Violet, Lighting.GetColor(NPC.Center.ToTileCoordinates()));
                 Lighting.AddLight((int)(NPC.Center.X + NPC.width / 2) / 16, (int)(NPC.position.Y + NPC.height / 2) / 16, color.R / 255f, color.G / 255f, color.B / 255f);
             }
 
@@ -357,7 +358,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
             };
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
 
-            purple = ColorUtils.MultiLerpColor(((int)(Main.GlobalTimeWrappedHourly * 60)) % 100 / 100f, drawColor, drawColor, Color.Violet, drawColor, Color.Violet, drawColor);
+            purple = ColorUtils.MulticolorLerp(((int)(Main.GlobalTimeWrappedHourly * 60)) % 100 / 100f, drawColor, drawColor, Color.Violet, drawColor, Color.Violet, drawColor);
 
             if (NPC.IsABestiaryIconDummy)
             {

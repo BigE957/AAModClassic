@@ -2,6 +2,7 @@
 using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
 using AAModClassic.Base;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -147,7 +148,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
 
             if (!Main.dedServ)
             {
-                Color color = ColorUtils.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Lighting.GetColor(NPC.Center.ToTileCoordinates()), Lighting.GetColor(NPC.Center.ToTileCoordinates()), Color.Violet, Lighting.GetColor(NPC.Center.ToTileCoordinates()), Color.Violet, Lighting.GetColor(NPC.Center.ToTileCoordinates()));
+                Color color = ColorUtils.MulticolorLerp(Main.LocalPlayer.miscCounter % 100 / 100f, Lighting.GetColor(NPC.Center.ToTileCoordinates()), Lighting.GetColor(NPC.Center.ToTileCoordinates()), Color.Violet, Lighting.GetColor(NPC.Center.ToTileCoordinates()), Color.Violet, Lighting.GetColor(NPC.Center.ToTileCoordinates()));
                 Lighting.AddLight((int)(NPC.Center.X) / 16, (int)(NPC.position.Y) / 16, color.R / 255f, color.G / 255f, color.B / 255f);
             }
 
@@ -538,7 +539,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             Texture2D glowTex = Glowmask1.Value;
             Texture2D glowTex1 = Glowmask2.Value;
 
-            Color color = ColorUtils.MultiLerpColor(((int)(Main.GlobalTimeWrappedHourly * 60)) % 100 / 100f, drawColor, drawColor, Color.Violet, drawColor, Color.Violet, drawColor);
+            Color color = ColorUtils.MulticolorLerp(((int)(Main.GlobalTimeWrappedHourly * 60)) % 100 / 100f, drawColor, drawColor, Color.Violet, drawColor, Color.Violet, drawColor);
 
             if (internalAI[1] == AISTATE_ROCKET)
             {
