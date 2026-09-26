@@ -76,7 +76,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                                 switch(NPC.ai[0])
                                 {
                                     case 120:
-                                        DialogueDisplaySystem.StartDialogue("Mods.AAModClassic.Athena.Transition", NPC, 0, 60, effects: new NearbyBossText());
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.Athena.Transition", NPC, 0, 60, effects: new NearbyBossText());
                                         break;
                                     case 480:
                                         Music = MusicManagementSystem.MusicSlots["Athena_Awakened"];
@@ -142,9 +142,9 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                                             pCount++;
 
                                         if(pCount > 1)
-                                            DialogueDisplaySystem.StartDialogue("Mods.AAModClassic.Athena.OlympianDefeat.Singleplayer", NPC, 0, 60, effects: new NearbyBossText());
+                                            WorldTextSystem.StartDialogue("Mods.AAModClassic.Athena.OlympianDefeat.Singleplayer", NPC, 0, 60, effects: new NearbyBossText());
                                         else
-                                            DialogueDisplaySystem.StartDialogue("Mods.AAModClassic.Athena.OlympianDefeat.Multiplayer", NPC, 0, 60, effects: new NearbyBossText());
+                                            WorldTextSystem.StartDialogue("Mods.AAModClassic.Athena.OlympianDefeat.Multiplayer", NPC, 0, 60, effects: new NearbyBossText());
                                         break;
                                     case 1200:
                                         AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], ModContent.NPCType<AthenaFlee>(), false, NPC.Center);

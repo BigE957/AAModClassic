@@ -108,18 +108,6 @@ namespace AAModClassic
         public static ModKeybind RiftReturn;
         public static ModKeybind TimeStoneKey;
 
-        // UI
-        public UserInterface TerratoolInterface;
-        public TerratoolTUI TerratoolTState;
-        public TerratoolCUI TerratoolCState;
-        public TerratoolAUI TerratoolAState;
-        public TerratoolYUI TerratoolYState;
-        public TerratoolZUI TerratoolZState;
-        public TerratoolSUI TerratoolSState;
-        public TerratoolKipUI TerratoolKipState;
-        public TerratoolGroxUI TerratoolGroxState;
-        public TerratoolEXUI TerratoolEXState;
-
         public static AAMod instance;
 
         public AAMod()
@@ -514,32 +502,12 @@ namespace AAModClassic
         }
     }
 
-    public class AAModSystem : ModSystem
+    public class AALoadingSystem : ModSystem
     {
         public static bool AAloadedOnly = true;
 
         public override void Load()
         {
-            ModContent.GetInstance<AAMod>().TerratoolInterface = new UserInterface();
-            ModContent.GetInstance<AAMod>().TerratoolTState = new TerratoolTUI();
-            ModContent.GetInstance<AAMod>().TerratoolTState.Activate();
-            ModContent.GetInstance<AAMod>().TerratoolCState = new TerratoolCUI();
-            ModContent.GetInstance<AAMod>().TerratoolCState.Activate();
-            ModContent.GetInstance<AAMod>().TerratoolAState = new TerratoolAUI();
-            ModContent.GetInstance<AAMod>().TerratoolAState.Activate();
-            ModContent.GetInstance<AAMod>().TerratoolYState = new TerratoolYUI();
-            ModContent.GetInstance<AAMod>().TerratoolYState.Activate();
-            ModContent.GetInstance<AAMod>().TerratoolZState = new TerratoolZUI();
-            ModContent.GetInstance<AAMod>().TerratoolZState.Activate();
-            ModContent.GetInstance<AAMod>().TerratoolSState = new TerratoolSUI();
-            ModContent.GetInstance<AAMod>().TerratoolSState.Activate();
-            ModContent.GetInstance<AAMod>().TerratoolKipState = new TerratoolKipUI();
-            ModContent.GetInstance<AAMod>().TerratoolKipState.Activate();
-            ModContent.GetInstance<AAMod>().TerratoolGroxState = new TerratoolGroxUI();
-            ModContent.GetInstance<AAMod>().TerratoolGroxState.Activate();
-            ModContent.GetInstance<AAMod>().TerratoolEXState = new TerratoolEXUI();
-            ModContent.GetInstance<AAMod>().TerratoolEXState.Activate();
-
             On_Player.GetPickaxeDamage += ModifyLuminitePickaxePower;
 
             BrokenCodeTeleportUnofficialEdits.ApplyEdits();
@@ -597,38 +565,6 @@ namespace AAModClassic
                 {
                     AALuckyConfig.ListRareNpc.Add(i);
                 }
-            }
-        }
-
-        private static GameTime lastUpdateUIGameTime;
-
-        public override void UpdateUI(GameTime gameTime)
-        {
-            lastUpdateUIGameTime = gameTime;
-
-            if (AAMod.instance.TerratoolInterface?.CurrentState != null)
-            {
-                AAMod.instance.TerratoolInterface.Update(gameTime);
-            }
-        }
-
-        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
-        {
-            int wireSelectionLayerIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Wire Selection"));
-            if (wireSelectionLayerIndex != -1)
-            {
-                layers.Insert(wireSelectionLayerIndex, new LegacyGameInterfaceLayer(
-                "AAModClassic: Radial UIs",
-                delegate
-                {
-                    if (AAMod.instance.TerratoolInterface?.CurrentState is ToggableUI && lastUpdateUIGameTime != null)
-                    {
-                        AAMod.instance.TerratoolInterface.Draw(Main.spriteBatch, lastUpdateUIGameTime);
-                    }
-
-                    return true;
-                },
-                InterfaceScaleType.UI));
             }
         }
     }

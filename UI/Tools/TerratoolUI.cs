@@ -4,8 +4,8 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.GameInput;
+using Terraria.ModLoader;
 using Terraria.UI;
 
 namespace AAModClassic.UI.Tools
@@ -26,7 +26,7 @@ namespace AAModClassic.UI.Tools
         public abstract Asset<Texture2D> ButtonOffImage { get; }
         public abstract int HeldItemType { get; }
 
-        public virtual UserInterface Interface => AAMod.instance.TerratoolInterface;
+        public virtual UserInterface Interface => TerratoolUISystem.TerratoolInterface;
 
         public virtual Color HoverColor => new Color(150, 150, 150);
 
@@ -201,6 +201,75 @@ namespace AAModClassic.UI.Tools
             }
 
             Recalculate();
+        }
+    }
+
+    public class TerratoolUISystem : ModSystem
+    {
+        public static UserInterface TerratoolInterface;
+        public static TerratoolTUI TerratoolTState;
+        public static TerratoolCUI TerratoolCState;
+        public static TerratoolAUI TerratoolAState;
+        public static TerratoolYUI TerratoolYState;
+        public static TerratoolZUI TerratoolZState;
+        public static TerratoolSUI TerratoolSState;
+        public static TerratoolKipUI TerratoolKipState;
+        public static TerratoolGroxUI TerratoolGroxState;
+        public static TerratoolEXUI TerratoolEXState;
+
+        private static GameTime lastUpdateUIGameTime;
+
+        public override void Load()
+        {
+            TerratoolInterface = new UserInterface();
+            TerratoolTState = new TerratoolTUI();
+            TerratoolTState.Activate();
+            TerratoolCState = new TerratoolCUI();
+            TerratoolCState.Activate();
+            TerratoolAState = new TerratoolAUI();
+            TerratoolAState.Activate();
+            TerratoolYState = new TerratoolYUI();
+            TerratoolYState.Activate();
+            TerratoolZState = new TerratoolZUI();
+            TerratoolZState.Activate();
+            TerratoolSState = new TerratoolSUI();
+            TerratoolSState.Activate();
+            TerratoolKipState = new TerratoolKipUI();
+            TerratoolKipState.Activate();
+            TerratoolGroxState = new TerratoolGroxUI();
+            TerratoolGroxState.Activate();
+            TerratoolEXState = new TerratoolEXUI();
+            TerratoolEXState.Activate();
+        }
+
+        public override void UpdateUI(GameTime gameTime)
+        {
+            lastUpdateUIGameTime = gameTime;
+
+            if (TerratoolInterface?.CurrentState != null)
+            {
+                TerratoolInterface.Update(gameTime);
+            }
+        }
+
+        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
+        {
+            int wireSelectionLayerIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Wire Selection"));
+            if (wireSelectionLayerIndex != -1)
+            {
+                layers.Insert(wireSelectionLayerIndex, new LegacyGameInterfaceLayer(
+                "AAModClassic: Radial UIs",
+                delegate
+                {
+                    if (TerratoolInterface?.CurrentState is ToggableUI && lastUpdateUIGameTime != null)
+                    {
+                        TerratoolInterface.Draw(Main.spriteBatch, lastUpdateUIGameTime);
+                    }
+
+                    return true;
+                },
+                InterfaceScaleType.UI));
+            }
         }
     }
 }

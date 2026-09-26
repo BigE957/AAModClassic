@@ -572,7 +572,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                            DialogueDisplaySystem.StartDialogue("Mods.AAModClassic.Athena.Misc", Main.LocalPlayer.Center, 3, 60, false, new NearbyBossText());
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.Athena.Misc", Main.LocalPlayer.Center, 3, 60, false, new NearbyBossText());
                         else
                             BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Kill"), Color.CornflowerBlue);
                     }
@@ -686,7 +686,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                        DialogueDisplaySystem.StartDialogue("Mods.AAModClassic.Athena.Misc", Main.LocalPlayer.Center, 2, 60, false, new NearbyBossText());
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.Athena.Misc", Main.LocalPlayer.Center, 2, 60, false, new NearbyBossText());
                     else
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.Repeat"), Color.CornflowerBlue);
                 }
