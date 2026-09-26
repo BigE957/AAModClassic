@@ -60,6 +60,8 @@ public static class CollisionUtils
         return null;
     }
 
+    public static bool CanHit(Rectangle rect, Rectangle rect2) => Collision.CanHit(new Vector2(rect.X, rect.Y), rect.Width, rect.Height, new Vector2(rect2.X, rect2.Y), rect2.Width, rect2.Height);
+
     public static Point FindSurfaceBelow(Point p, bool ignorePlatforms = false)
     {
 

@@ -1,4 +1,5 @@
 using AAModClassic.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria.ID;
@@ -127,7 +128,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
         {
             if (codable is NPC npc)
             {
-                return npc.active && npc.life > 0 && !npc.friendly && !npc.dontTakeDamage && npc.lifeMax > 5 && Vector2.Distance(startPos, npc.Center) < 900 && Math.Abs(npc.Center.Y - startPos.Y) < 16f * (20 - 1) && (BaseUtility.CanHit(Projectile.Hitbox, npc.Hitbox) || BaseUtility.CanHit(Main.player[Projectile.owner].Hitbox, npc.Hitbox));
+                return npc.active && npc.life > 0 && !npc.friendly && !npc.dontTakeDamage && npc.lifeMax > 5 && Vector2.Distance(startPos, npc.Center) < 900 && Math.Abs(npc.Center.Y - startPos.Y) < 16f * (20 - 1) && (CollisionUtils.CanHit(Projectile.Hitbox, npc.Hitbox) || CollisionUtils.CanHit(Main.player[Projectile.owner].Hitbox, npc.Hitbox));
             }
             return false;
         }

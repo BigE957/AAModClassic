@@ -34,7 +34,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
         }
         public override void AI()
         {
-            Color color = BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Lighting.GetColor((Projectile.position).ToTileCoordinates()), Lighting.GetColor((Projectile.position).ToTileCoordinates()), Color.Violet, Lighting.GetColor((Projectile.position).ToTileCoordinates()), Color.Violet, Lighting.GetColor((Projectile.position).ToTileCoordinates()));
+            Color color = ColorUtils.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Lighting.GetColor((Projectile.position).ToTileCoordinates()), Lighting.GetColor((Projectile.position).ToTileCoordinates()), Color.Violet, Lighting.GetColor((Projectile.position).ToTileCoordinates()), Color.Violet, Lighting.GetColor((Projectile.position).ToTileCoordinates()));
 
             Lighting.AddLight((int)(Projectile.Center.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, color.R / 255f, color.G / 255f, color.B / 255f);
             if (++Projectile.frameCounter >= 4)
@@ -54,7 +54,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             Texture2D glowTex = Glowmask1.Value;
             Texture2D glowTex1 = Glowmask2.Value;
 
-            Color color = BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Lighting.GetColor((Projectile.position).ToTileCoordinates()), Lighting.GetColor((Projectile.position).ToTileCoordinates()), Color.Violet, Lighting.GetColor((Projectile.position).ToTileCoordinates()), Color.Violet, Lighting.GetColor((Projectile.position).ToTileCoordinates()));
+            Color color = ColorUtils.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Lighting.GetColor((Projectile.position).ToTileCoordinates()), Lighting.GetColor((Projectile.position).ToTileCoordinates()), Color.Violet, Lighting.GetColor((Projectile.position).ToTileCoordinates()), Color.Violet, Lighting.GetColor((Projectile.position).ToTileCoordinates()));
             Rectangle frame = BaseDrawing.GetFrame(Projectile.frame, 66, 98);
 
             BaseDrawing.DrawTexture(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, 0, Projectile.position, Projectile.width, Projectile.height, Projectile.scale, Projectile.rotation, 0, 4, frame, lightColor, true);

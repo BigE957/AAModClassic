@@ -123,7 +123,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
             {
                 for (int tY = tileY; tY < tileCenterY; tY++)
                 {
-                    Tile checkTile = WorldGenUtils.GetTileSafely(tX, tY);
+                    Tile checkTile = Framing.GetTileSafely(tX, tY);
                     if (checkTile != null && (checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0) || checkTile.LiquidAmount > 64))
                     {
                         Vector2 tPos;

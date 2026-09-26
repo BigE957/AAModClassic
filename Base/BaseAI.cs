@@ -1,3 +1,4 @@
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -108,7 +109,7 @@ namespace AAModClassic.Base
                 {
                     if (codable.velocity.X < 0f && moveDirection == -1 || codable.velocity.X > 0f && moveDirection == 1)
                     {
-                        bool test = target != null && !isOwner && targetDistX < 50f && targetDistY > codable.height + codable.height / 2 && targetDistY < 16f * (jumpDistY + 1) && BaseUtility.CanHit(codable.Hitbox, target.Hitbox);
+                        bool test = target != null && !isOwner && targetDistX < 50f && targetDistY > codable.height + codable.height / 2 && targetDistY < 16f * (jumpDistY + 1) && CollisionUtils.CanHit(codable.Hitbox, target.Hitbox);
                         Vector2 newVec = AttemptJump(codable.position, codable.velocity, codable.width, codable.height, moveDirection, moveDirectionY, jumpDistX, jumpDistY, maxSpeed, true, target, test);
                         if (tileCollide)
                         {
@@ -1672,7 +1673,7 @@ namespace AAModClassic.Base
             }
             catch (Exception e)
             {
-                BaseUtility.LogFancy("Redemption~ ATTEMPT JUMP ERROR:", e);
+                AAMod.instance.Logger.Warn("Redemption~ ATTEMPT JUMP ERROR:", e);
                 return velocity;
             }
         }
@@ -2434,7 +2435,7 @@ namespace AAModClassic.Base
                                 Tile tile = Framing.GetTileSafely(vecX, vecY);
                                 if (tile is { HasUnactuatedTile: true })
                                 {
-                                    bool ignoreTile = tileTypesToIgnore is { Length: > 0 } && BaseUtility.InArray(tileTypesToIgnore, tile.TileType);
+                                    bool ignoreTile = tileTypesToIgnore is { Length: > 0 } && tileTypesToIgnore.Contains(tile.TileType);
                                     if (!ignoreTile && Main.tileSolid[tile.TileType])
                                     {
                                         return returnCenter ? new Vector2(vecX * 16 + 8, vecY * 16 + 8) : v;
@@ -2472,7 +2473,7 @@ namespace AAModClassic.Base
             }
             catch (Exception e)
             {
-                BaseUtility.LogFancy("Redemption~ TRACE ERROR:", e);
+                AAMod.instance.Logger.Warn("Redemption~ TRACE ERROR:", e);
             }
             return end;
         }

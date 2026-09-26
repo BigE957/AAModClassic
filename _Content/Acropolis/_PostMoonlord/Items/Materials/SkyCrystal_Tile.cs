@@ -41,7 +41,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials
 
         public static Color C()
         {
-            return BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.SkyBlue, Color.Transparent, Color.Transparent, Color.SkyBlue);
+            return ColorUtils.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.SkyBlue, Color.Transparent, Color.Transparent, Color.SkyBlue);
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)   //light colors

@@ -17,7 +17,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 
         public override Color? GetAlpha(Color lightColor)
         {
-            return BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, AAColor.CursedInferno, AAColor.Ichor);
+            return ColorUtils.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, AAColor.CursedInferno, AAColor.Ichor);
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)

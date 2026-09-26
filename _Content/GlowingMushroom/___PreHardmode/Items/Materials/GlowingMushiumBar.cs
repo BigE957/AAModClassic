@@ -35,7 +35,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials
 
         public override Color? GetAlpha(Color lightColor)
         {
-            return BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.White, lightColor, lightColor, Color.White);
+            return ColorUtils.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.White, lightColor, lightColor, Color.White);
         }
 
         public override void AddRecipes()

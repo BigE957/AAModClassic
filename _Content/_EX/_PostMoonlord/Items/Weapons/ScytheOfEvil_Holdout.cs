@@ -35,7 +35,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons     //We need th
         {
             Player player = Main.player[Projectile.owner];
 
-            Color color = BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, AAColor.CursedInferno, AAColor.Ichor);
+            Color color = ColorUtils.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, AAColor.CursedInferno, AAColor.Ichor);
             if (Main.myPlayer == Projectile.owner)
             {
                 if (!player.channel || player.noItems || player.CCed)
