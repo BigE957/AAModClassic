@@ -147,7 +147,7 @@ namespace AAModClassic
         private static void AddAltarBlockingTile(int tileType) => AAWorld.DontSpawnAltarsOn.Add(tileType);
 
         [ModCall]
-        private static bool AddOreProjectileData(int oreID, int dustType, Action<Projectile> oreEffect = null, Action<Projectile> extraAI = null, OnHitDelegate onHit = null, Action<Projectile> onKill = null, Action<Projectile, Color> extraDraw = null, Action<Projectile> onSpawn = null)
+        private static bool AddOreProjectileData(int oreID, int dustType, Action<Projectile>? oreEffect = null, Action<Projectile>? extraAI = null, OnHitDelegate? onHit = null, Action<Projectile>? onKill = null, Action<Projectile, Color>? extraDraw = null, Action<Projectile>? onSpawn = null)
         {
             if (OreCannonSystem.OreData.ContainsKey(oreID))
             {

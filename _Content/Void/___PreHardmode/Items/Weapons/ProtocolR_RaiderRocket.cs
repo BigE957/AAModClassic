@@ -83,7 +83,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
             }
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             for (int i = 0; i < 20; i++)

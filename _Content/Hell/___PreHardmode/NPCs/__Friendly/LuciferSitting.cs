@@ -89,10 +89,7 @@ namespace AAModClassic._Content.Hell.___PreHardmode.NPCs.__Friendly
         public override void SetChatButtons(ref string button, ref string button2)
         {
             string buttonsPath = "Mods.AAModClassic.NPCs.TownNPCs.LuciferSitting.Buttons.";
-            string who = "Who are you?";
-            string when = "When will it be done?";
-            string why = "Why are you building it?";
-            string bye = "Alright, goodbye.";
+
             if (chatNumber == 0)
             {
                 button = Language.GetTextValue(buttonsPath + "Who");

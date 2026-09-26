@@ -122,7 +122,7 @@ namespace AAModClassic.Structures.Tools
                     int i = data.CellIndex(x, y);
 
                     bool keepTile = session.KeepTiles[wx, wy] || (session.KeepTileStandIn.HasValue && tile.HasTile && tile.TileType == session.KeepTileStandIn.Value);
-                    bool keepWall = session.KeepWalls[wx, wy] || (session.KeepWallStandIn.HasValue && tile.WallType != 0 && tile.WallType == session.KeepWallStandIn.Value);
+                    bool keepWall = session.KeepWalls[wx, wy] || (session.KeepWallStandIn.HasValue && tile.WallType != WallID.None && tile.WallType == session.KeepWallStandIn.Value);
 
                     uint flags = 0;
                     if (keepTile)

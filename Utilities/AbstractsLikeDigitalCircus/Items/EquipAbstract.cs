@@ -357,7 +357,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             player.statLifeMax2 += Amount;
         }
 
-        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.IncreasesDecreases), Math.Abs(amount)).FirstCharToUpper();
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(Amount, ChatUtils.IncreaseDecreaseTextType.IncreasesDecreases), Math.Abs(Amount)).FirstCharToUpper();
     }
 
     public class MovementSpeedEffect(float amount) : EquipmentEffectData
