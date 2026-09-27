@@ -8,8 +8,6 @@ using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena;
 using AAModClassic.Base;
-using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.BossStandard;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Effects;
 using AAModClassic.UI.Dialogue;
@@ -145,7 +143,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                 Music = MusicLoader.GetMusicSlot("AAModClassic/Music/silence");
                 if (Vector2.Distance(NPC.Center, Acropolis) < 10)
                 {
-                    NPC.velocity = Vector2.Zero;
+                    NPC.velocity *= 0;
 
                     if (Seen)
                     {
@@ -155,25 +153,40 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                             NPC.direction = 1;
                     }
 
-                    if (Main.netMode != NetmodeID.MultiplayerClient && internalAI[3] < 180 && Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height))
+                    if (Main.netMode != NetmodeID.MultiplayerClient && Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height) && internalAI[3] < 180)
                     {
                         Seen = true;
                         NPC.netUpdate = true;
                     }
 
 
+                    if (!Seen)
+                    {
                         internalAI[4]++;
-                        if (internalAI[4] == 60)
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                         {
-                            CombatText.NewText(NPC.Hitbox, Color.CadetBlue, "...");
+                            if (Main.netMode != NetmodeID.MultiplayerClient)
+                            {
+                                switch (internalAI[4])
+                                {
+                                    case 60:
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.Athena.Evaded", NPC, 0, 60, effects: new NearbyBossText());
+                                        break;
+                                    case 300:
+                                        NPC.active = false;
+                                        int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
+                                        Main.npc[p].Center = NPC.Center;
+                                        break;
+                                }
+                            }
                         }
-                            CombatText.NewText(NPC.Hitbox, Color.CadetBlue, "...");
-                        }
+                        else
+                        {
+                            if (internalAI[4] == 60)
+                                CombatText.NewText(NPC.Hitbox, Color.CadetBlue, "...");
 
                             if (internalAI[4] == 180)
-                            {
                                 CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.AthenaChat1"));
-                            }
 
                             if (internalAI[4] >= 300)
                             {
@@ -195,14 +208,14 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                     {
                         if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                         {
-                            switch(internalAI[3])
+                            switch (internalAI[3])
                             {
                                 case 30:
                                     int slot = WorldTextSystem.GetSlot("Mods.AAModClassic.Athena.Intro.Multiplayer");
                                     if (slot != -1)
                                         WorldTextSystem.RemoveDialogue(slot);
                                     break;
-                                case 60:                                    
+                                case 60:
                                     int activePlayers = 0;
                                     foreach (Player p in Main.ActivePlayers)
                                         activePlayers++;
@@ -360,7 +373,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                     internalAI[6]++;
                     if (Main.netMode != NetmodeID.MultiplayerClient && (Main.player[NPC.target].dead || !Main.player[NPC.target].active || ((Math.Abs(Vector2.Distance(NPC.position, Main.player[NPC.target].position)) > 5000 || !Main.player[NPC.target].GetModPlayer<ZAAPlayer>().ZoneAcropolis) && internalAI[6] > 3000)))
                     {
-                        if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                             WorldTextSystem.StartDialogue("Mods.AAModClassic.Athena.Misc", Main.LocalPlayer.Center, 1, 60, false, new NearbyBossText());
                         else
                             CombatText.NewText(NPC.Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Kill"));
