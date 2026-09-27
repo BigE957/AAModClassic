@@ -1,11 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MonoMod.RuntimeDetour;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
@@ -45,7 +42,7 @@ namespace AAModClassic.Utilities.Interfaces
             //ModContent.GetInstance<AAMod>().Logger.Info($"  - Creating new Banner");
 
             string path = lead.Texture;
-            if(path.EndsWith("Head"))
+            if (path.EndsWith("Head"))
                 path = path.Substring(0, path.Length - 4);
             else if (path.EndsWith("_NPC"))
                 path = path.Substring(0, path.Length - 4);
@@ -70,8 +67,8 @@ namespace AAModClassic.Utilities.Interfaces
                 BannerTile.TileTypeToNPC.Add(tile.Type, lead.Type);
 
                 BannerItem item = new(path + "_Banner", name, tile.Type);
-                
-                if(!ModContent.GetInstance<AAMod>().AddContent(item))
+
+                if (!ModContent.GetInstance<AAMod>().AddContent(item))
                 {
                     ModContent.GetInstance<AAMod>().Logger.Warn($"- Failed to add a banner");
                     ModContent.GetInstance<AAMod>().Logger.Warn($"  - Item could not be added to Content");
@@ -152,12 +149,12 @@ namespace AAModClassic.Utilities.Interfaces
             Item.value = 1000;
         }
     }
-    
+
     [Autoload(false)]
     public class BannerTile(string texture, string name) : ModBannerTile, ILocalizedModType
     {
         internal static Dictionary<int, int> TileTypeToNPC = [];
-    
+
         public new string LocalizationCategory => "Tiles.Banners";
 
         public override string Name => name + "Banner";

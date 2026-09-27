@@ -1,20 +1,19 @@
-﻿using Terraria.ModLoader;
-using Terraria;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
-using Terraria.ID;
+﻿using AAModClassic._Content.Hell.___PreHardmode.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic._Content.Hell.___PreHardmode.Items.Tiles.Functional;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional
 {
     public class TruePaladinsSmeltery : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables.Functional";
-        
+
         public override void SetStaticDefaults()
         {
-            
+
             // DisplayName.SetDefault("True Paladin's Smeltery");
             /* Tooltip.SetDefault(
 @"A superforge meant for only the worthiest of smiths

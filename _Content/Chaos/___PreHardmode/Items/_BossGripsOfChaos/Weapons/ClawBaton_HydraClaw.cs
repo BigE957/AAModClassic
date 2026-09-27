@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Weapons
@@ -54,13 +53,13 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Wea
                     Projectile.timeLeft = 2;
                 }
             }
-            
+
             float num633 = 700f;
             float num634 = 800f;
             float num635 = 1200f;
             float num636 = 150f;
             float num637 = 0.05f;
-            foreach(Projectile p in Main.ActiveProjectiles)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
                 bool flag23 = p.type == ModContent.ProjectileType<ClawBaton_HydraClaw>();
                 if (p.whoAmI != Projectile.whoAmI && p.owner == Projectile.owner && flag23 && Math.Abs(Projectile.position.X - p.position.X) + Math.Abs(Projectile.position.Y - p.position.Y) < Projectile.width)
@@ -118,8 +117,8 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Wea
                 Projectile.tileCollide = false;
             }
             if (player.HasMinionAttackTargetNPC)
-			{
-				NPC nPC2 = Main.npc[player.MinionAttackTargetNPC];
+            {
+                NPC nPC2 = Main.npc[player.MinionAttackTargetNPC];
                 if (nPC2.CanBeChasedBy(Projectile, false))
                 {
                     float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
@@ -130,9 +129,9 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Wea
                         flag25 = true;
                     }
                 }
-			}
-			else
-			{
+            }
+            else
+            {
                 for (int num645 = 0; num645 < 200; num645++)
                 {
                     NPC nPC2 = Main.npc[num645];
@@ -220,7 +219,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Wea
                 }
             }
 
-            Projectile.spriteDirection =Projectile.velocity.X > 0? 1: -1;
+            Projectile.spriteDirection = Projectile.velocity.X > 0 ? 1 : -1;
 
             Projectile.rotation = Projectile.velocity.ToRotation() + 1.57f;
 

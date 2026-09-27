@@ -1,13 +1,10 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
-using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -16,11 +13,11 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
 {
     [LegacyName("Sagittarius")]
     public class SagittariusA : ModItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Sagittarius");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Sagittarius");
             // Tooltip.SetDefault("Throws out 6 razor sharp flails");
         }
 
@@ -57,18 +54,18 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
         }
 
         public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<EventHorizon>());
-			recipe.AddIngredient(ModContent.ItemType<Infinitium>(), 12);
-	        recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
-	        recipe.Register();
-		}
-		
-		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-		{
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<EventHorizon>());
+            recipe.AddIngredient(ModContent.ItemType<Infinitium>(), 12);
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
+            recipe.Register();
+        }
+
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
             float ai3 = (Main.rand.NextFloat() - 0.75f) * 0.7853982f; //0.5
-	    	float ai3X = (Main.rand.NextFloat() - 0.50f) * 0.7853982f; //0.5
+            float ai3X = (Main.rand.NextFloat() - 0.50f) * 0.7853982f; //0.5
             float ai3Y = (Main.rand.NextFloat() - 0.25f) * 0.7853982f; //0.5
             float ai3Z = (Main.rand.NextFloat() - 0.12f) * 0.7853982f;
             float spread = 45f * 0.0174f;
@@ -84,5 +81,5 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
             }
             return false;
         }
-	}
+    }
 }

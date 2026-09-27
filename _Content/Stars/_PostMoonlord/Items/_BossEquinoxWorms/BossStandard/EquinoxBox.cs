@@ -1,19 +1,18 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
-using Terraria;
-using Terraria.ID;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.BossStandard
 {
-	public class EquinoxBox : BaseAAItem, ILocalizedModType
-	{
+    public class EquinoxBox : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
-        
-		public override void SetStaticDefaults()
-		{
+
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Music Box (Equinox Worms)");
             // Tooltip.SetDefault(@"Plays 'Celestial Cyclone' by ProduceVGM");
 
@@ -22,21 +21,21 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items._BossEquinoxWorms.Boss
         }
 
         public override void SetDefaults()
-		{
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.useTurn = true;
-			Item.useAnimation = 15;
-			Item.useTime = 10;
-			Item.autoReuse = true;
-			Item.consumable = true;
-			Item.createTile = ModContent.TileType<EquinoxBox_Tile>();
+        {
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.consumable = true;
+            Item.createTile = ModContent.TileType<EquinoxBox_Tile>();
             Item.width = 72;
-			Item.height = 36;
-			Item.rare = ItemRarityID.LightRed;
-			Item.value = 10000;
-			Item.accessory = true;
+            Item.height = 36;
+            Item.rare = ItemRarityID.LightRed;
+            Item.value = 10000;
+            Item.accessory = true;
         }
-        
+
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
             Texture2D texture = ModContent.Request<Texture2D>(Texture + "_Glow").Value;

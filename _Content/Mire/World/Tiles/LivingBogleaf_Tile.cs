@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,16 +9,16 @@ namespace AAModClassic._Content.Mire.World.Tiles
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-			Main.tileMergeDirt[Type] = false;
-			Main.tileBlendAll[Type] = false;
-			Main.tileMerge[TileID.Mud][Type] = true;
+            Main.tileMergeDirt[Type] = false;
+            Main.tileBlendAll[Type] = false;
+            Main.tileMerge[TileID.Mud][Type] = true;
             Main.tileBlockLight[Type] = true;  //true for block to emit light
             Main.tileLighted[Type] = false;
             DustType = ModContent.DustType<Dusts.BogleafDust>();
             HitSound = SoundID.Grass;
             //RegisterItemDrop(Mod.Find<ModItem>("").Type);   
             AddMapEntry(new Color(70, 0, 127));
-			MinPick = 0;
+            MinPick = 0;
         }
     }
 }

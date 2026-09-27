@@ -1,11 +1,10 @@
-﻿using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.ID;
 
 
 namespace AAModClassic._Content.Chaos.___PreHardmode.Items.Tiles.Decoration

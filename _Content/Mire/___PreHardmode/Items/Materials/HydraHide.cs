@@ -1,10 +1,8 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Config;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Materials
 {

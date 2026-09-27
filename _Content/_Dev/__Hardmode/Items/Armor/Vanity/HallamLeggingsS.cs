@@ -1,24 +1,23 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class HallamLeggingsS : BaseAAItem, ILocalizedModType
-	{
+    public class HallamLeggingsS : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Hallam.Shiny";
         public override void SetStaticDefaults()
-		{
+        {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Hallam's Velvet Trousers");
             /* Tooltip.SetDefault(
 @"These pants cost way more than you do
 'Great for impersonating Ancients Awakened Devs!'"); */
-		}
+        }
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)

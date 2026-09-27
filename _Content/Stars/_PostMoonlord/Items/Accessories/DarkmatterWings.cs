@@ -1,10 +1,6 @@
 ﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,24 +8,24 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class DarkmatterWings : EquipAbstract, ILocalizedModType
-	{
+    public class DarkmatterWings : EquipAbstract, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Accessories";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Darkmatter Booster");
 
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(200, 10, 3f);
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
         {
             Item.width = 32;
             Item.height = 24;
             Item.value = Item.sellPrice(0, 8, 0, 0);
             Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
-            
+
         }
 
         public override void RegisterEquipEffects()

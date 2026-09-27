@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -16,10 +15,10 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Weapons
             Item.width = 42;
             Item.height = 42;
             Item.useTime = 24;
-            Item.useAnimation = 28;     
+            Item.useAnimation = 28;
             Item.useStyle = ItemUseStyleID.Thrust;
             Item.knockBack = 1;
-            Item.value = 1000;        
+            Item.value = 1000;
             Item.rare = ItemRarityID.Green;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
@@ -33,9 +32,9 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Weapons
 
         public override void AddRecipes()  //How to craft this sword
         {
-            Recipe recipe = CreateRecipe();      
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<TerraShard>(), 10);
-            recipe.AddTile(TileID.Anvils);  
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
     }

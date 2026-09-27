@@ -29,13 +29,13 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
 
         public override void SetDefaults()
         {
-			base.SetDefaults();
-			NPC.lifeMax = 1600;
+            base.SetDefaults();
+            NPC.lifeMax = 1600;
             NPC.damage = 32;
-            NPC.defense = 15;	
-            NPC.buffImmune[BuffID.OnFire] = true;			
+            NPC.defense = 15;
+            NPC.buffImmune[BuffID.OnFire] = true;
 
-			offsetBasePoint = new Vector2(-240f, 0f);
+            offsetBasePoint = new Vector2(-240f, 0f);
 
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }

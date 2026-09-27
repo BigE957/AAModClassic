@@ -1,10 +1,9 @@
 using AAModClassic._Content.Terrarium.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -45,13 +44,13 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             AIType = NPCID.GraniteGolem;  //npc behavior
             AnimationType = NPCID.GraniteGolem;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraSquireBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraSquireBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if ((Main.hardMode && !NPC.downedPlantBoss) && spawnInfo.Player.AAPlayer().ZoneTerrarium && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if ((Main.hardMode && !NPC.downedPlantBoss) && spawnInfo.Player.AAPlayer().ZoneTerrarium && !AnyEvents(spawnInfo.Player))
                 return 0.07f;
 
             return 0f;
@@ -73,7 +72,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Color color = BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Lighting.GetColor(NPC.Center.ToTileCoordinates()), Lighting.GetColor(NPC.Center.ToTileCoordinates()), Color.LimeGreen, Lighting.GetColor(NPC.Center.ToTileCoordinates()), Color.LimeGreen, Lighting.GetColor(NPC.Center.ToTileCoordinates()));
+            Color color = ColorUtils.MulticolorLerp(Main.LocalPlayer.miscCounter % 100 / 100f, Lighting.GetColor(NPC.Center.ToTileCoordinates()), Lighting.GetColor(NPC.Center.ToTileCoordinates()), Color.LimeGreen, Lighting.GetColor(NPC.Center.ToTileCoordinates()), Color.LimeGreen, Lighting.GetColor(NPC.Center.ToTileCoordinates()));
             spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, NPC.dontTakeDamage ? color : drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.direction == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
             return false;
         }

@@ -2,11 +2,10 @@ using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic._Content.Terrarium.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,14 +16,14 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
 {
     public class TerraWizard : ModNPC, IBannerNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Terra Wizard");
-			Main.npcFrameCount[NPC.type] = 6;
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Terra Wizard");
+            Main.npcFrameCount[NPC.type] = 6;
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             NPC.lifeMax = 600;
             NPC.defense = 40;
             NPC.damage = 90;
@@ -36,13 +35,13 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             NPC.knockBackResist = 0.4f;
             NPC.noGravity = true;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraWizardBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraWizardBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (NPC.downedPlantBoss && spawnInfo.Player.AAPlayer().ZoneTerrarium && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (NPC.downedPlantBoss && spawnInfo.Player.AAPlayer().ZoneTerrarium && !AnyEvents(spawnInfo.Player))
                 return 0.05f;
 
             return 0f;

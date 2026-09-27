@@ -1,12 +1,11 @@
 using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
 using System;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
 {
     public class GreedAHead_MemoriesOfSomethingGrand : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Memories of Something Grand");
@@ -14,14 +13,14 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
         }
 
         public override void SetDefaults()
-		{
-			Projectile.width = 30;
-			Projectile.height = 30;
-			Projectile.hostile = true;
-			Projectile.friendly = false;
-			Projectile.penetrate = 1;
-			Projectile.timeLeft = 300;
-			Projectile.alpha = 255;
+        {
+            Projectile.width = 30;
+            Projectile.height = 30;
+            Projectile.hostile = true;
+            Projectile.friendly = false;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 300;
+            Projectile.alpha = 255;
             Projectile.tileCollide = false;
         }
 

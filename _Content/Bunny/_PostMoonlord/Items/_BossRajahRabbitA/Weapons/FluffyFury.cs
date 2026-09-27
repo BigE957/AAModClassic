@@ -1,16 +1,14 @@
-﻿using Terraria;
+﻿using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons
 {
     public class FluffyFury : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Ranged";
         public override void SetStaticDefaults()
         {
@@ -39,14 +37,14 @@ Potential lag warning"); */
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
-        
+
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-			type = ModContent.ProjectileType<FluffyFury_Carrow>();
+            type = ModContent.ProjectileType<FluffyFury_Carrow>();
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
             float num117 = 0.314159274f;
-            int num118 = Main.rand.Next(2,5);
+            int num118 = Main.rand.Next(2, 5);
             Vector2 vector7 = velocity;
             vector7.Normalize();
             vector7 *= 40f;

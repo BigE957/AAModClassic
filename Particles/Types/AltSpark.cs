@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 
@@ -25,7 +24,7 @@ public class AltSpark : Particle
     public override void Update()
     {
         Scale *= 0.95f;
-        
+
         Velocity *= 0.95f;
         if (Velocity.Length() < 12f && AffectedByGravity)
         {

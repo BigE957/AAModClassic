@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Void.World.Tiles;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

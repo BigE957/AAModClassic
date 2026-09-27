@@ -1,5 +1,4 @@
-﻿using Terraria;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars.Buffs
@@ -24,5 +23,5 @@ namespace AAModClassic._Content.Stars.Buffs
             Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.RadiumDust>());
         }
     }
-    
+
 }

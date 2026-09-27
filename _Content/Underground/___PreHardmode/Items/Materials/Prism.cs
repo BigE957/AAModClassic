@@ -1,7 +1,6 @@
-﻿using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Underground.___PreHardmode.Items.Materials
@@ -9,7 +8,7 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Materials
     public class Prism : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Materials";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Prism");
@@ -26,7 +25,7 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Materials
         {
             Item.width = 22;
             Item.height = 22;
-			Item.maxStack = Item.CommonMaxStack;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Orange;
             Item.value = 1000;
         }

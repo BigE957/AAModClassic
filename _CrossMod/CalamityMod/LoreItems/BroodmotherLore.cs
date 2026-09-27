@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

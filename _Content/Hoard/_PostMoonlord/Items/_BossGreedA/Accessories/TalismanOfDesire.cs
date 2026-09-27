@@ -1,11 +1,6 @@
-﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Accessories;
-using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Accessories;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Accessories;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Accessories

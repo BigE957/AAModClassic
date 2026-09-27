@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased._Aggregate.iz.weapons
@@ -20,10 +19,10 @@ namespace AAModClassic._Unreleased._Aggregate.iz.weapons
             Projectile.tileCollide = false;
         }
 
-		public override void SetStaticDefaults()
-		{
-		    // DisplayName.SetDefault("Antimatter");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Antimatter");
+        }
 
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {

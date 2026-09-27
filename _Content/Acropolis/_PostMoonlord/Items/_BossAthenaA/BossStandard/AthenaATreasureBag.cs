@@ -3,7 +3,6 @@ using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Accessori
 using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,7 +12,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossS
     public class AthenaATreasureBag : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Treasure Bag (Olympian Athena)");

@@ -1,7 +1,6 @@
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Tiles.Decoration
 {
@@ -21,7 +20,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Tiles.Decoration
             Item.consumable = true;
             Item.createWall = ModContent.WallType<DaybreakBrickWall_Wall>(); //put your CustomBlock Tile name
         }
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Daybreak Brick Wall");

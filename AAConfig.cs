@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using Terraria;
 using Terraria.IO;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
@@ -40,22 +39,22 @@ namespace AAModClassic
     }
 
     public static class AALuckyConfig
-	{
-		public static void Load()
-		{
-			if (!ReadConfig())
-			{
+    {
+        public static void Load()
+        {
+            if (!ReadConfig())
+            {
                 SetDefaults();
-				ModContent.GetInstance<AAMod>().Logger.Warn("Couldn't find config file! Creating a new one...");
-			}
+                ModContent.GetInstance<AAMod>().Logger.Warn("Couldn't find config file! Creating a new one...");
+            }
             SaveConfig();
-		}
+        }
 
         private static readonly string ConfigPath = Path.Combine(Main.SavePath, "ModConfigs", "AALuckyConfig.json");
-		private static readonly Preferences Configuration = new(ConfigPath, false, false);
+        private static readonly Preferences Configuration = new(ConfigPath, false, false);
 
         public static void SetDefaults()
-		{
+        {
             LuckyOre = [];
             LuckyPotion = [];
             ListRareNpc = [];
@@ -103,6 +102,6 @@ namespace AAModClassic
         public static Dictionary<int, int> LuckyOre = [];
         public static Dictionary<int, int> LuckyPotion = [];
         public static HashSet<int> ListRareNpc = [];
-        
+
     }
 }

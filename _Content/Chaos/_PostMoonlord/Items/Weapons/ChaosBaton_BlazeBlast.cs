@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Weapons
@@ -8,7 +7,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Weapons
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Blaze Blast");     
-            Main.projFrames[Projectile.type] = 6;     
+            Main.projFrames[Projectile.type] = 6;
         }
 
         public override void SetDefaults()

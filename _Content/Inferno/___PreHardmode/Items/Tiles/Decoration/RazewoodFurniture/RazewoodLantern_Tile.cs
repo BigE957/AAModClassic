@@ -3,13 +3,12 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture
 {
     public class RazewoodLantern_Tile : ModTile
-	{
+    {
         private static Asset<Texture2D> GlowTexture = null;
 
         public override void SetStaticDefaults()

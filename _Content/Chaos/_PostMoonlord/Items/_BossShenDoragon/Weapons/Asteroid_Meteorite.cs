@@ -1,7 +1,6 @@
 using AAModClassic._Content.Chaos.Buffs;
 using AAModClassic._Content.Chaos.Projectiles;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -46,7 +45,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapo
             for (int num189 = 0; num189 < 1; num189++)
             {
                 int num190 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0);
-                
+
                 Main.dust[num190].scale *= 1.3f;
                 Main.dust[num190].fadeIn = 1f;
                 Main.dust[num190].noGravity = true;
@@ -89,7 +88,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapo
                 Main.projectile[proj].DamageType = DamageClass.Melee;
             }
         }
-        
+
 
         public override bool PreDraw(ref Color lightColor)
         {
@@ -98,8 +97,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapo
             {
                 Projectile.frame++;
                 Projectile.frameCounter = 0;
-                if (Projectile.frame > 3) 
-                    Projectile.frame = 0; 
+                if (Projectile.frame > 3)
+                    Projectile.frame = 0;
             }
             return true;
         }

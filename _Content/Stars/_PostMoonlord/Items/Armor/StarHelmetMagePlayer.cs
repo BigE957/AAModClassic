@@ -1,7 +1,6 @@
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor

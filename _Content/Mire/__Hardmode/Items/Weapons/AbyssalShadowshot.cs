@@ -1,12 +1,10 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
 {
@@ -38,21 +36,21 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
             Item.shootSpeed = 12f;
         }
 
-		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-		{
-		    float spread = 20f * 0.0174f;
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            float spread = 20f * 0.0174f;
             float baseSpeed = (float)Math.Sqrt(velocity.X * velocity.X + velocity.Y * velocity.Y);
             double startAngle = Math.Atan2(velocity.X, velocity.Y) - .1d;
             double deltaAngle = spread / 6f;
-		    double offsetAngle;
-		    for (int i = 0; i < 6; i++)
-		    {
-		    	offsetAngle = startAngle + deltaAngle * i;
-		    	Projectile.NewProjectile(source, position.X, position.Y, baseSpeed*(float)Math.Sin(offsetAngle), baseSpeed*(float)Math.Cos(offsetAngle), type, damage, knockback, Main.myPlayer);
+            double offsetAngle;
+            for (int i = 0; i < 6; i++)
+            {
+                offsetAngle = startAngle + deltaAngle * i;
+                Projectile.NewProjectile(source, position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), type, damage, knockback, Main.myPlayer);
             }
             Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<AbyssalShadowshot_Shadowshot>(), (int)(damage * 1.0f), knockback, Main.myPlayer);
             return false;
-		}
+        }
 
         public override void AddRecipes()
         {

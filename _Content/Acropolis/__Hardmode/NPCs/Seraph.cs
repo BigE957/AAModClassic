@@ -1,16 +1,14 @@
-using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Acropolis.Projectiles;
 using AAModClassic._Content.Acropolis.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Dusts;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -19,25 +17,25 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
 {
-	public class Seraph : ModNPC, IBannerNPC
-	{
+    public class Seraph : ModNPC, IBannerNPC
+    {
         public override void SetStaticDefaults()
-		{
-            Main.npcFrameCount[NPC.type] = 4;		
-		}			
-		
+        {
+            Main.npcFrameCount[NPC.type] = 4;
+        }
+
         public override void SetDefaults()
         {
             NPC.width = 60;
             NPC.height = 40;
             NPC.value = Item.buyPrice(0, 0, 10, 0);
             NPC.npcSlots = 1;
-			NPC.aiStyle = -1;
+            NPC.aiStyle = -1;
             NPC.lifeMax = 500;
             NPC.defense = 20;
             NPC.damage = 55;
             NPC.knockBackResist = 0.3f;
-			NPC.noGravity = true;
+            NPC.noGravity = true;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.noTileCollide = true;
@@ -56,7 +54,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (NPC.downedPlantBoss && spawnInfo.Player.AAPlayer().ZoneAcropolis && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (NPC.downedPlantBoss && spawnInfo.Player.AAPlayer().ZoneAcropolis && !AnyEvents(spawnInfo.Player))
                 return 0.03f;
 
             return 0f;
@@ -68,14 +66,18 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
             {
                 NPC.velocity.Y -= .2f;
                 NPC.velocity.X *= .95f;
-                if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient) { BaseAI.KillNPC(NPC); NPC.netUpdate = true; }
+                if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient) 
+                {
+                    NPC.active = false;
+                    NPC.netUpdate = true;
+                }
                 return false;
             }
             return true;
         }
 
-		public override void AI()
-		{
+        public override void AI()
+        {
             if (!NPC.HasPlayerTarget)
             {
                 NPC.TargetClosest();
@@ -145,7 +147,9 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
                     {
                         Dust.NewDust(NPC.Center, 60, 40, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0);
                     }
-                    BaseAI.KillNPC(NPC);
+                    NPC.active = false;
+                    NPC.netUpdate = true;
+                    return;
                 }
             }
             else if (athenaAlive)
@@ -163,8 +167,8 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
             NPC.rotation = NPC.velocity.X * 0.05f;
         }
 
-		public override void FindFrame(int frameHeight)
-		{
+        public override void FindFrame(int frameHeight)
+        {
             if (NPC.velocity.X > 0f)
             {
                 NPC.spriteDirection = 1;
@@ -206,15 +210,15 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
         {
             switch (Main.rand.Next(5))
             {
-                case 0: 
+                case 0:
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphChat1");
-                case 1: 
+                case 1:
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphChat2");
-                case 2: 
+                case 2:
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphChat3");
-                case 3: 
+                case 3:
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphChat4");
-                default: 
+                default:
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphChat5");
             }
         }
@@ -223,15 +227,15 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
         {
             switch (Main.rand.Next(5))
             {
-                case 0: 
+                case 0:
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphKillChat1");
-                case 1: 
+                case 1:
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphKillChat2");
-                case 2: 
+                case 2:
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphKillChat3");
-                case 3: 
+                case 3:
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphKillChat4");
-                default: 
+                default:
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphKillChat5");
             }
         }
@@ -240,15 +244,15 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
         {
             switch (Main.rand.Next(5))
             {
-                case 0: 
+                case 0:
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphAthenaRunChat1");
-                case 1: 
+                case 1:
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphAthenaRunChat2");
-                case 2: 
+                case 2:
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphAthenaRunChat3");
-                case 3: 
+                case 3:
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphAthenaRunChat4");
-                default: 
+                default:
                     return Language.GetTextValue("Mods.AAModClassic.NPCs.EnemyChat.SeraphAthenaRunChat5");
             }
         }

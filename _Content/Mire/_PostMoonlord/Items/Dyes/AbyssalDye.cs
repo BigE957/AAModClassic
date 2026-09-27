@@ -1,9 +1,5 @@
 ﻿using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using System.Collections.Generic;
-using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,25 +7,25 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items.Dyes
 {
-	public class AbyssalDye : BaseAAItem, ILocalizedModType
-	{
+    public class AbyssalDye : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Dyes";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Abyssal Dye");
             // Tooltip.SetDefault("Gives an abyssal touch to whatever this dye is applied to");		
         }
 
-        
-        
+
+
         public override void SetDefaults()
         {
             Item.width = 15;
             Item.height = 15;
             Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Yellow;
-			Item.dye = (byte)GameShaders.Armor.GetShaderIdFromItemId(Item.type); 
-            Item.value = Item.sellPrice(0, 10, 0, 0);			
+            Item.dye = (byte)GameShaders.Armor.GetShaderIdFromItemId(Item.type);
+            Item.value = Item.sellPrice(0, 10, 0, 0);
         }
 
         public override void AddRecipes()

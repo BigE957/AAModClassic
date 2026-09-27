@@ -1,7 +1,5 @@
 ﻿using AAModClassic._Content.Crimson.___PreHardmode.Items.Tools;
-using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -35,7 +33,7 @@ namespace AAModClassic._Content.Crimson.__Hardmode.Items.Tools
             // DisplayName.SetDefault("True Scalpel");
         }
 
-        public override void AddRecipes()  
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<Scalpel>());

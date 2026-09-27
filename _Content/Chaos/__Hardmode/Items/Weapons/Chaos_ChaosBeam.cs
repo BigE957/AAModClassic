@@ -1,7 +1,6 @@
 using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -22,24 +21,24 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(ProjectileID.TerraBeam);
-            Projectile.penetrate = 3;  
+            Projectile.penetrate = 3;
             Projectile.width = 40;
             Projectile.height = 40;
-			Projectile.friendly = true;
-			Projectile.hostile = false;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
             Projectile.timeLeft = 600;
-            
+
         }
-		
-		public override void AI()
-		{
+
+        public override void AI()
+        {
             int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, ModContent.DustType<Dusts.AkumaADust>(), Projectile.velocity.X * 0.2f,
                 Projectile.velocity.Y * 0.2f, 100, default, 2f);
             Main.dust[dustId].noGravity = true;
             int dustId3 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, ModContent.DustType<Dusts.YamataADust>(), Projectile.velocity.X * 0.2f,
                 Projectile.velocity.Y * 0.2f, 100, default, 2f);
             Main.dust[dustId3].noGravity = true;
-            
+
         }
 
         public override void OnKill(int timeleft)
@@ -55,11 +54,11 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
                 Main.dust[num469].velocity *= 2f;
             }
         }
-        
-		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 500);
-			target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 500);
+            target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 500);
         }
 
     }

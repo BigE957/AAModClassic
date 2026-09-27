@@ -1,6 +1,5 @@
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -41,12 +40,12 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                 if (++Projectile.frame >= 7)
                 {
                     Projectile.Kill();
-                   
+
                 }
             }
             Projectile.velocity.X *= 0.00f;
             Projectile.velocity.Y += 0.00f;
-           
+
         }
         public override void OnKill(int timeLeft)
         {

@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,16 +9,16 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(ProjectileID.LightBeam);
-            Projectile.penetrate = 4;  
+            Projectile.penetrate = 4;
             Projectile.width = 42;
             Projectile.height = 42;
-			Projectile.friendly = true;
-			Projectile.hostile = false;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
             Projectile.timeLeft = 900;
         }
-		
-		public override void AI()
-		{
+
+        public override void AI()
+        {
             if (Main.rand.NextFloat() < 1f)
             {
                 Dust dust;
@@ -36,8 +35,8 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dawn Ray");
-		}
-		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        }
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 500);
         }

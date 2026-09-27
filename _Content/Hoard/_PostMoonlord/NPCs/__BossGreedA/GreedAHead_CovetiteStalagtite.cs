@@ -1,10 +1,9 @@
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
 {
     public class GreedAHead_CovetiteStalagtite : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Covitite Stalactite");
@@ -12,14 +11,14 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
         }
 
         public override void SetDefaults()
-		{
-			Projectile.width = 16;
-			Projectile.height = 34;
-			Projectile.hostile = true;
-			Projectile.friendly = false;
-			Projectile.penetrate = 1;
-			Projectile.timeLeft = 300;
-			Projectile.alpha = 0;
+        {
+            Projectile.width = 16;
+            Projectile.height = 34;
+            Projectile.hostile = true;
+            Projectile.friendly = false;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 300;
+            Projectile.alpha = 0;
             Projectile.tileCollide = false;
         }
 

@@ -8,7 +8,7 @@ using AAModClassic._Content.Hoard.World.Biomes;
 using AAModClassic._Content.Hoard.World.Tiles;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
@@ -19,7 +19,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -181,10 +180,10 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
                         if (Main.netMode != NetmodeID.MultiplayerClient && NPC.CountNPCS(ModContent.NPCType<SingularityOfDesire>()) < 2)
                         {
                             int A = Main.rand.Next(-600, 600);
-                            int tileCheck1 = (int)((player.Center.X + A)/16f);
-                            int tileCheck2 = (int)((player.Center.Y + A)/16f);
+                            int tileCheck1 = (int)((player.Center.X + A) / 16f);
+                            int tileCheck2 = (int)((player.Center.Y + A) / 16f);
                             Tile TileCollide = Main.tile[tileCheck1, tileCheck2];
-                            if(!TileCollide.HasTile || !Main.tileSolid[TileCollide.TileType])
+                            if (!TileCollide.HasTile || !Main.tileSolid[TileCollide.TileType])
                             {
                                 int Minion = NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X + A, (int)player.Center.Y + A, ModContent.NPCType<SingularityOfDesire>(), 0);
                                 Main.npc[Minion].netUpdate = true;
@@ -442,7 +441,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
             {
                 for (int tY = tileY; tY < tileCenterY; tY++)
                 {
-                    Tile checkTile = WorldGenUtils.GetTileSafely(tX, tY);
+                    Tile checkTile = Framing.GetTileSafely(tX, tY);
                     if (checkTile != null && (checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0) || checkTile.LiquidAmount > 64))
                     {
                         Vector2 tPos;
@@ -467,7 +466,12 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
                     loludided = true;
                 }
                 NPC.velocity.Y = NPC.velocity.Y + 1f;
-                if (NPC.position.Y - NPC.height - NPC.velocity.Y >= Main.maxTilesY && Main.netMode != NetmodeID.MultiplayerClient) { BaseAI.KillNPC(NPC); NPC.netUpdate2 = true; }
+                if (NPC.position.Y - NPC.height - NPC.velocity.Y >= Main.maxTilesY && Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    NPC.active = false;
+                    NPC.netUpdate = true;
+                    return false;
+                }
             }
 
             if (Main.player[NPC.target].dead || Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000f || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000f)

@@ -1,6 +1,5 @@
-using System;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -28,16 +27,16 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
 
         public override void AI()
         {
-                                                          //this make that the projectile faces the right way
+            //this make that the projectile faces the right way
             Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
             Projectile.localAI[0] += 1f;
             Projectile.alpha = (int)Projectile.localAI[0] * 2;
-           
+
             if (Projectile.localAI[0] > 600f) //projectile time left before disappears
             {
                 Projectile.Kill();
             }
-           
+
         }
 
         public override void OnKill(int timeleft)

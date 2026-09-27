@@ -2,7 +2,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Utilities;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
@@ -12,12 +11,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
 {
     public class Sagittarius_Electrosphere : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             Main.projFrames[Projectile.type] = 4;
         }
-        
+
         public override void SetDefaults()
         {
             Projectile.width = 80;
@@ -31,11 +30,11 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
             Projectile.penetrate = -1;
             Projectile.timeLeft = 500;
         }
-		
-		public override Color? GetAlpha(Color lightColor)
-		{
-			return Color.White;
-		}
+
+        public override Color? GetAlpha(Color lightColor)
+        {
+            return Color.White;
+        }
 
         public override void OnSpawn(IEntitySource source)
         {

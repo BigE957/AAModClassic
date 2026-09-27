@@ -1,6 +1,5 @@
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.Projectiles
@@ -10,7 +9,7 @@ namespace AAModClassic._Content.Chaos.Projectiles
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Magic Blast");     
-            Main.projFrames[Projectile.type] = 7;     
+            Main.projFrames[Projectile.type] = 7;
         }
 
         public override void SetDefaults()

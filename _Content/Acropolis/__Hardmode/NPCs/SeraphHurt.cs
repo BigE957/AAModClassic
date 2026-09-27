@@ -1,13 +1,11 @@
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
-using AAModClassic._Content.Acropolis.World.Tiles;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -15,27 +13,27 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
 {
     public class SeraphHurt : ModNPC, IBannerNPC
-	{
+    {
         public int OverrideBannerNPCType => ModContent.NPCType<Seraph>();
 
         public override void SetStaticDefaults()
-		{
+        {
             Main.npcFrameCount[NPC.type] = 5;
             this.HideFromBestiary();
-        }			
-		
+        }
+
         public override void SetDefaults()
         {
             NPC.width = 60;
             NPC.height = 40;
             NPC.value = 0;
             NPC.npcSlots = 1;
-			NPC.aiStyle = -1;
+            NPC.aiStyle = -1;
             NPC.lifeMax = 120;
             NPC.defense = 20;
             NPC.damage = 55;
             NPC.knockBackResist = 0.3f;
-			NPC.noGravity = false;
+            NPC.noGravity = false;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.noTileCollide = false;
@@ -49,7 +47,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
         public Vector2 Origin = new Vector2((int)(Main.maxTilesX * 0.65f), 100) * 16;
 
         public override void AI()
-		{
+        {
             if (!NPC.HasPlayerTarget)
             {
                 NPC.TargetClosest();
@@ -116,11 +114,12 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                             AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Athena>(), true, npcCenter, Language.GetTextValue("Mods.AAModClassic.Common.Athena"));
                     }
-                    BaseAI.KillNPC(NPC); 
-                    NPC.netUpdate = true; 
+                    NPC.active = false;
+                    NPC.netUpdate = true;
+                    return;
                 }
             }
-            
+
             if (NPC.ai[0] < 120 && NPC.collideY)
             {
                 NPC.rotation += NPC.velocity.X * 0.05f;
@@ -144,8 +143,8 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
             };
         }
 
-		public override void FindFrame(int frameHeight)
-		{
+        public override void FindFrame(int frameHeight)
+        {
             if (NPC.ai[0] < 120)
             {
                 NPC.frame.Y = 0;

@@ -1,7 +1,6 @@
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -209,8 +208,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapo
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), vector2.X, vector2.Y, num114 * 0.75f, num115 * 0.75f, ModContent.ProjectileType<Asteroid_Meteorite>(), Projectile.damage, Projectile.damage, player.whoAmI, 0f, 0.5f + (float)Main.rand.NextDouble() * 0.3f);
             }
         }
-		
- 
+
+
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
         {

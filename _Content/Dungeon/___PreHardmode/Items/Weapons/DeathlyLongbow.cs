@@ -1,9 +1,8 @@
-﻿using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons
 {
@@ -18,7 +17,7 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons
 
         public override void SetDefaults()
         {
-            Item.damage = 33; 
+            Item.damage = 33;
             Item.noMelee = true; //This makes sure the bow doesn't do melee damage
             Item.DamageType = DamageClass.Ranged; //This causes your bow to do ranged damage
             Item.width = 22; //Hitbox width

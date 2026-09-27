@@ -1,11 +1,10 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Dusts
 {
     public class MushDust : ModDust
-	{
+    {
         public override bool Update(Dust dust)
         {
             dust.alpha = 50;
@@ -21,6 +20,6 @@ namespace AAModClassic.Dusts
             }
             return false;
         }
-        
+
     }
 }

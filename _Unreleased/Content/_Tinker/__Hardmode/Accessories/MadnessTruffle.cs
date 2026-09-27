@@ -3,10 +3,7 @@ using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToa
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.Accessories;
 using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle.Accessories;
 using AAModClassic.UI.World;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Humanizer;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

@@ -1,9 +1,8 @@
-﻿using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria;
-using AAModClassic._Content.Snow.___PreHardmode.Items.Weapons;
+﻿using AAModClassic._Content.Snow.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Snow.Projectiles;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.__Hardmode.Items.Weapons
 {

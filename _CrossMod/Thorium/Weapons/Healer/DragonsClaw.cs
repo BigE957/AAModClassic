@@ -1,9 +1,6 @@
-using System.Collections.Generic;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using Microsoft.Xna.Framework;
-
-using Terraria;
-using Terraria.DataStructures;
+using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -16,15 +13,15 @@ namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
         public override string CrossoverModName => "ThoriumMod";
 
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Dragon's Claw");
             /* Tooltip.SetDefault(@"Spins a fiery scythe around you that shreds through enemies
 Scythes ignites enemies on contact
-Grants 1 soul essence on direct hit"); */			
-		}
+Grants 1 soul essence on direct hit"); */
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Item.width = 40;
             Item.height = 40;
             Item.rare = ItemRarityID.Orange;
@@ -36,12 +33,12 @@ Grants 1 soul essence on direct hit"); */
             Item.UseSound = SoundID.Item1;
             Item.damage = 14;
             Item.knockBack = 8;
-			Item.noMelee = true;
-			Item.noUseGraphic = true;
-			Item.autoReuse = true;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<DragonsClaw_Holdout>();
             Item.shootSpeed = 0.1f;
-		}
+        }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {

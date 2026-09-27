@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,10 +9,10 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
     public class YamataAHead_HarukaProj : ModProjectile
     {
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Haruka Yamata");
+        {
+            // DisplayName.SetDefault("Haruka Yamata");
             Main.projFrames[Projectile.type] = 11;
-		}
+        }
 
         public override void SetDefaults()
         {
@@ -72,8 +71,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
         {
             if (Projectile.frameCounter++ > 5)
             {
-              Projectile.frameCounter = 0;
-              Projectile.frame++;
+                Projectile.frameCounter = 0;
+                Projectile.frame++;
             }
 
             if (Projectile.ai[1] <= dashTime)

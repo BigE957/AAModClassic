@@ -1,7 +1,6 @@
-﻿using Terraria;
-using Terraria.ModLoader;
+﻿using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using AAModClassic.Globals;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Weapons
 {

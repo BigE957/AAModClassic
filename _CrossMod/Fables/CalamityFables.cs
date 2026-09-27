@@ -44,13 +44,13 @@ namespace AAModClassic._CrossMod.Fables
             if (!IsEnabled)
                 return;
 
-            try 
-            { 
-                SetupCrossModDialogue(); 
+            try
+            {
+                SetupCrossModDialogue();
             }
-            catch (Exception e) 
-            { 
-                Mod.Logger.Warn($"CalamityFables cross-mod dialogue hook failed: {e}"); 
+            catch (Exception e)
+            {
+                Mod.Logger.Warn($"CalamityFables cross-mod dialogue hook failed: {e}");
             }
         }
 
@@ -96,7 +96,7 @@ namespace AAModClassic._CrossMod.Fables
             string[] newTopics = ["DesertDjinnActive.1", "DesertDjinnActive.2", "DesertDjinnDefeated.First", "DesertDjinnDefeated.Repeat"];
             string[] topicPortraits = ["angryhands", "enraged", "shocked", "laughing"];
 
-            for(int i = 0; i < newTopics.Length; i++)
+            for (int i = 0; i < newTopics.Length; i++)
             {
                 string topic = newTopics[i];
                 string portrait = topicPortraits[i];
@@ -110,7 +110,7 @@ namespace AAModClassic._CrossMod.Fables
 
             dynamic startFightBtn = _dialogueType.GetField("StartFightButton", BindingFlags.Public | BindingFlags.Static).GetValue(null);
             dynamic loreBtn = _dialogueType.GetField("LoreButton", BindingFlags.Public | BindingFlags.Static).GetValue(null);
-            foreach(var value in _newNautilusDialogue.Values)
+            foreach (var value in _newNautilusDialogue.Values)
                 value.AddButton(startFightBtn).AddButton(loreBtn);
 
             Array postDefeatArr = (Array)_dialogueType.GetField("Main_PostDefeatTextboxes", BindingFlags.Public | BindingFlags.Static).GetValue(null);
@@ -122,7 +122,7 @@ namespace AAModClassic._CrossMod.Fables
 
         private static object Hook_GetRandomMainTextbox(orig_GetRandomMainTextbox orig)
         {
-            if(!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 return orig();
 
             if (!(bool)calamityFables.Call("progression.defeatednautilus"))
@@ -147,8 +147,8 @@ namespace AAModClassic._CrossMod.Fables
             if (NPC.downedBoss3 && (!killedDjinn || tracker.HasSpokenAboutDesertDjinn) && _postDefeatTextboxSet.Contains(result))
             {
                 if (killedDjinn)
-                { 
-                    if(Main.rand.NextBool(4))
+                {
+                    if (Main.rand.NextBool(4))
                         return _newNautilusDialogue["DesertDjinnDefeated.Repeat"];
                 }
                 else if (Main.rand.NextBool(3))

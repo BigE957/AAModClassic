@@ -1,12 +1,9 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Mire.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,16 +11,16 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
     public class AbyssalEruption : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Ranged";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Abyssal Eruption");
-			// Tooltip.SetDefault(@"spews out abyssal acid that will cause enamys to explode of killed by its visious acid, also uses gel");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Abyssal Eruption");
+            // Tooltip.SetDefault(@"spews out abyssal acid that will cause enamys to explode of killed by its visious acid, also uses gel");
+        }
 
-	    public override void SetDefaults()
-	    {
+        public override void SetDefaults()
+        {
             Item.damage = 350;
             Item.DamageType = DamageClass.Ranged;
             Item.width = 76;
@@ -43,7 +40,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             Item.consumeAmmoOnFirstShotOnly = true;
         }
 
-        
+
 
         public override Vector2? HoldoutOffset()
         {
@@ -71,15 +68,15 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             return false;
         }
 
-	
-	    public override void AddRecipes()
-	    {
-	        Recipe recipe = CreateRecipe();
-	        recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
-	        recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<EventideAbyssiumBar>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 5);
             recipe.AddIngredient(ModContent.ItemType<Toxithrower>());
             recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
-	    }
-	}
+        }
+    }
 }

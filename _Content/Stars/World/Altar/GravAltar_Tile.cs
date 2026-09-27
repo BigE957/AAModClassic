@@ -1,7 +1,6 @@
 ﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.Localization;
@@ -58,7 +57,7 @@ namespace AAModClassic._Content.Stars.World.Altar
         {
             Player player = Main.LocalPlayer;
             int type = ModContent.ItemType<GravitySphere>();
-            if (BasePlayer.HasItem(player, type, 1) && !AAWorld.GravActive)
+            if (player.HasItem(type) && !AAWorld.GravActive)
             {
                 for (int m = 0; m < 50; m++)
                 {

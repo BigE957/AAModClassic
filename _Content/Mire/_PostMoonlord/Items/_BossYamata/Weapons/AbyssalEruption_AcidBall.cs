@@ -1,33 +1,32 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
     public class AbyssalEruption_AcidBall : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Acid Ball");
-		}
+        }
 
-		public override void SetDefaults()
-		{
-			Projectile.width = 10; 
-			Projectile.height = 10; 
-			Projectile.aiStyle = ProjAIStyleID.Arrow;   
-			Projectile.friendly = true; 
-			Projectile.hostile = false; 
-			Projectile.DamageType = DamageClass.Ranged;   
-			Projectile.penetrate = 1;  
-			Projectile.timeLeft = 600;  
-			Projectile.alpha = 50; 
-			Projectile.ignoreWater = true;
-			Projectile.tileCollide = true;
-			AIType = ProjectileID.WoodenArrowFriendly;           
-            
-		}
+        public override void SetDefaults()
+        {
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 600;
+            Projectile.alpha = 50;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
+            AIType = ProjectileID.WoodenArrowFriendly;
+
+        }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {

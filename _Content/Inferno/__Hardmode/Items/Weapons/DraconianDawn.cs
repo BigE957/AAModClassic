@@ -1,37 +1,36 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
 {
     public class DraconianDawn : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-        
+
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Draconian Dawn");
-			// Tooltip.SetDefault("The True blade of the Rising Sun");
+        {
+            // DisplayName.SetDefault("Draconian Dawn");
+            // Tooltip.SetDefault("The True blade of the Rising Sun");
         }
-		public override void SetDefaults()
-		{
-            
-			Item.damage = 130;
-			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-			Item.width = 86;
-			Item.height = 86;
-			Item.useTime = 32;
-			Item.useAnimation = 32;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack = 6;
+        public override void SetDefaults()
+        {
+
+            Item.damage = 130;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 86;
+            Item.height = 86;
+            Item.useTime = 32;
+            Item.useAnimation = 32;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 6;
             Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.rare = ItemRarityID.Yellow;
-			Item.UseSound = SoundID.Item20;
-			Item.autoReuse = false;
-			Item.shoot = ModContent.ProjectileType<DraconianDawn_DawnRay>();
+            Item.UseSound = SoundID.Item20;
+            Item.autoReuse = false;
+            Item.shoot = ModContent.ProjectileType<DraconianDawn_DawnRay>();
             Item.shootSpeed = 12f;
         }
 
@@ -47,7 +46,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
         }
 
         public override void AddRecipes()
-		{
+        {
             {
                 Recipe recipe = CreateRecipe();
                 recipe.AddIngredient(ModContent.ItemType<BlazingDawn>(), 1);
@@ -55,11 +54,11 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
                 recipe.AddTile(TileID.MythrilAnvil);
                 recipe.Register();
             }
-		}
-		
-		 public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+        }
+
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 500);
         }
-	}
+    }
 }

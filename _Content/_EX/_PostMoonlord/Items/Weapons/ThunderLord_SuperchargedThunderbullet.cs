@@ -1,20 +1,19 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     public class ThunderLord_SuperchargedThunderbullet : ModProjectile
-	{
-        
+    {
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Supercharged Thunderbullet");
-		}
-		public override void SetDefaults()
-		{
+        }
+        public override void SetDefaults()
+        {
             Projectile.width = 4;
             Projectile.height = 4;
             Projectile.aiStyle = ProjAIStyleID.Arrow;

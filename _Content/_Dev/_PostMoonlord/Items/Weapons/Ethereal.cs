@@ -1,20 +1,19 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
     public class Ethereal : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Magic";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Etheral");
-			// Tooltip.SetDefault(" \"If in the wrong hands, it can cause devastating damage, so don't give it to me\" \n-TheRedstoneBro");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Etheral");
+            // Tooltip.SetDefault(" \"If in the wrong hands, it can cause devastating damage, so don't give it to me\" \n-TheRedstoneBro");
+        }
 
 
         public override void ModifyTooltips(List<TooltipLine> list)
@@ -29,7 +28,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
         }
 
         public override void SetDefaults()
-		{
+        {
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 7;
             Item.useTime = 7;
@@ -47,8 +46,8 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             Item.noMelee = true;
             Item.DamageType = DamageClass.Magic;
             Item.autoReuse = true;
-			Item.noUseGraphic = true;
-            
-		}
-	}
+            Item.noUseGraphic = true;
+
+        }
+    }
 }

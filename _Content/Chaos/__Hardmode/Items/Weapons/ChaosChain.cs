@@ -1,7 +1,6 @@
 ﻿using AAModClassic._Content.Chaos.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,7 +9,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
     public class ChaosChain : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Chaos Chain");

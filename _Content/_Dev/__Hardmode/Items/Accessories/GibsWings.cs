@@ -1,8 +1,6 @@
-﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,10 +10,10 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
 
     [AutoloadEquip(EquipType.Wings)]
     public class GibsWings : EquipAbstract, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Vanity.Gibs";
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Revenant's Jet Booster");
             /* Tooltip.SetDefault(@"Hold down and jump to hover for an extended period of time
 'Great for impersonating Ancients Awakened Developers!'"); */
@@ -23,14 +21,14 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(300, 10, 6.25f, true, 15, 10);
         }
 
-		public override void SetDefaults()
-		{
-			Item.width = 42;
-			Item.height = 42;
-			Item.value = 500000;
-			Item.rare = ItemRarityID.Red;
-			Item.accessory = true;
-		}
+        public override void SetDefaults()
+        {
+            Item.width = 42;
+            Item.height = 42;
+            Item.value = 500000;
+            Item.rare = ItemRarityID.Red;
+            Item.accessory = true;
+        }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
@@ -49,13 +47,13 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
         }
 
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
-			ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
-		{
-			ascentWhenFalling = 0.85f;
-			ascentWhenRising = 0.15f;
-			maxCanAscendMultiplier = 1f;
-			maxAscentMultiplier = 3f;
-			constantAscend = 0.135f;
+            ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
+        {
+            ascentWhenFalling = 0.85f;
+            ascentWhenRising = 0.15f;
+            maxCanAscendMultiplier = 1f;
+            maxAscentMultiplier = 3f;
+            constantAscend = 0.135f;
         }
 
         public override bool WingUpdate(Player player, bool inUse)
@@ -84,5 +82,5 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
             }
             return true;
         }
-	}
+    }
 }

@@ -1,8 +1,7 @@
-using System;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
+using System;
 using Terraria.Enums;
 using Terraria.GameContent;
 using Terraria.ModLoader;
@@ -90,23 +89,23 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
             Player player = Main.player[Projectile.owner];
             Projectile.position = player.Center + Projectile.velocity * MOVE_DISTANCE;
             Projectile.timeLeft = 2;
-            Projectile.ai[1] ++;
+            Projectile.ai[1]++;
             float manadelay = 30f;
             bool manause = false;
-			if (Projectile.ai[1] > 90f)
-			{
-				manadelay = 15f;
-			}
-			if (Projectile.ai[1] > 120f)
-			{
-				manadelay = 5f;
-			}
+            if (Projectile.ai[1] > 90f)
+            {
+                manadelay = 15f;
+            }
+            if (Projectile.ai[1] > 120f)
+            {
+                manadelay = 5f;
+            }
             if (Projectile.ai[1] % manadelay == 0f)
-			{
-				manause = true;
-			}
+            {
+                manause = true;
+            }
             bool flag11 = !manause || player.CheckMana(player.inventory[player.selectedItem].mana, true, false);
-			bool flag12 = player.channel && flag11 && !player.noItems && !player.CCed;
+            bool flag12 = player.channel && flag11 && !player.noItems && !player.CCed;
             if (flag12)
             {
                 UpdatePlayer(player);
@@ -213,11 +212,11 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
                 Projectile.netUpdate = true;
             }
             int dir = Projectile.direction;
-            player.ChangeDir(dir); 
+            player.ChangeDir(dir);
             player.heldProj = Projectile.whoAmI;
             player.itemTime = 2;
             player.itemAnimation = 2;
-            player.itemRotation = (float)Math.Atan2(Projectile.velocity.Y * dir, Projectile.velocity.X * dir); 
+            player.itemRotation = (float)Math.Atan2(Projectile.velocity.Y * dir, Projectile.velocity.X * dir);
         }
 
         private void CastLights()

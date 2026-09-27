@@ -1,7 +1,6 @@
-using System;
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -21,7 +20,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             Projectile.hostile = true;
             Projectile.penetrate = -1;
             Projectile.aiStyle = -1;
-            Projectile.timeLeft = 300;    
+            Projectile.timeLeft = 300;
         }
 
         public override void AI()

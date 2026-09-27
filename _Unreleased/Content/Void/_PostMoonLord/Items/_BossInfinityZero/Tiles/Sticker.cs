@@ -1,40 +1,39 @@
-﻿using Terraria;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Tiles
 {
-	public class Sticker : ModItem, ILocalizedModType
-	{
+    public class Sticker : ModItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Placeables";
 
-        
+
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Special Sticker");
             // Tooltip.SetDefault("Y0u're winner");
         }
 
-		public override void SetDefaults()
-		{
-			Item.width = 10;
-			Item.height = 10;
-			Item.maxStack = Item.CommonMaxStack;
-			Item.useTurn = true;
-			Item.autoReuse = true;
-			Item.useAnimation = 15;
-			Item.useTime = 10;
+        public override void SetDefaults()
+        {
+            Item.width = 10;
+            Item.height = 10;
+            Item.maxStack = Item.CommonMaxStack;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
             Item.rare = ItemRarityID.Blue;
             Item.useStyle = ItemUseStyleID.Swing;
-			Item.consumable = true;
-			Item.value = 2000;
-			Item.rare = ItemRarityID.Blue;
-			Item.createTile = ModContent.TileType<Sticker_Tile>();
-            
-		}
+            Item.consumable = true;
+            Item.value = 2000;
+            Item.rare = ItemRarityID.Blue;
+            Item.createTile = ModContent.TileType<Sticker_Tile>();
+
+        }
 
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)

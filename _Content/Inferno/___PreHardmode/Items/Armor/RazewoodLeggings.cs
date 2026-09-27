@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,8 +7,8 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class RazewoodLeggings : BaseAAItem, ILocalizedModType
-	{
+    public class RazewoodLeggings : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Armor.Razewood";
         public override void SetStaticDefaults()
         {

@@ -1,14 +1,9 @@
-﻿using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories;
-using AAModClassic.Dusts;
-using AAModClassic.Utilities;
+﻿using AAModClassic.Dusts;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
-using Terraria.DataStructures;
 using Terraria.Graphics.Shaders;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories

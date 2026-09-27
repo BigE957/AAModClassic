@@ -2,17 +2,11 @@
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using System;
-using Terraria;
-using Terraria.DataStructures;
-using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
@@ -59,18 +53,18 @@ Dark, yet still barely visible"); */
         }
 
         public override void SetDefaults()
-		{
-			Item.width = 22;
-			Item.height = 20;
-			Item.value = 300000;
-			Item.defense = 34;
+        {
+            Item.width = 22;
+            Item.height = 20;
+            Item.value = 300000;
+            Item.defense = 34;
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
-		public override bool IsArmorSet(Item head, Item body, Item legs)
-		{
-			return body.type == ModContent.ItemType<DarkmatterChestplate>() && legs.type == ModContent.ItemType<DarkmatterLeggings>();
-		}
+        public override bool IsArmorSet(Item head, Item body, Item legs)
+        {
+            return body.type == ModContent.ItemType<DarkmatterChestplate>() && legs.type == ModContent.ItemType<DarkmatterLeggings>();
+        }
 
         public override void RegisterEquipEffects()
         {
@@ -88,6 +82,6 @@ Dark, yet still barely visible"); */
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
-	}
-    
+    }
+
 }

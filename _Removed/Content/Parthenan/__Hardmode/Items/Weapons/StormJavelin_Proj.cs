@@ -1,7 +1,4 @@
-﻿using Terraria;
-using Terraria.GameContent;
-using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Weapons

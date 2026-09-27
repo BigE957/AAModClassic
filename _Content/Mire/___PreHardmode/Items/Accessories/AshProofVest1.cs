@@ -1,9 +1,4 @@
-﻿using AAModClassic._Content.Inferno.Buffs;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
-using Terraria.Audio;
-using Terraria.ID;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Accessories
 {

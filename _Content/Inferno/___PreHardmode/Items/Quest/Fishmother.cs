@@ -2,7 +2,6 @@
 using AAModClassic._CrossMod;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 

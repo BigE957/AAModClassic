@@ -1,5 +1,4 @@
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
@@ -19,7 +18,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
             Item.consumable = true;
             Item.width = 32;
             Item.height = 32;
-            Item.expert = true;  
+            Item.expert = true;
         }
 
         public override bool CanRightClick()
@@ -27,9 +26,9 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
             return true;
         }
 
- 		public override void RightClick(Player player)
-		{
-			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ApawnHelmet>());
+        public override void RightClick(Player player)
+        {
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ApawnHelmet>());
             player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ApawnChestplate>());
             player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<ApawnLeggings>());
         }

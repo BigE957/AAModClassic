@@ -1,9 +1,5 @@
-using System;
-using AAModClassic._Content.Inferno.Buffs;
-using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
+using System;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 {

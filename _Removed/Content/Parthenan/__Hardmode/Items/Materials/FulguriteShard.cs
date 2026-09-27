@@ -1,7 +1,6 @@
-﻿using Terraria;
-using Terraria.ModLoader;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ID;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
 {
     public class FulguriteShard : BaseAAItem, ILocalizedModType

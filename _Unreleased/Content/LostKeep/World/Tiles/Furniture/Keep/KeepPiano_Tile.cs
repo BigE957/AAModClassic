@@ -1,14 +1,6 @@
-using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Terra;
 using AAModClassic.Utilities;
-using Microsoft.Xna.Framework;
-using System;
-using Terraria;
-using Terraria.DataStructures;
-using Terraria.Enums;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Keep;
 

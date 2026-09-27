@@ -2,42 +2,40 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
 {
     public class ChaosYari_Holdout : ModProjectile
     {
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Chaos Yari");
-		}
-    	
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Chaos Yari");
+        }
+
         public override void SetDefaults()
         {
-			Projectile.width = 40;  //The width of the .png file in pixels divided by 2.
-			//Projectile.aiStyle = ProjAIStyleID.Spear;
-			Projectile.DamageType = DamageClass.Melee;  //Dictates whether this is a melee-class weapon.
-			Projectile.timeLeft = 90;
-			Projectile.height = 40;  //The height of the .png file in pixels divided by 2.
-			Projectile.friendly = true;
-			Projectile.hostile = false;
-			Projectile.tileCollide = false;
-			Projectile.ignoreWater = true;
-			Projectile.penetrate = -1;
-			Projectile.ownerHitCheck = true;
-			Projectile.hide = true;
+            Projectile.width = 40;  //The width of the .png file in pixels divided by 2.
+                                    //Projectile.aiStyle = ProjAIStyleID.Spear;
+            Projectile.DamageType = DamageClass.Melee;  //Dictates whether this is a melee-class weapon.
+            Projectile.timeLeft = 90;
+            Projectile.height = 40;  //The height of the .png file in pixels divided by 2.
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = -1;
+            Projectile.ownerHitCheck = true;
+            Projectile.hide = true;
         }
 
         bool shot = false;
 
         public override void AI()
         {
-        	if (Main.rand.NextBool(5))
+            if (Main.rand.NextBool(5))
             {
-            	Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, Main.rand.NextBool(2) ? ModContent.DustType<Dusts.AkumaDust>() : ModContent.DustType<Dusts.YamataAuraDust>(), Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
+                Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, Main.rand.NextBool(2) ? ModContent.DustType<Dusts.AkumaDust>() : ModContent.DustType<Dusts.YamataAuraDust>(), Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
             }
 
             // ai[0] = Speed value of the spear. Changes as time goes by.
@@ -67,9 +65,9 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
 
             if (syncedItemAnimation < itemAnimationMax / 3f) // Reel back
             {
-                if(!shot)
+                if (!shot)
                 {
-                    if(Main.myPlayer == Projectile.owner && !AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<ChaosYari_Proj>()))
+                    if (Main.myPlayer == Projectile.owner && !AAGlobalProjectile.AnyProjectiles(ModContent.ProjectileType<ChaosYari_Proj>()))
                         Projectile.NewProjectile(Projectile.GetSource_FromThis(), Main.player[Projectile.owner].Center, Projectile.velocity * 1.4f, ModContent.ProjectileType<ChaosYari_Proj>(), (int)((double)Projectile.damage * 0.85f), Projectile.knockBack * 0.85f, Projectile.owner, 0f, 0f);
                     shot = true;
                 }
@@ -87,10 +85,10 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
             if (Projectile.spriteDirection == -1)
                 Projectile.rotation -= MathHelper.PiOver2;
         }
-        
+
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-        	target.immune[Projectile.owner] = 5;
+            target.immune[Projectile.owner] = 5;
         }
 
         public override bool PreDraw(ref Color lightColor)

@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,12 +7,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Void.Projectiles
 {
     public class Darkray : ModProjectile
-	{
-        
+    {
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Darkray");
-		}
+        }
 
 
         public override Color? GetAlpha(Color lightColor)
@@ -38,22 +37,22 @@ namespace AAModClassic._Content.Void.Projectiles
             return true;
         }
         public override void SetDefaults()
-		{
-			Projectile.width = 2;
-			Projectile.height = 10;
-			Projectile.aiStyle = ProjAIStyleID.Arrow;
-			Projectile.friendly = true;
-			Projectile.hostile = false;
-			Projectile.DamageType = DamageClass.Ranged;
-			Projectile.penetrate = 2;
-			Projectile.timeLeft = 300;
-			Projectile.alpha = 100;
-			Projectile.light = 0.5f;
-			Projectile.ignoreWater = true;
-			Projectile.tileCollide = true;
+        {
+            Projectile.width = 2;
+            Projectile.height = 10;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.penetrate = 2;
+            Projectile.timeLeft = 300;
+            Projectile.alpha = 100;
+            Projectile.light = 0.5f;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
             Projectile.extraUpdates = 1;
-			AIType = ProjectileID.Bullet;           
-		}
+            AIType = ProjectileID.Bullet;
+        }
 
         public override void PostAI()
         {
@@ -76,5 +75,5 @@ namespace AAModClassic._Content.Void.Projectiles
             }
         }
 
-	}
+    }
 }

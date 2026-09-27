@@ -1,25 +1,15 @@
 using AAModClassic._Content._Dev.__Hardmode.Items.Weapons;
 using AAModClassic._Content._EX._PostMoonlord.Items.Accessories;
 using AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories;
-using AAModClassic._Content.Bunny._PostMoonlord.Items.Armor;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories;
-using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Accessories;
-using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Accessories;
 using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Accessories;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
-using AAModClassic._Content.Inferno.World.Tiles;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic._Content.Void.___PreHardmode.Items.Tools;
 using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
 using AAModClassic.Rarities;
 using AAModClassic.UI.World;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
-using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -27,7 +17,7 @@ using Terraria.ModLoader;
 namespace AAModClassic.Globals
 {
     public class AAModGlobalItem : GlobalItem
-	{
+    {
         public override void SetDefaults(Item item)
         {
             if (item.type == ItemID.Cannonball)
@@ -43,8 +33,8 @@ namespace AAModClassic.Globals
                 bool hasDoneShit = false;
 
 
-                if(item.rare == ModContent.RarityType<PostEquinoxRarity>())
-                { 
+                if (item.rare == ModContent.RarityType<PostEquinoxRarity>())
+                {
                     item.value = Item.sellPrice(0, 30, 0, 0);
                     hasDoneShit = true;
                 }
@@ -127,7 +117,7 @@ namespace AAModClassic.Globals
                 {
                     if (invItem.type == ModContent.ItemType<CodeMagnet>())
                         grabRange += 810;
-                } 
+                }
             }
             else
             {
@@ -196,7 +186,7 @@ namespace AAModClassic.Globals
                 }
             }
 
-            if (item.type == ItemID.EoCShield ||  item.type == ModContent.ItemType<BulwarkOfChaos>())
+            if (item.type == ItemID.EoCShield || item.type == ModContent.ItemType<BulwarkOfChaos>())
             {
                 if (slot < 10)
                 {
@@ -246,15 +236,15 @@ namespace AAModClassic.Globals
 
         public override void ModifyItemLoot(Item item, ItemLoot itemLoot)
         {
-            switch(item.type)
+            switch (item.type)
             {
                 case ItemID.GoldenCrate:
-                    itemLoot.Add(ItemDropRule.FewFromOptions(1, 5, 
-                        ItemID.AnglerEarring, 
-                        ItemID.HighTestFishingLine, 
-                        ItemID.TackleBox, 
-                        ItemID.AnglerHat, 
-                        ItemID.AnglerVest, 
+                    itemLoot.Add(ItemDropRule.FewFromOptions(1, 5,
+                        ItemID.AnglerEarring,
+                        ItemID.HighTestFishingLine,
+                        ItemID.TackleBox,
+                        ItemID.AnglerHat,
+                        ItemID.AnglerVest,
                         ItemID.AnglerPants,
                         ItemID.FishermansGuide,
                         ItemID.WeatherRadio,
@@ -294,7 +284,7 @@ namespace AAModClassic.Globals
     public class ExtractinatorItem : GlobalItem
     {
         public override void ExtractinatorUse(int extractType, int extractinatorBlockType, ref int resultType, ref int resultStack)
-		{
+        {
             int result = 0;
             int stack = 1;
             // these both allow weird tierskipping im killing them
@@ -338,7 +328,7 @@ namespace AAModClassic.Globals
                 }
             }
             */
-                
+
             if (stack > 99)
             {
                 stack = 99;
@@ -349,7 +339,7 @@ namespace AAModClassic.Globals
             }
 
             if (result > 0)
-			{
+            {
                 resultType = result;
                 resultStack = stack;
             }
@@ -364,7 +354,7 @@ namespace AAModClassic.Globals
 				}
 			}
             */
-		}
+        }
     }
 
     public class InvokerCaligulaItem : GlobalItem

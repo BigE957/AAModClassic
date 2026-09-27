@@ -1,8 +1,7 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
 using Terraria.Audio;
-using Terraria.ModLoader;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
@@ -26,14 +25,14 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 
         public override void AI()
         {
-			if (Main.rand.NextBool(2))
-			{
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.height, Projectile.width, DustID.GreenFairy,
-					Projectile.velocity.X, Projectile.velocity.Y, 200, Scale: 1f);
-				dust.velocity += Projectile.velocity * 0.3f;
-				dust.velocity *= 0.2f;
-			}
-			if (++Projectile.frameCounter >= 5)
+            if (Main.rand.NextBool(2))
+            {
+                Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.height, Projectile.width, DustID.GreenFairy,
+                    Projectile.velocity.X, Projectile.velocity.Y, 200, Scale: 1f);
+                dust.velocity += Projectile.velocity * 0.3f;
+                dust.velocity *= 0.2f;
+            }
+            if (++Projectile.frameCounter >= 5)
             {
                 Projectile.frameCounter = 0;
                 if (++Projectile.frame >= 2)
@@ -43,16 +42,16 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             }
             Projectile.rotation = Projectile.velocity.ToRotation(); // projectile faces sprite right
         }
-		
-		public override void OnKill(int timeLeft)
-		{
-			SoundEngine.PlaySound(SoundID.DD2_ExplosiveTrapExplode, Projectile.position);
-			for (int index1 = 0; index1 < 20; ++index1)
-			{
-				int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.GreenFairy, 0.0f, 0.0f, 100, new Color(), 1f);
-				Main.dust[index2].velocity *= 1.1f;
-				Main.dust[index2].scale *= 0.99f;
-			}
-		}
+
+        public override void OnKill(int timeLeft)
+        {
+            SoundEngine.PlaySound(SoundID.DD2_ExplosiveTrapExplode, Projectile.position);
+            for (int index1 = 0; index1 < 20; ++index1)
+            {
+                int index2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.GreenFairy, 0.0f, 0.0f, 100, new Color(), 1f);
+                Main.dust[index2].velocity *= 1.1f;
+                Main.dust[index2].scale *= 0.99f;
+            }
+        }
     }
 }

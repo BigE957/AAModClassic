@@ -1,8 +1,6 @@
-﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -28,7 +26,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Materials
             Item.width = 30;
             Item.height = 24;
             Item.maxStack = Item.CommonMaxStack;
-			Item.useTurn = true;
+            Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.rare = ItemRarityID.Green;
@@ -39,8 +37,8 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Materials
             Item.value = Item.sellPrice(0, 1, 0, 0);
         }
 
-		public override void AddRecipes()
-        {                                                   
+        public override void AddRecipes()
+        {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.ChlorophyteBar, 1);
             recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 1);              //example of how to craft with a modded item

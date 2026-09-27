@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -31,7 +30,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
             Item.value = Item.sellPrice(0, 2, 0, 0);
         }
         public override void AddRecipes()
-        {                                                   
+        {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<RadiumOre>(), 5);              //example of how to craft with a modded item
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());

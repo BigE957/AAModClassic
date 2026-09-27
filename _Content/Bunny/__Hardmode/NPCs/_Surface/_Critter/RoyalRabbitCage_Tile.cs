@@ -1,34 +1,34 @@
 using Microsoft.Xna.Framework;
-using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.ID;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
 {
     public class RoyalRabbitCage_Tile : ModTile
     {
-        public override void SetStaticDefaults() {
-			Main.tileFrameImportant[Type] = true;
-			Main.tileLighted[Type] = true;
-			Main.tileLavaDeath[Type] = false;
-			TileObjectData.newTile.CopyFrom(TileObjectData.Style6x3);
-			TileObjectData.addTile(Type);
+        public override void SetStaticDefaults()
+        {
+            Main.tileFrameImportant[Type] = true;
+            Main.tileLighted[Type] = true;
+            Main.tileLavaDeath[Type] = false;
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style6x3);
+            TileObjectData.addTile(Type);
             TileID.Sets.DisableSmartCursor[Type] = true;
 
-			AnimationFrameHeight = 54;
+            AnimationFrameHeight = 54;
 
-			LocalizedText name = CreateMapEntryName();
-			// name.SetDefault("Royal Rabbit Cage");
-			AddMapEntry(Color.Gold, name);
-		}
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Royal Rabbit Cage");
+            AddMapEntry(Color.Gold, name);
+        }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
             if (frame == 0)
             {
-                frameCounter ++;
+                frameCounter++;
                 if (frameCounter > Main.rand.Next(30, 900))
                 {
                     if (Main.rand.NextBool(3))
@@ -52,7 +52,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
             }
             else if (frame == 1)
             {
-                frameCounter ++;
+                frameCounter++;
                 if (frameCounter >= 10)
                 {
                     frameCounter = 0;
@@ -61,11 +61,11 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
             }
             else if (frame >= 2 && frame <= 3)
             {
-                frameCounter ++;
+                frameCounter++;
                 if (frameCounter >= 10)
                 {
                     frameCounter = 0;
-                    frame ++;
+                    frame++;
                 }
                 if (frame > 3)
                 {
@@ -74,16 +74,16 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
             }
             else if (frame >= 4 && frame <= 10)
             {
-                frameCounter ++;
+                frameCounter++;
                 if (frameCounter >= 5)
                 {
                     frameCounter = 0;
-                    frame ++;
+                    frame++;
                 }
             }
             else if (frame == 11)
             {
-                frameCounter ++;
+                frameCounter++;
                 if (frameCounter > Main.rand.Next(30, 900))
                 {
                     if (Main.rand.NextBool(3))
@@ -92,7 +92,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
                         {
                             frame = 17;
                         }
-                        else if(Main.rand.NextBool(12))
+                        else if (Main.rand.NextBool(12))
                         {
                             frame = 13;
                         }
@@ -106,7 +106,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
             }
             else if (frame == 12)
             {
-                frameCounter ++;
+                frameCounter++;
                 if (frameCounter >= 10)
                 {
                     frameCounter = 0;
@@ -115,16 +115,16 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
             }
             else if (frame >= 13 && frame <= 14)
             {
-                frameCounter ++;
+                frameCounter++;
                 if (frameCounter >= 30)
                 {
                     frameCounter = 0;
-                    frame ++;
+                    frame++;
                 }
             }
             else if (frame == 15)
             {
-                frameCounter ++;
+                frameCounter++;
                 if (frameCounter > 20)
                 {
                     if (Main.rand.NextBool(3))
@@ -143,20 +143,20 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs._Surface._Critter
             }
             else if (frame == 16)
             {
-                frameCounter ++;
+                frameCounter++;
                 if (frameCounter >= Main.rand.Next(30, 900))
                 {
                     frameCounter = 0;
-                    frame ++;
+                    frame++;
                 }
             }
             else if (frame >= 17)
             {
-                frameCounter ++;
+                frameCounter++;
                 if (frameCounter >= 5)
                 {
                     frameCounter = 0;
-                    frame ++;
+                    frame++;
                 }
                 if (frame > 25)
                 {

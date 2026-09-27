@@ -1,7 +1,5 @@
 ﻿using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,23 +7,23 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class TerraWings : EquipAbstract, ILocalizedModType
-	{
+    public class TerraWings : EquipAbstract, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Accessories";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Terra Wings");
 
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(180, 8, 2f);
         }
 
-		public override void SetDefaults()
-		{
-			Item.width = 26;
-			Item.height = 30;
+        public override void SetDefaults()
+        {
+            Item.width = 26;
+            Item.height = 30;
             Item.value = Item.sellPrice(0, 8, 0, 0);
             Item.rare = ItemRarityID.Yellow;
-			Item.accessory = true;
+            Item.accessory = true;
         }
 
         public override void RegisterEquipEffects()

@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class ShenDoragonAMask : BaseAAItem, ILocalizedModType
+    public class ShenDoragonAMask : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Vanity.Masks";
         public static int type;
@@ -13,7 +13,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossS
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Shen Doragon Awakened Mask");
-		}
+        }
 
         public override void SetDefaults()
         {

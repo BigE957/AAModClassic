@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Weapons
@@ -82,7 +81,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Weapons
                 Projectile.ai[1] += 1f;
                 Projectile.extraUpdates = 1;
                 Projectile.rotation = Projectile.velocity.ToRotation() + 3.14159274f;
-                
+
                 if (Projectile.ai[1] > 40f)
                 {
                     Projectile.ai[1] = 1f;
@@ -221,7 +220,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Weapons
                     }
                 }
             }
-            
+
         }
     }
 }

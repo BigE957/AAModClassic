@@ -1,20 +1,19 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
-{ 
+{
     public class HarukaShadowPostHydra : ModNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("...");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("...");
             Main.npcFrameCount[NPC.type] = 3;
             this.HideFromBestiary();
         }

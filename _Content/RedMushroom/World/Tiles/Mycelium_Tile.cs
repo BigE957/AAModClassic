@@ -2,16 +2,15 @@ using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.World.Tiles
 {
     public class Mycelium_Tile : ModTile
-	{
-		public override void SetStaticDefaults()
-		{
+    {
+        public override void SetStaticDefaults()
+        {
             Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileBlendAll[Type] = true;
@@ -25,9 +24,9 @@ namespace AAModClassic._Content.RedMushroom.World.Tiles
             Main.tileMergeDirt[Type] = true;
 
             DustType = ModContent.DustType<Dusts.MushDust>();
-			AddMapEntry(new Color(100, 100, 0));
+            AddMapEntry(new Color(100, 100, 0));
             RegisterItemDrop(ItemID.DirtBlock);
-		}
+        }
 
         public override void RandomUpdate(int i, int j)
         {

@@ -1,10 +1,9 @@
-﻿using Terraria.DataStructures;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
+﻿using System;
 using System.Linq;
-using System;
 using Terraria.Audio;
+using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
 {
@@ -13,7 +12,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public bool IsForced = false;
 
         public abstract string AssetPath { get; }
-        
+
         public virtual (EquipType Type, string AssetName, string EquipName)[] EquipSlots => [];
 
         public virtual float Priority => 1;
@@ -92,8 +91,8 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         internal int previousHighest = -1;
         internal int currentHighest = -1;
 
-        public int Type 
-        { 
+        public int Type
+        {
             get => currentTransformation == null ? -1 : currentTransformation.Type;
 
             set
@@ -131,7 +130,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             if (p.Transformation().currentTransformation != null && !p.Transformation().currentTransformation.IsForced)
             {
                 p.Transformation().previousTransformation = p.Transformation().currentTransformation;
-                p.Transformation().currentTransformation = null;               
+                p.Transformation().currentTransformation = null;
             }
         }
 
@@ -248,7 +247,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
                     break;
             }
         }
-    
+
         public static int GetEquipSlot(Player player, EquipType type) => type switch
         {
             EquipType.Head => player.head,

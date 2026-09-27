@@ -1,13 +1,11 @@
 ﻿using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class ShenDoragonMask : BaseAAItem, ILocalizedModType
+    public class ShenDoragonMask : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Vanity.Masks";
         public override void Load()
@@ -31,7 +29,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.BossS
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Shen Doragon Mask");
-		}
+        }
 
         public override void SetDefaults()
         {

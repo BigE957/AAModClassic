@@ -1,26 +1,25 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons
 {
     public class BaneOfTheBunny : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Bane of the Bunny");
             /* Tooltip.SetDefault(@"Right click to use as a spear
 Left click to use as a javelin
 Throwing Javelins right after a spear thrust throws javelins faster for a moment"); */
-		}
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Item.damage = 100;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-            Item.width = 92; 
+            Item.width = 92;
             Item.height = 92;
             Item.noMelee = true;
             Item.noUseGraphic = true;
@@ -48,7 +47,7 @@ Throwing Javelins right after a spear thrust throws javelins faster for a moment
                 Item.useAnimation = 15;
                 Item.UseSound = SoundID.Item1;
                 Item.useStyle = ItemUseStyleID.Shoot;
-                Item.shoot = ModContent.ProjectileType<BaneOfTheBunny_Holdout>();  
+                Item.shoot = ModContent.ProjectileType<BaneOfTheBunny_Holdout>();
                 Item.shootSpeed = 10f;
                 Item.autoReuse = true;
             }

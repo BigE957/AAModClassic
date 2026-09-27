@@ -3,7 +3,6 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -15,7 +14,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
     {
         public override void SetStaticDefaults()
         {
-			base.SetStaticDefaults();
+            base.SetStaticDefaults();
             // DisplayName.SetDefault("Yamata no Orochi");
             Main.npcFrameCount[NPC.type] = 3;
             this.HideFromBestiary();
@@ -257,7 +256,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                         internalAI[2] = 0;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                             for (int i = -1; i <= 1; i++)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center).RotatedBy(MathHelper.ToRadians(i * 5)) * 5f, ModContent.ProjectileType<YamataAHead_Venom2>(), 18, 0f, -1);
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(Main.player[NPC.target].Center).RotatedBy(MathHelper.ToRadians(i * 5)) * 5f, ModContent.ProjectileType<YamataAHead_Venom2>(), 18, 0f, -1);
                     }
                     if (++internalAI[1] > 420)
                     {
@@ -308,7 +307,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                     NPC.netUpdate = true;
                     goto case 0;
             }
-            
+
             if (YamataABody.TeleportMeBitch)
             {
                 YamataABody.TeleportMeBitch = false;

@@ -1,4 +1,3 @@
-using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn;
 using AAModClassic._CrossMod;
 using AAModClassic.Base.BaseMod.Base;
@@ -7,7 +6,6 @@ using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -55,7 +53,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs._Day
                 return 0f;
 
             return (spawnInfo.Player.ZoneDesert || spawnInfo.Player.ZoneUndergroundDesert) &&
-                NPC.downedBoss3 && !spawnInfo.Player.ZoneBeach 
+                NPC.downedBoss3 && !spawnInfo.Player.ZoneBeach
                 && Main.dayTime ? .1f : 0f;
         }
 

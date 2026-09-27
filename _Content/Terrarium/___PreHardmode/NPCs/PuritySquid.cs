@@ -1,10 +1,9 @@
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,14 +12,14 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
 {
     public class PuritySquid : ModNPC, IBannerNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Purity Squid");
-			Main.npcFrameCount[NPC.type] = 4;
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Purity Squid");
+            Main.npcFrameCount[NPC.type] = 4;
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             NPC.lifeMax = 60;
             NPC.defense = 20;
             NPC.damage = 10;
@@ -35,13 +34,13 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
             NPC.noTileCollide = false;
             NPC.noGravity = true;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PuritySquidBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PuritySquidBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if ((AAWorld.Terra1 || Main.hardMode || NPC.downedPlantBoss) && spawnInfo.Player.AAPlayer().ZoneTerrarium && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if ((AAWorld.Terra1 || Main.hardMode || NPC.downedPlantBoss) && spawnInfo.Player.AAPlayer().ZoneTerrarium && !AnyEvents(spawnInfo.Player))
                 return (Main.hardMode || NPC.downedPlantBoss) ? 0.03f : 0.05f;
 
             return 0f;

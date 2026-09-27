@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class BlueOrthrusXMask : BaseAAItem, ILocalizedModType
+    public class BlueOrthrusXMask : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Vanity.Masks";
         public static int type;
@@ -13,7 +13,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Blue Orthrus X Mask");
-		}
+        }
 
         public override void SetDefaults()
         {

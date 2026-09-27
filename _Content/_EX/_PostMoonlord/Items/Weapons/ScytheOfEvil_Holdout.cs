@@ -1,10 +1,10 @@
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -26,17 +26,17 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons     //We need th
             Projectile.width = 140;
             Projectile.height = 140;
             Projectile.friendly = true;
-            Projectile.penetrate = -1; 
+            Projectile.penetrate = -1;
             Projectile.tileCollide = false;
-            Projectile.ignoreWater = true;  
+            Projectile.ignoreWater = true;
             Projectile.DamageType = DamageClass.Melee;
-            
+
         }
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
 
-            Color color = BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, AAColor.CursedInferno, AAColor.Ichor);
+            Color color = ColorUtils.MulticolorLerp(Main.LocalPlayer.miscCounter % 100 / 100f, AAColor.CursedInferno, AAColor.Ichor);
             if (Main.myPlayer == Projectile.owner)
             {
                 if (!player.channel || player.noItems || player.CCed)
@@ -92,8 +92,8 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons     //We need th
                     SoundEngine.PlaySound(SoundID.Item71, Projectile.Center);
                 }
             }
-            
- 
+
+
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)

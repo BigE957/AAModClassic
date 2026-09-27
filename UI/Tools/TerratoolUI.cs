@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.GameInput;
 using Terraria.UI;
 
@@ -42,7 +41,7 @@ namespace AAModClassic.UI.Tools
         {
             buttonList = [];
             buttonImageList = [];
-            selectedButtons = [ 0 ];
+            selectedButtons = [0];
             buttonFrontFrame = ButtonImages.Frame(1, ButtonAmount);
             circleCenter = Main.MouseScreen - new Vector2(20, 20);
 
@@ -127,7 +126,7 @@ namespace AAModClassic.UI.Tools
         public virtual void ButtonClicked(UIMouseEvent evt, UIElement element)
         {
             int index = -1;
-            for(int i = 0; i < ButtonAmount; i++)
+            for (int i = 0; i < ButtonAmount; i++)
                 if (element == buttonList[i])
                     index = i;
 
