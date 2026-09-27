@@ -1,28 +1,26 @@
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.DataStructures;
+using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
 namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
 {
-	public class CarrotFarmer : CrossoverItem, ILocalizedModType
+    public class CarrotFarmer : CrossoverItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.CrossMod.Healer";
         public override string CrossoverModName => "ThoriumMod";
 
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Carrot Farmer");
             /* Tooltip.SetDefault(@"Spins a Carrot Scythe around you that shreds through enemies
 Scythes fire off carrots while spun
-Grants 1 soul essence on direct hit"); */			
-		}
+Grants 1 soul essence on direct hit"); */
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Item.width = 40;
             Item.height = 40;
             Item.rare = ItemRarityID.Yellow;
@@ -33,12 +31,12 @@ Grants 1 soul essence on direct hit"); */
             Item.UseSound = SoundID.Item1;
             Item.damage = 80;
             Item.knockBack = 9;
-			Item.noMelee = true;
-			Item.noUseGraphic = true;
-			Item.autoReuse = true;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<CarrotFarmer_Holdout>();
             Item.shootSpeed = 0.1f;
-		}
+        }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {

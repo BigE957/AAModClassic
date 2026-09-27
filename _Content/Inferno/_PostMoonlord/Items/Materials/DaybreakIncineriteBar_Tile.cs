@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -22,10 +21,10 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Materials
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.addTile(Type);
 
-            RegisterItemDrop(ModContent.ItemType<DaybreakIncineriteBar>());   
+            RegisterItemDrop(ModContent.ItemType<DaybreakIncineriteBar>());
             DustType = ModContent.DustType<Dusts.DaybreakIncineriteDust>();
             AddMapEntry(new Color(160, 100, 0));
-			MinPick = 0;
+            MinPick = 0;
         }
     }
 }

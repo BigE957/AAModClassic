@@ -4,7 +4,6 @@ using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Tools;
 using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
 using AAModClassic._Content.Hoard._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,7 +11,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.BossStandard
 {
     public class GreedATreasureBag : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public override void SetStaticDefaults()
         {
@@ -23,14 +22,14 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.BossStanda
             ItemID.Sets.BossBag[Type] = true;
         }
 
-		public override void SetDefaults()
-		{
-			Item.maxStack = Item.CommonMaxStack;
-			Item.consumable = true;
-			Item.width = 32;
-			Item.height = 36;
-			Item.rare = ItemRarityID.Purple;
-			Item.expert = true;
+        public override void SetDefaults()
+        {
+            Item.maxStack = Item.CommonMaxStack;
+            Item.consumable = true;
+            Item.width = 32;
+            Item.height = 36;
+            Item.rare = ItemRarityID.Purple;
+            Item.expert = true;
         }
 
         public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
@@ -40,11 +39,11 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.BossStanda
         //public override int BossBagNPC => ModContent.NPCType<GreedA>();
 
         public override bool CanRightClick()
-		{
-			return true;
-		}
+        {
+            return true;
+        }
 
-		public override void RightClick(Player player)
+        public override void RightClick(Player player)
         {
             if (Main.rand.NextBool(10))
             {
@@ -66,5 +65,5 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.BossStanda
 
             itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
         }
-	}
+    }
 }

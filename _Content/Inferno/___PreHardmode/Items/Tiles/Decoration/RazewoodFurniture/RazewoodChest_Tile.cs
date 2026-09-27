@@ -1,6 +1,5 @@
-using System;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Enums;
@@ -40,7 +39,9 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.Ra
             AddMapEntry(new Color(150, 20, 0), name, MapChestName);
             TileID.Sets.DisableSmartCursor[Type] = true;
             AdjTiles = new int[] { TileID.Containers };
-            TileID.Sets.BasicChest[Type] = true; // Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Razewood Chest";
+            TileID.Sets.BasicChest[Type] = true;
+            TileID.Sets.IsAContainer[Type] = true;
+            Main.tileContainer[Type] = true;
             RegisterItemDrop(ModContent.ItemType<RazewoodChest>());
         }
 

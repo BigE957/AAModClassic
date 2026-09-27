@@ -1,21 +1,19 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Hell.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Hell.___PreHardmode.Items.Weapons;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {
     public class Dawnstrike : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Ranged";
-        
+
 
         public override void SetStaticDefaults()
         {
@@ -44,7 +42,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        
+
 
         public override Vector2? HoldoutOffset()
         {

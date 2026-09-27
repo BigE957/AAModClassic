@@ -1,36 +1,35 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
     public class TitanAxe : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Titan Axe");
             // Tooltip.SetDefault("Right clicking throws the axe. \n" + "Left clicking swings the axe. \n" + "'Oof this isn't google' \n'" + "-Welox");
             ItemID.Sets.ItemsThatAllowRepeatedRightClick[Type] = true;
         }
 
-		public override void SetDefaults()
-		{
-			Item.damage = 200;
-			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-			Item.width = 72;
-			Item.height = 72;
-			Item.useTime = 26;
-			Item.useAnimation = 26;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack = 6;
-			Item.value = 100000;
-			Item.rare = ItemRarityID.Purple;
-			Item.UseSound = SoundID.Item1;
-			Item.autoReuse = true;
+        public override void SetDefaults()
+        {
+            Item.damage = 200;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 72;
+            Item.height = 72;
+            Item.useTime = 26;
+            Item.useAnimation = 26;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 6;
+            Item.value = 100000;
+            Item.rare = ItemRarityID.Purple;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
             Item.shootSpeed = 12f;
             if (ModLoader.TryGetMod("Redemption", out var redemption))
                 redemption.Call("setAxeBonus", Item);
@@ -48,12 +47,12 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
         }
 
         public override bool AltFunctionUse(Player player)
-		{
-			return true;
-		}
+        {
+            return true;
+        }
 
-		public override bool CanUseItem(Player player)
-		{
+        public override bool CanUseItem(Player player)
+        {
             if (player.altFunctionUse == 2)
             {
                 Item.shoot = ModContent.ProjectileType<TitanAxe_Proj>();
@@ -67,12 +66,12 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
                 //Item.noUseGraphic = false;
             }
             return base.CanUseItem(player);
-		}
+        }
 
         public override void ModifyItemScale(Player player, ref float scale)
         {
             if (player.altFunctionUse == 2)
                 scale = 0f;
         }
-	}
+    }
 }

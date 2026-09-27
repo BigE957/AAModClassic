@@ -7,7 +7,7 @@ using Terraria.ObjectData;
 namespace AAModClassic._Content._Misc.__Hardmode.Items.Consumables
 {
     public class Carrot_Tile : ModTile
-	{
+    {
         public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;

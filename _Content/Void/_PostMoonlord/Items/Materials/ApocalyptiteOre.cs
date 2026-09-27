@@ -1,7 +1,4 @@
-﻿using AAModClassic.Globals;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using System.Collections.Generic;
-using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,7 +8,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Materials
     {
         public new string LocalizationCategory => "Items.Materials";
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Apocalyptite");
             Item.ResearchUnlockCount = 100;
         }
@@ -30,10 +27,10 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Materials
             Item.rare = ItemRarityID.Red;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<ApocalyptiteOre_Tile>(); //put your CustomBlock Tile name
-            
+
         }
 
-        
-        
+
+
     }
 }

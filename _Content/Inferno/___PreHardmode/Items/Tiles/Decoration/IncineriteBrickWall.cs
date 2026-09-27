@@ -1,5 +1,4 @@
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -21,7 +20,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration
             Item.consumable = true;
             Item.createWall = ModContent.WallType<IncineriteBrickWall_Wall>();
         }
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Incinerite Brick Wall");

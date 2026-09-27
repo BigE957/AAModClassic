@@ -1,19 +1,18 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.Items.Consumables
 {
     public class KeyOfSmite : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Consumables";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Key of Smite");
-			// Tooltip.SetDefault("'Charged with flaming energy'");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Key of Smite");
+            // Tooltip.SetDefault("'Charged with flaming energy'");
+        }
 
 
         public override void SetDefaults()

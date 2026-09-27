@@ -1,8 +1,4 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Underground.__Hardmode.Items.Weapons;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons

@@ -1,9 +1,7 @@
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Pets
 {
@@ -12,27 +10,27 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Pe
         public new string LocalizationCategory => "Items.Vanity.Pets";
 
         public override void SetStaticDefaults()
-		{
-			// DisplayName and Tooltip are automatically set from the .lang files, but below is how it is done normally.
-			// DisplayName.SetDefault("Scorched Egg");
+        {
+            // DisplayName and Tooltip are automatically set from the .lang files, but below is how it is done normally.
+            // DisplayName.SetDefault("Scorched Egg");
 
-			// Tooltip.SetDefault("What will hatch from this egg?");
+            // Tooltip.SetDefault("What will hatch from this egg?");
         }
 
-		public override void SetDefaults()
-		{
-			Item.CloneDefaults(ItemID.DD2PetGhost);
-			Item.shoot = ModContent.ProjectileType<ScorchedEgg_Broodmini>();
-            
+        public override void SetDefaults()
+        {
+            Item.CloneDefaults(ItemID.DD2PetGhost);
+            Item.shoot = ModContent.ProjectileType<ScorchedEgg_Broodmini>();
+
             Item.buffType = ModContent.BuffType<ScorchedEgg_Buff>();
-		}
+        }
 
         public override void UseStyle(Player player, Rectangle heldItemFrame)
-		{
-			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-			{
-				player.AddBuff(Item.buffType, 3600, true);
-			}
-		}
-	}
+        {
+            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
+            {
+                player.AddBuff(Item.buffType, 3600, true);
+            }
+        }
+    }
 }

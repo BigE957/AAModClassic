@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,13 +6,13 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
     public class CursedSickle_Proj : ModProjectile
-	{
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Cursed Sickle");
-		}
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Cursed Sickle");
+        }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
         {
             Projectile.width = 48;
             Projectile.height = 48;
@@ -34,13 +33,13 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-		{
-			target.AddBuff(BuffID.CursedInferno, 180);
-			target.immune[Projectile.owner] = 1;
-			Projectile.Kill();
-		}
+        {
+            target.AddBuff(BuffID.CursedInferno, 180);
+            target.immune[Projectile.owner] = 1;
+            Projectile.Kill();
+        }
 
-		public override void AI()
+        public override void AI()
         {
             Projectile.rotation += Projectile.direction * 0.8f;
             Projectile.ai[0] += 1f;
@@ -68,7 +67,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
         }
 
         public override void OnKill(int timeLeft)
-		{
+        {
             SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
             for (int num611 = 0; num611 < 30; num611++)
             {
@@ -78,5 +77,5 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             }
 
         }
-	}
+    }
 }

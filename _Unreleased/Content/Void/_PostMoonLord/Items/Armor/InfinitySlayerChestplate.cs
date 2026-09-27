@@ -8,7 +8,6 @@ using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ModLoader;
 
 
@@ -17,18 +16,18 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.Armor
     [AutoloadEquip(EquipType.Body)]
     [AutoloadEquipGlow(EquipType.Body)]
     public class InfinitySlayerChestplate : EquipAbstract, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Armor.InfinitySlayer";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Infinity Slayer Chestplate");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Infinity Slayer Chestplate");
             /* Tooltip.SetDefault(@"'Infinite power and malice flows through this armor'"); */
-		}
+        }
 
-		public override void SetDefaults()
-		{
-			Item.width = 30;
-			Item.height = 20;
+        public override void SetDefaults()
+        {
+            Item.width = 30;
+            Item.height = 20;
             Item.value = Item.sellPrice(3, 0, 0, 0);
             Item.defense = 52;
             Item.rare = ModContent.RarityType<SuperancientsRarity>();

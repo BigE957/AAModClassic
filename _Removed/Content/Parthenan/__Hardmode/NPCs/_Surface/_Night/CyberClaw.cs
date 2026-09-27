@@ -1,14 +1,10 @@
-using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
-using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
 using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Utilities;
 using System;
-using Terraria;
-using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;

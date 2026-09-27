@@ -1,6 +1,5 @@
 ﻿using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -24,9 +23,9 @@ namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons
             Projectile.alpha = 255;
             Projectile.timeLeft = 100;
             Projectile.aiStyle = -1;
-			Projectile.DamageType = DamageClass.Ranged;
+            Projectile.DamageType = DamageClass.Ranged;
         }
-        
+
         public override void AI()
         {
             if (Projectile.timeLeft > 60)

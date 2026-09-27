@@ -1,13 +1,12 @@
-using System;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
 {
     public class TerraGauntlet_TerraSphere : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Sphere");
@@ -35,13 +34,13 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
 
         public override void AI()
         {
-			Projectile.tileCollide = false;
+            Projectile.tileCollide = false;
             Player player = Main.player[Projectile.owner];
             ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
-			if (modPlayer.TerraSummon)
-			{
-				Projectile.timeLeft = 2;
-			}
+            if (modPlayer.TerraSummon)
+            {
+                Projectile.timeLeft = 2;
+            }
             if (player.dead)
             {
                 modPlayer.TerraSummon = false;
@@ -95,8 +94,8 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
                 Projectile.tileCollide = false;
             }
             if (player.HasMinionAttackTargetNPC)
-			{
-				NPC nPC2 = Main.npc[player.MinionAttackTargetNPC];
+            {
+                NPC nPC2 = Main.npc[player.MinionAttackTargetNPC];
                 if (nPC2.CanBeChasedBy(Projectile, false))
                 {
                     float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
@@ -107,7 +106,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
                         flag25 = true;
                     }
                 }
-			}
+            }
             else
             {
                 for (int num645 = 0; num645 < 200; num645++)

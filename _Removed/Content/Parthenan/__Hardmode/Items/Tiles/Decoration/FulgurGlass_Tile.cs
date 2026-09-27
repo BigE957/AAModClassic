@@ -1,6 +1,5 @@
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -20,7 +19,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decorat
             HitSound = SoundID.Shatter;
             DustType = ModContent.DustType<FulguriteDust>();
             AddMapEntry(new Color(90, 20, 120));
-			MinPick = 200;
+            MinPick = 200;
         }
     }
 }

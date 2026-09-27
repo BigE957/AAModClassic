@@ -1,5 +1,4 @@
-﻿using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
-using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories;
+﻿using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Ammo;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Pets;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Tools;
@@ -11,7 +10,6 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -73,11 +71,11 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
         }
 
         public override bool CanRightClick()
-		{
-			return true;
-		}
+        {
+            return true;
+        }
 
-		public override void RightClick(Player player)
+        public override void RightClick(Player player)
         {
             if (Main.rand.NextBool(10))
             {
@@ -129,5 +127,5 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
             };
             itemLoot.Add(ItemDropRule.OneFromOptions(1, lootTable));
         }
-	}
+    }
 }

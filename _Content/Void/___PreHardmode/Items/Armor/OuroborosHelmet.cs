@@ -1,9 +1,6 @@
 ﻿using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
@@ -25,7 +22,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
             Item.rare = ItemRarityID.Orange;
             Item.defense = 4;
         }
-        
+
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {

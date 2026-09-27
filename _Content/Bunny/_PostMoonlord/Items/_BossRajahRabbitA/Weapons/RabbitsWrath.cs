@@ -1,9 +1,7 @@
 ﻿using AAModClassic._Content.Bunny.Projectiles;
-using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -40,13 +38,13 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
-        
+
 
         public override Vector2? HoldoutOffset()
-		{
-			return new Vector2(-2, -2);
-		}
-		
+        {
+            return new Vector2(-2, -2);
+        }
+
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             Vector2 vector12 = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY);

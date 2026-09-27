@@ -5,8 +5,8 @@ using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
 using AAModClassic._Content.Stars.World.Altar;
+using AAModClassic.Base;
 using AAModClassic._Unofficial.Bunny.Items;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -14,7 +14,6 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System.Collections.Generic;
 using System.Linq;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
@@ -165,7 +164,7 @@ namespace AAModClassic.Globals
 
             Tile t = Framing.GetTileSafely(i, j - 1);
 
-            if(!t.HasTile)
+            if (!t.HasTile)
                 return true;
 
             if ((t.TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || t.TileType == ModContent.TileType<DragonAltarUnsafe_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<DragonAltarUnsafe_Tile>()))
@@ -341,7 +340,7 @@ namespace AAModClassic.Globals
         {
             UnbreakableTiles.Clear();
             var list = tag.GetList<Point>("ProtectedTileList");
-            foreach(Point p in list)
+            foreach (Point p in list)
                 UnbreakableTiles.Add(p);
 
             UnbreakableWalls.Clear();

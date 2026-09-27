@@ -3,7 +3,6 @@ using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,7 +16,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Armor
             // DisplayName.SetDefault("Dynabomb");
             Main.projFrames[Projectile.type] = 5;
         }
-    	
+
         public override void SetDefaults()
         {
             Projectile.width = 24;

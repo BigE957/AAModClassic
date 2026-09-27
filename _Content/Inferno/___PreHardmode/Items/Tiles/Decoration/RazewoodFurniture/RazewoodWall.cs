@@ -1,7 +1,6 @@
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture
 {
@@ -22,7 +21,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.Ra
             Item.consumable = true;
             Item.createWall = ModContent.WallType<RazewoodWall_Wall>();
         }
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Razewood Wall");

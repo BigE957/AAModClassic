@@ -1,21 +1,20 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
 {
     public class Toxithrower : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Ranged";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Toxithrower");
-			// Tooltip.SetDefault("Uses gel for ammo");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Toxithrower");
+            // Tooltip.SetDefault("Uses gel for ammo");
+        }
 
         public override void SetDefaults()
         {
@@ -37,8 +36,8 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
             Item.useAmmo = AmmoID.Gel;
             Item.consumeAmmoOnFirstShotOnly = true;
         }
-		
-		public override Vector2? HoldoutOffset()
+
+        public override Vector2? HoldoutOffset()
         {
             return new Vector2(2, -3);
         }

@@ -9,34 +9,34 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
     public class DuckstepLauncher : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Magic";
-        
+
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Duckstep Launcher");
             /* Tooltip.SetDefault(@"Quack.
 -Aves"); */
         }
 
-		public override void SetDefaults()
-		{
-            
-			Item.damage = 130;
-			Item.DamageType = DamageClass.Magic;
+        public override void SetDefaults()
+        {
+
+            Item.damage = 130;
+            Item.DamageType = DamageClass.Magic;
             Item.mana = 9;
             Item.width = 74;
-			Item.height = 36;
-			Item.useTime = 20;
-			Item.useAnimation = 20;
-			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.noMelee = true; //so the item's animation doesn't do damage
-			Item.knockBack = 4;
-			Item.value = 1000000;
-			Item.rare = ItemRarityID.Green;
+            Item.height = 36;
+            Item.useTime = 20;
+            Item.useAnimation = 20;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.noMelee = true; //so the item's animation doesn't do damage
+            Item.knockBack = 4;
+            Item.value = 1000000;
+            Item.rare = ItemRarityID.Green;
             Item.expert = true;
-			Item.UseSound = SoundID.Zombie10;
+            Item.UseSound = SoundID.Zombie10;
             Item.autoReuse = true;
-			Item.shoot = ProjectileID.PurificationPowder; //idk why but all the guns in the vanilla source have this
-			Item.shootSpeed = 12f;
+            Item.shoot = ProjectileID.PurificationPowder; //idk why but all the guns in the vanilla source have this
+            Item.shootSpeed = 12f;
             Item.shoot = ModContent.ProjectileType<DuckstepLauncher_Duck>();
         }
 

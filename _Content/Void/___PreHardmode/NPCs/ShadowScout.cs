@@ -1,16 +1,14 @@
-﻿using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -20,18 +18,18 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
 {
     public class ShadowScout : ModNPC, IBannerNPC
     {
-		
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Shadow Scout");
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Shadow Scout");
             Main.npcFrameCount[NPC.type] = 12;
         }
-		
-		public override void SetDefaults()
-		{
+
+        public override void SetDefaults()
+        {
             NPC.noGravity = true;
             NPC.noTileCollide = true;
-			NPC.aiStyle = -1;
+            NPC.aiStyle = -1;
             NPC.width = 24;
             NPC.height = 40;
             NPC.damage = 20;
@@ -44,26 +42,26 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
             NPC.knockBackResist = 0.7f;
             NPC.noGravity = true;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<ShadowScoutBanner>();
+            //BannerItem = ModContent.ItemType<ShadowScoutBanner>();
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (spawnInfo.Player.AAPlayer().ZoneVoid && NPCExtensions.BeenKilled<Sagittarius>() && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (spawnInfo.Player.AAPlayer().ZoneVoid && NPCExtensions.BeenKilled<Sagittarius>() && !AnyEvents(spawnInfo.Player))
                 return 0.005f;
 
             return 0f;
         }
 
         public int frameCount = 0;
-		public int frameCounter = 0;
+        public int frameCounter = 0;
         public int IdleTimer = 0;
 
-		public override void PostAI()
-		{
-			NPC.spriteDirection = NPC.velocity.X > 0 ? -1 : 1;
-		}
+        public override void PostAI()
+        {
+            NPC.spriteDirection = NPC.velocity.X > 0 ? -1 : 1;
+        }
 
         public override void AI()
         {

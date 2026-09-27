@@ -6,10 +6,8 @@ using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA.Skies;
-using AAModClassic._Content.Acropolis.World.Tiles;
 using AAModClassic._Content.BloodMoon.___PreHardmode.Items.Currency;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
-using AAModClassic._Content.Chaos.___PreHardmode.Items.Tools;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
@@ -26,7 +24,6 @@ using AAModClassic._Content.Evil.__Hardmode.Items.Weapons;
 using AAModClassic._Content.FrostMoon.__Hardmode.Items.Currency;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad;
 using AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Currency;
-using AAModClassic._Content.Hoard.World.Tiles;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
@@ -54,13 +51,9 @@ using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
 using AAModClassic._Content.Void.World.Biomes;
-using AAModClassic._CrossMod;
 using AAModClassic._Removed.Content.Stars;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Weapons;
 using AAModClassic.Assets;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Base.NPCs;
-using AAModClassic.Base.Projectiles;
 using AAModClassic.Globals;
 using AAModClassic.UI.Core;
 using AAModClassic.UI.Tools;
@@ -73,9 +66,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Text.RegularExpressions;
 using Terraria.GameContent;
 using Terraria.GameContent.UI;
 using Terraria.Graphics;
@@ -164,7 +154,7 @@ namespace AAModClassic
             }
 
             var field = typeof(FinalFractalHelper).GetField("_fractalProfiles", BindingFlags.Static | BindingFlags.NonPublic);
-            if(field != null)
+            if (field != null)
             {
                 var profiles = (Dictionary<int, FinalFractalHelper.FinalFractalProfile>)field.GetValue(null);
 
@@ -366,7 +356,8 @@ namespace AAModClassic
             Filters.Scene["AAModClassic:Mask"].Load();
 
             //TODO: Perhaps move these to their proper content area so the textures are easier to keep track off
-            Main.QueueMainThreadAction(() => {
+            Main.QueueMainThreadAction(() =>
+            {
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Void/World/Biomes/Backgrounds/VoidBH", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/World/Biomes/Backgrounds/MireBiome_Moon", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/Sun", AssetRequestMode.ImmediateLoad).Value);
@@ -472,7 +463,7 @@ namespace AAModClassic
             if (field != null)
             {
                 var profiles = (Dictionary<int, FinalFractalHelper.FinalFractalProfile>)field.GetValue(null);
-                foreach(int key in profiles.Keys)
+                foreach (int key in profiles.Keys)
                 {
                     if (ContentSamples.ItemsByType[key].ModItem != null && ContentSamples.ItemsByType[key].ModItem.Mod is AAMod)
                         profiles.Remove(key);

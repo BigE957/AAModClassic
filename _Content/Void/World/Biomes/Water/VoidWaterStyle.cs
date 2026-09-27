@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Void.World.Biomes.Water
 {
     public class VoidWaterStyle : ModWaterStyle
-	{
+    {
         public static ModWaterStyle Instance { get; private set; }
         public static ModWaterfallStyle WaterfallStyle { get; private set; }
         public static int SplashDust { get; private set; }
@@ -32,18 +32,18 @@ namespace AAModClassic._Content.Void.World.Biomes.Water
         public override int ChooseWaterfallStyle() => WaterfallStyle.Slot;
         public override int GetSplashDust() => SplashDust;
         public override int GetDropletGore() => DropletGore;
-		public override Asset<Texture2D> GetRainTexture() => RainTexture ??= ModContent.Request<Texture2D>("AAModClassic/_Content/Void/World/Biomes/Water/VoidRain");
+        public override Asset<Texture2D> GetRainTexture() => RainTexture ??= ModContent.Request<Texture2D>("AAModClassic/_Content/Void/World/Biomes/Water/VoidRain");
 
-		public override void LightColorMultiplier(ref float r, ref float g, ref float b)
-		{
-			r = 1f;
-			g = 1f;
-			b = 1f;
-		}
+        public override void LightColorMultiplier(ref float r, ref float g, ref float b)
+        {
+            r = 1f;
+            g = 1f;
+            b = 1f;
+        }
 
-		public override Color BiomeHairColor()
-		{
-			return Color.Black;
-		}
-	}
+        public override Color BiomeHairColor()
+        {
+            return Color.Black;
+        }
+    }
 }

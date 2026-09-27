@@ -1,6 +1,5 @@
 ﻿using AAModClassic._CrossMod;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 
 namespace AAModClassic.Utilities
 {

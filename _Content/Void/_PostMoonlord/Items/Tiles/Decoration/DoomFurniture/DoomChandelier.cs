@@ -1,6 +1,4 @@
-﻿using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using Terraria;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFurniture

@@ -5,14 +5,14 @@ using Terraria.ModLoader;
 namespace AAModClassic._Unofficial.Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class HarukaMask : BaseAAItem, ILocalizedModType
+    public class HarukaMask : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Vanity.Masks";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Haruka Mask");
-		}
+        }
 
         public override void SetDefaults()
         {

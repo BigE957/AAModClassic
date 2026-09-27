@@ -1,32 +1,29 @@
-﻿using System;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Ammo;
+using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Ammo;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 {
     public class RealityCannon : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Ranged";
-        
+
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Reality Cannon");
+        {
+            // DisplayName.SetDefault("Reality Cannon");
             // Tooltip.SetDefault("Rapidly Fires a spread of dark lasers");
         }
 
         public override void SetDefaults()
         {
-            
+
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 15;
             Item.useTime = 15;
@@ -45,7 +42,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        
+
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
@@ -63,13 +60,13 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
         }
 
         public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 5);
-			recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 5);
-			recipe.AddIngredient(ItemID.StarCannon);
-	        recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
-	        recipe.Register();
-		}
-	}
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 5);
+            recipe.AddIngredient(ItemID.StarCannon);
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
+            recipe.Register();
+        }
+    }
 }

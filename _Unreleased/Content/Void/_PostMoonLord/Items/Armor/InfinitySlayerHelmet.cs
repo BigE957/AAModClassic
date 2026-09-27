@@ -1,6 +1,4 @@
-﻿using AAModClassic;
-using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero;
 using AAModClassic._Unreleased.Content.Void.Buffs;
@@ -11,29 +9,26 @@ using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using Terraria;
-using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
-	public class InfinitySlayerHelmet : EquipAbstract, ILocalizedModType
-	{
+    public class InfinitySlayerHelmet : EquipAbstract, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Armor.InfinitySlayer";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Infinity Slayer Visor");
-			/* Tooltip.SetDefault(@" power and malice flows through this armor'"); */
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Infinity Slayer Visor");
+            /* Tooltip.SetDefault(@" power and malice flows through this armor'"); */
 
-		}
+        }
 
-		public override void SetDefaults()
-		{
-			Item.width = 24;
-			Item.height = 22;
+        public override void SetDefaults()
+        {
+            Item.width = 24;
+            Item.height = 22;
             Item.value = Item.sellPrice(3, 0, 0, 0);
             Item.defense = 40;
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
@@ -51,9 +46,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.Armor
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
-		{
-			return body.type == ModContent.ItemType<InfinitySlayerChestplate>() && legs.type == ModContent.ItemType<InfinitySlayerLeggings>();
-		}
+        {
+            return body.type == ModContent.ItemType<InfinitySlayerChestplate>() && legs.type == ModContent.ItemType<InfinitySlayerLeggings>();
+        }
 
         public override void RegisterEquipEffects()
         {
@@ -68,12 +63,12 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items.Armor
         }
 
         public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
+        {
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DoomsdayHelmetMage>(), 1);
             recipe.AddIngredient(ModContent.ItemType<Infinitium>(), 12);
             recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
-			recipe.Register();
+            recipe.Register();
 
             Recipe recipe2 = CreateRecipe();
             recipe2.AddIngredient(ModContent.ItemType<DoomsdayHelmetSummoner>(), 1);

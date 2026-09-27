@@ -1,9 +1,6 @@
-﻿using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.Skies;
-using AAModClassic._CrossMod;
-using AAModClassic.Achievements;
+﻿using AAModClassic.Achievements;
 using AAModClassic.Music;
 using AAModClassic.UI.World;
-using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.ModLoader;
 

@@ -1,12 +1,6 @@
-using AAModClassic._Content.Bunny.Projectiles;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using Terraria;
-using Terraria.Audio;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weapons
 {
@@ -115,21 +109,21 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weap
                 }
             }
         }
-		
-		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-		{
-			for (int h = 0; h < 6; h++)
-			{
-				Vector2 vel = new Vector2(0, -1);
-				float rand = Main.rand.NextFloat() * 6.3f;
-				vel = vel.RotatedBy(rand);
-				vel *= 4f;
-				Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, ProjectileID.FlaironBubble, Projectile.damage, 0, Main.myPlayer);
-			}
-		}
 
-		public override bool OnTileCollide(Vector2 oldVelocity)
-		{
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            for (int h = 0; h < 6; h++)
+            {
+                Vector2 vel = new Vector2(0, -1);
+                float rand = Main.rand.NextFloat() * 6.3f;
+                vel = vel.RotatedBy(rand);
+                vel *= 4f;
+                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, ProjectileID.FlaironBubble, Projectile.damage, 0, Main.myPlayer);
+            }
+        }
+
+        public override bool OnTileCollide(Vector2 oldVelocity)
+        {
             /*
 			for (int h = 0; h < 6; h++)
 			{
@@ -159,8 +153,8 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Weap
             SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
             */
             return base.OnTileCollide(oldVelocity);
-		}
-		
+        }
+
         public override bool PreDraw(ref Color lightColor)
         {
             return base.PreDraw(ref lightColor);

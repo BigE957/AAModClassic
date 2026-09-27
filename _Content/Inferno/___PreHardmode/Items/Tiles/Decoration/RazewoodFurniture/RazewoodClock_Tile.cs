@@ -1,7 +1,5 @@
-using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OuroborosWoodFurniture;
 using AAModClassic.Dusts;
 using AAModClassic.Utilities;
-using Terraria;
 using Terraria.GameContent.ObjectInteractions;
 using Terraria.ModLoader;
 

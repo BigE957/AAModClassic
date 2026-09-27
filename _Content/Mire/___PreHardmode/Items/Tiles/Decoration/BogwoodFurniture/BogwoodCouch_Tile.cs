@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.BogwoodFurniture
 {
     public class BogwoodCouch_Tile : ModTile
-	{
+    {
         public override void SetStaticDefaults()
         {
             this.SetUpSofa(ModContent.ItemType<BogwoodCouch>());

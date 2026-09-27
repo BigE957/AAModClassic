@@ -1,9 +1,6 @@
 using AAModClassic._Content.Inferno.Projectiles;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -25,19 +22,19 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
         public override float MaxRetractSpeed => base.MaxRetractSpeed;
 
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Daycrusher");
             base.SetStaticDefaults();
-		}
+        }
         public override void SetDefaults()
         {
             Projectile.width = 34;
             Projectile.height = 30;
             base.SetDefaults();
         }
-		
-		public override void AI()
-		{
+
+        public override void AI()
+        {
             if (Main.rand.NextFloat() < 1f)
             {
                 Dust dust1;
@@ -152,24 +149,24 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
             }
             */
         }
-		
-		public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
-		{
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
             target.AddBuff(BuffID.Daybreak, 600);
-			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-			int p = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), target.Center.X, target.Center.Y, 0f, 0f, ModContent.ProjectileType<AkumaExplosionBlue>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
-			Main.projectile[p].DamageType = DamageClass.Melee;
-			Main.projectile[p].friendly = true;
-			Main.projectile[p].hostile = false;
-			Main.projectile[p].usesLocalNPCImmunity = true;
-			Main.projectile[p].localNPCHitCooldown = 4;
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            int p = Projectile.NewProjectile(Projectile.GetSource_OnHit(target), target.Center.X, target.Center.Y, 0f, 0f, ModContent.ProjectileType<AkumaExplosionBlue>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+            Main.projectile[p].DamageType = DamageClass.Melee;
+            Main.projectile[p].friendly = true;
+            Main.projectile[p].hostile = false;
+            Main.projectile[p].usesLocalNPCImmunity = true;
+            Main.projectile[p].localNPCHitCooldown = 4;
         }
-		
+
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
         {
             return base.PreDraw(ref lightColor);
-			/*
+            /*
             Texture2D texture = ModContent.Request<Texture2D>(Texture + "_Chain").Value;
  
             Vector2 position = Projectile.Center;

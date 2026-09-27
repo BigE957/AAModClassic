@@ -1,17 +1,16 @@
-using System;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
 {
     public class TerraGauntlet_TerraSquid : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Squid");
-			Main.projFrames[Projectile.type] = 4;
+            Main.projFrames[Projectile.type] = 4;
             ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
             ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
         }
@@ -35,13 +34,13 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
 
         public override void AI()
         {
-			Projectile.tileCollide = false;
+            Projectile.tileCollide = false;
             Player player = Main.player[Projectile.owner];
             ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
-			if (modPlayer.TerraSummon)
-			{
-				Projectile.timeLeft = 2;
-			}
+            if (modPlayer.TerraSummon)
+            {
+                Projectile.timeLeft = 2;
+            }
             if (player.dead)
             {
                 modPlayer.TerraSummon = false;
@@ -95,8 +94,8 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
                 Projectile.tileCollide = false;
             }
             if (player.HasMinionAttackTargetNPC)
-			{
-				NPC nPC2 = Main.npc[player.MinionAttackTargetNPC];
+            {
+                NPC nPC2 = Main.npc[player.MinionAttackTargetNPC];
                 if (nPC2.CanBeChasedBy(Projectile, false))
                 {
                     float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
@@ -107,9 +106,9 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
                         flag25 = true;
                     }
                 }
-			}
-			else
-			{
+            }
+            else
+            {
                 for (int num645 = 0; num645 < 200; num645++)
                 {
                     NPC nPC2 = Main.npc[num645];
@@ -202,7 +201,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
             }
             else
             {
-               Projectile.spriteDirection = -1;
+                Projectile.spriteDirection = -1;
             }
 
             Projectile.frameCounter++;
@@ -237,7 +236,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
                         value19.Normalize();
                         value19 *= scaleFactor3;
                         int num659 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, num658, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
-						Main.projectile[num659].penetrate = 1;
+                        Main.projectile[num659].penetrate = 1;
                         Main.projectile[num659].timeLeft = 300;
                         Projectile.netUpdate = true;
                     }

@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,27 +7,27 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
 {
     public class ChampionHelmetRangedSetEffect_Carrot : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Carrot");
             Main.projFrames[Projectile.type] = 4;
-		}
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Projectile.DamageType = DamageClass.Ranged;
-			Projectile.width = 10; 
-			Projectile.height = 10; 
-			Projectile.friendly = true; 
-			Projectile.hostile = false;  
-			Projectile.penetrate = 1;  
-			Projectile.timeLeft = 600;  
-			Projectile.ignoreWater = true;
-			Projectile.tileCollide = true;
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 600;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = 0;
-		}
+        }
 
         public override void AI()
         {
@@ -36,7 +35,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
             const int aislotHomingCooldown = 0;
             const int homingDelay = 15;
             const float desiredFlySpeedInPixelsPerFrame = 10;
-            const float amountOfFramesToLerpBy = 40; 
+            const float amountOfFramesToLerpBy = 40;
 
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)

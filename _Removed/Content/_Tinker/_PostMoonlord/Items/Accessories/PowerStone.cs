@@ -1,7 +1,6 @@
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -50,7 +49,7 @@ namespace AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             base.ModifyTooltips(list);
-            
+
             foreach (TooltipLine line2 in list)
             {
                 if (line2.Mod == "Terraria" && line2.Name == "ItemName")
@@ -70,5 +69,5 @@ namespace AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories
             return incomingItem.type != ModContent.ItemType<MindStone>() || incomingItem.type != ModContent.ItemType<PowerStone>() || incomingItem.type != ModContent.ItemType<RealityStone>() || incomingItem.type != ModContent.ItemType<SoulStone>() || incomingItem.type != ModContent.ItemType<SpaceStone>() || incomingItem.type != ModContent.ItemType<TimeStone>() || incomingItem.type != ModContent.ItemType<InfinityGauntlet>();
         }
     }
-    
+
 }

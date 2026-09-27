@@ -1,14 +1,12 @@
-﻿using Terraria;
-using Terraria.DataStructures;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Acropolis.Projectiles;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons
 {
@@ -23,7 +21,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapo
 
         public override void SetDefaults()
         {
-            Item.damage = 140; 
+            Item.damage = 140;
             Item.noMelee = true;
             Item.DamageType = DamageClass.Ranged;
             Item.width = 26;
@@ -40,7 +38,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapo
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
-        
+
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {

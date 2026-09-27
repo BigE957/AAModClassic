@@ -1,7 +1,6 @@
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
 using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit

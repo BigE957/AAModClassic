@@ -1,11 +1,10 @@
 using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.Projectiles;
 using AAModClassic._Content.Terrarium.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,16 +13,16 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
 {
     public class PuritySphere : ModNPC, IBannerNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Purity Sphere");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Purity Sphere");
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             NPC.width = 26;
             NPC.height = 26;
-            NPC.lifeMax =  60;
+            NPC.lifeMax = 60;
             NPC.defense = 5;
             NPC.damage = 10;
             NPC.HitSound = SoundID.NPCHit1;
@@ -34,13 +33,13 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.NPCs
             NPC.noGravity = true;
             NPC.noTileCollide = false;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PuritySphereBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.PuritySphereBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if ((AAWorld.Terra1 || Main.hardMode || NPC.downedPlantBoss) && spawnInfo.Player.AAPlayer().ZoneTerrarium && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if ((AAWorld.Terra1 || Main.hardMode || NPC.downedPlantBoss) && spawnInfo.Player.AAPlayer().ZoneTerrarium && !AnyEvents(spawnInfo.Player))
                 return (Main.hardMode || NPC.downedPlantBoss) ? 0.03f : 0.05f;
 
             return 0f;

@@ -3,7 +3,6 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,7 +11,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
     public class InfinityCore : ModNPC
     {
-		
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Infinity Zero");
@@ -88,7 +87,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 }
                 return;
             }
-            
+
             if (!player.active || player.dead || !Body.active)
             {
                 NPC.TargetClosest(false);
@@ -102,14 +101,14 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                     return;
                 }
             }
-            
+
             Vector2 moveTo = (Body.Center - Vector2.UnitY * 89) - NPC.Center;
             NPC.velocity = moveTo;
         }
         public override void FindFrame(int frameHeight)
         {
             NPC.frameCounter++;
-            if(NPC.frameCounter > 5)
+            if (NPC.frameCounter > 5)
             {
                 NPC.frameCounter = 0;
                 CoreCounter += 1;

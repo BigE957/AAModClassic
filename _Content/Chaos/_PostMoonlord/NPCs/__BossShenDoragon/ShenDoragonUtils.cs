@@ -2,12 +2,9 @@
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using static AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.ShenDoragonUtils;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 {
@@ -17,7 +14,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
         {
             SomethingWentWrongAndItsAllYourFault = -1,
             Inferno = 0,
-            Mire = 1, 
+            Mire = 1,
             Discord = 2
         }
 

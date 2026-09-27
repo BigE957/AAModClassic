@@ -6,7 +6,6 @@ using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Achievements;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -18,13 +17,13 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
     {
         public override void SetDefaults()
         {
-			base.SetDefaults();
-			NPC.lifeMax = 1400;
+            base.SetDefaults();
+            NPC.lifeMax = 1400;
             NPC.damage = 30;
-            NPC.defense = 10;		
-            NPC.buffImmune[BuffID.Poisoned] = true;	
+            NPC.defense = 10;
+            NPC.buffImmune[BuffID.Poisoned] = true;
 
-			offsetBasePoint = new Vector2(240f, 0f);
+            offsetBasePoint = new Vector2(240f, 0f);
             SpawnModBiomes = new int[1] { ModContent.GetInstance<MireBiome>().Type };
         }
 
@@ -90,6 +89,6 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
             {
                 target.AddBuff(BuffID.Poisoned, Main.rand.Next(180, 250));       //Main.rand.Next part is the length of the buff, so 8.3 seconds to 16.6 seconds
             }
-        }		
+        }
     }
 }

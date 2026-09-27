@@ -1,12 +1,11 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic._Content.Mire.__Hardmode.Items.Consumables;
+using Microsoft.Xna.Framework;
 using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using AAModClassic._Content.Mire.__Hardmode.Items.Consumables;
 
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Tiles.Functional
 {
@@ -22,10 +21,10 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Tiles.Functional
             Main.tileLavaDeath[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
             TileObjectData.newTile.Origin = new Point16(1, 1);
-			TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 18 };
+            TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 18 };
             TileObjectData.newTile.AnchorInvalidTiles = new[] { 127 };
-			TileObjectData.newTile.StyleHorizontal = true;
-			TileObjectData.newTile.LavaDeath = true;
+            TileObjectData.newTile.StyleHorizontal = true;
+            TileObjectData.newTile.LavaDeath = true;
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Toxin Monkfish");
@@ -43,15 +42,15 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Tiles.Functional
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
             frameCounter++;
-			if (frameCounter >= 4)
-			{
-				frameCounter = 0;
-				frame++;
-				if (frame >= 4)
-				{
-					frame = 0;
-				}
-			}
+            if (frameCounter >= 4)
+            {
+                frameCounter = 0;
+                frame++;
+                if (frame >= 4)
+                {
+                    frame = 0;
+                }
+            }
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
@@ -65,16 +64,16 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Tiles.Functional
         {
             Player player = Main.LocalPlayer;
             player.AddBuff(ModContent.BuffType<FlaskOfHydratoxin_Buff>(), 36000, true);
-			SoundEngine.PlaySound(SoundID.Grab, player.position);
+            SoundEngine.PlaySound(SoundID.Grab, player.position);
             return true;
         }
 
         public override void MouseOver(int i, int j)
         {
-			Player player = Main.LocalPlayer;
-			player.noThrow = 2;
-			player.cursorItemIconEnabled = true;
-			player.cursorItemIconID = ModContent.ItemType<ToxinMonkfish>();
-		}
+            Player player = Main.LocalPlayer;
+            player.noThrow = 2;
+            player.cursorItemIconEnabled = true;
+            player.cursorItemIconID = ModContent.ItemType<ToxinMonkfish>();
+        }
     }
 }

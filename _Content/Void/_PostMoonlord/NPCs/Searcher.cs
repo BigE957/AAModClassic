@@ -1,13 +1,11 @@
-﻿using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
-using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void.Projectiles;
 using AAModClassic._Content.Void.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -17,8 +15,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs
 {
     public class Searcher : ModNPC, IBannerNPC
     {
-		public int timer = 0;
-		public bool start = true;
+        public int timer = 0;
+        public bool start = true;
 
         public override void SetStaticDefaults()
         {
@@ -40,13 +38,13 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs
             NPC.knockBackResist = 0.5f;
             NPC.noGravity = true;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SearcherBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SearcherBanner>();
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (NPC.downedMoonlord && spawnInfo.Player.AAPlayer().ZoneVoid && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (NPC.downedMoonlord && spawnInfo.Player.AAPlayer().ZoneVoid && !AnyEvents(spawnInfo.Player))
                 return 0.005f;
 
             return 0f;

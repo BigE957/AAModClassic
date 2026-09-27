@@ -1,10 +1,10 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using System.Collections.Generic;
-using Terraria.ID;
+﻿using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.Attributes;
-using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 

@@ -1,10 +1,8 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,15 +12,15 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Apocalypse");
             /* Tooltip.SetDefault(@"The Flaming Jacks travel towards the sunset, where
 souls travel to reach the afterlife.
 Horseman's Blade EX"); */
         }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.damage = 1000;
             Item.useStyle = ItemUseStyleID.Swing;
@@ -30,24 +28,24 @@ Horseman's Blade EX"); */
             Item.UseSound = SoundID.Item1;
             Item.shootSpeed = 20f;
             Item.width = 54;
-			Item.height = 54;    
+            Item.height = 54;
             Item.knockBack = 6.5f;
             Item.useTime = 5;
-			Item.useAnimation = 5;
-			Item.value = 1000000;
+            Item.useAnimation = 5;
+            Item.value = 1000000;
             Item.expert = true;
-		}
+        }
 
         public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.TheHorsemansBlade);
-			recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ItemID.TheHorsemansBlade);
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
             recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
-		}
-		
-		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+        }
+
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             float screenX = Main.screenPosition.X;
             if (player.direction < 0)
@@ -72,5 +70,5 @@ Horseman's Blade EX"); */
             p.tileCollide = false;
             target.AddBuff(BuffID.OnFire, 400);
         }
-	}
+    }
 }

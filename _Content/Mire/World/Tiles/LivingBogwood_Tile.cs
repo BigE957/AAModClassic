@@ -1,6 +1,5 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -17,7 +16,7 @@ namespace AAModClassic._Content.Mire.World.Tiles
             Main.tileBlockLight[Type] = true;  //true for block to emit light
             Main.tileLighted[Type] = false;
             DustType = ModContent.DustType<Dusts.BogwoodDust>();
-            RegisterItemDrop(ModContent.ItemType<Bogwood>());   
+            RegisterItemDrop(ModContent.ItemType<Bogwood>());
             AddMapEntry(new Color(20, 0, 127));
             MinPick = 0;
         }

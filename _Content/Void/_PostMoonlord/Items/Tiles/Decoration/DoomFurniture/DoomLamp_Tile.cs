@@ -1,20 +1,13 @@
-using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Keep;
 using AAModClassic.Dusts;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.DataStructures;
-using Terraria.Enums;
-using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFurniture
 {
     public class DoomLamp_Tile : ModTile
-	{
+    {
         public override void SetStaticDefaults()
         {
             this.SetUpLamp(ModContent.ItemType<DoomLamp>());

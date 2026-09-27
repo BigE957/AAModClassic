@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,13 +7,13 @@ namespace AAModClassic._Content.Terrarium.Projectiles
 {
     public class PurityBlast : ModProjectile
     {
-    	
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Purity Blast");
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Purity Blast");
             Main.projFrames[Projectile.type] = 4;
-		}
-    	
+        }
+
         public override void SetDefaults()
         {
             Projectile.width = 10;

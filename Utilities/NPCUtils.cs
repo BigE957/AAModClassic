@@ -1,9 +1,7 @@
-﻿using System;
+﻿global using static AAModClassic.Utilities.NPCUtils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
 using Terraria.GameContent.Events;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;

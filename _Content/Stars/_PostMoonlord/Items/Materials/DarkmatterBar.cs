@@ -1,17 +1,14 @@
-﻿using Terraria;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
-using Terraria.ID;
+﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
 {
     public class DarkmatterBar : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Materials";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dark Matter");
@@ -35,7 +32,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
         }
 
         public override void AddRecipes()
-        {                                                   
+        {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DarkmatterOre>(), 5);              //example of how to craft with a modded item
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());

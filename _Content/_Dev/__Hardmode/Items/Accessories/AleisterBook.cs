@@ -1,21 +1,20 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using System.Collections.Generic;
-using Terraria;
-using Terraria.ID;
+﻿using AAModClassic._Content._EX._PostMoonlord.Items.Accessories;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic._Content._EX._PostMoonlord.Items.Accessories;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.HandsOff)]
-	public class AleisterBook : BaseAAItem, ILocalizedModType
-	{
+    public class AleisterBook : BaseAAItem, ILocalizedModType
+    {
         //TODO: make this thing work and port it to new acc system
         public override bool IsLoadingEnabled(Mod mod) => false;
 
         public new string LocalizationCategory => "Items.Accessories";
-		public override void SetStaticDefaults()
+        public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Aleister Book");
@@ -51,10 +50,10 @@ I need more powerful souls, *****,*********,**********"); */
         }
 
         public override bool CanUseItem(Player player)
-		{
+        {
             return false;
         }
-        
+
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.GetDamage(DamageClass.Summon) += .1f;

@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -9,16 +8,16 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables
 {
     public class ScorchedSeeds : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Consumables";
-		public override void SetStaticDefaults()
+        public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Scorched Seeds");
             // Tooltip.SetDefault("Plants Inferno grass");
 
             Item.ResearchUnlockCount = 25;
-        }		
-		
+        }
+
         public override void SetDefaults()
         {
             Item.width = 16;
@@ -33,7 +32,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables
             Item.autoReuse = true;
             Item.useTurn = true;
             //Item.createTile = ModContent.TileType<InfernoGrass_Tile>();
-            Item.consumable = true;		
+            Item.consumable = true;
         }
 
         public override bool? UseItem(Player player) => true;

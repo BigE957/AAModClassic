@@ -1,6 +1,5 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,7 +9,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Mater
     public class ChaosSoul : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Materials";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Chaos Soul");
@@ -29,7 +28,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Mater
             Item.maxStack = Item.CommonMaxStack;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.rare = ItemRarityID.Cyan;
-            Item.expert = true; 
+            Item.expert = true;
             Item.alpha = 25;
         }
 

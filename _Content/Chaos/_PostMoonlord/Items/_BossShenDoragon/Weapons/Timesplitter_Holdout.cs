@@ -3,7 +3,6 @@ using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -84,8 +83,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapo
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-			target.AddBuff(BuffID.Daybreak, 600);
-			target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 600);
+            target.AddBuff(BuffID.Daybreak, 600);
+            target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 600);
             Player player = Main.player[Projectile.owner];
             float screenX = Main.screenPosition.X;
             if (player.direction < 0)
@@ -106,7 +105,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapo
             num6 = num5 / num6;
             velocityX *= num6;
             velocityY *= num6;
-            Projectile p = Projectile.NewProjectileDirect(Projectile.GetSource_OnHit(target), new Vector2(screenX, screenY), new Vector2(velocityX, velocityY), ModContent.ProjectileType<Timesplitter_CosmicBlow>(), damageDone*4, 0f, player.whoAmI);
+            Projectile p = Projectile.NewProjectileDirect(Projectile.GetSource_OnHit(target), new Vector2(screenX, screenY), new Vector2(velocityX, velocityY), ModContent.ProjectileType<Timesplitter_CosmicBlow>(), damageDone * 4, 0f, player.whoAmI);
             p.tileCollide = false;
         }
 

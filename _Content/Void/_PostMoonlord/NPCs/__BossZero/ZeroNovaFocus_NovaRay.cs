@@ -1,17 +1,16 @@
-using Terraria;
-using Terraria.GameContent;
-using Terraria.ModLoader;
-using System;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Globals;
+using System;
+using Terraria.GameContent;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
 {
     public class ZeroNovaFocus_NovaRay : ModProjectile
     {
         private const float MoveDistance = 70f;
-        
+
         public float Distance;
 
 
@@ -31,12 +30,12 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             Projectile.hostile = true;
         }
         // The AI of the projectile
-        public bool runOnce=true;
+        public bool runOnce = true;
         public override void AI()
         {
             float rOffset = 0;
             shooter = Main.npc[(int)Projectile.ai[0]];
-            if (!shooter.active || shooter.life <=0)
+            if (!shooter.active || shooter.life <= 0)
             {
                 Projectile.Kill();
             }
@@ -53,7 +52,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             Projectile.timeLeft = 2;
             int dir = Projectile.direction;
             #endregion
-            
+
             Vector2 start = new Vector2(shooter.Center.X, shooter.Center.Y);
             Vector2 unit = Projectile.velocity;
             unit *= -1;
@@ -78,9 +77,9 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
         public int colorCounter;
         public override bool PreDraw(ref Color lightColor)
         {
-                DrawLaser(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, new Vector2(shooter.Center.X, shooter.Center.Y),
-                    Projectile.velocity, 10, -1.57f, 1f, (int)MoveDistance);
-            
+            DrawLaser(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, new Vector2(shooter.Center.X, shooter.Center.Y),
+                Projectile.velocity, 10, -1.57f, 1f, (int)MoveDistance);
+
             return false;
         }
 

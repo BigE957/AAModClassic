@@ -1,15 +1,14 @@
-﻿using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
-using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle.BossStandard;
+﻿using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle.BossStandard;
 using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.UI.BigProgressBar;
@@ -149,14 +148,14 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
 
             if (!Main.dedServ)
             {
-                Color color = BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Lighting.GetColor(NPC.Center.ToTileCoordinates()), Lighting.GetColor(NPC.Center.ToTileCoordinates()), Color.Violet, Lighting.GetColor(NPC.Center.ToTileCoordinates()), Color.Violet, Lighting.GetColor(NPC.Center.ToTileCoordinates()));
+                Color color = ColorUtils.MulticolorLerp(Main.LocalPlayer.miscCounter % 100 / 100f, Lighting.GetColor(NPC.Center.ToTileCoordinates()), Lighting.GetColor(NPC.Center.ToTileCoordinates()), Color.Violet, Lighting.GetColor(NPC.Center.ToTileCoordinates()), Color.Violet, Lighting.GetColor(NPC.Center.ToTileCoordinates()));
                 Lighting.AddLight((int)(NPC.Center.X) / 16, (int)(NPC.position.Y) / 16, color.R / 255f, color.G / 255f, color.B / 255f);
             }
 
             if (Main.dayTime)
             {
                 NPC.active = false;
-                if(Main.netMode != NetmodeID.MultiplayerClient)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0f, 0f), ModContent.ProjectileType<TechnoTruffle_BookIt>(), 0, 0);
                 return;
             }
@@ -290,9 +289,9 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
                     MoveToPoint(MovePoint);
                     NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 1.57f;
                     Lighting.AddLight((int)(NPC.Center.X) / 16, (int)(NPC.position.Y) / 16, Color.LightCyan.R / 255f, Color.LightCyan.G / 255f, Color.LightCyan.B / 255f);
-                    if (Main.netMode != NetmodeID.MultiplayerClient && 
-                        (Math.Abs(NPC.velocity.X) < 0.05f || 
-                        (NPC.direction == 1 && NPC.Center.X > MovePoint.X) || 
+                    if (Main.netMode != NetmodeID.MultiplayerClient &&
+                        (Math.Abs(NPC.velocity.X) < 0.05f ||
+                        (NPC.direction == 1 && NPC.Center.X > MovePoint.X) ||
                         (NPC.direction == -1 && NPC.Center.X < MovePoint.X))
                     )
                     {
@@ -540,7 +539,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             Texture2D glowTex = Glowmask1.Value;
             Texture2D glowTex1 = Glowmask2.Value;
 
-            Color color = BaseUtility.MultiLerpColor(((int)(Main.GlobalTimeWrappedHourly * 60)) % 100 / 100f, drawColor, drawColor, Color.Violet, drawColor, Color.Violet, drawColor);
+            Color color = ColorUtils.MulticolorLerp(((int)(Main.GlobalTimeWrappedHourly * 60)) % 100 / 100f, drawColor, drawColor, Color.Violet, drawColor, Color.Violet, drawColor);
 
             if (internalAI[1] == AISTATE_ROCKET)
             {
@@ -600,7 +599,7 @@ namespace AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechn
             else
                 shieldMax = _shieldMax;
 
-            return true; 
+            return true;
         }
 
         public override Asset<Texture2D> GetIconTexture(ref Rectangle? iconFrame) => _icon;

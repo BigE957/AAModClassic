@@ -1,14 +1,7 @@
-﻿using AAModClassic._Content.Chaos.World.Tiles;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Functional;
-using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.Tiles.Functional;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Functional;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using System;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;

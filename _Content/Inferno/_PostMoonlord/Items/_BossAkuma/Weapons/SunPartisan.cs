@@ -1,24 +1,19 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
-using AAModClassic.Globals;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Rarities;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {
     public class SunPartisan : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-        
+
         public override void SetStaticDefaults()
         {
-            
+
             // DisplayName.SetDefault("Sun Partisan");
             /* Tooltip.SetDefault(@"One of two legendary spears used to divide time into day and night
 Inflicts daybroken"); */
@@ -38,7 +33,7 @@ Inflicts daybroken"); */
             Item.noMelee = true;
             Item.noUseGraphic = true;
             Item.useTurn = true;
-			Item.autoReuse = true;
+            Item.autoReuse = true;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.rare = ModContent.RarityType<AncientsRarity>();
@@ -46,12 +41,12 @@ Inflicts daybroken"); */
             Item.shootSpeed = 7f;
         }
 
-        
+
 
         public override bool CanUseItem(Player player)
-		{
-			return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
-		}
+        {
+            return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
+        }
 
         public override void AddRecipes()
         {

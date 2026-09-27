@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.World.Tiles
@@ -9,11 +8,11 @@ namespace AAModClassic._Content.Inferno.World.Tiles
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
-			Main.tileMergeDirt[Type] = false;
+            Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(ModContent.ItemType<ScorchedShingles>());   
+            RegisterItemDrop(ModContent.ItemType<ScorchedShingles>());
             AddMapEntry(new Color(153, 50, 0));
-			MinPick = 0;
+            MinPick = 0;
         }
     }
 }

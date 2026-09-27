@@ -4,7 +4,6 @@ using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,32 +11,32 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     public class FuryGreatforger : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Fury Greatforger");
-			/* Tooltip.SetDefault(@"Striking enemies causes an explosion + sparks to fly from them
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Fury Greatforger");
+            /* Tooltip.SetDefault(@"Striking enemies causes an explosion + sparks to fly from them
 Fury Forger EX"); */
-		}
-		public override void SetDefaults()
-		{
-			Item.damage = 2500;
-			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-			Item.width = 82;
-			Item.height = 88;
-			Item.useTime = 35;
-			Item.useAnimation = 35;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack = 4;
+        }
+        public override void SetDefaults()
+        {
+            Item.damage = 2500;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 82;
+            Item.height = 88;
+            Item.useTime = 35;
+            Item.useAnimation = 35;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 4;
             Item.value = Item.sellPrice(0, 50, 0, 0);
             Item.rare = ItemRarityID.Cyan;
-			Item.UseSound = SoundID.Item1;
-			Item.autoReuse = true;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
             Item.expert = true;
-		}
-		
-		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+        }
+
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Forge"), player.Center);
             float spread = 45f * 0.0174f;

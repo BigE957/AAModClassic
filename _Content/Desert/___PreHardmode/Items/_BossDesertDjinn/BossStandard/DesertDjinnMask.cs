@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class DesertDjinnMask : BaseAAItem, ILocalizedModType
+    public class DesertDjinnMask : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Vanity.Masks";
         public static int type;
@@ -13,7 +13,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Bos
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Desert Djinn Mask");
-		}
+        }
 
         public override void SetDefaults()
         {

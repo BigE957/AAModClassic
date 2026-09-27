@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,7 +8,7 @@ namespace AAModClassic._Content.Inferno.Projectiles
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Akuma Explosion");     
-            Main.projFrames[Projectile.type] = 7;     
+            Main.projFrames[Projectile.type] = 7;
         }
 
         public override void SetDefaults()

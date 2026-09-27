@@ -1,5 +1,4 @@
-﻿using Terraria;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.BogwoodFurniture
@@ -32,7 +31,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwo
             recipe.AddIngredient(ModContent.ItemType<Bogwood>(), 14);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
-            
+
         }
 
     }

@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hell.___PreHardmode.Items.Weapons
@@ -8,7 +7,7 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Weapons
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Vulcan Explosion);     
-            Main.projFrames[Projectile.type] = 7;     
+            Main.projFrames[Projectile.type] = 7;
         }
 
         public override void SetDefaults()

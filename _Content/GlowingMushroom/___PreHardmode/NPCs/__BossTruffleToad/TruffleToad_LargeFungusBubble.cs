@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -33,7 +32,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
 
         public override void AI()
         {
-            Projectile.timeLeft --;
+            Projectile.timeLeft--;
             if (Projectile.timeLeft <= 0)
             {
                 Projectile.Kill();
@@ -77,24 +76,24 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
         {
             SoundEngine.PlaySound(SoundID.Item89);
             float spread = 12f * 0.0174f;
-			double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y)- spread/2;
-	    	double Angle = spread/30f;
-	    	double offsetAngle;
-	    	int i;
-	    	if (Projectile.owner == Main.myPlayer)
-	    	{
-		    	for (i = 0; i < 2; i++ )
-		    	{
-		   			offsetAngle = startAngle + Angle * ( i + i * i ) / 2f  + 32f * i;
-		        	Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)( Math.Sin(offsetAngle) * 6f ), (float)( Math.Cos(offsetAngle) * 6f ), ModContent.ProjectileType<TruffleToad_FungusBubble>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.ai[0], 0f);
-		        	Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)( -Math.Sin(offsetAngle) * 6f ), (float)( -Math.Cos(offsetAngle) * 6f ), ModContent.ProjectileType<TruffleToad_FungusBubble>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.ai[0], 0f);
-		    	}
-	    	}
-        	for (int dust = 0; dust <= 5; dust++)
+            double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
+            double Angle = spread / 30f;
+            double offsetAngle;
+            int i;
+            if (Projectile.owner == Main.myPlayer)
+            {
+                for (i = 0; i < 2; i++)
+                {
+                    offsetAngle = startAngle + Angle * (i + i * i) / 2f + 32f * i;
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 6f), (float)(Math.Cos(offsetAngle) * 6f), ModContent.ProjectileType<TruffleToad_FungusBubble>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.ai[0], 0f);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 6f), (float)(-Math.Cos(offsetAngle) * 6f), ModContent.ProjectileType<TruffleToad_FungusBubble>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.ai[0], 0f);
+                }
+            }
+            for (int dust = 0; dust <= 5; dust++)
             {
                 int dustType = ModContent.DustType<Dusts.ShroomDust>();
                 Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, dustType, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
-        	}
+            }
         }
     }
 }

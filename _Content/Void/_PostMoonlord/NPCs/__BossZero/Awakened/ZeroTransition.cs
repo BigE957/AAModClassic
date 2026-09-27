@@ -1,14 +1,12 @@
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Effects;
 using AAModClassic.Globals;
+using AAModClassic.Music;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Effects;
-using AAModClassic.Music;
-using AAModClassic.Utilities;
 
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 {
@@ -50,11 +48,11 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 
         public override void AI()
         {
-			NPC.TargetClosest();			
+            NPC.TargetClosest();
             Player player = Main.player[NPC.target];
 
             NPC.ai[0]++;
-            
+
             if (NPC.ai[0] % 5 == 0)
             {
                 NPC.frame.Y += 152;

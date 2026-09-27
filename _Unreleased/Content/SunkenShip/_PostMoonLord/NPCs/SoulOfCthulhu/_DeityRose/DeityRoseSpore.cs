@@ -1,12 +1,11 @@
 using AAModClassic.Utilities;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityRose
 {
     public class DeityRoseSpore : ModNPC
-	{
+    {
 
         public override void SetStaticDefaults()
         {
@@ -103,7 +102,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             }
             for (int num441 = 0; num441 < 150; num441++)
             {
-                if  (Main.rand.NextBool(3))
+                if (Main.rand.NextBool(3))
                 {
                     Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), 2 * hit.HitDirection, -2f, 0, default, 1f);
                 }

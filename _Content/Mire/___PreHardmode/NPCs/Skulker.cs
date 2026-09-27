@@ -1,10 +1,9 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._CrossMod;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -39,7 +38,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             NPC.noTileCollide = false;
             NPC.knockBackResist = .2f;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<SkulkerBanner>();
+            //BannerItem = ModContent.ItemType<SkulkerBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
@@ -48,7 +47,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             if (ContentReplacementSystem.NeedToReplaceContent || (Main.dayTime && !AAWorld.downedYamata && spawnInfo.Player.ZoneSurface()))
                 return 0f;
 
-            if (spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (spawnInfo.Player.ZoneAnyMire() && !AnyEvents(spawnInfo.Player))
                 return 0.02f;
 
             return 0f;
@@ -135,7 +134,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
                     Shell = true;
                     NPC.netUpdate = true;
                 }
-                
+
                 BaseAI.AIZombie(NPC, ref NPC.ai, true, true, -1, 0.08f, 1f, 2, 3, 120);
             }
             else

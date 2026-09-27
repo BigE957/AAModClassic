@@ -3,47 +3,46 @@ using AAModClassic._Content.Snow.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
 {
     public class AbyssalTwilight : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Abyssal Twilight");
-			// Tooltip.SetDefault("The Eternal Dusk Beckons");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Abyssal Twilight");
+            // Tooltip.SetDefault("The Eternal Dusk Beckons");
+        }
 
-		public override void SetDefaults()
-		{
-			Item.damage = 19;
-			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-			Item.width = 60;
-			Item.height = 60;
-			Item.useTime = 14;
-			Item.useAnimation = 14;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack = 2;
+        public override void SetDefaults()
+        {
+            Item.damage = 19;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 60;
+            Item.height = 60;
+            Item.useTime = 14;
+            Item.useAnimation = 14;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 2;
             Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.rare = ItemRarityID.Orange;
-			Item.UseSound = SoundID.Item1;
-			Item.autoReuse = true;
-		}
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+        }
 
-		public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<ExilesKatana>(), 1);
-			recipe.AddIngredient(ModContent.ItemType<OceanRazor>(), 1);
-			recipe.AddIngredient(ModContent.ItemType<DoomiteSaber>(), 1);
-			recipe.AddIngredient(ModContent.ItemType<IceLongsword>(), 1);
-			recipe.AddTile(TileID.DemonAltar);
-			recipe.Register();
-		}
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<ExilesKatana>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<OceanRazor>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<DoomiteSaber>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<IceLongsword>(), 1);
+            recipe.AddTile(TileID.DemonAltar);
+            recipe.Register();
+        }
 
         public override void MeleeEffects(Player player, Rectangle hitbox)
         {
@@ -59,5 +58,5 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
         {
             target.AddBuff(BuffID.Poisoned, 400);
         }
-	}
+    }
 }

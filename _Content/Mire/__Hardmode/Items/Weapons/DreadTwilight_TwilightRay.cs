@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,16 +9,16 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(ProjectileID.LightBeam);
-            Projectile.penetrate = 4;  
+            Projectile.penetrate = 4;
             Projectile.width = 40;
             Projectile.height = 40;
-			Projectile.friendly = true;
-			Projectile.hostile = false;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
             Projectile.timeLeft = 900;
         }
-		
-		public override void AI()
-		{
+
+        public override void AI()
+        {
             if (Main.rand.NextFloat() < 1f)
             {
                 Dust dust;
@@ -28,11 +27,11 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
                 dust.noGravity = true;
                 dust.fadeIn = 1.421053f;
             }
-		}
+        }
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Twilight Ray");
-		}
+        }
         public override Color? GetAlpha(Color lightColor)
         {
             return Color.White;

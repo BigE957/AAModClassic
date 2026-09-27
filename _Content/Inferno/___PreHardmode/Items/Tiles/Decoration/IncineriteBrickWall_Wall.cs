@@ -1,12 +1,11 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration
 {
     public class IncineriteBrickWall_Wall : ModWall
-	{
+    {
         public override void SetStaticDefaults()
         {
             Main.wallLight[Type] = true;

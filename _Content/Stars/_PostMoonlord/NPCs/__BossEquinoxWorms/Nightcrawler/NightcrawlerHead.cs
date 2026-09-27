@@ -7,7 +7,6 @@ using AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories;
 using AAModClassic.UI.Core.BestiaryBackgrounds;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -16,12 +15,12 @@ using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AACondition
 
 namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler
 {
-    [AutoloadBossHead]		
-	public class NightcrawlerHead : DaybringerHead
-	{
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Nightcrawler");
+    [AutoloadBossHead]
+    public class NightcrawlerHead : DaybringerHead
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Nightcrawler");
             Main.npcFrameCount[NPC.type] = 1;
 
             NPCID.Sets.NPCBestiaryDrawModifiers value = new()
@@ -31,13 +30,13 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nigh
             };
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
             NPCID.Sets.BossBestiaryPriority.Add(Type);
-        }		
-		
-		public override void SetDefaults()
-		{
+        }
+
+        public override void SetDefaults()
+        {
             base.SetDefaults();
-			nightcrawler = true;
-		}
+            nightcrawler = true;
+        }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {

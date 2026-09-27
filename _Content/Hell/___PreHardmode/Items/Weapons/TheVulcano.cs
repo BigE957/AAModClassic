@@ -1,16 +1,15 @@
-﻿using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Hell.___PreHardmode.Items.Weapons
 {
     public class TheVulcano : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Ranged";
-        
+
         public override void SetDefaults()
         {
             Item.damage = 50;
@@ -52,7 +51,7 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Weapons
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Obsidian, 40);
-			recipe.AddIngredient(ItemID.HellstoneBar, 20);
+            recipe.AddIngredient(ItemID.HellstoneBar, 20);
             recipe.AddIngredient(ItemID.IllegalGunParts, 1);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();

@@ -1,10 +1,8 @@
 ﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Acropolis.Projectiles;
-using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -21,15 +19,15 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapo
 
         public override void SetDefaults()
         {
-            Item.damage = 200;                        
-            Item.DamageType = DamageClass.Magic;                     
+            Item.damage = 200;
+            Item.DamageType = DamageClass.Magic;
             Item.width = 24;
             Item.height = 28;
-            Item.useStyle = ItemUseStyleID.Shoot;        
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 6;
-            Item.mana = 8;             
-            Item.UseSound = SoundID.Item21;            
+            Item.mana = 8;
+            Item.UseSound = SoundID.Item21;
             Item.autoReuse = true;
             Item.useTime = 28;
             Item.useAnimation = 28;
@@ -38,7 +36,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapo
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
-        
+
 
         public override void AddRecipes()
         {

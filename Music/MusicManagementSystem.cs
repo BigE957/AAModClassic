@@ -11,7 +11,7 @@ namespace AAModClassic.Music
 
         public override void OnModLoad()
         {
-            foreach(string file in Mod.GetFileNames().Where(s => s.Contains("Music/")))
+            foreach (string file in Mod.GetFileNames().Where(s => s.Contains("Music/")))
             {
                 string path = file.Remove(file.IndexOf('.'));
                 string name = path;

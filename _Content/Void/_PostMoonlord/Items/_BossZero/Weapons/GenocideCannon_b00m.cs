@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
@@ -8,7 +7,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("b00m");     
-            Main.projFrames[Projectile.type] = 7;     
+            Main.projFrames[Projectile.type] = 7;
         }
 
         public override void SetDefaults()

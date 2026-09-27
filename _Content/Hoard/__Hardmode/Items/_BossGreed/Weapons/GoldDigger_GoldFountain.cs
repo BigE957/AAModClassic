@@ -1,7 +1,6 @@
 ﻿using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
 using AAModClassic._Content.Hoard.Projectiles;
 using AAModClassic.Globals;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -60,7 +59,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Weapons
             }
 
             Player player = Main.player[Projectile.owner];
-            if(player.inventory[player.selectedItem].type == ModContent.ItemType<GoldDigger>() && player.altFunctionUse == 2 && player.controlUseItem)
+            if (player.inventory[player.selectedItem].type == ModContent.ItemType<GoldDigger>() && player.altFunctionUse == 2 && player.controlUseItem)
             {
                 Projectile.Kill();
             }

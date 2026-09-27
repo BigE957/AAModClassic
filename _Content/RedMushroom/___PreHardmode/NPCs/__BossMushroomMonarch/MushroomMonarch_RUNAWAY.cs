@@ -1,9 +1,8 @@
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch
 {
-    public class MushroomMonarch_RUNAWAY: ModProjectile
+    public class MushroomMonarch_RUNAWAY : ModProjectile
     {
         public override void SetStaticDefaults()
         {

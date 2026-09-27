@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
@@ -49,7 +48,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             Main.projFrames[Projectile.type] = 5;
         }
 
-        
+
         public override Color? GetAlpha(Color lightColor)
         {
             return Color.Red;
@@ -58,9 +57,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         public override bool PreDraw(ref Color lightColor) //this is where the animation happens
         {
             Projectile.frameCounter++;
-            if (Projectile.frameCounter >= 5) 
+            if (Projectile.frameCounter >= 5)
             {
-                Projectile.frame++; 
+                Projectile.frame++;
                 Projectile.frameCounter = 0;
                 if (Projectile.frame > 4)
                 {

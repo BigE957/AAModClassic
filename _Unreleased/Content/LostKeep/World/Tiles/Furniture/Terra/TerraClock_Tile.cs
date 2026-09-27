@@ -1,5 +1,4 @@
 using AAModClassic.Utilities;
-using Terraria;
 using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,11 +7,11 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Terra;
 
 public class TerraClock_Tile : ModTile
 {
-	public override void SetStaticDefaults()
-	{
+    public override void SetStaticDefaults()
+    {
         this.SetUpClock(ModContent.ItemType<TerraClock>());
         DustType = DustID.Terra;
-	}
+    }
 
     public override void MouseOver(int i, int j) => FurnitureUtils.MouseOver(i, j, ModContent.ItemType<TerraClock>());
 

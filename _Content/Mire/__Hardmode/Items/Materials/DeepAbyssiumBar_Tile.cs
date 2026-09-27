@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -23,9 +22,9 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Materials
             TileObjectData.addTile(Type);
 
             DustType = ModContent.DustType<Dusts.DeepAbyssiumDust>();
-            RegisterItemDrop(ModContent.ItemType<DeepAbyssiumBar>());   
+            RegisterItemDrop(ModContent.ItemType<DeepAbyssiumBar>());
             AddMapEntry(new Color(0, 0, 100));
-			MinPick = 0;
+            MinPick = 0;
         }
     }
 }

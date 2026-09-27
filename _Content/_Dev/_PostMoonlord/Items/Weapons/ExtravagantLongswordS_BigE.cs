@@ -1,10 +1,4 @@
-﻿using AAModClassic.Base.BaseMod.Base;
-using Microsoft.Xna.Framework;
-using System;
-using Terraria;
-using Terraria.Audio;
-using Terraria.ID;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
@@ -12,8 +6,8 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
     {
         public new string LocalizationCategory => "Projectiles";
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Big E");
-		}
+        {
+            // DisplayName.SetDefault("Big E");
+        }
     }
 }

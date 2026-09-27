@@ -5,11 +5,9 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 
 
 namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
@@ -44,7 +42,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
             AIType = NPCID.GoblinScout;
             NPC.rarity = 2;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<ToxitoadBanner>();
+            //BannerItem = ModContent.ItemType<ToxitoadBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
@@ -53,7 +51,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
             if (Main.dayTime && !AAWorld.downedYamata)
                 return 0f;
 
-            if (Main.hardMode && spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (Main.hardMode && spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyMire() && !AnyEvents(spawnInfo.Player))
                 return ContentReplacementSystem.NeedToReplaceContent ? 0.05f : .005f;
 
             return 0f;
@@ -225,7 +223,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
                 NPC.frame.Y = 0;
             }
         }
-        
+
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture = TextureAssets.Npc[NPC.type].Value;

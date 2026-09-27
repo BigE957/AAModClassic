@@ -1,15 +1,11 @@
-using AAModClassic._Content.Inferno.__Hardmode.Items.Accessories;
-using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._CrossMod;
 using AAModClassic.Globals;
-using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using System;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -47,7 +43,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs._Surface._Day
             if (!AAWorld.downedSisters || spawnInfo.Player.ZoneAnyMire())
                 return 0f;
 
-            if (spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyInferno() && (Main.dayTime || AAWorld.downedAkuma) && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyInferno() && (Main.dayTime || AAWorld.downedAkuma) && !AnyEvents(spawnInfo.Player))
                 return ContentReplacementSystem.NeedToReplaceContent ? 0.5f : .05f;
 
             return SpawnCondition.OverworldNightMonster.Chance * 0.04f;

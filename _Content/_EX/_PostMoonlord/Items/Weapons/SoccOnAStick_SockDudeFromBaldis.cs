@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,13 +9,13 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
     {
 
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Sock Puppet");
-			Main.projFrames[Projectile.type] = 11;
+        {
+            // DisplayName.SetDefault("Sock Puppet");
+            Main.projFrames[Projectile.type] = 11;
             ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
             ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
-		}
-    	
+        }
+
         public override void SetDefaults()
         {
             Projectile.width = 42;
@@ -192,13 +191,13 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             }
             Projectile.rotation = Projectile.velocity.X * 0.04f;
 
-            if(flag25)
+            if (flag25)
             {
-                Projectile.spriteDirection = ((vector46 - Projectile.Center).X > 0? 1: -1);
+                Projectile.spriteDirection = ((vector46 - Projectile.Center).X > 0 ? 1 : -1);
             }
             else
             {
-                Projectile.spriteDirection =(Projectile.velocity.X > 0? 1: -1);
+                Projectile.spriteDirection = (Projectile.velocity.X > 0 ? 1 : -1);
             }
 
             if (Projectile.ai[1] > 0f)
@@ -253,7 +252,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                         Projectile.frame = 6;
                     }
                 }
-                
+
             }
         }
     }

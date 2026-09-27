@@ -1295,6 +1295,11 @@ PortaProbe: {
 	Tooltip: 让一个小型生命搜索器跟着你！
 }
 
+SchematicWand: {
+	// DisplayName: Schematic Wand
+	// Tooltip: ""
+}
+
 RabbitTombstone: {
 	// DisplayName: Rabbit Tombstone
 	// Tooltip: ""

@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -20,10 +19,10 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             Projectile.aiStyle = ProjAIStyleID.Arrow;
         }
 
-		public override void SetStaticDefaults()
-		{
-		    // DisplayName.SetDefault("Sphere");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Sphere");
+        }
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {

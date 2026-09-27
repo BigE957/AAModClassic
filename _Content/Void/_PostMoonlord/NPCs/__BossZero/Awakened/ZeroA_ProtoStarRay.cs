@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -162,7 +161,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                 Main.dust[d2].velocity *= 0.6f;
             }
         }
-        
+
         public override bool PreDraw(ref Color lightColor)
         {
             Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
@@ -208,38 +207,38 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                     new Vector2(Projectile.ai[1]),
                     new Utils.LaserLineFraming(ZeroLaser)); //uses delegate (see method below)
             }
-            
-            
+
+
         }
         //define which frames are used in each stage (0 = start, 1 = mid, 2 = end
         private void ZeroLaser(int stage, Vector2 currentPosition, float distanceLeft, Rectangle lastFrame, out float distCovered, out Rectangle frame, out Vector2 origin, out Color color)
         {
             color = AAColor.ZeroShield;
-			if (stage == 0)
-			{
-				distCovered = 33f;
-				frame = new Rectangle(0, 0, 16, 16);
-				origin = frame.Size() / 2f;
-				return;
-			}
-			if (stage == 1)
-			{
-				frame = new Rectangle(0, 16, 16, 16);
-				distCovered = frame.Height;
-				origin = new Vector2(frame.Width / 2, 0f);
-				return;
-			}
-			if (stage == 2)
-			{
-				distCovered = 22f;
-				frame = new Rectangle(0, 24, 16, 16);
-				origin = new Vector2(frame.Width / 2, 1f);
-				return;
-			}
-			distCovered = Projectile.velocity.Length() * 90;
-			frame = Rectangle.Empty;
-			origin = Vector2.Zero;
-			color = Color.Transparent;
+            if (stage == 0)
+            {
+                distCovered = 33f;
+                frame = new Rectangle(0, 0, 16, 16);
+                origin = frame.Size() / 2f;
+                return;
+            }
+            if (stage == 1)
+            {
+                frame = new Rectangle(0, 16, 16, 16);
+                distCovered = frame.Height;
+                origin = new Vector2(frame.Width / 2, 0f);
+                return;
+            }
+            if (stage == 2)
+            {
+                distCovered = 22f;
+                frame = new Rectangle(0, 24, 16, 16);
+                origin = new Vector2(frame.Width / 2, 1f);
+                return;
+            }
+            distCovered = Projectile.velocity.Length() * 90;
+            frame = Rectangle.Empty;
+            origin = Vector2.Zero;
+            color = Color.Transparent;
         }
     }
 }

@@ -1,13 +1,12 @@
 ﻿using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudalFungus
 {
     public class FeudalFungus_SporeBlast : ModProjectile
     {
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Spore Blast");
@@ -32,7 +31,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossFeudal
 
         public override void AI()
         {
-            
+
             for (int num189 = 0; num189 < 1; num189++)
             {
                 int num190 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.ShroomDust>(), 0f, 0f, 0);

@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,7 +7,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Tiles.Functional
     public class SharpeningLavaFish : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables.Functional";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Sharpening Lava Fish");

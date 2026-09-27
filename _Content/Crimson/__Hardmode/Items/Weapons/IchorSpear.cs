@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -29,7 +28,7 @@ namespace AAModClassic._Content.Crimson.__Hardmode.Items.Weapons
             Item.noUseGraphic = true;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = Item.sellPrice(0, 5, 0, 0);
-			Item.autoReuse = true;
+            Item.autoReuse = true;
             Item.rare = ItemRarityID.Orange;
             Item.shootSpeed = 5f;
             Item.shoot = ModContent.ProjectileType<IchorSpear_Holdout>();  //put your Spear projectile name
@@ -39,14 +38,14 @@ namespace AAModClassic._Content.Crimson.__Hardmode.Items.Weapons
         {
             return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
         }
-		
-		public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.CrimtaneBar, 12);
-			recipe.AddIngredient(ItemID.Ichor, 15);
-			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.Register();
-		}
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ItemID.CrimtaneBar, 12);
+            recipe.AddIngredient(ItemID.Ichor, 15);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.Register();
+        }
     }
 }

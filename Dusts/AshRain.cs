@@ -1,13 +1,12 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Dusts
 {
     public class AshRain : ModDust
-	{
-		public override void OnSpawn(Dust dust)
-		{
+    {
+        public override void OnSpawn(Dust dust)
+        {
             if (!Main.dayTime && !AAWorld.downedAkuma)
             {
                 dust.velocity.Y = Main.rand.Next(-10, 6) * 0.1f;
@@ -15,9 +14,9 @@ namespace AAModClassic.Dusts
                 dust.scale *= 1.3f;
                 dust.noGravity = false;
             }
-		}
+        }
 
-		public override bool MidUpdate(Dust dust)
+        public override bool MidUpdate(Dust dust)
         {
             if (!Main.dayTime && !AAWorld.downedAkuma)
             {
@@ -54,7 +53,7 @@ namespace AAModClassic.Dusts
                 }
             }
             return false;
-		}
+        }
 
         public override Color? GetAlpha(Dust dust, Color lightColor)
         {

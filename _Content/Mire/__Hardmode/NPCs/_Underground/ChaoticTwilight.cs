@@ -6,7 +6,6 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -16,34 +15,34 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
 {
     public class ChaoticTwilight : ModNPC, IBannerNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Chaotic Twilight");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Chaotic Twilight");
             Main.npcFrameCount[NPC.type] = 4;
-		}
+        }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
         {
             NPC.width = 74;
             NPC.height = 76;
             NPC.damage = 90;
-			NPC.defense = 10;
-			NPC.lifeMax = 200;
-			NPC.HitSound = SoundID.NPCHit4;
-			NPC.DeathSound = SoundID.NPCDeath6;
+            NPC.defense = 10;
+            NPC.lifeMax = 200;
+            NPC.HitSound = SoundID.NPCHit4;
+            NPC.DeathSound = SoundID.NPCDeath6;
             NPC.value = 24000f;
             NPC.knockBackResist = .30f;
             NPC.aiStyle = -1;
             NPC.noTileCollide = true;
             NPC.noGravity = true;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<ChaoticTwilightBanner>();
+            //BannerItem = ModContent.ItemType<ChaoticTwilightBanner>();
             SpawnModBiomes = [ModContent.GetInstance<UndergroundMireBiome>().Type];
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (Main.hardMode && !spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (Main.hardMode && !spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyMire() && !AnyEvents(spawnInfo.Player))
                 return ContentReplacementSystem.NeedToReplaceContent ? 0.05f : .005f;
 
             return 0f;
@@ -143,19 +142,19 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
                 NPC.frameCounter = 0;
             }
         }
-        
 
-		public override void HitEffect(NPC.HitInfo hit)
-		{
+
+        public override void HitEffect(NPC.HitInfo hit)
+        {
 
             int dust1 = ModContent.DustType<Dusts.MireBubbleDust>();
             if (NPC.life <= 0)
-			{
+            {
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
             }
-		}
+        }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {

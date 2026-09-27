@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -21,10 +20,10 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items.Materials
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.addTile(Type);
 
-            RegisterItemDrop(ModContent.ItemType<CovetiteBar>());   
+            RegisterItemDrop(ModContent.ItemType<CovetiteBar>());
             DustType = DustID.Gold;
             AddMapEntry(new Color(150, 130, 0));
-			MinPick = 0;
+            MinPick = 0;
         }
     }
 }

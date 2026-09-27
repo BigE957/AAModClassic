@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -21,12 +20,12 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
             if (SandTile)
             {
                 Main.tileSolid[Type] = true;
-                
+
             }
             else
             {
                 Main.tilePile[Type] = true;
-                
+
                 DustType = DustTypeID;
             }
             Main.tileSolid[Type] = false;
@@ -83,7 +82,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
 
                         tile.HasTile = false;
                         bool flag20 = false;
-                        foreach(Projectile p in Main.ActiveProjectiles)
+                        foreach (Projectile p in Main.ActiveProjectiles)
                         {
                             if (p.owner == Main.myPlayer && p.type == projectileType && Math.Abs(p.timeLeft - 3600) < 60 && p.DistanceSQ(new Vector2(i * 16 + 8, j * 16 + 10)) < 16f)
                             {

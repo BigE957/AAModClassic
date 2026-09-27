@@ -1,15 +1,5 @@
 ﻿using AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories;
-using AAModClassic._Content.Chaos.Buffs;
-using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
-using AAModClassic._Content.Inferno.Buffs;
-using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
-using AAModClassic._Content.Mire.Buffs;
-using AAModClassic._Content.Terrarium.Buffs;
-using AAModClassic.UI.World;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

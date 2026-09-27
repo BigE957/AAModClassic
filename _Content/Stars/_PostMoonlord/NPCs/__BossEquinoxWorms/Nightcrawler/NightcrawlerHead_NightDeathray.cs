@@ -1,9 +1,7 @@
-﻿using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.Enums;
 using Terraria.GameContent;
@@ -21,7 +19,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nigh
         public static Asset<Texture2D> Tail;
 
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Night Deathray");
 
             ProjectileID.Sets.DrawScreenCheckFluff[Type] = 10000;
@@ -29,7 +27,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nigh
             Body = ModContent.Request<Texture2D>(Texture + "_Body");
             Tail = ModContent.Request<Texture2D>(Texture + "_Tail");
         }
-    	
+
         public override void SetDefaults()
         {
             Projectile.width = 48;

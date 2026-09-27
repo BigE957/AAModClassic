@@ -5,7 +5,6 @@ using AAModClassic.Dusts;
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.GameContent.Metadata;
 using Terraria.ID;
 using Terraria.ModLoader;

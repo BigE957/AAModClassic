@@ -1,8 +1,7 @@
-using Terraria.ModLoader;
-using Terraria.Graphics.Effects;
-using Terraria;
-using AAModClassic.Globals;
 using AAModClassic.Assets;
+using AAModClassic.Globals;
+using Terraria.Graphics.Effects;
+using Terraria.ModLoader;
 
 namespace AAModClassic.Effects
 {

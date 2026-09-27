@@ -1,10 +1,8 @@
 ﻿using AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Weapons;
 using AAModClassic._Content.Hoard._PostMoonlord.Items.Materials;
-using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,30 +12,30 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Earthbreaker");
             /* Tooltip.SetDefault(@"Hitting an airborne always crits and sends the target flying into the ground
 Concussive force of the hit also has a 50% chance to confuse the struck enemy
 If the enemy hits the ground after being hit, they will take damage"); */
         }
-		public override void SetDefaults()
-		{
-			Item.damage = 240;
-			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-			Item.width = 80;
-			Item.height = 90;
-			Item.useTime = 30;
-			Item.useAnimation = 30;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack = 20;
-			Item.UseSound = SoundID.Item1;
-			Item.autoReuse = true;
+        public override void SetDefaults()
+        {
+            Item.damage = 240;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 80;
+            Item.height = 90;
+            Item.useTime = 30;
+            Item.useAnimation = 30;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 20;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
             if (ModLoader.TryGetMod("Redemption", out var redemption))
                 redemption.Call("setHammerBonus", Item);
         }
 
-        
+
 
         public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers)
         {

@@ -1,9 +1,5 @@
 using AAModClassic._Content.Desert._PostMoonlord.Items.Materials;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 

@@ -1,16 +1,13 @@
-﻿using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Materials
 {
     public class IncineriteBar : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Materials";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Incinerite Bar");
@@ -22,8 +19,8 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Materials
         {
             Item.width = 30;
             Item.height = 24;
-			Item.maxStack = Item.CommonMaxStack;
-			Item.useTurn = true;
+            Item.maxStack = Item.CommonMaxStack;
+            Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -35,7 +32,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Materials
         }
 
         public override void AddRecipes()
-        {                                                   
+        {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<IncineriteOre>(), 3);
             recipe.AddTile(TileID.Furnaces);

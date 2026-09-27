@@ -1,4 +1,3 @@
-using AAModClassic._Content.Terrarium.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
 using AAModClassic._Content.Terrarium.World.Biomes;
 using AAModClassic.Utilities;
@@ -6,7 +5,6 @@ using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -42,13 +40,13 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             NPC.buffImmune[31] = false;
             AnimationType = NPCID.VortexRifleman;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraDeadshotBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.TerraDeadshotBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (NPC.downedPlantBoss && spawnInfo.Player.AAPlayer().ZoneTerrarium && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (NPC.downedPlantBoss && spawnInfo.Player.AAPlayer().ZoneTerrarium && !AnyEvents(spawnInfo.Player))
                 return 0.05f;
 
             return 0f;

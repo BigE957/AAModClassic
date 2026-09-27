@@ -2,7 +2,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.Enums;
 using Terraria.GameContent;
@@ -61,22 +60,22 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
 
             timer++;
 
-            if(proj == 0)
+            if (proj == 0)
             {
                 foreach (Projectile p in Main.ActiveProjectiles)
                 {
                     if (p.friendly && !p.minion && Main.player[p.owner].heldProj != p.whoAmI && p.damage > 0 && p.Hitbox.Intersects(Projectile.Hitbox))
                         p.Kill();
-                } 
+                }
             }
 
             float raydirection = 1f;
-            
-            if(proj != 0)
+
+            if (proj != 0)
             {
-                if(Main.projectile[proj].active && Main.projectile[proj].ModProjectile is BlazeGrip_ScorchBomb)
+                if (Main.projectile[proj].active && Main.projectile[proj].ModProjectile is BlazeGrip_ScorchBomb)
                 {
-                    Projectile.Center = Main.projectile[proj].position + new Vector2(Main.projectile[proj].width/2, Main.projectile[proj].height/2);
+                    Projectile.Center = Main.projectile[proj].position + new Vector2(Main.projectile[proj].width / 2, Main.projectile[proj].height / 2);
 
                     /* 
                     Vector2 dir = Vector2.Normalize(Main.player[centerNPC.target].Center - Main.projectile[proj].Center);
@@ -86,7 +85,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                     }
                     */
 
-                    raydirection = Main.player[centerNPC.target].Center.ToRotation() - Main.projectile[proj].Center.ToRotation() > 0? 1f:-1f;
+                    raydirection = Main.player[centerNPC.target].Center.ToRotation() - Main.projectile[proj].Center.ToRotation() > 0 ? 1f : -1f;
 
                     //projectile.velocity = Vector2.Normalize(projectile.velocity);
                     Projectile.position += 30 * Projectile.velocity;
@@ -94,10 +93,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                 }
                 else
                 {
-                    if(Projectile.localAI[0] < 290)Projectile.localAI[0] = 290;
+                    if (Projectile.localAI[0] < 290) Projectile.localAI[0] = 290;
                 }
             }
-            else if(timer < 100)
+            else if (timer < 100)
             {
                 centerNPC = Main.npc[(int)Projectile.ai[1]];
                 if (centerNPC.active && centerNPC.ModNPC is BlazeGrip)
@@ -125,10 +124,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
                 }
                 else
                 {
-                    if(Projectile.localAI[0] < 290)Projectile.localAI[0] = 290;
+                    if (Projectile.localAI[0] < 290) Projectile.localAI[0] = 290;
                 }
             }
-            
+
             if (Projectile.velocity.HasNaNs() || Projectile.velocity == Vector2.Zero)
             {
                 Projectile.velocity = -Vector2.UnitY;

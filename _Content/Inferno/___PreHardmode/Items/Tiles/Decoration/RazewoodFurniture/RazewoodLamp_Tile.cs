@@ -2,13 +2,12 @@ using AAModClassic.Dusts;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture
 {
     public class RazewoodLamp_Tile : ModTile
-	{
+    {
         public override void SetStaticDefaults()
         {
             this.SetUpLamp(ModContent.ItemType<RazewoodLamp>());
@@ -36,7 +35,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.Ra
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
-            ulong randSeed = Main.TileFrameSeed ^ (ulong)(j<< 32 | (long)(ulong)i);
+            ulong randSeed = Main.TileFrameSeed ^ (ulong)(j << 32 | (long)(ulong)i);
             Color color = new Color(100, 100, 100, 0);
             int frameX = Main.tile[i, j].TileFrameX;
             int frameY = Main.tile[i, j].TileFrameY;

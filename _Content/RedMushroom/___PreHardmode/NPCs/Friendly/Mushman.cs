@@ -139,7 +139,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
             {
                 return Main.npc[Clothier].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.MushmanChat6");
             }
-            return chat; 
+            return chat;
         }
 
         public override void SetChatButtons(ref string button, ref string button2)
@@ -181,8 +181,8 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
                 int DyePink = player.FindItem(ItemID.PinkPricklyPear);
                 int DyeGray = player.FindItem(ItemID.BlackInk);
 
-                int[] lootTable = 
-                { 
+                int[] lootTable =
+                {
                     ModContent.ItemType<RedAlchemicalMushroom>(),
                     ModContent.ItemType<OrangeAlchemicalMushroom>(),
                     ModContent.ItemType<YellowAlchemicalMushroom>(),
@@ -519,16 +519,16 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
         }
 
         public override void TownNPCAttackStrength(ref int damage, ref float knockback)
-		{
-			damage = 20;
-			knockback = 4f;
-		}
+        {
+            damage = 20;
+            knockback = 4f;
+        }
 
-		public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
-		{
-			cooldown = 20;
-			randExtraCooldown = 20;
-		}
+        public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
+        {
+            cooldown = 20;
+            randExtraCooldown = 20;
+        }
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {

@@ -2,13 +2,10 @@
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 
@@ -17,7 +14,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
     [AutoloadEquip(EquipType.Legs)]
     [AutoloadEquipGlow(EquipType.Legs)]
     public class DarkmatterLeggings : EquipAbstract, ILocalizedModType, ICustomEquipGlow
-	{
+    {
         public new string LocalizationCategory => "Items.Armor.Darkmatter";
         public Color Color => AAColor.Nightcrawler;
 
@@ -26,16 +23,16 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Darkmatter Greaves");
-			/* Tooltip.SetDefault(@"'Dark, yet still barely visible'"); */
+            /* Tooltip.SetDefault(@"'Dark, yet still barely visible'"); */
 
-		}
+        }
 
-		public override void SetDefaults()
-		{
-			Item.width = 22;
-			Item.height = 18;
-			Item.value = 300000;
-			Item.defense = 24;
+        public override void SetDefaults()
+        {
+            Item.width = 22;
+            Item.height = 18;
+            Item.value = 300000;
+            Item.defense = 24;
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
@@ -74,5 +71,5 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
-	}
+    }
 }

@@ -1,10 +1,7 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Localization;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Armor
 {

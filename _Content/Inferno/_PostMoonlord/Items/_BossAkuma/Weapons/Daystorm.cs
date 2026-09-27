@@ -2,7 +2,6 @@
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -12,32 +11,32 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {
     public class Daystorm : BaseAAItem, ILocalizedModType
     {
-        public new string LocalizationCategory => "Items.Weapons.Magic"; 
+        public new string LocalizationCategory => "Items.Weapons.Magic";
 
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Daystorm");
             // Tooltip.SetDefault(@"Incinerate your enemies in a storm of scorching fiery mayhem");
-        }       
+        }
 
         public override void SetDefaults()
-		{
-			Item.damage = 225;
-			Item.DamageType = DamageClass.Magic;
-			Item.mana = 9;
-			Item.width = 100;
-			Item.height = 100;
-			Item.useTime = 7;
-			Item.useAnimation = 7;
-			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.noMelee = true; 
-			Item.knockBack = 0;
+        {
+            Item.damage = 225;
+            Item.DamageType = DamageClass.Magic;
+            Item.mana = 9;
+            Item.width = 100;
+            Item.height = 100;
+            Item.useTime = 7;
+            Item.useAnimation = 7;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.noMelee = true;
+            Item.knockBack = 0;
             Item.value = Item.sellPrice(0, 7, 0, 0);
             Item.rare = ItemRarityID.Yellow;
-			Item.UseSound = new SoundStyle("AAModClassic/Sounds/Dayshot");
-			Item.autoReuse = true;
-			Item.shoot = ProjectileID.PurificationPowder;
-			Item.shootSpeed = 30;
+            Item.UseSound = new SoundStyle("AAModClassic/Sounds/Dayshot");
+            Item.autoReuse = true;
+            Item.shoot = ProjectileID.PurificationPowder;
+            Item.shootSpeed = 30;
         }
 
         public override Vector2? HoldoutOffset()

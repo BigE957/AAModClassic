@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,10 +6,10 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
 {
     public class DaybringerHead_DayDart : ModProjectile
     {
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Day Dart");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Day Dart");
+        }
 
         public override void SetDefaults()
         {
@@ -20,12 +19,12 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             Projectile.scale = 1f;
             Projectile.ignoreWater = true;
             Projectile.penetrate = -1;
-			Projectile.timeLeft = 180;
-        }	
+            Projectile.timeLeft = 180;
+        }
         public override void AI()
         {
-			Projectile.rotation = Projectile.velocity.ToRotation() + 1.5707f;
-            
+            Projectile.rotation = Projectile.velocity.ToRotation() + 1.5707f;
+
             if (Projectile.timeLeft == 0)
             {
                 Projectile.Kill();

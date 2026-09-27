@@ -6,7 +6,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -119,7 +118,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 
         public override bool PreKill() => false;
 
-        public override void FindFrame(int frameHeight) =>  NPC.frame.Y = frameHeight * (int)NPC.ai[2];
+        public override void FindFrame(int frameHeight) => NPC.frame.Y = frameHeight * (int)NPC.ai[2];
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
@@ -132,7 +131,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 
         public void DrawBackArm(SpriteBatch spriteBatch, Color drawColor) => DrawBackArm(spriteBatch, NPC.Center - Main.screenPosition, NPC.GetAlpha(drawColor), NPC.rotation, NPC.spriteDirection, NPC.scale, Main.GlobalTimeWrappedHourly * 3f + NPC.whoAmI);
 
-        public static void DrawBackArm(SpriteBatch spriteBatch, Vector2 center, Color drawColor, float rotation, int dir, float scale,  float time)
+        public static void DrawBackArm(SpriteBatch spriteBatch, Vector2 center, Color drawColor, float rotation, int dir, float scale, float time)
         {
             Rectangle upperBackArmFrame = UpperArm.Frame(2, frameX: 1);
             Vector2 upperBackArmPos = center + (new Vector2(0 * dir, -8).RotatedBy(rotation + MathHelper.PiOver2) * scale);

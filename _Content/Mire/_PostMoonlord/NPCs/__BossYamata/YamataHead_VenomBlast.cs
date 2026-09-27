@@ -1,6 +1,5 @@
 using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,28 +7,28 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 {
     public class YamataHead_VenomBlast : ModProjectile
-	{
-        
+    {
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Venom");     
-            Main.projFrames[Projectile.type] = 5;     
-		}
+            Main.projFrames[Projectile.type] = 5;
+        }
 
-		public override void SetDefaults()
-		{
-			Projectile.width = 14;               
-			Projectile.height = 14;              
-			Projectile.aiStyle = ProjAIStyleID.Arrow;             
-			Projectile.friendly = false;         
-			Projectile.hostile = true;        
-			Projectile.penetrate = 1;           
-			Projectile.timeLeft = 600;          
-			Projectile.alpha = 20;              
-			Projectile.ignoreWater = true;
-			Projectile.tileCollide = true;                 
-            
-		}
+        public override void SetDefaults()
+        {
+            Projectile.width = 14;
+            Projectile.height = 14;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 600;
+            Projectile.alpha = 20;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
+
+        }
 
         public override Color? GetAlpha(Color lightColor)
         {

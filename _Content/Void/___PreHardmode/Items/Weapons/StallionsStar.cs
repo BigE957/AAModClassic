@@ -1,8 +1,7 @@
-﻿using Terraria.ModLoader;
-using Terraria;
-using Terraria.ID;
-using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
 {
@@ -10,22 +9,22 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Stalion's Star");
             // Tooltip.SetDefault("A spinning blade of doom");
         }
-		public override void SetDefaults()
-		{
-	        Item.damage = 25;
-	        Item.width = 46;
-	        Item.height = 46;
-	        Item.useTime = 30;
-	        Item.useAnimation = 30;
-	        Item.useStyle = ItemUseStyleID.Swing;
-	        Item.knockBack = 6;
-	        Item.value = Item.sellPrice(0, 30, 0, 0);
+        public override void SetDefaults()
+        {
+            Item.damage = 25;
+            Item.width = 46;
+            Item.height = 46;
+            Item.useTime = 30;
+            Item.useAnimation = 30;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 6;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.UseSound = SoundID.Item1;
-	        Item.autoReuse = true;
+            Item.autoReuse = true;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.shoot = ModContent.ProjectileType<StallionsStar_Proj>();
             Item.shootSpeed = 10f;
