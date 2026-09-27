@@ -141,21 +141,17 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                 Music = MusicLoader.GetMusicSlot("AAModClassic/Music/silence");
                 if (Vector2.Distance(NPC.Center, Acropolis) < 10)
                 {
-                    NPC.velocity *= 0;
+                    NPC.velocity = Vector2.Zero;
 
                     if (Seen)
                     {
                         if (player.Center.X < NPC.Center.X + 32)
-                        {
                             NPC.direction = -1;
-                        }
                         else
-                        {
                             NPC.direction = 1;
-                        }
                     }
 
-                    if (Main.netMode != NetmodeID.MultiplayerClient && Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height) && internalAI[3] < 180)
+                    if (Main.netMode != NetmodeID.MultiplayerClient && internalAI[3] < 180 && Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height))
                     {
                         Seen = true;
                         NPC.netUpdate = true;
