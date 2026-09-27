@@ -91,6 +91,9 @@ namespace AAModClassic.UI.Dialogue
             Pauses = [];
             TextEffects = [];
             UniqueScales = [];
+            SwitchCounter = 0;
+            SwitchingPage = false;
+            ClosingDialogue = false;
 
             if (DialoguePage.Event != null)
                 return;

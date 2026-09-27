@@ -2,7 +2,7 @@
   "Revision": 1,
   "DefaultSpeaker": "Amidias",
   "AlignType": 0,
-  "TextDelay": 3,
+  "TextDelay": 2,
   "BasePunctuationDelay": {
     "Delay": 10,
     "ForceSet": false,

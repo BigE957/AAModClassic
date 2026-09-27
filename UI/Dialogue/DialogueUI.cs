@@ -1,6 +1,4 @@
-﻿using AAModClassic._CrossMod;
-using AAModClassic.Dialogues;
-using AAModClassic.UI.Core;
+﻿using AAModClassic.Dialogues;
 using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -72,19 +70,25 @@ namespace AAModClassic.UI.Dialogue
             if (currentIndex >= tree.Count)
                 currentIndex = tree.Count - 1;
 
-            UpdateDialogue();
+            ChangeDialogue();
         }
 
-        public void OnResponsePress(int index)
+        public void OnResponsePress(int responseIndex)
         {
-            var response = tree.Dialogues[currentIndex].Responses[index];
-
-            currentIndex = response.Heading == -2 ? currentIndex + 1 : response.Heading;
-
-            UpdateDialogue();
+            var response = tree.Dialogues[currentIndex].Responses[responseIndex];
+            SwitchDialogue(response.Heading == -2 ? currentIndex + 1 : response.Heading);
         }
 
-        private void UpdateDialogue()
+        private bool switchStarted = false;
+
+        private void SwitchDialogue(int newIndex)
+        {
+            currentIndex = newIndex;
+            switchStarted = true;
+            dialogue.SwitchingPage = true;
+        }
+
+        private void ChangeDialogue()
         {
             List<UIElement> toRemove = [];
             foreach (var child in panel.Children)
@@ -96,7 +100,10 @@ namespace AAModClassic.UI.Dialogue
 
             responses.Clear();
 
-            if(currentIndex == -1)
+            crawlOver = false;
+            switchStarted = false;
+
+            if (currentIndex == -1)
             {
                 DialogueUISystem.EndDialogue();
                 return;
@@ -110,16 +117,22 @@ namespace AAModClassic.UI.Dialogue
             {
                 var response = tree.Dialogues[currentIndex].Responses[i];
                 var (texture, frame) = DialogueUISystem.ResponseIcons[response.Icon];
-                ResponseButton button = new(response, texture, frame, Color.White, Color.White);
+                ResponseButton button = new(response, texture, frame, Color.White, Color.White, 1.5f);
                 int myIndex = i;
                 button.OnLeftClick += (_, _) => OnResponsePress(myIndex);
 
-                button.HAlign = (i + 1) / (float)(count + 1);
-                button.VAlign = 0.5f + (MathF.Sin(button.HAlign * MathHelper.Pi) / 2f);
+                float xAlign = (i + 1) / (float)(count + 1);
+                button.idealAligns = new(xAlign, 0.5f + (MathF.Sin(xAlign * MathHelper.Pi) / 2f));
+                button.HAlign = 0.5f;
+                button.VAlign = 0.5f;
 
                 panel.Append(button);
+
+                responses.Add(button);
             }
         }
+
+        bool crawlOver = false;
 
         public override void Update(GameTime gameTime)
         {
@@ -135,47 +148,75 @@ namespace AAModClassic.UI.Dialogue
 
             dialogue.Position = panel.GetInnerDimensions().Center() - dialogue.TextSize / 2f;
 
+            if(!crawlOver && !dialogue.Crawling)
+            {
+                for(int i = 0; i < responses.Count; i++)
+                    responses[i].Show(i * -10);
+
+                crawlOver = true;
+            }
+
+            if (switchStarted)
+            {
+                if (dialogue.SwitchCounter >= 60)
+                    ChangeDialogue();
+                dialogue.SwitchCounter++;
+            }
+
             base.Update(gameTime);
+
+            if (panel.ContainsPoint(Main.MouseScreen))
+                Main.LocalPlayer.mouseInterface = true;
         }
     }
 
     public class ResponseButton : UIElement
     {
+        private Response _response;
+
         private Asset<Texture2D> _texture;
+        private Rectangle _frame;
+        private float _baseScale;
         private Color _hoverColor;
         private Color _unhoverColor;
         private Color _color;
         private Color _previousColor;
         private float _scale;
         private float _previousScale;
-        private byte _hoverTimer = 0;
-        private Rectangle _frame;
-        private static float _visibilityActive => 1f;
-        private static float _visibilityInactive => 0.6f;
-        private bool _hovered;
-        private Response _response;
 
-        public ResponseButton(Response response, Asset<Texture2D> texture, Rectangle frame, Color hoverColor, Color unhoverColor)
+        private byte _hoverTimer = 30;
+        private static float visibilityActive => 1f;
+        private static float visibilityInactive => 0.8f;
+        private bool _hovered = false;
+
+        private bool show = false;
+        private int showTimer = 0;
+        internal Vector2 idealAligns = Vector2.One * 0.5f;
+
+
+        public ResponseButton(Response response, Asset<Texture2D> texture, Rectangle frame, Color hoverColor, Color unhoverColor, float baseScale = 1f)
         {
             _response = response;
 
-            _color = _unhoverColor = unhoverColor * _visibilityInactive;
-            _hoverColor = hoverColor * _visibilityActive;
+            _color = _unhoverColor = unhoverColor * visibilityInactive;
+            _hoverColor = hoverColor * visibilityActive;
             
             _texture = texture;
             _frame = frame;
+            _baseScale = baseScale;
 
-            Width.Set(_frame.Width, 0f);
-            Height.Set(_frame.Height, 0f);
+            Width.Set(_frame.Width * _baseScale, 0f);
+            Height.Set(_frame.Height * _baseScale, 0f);
         }
 
-        public void SetImage(Asset<Texture2D> texture, Rectangle frame)
+        public void SetImage(Asset<Texture2D> texture, Rectangle frame, float baseScale = 1f)
         {
             _texture = texture;
             _frame = frame;
+            _baseScale = baseScale;
 
-            Width.Set(_frame.Width, 0f);
-            Height.Set(_frame.Height, 0f);
+            Width.Set(_frame.Width * _baseScale, 0f);
+            Height.Set(_frame.Height * _baseScale, 0f);
         }
 
         public void SetImageWithoutSettingSize(Asset<Texture2D> texture)
@@ -183,34 +224,60 @@ namespace AAModClassic.UI.Dialogue
             _texture = texture;
         }
 
+        public void Show(int time)
+        {
+            show = true;
+            showTimer = time;
+        }
+
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-
-            if (_hoverTimer == 0)
+            
+            if (showTimer == 30)
             {
-                _previousColor = _color;
-                _previousScale = _scale;
-            }
+                HAlign = idealAligns.X;
+                VAlign = idealAligns.Y;
 
-            if (_hovered)
+                if (_hoverTimer == 0)
+                {
+                    _previousColor = _color;
+                    _previousScale = _scale;
+                }
+
+                if (_hovered)
+                {
+                    float lerp = MathUtils.SineInOutEasing(_hoverTimer / 18f);
+                    _color = Color.Lerp(_previousColor, _hoverColor * visibilityActive, lerp);
+                    _scale = MathHelper.Lerp(_previousScale, 1f, lerp);
+
+                    Main.instance.MouseText(_response.Title);
+                }
+                else
+                {
+                    float lerp = MathUtils.SineInOutEasing(_hoverTimer / 18f);
+                    _color = Color.Lerp(_previousColor, _unhoverColor * visibilityInactive, lerp);
+                    _scale = MathHelper.Lerp(_previousScale, 0.75f, lerp);
+
+                }
+
+                if (_hoverTimer < 18)
+                    _hoverTimer++;
+            }
+            else if (show)
             {
-                float lerp = MathUtils.SineInOutEasing(_hoverTimer / 30f);
-                _color = Color.Lerp(_previousColor, _hoverColor * _visibilityActive, lerp);
-                _scale = MathHelper.Lerp(_previousScale, 1f, lerp);
+                showTimer++;
 
-                Main.instance.MouseText(_response.Title);
+                if (showTimer >= 0)
+                {
+                    float lerp = MathUtils.SineOutEasing(showTimer / 30f);
+                    HAlign = MathHelper.Lerp((0.5f + idealAligns.X) / 2f, idealAligns.X, lerp);
+                    VAlign = MathHelper.Lerp(0.5f, idealAligns.Y, lerp);
+
+                    _previousScale = _scale = MathHelper.Lerp(0.1f, 0.75f, lerp);
+                    _previousColor = _color = Color.Lerp(Color.Transparent, _unhoverColor * visibilityInactive, lerp);
+                }
             }
-            else
-            {
-                float lerp = MathUtils.SineInOutEasing(_hoverTimer / 30f);
-                _color = Color.Lerp(_previousColor, _unhoverColor * _visibilityInactive, lerp);
-                _scale = MathHelper.Lerp(_previousScale, 0.75f, lerp);
-
-            }
-
-            if (_hoverTimer < 30)
-                _hoverTimer++;
         }
 
         protected override void DrawSelf(SpriteBatch spriteBatch)
@@ -218,7 +285,10 @@ namespace AAModClassic.UI.Dialogue
             CalculatedStyle dimensions = GetDimensions();
             Vector2 position = dimensions.Position() + new Vector2(dimensions.Width, dimensions.Height) / 2f;
 
-            spriteBatch.Draw(_texture.Value, position, _frame, _color, 0f, _frame.Size() / 2f, _scale, SpriteEffects.None, 0f);
+            Color drawColor = _color;
+            if(showTimer < 30)
+                drawColor *= MathUtils.SineOutEasing(showTimer / 30f);
+            spriteBatch.Draw(_texture.Value, position, _frame, drawColor, 0f, _frame.Size() / 2f, _scale * _baseScale, SpriteEffects.None, 0f);
         }
 
         public override void MouseOver(UIMouseEvent evt)
