@@ -1,11 +1,6 @@
-﻿using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
-using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.BossStandard;
-using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons;
-using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
-using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX.Accessories;
+﻿using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX.Accessories;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,9 +8,9 @@ using Terraria.ModLoader;
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX.BossStandard
 {
     public class OrthrusXTreasureBag : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Treasure Bag (Orthrus X)");
@@ -25,14 +20,14 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX
             ItemID.Sets.BossBag[Type] = true;
         }
 
-		public override void SetDefaults()
-		{
-			Item.maxStack = Item.CommonMaxStack;
-			Item.consumable = true;
-			Item.width = 36;
-			Item.height = 32;
-			Item.rare = ItemRarityID.Cyan;
-			Item.expert = true;
+        public override void SetDefaults()
+        {
+            Item.maxStack = Item.CommonMaxStack;
+            Item.consumable = true;
+            Item.width = 36;
+            Item.height = 32;
+            Item.rare = ItemRarityID.Cyan;
+            Item.expert = true;
         }
 
         public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
@@ -42,9 +37,9 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX
         //public override int BossBagNPC => Mod.Find<ModNPC>("Orthrus").Type;
 
         public override bool CanRightClick()
-		{
-			return true;
-		}
+        {
+            return true;
+        }
 
         public override void RightClick(Player player)
         {

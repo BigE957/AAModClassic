@@ -1,11 +1,10 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Dusts
 {
     public class SpaceDust : ModDust
-	{
+    {
         public override bool Update(Dust dust)
         {
             dust.rotation += 1f;
@@ -36,6 +35,6 @@ namespace AAModClassic.Dusts
         {
             return new Color(255, 255, 255, 0);
         }
-        
+
     }
 }

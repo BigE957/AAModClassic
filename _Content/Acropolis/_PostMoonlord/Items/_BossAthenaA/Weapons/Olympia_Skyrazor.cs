@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -131,8 +130,8 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapo
             }
             float num707 = Projectile.velocity.Length();
             Projectile.velocity.Normalize();
-            Projectile.velocity *= num707 + 0.0025f; 
-            
+            Projectile.velocity *= num707 + 0.0025f;
+
             for (int u = 0; u < Main.maxNPCs; u++)
             {
                 NPC target = Main.npc[u];

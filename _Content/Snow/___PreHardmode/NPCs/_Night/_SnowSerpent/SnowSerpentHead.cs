@@ -1,7 +1,4 @@
-﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Inferno.___PreHardmode.NPCs;
-using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent;
-using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
+﻿using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent;
 using AAModClassic.Globals;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
@@ -9,7 +6,6 @@ using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -24,7 +20,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
         public bool WasSpawnedBySubzeroSerpent = false;
 
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Snow Serpent");
 
             NPCID.Sets.NPCBestiaryDrawModifiers value = new()
@@ -35,10 +31,10 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
-		public override void SetDefaults()
-		{
-			NPC.damage = 20;
-			NPC.npcSlots = 5f;
+        public override void SetDefaults()
+        {
+            NPC.damage = 20;
+            NPC.npcSlots = 5f;
             NPC.damage = 35;
             NPC.width = 20;
             NPC.height = 20;
@@ -56,13 +52,13 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
             NPC.value = Item.buyPrice(0, 0, 10, 0);
             NPC.buffImmune[BuffID.Frostburn] = true;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SnowSerpentBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.SnowSerpentBanner>();
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.Player.ZoneSnow &&
-                NPC.downedBoss3 && 
+                NPC.downedBoss3 &&
                 !Main.dayTime ? .1f : 0f;
         }
 
@@ -78,9 +74,9 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
         public override void AI()
         {
             Player player = Main.player[NPC.target];
-			AAAI.AIWorm(NPC, [ModContent.NPCType<SnowSerpentHead>(), ModContent.NPCType<SnowSerpentBody>(), ModContent.NPCType<SnowSerpentTail>()], 9, 8f, 12f, 0.1f, false, false);
-            
-            if(NPC.realLife != -1)
+            AAAI.AIWorm(NPC, [ModContent.NPCType<SnowSerpentHead>(), ModContent.NPCType<SnowSerpentBody>(), ModContent.NPCType<SnowSerpentTail>()], 9, 8f, 12f, 0.1f, false, false);
+
+            if (NPC.realLife != -1)
             {
                 if (!Main.npc[(int)NPC.ai[1]].active)
                     NPC.active = false;
@@ -96,18 +92,18 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent
                 NPC.spriteDirection = -1;
             }
         }
-        
-		public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
-		{
-			if (Main.expertMode && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-			{
-				target.AddBuff(BuffID.Chilled, 200, true);
-			}
-			else
-			{
-				target.AddBuff(BuffID.Chilled, 100, true);
-			}
-		}
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
+        {
+            if (Main.expertMode && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                target.AddBuff(BuffID.Chilled, 200, true);
+            }
+            else
+            {
+                target.AddBuff(BuffID.Chilled, 100, true);
+            }
+        }
 
         public override void HitEffect(NPC.HitInfo hit)
         {

@@ -1,6 +1,5 @@
 using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -18,9 +17,9 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons   /
         {
             Projectile.extraUpdates = 3;
             Projectile.width = 16;
-            Projectile.height = 16; 
+            Projectile.height = 16;
             Projectile.aiStyle = ProjAIStyleID.Yoyo;
-            Projectile.friendly = true; 
+            Projectile.friendly = true;
             Projectile.penetrate = -1;
             Projectile.DamageType = DamageClass.Melee;
             ProjectileID.Sets.YoyosLifeTimeMultiplier[Projectile.type] = 60f;

@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,10 +7,10 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
     public class SoulSiphon_Heal : ModProjectile
     {
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Heal");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Heal");
+        }
 
         public override void SetDefaults()
         {

@@ -1,8 +1,7 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items.Tiles.Decoration
 {

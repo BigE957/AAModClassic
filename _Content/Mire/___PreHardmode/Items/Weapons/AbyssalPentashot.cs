@@ -1,12 +1,10 @@
-﻿using Terraria;
-using System;
+﻿using AAModClassic._Content.Ocean.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using AAModClassic._Content.Ocean.___PreHardmode.Items.Weapons;
-using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
 {
@@ -38,14 +36,14 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
             Item.shootSpeed = 12f;
         }
 
-		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-		{
-		    float spread = 20f * 0.0174f;
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            float spread = 20f * 0.0174f;
             float deltaAngle = spread / 6f;
-		    for (int i = -2; i <= 2; i++)
-		    	Projectile.NewProjectile(source, position, velocity.RotatedBy(deltaAngle * i), type, damage, knockback, Main.myPlayer);
-		    return false;
-		}
+            for (int i = -2; i <= 2; i++)
+                Projectile.NewProjectile(source, position, velocity.RotatedBy(deltaAngle * i), type, damage, knockback, Main.myPlayer);
+            return false;
+        }
 
         public override void AddRecipes()
         {

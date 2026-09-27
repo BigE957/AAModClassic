@@ -1,7 +1,6 @@
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -25,14 +24,14 @@ public class KeepLamp_Tile : ModTile
     public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 
     public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
-	{
-		if (Main.tile[i, j].TileFrameX < 18)
-		{
-			r = 0.5f;
-			g = 0.5f;
-			b = 0.5f;
-		}
-	}
+    {
+        if (Main.tile[i, j].TileFrameX < 18)
+        {
+            r = 0.5f;
+            g = 0.5f;
+            b = 0.5f;
+        }
+    }
 
     public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
     {

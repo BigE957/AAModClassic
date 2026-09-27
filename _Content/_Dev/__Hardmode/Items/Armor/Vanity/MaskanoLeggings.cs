@@ -7,8 +7,8 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class MaskanoLeggings : BaseAAItem, ILocalizedModType
-	{
+    public class MaskanoLeggings : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Maskano";
         public override void SetStaticDefaults()
         {

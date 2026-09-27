@@ -1,15 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
-using Steamworks;
 using System;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.Chat;
-using Terraria.DataStructures;
 using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace AAModClassic.Utilities
 {

@@ -1,6 +1,5 @@
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Music;
@@ -9,8 +8,6 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -253,7 +250,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                             NPC.ai[2] = (float)num774;
                             NPC.netUpdate = true;
                             NPC.netSpam = 0;
-                            Block_2789:;
+                        Block_2789:;
                         }
                     }
                 }
@@ -366,7 +363,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                             NPC.ai[1] = (float)num782;
                             NPC.ai[2] = (float)num783;
                             NPC.netUpdate = true;
-                            Block_2806:;
+                        Block_2806:;
                         }
                     }
                 }

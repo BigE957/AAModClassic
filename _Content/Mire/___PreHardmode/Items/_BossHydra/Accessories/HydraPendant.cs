@@ -1,7 +1,5 @@
 ﻿using AAModClassic._Removed.Content._Tinker.___PreHardmode.Items.Accessories;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.Accessories

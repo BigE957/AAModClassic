@@ -1,10 +1,8 @@
 ﻿using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -26,21 +24,21 @@ Storm Rifle EX"); */
         {
             Item.damage = 375;
             Item.noMelee = true;
-            Item.DamageType = DamageClass.Ranged; 
-            Item.width = 90; 
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 90;
             Item.height = 30;
-            Item.useTime = 2; 
-            Item.useAnimation = 6; 
+            Item.useTime = 2;
+            Item.useAnimation = 6;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.shoot = ModContent.ProjectileType<ThunderLord_SuperchargedThunderbullet>();
             Item.knockBack = 3;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Cyan;
             Item.UseSound = new SoundStyle("AAModClassic/Sounds/Thunderlord");
-            Item.autoReuse = true; 
+            Item.autoReuse = true;
             Item.shootSpeed = 9f;
             Item.useAmmo = AmmoID.Bullet;
-            Item.crit = 10; 
+            Item.crit = 10;
         }
         public override Vector2? HoldoutOffset()
         {

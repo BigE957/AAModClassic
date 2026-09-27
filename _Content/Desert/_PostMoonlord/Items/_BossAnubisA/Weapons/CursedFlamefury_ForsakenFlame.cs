@@ -1,6 +1,5 @@
 ﻿using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons
@@ -24,12 +23,12 @@ namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons
             Projectile.alpha = 255;
             Projectile.timeLeft = 100;
             Projectile.aiStyle = -1;
-			Projectile.DamageType = DamageClass.Ranged;
+            Projectile.DamageType = DamageClass.Ranged;
             Projectile.extraUpdates = 2;
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = 15;
         }
-        
+
         public override void AI()
         {
             if (Projectile.timeLeft > 60)

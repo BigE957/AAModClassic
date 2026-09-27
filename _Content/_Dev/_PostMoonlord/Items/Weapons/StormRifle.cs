@@ -1,10 +1,8 @@
-﻿using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
@@ -34,22 +32,22 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
         {
             Item.damage = 175;
             Item.noMelee = true;
-            Item.DamageType = DamageClass.Ranged; 
-            Item.width = 70; 
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 70;
             Item.height = 24;
-            Item.useTime = 20; 
-            Item.useAnimation = 20; 
+            Item.useTime = 20;
+            Item.useAnimation = 20;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.shoot = ModContent.ProjectileType<StormRifle_ThunderSpark>();
             Item.knockBack = 3;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Cyan;
             Item.UseSound = SoundID.Item92;
-            Item.autoReuse = true; 
+            Item.autoReuse = true;
             Item.shootSpeed = 9f;
             Item.useAmmo = AmmoID.Bullet;
 
-			customNameColor = new Color(0, 0, 255);			
+            customNameColor = new Color(0, 0, 255);
         }
 
         public override Vector2? HoldoutOffset()

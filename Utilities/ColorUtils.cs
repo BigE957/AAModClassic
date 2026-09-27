@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Utilities
@@ -25,12 +24,6 @@ namespace AAModClassic.Utilities
                 return Color.White;
         }
 
-        /// <summary>
-        /// Returns a color lerp that supports multiple colors.
-        /// </summary>
-        /// <param name="increment">The 0-1 incremental value used when interpolating.</param>
-        /// <param name="colors">The various colors to interpolate across.</param>
-        /// <returns></returns>
         public static Color MulticolorLerp(float increment, params Color[] colors)
         {
             increment %= 0.999f;

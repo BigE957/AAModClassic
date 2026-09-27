@@ -1,7 +1,6 @@
 using AAModClassic.Assets;
 using AAModClassic.Conversions;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Consumables

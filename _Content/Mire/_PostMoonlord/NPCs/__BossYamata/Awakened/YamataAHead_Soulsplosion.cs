@@ -1,6 +1,5 @@
 using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
@@ -10,7 +9,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Soulsplosion");     
-            Main.projFrames[Projectile.type] = 5;     
+            Main.projFrames[Projectile.type] = 5;
         }
 
         public override void SetDefaults()

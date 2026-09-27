@@ -1,15 +1,14 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad
 {
     public class TruffleToad_FungusBubble : ModProjectile
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Fungus Bubble");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Fungus Bubble");
+        }
         public override void SetDefaults()
         {
             Projectile.width = 14;
@@ -73,7 +72,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
         }
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
-		{
+        {
             target.AddBuff(ModContent.BuffType<Shroomed_Buff>(), 180);
         }
 
@@ -93,10 +92,10 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
             return true;
         }
 
-		public override bool OnTileCollide (Vector2 oldVelocity)
-		{
-			Projectile.ai[0] = 1f;
-			return false;
-		}
+        public override bool OnTileCollide(Vector2 oldVelocity)
+        {
+            Projectile.ai[0] = 1f;
+            return false;
+        }
     }
 }

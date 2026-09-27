@@ -7,17 +7,17 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class AvesLeggings : BaseAAItem, ILocalizedModType
-	{
+    public class AvesLeggings : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Aves";
-		public override void SetStaticDefaults()
-       
-		{
+        public override void SetStaticDefaults()
+
+        {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("DJ Duck Pants");
             // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Devs!'");
-		}
-        
+        }
+
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)

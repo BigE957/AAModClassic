@@ -1,9 +1,6 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 

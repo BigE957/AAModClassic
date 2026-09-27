@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,26 +5,26 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons
 {
     public class Sickleshot_IceArrow : ModProjectile
-	{
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Ice Arrow");
-		}
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Ice Arrow");
+        }
 
-		public override void SetDefaults()
-		{
-			Projectile.width = 10;
-			Projectile.height = 10;
-			Projectile.aiStyle = ProjAIStyleID.Arrow;
-			Projectile.friendly = true;
-			Projectile.hostile = false;
-			Projectile.DamageType = DamageClass.Ranged;
-			Projectile.penetrate = 1;
-			Projectile.timeLeft = 600;
-			Projectile.ignoreWater = false;
-			Projectile.tileCollide = true;
-			Projectile.extraUpdates = 1;
-			AIType = ProjectileID.WoodenArrowFriendly;
+        public override void SetDefaults()
+        {
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 600;
+            Projectile.ignoreWater = false;
+            Projectile.tileCollide = true;
+            Projectile.extraUpdates = 1;
+            AIType = ProjectileID.WoodenArrowFriendly;
             Projectile.arrow = true;
         }
 

@@ -1,15 +1,13 @@
-using AAModClassic._Content.Mire.World.Biomes.Water;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.World.Biomes.Water
 {
     public class StormWaterStyle : ModWaterStyle
-	{
-		/*
+    {
+        /*
         public override bool ChooseWaterStyle()
 		{
 			return Main.bgStyle == Mod.GetSurfaceBgStyleSlot("StormBgStyle");

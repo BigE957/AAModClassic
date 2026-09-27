@@ -1,11 +1,10 @@
 using AAModClassic._Content.Hoard.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
@@ -14,17 +13,17 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
 {
     public class OreConstruct : ModNPC
-	{
+    {
         public int MinionType = 0;
 
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Ore Construct");
-			Main.npcFrameCount[NPC.type] = 15;
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Ore Construct");
+            Main.npcFrameCount[NPC.type] = 15;
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             NPC.lifeMax = 200;
             NPC.defense = 20;
             NPC.damage = 50;

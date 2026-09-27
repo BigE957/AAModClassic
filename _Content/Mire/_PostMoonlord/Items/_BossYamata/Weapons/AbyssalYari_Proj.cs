@@ -1,12 +1,11 @@
+using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.Audio;
-using Terraria.GameContent;
-using Terraria.ModLoader;
-using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using AAModClassic._Content.Mire.Buffs;
+using Terraria.Audio;
+using Terraria.GameContent;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
@@ -43,35 +42,36 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
                 Projectile.oldPos[m] = Projectile.oldPos[m - 1];
             }
             Projectile.oldPos[0] = Projectile.position;
-            
-			if(Projectile.timeLeft < 60)
-			{
-				Projectile.velocity.Y += Projectile.velocity.Y > 0f ? 0.04f : -0.04f;
-				if(Projectile.velocity.Y <= -8f) Projectile.velocity.Y = -8f;
-				if(Projectile.velocity.Y >= 8f) Projectile.velocity.Y = 8f;
-			}
-			Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + .25f * (float)Math.PI;
-			for (int i = 0; i < 3; i++)
-			{
-				int d = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataADust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
-				if (Main.rand.NextBool(6))
-				{
-					Main.dust[d].noGravity = true;
-					Main.dust[d].velocity.X *= 2f;
-					Main.dust[d].velocity.Y *= 2f;
-				}else
-				{
-					Main.dust[d].noGravity = true;
-					Main.dust[d].velocity.X *= 1.2f;
-					Main.dust[d].velocity.Y *= 1.2f;
-				}
-			}
+
+            if (Projectile.timeLeft < 60)
+            {
+                Projectile.velocity.Y += Projectile.velocity.Y > 0f ? 0.04f : -0.04f;
+                if (Projectile.velocity.Y <= -8f) Projectile.velocity.Y = -8f;
+                if (Projectile.velocity.Y >= 8f) Projectile.velocity.Y = 8f;
+            }
+            Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + .25f * (float)Math.PI;
+            for (int i = 0; i < 3; i++)
+            {
+                int d = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataADust>(), Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100);
+                if (Main.rand.NextBool(6))
+                {
+                    Main.dust[d].noGravity = true;
+                    Main.dust[d].velocity.X *= 2f;
+                    Main.dust[d].velocity.Y *= 2f;
+                }
+                else
+                {
+                    Main.dust[d].noGravity = true;
+                    Main.dust[d].velocity.X *= 1.2f;
+                    Main.dust[d].velocity.Y *= 1.2f;
+                }
+            }
         }
 
-        public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
-		{
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
             target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 500);
-        }		
+        }
 
         public override void OnKill(int timeLeft)
         {

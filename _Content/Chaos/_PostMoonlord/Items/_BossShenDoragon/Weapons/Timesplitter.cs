@@ -2,11 +2,8 @@
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
-using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -15,7 +12,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapo
     public class Timesplitter : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Timesplitter");
@@ -37,7 +34,7 @@ Inflicts Daybroken and Moonraze"); */
             Item.noMelee = true;
             Item.noUseGraphic = true;
             Item.useTurn = true;
-			Item.autoReuse = true;
+            Item.autoReuse = true;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = Item.sellPrice(1, 50, 0, 0);
             Item.shoot = ModContent.ProjectileType<Timesplitter_Holdout>();  //put your Spear projectile name
@@ -45,12 +42,12 @@ Inflicts Daybroken and Moonraze"); */
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
-        
+
 
         public override bool CanUseItem(Player player)
-		{
-			return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
-		}
+        {
+            return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
+        }
 
         public override void AddRecipes()
         {
@@ -58,7 +55,7 @@ Inflicts Daybroken and Moonraze"); */
             recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 5);
             recipe.AddIngredient(ModContent.ItemType<ChaosScale>(), 5);
             recipe.AddIngredient(ModContent.ItemType<AbyssalYari>());
-			recipe.AddIngredient(ModContent.ItemType<SunPartisan>());
+            recipe.AddIngredient(ModContent.ItemType<SunPartisan>());
             recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }

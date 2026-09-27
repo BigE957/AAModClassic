@@ -1,11 +1,10 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Dusts
 {
     public class FulguriteDust : ModDust
-	{
+    {
         public override bool Update(Dust dust)
         {
             dust.velocity.Y = Main.rand.Next(-10, 6) * 0.1f;
@@ -17,7 +16,7 @@ namespace AAModClassic.Dusts
 
         public override bool MidUpdate(Dust dust)
         {
-            
+
             if (!dust.noGravity)
             {
                 Dust expr_1256_cp_0 = dust;

@@ -7,6 +7,8 @@ using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena;
+using AAModClassic.Base;
+using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.BossStandard;
 using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Effects;
@@ -143,53 +145,30 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                 Music = MusicLoader.GetMusicSlot("AAModClassic/Music/silence");
                 if (Vector2.Distance(NPC.Center, Acropolis) < 10)
                 {
-                    NPC.velocity *= 0;
+                    NPC.velocity = Vector2.Zero;
 
                     if (Seen)
                     {
                         if (player.Center.X < NPC.Center.X + 32)
-                        {
                             NPC.direction = -1;
-                        }
                         else
-                        {
                             NPC.direction = 1;
-                        }
                     }
 
-                    if (Main.netMode != NetmodeID.MultiplayerClient && Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height) && internalAI[3] < 180)
+                    if (Main.netMode != NetmodeID.MultiplayerClient && internalAI[3] < 180 && Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height))
                     {
                         Seen = true;
                         NPC.netUpdate = true;
                     }
 
 
-                    if (!Seen)
-                    {
                         internalAI[4]++;
-                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        if (internalAI[4] == 60)
                         {
-                            if (Main.netMode != NetmodeID.MultiplayerClient)
-                            {
-                                switch (internalAI[4])
-                                {
-                                    case 60:
-                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.Athena.Evaded", NPC, 0, 60, effects: new NearbyBossText());
-                                        break;
-                                    case 300:
-                                        NPC.active = false;
-                                        int p = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AthenaFlee>());
-                                        Main.npc[p].Center = NPC.Center;
-                                        break;
-                                }
-                            }
+                            CombatText.NewText(NPC.Hitbox, Color.CadetBlue, "...");
                         }
-                        else
-                        {
-                            if (internalAI[4] == 60)
-                            {
-                                CombatText.NewText(NPC.Hitbox, Color.CadetBlue, "...");
-                            }
+                            CombatText.NewText(NPC.Hitbox, Color.CadetBlue, "...");
+                        }
 
                             if (internalAI[4] == 180)
                             {
@@ -499,7 +478,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                                 NPC Seraph1 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y + 100, ModContent.NPCType<SeraphA>())];
                                 for (int i = 0; i < 3; i++)
                                 {
-                                   Dust d = Main.dust[Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0)];
+                                    Dust d = Main.dust[Dust.NewDust(Seraph1.position, Seraph1.height, Seraph1.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0)];
                                 }
                                 NPC Seraph2 = Main.npc[NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 100, (int)NPC.Center.Y - 50, ModContent.NPCType<SeraphA>())];
                                 for (int i = 0; i < 3; i++)
@@ -690,7 +669,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
 
         public override void HitEffect(NPC.HitInfo hit)
         {
-            if(NPC.life <= 0)
+            if (NPC.life <= 0)
             {
                 if (NPCExtensions.BeenKilled<AthenaA>())
                 {

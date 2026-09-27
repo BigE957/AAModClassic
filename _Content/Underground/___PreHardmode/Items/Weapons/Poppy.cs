@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Underground.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,7 +8,7 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Weapons   //whe
     public class Poppy : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Poppy");
@@ -18,24 +17,24 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Weapons   //whe
         public override void SetDefaults()
         {
 
-            Item.damage = 32;            
-            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
-            Item.width = 44;              
-            Item.height = 44;             
-            Item.useTime = 20;          
+            Item.damage = 32;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 44;
+            Item.height = 44;
+            Item.useTime = 20;
             Item.useAnimation = 20;
-            Item.useStyle = ItemUseStyleID.Swing;        
-            Item.knockBack = 3;      
-            Item.value = 5000;        
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 3;
+            Item.value = 5000;
             Item.rare = ItemRarityID.LightRed;
-            Item.UseSound = SoundID.Item1;       
-            Item.autoReuse = true;   
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
             Item.useTurn = true;
         }
 
         public override void AddRecipes()  //How to craft this sword
         {
-            Recipe recipe = CreateRecipe();      
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Ruby, 1);
             recipe.AddIngredient(ItemID.Sapphire, 1);
             recipe.AddIngredient(ItemID.Emerald, 1);
@@ -44,8 +43,8 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Weapons   //whe
             recipe.AddIngredient(ItemID.Diamond, 1);
             recipe.AddIngredient(ItemID.Amethyst, 1);
             recipe.AddIngredient(ModContent.ItemType<Prism>(), 10);
-            recipe.AddRecipeGroup("AAModClassic:GoldBar", 12);		
-            recipe.AddTile(TileID.Anvils);   
+            recipe.AddRecipeGroup("AAModClassic:GoldBar", 12);
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
 
         }

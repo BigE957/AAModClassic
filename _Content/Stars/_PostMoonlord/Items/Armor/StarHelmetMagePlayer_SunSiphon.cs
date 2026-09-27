@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
@@ -28,9 +27,9 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
         {
             int manaCount = 0;
             int overloadCount = 0;
-            for(; potency > 0; potency--)
+            for (; potency > 0; potency--)
             {
-                if(player.statManaMax2 > player.statMana )
+                if (player.statManaMax2 > player.statMana)
                 {
                     player.statMana++;
                     manaCount++;
@@ -38,14 +37,14 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
                 else
                 {
                     overloadCount++;
-                    
+
                 }
             }
-            if(manaCount>0)
+            if (manaCount > 0)
             {
                 player.ManaEffect(manaCount);
             }
-            if (overloadCount >0)
+            if (overloadCount > 0)
             {
                 if (player.HasBuff(ModContent.BuffType<StarHelmetRangedPlayer_SunSiphon_ManaOverload>()))
                 {
@@ -62,7 +61,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
                 }
                 CombatText.NewText(player.Hitbox, Color.Purple, overloadCount * 2);
             }
-            
+
         }
 
     }

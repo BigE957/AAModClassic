@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
+using System;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -36,7 +35,7 @@ namespace AAModClassic._CrossMod.Overhaul
             {
                 // JUST attacked
                 bool onAttackFrame = player.itemAnimation == player.itemAnimationMax - 1;
-                if(ModLoader.TryGetMod("TerrariaOverhaul", out _))
+                if (ModLoader.TryGetMod("TerrariaOverhaul", out _))
                 { onAttackFrame = player.itemAnimation == player.itemAnimationMax - 2; }
 
                 if (onAttackFrame)
@@ -217,7 +216,7 @@ namespace AAModClassic._CrossMod.Overhaul
         }
 
         /// <summary> Quick slash animation </summary>
-        public static void  UseItemFrame(Player player, float delayStart = 0.9f, bool flip = false)
+        public static void UseItemFrame(Player player, float delayStart = 0.9f, bool flip = false)
         {
             //counts down from 1 to 0
             float anim = player.itemAnimation / (float)(player.itemAnimationMax);
@@ -528,7 +527,7 @@ namespace AAModClassic._CrossMod.Overhaul
             // Flip Vertically : Weapon spriteEffect
             float vDir = slashNormal * player.gravDir;
             Vector2 weaponOrigin = weapon.Bounds.BottomLeft();
-            if ( vDir < 0)
+            if (vDir < 0)
             {
                 spriteFlipV = true;
             }
@@ -564,13 +563,13 @@ namespace AAModClassic._CrossMod.Overhaul
             */
 
             // projectile drawing already mirrors horizontally when needed, just remove reverse flip from earlier
-            if(projectile.spriteDirection < 0) { vDir *= -1f; }
+            if (projectile.spriteDirection < 0) { vDir *= -1f; }
             spriteEffect = vDir < 0 ? SpriteEffects.FlipVertically : SpriteEffects.None;
 
             if (projectile.frame >= 0 &&
                 projectile.frame < slashFramecount)
             {
-                if(shadow)
+                if (shadow)
                 {
                     Vector2 dist = player.position - player.oldPosition;
                     dist = new Vector2(

@@ -1,6 +1,5 @@
 using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka
@@ -10,7 +9,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Depth Killing Blast");     
-            Main.projFrames[Projectile.type] = 5;     
+            Main.projFrames[Projectile.type] = 5;
         }
 
         public override void SetDefaults()
@@ -25,7 +24,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             Projectile.timeLeft = 600;
 
             DrawOffsetX = -49;
-			DrawOriginOffsetY = -49;
+            DrawOriginOffsetY = -49;
         }
 
         public override void AI()
@@ -60,10 +59,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         }
 
         public override void ModifyDamageHitbox(ref Rectangle hitbox)
-		{
+        {
             hitbox.X += 98;
             hitbox.Y += 98;
-		}
+        }
 
     }
 }

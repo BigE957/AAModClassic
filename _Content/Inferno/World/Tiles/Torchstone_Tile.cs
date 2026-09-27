@@ -1,6 +1,5 @@
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -17,9 +16,9 @@ namespace AAModClassic._Content.Inferno.World.Tiles
             Main.tileBlockLight[Type] = true;
             HitSound = SoundID.Tink;
             DustType = ModContent.DustType<Dusts.RazewoodDust>();
-            RegisterItemDrop(ModContent.ItemType<Torchstone>());   
+            RegisterItemDrop(ModContent.ItemType<Torchstone>());
             AddMapEntry(new Color(50, 25, 12));
-			MinPick = 65;
+            MinPick = 65;
         }
     }
 }

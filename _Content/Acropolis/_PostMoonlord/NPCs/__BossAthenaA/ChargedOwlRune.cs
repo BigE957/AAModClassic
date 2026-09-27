@@ -1,10 +1,8 @@
 ﻿using AAModClassic._Content.Acropolis.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -13,7 +11,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA
 {
-	public class ChargedOwlRune : ModNPC
+    public class ChargedOwlRune : ModNPC
     {
         public override void SetStaticDefaults()
         {

@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,11 +8,11 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons
 {
     public class GaleOfWings_Tornado : ModProjectile
     {
-    	public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             Main.projFrames[Projectile.type] = 6;
         }
-    	
+
         public override void SetDefaults()
         {
             Projectile.width = 38;

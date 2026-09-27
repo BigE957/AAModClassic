@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -7,9 +6,9 @@ using Terraria.ObjectData;
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
     public class CCBag_Tile : ModTile
-	{
-		public override void SetStaticDefaults()
-		{
+    {
+        public override void SetStaticDefaults()
+        {
             Main.tileSolidTop[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
@@ -20,9 +19,9 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
             TileObjectData.newTile.CoordinateWidth = 16;
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.addTile(Type);
-			LocalizedText modTranslation = CreateMapEntryName();
-			// modTranslation.SetDefault("Cardboard Box");
-			AddMapEntry(Color.Gold, modTranslation);
-		}
+            LocalizedText modTranslation = CreateMapEntryName();
+            // modTranslation.SetDefault("Cardboard Box");
+            AddMapEntry(Color.Gold, modTranslation);
+        }
     }
 }

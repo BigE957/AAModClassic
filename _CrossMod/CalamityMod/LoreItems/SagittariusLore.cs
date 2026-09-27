@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.BossStandard;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

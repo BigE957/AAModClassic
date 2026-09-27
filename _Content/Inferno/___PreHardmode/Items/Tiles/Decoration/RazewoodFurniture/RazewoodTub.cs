@@ -1,5 +1,4 @@
-﻿using Terraria;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture
@@ -32,7 +31,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.Ra
             recipe.AddIngredient(ModContent.ItemType<Razewood>(), 14);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
-            
+
         }
 
     }

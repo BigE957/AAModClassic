@@ -1,6 +1,5 @@
 ﻿using AAModClassic.Achievements;
 using AAModClassic.Music;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.World.Biomes

@@ -5,7 +5,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons   //The direct
 {
     public class Depthwalker_Holdout : ModProjectile   //make sure the sprite file is named like the class name (CustomYoyoProjectile)
     {
- 
+
         public override void SetDefaults()
         {
             Projectile.extraUpdates = 0;
@@ -27,10 +27,10 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons   //The direct
             ProjectileID.Sets.YoyosTopSpeed[Projectile.type] = 12f;
         }
 
-    public override void SetStaticDefaults()
-    {
-      // DisplayName.SetDefault("Depthwalker");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Depthwalker");
+        }
+
     }
-        
-     }
 }

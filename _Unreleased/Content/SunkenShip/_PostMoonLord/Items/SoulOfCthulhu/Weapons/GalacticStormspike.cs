@@ -1,16 +1,14 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthulhu.Weapons
 {
-	public class GalacticStormspike : BaseAAItem, ILocalizedModType
+    public class GalacticStormspike : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Magic";
         public override void SetStaticDefaults()
@@ -33,7 +31,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
             Item.DamageType = DamageClass.Magic;
             Item.mana = 10;
             Item.autoReuse = true;
-            Item.noMelee = true;	
+            Item.noMelee = true;
             Item.shoot = ModContent.ProjectileType<GalacticStormspike_Stormray>();
             Item.shootSpeed = 4;
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
@@ -41,9 +39,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-			int pID = Projectile.NewProjectile(Item.GetSource_FromThis(), position.X, position.Y, velocity.X, velocity.Y, type, damage, knockback, player.whoAmI);
-			return false;
-		}
+            int pID = Projectile.NewProjectile(Item.GetSource_FromThis(), position.X, position.Y, velocity.X, velocity.Y, type, damage, knockback, player.whoAmI);
+            return false;
+        }
 
         public override void AddRecipes()
         {

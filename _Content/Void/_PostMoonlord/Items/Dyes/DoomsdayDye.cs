@@ -1,14 +1,9 @@
-﻿using System.Collections.Generic;
-using Terraria.Graphics.Shaders;
-using Terraria.ModLoader;
-
-using Terraria.DataStructures;
-using Terraria;
-using Terraria.ID;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
-using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.DataStructures;
+using Terraria.Graphics.Shaders;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Dyes
 {
@@ -23,7 +18,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Dyes
             ItemID.Sets.AnimatesAsSoul[Type] = true;
         }
 
-        
+
 
         public override void SetDefaults()
         {

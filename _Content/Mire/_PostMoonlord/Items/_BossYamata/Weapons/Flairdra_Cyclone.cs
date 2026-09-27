@@ -1,6 +1,5 @@
 using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
@@ -8,10 +7,10 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
     //TODO: this is used by multiple things. move it 
     public class Flairdra_Cyclone : ModProjectile
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Cyclone");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Cyclone");
+        }
         public override void SetDefaults()
         {
             Projectile.width = 14;
@@ -85,24 +84,24 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             Projectile.scale = Projectile.ai[1];
             return;
         }
-		
-		public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
-		{
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
             target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 600);
         }
-		
-		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
+
+        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
         {
             width = 30;
             height = 30;
             return true;
         }
-		public override bool OnTileCollide (Vector2 oldVelocity)
-		{
-			//projectile.tileCollide = false;
-			//projectile.timeLeft = 20;
-			Projectile.ai[0] = 1f;
-			return false;
-		}
+        public override bool OnTileCollide(Vector2 oldVelocity)
+        {
+            //projectile.tileCollide = false;
+            //projectile.timeLeft = 20;
+            Projectile.ai[0] = 1f;
+            return false;
+        }
     }
 }

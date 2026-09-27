@@ -7,7 +7,6 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -89,20 +88,20 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStand
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<TaiyangBaolei>()));
 
-            int[] lootTable = 
-            { 
+            int[] lootTable =
+            {
                 ModContent.ItemType<DraconianTerratool>(),
-                ModContent.ItemType<Daystorm>(), 
+                ModContent.ItemType<Daystorm>(),
                 ModContent.ItemType<AncientLungStaff>(),
-                ModContent.ItemType<MorningGlory>(), 
-                ModContent.ItemType<RadiantDawn>(), 
+                ModContent.ItemType<MorningGlory>(),
+                ModContent.ItemType<RadiantDawn>(),
                 ModContent.ItemType<Solar>(),
-                ModContent.ItemType<SunPartisan>(), 
+                ModContent.ItemType<SunPartisan>(),
                 ModContent.ItemType<ReignOfFire>(),
-                ModContent.ItemType<DaybreakArrow>(), 
-                ModContent.ItemType<Daycrusher>(), 
-                ModContent.ItemType<Dawnstrike>(), 
-                ModContent.ItemType<Sunstorm>(), 
+                ModContent.ItemType<DaybreakArrow>(),
+                ModContent.ItemType<Daycrusher>(),
+                ModContent.ItemType<Dawnstrike>(),
+                ModContent.ItemType<Sunstorm>(),
                 ModContent.ItemType<SolarStaff>(),
                 ModContent.ItemType<DragonShiv>(),
                 ModContent.ItemType<YearOfTheDragon>()

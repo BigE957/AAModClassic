@@ -1,4 +1,3 @@
-using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
@@ -17,7 +16,7 @@ namespace AAModClassic._Content.Void.World.Tiles
             //TileID.Sets.Conversion.Grass[Type] = true;
             TileID.Sets.Grass[Type] = true;
             TileID.Sets.CanBeDugByShovel[Type] = true;
-  
+
             TileID.Sets.NeedsGrassFramingDirt[Type] = TileID.Dirt;
             TileID.Sets.NeedsGrassFraming[Type] = true;
             Main.tileMergeDirt[Type] = true;

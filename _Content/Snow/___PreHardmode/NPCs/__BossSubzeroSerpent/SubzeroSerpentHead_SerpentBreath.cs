@@ -2,7 +2,6 @@
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -105,7 +104,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
         {
             target.AddBuff(BuffID.Chilled, 300);
             int debuff = BiomeData[BiomeType].Dust;
-            if(debuff != -1)
+            if (debuff != -1)
                 target.AddBuff(debuff, 180);
 
             // if you wont support unofficial debuffs officially, then ill HACK it in...

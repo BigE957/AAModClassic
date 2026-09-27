@@ -2,7 +2,6 @@
 using AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -49,7 +48,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items._BossSagittarius.BossS
             {
                 ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
                 modPlayer.PHMDevArmor();
-            }		
+            }
         }
 
         public override void ModifyItemLoot(ItemLoot itemLoot)

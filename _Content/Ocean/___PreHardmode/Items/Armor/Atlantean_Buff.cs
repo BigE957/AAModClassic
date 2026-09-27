@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Armor
@@ -16,9 +15,9 @@ namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Armor
         public override void Update(Player player, ref int buffIndex)
         {
             player.GetDamage(DamageClass.Magic) += 0.15f;
-			player.GetCritChance(DamageClass.Magic) += 10;
-			player.manaCost -= 0.15f;
-			player.statDefense += 10;
+            player.GetCritChance(DamageClass.Magic) += 10;
+            player.manaCost -= 0.15f;
+            player.statDefense += 10;
         }
     }
 }

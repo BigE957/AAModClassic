@@ -2,7 +2,6 @@
 using AAModClassic._Content.Snow.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,7 +11,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items.Weapons
     {
         public new string LocalizationCategory => "Items.Weapons.Ranged";
 
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dynaskull Javelin");

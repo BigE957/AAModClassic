@@ -1,6 +1,4 @@
-﻿using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,10 +6,10 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
 {
     public class SunHalberd : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Sun Halberd");
             // Tooltip.SetDefault("Strikes foes in an arc, then stabs in the direction of the cursor");			
         }
@@ -34,7 +32,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
             Item.noUseGraphic = true;
             Item.noMelee = true;
             Item.shoot = ModContent.ProjectileType<SunHalberd_Holdout>();
-            Item.shootSpeed = 4;			
+            Item.shootSpeed = 4;
         }
     }
 }

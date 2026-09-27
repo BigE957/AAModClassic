@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Gores.Leaf

@@ -2,11 +2,9 @@ using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Utilities;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 {
@@ -125,7 +123,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 float num855 = Projectile.velocity.Length();
                 Vector2 spinningpoint2 = -Vector2.UnitY;
                 Vector2 vector85;
-                for(int i = 0; i < 100; i++)
+                for (int i = 0; i < 100; i++)
                 {
                     int rand = Main.rand.Next();
                     Projectile.ai[1] = rand;
@@ -157,9 +155,9 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 Projectile.velocity = Vector2.Zero;
                 Projectile.localAI[1] = 1f;
                 goto IL_230BF;
-                IL_230B7:
+            IL_230B7:
                 spinningpoint2 = vector85;
-                IL_230BF:
+            IL_230BF:
                 if (Projectile.velocity != Vector2.Zero)
                 {
                     Projectile.localAI[0] += spinningpoint2.X * (Projectile.extraUpdates + 1) * 2f * num855;

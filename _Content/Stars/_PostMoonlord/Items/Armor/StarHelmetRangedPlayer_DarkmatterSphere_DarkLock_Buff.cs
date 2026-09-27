@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -40,7 +39,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
                     for (int y = 0; y < npc.height; y++)
                     {
                         int i = x + y * npc.width;
-                        if (Math.Abs(x* ratio - y) < 5 || Math.Abs((npc.width - x) * ratio - y) < 5)
+                        if (Math.Abs(x * ratio - y) < 5 || Math.Abs((npc.width - x) * ratio - y) < 5)
                         {
                             dataColors[i] = Main.rand.NextBool(10) ? new Color(0, 255, 181) : new Color(9, 0, 44);
                         }
@@ -49,7 +48,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
                 DarkX.SetData(0, null, dataColors, 0, npc.width * npc.height);
                 spriteBatch.Draw(DarkX, npc.Center - screenPos, null, Color.White, 0, DarkX.Size() * .5f, npc.scale, SpriteEffects.None, 0f);
             }
-            
+
         }
     }
 

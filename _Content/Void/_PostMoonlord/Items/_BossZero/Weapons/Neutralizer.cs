@@ -1,23 +1,20 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.DataStructures;
-using Terraria.ModLoader;
-using Terraria;
-using Terraria.ID;
-using AAModClassic.Globals;
-using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic._Content._Misc.__Hardmode.Items.Weapons;
-using AAModClassic._Content.Void.Projectiles;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
+﻿using AAModClassic._Content._Misc.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Void.Projectiles;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 {
     public class Neutralizer : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Ranged";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Neutralizer");
@@ -27,26 +24,26 @@ Right click to fire normal arrows"); */
         }
 
         public override void SetDefaults()
-		{
-			Item.damage = 420;
-			Item.DamageType = DamageClass.Ranged;
-			Item.width = 34;
-			Item.height = 58;
-			Item.useTime = 10;
-			Item.useAnimation = 10;
-			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.noMelee = true;
-			Item.knockBack = 0;
+        {
+            Item.damage = 420;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 34;
+            Item.height = 58;
+            Item.useTime = 10;
+            Item.useAnimation = 10;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.noMelee = true;
+            Item.knockBack = 0;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.UseSound = SoundID.Item75;
             Item.autoReuse = true;
             Item.useAmmo = AmmoID.Arrow;
             Item.shoot = ProjectileID.PurificationPowder;
-			Item.shootSpeed = 8f;
+            Item.shootSpeed = 8f;
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        
+
 
         public override bool AltFunctionUse(Player player)
         {
@@ -77,7 +74,7 @@ Right click to fire normal arrows"); */
             if (player.altFunctionUse != 2)
             {
                 Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, velocity, ModContent.ProjectileType<DeathBeam>(), damage, knockback, Main.myPlayer);
-                
+
                 return false;
             }
             Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);

@@ -1,15 +1,13 @@
 using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
 using AAModClassic._Content.Acropolis.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 
 namespace AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena
 {
@@ -54,7 +52,7 @@ namespace AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (spawnInfo.Player.AAPlayer().ZoneAcropolis && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (spawnInfo.Player.AAPlayer().ZoneAcropolis && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !AnyEvents(spawnInfo.Player))
                 return 0.025f;
 
             return 0f;

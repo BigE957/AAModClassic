@@ -1,11 +1,9 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -26,12 +24,12 @@ Legendary Weapon"); */
             Item.noUseGraphic = true;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.damage = 350;
-            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;           
-            Item.width = 56;              
-            Item.height = 56;          
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 56;
+            Item.height = 56;
             Item.knockBack = 6;
             Item.value = 300000;
-            Item.autoReuse = true;   
+            Item.autoReuse = true;
             Item.useTurn = false;
             Item.expert = true;
             Item.useAnimation = 17;

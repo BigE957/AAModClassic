@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content._Tinker._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,7 +8,7 @@ namespace AAModClassic._Content.Terra._PostMoonLord.Items.Tiles.Functional
     public class TerraPrismStation : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables.Functional";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Infinity Core");

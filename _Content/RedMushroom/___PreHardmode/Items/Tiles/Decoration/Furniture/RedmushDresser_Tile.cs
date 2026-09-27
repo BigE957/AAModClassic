@@ -1,22 +1,15 @@
-using AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Terra;
 using AAModClassic.Dusts;
 using AAModClassic.Utilities;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.Audio;
-using Terraria.DataStructures;
 using Terraria.GameContent.ObjectInteractions;
-using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoration.Furniture
 {
-    public class RedmushDresser_Tile : ModTile 
-	{
-        public override void SetStaticDefaults() 
-		{
+    public class RedmushDresser_Tile : ModTile
+    {
+        public override void SetStaticDefaults()
+        {
             this.SetUpDresser(ModContent.ItemType<RedmushDresser>());
             DustType = ModContent.DustType<MushDust>();
         }

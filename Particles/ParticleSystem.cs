@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Terraria;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Core;
 
@@ -138,7 +137,8 @@ public class ParticleSystem : ModSystem
             foreach (Particle p in layer)
                 p.Update();
 
-            layer.RemoveAll(p => {
+            layer.RemoveAll(p =>
+            {
                 if (!p.Active || p.Time >= p.Lifetime)
                 {
                     activeCount--;

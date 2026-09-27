@@ -1,7 +1,5 @@
 ﻿using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,23 +7,23 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Desert.___PreHardmode.Items.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class VultureWings : EquipAbstract, ILocalizedModType
-	{
+    public class VultureWings : EquipAbstract, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Accessories";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Vulture Wings");
 
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(30, 4);
         }
 
-		public override void SetDefaults()
-		{
-			Item.width = 26;
-			Item.height = 30;
+        public override void SetDefaults()
+        {
+            Item.width = 26;
+            Item.height = 30;
             Item.value = Item.sellPrice(0, 1, 0, 0);
             Item.rare = ItemRarityID.Blue;
-			Item.accessory = true;
+            Item.accessory = true;
         }
 
         public override void RegisterEquipEffects()
@@ -43,12 +41,12 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items.Accessories
         }
 
         public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<VultureFeather>(), 15);
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<VultureFeather>(), 15);
             recipe.AddIngredient(ModContent.ItemType<DesertMana>(), 5);
             recipe.AddTile(TileID.Anvils);
-			recipe.Register();
-		}
-	}
+            recipe.Register();
+        }
+    }
 }

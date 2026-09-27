@@ -1,5 +1,4 @@
-﻿using Terraria;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeityRose
@@ -13,7 +12,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         }
 
         public override void SetDefaults()
-        {      
+        {
             Projectile.CloneDefaults(ProjectileID.SeedPlantera);
             Projectile.scale = 1f;
             Projectile.alpha = 0;

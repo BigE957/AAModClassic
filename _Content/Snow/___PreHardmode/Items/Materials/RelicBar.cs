@@ -1,7 +1,6 @@
-﻿using Terraria;
-using Terraria.ModLoader;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ID;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.Items.Materials
 {
@@ -32,7 +31,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Materials
         }
 
         public override void AddRecipes()
-        {                                                   
+        {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<VikingRelic>(), 2);              //example of how to craft with a modded item
             recipe.AddTile(TileID.Furnaces);

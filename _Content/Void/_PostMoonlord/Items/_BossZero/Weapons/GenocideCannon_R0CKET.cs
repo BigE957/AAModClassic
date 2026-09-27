@@ -1,7 +1,6 @@
-﻿using System;
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
@@ -9,12 +8,12 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 {
     public class GenocideCannon_R0CKET : ModProjectile
     {
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("R0CKET");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("R0CKET");
             Main.projFrames[Projectile.type] = 3;
-		}
-    	
+        }
+
         public override void SetDefaults()
         {
             Projectile.width = 14;
@@ -85,19 +84,19 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
         {
             SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Glitch"), Projectile.Center);
             float spread = 12f * 0.0174f;
-			double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y)- spread/2;
-	    	double Angle = spread/4f;
-	    	double offsetAngle;
-	    	int i;
-	    	if (Projectile.owner == Main.myPlayer)
-	    	{
-		    	for (i = 0; i < 4; i++ )
-		    	{
-		   			offsetAngle = startAngle + Angle * ( i + i * i ) / 2f  + 32f * i;
-		        	Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)( Math.Sin(offsetAngle) * 2f ), (float)( Math.Cos(offsetAngle) * 6f ), ModContent.ProjectileType<GenocideCannon_01010011>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-		        	Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)( -Math.Sin(offsetAngle) * 2f ), (float)( -Math.Cos(offsetAngle) * 6f ), ModContent.ProjectileType<GenocideCannon_01010011>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-		    	}
-	    	}
+            double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
+            double Angle = spread / 4f;
+            double offsetAngle;
+            int i;
+            if (Projectile.owner == Main.myPlayer)
+            {
+                for (i = 0; i < 4; i++)
+                {
+                    offsetAngle = startAngle + Angle * (i + i * i) / 2f + 32f * i;
+                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 2f), (float)(Math.Cos(offsetAngle) * 6f), ModContent.ProjectileType<GenocideCannon_01010011>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 2f), (float)(-Math.Cos(offsetAngle) * 6f), ModContent.ProjectileType<GenocideCannon_01010011>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                }
+            }
         }
     }
 }

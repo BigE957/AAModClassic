@@ -1,6 +1,5 @@
 using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -15,11 +14,11 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
         public override void SetDefaults()
         {
             Projectile.DamageType = DamageClass.Melee;
-            Projectile.penetrate = -1;  
+            Projectile.penetrate = -1;
             Projectile.width = 20;
             Projectile.height = 22;
-			Projectile.friendly = true;
-			Projectile.hostile = false;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
             Projectile.timeLeft = 150;
         }
         private Color Gold = Color.Goldenrod;
@@ -210,7 +209,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             num4 = num4 / 86400.0 * 24.0;
             double num5 = 7.5;
             num4 = num4 - num5 - 12.0;
-            if (num4< 0.0)
+            if (num4 < 0.0)
             {
                 num4 += 24.0;
             }

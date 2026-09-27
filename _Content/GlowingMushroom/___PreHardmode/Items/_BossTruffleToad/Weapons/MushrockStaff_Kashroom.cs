@@ -1,6 +1,5 @@
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffleToad.Weapons
@@ -10,7 +9,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Kashroom");     
-            Main.projFrames[Projectile.type] = 7;     
+            Main.projFrames[Projectile.type] = 7;
         }
 
         public override void SetDefaults()

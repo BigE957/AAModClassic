@@ -1,5 +1,4 @@
 ﻿using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,8 +13,8 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
             Projectile.width = 12;
             Projectile.height = 12;
             Projectile.friendly = false;
-            Projectile.hostile = false; 
-            Projectile.DamageType = DamageClass.Magic; 
+            Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Magic;
             Projectile.tileCollide = true;
             Projectile.penetrate = 10;
             Projectile.timeLeft = 600;

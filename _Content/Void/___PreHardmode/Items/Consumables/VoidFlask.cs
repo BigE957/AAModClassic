@@ -1,7 +1,6 @@
 ﻿using AAModClassic._Content.Void.__Hardmode.Items.Consumables;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,7 +8,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Consumables
 {
     public class VoidFlask : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Consumables";
         public override void SetDefaults()
         {

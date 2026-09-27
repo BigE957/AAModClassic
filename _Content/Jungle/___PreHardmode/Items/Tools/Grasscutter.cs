@@ -1,7 +1,6 @@
-﻿using Terraria.ID;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Tools
 {
@@ -33,7 +32,7 @@ namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Tools
             // DisplayName.SetDefault("Grasscutter");
         }
 
-        public override void AddRecipes()  
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Vine, 2);

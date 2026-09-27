@@ -1,20 +1,19 @@
-﻿using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Ocean.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.Items.Weapons
 {
     public class RaiderLance : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Raider Lance");		
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Raider Lance");		
+        }
 
         public override void SetDefaults()
         {
@@ -42,14 +41,14 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Weapons
         }
 
         public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
+        {
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<VikingPolearm>(), 1);
             recipe.AddIngredient(ModContent.ItemType<HydrasSpear>(), 1);
             recipe.AddIngredient(ModContent.ItemType<SaltwaterSpear>(), 1);
             recipe.AddIngredient(ModContent.ItemType<Executioner>(), 1);
             recipe.AddTile(TileID.DemonAltar);
-			recipe.Register();
-		}
+            recipe.Register();
+        }
     }
 }

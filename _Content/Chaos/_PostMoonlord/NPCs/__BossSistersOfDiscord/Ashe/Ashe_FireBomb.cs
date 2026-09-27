@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Inferno.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -67,7 +66,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                 Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
-                if(Projectile.ai[1] == 0)
+                if (Projectile.ai[1] == 0)
                 {
                     if (foundTarget != -1)
                     {
@@ -76,7 +75,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                         Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / amountOfFramesToLerpBy);
                     }
                 }
-                else if(Projectile.ai[1] == 1)
+                else if (Projectile.ai[1] == 1)
                 {
                     if (foundTarget != -1)
                     {
@@ -93,10 +92,10 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         {
             const bool homingCanAimAtWetEnemies = true;
             const float homingMaximumRangeInPixels = 500;
-            
+
             int selectedTarget = -1;
 
-            if(Projectile.ai[1] == 0)
+            if (Projectile.ai[1] == 0)
             {
                 for (int i = 0; i < Main.maxPlayers; i++)
                 {
@@ -107,13 +106,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                         if (distance <= homingMaximumRangeInPixels &&
                             (
                                 selectedTarget == -1 || //there is no selected target
-                                Projectile.Distance(Main.player[selectedTarget].Center) > distance) 
+                                Projectile.Distance(Main.player[selectedTarget].Center) > distance)
                         )
                             selectedTarget = i;
                     }
                 }
             }
-            else if(Projectile.ai[1] == 1)
+            else if (Projectile.ai[1] == 1)
             {
                 for (int i = 0; i < Main.maxNPCs; i++)
                 {
@@ -124,13 +123,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                         if (distance <= homingMaximumRangeInPixels &&
                             (
                                 selectedTarget == -1 || //there is no selected target
-                                Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                                Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                         )
                             selectedTarget = i;
                     }
                 }
             }
-            
+
 
             return selectedTarget;
         }
@@ -143,7 +142,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         {
             SoundEngine.PlaySound(SoundID.Item124);
             int id = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center - new Vector2(0, 95), new Vector2(0, 0), ModContent.ProjectileType<Ashe_FireBombExplosion>(), 20, 5);
-            if(Projectile.ai[1] == 1)
+            if (Projectile.ai[1] == 1)
             {
                 Main.projectile[id].hostile = false;
                 Main.projectile[id].friendly = true;

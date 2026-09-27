@@ -1,65 +1,46 @@
-﻿using AAModClassic._Content._Dev.World.Tiles;
-using AAModClassic._Content.Stars.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.Structures;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using System.Collections.Generic;
-using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 
 namespace AAModClassic._Content._Dev.World.Biomes
 {
-    public class CrystalOfMemoriesTexGenAssets : ModSystem
+    public class CrystalOfMemoriesSchematicAssets : ModSystem
     {
-        public static TexGenData EnderCrystalTileData;
-        public static TexGenData EnderCrystalWallData;
-        public static TexGenData EnderCrystalSlopeData;
+        public static ResolvedSchematic Crystal { get; private set; }
 
-        public override void OnModLoad()
+        public override void PostSetupContent()
         {
-            EnderCrystalTileData = TexGen.GetTextureForGen("AAModClassic/_Content/_Dev/World/Biomes/EnderCrystal");
-            EnderCrystalWallData = TexGen.GetTextureForGen("AAModClassic/_Content/_Dev/World/Biomes/EnderCrystalWall");
-            EnderCrystalSlopeData = TexGen.GetTextureForGen("AAModClassic/_Content/_Dev/World/Biomes/EnderCrystalSlope");
+            SchematicData data = SchematicLoader.ReadFromMod(AAMod.instance, "Structures/Schematics/CrystalOfMemories.aasch");
+            Crystal = SchematicLoader.Resolve(data);
+
+            foreach (string warning in Crystal.Warnings)
+                AAMod.instance.Logger.Warn("Crystal of Memories schematic: " + warning);
         }
+
+        public override void Unload() => Crystal = null;
     }
 
     public class CrystalOfMemoriesGeneration : MicroBiome
     {
         public override bool Place(Point origin, StructureMap structures)
         {
-            WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, CrystalOfMemoriesTexGenAssets.EnderCrystalTileData.Width, CrystalOfMemoriesTexGenAssets.EnderCrystalTileData.Height), 20);
-
-            Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
+            ResolvedSchematic crystal = CrystalOfMemoriesSchematicAssets.Crystal;
+            if (crystal == null)
             {
-                [new Color(255, 0, 0)] = TileID.CrystalBlock,
-                [new Color(0, 0, 255)] = TileID.GraniteBlock,
-                [new Color(255, 255, 255)] = -2, //turn into air
-                [Color.Black] = -1 //don't touch when genning		
-            };
+                AAMod.instance.Logger.Warn("Crystal of Memories schematic isn't loaded; skipping placement.");
+                return false;
+            }
 
-            Dictionary<Color, int> colorToWall = new Dictionary<Color, int>
-            {
-                [new Color(255, 0, 0)] = WallID.Crystal,
-                [new Color(255, 255, 255)] = -2,
-                [Color.Black] = -1
-            };
+            WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, crystal.Width, crystal.Height), 20);
 
-            TexGen gen = TexGen.GetTexGenerator(CrystalOfMemoriesTexGenAssets.EnderCrystalTileData, colorToTile, CrystalOfMemoriesTexGenAssets.EnderCrystalWallData, colorToWall, null, CrystalOfMemoriesTexGenAssets.EnderCrystalSlopeData);
+            PlacedSchematic placed = SchematicPlacement.Place(crystal, origin, new SchematicPlaceOptions { Anchor = SchematicAnchor.TopLeft });
 
-            gen.Generate(origin.X, origin.Y, true, true);
+            foreach (string warning in placed.Warnings)
+                AAMod.instance.Logger.Warn("Crystal of Memories placement: " + warning);
 
-            WorldGen.PlaceObject(origin.X + 27, origin.Y + 26, (ushort)ModContent.TileType<EnderMemory_Tile>());
-            NetMessage.SendObjectPlacement(-1, origin.X + 27, origin.Y + 26, (ushort)ModContent.TileType<EnderMemory_Tile>(), 0, 0, -1, -1);
-            WorldGen.PlaceObject(origin.X + 16, origin.Y + 27, (ushort)ModContent.TileType<CrystalChandelier_Tile>());
-            NetMessage.SendObjectPlacement(-1, origin.X + 16, origin.Y + 27, (ushort)ModContent.TileType<CrystalChandelier_Tile>(), 0, 0, -1, -1);
-            WorldGen.PlaceObject(origin.X + 41, origin.Y + 27, (ushort)ModContent.TileType<CrystalChandelier_Tile>());
-            NetMessage.SendObjectPlacement(-1, origin.X + 41, origin.Y + 27, (ushort)ModContent.TileType<CrystalChandelier_Tile>(), 0, 0, -1, -1);
-
-            return true;
+            return placed.Success;
         }
     }
 }

@@ -1,16 +1,13 @@
-﻿using AAModClassic.Globals;
-using AAModClassic.Rarities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Armor
 {
-	[AutoloadEquip(EquipType.Body)]
-	class FuryWitchsChestplate : EquipAbstract, ILocalizedModType
-	{
+    [AutoloadEquip(EquipType.Body)]
+    class FuryWitchsChestplate : EquipAbstract, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Armor.FuryWitchs";
         public override void SetStaticDefaults()
         {
@@ -20,9 +17,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
         }
 
         public override void SetDefaults()
-		{
-			Item.width = 14;
-			Item.height = 14;
+        {
+            Item.width = 14;
+            Item.height = 14;
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
             Item.value = 300000;
             Item.defense = 26;

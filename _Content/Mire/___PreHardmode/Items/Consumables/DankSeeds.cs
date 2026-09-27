@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -10,16 +9,16 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Consumables
 {
     public class DankSeeds : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Consumables";
-		public override void SetStaticDefaults()
+        public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dank Seeds");
             // Tooltip.SetDefault("Plants Mire grass");
 
             Item.ResearchUnlockCount = 25;
-        }		
-		
+        }
+
         public override void SetDefaults()
         {
             Item.width = 16;
@@ -34,7 +33,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Consumables
             Item.autoReuse = true;
             Item.useTurn = true;
             //Item.createTile = ModContent.TileType<MireGrass_Tile>();
-            Item.consumable = true;		
+            Item.consumable = true;
         }
 
         public override bool? UseItem(Player player) => true;

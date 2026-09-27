@@ -1,13 +1,10 @@
-using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
-using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -51,7 +48,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (AAWorld.downedEquinox && spawnInfo.Water && spawnInfo.Player.AAPlayer().ZoneShip && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (AAWorld.downedEquinox && spawnInfo.Water && spawnInfo.Player.AAPlayer().ZoneShip && !AnyEvents(spawnInfo.Player))
                 return 0.7f;
 
             return 0f;

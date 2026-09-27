@@ -2,13 +2,12 @@ using AAModClassic.Dusts;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture
 {
     public class RazewoodCandelabra_Tile : ModTile
-	{
+    {
         public override void SetStaticDefaults()
         {
             this.SetUpCandelabra(ModContent.ItemType<RazewoodCandelabra>());

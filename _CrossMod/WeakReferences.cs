@@ -1106,7 +1106,8 @@ namespace AAModClassic._CrossMod
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Anubis.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Anubis.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>() + "]"),
-                    ["despawnMessage"] = ((NPC npc) => {
+                    ["despawnMessage"] = ((NPC npc) =>
+                    {
                         if (NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()))
                             return null;
                         return Language.GetOrRegister(path + "Anubis.Despawn");
@@ -1124,7 +1125,8 @@ namespace AAModClassic._CrossMod
                     ["spawnInfo"] = Language.GetOrRegister(path + "BiomiteCore.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<BiomePrism>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "BiomiteCore.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<BiomePrism>(),
-                    ["customPortrait"] = (SpriteBatch sb, Rectangle rect, Color color) => {
+                    ["customPortrait"] = (SpriteBatch sb, Rectangle rect, Color color) =>
+                    {
                         string path = ModContent.GetInstance<BiomiteCore>().Texture;
                         Texture2D coreTex = ModContent.Request<Texture2D>(path).Value;
                         Rectangle coreFrame = coreTex.Frame(1, 8);
@@ -1537,7 +1539,8 @@ namespace AAModClassic._CrossMod
                     ["despawnMessage"] = Language.GetOrRegister(path + "InfinityZero.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<InfinityBeacon>(),
                     ["collectibles"] = infZeroCollectibles,
-                    ["customPortrait"] = (SpriteBatch sb, Rectangle rect, Color color) => {
+                    ["customPortrait"] = (SpriteBatch sb, Rectangle rect, Color color) =>
+                    {
                         Texture2D texture = ModContent.Request<Texture2D>(ModContent.GetInstance<InfinityZero>().Texture).Value;
                         Rectangle frame = texture.Frame(1, 4, 0, 0);
                         Vector2 centered = new(rect.Center.X, rect.Center.Y);
@@ -1565,7 +1568,8 @@ namespace AAModClassic._CrossMod
                     ["despawnMessage"] = Language.GetOrRegister(path + "SoulOfCthulhu.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<CursedCompass>(),
                     ["collectibles"] = socCollectibles,
-                    ["customPortrait"] = (SpriteBatch sb, Rectangle rect, Color color) => {
+                    ["customPortrait"] = (SpriteBatch sb, Rectangle rect, Color color) =>
+                    {
                         string path = ModContent.GetInstance<SoulOfCthulhu>().Texture;
                         Texture2D texture2D13 = ModContent.Request<Texture2D>(path).Value;
                         Texture2D WheelTex = ModContent.Request<Texture2D>(path + "_Wheel").Value;
@@ -1678,7 +1682,7 @@ namespace AAModClassic._CrossMod
             if (ModLoader.TryGetMod("Thorium", out Mod thorium))
             {
                 ShenDoragonUtils.CrossModDialogue.Add("Thorium", (Language.GetOrRegister(shenLocPath + "Thorium"), () => (bool)thorium.Call("GetBossDowned", "ThePrimordials")));
-                Oblivion.CrossModDialogue.Add("Throium", (Language.GetOrRegister(izLocPath + "Thorium"), () => true));
+                Oblivion.CrossModDialogue.Add("Thorium", (Language.GetOrRegister(izLocPath + "Thorium"), () => true));
             }
 
             if (ModLoader.TryGetMod("CalamityMod", out Mod cal))
@@ -1784,6 +1788,27 @@ namespace AAModClassic._CrossMod
                 ShenDoragonUtils.CrossModDialogue.Add("Ultranium.Aldin", (Language.GetOrRegister(shenLocPath + "Ultranium.Aldin"), () => (bool)ultranium.Call("aldin")));
                 ShenDoragonUtils.CrossModDialogue.Add("Ultranium.Erebus", (Language.GetOrRegister(shenLocPath + "Ultranium.Erebus"), () => !(bool)ultranium.Call("aldin") && (bool)ultranium.Call("erebus")));
                 Oblivion.CrossModDialogue.Add("Ultranium", (Language.GetOrRegister(izLocPath + "Ultranium"), () => true));
+            }
+
+            if (ModLoader.TryGetMod("JetshiftPort", out Mod jetshiftPort))
+            {
+                ShenDoragonUtils.CrossModDialogue.Add("JetshiftPort", (Language.GetOrRegister(shenLocPath + "JetshiftPort"), () => (bool)jetshiftPort.Call("Downed", "frezyn")));
+                Oblivion.CrossModDialogue.Add("JetshiftPort", (Language.GetOrRegister(izLocPath + "JetshiftPort"), () => true));
+            }
+
+            if (ModLoader.TryGetMod("NoxusBoss", out Mod wotg))
+            {
+                ShenDoragonUtils.CrossModDialogue.Add("NoxusBoss", (Language.GetOrRegister(shenLocPath + "NoxusBoss"), () => NPC.downedMoonlord));
+                Oblivion.CrossModDialogue.Add("NoxusBoss", (Language.GetOrRegister(izLocPath + "NoxusBoss.PreNameless"), () => !(bool)wotg.Call("GetBossDefeated", "namelessdeity")));
+                Oblivion.CrossModDialogue.Add("NoxusBoss", (Language.GetOrRegister(izLocPath + "NoxusBoss.PostNameless"), () => (bool)wotg.Call("GetBossDefeated", "namelessdeity")));
+            }
+
+            if (ModLoader.TryGetMod("SOTS", out var sots) && sots.TryFind<ModSystem>("SystemTweaks", out downed))
+            {
+                var field = downed.GetType().GetField("downedSubspace", BindingFlags.Static | BindingFlags.Public);
+                if (field != null)
+                    ShenDoragonUtils.CrossModDialogue.Add("SOTS", (Language.GetOrRegister(shenLocPath + "SOTS"), () => (bool)field.GetValue(null)));
+                Oblivion.CrossModDialogue.Add("SOTS", (Language.GetOrRegister(izLocPath + "SOTS"), () => true));
             }
 
             //(bool)ModSupport.GetModWorldConditions("GRealm", "MWorld", "downedMatriarch", false, true);

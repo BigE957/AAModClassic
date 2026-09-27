@@ -1,6 +1,5 @@
-using System;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,29 +10,29 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Pets
     /// </summary>
     /// lol
     public class DragonSoul_DragonSoul : ModProjectile
-	{
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Dragon Soul");
-			Main.projFrames[Projectile.type] = 4;
-			Main.projPet[Projectile.type] = true;
-			ProjectileID.Sets.LightPet[Projectile.type] = true;
-		}
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Dragon Soul");
+            Main.projFrames[Projectile.type] = 4;
+            Main.projPet[Projectile.type] = true;
+            ProjectileID.Sets.LightPet[Projectile.type] = true;
+        }
 
-		public override void SetDefaults()
-		{
-			Projectile.width = 30;
-			Projectile.height = 30;
-			Projectile.penetrate = -1;
-			Projectile.netImportant = true;
-			Projectile.timeLeft *= 5;
-			Projectile.friendly = true;
-			Projectile.ignoreWater = true;
-			Projectile.tileCollide = false;
+        public override void SetDefaults()
+        {
+            Projectile.width = 30;
+            Projectile.height = 30;
+            Projectile.penetrate = -1;
+            Projectile.netImportant = true;
+            Projectile.timeLeft *= 5;
+            Projectile.friendly = true;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = false;
 
-		}
+        }
 
-		public override void AI()
+        public override void AI()
         {
             Lighting.AddLight(Projectile.Center, 0.5f, 0.3f, 0f);
             if (Projectile.velocity.X > 0f)

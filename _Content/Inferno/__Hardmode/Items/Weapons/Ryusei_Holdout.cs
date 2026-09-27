@@ -1,11 +1,7 @@
 using AAModClassic._Content.Inferno.Buffs;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -49,10 +45,10 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
                 {
                     rot += (float)Math.PI / 16f;
                 }
-                else 
-                { 
-                    rot *= 0.9f; 
-                    if (rot < (float)Math.PI / 20f) 
+                else
+                {
+                    rot *= 0.9f;
+                    if (rot < (float)Math.PI / 20f)
                         rot = 0f;
                 }
                 Projectile.rotation += rot;
@@ -78,6 +74,6 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
         {
             target.AddBuff(BuffID.OnFire, 300);
             target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 300);
-		}
+        }
     }
 }

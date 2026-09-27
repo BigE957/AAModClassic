@@ -16,7 +16,6 @@ using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Desert.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
 using AAModClassic._Content.Desert.__Hardmode.Items.Consumables;
-using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.FrostMoon.__Hardmode.Items.Currency;
@@ -59,7 +58,7 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
 using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechnoTruffle;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.UI.Core;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
@@ -111,9 +110,9 @@ namespace AAModClassic.Globals
 
         public static bool IsBunny(NPC npc)
         {
-            return npc.type == NPCID.Bunny || 
-                   npc.type == NPCID.GoldBunny || 
-                   npc.type == NPCID.BunnySlimed || 
+            return npc.type == NPCID.Bunny ||
+                   npc.type == NPCID.GoldBunny ||
+                   npc.type == NPCID.BunnySlimed ||
                    npc.type == NPCID.BunnyXmas ||
                    npc.type == NPCID.ExplosiveBunny ||
                    npc.type == NPCID.GemBunnyAmber ||
@@ -171,7 +170,7 @@ namespace AAModClassic.Globals
 
         public override void UpdateLifeRegen(NPC npc, ref int damage)
         {
-            if (npc.type == NPCID.KingSlime || npc.type == NPCID.Plantera || 
+            if (npc.type == NPCID.KingSlime || npc.type == NPCID.Plantera ||
                 npc.type == ModContent.NPCType<SubzeroSerpentBody>() || npc.type == ModContent.NPCType<SubzeroSerpentHead>() || npc.type == ModContent.NPCType<SubzeroSerpentTail>() ||
                 npc.type == ModContent.NPCType<SnowSerpentHead>() || npc.type == ModContent.NPCType<SnowSerpentBody>() || npc.type == ModContent.NPCType<SnowSerpentTail>())
             {
@@ -187,7 +186,7 @@ namespace AAModClassic.Globals
                     npc.lifeRegen = 0;
                 }
 
-                npc.lifeRegen -= (int)npc.velocity.X * (npc.velocity.X > 0?  1 : -1)  + 52;
+                npc.lifeRegen -= (int)npc.velocity.X * (npc.velocity.X > 0 ? 1 : -1) + 52;
             }
 
             if (BrokenArmor)
@@ -195,10 +194,10 @@ namespace AAModClassic.Globals
                 npc.defense *= (int).8f;
             }
 
-            if(AssassinHurt)
-			{
-				npc.defense -= 20;
-			}
+            if (AssassinHurt)
+            {
+                npc.defense -= 20;
+            }
 
             bool shen = npc.type == ModContent.NPCType<ShenDoragon>() || npc.type == ModContent.NPCType<ShenDoragonA>();
 
@@ -211,7 +210,7 @@ namespace AAModClassic.Globals
             ApplyDPSDebuff(Moonraze, 100, ref npc.lifeRegen);
             ApplyDPSDebuff(Hydratoxin, (int)(Math.Abs(npc.velocity.X) / 2f), ref npc.lifeRegen);
             ApplyDPSDebuff(Electrified, 40, ref npc.lifeRegen);
-            if(npc.lifeMax > 0)
+            if (npc.lifeMax > 0)
                 ApplyDPSDebuff(FFlames, 40 * (npc.life / npc.lifeMax), ref npc.lifeRegen);
         }
 
@@ -270,12 +269,12 @@ namespace AAModClassic.Globals
         }
 
         public override void ModifyIncomingHit(NPC npc, ref NPC.HitModifiers modifiers)
-		{
-			if(AssassinHurt)
-			{
+        {
+            if (AssassinHurt)
+            {
                 modifiers.TargetDamageMultiplier *= 1.1f;
-			}
-		}
+            }
+        }
 
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
@@ -487,7 +486,7 @@ namespace AAModClassic.Globals
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MartianCredit>(), 8));
                     break;
                 default:
-                    if(AASets.Goblins[npc.type])
+                    if (AASets.Goblins[npc.type])
                     {
                         GoblinRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GoblinSoul>(), 8));
                         npcLoot.Add(GoblinRule);
@@ -593,7 +592,7 @@ namespace AAModClassic.Globals
         public override void OnKill(NPC npc)
         {
             #region Lantern Night
-            if(LanternNightStarters.Count == 0)
+            if (LanternNightStarters.Count == 0)
             {
                 LanternNightStarters =
                 [
@@ -914,7 +913,7 @@ namespace AAModClassic.Globals
                 Lighting.AddLight(npc.position, 0.1f, 0.3f, 0.7f);
             }
 
-            
+
 
             if (terraBlaze)
             {
@@ -952,30 +951,6 @@ namespace AAModClassic.Globals
 
         }
 
-        public static void ClearPoolWithExceptions(IDictionary<int, float> pool)
-        {
-            try
-            {
-                Dictionary<int, float> keepPool = [];
-                foreach (var kvp in pool)
-                {
-                    int npcID = kvp.Key;
-                    ModNPC mnpc = NPCLoader.GetNPC(npcID);
-                    HashSet<string> modsToKeep = [AAMod.instance.Name, "AAMod", "GRealm"];
-                    if (mnpc != null && mnpc.Mod != null && modsToKeep.Contains(mnpc.Mod.Name)) //splitting so you can add other exceptions if need be
-                        keepPool.Add(npcID, kvp.Value);
-                }
-                pool.Clear();
-
-                foreach (var newkvp in keepPool)
-                    pool.Add(newkvp.Key, newkvp.Value);
-            }
-            catch (Exception e)
-            {
-                AAMod.instance.Logger.Error(e.StackTrace);
-            }
-        }
-
         public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
         {
             bool pillarZone = spawnInfo.Player.ZoneTowerNebula || spawnInfo.Player.ZoneTowerSolar || spawnInfo.Player.ZoneTowerStardust || spawnInfo.Player.ZoneTowerVortex;
@@ -992,11 +967,7 @@ namespace AAModClassic.Globals
             if (aaBiomeZone && !pillarZone)
                 pool.Remove(0);
 
-            //Nukes all non-AA spawns
-            if (spawnInfo.Player.AAPlayer().ZoneVoid)
-                ClearPoolWithExceptions(pool);
-
-            bool anyEvents = NPCUtils.AnyEvents(spawnInfo.Player);
+            bool anyEvents = AnyEvents(spawnInfo.Player);
 
             if (!anyEvents && spawnInfo.Player.AAPlayer().ZoneAcropolis)
                 pool[NPCID.Harpy] = 0.06f;
@@ -1010,18 +981,18 @@ namespace AAModClassic.Globals
         }
 
         public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
-		{
+        {
             if (player.GetModPlayer<ZAAPlayer>().luckycalm)
-			{
-				spawnRate = (int)((double)spawnRate * 30f);
-				maxSpawns = (int)(maxSpawns * 0.009f);
+            {
+                spawnRate = (int)((double)spawnRate * 30f);
+                maxSpawns = (int)(maxSpawns * 0.009f);
             }
         }
 
         public override void ModifyShop(NPCShop shop)
         {
             int type = shop.NpcType;
-            switch(type)
+            switch (type)
             {
                 case NPCID.Demolitionist:
                     shop.Add<M79Round>(Condition.TimeDay);
@@ -1106,7 +1077,7 @@ namespace AAModClassic.Globals
                         else if (Main.netMode == NetmodeID.Server)
                         {
                             ChatHelper.BroadcastChatMessage(
-                                NetworkText.FromKey("Announcement.HasAwoken", new object[] { NetworkText.FromLiteral(npcName) }), 
+                                NetworkText.FromKey("Announcement.HasAwoken", new object[] { NetworkText.FromLiteral(npcName) }),
                                 new Color(175, 75, 255)
                             );
                         }
@@ -1147,6 +1118,40 @@ namespace AAModClassic.Globals
             {
                 //I have no idea how to convert this to the standard system so im gonna post this method too lol
                 AANet.SendNetMessage<SummonNPCFromClient>((byte)player.whoAmI, (short)RajahType, spawnMessage, (int)npcCenter.X, (int)npcCenter.Y, overrideDisplayName, namePlural);
+            }
+        }
+    }
+
+    //This fucking blows
+    public class ZZZVoidSpawnClearing : GlobalNPC
+    {
+        private static readonly HashSet<string> modsToKeep = [AAMod.instance.Name, "AAMod", "GRealm"];
+
+        public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
+        {
+            //Nukes all non-AA spawns out of the void
+            if (spawnInfo.Player.AAPlayer().ZoneVoid)
+            {
+                try
+                {
+                    Dictionary<int, float> keepPool = [];
+                    foreach (var kvp in pool)
+                    {
+                        int npcID = kvp.Key;
+                        ModNPC mnpc = NPCLoader.GetNPC(npcID);
+
+                        if (mnpc != null && mnpc.Mod != null && modsToKeep.Contains(mnpc.Mod.Name)) //splitting so you can add other exceptions if need be
+                            keepPool.Add(npcID, kvp.Value);
+                    }
+                    pool.Clear();
+
+                    foreach (var newkvp in keepPool)
+                        pool.Add(newkvp.Key, newkvp.Value);
+                }
+                catch (Exception e)
+                {
+                    AAMod.instance.Logger.Error(e.StackTrace);
+                }
             }
         }
     }

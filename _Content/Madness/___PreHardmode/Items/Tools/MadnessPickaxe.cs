@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Madness.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -36,7 +35,7 @@ namespace AAModClassic._Content.Madness.___PreHardmode.Items.Tools
             // DisplayName.SetDefault("Madness Pickaxe");
         }
 
-        public override void AddRecipes()  
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<MadnessFragment>(), 6);

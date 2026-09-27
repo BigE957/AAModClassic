@@ -7,12 +7,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class DellyLeggings : BaseAAItem, ILocalizedModType
-	{
+    public class DellyLeggings : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Delly";
-		public override void SetStaticDefaults()
-       
-		{
+        public override void SetStaticDefaults()
+
+        {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Shadow Boots");
             // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Developers!'");

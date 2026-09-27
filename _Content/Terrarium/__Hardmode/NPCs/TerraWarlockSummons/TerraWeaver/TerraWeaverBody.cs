@@ -3,7 +3,6 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,13 +13,13 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs.TerraWarlockSummons.Te
         public int OverrideBannerNPCType => ModContent.NPCType<TerraWeaverHead>();
 
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Terra Weaver");
-			this.HideFromBestiary();
+        {
+            // DisplayName.SetDefault("Terra Weaver");
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()
-		{
+        {
             NPC.lifeMax = 350;
             NPC.defense = 20;
             NPC.damage = 50;

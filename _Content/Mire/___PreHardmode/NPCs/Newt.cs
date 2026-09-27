@@ -6,7 +6,6 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -45,7 +44,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             NPC.DeathSound = SoundID.NPCDeath1;
             AIType = NPCID.Crawdad;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<NewtBanner>();
+            //BannerItem = ModContent.ItemType<NewtBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
@@ -54,7 +53,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             if (ContentReplacementSystem.NeedToReplaceContent || (Main.dayTime && !AAWorld.downedYamata && spawnInfo.Player.ZoneSurface()))
                 return 0f;
 
-            if (spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (spawnInfo.Player.ZoneAnyMire() && !AnyEvents(spawnInfo.Player))
                 return 0.05f;
 
             return 0f;

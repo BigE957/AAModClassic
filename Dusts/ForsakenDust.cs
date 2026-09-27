@@ -1,11 +1,10 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Dusts
 {
     public class ForsakenDust : ModDust
-	{
+    {
 
         public override bool Update(Dust dust)
         {

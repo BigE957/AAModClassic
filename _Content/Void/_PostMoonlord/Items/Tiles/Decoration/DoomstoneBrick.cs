@@ -1,12 +1,9 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using System.Collections.Generic;
-using Terraria.ID;
-using AAModClassic.Globals;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void.World.Tiles;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Rarities;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
 {
@@ -29,7 +26,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
             Item.createTile = ModContent.TileType<DoomstoneBrick_Tile>(); //put your CustomBlock Tile name
         }
 
-        
+
 
         public override void SetStaticDefaults()
         {

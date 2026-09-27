@@ -1,10 +1,9 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System.Collections.Generic;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
@@ -36,16 +35,16 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             Item.rare = ItemRarityID.Orange;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 5;
-			Item.buffType = ModContent.BuffType<MagicAcorn_Buff>();
+            Item.buffType = ModContent.BuffType<MagicAcorn_Buff>();
         }
-		
-		public override void UseStyle(Player player, Rectangle heldItemFrame)
-		{
-			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-			{
-				player.AddBuff(Item.buffType, 3600, true);
-			}
-		}
+
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
+        {
+            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
+            {
+                player.AddBuff(Item.buffType, 3600, true);
+            }
+        }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {

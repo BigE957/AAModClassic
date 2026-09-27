@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture
 {
     public class RazewoodBookshelf_Tile : ModTile
-	{
+    {
         public override void SetStaticDefaults()
         {
             this.SetUpBookcase(ModContent.ItemType<RazewoodBookshelf>());

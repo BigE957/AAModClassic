@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Inferno.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -26,7 +25,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
             Projectile.alpha = 0;
             Projectile.timeLeft = 255;
             Projectile.tileCollide = true;
-			Projectile.DamageType = DamageClass.Magic;
+            Projectile.DamageType = DamageClass.Magic;
         }
 
         public override Color? GetAlpha(Color lightColor)

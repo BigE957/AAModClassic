@@ -1,7 +1,6 @@
 using AAModClassic._Vanilla.Facsimiles._1._3._5._3;
 using Microsoft.Xna.Framework;
 using System.Linq;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -19,11 +18,11 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
         {
             //Projectile.CloneDefaults(ProjectileID.BoulderStaffOfEarth);
             base.SetDefaults();
-            Projectile.penetrate = 1;  
+            Projectile.penetrate = 1;
             Projectile.width = 44;
             Projectile.height = 44;
-			Projectile.friendly = true;
-			Projectile.hostile = false;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
             Projectile.timeLeft = 300;
             Projectile.DamageType = DamageClass.Magic;
         }

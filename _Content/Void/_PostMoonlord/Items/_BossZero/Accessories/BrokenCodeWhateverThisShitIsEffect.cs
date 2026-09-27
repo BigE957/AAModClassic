@@ -1,19 +1,6 @@
-﻿using AAModClassic._Content.Terra.__Hardmode.Items.Armor;
-using AAModClassic._Unreleased.Content.Void.Dusts;
-using AAModClassic.Dusts;
-using AAModClassic.Globals;
-using AAModClassic.Rarities;
-using AAModClassic.UI.World;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Humanizer;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
-using Terraria;
-using Terraria.Audio;
-using Terraria.GameInput;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories
 {

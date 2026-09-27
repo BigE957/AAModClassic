@@ -1,8 +1,6 @@
 ﻿using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu
@@ -51,7 +49,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 }
             }
             Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
-            
+
             for (int num189 = 0; num189 < 1; num189++)
             {
                 int num190 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<CthulhuDust>(), 0f, 0f, 0, default(Color), 1f);
@@ -98,7 +96,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y + 20, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<Cthulhusplosion>(), Projectile.damage, 1, 255);
             }
-            
+
         }
     }
 }

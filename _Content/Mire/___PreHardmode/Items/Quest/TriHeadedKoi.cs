@@ -2,7 +2,6 @@
 using AAModClassic._CrossMod;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 
@@ -20,7 +19,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Quest
             Item.width = 26;
             Item.height = 26;
             Item.uniqueStack = true;
-            Item.rare = ItemRarityID.Quest; 
+            Item.rare = ItemRarityID.Quest;
         }
 
         public override bool IsQuestFish()

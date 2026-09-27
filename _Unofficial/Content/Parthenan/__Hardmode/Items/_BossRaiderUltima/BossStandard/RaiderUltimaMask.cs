@@ -5,14 +5,14 @@ using Terraria.ModLoader;
 namespace AAModClassic._Unofficial.Content.Parthenan.__Hardmode.Items._BossRaiderUltima.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class RaiderUltimaMask : BaseAAItem, ILocalizedModType
+    public class RaiderUltimaMask : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Vanity.Masks";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Raider Ultima Mask");
-		}
+        }
 
         public override void SetDefaults()
         {

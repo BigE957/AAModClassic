@@ -1,7 +1,6 @@
 using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,15 +8,15 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     public class ThunderLord_Thundershot : ModProjectile
-	{
+    {
         //Thank you Qwerty3.14 for letting us use his Oricalcum bullet code.
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Thundershot");
-		}
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Projectile.aiStyle = ProjAIStyleID.Arrow;
             AIType = ProjectileID.Bullet;
             Projectile.width = 10;
@@ -58,11 +57,11 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Projectile.localNPCImmunity[target.whoAmI] = -1;
             target.immune[Projectile.owner] = 0;
             target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 500);
-            if(target.life<=0)
-           {
-              Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<ThunderLord_ThunderBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);             
-            SoundEngine.PlaySound(SoundID.Item124);
-           }
+            if (target.life <= 0)
+            {
+                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<ThunderLord_ThunderBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                SoundEngine.PlaySound(SoundID.Item124);
+            }
             for (int k = 0; k < 200; k++)
             {
                 possibleTarget = Main.npc[k];

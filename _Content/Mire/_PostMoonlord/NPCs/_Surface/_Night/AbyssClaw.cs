@@ -1,4 +1,3 @@
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Mire.World.Biomes;
@@ -7,7 +6,6 @@ using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using System;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -37,7 +35,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs._Surface._Night
             NPC.aiStyle = -1;
             NPC.noGravity = true;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AbyssClawBanner>();
+            //BannerItem = ModContent.ItemType<AbyssClawBanner>();
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
         }
 
@@ -46,7 +44,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs._Surface._Night
             if (!AAWorld.downedSisters || spawnInfo.Player.ZoneAnyInferno())
                 return 0f;
 
-            if (spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyMire() && (!Main.dayTime || AAWorld.downedYamata) && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyMire() && (!Main.dayTime || AAWorld.downedYamata) && !AnyEvents(spawnInfo.Player))
                 return ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f;
 
             return SpawnCondition.OverworldNightMonster.Chance * 0.04f;

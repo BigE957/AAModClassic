@@ -7,16 +7,16 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class FargoLeggings : BaseAAItem, ILocalizedModType
-	{
+    public class FargoLeggings : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Fargo";
         public override void SetStaticDefaults()
-		{
+        {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Dapper Squirrel Trousers");
             /* Tooltip.SetDefault(@"soonTM
 'Great for impersonating Ancients Awakened Devs!'"); */
-		}
+        }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {

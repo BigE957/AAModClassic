@@ -3,7 +3,6 @@ using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -83,7 +82,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
                 Projectile.ai[1] += 1f;
                 Projectile.extraUpdates = 1;
                 Projectile.rotation = Projectile.velocity.ToRotation() + 1.57f;
-                
+
                 if (Projectile.ai[1] > 40f)
                 {
                     Projectile.ai[1] = 1f;
@@ -112,8 +111,8 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
                 Projectile.tileCollide = false;
             }
             if (player.HasMinionAttackTargetNPC)
-			{
-				NPC nPC2 = Main.npc[player.MinionAttackTargetNPC];
+            {
+                NPC nPC2 = Main.npc[player.MinionAttackTargetNPC];
                 if (nPC2.CanBeChasedBy(Projectile, false))
                 {
                     float num646 = Vector2.Distance(nPC2.Center, Projectile.Center);
@@ -124,9 +123,9 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
                         flag25 = true;
                     }
                 }
-			}
-			else
-			{
+            }
+            else
+            {
                 for (int num645 = 0; num645 < 200; num645++)
                 {
                     NPC nPC2 = Main.npc[num645];
@@ -213,7 +212,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
                     Projectile.velocity.Y = -0.05f;
                 }
             }
-            
+
             if (Projectile.ai[1] > 0f)
             {
                 Projectile.ai[1] += Main.rand.Next(1, 4);
@@ -239,7 +238,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
                     }
                 }
             }
-            if(Counter++ > 30)
+            if (Counter++ > 30)
             {
                 Counter = 0;
             }
@@ -257,7 +256,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
         {
             int buff = Main.dayTime ? BuffID.Daybreak : ModContent.BuffType<Moonraze_Buff>();
             target.AddBuff(buff, 1200);
-            if(Main.dayTime)
+            if (Main.dayTime)
             {
                 int id = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<DaybreakBlast>(), Projectile.damage / 2, Projectile.knockBack, Projectile.owner, 0f, 0f);
                 Main.projectile[id].minion = true;

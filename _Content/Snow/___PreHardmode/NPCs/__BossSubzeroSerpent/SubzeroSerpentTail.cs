@@ -1,12 +1,11 @@
 ﻿using AAModClassic.Music;
-using AAModClassic.Utilities;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -110,7 +109,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             {
                 for (int tY = tileY; tY < tileCenterY; tY++)
                 {
-                    Tile checkTile = WorldGenUtils.GetTileSafely(tX, tY);
+                    Tile checkTile = Framing.GetTileSafely(tX, tY);
                     if (checkTile != null && (checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0) || checkTile.LiquidAmount > 64))
                     {
                         Vector2 tPos;

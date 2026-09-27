@@ -9,7 +9,6 @@ using AAModClassic.Buffs;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -33,7 +32,7 @@ namespace AAModClassic._CrossMod.CalamityMod
         {
             if (Calamity != null)
             {
-                if(!Main.dedServ)
+                if (!Main.dedServ)
                     astralDust = Calamity.Find<ModDust>("AstralChunkDust").Type;
 
                 //Debuff Registering
@@ -58,9 +57,9 @@ namespace AAModClassic._CrossMod.CalamityMod
             }
         }
 
-        private static readonly Dictionary<string, int> modItemCache = []; 
+        private static readonly Dictionary<string, int> modItemCache = [];
         private static readonly Dictionary<string, int> modProjectileCache = [];
-        private static readonly Dictionary<string, int>  modBuffCache = [];
+        private static readonly Dictionary<string, int> modBuffCache = [];
 
         public static int AstralChunkDust => astralDust;
         private static int astralDust = -1;
@@ -73,7 +72,7 @@ namespace AAModClassic._CrossMod.CalamityMod
         public static DamageClass RogueClass => rogueClass ?? (rogueClass = Calamity.Find<DamageClass>("RogueDamageClass"));
 
         public static object Call(params object[] args) => Calamity?.Call(args);
-        
+
         public static int GetModItem(string name)
         {
             if (Calamity == null)
@@ -107,7 +106,7 @@ namespace AAModClassic._CrossMod.CalamityMod
 
             return -1;
         }
-    
+
         public static int GetModBuffType(string name)
         {
             if (Calamity == null)

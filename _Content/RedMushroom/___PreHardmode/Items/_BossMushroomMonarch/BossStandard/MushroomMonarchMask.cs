@@ -5,14 +5,14 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class MushroomMonarchMask : BaseAAItem, ILocalizedModType
-	{
+    public class MushroomMonarchMask : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Masks";
-		public override void SetStaticDefaults()
+        public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Mushroom Monarch Mask");
-		}
+        }
 
         public override void SetDefaults()
         {

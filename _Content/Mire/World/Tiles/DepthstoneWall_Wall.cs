@@ -4,17 +4,17 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.World.Tiles
 {
     public class DepthstoneWall_Wall : ModWall
-	{
-		public override void SetStaticDefaults()
-		{
-			DustType = ModContent.DustType<Dusts.AbyssiumDust>();
+    {
+        public override void SetStaticDefaults()
+        {
+            DustType = ModContent.DustType<Dusts.AbyssiumDust>();
             AddMapEntry(new Color(17, 9, 40));
             Terraria.ID.WallID.Sets.Conversion.Stone[Type] = true;
         }
 
-		public override void NumDust(int i, int j, bool fail, ref int num)
-		{
-			num = fail ? 1 : 3;
-		}
+        public override void NumDust(int i, int j, bool fail, ref int num)
+        {
+            num = fail ? 1 : 3;
+        }
     }
 }

@@ -1,12 +1,10 @@
-﻿using Terraria;
-using Terraria.DataStructures;
-using Terraria.ID;
+﻿using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons
 {
@@ -16,19 +14,19 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Ash Rain");
-			/* Tooltip.SetDefault(@"Shoots fireball which explodes on hit or after some time
+            /* Tooltip.SetDefault(@"Shoots fireball which explodes on hit or after some time
 Right click to detonate fireballs"); */
         }
 
         public override void SetDefaults()
         {
-            Item.damage = 315;                        
-            Item.DamageType = DamageClass.Magic;            
+            Item.damage = 315;
+            Item.DamageType = DamageClass.Magic;
             Item.width = 24;
             Item.height = 28;
             Item.useTime = 20;
             Item.useAnimation = 20;
-            Item.useStyle = ItemUseStyleID.Shoot;    
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 4;
             Item.value = Item.sellPrice(0, 25, 0, 0);
@@ -38,39 +36,39 @@ Right click to detonate fireballs"); */
             Item.shootSpeed = 11f;
         }
 
-        
+
         private readonly List<int> AshRainFire = new List<int>();
         public override bool CanUseItem(Player player)
         {
-            if(player.altFunctionUse != 2)
+            if (player.altFunctionUse != 2)
             {
                 Item.shoot = ModContent.ProjectileType<AshRain_FireMagic>();
                 Item.UseSound = SoundID.Item20;
             }
             if (player.altFunctionUse == 2)
             {
-                foreach(int P in AshRainFire)
+                foreach (int P in AshRainFire)
                 {
-                    if(Main.projectile[P].type == ModContent.ProjectileType<AshRain_FireMagic>()) Main.projectile[P].Kill();
+                    if (Main.projectile[P].type == ModContent.ProjectileType<AshRain_FireMagic>()) Main.projectile[P].Kill();
                 }
                 Item.UseSound = null;
                 AshRainFire.Clear();
             }
             return true;
         }
-        
+
         public override bool AltFunctionUse(Player player)
-		{
-			return true;
-		}
+        {
+            return true;
+        }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-		{
+        {
             if (player.altFunctionUse != 2)
-			{
-				int P = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, velocity.X, velocity.Y, ModContent.ProjectileType<AshRain_FireMagic>(), damage, knockback, player.whoAmI, 0f, 0f);
+            {
+                int P = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, velocity.X, velocity.Y, ModContent.ProjectileType<AshRain_FireMagic>(), damage, knockback, player.whoAmI, 0f, 0f);
                 AshRainFire.Add(P);
-			}
-			return false;
-		}
+            }
+            return false;
+        }
     }
 }

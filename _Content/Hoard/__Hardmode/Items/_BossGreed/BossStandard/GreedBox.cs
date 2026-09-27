@@ -1,8 +1,7 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
+﻿using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.BossStandard
 {

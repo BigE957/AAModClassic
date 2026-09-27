@@ -1,6 +1,5 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,7 +7,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Crimson.___PreHardmode.Items.Consumables
 {
     public class CrimsonFlask : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Consumables";
         public override void SetDefaults()
         {

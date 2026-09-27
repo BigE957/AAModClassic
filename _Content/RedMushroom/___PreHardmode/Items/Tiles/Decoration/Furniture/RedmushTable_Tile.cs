@@ -4,14 +4,14 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoration.Furniture
 {
-    public class RedmushTable_Tile : ModTile 
+    public class RedmushTable_Tile : ModTile
     {
-        public override void SetStaticDefaults() 
+        public override void SetStaticDefaults()
         {
             this.SetUpTable(ModContent.ItemType<RedmushTable>());
             DustType = ModContent.DustType<MushDust>();
         }
 
-		public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
+        public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
     }
 }

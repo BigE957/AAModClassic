@@ -3,13 +3,12 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OuroborosWoodFurniture
 {
     public class OuroborosWoodLantern_Tile : ModTile
-	{
+    {
         private static Asset<Texture2D> GlowTexture = null;
 
         public override void SetStaticDefaults()

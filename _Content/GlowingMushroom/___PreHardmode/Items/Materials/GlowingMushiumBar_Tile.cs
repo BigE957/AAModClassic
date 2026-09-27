@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -23,9 +22,9 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials
             TileObjectData.addTile(Type);
 
             DustType = ModContent.DustType<Dusts.ShroomDust>();
-            RegisterItemDrop(ModContent.ItemType<GlowingMushiumBar>());   
+            RegisterItemDrop(ModContent.ItemType<GlowingMushiumBar>());
             AddMapEntry(new Color(0, 100, 255));
-			MinPick = 0;
+            MinPick = 0;
         }
     }
 }

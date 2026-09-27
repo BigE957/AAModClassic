@@ -1,40 +1,39 @@
-﻿using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using System.Collections.Generic;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
     public class Demise : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Demise");
-			/* Tooltip.SetDefault(@"A legendary sword that was once wielded by the demon king
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Demise");
+            /* Tooltip.SetDefault(@"A legendary sword that was once wielded by the demon king
  Left Click to unleash destructive demonic energy
 Right Click to unleash demon blades that fall from the sky"); */
-		}
-		public override void SetDefaults()
-		{
-			Item.damage = 150;
-			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-			Item.width = 58;
-			Item.height = 58;
-			Item.useTime = 30;
-			Item.useAnimation = 30;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack = 5;
+        }
+        public override void SetDefaults()
+        {
+            Item.damage = 150;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 58;
+            Item.height = 58;
+            Item.useTime = 30;
+            Item.useAnimation = 30;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 5;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Cyan;
-			Item.UseSound = SoundID.Item1;
-			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<Demise_DemiseSphere>();
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+            Item.shoot = ModContent.ProjectileType<Demise_DemiseSphere>();
             Item.shootSpeed = 9f;
-		}
+        }
 
         public override bool AltFunctionUse(Player player)
         {
@@ -110,5 +109,5 @@ Right Click to unleash demon blades that fall from the sky"); */
                 }
             }
         }
-	}
+    }
 }

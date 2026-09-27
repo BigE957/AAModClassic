@@ -1277,6 +1277,11 @@ PortaProbe: {
 	Tooltip: Take a little life-seeking robot with you!
 }
 
+SchematicWand: {
+	DisplayName: Schematic Wand
+	Tooltip: ""
+}
+
 Debug: {
 	DialogueDisplayDebugItem: {
 		DisplayName: Dialogue Display Debug Item

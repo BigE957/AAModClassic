@@ -1,7 +1,6 @@
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.BogwoodFurniture
 {
@@ -23,7 +22,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.Bogwo
             Item.createWall = ModContent.WallType<BogwoodWall_Wall>(); //put your CustomBlock Tile name
         }
 
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Bogwood Wall");

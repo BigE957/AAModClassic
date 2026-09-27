@@ -1,18 +1,10 @@
 ﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Mire.Buffs;
-using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories;
 using AAModClassic.Rarities;
-using AAModClassic.Utilities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Humanizer;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using Terraria;
 using Terraria.GameContent;
-using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories
@@ -120,7 +112,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories
             Texture2D texture = TextureAssets.Item[Type].Value;
             Texture2D texture2 = ModContent.Request<Texture2D>(Texture + "_A").Value;
             if (Main.dayTime)
-            { 
+            {
                 spriteBatch.Draw(texture, position, null, drawColor, 0, origin, scale, SpriteEffects.None, 0f);
             }
             else

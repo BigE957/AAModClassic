@@ -1,12 +1,8 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
-using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -15,10 +11,10 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
     public class Nova : ModItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Magic";
-        
+
         public override void SetStaticDefaults()
         {
-            
+
             // DisplayName.SetDefault("Nova");
             // Tooltip.SetDefault("Fires an explosive energy blast that causes an expanding explosion");
         }

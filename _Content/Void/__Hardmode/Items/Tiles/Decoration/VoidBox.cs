@@ -1,20 +1,17 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using System.Collections.Generic;
-using AAModClassic.Globals;
-using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.__Hardmode.Items.Tiles.Decoration
 {
     public class VoidBox : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Music Box (Void)");

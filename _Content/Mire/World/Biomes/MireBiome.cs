@@ -4,7 +4,7 @@ using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened.Skies;
 using AAModClassic._Content.Mire.World.Biomes.Water;
 using AAModClassic._CrossMod;
 using AAModClassic._CrossMod.WrathOfTheGods;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

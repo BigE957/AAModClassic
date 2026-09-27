@@ -1,18 +1,15 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using System.Collections.Generic;
-using AAModClassic.Globals;
-using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandard
 {
     public class YamataBox : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Music Box (Yamata)");
             // Tooltip.SetDefault("Plays 'Crescent of Madness' by Saucecoie");
 
@@ -21,20 +18,20 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.BossStandar
         }
 
         public override void SetDefaults()
-		{
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.useTurn = true;
-			Item.useAnimation = 15;
-			Item.useTime = 10;
-			Item.autoReuse = true;
-			Item.consumable = true;
-			Item.createTile = ModContent.TileType<YamataBox_Tile>();
-			Item.width = 24;
-			Item.height = 24;
-			Item.rare = ItemRarityID.LightRed;
-			Item.value = 10000;
-			Item.accessory = true;
-		}
+        {
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.consumable = true;
+            Item.createTile = ModContent.TileType<YamataBox_Tile>();
+            Item.width = 24;
+            Item.height = 24;
+            Item.rare = ItemRarityID.LightRed;
+            Item.value = 10000;
+            Item.accessory = true;
+        }
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();

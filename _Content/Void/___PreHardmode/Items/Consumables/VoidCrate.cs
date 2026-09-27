@@ -1,7 +1,4 @@
-﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Pets;
-using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
-using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.Consumables;
 using Terraria.GameContent.ItemDropRules;

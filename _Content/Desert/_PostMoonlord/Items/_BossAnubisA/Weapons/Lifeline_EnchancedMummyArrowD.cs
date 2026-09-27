@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,33 +5,34 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons
 {
     public class Lifeline_EnchancedMummyArrowD : ModProjectile
-	{
+    {
         public override string Texture => ModContent.GetInstance<Lifeline_EnchancedMummyArrow>().Texture;
 
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Enchanced Mummy Arrow");
-		}
+        {
+            // DisplayName.SetDefault("Enchanced Mummy Arrow");
+        }
 
-		public override void SetDefaults()
-		{
-			Projectile.width = 14;
-			Projectile.height = 14;
-			Projectile.aiStyle = ProjAIStyleID.Arrow;
-			Projectile.friendly = true;
+        public override void SetDefaults()
+        {
+            Projectile.width = 14;
+            Projectile.height = 14;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
+            Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Ranged;
-			Projectile.penetrate = 1;
-			Projectile.ignoreWater = false;
-			Projectile.tileCollide = true;
+            Projectile.penetrate = 1;
+            Projectile.ignoreWater = false;
+            Projectile.tileCollide = true;
             Projectile.arrow = true;
-			Projectile.usesLocalNPCImmunity = true;
-			Projectile.localNPCHitCooldown = 0;
-		}
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 0;
+        }
 
-		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
-			target.buffImmune[ModContent.BuffType<Lifeline_Forsaken>()] = false;
-			target.AddBuff(ModContent.BuffType<Lifeline_Forsaken>(), 10);
-		}
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            target.buffImmune[ModContent.BuffType<Lifeline_Forsaken>()] = false;
+            target.AddBuff(ModContent.BuffType<Lifeline_Forsaken>(), 10);
+        }
 
         public override void OnKill(int timeleft)
         {

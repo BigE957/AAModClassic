@@ -1,12 +1,8 @@
-using AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFurniture;
 using AAModClassic.Dusts;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OuroborosWoodFurniture
 {

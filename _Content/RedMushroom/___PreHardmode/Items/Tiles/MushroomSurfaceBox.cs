@@ -1,15 +1,14 @@
-﻿using Terraria;
-using Terraria.ModLoader;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ID;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles
 {
     public class MushroomSurfaceBox : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Red Mushroom Music Box");
             // Tooltip.SetDefault("Plays 'Overgrowth' by SpectralAves");
 
@@ -18,20 +17,20 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles
         }
 
         public override void SetDefaults()
-		{
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.useTurn = true;
-			Item.useAnimation = 15;
-			Item.useTime = 10;
-			Item.autoReuse = true;
-			Item.consumable = true;
-			Item.createTile = ModContent.TileType<MushroomSurfaceBox_Tile>();
-			Item.width = 24;
-			Item.height = 24;
-			Item.rare = ItemRarityID.LightRed;
-			Item.value = 10000;
-			Item.accessory = true;
-		}
+        {
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.consumable = true;
+            Item.createTile = ModContent.TileType<MushroomSurfaceBox_Tile>();
+            Item.width = 24;
+            Item.height = 24;
+            Item.rare = ItemRarityID.LightRed;
+            Item.value = 10000;
+            Item.accessory = true;
+        }
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();

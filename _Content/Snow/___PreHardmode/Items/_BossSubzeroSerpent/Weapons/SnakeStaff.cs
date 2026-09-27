@@ -1,7 +1,6 @@
-﻿using System.Linq;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System.Linq;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -38,13 +37,13 @@ Summons 2 segments for each minion slot"); */
             Item.DamageType = DamageClass.Summon;
         }
 
-		public override void UseStyle(Player player, Rectangle heldItemFrame)
-		{
-			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-			{
-				player.AddBuff(Item.buffType, 3600, true);
-			}
-		}
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
+        {
+            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
+            {
+                player.AddBuff(Item.buffType, 3600, true);
+            }
+        }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
@@ -89,7 +88,7 @@ Summons 2 segments for each minion slot"); */
             //spawn more body segments
             else
             {
-                int previous = (int) Main.projectile[tailCheck].ai[0];
+                int previous = (int)Main.projectile[tailCheck].ai[0];
                 int current = 0;
 
                 for (int i = 0; i < 2; i++)

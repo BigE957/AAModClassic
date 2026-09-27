@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.BogwoodFurniture
 {
     public class BogwoodWorkbench_Tile : ModTile
-	{
+    {
         public override void SetStaticDefaults()
         {
             this.SetUpWorkBench(ModContent.ItemType<BogwoodWorkbench>());

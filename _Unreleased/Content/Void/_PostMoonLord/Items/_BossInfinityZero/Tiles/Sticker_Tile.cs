@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -8,9 +7,9 @@ using Terraria.ObjectData;
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Tiles
 {
     public class Sticker_Tile : ModTile
-	{
-		public override void SetStaticDefaults()
-		{
+    {
+        public override void SetStaticDefaults()
+        {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
@@ -27,7 +26,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
             TileObjectData.newTile.AnchorWall = true;
             TileObjectData.addTile(Type);
             AddMapEntry(new Color(120, 85, 60));
-		}
+        }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
@@ -40,5 +39,5 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
             int height = tile.TileFrameY == 36 ? 18 : 16;
             Main.spriteBatch.Draw(TextureAssets.Tile[tile.TileType].Value, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY, 16, height), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
-	}
+    }
 }

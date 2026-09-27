@@ -1,25 +1,23 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons
 {
     public class DivineWindStone : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Summon";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Divine Wind Stone");
             // Tooltip.SetDefault(@"Summons an owl rune sentry");
         }
 
-        
+
         public override void SetDefaults()
         {
             Item.mana = 10;

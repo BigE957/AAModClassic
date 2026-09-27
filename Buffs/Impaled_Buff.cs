@@ -1,7 +1,6 @@
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic.Buffs
 {
@@ -23,7 +22,7 @@ namespace AAModClassic.Buffs
                 npc.lifeRegen = 0;
             int JavelinCount = 0;
             int impaleDamage = 0;
-            foreach(Projectile p in Main.ActiveProjectiles)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
                 if (p.active && p.GetGlobalProjectile<ImplaingProjectile>().CanImpale && ((p.ai[0] == 1f && p.ai[1] == npc.whoAmI) || (p.type == ModContent.ProjectileType<OreChunk>() && p.ai[0] == 1f && p.ai[1] == ItemID.TungstenOre && p.localAI[1] == npc.whoAmI)))
                 {

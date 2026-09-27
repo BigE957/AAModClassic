@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,10 +8,10 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetStaticDefaults()
-		{
-		// DisplayName.SetDefault("Aqua Lance");
-		// Tooltip.SetDefault("");
-		}
+        {
+            // DisplayName.SetDefault("Aqua Lance");
+            // Tooltip.SetDefault("");
+        }
         public override void SetDefaults()
         {
             Item.damage = 20;
@@ -27,16 +26,16 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons
             Item.noMelee = true;
             Item.noUseGraphic = true;
             Item.useTurn = true;
-			Item.autoReuse = true;
+            Item.autoReuse = true;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = Item.sellPrice(0, 1, 0, 0);
             Item.rare = ItemRarityID.Orange;
             Item.shoot = ModContent.ProjectileType<AquaLance_Holdout>();  //put your Spear projectile name
             Item.shootSpeed = 4f;
         }
-		public override bool CanUseItem(Player player)
-		{
-			return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
-		}
+        public override bool CanUseItem(Player player)
+        {
+            return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
+        }
     }
 }

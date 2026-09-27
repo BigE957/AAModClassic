@@ -1,7 +1,6 @@
 ﻿using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
@@ -40,7 +39,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero.
             public Vector2 Position;
 
             public float Depth;
-			public float Rotation;
+            public float Rotation;
 
             public int Life;
 
@@ -82,7 +81,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero.
                 bolts[num].IsAlive = true;
                 bolts[num].Position.X = random.NextFloat() * 2000f;
                 bolts[num].Position.Y = random.NextFloat() * 1000f;
-				bolts[num].Rotation = random.NextFloat() * ((float)Math.PI * 2f);
+                bolts[num].Rotation = random.NextFloat() * ((float)Math.PI * 2f);
                 bolts[num].Depth = random.NextFloat() * 8f + 2f;
                 bolts[num].Life = 30;
             }
@@ -111,7 +110,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero.
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
                 spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
-                
+
             }
             Rectangle rectangle = new Rectangle(-1000, -1000, 4000, 4000);
             for (int i = 0; i < bolts.Length; i++)
@@ -119,7 +118,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero.
                 if (bolts[i].IsAlive)
                 {
                     Vector2 position = bolts[i].Position;
-					float scale = MathHelper.Lerp(0.5f, 0.25f, Math.Max(0f, Math.Min(1f, position.X / 1000f)));
+                    float scale = MathHelper.Lerp(0.5f, 0.25f, Math.Max(0f, Math.Min(1f, position.X / 1000f)));
                     if (rectangle.Contains((int)position.X, (int)position.Y))
                     {
                         Vector2 value4 = new Vector2(1f / bolts[i].Depth, 0.9f / bolts[i].Depth);
