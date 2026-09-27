@@ -1,23 +1,15 @@
 ﻿using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
+using AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn;
 using AAModClassic.Base;
 using AAModClassic.Globals;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-
-using Terraria.Localization;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
-using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.UI.World;
-using AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn
 {

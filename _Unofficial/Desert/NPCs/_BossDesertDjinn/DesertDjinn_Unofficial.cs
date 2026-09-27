@@ -1,6 +1,6 @@
 ﻿using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
 using AAModClassic._CrossMod.Fables;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.Particles;
 using AAModClassic.Particles.Types;
@@ -11,8 +11,6 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Policy;
-using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
 using Terraria.GameContent;

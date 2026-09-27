@@ -1,9 +1,7 @@
 using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn;
-using AAModClassic._CrossMod;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Dusts;
 using AAModClassic.UI.World;
-using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.Bestiary;
