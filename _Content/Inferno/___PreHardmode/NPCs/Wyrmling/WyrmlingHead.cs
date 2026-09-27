@@ -68,7 +68,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs.Wyrmling
             if (ContentReplacementSystem.NeedToReplaceContent || (!Main.dayTime && !AAWorld.downedAkuma && spawnInfo.Player.ZoneSurface()))
                 return 0f;
 
-            if (spawnInfo.Player.ZoneAnyInferno() && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (spawnInfo.Player.ZoneAnyInferno() && !AnyEvents(spawnInfo.Player))
                 return 0.25f;
 
             return 0f;

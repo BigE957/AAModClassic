@@ -73,7 +73,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.NPCs
             if (ContentReplacementSystem.NeedToReplaceContent || spawnInfo.Player.ZoneAnyMire())
                 return 0f;
 
-            if (spawnInfo.Player.ZoneAnyInferno() && (Main.dayTime || AAWorld.downedAkuma || !spawnInfo.Player.ZoneSurface()) && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (spawnInfo.Player.ZoneAnyInferno() && (Main.dayTime || AAWorld.downedAkuma || !spawnInfo.Player.ZoneSurface()) && !AnyEvents(spawnInfo.Player))
                 return 0.05f;
 
             return SpawnCondition.OverworldNightMonster.Chance * 0.05f;

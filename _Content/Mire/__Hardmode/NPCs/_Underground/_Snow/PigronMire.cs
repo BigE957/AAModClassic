@@ -46,7 +46,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Snow
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (Main.hardMode && !spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneSnow && spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (Main.hardMode && !spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneSnow && spawnInfo.Player.ZoneAnyMire() && !AnyEvents(spawnInfo.Player))
                 return ContentReplacementSystem.NeedToReplaceContent ? 0.05f : .005f;
 
             return 0f;

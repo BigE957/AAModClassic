@@ -73,7 +73,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (NPC.downedMoonlord && spawnInfo.Player.ZoneAnyInferno() && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (NPC.downedMoonlord && spawnInfo.Player.ZoneAnyInferno() && !AnyEvents(spawnInfo.Player))
                 return ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f;
 
             return 0f;

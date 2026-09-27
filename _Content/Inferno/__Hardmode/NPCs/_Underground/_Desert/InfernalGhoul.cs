@@ -39,7 +39,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Desert
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (Main.hardMode && !spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneDesert && spawnInfo.Player.ZoneAnyInferno() && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (Main.hardMode && !spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneDesert && spawnInfo.Player.ZoneAnyInferno() && !AnyEvents(spawnInfo.Player))
                 return ContentReplacementSystem.NeedToReplaceContent ? 1f : 0.1f;
 
             return 0f;

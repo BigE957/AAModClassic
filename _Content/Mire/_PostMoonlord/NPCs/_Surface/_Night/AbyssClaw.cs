@@ -44,7 +44,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs._Surface._Night
             if (!AAWorld.downedSisters || spawnInfo.Player.ZoneAnyInferno())
                 return 0f;
 
-            if (spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyMire() && (!Main.dayTime || AAWorld.downedYamata) && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyMire() && (!Main.dayTime || AAWorld.downedYamata) && !AnyEvents(spawnInfo.Player))
                 return ContentReplacementSystem.NeedToReplaceContent ? 0.1f : .01f;
 
             return SpawnCondition.OverworldNightMonster.Chance * 0.04f;

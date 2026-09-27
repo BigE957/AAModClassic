@@ -47,7 +47,7 @@ namespace AAModClassic._Content.Terrarium._PostMoonLord.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (AAWorld.downedEquinox && spawnInfo.Player.AAPlayer().ZoneTerrarium && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (AAWorld.downedEquinox && spawnInfo.Player.AAPlayer().ZoneTerrarium && !AnyEvents(spawnInfo.Player))
                 return 0.025f;
 
             return 0f;

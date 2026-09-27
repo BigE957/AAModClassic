@@ -42,7 +42,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             Player player = spawnInfo.Player;
-            if (spawnInfo.Player.ZoneAnyInferno() && Main.hardMode && !spawnInfo.PlayerSafe && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (spawnInfo.Player.ZoneAnyInferno() && Main.hardMode && !spawnInfo.PlayerSafe && !AnyEvents(spawnInfo.Player))
             {
                 return SpawnCondition.UndergroundMimic.Chance;
             }

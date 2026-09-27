@@ -40,7 +40,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (!NPC.downedMoonlord && spawnInfo.Player.AAPlayer().ZoneVoid && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (!NPC.downedMoonlord && spawnInfo.Player.AAPlayer().ZoneVoid && !AnyEvents(spawnInfo.Player))
                 return 0.005f;
 
             return 0f;

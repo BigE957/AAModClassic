@@ -38,7 +38,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if ((Main.hardMode && !NPC.downedPlantBoss) && spawnInfo.Player.AAPlayer().ZoneTerrarium && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if ((Main.hardMode && !NPC.downedPlantBoss) && spawnInfo.Player.AAPlayer().ZoneTerrarium && !AnyEvents(spawnInfo.Player))
                 return 0.07f;
 
             return 0f;

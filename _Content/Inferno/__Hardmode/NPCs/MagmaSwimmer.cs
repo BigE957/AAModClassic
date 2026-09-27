@@ -50,7 +50,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.NPCs
             if (!Main.dayTime && !AAWorld.downedAkuma && spawnInfo.Player.ZoneSurface())
                 return 0f;
 
-            if (Main.hardMode && spawnInfo.Player.ZoneAnyInferno() && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (Main.hardMode && spawnInfo.Player.ZoneAnyInferno() && !AnyEvents(spawnInfo.Player))
                 return SpawnCondition.WaterCritter.Chance * (ContentReplacementSystem.NeedToReplaceContent ? 2f : 0.2f);
 
             return 0f;

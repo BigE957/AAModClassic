@@ -65,7 +65,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.Scavenger
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (NPC.downedPlantBoss && spawnInfo.Player.AAPlayer().ZoneHoard && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (NPC.downedPlantBoss && spawnInfo.Player.AAPlayer().ZoneHoard && !AnyEvents(spawnInfo.Player))
                 return 0.03f;
 
             return 0f;

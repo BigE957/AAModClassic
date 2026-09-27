@@ -50,7 +50,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs
             if (ContentReplacementSystem.NeedToReplaceContent || (Main.dayTime && !AAWorld.downedYamata && spawnInfo.Player.ZoneSurface()))
                 return 0f;
 
-            if (Main.hardMode && spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (Main.hardMode && spawnInfo.Player.ZoneAnyMire() && !AnyEvents(spawnInfo.Player))
                 return SpawnCondition.WaterCritter.Chance * (ContentReplacementSystem.NeedToReplaceContent ? 1f : 0.1f);
 
             return 0f;

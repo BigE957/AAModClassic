@@ -41,7 +41,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (!AAWorld.downedSisters && NPCExtensions.BeenKilled<HydraBody>() && spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player) && !NPC.AnyNPCs(ModContent.NPCType<HarukaShadow>()))
+            if (!AAWorld.downedSisters && NPCExtensions.BeenKilled<HydraBody>() && spawnInfo.Player.ZoneAnyMire() && !AnyEvents(spawnInfo.Player) && !NPC.AnyNPCs(ModContent.NPCType<HarukaShadow>()))
                 return ContentReplacementSystem.NeedToReplaceContent ? 0.0005f : .00005f;
 
             return 0f;

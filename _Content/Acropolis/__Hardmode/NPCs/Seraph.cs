@@ -54,7 +54,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (NPC.downedPlantBoss && spawnInfo.Player.AAPlayer().ZoneAcropolis && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (NPC.downedPlantBoss && spawnInfo.Player.AAPlayer().ZoneAcropolis && !AnyEvents(spawnInfo.Player))
                 return 0.03f;
 
             return 0f;

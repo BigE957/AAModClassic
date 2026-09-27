@@ -967,7 +967,7 @@ namespace AAModClassic.Globals
             if (aaBiomeZone && !pillarZone)
                 pool.Remove(0);
 
-            bool anyEvents = NPCUtils.AnyEvents(spawnInfo.Player);
+            bool anyEvents = AnyEvents(spawnInfo.Player);
 
             if (!anyEvents && spawnInfo.Player.AAPlayer().ZoneAcropolis)
                 pool[NPCID.Harpy] = 0.06f;

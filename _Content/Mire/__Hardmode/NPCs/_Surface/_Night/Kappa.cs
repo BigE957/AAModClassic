@@ -48,7 +48,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night
             if (Main.dayTime && !AAWorld.downedYamata)
                 return 0f;
 
-            if (Main.hardMode && spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyMire() && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (Main.hardMode && spawnInfo.Player.ZoneSurface() && spawnInfo.Player.ZoneAnyMire() && !AnyEvents(spawnInfo.Player))
                 return ContentReplacementSystem.NeedToReplaceContent ? 1f : .025f;
 
             return 0f;

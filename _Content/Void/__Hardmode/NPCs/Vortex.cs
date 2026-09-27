@@ -53,7 +53,7 @@ namespace AAModClassic._Content.Void.__Hardmode.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (spawnInfo.Player.AAPlayer().ZoneVoid && NPC.downedPlantBoss && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (spawnInfo.Player.AAPlayer().ZoneVoid && NPC.downedPlantBoss && !AnyEvents(spawnInfo.Player))
                 return 0.002f;
 
             return 0f;

@@ -38,7 +38,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (AAWorld.downedEquinox && spawnInfo.Water && spawnInfo.Player.AAPlayer().ZoneShip && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (AAWorld.downedEquinox && spawnInfo.Water && spawnInfo.Player.AAPlayer().ZoneShip && !AnyEvents(spawnInfo.Player))
                 return 0.5f;
 
             return 0f;

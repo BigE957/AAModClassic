@@ -86,7 +86,7 @@ namespace AAModClassic._Content.Sky.__Hardmode.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (spawnInfo.PlayerSafe || !Main.hardMode || spawnInfo.Player.AAPlayer().ZoneVoid || NPCUtils.AnyEvents(spawnInfo.Player))
+            if (spawnInfo.PlayerSafe || !Main.hardMode || spawnInfo.Player.AAPlayer().ZoneVoid || AnyEvents(spawnInfo.Player))
                 return 0f;
 
             return SpawnCondition.Sky.Chance * 0.10f;

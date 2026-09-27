@@ -48,7 +48,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (spawnInfo.Player.AAPlayer().ZoneVoid && NPCExtensions.BeenKilled<Sagittarius>() && !NPCUtils.AnyEvents(spawnInfo.Player))
+            if (spawnInfo.Player.AAPlayer().ZoneVoid && NPCExtensions.BeenKilled<Sagittarius>() && !AnyEvents(spawnInfo.Player))
                 return 0.005f;
 
             return 0f;
