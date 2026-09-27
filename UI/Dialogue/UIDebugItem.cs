@@ -22,7 +22,7 @@ namespace AAModClassic.UI.Dialogue
             if (DialogueUISystem.Visible)
                 DialogueUISystem.EndDialogue();
             else
-                DialogueUISystem.StartDialogue("Mods.CalamityMod.EvilSmasher.DemonAltar", 0, player.Center - Vector2.UnitY * 128);
+                DialogueUISystem.StartDialogue("Mods.AAModClassic.DialogueTrees.Example", 0, player.Center - Vector2.UnitY * 128);
 
             return true;
         }

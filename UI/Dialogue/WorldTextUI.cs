@@ -287,7 +287,7 @@ namespace AAModClassic.UI.Dialogue
             State ??= new();
             effects ??= new DisplayEffect();
 
-            if (!DialogueLoader.TryGetDialogue(name, out var textData))
+            if (!DialogueLoader.TryGetTextData(name, out var textData))
             {
                 AAMod.instance.Logger.Error($"Unable to find Dialogue Data for given name: '{name}'");
                 return -1;
@@ -350,7 +350,7 @@ namespace AAModClassic.UI.Dialogue
             State ??= new();
             effects ??= new DisplayEffect();
 
-            if (!DialogueLoader.TryGetDialogue(name, out var textData))
+            if (!DialogueLoader.TryGetTextData(name, out var textData))
             {
                 AAMod.instance.Logger.Error($"Unable to find Dialogue Data for given name: '{name}'");
                 return -1;

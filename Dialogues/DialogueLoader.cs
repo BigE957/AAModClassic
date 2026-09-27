@@ -16,23 +16,28 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Dialogues
 {
-    internal record DialogueTextDataEntry(
-        Mod ProviderMod,
-        string FilePath,
-        string DialogueKey,
-        DialogueTextData Data
-        );
+    internal enum DialogueFileKind
+    {
+        WorldText,
+        DialogueTree
+    }
+
+    internal record DialogueEntry<T>(Mod ProviderMod, string FilePath, string DialogueKey, T Data);
+    
+    internal record DialogueRawEntry(Mod ProviderMod, string FilePath, string DialogueKey, DialogueFileKind Kind, DialogueTextData WorldTextData, DialogueTree TreeData);
 
     internal partial class DialogueLoader : ModSystem
     {
         private const string DialogueFilePrefix = "Dialogue.";
 
-        private static readonly Dictionary<string, DialogueTextDataEntry> _DialogueLookup = [];
+        private static readonly Dictionary<string, DialogueEntry<DialogueTextData>> _WorldTextLookup = [];
+        private static readonly Dictionary<string, DialogueEntry<DialogueTree>> _DialogueTreeLookup = [];
         private static readonly Dictionary<Mod, MainThreadedFileSystemWatcher> _Watchers = [];
 
         public override void Load()
         {
-            _DialogueLookup.Clear();
+            _WorldTextLookup.Clear();
+            _DialogueTreeLookup.Clear();
 
             var method = typeof(LocalizationLoader).GetMethod("ExtractLocalizationFiles", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static);
             if (method != null)
@@ -72,7 +77,8 @@ namespace AAModClassic.Dialogues
 
         public override void Unload()
         {
-            _DialogueLookup.Clear();
+            _WorldTextLookup.Clear();
+            _DialogueTreeLookup.Clear();
 
             foreach (var watcher in _Watchers.Values)
             {
@@ -120,7 +126,7 @@ namespace AAModClassic.Dialogues
             cursor.EmitLdloc(pathLdloc);
             cursor.EmitDelegate((Mod mod, string basePath) =>
             {
-                foreach (var entry in GetDialogueTextEntries(mod, GameCulture.DefaultCulture, skipDeserializeData: true))
+                foreach (var entry in GetDialogueFilesForMod(mod, GameCulture.DefaultCulture, skipDeserializeData: true))
                 {
                     try
                     {
@@ -136,15 +142,27 @@ namespace AAModClassic.Dialogues
                     }
                     catch (Exception e)
                     {
-                        AAMod.instance.Logger.Error($"Error while exporting DialogueTextData entry ({mod.Name}::{entry.FilePath}): {e}");
+                        AAMod.instance.Logger.Error($"Error while exporting dialogue entry ({mod.Name}::{entry.FilePath}): {e}");
                     }
                 }
             });
         }
 
-        public static bool TryGetDialogue(string dialogueKey, out DialogueTextData data)
+        public static bool TryGetTextData(string dialogueKey, out DialogueTextData data)
         {
-            if (_DialogueLookup.TryGetValue(dialogueKey, out var entry))
+            if (_WorldTextLookup.TryGetValue(dialogueKey, out var entry))
+            {
+                data = entry.Data;
+                return true;
+            }
+
+            data = null;
+            return false;
+        }
+
+        public static bool TryGetDialogueTree(string dialogueKey, out DialogueTree data)
+        {
+            if (_DialogueTreeLookup.TryGetValue(dialogueKey, out var entry))
             {
                 data = entry.Data;
                 return true;
@@ -156,50 +174,63 @@ namespace AAModClassic.Dialogues
 
         public override void OnLocalizationsLoaded()
         {
-            _DialogueLookup.Clear();
+            var defaultEntries = GetDialogueFilesForAllMods(GameCulture.DefaultCulture).ToList();
 
-            // Mods should be sorted by dependency order.
-            foreach (var entry in GetDialogueTextEntiresForAllMods(GameCulture.DefaultCulture))
-            {
-                if (_DialogueLookup.TryGetValue(entry.DialogueKey, out var oldEntry))
-                {
-                    if (entry.Data.Revision != oldEntry.Data.Revision)
-                    {
-                        AAMod.instance.Logger.Warn($"Dialogue Localization was detected but revision mismatches. This will not be applied! : '{entry.ProviderMod.Name}::{entry.FilePath}'");
-                        continue;
-                    }
-                }
-
-                _DialogueLookup[entry.DialogueKey] = entry;
-            }
+            PopulateDefaultLookup(_WorldTextLookup, defaultEntries.Where(e => e.Kind == DialogueFileKind.WorldText), e => e.WorldTextData, d => d.Revision);
+            PopulateDefaultLookup(_DialogueTreeLookup, defaultEntries.Where(e => e.Kind == DialogueFileKind.DialogueTree), e => e.TreeData, d => d.Revision);
 
             var activeCulture = LanguageManager.Instance.ActiveCulture;
             if (activeCulture == GameCulture.DefaultCulture)
                 return;
 
-            foreach (var entry in GetDialogueTextEntiresForAllMods(activeCulture))
+            var activeEntries = GetDialogueFilesForAllMods(activeCulture).ToList();
+
+            MergeLocalizedEntries(_WorldTextLookup, activeEntries.Where(e => e.Kind == DialogueFileKind.WorldText), e => e.WorldTextData, d => d.Revision);
+            MergeLocalizedEntries(_DialogueTreeLookup, activeEntries.Where(e => e.Kind == DialogueFileKind.DialogueTree), e => e.TreeData, d => d.Revision);
+        }
+
+        private static void PopulateDefaultLookup<T>(Dictionary<string, DialogueEntry<T>> lookup, IEnumerable<DialogueRawEntry> entries, Func<DialogueRawEntry, T> selectData, Func<T, int> revisionOf)
+        {
+            lookup.Clear();
+
+            foreach (var raw in entries)
             {
-                var mod = entry.ProviderMod;
+                var data = selectData(raw);
 
-                if (!_DialogueLookup.TryGetValue(entry.DialogueKey, out var oldEntry))
+                if (lookup.TryGetValue(raw.DialogueKey, out var oldEntry) && revisionOf(data) != revisionOf(oldEntry.Data))
                 {
-                    AAMod.instance.Logger.Warn($"Dialogue Localization was detected but original Dialogue file does not exist. This will not be applied! : '{mod.Name}::{entry.FilePath}'");
+                    AAMod.instance.Logger.Warn($"Dialogue Localization was detected but revision mismatches. This will not be applied! : '{raw.ProviderMod.Name}::{raw.FilePath}'");
                     continue;
                 }
 
-                // Skip if entry is from same file.
-                if (oldEntry.ProviderMod == entry.ProviderMod && oldEntry.FilePath == entry.FilePath)
+                lookup[raw.DialogueKey] = new DialogueEntry<T>(raw.ProviderMod, raw.FilePath, raw.DialogueKey, data);
+            }
+        }
+
+        private static void MergeLocalizedEntries<T>(Dictionary<string, DialogueEntry<T>> lookup, IEnumerable<DialogueRawEntry> entries, Func<DialogueRawEntry, T> selectData, Func<T, int> revisionOf)
+        {
+            foreach (var raw in entries)
+            {
+                var mod = raw.ProviderMod;
+
+                if (!lookup.TryGetValue(raw.DialogueKey, out var oldEntry))
                 {
+                    AAMod.instance.Logger.Warn($"Dialogue Localization was detected but original Dialogue file does not exist. This will not be applied! : '{mod.Name}::{raw.FilePath}'");
                     continue;
                 }
 
-                if (oldEntry.Data.Revision != entry.Data.Revision)
+                if (oldEntry.ProviderMod == mod && oldEntry.FilePath == raw.FilePath)
+                    continue;
+
+                var data = selectData(raw);
+
+                if (revisionOf(oldEntry.Data) != revisionOf(data))
                 {
-                    AAMod.instance.Logger.Warn($"Dialogue Localization was detected but revision mismatches. This will not be applied! : '{mod.Name}::{entry.FilePath}'");
+                    AAMod.instance.Logger.Warn($"Dialogue Localization was detected but revision mismatches. This will not be applied! : '{mod.Name}::{raw.FilePath}'");
                     continue;
                 }
 
-                _DialogueLookup[entry.DialogueKey] = entry;
+                lookup[raw.DialogueKey] = new DialogueEntry<T>(mod, raw.FilePath, raw.DialogueKey, data);
             }
         }
 
@@ -208,27 +239,45 @@ namespace AAModClassic.Dialogues
             if (!TryGetDialogueFileInfo(filePath, out _, out _, out var dialogueKey))
                 return;
 
-            if (!_DialogueLookup.TryGetValue(dialogueKey, out var existingEntry))
-                return;
+            bool hasWorldText = _WorldTextLookup.TryGetValue(dialogueKey, out var worldEntry) && worldEntry.ProviderMod == mod;
+            bool hasTree = _DialogueTreeLookup.TryGetValue(dialogueKey, out var treeEntry) && treeEntry.ProviderMod == mod;
 
-            if (existingEntry.ProviderMod != mod)
+            if (!hasWorldText && !hasTree)
                 return;
 
             try
             {
-                using var stream = new StreamReader(File.OpenRead(filePath), Encoding.UTF8);
-                _DialogueLookup[dialogueKey] = existingEntry with
+                using var stream = File.OpenRead(filePath);
+                if (!TryReadDialogueFile(stream, out var kind, out var worldData, out var treeData))
                 {
-                    Data = JsonSerializer.Deserialize<DialogueTextData>(stream.BaseStream)
-                };
+                    AAMod.instance.Logger.Error($"Unrecognized dialogue file schema during hot reload, expected a 'Pages' or 'Dialogues' root property: '{filePath}'");
+                    return;
+                }
 
-                var hotreloadedMessage = $"Dialogue entry has been hot reloaded: '{dialogueKey}', from source: '{filePath}'";
+                string hotreloadedMessage;
+                if (kind == DialogueFileKind.WorldText && hasWorldText)
+                {
+                    _WorldTextLookup[dialogueKey] = worldEntry with { Data = worldData };
+                    hotreloadedMessage = $"Dialogue entry has been hot reloaded: '{dialogueKey}', from source: '{filePath}'";
+                }
+                else if (kind == DialogueFileKind.DialogueTree && hasTree)
+                {
+                    _DialogueTreeLookup[dialogueKey] = treeEntry with { Data = treeData };
+                    hotreloadedMessage = $"Dialogue Tree entry has been hot reloaded: '{dialogueKey}', from source: '{filePath}'";
+                }
+                else
+                {
+                    AAMod.instance.Logger.Warn($"Dialogue file's schema kind changed on disk; skipping hot reload for '{filePath}'. Restart to pick up the change.");
+                    return;
+                }
+
                 AAMod.instance.Logger.Info(hotreloadedMessage);
-                if (!Main.gameMenu) Main.NewText(hotreloadedMessage);
+                if (!Main.gameMenu)
+                    Main.NewText(hotreloadedMessage);
             }
             catch (Exception e)
             {
-                AAMod.instance.Logger.Error($"Error while hot reloading DialogueTextData entry ({filePath}): {e}");
+                AAMod.instance.Logger.Error($"Error while hot reloading dialogue entry ({filePath}): {e}");
             }
         }
 
@@ -253,12 +302,12 @@ namespace AAModClassic.Dialogues
             }
         }
 
-        private static IEnumerable<DialogueTextDataEntry> GetDialogueTextEntiresForAllMods(GameCulture targetCulture, bool skipDeserializeData = false)
+        private static IEnumerable<DialogueRawEntry> GetDialogueFilesForAllMods(GameCulture targetCulture, bool skipDeserializeData = false)
         {
-            return ModLoader.Mods.SelectMany(mod => GetDialogueTextEntries(mod, targetCulture, skipDeserializeData));
+            return ModLoader.Mods.SelectMany(mod => GetDialogueFilesForMod(mod, targetCulture, skipDeserializeData));
         }
 
-        private static IEnumerable<DialogueTextDataEntry> GetDialogueTextEntries(Mod mod, GameCulture targetCulture, bool skipDeserializeData = false)
+        private static IEnumerable<DialogueRawEntry> GetDialogueFilesForMod(Mod mod, GameCulture targetCulture, bool skipDeserializeData = false)
         {
             if (mod == null)
                 yield break;
@@ -271,25 +320,60 @@ namespace AAModClassic.Dialogues
                 if (culture != targetCulture)
                     continue;
 
-                DialogueTextData data = null;
-                if (!skipDeserializeData)
+                if (skipDeserializeData)
                 {
-                    try
-                    {
-                        using var stream = new StreamReader(mod.GetFileStream(fileName), Encoding.UTF8);
-                        data = JsonSerializer.Deserialize<DialogueTextData>(stream.BaseStream);
-                    }
-                    catch (Exception e)
-                    {
-                        AAMod.instance.Logger.Error($"Error while reading DialogueTextData entry ({mod.Name}::{fileName}): {e}");
-                    }
+                    yield return new DialogueRawEntry(mod, fileName, dialogueKey, default, null, null);
+                    continue;
                 }
 
-                if (data != null || skipDeserializeData)
+                DialogueFileKind kind;
+                DialogueTextData worldText;
+                DialogueTree tree;
+
+                try
                 {
-                    yield return new DialogueTextDataEntry(mod, fileName, dialogueKey, data);
+                    using var stream = mod.GetFileStream(fileName);
+                    if (!TryReadDialogueFile(stream, out kind, out worldText, out tree))
+                    {
+                        AAMod.instance.Logger.Error($"Unrecognized dialogue file schema ({mod.Name}::{fileName}): expected a top-level 'Pages' (WorldText) or 'Dialogues' (DialogueTree) property.");
+                        continue;
+                    }
                 }
+                catch (Exception e)
+                {
+                    AAMod.instance.Logger.Error($"Error while reading dialogue entry ({mod.Name}::{fileName}): {e}");
+                    continue;
+                }
+
+                yield return new DialogueRawEntry(mod, fileName, dialogueKey, kind, worldText, tree);
             }
+        }
+
+        private static bool TryReadDialogueFile(Stream stream, out DialogueFileKind kind, out DialogueTextData worldText, out DialogueTree tree)
+        {
+            using var doc = JsonDocument.Parse(stream);
+            var root = doc.RootElement;
+
+            if (root.TryGetProperty("Dialogues", out _))
+            {
+                kind = DialogueFileKind.DialogueTree;
+                tree = root.Deserialize<DialogueTree>();
+                worldText = null;
+                return true;
+            }
+
+            if (root.TryGetProperty("Pages", out _))
+            {
+                kind = DialogueFileKind.WorldText;
+                worldText = root.Deserialize<DialogueTextData>();
+                tree = null;
+                return true;
+            }
+
+            kind = default;
+            worldText = null;
+            tree = null;
+            return false;
         }
 
         private static bool TryGetDialogueFileInfo(string filePath, out GameCulture culture, out string prefix, out string dialogueKey)
@@ -312,7 +396,7 @@ namespace AAModClassic.Dialogues
                 return true;
             }
 
-    EXIT_INVALID:
+        EXIT_INVALID:
             culture = null;
             prefix = null;
             dialogueKey = null;
@@ -321,6 +405,16 @@ namespace AAModClassic.Dialogues
 
         [GeneratedRegex(@"Dialogue\..+?\.jsonc?$", RegexOptions.IgnoreCase)]
         private static partial Regex DialogueFileRegex();
+    }
+
+    public static class WorldTextLoader
+    {
+        public static bool TryGet(string dialogueKey, out DialogueTextData data) => DialogueLoader.TryGetTextData(dialogueKey, out data);
+    }
+
+    public static class DialogueTreeLoader
+    {
+        public static bool TryGet(string dialogueKey, out DialogueTree data) => DialogueLoader.TryGetDialogueTree(dialogueKey, out data);
     }
 
     internal sealed class MainThreadedFileSystemWatcher : IDisposable

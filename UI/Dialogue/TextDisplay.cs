@@ -73,7 +73,7 @@ namespace AAModClassic.UI.Dialogue
         private bool lockDelay = false;
         private float WrapWidth = -1;
 
-        public TextDisplay(DialoguePage textData, DisplayEffect displayEffects, bool screenLocked = false, float wrapWidth = -1, Asset<DynamicSpriteFont>? font = null)
+        public TextDisplay(DialoguePage textData, DisplayEffect displayEffects, bool screenLocked = false, float wrapWidth = -1, Asset<DynamicSpriteFont> font = null)
         {
             DisplayEffects = displayEffects;
             ScreenLocked = screenLocked;
@@ -643,10 +643,10 @@ namespace AAModClassic.UI.Dialogue
                             }
                             else
                             {
-                                string speaker = null;
+                                Speaker speaker = null;
                                 if (DialoguePage.Speaker != null)
                                     speaker = DialoguePage.Speaker;
-                                if (speaker != null && DialogueSounds.TryGetValue(speaker, out var value))
+                                if (speaker != null && DialogueSounds.TryGetValue(speaker.Name, out var value))
                                     SoundEngine.PlaySound(value);
                             }
 
@@ -834,7 +834,7 @@ namespace AAModClassic.UI.Dialogue
         public int PageCount => Pages.Length;
 
         public string DefaultColor { get; init; }
-        public string DefaultSpeaker { get; init; }
+        public Speaker DefaultSpeaker { get; init; }
 
         public int DefaultScale { get; init; }
 
@@ -852,7 +852,7 @@ namespace AAModClassic.UI.Dialogue
         public int Revision { get; init; }
 
         [JsonConstructor]
-        public DialogueTextData(DialoguePage[] Pages, int Page = 0, string DefaultColor = null, string DefaultSpeaker = null, int DefaultScale = 1, Alignment AlignType = 0, int TextDelay = 3, int InPunctuationDelay = -1, PunctuationData BasePunctuationDelay = null, int PunctuationDelayCap = 60, Dictionary<string, PunctuationData> PunctuationDelays = null)
+        public DialogueTextData(DialoguePage[] Pages, int Page = 0, string DefaultColor = null, Speaker DefaultSpeaker = null, int DefaultScale = 1, Alignment AlignType = 0, int TextDelay = 3, int InPunctuationDelay = -1, PunctuationData BasePunctuationDelay = null, int PunctuationDelayCap = 60, Dictionary<string, PunctuationData> PunctuationDelays = null)
         {
             this.Pages = Pages;
             this.Page = Page;
@@ -893,7 +893,7 @@ namespace AAModClassic.UI.Dialogue
         public string BaseColor { get; set; } = null;
         public string BaseBorderColor { get; set; } = null;
         public float BorderDarkening { get; set; } = 0.25f;
-        public string Speaker { get; set; } = null;
+        public Speaker Speaker { get; set; } = null;
 
         public int TextScale { get; set; } = -1;
         public Alignment AlignType { get; set; } = Alignment.None;

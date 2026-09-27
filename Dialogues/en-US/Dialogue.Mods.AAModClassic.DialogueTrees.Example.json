@@ -1,0 +1,81 @@
+{
+  "Revision": 1,
+  "DefaultSpeaker": "Amidias",
+  "AlignType": 0,
+  "TextDelay": 3,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Dialogues": [
+    {
+      "IndexComment": "This is at Index 0! The 'Heading' value of a response switches the dialogue at that index. This is also a comment, so it doesnt affect anything lol. Its just here to help in terms of losing track of what index you're on.",
+
+      "DialogueInfo": {
+        "Speaker": "Amidias",
+        "BorderDarkening": 0,
+        "Lines": [
+          "If you wish to know about its state before the siege on our home by Yharim's forces began, that would be a difficult question for me to answer. I was born after it had already started, and so I can only reliably tell you what I myself lived through."
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "What was it like in your time?",
+          "Heading": 1,
+          "Unlocked": true
+        },
+        {
+          "Title": "Before Yharim's Siege?",
+          "Heading": 2,
+          "Unlocked": true
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 1!",
+      "DialogueInfo": {
+        "Speaker": "Amidias",
+        "BorderDarkening": 0,
+        "Lines": [
+          "The Ilmeris I was raised in was filled with paranoia and an ever-growing military force. Isolationist factions that lived in the lower sea grew massively in both influence and members due to the nation's forced isolation."
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "I see.",
+          "Heading": -1
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 2!",
+      "DialogueInfo": {
+        "Speaker": "Amidias",
+        "BorderDarkening": 0,
+        "Lines": [
+          "Before the siege, we had always made liberal use of our resistance to electricity granted to us by Otonilou, but Yharim himself sometimes being at our doorstep, we required even more extreme use of it. At times, the entire sea would have to be electrified to keep the Crusade out. It was always a wondrous sight... and a terrifying one."
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "I see",
+          "Heading": -1
+        }
+      ]
+    }
+  ]
+}
