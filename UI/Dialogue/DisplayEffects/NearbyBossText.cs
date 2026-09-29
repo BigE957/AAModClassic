@@ -1,7 +1,6 @@
 ﻿using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.UI.Dialogue.DisplayEffects
@@ -9,6 +8,8 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
     public class NearbyBossText : DisplayEffect
     {
         public override bool FadeWhenTooFar => true;
+        public override float FadeBuffer => 400f;
+        public override float FadeDistance => 400f;
 
         public override float TimeToAppear => 20;
 
