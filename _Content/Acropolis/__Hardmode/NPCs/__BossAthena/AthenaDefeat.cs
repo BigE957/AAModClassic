@@ -164,39 +164,40 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                                     foreach (var p in Main.ActivePlayers)
                                         pCount++;
 
-                                if (Main.netMode != NetmodeID.MultiplayerClient)
-                                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.3." + (pCount > 1 ? "Multiplayer" : "Singleplayer")), Color.CornflowerBlue);
-                                NPC.netUpdate = true;
-                            }
-                            else if (NPC.ai[0] == 720)
-                            {
-                                if (Main.netMode != NetmodeID.MultiplayerClient)
-                                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.4"), Color.CornflowerBlue);
-                                NPC.netUpdate = true;
-                            }
-                            else if (NPC.ai[0] == 840)
-                            {
-                                if (Main.netMode != NetmodeID.MultiplayerClient)
-                                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.5"), Color.CornflowerBlue);
-                                NPC.netUpdate = true;
-                            }
-                            else if (NPC.ai[0] == 960)
-                            {
-                                if (Main.netMode != NetmodeID.MultiplayerClient)
-                                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.6"), Color.CornflowerBlue);
-                                NPC.netUpdate = true;
-                            }
-                            else if (NPC.ai[0] == 1080)
-                            {
-                                if (Main.netMode != NetmodeID.MultiplayerClient)
-                                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.7"), Color.CornflowerBlue);
-                                else if (NPC.ai[0] >= 1200)
-                                {
-                                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.8"), Color.CornflowerBlue);
-                                    AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], ModContent.NPCType<AthenaFlee>(), false, NPC.Center);
-
-                                    NPC.active = false;
+                                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.3." + (pCount > 1 ? "Multiplayer" : "Singleplayer")), Color.CornflowerBlue);
                                     NPC.netUpdate = true;
+                                }
+                                else if (NPC.ai[0] == 720)
+                                {
+                                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.4"), Color.CornflowerBlue);
+                                    NPC.netUpdate = true;
+                                }
+                                else if (NPC.ai[0] == 840)
+                                {
+                                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.5"), Color.CornflowerBlue);
+                                    NPC.netUpdate = true;
+                                }
+                                else if (NPC.ai[0] == 960)
+                                {
+                                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.6"), Color.CornflowerBlue);
+                                    NPC.netUpdate = true;
+                                }
+                                else if (NPC.ai[0] == 1080)
+                                {
+                                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.7"), Color.CornflowerBlue);
+                                    else if (NPC.ai[0] >= 1200)
+                                    {
+                                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.8"), Color.CornflowerBlue);
+                                        AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], ModContent.NPCType<AthenaFlee>(), false, NPC.Center);
+
+                                        NPC.active = false;
+                                        NPC.netUpdate = true;
+                                    }
                                 }
                             }
                         }
