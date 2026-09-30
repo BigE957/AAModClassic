@@ -1,6 +1,7 @@
 ﻿using AAModClassic.Dialogues;
 using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.Utilities;
+using Microsoft.CodeAnalysis.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -14,6 +15,7 @@ using Terraria.GameContent.UI.Elements;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI;
+using static Terraria.WorldGen;
 
 namespace AAModClassic.UI.Dialogue
 {
@@ -71,6 +73,10 @@ namespace AAModClassic.UI.Dialogue
                 currentIndex = tree.Count - 1;
 
             ChangeDialogue();
+
+            (dialogue.DisplayEffects as DialogueUIEffect).ChangePosition = Vector2.Zero;
+            (dialogue.DisplayEffects as DialogueUIEffect).ChangeSize = Vector2.Zero;
+            dialogue.DialogueTimer = 0;
         }
 
         public void OnResponsePress(int responseIndex)
@@ -85,7 +91,22 @@ namespace AAModClassic.UI.Dialogue
         {
             currentIndex = newIndex;
             switchStarted = true;
-            dialogue.SwitchingPage = true;
+            if (currentIndex == -1)
+                dialogue.ClosingDialogue = true;
+            else
+            {
+                dialogue.SwitchingPage = true;
+                var nextDialogue = tree.Dialogues[currentIndex].DialogueInfo;
+
+                Vector2 futureSize = dialogue.PredictTextSize(nextDialogue, out Vector2 futureOffset);
+                Vector2 futurePosition = dialogue.Position + (dialogue.TextSize - futureSize) / 2f;
+                Vector2 futurePageTop = dialogue.DisplayEffects.TextOffsetFromStart(futurePosition, futureSize) - futureOffset;
+                Vector2 currentPageTop = dialogue.DisplayEffects.TextOffsetFromStart(dialogue.Position, dialogue.TextSize) - dialogue.SizeOffsetFromStart;
+
+                var effect = (DialogueUIEffect)dialogue.DisplayEffects;
+                effect.ChangePosition = futurePageTop - currentPageTop;
+                effect.ChangeSize = futureSize - dialogue.TextSize;
+            }
         }
 
         private void ChangeDialogue()
@@ -109,7 +130,14 @@ namespace AAModClassic.UI.Dialogue
                 return;
             }
 
+            var effect = (DialogueUIEffect)dialogue.DisplayEffects;
+            bool isPageSwitch = dialogue.SwitchingPage;   // must be read before ResetText clears it
+
             dialogue.ResetText(tree.Dialogues[currentIndex].DialogueInfo);
+
+            effect.ChangePosition = Vector2.Zero;
+            effect.ChangeSize = Vector2.Zero;
+            effect.SkipIntroFade = isPageSwitch;
 
             int count = tree.Dialogues[currentIndex].Responses.Length;
 
@@ -136,6 +164,13 @@ namespace AAModClassic.UI.Dialogue
 
         public override void Update(GameTime gameTime)
         {
+            if (switchStarted)
+            {
+                dialogue.SwitchCounter++;
+                if (dialogue.SwitchCounter >= 60)
+                    ChangeDialogue();
+            }
+
             panel.Width.Pixels = dialogue.TextSize.X;
             panel.Height.Pixels = dialogue.TextSize.Y * 2;
 
@@ -143,24 +178,17 @@ namespace AAModClassic.UI.Dialogue
             Vector2 screenPos = worldCenter - Main.LocalPlayer.velocity - Main.screenPosition - halfSize;
             panel.Left.Pixels = screenPos.X;
             panel.Top.Pixels = screenPos.Y;
-            
+
             panel.Recalculate();
 
             dialogue.Position = panel.GetInnerDimensions().Center() - dialogue.TextSize / 2f;
 
-            if(!crawlOver && !dialogue.Crawling)
+            if (!crawlOver && !dialogue.Crawling)
             {
-                for(int i = 0; i < responses.Count; i++)
+                for (int i = 0; i < responses.Count; i++)
                     responses[i].Show(i * -10);
 
                 crawlOver = true;
-            }
-
-            if (switchStarted)
-            {
-                if (dialogue.SwitchCounter >= 60)
-                    ChangeDialogue();
-                dialogue.SwitchCounter++;
             }
 
             base.Update(gameTime);

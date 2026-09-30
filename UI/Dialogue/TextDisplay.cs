@@ -101,68 +101,15 @@ namespace AAModClassic.UI.Dialogue
             if (Font is null || !Font.IsLoaded)
                 return;
 
-            int fullLength = 0;
-            List<string> lines = [];
-            for (int i = 0; i < DialoguePage.Lines.Length; i++)
-            {
-                string fullLine = DialoguePage.Lines[i];
-
-                FindEffects(ref fullLine, fullLength);
-
-                if (fullLine[^1] != ' ')
-                    fullLine += ' ';
-
-                lines.Add(fullLine);
-                fullLength += fullLine.Length;
-            }
-
-            if (WrapWidth != -1)
-            {
-                for (int i = 0; i < lines.Count; i++)
-                {
-                    string line = lines[i];
-                    if (line[^1] == ' ')
-                        line = line.Remove(line.Length - 1, 1);
-
-                    int finalIndex = 0;
-                    float width = MeasureString(line, Font.Value).X;
-
-                    if (width > WrapWidth)
-                    {
-                        string yoinked = "";
-                        do
-                        {
-                            finalIndex = line.LastIndexOf(' ');
-                            if (finalIndex < line.Length - 1)
-                                finalIndex++;
-                            yoinked = line.Substring(finalIndex) + yoinked;
-                            line = line.Remove(finalIndex);
-                        } while (MeasureString(line, Font.Value).X > WrapWidth);
-
-                        lines[i] = line;
-                        if (yoinked[0] == ' ')
-                            yoinked = yoinked.Remove(0, 1);
-
-                        if (i >= lines.Count - 1)
-                            lines.Add(yoinked);
-                        else
-                            lines[i + 1] = yoinked + lines[i + 1];
-                    }
-                }
-            }
-
-            fullLength = 0;
-            int[] lineLengths = new int[lines.Count];
-            LineBreakIndexes.Clear();
-            for (int i = 0; i < lines.Count; i++)
-            {
-                lineLengths[i] = lines[i].Length;
-
-                Text += lines[i];
-
-                fullLength += lines[i].Length;
-                LineBreakIndexes.Add(fullLength);
-            }
+            ParsedPage parsed = Parse(DialoguePage, Font.Value, WrapWidth);
+            Text = parsed.Text;
+            LineBreakIndexes = parsed.LineBreakIndexes;
+            UniqueColors = parsed.UniqueColors;
+            UniqueBorderColors = parsed.UniqueBorderColors;
+            Pauses = parsed.Pauses;
+            TextEffects = parsed.TextEffects;
+            UniqueScales = parsed.UniqueScales;
+            int[] lineLengths = parsed.LineLengths;
 
             if (DialoguePage.BaseColor != null)
                 BaseColor = WorldTextSystem.GetColorFromHex(DialoguePage.BaseColor);
@@ -198,120 +145,123 @@ namespace AAModClassic.UI.Dialogue
             DialogueTimer = 0;
             Uptime = 0;
 
-            Vector2 zero = Vector2.Zero;
-            bool newLine = true;
-
-            float textWidth = 0f;
-
-            float highestFirstLineYScale = 1f;
-            for (int j = 0; j < Text.Length; j++)
-            {
-                if (Text[j] == '\n')
-                    break;
-                if (UniqueScales.TryGetValue(j, out Vector2 uniqueScale) && uniqueScale.Y > highestFirstLineYScale)
-                    highestFirstLineYScale = uniqueScale.Y;
-            }
-
-            SizeOffsetFromStart = new(8, 16 * highestFirstLineYScale);
+            Vector2[] charPositions = new Vector2[Text.Length];
+            TextSize = MeasureText(Text, Font.Value, UniqueScales, LineBreakIndexes, DialoguePage.TextScale, out Vector2 offset, charPositions: charPositions);
+            SizeOffsetFromStart = offset;
 
             for (int i = 0; i < Text.Length; i++)
+                CharacterData[i].TextPosition = charPositions[i];
+
+            if (DialoguePage.AlignType == Alignment.Center || DialoguePage.AlignType == Alignment.Right)
             {
-                char c = Text[i];
+                float textWidth = TextSize.X - 8f - offset.X;
 
-                #region Positioning
+                for (int line = 0; line < lineLengths.Length; line++)
+                {
+                    List<DialogueCharacterData> lineChars = CharacterData.Where(d => d.LineNumber == line).ToList();
+                    DialogueCharacterData furthest = lineChars.LastOrDefault(d => Text[d.Index] != '\n');
+                    if (furthest == null)
+                        continue;
+
+                    float dif = textWidth - furthest.TextPosition.X;
+                    float shift = DialoguePage.AlignType == Alignment.Center ? dif / 2f : dif;
+
+                    foreach (DialogueCharacterData d in lineChars)
+                        d.TextPosition.X += shift;
+                }
+            }
+        }
+
+        public static Vector2 MeasureText(string text, DynamicSpriteFont font, IReadOnlyDictionary<int, Vector2> uniqueScales, ICollection<int> lineBreakIndexes, float defaultTextScale, out Vector2 sizeOffsetFromStart, float startOffsetX = 8f, float startOffsetYPerScale = 16f, Vector2? extraPadding = null, Vector2[] charPositions = null)
+        {
+            Vector2 padding = extraPadding ?? new Vector2(8f, 12f);
+
+            float HighestYScale(int start)
+            {
+                float highest = 1f;
+                if (uniqueScales == null)
+                    return highest;
+
+                for (int j = start; j < text.Length; j++)
+                {
+                    if (text[j] == '\n')
+                        break;
+                    if (uniqueScales.TryGetValue(j, out Vector2 s) && s.Y > highest)
+                        highest = s.Y;
+                }
+                return highest;
+            }
+
+            sizeOffsetFromStart = new Vector2(startOffsetX, startOffsetYPerScale * HighestYScale(0));
+
+            Vector2 pen = Vector2.Zero;
+            bool newLine = true;
+            float textWidth = 0f;
+
+            void BreakLine(int nextLineScanStart)
+            {
+                if (pen.X > textWidth)
+                    textWidth = pen.X;
+
+                pen.X = 0f;
+                pen.Y += font.LineSpacing * HighestYScale(nextLineScanStart);
+                newLine = true;
+            }
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                char c = text[i];
+
                 Vector2 scale = Vector2.One;
-                if (UniqueScales.TryGetValue(i, out Vector2 result))
-                    scale = result;
-                else if (DialoguePage.TextScale != -1)
-                    scale *= DialoguePage.TextScale;
+                if (uniqueScales != null && uniqueScales.TryGetValue(i, out Vector2 unique))
+                    scale = unique;
+                else if (defaultTextScale != -1f)
+                    scale *= defaultTextScale;
 
-                //Checks for Special Characters, and handles Line Breaks
-                switch (c)
+                if (c == '\n')
                 {
-                    case '\n':
-                        if (zero.X > textWidth)
-                            textWidth = zero.X;
-
-                        zero.X = 0;
-
-                        float highestYscale = 1f;
-                        for (int j = i + 1; j < Text.Length; j++)
-                        {
-                            if (Text[j] == '\n')
-                                break;
-                            if (UniqueScales.TryGetValue(j, out Vector2 uniqueScale) && uniqueScale.Y > highestYscale)
-                                highestYscale = uniqueScale.Y;
-                        }
-                        zero.Y += Font.Value.LineSpacing * highestYscale;
-                        newLine = true;
-                        continue;
-                    case '\r':
-                        continue;
+                    BreakLine(i + 1);
+                    continue;
                 }
+                if (c == '\r')
+                    continue;
 
-                if (LineBreakIndexes.Contains(i))
-                {
-                    if (zero.X > textWidth)
-                        textWidth = zero.X;
+                if (lineBreakIndexes != null && lineBreakIndexes.Contains(i))
+                    BreakLine(i + 1);
 
-                    zero.X = 0;
+                if (!font.SpriteCharacters.TryGetValue(c, out SpriteCharacterData spriteData))
+                    spriteData = font.SpriteCharacters[font.DefaultCharacter];
 
-                    float highestYscale = 1f;
-                    for (int j = i + 1; j < Text.Length; j++)
-                    {
-                        if (Text[j] == '\n')
-                            break;
-                        if (UniqueScales.TryGetValue(j, out Vector2 uniqueScale) && uniqueScale.Y > highestYscale)
-                            highestYscale = uniqueScale.Y;
-                    }
-                    zero.Y += Font.Value.LineSpacing * highestYscale;
-                    newLine = true;
-                }
-
-                //Sets the character's position within the full text
-                SpriteCharacterData spriteData = Font.Value.SpriteCharacters[c];
                 Vector3 kerning = spriteData.Kerning;
-                Rectangle padding = spriteData.Padding;
+                Rectangle glyphPadding = spriteData.Padding;
 
                 if (newLine)
                     kerning.X = Math.Max(kerning.X, 0f);
                 else
-                    zero.X += Font.Value.CharacterSpacing * scale.X;
+                    pen.X += font.CharacterSpacing * scale.X;
 
-                zero.X += kerning.X * scale.X;
-                Vector2 position = zero + spriteData.Glyph.Size() * 0.5f;
-                position.X += padding.X * scale.X;
-                position.Y += padding.Y * scale.Y;
+                pen.X += kerning.X * scale.X;
 
-                CharacterData[i].TextPosition = position - (Vector2.UnitY * scale.Y * Font.Value.LineSpacing * 0.5f);
-
-                zero.X += (kerning.Y + kerning.Z) * scale.X;
-                newLine = false;
-                #endregion
-            }
-
-            if (zero.X > textWidth)
-                textWidth = zero.X;
-            float textHeight = zero.Y;
-
-            if (DialoguePage.AlignType != Alignment.Left)
-            {
-                for (int i = 0; i < lineLengths.Length; i++)
+                if (charPositions != null)
                 {
-                    DialogueCharacterData furthestChar = CharacterData.Last(d => d.LineNumber == i && Text[d.Index] != '\n');
-                    float xPos = furthestChar.TextPosition.X;
-                    float dif = textWidth - xPos;
-                    if (DialoguePage.AlignType == Alignment.Center)
-                        foreach (var c in CharacterData.Where(c => c.LineNumber == i))
-                            c.TextPosition.X += dif / 2f;
-                    else
-                        foreach (var c in CharacterData.Where(c => c.LineNumber == i))
-                            c.TextPosition.X += dif;
+                    Vector2 position = pen + spriteData.Glyph.Size() * 0.5f;
+                    position.X += glyphPadding.X * scale.X;
+                    position.Y += glyphPadding.Y * scale.Y;
+                    charPositions[i] = position - Vector2.UnitY * scale.Y * font.LineSpacing * 0.5f;
                 }
+
+                pen.X += (kerning.Y + kerning.Z) * scale.X;
+                newLine = false;
             }
 
-            TextSize = new Vector2(textWidth + 8, textHeight + 12) + SizeOffsetFromStart;
+            if (pen.X > textWidth)
+                textWidth = pen.X;
+            float textHeight = pen.Y;
+
+            return new Vector2(textWidth + padding.X, textHeight + padding.Y) + sizeOffsetFromStart;
         }
+
+        public static Vector2 MeasureText(string text, DynamicSpriteFont font, IReadOnlyDictionary<int, Vector2> uniqueScales = null, ICollection<int> lineBreakIndexes = null, float defaultTextScale = -1f) => MeasureText(text, font, uniqueScales, lineBreakIndexes, defaultTextScale, out _);
 
         public void ResetText(DialoguePage textData)
         {
@@ -319,7 +269,7 @@ namespace AAModClassic.UI.Dialogue
             OnActivate();
         }
 
-        private void FindEffects(ref string fullLine, int fullLength)
+        private static void FindEffects(ref string fullLine, int fullLength, ParsedPage result)
         {
             Stack<int> returnPoints = [];
             Stack<string> returnString = [];
@@ -390,22 +340,22 @@ namespace AAModClassic.UI.Dialogue
                             {
                                 if (ID == "Colors")
                                 {
-                                    if (float.TryParse(Param, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out float result))
-                                        Params.Add(result);
+                                    if (float.TryParse(Param, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out float color))
+                                        Params.Add(color);
                                     else
                                         ColorParams.Add(Param);
                                 }
                                 else if (ID == "BorderColors")
                                 {
-                                    if (float.TryParse(Param, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out float result))
-                                        Params.Add(result);
+                                    if (float.TryParse(Param, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out float color))
+                                        Params.Add(color);
                                     else
                                         BorderColorParams.Add(Param);
                                 }
                                 else
                                 {
-                                    if (float.TryParse(Param, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out float result))
-                                        Params.Add(result);
+                                    if (float.TryParse(Param, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out float parameter))
+                                        Params.Add(parameter);
                                     else
                                         throw new Exception("Invalid Parameter found");
                                 }
@@ -430,7 +380,7 @@ namespace AAModClassic.UI.Dialogue
                         foreach (string s in returnString)
                             storedLen += s.Length;
 
-                        Pauses.Add(index - storedLen - 1, Params[0]);
+                        result.Pauses.Add(index - storedLen - 1, Params[0]);
                     }
                     else
                     {
@@ -443,7 +393,7 @@ namespace AAModClassic.UI.Dialogue
                                 foreach (string s in returnString)
                                     storedLen += s.Length;
 
-                                UniqueColors.Add(index - storedLen, (Params.Count == 0 ? 0 : Params[0], Params.Count < 2 ? 1 : Params[1], [.. ColorParams]));
+                                result.UniqueColors.Add(index - storedLen, (Params.Count == 0 ? 0 : Params[0], Params.Count < 2 ? 1 : Params[1], [.. ColorParams]));
                             }
                             else if (ID == "BorderColors")
                             {
@@ -451,7 +401,7 @@ namespace AAModClassic.UI.Dialogue
                                 foreach (string s in returnString)
                                     storedLen += s.Length;
 
-                                UniqueBorderColors.Add(index - storedLen, (Params.Count == 0 ? 0 : Params[0], Params.Count < 2 ? 1 : Params[1], [.. BorderColorParams]));
+                                result.UniqueBorderColors.Add(index - storedLen, (Params.Count == 0 ? 0 : Params[0], Params.Count < 2 ? 1 : Params[1], [.. BorderColorParams]));
                             }
                             else if (ID == "Scale")
                             {
@@ -468,7 +418,7 @@ namespace AAModClassic.UI.Dialogue
                                     scale = new(Params[0], Params[1]);
 
 
-                                UniqueScales.Add(index - storedLen, scale);
+                                result.UniqueScales.Add(index - storedLen, scale);
                             }
                             else
                             {
@@ -479,10 +429,10 @@ namespace AAModClassic.UI.Dialogue
                                 string path = "AAModClassic.UI.Dialogue.TextEffects.";
                                 Type t = Type.GetType(path + ID) ?? throw new Exception("Invalid text effect ID found");
                                 TextEffect te = (TextEffect)Activator.CreateInstance(t);
-                                if (TextEffects.TryGetValue(index - storedLen, out var value))
+                                if (result.TextEffects.TryGetValue(index - storedLen, out var value))
                                     value.Add(new(te, [.. Params]));
                                 else
-                                    TextEffects.Add(index - storedLen, [new(te, [.. Params])]);
+                                    result.TextEffects.Add(index - storedLen, [new(te, [.. Params])]);
                             }
                         }
                     }
@@ -677,7 +627,7 @@ namespace AAModClassic.UI.Dialogue
             Vector2 textTop = DisplayEffects.TextOffsetFromStart(Position, TextSize);
             Vector2 pageTop = textTop - SizeOffsetFromStart;
 
-            DisplayEffects.PreDraw(spriteBatch, pageTop, TextSize, DialogueTimer, SwitchCounter);
+            DisplayEffects.PreDraw(spriteBatch, pageTop, TextSize, DialogueTimer, SwitchCounter, ClosingDialogue);
 
             #region Shadow Drawing
             for (int i = 0; i < textIndex; i++)
@@ -795,7 +745,7 @@ namespace AAModClassic.UI.Dialogue
             }
             #endregion
 
-            DisplayEffects.PostDraw(spriteBatch, pageTop, TextSize, DialogueTimer, SwitchCounter);
+            DisplayEffects.PostDraw(spriteBatch, pageTop, TextSize, DialogueTimer, SwitchCounter, ClosingDialogue);
         }
 
         private static bool IsStoppingPunctuation(char current, char? before, char? after)
@@ -817,6 +767,138 @@ namespace AAModClassic.UI.Dialogue
         {
             UnicodeCategory category = char.GetUnicodeCategory(c);
             return category >= UnicodeCategory.ConnectorPunctuation && category <= UnicodeCategory.OtherPunctuation;
+        }
+
+        internal sealed class ParsedPage
+        {
+            public string Text = "";
+            public int[] LineLengths = [];
+            public List<int> LineBreakIndexes = [];
+            public Dictionary<int, (float IndexOffset, float gradiantSpeed, string[] hexcodes)> UniqueColors = [];
+            public Dictionary<int, (float IndexOffset, float gradiantSpeed, string[] hexcodes)> UniqueBorderColors = [];
+            public Dictionary<int, float> Pauses = [];
+            public Dictionary<int, List<(TextEffect Effect, float[] args)>> TextEffects = [];
+            public Dictionary<int, Vector2> UniqueScales = [];
+        }
+
+        /// <summary>Effect parsing + word wrap, with no instance state. Shared by OnActivate and the size prediction.</summary>
+        internal static ParsedPage Parse(DialoguePage page, DynamicSpriteFont font, float wrapWidth)
+        {
+            ParsedPage result = new();
+
+            int fullLength = 0;
+            List<string> lines = [];
+            for (int i = 0; i < page.Lines.Length; i++)
+            {
+                string fullLine = page.Lines[i];
+                FindEffects(ref fullLine, fullLength, result);
+
+                if (fullLine[^1] != ' ')
+                    fullLine += ' ';
+
+                lines.Add(fullLine);
+                fullLength += fullLine.Length;
+            }
+
+            if (wrapWidth != -1)
+            {
+                for (int i = 0; i < lines.Count; i++)
+                {
+                    string line = lines[i];
+                    if (line[^1] == ' ')
+                        line = line.Remove(line.Length - 1, 1);
+
+                    if (MeasureLineWidth(line, font, result.UniqueScales, page.TextScale) > wrapWidth)
+                    {
+                        string yoinked = "";
+                        do
+                        {
+                            int finalIndex = line.LastIndexOf(' ');
+                            if (finalIndex < line.Length - 1)
+                                finalIndex++;
+                            yoinked = line.Substring(finalIndex) + yoinked;
+                            line = line.Remove(finalIndex);
+                        } while (MeasureLineWidth(line, font, result.UniqueScales, page.TextScale) > wrapWidth);
+
+                        lines[i] = line;
+                        if (yoinked[0] == ' ')
+                            yoinked = yoinked.Remove(0, 1);
+
+                        if (i >= lines.Count - 1)
+                            lines.Add(yoinked);
+                        else
+                            lines[i + 1] = yoinked + lines[i + 1];
+                    }
+                }
+            }
+
+            fullLength = 0;
+            result.LineLengths = new int[lines.Count];
+            for (int i = 0; i < lines.Count; i++)
+            {
+                result.LineLengths[i] = lines[i].Length;
+                result.Text += lines[i];
+                fullLength += lines[i].Length;
+                result.LineBreakIndexes.Add(fullLength);
+            }
+
+            return result;
+        }
+
+        private static float MeasureLineWidth(string text, DynamicSpriteFont font, IReadOnlyDictionary<int, Vector2> uniqueScales, float defaultTextScale)
+        {
+            float width = 0f;
+            bool newLine = true;
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                char c = text[i];
+
+                Vector2 scale = Vector2.One;
+                if (uniqueScales.TryGetValue(i, out Vector2 unique))
+                    scale = unique;
+                else if (defaultTextScale != -1)
+                    scale *= defaultTextScale;
+
+                if (c == '\n')
+                {
+                    width = 0f;
+                    newLine = true;
+                    continue;
+                }
+                if (c == '\r')
+                    continue;
+
+                Vector3 kerning = font.SpriteCharacters[c].Kerning;
+
+                if (newLine)
+                    kerning.X = Math.Max(kerning.X, 0f);
+                else
+                    width += font.CharacterSpacing * scale.X;
+
+                width += kerning.X * scale.X;
+                width += (kerning.Y + kerning.Z) * scale.X;
+                newLine = false;
+            }
+
+            return width;
+        }
+
+        public static Vector2 MeasurePage(DialoguePage page, DynamicSpriteFont font, float wrapWidth, out Vector2 sizeOffsetFromStart)
+        {
+            ParsedPage parsed = Parse(page, font, wrapWidth);
+            return MeasureText(parsed.Text, font, parsed.UniqueScales, parsed.LineBreakIndexes, page.TextScale, out sizeOffsetFromStart);
+        }
+
+        public Vector2 PredictTextSize(DialoguePage page, out Vector2 sizeOffsetFromStart)
+        {
+            if (page.Event != null || Font is null || !Font.IsLoaded)
+            {
+                sizeOffsetFromStart = SizeOffsetFromStart;
+                return TextSize;
+            }
+
+            return MeasurePage(page, Font.Value, WrapWidth, out sizeOffsetFromStart);
         }
     }
 

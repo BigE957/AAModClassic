@@ -8,7 +8,7 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
 {
     public class WhisperingPearlEffects : DisplayEffect
     {
-        public override void PreDraw(SpriteBatch spriteBatch, Vector2 textStart, Vector2 textSize, int textTimer, int switchTimer)
+        public override void PreDraw(SpriteBatch spriteBatch, Vector2 textStart, Vector2 textSize, int textTimer, int switchTimer, bool closing)
         {
             if (textTimer < 0)
                 return;

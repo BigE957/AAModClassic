@@ -16,9 +16,9 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
 
         public virtual float FadeDistance => 150f;
 
-        public virtual void PreDraw(SpriteBatch spriteBatch, Vector2 textStart, Vector2 textSize, int textTimer, int switchTimer) { }
+        public virtual void PreDraw(SpriteBatch spriteBatch, Vector2 textStart, Vector2 textSize, int textTimer, int switchTimer, bool closing) { }
 
-        public virtual void PostDraw(SpriteBatch spriteBatch, Vector2 textStart, Vector2 textSize, int textTimer, int switchTimer) { }
+        public virtual void PostDraw(SpriteBatch spriteBatch, Vector2 textStart, Vector2 textSize, int textTimer, int switchTimer, bool closing) { }
 
         public virtual float TimeToAppear => 30;
 

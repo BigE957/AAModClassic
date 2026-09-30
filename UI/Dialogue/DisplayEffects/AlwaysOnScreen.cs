@@ -35,7 +35,7 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
             return newPos;
         }
 
-        public override void PreDraw(SpriteBatch spriteBatch, Vector2 textTopLeft, Vector2 textSize, int textTimer, int switchTimer)
+        public override void PreDraw(SpriteBatch spriteBatch, Vector2 textTopLeft, Vector2 textSize, int textTimer, int switchTimer, bool closing)
         {
             Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/UI/Dialogue/Assets/DialogueArrow").Value;
             Vector2 textCenter = textTopLeft + textSize * 0.5f;
