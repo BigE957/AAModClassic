@@ -22,10 +22,9 @@ namespace AAModClassic._Content.RedMushroom.World.Tiles.Trees
             GrowsOnTileId = [ModContent.TileType<Mycelium_Tile>()];
         }
 
-        public override int DropWood()
-        {
-            return ItemID.Mushroom;
-        }
+        public override int DropWood() => ItemID.Mushroom;
+
+        public override bool CanDropAcorn() => false;
 
         public override Asset<Texture2D> GetTexture()
         {
