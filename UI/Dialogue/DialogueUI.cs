@@ -83,6 +83,13 @@ namespace AAModClassic.UI.Dialogue
         {
             var response = tree.Dialogues[currentIndex].Responses[responseIndex];
             SwitchDialogue(response.Heading == -2 ? currentIndex + 1 : response.Heading);
+
+            for(int i = 0; i < responses.Count; i++)
+            {
+                int delta = Math.Abs(i - responseIndex);
+                responses[i].Hide(delta * -5);
+            }
+
         }
 
         private bool switchStarted = false;
@@ -219,6 +226,8 @@ namespace AAModClassic.UI.Dialogue
 
         private bool show = false;
         private int showTimer = 0;
+        private bool hide = false;
+        private int hideTimer = 0;
         internal Vector2 idealAligns = Vector2.One * 0.5f;
 
 
@@ -258,11 +267,37 @@ namespace AAModClassic.UI.Dialogue
             showTimer = time;
         }
 
+        public void Hide(int time)
+        {
+            hide = true;
+            hideTimer = time;
+
+            _previousColor = _color;
+            _previousScale = _scale;
+        }
+
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
             
-            if (showTimer == 30)
+            if(hide)
+            {
+                if (hideTimer > 18)
+                    return;
+
+                hideTimer++;
+
+                if (hideTimer >= 0)
+                {
+                    float lerp = MathUtils.SineOutEasing(hideTimer / 18f);
+                    HAlign = MathHelper.Lerp(idealAligns.X, (0.5f + idealAligns.X) / 2f, lerp);
+                    VAlign = MathHelper.Lerp(idealAligns.Y, 0.5f, lerp);
+
+                    _scale = MathHelper.Lerp(_previousScale, 0.1f, lerp);
+                    _color = Color.Lerp(_previousColor, Color.Transparent, lerp);
+                }
+            }
+            else if (showTimer == 30)
             {
                 HAlign = idealAligns.X;
                 VAlign = idealAligns.Y;
