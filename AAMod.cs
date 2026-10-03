@@ -343,6 +343,16 @@ namespace AAModClassic
             Filters.Scene["AAModClassic:Mask"] = new Filter(shaderdata, EffectPriority.VeryHigh);
             Filters.Scene["AAModClassic:Mask"].Load();
 
+            shader = ModContent.Request<Effect>("AAModClassic/Effects/VerticalFade");
+            shaderdata = new(shader, "VerticalFade");
+            Filters.Scene["AAModClassic:VerticalFade"] = new Filter(shaderdata, EffectPriority.VeryHigh);
+            Filters.Scene["AAModClassic:VerticalFade"].Load();
+
+            shader = ModContent.Request<Effect>("AAModClassic/Effects/DialogueBloom");
+            shaderdata = new(shader, "DialogueBloom");
+            Filters.Scene["AAModClassic:DialogueBloom"] = new Filter(shaderdata, EffectPriority.VeryHigh);
+            Filters.Scene["AAModClassic:DialogueBloom"].Load();
+
             //TODO: Perhaps move these to their proper content area so the textures are easier to keep track off
             Main.QueueMainThreadAction(() =>
             {

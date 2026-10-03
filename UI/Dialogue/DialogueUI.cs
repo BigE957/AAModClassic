@@ -1,7 +1,6 @@
 ﻿using AAModClassic.Dialogues;
 using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.Utilities;
-using Microsoft.CodeAnalysis.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -12,10 +11,10 @@ using System.Text.Json.Serialization;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.UI.Elements;
+using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI;
-using static Terraria.WorldGen;
 
 namespace AAModClassic.UI.Dialogue
 {
@@ -27,6 +26,7 @@ namespace AAModClassic.UI.Dialogue
         internal List<ResponseButton> responses = [];
         internal UIPanel responsePanel;
         internal TextDisplay responseText;
+        internal DialoguePortrait portrait;
 
         // Data
         internal string treeName;
@@ -53,8 +53,14 @@ namespace AAModClassic.UI.Dialogue
             panel.BackgroundColor = Color.Transparent;
             panel.BorderColor = Color.Transparent;
 
+            portrait = new(ModContent.Request<Texture2D>("AAModClassic/UI/Dialogue/Assets/Portraits/Portrait_Truffle_shimmer"));
+            portrait.Top.Percent = PortraitTopPercent;
+
+            ((DialogueUIEffect)dialogue.DisplayEffects).SceneOverlay = portrait.DrawImage;
+
             Append(panel);
 
+            panel.Append(portrait);
             panel.Append(dialogue);
         }
 
@@ -77,6 +83,7 @@ namespace AAModClassic.UI.Dialogue
             (dialogue.DisplayEffects as DialogueUIEffect).ChangePosition = Vector2.Zero;
             (dialogue.DisplayEffects as DialogueUIEffect).ChangeSize = Vector2.Zero;
             dialogue.DialogueTimer = 0;
+            portrait.Opacity = 0f;
         }
 
         public void OnResponsePress(int responseIndex)
@@ -169,6 +176,35 @@ namespace AAModClassic.UI.Dialogue
 
         bool crawlOver = false;
 
+        private static float PortraitBaseLeft => 24f;
+        private static float PortraitBaseTop => -130f;
+        private static float PortraitTopPercent => 0.25f;
+
+        private void UpdatePortrait()
+        {
+            Vector2 size = dialogue.TextSize;
+            Vector2 virtualSize = size;
+
+            if (switchStarted && dialogue.SwitchingPage && !dialogue.ClosingDialogue)
+            {
+                var effect = (DialogueUIEffect)dialogue.DisplayEffects;
+                virtualSize += effect.ChangeSize * DialogueUIEffect.SwitchProgress(dialogue.SwitchCounter);
+            }
+
+            float widthDiff = size.X - virtualSize.X;
+            float heightDiff = (size.Y - virtualSize.Y) * 2f;   // panel height is TextSize.Y * 2
+
+            portrait.Left.Pixels = PortraitBaseLeft + widthDiff / 2f;
+            portrait.Top.Pixels = PortraitBaseTop + (0.5f - PortraitTopPercent) * heightDiff;
+
+
+            if (dialogue.DialogueTimer < 30f && !(dialogue.DisplayEffects as DialogueUIEffect).SkipIntroFade)
+                portrait.Opacity = MathUtils.CircOutEasing(dialogue.DialogueTimer / 30f);
+
+            if (dialogue.SwitchCounter > 0 && dialogue.ClosingDialogue)
+                portrait.Opacity *= MathHelper.Clamp(1 - MathUtils.CircOutEasing(dialogue.SwitchCounter / 60f), 0f, 1f);
+        }
+
         public override void Update(GameTime gameTime)
         {
             if (switchStarted)
@@ -185,6 +221,8 @@ namespace AAModClassic.UI.Dialogue
             Vector2 screenPos = worldCenter - Main.LocalPlayer.velocity - Main.screenPosition - halfSize;
             panel.Left.Pixels = screenPos.X;
             panel.Top.Pixels = screenPos.Y;
+
+            UpdatePortrait();
 
             panel.Recalculate();
 
@@ -375,6 +413,85 @@ namespace AAModClassic.UI.Dialogue
         }
     }
 
+    public class DialoguePortrait : UIElement
+    {
+        private Asset<Texture2D> _texture;
+        public float ImageScale = 1f;
+        public float Opacity = 1f;
+        public float Rotation;
+        public bool ScaleToFit;
+        public bool AllowResizingDimensions = true;
+        public Color Color = Color.White;
+        public Vector2 NormalizedOrigin = Vector2.Zero;
+        public bool RemoveFloatingPointsFromDrawPosition;
+        private Texture2D _nonReloadingTexture;
+
+        public DialoguePortrait(Asset<Texture2D> texture)
+        {
+            SetImage(texture);
+        }
+
+        public DialoguePortrait(Texture2D nonReloadingTexture)
+        {
+            SetImage(nonReloadingTexture);
+        }
+
+        public void SetImage(Asset<Texture2D> texture)
+        {
+            _texture = texture;
+            _nonReloadingTexture = null;
+            if (AllowResizingDimensions)
+            {
+                Width.Set(_texture.Width(), 0f);
+                Height.Set(_texture.Height(), 0f);
+            }
+        }
+
+        public void SetImage(Texture2D nonReloadingTexture)
+        {
+            _texture = null;
+            _nonReloadingTexture = nonReloadingTexture;
+            if (AllowResizingDimensions)
+            {
+                Width.Set(_nonReloadingTexture.Width, 0f);
+                Height.Set(_nonReloadingTexture.Height, 0f);
+            }
+        }
+
+        protected override void DrawSelf(SpriteBatch spriteBatch) => DrawImage(spriteBatch);
+
+        internal void DrawImage(SpriteBatch spriteBatch)
+        {
+            CalculatedStyle dimensions = GetDimensions();
+            Texture2D texture2D = _texture != null ? _texture.Value : _nonReloadingTexture;
+
+            spriteBatch.End(out var snap);
+            var shaderSnap = snap;
+
+            Effect effect = Filters.Scene["AAModClassic:VerticalFade"].GetShader().Shader;
+            effect.Parameters["fadeStart"].SetValue(0.75f);
+
+            shaderSnap.SortMode = SpriteSortMode.Immediate;
+            shaderSnap.CustomEffect = effect;
+            spriteBatch.Begin(shaderSnap);
+
+            if (ScaleToFit)
+                spriteBatch.Draw(texture2D, dimensions.ToRectangle(), Color * Opacity);
+            else
+            {
+                Vector2 vector = texture2D.Size();
+                Vector2 vector2 = dimensions.Position() + vector * (1f - ImageScale) / 2f + vector * NormalizedOrigin;
+                if (RemoveFloatingPointsFromDrawPosition)
+                    vector2 = vector2.Floor();
+
+                spriteBatch.Draw(texture2D, vector2, null, Color * Opacity, Rotation, vector * NormalizedOrigin, ImageScale, SpriteEffects.None, 0f);
+            }
+
+            spriteBatch.End();
+            spriteBatch.Begin(snap);
+        }
+    }
+
     public class DialogueUISystem : ModSystem
     {
         internal static DialogueUI State;
@@ -395,6 +512,8 @@ namespace AAModClassic.UI.Dialogue
             }
         }
 
+        public override void Unload() => DialogueSceneCapture.Dispose();
+
         public override void PostSetupContent()
         {
             ResponseIcons.Add("Default", (TextureAssets.Item[ItemID.FallenStar], TextureAssets.Item[ItemID.FallenStar].Frame(1, 8)));
@@ -402,15 +521,11 @@ namespace AAModClassic.UI.Dialogue
 
         public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
         {
-            int preInventory = layers.FindIndex(layer => layer.Name == "Vanilla: Interface Logic 2");
-            if (preInventory != -1)
+            layers.Insert(0, new LegacyGameInterfaceLayer("AAModClassic: Dialogue", () =>
             {
-                layers.Insert(preInventory, new LegacyGameInterfaceLayer("AAModClassic: Dialogue", () =>
-                {
-                    UI.Draw(Main.spriteBatch, new());
-                    return true;
-                }, InterfaceScaleType.Game));
-            }
+                UI.Draw(Main.spriteBatch, new());
+                return true;
+            }, InterfaceScaleType.Game));
         }
 
         public override void UpdateUI(GameTime gameTime)
@@ -444,6 +559,70 @@ namespace AAModClassic.UI.Dialogue
                 UI.SetState(null);
 
                 SoundEngine.PlaySound(SoundID.MenuClose);
+            }
+        }
+
+        internal static class DialogueSceneCapture
+        {
+            private static RenderTarget2D target;
+
+            public static RenderTarget2D Capture(SpriteBatch sb, RenderTarget2D source, Action<SpriteBatch> overlay, SpriteBatchSnapshot uiState)
+            {
+                GraphicsDevice gd = Main.instance.GraphicsDevice;
+
+                if (target == null || target.IsDisposed || target.Width != source.Width || target.Height != source.Height)
+                {
+                    target?.Dispose();
+                    target = new RenderTarget2D(gd, source.Width, source.Height, false, source.Format, DepthFormat.None);
+                }
+
+                RenderTargetBinding[] previousTargets = gd.GetRenderTargets();
+                Viewport previousViewport = gd.Viewport;
+
+                gd.SetRenderTarget(target);
+                gd.Clear(Color.Transparent);
+
+                var copySnap = uiState;
+                copySnap.SortMode = SpriteSortMode.Deferred;
+                copySnap.BlendState = BlendState.Opaque;
+                copySnap.CustomEffect = null;
+                copySnap.TransformMatrix = Matrix.Identity;
+                sb.Begin(copySnap);
+                sb.Draw(source, Vector2.Zero, Color.White);
+                sb.End();
+
+                if (overlay != null)
+                {
+                    sb.Begin(uiState);
+                    overlay(sb);
+                    sb.End();
+                }
+
+                gd.SetRenderTargets(previousTargets);
+                gd.Viewport = previousViewport;
+
+                if (previousTargets.Length == 0)
+                {
+                    var restoreSnap = uiState;
+                    restoreSnap.SortMode = SpriteSortMode.Deferred;
+                    restoreSnap.BlendState = BlendState.Opaque;
+                    restoreSnap.CustomEffect = null;
+                    restoreSnap.TransformMatrix = Matrix.Identity;
+                    sb.Begin(restoreSnap);
+                    sb.Draw(target, Vector2.Zero, Color.White);
+                    sb.End();
+                }
+
+                return target;
+            }
+
+            public static void Dispose()
+            {
+                Main.QueueMainThreadAction(() =>
+                {
+                    target?.Dispose();
+                    target = null;
+                });
             }
         }
     }

@@ -1,7 +1,10 @@
 ﻿using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using Terraria.Graphics.Effects;
 using Terraria.ModLoader;
+using static AAModClassic.UI.Dialogue.DialogueUISystem;
 
 namespace AAModClassic.UI.Dialogue.DisplayEffects
 {
@@ -10,6 +13,24 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
         public Vector2 ChangePosition = Vector2.Zero;
         public Vector2 ChangeSize = Vector2.Zero;
         public bool SkipIntroFade = false;
+        public static float SwitchProgress(int switchTimer) => MathUtils.SineInOutEasing(MathHelper.Clamp(switchTimer / 60f, 0f, 1f));
+
+        private static readonly BlendState MultiplyBlend = new()
+        {
+            ColorSourceBlend = Blend.Zero,
+            ColorDestinationBlend = Blend.SourceColor,
+            AlphaSourceBlend = Blend.Zero,
+            AlphaDestinationBlend = Blend.One
+        };
+
+        public static float LumaThreshold => 0.35f;
+        public static float LumaCeiling => 0.5f;
+        public static float BaseDarken => 0.33f;
+        public static Vector3 ShadowTint => new(0.70f, 0.78f, 1f);
+        public static float TintStrength => 0.6f;
+        public static float ChromaBoost => 0.8f;
+
+        public Action<SpriteBatch> SceneOverlay;
 
         public override bool FadeWhenTooFar => false;
 
@@ -60,14 +81,62 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
                     Opacity *= MathHelper.Clamp(1 - MathUtils.CircOutEasing(switchTimer / 60f), 0f, 1f);
                 else
                 {
-                    float t = MathUtils.SineInOutEasing(MathHelper.Clamp(switchTimer / 60f, 0f, 1f));
+                    float t = SwitchProgress(switchTimer);
                     drawPos += ChangePosition * t;
                     drawSize += ChangeSize * t;
                 }
             }
 
             Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Assets/General/SmallBloom").Value;
-            spriteBatch.Draw(tex, drawPos + drawSize * 0.5f, null, Color.Black * 0.6f * Opacity, 0f, tex.Size() * 0.5f, new Vector2(drawSize.X / 160f, drawSize.Y / 120f), 0, 0);
+            Vector2 center = drawPos + drawSize * 0.5f;
+            Vector2 scale = new(drawSize.X / 160f, drawSize.Y / 120f);
+
+            Effect effect = Filters.Scene["AAModClassic:DialogueBloom"].GetShader().Shader;
+            RenderTarget2D screen = Main.screenTarget;
+
+            if (effect == null || screen == null || screen.IsDisposed)
+            {
+                spriteBatch.Draw(tex, center, null, Color.Black * 0.6f * Opacity, 0f, tex.Size() * 0.5f, scale, 0, 0);
+                return;
+            }
+
+            spriteBatch.End(out var snap);
+
+            // World plus the portrait, so the shader sees what is really on screen.
+            RenderTarget2D scene = DialogueSceneCapture.Capture(spriteBatch, screen, SceneOverlay, snap);
+
+            Vector2 quadSize = tex.Size() * scale;
+            Vector2 quadMin = center - quadSize * 0.5f;
+            Matrix view = snap.TransformMatrix;
+            Vector2 a = Vector2.Transform(quadMin, view);
+            Vector2 b = Vector2.Transform(quadMin + quadSize, view);
+            Vector2 sceneSize = new(scene.Width, scene.Height);
+
+            effect.Parameters["Position"].SetValue(a / sceneSize);
+            effect.Parameters["Size"].SetValue((b - a) / sceneSize);
+            effect.Parameters["Threshold"].SetValue(LumaThreshold);
+            effect.Parameters["Ceiling"].SetValue(LumaCeiling);
+            effect.Parameters["BaseDarken"].SetValue(BaseDarken);
+            effect.Parameters["Opacity"].SetValue(Opacity);
+            effect.Parameters["ShadowTint"].SetValue(ShadowTint);
+            effect.Parameters["TintStrength"].SetValue(TintStrength);
+            effect.Parameters["ChromaBoost"].SetValue(ChromaBoost);
+
+            var shaderSnap = snap;
+            shaderSnap.SortMode = SpriteSortMode.Immediate;
+            shaderSnap.BlendState = MultiplyBlend;
+            shaderSnap.CustomEffect = effect;
+            spriteBatch.Begin(shaderSnap);
+
+            GraphicsDevice gd = Main.instance.GraphicsDevice;
+            gd.Textures[1] = scene;
+            gd.SamplerStates[1] = SamplerState.LinearClamp;
+
+            spriteBatch.Draw(tex, center, null, Color.White, 0f, tex.Size() * 0.5f, scale, 0, 0);
+
+            spriteBatch.End();
+            gd.Textures[1] = null;
+            spriteBatch.Begin(snap);
         }
     }
 }
