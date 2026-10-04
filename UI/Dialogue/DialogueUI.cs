@@ -546,7 +546,7 @@ namespace AAModClassic.UI.Dialogue
                 PlayerInput.SetZoom_Unscaled();
 
                 Vector2 worldCenter = State.worldCenter;
-                Rectangle bounds = new Rectangle((int)worldCenter.X - Main.screenWidth / 2, (int)worldCenter.Y - Main.screenHeight / 2, Main.screenWidth, Main.screenHeight);
+                Rectangle bounds = new((int)worldCenter.X - Main.screenWidth / 2, (int)worldCenter.Y - Main.screenHeight / 2, Main.screenWidth, Main.screenHeight);
 
                 if (bounds.Contains((int)Main.LocalPlayer.Center.X, (int)Main.LocalPlayer.Center.Y))
                 {
@@ -554,12 +554,9 @@ namespace AAModClassic.UI.Dialogue
                     float buffer = 256f;
                     float nearbyRatio = 1 - MathHelper.Clamp((dist - buffer) / (Main.screenWidth / 2f - buffer), 0f, 1f);
                     float appearRatio = 1f;
-                    if(lockedInTimer <= 30f)
-                        appearRatio = MathUtils.SineInOutEasing(lockedInTimer / 30f);
-                    if (!(State.dialogue.DisplayEffects as DialogueUIEffect).SkipIntroFade && State.dialogue.DialogueTimer <= 30)
-                        appearRatio *= MathUtils.CircOutEasing(State.dialogue.DialogueTimer / 30f);
-
-                    //Main.NewText(lerp);
+                    
+                    if (!(State.dialogue.DisplayEffects as DialogueUIEffect).SkipIntroFade && State.dialogue.DialogueTimer <= 60)
+                        appearRatio *= MathUtils.CircOutEasing(State.dialogue.DialogueTimer / 60f);
 
                     if (nearbyRatio != 0f)
                     {
@@ -572,8 +569,12 @@ namespace AAModClassic.UI.Dialogue
                 }
                 else
                 {
-                    lockedInTimer = 0;
-                    CameraSystem.ResetCamera();
+                    if (lockedInTimer != 0)
+                    {
+                        CameraSystem.ResetCamera();
+                        lockedInTimer = 0;
+                    }
+
                 }
             }
         }

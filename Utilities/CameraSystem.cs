@@ -18,6 +18,7 @@ namespace AAModClassic.Utilities
                 cameraModified = true;
             }
         }
+        private static Vector2 oldCameraPosition = Main.screenPosition;
         private static Vector2 cameraPosition = Main.screenPosition;
         private static Vector2 setCameraPosition = Main.screenPosition;
         private static bool cameraModified = false;
@@ -40,7 +41,7 @@ namespace AAModClassic.Utilities
         {
             if (ResetTimer > 30)
             {
-                setCameraPosition = Main.screenPosition;
+                oldCameraPosition = setCameraPosition = Main.screenPosition;
                 setZoom = 0f;
                 return;
             }
@@ -75,7 +76,7 @@ namespace AAModClassic.Utilities
             Main.instance.CameraModifiers.Add(new PunchCameraModifier(startPosition, direction, strength, vibrationCyclesPerSecond, frames, distanceFalloff, uniqueIdentity));
         }
 
-        public static void InterpolateCamera(Vector2 goalCenter, float interpolant) => CameraCenter = Vector2.Lerp(Main.screenPosition + Main.ScreenSize.ToVector2() * 0.5f, goalCenter, MathHelper.Clamp(interpolant, 0f, 1f));
+        public static void InterpolateCamera(Vector2 goalCenter, float interpolant) => CameraCenter = Vector2.Lerp(oldCameraPosition + Main.ScreenSize.ToVector2() * 0.5f, goalCenter, MathHelper.Clamp(interpolant, 0f, 1f));
     
         public static void ResetCamera()
         {
