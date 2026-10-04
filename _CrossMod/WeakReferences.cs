@@ -1799,8 +1799,8 @@ namespace AAModClassic._CrossMod
             if (ModLoader.TryGetMod("NoxusBoss", out Mod wotg))
             {
                 ShenDoragonUtils.CrossModDialogue.Add("NoxusBoss", (Language.GetOrRegister(shenLocPath + "NoxusBoss"), () => NPC.downedMoonlord));
-                Oblivion.CrossModDialogue.Add("NoxusBoss", (Language.GetOrRegister(izLocPath + "NoxusBoss.PreNameless"), () => !(bool)wotg.Call("GetBossDefeated", "namelessdeity")));
-                Oblivion.CrossModDialogue.Add("NoxusBoss", (Language.GetOrRegister(izLocPath + "NoxusBoss.PostNameless"), () => (bool)wotg.Call("GetBossDefeated", "namelessdeity")));
+                Oblivion.CrossModDialogue.Add("NoxusBoss:PreNameless", (Language.GetOrRegister(izLocPath + "NoxusBoss.PreNameless"), () => !(bool)wotg.Call("GetBossDefeated", "namelessdeity")));
+                Oblivion.CrossModDialogue.Add("NoxusBoss:PostNameless", (Language.GetOrRegister(izLocPath + "NoxusBoss.PostNameless"), () => (bool)wotg.Call("GetBossDefeated", "namelessdeity")));
             }
 
             if (ModLoader.TryGetMod("SOTS", out var sots) && sots.TryFind<ModSystem>("SystemTweaks", out downed))
