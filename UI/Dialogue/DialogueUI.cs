@@ -11,6 +11,7 @@ using System.Text.Json.Serialization;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.UI.Elements;
+using Terraria.GameInput;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -218,7 +219,12 @@ namespace AAModClassic.UI.Dialogue
             panel.Height.Pixels = dialogue.TextSize.Y * 2;
 
             Vector2 halfSize = new(panel.Width.Pixels / 2f, panel.Height.Pixels / 2f);
-            Vector2 screenPos = worldCenter - Main.LocalPlayer.velocity - Main.screenPosition - halfSize;
+            Vector2 cameraPosition = Main.screenPosition;
+
+            //cameraPosition += Main.LocalPlayer.position - Main.LocalPlayer.oldPosition;
+
+            Vector2 screenPos = worldCenter - cameraPosition - halfSize;
+
             panel.Left.Pixels = screenPos.X;
             panel.Top.Pixels = screenPos.Y;
 
@@ -492,6 +498,7 @@ namespace AAModClassic.UI.Dialogue
         }
     }
 
+    [Autoload(Side = ModSide.Client)]
     public class DialogueUISystem : ModSystem
     {
         internal static DialogueUI State;
@@ -528,10 +535,47 @@ namespace AAModClassic.UI.Dialogue
             }, InterfaceScaleType.Game));
         }
 
+        private static int lockedInTimer = 0;
+
         public override void UpdateUI(GameTime gameTime)
         {
             if (UI?.CurrentState != null)
-                UI?.Update(gameTime);
+            {
+                PlayerInput.SetZoom_World();
+                UI.Update(gameTime);
+                PlayerInput.SetZoom_Unscaled();
+
+                Vector2 worldCenter = State.worldCenter;
+                Rectangle bounds = new Rectangle((int)worldCenter.X - Main.screenWidth / 2, (int)worldCenter.Y - Main.screenHeight / 2, Main.screenWidth, Main.screenHeight);
+
+                if (bounds.Contains((int)Main.LocalPlayer.Center.X, (int)Main.LocalPlayer.Center.Y))
+                {
+                    float dist = MathF.Abs(worldCenter.X - Main.LocalPlayer.Center.X);
+                    float buffer = 256f;
+                    float nearbyRatio = 1 - MathHelper.Clamp((dist - buffer) / (Main.screenWidth / 2f - buffer), 0f, 1f);
+                    float appearRatio = 1f;
+                    if(lockedInTimer <= 30f)
+                        appearRatio = MathUtils.SineInOutEasing(lockedInTimer / 30f);
+                    if (!(State.dialogue.DisplayEffects as DialogueUIEffect).SkipIntroFade && State.dialogue.DialogueTimer <= 30)
+                        appearRatio *= MathUtils.CircOutEasing(State.dialogue.DialogueTimer / 30f);
+
+                    //Main.NewText(lerp);
+
+                    if (nearbyRatio != 0f)
+                    {
+                        float ease = MathUtils.SineInOutEasing(nearbyRatio);
+                        CameraSystem.InterpolateCamera(Vector2.Lerp(Main.LocalPlayer.Center, worldCenter, ease), appearRatio);
+                        CameraSystem.Zoom = MathHelper.Clamp(ease - 0.5f, 0f, 0.5f) / 2f * appearRatio;
+                    }
+
+                    lockedInTimer++;
+                }
+                else
+                {
+                    lockedInTimer = 0;
+                    CameraSystem.ResetCamera();
+                }
+            }
         }
     
         public static void StartDialogue(string name, int startIndex, Vector2 position)

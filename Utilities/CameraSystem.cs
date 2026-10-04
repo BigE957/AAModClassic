@@ -21,6 +21,7 @@ namespace AAModClassic.Utilities
         private static Vector2 cameraPosition = Main.screenPosition;
         private static Vector2 setCameraPosition = Main.screenPosition;
         private static bool cameraModified = false;
+        public static bool CameraModified => cameraModified;
         private static int ResetTimer = 60;
 
         public static float Zoom
@@ -38,7 +39,11 @@ namespace AAModClassic.Utilities
         public override void ModifyScreenPosition()
         {
             if (ResetTimer > 30)
+            {
+                setCameraPosition = Main.screenPosition;
+                setZoom = 0f;
                 return;
+            }
 
             if ((Main.LocalPlayer.dead && !Main.gamePaused) || !cameraModified)
             {
@@ -71,5 +76,10 @@ namespace AAModClassic.Utilities
         }
 
         public static void InterpolateCamera(Vector2 goalCenter, float interpolant) => CameraCenter = Vector2.Lerp(Main.screenPosition + Main.ScreenSize.ToVector2() * 0.5f, goalCenter, MathHelper.Clamp(interpolant, 0f, 1f));
+    
+        public static void ResetCamera()
+        {
+            ResetTimer = 60;
+        }
     }
 }
