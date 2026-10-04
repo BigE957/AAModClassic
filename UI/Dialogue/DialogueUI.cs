@@ -554,15 +554,20 @@ namespace AAModClassic.UI.Dialogue
                     float buffer = 256f;
                     float nearbyRatio = 1 - MathHelper.Clamp((dist - buffer) / (Main.screenWidth / 2f - buffer), 0f, 1f);
                     float appearRatio = 1f;
-                    
+                    if(lockedInTimer <= 60f)
+                        appearRatio = MathUtils.SineInOutEasing(lockedInTimer / 60f);
                     if (!(State.dialogue.DisplayEffects as DialogueUIEffect).SkipIntroFade && State.dialogue.DialogueTimer <= 60)
                         appearRatio *= MathUtils.CircOutEasing(State.dialogue.DialogueTimer / 60f);
+
+                    //Main.NewText(lerp);
 
                     if (nearbyRatio != 0f)
                     {
                         float ease = MathUtils.SineInOutEasing(nearbyRatio);
-                        CameraSystem.InterpolateCamera(Vector2.Lerp(Main.LocalPlayer.Center, worldCenter, ease), appearRatio);
-                        CameraSystem.Zoom = MathHelper.Clamp(ease - 0.5f, 0f, 0.5f) / 2f * appearRatio;
+                        Vector2 goalCenter = Vector2.Lerp(Main.LocalPlayer.Center, worldCenter, ease);
+
+                        CameraSystem.InterpolateCamera(goalCenter, 1f, appearRatio);
+                        CameraSystem.Zoom = MathUtils.SineInOutEasing(MathHelper.Clamp(ease - 0.5f, 0f, 0.5f) * 2f) / 4f * appearRatio;
                     }
 
                     lockedInTimer++;
