@@ -263,8 +263,6 @@ namespace AAModClassic._Unofficial.Desert
         }
 
         private bool chatting = false;
-        private static int lockedInTimer = 0;
-
         public override void AI()
         {
             if (chatting && DialogueUISystem.UI.CurrentState == null)
@@ -276,8 +274,9 @@ namespace AAModClassic._Unofficial.Desert
 
             if (chatting)
             {
-                DialogueUISystem.State.worldCenter = (NPC.Center + Main.LocalPlayer.Center) / 2f - Vector2.UnitY * 160f;
-                Vector2 regionCenter = NPC.Center - Vector2.UnitY * 160f;
+                Vector2 cameraCenter = (NPC.Center + Main.LocalPlayer.Center) / 2f - Vector2.UnitY * 180f;
+                DialogueUISystem.State.worldCenter = cameraCenter - Vector2.UnitY * 60f;
+                Vector2 regionCenter = NPC.Center - Vector2.UnitY * 140f;
                 Rectangle bounds = new((int)regionCenter.X - Main.screenWidth / 2, (int)regionCenter.Y - Main.screenHeight / 2, Main.screenWidth, Main.screenHeight);
 
                 if (bounds.Contains((int)Main.LocalPlayer.Center.X, (int)Main.LocalPlayer.Center.Y))
@@ -285,24 +284,19 @@ namespace AAModClassic._Unofficial.Desert
                     float dist = MathF.Abs(regionCenter.X - Main.LocalPlayer.Center.X);
                     float buffer = 256f;
                     float nearbyRatio = 1 - MathHelper.Clamp((dist - buffer) / (Main.screenWidth / 2f - buffer), 0f, 1f);
+                    
                     float appearRatio = 1f;
-                    if (lockedInTimer <= 60f)
-                        appearRatio = MathUtils.SineInOutEasing(lockedInTimer / 60f);
                     if (!(DialogueUISystem.State.dialogue.DisplayEffects as DialogueUIEffect).SkipIntroFade && DialogueUISystem.State.dialogue.DialogueTimer <= 60)
-                        appearRatio *= MathUtils.CircOutEasing(DialogueUISystem.State.dialogue.DialogueTimer / 60f);
-
-                    //Main.NewText(lerp);
+                        appearRatio = MathUtils.SineInOutEasing(DialogueUISystem.State.dialogue.DialogueTimer / 60f);
 
                     if (nearbyRatio != 0f)
                     {
                         float ease = MathUtils.SineInOutEasing(nearbyRatio);
-                        Vector2 goalCenter = Vector2.Lerp(Main.LocalPlayer.Center, DialogueUISystem.State.worldCenter, ease);
+                        Vector2 goalCenter = Vector2.Lerp(Main.LocalPlayer.Center, cameraCenter, ease);
 
-                        CameraSystem.InterpolateCamera(goalCenter, 1f, appearRatio);
+                        CameraSystem.InterpolateCamera(goalCenter, appearRatio);
                         CameraSystem.Zoom = MathUtils.SineInOutEasing(MathHelper.Clamp(ease - 0.5f, 0f, 0.5f) * 2f) / 4f * appearRatio;
                     }
-
-                    lockedInTimer++;
                 }
                 else
                 {
@@ -310,8 +304,6 @@ namespace AAModClassic._Unofficial.Desert
                     chatting = false;
                     Main.CloseNPCChatOrSign();
                     CameraSystem.ResetCamera();
-                    lockedInTimer = 0;
-
                 }
             }
         }

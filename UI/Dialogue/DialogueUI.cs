@@ -220,9 +220,6 @@ namespace AAModClassic.UI.Dialogue
 
             Vector2 halfSize = new(panel.Width.Pixels / 2f, panel.Height.Pixels / 2f);
             Vector2 cameraPosition = Main.screenPosition;
-
-            //cameraPosition += Main.LocalPlayer.position - Main.LocalPlayer.oldPosition;
-
             Vector2 screenPos = worldCenter - cameraPosition - halfSize;
 
             panel.Left.Pixels = screenPos.X;
