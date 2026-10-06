@@ -102,7 +102,7 @@ namespace AAModClassic.UI.Dialogue
 
         private bool switchStarted = false;
 
-        private void SwitchDialogue(int newIndex)
+        internal void SwitchDialogue(int newIndex)
         {
             currentIndex = newIndex;
             switchStarted = true;
@@ -535,8 +535,6 @@ namespace AAModClassic.UI.Dialogue
             }, InterfaceScaleType.Game));
         }
 
-        private static int lockedInTimer = 0;
-
         public override void UpdateUI(GameTime gameTime)
         {
             if (UI?.CurrentState != null)
@@ -544,43 +542,6 @@ namespace AAModClassic.UI.Dialogue
                 PlayerInput.SetZoom_World();
                 UI.Update(gameTime);
                 PlayerInput.SetZoom_Unscaled();
-
-                Vector2 worldCenter = State.worldCenter;
-                Rectangle bounds = new((int)worldCenter.X - Main.screenWidth / 2, (int)worldCenter.Y - Main.screenHeight / 2, Main.screenWidth, Main.screenHeight);
-
-                if (bounds.Contains((int)Main.LocalPlayer.Center.X, (int)Main.LocalPlayer.Center.Y))
-                {
-                    float dist = MathF.Abs(worldCenter.X - Main.LocalPlayer.Center.X);
-                    float buffer = 256f;
-                    float nearbyRatio = 1 - MathHelper.Clamp((dist - buffer) / (Main.screenWidth / 2f - buffer), 0f, 1f);
-                    float appearRatio = 1f;
-                    if(lockedInTimer <= 60f)
-                        appearRatio = MathUtils.SineInOutEasing(lockedInTimer / 60f);
-                    if (!(State.dialogue.DisplayEffects as DialogueUIEffect).SkipIntroFade && State.dialogue.DialogueTimer <= 60)
-                        appearRatio *= MathUtils.CircOutEasing(State.dialogue.DialogueTimer / 60f);
-
-                    //Main.NewText(lerp);
-
-                    if (nearbyRatio != 0f)
-                    {
-                        float ease = MathUtils.SineInOutEasing(nearbyRatio);
-                        Vector2 goalCenter = Vector2.Lerp(Main.LocalPlayer.Center, worldCenter, ease);
-
-                        CameraSystem.InterpolateCamera(goalCenter, 1f, appearRatio);
-                        CameraSystem.Zoom = MathUtils.SineInOutEasing(MathHelper.Clamp(ease - 0.5f, 0f, 0.5f) * 2f) / 4f * appearRatio;
-                    }
-
-                    lockedInTimer++;
-                }
-                else
-                {
-                    if (lockedInTimer != 0)
-                    {
-                        CameraSystem.ResetCamera();
-                        lockedInTimer = 0;
-                    }
-
-                }
             }
         }
     
@@ -600,6 +561,14 @@ namespace AAModClassic.UI.Dialogue
             }
         }
 
+        public static void CloseDialogue()
+        {
+            State.SwitchDialogue(-1);
+            for (int i = 0; i < State.responses.Count; i++)
+                State.responses[i].Hide(i * -5);
+            SoundEngine.PlaySound(SoundID.MenuClose);
+        }
+        
         public static void EndDialogue()
         {
             if (Visible)
@@ -607,8 +576,6 @@ namespace AAModClassic.UI.Dialogue
                 Visible = false;
 
                 UI.SetState(null);
-
-                SoundEngine.PlaySound(SoundID.MenuClose);
             }
         }
 
