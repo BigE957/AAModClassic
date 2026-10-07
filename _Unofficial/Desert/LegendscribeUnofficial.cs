@@ -263,13 +263,15 @@ namespace AAModClassic._Unofficial.Desert
         }
 
         private bool chatting = false;
+        private int appearTimer = 0;
         public override void AI()
         {
-            if (chatting && DialogueUISystem.UI.CurrentState == null)
+            if (chatting && appearTimer >= 60 && DialogueUISystem.UI.CurrentState == null)
             {
                 chatting = false;
+                appearTimer = 0;
                 Main.CloseNPCChatOrSign();
-
+                return;
             }
 
             if (chatting)
@@ -286,8 +288,13 @@ namespace AAModClassic._Unofficial.Desert
                     float nearbyRatio = 1 - MathHelper.Clamp((dist - buffer) / (Main.screenWidth / 2f - buffer), 0f, 1f);
                     
                     float appearRatio = 1f;
-                    if (!(DialogueUISystem.State.dialogue.DisplayEffects as DialogueUIEffect).SkipIntroFade && DialogueUISystem.State.dialogue.DialogueTimer <= 60)
-                        appearRatio = MathUtils.SineInOutEasing(DialogueUISystem.State.dialogue.DialogueTimer / 60f);
+                    if (appearTimer <= 60)
+                    {
+                        if(appearTimer == 30)
+                            DialogueUISystem.StartDialogue("Mods.AAModClassic.DialogueTrees.Example", 0, NPC.Center - Vector2.UnitY * 180);
+                        appearRatio = MathUtils.SineInOutEasing(appearTimer / 60f);
+                        appearTimer++;
+                    }
 
                     if (nearbyRatio != 0f)
                     {
@@ -302,6 +309,7 @@ namespace AAModClassic._Unofficial.Desert
                 {
                     DialogueUISystem.CloseDialogue();
                     chatting = false;
+                    appearTimer = 0;
                     Main.CloseNPCChatOrSign();
                     CameraSystem.ResetCamera();
                 }
@@ -1166,7 +1174,6 @@ namespace AAModClassic._Unofficial.Desert
 
             Main.BestiaryTracker.Chats.RegisterChatStartWith(ContentSamples.NpcsByNetId[ModContent.NPCType<Legendscribe>()]);
 
-            DialogueUISystem.StartDialogue("Mods.AAModClassic.DialogueTrees.Example", 0, NPC.Center - Vector2.UnitY * 180);
             chatting = true;
             return "";
 

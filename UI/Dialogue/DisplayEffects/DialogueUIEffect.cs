@@ -13,7 +13,7 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
         public Vector2 ChangePosition = Vector2.Zero;
         public Vector2 ChangeSize = Vector2.Zero;
         public bool SkipIntroFade = false;
-        public static float SwitchProgress(int switchTimer) => MathUtils.SineInOutEasing(MathHelper.Clamp(switchTimer / 60f, 0f, 1f));
+        public static float SwitchProgress(int switchTimer) => MathUtils.SineInOutEasing(MathHelper.Clamp(switchTimer / 30f, 0f, 1f));
 
         private static readonly BlendState MultiplyBlend = new()
         {
@@ -73,12 +73,12 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
             Vector2 drawSize = textSize;
 
             if (textTimer < 30f && !SkipIntroFade)
-                Opacity = MathUtils.CircOutEasing(textTimer / 30f);
+                Opacity = MathUtils.SineOutEasing(textTimer / 30f);
 
             if (switchTimer > 0)
             {
                 if (closing)
-                    Opacity *= MathHelper.Clamp(1 - MathUtils.CircOutEasing(switchTimer / 60f), 0f, 1f);
+                    Opacity = MathHelper.Clamp(1 - MathUtils.SineInEasing(switchTimer / 30f), 0f, 1f);
                 else
                 {
                     float t = SwitchProgress(switchTimer);

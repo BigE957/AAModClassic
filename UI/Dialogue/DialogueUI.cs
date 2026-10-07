@@ -198,12 +198,18 @@ namespace AAModClassic.UI.Dialogue
             portrait.Left.Pixels = PortraitBaseLeft + widthDiff / 2f;
             portrait.Top.Pixels = PortraitBaseTop + (0.5f - PortraitTopPercent) * heightDiff;
 
-
             if (dialogue.DialogueTimer < 30f && !(dialogue.DisplayEffects as DialogueUIEffect).SkipIntroFade)
+            {
                 portrait.Opacity = MathUtils.CircOutEasing(dialogue.DialogueTimer / 30f);
 
-            if (dialogue.SwitchCounter > 0 && dialogue.ClosingDialogue)
-                portrait.Opacity *= MathHelper.Clamp(1 - MathUtils.CircOutEasing(dialogue.SwitchCounter / 60f), 0f, 1f);
+                portrait.Top.Pixels += 48 * (1 - portrait.Opacity);
+            }
+            else if (dialogue.SwitchCounter > 0 && dialogue.ClosingDialogue)
+            {
+                portrait.Opacity = 1 - MathHelper.Clamp(MathUtils.SineInEasing(dialogue.SwitchCounter / 20f), 0f, 1f);
+
+                portrait.Top.Pixels += 48 * MathHelper.Clamp(MathUtils.SineInEasing(dialogue.SwitchCounter / 30f), 0f, 1f);
+            }
         }
 
         public override void Update(GameTime gameTime)
@@ -211,7 +217,7 @@ namespace AAModClassic.UI.Dialogue
             if (switchStarted)
             {
                 dialogue.SwitchCounter++;
-                if (dialogue.SwitchCounter >= 60)
+                if (dialogue.SwitchCounter >= 30)
                     ChangeDialogue();
             }
 
