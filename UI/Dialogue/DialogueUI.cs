@@ -53,6 +53,7 @@ namespace AAModClassic.UI.Dialogue
             panel.Height.Pixels = bgRect.Height;
             panel.BackgroundColor = Color.Transparent;
             panel.BorderColor = Color.Transparent;
+            panel.OnLeftClick += OnBoxPress;
 
             portrait = new(ModContent.Request<Texture2D>("AAModClassic/UI/Dialogue/Assets/Portraits/Portrait_Truffle_shimmer"));
             portrait.Top.Percent = PortraitTopPercent;
@@ -87,8 +88,17 @@ namespace AAModClassic.UI.Dialogue
             portrait.Opacity = 0f;
         }
 
+        private void OnBoxPress(UIMouseEvent evt, UIElement listeningElement)
+        {
+            if (dialogue.textIndex < dialogue.Text.Length - 1)
+                dialogue.textIndex = dialogue.Text.Length - 1;
+        }
+
         public void OnResponsePress(int responseIndex)
         {
+            if (!responses[responseIndex].Interactable)
+                return;
+
             var response = tree.Dialogues[currentIndex].Responses[responseIndex];
             SwitchDialogue(response.Heading == -2 ? currentIndex + 1 : response.Heading);
 
@@ -277,6 +287,7 @@ namespace AAModClassic.UI.Dialogue
         private int hideTimer = 0;
         internal Vector2 idealAligns = Vector2.One * 0.5f;
 
+        internal bool Interactable => showTimer == 30 && !hide;
 
         public ResponseButton(Response response, Asset<Texture2D> texture, Rectangle frame, Color hoverColor, Color unhoverColor, float baseScale = 1f)
         {
@@ -403,6 +414,9 @@ namespace AAModClassic.UI.Dialogue
 
         public override void MouseOver(UIMouseEvent evt)
         {
+            if (!Interactable)
+                return;
+
             base.MouseOver(evt);
             SoundEngine.PlaySound(SoundID.MenuTick);
             _hovered = true;
@@ -416,6 +430,9 @@ namespace AAModClassic.UI.Dialogue
 
         public override void MouseOut(UIMouseEvent evt)
         {
+            if (!Interactable)
+                return;
+
             base.MouseOut(evt);
             _hovered = false;
             _hoverTimer = 0;
