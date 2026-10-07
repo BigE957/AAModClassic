@@ -177,15 +177,11 @@ namespace AAModClassic.UI.Dialogue
 
         public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
         {
-            int preInventory = layers.FindIndex(layer => layer.Name == "Vanilla: Interface Logic 2");
-            if (preInventory != -1)
+            layers.Insert(0, new LegacyGameInterfaceLayer("AAModClassic: World Text", () =>
             {
-                layers.Insert(preInventory, new LegacyGameInterfaceLayer("AAModClassic: World Text", () =>
-                {
-                    UI.Draw(Main.spriteBatch, new());
-                    return true;
-                }, InterfaceScaleType.Game));
-            }
+                UI.Draw(Main.spriteBatch, new());
+                return true;
+            }, InterfaceScaleType.Game));
         }
 
         public override void UpdateUI(GameTime gameTime)

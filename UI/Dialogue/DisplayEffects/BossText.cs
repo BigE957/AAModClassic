@@ -1,8 +1,6 @@
 ﻿using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.ModLoader;
 
 namespace AAModClassic.UI.Dialogue.DisplayEffects
 {
@@ -58,8 +56,7 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
             if (switchTimer > 0)
                 Opacity *= 1 - MathUtils.CircOutEasing(switchTimer / 60f);
 
-            Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Assets/General/SmallBloom").Value;
-            spriteBatch.Draw(tex, textStart + textSize * 0.5f - Main.screenPosition, null, Color.Black * 0.6f * Opacity, 0f, tex.Size() * 0.5f, new Vector2(textSize.X / 160f, textSize.Y / 120f), 0, 0);
+            DialogueUIEffect.DrawBloom(spriteBatch, textStart + textSize * 0.5f - Main.screenPosition, textSize, Opacity);
         }
     }
 }

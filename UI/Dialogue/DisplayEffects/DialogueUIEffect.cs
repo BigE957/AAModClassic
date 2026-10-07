@@ -87,23 +87,26 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
                 }
             }
 
+            DrawBloom(spriteBatch, drawPos + drawSize * 0.5f, drawSize, Opacity, SceneOverlay);
+        }
+
+        public static void DrawBloom(SpriteBatch spriteBatch, Vector2 center, Vector2 size, float opacity, Action<SpriteBatch> sceneOverlay = null)
+        {
             Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Assets/General/SmallBloom").Value;
-            Vector2 center = drawPos + drawSize * 0.5f;
-            Vector2 scale = new(drawSize.X / 160f, drawSize.Y / 120f);
+            Vector2 scale = new(size.X / 160f, size.Y / 120f);
 
             Effect effect = Filters.Scene["AAModClassic:DialogueBloom"].GetShader().Shader;
             RenderTarget2D screen = Main.screenTarget;
 
             if (effect == null || screen == null || screen.IsDisposed)
             {
-                spriteBatch.Draw(tex, center, null, Color.Black * 0.6f * Opacity, 0f, tex.Size() * 0.5f, scale, 0, 0);
+                spriteBatch.Draw(tex, center, null, Color.Black * 0.6f * opacity, 0f, tex.Size() * 0.5f, scale, 0, 0);
                 return;
             }
 
             spriteBatch.End(out var snap);
 
-            // World plus the portrait, so the shader sees what is really on screen.
-            RenderTarget2D scene = DialogueSceneCapture.Capture(spriteBatch, screen, SceneOverlay, snap);
+            RenderTarget2D scene = DialogueSceneCapture.Capture(spriteBatch, screen, sceneOverlay, snap);
 
             Vector2 quadSize = tex.Size() * scale;
             Vector2 quadMin = center - quadSize * 0.5f;
@@ -117,7 +120,7 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
             effect.Parameters["Threshold"].SetValue(LumaThreshold);
             effect.Parameters["Ceiling"].SetValue(LumaCeiling);
             effect.Parameters["BaseDarken"].SetValue(BaseDarken);
-            effect.Parameters["Opacity"].SetValue(Opacity);
+            effect.Parameters["Opacity"].SetValue(opacity);
             effect.Parameters["ShadowTint"].SetValue(ShadowTint);
             effect.Parameters["TintStrength"].SetValue(TintStrength);
             effect.Parameters["ChromaBoost"].SetValue(ChromaBoost);
