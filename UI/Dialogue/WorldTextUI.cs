@@ -1,7 +1,6 @@
 ﻿using AAModClassic.Dialogues;
 using AAModClassic.Globals;
 using AAModClassic.UI.Dialogue.DisplayEffects;
-using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -177,25 +176,13 @@ namespace AAModClassic.UI.Dialogue
             }
         }
 
-        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
-        {
-            layers.Insert(0, new LegacyGameInterfaceLayer("AAModClassic: World Text", () =>
-            {
-                UI.Draw(Main.spriteBatch, new());
-                return true;
-            }, InterfaceScaleType.Game));
-        }
-
         public override void UpdateUI(GameTime gameTime)
         {
             if (UI?.CurrentState != null)
             {
-                //Vector2 prevZoom = Main.GameViewMatrix.Zoom;
-                //Main.GameViewMatrix.Zoom = new(1 + CameraSystem.Zoom);
                 PlayerInput.SetZoom_World();
                 UI.Update(gameTime);
                 PlayerInput.SetZoom_Unscaled();
-                //Main.GameViewMatrix.Zoom = prevZoom;
             }
         }
 

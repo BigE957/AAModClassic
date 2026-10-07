@@ -87,26 +87,24 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
                 }
             }
 
-            DrawBloom(spriteBatch, drawPos + drawSize * 0.5f, drawSize, Opacity, SceneOverlay);
+            DrawBloom(spriteBatch, drawPos + drawSize * 0.5f, drawSize, Opacity, SceneOverlay != null);
         }
 
-        public static void DrawBloom(SpriteBatch spriteBatch, Vector2 center, Vector2 size, float opacity, Action<SpriteBatch> sceneOverlay = null)
+        public static void DrawBloom(SpriteBatch spriteBatch, Vector2 center, Vector2 size, float opacity, bool useOverlayScene = false)
         {
             Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Assets/General/SmallBloom").Value;
             Vector2 scale = new(size.X / 160f, size.Y / 120f);
 
             Effect effect = Filters.Scene["AAModClassic:DialogueBloom"].GetShader().Shader;
-            RenderTarget2D screen = Main.screenTarget;
+            RenderTarget2D scene = useOverlayScene ? DialogueSceneCapture.OverlayScene : DialogueSceneCapture.PlainScene;
 
-            if (effect == null || screen == null || screen.IsDisposed)
+            if (effect == null || scene == null || scene.IsDisposed)
             {
                 spriteBatch.Draw(tex, center, null, Color.Black * 0.6f * opacity, 0f, tex.Size() * 0.5f, scale, 0, 0);
                 return;
             }
 
             spriteBatch.End(out var snap);
-
-            RenderTarget2D scene = DialogueSceneCapture.Capture(spriteBatch, screen, sceneOverlay, snap);
 
             Vector2 quadSize = tex.Size() * scale;
             Vector2 quadMin = center - quadSize * 0.5f;

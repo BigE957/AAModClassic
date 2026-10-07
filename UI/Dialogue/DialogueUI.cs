@@ -546,25 +546,31 @@ namespace AAModClassic.UI.Dialogue
             ResponseIcons.Add("Default", (TextureAssets.Item[ItemID.FallenStar], TextureAssets.Item[ItemID.FallenStar].Frame(1, 8)));
         }
 
-        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
+        internal static void DrawLayer()
         {
-            layers.Insert(0, new LegacyGameInterfaceLayer("AAModClassic: Dialogue", () =>
-            {
-                Main.spriteBatch.End(out var snap);
-                
-                var m = Main.GameViewMatrix;
-                var oldZoom = m.Zoom;
-                m.Zoom = new(1 + CameraSystem.Zoom);
-                var zoomSnap = snap;
-                zoomSnap.TransformMatrix = m.TransformationMatrix;
-                Main.spriteBatch.Begin(zoomSnap);
-                UI.Draw(Main.spriteBatch, new());
-                Main.spriteBatch.End();
-                
-                Main.spriteBatch.Begin(snap);
-                Main.GameViewMatrix.Zoom = oldZoom;
-                return true;
-            }, InterfaceScaleType.Game));
+            Main.spriteBatch.End(out var snap);
+
+            var m = Main.GameViewMatrix;
+            var oldZoom = m.Zoom;
+            m.Zoom = new(1 + CameraSystem.Zoom);
+            var zoomSnap = snap;
+            zoomSnap.TransformMatrix = m.TransformationMatrix;
+            Main.spriteBatch.Begin(zoomSnap);
+            UI.Draw(Main.spriteBatch, new());
+            Main.spriteBatch.End();
+
+            Main.spriteBatch.Begin(snap);
+            Main.GameViewMatrix.Zoom = oldZoom;
+        }
+
+        internal static SpriteBatchSnapshot ZoomedSnapshot(SpriteBatchSnapshot snap)
+        {
+            var m = Main.GameViewMatrix;
+            var oldZoom = m.Zoom;
+            m.Zoom = new(1 + CameraSystem.Zoom);
+            snap.TransformMatrix = m.TransformationMatrix;
+            m.Zoom = oldZoom;
+            return snap;
         }
 
         public override void UpdateUI(GameTime gameTime)
@@ -618,38 +624,51 @@ namespace AAModClassic.UI.Dialogue
 
         internal static class DialogueSceneCapture
         {
-            private static RenderTarget2D target;
+            private static RenderTarget2D plainTarget;
+            private static RenderTarget2D overlayTarget;
+            private static bool plainReady;
+            private static bool overlayReady;
 
-            public static RenderTarget2D Capture(SpriteBatch sb, RenderTarget2D source, Action<SpriteBatch> overlay, SpriteBatchSnapshot uiState)
+            public static RenderTarget2D PlainScene => plainReady ? plainTarget : null;
+
+            public static RenderTarget2D OverlayScene => overlayReady ? overlayTarget : null;
+
+            public static void PrepareFrame(SpriteBatch sb)
             {
-                GraphicsDevice gd = Main.instance.GraphicsDevice;
+                plainReady = false;
+                overlayReady = false;
 
-                if (target == null || target.IsDisposed || target.Width != source.Width || target.Height != source.Height)
-                {
-                    target?.Dispose();
-                    target = new RenderTarget2D(gd, source.Width, source.Height, false, source.Format, DepthFormat.None);
-                }
+                RenderTarget2D source = Main.screenTarget;
+                if (source == null || source.IsDisposed)
+                    return;
+
+                bool needPlain = WorldTextUI.Dialogues.Count > 0;
+
+                Action<SpriteBatch> overlay = null;
+                if (Visible && State?.dialogue?.DisplayEffects is DialogueUIEffect effect)
+                    overlay = effect.SceneOverlay;
+
+                if (!needPlain && overlay == null)
+                    return;
+
+                GraphicsDevice gd = Main.instance.GraphicsDevice;
+                sb.End(out var uiState);
 
                 RenderTargetBinding[] previousTargets = gd.GetRenderTargets();
                 Viewport previousViewport = gd.Viewport;
 
-                gd.SetRenderTarget(target);
-                gd.Clear(Color.Transparent);
-
-                var copySnap = uiState;
-                copySnap.SortMode = SpriteSortMode.Deferred;
-                copySnap.BlendState = BlendState.Opaque;
-                copySnap.CustomEffect = null;
-                copySnap.TransformMatrix = Matrix.Identity;
-                sb.Begin(copySnap);
-                sb.Draw(source, Vector2.Zero, Color.White);
-                sb.End();
+                if (needPlain)
+                {
+                    EnsureTarget(gd, ref plainTarget, source);
+                    RenderScene(sb, gd, plainTarget, source, null, uiState);
+                    plainReady = true;
+                }
 
                 if (overlay != null)
                 {
-                    sb.Begin(uiState);
-                    overlay(sb);
-                    sb.End();
+                    EnsureTarget(gd, ref overlayTarget, source);
+                    RenderScene(sb, gd, overlayTarget, source, overlay, ZoomedSnapshot(uiState));
+                    overlayReady = true;
                 }
 
                 gd.SetRenderTargets(previousTargets);
@@ -663,21 +682,81 @@ namespace AAModClassic.UI.Dialogue
                     restoreSnap.CustomEffect = null;
                     restoreSnap.TransformMatrix = Matrix.Identity;
                     sb.Begin(restoreSnap);
-                    sb.Draw(target, Vector2.Zero, Color.White);
+                    sb.Draw(source, Vector2.Zero, Color.White);
                     sb.End();
                 }
 
-                return target;
+                sb.Begin(uiState);
+            }
+
+            private static void EnsureTarget(GraphicsDevice gd, ref RenderTarget2D target, RenderTarget2D source)
+            {
+                if (target == null || target.IsDisposed || target.Width != source.Width || target.Height != source.Height)
+                {
+                    target?.Dispose();
+                    target = new RenderTarget2D(gd, source.Width, source.Height, false, source.Format, DepthFormat.None);
+                }
+            }
+
+            private static void RenderScene(SpriteBatch sb, GraphicsDevice gd, RenderTarget2D target, RenderTarget2D source, Action<SpriteBatch> overlay, SpriteBatchSnapshot overlayState)
+            {
+                gd.SetRenderTarget(target);
+                gd.Clear(Color.Transparent);
+
+                var copySnap = overlayState;
+                copySnap.SortMode = SpriteSortMode.Deferred;
+                copySnap.BlendState = BlendState.Opaque;
+                copySnap.CustomEffect = null;
+                copySnap.TransformMatrix = Matrix.Identity;
+                sb.Begin(copySnap);
+                sb.Draw(source, Vector2.Zero, Color.White);
+                sb.End();
+
+                if (overlay != null)
+                {
+                    sb.Begin(overlayState);
+                    overlay(sb);
+                    sb.End();
+                }
             }
 
             public static void Dispose()
             {
                 Main.QueueMainThreadAction(() =>
                 {
-                    target?.Dispose();
-                    target = null;
+                    plainTarget?.Dispose();
+                    plainTarget = null;
+                    overlayTarget?.Dispose();
+                    overlayTarget = null;
                 });
             }
+        }
+    }
+
+    public class DialogueLayerSystem : ModSystem
+    {
+        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
+        {
+            layers.InsertRange(0,
+            [
+                new LegacyGameInterfaceLayer("AAModClassic: Scene Capture", () =>
+            {
+                DialogueUISystem.DialogueSceneCapture.PrepareFrame(Main.spriteBatch);
+                return true;
+            }, InterfaceScaleType.Game),
+
+            new LegacyGameInterfaceLayer("AAModClassic: Dialogue", () =>
+            {
+                DialogueUISystem.DrawLayer();
+                return true;
+            }, InterfaceScaleType.Game),
+
+            new LegacyGameInterfaceLayer("AAModClassic: World Text", () =>
+            {
+                WorldTextSystem.UI?.Draw(Main.spriteBatch, new());
+                return true;
+            }, InterfaceScaleType.Game),
+        ]);
         }
     }
 
