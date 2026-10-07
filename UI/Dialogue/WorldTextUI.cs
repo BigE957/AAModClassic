@@ -1,11 +1,13 @@
 ﻿using AAModClassic.Dialogues;
 using AAModClassic.Globals;
 using AAModClassic.UI.Dialogue.DisplayEffects;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
@@ -187,7 +189,14 @@ namespace AAModClassic.UI.Dialogue
         public override void UpdateUI(GameTime gameTime)
         {
             if (UI?.CurrentState != null)
-                UI?.Update(gameTime);
+            {
+                //Vector2 prevZoom = Main.GameViewMatrix.Zoom;
+                //Main.GameViewMatrix.Zoom = new(1 + CameraSystem.Zoom);
+                PlayerInput.SetZoom_World();
+                UI.Update(gameTime);
+                PlayerInput.SetZoom_Unscaled();
+                //Main.GameViewMatrix.Zoom = prevZoom;
+            }
         }
 
         public static Color GetColorFromHex(string hex)

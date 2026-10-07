@@ -262,23 +262,28 @@ namespace AAModClassic._Unofficial.Desert
             return true;
         }
 
-        private bool chatting = false;
+        private bool chattingLastFrame = false;
         private int appearTimer = 0;
+        private string DialogueToUse = "";
+
         public override void AI()
         {
+            // Resets dialogue state after the UI has been closed by itself
             if (Main.LocalPlayer.talkNPC == NPC.whoAmI && appearTimer >= 60 && DialogueUISystem.UI.CurrentState == null)
             {
-                chatting = false;
+                chattingLastFrame = false;
                 appearTimer = 0;
                 Main.CloseNPCChatOrSign();
                 return;
             }
 
+            // Handles camera stuff when dialogue is happening
             if (Main.LocalPlayer.talkNPC == NPC.whoAmI)
             {
                 float zoom = Main.GameZoomTarget - 1f;
                 Vector2 cameraCenter = (NPC.Center + Main.LocalPlayer.Center) / 2f - Vector2.UnitY * MathHelper.Lerp(180f, 80f, zoom);
                 DialogueUISystem.State.worldCenter = cameraCenter - Vector2.UnitY * 60f;
+                
                 Vector2 regionCenter = NPC.Center - Vector2.UnitY * 140f;
                 Rectangle bounds = new((int)regionCenter.X - Main.screenWidth / 2, (int)regionCenter.Y - Main.screenHeight / 2, Main.screenWidth, Main.screenHeight);
 
@@ -292,7 +297,7 @@ namespace AAModClassic._Unofficial.Desert
                     if (appearTimer <= 60)
                     {
                         if(appearTimer == 30)
-                            DialogueUISystem.StartDialogue("Mods.AAModClassic.DialogueTrees.Example", 0, NPC.Center - Vector2.UnitY * 180);
+                            DialogueUISystem.StartDialogue(DialogueToUse, 0, NPC.Center - Vector2.UnitY * 180);
                         appearRatio = MathUtils.SineInOutEasing(appearTimer / 60f);
                         appearTimer++;
                     }
@@ -306,7 +311,7 @@ namespace AAModClassic._Unofficial.Desert
                         CameraSystem.Zoom = MathUtils.SineInOutEasing(MathHelper.Clamp(ease - 0.5f, 0f, 0.5f) * 2f) / 4f * appearRatio;
                     }
 
-                    chatting = true;
+                    chattingLastFrame = true;
                 }
                 else
                 {
@@ -316,14 +321,163 @@ namespace AAModClassic._Unofficial.Desert
                     CameraSystem.ResetCamera();
 
                     WorldTextSystem.StartDialogue("Mods.CalamityMod.DevourerOfGods.Phases", NPC.Center, 2, 90, false, new AlwaysOnScreen());
-                    chatting = false;
+                    chattingLastFrame = false;
                 }
             }
-            else if(chatting)
+            // Resets dialogue state if the NPC chat ended abruptly (namely, if the player tries to open their inventory mid-dialogue)
+            else if (chattingLastFrame)
             {
-                DialogueUISystem.CloseDialogue();
+                chattingLastFrame = false;
                 appearTimer = 0;
-                chatting = false;
+                DialogueUISystem.CloseDialogue();
+                return;
+            }
+        }
+
+        public override bool CanChat() => !chattingLastFrame;
+
+        public override string GetChat()
+        {
+            AnubisDialoguePlayer p = Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>();
+
+            Main.BestiaryTracker.Chats.RegisterChatStartWith(ContentSamples.NpcsByNetId[ModContent.NPCType<Legendscribe>()]);
+
+            DialogueToUse = "Mods.AAModClassic.DialogueTrees.Example";
+
+            return "";
+            /*
+            if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>())
+            {
+                if (!p.HasLostToForsakenAnubis)
+                {
+                    if (!p.HasSpokenToAnubisPostMoonLord)
+                    {
+                        p.HasSpokenToAnubisPostMoonLord = true;
+                        return Language.GetOrRegister("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAnubisFAnubisN").Format(Main.LocalPlayer.name);
+                    }
+                    else
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PreFight.Repeat");
+                }
+                else
+                {
+                    if (!p.HasSpokenToAnubisAfterDyingToForsakenAnubis)
+                    {
+                        p.HasSpokenToAnubisAfterDyingToForsakenAnubis = true;
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.First");
+                    }
+                    else if (p.HasLostMultipleTimesToForsakenAnubis)
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.Repeat.MultipleDeaths." + Main.rand.Next(3));
+                    else
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.Repeat.FirstDeath" + Main.rand.Next(2));
+                }
+            }
+            else if (!p.HasSpokenToAnubisPostForsakenAnubis && NPCExtensions.BeenKilled<AnubisA>())
+            {
+                p.HasSpokenToAnubisPostForsakenAnubis = true;
+                return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostVictory");
+            }
+
+            return Legendscribe.LegendscribeDialogue(NPC);
+            */
+        }
+
+        public static int FindFemaleNPC()
+        {
+            int FemaleNPC = Main.rand.Next(6);
+            switch (FemaleNPC)
+            {
+                case 0:
+                    FemaleNPC = NPCID.Nurse;
+                    break;
+                case 1:
+                    FemaleNPC = NPCID.Dryad;
+                    break;
+                case 2:
+                    FemaleNPC = NPCID.Stylist;
+                    break;
+                case 3:
+                    FemaleNPC = NPCID.Mechanic;
+                    break;
+                case 4:
+                    FemaleNPC = NPCID.Steampunker;
+                    break;
+                default:
+                    FemaleNPC = NPCID.PartyGirl;
+                    break;
+            }
+            return FemaleNPC;
+        }
+
+        public override void SetChatButtons(ref string button, ref string button2)
+        {
+            bool fAnubisTime = NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>();
+            bool hasGreedBook = !Main.LocalPlayer.GetModPlayer<ZAAPlayer>().AnubisBook && Main.LocalPlayer.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>()) >= 0;
+            if (!fAnubisTime && hasGreedBook)
+                button = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LegendscribeUnofficial.Buttons.Book");
+            else
+                button = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LegendscribeUnofficial.Buttons.Help");
+
+            if (!NPC.downedMoonlord || NPCExtensions.BeenKilled<AnubisA>())
+                button2 = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LegendscribeUnofficial.Buttons.Next");
+        }
+
+        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
+        {
+            if (firstButton)
+            {
+                Player player = Main.LocalPlayer;
+
+                if (!NPCExtensions.BeenKilled<Anubis>() && player.GetModPlayer<ZAAPlayer>().GivenAnuSummon && !player.HasItem(ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>()))
+                {
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>(), 1);
+                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisScapterLost");
+                    return;
+                }
+
+                if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>())
+                {
+                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.Help");
+                    return;
+                }
+
+                if (!player.GetModPlayer<ZAAPlayer>().AnubisBook && NPCExtensions.BeenKilled<GreedHead>())
+                {
+                    int Item = player.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>());
+                    if (Item >= 0)
+                    {
+                        player.inventory[Item].stack--;
+                        if (player.inventory[Item].stack <= 0)
+                        {
+                            player.inventory[Item] = new Item();
+                        }
+
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.GetBookChat");
+                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition>(), 1);
+                        player.GetModPlayer<ZAAPlayer>().AnubisBook = true;
+                        SoundEngine.PlaySound(SoundID.Chat);
+                        return;
+                    }
+                }
+
+                Main.npcChatText = Legendscribe.GuideChat();
+            }
+            else
+            {
+                if (Main.LocalPlayer.GetModPlayer<ZAAPlayer>().AnubisBook)
+                    QuestSystem.Questlines["LegendscribeEarlyGame"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeEarlyGame.Greed.Description.FoundBook");
+                else
+                    QuestSystem.Questlines["LegendscribeEarlyGame"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeEarlyGame.Greed.Description.Complete");
+
+                LegendscribeQuestUISystem.OpenLegendscribeUI(NPC.whoAmI);
+
+                Questline questline = LegendscribeQuestUI.CurrentQuestline;
+                if (!questline.Started)
+                {
+                    questline.Started = true;
+
+                    if (Main.netMode == NetmodeID.MultiplayerClient)
+                        AANet.SendNetMessage<QuestlineStartPacket>(questline.ID);
+                }
             }
         }
 
@@ -1104,148 +1258,6 @@ namespace AAModClassic._Unofficial.Desert
                 Main.dust[num92].velocity *= 3f;
                 Main.dust[num92].velocity += NPC.DirectionTo(Main.dust[num92].position) * 3f;
             }
-        }
-
-        public override void SetChatButtons(ref string button, ref string button2)
-        {
-            bool fAnubisTime = NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>();
-            bool hasGreedBook = !Main.LocalPlayer.GetModPlayer<ZAAPlayer>().AnubisBook && Main.LocalPlayer.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>()) >= 0;
-            if (!fAnubisTime && hasGreedBook)
-                button = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LegendscribeUnofficial.Buttons.Book");
-            else
-                button = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LegendscribeUnofficial.Buttons.Help");
-
-            if (!NPC.downedMoonlord || NPCExtensions.BeenKilled<AnubisA>())
-                button2 = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LegendscribeUnofficial.Buttons.Next");
-        }
-
-        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
-        {
-            if (firstButton)
-            {
-                Player player = Main.LocalPlayer;
-
-                if (!NPCExtensions.BeenKilled<Anubis>() && player.GetModPlayer<ZAAPlayer>().GivenAnuSummon && !player.HasItem(ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>()))
-                {
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>(), 1);
-                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisScapterLost");
-                    return;
-                }
-
-                if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>())
-                {
-                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.Help");
-                    return;
-                }
-
-                if (!player.GetModPlayer<ZAAPlayer>().AnubisBook && NPCExtensions.BeenKilled<GreedHead>())
-                {
-                    int Item = player.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>());
-                    if (Item >= 0)
-                    {
-                        player.inventory[Item].stack--;
-                        if (player.inventory[Item].stack <= 0)
-                        {
-                            player.inventory[Item] = new Item();
-                        }
-
-                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.GetBookChat");
-                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition>(), 1);
-                        player.GetModPlayer<ZAAPlayer>().AnubisBook = true;
-                        SoundEngine.PlaySound(SoundID.Chat);
-                        return;
-                    }
-                }
-
-                Main.npcChatText = Legendscribe.GuideChat();
-            }
-            else
-            {
-                if (Main.LocalPlayer.GetModPlayer<ZAAPlayer>().AnubisBook)
-                    QuestSystem.Questlines["LegendscribeEarlyGame"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeEarlyGame.Greed.Description.FoundBook");
-                else
-                    QuestSystem.Questlines["LegendscribeEarlyGame"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeEarlyGame.Greed.Description.Complete");
-
-                LegendscribeQuestUISystem.OpenLegendscribeUI(NPC.whoAmI);
-
-                Questline questline = LegendscribeQuestUI.CurrentQuestline;
-                if (!questline.Started)
-                {
-                    questline.Started = true;
-
-                    if (Main.netMode == NetmodeID.MultiplayerClient)
-                        AANet.SendNetMessage<QuestlineStartPacket>(questline.ID);
-                }
-            }
-        }
-
-        public override string GetChat()
-        {
-            AnubisDialoguePlayer p = Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>();
-
-            Main.BestiaryTracker.Chats.RegisterChatStartWith(ContentSamples.NpcsByNetId[ModContent.NPCType<Legendscribe>()]);
-
-            return "";
-
-            if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>())
-            {
-                if (!p.HasLostToForsakenAnubis)
-                {
-                    if (!p.HasSpokenToAnubisPostMoonLord)
-                    {
-                        p.HasSpokenToAnubisPostMoonLord = true;
-                        return Language.GetOrRegister("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAnubisFAnubisN").Format(Main.LocalPlayer.name);
-                    }
-                    else
-                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PreFight.Repeat");
-                }
-                else
-                {
-                    if (!p.HasSpokenToAnubisAfterDyingToForsakenAnubis)
-                    {
-                        p.HasSpokenToAnubisAfterDyingToForsakenAnubis = true;
-                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.First");
-                    }
-                    else if (p.HasLostMultipleTimesToForsakenAnubis)
-                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.Repeat.MultipleDeaths." + Main.rand.Next(3));
-                    else
-                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.Repeat.FirstDeath" + Main.rand.Next(2));
-                }
-            }
-            else if (!p.HasSpokenToAnubisPostForsakenAnubis && NPCExtensions.BeenKilled<AnubisA>())
-            {
-                p.HasSpokenToAnubisPostForsakenAnubis = true;
-                return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostVictory");
-            }
-
-            return Legendscribe.LegendscribeDialogue(NPC);
-        }
-
-        public static int FindFemaleNPC()
-        {
-            int FemaleNPC = Main.rand.Next(6);
-            switch (FemaleNPC)
-            {
-                case 0:
-                    FemaleNPC = NPCID.Nurse;
-                    break;
-                case 1:
-                    FemaleNPC = NPCID.Dryad;
-                    break;
-                case 2:
-                    FemaleNPC = NPCID.Stylist;
-                    break;
-                case 3:
-                    FemaleNPC = NPCID.Mechanic;
-                    break;
-                case 4:
-                    FemaleNPC = NPCID.Steampunker;
-                    break;
-                default:
-                    FemaleNPC = NPCID.PartyGirl;
-                    break;
-            }
-            return FemaleNPC;
         }
 
         #region attack values

@@ -551,14 +551,19 @@ namespace AAModClassic.UI.Dialogue
             layers.Insert(0, new LegacyGameInterfaceLayer("AAModClassic: Dialogue", () =>
             {
                 Main.spriteBatch.End(out var snap);
+                
                 var m = Main.GameViewMatrix;
+                var oldZoom = m.Zoom;
                 m.Zoom = new(1 + CameraSystem.Zoom);
                 var zoomSnap = snap;
                 zoomSnap.TransformMatrix = m.TransformationMatrix;
                 Main.spriteBatch.Begin(zoomSnap);
+
                 UI.Draw(Main.spriteBatch, new());
                 Main.spriteBatch.End();
+                
                 Main.spriteBatch.Begin(snap);
+                Main.GameViewMatrix.Zoom = oldZoom;
                 return true;
             }, InterfaceScaleType.Game));
         }
@@ -567,9 +572,12 @@ namespace AAModClassic.UI.Dialogue
         {
             if (UI?.CurrentState != null)
             {
+                var oldZoom = Main.GameViewMatrix.Zoom;
+                Main.GameViewMatrix.Zoom = new(1 + CameraSystem.Zoom);
                 PlayerInput.SetZoom_World();
                 UI.Update(gameTime);
                 PlayerInput.SetZoom_Unscaled();
+                Main.GameViewMatrix.Zoom = oldZoom;
             }
         }
     
