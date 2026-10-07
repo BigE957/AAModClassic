@@ -22,7 +22,6 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
 
         public override Vector2 AppearPositioning(Vector2 startPos, Vector2 goalPos, float time, DialogueCharacterData charData)
         {
-            Vector2 toBoss = (goalPos - startPos).SafeNormalize(-Vector2.UnitX);
             return Vector2.Lerp(goalPos - (new Vector2(-1, -1) * 24 * charData.Scale), goalPos, MathUtils.SineOutEasing(time / TimeToAppear));
         }
 
@@ -50,11 +49,10 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
                 return;
 
             float Opacity = 1f;
-            if (textTimer < 30f)
-                Opacity = MathHelper.Lerp(0f, 1f, MathUtils.CircOutEasing(textTimer / 30f));
-
-            if (switchTimer > 0)
-                Opacity *= 1 - MathUtils.CircOutEasing(switchTimer / 60f);
+            if (textTimer <= 30f)
+                Opacity = MathHelper.Lerp(0f, 1f, MathUtils.SineOutEasing(textTimer / 30f));
+            else if (switchTimer > 0)
+                Opacity = 1 - MathUtils.SineInEasing(switchTimer / 30f);
 
             DialogueUIEffect.DrawBloom(spriteBatch, textStart + textSize * 0.5f - Main.screenPosition, textSize, Opacity);
         }

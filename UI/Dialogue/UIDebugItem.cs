@@ -19,10 +19,7 @@ namespace AAModClassic.UI.Dialogue
         }
         public override bool? UseItem(Player player)
         {
-            if (DialogueUISystem.Visible)
-                DialogueUISystem.EndDialogue();
-            else
-                DialogueUISystem.StartDialogue("Mods.AAModClassic.DialogueTrees.Example", 0, player.Center - Vector2.UnitY * 128);
+            WorldTextSystem.StartDialogue("Mods.CalamityMod.DevourerOfGods.Phases", Main.LocalPlayer.Center, 2, 90, false, new BossText());
 
             return true;
         }

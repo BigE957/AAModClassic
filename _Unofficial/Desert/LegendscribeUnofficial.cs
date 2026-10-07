@@ -266,7 +266,7 @@ namespace AAModClassic._Unofficial.Desert
         private int appearTimer = 0;
         public override void AI()
         {
-            if (chatting && appearTimer >= 60 && DialogueUISystem.UI.CurrentState == null)
+            if (Main.LocalPlayer.talkNPC == NPC.whoAmI && appearTimer >= 60 && DialogueUISystem.UI.CurrentState == null)
             {
                 chatting = false;
                 appearTimer = 0;
@@ -274,9 +274,10 @@ namespace AAModClassic._Unofficial.Desert
                 return;
             }
 
-            if (chatting)
+            if (Main.LocalPlayer.talkNPC == NPC.whoAmI)
             {
-                Vector2 cameraCenter = (NPC.Center + Main.LocalPlayer.Center) / 2f - Vector2.UnitY * 180f;
+                float zoom = Main.GameZoomTarget - 1f;
+                Vector2 cameraCenter = (NPC.Center + Main.LocalPlayer.Center) / 2f - Vector2.UnitY * MathHelper.Lerp(180f, 80f, zoom);
                 DialogueUISystem.State.worldCenter = cameraCenter - Vector2.UnitY * 60f;
                 Vector2 regionCenter = NPC.Center - Vector2.UnitY * 140f;
                 Rectangle bounds = new((int)regionCenter.X - Main.screenWidth / 2, (int)regionCenter.Y - Main.screenHeight / 2, Main.screenWidth, Main.screenHeight);
@@ -304,15 +305,25 @@ namespace AAModClassic._Unofficial.Desert
                         CameraSystem.InterpolateCamera(goalCenter, appearRatio);
                         CameraSystem.Zoom = MathUtils.SineInOutEasing(MathHelper.Clamp(ease - 0.5f, 0f, 0.5f) * 2f) / 4f * appearRatio;
                     }
+
+                    chatting = true;
                 }
                 else
                 {
                     DialogueUISystem.CloseDialogue();
-                    chatting = false;
                     appearTimer = 0;
                     Main.CloseNPCChatOrSign();
                     CameraSystem.ResetCamera();
+
+                    WorldTextSystem.StartDialogue("Mods.CalamityMod.DevourerOfGods.Phases", NPC.Center, 2, 90, false, new AlwaysOnScreen());
+                    chatting = false;
                 }
+            }
+            else if(chatting)
+            {
+                DialogueUISystem.CloseDialogue();
+                appearTimer = 0;
+                chatting = false;
             }
         }
 
@@ -1174,7 +1185,6 @@ namespace AAModClassic._Unofficial.Desert
 
             Main.BestiaryTracker.Chats.RegisterChatStartWith(ContentSamples.NpcsByNetId[ModContent.NPCType<Legendscribe>()]);
 
-            chatting = true;
             return "";
 
             if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>())

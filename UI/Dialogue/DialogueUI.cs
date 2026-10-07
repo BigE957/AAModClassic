@@ -550,7 +550,15 @@ namespace AAModClassic.UI.Dialogue
         {
             layers.Insert(0, new LegacyGameInterfaceLayer("AAModClassic: Dialogue", () =>
             {
+                Main.spriteBatch.End(out var snap);
+                var m = Main.GameViewMatrix;
+                m.Zoom = new(1 + CameraSystem.Zoom);
+                var zoomSnap = snap;
+                zoomSnap.TransformMatrix = m.TransformationMatrix;
+                Main.spriteBatch.Begin(zoomSnap);
                 UI.Draw(Main.spriteBatch, new());
+                Main.spriteBatch.End();
+                Main.spriteBatch.Begin(snap);
                 return true;
             }, InterfaceScaleType.Game));
         }

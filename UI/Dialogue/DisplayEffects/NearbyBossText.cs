@@ -52,11 +52,10 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
                 return;
 
             float Opacity = 1f;
-            if (textTimer < 30f)
-                Opacity = MathHelper.Lerp(0f, 1f, MathUtils.CircOutEasing(textTimer / 30f));
-
-            if (switchTimer > 0)
-                Opacity *= 1 - MathUtils.CircOutEasing(switchTimer / 60f);
+            if (textTimer <= 30f)
+                Opacity = MathHelper.Lerp(0f, 1f, MathUtils.SineOutEasing(textTimer / 30f));
+            else if (switchTimer > 0)
+                Opacity = 1 - MathUtils.SineInEasing(switchTimer / 30f);
 
             DialogueUIEffect.DrawBloom(spriteBatch, textStart + textSize * 0.5f - Main.screenPosition, textSize, Opacity);
         }

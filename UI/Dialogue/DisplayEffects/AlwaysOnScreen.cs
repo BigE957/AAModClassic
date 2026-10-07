@@ -1,20 +1,19 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
-using Terraria;
+﻿using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria;
+using Terraria.ModLoader;
 
 namespace AAModClassic.UI.Dialogue.DisplayEffects
 {
     public class AlwaysOnScreen : DisplayEffect
     {
-        Vector2 StartPosition;
-
         public override bool FadeWhenTooFar => false;
+        public override float TimeToAppear => 20;
+        public override bool DespawnWithAttachedNPC => false;
 
         public override Vector2 TextOffsetFromStart(Vector2 startPos, Vector2 textSize)
         {
-            StartPosition = startPos;
-
             Vector2 playerPos = Main.LocalPlayer.Center;
             Vector2 halfSize = textSize * 0.5f;
             Vector2 newPos = startPos - halfSize + (Vector2.UnitY * -(textSize.Y + 36));
@@ -35,12 +34,41 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
             return newPos;
         }
 
-        public override void PreDraw(SpriteBatch spriteBatch, Vector2 textTopLeft, Vector2 textSize, int textTimer, int switchTimer, bool closing)
+        public override Vector2 AppearPositioning(Vector2 startPos, Vector2 goalPos, float time, DialogueCharacterData charData)
         {
-            Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/UI/Dialogue/Assets/DialogueArrow").Value;
-            Vector2 textCenter = textTopLeft + textSize * 0.5f;
-            Vector2 toStart = (StartPosition - textCenter).SafeNormalize(-Vector2.UnitY) * 64;
-            spriteBatch.Draw(tex, textCenter + toStart - Main.screenPosition, null, Color.White, toStart.ToRotation(), tex.Size() * 0.5f, 1f, 0, 0);
+            return Vector2.Lerp(goalPos - (new Vector2(-1, -1) * 24 * charData.Scale), goalPos, MathUtils.SineOutEasing(time / TimeToAppear));
+        }
+
+        public override float AppearOpacity(float goalOpacity, float time, DialogueCharacterData charData)
+        {
+            return MathUtils.SineOutEasing(time / TimeToAppear);
+        }
+
+        public override Vector2 AppearScale(Vector2 goalScale, float time, DialogueCharacterData charData)
+        {
+            return Vector2.Lerp(goalScale * 0.75f, goalScale, MathUtils.ExpOutEasing(time / TimeToAppear));
+        }
+
+        float OffsetDisappearTime(float time, float ratio) => MathHelper.Clamp((time - (ratio * TimeToDisappear / 2f)) / (TimeToDisappear / 2f), 0f, 1f);
+
+        public override Vector2 DisappearPositioning(Vector2 startPos, float time, DialogueCharacterData charData) => Vector2.Lerp(startPos, startPos + (Vector2.UnitX * 12 * charData.Scale), MathUtils.SineOutEasing(OffsetDisappearTime(time, charData.CompletionRatio)));
+
+        public override float DisappearOpacity(float startOpacity, float time, DialogueCharacterData charData) => 1 - MathUtils.SineOutEasing(OffsetDisappearTime(time, charData.CompletionRatio));
+
+        public override Vector2 DisappearScale(Vector2 startScale, float time, DialogueCharacterData charData) => Vector2.Lerp(startScale, startScale * 0.75f, MathUtils.ExpOutEasing(OffsetDisappearTime(time, charData.CompletionRatio)));
+
+        public override void PreDraw(SpriteBatch spriteBatch, Vector2 textStart, Vector2 textSize, int textTimer, int switchTimer, bool closing)
+        {
+            if (textTimer < 0)
+                return;
+
+            float Opacity = 1f;
+            if (textTimer <= 30f)
+                Opacity = MathHelper.Lerp(0f, 1f, MathUtils.SineOutEasing(textTimer / 30f));
+            else if (switchTimer > 0)
+                Opacity = 1 - MathUtils.SineInEasing(switchTimer / 30f);
+
+            DialogueUIEffect.DrawBloom(spriteBatch, textStart + textSize * 0.5f - Main.screenPosition, textSize, Opacity);
         }
     }
 
