@@ -151,7 +151,7 @@ namespace AAModClassic.UI.Dialogue
 
             if (currentIndex == -1)
             {
-                DialogueUISystem.EndDialogue();
+                DialogueUISystem.ForceCloseDialogue();
                 return;
             }
 
@@ -558,7 +558,6 @@ namespace AAModClassic.UI.Dialogue
                 var zoomSnap = snap;
                 zoomSnap.TransformMatrix = m.TransformationMatrix;
                 Main.spriteBatch.Begin(zoomSnap);
-
                 UI.Draw(Main.spriteBatch, new());
                 Main.spriteBatch.End();
                 
@@ -597,15 +596,17 @@ namespace AAModClassic.UI.Dialogue
             }
         }
 
-        public static void CloseDialogue()
+        public static void EndDialogue(bool silent)
         {
             State.SwitchDialogue(-1);
             for (int i = 0; i < State.responses.Count; i++)
                 State.responses[i].Hide(i * -5);
-            SoundEngine.PlaySound(SoundID.MenuClose);
+
+            if(!silent)
+                SoundEngine.PlaySound(SoundID.MenuClose);
         }
         
-        public static void EndDialogue()
+        public static void ForceCloseDialogue()
         {
             if (Visible)
             {
@@ -677,6 +678,16 @@ namespace AAModClassic.UI.Dialogue
                     target = null;
                 });
             }
+        }
+    }
+
+    public class DialogueGlobalNPC : GlobalNPC
+    {
+        public override bool? CanChat(NPC npc)
+        {
+            if (DialogueUISystem.Visible)
+                return false;
+            return null;
         }
     }
 
