@@ -284,15 +284,13 @@ namespace AAModClassic._Unofficial.Desert
                 return;
             }
 
-            // Handles camera stuff when dialogue is happening
-            Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().ChattingAnubis = NPC.whoAmI;
-
             if (Main.LocalPlayer.sign >= 0 || Main.clothesWindow)
             {
                 InteruptDialogue(true);
                 return;
             }
 
+            // Handles camera stuff when dialogue is happening
             float zoom = Main.GameZoomTarget - 1f;
             Vector2 cameraCenter = (NPC.Center + Main.LocalPlayer.Center) / 2f - Vector2.UnitY * MathHelper.Lerp(180f, 80f, zoom);
             DialogueUISystem.State.worldCenter = cameraCenter - Vector2.UnitY * 60f;
