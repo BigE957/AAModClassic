@@ -99,7 +99,7 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
                 shouldAvoidTile: (p, attempts) => ShouldAvoidLocation(p, attempts > 4000, attempts > 12500),
                 nextCandidate: attempts =>
                 {
-                    int radius = (int)MathHelper.Lerp(200, 1600, attempts / (float)maxAttempts);
+                    int radius = (int)MathHelper.Lerp(600, 1600, attempts / (float)maxAttempts);
                     int targetX = System.Math.Clamp(origin.X + WorldGen.genRand.Next(-radius, radius), 50, Main.maxTilesX - (50 + width));
                     int targetY = Main.maxTilesY - 450 - Main.rand.Next(0, maxHeightUp);
                     return new Point(targetX, targetY);
