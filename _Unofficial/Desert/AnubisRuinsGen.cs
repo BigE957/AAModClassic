@@ -35,10 +35,9 @@ namespace AAModClassic._Unofficial.Desert
 
             WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, Ruins.Width, Ruins.Height), 20);
 
-            PlacedSchematic placed = SchematicPlacement.Place(Ruins, origin, new SchematicPlaceOptions { Anchor = SchematicAnchor.Center, FlipHorizontal = Main.dungeonX > Main.spawnTileX });
+            PlacedSchematic placed = SchematicPlacement.Place(Ruins, origin, new SchematicPlaceOptions { Anchor = SchematicAnchor.Center, FlipHorizontal = origin.X < Main.spawnTileX });
 
-            //Vector2 anubisSpawn = placed.Markers[0].Area.Center.ToWorldCoordinates(0, 0);
-            AAMod.instance.Logger.Info(origin);
+            UnofficialAnubisSystem.AnubisRuinsTile = placed.Markers[0].Area.Center;
 
             foreach (string warning in placed.Warnings)
                 AAMod.instance.Logger.Warn("Anubis Ruins placement: " + warning);

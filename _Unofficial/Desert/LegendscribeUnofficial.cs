@@ -8,6 +8,7 @@ using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic.Globals;
 using AAModClassic.UI.Dialogue;
 using AAModClassic.UI.Dialogue.DisplayEffects;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Build.Exceptions;
 using Microsoft.Xna.Framework;
@@ -40,6 +41,13 @@ namespace AAModClassic._Unofficial.Desert
         public static Asset<Texture2D> Glowmask;
         public static Asset<Texture2D> GlowmaskShimmer;
         public static Asset<Texture2D> PartyHat;
+
+        public enum BehaviorState
+        {
+            TownNPC,
+            RuinsIdle
+        }
+        internal BehaviorState MyBehavior = BehaviorState.TownNPC;
 
         public override void Load()
         {
@@ -210,56 +218,67 @@ namespace AAModClassic._Unofficial.Desert
 
         public override bool PreAI()
         {
-            if (NPC.AnyNPCs(ModContent.NPCType<Anubis>()) || NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) || NPC.AnyNPCs(ModContent.NPCType<AnubisA>()) || NPC.AnyNPCs(ModContent.NPCType<AnubisUnreleased>()))
+            if (MyBehavior == BehaviorState.TownNPC)
             {
-                TPDust();
-                NPC.active = false;
-                return false;
-            }
-            if (Vector2.Distance(NPC.position, new Vector2(NPC.homeTileX, NPC.homeTileY)) > 3000 && AwayFromPlayerTimer < 240 && !NPC.homeless)
-            {
-                AwayFromPlayerTimer++;
-                if (AwayFromPlayerTimer >= 240)
+                NPC.townNPC = true;
+                NPC.aiStyle = NPCAIStyleID.Passive;
+
+                if (NPC.AnyNPCs(ModContent.NPCType<Anubis>()) || NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) || NPC.AnyNPCs(ModContent.NPCType<AnubisA>()) || NPC.AnyNPCs(ModContent.NPCType<AnubisUnreleased>()))
                 {
-                    bool IsNearbyPlayer = false;
-                    for (int k = 0; k < 2; k++)
+                    TPDust();
+                    NPC.active = false;
+                    return false;
+                }
+                if (Vector2.Distance(NPC.position, new Vector2(NPC.homeTileX, NPC.homeTileY)) > 3000 && AwayFromPlayerTimer < 240 && !NPC.homeless)
+                {
+                    AwayFromPlayerTimer++;
+                    if (AwayFromPlayerTimer >= 240)
                     {
-                        Rectangle NPCNearbyRectangle = new Rectangle((int)(NPC.position.X + NPC.width / 2 - NPC.sWidth / 2 - NPC.safeRangeX), (int)(NPC.position.Y + NPC.height / 2 - NPC.sHeight / 2 - NPC.safeRangeY), NPC.sWidth + NPC.safeRangeX * 2, NPC.sHeight + NPC.safeRangeY * 2);
-                        if (k == 1)
+                        bool IsNearbyPlayer = false;
+                        for (int k = 0; k < 2; k++)
                         {
-                            NPCNearbyRectangle = new Rectangle(NPC.homeTileX * 16 + 8 - NPC.sWidth / 2 - NPC.safeRangeX, NPC.homeTileY * 16 + 8 - NPC.sHeight / 2 - NPC.safeRangeY, NPC.sWidth + NPC.safeRangeX * 2, NPC.sHeight + NPC.safeRangeY * 2);
-                        }
-                        for (int l = 0; l < 255; l++)
-                        {
-                            if (Main.player[l].active)
+                            Rectangle NPCNearbyRectangle = new Rectangle((int)(NPC.position.X + NPC.width / 2 - NPC.sWidth / 2 - NPC.safeRangeX), (int)(NPC.position.Y + NPC.height / 2 - NPC.sHeight / 2 - NPC.safeRangeY), NPC.sWidth + NPC.safeRangeX * 2, NPC.sHeight + NPC.safeRangeY * 2);
+                            if (k == 1)
                             {
-                                Rectangle PlayerNearbyRectangle = new Rectangle((int)Main.player[l].position.X, (int)Main.player[l].position.Y, Main.player[l].width, Main.player[l].height);
-                                if (PlayerNearbyRectangle.Intersects(NPCNearbyRectangle))
-                                {
-                                    IsNearbyPlayer = true;
-                                    break;
-                                }
+                                NPCNearbyRectangle = new Rectangle(NPC.homeTileX * 16 + 8 - NPC.sWidth / 2 - NPC.safeRangeX, NPC.homeTileY * 16 + 8 - NPC.sHeight / 2 - NPC.safeRangeY, NPC.sWidth + NPC.safeRangeX * 2, NPC.sHeight + NPC.safeRangeY * 2);
                             }
-                            if (IsNearbyPlayer)
-                                break;
+                            for (int l = 0; l < 255; l++)
+                            {
+                                if (Main.player[l].active)
+                                {
+                                    Rectangle PlayerNearbyRectangle = new Rectangle((int)Main.player[l].position.X, (int)Main.player[l].position.Y, Main.player[l].width, Main.player[l].height);
+                                    if (PlayerNearbyRectangle.Intersects(NPCNearbyRectangle))
+                                    {
+                                        IsNearbyPlayer = true;
+                                        break;
+                                    }
+                                }
+                                if (IsNearbyPlayer)
+                                    break;
+                            }
                         }
-                    }
-                    if (!IsNearbyPlayer)
-                    {
-                        if (!Collision.SolidTiles(NPC.homeTileX - 1, NPC.homeTileX + 1, NPC.homeTileY - 3, NPC.homeTileY - 1))
+                        if (!IsNearbyPlayer)
                         {
-                            TPDust();
-                            // why are you talkingwhen nobody sees you???
-                            CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.CombatTextChat"));
-                            NPC.velocity.X = 0f;
-                            NPC.velocity.Y = 0f;
-                            NPC.position.X = NPC.homeTileX * 16 + 8 - NPC.width / 2;
-                            NPC.position.Y = NPC.homeTileY * 16 - NPC.height - 0.1f;
-                            NPC.netUpdate = true;
-                            AwayFromPlayerTimer = 0;
+                            if (!Collision.SolidTiles(NPC.homeTileX - 1, NPC.homeTileX + 1, NPC.homeTileY - 3, NPC.homeTileY - 1))
+                            {
+                                TPDust();
+                                // why are you talkingwhen nobody sees you???
+                                CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.CombatTextChat"));
+                                NPC.velocity.X = 0f;
+                                NPC.velocity.Y = 0f;
+                                NPC.position.X = NPC.homeTileX * 16 + 8 - NPC.width / 2;
+                                NPC.position.Y = NPC.homeTileY * 16 - NPC.height - 0.1f;
+                                NPC.netUpdate = true;
+                                AwayFromPlayerTimer = 0;
+                            }
                         }
                     }
                 }
+            }
+            else
+            {
+                NPC.townNPC = false;
+                NPC.aiStyle = -1;
             }
 
             if (chattingLastFrame && DialogueUISystem.UI.CurrentState != null)
@@ -343,6 +362,8 @@ namespace AAModClassic._Unofficial.Desert
             Main.LocalPlayer.SetTalkNPC(-1);
             DialogueUISystem.EndDialogue(silent);
         }
+
+        public override bool CanChat() => true;
 
         public override string GetChat()
         {
@@ -549,6 +570,17 @@ namespace AAModClassic._Unofficial.Desert
 
         public override void FindFrame(int frameHeight)
         {
+            if(MyBehavior == BehaviorState.RuinsIdle)
+            {
+                if(NPC.Center.X / 16 < Main.spawnTileX)
+                    NPC.direction = NPC.spriteDirection = 1;
+                else
+                    NPC.direction = NPC.spriteDirection = -1;
+
+                NPC.frame.Y = 12 * frameHeight;
+                return;
+            }
+
             int type = NPC.type;
             int num165 = NPCID.Sets.ExtraFramesCount[NPC.type];
 
@@ -556,20 +588,15 @@ namespace AAModClassic._Unofficial.Desert
             // tldr if u put in an animationstyle itll pull ALL data from the npc ur pulling anim style from
             // even if u have different frame counts itll pull from ur animstyle guy
             // tml should really fix this
+            #region This needs a region christ
             if (NPC.velocity.Y == 0f)
             {
-                if (NPC.direction == 1)
-                {
-                    NPC.spriteDirection = 1;
-                }
-                if (NPC.direction == -1)
-                {
-                    NPC.spriteDirection = -1;
-                }
+                NPC.spriteDirection = NPC.direction;
+
                 int num166 = Main.npcFrameCount[type] - NPCID.Sets.AttackFrameCount[type];
                 if (NPC.ai[0] == 23f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num167 = NPC.frame.Y / frameHeight;
                     int num85 = num166 - num167;
                     if ((uint)(num85 - 1) > 1u && (uint)(num85 - 4) > 1u && num167 != 0)
@@ -597,7 +624,7 @@ namespace AAModClassic._Unofficial.Desert
                             }
                             if (num170 > 0)
                             {
-                                NPC.frameCounter += 1.0;
+                                NPC.frameCounter++;
                             }
                             if (NPC.frameCounter > 4.0)
                             {
@@ -620,7 +647,7 @@ namespace AAModClassic._Unofficial.Desert
                             }
                             if (num170 > 0)
                             {
-                                NPC.frameCounter += 1.0;
+                                NPC.frameCounter++;
                             }
                             if (NPC.frameCounter > 4.0)
                             {
@@ -641,7 +668,7 @@ namespace AAModClassic._Unofficial.Desert
                 }
                 else if (NPC.ai[0] == 2f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     if (NPC.frame.Y / frameHeight == num166 - 1 && NPC.frameCounter >= 5.0)
                     {
                         NPC.frame.Y = 0;
@@ -660,7 +687,7 @@ namespace AAModClassic._Unofficial.Desert
                 }
                 else if (NPC.ai[0] == 11f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     if (NPC.frame.Y / frameHeight == num166 - 1 && NPC.frameCounter >= 50.0)
                     {
                         if (NPC.frameCounter == 50.0)
@@ -705,7 +732,7 @@ namespace AAModClassic._Unofficial.Desert
                 }
                 else if (NPC.ai[0] == 6f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num175 = NPC.frame.Y / frameHeight;
                     int num84 = num166 - num175;
                     if ((uint)(num84 - 1) > 1u && (uint)(num84 - 4) > 1u && num175 != 0)
@@ -736,7 +763,7 @@ namespace AAModClassic._Unofficial.Desert
                 }
                 else if (NPC.ai[0] == 7f || NPC.ai[0] == 19f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num179 = NPC.frame.Y / frameHeight;
                     int num83 = num166 - num179;
                     if ((uint)(num83 - 1) > 1u && (uint)(num83 - 4) > 1u && num179 != 0)
@@ -777,7 +804,7 @@ namespace AAModClassic._Unofficial.Desert
                 }
                 else if (NPC.ai[0] == 9f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num182 = NPC.frame.Y / frameHeight;
                     int num82 = num166 - num182;
                     if ((uint)(num82 - 1) > 1u && (uint)(num82 - 4) > 1u && num182 != 0)
@@ -799,7 +826,7 @@ namespace AAModClassic._Unofficial.Desert
                 }
                 else if (NPC.ai[0] == 18f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num184 = NPC.frame.Y / frameHeight;
                     int num81 = num166 - num184;
                     if ((uint)(num81 - 1) > 1u && (uint)(num81 - 4) > 1u && num184 != 0)
@@ -833,7 +860,7 @@ namespace AAModClassic._Unofficial.Desert
                 }
                 else if (NPC.ai[0] == 10f || NPC.ai[0] == 13f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num186 = NPC.frame.Y / frameHeight;
                     if ((uint)(num186 - num166) > 3u && num186 != 0)
                     {
@@ -848,7 +875,7 @@ namespace AAModClassic._Unofficial.Desert
                 }
                 else if (NPC.ai[0] == 15f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num190 = NPC.frame.Y / frameHeight;
                     if ((uint)(num190 - num166) > 3u && num190 != 0)
                     {
@@ -866,7 +893,7 @@ namespace AAModClassic._Unofficial.Desert
                 }
                 else if (NPC.ai[0] == 12f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num194 = NPC.frame.Y / frameHeight;
                     if ((uint)(num194 - num166) > 4u && num194 != 0)
                     {
@@ -878,7 +905,7 @@ namespace AAModClassic._Unofficial.Desert
                 }
                 else if (NPC.ai[0] == 14f || NPC.ai[0] == 24f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num196 = NPC.frame.Y / frameHeight;
                     if ((uint)(num196 - num166) > 1u && num196 != 0)
                     {
@@ -911,7 +938,7 @@ namespace AAModClassic._Unofficial.Desert
                 }
                 else if (NPC.CanTalk && (NPC.ai[0] == 3f || NPC.ai[0] == 4f))
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num199 = NPC.frame.Y / frameHeight;
                     int num80 = num166 - num199;
                     if ((uint)(num80 - 1) > 1u && (uint)(num80 - 4) > 1u && num199 != 0)
@@ -996,7 +1023,7 @@ namespace AAModClassic._Unofficial.Desert
                 }
                 else if (NPC.CanTalk && (NPC.ai[0] == 16f || NPC.ai[0] == 17f))
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num205 = NPC.frame.Y / frameHeight;
                     int num79 = num166 - num205;
                     if ((uint)(num79 - 1) > 1u && (uint)(num79 - 4) > 1u && num205 != 0)
@@ -1212,7 +1239,7 @@ namespace AAModClassic._Unofficial.Desert
                 {
                     int num221 = 6;
                     NPC.frameCounter += Math.Abs(NPC.velocity.X) * 2f;
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num222 = frameHeight * 2;
                     if (NPC.frame.Y < num222)
                     {
@@ -1236,6 +1263,7 @@ namespace AAModClassic._Unofficial.Desert
             }
 
             NPC.position -= NPC.netOffset;
+            #endregion
         }
 
         public void TPDust()
@@ -1395,6 +1423,31 @@ namespace AAModClassic._Unofficial.Desert
                 (Main.npc[ChattingAnubis].ModNPC as LegendscribeUnofficial).InteruptDialogue(true);
                 ChattingAnubis = -1;
             }
+        }
+    }
+
+    public class UnofficialAnubisSystem : ModSystem
+    {
+        internal static Point AnubisRuinsTile = Point.Zero;
+
+        public override void PreUpdateNPCs()
+        {
+            //Main.NewText(AnubisRuinsTile - Main.LocalPlayer.Center.ToTileCoordinates());
+            if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && AnubisRuinsTile != Point.Zero && !NPC.AnyNPCs(ModContent.NPCType<LegendscribeUnofficial>()))
+            {
+                NPC anubis = NPC.NewNPCDirect(NPC.GetSource_NaturalSpawn(), AnubisRuinsTile.ToWorldCoordinates(0, 0), ModContent.NPCType<LegendscribeUnofficial>());
+                (anubis.ModNPC as LegendscribeUnofficial).MyBehavior = LegendscribeUnofficial.BehaviorState.RuinsIdle;
+            }
+        }
+
+        public override void SaveWorldData(TagCompound tag)
+        {
+            tag.Add("AnubisRuinsTile", AnubisRuinsTile);
+        }
+
+        public override void LoadWorldData(TagCompound tag)
+        {
+            tag.TryGet("AnubisRuinsTile", out AnubisRuinsTile);
         }
     }
 }

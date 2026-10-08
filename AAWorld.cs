@@ -570,7 +570,12 @@ namespace AAModClassic
             int ChaosIndex = (SpiritReforgedManager.IsEnabled || ModLoader.HasMod("SOTS")) ? tasks.Count - 2 : tasks.FindIndex(genpass => genpass.Name.Equals("Micro Biomes"));
             if (ChaosIndex > -1)
             {
-                tasks.Insert(ChaosIndex + 1, new PassLegacy("Mire and Inferno", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(ChaosIndex + 1, new PassLegacy("AnubisRuins", delegate (GenerationProgress progress, GameConfiguration config)
+                {
+                    AnubisRuins(progress);
+                }));
+
+                tasks.Insert(ChaosIndex + 2, new PassLegacy("Mire and Inferno", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     MireAndInferno(progress);
                 }));
@@ -632,11 +637,6 @@ namespace AAModClassic
                 tasks.Insert(shiniesIndex2 + 8, new PassLegacy("Equinox", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     EquinoxAlt(progress);
-                }));
-
-                tasks.Insert(shiniesIndex2 + 9, new PassLegacy("AnubisRuins", delegate (GenerationProgress progress, GameConfiguration config)
-                {
-                    AnubisRuins(progress);
                 }));
             }
 
@@ -1776,7 +1776,8 @@ namespace AAModClassic
             int start = Main.spawnTileX + 100;
             int end = GenVars.desertHiveRight;
             int inc = 1;
-            if (Main.dungeonX > Main.spawnTileX)
+            bool sandReached = false;
+            if (GenVars.desertHiveLeft < Main.spawnTileX)
             {
                 start = Main.spawnTileX - 100;
                 end = GenVars.desertHiveLeft;
@@ -1786,13 +1787,26 @@ namespace AAModClassic
             int bestX = 0;
             int medianY = 0;
             int bestDiff = int.MaxValue;
+            bool hopped = false;
 
             for (int x = start; inc == 1 ? x < end : x > end; x += inc)
             {
-                if (inc == 1 && x == GenVars.jungleMinX)
-                    x = GenVars.jungleMaxX;
-                else if (inc == -1 && x == GenVars.jungleMaxX)
-                    x = GenVars.jungleMinX;
+                if (inc == 1 && (x == GenVars.jungleMinX || x == GenVars.snowMinX[0]))
+                {
+                    if (x == GenVars.jungleMinX)
+                        x = GenVars.jungleMaxX;
+                    else if (x == GenVars.snowMinX[0])
+                        x = GenVars.snowMaxX[0];
+                    hopped = true;
+                }
+                else if (inc == -1 && (x == GenVars.jungleMaxX || x == GenVars.snowMaxX[0]))
+                {
+                    if (x == GenVars.jungleMaxX)
+                        x = GenVars.jungleMinX;
+                    else if (x == GenVars.snowMaxX[0])
+                        x = GenVars.snowMinX[0];
+                    hopped = true;
+                }
 
                 Point tileClose = CollisionUtils.FindSurfaceBelow(new(x, 50), true);
                 if (Framing.GetTileSafely(tileClose).TileType != TileID.Sand || Framing.GetTileSafely(tileClose - new Point(0, 1)).LiquidAmount > 0)
@@ -1801,6 +1815,21 @@ namespace AAModClassic
                 Point tileFar = CollisionUtils.FindSurfaceBelow(new(x + ((AnubisRuinsSchematicAssets.Ruins.Width + 1) * inc), 50), true);
                 if (Framing.GetTileSafely(tileFar).TileType != TileID.Sand || Framing.GetTileSafely(tileFar - new Point(0, 1)).LiquidAmount > 0)
                     continue;
+
+                if (!GenVars.structures.CanPlace(new Rectangle(x, tileClose.Y - AnubisRuinsSchematicAssets.Ruins.Height / 2, AnubisRuinsSchematicAssets.Ruins.Width, AnubisRuinsSchematicAssets.Ruins.Height), 8))
+                    continue;
+
+                //Spirit Reforged adds a smoother edge to the jungle. We don't want the anubis ruins in that region though.
+                if (!sandReached)
+                {
+                    sandReached = true;
+                    if(SpiritReforgedManager.IsEnabled)
+                    {
+                        x += 20 * inc;
+                        continue;
+                    }
+
+                }
 
                 int diff = Math.Abs(tileClose.Y - tileFar.Y);
 
@@ -1815,6 +1844,70 @@ namespace AAModClassic
                     }
                     else
                         medianY = (tileClose.Y + tileFar.Y) / 2;
+                }
+            }
+
+            // Main desert is past the snow/jungle or we failed to find a spot. Check the other side and praaaaay for a dunes biome
+            if (hopped || bestX == 0)
+            {
+                int travelled = Math.Abs(start - bestX);
+                int altStart = Main.spawnTileX - 100;
+                int altEnd = altStart - travelled;
+                int altInc = -1;
+                if (GenVars.desertHiveLeft < Main.spawnTileX)
+                {
+                    altStart = Main.spawnTileX + 100;
+                    altEnd = altStart + travelled;
+                    altInc = 1;
+                }
+
+                bool anyHits = false;
+
+                for (int altX = altStart; altInc == 1 ? altX < altEnd : altX > altEnd; altX += altInc)
+                {
+                    if (altInc == 1)
+                    {
+                        if (altX == GenVars.jungleMinX)
+                            altX = GenVars.jungleMaxX;
+                        else if (altX == GenVars.snowMinX[0])
+                            altX = GenVars.snowMaxX[0];
+                    }
+                    else if (altInc == -1 && (altX == GenVars.jungleMaxX || altX == GenVars.snowMaxX[0]))
+                    {
+                        if (altX == GenVars.jungleMaxX)
+                            altX = GenVars.jungleMinX;
+                        else if (altX == GenVars.snowMaxX[0])
+                            altX = GenVars.snowMinX[0];
+                    }
+
+                    Point tileClose = CollisionUtils.FindSurfaceBelow(new(altX, 50), true);
+                    if (Framing.GetTileSafely(tileClose).TileType != TileID.Sand || Framing.GetTileSafely(tileClose - new Point(0, 1)).LiquidAmount > 0)
+                        continue;
+
+                    Point tileFar = CollisionUtils.FindSurfaceBelow(new(altX + ((AnubisRuinsSchematicAssets.Ruins.Width + 1) * altInc), 50), true);
+                    if (Framing.GetTileSafely(tileFar).TileType != TileID.Sand || Framing.GetTileSafely(tileFar - new Point(0, 1)).LiquidAmount > 0)
+                        continue;
+
+                    if (!GenVars.structures.CanPlace(new Rectangle(altX, tileClose.Y - AnubisRuinsSchematicAssets.Ruins.Height / 2, AnubisRuinsSchematicAssets.Ruins.Width, AnubisRuinsSchematicAssets.Ruins.Height), 8))
+                        continue;
+
+                    int diff = Math.Abs(tileClose.Y - tileFar.Y);
+
+                    if (diff < bestDiff || (!anyHits && Math.Abs(diff - bestDiff) <= 2))
+                    {
+                        anyHits = true;
+                        inc = altInc;
+
+                        bestX = altX;
+                        bestDiff = diff;
+                        if (bestDiff == 0)
+                        {
+                            medianY = tileClose.Y;
+                            break;
+                        }
+                        else
+                            medianY = (tileClose.Y + tileFar.Y) / 2;
+                    }
                 }
             }
 
