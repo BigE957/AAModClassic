@@ -17,6 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria.Audio;
+using Terraria.Cinematics;
 using Terraria.GameContent;
 using Terraria.GameContent.Events;
 using Terraria.GameContent.Personalities;
@@ -292,7 +293,7 @@ namespace AAModClassic._Unofficial.Desert
 
             // Handles camera stuff when dialogue is happening
             float zoom = Main.GameZoomTarget - 1f;
-            Vector2 cameraCenter = (NPC.Center + Main.LocalPlayer.Center) / 2f - Vector2.UnitY * MathHelper.Lerp(180f, 80f, zoom);
+            Vector2 cameraCenter = (NPC.Center + Main.LocalPlayer.Center) / 2f - Vector2.UnitY * MathHelper.Lerp(140f, 80f, zoom);
             DialogueUISystem.State.worldCenter = cameraCenter - Vector2.UnitY * 60f;
                 
             Vector2 regionCenter = NPC.Center - Vector2.UnitY * 140f;
@@ -329,7 +330,7 @@ namespace AAModClassic._Unofficial.Desert
                 InteruptDialogue(false);
                 CameraSystem.ResetCamera();
 
-                WorldTextSystem.StartDialogue("Mods.CalamityMod.DevourerOfGods.Phases", NPC.Center, 2, 90, false, new AlwaysOnScreen());
+                WorldTextSystem.StartDialogue("Mods.CalamityMod.DevourerOfGods.Phases", NPC.Center - Vector2.UnitY * 90f, 2, 90, false, new AlwaysOnScreen());
                 chattingLastFrame = false;
             }
         }
@@ -1384,6 +1385,7 @@ namespace AAModClassic._Unofficial.Desert
         public override void ResetEffects()
         {
             //ChattingAnubis = -1;
+            //Main.NewText(Main.LocalPlayer.Center.ToTileCoordinates() - new Point(Main.spawnTileX, Main.spawnTileY));
         }
 
         public override void UpdateDead()

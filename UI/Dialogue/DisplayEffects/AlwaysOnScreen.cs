@@ -14,24 +14,29 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
 
         public override Vector2 TextOffsetFromStart(Vector2 startPos, Vector2 textSize)
         {
-            Vector2 playerPos = Main.LocalPlayer.Center;
-            Vector2 halfSize = textSize * 0.5f;
-            Vector2 newPos = startPos - halfSize + (Vector2.UnitY * -(textSize.Y + 36));
-            Vector2 screenPos = newPos.ToScreenPosition();
+            Vector2 originOffsetPosition = startPos - (textSize / 2f);
 
-            Vector2 boundTopLeftScreen = new((Main.screenWidth / 2f) - (Main.screenWidth / 2.5f), (Main.screenHeight / 2f) - (Main.screenHeight / 2.5f));
+            int leftMargin = 60;
+            int topMargin = 120;
+            int rightMargin = 60;
+            int bottomMargin = 20;
 
-            if (screenPos.X < boundTopLeftScreen.X)
-                newPos.X = playerPos.X - (Main.screenWidth / 2.5f);
-            if (screenPos.Y < boundTopLeftScreen.Y)
-                newPos.Y = playerPos.Y - (Main.screenHeight / 2.5f);
+            float minX = Main.screenPosition.X + leftMargin;
+            float maxX = Main.screenPosition.X + Main.screenWidth - rightMargin;
+            float minY = Main.screenPosition.Y + topMargin;
+            float maxY = Main.screenPosition.Y + Main.screenHeight - bottomMargin;
 
-            if (newPos.X > playerPos.X + (Main.screenWidth / 2.5f) - textSize.X)
-                newPos.X = playerPos.X + (Main.screenWidth / 2.5f) - textSize.X;
-            if (newPos.Y > playerPos.Y + (Main.screenHeight / 2.5f) - textSize.Y)
-                newPos.Y = playerPos.Y + (Main.screenHeight / 2.5f) - textSize.Y;
+            if (originOffsetPosition.X < minX)
+                originOffsetPosition.X = minX;
+            else if (originOffsetPosition.X + textSize.X > maxX)
+                originOffsetPosition.X = maxX - textSize.X;
 
-            return newPos;
+            if (originOffsetPosition.Y < minY)
+                originOffsetPosition.Y = minY;
+            else if (originOffsetPosition.Y + textSize.Y > maxY)
+                originOffsetPosition.Y = maxY - textSize.Y;
+
+            return originOffsetPosition;
         }
 
         public override Vector2 AppearPositioning(Vector2 startPos, Vector2 goalPos, float time, DialogueCharacterData charData)
