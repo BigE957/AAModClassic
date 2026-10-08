@@ -61,6 +61,7 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
+using AAModClassic._Unofficial.Desert;
 using AAModClassic._Unreleased;
 using AAModClassic._Unreleased.Content.LostKeep.World.Biomes;
 using AAModClassic._Unreleased.Content.LostKeep.World.Tiles;
@@ -85,6 +86,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.Utilities;
 using Terraria.WorldBuilding;
+using static Terraria.GameContent.Bestiary.IL_BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions;
 
 namespace AAModClassic
 {
@@ -587,7 +589,6 @@ namespace AAModClassic
             int shiniesIndex2 = tasks.FindIndex(genpass => genpass.Name.Equals("Final Cleanup"));
             if (shiniesIndex2 > -1)
             {
-
                 tasks.Insert(shiniesIndex2, new PassLegacy("Ender", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     EnderShrine();
@@ -631,6 +632,11 @@ namespace AAModClassic
                 tasks.Insert(shiniesIndex2 + 8, new PassLegacy("Equinox", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     EquinoxAlt(progress);
+                }));
+
+                tasks.Insert(shiniesIndex2 + 9, new PassLegacy("AnubisRuins", delegate (GenerationProgress progress, GameConfiguration config)
+                {
+                    AnubisRuins(progress);
                 }));
             }
 
@@ -1758,6 +1764,69 @@ namespace AAModClassic
                 Point origin = new(flip ? offset : Main.maxTilesX - offset, Main.maxTilesY - 200);
                 new PitGeneration().Place(origin, GenVars.structures);
             }
+        }
+
+        private static void AnubisRuins(GenerationProgress progress)
+        {
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                return;
+
+            progress.Message = "Ruining an ancient monument";
+
+            int start = Main.spawnTileX + 100;
+            int end = GenVars.desertHiveRight;
+            int inc = 1;
+            if (Main.dungeonX > Main.spawnTileX)
+            {
+                start = Main.spawnTileX - 100;
+                end = GenVars.desertHiveLeft;
+                inc = -1;
+            }
+
+            int bestX = 0;
+            int medianY = 0;
+            int bestDiff = int.MaxValue;
+
+            for (int x = start; inc == 1 ? x < end : x > end; x += inc)
+            {
+                if (inc == 1 && x == GenVars.jungleMinX)
+                    x = GenVars.jungleMaxX;
+                else if (inc == -1 && x == GenVars.jungleMaxX)
+                    x = GenVars.jungleMinX;
+
+                Point tileClose = CollisionUtils.FindSurfaceBelow(new(x, 50), true);
+                if (Framing.GetTileSafely(tileClose).TileType != TileID.Sand || Framing.GetTileSafely(tileClose - new Point(0, 1)).LiquidAmount > 0)
+                    continue;
+
+                Point tileFar = CollisionUtils.FindSurfaceBelow(new(x + ((AnubisRuinsSchematicAssets.Ruins.Width + 1) * inc), 50), true);
+                if (Framing.GetTileSafely(tileFar).TileType != TileID.Sand || Framing.GetTileSafely(tileFar - new Point(0, 1)).LiquidAmount > 0)
+                    continue;
+
+                int diff = Math.Abs(tileClose.Y - tileFar.Y);
+
+                if (diff < bestDiff)
+                {
+                    bestX = x;
+                    bestDiff = diff;
+                    if (bestDiff == 0)
+                    {
+                        medianY = tileClose.Y;
+                        break;
+                    }
+                    else
+                        medianY = (tileClose.Y + tileFar.Y) / 2;
+                }
+            }
+
+            if (bestX == 0)
+                return;
+
+            Point origin = new(bestX + (AnubisRuinsSchematicAssets.Ruins.Width / 2 * inc), medianY);
+            origin.X += inc;
+            origin.Y -= 2;
+
+            AnubisRuinsGen biome = new();
+            biome.Place(origin, GenVars.structures);
         }
 
         public override void ResetNearbyTileEffects()
