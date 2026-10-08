@@ -1773,14 +1773,17 @@ namespace AAModClassic
 
             progress.Message = "Ruining an ancient monument";
 
+            int desertMin = GenVars.UndergroundDesertLocation.X;
+            int desertMax = GenVars.UndergroundDesertLocation.X + GenVars.UndergroundDesertLocation.Width;
+
             int start = Main.spawnTileX + 100;
-            int end = GenVars.desertHiveRight;
+            int end = desertMax;
             int inc = 1;
             bool sandReached = false;
-            if (GenVars.desertHiveLeft < Main.spawnTileX)
+            if (desertMin < Main.spawnTileX)
             {
                 start = Main.spawnTileX - 100;
-                end = GenVars.desertHiveLeft;
+                end = desertMin;
                 inc = -1;
             }
 
@@ -1848,13 +1851,14 @@ namespace AAModClassic
             }
 
             // Main desert is past the snow/jungle or we failed to find a spot. Check the other side and praaaaay for a dunes biome
-            if (hopped || bestX == 0)
+            // There are no dunes to save us with remnants so dont bother
+            if (!ModLoader.HasMod("Remnants") && (hopped || bestX == 0))
             {
                 int travelled = Math.Abs(start - bestX);
                 int altStart = Main.spawnTileX - 100;
                 int altEnd = altStart - travelled;
                 int altInc = -1;
-                if (GenVars.desertHiveLeft < Main.spawnTileX)
+                if (desertMin < Main.spawnTileX)
                 {
                     altStart = Main.spawnTileX + 100;
                     altEnd = altStart + travelled;
