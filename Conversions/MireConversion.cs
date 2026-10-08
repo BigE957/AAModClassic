@@ -91,15 +91,7 @@ namespace AAModClassic.Conversions
                 TileLoader.RegisterConversion(spirit.Find<ModTile>("SavannaFoliageCrimson").Type, Type, ModContent.TileType<MireFoliage_Tile>());
                 TileLoader.RegisterConversion(spirit.Find<ModTile>("SavannaFoliageHallow").Type, Type, ModContent.TileType<MireFoliage_Tile>());
 
-                //Reforged handles converting these automatically and having them here causes a JIT error so LOL
-                /*
-                TileLoader.RegisterConversion(spirit.Find<ModTile>("ElephantGrass").Type, Type, ModContent.TileType<ElephantGrassMire>());
-                TileLoader.RegisterConversion(spirit.Find<ModTile>("ElephantGrassCorrupt").Type, Type, ModContent.TileType<ElephantGrassMire>());
-                TileLoader.RegisterConversion(spirit.Find<ModTile>("ElephantGrassCrimson").Type, Type, ModContent.TileType<ElephantGrassMire>());
-                TileLoader.RegisterConversion(spirit.Find<ModTile>("ElephantGrassHallow").Type, Type, ModContent.TileType<ElephantGrassMire>());
-                */
                 TileLoader.RegisterConversion(spirit.Find<ModTile>("SavannaDirt").Type, Type, TileID.Mud);
-
 
                 WallLoader.RegisterConversion(spirit.Find<ModWall>("SavannaDirtWall").Type, Type, WallID.MudWallEcho);
                 WallLoader.RegisterConversion(spirit.Find<ModWall>("SavannaDirtWallUnsafe").Type, Type, WallID.MudUnsafe);
@@ -109,6 +101,19 @@ namespace AAModClassic.Conversions
                 WallLoader.RegisterConversion(spirit.Find<ModWall>("LivingBaobabWall").Type, Type, ModContent.WallType<LivingBogwoodWall_Wall>());
                 WallLoader.RegisterConversion(spirit.Find<ModWall>("LivingBaobabLeafWall").Type, Type, ModContent.WallType<LivingBogleafWall_Wall>());
             }
+        }
+    }
+
+    [JITWhenModsEnabled("SpiritReforged")]
+    public class ReforgedWeakRefConversion : ModSystem
+    {
+        public override void PostSetupContent()
+        {
+            int convType = ModContent.GetInstance<MireConversion>().Type;
+            TileLoader.RegisterConversion(SpiritReforgedManager.spiritReforged.Find<ModTile>("ElephantGrass").Type, convType, ModContent.TileType<ElephantGrassMire>());
+            TileLoader.RegisterConversion(SpiritReforgedManager.spiritReforged.Find<ModTile>("ElephantGrassCorrupt").Type, convType, ModContent.TileType<ElephantGrassMire>());
+            TileLoader.RegisterConversion(SpiritReforgedManager.spiritReforged.Find<ModTile>("ElephantGrassCrimson").Type, convType, ModContent.TileType<ElephantGrassMire>());
+            TileLoader.RegisterConversion(SpiritReforgedManager.spiritReforged.Find<ModTile>("ElephantGrassHallow").Type, convType, ModContent.TileType<ElephantGrassMire>());
         }
     }
 }
