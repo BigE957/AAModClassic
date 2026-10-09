@@ -131,6 +131,8 @@ namespace AAModClassic._Unofficial.Desert
                 .SetNPCAffection(NPCID.ArmsDealer, AffectionLevel.Dislike);
 
             this.HideFromBestiary();
+
+            DialogueUISystem.ResponseSelect += AnubisDialogueUpdate;
         }
 
         public override void SetDefaults()
@@ -326,7 +328,7 @@ namespace AAModClassic._Unofficial.Desert
                 if (appearTimer <= 60)
                 {
                     if(appearTimer == 30)
-                        DialogueUISystem.StartDialogue(DialogueToUse, 0, NPC.Center - Vector2.UnitY * 180);
+                        DialogueUISystem.StartDialogue(DialogueToUse, 0, NPC.Center - Vector2.UnitY * 180, new(Name, NPC.whoAmI));
                     appearRatio = MathUtils.SineInOutEasing(appearTimer / 60f);
                     appearTimer++;
                 }
@@ -447,6 +449,15 @@ namespace AAModClassic._Unofficial.Desert
                     break;
             }
             return FemaleNPC;
+        }
+
+        private static void AnubisDialogueUpdate(string treeKey, int dialogueID, int buttonID)
+        {
+            if (treeKey == "Mods.AAModClassic.DialogueTrees.Anubis.Intro" && dialogueID >= 4 && dialogueID <= 6)
+            {
+                LegendscribeUnofficial me = Main.npc[(int)DialogueUISystem.CurrentContext.Arguments[0]].ModNPC as LegendscribeUnofficial;
+                me.MyBehavior = BehaviorState.TownNPC;
+            }
         }
 
         public override void SetChatButtons(ref string button, ref string button2)

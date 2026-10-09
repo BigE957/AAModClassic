@@ -80,6 +80,8 @@ namespace AAModClassic.UI.Dialogue
             if (currentIndex >= tree.Count)
                 currentIndex = tree.Count - 1;
 
+            DialogueUISystem.DialogueTreeSetup?.Invoke(treeName, ref tree);
+
             ChangeDialogue();
 
             (dialogue.DisplayEffects as DialogueUIEffect).ChangePosition = Vector2.Zero;
@@ -92,6 +94,8 @@ namespace AAModClassic.UI.Dialogue
         {
             if (dialogue.textIndex < dialogue.Text.Length - 1)
                 dialogue.textIndex = dialogue.Text.Length - 1;
+            else if(responses.Count == 0)
+                SwitchDialogue(currentIndex + 1);
         }
 
         public void OnResponsePress(int responseIndex)
@@ -100,6 +104,9 @@ namespace AAModClassic.UI.Dialogue
                 return;
 
             var response = tree.Dialogues[currentIndex].Responses[responseIndex];
+
+            DialogueUISystem.ResponseSelect?.Invoke(treeName, currentIndex, responseIndex);
+
             SwitchDialogue(response.Heading == -2 ? currentIndex + 1 : response.Heading);
 
             for(int i = 0; i < responses.Count; i++)
@@ -175,7 +182,7 @@ namespace AAModClassic.UI.Dialogue
                 button.OnLeftClick += (_, _) => OnResponsePress(myIndex);
 
                 float xAlign = (i + 1) / (float)(count + 1);
-                button.idealAligns = new(xAlign, 0.5f + (MathF.Sin(xAlign * MathHelper.Pi) / 2f));
+                button.idealAligns = new(xAlign, 0.75f + (MathF.Sin(xAlign * MathHelper.Pi) / 2f));
                 button.HAlign = 0.5f;
                 button.VAlign = 0.5f;
 
@@ -518,6 +525,15 @@ namespace AAModClassic.UI.Dialogue
         }
     }
 
+    public delegate void DialogueEventNotifier(string treeKey, int dialogueID);
+    public delegate void DialogueTreeNotifier(string treeKey, ref DialogueTree tree);
+    public delegate void ResponseSelectNotifier(string treeKey, int dialogueID, int buttonID);
+    public struct DialogueContext(string catagory, params float[] args)
+    {
+        public string Catagory = catagory;
+        public float[] Arguments = args;
+    }
+
     [Autoload(Side = ModSide.Client)]
     public class DialogueUISystem : ModSystem
     {
@@ -528,6 +544,13 @@ namespace AAModClassic.UI.Dialogue
         internal static Dictionary<string, (Asset<Texture2D> texture, Rectangle frame)> ResponseIcons = [];
 
         internal static bool Visible = false;
+
+        public static DialogueEventNotifier DialogueStart;
+        public static DialogueTreeNotifier DialogueTreeSetup;
+        public static ResponseSelectNotifier ResponseSelect;
+        public static DialogueEventNotifier DialogueEnd;
+
+        public static DialogueContext CurrentContext;
 
         public override void Load()
         {
@@ -586,11 +609,14 @@ namespace AAModClassic.UI.Dialogue
             }
         }
     
-        public static void StartDialogue(string name, int startIndex, Vector2 position)
+        public static void StartDialogue(string name, int startIndex, Vector2 position, DialogueContext context)
         {
+            DialogueStart?.Invoke(name, startIndex);
+
             State.worldCenter = position;
             State.treeName = name;
             State.currentIndex = startIndex;
+            CurrentContext = context;
 
             if (!Visible)
             {
@@ -604,6 +630,9 @@ namespace AAModClassic.UI.Dialogue
 
         public static void EndDialogue(bool silent)
         {
+            DialogueEnd.Invoke(State.treeName, State.currentIndex);
+            CurrentContext = default;
+
             State.SwitchDialogue(-1);
             for (int i = 0; i < State.responses.Count; i++)
                 State.responses[i].Hide(i * -5);
