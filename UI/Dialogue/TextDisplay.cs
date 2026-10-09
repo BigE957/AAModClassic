@@ -532,7 +532,7 @@ namespace AAModClassic.UI.Dialogue
                 if (DialoguePage.Event != null && !DialoguePage.Event.IsOver)
                     DialoguePage.Event.UpdateEvent();
 
-                if (textIndex < Text.Length - 1)
+                if (textIndex < Text.Length)
                 {
                     int delay;
                     int loopCounter = 0;
@@ -793,7 +793,7 @@ namespace AAModClassic.UI.Dialogue
                 string fullLine = page.Lines[i];
                 FindEffects(ref fullLine, fullLength, result);
 
-                if (fullLine[^1] != ' ')
+                if (fullLine.Length == 0 || fullLine[^1] != ' ')
                     fullLine += ' ';
 
                 lines.Add(fullLine);
@@ -804,31 +804,28 @@ namespace AAModClassic.UI.Dialogue
             {
                 for (int i = 0; i < lines.Count; i++)
                 {
-                    string line = lines[i];
-                    if (line[^1] == ' ')
-                        line = line.Remove(line.Length - 1, 1);
+                    string head = lines[i];
+                    if (head.Length > 0 && head[^1] == ' ')
+                        head = head[..^1];
 
-                    if (MeasureLineWidth(line, font, result.UniqueScales, page.TextScale) > wrapWidth)
+                    if (MeasureLineWidth(head, font, result.UniqueScales, page.TextScale) <= wrapWidth)
+                        continue;
+
+                    string tail = " ";
+                    while (MeasureLineWidth(head, font, result.UniqueScales, page.TextScale) > wrapWidth)
                     {
-                        string yoinked = "";
-                        do
-                        {
-                            int finalIndex = line.LastIndexOf(' ');
-                            if (finalIndex < line.Length - 1)
-                                finalIndex++;
-                            yoinked = line.Substring(finalIndex) + yoinked;
-                            line = line.Remove(finalIndex);
-                        } while (MeasureLineWidth(line, font, result.UniqueScales, page.TextScale) > wrapWidth);
-
-                        lines[i] = line;
-                        if (yoinked[0] == ' ')
-                            yoinked = yoinked.Remove(0, 1);
-
-                        if (i >= lines.Count - 1)
-                            lines.Add(yoinked);
-                        else
-                            lines[i + 1] = yoinked + lines[i + 1];
+                        int space = head.LastIndexOf(' ');
+                        if (space < 0)
+                            break;
+                        tail = head[space..] + tail;
+                        head = head[..space];
                     }
+
+                    if (tail.Length == 1)
+                        continue; 
+
+                    lines[i] = head + ' ';
+                    lines.Insert(i + 1, tail[1..]);
                 }
             }
 
