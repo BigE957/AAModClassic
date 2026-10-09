@@ -10,7 +10,6 @@ using AAModClassic.UI.Dialogue;
 using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
-using Microsoft.Build.Exceptions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -18,7 +17,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria.Audio;
-using Terraria.Cinematics;
 using Terraria.GameContent;
 using Terraria.GameContent.Events;
 using Terraria.GameContent.Personalities;
@@ -371,7 +369,7 @@ namespace AAModClassic._Unofficial.Desert
 
             Main.BestiaryTracker.Chats.RegisterChatStartWith(ContentSamples.NpcsByNetId[ModContent.NPCType<Legendscribe>()]);
 
-            DialogueToUse = "Mods.AAModClassic.DialogueTrees.Example";
+            DialogueToUse = "Mods.AAModClassic.DialogueTrees.Anubis.Intro";
 
             chattingLastFrame = true;
 

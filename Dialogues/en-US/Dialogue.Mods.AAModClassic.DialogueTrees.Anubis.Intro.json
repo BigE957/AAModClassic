@@ -1,0 +1,208 @@
+{
+  "Revision": 1,
+  "DefaultSpeaker": "Anubis",
+  "AlignType": 0,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Dialogues": [
+    {
+      "IndexComment": "Index 0!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "Ah, hello there. I can't say I've seen a traveller is quite some time. What brings you around these parts?"
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "Exploring the lands.",
+          "Heading": 1,
+          "Unlocked": true
+        },
+        {
+          "Title": "Looking for treasure.",
+          "Heading": 1,
+          "Unlocked": true
+        },
+        {
+          "Title": "Looking for a fight.",
+          "Heading": 1,
+          "Unlocked": true
+        },
+        {
+          "Title": "Looking for a friend.",
+          "Heading": 1,
+          "Unlocked": true
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 1!",
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "I see... Tell me, do you know of what transpired in these lands long ago? Of the ancient chaos which stirs once more?"
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "I do not.",
+          "Heading": 2
+        },
+        {
+          "Title": "I do.",
+          "Heading": 3
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 2!",
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "Okay, well, imagine in your mind that I played a cutscene right now about Ancients Awakened Lore and it just finished...",
+          "And that is the peril we now find ourselves in. I fear this world won't endure another encounter with that terrible foe; not unless another rises to face it. Do you think you'd be able to rise to such a challenge?"
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "I think so.",
+          "Heading": 4
+        },
+        {
+          "Title": "I'm not sure...",
+          "Heading": 5
+        },
+        {
+          "Title": "I doubt it.",
+          "Heading": 6
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 3!",
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "Then you know that disaster lurks on the horizon. I fear this world won't endure another encounter with that terrible foe; not unless another rises to face it. Do you think you'd be able to rise to such a challenge?"
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "I think so.",
+          "Heading": 4
+        },
+        {
+          "Title": "I'm not sure...",
+          "Heading": 5
+        },
+        {
+          "Title": "I doubt it.",
+          "Heading": 6
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 4!",
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "I like that confidence! Though, at your current strength, I doubt you'd put up much a fight. Luckily, you just met the wisest mentor these lands have to offer! With my guidance, you'll be a force to reckon with in no time."
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "Really?",
+          "Heading": 7
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 5!",
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "You're right to be wary, but worry not! Luckily, you just met the wisest mentor these lands have to offer! With my guidence, you'll be more than capable in no time."
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "Really?",
+          "Heading": 7
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 6!",
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "Hey now, don't be so hard on yourself! I see potential within you, and I'll have you know you're talking to the wisest mentor these lands have to offer! With my guidence, you'll be more than capable in no time."
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "Really?",
+          "Heading": 7
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 7!",
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "Yes, really! You look like you're good with your hands. If you could build me a house near wherever you're staying, I'll be able to guide you on your journey!",
+          "Oh, uh, do make sure I can fit in it... A tall gate for a door would be wonderful."
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "Can do!",
+          "Heading": 8
+        },
+        {
+          "Title": "I guess I can do that.",
+          "Heading": 8
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 8!",
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "Wonderful! Well, I'll see you once that's done. I wish you the best on your journey!"
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "Thanks!",
+          "Heading": -1
+        },
+        {
+          "Title": "Cya.",
+          "Heading": -1
+        }
+      ]
+    }
+  ]
+}
