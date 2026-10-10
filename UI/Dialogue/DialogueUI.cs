@@ -87,7 +87,13 @@ namespace AAModClassic.UI.Dialogue
             (dialogue.DisplayEffects as DialogueUIEffect).ChangePosition = Vector2.Zero;
             (dialogue.DisplayEffects as DialogueUIEffect).ChangeSize = Vector2.Zero;
             dialogue.DialogueTimer = 0;
+            
             portrait.Opacity = 0f;
+            leftSide = Main.LocalPlayer.Center.X > worldCenter.X;
+            if (leftSide)
+                portrait.effects = SpriteEffects.None;
+            else
+                portrait.effects = SpriteEffects.FlipHorizontally;
         }
 
         private void OnBoxPress(UIMouseEvent evt, UIElement listeningElement)
@@ -217,6 +223,13 @@ namespace AAModClassic.UI.Dialogue
             float widthDiff = size.X - virtualSize.X;
             float heightDiff = (size.Y - virtualSize.Y) * 2f;   // panel height is TextSize.Y * 2
 
+            if (leftSide)
+                portrait.Left.Pixels = PortraitBaseLeft + widthDiff / 2f;
+            else
+                portrait.Left.Pixels = portrait.Parent.Width.Pixels - (PortraitBaseRight + widthDiff / 2f + portrait.ImageWidth);
+
+            //Dynamic side swapping code.
+            /*
             bool shouldBeLeft = Main.LocalPlayer.Center.X > worldCenter.X;
             float idealLeft;
             if (shouldBeLeft)
@@ -229,6 +242,7 @@ namespace AAModClassic.UI.Dialogue
                 idealLeft = portrait.Parent.Width.Pixels - (PortraitBaseRight + widthDiff / 2f + portrait.ImageWidth);
                 portrait.effects = SpriteEffects.FlipHorizontally;
             }
+
 
             if (leftSide == shouldBeLeft)
                 portrait.Left.Pixels = idealLeft;
@@ -248,6 +262,7 @@ namespace AAModClassic.UI.Dialogue
             }
 
             oldOffset = portrait.Left.Pixels;
+            */
             previousLeftSide = leftSide;
 
             portrait.Top.Pixels = PortraitBaseTop + (0.5f - PortraitTopPercent) * heightDiff;
