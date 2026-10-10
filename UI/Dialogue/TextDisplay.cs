@@ -176,9 +176,11 @@ namespace AAModClassic.UI.Dialogue
         {
             Vector2 padding = extraPadding ?? new Vector2(8f, 12f);
 
+            float baseScale = defaultTextScale != -1f ? defaultTextScale : 1f;
+
             float HighestYScale(int start)
             {
-                float highest = 1f;
+                float highest = baseScale;
                 if (uniqueScales == null)
                     return highest;
 
@@ -244,7 +246,7 @@ namespace AAModClassic.UI.Dialogue
 
                 if (charPositions != null)
                 {
-                    Vector2 position = pen + spriteData.Glyph.Size() * 0.5f;
+                    Vector2 position = pen + spriteData.Glyph.Size() * 0.5f * scale;
                     position.X += glyphPadding.X * scale.X;
                     position.Y += glyphPadding.Y * scale.Y;
                     charPositions[i] = position - Vector2.UnitY * scale.Y * font.LineSpacing * 0.5f;
@@ -643,9 +645,8 @@ namespace AAModClassic.UI.Dialogue
                 Vector2 drawPos;
                 float rotation = 0f;
                 float opacity = 1f;
-                Vector2 scale = Vector2.One;
-                if (UniqueScales.TryGetValue(i, out Vector2 result))
-                    scale = result;
+                float baseScale = DialoguePage.TextScale == -1 ? 1f : DialoguePage.TextScale;
+                Vector2 scale = new(baseScale);
 
                 Color color;
                 if (UniqueColors.TryGetValue(i, out var textColors))
@@ -977,7 +978,7 @@ namespace AAModClassic.UI.Dialogue
         public float BorderDarkening { get; set; } = 0.25f;
         public Speaker Speaker { get; set; } = null;
 
-        public int TextScale { get; set; } = -1;
+        public float TextScale { get; set; } = -1;
         public Alignment AlignType { get; set; } = Alignment.None;
 
         public int TextDelay { get; set; } = -1;
