@@ -105,6 +105,7 @@ namespace AAModClassic.Conversions
     }
 
     [JITWhenModsEnabled("SpiritReforged")]
+    [ExtendsFromMod("SpiritReforged")]
     public class ReforgedWeakRefConversion : ModSystem
     {
         public override void PostSetupContent()
