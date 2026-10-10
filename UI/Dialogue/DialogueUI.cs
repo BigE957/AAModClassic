@@ -182,7 +182,7 @@ namespace AAModClassic.UI.Dialogue
                 button.OnLeftClick += (_, _) => OnResponsePress(myIndex);
 
                 float xAlign = (i + 1) / (float)(count + 1);
-                button.idealAligns = new(xAlign, 0.75f + (MathF.Sin(xAlign * MathHelper.Pi) / 2f));
+                button.idealAligns = new(xAlign, 0.75f + (MathF.Sin(xAlign * MathHelper.Pi) / 3f));
                 button.HAlign = 0.5f;
                 button.VAlign = 0.5f;
 
@@ -195,8 +195,13 @@ namespace AAModClassic.UI.Dialogue
         bool crawlOver = false;
 
         private static float PortraitBaseLeft => 24f;
+        private static float PortraitBaseRight => 64f;
         private static float PortraitBaseTop => -130f;
         private static float PortraitTopPercent => 0.25f;
+        private static float oldOffset = 0;
+        private static int slideCounter = 0;
+        private static bool leftSide = true;
+        private static bool previousLeftSide = true;
 
         private void UpdatePortrait()
         {
@@ -212,7 +217,39 @@ namespace AAModClassic.UI.Dialogue
             float widthDiff = size.X - virtualSize.X;
             float heightDiff = (size.Y - virtualSize.Y) * 2f;   // panel height is TextSize.Y * 2
 
-            portrait.Left.Pixels = PortraitBaseLeft + widthDiff / 2f;
+            bool shouldBeLeft = Main.LocalPlayer.Center.X > worldCenter.X;
+            float idealLeft;
+            if (shouldBeLeft)
+            {
+                idealLeft = PortraitBaseLeft + widthDiff / 2f;
+                portrait.effects = SpriteEffects.None;
+            }
+            else
+            {
+                idealLeft = portrait.Parent.Width.Pixels - (PortraitBaseRight + widthDiff / 2f + portrait.ImageWidth);
+                portrait.effects = SpriteEffects.FlipHorizontally;
+            }
+
+            if (leftSide == shouldBeLeft)
+                portrait.Left.Pixels = idealLeft;
+            else
+            {
+                float dur = 24f;
+                portrait.Left.Pixels = MathHelper.Lerp(oldOffset, idealLeft, MathUtils.SineInOutEasing(slideCounter / dur));
+                if(slideCounter < dur / 4)
+                    portrait.effects = shouldBeLeft ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+
+                if (slideCounter >= dur)
+                {
+                    leftSide = shouldBeLeft;
+                    slideCounter = 0;
+                }
+                slideCounter++;
+            }
+
+            oldOffset = portrait.Left.Pixels;
+            previousLeftSide = leftSide;
+
             portrait.Top.Pixels = PortraitBaseTop + (0.5f - PortraitTopPercent) * heightDiff;
 
             if (dialogue.DialogueTimer < 30f && !(dialogue.DisplayEffects as DialogueUIEffect).SkipIntroFade)
@@ -452,11 +489,12 @@ namespace AAModClassic.UI.Dialogue
         public float ImageScale = 1f;
         public float Opacity = 1f;
         public float Rotation;
-        public bool ScaleToFit;
         public bool AllowResizingDimensions = true;
         public Color Color = Color.White;
         public Vector2 NormalizedOrigin = Vector2.Zero;
+        public SpriteEffects effects = SpriteEffects.None;
         public bool RemoveFloatingPointsFromDrawPosition;
+        public float ImageWidth => _texture.Width() * ImageScale;
         private Texture2D _nonReloadingTexture;
 
         public DialoguePortrait(Asset<Texture2D> texture)
@@ -508,17 +546,12 @@ namespace AAModClassic.UI.Dialogue
             shaderSnap.CustomEffect = effect;
             spriteBatch.Begin(shaderSnap);
 
-            if (ScaleToFit)
-                spriteBatch.Draw(texture2D, dimensions.ToRectangle(), Color * Opacity);
-            else
-            {
-                Vector2 vector = texture2D.Size();
-                Vector2 vector2 = dimensions.Position() + vector * (1f - ImageScale) / 2f + vector * NormalizedOrigin;
-                if (RemoveFloatingPointsFromDrawPosition)
-                    vector2 = vector2.Floor();
+            Vector2 size = texture2D.Size();
+            Vector2 drawPos = dimensions.Position() + size * (1f - ImageScale) / 2f + size * NormalizedOrigin;
+            if (RemoveFloatingPointsFromDrawPosition)
+                drawPos = drawPos.Floor();
 
-                spriteBatch.Draw(texture2D, vector2, null, Color * Opacity, Rotation, vector * NormalizedOrigin, ImageScale, SpriteEffects.None, 0f);
-            }
+            spriteBatch.Draw(texture2D, drawPos, null, Color * Opacity, Rotation, size * NormalizedOrigin, ImageScale, effects, 0f);
 
             spriteBatch.End();
             spriteBatch.Begin(snap);
@@ -630,7 +663,7 @@ namespace AAModClassic.UI.Dialogue
 
         public static void EndDialogue(bool silent)
         {
-            DialogueEnd.Invoke(State.treeName, State.currentIndex);
+            DialogueEnd?.Invoke(State.treeName, State.currentIndex);
             CurrentContext = default;
 
             State.SwitchDialogue(-1);
