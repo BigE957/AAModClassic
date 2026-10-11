@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using ReLogic.Graphics;
 using System;
 using Terraria.GameContent;
 using Terraria.GameContent.Drawing;
@@ -456,6 +457,32 @@ namespace AAModClassic.Utilities
                     Main.dust[dust].velocity.Y = Main.dust[dust].velocity.Y - 1.5f;
                 }
             }
+        }
+
+        /// <summary>
+        /// Draws text with an eight-way one-pixel offset border.
+        /// </summary>
+        /// <param name="sb"></param>
+        /// <param name="font"></param>
+        /// <param name="text"></param>
+        /// <param name="baseDrawPosition"></param>
+        /// <param name="main"></param>
+        /// <param name="border"></param>
+        /// <param name="scale"></param>
+        public static void DrawBorderStringEightWay(SpriteBatch sb, DynamicSpriteFont font, string text, Vector2 baseDrawPosition, Color main, Color border, float scale = 1f)
+        {
+            for (int x = -1; x <= 1; x++)
+            {
+                for (int y = -1; y <= 1; y++)
+                {
+                    Vector2 drawPosition = baseDrawPosition + new Vector2(x, y);
+                    if (x == 0 && y == 0)
+                        continue;
+
+                    DynamicSpriteFontExtensionMethods.DrawString(sb, font, text, drawPosition, border, 0f, default, scale, SpriteEffects.None, 0f);
+                }
+            }
+            DynamicSpriteFontExtensionMethods.DrawString(sb, font, text, baseDrawPosition, main, 0f, default, scale, SpriteEffects.None, 0f);
         }
     }
 

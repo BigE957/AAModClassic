@@ -4,6 +4,7 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using ReLogic.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
@@ -22,11 +23,9 @@ namespace AAModClassic.UI.Dialogue
     public class DialogueUI : UIState
     {
         // Elements
-        internal UIPanel panel;
+        internal DialoguePanel panel;
         internal TextDisplay dialogue;
         internal List<ResponseButton> responses = [];
-        internal UIPanel responsePanel;
-        internal TextDisplay responseText;
         internal DialoguePortrait portrait;
 
         // Data
@@ -46,7 +45,7 @@ namespace AAModClassic.UI.Dialogue
             var drawPos = new Vector2(origin.X - width / 2, origin.Y - height / 2);
             var bgRect = new Rectangle((int)drawPos.X, (int)drawPos.Y, width, height);
 
-            panel = new UIPanel();
+            panel = new DialoguePanel();
             panel.Left.Pixels = bgRect.X;
             panel.Top.Pixels = bgRect.Y;
             panel.Width.Pixels = bgRect.Width;
@@ -335,7 +334,7 @@ namespace AAModClassic.UI.Dialogue
         private float _scale;
         private float _previousScale;
 
-        private byte _hoverTimer = 30;
+        private byte _hoverTimer = 18;
         private static float visibilityActive => 1f;
         private static float visibilityInactive => 0.8f;
         private bool _hovered = false;
@@ -345,8 +344,14 @@ namespace AAModClassic.UI.Dialogue
         private bool hide = false;
         private int hideTimer = 0;
         internal Vector2 idealAligns = Vector2.One * 0.5f;
-
         internal bool Interactable => showTimer == 30 && !hide;
+
+        private static float HoverTextScale => 0.75f;
+        private static float HoverIconScale => 0.5f;
+        private static int ExitPadding => 6;
+
+        private readonly string _wrappedTitle;
+        private readonly Vector2 _titleSize;
 
         public ResponseButton(Response response, Asset<Texture2D> texture, Rectangle frame, Color hoverColor, Color unhoverColor, float baseScale = 1f)
         {
@@ -361,21 +366,9 @@ namespace AAModClassic.UI.Dialogue
 
             Width.Set(_frame.Width * _baseScale, 0f);
             Height.Set(_frame.Height * _baseScale, 0f);
-        }
 
-        public void SetImage(Asset<Texture2D> texture, Rectangle frame, float baseScale = 1f)
-        {
-            _texture = texture;
-            _frame = frame;
-            _baseScale = baseScale;
-
-            Width.Set(_frame.Width * _baseScale, 0f);
-            Height.Set(_frame.Height * _baseScale, 0f);
-        }
-
-        public void SetImageWithoutSettingSize(Asset<Texture2D> texture)
-        {
-            _texture = texture;
+            _wrappedTitle = FontAssets.MouseText.Value.CreateWrappedText(response.Title, 180f);
+            _titleSize = FontAssets.MouseText.Value.MeasureString(_wrappedTitle);
         }
 
         public void Show(int time)
@@ -425,17 +418,16 @@ namespace AAModClassic.UI.Dialogue
                     _previousScale = _scale;
                 }
 
+                float lerp = MathUtils.SineInOutEasing(_hoverTimer / 18f);
                 if (_hovered)
-                {
-                    float lerp = MathUtils.SineInOutEasing(_hoverTimer / 18f);
+                {               
                     _color = Color.Lerp(_previousColor, _hoverColor * visibilityActive, lerp);
-                    _scale = MathHelper.Lerp(_previousScale, 1f, lerp);
+                    _scale = MathHelper.Lerp(_previousScale, 0.5f, lerp);
 
-                    Main.instance.MouseText(_response.Title);
+                    //Main.instance.MouseText(_response.Title);
                 }
                 else
                 {
-                    float lerp = MathUtils.SineInOutEasing(_hoverTimer / 18f);
                     _color = Color.Lerp(_previousColor, _unhoverColor * visibilityInactive, lerp);
                     _scale = MathHelper.Lerp(_previousScale, 0.75f, lerp);
 
@@ -460,15 +452,42 @@ namespace AAModClassic.UI.Dialogue
             }
         }
 
-        protected override void DrawSelf(SpriteBatch spriteBatch)
-        {
-            CalculatedStyle dimensions = GetDimensions();
-            Vector2 position = dimensions.Position() + new Vector2(dimensions.Width, dimensions.Height) / 2f;
+        internal bool InEntryRegion(Vector2 point) => base.ContainsPoint(point);
 
-            Color drawColor = _color;
-            if(showTimer < 30)
-                drawColor *= MathUtils.SineOutEasing(showTimer / 30f);
-            spriteBatch.Draw(_texture.Value, position, _frame, drawColor, 0f, _frame.Size() / 2f, _scale * _baseScale, SpriteEffects.None, 0f);
+        public override bool ContainsPoint(Vector2 point)
+        {
+            if (base.ContainsPoint(point))
+                return true;
+
+            if (!_hovered || !Interactable || !GetExitRegion().Contains((int)point.X, (int)point.Y))
+                return false;
+
+            if (Parent != null)
+            {
+                foreach (UIElement sibling in Parent.Children)
+                    if (sibling is ResponseButton other && other != this && other.Interactable && other.InEntryRegion(point))
+                        return false;
+            }
+
+            return true;
+        }
+
+        private Rectangle GetExitRegion()
+        {
+            CalculatedStyle dims = GetDimensions();
+            Vector2 center = dims.Center();
+
+            Vector2 textSize = _titleSize * HoverTextScale;
+            Vector2 textPos = center - textSize / 2f + new Vector2(4, 6);
+            Rectangle region = new((int)textPos.X, (int)textPos.Y, (int)textSize.X, (int)textSize.Y);
+
+            Vector2 iconSize = _frame.Size() * _baseScale * HoverIconScale;
+            Vector2 iconCenter = center + new Vector2(_titleSize.X / -2f + 10, 2);
+            region = Rectangle.Union(region, new Rectangle((int)(iconCenter.X - iconSize.X / 2f), (int)(iconCenter.Y - iconSize.Y / 2f), (int)iconSize.X, (int)iconSize.Y));
+
+            region = Rectangle.Union(region, dims.ToRectangle());
+            region.Inflate(ExitPadding, ExitPadding);
+            return region;
         }
 
         public override void MouseOver(UIMouseEvent evt)
@@ -482,11 +501,6 @@ namespace AAModClassic.UI.Dialogue
             _hoverTimer = 0;
         }
 
-        public void SetColor(Color color)
-        {
-            _color = color;
-        }
-
         public override void MouseOut(UIMouseEvent evt)
         {
             if (!Interactable)
@@ -495,6 +509,41 @@ namespace AAModClassic.UI.Dialogue
             base.MouseOut(evt);
             _hovered = false;
             _hoverTimer = 0;
+        }
+
+        protected override void DrawSelf(SpriteBatch spriteBatch)
+        {
+            CalculatedStyle dimensions = GetDimensions();
+            Vector2 drawCenter = dimensions.Position() + new Vector2(dimensions.Width, dimensions.Height) / 2f;
+
+            Color drawColor = _color;
+            float opacity = 1f;
+            if (showTimer < 30)
+                opacity = MathUtils.SineOutEasing(showTimer / 30f);
+
+            float hideRatio = 1f;
+            if(hide)
+                hideRatio = 1 - MathUtils.SineInEasing(MathHelper.Clamp(hideTimer / 10f, 0f, 1f));
+
+            float hoverRatio = MathUtils.SineInOutEasing(_hoverTimer / 18f) * hideRatio;
+            if (!_hovered && hoverRatio > 0)
+                hoverRatio = 1 - hoverRatio;
+            if (!_hovered && hide)
+                hoverRatio = 0f;
+
+            DialogueUIEffect.DrawBloom(spriteBatch, drawCenter, _titleSize, hoverRatio * 0.5f);
+
+            float scale = MathHelper.Lerp(0.5f, HoverTextScale, hoverRatio);
+
+            float iconWidth = _frame.Width * _scale * _baseScale;
+            float spacing = 4f;
+            float iconTargetX = -(_titleSize.X / 2f) * scale + (4 * scale) - spacing - (iconWidth / 2f);
+
+            Vector2 iconOffset = new Vector2(iconTargetX, 2f) * hoverRatio;
+            spriteBatch.Draw(_texture.Value, drawCenter + iconOffset, _frame, drawColor * opacity, 0f, _frame.Size() / 2f, _scale * _baseScale, SpriteEffects.None, 0f);
+
+            Vector2 offset = ((_titleSize / 2f) - new Vector2(4, 6)) * scale;
+            DrawingUtils.DrawBorderStringEightWay(spriteBatch, FontAssets.MouseText.Value, _wrappedTitle, drawCenter - offset, Color.White * hoverRatio, Color.Black * hoverRatio, scale);
         }
     }
 
@@ -570,6 +619,21 @@ namespace AAModClassic.UI.Dialogue
 
             spriteBatch.End();
             spriteBatch.Begin(snap);
+        }
+    }
+
+    internal class DialoguePanel : UIPanel
+    {
+        public override bool ContainsPoint(Vector2 point)
+        {
+            if (base.ContainsPoint(point))
+                return true;
+
+            foreach (UIElement child in Children)
+                if (child is ResponseButton && child.ContainsPoint(point))
+                    return true;
+
+            return false;
         }
     }
 
