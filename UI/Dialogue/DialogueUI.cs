@@ -372,6 +372,7 @@ namespace AAModClassic.UI.Dialogue
 
         private static float HoverTextScale => 0.75f;
         private static float HoverIconScale => 0.5f;
+        private static float HoverArrowScale => 1f;
         private static int ExitPadding => 6;
 
         private readonly string _wrappedTitle;
@@ -454,7 +455,7 @@ namespace AAModClassic.UI.Dialogue
                 if (_hovered)
                 {               
                     _color = Color.Lerp(_previousColor, _hoverColor * visibilityActive, lerp);
-                    _scale = MathHelper.Lerp(_previousScale, 0.5f, lerp);
+                    _scale = MathHelper.Lerp(_previousScale, _response == null ? HoverArrowScale : HoverIconScale, lerp);
 
                     //Main.instance.MouseText(_response.Title);
                 }
