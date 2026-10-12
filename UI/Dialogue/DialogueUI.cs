@@ -99,12 +99,22 @@ namespace AAModClassic.UI.Dialogue
         {
             if (dialogue.textIndex < dialogue.Text.Length - 1)
                 dialogue.textIndex = dialogue.Text.Length - 1;
-            else if(responses.Count == 0)
-                SwitchDialogue(currentIndex + 1);
         }
 
         public void OnResponsePress(int responseIndex)
         {
+            if (responseIndex == -1)
+            {
+                if (!responses[0].Interactable)
+                    return;
+
+                DialogueUISystem.ResponseSelect?.Invoke(treeName, currentIndex, responseIndex);
+
+                SwitchDialogue(currentIndex + 1);
+                responses[0].Hide(0);
+                return;
+            }
+
             if (!responses[responseIndex].Interactable)
                 return;
 
@@ -177,22 +187,36 @@ namespace AAModClassic.UI.Dialogue
             effect.SkipIntroFade = isPageSwitch;
 
             int count = tree.Dialogues[currentIndex].Responses.Length;
-
-            for (int i = 0; i < count; i++)
+            if (count > 0)
             {
-                var response = tree.Dialogues[currentIndex].Responses[i];
-                var (texture, frame) = DialogueUISystem.ResponseIcons[response.Icon];
-                ResponseButton button = new(response, texture, frame, Color.White, Color.White, 1.5f);
-                int myIndex = i;
-                button.OnLeftClick += (_, _) => OnResponsePress(myIndex);
+                for (int i = 0; i < count; i++)
+                {
+                    var response = tree.Dialogues[currentIndex].Responses[i];
+                    var (texture, frame) = DialogueUISystem.ResponseIcons[response.Icon];
+                    ResponseButton button = new(response, texture, frame, Color.White, Color.White, 1.5f);
+                    int myIndex = i;
+                    button.OnLeftClick += (_, _) => OnResponsePress(myIndex);
 
-                float xAlign = (i + 1) / (float)(count + 1);
+                    float xAlign = (i + 1) / (float)(count + 1);
+                    button.idealAligns = new(xAlign, 0.75f + (MathF.Sin(xAlign * MathHelper.Pi) / 3f));
+                    button.HAlign = 0.5f;
+                    button.VAlign = 0.5f;
+
+                    panel.Append(button);
+                    responses.Add(button);
+                }
+            }
+            else
+            {
+                var (texture, frame) = DialogueUISystem.ResponseIcons["Default"];
+                ResponseButton button = new(null, texture, frame, Color.White, Color.White, 1.5f);
+                button.OnLeftClick += (_, _) => OnResponsePress(-1);
+                float xAlign = 0.75f;
                 button.idealAligns = new(xAlign, 0.75f + (MathF.Sin(xAlign * MathHelper.Pi) / 3f));
                 button.HAlign = 0.5f;
                 button.VAlign = 0.5f;
 
                 panel.Append(button);
-
                 responses.Add(button);
             }
         }
@@ -367,8 +391,16 @@ namespace AAModClassic.UI.Dialogue
             Width.Set(_frame.Width * _baseScale, 0f);
             Height.Set(_frame.Height * _baseScale, 0f);
 
-            _wrappedTitle = FontAssets.MouseText.Value.CreateWrappedText(response.Title, 180f);
-            _titleSize = FontAssets.MouseText.Value.MeasureString(_wrappedTitle);
+            if (_response != null)
+            {
+                _wrappedTitle = FontAssets.MouseText.Value.CreateWrappedText(_response.Title, 180f);
+                _titleSize = FontAssets.MouseText.Value.MeasureString(_wrappedTitle);
+            }
+            else
+            {
+                _wrappedTitle = null;
+                _titleSize = Vector2.Zero;
+            }
         }
 
         public void Show(int time)
@@ -459,6 +491,9 @@ namespace AAModClassic.UI.Dialogue
             if (base.ContainsPoint(point))
                 return true;
 
+            if (_response == null)
+                return false;
+
             if (!_hovered || !Interactable || !GetExitRegion().Contains((int)point.X, (int)point.Y))
                 return false;
 
@@ -525,25 +560,33 @@ namespace AAModClassic.UI.Dialogue
             if(hide)
                 hideRatio = 1 - MathUtils.SineInEasing(MathHelper.Clamp(hideTimer / 10f, 0f, 1f));
 
-            float hoverRatio = MathUtils.SineInOutEasing(_hoverTimer / 18f) * hideRatio;
-            if (!_hovered && hoverRatio > 0)
-                hoverRatio = 1 - hoverRatio;
-            if (!_hovered && hide)
-                hoverRatio = 0f;
+            float hoverRatio = 0f;
+            if (_response != null)
+            {
+                hoverRatio = MathUtils.SineInOutEasing(_hoverTimer / 18f) * hideRatio;
+                if (!_hovered && hoverRatio > 0)
+                    hoverRatio = 1 - hoverRatio;
+                if (!_hovered && hide)
+                    hoverRatio = 0f;
 
-            DialogueUIEffect.DrawBloom(spriteBatch, drawCenter, _titleSize, hoverRatio * 0.5f);
+                DialogueUIEffect.DrawBloom(spriteBatch, drawCenter, _titleSize, hoverRatio * 0.5f);
+            
+                float scale = MathHelper.Lerp(0.5f, HoverTextScale, hoverRatio);
 
-            float scale = MathHelper.Lerp(0.5f, HoverTextScale, hoverRatio);
+                float iconWidth = _frame.Width * _scale * _baseScale;
+                float spacing = 4f;
+                float iconTargetX = -(_titleSize.X / 2f) * scale + (4 * scale) - spacing - (iconWidth / 2f);
 
-            float iconWidth = _frame.Width * _scale * _baseScale;
-            float spacing = 4f;
-            float iconTargetX = -(_titleSize.X / 2f) * scale + (4 * scale) - spacing - (iconWidth / 2f);
+                Vector2 iconOffset = new Vector2(iconTargetX, 2f) * hoverRatio;
+                spriteBatch.Draw(_texture.Value, drawCenter + iconOffset, _frame, drawColor * opacity, 0f, _frame.Size() / 2f, _scale * _baseScale, SpriteEffects.None, 0f);
 
-            Vector2 iconOffset = new Vector2(iconTargetX, 2f) * hoverRatio;
-            spriteBatch.Draw(_texture.Value, drawCenter + iconOffset, _frame, drawColor * opacity, 0f, _frame.Size() / 2f, _scale * _baseScale, SpriteEffects.None, 0f);
-
-            Vector2 offset = ((_titleSize / 2f) - new Vector2(4, 6)) * scale;
-            DrawingUtils.DrawBorderStringEightWay(spriteBatch, FontAssets.MouseText.Value, _wrappedTitle, drawCenter - offset, Color.White * hoverRatio, Color.Black * hoverRatio, scale);
+                Vector2 offset = ((_titleSize / 2f) - new Vector2(4, 6)) * scale;
+                DrawingUtils.DrawBorderStringEightWay(spriteBatch, FontAssets.MouseText.Value, _wrappedTitle, drawCenter - offset, Color.White * hoverRatio, Color.Black * hoverRatio, scale);
+            }
+            else
+            {
+                spriteBatch.Draw(_texture.Value, drawCenter, _frame, drawColor * opacity, 0f, _frame.Size() / 2f, _scale * _baseScale, SpriteEffects.None, 0f);
+            }
         }
     }
 

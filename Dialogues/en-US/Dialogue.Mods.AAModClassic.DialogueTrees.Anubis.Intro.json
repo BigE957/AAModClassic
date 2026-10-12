@@ -28,7 +28,7 @@
       "DialogueInfo": {
         "BorderDarkening": 0,
         "Lines": [
-          "Ah, hello there. I can't say I've seen a traveller is quite some time. What brings you around these parts?"
+          "Ah, hello there. I can't say I've seen a traveller in quite some time. What brings you around these parts?"
         ]
       },
       "Responses": [
@@ -69,7 +69,7 @@
         },
         {
           "Title": "I do.",
-          "Heading": 3
+          "Heading": 4
         }
       ]
     },
@@ -78,27 +78,35 @@
       "DialogueInfo": {
         "BorderDarkening": 0,
         "Lines": [
-          "Okay, well, imagine in your mind that I played a cutscene right now about Ancients Awakened Lore and it just finished...",
+          "Okay, well, imagine in your mind that I played a cutscene right now about Ancients Awakened Lore and it just finished..."
+        ]
+      }
+    },
+    {
+      "IndexComment": "Index 3!",
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
           "And that is the peril we now find ourselves in. I fear this world won't endure another encounter with that terrible foe; not unless another rises to face it. Do you think you'd be able to rise to such a challenge?"
         ]
       },
       "Responses": [
         {
           "Title": "I think so.",
-          "Heading": 4
-        },
-        {
-          "Title": "I'm not sure...",
           "Heading": 5
         },
         {
-          "Title": "I doubt it.",
+          "Title": "I'm not sure...",
           "Heading": 6
+        },
+        {
+          "Title": "I doubt it.",
+          "Heading": 7
         }
       ]
     },
     {
-      "IndexComment": "Index 3!",
+      "IndexComment": "Index 4!",
       "DialogueInfo": {
         "BorderDarkening": 0,
         "Lines": [
@@ -108,29 +116,14 @@
       "Responses": [
         {
           "Title": "I think so.",
-          "Heading": 4
-        },
-        {
-          "Title": "I'm not sure...",
           "Heading": 5
         },
         {
-          "Title": "I doubt it.",
+          "Title": "I'm not sure...",
           "Heading": 6
-        }
-      ]
-    },
-    {
-      "IndexComment": "Index 4!",
-      "DialogueInfo": {
-        "BorderDarkening": 0,
-        "Lines": [
-          "I like that confidence! Though, at your current strength, I doubt you'd put up much a fight. Luckily, you just met the wisest mentor these lands have to offer! With my guidance, you'll be a force to reckon with in no time."
-        ]
-      },
-      "Responses": [
+        },
         {
-          "Title": "Really?",
+          "Title": "I doubt it.",
           "Heading": 7
         }
       ]
@@ -140,18 +133,33 @@
       "DialogueInfo": {
         "BorderDarkening": 0,
         "Lines": [
+          "I like that confidence! Though, at your current strength, I doubt you'd put up much a fight. Luckily, you just met the wisest mentor these lands have to offer! With my guidance, you'll be a force to reckon with in no time."
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "Really?",
+          "Heading": 8
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 6!",
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
           "You're right to be wary, but worry not! Luckily, you just met the wisest mentor these lands have to offer! With my guidence, you'll be more than capable in no time."
         ]
       },
       "Responses": [
         {
           "Title": "Really?",
-          "Heading": 7
+          "Heading": 8
         }
       ]
     },
     {
-      "IndexComment": "Index 6!",
+      "IndexComment": "Index 7!",
       "DialogueInfo": {
         "BorderDarkening": 0,
         "Lines": [
@@ -161,12 +169,12 @@
       "Responses": [
         {
           "Title": "Really?",
-          "Heading": 7
+          "Heading": 8
         }
       ]
     },
     {
-      "IndexComment": "Index 7!",
+      "IndexComment": "Index 8!",
       "DialogueInfo": {
         "BorderDarkening": 0,
         "Lines": [
@@ -177,16 +185,16 @@
       "Responses": [
         {
           "Title": "Can do!",
-          "Heading": 8
+          "Heading": 9
         },
         {
           "Title": "I guess I can do that.",
-          "Heading": 8
+          "Heading": 9
         }
       ]
     },
     {
-      "IndexComment": "Index 8!",
+      "IndexComment": "Index 9!",
       "DialogueInfo": {
         "BorderDarkening": 0,
         "Lines": [
