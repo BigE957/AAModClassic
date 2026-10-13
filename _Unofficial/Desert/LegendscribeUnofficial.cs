@@ -47,6 +47,13 @@ namespace AAModClassic._Unofficial.Desert
         }
         internal BehaviorState MyBehavior = BehaviorState.TownNPC;
 
+        public static readonly DialoguePool<(Player player, LegendscribeUnofficial self)> pool = new(
+            ("Anubis/Intro", (ctx) => ctx.self.MyBehavior == BehaviorState.RuinsIdle, 250, false),
+            ("Anubis/IntroReminder", (ctx) => ctx.self.NPC.homeless && !UnofficialAnubisSystem.AnubisHoused, 240, true),
+            //("Anubis/RecentlyHomeless", (ctx) => ctx.self.NPC.homeless && UnofficialAnubisSystem.AnubisHoused, 240, true),
+            ("Anubis/Default", (_) => true, 0, true)
+        );
+
         public override void Load()
         {
             ShimmerHeadIndex = Mod.AddNPCHeadTexture(Type, Texture + "_Shimmer_Head");
@@ -223,6 +230,9 @@ namespace AAModClassic._Unofficial.Desert
                 NPC.townNPC = true;
                 NPC.aiStyle = NPCAIStyleID.Passive;
 
+                if (!NPC.homeless)
+                    UnofficialAnubisSystem.AnubisHoused = true;
+
                 if (NPC.AnyNPCs(ModContent.NPCType<Anubis>()) || NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) || NPC.AnyNPCs(ModContent.NPCType<AnubisA>()) || NPC.AnyNPCs(ModContent.NPCType<AnubisUnreleased>()))
                 {
                     TPDust();
@@ -279,6 +289,8 @@ namespace AAModClassic._Unofficial.Desert
             {
                 NPC.townNPC = false;
                 NPC.aiStyle = -1;
+                NPC.homeTileX = UnofficialAnubisSystem.AnubisRuinsTile.X;
+                NPC.homeTileY = UnofficialAnubisSystem.AnubisRuinsTile.Y;
             }
 
             if (chattingLastFrame && DialogueUISystem.UI.CurrentState != null)
@@ -371,7 +383,7 @@ namespace AAModClassic._Unofficial.Desert
 
             Main.BestiaryTracker.Chats.RegisterChatStartWith(ContentSamples.NpcsByNetId[ModContent.NPCType<Legendscribe>()]);
 
-            DialogueToUse = "Mods.AAModClassic.DialogueTrees.Anubis.Intro";
+            DialogueToUse = pool.GetTree(Main.LocalPlayer, this);
 
             chattingLastFrame = true;
 
@@ -1438,6 +1450,7 @@ namespace AAModClassic._Unofficial.Desert
     public class UnofficialAnubisSystem : ModSystem
     {
         internal static Point AnubisRuinsTile = Point.Zero;
+        internal static bool AnubisHoused = false;
 
         public override void PreUpdateNPCs()
         {
@@ -1452,11 +1465,15 @@ namespace AAModClassic._Unofficial.Desert
         public override void SaveWorldData(TagCompound tag)
         {
             tag.Add("AnubisRuinsTile", AnubisRuinsTile);
+            tag.Add("AnubisHoused", AnubisHoused);
+            LegendscribeUnofficial.pool.SaveData("AnubisDialogue", tag);
         }
 
         public override void LoadWorldData(TagCompound tag)
         {
             tag.TryGet("AnubisRuinsTile", out AnubisRuinsTile);
+            tag.TryGet("AnubisHoused", out AnubisHoused);
+            LegendscribeUnofficial.pool.LoadData("AnubisDialogue", tag);
         }
     }
 }

@@ -1,0 +1,76 @@
+{
+  "Revision": 1,
+  "DefaultSpeaker": "Anubis",
+  "AlignType": 0,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Dialogues": [
+    {
+      "IndexComment": "Index 0!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "Hey so how's that house coming along? I could really use a nap."
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "Still working on it.",
+          "Heading": 1
+        },
+        {
+          "Title": "What did it need again?",
+          "Heading": 2
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 1!",
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "Well, let me know when you're done. I can't start helping you out until I've got a roof under my head!"
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "Will do.",
+          "Heading": -1
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 2!",
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "I'll need a bigger house so that I can actually fit, and a tall gate for a door. Being this shredded has its ups and downs I suppose."
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "Right, I'll get on that.",
+          "Heading": 1
+        }
+      ]
+    }
+  ]
+}
