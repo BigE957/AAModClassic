@@ -99,9 +99,12 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Biomes
                 shouldAvoidTile: (p, attempts) => ShouldAvoidLocation(p, attempts > 4000, attempts > 12500),
                 nextCandidate: attempts =>
                 {
-                    int radius = (int)MathHelper.Lerp(600, 1600, attempts / (float)maxAttempts);
-                    int targetX = System.Math.Clamp(origin.X + WorldGen.genRand.Next(-radius, radius), 50, Main.maxTilesX - (50 + width));
-                    int targetY = Main.maxTilesY - 450 - Main.rand.Next(0, maxHeightUp);
+                    var xMin = Main.dungeonX < Main.spawnTileX ? Main.spawnTileX + 100 : 400;
+                    var xMax = (Main.dungeonX > Main.spawnTileX ? Main.spawnTileX - 100 : Main.maxTilesX - 400) - width;
+                    var yMin = (int)Main.rockLayer + 10;
+                    var yMax = Main.UnderworldLayer - height - 10;
+                    int targetX = Main.rand.Next(xMin, xMax);
+                    int targetY = Main.rand.Next(yMin, yMax);
                     return new Point(targetX, targetY);
                 },
                 logName: "Lost Keep",
