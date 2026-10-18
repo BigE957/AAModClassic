@@ -1822,15 +1822,12 @@ namespace AAModClassic
                 if (!GenVars.structures.CanPlace(new Rectangle(x, tileClose.Y - AnubisRuinsSchematicAssets.Ruins.Height / 2, AnubisRuinsSchematicAssets.Ruins.Width, AnubisRuinsSchematicAssets.Ruins.Height), 8))
                     continue;
 
-                //Spirit Reforged adds a smoother edge to the jungle. We don't want the anubis ruins in that region though.
+                //Jump into the sand region a little so structure doesnt generate on its very edge.
                 if (!sandReached)
                 {
                     sandReached = true;
-                    if(SpiritReforgedManager.IsEnabled)
-                    {
-                        x += 20 * inc;
-                        continue;
-                    }
+                    x += 10 * inc;
+                    continue;
 
                 }
 
@@ -1886,6 +1883,10 @@ namespace AAModClassic
 
                     Point tileClose = CollisionUtils.FindSurfaceBelow(new(altX, 50), true);
                     if (Framing.GetTileSafely(tileClose).TileType != TileID.Sand || Framing.GetTileSafely(tileClose - new Point(0, 1)).LiquidAmount > 0)
+                        continue;
+
+                    Point tileMiddle = CollisionUtils.FindSurfaceBelow(new(altX, 50), true);
+                    if (Framing.GetTileSafely(tileClose).TileType != TileID.Sand || Framing.GetTileSafely(tileClose - new Point(0, 1)).LiquidAmount > 0 || Math.Abs(tileClose.Y - tileMiddle.Y) > 5)
                         continue;
 
                     Point tileFar = CollisionUtils.FindSurfaceBelow(new(altX + ((AnubisRuinsSchematicAssets.Ruins.Width + 1) * altInc), 50), true);

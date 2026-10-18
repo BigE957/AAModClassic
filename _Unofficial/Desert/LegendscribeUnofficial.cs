@@ -47,11 +47,12 @@ namespace AAModClassic._Unofficial.Desert
         }
         internal BehaviorState MyBehavior = BehaviorState.TownNPC;
 
+        private const string DialoguePath = "Mods.AAModClassic.DialogueTrees.Anubis.";
+
         public static readonly DialoguePool<(Player player, LegendscribeUnofficial self)> pool = new(
-            ("Anubis/Intro", (ctx) => ctx.self.MyBehavior == BehaviorState.RuinsIdle, 250, false),
-            ("Anubis/IntroReminder", (ctx) => ctx.self.NPC.homeless && !UnofficialAnubisSystem.AnubisHoused, 240, true),
-            //("Anubis/RecentlyHomeless", (ctx) => ctx.self.NPC.homeless && UnofficialAnubisSystem.AnubisHoused, 240, true),
-            ("Anubis/Default", (_) => true, 0, true)
+            (DialoguePath + "Intro", (ctx) => ctx.self.MyBehavior == BehaviorState.RuinsIdle, 250, true),
+            (DialoguePath + "IntroReminder", (ctx) => ctx.self.NPC.homeless && !UnofficialAnubisSystem.AnubisHoused, 240, true),
+            (DialoguePath + "Default", (_) => true, 0, true)
         );
 
         public override void Load()
@@ -98,15 +99,9 @@ namespace AAModClassic._Unofficial.Desert
                 Main.spriteBatch.Draw(PartyHat.Value, position, npc.frame, color, npc.rotation, npc.frame.Size() / 2f, npc.scale, npc.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
-        {
-            return false;
-        }
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) => false;
 
-        public override void ModifyTypeName(ref string typeName)
-        {
-            typeName = "Legendscribe";
-        }
+        public override void ModifyTypeName(ref string typeName) => typeName = "Legendscribe";
 
         public override ITownNPCProfile TownNPCProfile()
         {
@@ -139,6 +134,7 @@ namespace AAModClassic._Unofficial.Desert
 
             this.HideFromBestiary();
 
+            DialogueUISystem.DialogueTreeSetup += ModifyTree;
             DialogueUISystem.ResponseSelect += AnubisDialogueUpdate;
         }
 
@@ -218,10 +214,7 @@ namespace AAModClassic._Unofficial.Desert
             return hasGate && isTallEnough;
         }
 
-        public override List<string> SetNPCNameList()
-        {
-            return ["Anubis"];
-        }
+        public override List<string> SetNPCNameList() => ["Anubis"];
 
         public override bool PreAI()
         {
@@ -377,6 +370,17 @@ namespace AAModClassic._Unofficial.Desert
 
         public override bool CanChat() => true;
 
+        private static void ModifyTree(string treeKey, ref DialogueTree tree)
+        {
+            if (treeKey == "Mods.AAModClassic.DialogueTrees.Anubis.Default")
+                tree.Dialogues[1].DialogueInfo.Lines = GetAnubisHint();
+        }
+
+        private static string[] GetAnubisHint()
+        {
+            return ["You just gotta lock in dude.", "Lock the fuck in."];
+        }
+
         public override string GetChat()
         {
             AnubisDialoguePlayer p = Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>();
@@ -386,6 +390,8 @@ namespace AAModClassic._Unofficial.Desert
             DialogueToUse = pool.GetTree(Main.LocalPlayer, this);
 
             chattingLastFrame = true;
+
+            Main.NewText(!UnofficialAnubisSystem.AnubisHoused);
 
             Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().ChattingAnubis = NPC.whoAmI;
 
@@ -1455,7 +1461,7 @@ namespace AAModClassic._Unofficial.Desert
         public override void PreUpdateNPCs()
         {
             //Main.NewText(AnubisRuinsTile - Main.LocalPlayer.Center.ToTileCoordinates());
-            if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && AnubisRuinsTile != Point.Zero && !NPC.AnyNPCs(ModContent.NPCType<LegendscribeUnofficial>()))
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && AnubisRuinsTile != Point.Zero && !NPC.AnyNPCs(ModContent.NPCType<LegendscribeUnofficial>()))
             {
                 NPC anubis = NPC.NewNPCDirect(NPC.GetSource_NaturalSpawn(), AnubisRuinsTile.ToWorldCoordinates(0, 0), ModContent.NPCType<LegendscribeUnofficial>());
                 (anubis.ModNPC as LegendscribeUnofficial).MyBehavior = LegendscribeUnofficial.BehaviorState.RuinsIdle;
@@ -1471,8 +1477,11 @@ namespace AAModClassic._Unofficial.Desert
 
         public override void LoadWorldData(TagCompound tag)
         {
-            tag.TryGet("AnubisRuinsTile", out AnubisRuinsTile);
-            tag.TryGet("AnubisHoused", out AnubisHoused);
+            if (!tag.TryGet("AnubisRuinsTile", out AnubisRuinsTile))
+                AnubisRuinsTile = Point.Zero;
+            if (!tag.TryGet("AnubisHoused", out AnubisHoused))
+                AnubisHoused = false;
+
             LegendscribeUnofficial.pool.LoadData("AnubisDialogue", tag);
         }
     }

@@ -8,8 +8,6 @@ namespace AAModClassic.UI.Dialogue
 {
     public class DialoguePool<TContext>
     {
-        private const string Path = "Dialogue.Mods.AAModClassic.DialogueTrees.";
-
         public readonly List<(string TreeKey, Func<TContext, bool> Requirement, byte Priority, bool Repeatable)> Dialogues;
         public List<(string TreeKey, Func<TContext, bool> Requirement, byte Priority)> CirculatingDialogues = [];
 
@@ -35,7 +33,7 @@ namespace AAModClassic.UI.Dialogue
             short globalTopPriority = -1;
             foreach (var (TreeKey, Requirement, Priority, Repeatable) in Dialogues)
             {
-                if (Requirement.Invoke(context) && Priority > globalTopPriority)
+                if (Requirement.Invoke(context) && (Repeatable || CirculatingDialogues.Any(t => t.TreeKey == TreeKey)) && Priority > globalTopPriority)
                     globalTopPriority = Priority;
             }
 
@@ -64,7 +62,7 @@ namespace AAModClassic.UI.Dialogue
 
             CirculatingDialogues.RemoveAll(d => d.TreeKey == selectedKey);
 
-            return Path + selectedKey;
+            return selectedKey;
         }
 
         public void SaveData(string tagKey, TagCompound tag)
