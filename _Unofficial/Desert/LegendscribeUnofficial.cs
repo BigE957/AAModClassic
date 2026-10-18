@@ -1,4 +1,5 @@
 using AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly;
+using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis;
 using AAModClassic._Content.Desert.__Hardmode.Items.Quest;
 using AAModClassic._Content.Desert.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
@@ -50,8 +51,19 @@ namespace AAModClassic._Unofficial.Desert
         private const string DialoguePath = "Mods.AAModClassic.DialogueTrees.Anubis.";
 
         public static readonly DialoguePool<(Player player, LegendscribeUnofficial self)> pool = new(
+            //Intro
             (DialoguePath + "Intro", (ctx) => ctx.self.MyBehavior == BehaviorState.RuinsIdle, 250, true),
-            (DialoguePath + "IntroReminder", (ctx) => ctx.self.NPC.homeless && !UnofficialAnubisSystem.AnubisHoused, 240, true),
+            (DialoguePath + "IntroReminder", (ctx) => ctx.self.NPC.homeless && !UnofficialAnubisSystem.AnubisHoused, 249, true),
+            (DialoguePath + "IntroComplete", (ctx) => !ctx.self.NPC.homeless && !UnofficialAnubisSystem.AnubisHoused, 249, true),
+
+            //First Fight
+            (DialoguePath + "SparChallenge", (ctx) => NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3, 200, false),
+            (DialoguePath + "SparIncomplete", (ctx) => !NPCExtensions.BeenKilled<Anubis>() && NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3, 199, true),
+
+            //Awakened Fight
+            (DialoguePath + "TrialChallenge", (ctx) => NPC.downedMoonlord, 200, false),
+            (DialoguePath + "TrialIncomplete", (ctx) => !NPCExtensions.BeenKilled<AnubisA>() && NPC.downedMoonlord, 199, true),
+
             (DialoguePath + "Default", (_) => true, 0, true)
         );
 
@@ -136,6 +148,7 @@ namespace AAModClassic._Unofficial.Desert
 
             DialogueUISystem.DialogueTreeSetup += ModifyTree;
             DialogueUISystem.ResponseSelect += AnubisDialogueUpdate;
+            DialogueUISystem.DialogueEnd += AnubisDialogueEnd;
         }
 
         public override void SetDefaults()
@@ -222,9 +235,6 @@ namespace AAModClassic._Unofficial.Desert
             {
                 NPC.townNPC = true;
                 NPC.aiStyle = NPCAIStyleID.Passive;
-
-                if (!NPC.homeless)
-                    UnofficialAnubisSystem.AnubisHoused = true;
 
                 if (NPC.AnyNPCs(ModContent.NPCType<Anubis>()) || NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) || NPC.AnyNPCs(ModContent.NPCType<AnubisA>()) || NPC.AnyNPCs(ModContent.NPCType<AnubisUnreleased>()))
                 {
@@ -391,8 +401,6 @@ namespace AAModClassic._Unofficial.Desert
 
             chattingLastFrame = true;
 
-            Main.NewText(!UnofficialAnubisSystem.AnubisHoused);
-
             Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().ChattingAnubis = NPC.whoAmI;
 
             if(Main.clothesWindow)
@@ -478,6 +486,12 @@ namespace AAModClassic._Unofficial.Desert
             }
         }
 
+        private static void AnubisDialogueEnd(string treeKey, int dialogueID)
+        {
+            if (treeKey == "Mods.AAModClassic.DialogueTrees.Anubis.IntroComplete")
+                UnofficialAnubisSystem.AnubisHoused = true;
+        }
+
         public override void SetChatButtons(ref string button, ref string button2)
         {
             bool fAnubisTime = NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>();
@@ -497,9 +511,9 @@ namespace AAModClassic._Unofficial.Desert
             {
                 Player player = Main.LocalPlayer;
 
-                if (!NPCExtensions.BeenKilled<Anubis>() && player.GetModPlayer<ZAAPlayer>().GivenAnuSummon && !player.HasItem(ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>()))
+                if (!NPCExtensions.BeenKilled<Anubis>() && player.GetModPlayer<ZAAPlayer>().GivenAnuSummon && !player.HasItem(ModContent.ItemType<RasScepter>()))
                 {
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>(), 1);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<RasScepter>(), 1);
                     Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisScapterLost");
                     return;
                 }
