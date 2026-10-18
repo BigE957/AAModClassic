@@ -1,0 +1,61 @@
+{
+  "Revision": 1,
+  "DefaultSpeaker": "Anubis",
+  "AlignType": 0,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Dialogues": [
+    {
+      "IndexComment": "Index 0!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "Dude fiiiiiiight me. You neeeeed to prove you're worthyyyyyy."
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "Alright man.",
+          "Heading": -1
+        },
+        {
+          "Title": "I lost the Scepter...",
+          "Heading": 1
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 1!",
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "You LOST the scepter?! I can't go handing these things out like candy, you know! Anyways, here's another one."
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "Thanks.",
+          "Heading": -1
+        }
+      ]
+    }
+  ]
+}
