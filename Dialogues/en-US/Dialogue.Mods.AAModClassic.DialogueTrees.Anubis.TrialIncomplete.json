@@ -24,16 +24,15 @@
   "Dialogues": [
     {
       "IndexComment": "Index 0!",
-
       "DialogueInfo": {
         "BorderDarkening": 0,
         "Lines": [
-          "Dude fiiiiiiight me. You neeeeed to prove you're worthyyyyyy."
+          "I'm afraid this is something that can't wait. Unless you're able to prove you're ready for what's to come, I won't be helping you any further."
         ]
       },
       "Responses": [
         {
-          "Title": "Alright man.",
+          "Title": "Alright.",
           "Heading": -1
         },
         {
@@ -56,6 +55,45 @@
           "Heading": -1
         }
       ]
+    },
+    {
+      "DialogueInfo": {
+        "Lines": [
+          "Tough luck, bud. You're gonna need more than that if you want to face what lies ahead. Don't worry, I'll be up for another rematch whenever you're ready!"
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "Alright.",
+          "Icon": "Default",
+          "Heading": -1
+        },
+        {
+          "Title": "I lost the Scepter...",
+          "Icon": "Default",
+          "Heading": 1
+        }
+      ]
+    },
+    {
+      "DialogueInfo": {
+        "Lines": [
+          "Don't tell me you're willing to quit after one lose. C'mon, let's go for a round two!"
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "Alright.",
+          "Icon": "Default",
+          "Heading": -1
+        },
+        {
+          "Title": "I lost the Scepter...",
+          "Icon": "Default",
+          "Heading": 1
+        }
+      ]
     }
-  ]
+  ],
+  "DefaultScale": 1
 }
