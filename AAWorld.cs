@@ -1445,9 +1445,11 @@ namespace AAModClassic
                 {
                     if (!ContentReplacementSystem.NeedToReplaceContent)
                     {
-                        ConversionHandler.ConvertDownBoth((int)MireCenter.X, (int)InfernoCenter.X, 0, 120);
                         if (Main.netMode != NetmodeID.MultiplayerClient)
+                        {
+                            ConversionHandler.ConvertDownBoth((int)MireCenter.X, (int)InfernoCenter.X, 0, 120);
                             BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.hardModeInfo"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
+                        }
                     }
                     ChaosStripes = true;
                 }

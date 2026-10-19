@@ -1142,7 +1142,7 @@ namespace AAModClassic._Unofficial.Desert
                     else if (p.HasLostMultipleTimesToForsakenAnubis)
                         return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.Repeat.MultipleDeaths." + Main.rand.Next(3));
                     else
-                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.Repeat.FirstDeath" + Main.rand.Next(2));
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.Repeat.FirstDeath." + Main.rand.Next(2));
                 }
             }
             else if (!p.HasSpokenToAnubisPostForsakenAnubis && NPCExtensions.BeenKilled<AnubisA>())
