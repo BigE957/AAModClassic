@@ -16,24 +16,45 @@ namespace AAModClassic.Effects
 {
     public class ShaderSystem : ModSystem
     {
-        public override void Load()
+        private const string ShaderPrefix = "AAModClassic:";
+        public override void PostSetupContent()
         {
             if (Main.dedServ)
                 return;
 
-            LoadShader("AAModClassic/Effects/Shockwave", "Shockwave");
+            RegisterScreenShader("Shockwave", "Shockwave", EffectPriority.VeryHigh);
 
-            LoadShader("AAModClassic/Effects/Mask", "Mask");
+            RegisterScreenShader("RadialBlur", "RadialBlurPass");
+
+            RegisterMiscShader("Mask", "Mask");
+
+            RegisterMiscShader("Masking", "MaskingPass");
+
+            RegisterMiscShader("MaskEdge", "EdgePass");
 
             BindDyeShaders();
         }
 
-        private static void LoadShader(string path, string name)
+        private static Asset<Effect> LoadShader(string fileName)
         {
-            Asset<Effect> shader = ModContent.Request<Effect>(path);
-            ScreenShaderData shaderdata = new(shader, name);
-            Filters.Scene["AAModClassic:" + name] = new Filter(shaderdata, EffectPriority.VeryHigh);
-            Filters.Scene["AAModClassic:" + name].Load();
+            string shaderPath = "Effects/";
+            return AAMod.instance.Assets.Request<Effect>($"{shaderPath}{fileName}", AssetRequestMode.ImmediateLoad);
+        }
+
+
+        private static void RegisterScreenShader(string shaderName, string passName, EffectPriority priority = EffectPriority.High)
+        {
+            var effect = LoadShader(shaderName);
+            ScreenShaderData shaderdata = new(effect, passName);
+            Filters.Scene[ShaderPrefix + shaderName] = new Filter(shaderdata, priority);
+            Filters.Scene[ShaderPrefix + shaderName].Load();
+        }
+
+        private static void RegisterMiscShader(string shaderName, string passName)
+        {
+            var effect = LoadShader(shaderName);
+            MiscShaderData passParamRegistration = new(effect, passName);
+            GameShaders.Misc[ShaderPrefix + shaderName] = passParamRegistration;
         }
 
         private static void BindDyeShaders()

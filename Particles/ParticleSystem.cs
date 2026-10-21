@@ -9,19 +9,6 @@ using Terraria.ModLoader.Core;
 
 namespace AAModClassic.Particles;
 
-public enum DrawLayer
-{
-    BeforeAllTiles,
-    BeforeSolidTiles,
-    BeforeNPCs,
-    AfterNPCs,
-    BeforeProjectiles,
-    AfterProjectiles,
-    AfterPlayers,
-    AfterDusts,
-    AfterEverything,
-}
-
 [Autoload(Side = ModSide.Client)]
 public class ParticleSystem : ModSystem
 {
