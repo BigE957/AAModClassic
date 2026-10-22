@@ -46,7 +46,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
             if (!AAWorld.downedAllAncients || (!spawnInfo.Player.AAPlayer().ZoneMush && !spawnInfo.Player.ZoneGlowshroom) || NPC.AnyNPCs(Type))
                 return 0f;
 
-            return 10.001f;
+            return 0.001f;
         }
 
         private enum MushMadState
