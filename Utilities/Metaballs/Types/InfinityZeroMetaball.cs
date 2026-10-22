@@ -6,15 +6,15 @@ using System.Collections.Generic;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Utilities.Metaballs.Types;
-/*
+
 public class IZMetaballTestSYstem : ModSystem
 {
     public override void PreUpdatePlayers()
     {
-        InfinityZeroMetaballParticle.SpawnParticle(Main.MouseWorld, Main.rand.NextVector2Circular(4f, 4f), Main.rand.NextFloat(64f, 72f));
+        InfinityZeroMetaballParticle.SpawnParticle(Main.MouseWorld, Main.rand.NextVector2Circular(4f, 4f), Main.rand.NextFloat(96f, 108f));
     }
 }
-*/
+
 public class InfinityZeroMetaball : Metaball
 {
     public static InfinityZeroMetaball Instance => instance == null ? instance = ModContent.GetInstance<InfinityZeroMetaball>() : instance;
@@ -56,7 +56,7 @@ public class InfinityZeroMetaball : Metaball
         return Vector2.Zero;
     }
 
-    public override Color EdgeColor(int layer) => Color.DarkRed;
+    public override Color EdgeColor(int layer) => Color.Transparent;
 
     public override Color DrawLayerColor(int layer) => layer == 1 ? Color.White : Color.Gray;
 
@@ -84,7 +84,7 @@ public class InfinityZeroMetaball : Metaball
         foreach (var p in InfinityZeroMetaballParticle.IZParticles)
             p.Update();
 
-        InfinityZeroMetaballParticle.IZParticles.RemoveAll(p => p.Size <= 0.05f);
+        InfinityZeroMetaballParticle.IZParticles.RemoveAll(p => p.Size <= 0.05f || p.Time > InfinityZeroMetaballParticle.Uptime);
     }
 
     internal override void PreDrawCallContent()
@@ -115,6 +115,10 @@ public class InfinityZeroMetaballParticle
 
     public float SizeDecay;
 
+    public int Time;
+
+    public static int Uptime => 48;
+
     private InfinityZeroMetaballParticle(Vector2 center, Vector2 velocity, float size, byte layer, float speedDecay, float sizeDecay)
     {
         Center = center;
@@ -123,6 +127,7 @@ public class InfinityZeroMetaballParticle
         Layer = layer;
         SpeedDecay = speedDecay;
         SizeDecay = sizeDecay;
+        Time = 0;
     }
 
     public static void SpawnParticle(Vector2 center, Vector2 velocity, float size, byte layer = 1, float speedDecay = 0.99f, float sizeDecay = 0.9f)
@@ -132,14 +137,18 @@ public class InfinityZeroMetaballParticle
 
     public void Update()
     {
-        Velocity *= 0.99f;
-        Size *= 0.9f;
+        Velocity *= SpeedDecay;
+        //Size *= SizeDecay;
         Center += Velocity;
+
+        Time++;
     }
 
     public void Draw()
     {
-        InfinityZeroMetaball.Instance.AddMetaballFill(new(MetaballSystem.Circle.Value, Center - Main.screenPosition, null, 0f, MetaballSystem.Circle.Size() * 0.5f, Size, 0), Layer);
+        Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Utilities/Metaballs/DitherCircle").Value;
+        Rectangle frame = tex.Frame(24, 1, Time / 2);
+        InfinityZeroMetaball.Instance.AddMetaballFill(new(tex, Center - Main.screenPosition, frame, 0f, frame.Size() * 0.5f, Size, 0), Layer);
     }
 }
 
