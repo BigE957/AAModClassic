@@ -6,6 +6,7 @@ using System;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace AAModClassic._Unofficial.Content.Unimush
 {
@@ -43,7 +44,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (!AAWorld.downedAllAncients || (!spawnInfo.Player.AAPlayer().ZoneMush && !spawnInfo.Player.ZoneGlowshroom) || NPC.AnyNPCs(Type))
+            if (!AAWorld.downedAllAncients || MushroomMadnessSystem.Encountered || (!spawnInfo.Player.AAPlayer().ZoneMush && !spawnInfo.Player.ZoneGlowshroom) || NPC.AnyNPCs(Type))
                 return 0f;
 
             return 0.001f;
@@ -89,6 +90,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
                 {
                     oldY = jawY;
                     SoundEngine.PlaySound(SoundID.Roar);
+                    MushroomMadnessSystem.Encountered = true;
                     NPC.velocity.Y = -16f;
                     NPC.hide = false;
                 }
@@ -139,6 +141,22 @@ namespace AAModClassic._Unofficial.Content.Unimush
         {
             
             spriteBatch.Draw(Jaw.Value, NPC.Center + new Vector2(jawX, jawY) * NPC.scale - screenPos, null, drawColor, jawRot, Jaw.Size() * 0.5f, NPC.scale, 0, 0);
+        }
+    }
+
+    public class MushroomMadnessSystem : ModSystem
+    {
+        internal static bool Encountered = false;
+
+        public override void SaveWorldData(TagCompound tag)
+        {
+            tag.Add("MushMadSeen", Encountered);
+        }
+
+        public override void LoadWorldData(TagCompound tag)
+        {
+            if (!tag.TryGet("MushMadSeen", out Encountered))
+                Encountered = false;
         }
     }
 }
