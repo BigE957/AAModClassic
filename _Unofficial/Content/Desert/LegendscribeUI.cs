@@ -18,9 +18,9 @@ using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI;
-using static AAModClassic._Unofficial.Desert.UIParallaxBackground;
+using static AAModClassic._Unofficial.Content.Desert.UIParallaxBackground;
 
-namespace AAModClassic._Unofficial.Desert
+namespace AAModClassic._Unofficial.Content.Desert
 {
     public class LegendscribeQuestUI : UIState
     {

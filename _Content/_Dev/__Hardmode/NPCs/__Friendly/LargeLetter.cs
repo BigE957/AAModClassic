@@ -9,7 +9,7 @@ using AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly;
 using AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly;
 using AAModClassic._Unofficial.Content._Dev.__Hardmode.Items.Consumables;
-using AAModClassic._Unofficial.Desert;
+using AAModClassic._Unofficial.Content.Desert;
 using AAModClassic.UI.World;
 using System.Collections.Generic;
 using Terraria.GameContent.Bestiary;
