@@ -3,6 +3,7 @@ using AAModClassic.Base;
 using AAModClassic.Effects;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -87,7 +88,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
                     }
                     if (NPC.ai[0] >= 180) //after he says 'heh' on the server, change music on the client
                     {
-                        Music = MusicManagementSystem.MusicSlots["Akuma_Awakened"];
+                        string key = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? "Akuma_Awakened" : "Akuma_Awakened_Legacy";
+                        Music = MusicManagementSystem.MusicSlots[key];
                         NPC.boss = true;
                     }
                     if (NPC.ai[0] >= 380)
@@ -163,7 +165,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
                 }
                 if (NPC.ai[0] >= 300) //after he says 'heh' on the server, change music on the client
                 {
-                    Music = MusicManagementSystem.MusicSlots["Akuma_Awakened"];
+                    string key = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? "Akuma_Awakened" : "Akuma_Awakened_Legacy";
+                    Music = MusicManagementSystem.MusicSlots[key];
                     NPC.boss = true;
                 }
                 if (NPC.ai[0] >= 660) //after 660 on the server, transition color
