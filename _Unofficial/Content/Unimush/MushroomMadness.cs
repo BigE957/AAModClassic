@@ -1,4 +1,5 @@
 ﻿using AAModClassic._Content.RedMushroom.World.Biomes;
+using AAModClassic.Music;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
@@ -38,6 +39,8 @@ namespace AAModClassic._Unofficial.Content.Unimush
             NPC.hide = true;
 
             NPC.rarity = 100;
+            NPC.boss = true;
+            Music = MusicManagementSystem.MusicSlots["MushMad_Intro"];
 
             SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
         }
@@ -141,6 +144,13 @@ namespace AAModClassic._Unofficial.Content.Unimush
                     jawY += jawOff.Y;
 
                     NPC.velocity += Vector2.UnitY * 0.2f;
+
+                    if (NPC.ai[1] > 200)
+                    {
+                        NPC.active = false;
+                        NPC.netUpdate = true;
+                        return;
+                    }
                 }
 
                 NPC.ai[1]++;
