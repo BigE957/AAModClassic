@@ -333,7 +333,7 @@ BigE: {
 	}
 
 	LittleES: {
-		DisplayName: Calamit E
+		DisplayName: Calamit-E
 		Tooltip: "'Dude, you like Calamity Mod? {0}, bro, I knew I liked you, dude. Come here, bring it in. Bring it in, brother.'"
 	}
 }
