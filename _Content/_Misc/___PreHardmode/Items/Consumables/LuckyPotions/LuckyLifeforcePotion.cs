@@ -13,6 +13,7 @@ namespace AAModClassic._Content._Misc.___PreHardmode.Items.Consumables.LuckyPoti
         {
             // DisplayName.SetDefault("Lucky Lifeforce Potion");
             // Tooltip.SetDefault("Increases max life by 21%");
+            Item.ResearchUnlockCount = 20;
         }
 
         public override void SetDefaults()

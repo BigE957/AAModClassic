@@ -13,6 +13,7 @@ namespace AAModClassic._Content._Misc.___PreHardmode.Items.Consumables.LuckyPoti
         {
             // DisplayName.SetDefault("Lucky Thorns Potion");
             // Tooltip.SetDefault("Attackers also take damage");
+            Item.ResearchUnlockCount = 20;
         }
 
         public override void SetDefaults()

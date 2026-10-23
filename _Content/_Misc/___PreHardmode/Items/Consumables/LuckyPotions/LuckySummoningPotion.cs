@@ -13,6 +13,7 @@ namespace AAModClassic._Content._Misc.___PreHardmode.Items.Consumables.LuckyPoti
         {
             // DisplayName.SetDefault("Lucky Summoning Potion");
             // Tooltip.SetDefault("Increases your max number of minions and turrents");
+            Item.ResearchUnlockCount = 20;
         }
 
         public override void SetDefaults()

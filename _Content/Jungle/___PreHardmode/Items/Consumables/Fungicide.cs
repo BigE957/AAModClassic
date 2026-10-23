@@ -32,6 +32,7 @@ namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Consumables
         {
             // DisplayName.SetDefault("Fungicide");
             // Tooltip.SetDefault(@"Originally concocted by the Swarm to combat the ever-expending mushroom menace.");
+            Item.ResearchUnlockCount = 99;
         }
 
         public override bool AltFunctionUse(Player player)

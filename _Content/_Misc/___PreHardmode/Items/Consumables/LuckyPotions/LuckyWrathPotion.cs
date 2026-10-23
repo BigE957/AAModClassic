@@ -13,6 +13,7 @@ namespace AAModClassic._Content._Misc.___PreHardmode.Items.Consumables.LuckyPoti
         {
             // DisplayName.SetDefault("Lucky Wrath Potion");
             // Tooltip.SetDefault("Increases damage by 11%");
+            Item.ResearchUnlockCount = 20;
         }
 
         public override void SetDefaults()

@@ -30,6 +30,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Consumables
         {
             // DisplayName.SetDefault("Icemelt Flask");
             // Tooltip.SetDefault(@"Clears the snow biome");
+            Item.ResearchUnlockCount = 99;
         }
 
         public override bool AltFunctionUse(Player player)

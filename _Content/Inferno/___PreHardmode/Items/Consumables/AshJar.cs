@@ -32,6 +32,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables
         {
             // DisplayName.SetDefault("Ash Jar");
             // Tooltip.SetDefault(@"Spreads the Inferno");
+            Item.ResearchUnlockCount = 99;
         }
 
         public override bool AltFunctionUse(Player player)

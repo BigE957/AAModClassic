@@ -31,6 +31,7 @@ namespace AAModClassic._Content.Terrarium.___PreHardmode.Items.Consumables
         {
             // DisplayName.SetDefault("Purity Flask");
             // Tooltip.SetDefault(@"Spreads the Forest");
+            Item.ResearchUnlockCount = 99;
         }
 
         public override bool AltFunctionUse(Player player)

@@ -29,6 +29,7 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Consumables
         {
             // DisplayName.SetDefault("Crystal Flask");
             // Tooltip.SetDefault(@"Spreads the Hallow");
+            Item.ResearchUnlockCount = 99;
         }
 
         public override bool AltFunctionUse(Player player)

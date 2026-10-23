@@ -13,6 +13,7 @@ namespace AAModClassic._Content._Misc.___PreHardmode.Items.Consumables.LuckyPoti
         {
             // DisplayName.SetDefault("Lucky Swiftness Potion");
             // Tooltip.SetDefault("26% increased movement speed");
+            Item.ResearchUnlockCount = 20;
         }
 
         public override void SetDefaults()

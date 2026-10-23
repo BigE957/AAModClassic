@@ -13,6 +13,7 @@ namespace AAModClassic._Content._Misc.___PreHardmode.Items.Consumables.LuckyPoti
         {
             // DisplayName.SetDefault("Lucky Endurance Potion");
             // Tooltip.SetDefault("Reduces damage taken by 10%\nIncrease your 10% defense");
+            Item.ResearchUnlockCount = 20;
         }
 
         public override void SetDefaults()

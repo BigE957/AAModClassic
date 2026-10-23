@@ -32,6 +32,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Consumables
         {
             // DisplayName.SetDefault("Darkwater Flask");
             // Tooltip.SetDefault(@"Spreads the Mire");
+            Item.ResearchUnlockCount = 99;
         }
 
         public override bool AltFunctionUse(Player player)

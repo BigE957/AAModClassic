@@ -31,6 +31,7 @@ namespace AAModClassic._Content.Corruption.___PreHardmode.Items.Consumables
         {
             // DisplayName.SetDefault("Shadow Flask");
             // Tooltip.SetDefault(@"Spreads the Corruption");
+            Item.ResearchUnlockCount = 99;
         }
 
         public override bool AltFunctionUse(Player player)
