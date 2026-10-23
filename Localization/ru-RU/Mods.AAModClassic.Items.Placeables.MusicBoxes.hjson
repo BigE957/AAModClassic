@@ -120,6 +120,11 @@ InfernoUndergroundBox: {
 
 AkumaAwakenedBox: {
 	DisplayName: Музыкальная шкатулка (Они Акума)
+	Tooltip: Проигрывает «Day Breaks» за авторством: Tyeski
+}
+
+AkumaAwakenedLegacyBox: {
+	DisplayName: Музыкальная шкатулка (запасный Они Акума)
 	Tooltip: Проигрывает «Dawn of the Dragon» за авторством: Tyeski
 }
 
