@@ -1185,66 +1185,59 @@ namespace AAModClassic
                 }
             }
 
-            if (!ContentReplacementSystem.NeedToReplaceContent && !Main.dayTime)
+            if (!ContentReplacementSystem.NeedToReplaceContent && !Main.dayTime && !Main.IsFastForwardingTime())
             {
-                if (!Main.IsFastForwardingTime()/* tModPorter Note: _Unreleased. Suggestion: IsFastForwardingTime(), fastForwardTimeToDawn or fastForwardTimeToDusk */)
+                if (Main.time == 1 && !WorldGen.spawnEye)
                 {
-                    if (Main.time == 1 && !WorldGen.spawnEye)
+                    if (!downedGrips && Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        if (!downedGrips && Main.netMode != NetmodeID.MultiplayerClient)
+                        bool flag3 = false;
+                        foreach (Player p in Main.ActivePlayers)
                         {
-                            bool flag3 = false;
-                            for (int n = 0; n < 255; n++)
+                            if (p.statLifeMax >= 200 && p.statDefense > 10)
                             {
-                                if (Main.player[n].active && Main.player[n].statLifeMax >= 200 && Main.player[n].statDefense > 10)
+                                flag3 = true;
+                                break;
+                            }
+                        }
+                        if (flag3 && Main.rand.NextBool(3))
+                        {
+                            int num8 = 0;
+                            foreach (NPC npc in Main.ActiveNPCs)
+                            {
+                                if (npc.townNPC)
+                                    num8++;
+                                else if (npc.boss)
                                 {
-                                    flag3 = true;
+                                    num8 = -1;
                                     break;
                                 }
                             }
-                            if (flag3 && Main.rand.NextBool(3))
+                            if (num8 >= 4)
                             {
-                                int num8 = 0;
-                                for (int num9 = 0; num9 < 200; num9++)
-                                {
-                                    if (Main.npc[num9].active && Main.npc[num9].townNPC)
-                                    {
-                                        num8++;
-                                    }
-                                }
-                                if (num8 >= 4)
-                                {
-                                    spawnGrips = true;
-                                    if (Main.netMode == NetmodeID.SinglePlayer)
-                                    {
-                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossSummonsInfo.GripsAwoken"), 50, 255, 130);
-                                    }
-                                    else if (Main.netMode == NetmodeID.Server)
-                                    {
-                                        NetMessage.SendData(MessageID.ChatText, -1, -1, null, 255, 50f, 255f, 130f, 0, 0, 0);
-                                    }
-                                }
+                                spawnGrips = true;
+                                if (Main.netMode == NetmodeID.SinglePlayer)
+                                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossSummonsInfo.GripsAwoken"), 50, 255, 130);
+                                else if (Main.netMode == NetmodeID.Server)
+                                    NetMessage.SendData(MessageID.ChatText, -1, -1, null, 255, 50f, 255f, 130f, 0, 0, 0);
                             }
                         }
                     }
-                    if (spawnGrips && Main.netMode != NetmodeID.MultiplayerClient && Main.time > 4860.0)
+                }
+                if (spawnGrips && Main.netMode != NetmodeID.MultiplayerClient && Main.time > 4860.0)
+                {
+                    foreach (Player p in Main.ActivePlayers)
                     {
-                        for (int k = 0; k < 255; k++)
+                        if (!p.dead && p.position.Y < Main.worldSurface * 16.0)
                         {
-                            if (Main.player[k].active && !Main.player[k].dead && Main.player[k].position.Y < Main.worldSurface * 16.0)
-                            {
-                                if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.Grips.GripsofChaosAwoken"), 175, 75, 255, false); }
-                                else if (Main.netMode == NetmodeID.Server)
-                                    if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.Grips.GripsofChaosAwoken"), 175, 75, 255, false); }
-                                    else if (Main.netMode == NetmodeID.Server)
-                                    {
-                                        ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.AAModClassic.Common.Grips.GripsofChaosAwoken")), new Color(175, 75, 255), -1);
-                                    }
-                                AAModGlobalNPC.SpawnBoss(Main.player[k], ModContent.NPCType<GripOfChaosMire>(), false, 1, 0);
-                                AAModGlobalNPC.SpawnBoss(Main.player[k], ModContent.NPCType<GripOfChaosInferno>(), false, -1, 0);
-                                spawnGrips = false;
-                                break;
-                            }
+                            if (Main.netMode == NetmodeID.SinglePlayer)
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.Grips.GripsofChaosAwoken"), 175, 75, 255, false);
+                            else if (Main.netMode == NetmodeID.Server)
+                                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.AAModClassic.Common.Grips.GripsofChaosAwoken")), new Color(175, 75, 255), -1);
+                            AAModGlobalNPC.SpawnBoss(p, ModContent.NPCType<GripOfChaosMire>(), false, 1, 0);
+                            AAModGlobalNPC.SpawnBoss(p, ModContent.NPCType<GripOfChaosInferno>(), false, -1, 0);
+                            spawnGrips = false;
+                            break;
                         }
                     }
                 }
