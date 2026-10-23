@@ -1185,46 +1185,43 @@ namespace AAModClassic
                 }
             }
 
-            if (!ContentReplacementSystem.NeedToReplaceContent && !Main.dayTime && !Main.IsFastForwardingTime())
+            if (!ContentReplacementSystem.NeedToReplaceContent && Main.netMode != NetmodeID.MultiplayerClient && !downedGrips && !Main.dayTime && !Main.IsFastForwardingTime())
             {
                 if (Main.time == 1 && !WorldGen.spawnEye)
                 {
-                    if (!downedGrips && Main.netMode != NetmodeID.MultiplayerClient)
+                    bool flag3 = false;
+                    foreach (Player p in Main.ActivePlayers)
                     {
-                        bool flag3 = false;
-                        foreach (Player p in Main.ActivePlayers)
+                        if (p.statLifeMax >= 200 && p.statDefense > 10)
                         {
-                            if (p.statLifeMax >= 200 && p.statDefense > 10)
+                            flag3 = true;
+                            break;
+                        }
+                    }
+                    if (flag3 && Main.rand.NextBool(3))
+                    {
+                        int num8 = 0;
+                        foreach (NPC npc in Main.ActiveNPCs)
+                        {
+                            if (npc.townNPC)
+                                num8++;
+                            else if (npc.boss)
                             {
-                                flag3 = true;
+                                num8 = -1;
                                 break;
                             }
                         }
-                        if (flag3 && Main.rand.NextBool(3))
+                        if (num8 >= 4)
                         {
-                            int num8 = 0;
-                            foreach (NPC npc in Main.ActiveNPCs)
-                            {
-                                if (npc.townNPC)
-                                    num8++;
-                                else if (npc.boss)
-                                {
-                                    num8 = -1;
-                                    break;
-                                }
-                            }
-                            if (num8 >= 4)
-                            {
-                                spawnGrips = true;
-                                if (Main.netMode == NetmodeID.SinglePlayer)
-                                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossSummonsInfo.GripsAwoken"), 50, 255, 130);
-                                else if (Main.netMode == NetmodeID.Server)
-                                    NetMessage.SendData(MessageID.ChatText, -1, -1, null, 255, 50f, 255f, 130f, 0, 0, 0);
-                            }
+                            spawnGrips = true;
+                            if (Main.netMode == NetmodeID.SinglePlayer)
+                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossSummonsInfo.GripsAwoken"), 50, 255, 130);
+                            else if (Main.netMode == NetmodeID.Server)
+                                NetMessage.SendData(MessageID.ChatText, -1, -1, null, 255, 50f, 255f, 130f, 0, 0, 0);
                         }
                     }
                 }
-                if (spawnGrips && Main.netMode != NetmodeID.MultiplayerClient && Main.time > 4860.0)
+                if (spawnGrips && Main.time > 4860.0)
                 {
                     foreach (Player p in Main.ActivePlayers)
                     {
