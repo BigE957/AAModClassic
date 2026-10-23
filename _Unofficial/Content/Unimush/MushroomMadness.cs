@@ -1,16 +1,19 @@
-﻿using AAModClassic.Utilities;
+﻿using AAModClassic._Content.RedMushroom.World.Biomes;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using Terraria.Audio;
+using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
 namespace AAModClassic._Unofficial.Content.Unimush
 {
-    public class MushroomMadness : ModNPC
+    public class MushroomMadness : ModNPC, IBestiaryCritterNPC
     {
         public override string Texture => "AAModClassic/_Unofficial/Content/Unimush/MushroomMadness_Body";
 
@@ -35,16 +38,27 @@ namespace AAModClassic._Unofficial.Content.Unimush
             NPC.hide = true;
 
             NPC.rarity = 100;
+
+            SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
+        }
+
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(
+            [
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.SurfaceMushroom,
+            ]);
         }
 
         public override void ModifyTypeName(ref string typeName)
         {
-            typeName = "???";
+            if(!NPC.IsABestiaryIconDummy)
+                typeName = "???";
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (!AAWorld.downedAllAncients || MushroomMadnessSystem.Encountered || (!spawnInfo.Player.AAPlayer().ZoneMush && !spawnInfo.Player.ZoneGlowshroom) || NPC.AnyNPCs(Type))
+            if (!AAWorld.downedAllAncients || MushroomMadnessSystem.Encountered || !spawnInfo.Player.ZoneSurface() || (!spawnInfo.Player.AAPlayer().ZoneMush && !spawnInfo.Player.ZoneGlowshroom) || NPC.AnyNPCs(Type))
                 return 0f;
 
             return 0.001f;
@@ -91,6 +105,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
                     oldY = jawY;
                     SoundEngine.PlaySound(SoundID.Roar);
                     MushroomMadnessSystem.Encountered = true;
+                    Main.BestiaryTracker.Sights.RegisterWasNearby(NPC);
                     NPC.velocity.Y = -16f;
                     NPC.hide = false;
                 }
