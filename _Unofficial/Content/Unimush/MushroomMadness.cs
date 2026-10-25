@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -64,7 +65,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
             if (!AAWorld.downedAllAncients || MushroomMadnessSystem.Encountered || !spawnInfo.Player.ZoneSurface() || (!spawnInfo.Player.AAPlayer().ZoneMush && !spawnInfo.Player.ZoneGlowshroom) || NPC.AnyNPCs(Type))
                 return 0f;
 
-            return 0.001f;
+            return 0.5f;
         }
 
         private enum MushMadState
@@ -79,6 +80,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
         private float jawRot = 0f;
         private float jawY = 64f;
         private float oldY = 64f;
+        private Vector2 drawOffset = Vector2.Zero;
 
         public override void AI()
         {
@@ -109,7 +111,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
                     SoundEngine.PlaySound(SoundID.Roar);
                     MushroomMadnessSystem.Encountered = true;
                     Main.BestiaryTracker.Sights.RegisterWasNearby(NPC);
-                    NPC.velocity.Y = -16f;
+                    NPC.velocity.Y = -18f;
                     NPC.hide = false;
                 }
 
@@ -120,9 +122,11 @@ namespace AAModClassic._Unofficial.Content.Unimush
                     float ease = MathUtils.SineOutEasing(NPC.ai[1] / 30f);
                     jawY = MathHelper.Lerp(oldY, 68f, ease);
 
-                    Vector2 jawOff = Main.rand.NextVector2Circular(4f, 4f) * ease;
+                    Vector2 jawOff = Main.rand.NextVector2Circular(6f, 6f) * ease;
                     jawX = jawOff.X;
                     jawY += jawOff.Y;
+
+                    drawOffset = Main.rand.NextVector2Circular(4f, 4f) * ease;
                 }
                 else if(NPC.ai[1] < 90)
                 {
@@ -131,6 +135,8 @@ namespace AAModClassic._Unofficial.Content.Unimush
                     Vector2 jawOff = Main.rand.NextVector2Circular(6f, 6f);
                     jawX = jawOff.X;
                     jawY = 68f + jawOff.Y;
+
+                    drawOffset = Main.rand.NextVector2Circular(4f, 4f);
                 }
                 else
                 {
@@ -139,9 +145,11 @@ namespace AAModClassic._Unofficial.Content.Unimush
                     float ease = MathUtils.SineInEasing(MathHelper.Clamp((NPC.ai[1] - 90) / 60f, 0f, 1f));
                     jawY = MathHelper.Lerp(68f, 54f, ease);
 
-                    Vector2 jawOff = Main.rand.NextVector2Circular(4f, 4f) * ease;
+                    Vector2 jawOff = Main.rand.NextVector2Circular(4f, 4f) * (1 - ease);
                     jawX = jawOff.X;
                     jawY += jawOff.Y;
+
+                    drawOffset = Main.rand.NextVector2Circular(4f, 4f) * (1 - ease);
 
                     NPC.velocity += Vector2.UnitY * 0.2f;
 
@@ -162,10 +170,15 @@ namespace AAModClassic._Unofficial.Content.Unimush
             Main.instance.DrawCacheNPCsMoonMoon.Add(index);
         }
 
-        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            
-            spriteBatch.Draw(Jaw.Value, NPC.Center + new Vector2(jawX, jawY) * NPC.scale - screenPos, null, drawColor, jawRot, Jaw.Size() * 0.5f, NPC.scale, 0, 0);
+            spriteBatch.Draw(TextureAssets.Npc[Type].Value, NPC.Center + drawOffset - screenPos, null, drawColor, NPC.rotation, TextureAssets.Npc[Type].Size() * 0.5f, NPC.scale, 0, 0);
+            return false;
+        }
+
+        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {          
+            spriteBatch.Draw(Jaw.Value, NPC.Center + drawOffset + new Vector2(jawX, jawY) * NPC.scale - screenPos, null, drawColor, jawRot, Jaw.Size() * 0.5f, NPC.scale, 0, 0);
         }
     }
 
