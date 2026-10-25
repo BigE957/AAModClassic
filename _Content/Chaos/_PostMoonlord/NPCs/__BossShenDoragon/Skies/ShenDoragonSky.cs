@@ -54,6 +54,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Skies
         }
         public override void Update(GameTime gameTime)
         {
+            if (Main.gameMenu)
+                Active = false;
+
             if (Active)
             {
                 Intensity = Math.Min(1f, 0.01f + Intensity);

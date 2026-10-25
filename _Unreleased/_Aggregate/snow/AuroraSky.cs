@@ -26,6 +26,9 @@ namespace AAModClassic._Unreleased._Aggregate.snow
 
         public override void Update(GameTime gameTime)
         {
+            if (Main.gameMenu)
+                Active = false;
+
             if (Active)
             {
                 Intensity = Math.Min(1f, 0.01f + Intensity);

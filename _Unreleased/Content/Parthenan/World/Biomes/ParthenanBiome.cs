@@ -91,6 +91,9 @@ namespace AAModClassic._Unreleased.Content.Parthenan.World.Biomes
 
         public override void Update(GameTime gameTime)
         {
+            if (Main.gameMenu)
+                Active = false;
+
             if (Active)
             {
                 Intensity = Math.Min(1f, 0.01f + Intensity);
