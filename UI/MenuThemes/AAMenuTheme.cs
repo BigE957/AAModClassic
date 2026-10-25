@@ -139,4 +139,17 @@ namespace AAModClassic.UI.MenuThemes
                 SkyManager.Instance.Deactivate("AAModClassic:VoidSky", [true]);
         }
     }
+
+    public class AAMenuThemeSystem : ModSystem
+    {
+        public override void PreSaveAndQuit()
+        {
+            if (SkyManager.Instance["AAModClassic:MireSky"].IsActive())
+                SkyManager.Instance.Deactivate("AAModClassic:MireSky", [true]);
+            if (SkyManager.Instance["AAModClassic:InfernoSky"].IsActive())
+                SkyManager.Instance.Deactivate("AAModClassic:InfernoSky", [true]);
+            if (SkyManager.Instance["AAModClassic:VoidSky"].IsActive())
+                SkyManager.Instance.Deactivate("AAModClassic:VoidSky", [true]);
+        }
+    }
 }
