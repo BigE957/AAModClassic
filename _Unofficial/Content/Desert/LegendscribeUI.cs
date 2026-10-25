@@ -31,7 +31,7 @@ namespace AAModClassic._Unofficial.Content.Desert
 
         private static bool InEarlygameState = true;
 
-        internal static Questline CurrentQuestline => NPCExtensions.BeenKilled<AnubisA>() ? QuestSystem.Questlines["LegendscribeLateGame"] : QuestSystem.Questlines["LegendscribeEarlyGame"];
+        internal static Questline CurrentQuestline => (!Main.gameMenu && NPCExtensions.BeenKilled<AnubisA>()) ? QuestSystem.Questlines["LegendscribeLateGame"] : QuestSystem.Questlines["LegendscribeEarlyGame"];
         internal static Quest CurrentQuest => CurrentQuestID == "" ? null : CurrentQuestline.Quests[CurrentQuestID];
         internal static UIPanel Area;
 
