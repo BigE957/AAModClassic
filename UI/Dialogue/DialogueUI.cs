@@ -121,14 +121,20 @@ namespace AAModClassic.UI.Dialogue
 
             DialogueUISystem.ResponseSelect?.Invoke(treeName, currentIndex, responseIndex);
 
-            SwitchDialogue(response.Heading == -2 ? currentIndex + 1 : response.Heading);
-
-            for(int i = 0; i < responses.Count; i++)
+            if (response.Heading == -1)
             {
-                int delta = Math.Abs(i - responseIndex);
-                responses[i].Hide(delta * -5);
+                DialogueUISystem.EndDialogue(false);
             }
+            else
+            {
+                SwitchDialogue(response.Heading == -2 ? currentIndex + 1 : response.Heading);
 
+                for (int i = 0; i < responses.Count; i++)
+                {
+                    int delta = Math.Abs(i - responseIndex);
+                    responses[i].Hide(delta * -5);
+                }
+            }
         }
 
         private bool switchStarted = false;
@@ -785,14 +791,18 @@ namespace AAModClassic.UI.Dialogue
 
         public static void EndDialogue(bool silent)
         {
-            DialogueEnd?.Invoke(State.treeName, State.currentIndex);
-            CurrentContext = default;
+            string name = State.treeName;
+            int index = State.currentIndex;
 
             State.SwitchDialogue(-1);
             for (int i = 0; i < State.responses.Count; i++)
                 State.responses[i].Hide(i * -5);
 
-            if(!silent)
+            DialogueEnd?.Invoke(name, index);
+
+            CurrentContext = default;
+
+            if (!silent)
                 SoundEngine.PlaySound(SoundID.MenuClose);
         }
         

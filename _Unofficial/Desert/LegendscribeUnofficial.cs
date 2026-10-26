@@ -195,7 +195,7 @@ namespace AAModClassic._Unofficial.Desert
 
         public override bool CanTownNPCSpawn(int numTownNPCs)
         {
-            return !NPC.AnyNPCs(ModContent.NPCType<AnubisUnreleased>()) && !NPC.AnyNPCs(ModContent.NPCType<Anubis>()) && !NPC.AnyNPCs(ModContent.NPCType<LegendscribeUnofficial>()) && !NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) && !NPC.AnyNPCs(ModContent.NPCType<AnubisA>());
+            return !UnofficialAnubisSystem.AnyAnubis(NPC);
 
         }
 
@@ -231,17 +231,18 @@ namespace AAModClassic._Unofficial.Desert
 
         public override bool PreAI()
         {
+            if (UnofficialAnubisSystem.AnyAnubis(NPC))
+            {
+                TPDust();
+                NPC.active = false;
+                return false;
+            }
+
             if (MyBehavior == BehaviorState.TownNPC)
             {
                 NPC.townNPC = true;
                 NPC.aiStyle = NPCAIStyleID.Passive;
 
-                if (NPC.AnyNPCs(ModContent.NPCType<Anubis>()) || NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) || NPC.AnyNPCs(ModContent.NPCType<AnubisA>()) || NPC.AnyNPCs(ModContent.NPCType<AnubisUnreleased>()))
-                {
-                    TPDust();
-                    NPC.active = false;
-                    return false;
-                }
                 if (Vector2.Distance(NPC.position, new Vector2(NPC.homeTileX, NPC.homeTileY)) > 3000 && AwayFromPlayerTimer < 240 && !NPC.homeless)
                 {
                     AwayFromPlayerTimer++;
@@ -382,8 +383,17 @@ namespace AAModClassic._Unofficial.Desert
 
         private static void ModifyTree(string treeKey, ref DialogueTree tree)
         {
-            if (treeKey == "Mods.AAModClassic.DialogueTrees.Anubis.Default")
-                tree.Dialogues[1].DialogueInfo.Lines = GetAnubisHint();
+            string name = treeKey.Replace("Mods.AAModClassic.DialogueTrees.Anubis.", "");
+
+            switch(name)
+            {
+                case "Default":
+                    tree.Dialogues[1].DialogueInfo.Lines = GetAnubisHint();
+                    break;
+                case "TrialChallenge":
+                    tree.Dialogues[0].DialogueInfo.Lines[0] = tree.Dialogues[0].DialogueInfo.Lines[0].Replace("{0}", Main.LocalPlayer.name);
+                    break;
+            }                
         }
 
         private static string[] GetAnubisHint()
@@ -479,17 +489,61 @@ namespace AAModClassic._Unofficial.Desert
 
         private static void AnubisDialogueUpdate(string treeKey, int dialogueID, int buttonID)
         {
-            if (treeKey == "Mods.AAModClassic.DialogueTrees.Anubis.Intro" && dialogueID >= 4 && dialogueID <= 6)
+            if (DialogueUISystem.CurrentContext.Arguments[0] < 0 || DialogueUISystem.CurrentContext.Arguments[0] > 200)
+                return;
+
+            NPC npc = Main.npc[(int)DialogueUISystem.CurrentContext.Arguments[0]];
+
+            if (!npc.active || npc.ModNPC is not LegendscribeUnofficial me)
+                return;
+
+            string name = treeKey.Replace("Mods.AAModClassic.DialogueTrees.Anubis.", "");
+
+            switch (name)
             {
-                LegendscribeUnofficial me = Main.npc[(int)DialogueUISystem.CurrentContext.Arguments[0]].ModNPC as LegendscribeUnofficial;
-                me.MyBehavior = BehaviorState.TownNPC;
-            }
+                case "Intro":
+                    if (dialogueID >= 4 && dialogueID <= 6)
+                        me.MyBehavior = BehaviorState.TownNPC;
+                    break;
+                case "Default":
+                    if (dialogueID == 0 && buttonID == 0)
+                        OpenLegendscribeUI(npc);
+                    break;
+                case "SparChallenge":
+                    if (dialogueID == 0)
+                        Main.LocalPlayer.QuickSpawnItem(npc.GetSource_GiftOrReward(), ModContent.ItemType<RasScepter>(), 1);
+                    break;
+                case "SparIncomplete":
+                case "TrialChallenge":
+                case "TrialIncomplete":
+                    if (dialogueID == 0 && buttonID == 1)
+                        Main.LocalPlayer.QuickSpawnItem(npc.GetSource_GiftOrReward(), ModContent.ItemType<RasScepter>(), 1);
+                    break;
+            }          
         }
 
         private static void AnubisDialogueEnd(string treeKey, int dialogueID)
         {
-            if (treeKey == "Mods.AAModClassic.DialogueTrees.Anubis.IntroComplete")
-                UnofficialAnubisSystem.AnubisHoused = true;
+            if (DialogueUISystem.CurrentContext.Arguments[0] < 0 || DialogueUISystem.CurrentContext.Arguments[0] > 200)
+                return;
+
+            NPC npc = Main.npc[(int)DialogueUISystem.CurrentContext.Arguments[0]];
+
+            if (!npc.active || npc.ModNPC is not LegendscribeUnofficial me)
+                return;
+
+            string name = treeKey.Replace("Mods.AAModClassic.DialogueTrees.Anubis.", "");
+
+            switch (name)
+            {
+                case "IntroComplete":
+                    if (dialogueID == 1)
+                    {
+                        OpenLegendscribeUI(npc);
+                    }
+                    UnofficialAnubisSystem.AnubisHoused = true;
+                    break;
+            }                
         }
 
         public override void SetChatButtons(ref string button, ref string button2)
@@ -547,27 +601,32 @@ namespace AAModClassic._Unofficial.Desert
             }
             else
             {
-                if (Main.LocalPlayer.GetModPlayer<ZAAPlayer>().AnubisBook)
-                    QuestSystem.Questlines["LegendscribeEarlyGame"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeEarlyGame.Greed.Description.FoundBook");
-                else
-                    QuestSystem.Questlines["LegendscribeEarlyGame"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeEarlyGame.Greed.Description.Complete");
+                OpenLegendscribeUI(NPC);
+            }
+        }
 
-                LegendscribeQuestUISystem.OpenLegendscribeUI(NPC.whoAmI);
+        private static void OpenLegendscribeUI(NPC npc)
+        {
+            if (Main.LocalPlayer.GetModPlayer<ZAAPlayer>().AnubisBook)
+                QuestSystem.Questlines["LegendscribeEarlyGame"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeEarlyGame.Greed.Description.FoundBook");
+            else
+                QuestSystem.Questlines["LegendscribeEarlyGame"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeEarlyGame.Greed.Description.Complete");
 
-                Questline questline = LegendscribeQuestUI.CurrentQuestline;
-                if (!questline.Started)
-                {
-                    questline.Started = true;
+            LegendscribeQuestUISystem.OpenLegendscribeUI(npc.whoAmI);
 
-                    if (Main.netMode == NetmodeID.MultiplayerClient)
-                        AANet.SendNetMessage<QuestlineStartPacket>(questline.ID);
-                }
+            Questline questline = LegendscribeQuestUI.CurrentQuestline;
+            if (!questline.Started)
+            {
+                questline.Started = true;
+
+                if (Main.netMode == NetmodeID.MultiplayerClient)
+                    AANet.SendNetMessage<QuestlineStartPacket>(questline.ID);
             }
         }
 
         public override void PostAI()
         {
-            if (chattingLastFrame && DialogueUISystem.UI.CurrentState != null)
+            if (chattingLastFrame && DialogueUISystem.UI.CurrentState != null && !LegendscribeQuestUISystem.IsActive)
                 Main.LocalPlayer.SetTalkNPC(-1);
             /*
             Main.NewText("ai 0: " + NPC.ai[0]);
@@ -1475,11 +1534,24 @@ namespace AAModClassic._Unofficial.Desert
         public override void PreUpdateNPCs()
         {
             //Main.NewText(AnubisRuinsTile - Main.LocalPlayer.Center.ToTileCoordinates());
-            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && AnubisRuinsTile != Point.Zero && !NPC.AnyNPCs(ModContent.NPCType<LegendscribeUnofficial>()))
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && AnubisRuinsTile != Point.Zero && !AnyAnubis(null))
             {
                 NPC anubis = NPC.NewNPCDirect(NPC.GetSource_NaturalSpawn(), AnubisRuinsTile.ToWorldCoordinates(0, 0), ModContent.NPCType<LegendscribeUnofficial>());
                 (anubis.ModNPC as LegendscribeUnofficial).MyBehavior = LegendscribeUnofficial.BehaviorState.RuinsIdle;
             }
+        }
+
+        public static bool AnyAnubis(NPC me)
+        {
+            foreach (NPC npc in Main.ActiveNPCs)
+            {
+                if (me != null && me.active && npc.whoAmI == me.whoAmI)
+                    continue;
+
+                if (npc.type == ModContent.NPCType<LegendscribeUnofficial>() || npc.type == ModContent.NPCType<LegendscribeUnofficial>() || npc.type == ModContent.NPCType<Legendscribe>() || npc.type == ModContent.NPCType<Anubis>() || npc.type == ModContent.NPCType<AnubisUnreleased>() || npc.type == ModContent.NPCType<AnubisForsakenTransition>() || npc.type == ModContent.NPCType<AnubisA>())
+                    return true;
+            }
+            return false;
         }
 
         public override void SaveWorldData(TagCompound tag)

@@ -1353,6 +1353,7 @@ namespace AAModClassic._Unofficial.Desert
             NPCIndex = npcIndex;
             Main.playerInventory = false;
             userInterface?.SetState(questUI);
+            Main.LocalPlayer.SetTalkNPC(npcIndex);
             SoundEngine.PlaySound(SoundID.MenuOpen);
         }
 
