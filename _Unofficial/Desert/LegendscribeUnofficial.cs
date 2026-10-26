@@ -147,7 +147,7 @@ namespace AAModClassic._Unofficial.Desert
             this.HideFromBestiary();
 
             DialogueUISystem.DialogueTreeSetup += ModifyTree;
-            DialogueUISystem.ResponseSelect += AnubisDialogueUpdate;
+            DialogueUISystem.ResponseSelect += AnubisDialogueReponseClicked;
             DialogueUISystem.DialogueEnd += AnubisDialogueEnd;
         }
 
@@ -487,7 +487,7 @@ namespace AAModClassic._Unofficial.Desert
             return FemaleNPC;
         }
 
-        private static void AnubisDialogueUpdate(string treeKey, int dialogueID, int buttonID)
+        private static void AnubisDialogueReponseClicked(string treeKey, int dialogueID, int buttonID)
         {
             if (DialogueUISystem.CurrentContext.Arguments[0] < 0 || DialogueUISystem.CurrentContext.Arguments[0] > 200)
                 return;
