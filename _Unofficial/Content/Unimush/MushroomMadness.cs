@@ -171,10 +171,17 @@ namespace AAModClassic._Unofficial.Content.Unimush
                 new Vector2(80, 220),
             ];
 
+            int[] sizes =
+            [
+                Main.rand.Next(18, 24), Main.rand.Next(18, 24),
+                Main.rand.Next(18, 24), Main.rand.Next(18, 24),
+                Main.rand.Next(18, 24), Main.rand.Next(18, 24)
+            ];
+
             MushroomMadnessTendril[] tendrils = new MushroomMadnessTendril[6];
             for (int i = 0; i < tendrils.Length; i++)
             {
-                tendrils[i] = new(npc, startOffsets[i], goalOffsets[i], 24, 9, 10);
+                tendrils[i] = new(npc, startOffsets[i], goalOffsets[i], sizes[i], 9, 10);
                 for (int j = 0; j < tendrils[i].Count; j++)
                     tendrils[i].Points[j] = npc.Center;
             }
