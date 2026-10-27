@@ -65,12 +65,16 @@ namespace AAModClassic._Unofficial.Content.Unimush
             public float AmplitudeMultiplier = 1f;
             public float SineIncrement = 0.05f;
 
-            private float sineCounter = 0;
+            private float sineCounter = Main.rand.NextFloat(0f, 100f);
 
             public void Update()
             {
                 Vector2 start = myMushMad.Center + StartOffset;
                 Vector2 goal = start + GoalOffset;
+                Vector2 goalPerp = (goal - start).SafeNormalize(Vector2.UnitX).RotatedBy(MathHelper.PiOver2);
+                goal += goalPerp * MathF.Sin(sineCounter / 4f) * 90f;
+
+                //Dust.QuickDust(goal, Color.Lime);
 
                 base.Update(start, Points[^1] + ((goal - Points[^1]) / 10f));
 
