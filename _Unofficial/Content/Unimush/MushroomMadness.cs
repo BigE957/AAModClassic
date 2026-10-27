@@ -50,23 +50,28 @@ namespace AAModClassic._Unofficial.Content.Unimush
             Music = MusicManagementSystem.MusicSlots["MushMad_Intro"];
 
             SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
-
-            Tendrils = InitializeTendrils();
         }
 
-        private FabrikLimb[] Tendrils;
+        private FabrikLimb[] Tendrils = null;
 
-        private static FabrikLimb[] InitializeTendrils()
+        private static FabrikLimb[] InitializeTendrils(NPC npc)
         {
             FabrikLimb[] tendrils = new FabrikLimb[6];
             for (int i = 0; i < tendrils.Length; i++)
+            {
                 tendrils[i] = new(Main.rand.Next(16, 26), 12, 10);
+                for (int j = 0; j < tendrils[i].Count; j++)
+                    tendrils[i].Points[j] = npc.Center;
+            }
 
             return tendrils;
         }
 
         private static void UpdateTendrils(NPC mushmad, ref FabrikLimb[] tendrils, bool idle)
         {
+            if(tendrils == null)
+                tendrils = InitializeTendrils(mushmad);
+
             Vector2[] startOffsets =
             [
                 new Vector2(-24, 32),
