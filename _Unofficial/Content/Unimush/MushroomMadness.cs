@@ -173,9 +173,9 @@ namespace AAModClassic._Unofficial.Content.Unimush
 
             int[] sizes =
             [
-                Main.rand.Next(18, 24), Main.rand.Next(18, 24),
-                Main.rand.Next(18, 24), Main.rand.Next(18, 24),
-                Main.rand.Next(18, 24), Main.rand.Next(18, 24)
+                Main.rand.Next(10, 18), Main.rand.Next(10, 18),
+                Main.rand.Next(10, 18), Main.rand.Next(10, 18),
+                Main.rand.Next(10, 18), Main.rand.Next(10, 18)
             ];
 
             MushroomMadnessTendril[] tendrils = new MushroomMadnessTendril[6];
@@ -206,7 +206,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
                     Tendrils[i].AmplitudeMultiplier = 4f;
                     Tendrils[i].SineIncrement = 0.3f;
                     if (NPC.ai[1] >= 90)
-                        Tendrils[i].AmplitudeMultiplier *= 1 - MathUtils.SineInEasing(MathHelper.Clamp((NPC.ai[1] - 90) / 60f, 0f, 1f));
+                        Tendrils[i].AmplitudeMultiplier = 2f + (2 * 1 - MathUtils.SineInEasing(MathHelper.Clamp((NPC.ai[1] - 90) / 60f, 0f, 1f)));
                 }
 
                 if (i % 2 == 0)
