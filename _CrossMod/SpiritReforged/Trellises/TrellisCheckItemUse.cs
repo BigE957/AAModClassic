@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._CrossMod.SpiritReforged.Trellises
 {
-    [JITWhenModsEnabled("SpiritReforged")]
+    [ExtendsFromMod("SpiritReforged")]
     public class TrellisCheckItemUse : GlobalItem
     {
         public override bool? UseItem(Item item, Player player)
