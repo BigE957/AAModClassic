@@ -6,9 +6,9 @@ namespace AAModClassic.Utilities.Components
 {
     public class FabrikLimb(int pointCount, float segLength, int solveIterations)
     {
-        private readonly Vector2[] points = new Vector2[pointCount];
-        private readonly float segmentLength = segLength;
-        private readonly int iterations = solveIterations;
+        internal readonly Vector2[] points = new Vector2[pointCount];
+        internal readonly float segmentLength = segLength;
+        internal readonly int iterations = solveIterations;
 
         public Vector2[] Points => points;
 

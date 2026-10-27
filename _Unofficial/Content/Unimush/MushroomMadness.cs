@@ -21,8 +21,9 @@ namespace AAModClassic._Unofficial.Content.Unimush
         const string path = "AAModClassic/_Unofficial/Content/Unimush/";
         public override string Texture => path + "MushroomMadness_Body";
 
-        private static Asset<Texture2D> Jaw;
-        private static Asset<Texture2D> Jaw_Back;
+        internal static Asset<Texture2D> Jaw;
+        internal static Asset<Texture2D> Jaw_Back;
+        internal static Asset<Texture2D> Tendril;
 
         public override void SetStaticDefaults()
         {
@@ -30,6 +31,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
             {
                 Jaw = ModContent.Request<Texture2D>(path + "MushroomMadness_Jaw");
                 Jaw_Back = ModContent.Request<Texture2D>(path + "MushroomMadness_Jaw_Back");
+                Tendril = ModContent.Request<Texture2D>(path + "MushroomMadness_Tendril");
             }
         }
 
@@ -52,26 +54,96 @@ namespace AAModClassic._Unofficial.Content.Unimush
             SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
         }
 
-        private FabrikLimb[] Tendrils = null;
-
-        private static FabrikLimb[] InitializeTendrils(NPC npc)
+        internal class MushroomMadnessTendril(NPC mushmad, Vector2 startOffset, Vector2 goalOffset, int pointCount, float segLength, int solveIterations) : FabrikLimb(pointCount, segLength, solveIterations)
         {
-            FabrikLimb[] tendrils = new FabrikLimb[6];
-            for (int i = 0; i < tendrils.Length; i++)
+            public NPC myMushMad = mushmad;
+            public Vector2 StartOffset = startOffset;
+            public Vector2 GoalOffset = goalOffset;
+            public float AmplitudeMultiplier = 1f;
+            public float SineIncrement = 0.05f;
+
+            private float sineCounter = 0;
+
+            public void Update()
             {
-                tendrils[i] = new(Main.rand.Next(16, 26), 12, 10);
-                for (int j = 0; j < tendrils[i].Count; j++)
-                    tendrils[i].Points[j] = npc.Center;
+                Vector2 start = myMushMad.Center + StartOffset;
+                Vector2 goal = start + GoalOffset;
+
+                base.Update(start, Points[^1] + ((goal - Points[^1]) / 10f));
+
+                if (AmplitudeMultiplier != 0)
+                {
+                    for (int j = 1; j < Count; j++)
+                    {
+                        float ratio = j / (float)(Count - 1);
+                        Vector2 toCurrent = Points[j].DirectionFrom(Points[j - 1]);
+                        Vector2 perpendicular = toCurrent.RotatedBy(MathHelper.PiOver2);
+
+                        float amp = 2.5f * AmplitudeMultiplier;
+                        float freq = 2f;
+                        float phase = sineCounter + ratio * freq * MathF.Tau;
+                        float offset = MathF.Sin(phase) * amp;
+                        Points[j] += perpendicular * offset;
+                    }
+
+                    sineCounter += SineIncrement;
+                }
             }
 
-            return tendrils;
+            public void Draw(SpriteBatch spriteBatch, Vector2 screenPos, int index)
+            {
+                Texture2D tendril = Tendril.Value;
+                int frameX = 3;
+                int frameY = 3;
+
+                for (int j = Count - 1; j >= 0; j--)
+                {
+                    if (j == Count - 1)
+                    {
+                        Vector2 toNext = Points[j] - Points[j - 1];
+                        Vector2 midPoint = (Points[j] + Points[j - 1]) / 2f;
+                        Color light = Lighting.GetColor(midPoint.ToTileCoordinates());
+                        Rectangle frame = tendril.Frame(4, 5, 0, 4);
+                        frame.Width = 24;
+                        spriteBatch.Draw(tendril, Points[j] - screenPos, frame, light, toNext.ToRotation(), new Vector2(0, frame.Height / 2f), 1f, 0, 0);
+
+                        if (--frameX < 0)
+                        {
+                            frameX = 0;
+                            if (--frameY < 0)
+                            {
+                                frameY = 1;
+                                frameX = 3;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Vector2 toNext = Points[j + 1] - Points[j];
+                        Vector2 midPoint = (Points[j + 1] + Points[j]) / 2f;
+                        Color light = Lighting.GetColor(midPoint.ToTileCoordinates());
+                        Rectangle frame = tendril.Frame(4, 5, frameX, frameY);
+
+                        spriteBatch.Draw(tendril, Points[j] - screenPos, frame, light, toNext.ToRotation(), new Vector2(2, frame.Height / 2f), new Vector2(toNext.Length() / (frame.Width - 2), 1f), 0, 0);
+
+                        if (--frameX < 0)
+                        {
+                            frameX = 0;
+                            if (--frameY < 0)
+                            {
+                                frameY = 1;
+                                frameX = 3;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
-        private static void UpdateTendrils(NPC mushmad, ref FabrikLimb[] tendrils, bool idle)
-        {
-            if(tendrils == null)
-                tendrils = InitializeTendrils(mushmad);
+        private MushroomMadnessTendril[] Tendrils = null;
 
+        private static MushroomMadnessTendril[] InitializeTendrils(NPC npc)
+        {
             Vector2[] startOffsets =
             [
                 new Vector2(-24, 32),
@@ -82,73 +154,51 @@ namespace AAModClassic._Unofficial.Content.Unimush
                 new Vector2(8, 56),
             ];
 
-            Vector2[] goalOffsets;
-            if (idle)
-            {
-                goalOffsets =
-                [
-                    new Vector2(-240, 100),
-                    new Vector2(240, 100),
-                    new Vector2(-160, 160),
-                    new Vector2(160, 160),
-                    new Vector2(-80, 220),
-                    new Vector2(80, 220),
-                ];
-            }
-            else
-            {
-                goalOffsets =
-                [
-                    new Vector2(-160, -220),
-                    new Vector2(160, -220),
-                    new Vector2(-300, 0),
-                    new Vector2(300, 0),
-                    new Vector2(-160, 220),
-                    new Vector2(160, 220),
-                ];
-            }
+            Vector2[] goalOffsets =
+            [
+                new Vector2(-240, 100),
+                new Vector2(240, 100),
+                new Vector2(-160, 160),
+                new Vector2(160, 160),
+                new Vector2(-80, 220),
+                new Vector2(80, 220),
+            ];
 
+            MushroomMadnessTendril[] tendrils = new MushroomMadnessTendril[6];
             for (int i = 0; i < tendrils.Length; i++)
             {
-                Vector2 start = mushmad.Center + startOffsets[i];
-                Vector2 goal = start + goalOffsets[i];
-                tendrils[i].Update(start, tendrils[i].Points[^1] + ((goal - tendrils[i].Points[^1]) / 10f));
+                tendrils[i] = new(npc, startOffsets[i], goalOffsets[i], 24, 9, 10);
+                for (int j = 0; j < tendrils[i].Count; j++)
+                    tendrils[i].Points[j] = npc.Center;
+            }
 
-                float ampMult;
-                float sineCounter;
+            return tendrils;
+        }
+
+        private void UpdateTendrils(bool idle)
+        {
+            if(Tendrils == null)
+                Tendrils = InitializeTendrils(NPC);
+
+            for(int i = 0; i < Tendrils.Length; i++)
+            {
                 if (idle)
                 {
-                    ampMult = i < 2 ? 1f : i < 4 ? 1.5f : 2f;
-                    sineCounter = i < 2 ? Main.GlobalTimeWrappedHourly / 1.5f : i < 4 ? Main.GlobalTimeWrappedHourly : Main.GlobalTimeWrappedHourly * 1.5f;
+                    Tendrils[i].AmplitudeMultiplier = 1 + ((i / 2) * 0.5f);
+                    Tendrils[i].SineIncrement = 0.025f + 0.025f * (1 + i / 2);
                 }
                 else
                 {
-                    ampMult = 4f;
-                    sineCounter = Main.GlobalTimeWrappedHourly * 16f;
-                    if (mushmad.ai[1] >= 90)
-                        ampMult *= 1 - MathUtils.SineInEasing(MathHelper.Clamp((mushmad.ai[1] - 90) / 60f, 0f, 1f));
+                    Tendrils[i].AmplitudeMultiplier = 4f;
+                    Tendrils[i].SineIncrement = 0.3f;
+                    if (NPC.ai[1] >= 90)
+                        Tendrils[i].AmplitudeMultiplier *= 1 - MathUtils.SineInEasing(MathHelper.Clamp((NPC.ai[1] - 90) / 60f, 0f, 1f));
                 }
 
                 if (i % 2 == 0)
-                    ampMult *= -1;
+                    Tendrils[i].AmplitudeMultiplier *= -1;
 
-                if (ampMult != 0)
-                {
-                    for (int j = 1; j < tendrils[i].Count; j++)
-                    {
-                        float ratio = j / (float)(tendrils[i].Count - 1);
-                        Vector2 toCurrent = tendrils[i].Points[j].DirectionFrom(tendrils[i].Points[j - 1]);
-                        Vector2 perpendicular = toCurrent.RotatedBy(MathHelper.PiOver2);
-
-                        float amp = 2.5f * ampMult;
-                        float freq = 2f;
-                        float phase = sineCounter + ratio * freq * MathF.Tau;
-                        float offset = MathF.Sin(phase) * amp;
-                        tendrils[i].Points[j] += perpendicular * offset;
-                    }
-
-                    //sineCounter += 0.05f;
-                }
+                Tendrils[i].Update();
             }
         }
 
@@ -190,7 +240,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
 
         public override void AI()
         {
-            UpdateTendrils(NPC, ref Tendrils, State == MushMadState.Idle);
+            UpdateTendrils(State == MushMadState.Idle);
 
             if (State == MushMadState.Idle)
             {
@@ -209,6 +259,19 @@ namespace AAModClassic._Unofficial.Content.Unimush
                     NPC.velocity = Vector2.Zero;
                     NPC.ai[1] = 0;
                     NPC.netUpdate = true;
+
+                    Vector2[] nonIdleGoalOffsets =
+                    [
+                        new Vector2(-160, -220),
+                        new Vector2(160, -220),
+                        new Vector2(-300, 0),
+                        new Vector2(300, 0),
+                        new Vector2(-160, 220),
+                        new Vector2(160, 220),
+                    ];
+
+                    for (int i = 0; i < Tendrils.Length; i++)
+                        Tendrils[i].GoalOffset = nonIdleGoalOffsets[i];
                 }
             }
             else
@@ -281,19 +344,8 @@ namespace AAModClassic._Unofficial.Content.Unimush
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             if (Tendrils != null)
-            {
-                var line = ModContent.Request<Texture2D>("AAModClassic/UI/Core/Line");
                 for (int i = 0; i < Tendrils.Length; i++)
-                {
-                    FabrikLimb tendril = Tendrils[i];
-                    bool blue = i == 0 || i == 3 || i == 4;
-                    for (int j = 0; j < tendril.Count - 1; j++)
-                    {
-                        Vector2 toNext = tendril.Points[j + 1] - tendril.Points[j];
-                        spriteBatch.Draw(line.Value, tendril.Points[j] - screenPos, null, blue ? Color.Blue : Color.Red, toNext.ToRotation(), new Vector2(2f, line.Height() / 2f), new Vector2(toNext.Length() / line.Width(), 8f), 0, 0);
-                    }
-                }
-            }
+                    Tendrils[i].Draw(spriteBatch, screenPos, i);
 
             Vector2 jawBackOffset = new(4, -18);
             spriteBatch.Draw(Jaw_Back.Value, NPC.Center + drawOffset + ((jawBackOffset + new Vector2(jawX, jawY)) * NPC.scale) - screenPos, null, drawColor, NPC.rotation, Jaw_Back.Size() * 0.5f, NPC.scale, 0, 0);
