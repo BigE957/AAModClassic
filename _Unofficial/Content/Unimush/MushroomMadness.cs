@@ -60,7 +60,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
         {
             FabrikLimb[] tendrils = new FabrikLimb[6];
             for (int i = 0; i < tendrils.Length; i++)
-                tendrils[i] = new(12, 24, 10);
+                tendrils[i] = new(Main.rand.Next(16, 26), 12, 10);
 
             return tendrils;
         }
@@ -77,15 +77,31 @@ namespace AAModClassic._Unofficial.Content.Unimush
                 new Vector2(8, 56),
             ];
 
-            Vector2[] goalOffsets =
-            [
-                new Vector2(-240, 100),
-                new Vector2(240, 100),
-                new Vector2(-160, 160),
-                new Vector2(160, 160),
-                new Vector2(-80, 220),
-                new Vector2(80, 220),
-            ];
+            Vector2[] goalOffsets;
+            if (idle)
+            {
+                goalOffsets =
+                [
+                    new Vector2(-240, 100),
+                    new Vector2(240, 100),
+                    new Vector2(-160, 160),
+                    new Vector2(160, 160),
+                    new Vector2(-80, 220),
+                    new Vector2(80, 220),
+                ];
+            }
+            else
+            {
+                goalOffsets =
+                [
+                    new Vector2(-160, -220),
+                    new Vector2(160, -220),
+                    new Vector2(-300, 0),
+                    new Vector2(300, 0),
+                    new Vector2(-160, 220),
+                    new Vector2(160, 220),
+                ];
+            }
 
             for (int i = 0; i < tendrils.Length; i++)
             {
@@ -102,8 +118,10 @@ namespace AAModClassic._Unofficial.Content.Unimush
                 }
                 else
                 {
-                    ampMult = i < 2 ? 3f : i < 4 ? 4f : 5f;
-                    sineCounter = i < 2 ? Main.GlobalTimeWrappedHourly * 3f : i < 4 ? Main.GlobalTimeWrappedHourly * 4f : Main.GlobalTimeWrappedHourly * 5f;
+                    ampMult = 4f;
+                    sineCounter = Main.GlobalTimeWrappedHourly * 16f;
+                    if (mushmad.ai[1] >= 90)
+                        ampMult *= 1 - MathUtils.SineInEasing(MathHelper.Clamp((mushmad.ai[1] - 90) / 60f, 0f, 1f));
                 }
 
                 if (i % 2 == 0)
