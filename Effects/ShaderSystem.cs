@@ -16,24 +16,39 @@ namespace AAModClassic.Effects
 {
     public class ShaderSystem : ModSystem
     {
+        private const string ShaderPrefix = "AAModClassic:";
         public override void Load()
         {
             if (Main.dedServ)
                 return;
 
-            LoadShader("AAModClassic/Effects/Shockwave", "Shockwave");
+            RegisterSceneFilter("Shockwave", "Shockwave");
 
-            LoadShader("AAModClassic/Effects/Mask", "Mask");
+            RegisterMiscShader("Mask", "Mask");
+
+            RegisterSceneFilter("RadialBlurPass", "RadialBlur");
 
             BindDyeShaders();
         }
 
-        private static void LoadShader(string path, string name)
+        private static void RegisterMiscShader(string passName, string registrationName)
         {
-            Asset<Effect> shader = ModContent.Request<Effect>(path);
-            ScreenShaderData shaderdata = new(shader, name);
-            Filters.Scene["AAModClassic:" + name] = new Filter(shaderdata, EffectPriority.VeryHigh);
-            Filters.Scene["AAModClassic:" + name].Load();
+            MiscShaderData passParamRegistration = new(LoadShader(registrationName), passName);
+            GameShaders.Misc[$"{ShaderPrefix}{registrationName}"] = passParamRegistration;
+        }
+
+        private static void RegisterSceneFilter(string passName, string registrationName, EffectPriority priority = EffectPriority.High)
+        {
+            ScreenShaderData passReg = new(LoadShader(registrationName), passName);
+            string prefixedRegistrationName = $"{ShaderPrefix}{registrationName}";
+            Filters.Scene[prefixedRegistrationName] = new Filter(passReg, priority);
+            Filters.Scene[prefixedRegistrationName].Load();
+        }
+
+        private static Asset<Effect> LoadShader(string registrationName)
+        {
+            AssetRepository AAModAssets = AAMod.instance.Assets;
+            return AAModAssets.Request<Effect>($"Effects/{registrationName}", AssetRequestMode.ImmediateLoad);
         }
 
         private static void BindDyeShaders()

@@ -1,5 +1,8 @@
 ﻿using AAModClassic._Content.RedMushroom.World.Biomes;
+using AAModClassic.Effects;
 using AAModClassic.Music;
+using AAModClassic.Particles;
+using AAModClassic.Particles.Types;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Components;
 using AAModClassic.Utilities.Interfaces;
@@ -332,6 +335,34 @@ namespace AAModClassic._Unofficial.Content.Unimush
                     }
                 }
 
+                if (NPC.ai[1] < 120)
+                {
+                    if (NPC.ai[1] <= 30f)
+                        RadialBlurSystem.SetRadialBlur(MathHelper.Lerp(0, 0.5f, NPC.ai[1] / 30f), NPC.Center);
+                    else
+                        RadialBlurSystem.SetRadialBlur(0.5f, NPC.Center);
+
+                    /*
+                    for (int i = 0; i < 3; i++)
+                    {
+                        Point start = Target.Center.ToTileCoordinates() + new Point(Main.rand.Next(-64, 65), 48);
+                        for (int j = 0; j < 96; j++)
+                        {
+                            Point current = start - new Point(0, j);
+                            if (!Main.tile[current].IsTileSolid() && Main.tile[current - new Point(0, 1)].TileType == TileID.Crimstone)
+                                Dust.NewDust(current.ToWorldCoordinates(0, -16), 16, 16, DustID.Crimstone, 0, 3);
+                        }
+                    }
+
+                    CameraSystem.StartScreenShake(NPC.Center, Vector2.Zero, 6 * BrainOfCthulhuSystem.ScreenBlurStrength * distanceScaleFactor, 10, 60);
+                    */
+
+                    if (NPC.ai[1] % 15 == 0)
+                    {
+                        BossRoar pulse = new(NPC.Center, Color.Black, Main.rand.NextFloatDirection(), 0.1f, 3f, 30);
+                        ParticleSystem.SpawnParticle(pulse);
+                    }
+                }
                 NPC.ai[1]++;
             }
         }

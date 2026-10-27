@@ -33,6 +33,7 @@ using System.Threading.Tasks;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -863,7 +864,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             if (!NPC.IsABestiaryIconDummy && unofficial && StaticActive)
             {
-                Effect effect = Terraria.Graphics.Effects.Filters.Scene["AAModClassic:Mask"].GetShader().Shader;
+                Effect effect = GameShaders.Misc["AAModClassic:Mask"].Shader;
                 effect.Parameters["offset"].SetValue(Main.rand.NextVector2Square(0, 600));
                 effect.Parameters["noiseScale"].SetValue(new Vector2(0.2f, 1f));
 
