@@ -389,8 +389,10 @@ namespace AAModClassic._Unofficial.Content.Unimush
                 for (int i = 0; i < Tendrils.Length; i++)
                     Tendrils[i].Draw(spriteBatch, screenPos, i);
 
-            Vector2 jawBackOffset = new(4, -18);
-            spriteBatch.Draw(Jaw_Back.Value, NPC.Center + drawOffset + ((jawBackOffset + new Vector2(jawX, jawY)) * NPC.scale) - screenPos, null, drawColor, NPC.rotation, Jaw_Back.Size() * 0.5f, NPC.scale, 0, 0);
+            Vector2 mouthPos = NPC.Center + new Vector2(4, 32) * NPC.scale;
+            Vector2 jawPos = NPC.Center + drawOffset + new Vector2(jawX, jawY) * NPC.scale;
+            Vector2 jawBackPos = (mouthPos + jawPos) / 2f;
+            spriteBatch.Draw(Jaw_Back.Value, jawBackPos - screenPos, null, drawColor, NPC.rotation, Jaw_Back.Size() * 0.5f, NPC.scale, 0, 0);
 
             spriteBatch.Draw(TextureAssets.Npc[Type].Value, NPC.Center + drawOffset - screenPos, null, drawColor, NPC.rotation, TextureAssets.Npc[Type].Size() * 0.5f, NPC.scale, 0, 0);
             return false;
