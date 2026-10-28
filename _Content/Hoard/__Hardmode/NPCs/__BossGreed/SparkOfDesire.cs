@@ -1,6 +1,9 @@
 using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -36,7 +39,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
                 NPC.buffImmune[k] = true;
             }
             Music = MusicManagementSystem.MusicSlots["Silence"];
-            NPC.boss = false;
+            NPC.boss = true;
         }
 
         public override void AI()
@@ -55,43 +58,64 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
                     }
                 }
 
-                if (NPC.ai[0] >= 570)
-                {
-                    Music = MusicManagementSystem.MusicSlots["Greed"];
-                }
-
             }
 
             NPC.ai[0]++;
 
-            if (NPC.ai[0] == 175)
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Spawn.1"), Color.Goldenrod);
-            }
-            else if (NPC.ai[0] == 350)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Spawn.2"), Color.Goldenrod);
-            }
-            else if (NPC.ai[0] == 500)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Spawn.3"), Color.Goldenrod);
-            }
-            else if (NPC.ai[0] == 610)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Spawn.4"), Color.Goldenrod);
-            }
-            else if (NPC.ai[0] >= 755 && !NPC.AnyNPCs(ModContent.NPCType<GreedHead>()))
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
+                switch (NPC.ai[0])
                 {
-                    AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedHead>(), true, NPC.Center, ModContent.GetInstance<GreedHead>().DisplayName.Value, false);
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Spawn.5"), Color.Goldenrod);
+                    case 175:
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Greed.Spawn", Main.LocalPlayer.Center, 0, 60, effects: new NearbyBossText());
+                        break;
+                    case 760:
+                        if (Main.netMode != NetmodeID.Server)
+                            Music = MusicManagementSystem.MusicSlots["Greed"];
+                        break;
+                    case 1000:
+                        AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedHead>(), true, NPC.Center, ModContent.GetInstance<GreedHead>().DisplayName.Value, false);
+                        NPC.active = false;
+                        NPC.netUpdate = true;
+                        break;
                 }
-                NPC.active = false;
+            }
+            else
+            {
+                switch (NPC.ai[0])
+                {
+                    case 175:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Spawn.1"), Color.Goldenrod);
+                        break;
+                    case 350:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Spawn.2"), Color.Goldenrod);
+                        break;
+                    case 500:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Spawn.3"), Color.Goldenrod);
+                        break;
+                    case 570:
+                        if (Main.netMode != NetmodeID.Server)
+                            Music = MusicManagementSystem.MusicSlots["Greed"];
+                        break;
+                    case 610:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Spawn.4"), Color.Goldenrod);
+                        break;
+                    case 755:
+                        if(!NPC.AnyNPCs(ModContent.NPCType<GreedHead>()))
+                        {
+                            if (Main.netMode != NetmodeID.MultiplayerClient)
+                            {
+                                AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedHead>(), true, NPC.Center, ModContent.GetInstance<GreedHead>().DisplayName.Value, false);
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Spawn.5"), Color.Goldenrod);
+                            }
+                            NPC.active = false;
+                        }
+                        break;
+                }
             }
         }
 

@@ -1,0 +1,52 @@
+{
+  "Revision": 1,
+  "DefaultColor": "daa520",
+  "DefaultSpeaker": "Greed",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "[Shaking(1):Who disturbs me from my coin-counting?!] [Pause(0.33)]I'm busy-- [Pause(1)]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Wavy(6, 3):...Oooooh... is that...?]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Wavy(6, 3):You brought me my favorite dish..!]"
+      ]
+    },
+    {
+      "Lines": [
+        "Now, if you don't mind..."
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(2):[Scale(1.25):BEGONE FROM MY HOARD!!!]] [Pause(0.33)]"
+      ]
+    }
+  ]
+}
