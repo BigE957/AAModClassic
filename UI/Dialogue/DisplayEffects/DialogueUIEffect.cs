@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria.Graphics.Effects;
+using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 using static AAModClassic.UI.Dialogue.DialogueUISystem;
 
@@ -95,7 +96,7 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
             Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Assets/General/SmallBloom").Value;
             Vector2 scale = new(size.X / 160f, size.Y / 120f);
 
-            Effect effect = Filters.Scene["AAModClassic:DialogueBloom"].GetShader().Shader;
+            Effect effect = GameShaders.Misc["AAModClassic:DialogueBloom"].Shader;
             RenderTarget2D scene = useOverlayScene ? DialogueSceneCapture.OverlayScene : DialogueSceneCapture.PlainScene;
 
             if (effect == null || scene == null || scene.IsDisposed)

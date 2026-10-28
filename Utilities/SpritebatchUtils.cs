@@ -8,7 +8,7 @@ using System.Reflection;
 
 namespace AAModClassic.Utilities;
 
-internal struct SpriteBatchParameters
+public struct SpriteBatchParameters
 {
     public SpriteSortMode? SortMode { get; set; }
     public BlendState? BlendState { get; set; }
@@ -51,7 +51,7 @@ internal struct SpriteBatchParameters
     }
 }
 
-internal struct SpriteBatchSnapshot
+public struct SpriteBatchSnapshot
 {
     public SpriteSortMode SortMode { get; set; }
     public BlendState BlendState { get; set; }

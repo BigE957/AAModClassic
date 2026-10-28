@@ -13,6 +13,7 @@ using Terraria.GameContent;
 using Terraria.GameContent.UI.Elements;
 using Terraria.GameInput;
 using Terraria.Graphics.Effects;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI;
@@ -652,7 +653,7 @@ namespace AAModClassic.UI.Dialogue
             spriteBatch.End(out var snap);
             var shaderSnap = snap;
 
-            Effect effect = Filters.Scene["AAModClassic:VerticalFade"].GetShader().Shader;
+            Effect effect = GameShaders.Misc["AAModClassic:VerticalFade"].Shader;
             effect.Parameters["fadeStart"].SetValue(0.75f);
 
             shaderSnap.SortMode = SpriteSortMode.Immediate;
@@ -720,10 +721,9 @@ namespace AAModClassic.UI.Dialogue
                 UI = new();
                 State = new();
                 State.Activate();
+                DialogueSceneCapture.Register();
             }
         }
-
-        public override void Unload() => DialogueSceneCapture.Dispose();
 
         public override void PostSetupContent()
         {
@@ -818,112 +818,19 @@ namespace AAModClassic.UI.Dialogue
 
         internal static class DialogueSceneCapture
         {
-            private static RenderTarget2D plainTarget;
-            private static RenderTarget2D overlayTarget;
-            private static bool plainReady;
-            private static bool overlayReady;
+            private static SceneCaptureSlot plain;
+            private static SceneCaptureSlot overlay;
 
-            public static RenderTarget2D PlainScene => plainReady ? plainTarget : null;
+            public static RenderTarget2D PlainScene => plain?.Target;
+            public static RenderTarget2D OverlayScene => overlay?.Target;
 
-            public static RenderTarget2D OverlayScene => overlayReady ? overlayTarget : null;
-
-            public static void PrepareFrame(SpriteBatch sb)
+            public static void Register()
             {
-                plainReady = false;
-                overlayReady = false;
-
-                RenderTarget2D source = Main.screenTarget;
-                if (source == null || source.IsDisposed)
-                    return;
-
-                bool needPlain = WorldTextUI.Dialogues.Count > 0;
-
-                Action<SpriteBatch> overlay = null;
-                if (Visible && State?.dialogue?.DisplayEffects is DialogueUIEffect effect)
-                    overlay = effect.SceneOverlay;
-
-                if (!needPlain && overlay == null)
-                    return;
-
-                GraphicsDevice gd = Main.instance.GraphicsDevice;
-                sb.End(out var uiState);
-
-                RenderTargetBinding[] previousTargets = gd.GetRenderTargets();
-                Viewport previousViewport = gd.Viewport;
-
-                if (needPlain)
-                {
-                    EnsureTarget(gd, ref plainTarget, source);
-                    RenderScene(sb, gd, plainTarget, source, null, uiState);
-                    plainReady = true;
-                }
-
-                if (overlay != null)
-                {
-                    EnsureTarget(gd, ref overlayTarget, source);
-                    RenderScene(sb, gd, overlayTarget, source, overlay, ZoomedSnapshot(uiState));
-                    overlayReady = true;
-                }
-
-                gd.SetRenderTargets(previousTargets);
-                gd.Viewport = previousViewport;
-
-                if (previousTargets.Length == 0)
-                {
-                    var restoreSnap = uiState;
-                    restoreSnap.SortMode = SpriteSortMode.Deferred;
-                    restoreSnap.BlendState = BlendState.Opaque;
-                    restoreSnap.CustomEffect = null;
-                    restoreSnap.TransformMatrix = Matrix.Identity;
-                    sb.Begin(restoreSnap);
-                    sb.Draw(source, Vector2.Zero, Color.White);
-                    sb.End();
-                }
-
-                sb.Begin(uiState);
+                plain = SceneCapture.Register("Dialogue.Plain", () => WorldTextUI.Dialogues.Count > 0);
+                overlay = SceneCapture.Register("Dialogue.Overlay", () => GetOverlay() != null, GetOverlay, ZoomedSnapshot);
             }
 
-            private static void EnsureTarget(GraphicsDevice gd, ref RenderTarget2D target, RenderTarget2D source)
-            {
-                if (target == null || target.IsDisposed || target.Width != source.Width || target.Height != source.Height)
-                {
-                    target?.Dispose();
-                    target = new RenderTarget2D(gd, source.Width, source.Height, false, source.Format, DepthFormat.None);
-                }
-            }
-
-            private static void RenderScene(SpriteBatch sb, GraphicsDevice gd, RenderTarget2D target, RenderTarget2D source, Action<SpriteBatch> overlay, SpriteBatchSnapshot overlayState)
-            {
-                gd.SetRenderTarget(target);
-                gd.Clear(Color.Transparent);
-
-                var copySnap = overlayState;
-                copySnap.SortMode = SpriteSortMode.Deferred;
-                copySnap.BlendState = BlendState.Opaque;
-                copySnap.CustomEffect = null;
-                copySnap.TransformMatrix = Matrix.Identity;
-                sb.Begin(copySnap);
-                sb.Draw(source, Vector2.Zero, Color.White);
-                sb.End();
-
-                if (overlay != null)
-                {
-                    sb.Begin(overlayState);
-                    overlay(sb);
-                    sb.End();
-                }
-            }
-
-            public static void Dispose()
-            {
-                Main.QueueMainThreadAction(() =>
-                {
-                    plainTarget?.Dispose();
-                    plainTarget = null;
-                    overlayTarget?.Dispose();
-                    overlayTarget = null;
-                });
-            }
+            private static Action<SpriteBatch> GetOverlay() => Visible && State?.dialogue?.DisplayEffects is DialogueUIEffect effect ? effect.SceneOverlay : null;
         }
     }
 
@@ -933,24 +840,20 @@ namespace AAModClassic.UI.Dialogue
         {
             layers.InsertRange(0,
             [
-                new LegacyGameInterfaceLayer("AAModClassic: Scene Capture", () =>
-            {
-                DialogueUISystem.DialogueSceneCapture.PrepareFrame(Main.spriteBatch);
-                return true;
-            }, InterfaceScaleType.Game),
+                new LegacyGameInterfaceLayer("AAModClassic: Dialogue", () =>
+                {
+                    SceneCapture.EnsureCaptured(Main.spriteBatch);
+                    DialogueUISystem.DrawLayer();
+                    return true;
+                }, InterfaceScaleType.Game),
 
-            new LegacyGameInterfaceLayer("AAModClassic: Dialogue", () =>
-            {
-                DialogueUISystem.DrawLayer();
-                return true;
-            }, InterfaceScaleType.Game),
-
-            new LegacyGameInterfaceLayer("AAModClassic: World Text", () =>
-            {
-                WorldTextSystem.UI?.Draw(Main.spriteBatch, new());
-                return true;
-            }, InterfaceScaleType.Game),
-        ]);
+                new LegacyGameInterfaceLayer("AAModClassic: World Text", () =>
+                {
+                    SceneCapture.EnsureCaptured(Main.spriteBatch);
+                    WorldTextSystem.UI?.Draw(Main.spriteBatch, new());
+                    return true;
+                }, InterfaceScaleType.Game),
+            ]);
         }
     }
 

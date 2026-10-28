@@ -70,7 +70,6 @@ using Terraria.GameContent;
 using Terraria.GameContent.UI;
 using Terraria.Graphics;
 using Terraria.Graphics.Effects;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -268,91 +267,8 @@ namespace AAModClassic
             }
         }
 
-        private static readonly FieldInfo ShaderRefField = typeof(ShaderData).GetField("_shader", BindingFlags.NonPublic | BindingFlags.Instance);
-
-        private static readonly FieldInfo AssetField = typeof(ShaderData).GetField("_asset", BindingFlags.NonPublic | BindingFlags.Instance);
-
-        private static readonly FieldInfo PassNameField = typeof(ShaderData).GetField("_passName", BindingFlags.NonPublic | BindingFlags.Instance);
-
-        private static ArmorShaderData NewShaderFrom(int vanillaDyeId)
-        {
-            ArmorShaderData baseShader = GameShaders.Armor.GetShaderFromItemId(vanillaDyeId);
-
-            var newShader = (ArmorShaderData)RuntimeHelpers.GetUninitializedObject(typeof(ArmorShaderData));
-
-            ShaderRefField.SetValue(newShader, ShaderRefField.GetValue(baseShader));
-            AssetField.SetValue(newShader, AssetField.GetValue(baseShader));
-            PassNameField.SetValue(newShader, PassNameField.GetValue(baseShader));
-
-            return newShader;
-        }
-
         public void LoadClient()
         {
-            GameShaders.Armor.BindShader(Find<ModItem>("BlazingDye").Type,
-                NewShaderFrom(ItemID.LivingFlameDye)
-                .UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f)
-                .UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f)
-            );
-
-            GameShaders.Armor.BindShader(Find<ModItem>("AbyssalDye").Type,
-                NewShaderFrom(ItemID.LivingFlameDye)
-                .UseColor(146f / 255f, 30f / 255f, 68f / 255f)
-                .UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f)
-            );
-
-            GameShaders.Armor.BindShader(Find<ModItem>("DoomsdayDye").Type,
-                NewShaderFrom(ItemID.VortexDye)
-                .UseImage("Images/Misc/noise")
-                .UseColor(0f, 0f, 0f)
-                .UseSecondaryColor(1f, 0f, 0f)
-                .UseSaturation(1f)
-            );
-
-            GameShaders.Armor.BindShader(Find<ModItem>("DiscordianDye").Type,
-                NewShaderFrom(ItemID.LivingFlameDye)
-                .UseColor(0.66f, 0f, 1f)
-                .UseSecondaryColor(0.66f, 0f, 1f)
-            );
-
-            GameShaders.Armor.BindShader(Find<ModItem>("DiscordianInfernoDye").Type,
-                NewShaderFrom(ItemID.HadesDye)
-                .UseColor(0.88f, 0f, 1f)
-                .UseSecondaryColor(0.66f, 0f, 1f)
-            );
-
-            GameShaders.Armor.BindShader(Find<ModItem>("AbyssalWrathDye").Type,
-                NewShaderFrom(ItemID.HadesDye)
-                .UseColor(146f / 255f, 30f / 255f, 68f / 255f)
-                .UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f)
-            );
-
-            GameShaders.Armor.BindShader(Find<ModItem>("BlazingFuryDye").Type,
-                NewShaderFrom(ItemID.HadesDye)
-                .UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f)
-                .UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f)
-            );
-
-            Asset<Effect> shader = ModContent.Request<Effect>("AAModClassic/Effects/Shockwave");
-            ScreenShaderData shaderdata = new(shader, "Shockwave");
-            Filters.Scene["AAModClassic:Shockwave"] = new Filter(shaderdata, EffectPriority.VeryHigh);
-            Filters.Scene["AAModClassic:Shockwave"].Load();
-
-            shader = ModContent.Request<Effect>("AAModClassic/Effects/Mask");
-            shaderdata = new(shader, "Mask");
-            Filters.Scene["AAModClassic:Mask"] = new Filter(shaderdata, EffectPriority.VeryHigh);
-            Filters.Scene["AAModClassic:Mask"].Load();
-
-            shader = ModContent.Request<Effect>("AAModClassic/Effects/VerticalFade");
-            shaderdata = new(shader, "VerticalFade");
-            Filters.Scene["AAModClassic:VerticalFade"] = new Filter(shaderdata, EffectPriority.VeryHigh);
-            Filters.Scene["AAModClassic:VerticalFade"].Load();
-
-            shader = ModContent.Request<Effect>("AAModClassic/Effects/DialogueBloom");
-            shaderdata = new(shader, "DialogueBloom");
-            Filters.Scene["AAModClassic:DialogueBloom"] = new Filter(shaderdata, EffectPriority.VeryHigh);
-            Filters.Scene["AAModClassic:DialogueBloom"].Load();
-
             //TODO: Perhaps move these to their proper content area so the textures are easier to keep track off
             Main.QueueMainThreadAction(() =>
             {
