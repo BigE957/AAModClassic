@@ -1177,7 +1177,7 @@ namespace AAModClassic._CrossMod
                 if (CalamityMod.CalamityMod.IsEnabled)
                     greedCollectibles.Add(ModContent.ItemType<GreedLore>());
 
-                AddBoss(bossChecklist, mod, "Greed", (() => NPCExtensions.BeenKilled<GreedHead>()), new List<int>() { ModContent.NPCType<GreedHead>(), ModContent.NPCType<GreedBody>() }, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Greed", () => NPCExtensions.BeenKilled<GreedHead>(), ModContent.NPCType<GreedHead>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Greed.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Greed.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<GoldenGrub>() + "]"),
