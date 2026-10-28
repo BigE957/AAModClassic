@@ -5,6 +5,9 @@ using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base;
 using AAModClassic.Music;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
@@ -234,7 +237,10 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
 
                 if (!lowHealth && Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    CombatText.NewText(NPC.getRect(), new Color(233, 46, 46), Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Sagittarius.LowHealth"), true, true);
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Sagittarius.LowHealth", Main.LocalPlayer.Center, 0, 60, false, new NearbyBossText());
+                    else
+                        CombatText.NewText(NPC.getRect(), new Color(233, 46, 46), Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Sagittarius.LowHealth"), true, true);
                     lowHealth = true;
                 }
             }

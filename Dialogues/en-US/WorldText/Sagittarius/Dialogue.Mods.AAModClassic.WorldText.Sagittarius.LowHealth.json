@@ -1,0 +1,32 @@
+{
+  "Revision": 1,
+  "DefaultColor": "e92e2e",
+  "DefaultSpeaker": "Sagittarius",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "[Shaking(1.5):[Scale(1.5):EXTENSIVE BODY DAMAGE DETECTED. PROCEED WITH CAUTION!]] [Pause(1.25)]"
+      ]
+    }
+  ]
+}

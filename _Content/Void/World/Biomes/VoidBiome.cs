@@ -164,11 +164,7 @@ namespace AAModClassic._Content.Void.World.Biomes
 
         }
 
-        public override Color OnTileColor(Color inColor)
-        {
-            Vector4 value = inColor.ToVector4();
-            return new Color(Vector4.Lerp(value, Vector4.One, Intensity * 0.5f));
-        }
+        public override Color OnTileColor(Color inColor) => Color.Lerp(inColor, Color.White, Intensity * 0.5f);
 
         public float asteroidPercent1 = 0f;
         public float asteroidPercent2 = 0f;
@@ -201,7 +197,7 @@ namespace AAModClassic._Content.Void.World.Biomes
             if (AAMod.instance == null)
                 return;
 
-            Texture2D PlanetTexture = BlackHoleTex.Value;
+            Texture2D riftTex = BlackHoleTex.Value;
             Texture2D LB = BlackHoleLightningTex.Value;
             Texture2D Asteroids1 = AsteroidTex0.Value;
             Texture2D Asteroids2 = AsteroidTex1.Value;
@@ -213,7 +209,7 @@ namespace AAModClassic._Content.Void.World.Biomes
 
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
-                var planetPos = new Vector2(Main.screenWidth / 2, Main.screenHeight / 2);
+                var riftPos = new Vector2(Main.screenWidth / 2, Main.screenHeight / 2);
                 var echoPos = new Vector2(Main.screenWidth / 2, Main.screenHeight / 2);
                 var Asteroidpos1 = new Vector2(Main.screenWidth / 2, Main.screenHeight / 2);
                 var Asteroidpos2 = new Vector2(Main.screenWidth / 2, Main.screenHeight / 2);
@@ -237,9 +233,9 @@ namespace AAModClassic._Content.Void.World.Biomes
                 {
                     spriteBatch.Draw(TextureAssets.BlackTile.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
                     float riftIntensity = Intensity * Intensity * Intensity;
-                    spriteBatch.Draw(PlanetTexture, planetPos, null, Color.White * 0.9f * riftIntensity * Alpha, Rotation, new Vector2(PlanetTexture.Width >> 1, PlanetTexture.Height >> 1), 1f, SpriteEffects.None, 1f);
+                    spriteBatch.Draw(riftTex, riftPos, null, Color.White * 0.9f * riftIntensity * Alpha, Rotation, new Vector2(riftTex.Width >> 1, riftTex.Height >> 1), 1f, SpriteEffects.None, 1f);
                     float lightningIntensity = BaseUtility.MultiLerp(Main.LocalPlayer.miscCounter % 100f / 100f, 0.2f, 0.8f, 0.2f);
-                    spriteBatch.Draw(LB, planetPos, null, Color.White * 0.9f * riftIntensity * Alpha * lightningIntensity, LBRotation, new Vector2(LB.Width >> 1, LB.Height >> 1), 1f, SpriteEffects.None, 1f);
+                    spriteBatch.Draw(LB, riftPos, null, Color.White * 0.9f * riftIntensity * Alpha * lightningIntensity, LBRotation, new Vector2(LB.Width >> 1, LB.Height >> 1), 1f, SpriteEffects.None, 1f);
 
                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) && !AAWorld_Unreleased.DownedIZ)
                     {
