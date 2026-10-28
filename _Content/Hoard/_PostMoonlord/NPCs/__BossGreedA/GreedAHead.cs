@@ -11,6 +11,8 @@ using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.UI.Titles;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
@@ -462,7 +464,13 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
             {
                 if (loludided == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Despawn"), Color.Goldenrod);
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Greed.Despawn", Main.LocalPlayer.Center, 0, 60, false, new NearbyBossText());
+                        else
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Despawn"), Color.Goldenrod);
+                    }
                     loludided = true;
                 }
                 NPC.velocity.Y = NPC.velocity.Y + 1f;
@@ -478,7 +486,13 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
             {
                 if (loludided == false)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Kill"), Color.Goldenrod);
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Greed.Kill", Main.LocalPlayer.Center, 0, 60, false, new NearbyBossText());
+                        else
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Kill"), Color.Goldenrod);
+                    }
                     loludided = true;
                 }
                 NPC.velocity.Y = NPC.velocity.Y - 1f;

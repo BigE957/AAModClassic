@@ -5,6 +5,8 @@ using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
 using AAModClassic.Base;
 using AAModClassic.Effects;
 using AAModClassic.Globals;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
@@ -88,7 +90,10 @@ Can only be used in Greed's Hoard at the Altar of Desire
                 AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedAHead>(), true, spawnPos, ModContent.GetInstance<GreedAHead>().DisplayName.Value, false);
                 Projectile.NewProjectile(NPC.GetBossSpawnSource(player.whoAmI), spawnPos.X, spawnPos.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
 
-                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.AwakenedSummon"), Color.Goldenrod);
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                    WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Greed.AwakenedSpawn", Main.LocalPlayer.Center, 0, 60, false, new NearbyBossText());
+                else
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.AwakenedSummon"), Color.Goldenrod);
             }
             return true;
         }
