@@ -448,72 +448,6 @@ namespace AAModClassic.UI.Dialogue
             }
         }
 
-        private Vector2 MeasureString(string text, DynamicSpriteFont font)
-        {
-            if (text.Length == 0)
-                return Vector2.Zero;
-
-            Vector2 zero = Vector2.Zero;
-            zero.Y = font.LineSpacing;
-            float val = 0f;
-            int num = 0;
-            float num2 = 0f;
-            bool newLine = true;
-            for (int i = 0; i < text.Length; i++)
-            {
-                char c = text[i];
-                Vector2 scale = Vector2.One;
-                if (UniqueScales.TryGetValue(i, out Vector2 result))
-                    scale = result;
-                else if (DialoguePage.TextScale != -1)
-                    scale *= DialoguePage.TextScale;
-
-                //Checks for Special Characters, and handles Line Breaks
-                switch (c)
-                {
-                    case '\n':
-                        zero.X = 0;
-
-                        float highestYscale = 1f;
-                        for (int j = i + 1; j < text.Length; j++)
-                        {
-                            if (text[j] == '\n')
-                                break;
-                            if (UniqueScales.TryGetValue(j, out Vector2 uniqueScale) && uniqueScale.Y > highestYscale)
-                                highestYscale = uniqueScale.Y;
-                        }
-                        zero.Y += font.LineSpacing * highestYscale;
-                        newLine = true;
-                        continue;
-                    case '\r':
-                        continue;
-                }
-
-                //Sets the character's position within the full text
-                SpriteCharacterData spriteData = font.SpriteCharacters[c];
-                Vector3 kerning = spriteData.Kerning;
-                Rectangle padding = spriteData.Padding;
-
-                if (newLine)
-                    kerning.X = Math.Max(kerning.X, 0f);
-                else
-                    zero.X += font.CharacterSpacing * scale.X;
-
-                zero.X += kerning.X * scale.X;
-                Vector2 position = zero + spriteData.Glyph.Size() * 0.5f;
-                position.X += padding.X * scale.X;
-                position.Y += padding.Y * scale.Y;
-
-                zero.X += (kerning.Y + kerning.Z) * scale.X;
-                newLine = false;
-            }
-
-            zero.X += Math.Max(num2, 0f);
-            zero.Y += num * font.LineSpacing;
-            zero.X = Math.Max(zero.X, val);
-            return zero;
-        }
-
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
@@ -646,7 +580,8 @@ namespace AAModClassic.UI.Dialogue
                 float rotation = 0f;
                 float opacity = 1f;
                 float baseScale = DialoguePage.TextScale == -1 ? 1f : DialoguePage.TextScale;
-                Vector2 scale = new(baseScale);
+                if (!UniqueScales.TryGetValue(i, out Vector2 scale))
+                    scale = new(baseScale);
 
                 Color color;
                 if (UniqueColors.TryGetValue(i, out var textColors))
