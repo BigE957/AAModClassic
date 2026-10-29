@@ -4,11 +4,14 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace AAModClassic.UI.Dialogue.DisplayEffects
 {
-    public class NearbyBossText : DisplayEffect
+    public class NearbyBossText(float distance = 400f, float buffer = 400f) : DisplayEffect
     {
+        private float fadeDistance = distance;
+        private float fadeBuffer = buffer;
+
         public override bool FadeWhenTooFar => true;
         public override float FadeBuffer => 400f;
-        public override float FadeDistance => 400f;
+        public override float FadeDistance => fadeDistance;
 
         public override float TimeToAppear => 20;
 

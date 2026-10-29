@@ -799,7 +799,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Anubis.Kill", NPC.Center, 0, 60, false, new NearbyBossText());
+                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Anubis.Kill", NPC.Center, 0, 60, false, new NearbyBossText(800f, 800f));
                             else
                                 BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Kill"), Color.Gold);
                             NPC.Transform(ModContent.NPCType<Legendscribe>());
@@ -1199,7 +1199,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                                 foreach (Player p in Main.ActivePlayers)
                                     activePlayers++;
                                 string s = activePlayers > 1 ? "Multiplayer" : "Singleplayer";
-                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Anubis.Intro." + s, NPC.Center, 0, 60, true, new NearbyBossText());
+                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Anubis.Intro." + s, NPC.Center, 0, 60, true, new NearbyBossText(800f, 800f));
                             }
                             break;
                         case 610:
@@ -1257,18 +1257,18 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
             }
             else
             {
+                Teleport();
                 Music = MusicLoader.GetMusicSlot("AAModClassic/Music/Anubis");
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Anubis.Intro.Rematch", NPC.Center, 0, 60, true, new NearbyBossText());
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Anubis.Intro.Rematch", NPC.Center, 0, 60, true, new NearbyBossText(800f, 800f));
                     else
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Intro.Rematch"), Color.Gold);
                 }
                 HasDonePreamble = true;
                 AttackNext = 0;
                 NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
-                Teleport();
                 NPC.netUpdate = true;
             }
         }

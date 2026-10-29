@@ -618,8 +618,13 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 
             if (!NPCExtensions.BeenKilled<AnubisA>(true))
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) 
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Defeat"), Color.ForestGreen);
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Anubis.Forsaken.Defeat", NPC.Center, 0, 60, false, new NearbyBossText());
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Defeat"), Color.ForestGreen);
+                }
             }
         }
 
@@ -662,7 +667,13 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
                     deathtimer++;
                     if (Main.netMode != NetmodeID.MultiplayerClient && deathtimer > 240)
                     {
-                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Kill"), Color.ForestGreen);
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                        {
+                            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Anubis.Forsaken.Kill", NPC.Center, 0, 60, false, new NearbyBossText());
+                            else
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Kill"), Color.ForestGreen);
+                        }
                         int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Legendscribe>());
                         Main.npc[a].Center = NPC.Center;
                         if (Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().HasLostToForsakenAnubis)
