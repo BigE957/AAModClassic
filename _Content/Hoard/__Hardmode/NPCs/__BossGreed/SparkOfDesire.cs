@@ -67,7 +67,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
                 switch (NPC.ai[0])
                 {
                     case 175:
-                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Greed.Spawn", Main.LocalPlayer.Center, 0, 60, effects: new NearbyBossText());
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Greed.Spawn", NPC.Center, 0, 60, effects: new NearbyBossText());
                         break;
                     case 760:
                         if (Main.netMode != NetmodeID.Server)

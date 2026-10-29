@@ -8,6 +8,8 @@ using AAModClassic._Unofficial.Desert;
 using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
@@ -266,7 +268,10 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
                     if (!text)
                     {
                         text = true;
-                        CombatText.NewText(NPC.Hitbox, Color.ForestGreen, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Warning"), true);
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Anubis.Forsaken.LastWarning", NPC.Center, 0, 60, false, new NearbyBossText());
+                        else
+                            CombatText.NewText(NPC.Hitbox, Color.ForestGreen, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Warning"), true);
                     }
 
                     if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[1] == 10)
@@ -613,7 +618,8 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 
             if (!NPCExtensions.BeenKilled<AnubisA>(true))
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Defeat"), Color.ForestGreen);
+                if (Main.netMode != NetmodeID.MultiplayerClient) 
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Defeat"), Color.ForestGreen);
             }
         }
 

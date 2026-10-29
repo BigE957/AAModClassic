@@ -238,7 +238,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
                 if (!lowHealth && Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Sagittarius.LowHealth", Main.LocalPlayer.Center, 0, 60, false, new NearbyBossText());
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Sagittarius.LowHealth", NPC.Center, 0, 60, false, new NearbyBossText());
                     else
                         CombatText.NewText(NPC.getRect(), new Color(233, 46, 46), Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Sagittarius.LowHealth"), true, true);
                     lowHealth = true;

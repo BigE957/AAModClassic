@@ -467,7 +467,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Greed.Despawn", Main.LocalPlayer.Center, 0, 60, false, new NearbyBossText());
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Greed.Despawn", NPC.Center, 0, 60, false, new NearbyBossText());
                         else
                             BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Despawn"), Color.Goldenrod);
                     }
@@ -489,7 +489,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Greed.Kill", Main.LocalPlayer.Center, 0, 60, false, new NearbyBossText());
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Greed.Kill", NPC.Center, 0, 60, false, new NearbyBossText());
                         else
                             BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Kill"), Color.Goldenrod);
                     }

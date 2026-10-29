@@ -57,7 +57,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
                         {
                             case 120:
                                 if (Main.netMode != NetmodeID.MultiplayerClient)
-                                    WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Anubis.Forsaken.Transition", Main.LocalPlayer.Center, 0, 60, effects: new NearbyBossText());
+                                    WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Anubis.Forsaken.Transition", NPC.Center, 0, 60, effects: new NearbyBossText());
                                 break;
                             case 600:
                                 Music = MusicManagementSystem.MusicSlots["Anubis_Awakened"];

@@ -74,7 +74,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                                 switch (NPC.ai[0])
                                 {
                                     case 120:
-                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Athena.Transition", Main.LocalPlayer.Center, 0, 60, effects: new NearbyBossText());
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Athena.Transition", NPC.Center, 0, 60, effects: new NearbyBossText());
                                         break;
                                     case 480:
                                         Music = MusicManagementSystem.MusicSlots["Athena_Awakened"];
@@ -140,9 +140,9 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                                             pCount++;
 
                                         if (pCount > 1)
-                                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Athena.OlympianDefeat.Singleplayer", Main.LocalPlayer.Center, 0, 60, effects: new NearbyBossText());
+                                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Athena.OlympianDefeat.Singleplayer", NPC.Center, 0, 60, effects: new NearbyBossText());
                                         else
-                                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Athena.OlympianDefeat.Multiplayer", Main.LocalPlayer.Center, 0, 60, effects: new NearbyBossText());
+                                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Athena.OlympianDefeat.Multiplayer", NPC.Center, 0, 60, effects: new NearbyBossText());
                                         break;
                                     case 1200:
                                         AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], ModContent.NPCType<AthenaFlee>(), false, NPC.Center);

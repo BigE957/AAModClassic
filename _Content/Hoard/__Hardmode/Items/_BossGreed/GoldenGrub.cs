@@ -91,7 +91,7 @@ Can only be used in Greed's Hoard at the Altar of Desire
                 Projectile.NewProjectile(NPC.GetBossSpawnSource(player.whoAmI), spawnPos.X, spawnPos.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
 
                 if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                    WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Greed.AwakenedSpawn", Main.LocalPlayer.Center, 0, 60, false, new NearbyBossText());
+                    WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Greed.AwakenedSpawn", spawnPos, 0, 60, false, new NearbyBossText());
                 else
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.AwakenedSummon"), Color.Goldenrod);
             }
