@@ -44,8 +44,9 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
         public override void AI()
         {
             NPC.dontTakeDamage = true;
+            NPC.TargetClosest(true);
+            NPC.spriteDirection = -NPC.direction;
 
-            NPC.ai[3] = 39;
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (NPC.velocity.Y == 0)
@@ -57,15 +58,14 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
                             case 120:
                                 if (Main.netMode != NetmodeID.MultiplayerClient)
                                     WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Anubis.Forsaken.Transition", Main.LocalPlayer.Center, 0, 60, effects: new NearbyBossText());
+                                break;
+                            case 600:
                                 Music = MusicManagementSystem.MusicSlots["Anubis_Awakened"];
                                 break;
-                            case 900:
-                                int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 0, Main.myPlayer, 0, 10);
-                                Main.projectile[b].Center = NPC.Center;
+                            case 1340:
+                                Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<ShockwaveBoom>(), 0, 0, ai1: 10);
                                 NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
-                                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AnubisA>());
-                                NPC.active = false;
-                                NPC.netUpdate = true;
+                                NPC.Transform(ModContent.NPCType<AnubisA>());
                                 break;
                         }
                     }

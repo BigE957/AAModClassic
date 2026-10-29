@@ -30,7 +30,7 @@
     },
     {
       "Lines": [
-        "...alright."
+        "[Shaking(1.25):...alright.]"
       ]
     },
     {
@@ -50,12 +50,12 @@
     },
     {
       "Lines": [
-        "I need to make sure you're ready, because...unless you're ready..."
+        "I need to make sure you're ready, because...[Pause(1)]unless you're ready..."
       ]
     },
     {
       "Lines": [
-        "[Colors(228b22):...Some things should stay locked away for your own good.]"
+        "[Colors(228b22):Some things should stay locked away for your own good.]"
       ]
     }
   ]

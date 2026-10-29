@@ -160,10 +160,16 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
 
         public override void AI()
         {
-            NPC.velocity.X *= 0;
-
             if (!AliveCheck(NPC.target))
+            {
+                if (NPC.velocity.Y > 0.05f)
+                    NPC.velocity.Y *= 0.9f;
+                else
+                    NPC.velocity.Y = 0f;
                 return;
+            }
+
+            NPC.velocity.X = 0;
 
             Player player = Main.player[NPC.target];
 
@@ -832,9 +838,9 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                 NPC.OnGameEventClearedForTheFirstTime(-1);
 
             if (NPC.downedMoonlord && beenKilled)
-                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AnubisForsakenTransition>());
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y + 6, ModContent.NPCType<AnubisForsakenTransition>());
             else
-                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<Legendscribe>());
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y + 6, ModContent.NPCType<Legendscribe>());
         }
 
         //TODO: make this pull from reg anubis' lootpool
@@ -1291,7 +1297,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
             //Main.NewText(NPC.velocity.Y);
 
             if (HasDonePreamble == true && NPC.velocity != Vector2.Zero)
-                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, CurrentTexture, NPC.Center - Main.screenPosition, NPC.velocity, 8, frame, new Color(150, 255, 150) * (Main.mouseTextColor / 255f), NPC.scale, [NPC.rotation], frame.Size() * 0.5f, NPC.SpriteEffectDirection());
+                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, CurrentTexture, NPC.Center - Main.screenPosition, NPC.velocity, 8, frame, new Color(150, 255, 150) * (Main.mouseTextColor / 255f), NPC.scale, [NPC.rotation], frame.Size() * 0.5f, NPC.SpriteEffectDirection(true));
             BaseDrawing.DrawTexture(spriteBatch, CurrentTexture, 0, position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, CurrentTextureFrameCount, frame, drawColor, true);
             BaseDrawing.DrawTexture(spriteBatch, CurrentGlowmask, 0, position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, CurrentTextureFrameCount, frame, AAColor.COLOR_WHITEFADE1, true);
 
