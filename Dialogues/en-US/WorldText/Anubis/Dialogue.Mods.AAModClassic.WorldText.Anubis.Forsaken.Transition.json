@@ -1,0 +1,62 @@
+{
+  "Revision": 1,
+  "DefaultColor": "ffd700",
+  "DefaultSpeaker": "Anubis",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "[Shaking(1.5):...hrgh...]"
+      ]
+    },
+    {
+      "Lines": [
+        "...alright."
+      ]
+    },
+    {
+      "Lines": [
+        "I think... It's time."
+      ]
+    },
+    {
+      "Lines": [
+        "No more stops being pulled."
+      ]
+    },
+    {
+      "Lines": [
+        "If you're gonna be taking on the dark forces of the world..."
+      ]
+    },
+    {
+      "Lines": [
+        "I need to make sure you're ready, because...unless you're ready..."
+      ]
+    },
+    {
+      "Lines": [
+        "[Colors(228b22):...Some things should stay locked away for your own good.]"
+      ]
+    }
+  ]
+}
