@@ -175,7 +175,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                 NPC.direction = NPC.spriteDirection = -1;
             }
 
-            if (HasDonePreamble == false)
+            if (!HasDonePreamble)
             {
                 NPC.noGravity = false;
                 AttackTimer++;
@@ -1157,9 +1157,9 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                 Music = MusicLoader.GetMusicSlot("AAModClassic/Music/silence");
                 if (NPC.velocity.Y == 0)
                 {
-                    if (AttackTimer++ < 420)
+                    if (AttackTimer < 420)
                     {
-                        if (!NPCExtensions.BeenKilled<Anubis>())
+                        if (true || !NPCExtensions.BeenKilled<Anubis>())
                         {
                             if (AttackTimer == 60)
                             {
