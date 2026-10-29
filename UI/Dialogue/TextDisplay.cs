@@ -382,7 +382,7 @@ namespace AAModClassic.UI.Dialogue
                         foreach (string s in returnString)
                             storedLen += s.Length;
 
-                        result.Pauses.Add(index - storedLen - 1, Params[0]);
+                        result.Pauses.Add(index - storedLen, Params[0]);
                     }
                     else
                     {
@@ -603,6 +603,15 @@ namespace AAModClassic.UI.Dialogue
                         colors[j] = WorldTextSystem.GetColorFromHex(borderColors.hexcodes[j]);
 
                     borderColor = !AAConfigClient.Instance.TextEffects ? colors[0] : ColorUtils.MulticolorLerp((Main.GlobalTimeWrappedHourly * borderColors.gradiantSpeed) + (i * borderColors.IndexOffset), colors);
+                }
+                else if (UniqueColors.TryGetValue(i, out var txtColors))
+                {
+                    Color[] colors = new Color[txtColors.hexcodes.Length];
+                    for (int j = 0; j < colors.Length; j++)
+                        colors[j] = WorldTextSystem.GetColorFromHex(txtColors.hexcodes[j]);
+
+                    borderColor = !AAConfigClient.Instance.TextEffects ? colors[0] : ColorUtils.MulticolorLerp((Main.GlobalTimeWrappedHourly * txtColors.gradiantSpeed) + (i * txtColors.IndexOffset), colors);
+                    borderColor = borderColor.MultiplyRGB(Color.White * DialoguePage.BorderDarkening);
                 }
                 else
                     borderColor = BaseBorderColor;

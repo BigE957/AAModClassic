@@ -178,7 +178,7 @@ namespace AAModClassic.UI.Dialogue
 
         public override void UpdateUI(GameTime gameTime)
         {
-            if (UI?.CurrentState != null)
+            if (UI?.CurrentState != null && !Main.gameInactive && !Main.gamePaused)
             {
                 PlayerInput.SetZoom_World();
                 UI.Update(gameTime);
