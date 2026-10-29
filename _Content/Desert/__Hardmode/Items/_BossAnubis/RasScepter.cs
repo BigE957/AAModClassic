@@ -84,7 +84,7 @@ Can only be used in the desert on the surface
                 return true;
             }
 
-            int anubis = player.altFunctionUse == 2 ? ModContent.NPCType<AnubisA>() : WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) ? ModContent.NPCType<AnubisUnreleased>() : ModContent.NPCType<Anubis>();
+            int anubis = player.altFunctionUse == 2 ? ModContent.NPCType<AnubisA>() : (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) || WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial)) ? ModContent.NPCType<AnubisUnreleased>() : ModContent.NPCType<Anubis>();
             int a = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X + Main.rand.Next(-300, 300), (int)player.position.Y - 400, anubis);
             NPC npc = Main.npc[a];
 
