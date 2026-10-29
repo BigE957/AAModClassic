@@ -16,11 +16,27 @@ using AAModClassic._Content.Inferno.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration;
+using AAModClassic._Content.Inferno.__Hardmode.NPCs;
+using AAModClassic._Content.Inferno.__Hardmode.NPCs._Surface._Day;
+using AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground;
+using AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Desert;
+using AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Snow;
+using AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground.Wyrm;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs._Surface._Day;
+using AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung;
 using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Armor;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration;
+using AAModClassic._Content.Mire.___PreHardmode.NPCs;
+using AAModClassic._Content.Mire.__Hardmode.NPCs;
+using AAModClassic._Content.Mire.__Hardmode.NPCs._Surface._Night;
+using AAModClassic._Content.Mire.__Hardmode.NPCs._Underground;
+using AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Desert;
+using AAModClassic._Content.Mire.__Hardmode.NPCs._Underground._Snow;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs;
+using AAModClassic._Content.Mire._PostMoonlord.NPCs._Surface._Night;
 using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.Accessories;
@@ -249,9 +265,53 @@ namespace AAModClassic._CrossMod
 
     public class ReplacementGlobalNPC : GlobalNPC
     {
+        private static readonly List<int> ClassicNPCsToReaddToPool = [];
+
+        public override void SetStaticDefaults()
+        {
+            ClassicNPCsToReaddToPool.Add(ModContent.NPCType<InfernoMimic>());
+            ClassicNPCsToReaddToPool.Add(ModContent.NPCType<BlazePhoenix>());
+            ClassicNPCsToReaddToPool.Add(ModContent.NPCType<InfernalGhoul>());
+            ClassicNPCsToReaddToPool.Add(ModContent.NPCType<PigronInferno>());
+            ClassicNPCsToReaddToPool.Add(ModContent.NPCType<ChaoticDawn>());
+            ClassicNPCsToReaddToPool.Add(ModContent.NPCType<WyrmHead>());
+            ClassicNPCsToReaddToPool.Add(ModContent.NPCType<MagmaSwimmer>());
+            ClassicNPCsToReaddToPool.Add(ModContent.NPCType<BlazeClaw>());
+            ClassicNPCsToReaddToPool.Add(ModContent.NPCType<AncientLungHead>());
+
+            ClassicNPCsToReaddToPool.Add(ModContent.NPCType<MireMimic>());
+            ClassicNPCsToReaddToPool.Add(ModContent.NPCType<Kappa>());
+            ClassicNPCsToReaddToPool.Add(ModContent.NPCType<ShadowGhoul>());
+            ClassicNPCsToReaddToPool.Add(ModContent.NPCType<PigronMire>());
+            ClassicNPCsToReaddToPool.Add(ModContent.NPCType<ChaoticTwilight>());
+            ClassicNPCsToReaddToPool.Add(ModContent.NPCType<Miresquito>());
+            ClassicNPCsToReaddToPool.Add(ModContent.NPCType<FogAngler>());
+            ClassicNPCsToReaddToPool.Add(ModContent.NPCType<AbyssClaw>());
+            ClassicNPCsToReaddToPool.Add(ModContent.NPCType<Soulsucker>());
+
+            ClassicNPCsToReaddToPool.Add(ModContent.NPCType<HarukaShadow>());
+        }
+
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
             ReplacementUtils.Modernize(npcLoot);
+        }
+
+        public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
+        {
+            if(ContentReplacementSystem.NeedToReplaceContent)
+            {
+                foreach (int npcType in ClassicNPCsToReaddToPool)
+                {
+                    ModNPC modNPC = ModContent.GetModNPC(npcType);
+                    if(modNPC != null)
+                    {
+                        float chance = modNPC.SpawnChance(spawnInfo);
+                        if (chance > 0)
+                            pool.Add(npcType, chance);
+                    }
+                }
+            }
         }
     }
 
