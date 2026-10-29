@@ -160,10 +160,9 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
         {
             NPC.velocity.X *= 0;
 
-            if (!NPC.HasPlayerTarget)
-            {
-                NPC.TargetClosest();
-            }
+            if (!AliveCheck(NPC.target))
+                return;
+
             Player player = Main.player[NPC.target];
 
             if (player.Center.X < NPC.Center.X)
@@ -778,29 +777,25 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
 
         int deathtimer = 0;
 
-        public bool AliveCheck(Player player)
+        public bool AliveCheck(int playerIndex)
         {
-            if (!player.active || player.dead || Vector2.Distance(NPC.Center, player.Center) > 5000f || !player.ZoneDesert)
+            if (playerIndex == -1 || !Main.player[playerIndex].active || Main.player[playerIndex].dead || Vector2.Distance(NPC.Center, Main.player[playerIndex].Center) > 5000f || !Main.player[playerIndex].ZoneDesert)
             {
                 NPC.TargetClosest();
-                if (!player.active || player.dead || Vector2.Distance(NPC.Center, player.Center) > 5000f || !player.ZoneDesert)
+                playerIndex = NPC.target;
+
+                if (playerIndex == -1 || !Main.player[playerIndex].active || Main.player[playerIndex].dead || Vector2.Distance(NPC.Center, Main.player[playerIndex].Center) > 5000f || !Main.player[playerIndex].ZoneDesert)
                 {
                     deathtimer++;
-                    if (Main.netMode != NetmodeID.MultiplayerClient && deathtimer > 240)
+                    if (deathtimer > 240)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Kill"), Color.Gold);
-                            int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Legendscribe>());
-                            Main.npc[a].Center = NPC.Center;
+                            NPC.Transform(ModContent.NPCType<Legendscribe>());
                         }
-                        NPC.active = false;
                     }
                     return false;
-                }
-                else
-                {
-                    deathtimer = 0;
                 }
             }
             deathtimer = 0;
