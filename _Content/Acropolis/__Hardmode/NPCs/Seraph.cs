@@ -4,6 +4,8 @@ using AAModClassic._Content.Acropolis.Projectiles;
 using AAModClassic._Content.Acropolis.World.Biomes;
 using AAModClassic.Base;
 using AAModClassic.Dusts;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
@@ -137,11 +139,17 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
                 {
                     if (!player.GetModPlayer<ZAAPlayer>().ZoneAcropolis)
                     {
-                        CombatText.NewText(NPC.Hitbox, Color.CadetBlue, SeraphBitching(), true);
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Seraph.Flee", NPC.Center, Main.rand.Next(5), 60, false, new NearbyBossText());
+                        else
+                            CombatText.NewText(NPC.Hitbox, Color.CadetBlue, SeraphBitching(), true);
                     }
                     else if (player.dead)
                     {
-                        CombatText.NewText(NPC.Hitbox, Color.CadetBlue, SeraphBitchingKill(), true);
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Seraph.Kill", NPC.Center, Main.rand.Next(5), 60, false, new NearbyBossText());
+                        else
+                            CombatText.NewText(NPC.Hitbox, Color.CadetBlue, SeraphBitchingKill(), true);
                     }
                     for (int a = 0; a < 8; a++)
                     {
@@ -156,7 +164,10 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
             {
                 if (NPC.localAI[3] == 0)
                 {
-                    CombatText.NewText(NPC.Hitbox, Color.CadetBlue, SeraphBitchingLeaveSoWhyDidHeNameTheseMethodsLikeThat(), true);
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Seraph.AthenaArrive", NPC.Center, Main.rand.Next(5), 60, false, new NearbyBossText());
+                    else
+                        CombatText.NewText(NPC.Hitbox, Color.CadetBlue, SeraphBitchingLeaveSoWhyDidHeNameTheseMethodsLikeThat(), true);
                     NPC.localAI[3] = 1;
                 }
 
