@@ -2,6 +2,9 @@ using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
 using AAModClassic.Base;
 using AAModClassic.Dusts;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent;
@@ -59,6 +62,9 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs
                 NPC.direction = -1;
             }
 
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                NPC.spriteDirection = NPC.direction;
+
             Vector2 wantedVelocity = player.Center - new Vector2(pos, 200);
             MoveToPoint(wantedVelocity);
 
@@ -75,65 +81,83 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs
                     NPC.frame.Y = 0;
                 }
             }
-            if (Main.netMode != NetmodeID.MultiplayerClient)
-            {
-                if (Vector2.Distance(player.Center, NPC.Center) > 2200)
-                {
-                    NPC.position = new Vector2(pos, 200);
-                    for (int i = 0; i < 5; i++)
-                    {
-                        Dust d = Main.dust[Dust.NewDust(NPC.position, NPC.height, NPC.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0)];
-                        d.position = NPC.Center;
-                    }
-                }
-                NPC.ai[0]++;
-                NPC.alpha -= 15;
 
+            float distSQ = player.Center.DistanceSQ(NPC.Center);
+            if (distSQ > 4840000)
+            {
+                NPC.position = new Vector2(pos, 200);
+                for (int i = 0; i < 5; i++)
+                {
+                    Dust d = Main.dust[Dust.NewDust(NPC.position, NPC.height, NPC.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0)];
+                    d.position = NPC.Center;
+                }
+            }
+            NPC.ai[0]++;
+            NPC.alpha -= 15;
+
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
                 if (NPC.ai[0] == 1)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald1"), Color.CadetBlue);
+                    string key;
+                    if (NPCExtensions.BeenKilled<GreedHead>())
+                        key = "Mods.AAModClassic.WorldText.Seraph.Herald.Greed";
+                    else
+                        key = "Mods.AAModClassic.WorldText.Seraph.Herald.NoGreed";
+
+                    WorldTextSystem.StartDialogue(key, NPC.Center, Uptime: 60, effects: new NearbyBossText(800, 800));
                     NPC.netUpdate = true;
                 }
-                else
-                    if (NPC.ai[0] == 120)
-                    {
-                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald2"), Color.CadetBlue);
-                    }
-                    else
-                        if (NPC.ai[0] == 240)
-                        {
-                            if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald3"), Color.CadetBlue);
-                        }
-                        else
-                            if (NPC.ai[0] == 360)
-                            {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald4"), Color.CadetBlue);
-                            }
-                if (!NPCExtensions.BeenKilled<GreedHead>())
+                else if (NPC.ai[0] == (NPCExtensions.BeenKilled<GreedHead>() ? 1380 : 1080))
                 {
-                    if (NPC.ai[0] >= 480)
-                    {
-                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald5"), Color.CadetBlue);
+                    for (int i = 0; i < 5; i++)
+                        Dust.NewDust(NPC.position, NPC.height, NPC.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0);
 
-                        for (int i = 0; i < 5; i++)
-                        {
-                            Dust.NewDust(NPC.position, NPC.height, NPC.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0);
-                        }
-
-                        NPC.active = false;
-                        NPC.netUpdate = true;
-                    }
+                    NPC.active = false;
+                    NPC.netUpdate = true;
                 }
-                else
+            }
+            else
+            {
+                switch (NPC.ai[0])
                 {
-                    if (NPC.ai[0] == 480)
-                    {
-                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald6"), Color.CadetBlue);
-                    }
+                    case 1:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald1"), Color.CadetBlue);
+                        NPC.netUpdate = true;
+                        break;
+                    case 120:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald2"), Color.CadetBlue);
+                        break;
+                    case 240:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald3"), Color.CadetBlue);
+                        break;
+                    case 360:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald4"), Color.CadetBlue);
+                        break;
+                    case 480:
+                        if (!NPCExtensions.BeenKilled<GreedHead>())
+                        {
+                            if (Main.netMode != NetmodeID.MultiplayerClient)
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald5"), Color.CadetBlue);
 
-                    if (NPC.ai[0] >= 600)
-                    {
-                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald5"), Color.CadetBlue);
+                            for (int i = 0; i < 5; i++)
+                            {
+                                Dust.NewDust(NPC.position, NPC.height, NPC.width, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0);
+                            }
+
+                            NPC.active = false;
+                            NPC.netUpdate = true;
+                        }
+                        else if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald6"), Color.CadetBlue);
+                        break;
+                    case 600:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SeraphHerald5"), Color.CadetBlue);
 
                         for (int i = 0; i < 5; i++)
                         {
@@ -142,7 +166,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs
 
                         NPC.active = false;
                         NPC.netUpdate = true;
-                    }
+                        break;
                 }
             }
             return false;
@@ -150,20 +174,19 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs
 
         public override void FindFrame(int frameHeight)
         {
-            if (NPC.velocity.X > 0f)
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
-                NPC.spriteDirection = 1;
-            }
-            if (NPC.velocity.X < 0f)
-            {
-                NPC.spriteDirection = -1;
+                if (NPC.velocity.X > 0f)
+                {
+                    NPC.spriteDirection = 1;
+                }
+                if (NPC.velocity.X < 0f)
+                {
+                    NPC.spriteDirection = -1;
+                }
             }
             NPC.rotation = NPC.velocity.X * 0.1f;
-            if (NPC.type == NPCID.Bee || NPC.type == NPCID.BeeSmall)
-            {
-                NPC.frameCounter += 1.0;
-                NPC.rotation = NPC.velocity.X * 0.2f;
-            }
+
             NPC.frameCounter += 1.0;
             if (NPC.frameCounter >= 6.0)
             {

@@ -1,6 +1,6 @@
 {
   "Revision": 1,
-  "DefaultColor": "ffd700",
+  "DefaultColor": "5f9ea0",
   "DefaultSpeaker": "Seraph",
   "AlignType": 1,
   "TextDelay": 2,
@@ -41,6 +41,11 @@
     {
       "Lines": [
         "I would say break a leg, but we can do that ourselves when you show up!"
+      ]
+    },
+    {
+      "Lines": [
+        "Oh yeah, and uh, that obnoxious kleptomaniac worm wants to fight you again too or something."
       ]
     },
     {
