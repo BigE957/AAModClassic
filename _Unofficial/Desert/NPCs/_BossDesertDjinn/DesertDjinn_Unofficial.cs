@@ -1192,7 +1192,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                     }
 
                     Projectile nextCactus = null;
-                    foreach(Projectile p in Main.projectile)
+                    foreach(Projectile p in Main.ActiveProjectiles)
                     {
                         if (p.type != ModContent.ProjectileType<CactusBaseball>() || p.ai[1] == 1)
                             continue;
@@ -1273,8 +1273,9 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
         //Credit to Spirit Reforged
         public void ManageSandstormffects()
         {
-            foreach (Player Player in Main.player.Where(p => p.active && !p.dead))
-                Player.buffImmune[BuffID.WindPushed] = true;
+            foreach (Player Player in Main.ActivePlayers)
+                if(!Player.dead)
+                    Player.buffImmune[BuffID.WindPushed] = true;
 
             if (!Phase2 || CreativePowerManager.Instance.GetPower<CreativePowers.FreezeWindDirectionAndStrength>().Enabled || CreativePowerManager.Instance.GetPower<CreativePowers.FreezeTime>().Enabled)
                 return;
@@ -1371,13 +1372,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
             NPC.spriteDirection = NPC.direction;
 
             if (!NPC.IsABestiaryIconDummy && (!Target.ZoneDesert || Phase2) && drawColor != Color.Black)
-            {
-                Vector2[] positions = new Vector2[NPC.oldPos.Length];
-                for (int i = 0; i < positions.Length; i++)
-                    positions[i] = NPC.oldPos[i] + NPC.frame.Size() * 0.5f;
-                
                 DrawingUtils.DrawCenteredAfterimages(spriteBatch, NPC, NPCID.Sets.TrailingMode[Type], Color.Goldenrod);
-            }
 
             spriteBatch.Draw(texture, NPC.Center + DrawOffset - screenPos, NPC.frame, drawColor * NPC.Opacity, NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, NPC.SpriteEffectDirection(), 0);
 

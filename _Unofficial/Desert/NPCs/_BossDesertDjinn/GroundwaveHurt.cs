@@ -51,7 +51,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
             NPCID.DesertDjinn
         ];
 
-        public override bool? CanHitNPC(NPC target) => !ImmuneNPCs.Contains(target.type);
+        public override bool? CanHitNPC(NPC target) => ImmuneNPCs.Contains(target.type) ? false : null;
 
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
