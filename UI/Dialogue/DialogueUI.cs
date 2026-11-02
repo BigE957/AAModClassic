@@ -12,7 +12,6 @@ using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.UI.Elements;
 using Terraria.GameInput;
-using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -842,14 +841,12 @@ namespace AAModClassic.UI.Dialogue
             [
                 new LegacyGameInterfaceLayer("AAModClassic: Dialogue", () =>
                 {
-                    SceneCapture.EnsureCaptured(Main.spriteBatch);
                     DialogueUISystem.DrawLayer();
                     return true;
                 }, InterfaceScaleType.Game),
 
                 new LegacyGameInterfaceLayer("AAModClassic: World Text", () =>
                 {
-                    SceneCapture.EnsureCaptured(Main.spriteBatch);
                     WorldTextSystem.UI?.Draw(Main.spriteBatch, new());
                     return true;
                 }, InterfaceScaleType.Game),

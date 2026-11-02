@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using Terraria.Graphics.Effects;
 using Terraria.ModLoader;
-using Terraria.UI;
 
 namespace AAModClassic.Utilities
 {
@@ -33,14 +32,11 @@ namespace AAModClassic.Utilities
     [Autoload(Side = ModSide.Client)]
     public class SceneCapture : ModSystem
     {
-        public const string LayerName = "AAModClassic: Scene Capture";
-
         private static readonly List<SceneCaptureSlot> slots = [];
         private static readonly List<(SceneCaptureSlot slot, Action<SpriteBatch> overlay)> active = [];
 
         private static RenderTarget2D filteredScene;
         private static bool filteredValid;
-        private static bool capturedThisFrame;
 
         public static RenderTarget2D CurrentScene => filteredValid ? filteredScene : Main.screenTarget;
 
@@ -68,6 +64,7 @@ namespace AAModClassic.Utilities
             filteredScene = null;
             filteredValid = false;
             slots.Clear();
+            active.Clear();
 
             Main.QueueMainThreadAction(() =>
             {
@@ -76,20 +73,7 @@ namespace AAModClassic.Utilities
             });
         }
 
-        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
-        {
-            layers.Insert(0, new LegacyGameInterfaceLayer(LayerName, () =>
-            {
-                EnsureCaptured(Main.spriteBatch);
-                return true;
-            }, InterfaceScaleType.Game));
-        }
-
-        public override void PostDrawInterface(SpriteBatch spriteBatch)
-        {
-            capturedThisFrame = false;
-            filteredValid = false;
-        }
+        public override void PostDrawInterface(SpriteBatch spriteBatch) => filteredValid = false;
 
         private static bool AnyNeeded()
         {
@@ -102,83 +86,92 @@ namespace AAModClassic.Utilities
         private static void OnEndCapture(On_FilterManager.orig_EndCapture orig, FilterManager self, RenderTarget2D finalTexture, RenderTarget2D screenTarget1, RenderTarget2D screenTarget2, Color clearColor)
         {
             filteredValid = false;
-            capturedThisFrame = false;
+            foreach (var slot in slots)
+                slot.ready = false;
 
-            if (finalTexture != null || screenTarget1 == null || !self.CanCapture() || !AnyNeeded())
+            if (finalTexture != null || screenTarget1 == null || !AnyNeeded())
             {
                 orig(self, finalTexture, screenTarget1, screenTarget2, clearColor);
                 return;
             }
 
-            var gd = Main.instance.GraphicsDevice;
-            EnsureTarget(gd, ref filteredScene, screenTarget1);
+            GraphicsDevice gd = Main.instance.GraphicsDevice;
+            SpriteBatch sb = Main.spriteBatch;
 
-            orig(self, filteredScene, screenTarget1, screenTarget2, clearColor);
+            EnsureTarget(gd, ref filteredScene, screenTarget1, RenderTargetUsage.PreserveContents);
 
-            gd.SetRenderTarget(null);
-            Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Opaque, SamplerState.PointClamp, null, null);
-            Main.spriteBatch.Draw(filteredScene, Vector2.Zero, Color.White);
-            Main.spriteBatch.End();
+            if (self.CanCapture())
+            {
+                orig(self, filteredScene, screenTarget1, screenTarget2, clearColor);
 
-            filteredValid = true;
+                CaptureSlots(sb, gd, filteredScene);
+
+                gd.SetRenderTarget(null);
+                BlitOpaque(sb, filteredScene);
+
+                filteredValid = true;
+            }
+            else
+            {
+                orig(self, finalTexture, screenTarget1, screenTarget2, clearColor);
+
+                RenderTargetBinding[] previousTargets = gd.GetRenderTargets();
+                Viewport previousViewport = gd.Viewport;
+                bool sceneIsBound = previousTargets.Length == 0 || previousTargets[0].RenderTarget == screenTarget1;
+
+                gd.SetRenderTarget(filteredScene);
+                gd.Clear(Color.Transparent);
+                BlitOpaque(sb, screenTarget1);
+
+                CaptureSlots(sb, gd, filteredScene);
+
+                gd.SetRenderTargets(previousTargets);
+
+                if (sceneIsBound)
+                    BlitOpaque(sb, filteredScene);
+
+                gd.Viewport = previousViewport;
+            }
         }
 
-        public static void EnsureCaptured(SpriteBatch sb)
+        private static void CaptureSlots(SpriteBatch sb, GraphicsDevice gd, RenderTarget2D source)
         {
-            if (capturedThisFrame)
+            if (source == null || source.IsDisposed)
                 return;
-            capturedThisFrame = true;
 
             active.Clear();
             foreach (var slot in slots)
-            {
-                slot.ready = false;
                 if (slot.Needed())
                     active.Add((slot, slot.Overlay?.Invoke()));
-            }
 
-            RenderTarget2D source = CurrentScene;
-            if (active.Count == 0 || source == null || source.IsDisposed)
+            if (active.Count == 0)
                 return;
 
-            GraphicsDevice gd = Main.instance.GraphicsDevice;
-            sb.End(out var uiState);
-
-            RenderTargetBinding[] previousTargets = gd.GetRenderTargets();
-            Viewport previousViewport = gd.Viewport;
+            sb.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Matrix.Identity);
+            sb.End(out var baseState);
 
             foreach (var (slot, overlay) in active)
             {
                 EnsureTarget(gd, ref slot.target, source);
-                var state = slot.OverlayState != null ? slot.OverlayState(uiState) : uiState;
+                var state = slot.OverlayState != null ? slot.OverlayState(baseState) : baseState;
                 RenderScene(sb, gd, slot.target, source, overlay, state);
                 slot.ready = true;
             }
-
-            gd.SetRenderTargets(previousTargets);
-            gd.Viewport = previousViewport;
-
-            if (previousTargets.Length == 0)
-            {
-                var restoreSnap = uiState;
-                restoreSnap.SortMode = SpriteSortMode.Deferred;
-                restoreSnap.BlendState = BlendState.Opaque;
-                restoreSnap.CustomEffect = null;
-                restoreSnap.TransformMatrix = Matrix.Identity;
-                sb.Begin(restoreSnap);
-                sb.Draw(source, Vector2.Zero, Color.White);
-                sb.End();
-            }
-
-            sb.Begin(uiState);
         }
 
-        private static void EnsureTarget(GraphicsDevice gd, ref RenderTarget2D target, RenderTarget2D source)
+        private static void BlitOpaque(SpriteBatch sb, Texture2D texture)
+        {
+            sb.Begin(SpriteSortMode.Deferred, BlendState.Opaque, SamplerState.PointClamp, null, null);
+            sb.Draw(texture, Vector2.Zero, Color.White);
+            sb.End();
+        }
+
+        private static void EnsureTarget(GraphicsDevice gd, ref RenderTarget2D target, RenderTarget2D source, RenderTargetUsage usage = RenderTargetUsage.DiscardContents)
         {
             if (target == null || target.IsDisposed || target.Width != source.Width || target.Height != source.Height)
             {
                 target?.Dispose();
-                target = new RenderTarget2D(gd, source.Width, source.Height, false, source.Format, DepthFormat.None);
+                target = new RenderTarget2D(gd, source.Width, source.Height, false, source.Format, DepthFormat.None, 0, usage);
             }
         }
 
