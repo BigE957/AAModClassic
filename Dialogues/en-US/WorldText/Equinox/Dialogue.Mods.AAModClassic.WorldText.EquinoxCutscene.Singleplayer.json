@@ -1,0 +1,85 @@
+{
+  "Revision": 1,
+  "DefaultColor": "00ffb5",
+  "DefaultSpeaker": "Nightcrawler",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "It appears someone has reassembled our idol, dearest Daybringer."
+      ]
+    },
+    {
+      "Speaker": "Daybringer",
+      "BaseColor": "2bb2f5",
+      "Lines": [
+        "It appears so. Little one, you have impressed us greatly."
+      ]
+    },
+    {
+      "Lines": [
+        "Could they be the one we've been searching for..?"
+      ]
+    },
+    {
+      "Speaker": "Daybringer",
+      "BaseColor": "2bb2f5",
+      "Lines": [
+        "...possibly."
+      ]
+    },
+    {
+      "Speaker": "Daybringer",
+      "BaseColor": "2bb2f5",
+      "Lines": [
+        "Young one. We would like to provide you with one last test."
+      ]
+    },
+    {
+      "Lines": [
+        "A test of strength against us."
+      ]
+    },
+    {
+      "Lines": [
+        "When you are ready, call us forth with the worm statue in your hand."
+      ]
+    },
+    {
+      "Speaker": "Daybringer",
+      "BaseColor": "2bb2f5",
+      "Lines": [
+        "We will be able to find you because of these beacons you reactivated."
+      ]
+    },
+    {
+      "Lines": [
+        "However..."
+      ]
+    },
+    {
+      "Lines": [
+        "Do not expect us to go easy on you, {0}.[Pause(2)] "
+      ]
+    }
+  ]
+}
