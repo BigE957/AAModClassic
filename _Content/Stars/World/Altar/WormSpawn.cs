@@ -19,7 +19,7 @@ namespace AAModClassic._Content.Stars.World.Altar
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Heavenly Voice");
-            Terraria.ID.NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
+            NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
             this.HideFromBestiary();
         }
         public override void SetDefaults()
@@ -67,7 +67,10 @@ namespace AAModClassic._Content.Stars.World.Altar
                 {
                     case 175:
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.EquinoxCutscene.Singleplayer", NPC.Center, 0, 10, effects: new NearbyBossText());
+                        {
+                            string type = Main.netMode == NetmodeID.SinglePlayer ? "Singleplayer" : "Multiplayer";
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.EquinoxCutscene." + type, NPC.Center, 0, 10, effects: new NearbyBossText());
+                        }
                         break;
                     case 1880:
                         AAWorld.WormActive = true;
