@@ -23,7 +23,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
-namespace AAModClassic._Unofficial.Desert
+namespace AAModClassic._Unofficial.Content.Desert
 {
     [AutoloadHead]
     public class LegendscribeUnofficial : ModNPC, ILocalizedModType

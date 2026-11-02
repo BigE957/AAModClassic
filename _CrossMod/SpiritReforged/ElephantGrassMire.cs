@@ -9,7 +9,6 @@ using Terraria.ObjectData;
 
 namespace AAModClassic._CrossMod.SpiritReforged
 {
-    [JITWhenModsEnabled("SpiritReforged")]
     [ExtendsFromMod("SpiritReforged")]
     [DrawOrder(DrawOrderAttribute.Layer.NonSolid, DrawOrderAttribute.Layer.OverPlayers)]
     public class ElephantGrassMire : ElephantGrass

@@ -21,7 +21,7 @@ float4 uSourceRect;
 float2 uZoom;
 
 float4 PixelShaderFunction(float2 coords : TEXCOORD0) : COLOR0
-{    
+{
     float2 pixelCoords = coords;
     
     float2 dir = uDirection - pixelCoords;

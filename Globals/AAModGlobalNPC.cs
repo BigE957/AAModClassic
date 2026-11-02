@@ -961,7 +961,7 @@ namespace AAModClassic.Globals
                 spawnInfo.Player.AAPlayer().ZoneTerrarium ||
                 spawnInfo.Player.AAPlayer().ZoneAcropolis ||
                 spawnInfo.Player.AAPlayer().ZoneHoard ||
-                spawnInfo.Player.AAPlayer().ZoneShip;
+                (spawnInfo.Player.AAPlayer().ZoneShip && AAWorld.downedEquinox);
 
             //Nukes vanilla spawns
             if (aaBiomeZone && !pillarZone)

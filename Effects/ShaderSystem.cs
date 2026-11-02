@@ -17,14 +17,10 @@ namespace AAModClassic.Effects
     public class ShaderSystem : ModSystem
     {
         private const string ShaderPrefix = "AAModClassic:";
-        public override void PostSetupContent()
+        public override void Load()
         {
             if (Main.dedServ)
                 return;
-
-            RegisterScreenShader("Shockwave", "Shockwave", EffectPriority.VeryHigh);
-
-            RegisterScreenShader("RadialBlur", "RadialBlurPass");
 
             RegisterMiscShader("Mask", "Mask");
 
@@ -32,29 +28,31 @@ namespace AAModClassic.Effects
 
             RegisterMiscShader("MaskEdge", "EdgePass");
 
+            RegisterSceneFilter("Shockwave", "Shockwave");
+
+            RegisterSceneFilter("RadialBlurPass", "RadialBlur");
+
             BindDyeShaders();
         }
 
-        private static Asset<Effect> LoadShader(string fileName)
+        private static void RegisterMiscShader(string passName, string registrationName)
         {
-            string shaderPath = "Effects/";
-            return AAMod.instance.Assets.Request<Effect>($"{shaderPath}{fileName}", AssetRequestMode.ImmediateLoad);
+            MiscShaderData passParamRegistration = new(LoadShader(registrationName), passName);
+            GameShaders.Misc[$"{ShaderPrefix}{registrationName}"] = passParamRegistration;
         }
 
-
-        private static void RegisterScreenShader(string shaderName, string passName, EffectPriority priority = EffectPriority.High)
+        private static void RegisterSceneFilter(string passName, string registrationName, EffectPriority priority = EffectPriority.High)
         {
-            var effect = LoadShader(shaderName);
-            ScreenShaderData shaderdata = new(effect, passName);
-            Filters.Scene[ShaderPrefix + shaderName] = new Filter(shaderdata, priority);
-            Filters.Scene[ShaderPrefix + shaderName].Load();
+            ScreenShaderData passReg = new(LoadShader(registrationName), passName);
+            string prefixedRegistrationName = $"{ShaderPrefix}{registrationName}";
+            Filters.Scene[prefixedRegistrationName] = new Filter(passReg, priority);
+            Filters.Scene[prefixedRegistrationName].Load();
         }
 
-        private static void RegisterMiscShader(string shaderName, string passName)
+        private static Asset<Effect> LoadShader(string registrationName)
         {
-            var effect = LoadShader(shaderName);
-            MiscShaderData passParamRegistration = new(effect, passName);
-            GameShaders.Misc[ShaderPrefix + shaderName] = passParamRegistration;
+            AssetRepository AAModAssets = AAMod.instance.Assets;
+            return AAModAssets.Request<Effect>($"Effects/{registrationName}", AssetRequestMode.ImmediateLoad);
         }
 
         private static void BindDyeShaders()

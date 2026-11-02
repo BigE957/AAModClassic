@@ -248,6 +248,11 @@ MusicDisplay: {
 
 	AkumaAwakened: {
 		Author: by Tyeski
+		DisplayName: Day Breaks
+	}
+
+	AkumaAwakenedLegacy: {
+		Author: by Tyeski
 		DisplayName: Dawn of the Dragon
 	}
 

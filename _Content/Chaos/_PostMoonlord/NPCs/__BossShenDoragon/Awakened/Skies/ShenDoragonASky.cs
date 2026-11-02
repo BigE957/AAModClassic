@@ -53,6 +53,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
 
         public override void Update(GameTime gameTime)
         {
+            if (Main.gameMenu)
+                Active = false;
+
             if (Active)
             {
                 Intensity = Math.Min(1f, 0.01f + Intensity);
@@ -90,7 +93,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awake
             Texture2D SkyTexture = SkyTex.Value;
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
-                spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
+                spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White * Intensity);
             }
             int num = -1;
             int num2 = 0;

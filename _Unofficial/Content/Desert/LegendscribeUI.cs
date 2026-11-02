@@ -18,9 +18,9 @@ using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI;
-using static AAModClassic._Unofficial.Desert.UIParallaxBackground;
+using static AAModClassic._Unofficial.Content.Desert.UIParallaxBackground;
 
-namespace AAModClassic._Unofficial.Desert
+namespace AAModClassic._Unofficial.Content.Desert
 {
     public class LegendscribeQuestUI : UIState
     {
@@ -31,7 +31,7 @@ namespace AAModClassic._Unofficial.Desert
 
         private static bool InEarlygameState = true;
 
-        internal static Questline CurrentQuestline => NPCExtensions.BeenKilled<AnubisA>() ? QuestSystem.Questlines["LegendscribeLateGame"] : QuestSystem.Questlines["LegendscribeEarlyGame"];
+        internal static Questline CurrentQuestline => (!Main.gameMenu && NPCExtensions.BeenKilled<AnubisA>()) ? QuestSystem.Questlines["LegendscribeLateGame"] : QuestSystem.Questlines["LegendscribeEarlyGame"];
         internal static Quest CurrentQuest => CurrentQuestID == "" ? null : CurrentQuestline.Quests[CurrentQuestID];
         internal static UIPanel Area;
 
