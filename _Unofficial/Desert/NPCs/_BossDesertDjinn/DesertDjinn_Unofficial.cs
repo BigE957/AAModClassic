@@ -384,6 +384,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                     }
                     else
                     {
+                        /*
                         //Count out
                         switch(Time)
                         {
@@ -412,13 +413,13 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                                 CombatText.NewText(NPC.Hitbox, Color.Goldenrod, "3-");
                                 break;
                         }
-
-                        if(Time >= 360)
+                        */
+                        if(Time >= 180)//360)
                         {
-                            if (Time >= 480)
+                            if (Time >= 300)//480)
                             {
                                 DrawOffset = Vector2.Zero;
-                                if (Time == 480)
+                                if (Time == 300)//480)
                                 {
                                     Phase2 = true;
                                     NPC.velocity = Vector2.UnitY * -48f;
@@ -429,7 +430,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                                     NPC.velocity *= 0.75f;
                                     NPC.rotation *= 0.9f;
 
-                                    if (Time == 540)
+                                    if (Time == 360)//540)
                                     {
                                         Time = 30;
                                         AttackFlag = false;
@@ -444,7 +445,7 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                             else
                             {
                                 NPC.hide = true;
-                                DrawOffset = Main.rand.NextVector2Circular(8, 8) * ((Time - 360) / 120f);
+                                DrawOffset = Main.rand.NextVector2Circular(8, 8) * ((Time - 180) / 120f);
                             }
                         }
                         else

@@ -5,7 +5,6 @@ using AAModClassic.Particles.Types;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using SpiritReforged.Content.Desert.NPCs.Cactus;
 using System.Collections.Generic;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -21,15 +20,47 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
 
         private static readonly List<(string id, Asset<Texture2D> texture)> Textures = [];
         private static Asset<Texture2D> stactusFaces = null;
+        private static int[] stactusHeadGoreTypes = new int[2];
+        private static int[,] stactusCrownGoreTypes = new int[6, 3];
+        private static int CactusSpine = -1;
+
+        private static readonly string[] StactusCrowns =
+        [
+            "Blossom",
+            "Bouquet",
+            "FlowerCrown",
+            "Garland",
+            "PricklyPears"
+        ];
 
         public override void SetStaticDefaults()
         {
+            Textures.Clear();
+            stactusFaces = null;
+
             Textures.Add(("Default", TextureAssets.Projectile[Type]));
+
             if (SpiritReforgedManager.IsEnabled)
-            { 
+            {
                 Textures.Add(("Stactus", ModContent.Request<Texture2D>("SpiritReforged/Content/Desert/NPCs/Cactus/DesertStactus")));
                 stactusFaces = ModContent.Request<Texture2D>("SpiritReforged/Content/Desert/NPCs/Cactus/DesertStactusFaces");
+
+                for (int i = 0; i < stactusHeadGoreTypes.Length; i++)
+                {
+                    stactusHeadGoreTypes[i] = SpiritReforgedManager.spiritReforged.Find<ModGore>($"DesertStactusHead{i + 1}").Type;
+                }
+
+                for (int i = 0; i < StactusCrowns.Length; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        stactusCrownGoreTypes[i, j] = SpiritReforgedManager.spiritReforged.Find<ModGore>($"DesertStactus{StactusCrowns[i]}{j + 1}").Type;
+                    }
+                }
+
+                CactusSpine = SpiritReforgedManager.spiritReforged.Find<ModProjectile>("CactusSpine").Type;
             }
+
             if (CalamityFables.IsEnabled)
             {
                 Textures.Add(("ScourgeSpine1", ModContent.Request<Texture2D>("CalamityFables/Assets/Gores/ScourgeSpineGore1")));
@@ -137,23 +168,23 @@ namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
                     SoundEngine.PlaySound(SoundID.NPCDeath1, Projectile.Center);
 
                     for (int i = 0; i < 5; i++)
-                        Projectile.NewProjectileDirect(Projectile.GetSource_FromAI(), Projectile.Center - Projectile.velocity, Main.rand.NextVector2Unit() * Main.rand.NextFloat(1, 2.2f), ModContent.ProjectileType<CactusSpine>(), 10, 1, ai0: Main.rand.Next(0, 3));
+                        Projectile.NewProjectileDirect(Projectile.GetSource_FromAI(), Projectile.Center - Projectile.velocity, Main.rand.NextVector2Unit() * Main.rand.NextFloat(1, 2.2f), CactusSpine, 10, 1, ai0: Main.rand.Next(0, 3));
                 
                     if(!Main.dedServ)
                     {
-                        Vector2 velocity = new Vector2(Projectile.velocity.X * 0.1f, Projectile.velocity.Y);
-                        Gore.NewGore(Projectile.GetSource_Death(), Projectile.position, velocity, SpiritReforgedManager.spiritReforged.Find<ModGore>("DesertStactusHead" + Main.rand.Next(1, 3)).Type);
+                        Vector2 velocity = new(Projectile.velocity.X * 0.1f, Projectile.velocity.Y);
+                        Gore.NewGore(Projectile.GetSource_Death(), Projectile.position, velocity, stactusHeadGoreTypes[Main.rand.Next(2)]);
 
                         if (Projectile.frame > 0 && Projectile.frame < 5)
                         {
-                            string[] crowns = ["Juvenile", "FlowerCrown", "Blossom", "Bouquet", "Garland", "PricklyPears"];
-                            Gore.NewGore(Projectile.GetSource_Death(), Projectile.position, velocity, SpiritReforgedManager.spiritReforged.Find<ModGore>("DesertStactus" + crowns[Projectile.frame] + 1).Type);
+                            int crownIndex = Projectile.frame;
+                            Gore.NewGore(Projectile.GetSource_Death(), Projectile.position, velocity, stactusCrownGoreTypes[crownIndex, 0]);
 
                             for (int i = 0; i < 2; i++)
-                                Gore.NewGore(Projectile.GetSource_Death(), Projectile.position, velocity, SpiritReforgedManager.spiritReforged.Find<ModGore>("DesertStactus" + crowns[Projectile.frame] + 2).Type);
+                                Gore.NewGore(Projectile.GetSource_Death(), Projectile.position, velocity, stactusCrownGoreTypes[crownIndex, 1]);
 
                             for (int i = 0; i < 4; i++)
-                                Gore.NewGore(Projectile.GetSource_Death(), Projectile.position, velocity, SpiritReforgedManager.spiritReforged.Find<ModGore>("DesertStactus" + crowns[Projectile.frame] + 3).Type);
+                                Gore.NewGore(Projectile.GetSource_Death(), Projectile.position, velocity, stactusCrownGoreTypes[crownIndex, 2]);
                         }
                     }
                 }

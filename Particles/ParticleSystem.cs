@@ -1,4 +1,5 @@
-﻿using AAModClassic.Utilities;
+﻿using AAModClassic.Particles.Types;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -156,10 +157,24 @@ public class ParticleSystem : ModSystem
 
     public override void OnWorldUnload()
     {
-        foreach (List<Particle> p in alphablendParticles.Values)
-            p.Clear();
-        foreach (List<Particle> p in additiveParticles.Values)
-            p.Clear();
+        foreach (List<Particle> layer in alphablendParticles.Values)
+        {
+            foreach (Particle p in layer)
+                p.OnKill(true);
+
+            layer.Clear();
+        }
+
+        foreach (List<Particle> layer in additiveParticles.Values)
+        {
+            foreach (Particle p in layer)
+                p.OnKill(true);
+
+            layer.Clear();
+        }
+
+        spawnQueue.Clear();
+
         activeCount = 0;
         spawnCounter = 0;
     }
