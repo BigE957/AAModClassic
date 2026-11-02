@@ -7,14 +7,6 @@ using Terraria.ModLoader;
 
 namespace AAModClassic.Utilities.Metaballs.Types;
 
-public class IZMetaballTestSYstem : ModSystem
-{
-    public override void PreUpdatePlayers()
-    {
-        InfinityZeroMetaballParticle.SpawnParticle(Main.MouseWorld, Main.rand.NextVector2Circular(4f, 4f), Main.rand.NextFloat(96f, 108f));
-    }
-}
-
 public class InfinityZeroMetaball : Metaball
 {
     public static InfinityZeroMetaball Instance => instance == null ? instance = ModContent.GetInstance<InfinityZeroMetaball>() : instance;

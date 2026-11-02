@@ -2,6 +2,7 @@
 using AAModClassic._CrossMod.SpiritReforged;
 using AAModClassic.Particles;
 using AAModClassic.Particles.Types;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;

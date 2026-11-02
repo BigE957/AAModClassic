@@ -595,15 +595,18 @@ CalamityMod: {
 Fables: {
 	BossIntroCard: {
 		GripsOfChaos: lel
+
 		DesertDjinn: {
 			Name: Desert Djinn
 			Title: Dune-Bending Brawler
+
 			Song: {
 				Name: The Dust Bowl
 				Artist: Tyeski
 			}
 		}
 	}
+
 	Nautilus: {
 		DesertDjinnActive: {
 			1: <m:SmallShake>Oh, such a raucous commotion day in and out!</m><d:0.6> </d>Were I still a little more able, I would have long driven these <c:F4A460>Djinn</c> out of these ruins myself!
