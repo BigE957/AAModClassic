@@ -24,9 +24,9 @@ namespace AAModClassic.Effects
 
             RegisterMiscShader("Mask", "Mask");
 
-            RegisterMiscShader("Masking", "MaskingPass");
+            RegisterMiscShader("MaskingPass", "Masking");
 
-            RegisterMiscShader("MaskEdge", "EdgePass");
+            RegisterMiscShader("EdgePass", "MaskEdge");
 
             RegisterSceneFilter("Shockwave", "Shockwave");
 
