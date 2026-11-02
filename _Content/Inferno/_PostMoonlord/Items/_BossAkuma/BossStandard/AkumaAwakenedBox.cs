@@ -12,10 +12,10 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStand
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Music Box (Oni Akuma)");
-            // Tooltip.SetDefault(@"Plays 'Dawn of the Dragon' by Tyeski");
+            // Tooltip.SetDefault(@"Plays 'Day Breaks' by Tyeski");
 
             ItemID.Sets.CanGetPrefixes[Type] = false;
-            ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ModContent.ItemType<AkumaAwakenedLegacyBox>();
         }
 
         public override void SetDefaults()

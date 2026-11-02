@@ -4,7 +4,7 @@ using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.BossStandard
 using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
 using AAModClassic._Content.Desert._PostMoonlord.Items.Materials;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
-using AAModClassic._Unofficial.Desert;
+using AAModClassic._Unofficial.Content.Desert;
 using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
@@ -656,14 +656,15 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
                     deathtimer++;
                     if (Main.netMode != NetmodeID.MultiplayerClient && deathtimer > 240)
                     {
-                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Kill"), Color.ForestGreen);
-                        int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Legendscribe>());
-                        Main.npc[a].Center = NPC.Center;
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                        {
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Kill"), Color.ForestGreen);
+                            NPC.Transform(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? ModContent.NPCType<LegendscribeUnofficial>() : ModContent.NPCType<Legendscribe>());
+                        }
                         if (Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().HasLostToForsakenAnubis)
                             Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().HasLostMultipleTimesToForsakenAnubis = true;
                         else
                             Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().HasLostToForsakenAnubis = true;
-                        NPC.active = false;
                     }
                     return false;
                 }

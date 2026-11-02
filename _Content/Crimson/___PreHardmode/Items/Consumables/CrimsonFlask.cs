@@ -31,6 +31,7 @@ namespace AAModClassic._Content.Crimson.___PreHardmode.Items.Consumables
         {
             // DisplayName.SetDefault("Blood Flask");
             // Tooltip.SetDefault(@"Spreads the Crimson");
+            Item.ResearchUnlockCount = 99;
         }
 
         public override bool AltFunctionUse(Player player)

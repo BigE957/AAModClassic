@@ -11,6 +11,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items.Consumables
         {
             // DisplayName.SetDefault("Gilded Key");
             // Tooltip.SetDefault("This probably unlocks...something?");
+            Item.ResearchUnlockCount = 3;
         }
 
         public override void SetDefaults()
@@ -20,6 +21,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items.Consumables
             Item.maxStack = Item.CommonMaxStack;
             Item.value = 800000;
             Item.noMelee = true;
+            Item.consumable = true;
         }
     }
 }

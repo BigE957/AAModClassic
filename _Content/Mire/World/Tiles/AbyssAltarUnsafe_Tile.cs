@@ -49,6 +49,8 @@ namespace AAModClassic._Content.Mire.World.Tiles
 
         public override bool CanReplace(int i, int j, int tileTypeBeingPlaced) => false;
 
+        public override bool CanExplode(int i, int j) => false;
+
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)
         {
             r = 0;

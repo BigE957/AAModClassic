@@ -120,6 +120,11 @@ InfernoUndergroundBox: {
 
 AkumaAwakenedBox: {
 	DisplayName: Music Box (Oni Akuma)
+	Tooltip: Plays 'Day Breaks' by Tyeski
+}
+
+AkumaAwakenedLegacyBox: {
+	DisplayName: Music Box (Alt Oni Akuma)
 	Tooltip: Plays 'Dawn of the Dragon' by Tyeski
 }
 

@@ -8,6 +8,7 @@ using AAModClassic.Achievements;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
@@ -72,7 +73,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             NPC.behindTiles = true;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = new SoundStyle("AAModClassic/Sounds/AkumaRoar");
-            Music = MusicManagementSystem.MusicSlots["Akuma_Awakened"];
+            string key = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? "Akuma_Awakened" : "Akuma_Awakened_Legacy";
+            Music = MusicManagementSystem.MusicSlots[key];
             SceneEffectPriority = SceneEffectPriority.BossHigh;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {

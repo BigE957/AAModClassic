@@ -11,6 +11,7 @@ namespace AAModClassic._Content._Misc.___PreHardmode.Items.Consumables
         {
             // DisplayName.SetDefault("Ronin Potion");
             // Tooltip.SetDefault("When you don't get hurt, you will have 3s immune time");
+            Item.ResearchUnlockCount = 20;
         }
 
         public override void SetDefaults()

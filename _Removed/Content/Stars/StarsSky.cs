@@ -48,12 +48,13 @@ namespace AAModClassic._Removed.Content.Stars
 
         public override void Update(GameTime gameTime)
         {
+            if (Main.gameMenu)
+                isActive = false;
+
             if (isActive)
-            {
                 fadeOpacity = Math.Min(1f, 0.01f + fadeOpacity);
-                return;
-            }
-            fadeOpacity = Math.Max(0f, fadeOpacity - 0.01f);
+            else
+                fadeOpacity = Math.Max(0f, fadeOpacity - 0.01f);
         }
 
         public override Color OnTileColor(Color inColor)

@@ -14,6 +14,7 @@ namespace AAModClassic._Unofficial.Content.Void.__Hardmode.Items.Tools
             // DisplayName.SetDefault("Gravitron Centrifuge (Inactive)");
             /* Tooltip.SetDefault(@"Provides a great deal of centrifugal force, granting standard gravity in space
             Effects are currently inactive, Right click to reactivate"); */
+            Item.ResearchUnlockCount = 0;
         }
 
         public override void SetDefaults()
