@@ -1,0 +1,51 @@
+{
+  "Revision": 1,
+  "DefaultColor": "961e47",
+  "DefaultSpeaker": "Ashe",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Speaker": "Haruka",
+      "BaseColor": "484e75",
+      "Lines": [
+        "You see Ashe? I told you this was a stupid idea, but YOU didn't listen..."
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(2):Shut up!] I thought if we ganged up on them, we could just beat the daylights out of 'em!"
+      ]
+    },
+    {
+      "Speaker": "Haruka",
+      "BaseColor": "484e75",
+      "Lines": [
+        "Whatever... I'm going back home. SOMEONE has to tell dad about this kid."
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1):Hmpf..!] [Shaking(2):Fine!] [Shaking(1):Be that way! I'm going back to the Inferno!]"
+      ]
+    }
+  ]
+}

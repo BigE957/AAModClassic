@@ -1,5 +1,8 @@
 using AAModClassic.Base;
 using AAModClassic.Music;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
@@ -53,55 +56,68 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord
             NPC.Center = player.Center;
             NPC.netOffset = Vector2.Zero;
 
-            if (NPC.ai[1] == 240)
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
-                if (AAWorld.downedSisters)
+                switch (NPC.ai[1])
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.1"), new Color(102, 20, 48));
-                }
-                else
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.First.1"), new Color(72, 78, 117));
+                    case 240:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                        {
+                            if (AAWorld.downedSisters)
+                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Sisters.Defeat.Repeat", NPC, uptime: 30, effects: new NearbyBossText());
+                            else
+                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Sisters.Defeat.First", NPC, uptime: 30, effects: new NearbyBossText());
+                        }
+                        break;
+                    case 600:
+                        if (AAWorld.downedSisters)
+                            NPC.active = false;
+                        break;
+                    case 840:
+                        NPC.SetEventFlagCleared(ref AAWorld.downedSisters, -1);
+                        NPC.active = false;
+                        break;
                 }
             }
-
-            if (NPC.ai[1] == 360)
+            else
             {
-                if (AAWorld.downedSisters)
+                switch (NPC.ai[1])
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.2"), new Color(72, 78, 117));
+                    case 240:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                        {
+                            if (AAWorld.downedSisters)
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.1"), new Color(102, 20, 48));
+                            else
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.First.1"), new Color(72, 78, 117));
+                        }
+                        break;
+                    case 360:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                        {
+                            if (AAWorld.downedSisters)
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.2"), new Color(72, 78, 117));
+                            else
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.First.2.Front") + (player.Male ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.male") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.fimale")) + Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.First.2.Back"), new Color(102, 20, 48));
+                        }
+                        break;
+                    case 600:
+                        if (AAWorld.downedSisters)
+                        {
+                            if (Main.netMode != NetmodeID.MultiplayerClient)
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.3"), new Color(102, 20, 48));
+                            NPC.active = false;
+                        }
+                        else if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.First.3"), new Color(72, 78, 117));
+                        break;
+                    case 840:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.First.4"), new Color(102, 20, 48));
+                        NPC.SetEventFlagCleared(ref AAWorld.downedSisters, -1);
+                        NPC.active = false;
+                        break;
                 }
-                else
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.First.2.Front") + (player.Male ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.male") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.fimale")) + Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.First.2.Back"), new Color(102, 20, 48));
-                }
-            }
-
-            if (NPC.ai[1] == 600)
-            {
-                if (AAWorld.downedSisters)
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.3"), new Color(102, 20, 48));
-                    NPC.active = false;
-                }
-                else
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.First.3"), new Color(72, 78, 117));
-                }
-            }
-
-            if (NPC.ai[1] == 840)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.First.4"), new Color(102, 20, 48));
-                NPC.SetEventFlagCleared(ref AAWorld.downedSisters, -1);
-                NPC.active = false;
             }
         }
     }

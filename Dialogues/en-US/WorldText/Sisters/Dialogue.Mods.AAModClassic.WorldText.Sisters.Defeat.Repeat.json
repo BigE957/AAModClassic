@@ -1,0 +1,44 @@
+{
+  "Revision": 1,
+  "DefaultColor": "961e47",
+  "DefaultSpeaker": "Ashe",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "[Shaking(3):RRRRRRRRRGH! NOT AGAIN!!!]"
+      ]
+    },
+    {
+      "Speaker": "Haruka",
+      "BaseColor": "484e75",
+      "Lines": [
+        "Why do I keep going with you..? I should honestly just let you fight them yourself."
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(2):Rgh..!] [Shaking(1):Shut up..!]"
+      ]
+    }
+  ]
+}
