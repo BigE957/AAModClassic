@@ -10,7 +10,7 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
         private float fadeBuffer = buffer;
 
         public override bool FadeWhenTooFar => true;
-        public override float FadeBuffer => 400f;
+        public override float FadeBuffer => fadeBuffer;
         public override float FadeDistance => fadeDistance;
 
         public override float TimeToAppear => 20;
