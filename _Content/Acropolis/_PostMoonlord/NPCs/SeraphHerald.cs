@@ -105,7 +105,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.NPCs
                     else
                         key = "Mods.AAModClassic.WorldText.Seraph.Herald.NoGreed";
 
-                    WorldTextSystem.StartDialogue(key, NPC.Center, Uptime: 60, effects: new NearbyBossText(800, 800));
+                    WorldTextSystem.StartDialogue(key, NPC.Center, uptime: 60, effects: new NearbyBossText(800, 800));
                     NPC.netUpdate = true;
                 }
                 else if (NPC.ai[0] == (NPCExtensions.BeenKilled<GreedHead>() ? 1380 : 1080))

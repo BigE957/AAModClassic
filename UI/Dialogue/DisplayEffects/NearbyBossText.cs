@@ -6,8 +6,8 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
 {
     public class NearbyBossText(float distance = 400f, float buffer = 400f) : DisplayEffect
     {
-        private float fadeDistance = distance;
-        private float fadeBuffer = buffer;
+        private readonly float fadeDistance = distance;
+        private readonly float fadeBuffer = buffer;
 
         public override bool FadeWhenTooFar => true;
         public override float FadeBuffer => fadeBuffer;
@@ -17,17 +17,42 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
 
         public override bool DespawnWithAttachedNPC => false;
 
+        private const float Gap = 8f;
+        private const float BaseYOffset = 54f;
+        private const float StackSmoothing = 0.15f;
+
+        private static int nextId;
+        private readonly int spawnId = nextId++;
+
+        private float lastHeight;
+        private float stackCurrent;
+        private bool initialized;
+
         public override Vector2 TextOffsetFromStart(Vector2 startPos, Vector2 textSize)
         {
+            lastHeight = textSize.Y;
+
+            float stackTarget = 0f;
+            foreach (var d in WorldTextSystem.GetAllActiveText())
+                if (d.Value.ui.DisplayEffects is NearbyBossText other && other != this && other.spawnId < spawnId)
+                    stackTarget += other.lastHeight + Gap;
+
+            if (!initialized)
+            {
+                stackCurrent = stackTarget;
+                initialized = true;
+            }
+            else
+            {
+                stackCurrent = MathHelper.Lerp(stackCurrent, stackTarget, StackSmoothing);
+            }
+
             Vector2 playerPos = Main.LocalPlayer.Center;
-            Vector2 halfSize = textSize * 0.5f;
-            Vector2 newPos = playerPos - halfSize + (Vector2.UnitY * (textSize.Y + 54));
-            return newPos;
+            return new Vector2(playerPos.X - textSize.X * 0.5f, playerPos.Y + BaseYOffset + stackCurrent);
         }
 
         public override Vector2 AppearPositioning(Vector2 startPos, Vector2 goalPos, float time, DialogueCharacterData charData)
         {
-            Vector2 toBoss = (goalPos - startPos).SafeNormalize(-Vector2.UnitX);
             return Vector2.Lerp(goalPos - (new Vector2(-1, -1) * 24 * charData.Scale), goalPos, MathUtils.SineOutEasing(time / TimeToAppear));
         }
 

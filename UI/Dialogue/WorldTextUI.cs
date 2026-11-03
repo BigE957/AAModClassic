@@ -166,6 +166,11 @@ namespace AAModClassic.UI.Dialogue
             };
         }
 
+        public static Dictionary<int, (string name, TextDisplay ui, DialogueTextData data, Entity entity, int upTime)> GetAllActiveText()
+        {
+            return WorldTextUI.Dialogues;
+        }
+
         public override void Load()
         {
             if (!Main.dedServ)
@@ -255,16 +260,16 @@ namespace AAModClassic.UI.Dialogue
         /// </summary>
         /// <param name="name">The name of the dialogue's localization key</param>
         /// <param name="startPosition">The position of the text in the world</param>
-        public static int StartDialogue(string name, Vector2 startPosition, int startIndex = 0, int Uptime = -1, bool progressDialogue = true, DisplayEffect effects = null, float wrapWidth = -1, int toClient = -1, int ignoreClient = -1)
+        public static int StartDialogue(string name, Vector2 startPosition, int startIndex = 0, int uptime = -1, bool progressDialogue = true, DisplayEffect effects = null, float wrapWidth = -1, int toClient = -1, int ignoreClient = -1)
         {
             if (Main.dedServ)
             {
-                AANet.SendNetMessage<StartDialogueDisplayPacket>(name, progressDialogue, startPosition, startIndex, Uptime, GetID(effects), wrapWidth, toClient, ignoreClient);
+                AANet.SendNetMessage<StartDialogueDisplayPacket>(name, progressDialogue, startPosition, startIndex, uptime, GetID(effects), wrapWidth, toClient, ignoreClient);
                 return -1;
             }
             else if (Main.netMode == NetmodeID.SinglePlayer)
             {
-                return StartDialogueOnClient(name, startPosition, startIndex, Uptime, progressDialogue, effects, wrapWidth);
+                return StartDialogueOnClient(name, startPosition, startIndex, uptime, progressDialogue, effects, wrapWidth);
             }
 
             return -1;
