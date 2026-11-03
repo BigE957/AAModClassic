@@ -317,17 +317,17 @@ namespace AAModClassic.UI.Dialogue
         /// </summary>
         /// <param name="name">The name of the dialogue's localization key</param>
         /// <param name="entity">The entity this dialogue will appear with</param>
-        /// <param name="Uptime">The entity this dialogue will appear with</param>
-        public static int StartDialogue(string name, Entity entity, int startIndex = 0, int Uptime = -1, bool progressDialogue = true, DisplayEffect effects = null, float wrapWidth = -1, int toClient = -1, int ignoreClient = -1)
+        /// <param name="uptime">The entity this dialogue will appear with</param>
+        public static int StartDialogue(string name, Entity entity, int startIndex = 0, int uptime = -1, bool progressDialogue = true, DisplayEffect effects = null, float wrapWidth = -1, int toClient = -1, int ignoreClient = -1)
         {
             if (Main.dedServ)
             {
-                AANet.SendNetMessage<StartDialogueDisplayPacket>(name, progressDialogue, entity is NPC ? EntityType.NPC : entity is Player ? EntityType.Player : EntityType.Projectile, entity is Projectile p ? p.identity : entity.whoAmI, startIndex, Uptime, GetID(effects), wrapWidth, toClient, ignoreClient);
+                AANet.SendNetMessage<StartDialogueDisplayPacket>(name, progressDialogue, entity is NPC ? EntityType.NPC : entity is Player ? EntityType.Player : EntityType.Projectile, entity is Projectile p ? p.identity : entity.whoAmI, startIndex, uptime, GetID(effects), wrapWidth, toClient, ignoreClient);
                 return -1;
             }
             else if (Main.netMode == NetmodeID.SinglePlayer)
             {
-                return StartDialogueOnClient(name, entity, startIndex, Uptime, progressDialogue, effects, wrapWidth);
+                return StartDialogueOnClient(name, entity, startIndex, uptime, progressDialogue, effects, wrapWidth);
             }
 
             return -1;
@@ -350,6 +350,8 @@ namespace AAModClassic.UI.Dialogue
 
             if (startIndex >= textData.PageCount)
                 startIndex = textData.PageCount - 1;
+
+            textData.Page = startIndex;
 
             TextDisplay display = new(textData[startIndex], effects, wrapWidth: wrapWidth)
             {
