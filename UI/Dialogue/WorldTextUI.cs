@@ -120,11 +120,15 @@ namespace AAModClassic.UI.Dialogue
         }
     }
 
+    public delegate void TextDataNotifier(string textKey, ref DialogueTextData data);
+
     public class WorldTextSystem : ModSystem
     {
         internal static WorldTextUI State;
 
         internal static UserInterface UI;
+
+        public static TextDataNotifier TextDataSetup;
 
         public enum DisplayEffectID
         {
@@ -295,6 +299,8 @@ namespace AAModClassic.UI.Dialogue
 
             textData.Page = startIndex;
 
+            TextDataSetup?.Invoke(name, ref textData);
+
             TextDisplay display = new(textData.Pages[startIndex], effects, wrapWidth: wrapWidth)
             {
                 Position = startPosition,
@@ -357,6 +363,8 @@ namespace AAModClassic.UI.Dialogue
                 startIndex = textData.PageCount - 1;
 
             textData.Page = startIndex;
+
+            TextDataSetup?.Invoke(name, ref textData);
 
             TextDisplay display = new(textData[startIndex], effects, wrapWidth: wrapWidth)
             {

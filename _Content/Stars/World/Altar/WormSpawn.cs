@@ -7,6 +7,7 @@ using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -21,7 +22,16 @@ namespace AAModClassic._Content.Stars.World.Altar
             // DisplayName.SetDefault("Heavenly Voice");
             NPCID.Sets.ShouldBeCountedAsBoss[NPC.type] = true;
             this.HideFromBestiary();
+
+            WorldTextSystem.TextDataSetup += ModifyEquinoxCutsceneText;
         }
+
+        private void ModifyEquinoxCutsceneText(string textKey, ref DialogueTextData data)
+        {
+            if (textKey == "Mods.AAModClassic.WorldText.EquinoxCutscene.Singleplayer")
+                data.Pages[^1].Lines[0] = data.Pages[^1].Lines[0].Replace("{0}", Main.LocalPlayer.name);
+        }
+
         public override void SetDefaults()
         {
             NPC.width = 46;
