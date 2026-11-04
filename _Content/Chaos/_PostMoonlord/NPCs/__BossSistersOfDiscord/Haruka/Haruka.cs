@@ -7,6 +7,9 @@ using AAModClassic._Unofficial.Content.Chaos._PostMoonlord.Items._BossSistersOfD
 using AAModClassic.Achievements;
 using AAModClassic.Base;
 using AAModClassic.Music;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
@@ -185,7 +188,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                 //MusicUtils.InstantSwitchMusic(MusicManagementSystem.MusicSlots["Sisters_Outro"]);
             }
 
-            if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.HarukaDowned"), new Color(72, 78, 117));
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                    WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Sisters.Defeat.Individual", NPC.Center, 1, 30, false, new NearbyBossText(600, 600));
+                else
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.HarukaDowned"), new Color(72, 78, 117));
+            }
             NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HarukaVanish>());
 
         }
