@@ -1,0 +1,57 @@
+{
+  "Revision": 1,
+  "DefaultColor": "b42920",
+  "DefaultSpeaker": "Akuma",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "[Shaking(1.5):Hey kid! Sky's fallin', watch out!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1.5):Down comes fire and fury!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1.5):Hey kid! Watch out!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1.5):Incoming!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1.5):Face the flames of despair, kid!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1.5):Heads up, kid!]"
+      ]
+    }
+  ]
+}

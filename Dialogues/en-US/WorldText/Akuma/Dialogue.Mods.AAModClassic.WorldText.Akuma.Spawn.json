@@ -1,0 +1,77 @@
+{
+  "Revision": 1,
+  "DefaultColor": "b42920",
+  "DefaultSpeaker": "Akuma",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "Geez, kid. Can't a dragon get a little shut-eye? Come back in the morning."
+      ]
+    },
+    {
+      "Lines": [
+        "Hey kid, that Rune only works once, ya know."
+      ]
+    },
+    {
+      "Lines": [
+        "You can only use that Rune in the Inferno, kid."
+      ]
+    },
+    {
+      "Lines": [
+        "That Rune has to be used at the Altar of the Draconian Sun, kid. It's in the middle of the inferno."
+      ]
+    },
+    {
+      "Lines": [
+        "Cutting right to the chase I see..? Alright then, prepare for hell..!"
+      ]
+    },
+    {
+      "Lines": [
+        "Can't you see I'm already here, kid?"
+      ]
+    },
+    {
+      "Lines": [
+        "You can only use that Sigil in the Inferno, kid."
+      ]
+    },
+    {
+      "Lines": [
+        "That Sigil has to be used at the Altar of the Draconian Sun, kid. It's in the middle of the inferno."
+      ]
+    },
+    {
+      "Lines": [
+        "Heh, I hope you’re ready to feel the fury of the blazing sun kid."
+      ]
+    },
+    {
+      "Lines": [
+        "Back for more, kid? Don’t you have better things to do? You already beat me once.  Alright, but I won’t go easy on you."
+      ]
+    }
+  ]
+}
