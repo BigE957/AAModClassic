@@ -38,6 +38,7 @@ DraconianRuneTrue1: El aire a su alrededor comienza a calentarse...
 DraconianRuneTrue2: Directo al grano, ¿eh...? Muy bien, ¡prepárate para el infierno...!
 DraconianSigilFalse: Oye, chaval, ese sello solo funciona una vez, ya sabes.
 DraconianSigilInfernoFalse: Solo puedes usar ese sello en el Infierno, chaval.
+// DraconianSigilInfernoFalse2: That Sigil has to be used at the Altar of the Draconian Sun, kid. It's in the middle of the inferno.
 DraconianSignalTrue1: Je, espero que estés listo para sentir la furia del sol ardiente, chaval.
 DraconianSignalTrue2: ¿De vuelta por más, chaval? ¿No tienes cosas mejores que hacer? Ya me venciste una vez. Bien, pero no seré suave contigo.
 DragonBellDayTimeFalse: La campana suena en oídos sordos. Los dragones están dormidos ahora.

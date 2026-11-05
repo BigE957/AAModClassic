@@ -197,7 +197,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.WaterHit", NPC, 0, 60, false, new NearbyBossText());
+                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.WaterHit", NPC, 0, 60, false, new NearbyBossText(400, 1000));
                             else
                                 ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.WaterHit"), new Color(180, 41, 32));
                         }
@@ -382,7 +382,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Despawn", NPC.Center, 0, 60, false, new NearbyBossText());
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Despawn", NPC.Center, 0, 60, false, new NearbyBossText(400, 1000));
                         else
                             ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Despawn.Night"), new Color(180, 41, 32));
                     }
@@ -404,7 +404,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Despawn", NPC.Center, 1, 60, false, new NearbyBossText());
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Despawn", NPC.Center, 1, 60, false, new NearbyBossText(400, 1000));
                         else
                             ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Despawn.Escape"), new Color(180, 41, 32));
                     }
@@ -464,9 +464,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
                         if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                         {
                             if (!Quote1)
-                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Attacks", NPC, 0, 60, false, new NearbyBossText());
+                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Attacks", NPC, 0, 60, false, new NearbyBossText(400, 1000));
                             else
-                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Attacks", NPC, 1, 60, false, new NearbyBossText());
+                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Attacks", NPC, 1, 60, false, new NearbyBossText(400, 1000));
                         }
                         else
                         {
@@ -498,9 +498,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
                         if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                         {
                             if (!Quote3 || Main.rand.NextBool(4))
-                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Attacks", NPC, 2, 60, false, new NearbyBossText());
+                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Attacks", NPC, 2, 60, false, new NearbyBossText(400, 1000));
                             else
-                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Attacks", NPC, 3, 60, false, new NearbyBossText());
+                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Attacks", NPC, 3, 60, false, new NearbyBossText(400, 1000));
                         }
                         else
                         {
@@ -528,9 +528,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
                         if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                         {
                             if (!Quote5 || Main.rand.NextBool(4))
-                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Attacks", NPC, 4, 60, false, new NearbyBossText());
+                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Attacks", NPC, 4, 60, false, new NearbyBossText(400, 1000));
                             else
-                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Attacks", NPC, 5, 60, false, new NearbyBossText());
+                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Attacks", NPC, 5, 60, false, new NearbyBossText(400, 1000));
                         }
                         else
                         {
@@ -674,7 +674,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Defeat", NPC.Center, 0, 60, false, new NearbyBossText());
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Defeat", NPC.Center, 0, 60, false, new NearbyBossText(400, 1000));
                     else
                         ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Defeat.NotExpert"), new Color(180, 41, 32));
                 }

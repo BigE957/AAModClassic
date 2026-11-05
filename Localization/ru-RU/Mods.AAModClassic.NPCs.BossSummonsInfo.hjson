@@ -38,6 +38,7 @@ DraconianRuneTrue1: Воздух вокруг вас начинает нагре
 DraconianRuneTrue2: Сразу к делу, я смотрю? Ну ладно, готовься к аду!..
 DraconianSigilFalse: Эй, дитя, этот сигил работает только один раз, понял?
 DraconianSigilInfernoFalse: Этот сигил можно использовать только в Инферно, дитя.
+// DraconianSigilInfernoFalse2: That Sigil has to be used at the Altar of the Draconian Sun, kid. It's in the middle of the inferno.
 DraconianSignalTrue1: Хех, надеюсь, ты готов ощутить ярость пылающего солнца, дитя.
 DraconianSignalTrue2: Вернулся за добавкой, дитя? Тебе что, заняться нечем? Ты уже победил меня однажды. Ладно, но я не буду поддаваться.
 DragonBellDayTimeFalse: Звон колокола никто не слышит. Драконы сейчас спят.

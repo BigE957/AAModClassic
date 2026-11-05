@@ -3,6 +3,9 @@ using AAModClassic.Base;
 using AAModClassic.Effects;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -143,84 +146,118 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 
             if (Main.netMode != NetmodeID.Server) //clientside stuff
             {
-                NPC.frameCounter++;
-                if (NPC.frameCounter >= 5)
-                {
-                    NPC.frameCounter = 0;
-                    NPC.frame.Y += 42;
-                }
-                if (NPC.frame.Y > 42 * 7)
-                {
-                    NPC.frame.Y = 0;
-                }
+                int colorTransitionTime = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 750 : 660;
+
                 if (NPC.ai[0] > 300)
                 {
                     NPC.alpha -= 5;
                     if (NPC.alpha < 0)
-                    {
                         NPC.alpha = 0;
-                    }
                 }
-                if (NPC.ai[0] >= 300) //after he says 'heh' on the server, change music on the client
-                {
-                    Music = MusicManagementSystem.MusicSlots["Akuma_Awakened"];
-                    NPC.boss = true;
-                }
-                if (NPC.ai[0] >= 660) //after 660 on the server, transition color
+                if (NPC.ai[0] >= colorTransitionTime)
                 {
                     RVal -= 5;
                     BVal += 5;
                     if (RVal <= 0)
-                    {
                         RVal = 0;
-                    }
+
                     if (BVal >= 255)
-                    {
                         BVal = 255;
-                    }
+                }
+            }
+
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                switch (NPC.ai[0])
+                {
+                    case 300:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Transition", NPC, uptime: 30, effects: new NearbyBossText());
+
+                        if (!Main.dedServ)
+                        {
+                            Music = MusicManagementSystem.MusicSlots["Akuma_Awakened"];
+                            NPC.boss = true;
+                        }
+                        NPC.netUpdate = true;
+                        break;
+                    case 750:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.6"), new Color(175, 75, 255));
+                        NPC.netUpdate = true;
+                        break;
+                    case 1200:
+                        if (Main.netMode != NetmodeID.MultiplayerClient && !NPC.AnyNPCs(ModContent.NPCType<AkumaAHead>()))
+                        {
+                            AAModGlobalNPC.SpawnBossAtPosition(player, ModContent.NPCType<AkumaAHead>(), false, NPC.Center, "", false);
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.4"), Color.Magenta);
+
+                            int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1);
+                            Main.projectile[b].Center = NPC.Center;
+                        }
+                        NPC.netUpdate = true;
+                        NPC.active = false;
+                        break;
+                }
+            }
+            else
+            {
+                switch (NPC.ai[0])
+                {
+                    case 300:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.1"), new Color(180, 41, 32));
+
+                        if (!Main.dedServ)
+                        {
+                            Music = MusicManagementSystem.MusicSlots["Akuma_Awakened"];
+                            NPC.boss = true;
+                        }
+                        NPC.netUpdate = true;
+                        break;
+                    case 525:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.2"), new Color(180, 41, 32));
+                        break;
+                    case 750:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.6"), new Color(175, 75, 255));
+                        NPC.netUpdate = true;
+                        break;
+                    case 976:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.3"), Color.DeepSkyBlue);
+                        break;
+                    case 1200:
+                        if (Main.netMode != NetmodeID.MultiplayerClient && !NPC.AnyNPCs(ModContent.NPCType<AkumaAHead>()))
+                        {
+                            AAModGlobalNPC.SpawnBossAtPosition(player, ModContent.NPCType<AkumaAHead>(), false, NPC.Center, "", false);
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.4"), Color.Magenta);
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.5"), Color.DeepSkyBlue);
+
+                            int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1);
+                            Main.projectile[b].Center = NPC.Center;
+                        }
+                        NPC.netUpdate = true;
+                        NPC.active = false;
+                        break;
                 }
             }
 
             NPC.ai[0]++;
-            if (NPC.ai[0] == 300)
-            {
-                NPC.netUpdate = true;
-            }
-            else if (NPC.ai[0] == 300)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.1"), new Color(180, 41, 32));
-                NPC.netUpdate = true;
-            }
-            else if (NPC.ai[0] == 525)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.2"), new Color(180, 41, 32));
-            }
-            else if (NPC.ai[0] == 750) //sync so the color transition occurs
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.6"), new Color(175, 75, 255));
-                NPC.netUpdate = true;
-            }
-            else if (NPC.ai[0] == 976)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.3"), Color.DeepSkyBlue);
-            }
-            else if (NPC.ai[0] >= 1200 && !NPC.AnyNPCs(ModContent.NPCType<AkumaAHead>()))
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                {
-                    AAModGlobalNPC.SpawnBossAtPosition(player, ModContent.NPCType<AkumaAHead>(), false, NPC.Center, "", false);
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.4"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.5"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
+        }
 
-                    int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
-                    Main.projectile[b].Center = NPC.Center;
-                }
-                NPC.netUpdate = true;
-                NPC.active = false;
+        public override void FindFrame(int frameHeight)
+        {
+            NPC.frameCounter++;
+            if (NPC.frameCounter >= 5)
+            {
+                NPC.frameCounter = 0;
+                NPC.frame.Y += frameHeight;
+            }
+            if (NPC.frame.Y > frameHeight * 7)
+            {
+                NPC.frame.Y = 0;
             }
         }
 
