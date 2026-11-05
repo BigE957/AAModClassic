@@ -825,7 +825,7 @@ namespace AAModClassic.UI.Dialogue
 
             public static void Register()
             {
-                plain = SceneCapture.Register("Dialogue.Plain", () => WorldTextUI.Dialogues.Count > 0);
+                plain = SceneCapture.Register("Dialogue.Plain", () => WorldTextUI.Dialogues.Count > 0 || Visible);
                 overlay = SceneCapture.Register("Dialogue.Overlay", () => GetOverlay() != null, GetOverlay, ZoomedSnapshot);
             }
 

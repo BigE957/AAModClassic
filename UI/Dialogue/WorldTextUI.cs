@@ -2,6 +2,7 @@
 using AAModClassic.Globals;
 using AAModClassic.UI.Dialogue.DisplayEffects;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -89,7 +90,7 @@ namespace AAModClassic.UI.Dialogue
                                 Activate();
                             }
                         }
-                        return;
+                        continue;
                     }
                 }
                 if (ui.Switching)
@@ -117,6 +118,15 @@ namespace AAModClassic.UI.Dialogue
             }
 
             base.Update(gameTime);
+        }
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            foreach (UIElement e in Elements)
+                if (e is TextDisplay td)
+                    td.DrawBackdrop(spriteBatch);
+
+            base.Draw(spriteBatch);
         }
     }
 

@@ -1,6 +1,7 @@
 ﻿using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
@@ -91,9 +92,32 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
             DrawBloom(spriteBatch, drawPos + drawSize * 0.5f, drawSize, Opacity, SceneOverlay != null);
         }
 
+        private static Asset<Texture2D> bloomAsset;
+        private static Texture2D BloomTexture => (bloomAsset ??= ModContent.Request<Texture2D>("AAModClassic/Assets/General/SmallBloom")).Value;
+
+        private static Effect cachedEffect;
+        private static EffectParameter pPosition, pSize, pOpacity, pThreshold, pCeiling, pBaseDarken, pShadowTint, pTintStrength, pChromaBoost;
+
+        private static void CacheParameters(Effect effect)
+        {
+            if (effect == cachedEffect)
+                return;
+
+            cachedEffect = effect;
+            pPosition = effect.Parameters["Position"];
+            pSize = effect.Parameters["Size"];
+            pOpacity = effect.Parameters["Opacity"];
+            pThreshold = effect.Parameters["Threshold"];
+            pCeiling = effect.Parameters["Ceiling"];
+            pBaseDarken = effect.Parameters["BaseDarken"];
+            pShadowTint = effect.Parameters["ShadowTint"];
+            pTintStrength = effect.Parameters["TintStrength"];
+            pChromaBoost = effect.Parameters["ChromaBoost"];
+        }
+
         public static void DrawBloom(SpriteBatch spriteBatch, Vector2 center, Vector2 size, float opacity, bool useOverlayScene = false)
         {
-            Texture2D tex = ModContent.Request<Texture2D>("AAModClassic/Assets/General/SmallBloom").Value;
+            Texture2D tex = BloomTexture;
             Vector2 scale = new(size.X / 160f, size.Y / 120f);
 
             Effect effect = GameShaders.Misc["AAModClassic:DialogueBloom"].Shader;
@@ -105,6 +129,8 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
                 return;
             }
 
+            CacheParameters(effect);
+
             spriteBatch.End(out var snap);
 
             Vector2 quadSize = tex.Size() * scale;
@@ -114,15 +140,15 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
             Vector2 b = Vector2.Transform(quadMin + quadSize, view);
             Vector2 sceneSize = new(scene.Width, scene.Height);
 
-            effect.Parameters["Position"].SetValue(a / sceneSize);
-            effect.Parameters["Size"].SetValue((b - a) / sceneSize);
-            effect.Parameters["Threshold"].SetValue(LumaThreshold);
-            effect.Parameters["Ceiling"].SetValue(LumaCeiling);
-            effect.Parameters["BaseDarken"].SetValue(BaseDarken);
-            effect.Parameters["Opacity"].SetValue(opacity);
-            effect.Parameters["ShadowTint"].SetValue(ShadowTint);
-            effect.Parameters["TintStrength"].SetValue(TintStrength);
-            effect.Parameters["ChromaBoost"].SetValue(ChromaBoost);
+            pPosition.SetValue(a / sceneSize);
+            pSize.SetValue((b - a) / sceneSize);
+            pThreshold.SetValue(LumaThreshold);
+            pCeiling.SetValue(LumaCeiling);
+            pBaseDarken.SetValue(BaseDarken);
+            pOpacity.SetValue(opacity);
+            pShadowTint.SetValue(ShadowTint);
+            pTintStrength.SetValue(TintStrength);
+            pChromaBoost.SetValue(ChromaBoost);
 
             var shaderSnap = snap;
             shaderSnap.SortMode = SpriteSortMode.Immediate;

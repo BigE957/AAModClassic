@@ -558,12 +558,26 @@ namespace AAModClassic.UI.Dialogue
             DialogueTimer++;
         }
 
+        private bool backdropDrawn;
+        private Vector2 cachedTextTop;
+        private Vector2 cachedPageTop;
+
+        internal void DrawBackdrop(SpriteBatch spriteBatch)
+        {
+            cachedTextTop = DisplayEffects.TextOffsetFromStart(Position, TextSize);
+            cachedPageTop = cachedTextTop - SizeOffsetFromStart;
+            DisplayEffects.PreDraw(spriteBatch, cachedPageTop, TextSize, DialogueTimer, SwitchCounter, ClosingDialogue);
+            backdropDrawn = true;
+        }
+
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
-            Vector2 textTop = DisplayEffects.TextOffsetFromStart(Position, TextSize);
-            Vector2 pageTop = textTop - SizeOffsetFromStart;
+            if (!backdropDrawn)
+                DrawBackdrop(spriteBatch);
+            backdropDrawn = false;
 
-            DisplayEffects.PreDraw(spriteBatch, pageTop, TextSize, DialogueTimer, SwitchCounter, ClosingDialogue);
+            Vector2 textTop = cachedTextTop;
+            Vector2 pageTop = cachedPageTop;
 
             #region Shadow Drawing
             for (int i = 0; i < textIndex; i++)
