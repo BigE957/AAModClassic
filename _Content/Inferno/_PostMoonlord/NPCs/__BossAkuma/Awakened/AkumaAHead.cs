@@ -7,7 +7,10 @@ using AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories;
 using AAModClassic.Achievements;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.UI.Titles;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
@@ -464,15 +467,34 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                         if (!spawnAshe)
                         {
                             spawnAshe = true;
-                            if (AAWorld.downedAkuma)
+                            if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.AsheAppear.Akuma"), Color.DeepSkyBlue);
-                                if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.AsheAppear.Ashe"), new Color(102, 20, 48));
-                            }
-                            else
-                            {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.AsheAppear.First.Ashe"), new Color(102, 20, 48));
-                                if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.AsheAppear.First.Akuma"), Color.DeepSkyBlue);
+                                if (AAWorld.downedAkuma)
+                                {
+                                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                    {
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.AsheAssist", NPC, 2, 30, false, new NearbyBossText(600, 1600));
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.AsheAssist", player, 3, 30, false, new NearbyBossText(400, 1000));
+                                    }
+                                    else
+                                    {
+                                        ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.AsheAppear.Akuma"), Color.DeepSkyBlue);
+                                        ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.AsheAppear.Ashe"), new Color(102, 20, 48));
+                                    }
+                                }
+                                else
+                                {
+                                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                    {
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.AsheAssist", player, 0, 30, false, new NearbyBossText(400, 1000));
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.AsheAssist", NPC, 1, 30, false, new NearbyBossText(600, 1600));
+                                    }
+                                    else
+                                    {
+                                        ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.AsheAppear.First.Ashe"), new Color(102, 20, 48));
+                                        ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.AsheAppear.First.Akuma"), Color.DeepSkyBlue);
+                                    }
+                                }
                             }
                         }
                     }
