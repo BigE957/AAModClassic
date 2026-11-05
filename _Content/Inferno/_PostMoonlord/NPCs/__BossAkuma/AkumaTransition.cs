@@ -114,7 +114,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<AkumaAHead>(), false, NPC.Center, "", false);
+                        AAModGlobalNPC.SpawnBossAtPosition(player, ModContent.NPCType<AkumaAHead>(), false, NPC.Center, "", false);
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.AkumaTransition4"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
 
                         int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
@@ -212,7 +212,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<AkumaAHead>(), false, NPC.Center, "", false);
+                    AAModGlobalNPC.SpawnBossAtPosition(player, ModContent.NPCType<AkumaAHead>(), false, NPC.Center, "", false);
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.4"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Transition.5"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
 

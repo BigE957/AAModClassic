@@ -148,7 +148,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<YamataABody>(), false, NPC.Center, "", false);
+                    AAModGlobalNPC.SpawnBossAtPosition(player, ModContent.NPCType<YamataABody>(), false, NPC.Center, "", false);
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.AwakenStatus"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.5"), new Color(146, 30, 68));
                     int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
@@ -267,7 +267,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<YamataABody>(), false, NPC.Center, "", false);
+                        AAModGlobalNPC.SpawnBossAtPosition(player, ModContent.NPCType<YamataABody>(), false, NPC.Center, "", false);
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.AwakenStatus"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
 
                         int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);

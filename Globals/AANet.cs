@@ -144,7 +144,7 @@ namespace AAModClassic.Globals
                 string overrideDisplayName = packet.ReadString();
                 bool namePlural = packet.ReadBoolean();
 
-                AAModGlobalNPC.SpawnBoss(Main.player[playerID], bossType, spawnMessage, new Vector2(npcCenterX, npcCenterY), overrideDisplayName, namePlural);
+                AAModGlobalNPC.SpawnBossAtPosition(Main.player[playerID], bossType, spawnMessage, new Vector2(npcCenterX, npcCenterY), overrideDisplayName, namePlural);
             }
         }
     }

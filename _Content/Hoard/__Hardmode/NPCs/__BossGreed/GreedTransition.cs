@@ -76,7 +76,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
                         WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Greed.Transition", NPC.Center, 0, 60, effects: new NearbyBossText());
                         break;
                     case 890:
-                        AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedAHead>(), true, NPC.Center, ModContent.GetInstance<GreedAHead>().DisplayName.Value, false);
+                        AAModGlobalNPC.SpawnBossAtPosition(player, ModContent.NPCType<GreedAHead>(), true, NPC.Center, ModContent.GetInstance<GreedAHead>().DisplayName.Value, false);
                         Projectile.NewProjectile(NPC.GetBossSpawnSource(player.whoAmI), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
 
                         NPC.netUpdate = true;
@@ -107,7 +107,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
                 }
                 else if (NPC.ai[0] >= 610)
                 {
-                    AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedAHead>(), true, NPC.Center, ModContent.GetInstance<GreedAHead>().DisplayName.Value, false);
+                    AAModGlobalNPC.SpawnBossAtPosition(player, ModContent.NPCType<GreedAHead>(), true, NPC.Center, ModContent.GetInstance<GreedAHead>().DisplayName.Value, false);
                     int b = Projectile.NewProjectile(NPC.GetBossSpawnSource(player.whoAmI), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
 
                     if (Main.netMode != NetmodeID.MultiplayerClient)

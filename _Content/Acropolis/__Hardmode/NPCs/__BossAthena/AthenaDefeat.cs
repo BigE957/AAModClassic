@@ -80,7 +80,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                                         Music = MusicManagementSystem.MusicSlots["Athena_Awakened"];
                                         break;
                                     case 1200:
-                                        AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], ModContent.NPCType<AthenaA>(), false, NPC.Center);
+                                        AAModGlobalNPC.SpawnBossAtPosition(Main.player[NPC.target], ModContent.NPCType<AthenaA>(), false, NPC.Center);
                                         NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
 
                                         int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer);
@@ -117,7 +117,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                                 else if (NPC.ai[0] >= 1200)
                                 {
                                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Transition.9"), Color.CornflowerBlue);
-                                    AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], ModContent.NPCType<AthenaA>(), false, NPC.Center);
+                                    AAModGlobalNPC.SpawnBossAtPosition(Main.player[NPC.target], ModContent.NPCType<AthenaA>(), false, NPC.Center);
                                     NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
 
                                     int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer);
@@ -145,7 +145,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                                             WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Athena.OlympianDefeat.Multiplayer", NPC.Center, 0, 60, effects: new NearbyBossText());
                                         break;
                                     case 1200:
-                                        AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], ModContent.NPCType<AthenaFlee>(), false, NPC.Center);
+                                        AAModGlobalNPC.SpawnBossAtPosition(Main.player[NPC.target], ModContent.NPCType<AthenaFlee>(), false, NPC.Center);
 
                                         NPC.active = false;
                                         NPC.netUpdate = true;
@@ -181,7 +181,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                                 else if (NPC.ai[0] >= 1200)
                                 {
                                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.Awakened.Defeat.8"), Color.CornflowerBlue);
-                                    AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], ModContent.NPCType<AthenaFlee>(), false, NPC.Center);
+                                    AAModGlobalNPC.SpawnBossAtPosition(Main.player[NPC.target], ModContent.NPCType<AthenaFlee>(), false, NPC.Center);
 
                                     NPC.active = false;
                                     NPC.netUpdate = true;

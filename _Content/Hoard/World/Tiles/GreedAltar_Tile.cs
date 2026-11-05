@@ -66,7 +66,7 @@ namespace AAModClassic._Content.Hoard.World.Tiles
                         if (NPCExtensions.BeenKilled<GreedHead>())
                             AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedHead>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Greed"));
                         else
-                            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<SparkOfDesire>(), false, new Vector2(i * 16, (j * 16) - 200), Language.GetTextValue("Mods.AAModClassic.Common.Greed"));
+                            AAModGlobalNPC.SpawnBossAtPosition(player, ModContent.NPCType<SparkOfDesire>(), false, new Vector2(i * 16, (j * 16) - 200), Language.GetTextValue("Mods.AAModClassic.Common.Greed"));
                     }
                 }
             }

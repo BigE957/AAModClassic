@@ -117,7 +117,7 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs
                             Dust.NewDust(npcCenter, 152, 114, ModContent.DustType<FeatherDust>(), Main.rand.Next(-1, 2), 1, 0);
 
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Athena>(), true, npcCenter, Language.GetTextValue("Mods.AAModClassic.Common.Athena"));
+                            AAModGlobalNPC.SpawnBossAtPosition(player, ModContent.NPCType<Athena>(), true, npcCenter, Language.GetTextValue("Mods.AAModClassic.Common.Athena"));
                     }
                     NPC.active = false;
                     NPC.netUpdate = true;

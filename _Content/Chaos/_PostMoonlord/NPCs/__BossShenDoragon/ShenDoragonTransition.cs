@@ -160,7 +160,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
                 int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
                 Main.projectile[b].Center = NPC.Center;
 
-                AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<ShenDoragonA>(), false, NPC.Center, "Shen Awakened", false);
+                AAModGlobalNPC.SpawnBossAtPosition(player, ModContent.NPCType<ShenDoragonA>(), false, NPC.Center, "Shen Awakened", false);
             }
         }
 

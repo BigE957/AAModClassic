@@ -29,8 +29,9 @@
       ]
     },
     {
+      "BaseColor": "00bfff",
       "Lines": [
-        "Hey kid, that Rune only works once, ya know."
+        "Can't you see I'm already here, kid?"
       ]
     },
     {
@@ -44,8 +45,9 @@
       ]
     },
     {
+      "BaseColor": "00bfff",
       "Lines": [
-        "Cutting right to the chase I see..? Alright then, prepare for hell..!"
+        "Cutting right to the chase I see..? [Shaking(1.5):Alright then, prepare for hell..!]"
       ]
     },
     {

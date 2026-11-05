@@ -50,22 +50,6 @@ Non-Consumable"); */
         // We use the CanUseItem hook to prevent a player from using this item while the boss is present in the world.
         public override bool CanUseItem(Player player)
         {
-            bool anyActiveAkuma = false;
-            bool anyBlockingEnemy = false;
-            foreach(NPC npc in Main.ActiveNPCs)
-            {
-                if (npc.type == ModContent.NPCType<AkumaHead>() || npc.type == ModContent.NPCType<AkumaAHead>())
-                {
-                    anyActiveAkuma = true;
-                    break;
-                }
-
-                if (npc.type == ModContent.NPCType<ShenDoragon>() || npc.type == ModContent.NPCType<ShenDoragonA>() ||
-                    npc.type == ModContent.NPCType<ShenDoragonSpawn>() || npc.type == ModContent.NPCType<ShenDoragonTransition>() || npc.type == ModContent.NPCType<ShenDoragonDeath>() || npc.type == ModContent.NPCType<ShenDoragonDefeat>() ||
-                    npc.type == ModContent.NPCType<AkumaTransition>())
-                    anyBlockingEnemy = true;
-            }
-
             if (!Main.dayTime)
             {
                 if (!Main.dedServ && player.whoAmI == Main.myPlayer)
@@ -96,10 +80,27 @@ Non-Consumable"); */
                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                         WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Akuma.Spawn", Main.LocalPlayer.Center, 7, 60, false, new BossText());
                     else
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianRuneFalse2"), new Color(180, 41, 32), false);
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianSigilInfernoFalse2"), new Color(180, 41, 32), false);
                 }
                 return false;
             }
+
+            bool anyActiveAkuma = false;
+            bool anyBlockingEnemy = false;
+            foreach (NPC npc in Main.ActiveNPCs)
+            {
+                if (npc.type == ModContent.NPCType<AkumaHead>() || npc.type == ModContent.NPCType<AkumaAHead>())
+                {
+                    anyActiveAkuma = true;
+                    break;
+                }
+
+                if (npc.type == ModContent.NPCType<ShenDoragon>() || npc.type == ModContent.NPCType<ShenDoragonA>() ||
+                    npc.type == ModContent.NPCType<ShenDoragonSpawn>() || npc.type == ModContent.NPCType<ShenDoragonTransition>() || npc.type == ModContent.NPCType<ShenDoragonDeath>() || npc.type == ModContent.NPCType<ShenDoragonDefeat>() ||
+                    npc.type == ModContent.NPCType<AkumaTransition>())
+                    anyBlockingEnemy = true;
+            }
+
             if (anyActiveAkuma)
             {
                 if (!Main.dedServ && player.whoAmI == Main.myPlayer)
@@ -140,18 +141,6 @@ Non-Consumable"); */
             }
             SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/AkumaRoar"), player.position);
             return true;
-        }
-
-        public void SpawnBoss(Player player, string name, string displayName)
-        {
-            if (Main.netMode != NetmodeID.MultiplayerClient)
-            {
-                int bossType = Mod.Find<ModNPC>(name).Type;
-                if (NPC.AnyNPCs(bossType)) { return; } //don't spawn if there's already a boss!
-                int npcID = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.Center.X, (int)player.Center.Y, bossType, 0);
-                Main.npc[npcID].Center = player.Center - new Vector2(MathHelper.Lerp(-2000, 2000, (float)Main.rand.NextDouble()), 1200f);
-                Main.npc[npcID].netUpdate2 = true;
-            }
         }
 
         public override void AddRecipes()

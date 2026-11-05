@@ -87,7 +87,7 @@ Can only be used in Greed's Hoard at the Altar of Desire
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 Vector2 spawnPos = player.Center + Vector2.UnitY * 600;
-                AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedAHead>(), true, spawnPos, ModContent.GetInstance<GreedAHead>().DisplayName.Value, false);
+                AAModGlobalNPC.SpawnBossAtPosition(player, ModContent.NPCType<GreedAHead>(), true, spawnPos, ModContent.GetInstance<GreedAHead>().DisplayName.Value, false);
                 Projectile.NewProjectile(NPC.GetBossSpawnSource(player.whoAmI), spawnPos.X, spawnPos.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
 
                 if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))

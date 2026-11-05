@@ -74,7 +74,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
                             Music = MusicManagementSystem.MusicSlots["Greed"];
                         break;
                     case 1000:
-                        AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedHead>(), true, NPC.Center, ModContent.GetInstance<GreedHead>().DisplayName.Value, false);
+                        AAModGlobalNPC.SpawnBossAtPosition(player, ModContent.NPCType<GreedHead>(), true, NPC.Center, ModContent.GetInstance<GreedHead>().DisplayName.Value, false);
                         NPC.active = false;
                         NPC.netUpdate = true;
                         break;
@@ -109,7 +109,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed
                         {
                             if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
-                                AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<GreedHead>(), true, NPC.Center, ModContent.GetInstance<GreedHead>().DisplayName.Value, false);
+                                AAModGlobalNPC.SpawnBossAtPosition(player, ModContent.NPCType<GreedHead>(), true, NPC.Center, ModContent.GetInstance<GreedHead>().DisplayName.Value, false);
                                 BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Greed.Spawn.5"), Color.Goldenrod);
                             }
                             NPC.active = false;
