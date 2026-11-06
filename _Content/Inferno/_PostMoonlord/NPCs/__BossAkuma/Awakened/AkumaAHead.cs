@@ -227,7 +227,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                                 if (Main.netMode != NetmodeID.MultiplayerClient)
                                 {
                                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.WaterHit", NPC, 1, 60, false, new NearbyBossText(400, 1000));
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.WaterHit", NPC, 1, 60, false, new NearbyBossText(400, 1800));
                                     else
                                         ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.WaterHit"), Color.DeepSkyBlue);
                                 }
@@ -479,7 +479,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                                 {
                                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                                     {
-                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.AsheAssist", NPC, 2, 30, false, new NearbyBossText(600, 1600));
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.AsheAssist", NPC, 2, 30, false, new NearbyBossText(600, 1800));
                                         WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.AsheAssist", player, 3, 30, false, new NearbyBossText(400, 1000));
                                     }
                                     else
@@ -493,7 +493,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                                     {
                                         WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.AsheAssist", player, 0, 30, false, new NearbyBossText(400, 1000));
-                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.AsheAssist", NPC, 1, 30, false, new NearbyBossText(600, 1600));
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.AsheAssist", NPC, 1, 30, false, new NearbyBossText(600, 1800));
                                     }
                                     else
                                     {
@@ -534,7 +534,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Despawn", NPC, 2, 60, false, new NearbyBossText(400, 1000));
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Despawn", NPC, 2, 60, false, new NearbyBossText(400, 1800));
                     else
                         ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.DayReset"), Color.DeepSkyBlue);
                 }
@@ -549,7 +549,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
                         if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Despawn", NPC, 3, 60, false, new NearbyBossText(400, 1000));
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Despawn", NPC, 3, 60, false, new NearbyBossText(400, 1800));
                         else
                             ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.Kill"), new Color(180, 41, 32));
                     }
@@ -668,7 +668,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Defeat", NPC.Center, NPC.BeenKilled(true) ? 2 : 1, 30, false, new BossText());
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Defeat", NPC.Center, NPC.BeenKilled(true) ? 1 : 1, 30, false, new BossText());
                     else if(NPC.BeenKilled(true))
                         ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.Defeat.Repeat"), Color.DeepSkyBlue);
                     else
