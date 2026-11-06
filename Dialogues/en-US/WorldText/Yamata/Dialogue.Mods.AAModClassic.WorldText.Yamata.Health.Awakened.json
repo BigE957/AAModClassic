@@ -1,0 +1,57 @@
+{
+  "Revision": 1,
+  "DefaultColor": "921e44",
+  "DefaultSpeaker": "Yamata",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "[Shaking(1.5):YOU'RE STILL FIGHTING?! WHAT THE HELL IS WRONG WITH YOU?!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1.5):I'VE HAD IT UP TO HERE WITH YOUR SHENANIGANS!!!] [Shaking(2):EAT VENOM YOU LITTLE HELLSPAWN!!!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(2):[Scale(1.25):STOP IT STOP IT STOP IT!!!]] [Shaking(3):[Scale(1.5):I'M NOT GONNA LET YOU WIN!!!]]"
+      ]
+    },
+    {
+      "Lines": [
+        "You're an annoying little bugger, you know!"
+      ]
+    },
+    {
+      "Lines": [
+        "[Scale(1.25):[Shaking(2):DIE! WHY WON'T YOU JUST DIE ALREADY?!]]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(2):[Scale(1.25):STOP IT!!!]] [Shaking(3):[Scale(1.5):I'M NOT GONNA LOSE AGAIN!!!]]"
+      ]
+    }
+  ]
+}

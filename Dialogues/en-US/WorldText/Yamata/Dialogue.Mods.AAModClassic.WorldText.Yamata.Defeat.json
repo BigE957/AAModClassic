@@ -1,6 +1,6 @@
 {
   "Revision": 1,
-  "DefaultColor": "55566e",
+  "DefaultColor": "921e44",
   "DefaultSpeaker": "Yamata",
   "AlignType": 1,
   "TextDelay": 2,
@@ -24,8 +24,26 @@
   },
   "Pages": [
     {
+      "BaseColor": "55566e",
       "Lines": [
         "[Shaking(1.5):HAH!] I went easy on ya! Come back when you're actually good and we can have a real fight!"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1.5):NO...!][Pause(1.5)] [Shaking(1.75):IMPOSSIBLE!][Pause(1.5)] [Shaking(2):EVEN IN MY AWAKENED FORM?!][Pause(1.5)] [Shaking(2.5):YOU MUST HAVE CHEATED!][Pause(1.5)]",
+        "[Shaking(3):GYAAAAAAH..!] [Shaking(1):FINE!] TAKE YOUR LOOT! [Shaking(1):I'M OUTTA HERE..!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1.5):NOOOOOOOOOOOOOO!!! YOU LITTLE BRAT!!! I ALMOST HAD YOU THIS TIME!!!]",
+        "[Shaking(1.5):FINE], take your stuff, [Shaking(1):See if I care!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1.5):HAH!] Nice try! Come back in Expert mode when you don't have to cheat to beat me! All your loot is [Shaking(1.5):MINE] still!"
       ]
     }
   ]

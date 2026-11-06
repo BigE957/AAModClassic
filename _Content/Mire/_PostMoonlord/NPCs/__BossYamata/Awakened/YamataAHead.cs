@@ -340,5 +340,10 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                 }
             }
         }
+
+        public override void HitEffect(NPC.HitInfo hit)
+        {
+            Body.CheckHurtDialogue();
+        }
     }
 }

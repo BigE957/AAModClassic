@@ -33,6 +33,18 @@
       "Lines": [
         "[Shaking(1):Running away?!] [Shaking(1.5):I DON'T THINK SO!]"
       ]
+    },
+    {
+      "BaseColor": "921e44",
+      "Lines": [
+        "[Shaking(1.5):THE SUN DOESN'T SHINE IN THE DEPTHS!!! [Wavy(3, 4):NYEHEHEHEHEHEHEHEH!!!]]"
+      ]
+    },
+    {
+      "BaseColor": "921e44",
+      "Lines": [
+        "[Shaking(1.5):THERE IS NO ESCAPE FROM THE ABYSS!]"
+      ]
     }
   ]
 }
