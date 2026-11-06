@@ -1,0 +1,69 @@
+{
+  "Revision": 1,
+  "DefaultColor": "55566e",
+  "DefaultSpeaker": "Yamata",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "[Shaking(1.5):NO! I DON'T WANNA FIGHT NOW! I NEED MY BEAUTY SLEEP! COME BACK AT NIGHT!]"
+      ]
+    },
+    {
+      "Lines": [
+        "Hey [Shaking(1.25):Dumbo!] Mire is that way!"
+      ]
+    },
+    {
+      "Lines": [
+        "You [Shaking(1.25):NEED] to use that sigil on the altar at the center of the mire! [Wavy(3, 4):Trust me, nothing bad will happen!]"
+      ]
+    },
+    {
+      "Lines": [
+        "WHAT THE HELL ARE YOU DOING?! I'M ALREADY HERE!!!"
+      ]
+    },
+    {
+      "BaseColor": "FFFFFF",
+      "Lines": [
+        "WHAT THE HELL ARE YOU DOING?! I'M ALREADY HERE!!!"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1):You] [Shaking(1.5):DARE] [Shaking(1):enter my territory, Terrarian?!] [Wavy(3, 4):NYEHEHEHEHEH..!] [Shaking(1):Big mistake..!]"
+      ]
+    },
+    {
+      "Lines": [
+        "Back for more..?! [Shaking(1):This time you won't be so lucky you little whelp..!]"
+      ]
+    },
+    {
+      "BaseColor": "FFFFFF",
+      "Lines": [
+        "Yeah, yeah I get it, my first phase is obnoxious. [Shaking(1):Let's just get this over with..!]"
+      ]
+    }
+  ]
+}

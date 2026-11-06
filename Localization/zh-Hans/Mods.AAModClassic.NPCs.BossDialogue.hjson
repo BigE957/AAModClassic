@@ -410,6 +410,7 @@ Yamata: {
 	}
 
 	Despawn.Daytime: 嘶嘶嘶嘶嘶嘶嘶嘶嘶！！！太太太太太阳阳阳阳阳！！！我撤了！
+	// Kill: NYEHEHEHEHEHEHEH..! And don't come back!
 
 	Transition: {
 		1: 呀哈哈哈哈哈哈哈哈哈哈~！
@@ -440,7 +441,6 @@ Yamata: {
 		}
 
 		Heads.Killed: 好疼！！！
-		Kill: 啊哈哈哈哈哈哈哈哈哈..！别再回来了！
 
 		Defeat: {
 			First: 不…！不可能！即便是在我清醒的时候？！你一定是作弊了！呃啊..！好吧！拿上你的战利品！我要走了..！

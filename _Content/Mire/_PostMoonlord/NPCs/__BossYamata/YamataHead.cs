@@ -2,6 +2,9 @@ using AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened;
 using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -302,7 +305,15 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 if (!QuoteSaid && sayQuote)
                 {
                     laughTimer = 120;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(!Quote1 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidSpit.First") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidSpit.Repeat"), AAColor.YamataDialogue);
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            ChatUtils.Chat(!Quote1 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidSpit.First") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidSpit.Repeat"), AAColor.YamataDialogue);
+                        else if (!Quote3)
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Attacks", NPC, 0, 30, false, new NearbyBossText(600, 800));
+                        else
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Attacks", NPC, 1, 30, false, new NearbyBossText(600, 800));
+                    }
                     QuoteSaid = true;
                     Quote1 = true;
                 }
@@ -313,9 +324,17 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 if (!QuoteSaid && sayQuote)
                 {
                     laughTimer = 120;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(!Quote3 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidStorm.First") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidStorm.Repeat"), AAColor.YamataDialogue);
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            ChatUtils.Chat(!Quote2 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidStorm.First") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidStorm.Repeat"), AAColor.YamataDialogue);
+                        else if (!Quote3)
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Attacks", NPC, 2, 30, false, new NearbyBossText(600, 800));
+                        else
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Attacks", NPC, 3, 30, false, new NearbyBossText(600, 800));
+                    }
                     QuoteSaid = true;
-                    Quote3 = true;
+                    Quote2 = true;
                 }
                 BaseAI.ShootPeriodic(NPC, new Vector2(player.position.X, -4f), player.width, player.height, ModContent.ProjectileType<YamataHead_AbyssalStorm>(), ref internalAI[3], 40, projDamage, 10f, true, new Vector2(20f, 15f));
             }
@@ -324,7 +343,15 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 if (!QuoteSaid && sayQuote)
                 {
                     laughTimer = 120;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(!Quote3 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidBlast.First") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidBlast.Repeat"), AAColor.YamataDialogue);
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            ChatUtils.Chat(!Quote3 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidBlast.First") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.AcidBlast.Repeat"), AAColor.YamataDialogue);
+                        else if (!Quote3)
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Attacks", NPC, 4, 30, false, new NearbyBossText(600, 800));
+                        else
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Attacks", NPC, 5, 30, false, new NearbyBossText(600, 800));
+                    }
                     QuoteSaid = true;
                     Quote3 = true;
                 }
@@ -335,7 +362,15 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 if (!QuoteSaid && sayQuote)
                 {
                     laughTimer = 120;
-                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(!Quote4 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.Bite.First." + (player.Male ? "Male" : "Female")) : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.Bite.Repeat"), AAColor.YamataDialogue);
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            ChatUtils.Chat(!Quote4 ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.Bite.First." + (player.Male ? "Male" : "Female")) : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Heads.Attacks.Bite.Repeat"), AAColor.YamataDialogue);
+                        else if (!Quote3)
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Attacks", NPC, 6, 30, false, new NearbyBossText(600, 800));
+                        else
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Attacks", NPC, 7, 30, false, new NearbyBossText(600, 800));
+                    }
                     QuoteSaid = true;
                     Quote4 = true;
                 }
@@ -417,6 +452,11 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             {
                 projectile.damage = (int)(projectile.damage * .01f);
             }
+        }
+
+        public override void HitEffect(NPC.HitInfo hit)
+        {
+            (Body.ModNPC as YamataBody).CheckHurtDialogue();
         }
 
         public override void BossHeadRotation(ref float rotation)

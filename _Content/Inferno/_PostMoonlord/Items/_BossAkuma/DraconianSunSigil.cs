@@ -87,11 +87,20 @@ Non-Consumable"); */
 
             bool anyActiveAkuma = false;
             bool anyBlockingEnemy = false;
+            bool isAwakened = false;
             foreach (NPC npc in Main.ActiveNPCs)
             {
-                if (npc.type == ModContent.NPCType<AkumaHead>() || npc.type == ModContent.NPCType<AkumaAHead>())
+                if (npc.type == ModContent.NPCType<AkumaAHead>())
                 {
                     anyActiveAkuma = true;
+                    isAwakened = true;
+                    break;
+                }
+
+                if (npc.type == ModContent.NPCType<AkumaHead>())
+                {
+                    anyActiveAkuma = true;
+                    isAwakened = false;
                     break;
                 }
 
@@ -106,12 +115,13 @@ Non-Consumable"); */
                 if (!Main.dedServ && player.whoAmI == Main.myPlayer)
                 {
                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                        WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Akuma.Spawn", Main.LocalPlayer.Center, 5, 60, false, new BossText());
+                        WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Akuma.Spawn", Main.LocalPlayer.Center, isAwakened ? 1 : 5, 60, false, new BossText());
                     else
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianSigilFalse"), new Color(180, 41, 32), false);
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianRuneFalse2"), isAwakened ? Color.DeepSkyBlue : new Color(180, 41, 32), false);
                 }
                 return false;
             }
+
             if (anyBlockingEnemy)
                 return false;
 

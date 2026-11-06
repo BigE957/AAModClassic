@@ -9,7 +9,6 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-//using AAModClassic.NPCs.Bosses.Infinity;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;

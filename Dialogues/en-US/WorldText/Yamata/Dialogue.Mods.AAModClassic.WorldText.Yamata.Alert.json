@@ -1,0 +1,38 @@
+{
+  "Revision": 1,
+  "DefaultColor": "55566e",
+  "DefaultSpeaker": "Yamata",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "Oh and don't even think about flying! My ego is so massive it has a gravitational pull all of it's own!",
+        "[Wavy(3, 4):NYEHEHEHEHEHEHEHEHEHEHEHEH!!!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1):Running away?!] [Shaking(1.5):I DON'T THINK SO!]"
+      ]
+    }
+  ]
+}

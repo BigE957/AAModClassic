@@ -16,10 +16,12 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
         private const float BaseYOffset = 54f;
         private const float StackSmoothing = 0.15f;
 
-        private static int nextId;
+        internal static int nextId;
         private readonly int spawnId = nextId++;
+        public int SpawnID => spawnId;
 
         private float lastHeight;
+        public float LastHeight => lastHeight;
         private float stackCurrent;
         private bool initialized;
 
@@ -29,8 +31,12 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
 
             float stackTarget = 0f;
             foreach (var d in WorldTextSystem.GetAllActiveText())
+            {
                 if (d.Value.ui.DisplayEffects is BossText other && other.spawnId < spawnId)
                     stackTarget += other.lastHeight + Gap;
+                else if (d.Value.ui.DisplayEffects is NearbyBossText nBossText && nBossText.SpawnID < spawnId)
+                    stackTarget += nBossText.LastHeight + Gap;
+            }
 
             if (!initialized)
             {

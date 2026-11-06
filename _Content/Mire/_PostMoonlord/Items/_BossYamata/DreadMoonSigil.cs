@@ -8,11 +8,13 @@ using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._CrossMod;
 using AAModClassic.Base;
 using AAModClassic.Globals;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
-using Terraria.Chat;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -57,15 +59,25 @@ Non-Consumable"); */
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            SpawnBoss(player, ModContent.NPCType<YamataBody>(), true, new Vector2(player.Center.X, player.Center.Y - 100), Language.GetTextValue("Mods.AAModClassic.Common.Yamata"));
-            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/YamataRoar"), player.position);
-            if (!AAWorld.downedYamata)
+            Vector2 spawnPos = new(player.Center.X, player.Center.Y - 100);
+            SpawnBoss(player, ModContent.NPCType<YamataBody>(), true, spawnPos, Language.GetTextValue("Mods.AAModClassic.Common.Yamata"));
+            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/YamataRoar"), player.Center);
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadSigilTrue1"), AAColor.YamataDialogue);
-            }
-            if (AAWorld.downedYamata)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadSigilTrue2"), AAColor.YamataDialogue);
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                {
+                    if (!AAWorld.downedYamata)
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Spawn", player.Center, 5, 30, false, new BossText());
+                    else
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Spawn", player.Center, 6, 30, false, new BossText());
+                }
+                else
+                {
+                    if (!AAWorld.downedYamata)
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadSigilTrue1"), AAColor.YamataDialogue);
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadSigilTrue2"), AAColor.YamataDialogue);
+                }
             }
 
             return true;
@@ -75,39 +87,81 @@ Non-Consumable"); */
         {
             if (Main.dayTime)
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadTimeFalse"), AAColor.YamataDialogue, false);
+                if (!Main.dedServ && player.whoAmI == Main.myPlayer)
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Yamata.Spawn", Main.LocalPlayer.Center, 0, 30, false, new BossText());
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadTimeFalse"), AAColor.YamataDialogue, false);
+                }
                 return false;
             }
-            if (player.ZoneAnyMire())
+
+            if (!player.ZoneAnyMire())
             {
-                if (!ContentReplacementSystem.NeedToReplaceContent && !AAWorld.downedYamata && !player.GetModPlayer<ZAAPlayer>().ZoneRisingMoonLake)
+                if (!Main.dedServ && player.whoAmI == Main.myPlayer)
                 {
-                    if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadSigilMireFalse"), AAColor.YamataDialogue, false);
-                    return false;
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Yamata.Spawn", Main.LocalPlayer.Center, 1, 30, false, new BossText());
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadMireFalse"), AAColor.YamataDialogue, false);
                 }
-                if (NPC.AnyNPCs(ModContent.NPCType<YamataBody>()))
-                {
-                    if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadFalse2"), AAColor.YamataDialogue, false);
-                    return false;
-                }
-                if (NPC.AnyNPCs(ModContent.NPCType<YamataABody>()))
-                {
-                    if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadFalse2"), new Color(146, 30, 68), false);
-                    return false;
-                }
-                if (NPC.AnyNPCs(ModContent.NPCType<ShenDoragon>()) || NPC.AnyNPCs(ModContent.NPCType<ShenDoragonA>()) || NPC.AnyNPCs(ModContent.NPCType<ShenDoragonSpawn>()) ||
-                    NPC.AnyNPCs(ModContent.NPCType<ShenDoragonTransition>()) || NPC.AnyNPCs(ModContent.NPCType<ShenDoragonDeath>()) || NPC.AnyNPCs(ModContent.NPCType<ShenDoragonDefeat>()))
-                {
-                    return false;
-                }
-                if (NPC.AnyNPCs(ModContent.NPCType<YamataTransition>()))
-                {
-                    return false;
-                }
-                return true;
+                return false;
             }
-            if (player.whoAmI == Main.myPlayer) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadMireFalse"), AAColor.YamataDialogue, false);
-            return false;
+
+            if (!ContentReplacementSystem.NeedToReplaceContent && !AAWorld.downedYamata && !player.GetModPlayer<ZAAPlayer>().ZoneRisingMoonLake)
+            {
+                if (!Main.dedServ && player.whoAmI == Main.myPlayer)
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Yamata.Spawn", Main.LocalPlayer.Center, 2, 30, false, new BossText());
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadSigilMireFalse"), AAColor.YamataDialogue, false);
+                }
+                return false;
+            }
+
+            bool anyActiveYamata = false;
+            bool anyBlockingEnemy = false;
+            bool isAwakened = false;
+            foreach (NPC npc in Main.ActiveNPCs)
+            {
+                if (npc.type == ModContent.NPCType<YamataABody>())
+                {
+                    anyActiveYamata = true;
+                    isAwakened = true;
+                    break;
+                }
+
+                if (npc.type == ModContent.NPCType<YamataBody>())
+                {
+                    anyActiveYamata = true;
+                    isAwakened = false;
+                    break;
+                }
+
+                if (npc.type == ModContent.NPCType<ShenDoragon>() || npc.type == ModContent.NPCType<ShenDoragonA>() ||
+                    npc.type == ModContent.NPCType<ShenDoragonSpawn>() || npc.type == ModContent.NPCType<ShenDoragonTransition>() || npc.type == ModContent.NPCType<ShenDoragonDeath>() || npc.type == ModContent.NPCType<ShenDoragonDefeat>() ||
+                    npc.type == ModContent.NPCType<YamataTransition>())
+                    anyBlockingEnemy = true;
+            }
+
+            if (anyActiveYamata)
+            {
+                if (!Main.dedServ && player.whoAmI == Main.myPlayer)
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Yamata.Spawn", Main.LocalPlayer.Center, isAwakened ? 4 : 3, 30, false, new BossText());
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DreadFalse2"), isAwakened ? new Color(146, 30, 68) : AAColor.YamataDialogue, false);
+                }
+                return false;
+            }
+
+            if (anyBlockingEnemy)
+                return false;
+
+            return true;
         }
 
         public static void SpawnBoss(Player player, int bossType, bool spawnMessage = true, Vector2 npcCenter = default, string overrideDisplayName = "", bool namePlural = false)
@@ -116,7 +170,8 @@ Non-Consumable"); */
                 npcCenter = player.Center;
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                if (NPC.AnyNPCs(bossType)) { return; }
+                if (NPC.AnyNPCs(bossType))
+                    return;
                 int npcID = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)npcCenter.X, (int)npcCenter.Y, bossType, 0);
                 Main.npc[npcID].Center = npcCenter;
                 Main.npc[npcID].netUpdate2 = true;
@@ -127,24 +182,11 @@ Non-Consumable"); */
                         npcName = Main.npc[npcID].ModNPC.DisplayName.ToString();
                     if (namePlural)
                     {
-                        if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(npcName + " " + Language.GetTextValue("Mods.AAModClassic.Common.BosshasAwoken"), 175, 75, 255, false); }
-                        else
-                            if (Main.netMode == NetmodeID.Server)
-                            {
-                                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(npcName + " " + Language.GetTextValue("Mods.AAModClassic.Common.BosshasAwoken")), new Color(175, 75, 255), -1);
-                            }
+                        BaseUtility.Chat(npcName + " " + Language.GetTextValue("Mods.AAModClassic.Common.BosshasAwoken"), 175, 75, 255, false);
                     }
                     else
                     {
-                        if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Announcement.HasAwoken", npcName), 175, 75, 255, false); }
-                        else
-                            if (Main.netMode == NetmodeID.Server)
-                            {
-                                ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Announcement.HasAwoken", new object[]
-                                {
-                            NetworkText.FromLiteral(npcName)
-                                }), new Color(175, 75, 255), -1);
-                            }
+                        BaseUtility.Chat(Language.GetTextValue("Announcement.HasAwoken", npcName), 175, 75, 255, false);
                     }
                 }
             }

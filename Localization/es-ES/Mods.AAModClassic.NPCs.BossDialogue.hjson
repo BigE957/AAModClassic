@@ -410,6 +410,7 @@ Yamata: {
 	}
 
 	Despawn.Daytime: ¡¡¡HISSSSSSSSSSSSSSS!!! ¡EL SOOOOOOOOOL! ¡ME VOY!
+	// Kill: NYEHEHEHEHEHEHEH..! And don't come back!
 
 	Transition: {
 		1: ¡NYEHEHEHEHEHEHEHEH~!
@@ -440,7 +441,6 @@ Yamata: {
 		}
 
 		Heads.Killed: ¡¡¡AY!!!
-		Kill: ¡NYEHEHEHEHEHEHEH..! ¡Y no vuelvas!
 
 		Defeat: {
 			First: ¡NO...! ¡IMPOSIBLE! ¡INCLUSO EN MI FORMA DESPERTADA! ¡DEBES HABER HECHO TRAMPA! ¡GYAAAAAAH..! ¡BIEN! ¡TOMA TU BOTÍN! ¡ME VOY DE AQUÍ..!

@@ -410,6 +410,7 @@ Yamata: {
 	}
 
 	Despawn.Daytime: HISSSSSSSSSSSSSSS!!! THE SUNNNNNNNNNN! I'M OUT!
+	Kill: NYEHEHEHEHEHEHEH..! And don't come back!
 
 	Transition: {
 		1: NYEHEHEHEHEHEHEHEH~!
@@ -440,7 +441,6 @@ Yamata: {
 		}
 
 		Heads.Killed: OWIE!!!
-		Kill: NYEHEHEHEHEHEHEH..! And don't come back!
 
 		Defeat: {
 			First: NO...! IMPOSSIBLE! EVEN IN MY AWAKENED FORM?! YOU MUST HAVE CHEATED! GYAAAAAAH..! FINE! TAKE YOUR LOOT! I'M OUTTA HERE..!
