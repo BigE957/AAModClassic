@@ -27,6 +27,12 @@
       "Lines": [
         "[Shaking(1.5):Water?!] [Shaking(2):ACK..! I CAN'T BREATHE!]"
       ]
+    },
+    {
+      "BaseColor": "00bfff",
+      "Lines": [
+        "[Shaking(1.5):Water?!] [Shaking(2):ACK..! I CAN'T BREATHE!]"
+      ]
     }
   ]
 }

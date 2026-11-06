@@ -32,6 +32,18 @@
       "Lines": [
         "I thought you Terrarians put up more of a fight. Guess not."
       ]
+    },
+    {
+      "BaseColor": "00bfff",
+      "Lines": [
+        "Nighttime won't save you from me this time, kid! [Shaking(1):The day is born anew!]"
+      ]
+    },
+    {
+      "BaseColor": "00bfff",
+      "Lines": [
+        "You just got burned, kid."
+      ]
     }
   ]
 }

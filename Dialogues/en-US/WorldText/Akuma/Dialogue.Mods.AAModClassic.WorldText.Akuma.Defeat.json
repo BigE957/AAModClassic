@@ -1,6 +1,6 @@
 {
   "Revision": 1,
-  "DefaultColor": "b42920",
+  "DefaultColor": "00bfff",
   "DefaultSpeaker": "Akuma",
   "AlignType": 1,
   "TextDelay": 2,
@@ -24,6 +24,7 @@
   },
   "Pages": [
     {
+      "BaseColor": "b42920",
       "Lines": [
         "Hmpf... You’re pretty good kid, but not good enough. Come back once you’ve gotten a bit better."
       ]
