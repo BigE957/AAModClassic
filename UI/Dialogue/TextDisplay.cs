@@ -345,7 +345,11 @@ namespace AAModClassic.UI.Dialogue
                                     if (float.TryParse(Param, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out float color))
                                         Params.Add(color);
                                     else
+                                    {
+                                        if (Param[0] == '#')
+                                            Param = Param.Remove(0, 1);
                                         ColorParams.Add(Param);
+                                    }
                                 }
                                 else if (ID == "BorderColors")
                                 {

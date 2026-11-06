@@ -1,0 +1,55 @@
+{
+  "Revision": 1,
+  "DefaultColor": "55566e",
+  "DefaultSpeaker": "Yamata",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "[Wavy(3, 4):NYEHEHEHEHEHEHEHEH~!][Pause(3.5)] "
+      ]
+    },
+    {
+      "Lines": [
+        "You thought I was [Shaking(1.5):DONE..?!][Pause(5.25)] "
+      ]
+    },
+    {
+      "Lines": [
+        "[Colors(2, 0.5, #55566e, #921e44):[Shaking(1.5):HAH! AS IF!]][Pause(2.25)] "
+      ]
+    },
+    {
+      "BaseColor": "921e44",
+      "Lines": [
+        "[Wavy(1, 6):The abyss hungers...][Pause(5)] "
+      ]
+    },
+    {
+      "BaseColor": "921e44",
+      "Lines": [
+        "[Scale(1.25):[Shaking(2):AND IT'S GOT 7 HEADS!]]",
+        "[Scale(1.25):[Shaking(2):[Wavy(3, 4):NYEHEHEHEHEHEHEHEHEHEHEHEH!!!]]]"
+      ]
+    }
+  ]
+}

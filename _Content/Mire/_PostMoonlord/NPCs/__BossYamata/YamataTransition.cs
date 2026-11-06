@@ -3,6 +3,9 @@ using AAModClassic.Base;
 using AAModClassic.Effects;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -98,11 +101,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                         NPC.scale = 1;
                     }
                 }
-                if (NPC.ai[0] >= 375) //after he says 'nyeh' on the server, change music on the client
-                {
-                    Music = MusicManagementSystem.MusicSlots["Yamata_Awakened"];
-                    NPC.boss = true;
-                }
+
                 if (NPC.ai[0] >= 900) //after he says 'as if' on the server, transition color
                 {
                     RVal += 5;
@@ -120,87 +119,171 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
 
             NPC.ai[0]++;
 
-            if (NPC.ai[0] == 375)
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.1"), AAColor.YamataDialogue);
-                NPC.netUpdate = true;
-            }
-            else if (NPC.ai[0] == 650)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.2"), AAColor.YamataDialogue);
-            }
-            else if (NPC.ai[0] == 900)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.3"), AAColor.YamataDialogue);
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.PlayerStatus"), Color.PaleVioletRed);
-                NPC.netUpdate = true;
-            }
-            else if (NPC.ai[0] == 1100)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.4"), new Color(146, 30, 68));
-            }
-            else if (NPC.ai[0] >= 1455 && !NPC.AnyNPCs(ModContent.NPCType<YamataABody>()))
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
+                //Main.NewText(NPC.ai[0]);
+                switch (NPC.ai[0])
                 {
-                    AAModGlobalNPC.SpawnBossAtPosition(player, ModContent.NPCType<YamataABody>(), false, NPC.Center, "", false);
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.AwakenStatus"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.5"), new Color(146, 30, 68));
-                    int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
-                    Main.projectile[b].Center = NPC.Center;
-                }
+                    case 180:
+                        Music = MusicManagementSystem.MusicSlots["Yamata_Awakened"];
+                        NPC.boss = true;
+                        break;
+                    case 390:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Transition", NPC, uptime: 30, effects: new NearbyBossText(600, 800));
+                        break;
+                    case 900:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.PlayerStatus"), Color.PaleVioletRed);
+                        break;
+                    case 1750:
+                        if (!NPC.AnyNPCs(ModContent.NPCType<YamataABody>()))
+                        {
+                            if (Main.netMode != NetmodeID.MultiplayerClient)
+                            {
+                                AAModGlobalNPC.SpawnBossAtPosition(player, ModContent.NPCType<YamataABody>(), false, NPC.Center, "", false);
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.AwakenStatus"), Color.Magenta);
+                                int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
+                                Main.projectile[b].Center = NPC.Center;
+                            }
 
-                SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/YamataRoar"), NPC.position);
-                Vector2 position = NPC.Center + Vector2.One * -20f;
-                int num84 = 40;
-                int height3 = num84;
-                for (int num85 = 0; num85 < 3; num85++)
-                {
-                    int num86 = Dust.NewDust(position, num84, height3, DustID.Granite, 0f, 0f, 100, default, 1.5f);
-                    Main.dust[num86].position = NPC.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f;
-                }
-                for (int num87 = 0; num87 < 15; num87++)
-                {
-                    int num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 200, default, 3.7f);
-                    Main.dust[num88].position = NPC.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f;
-                    Main.dust[num88].noGravity = true;
-                    Main.dust[num88].noLight = true;
-                    Main.dust[num88].velocity *= 3f;
-                    Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * (2f + Main.rand.NextFloat() * 4f);
-                    num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 100, default, 1.5f);
-                    Main.dust[num88].position = NPC.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f;
-                    Main.dust[num88].velocity *= 2f;
-                    Main.dust[num88].noGravity = true;
-                    Main.dust[num88].fadeIn = 1f;
-                    Main.dust[num88].color = Color.Crimson * 0.5f;
-                    Main.dust[num88].noLight = true;
-                    Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * 8f;
-                }
-                for (int num89 = 0; num89 < 10; num89++)
-                {
-                    int num90 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 0, default, 2.7f);
-                    Main.dust[num90].position = NPC.Center + Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f;
-                    Main.dust[num90].noGravity = true;
-                    Main.dust[num90].noLight = true;
-                    Main.dust[num90].velocity *= 3f;
-                    Main.dust[num90].velocity += NPC.DirectionTo(Main.dust[num90].position) * 2f;
-                }
-                for (int num91 = 0; num91 < 30; num91++)
-                {
-                    int num92 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 0, default, 1.5f);
-                    Main.dust[num92].position = NPC.Center + Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f;
-                    Main.dust[num92].noGravity = true;
-                    Main.dust[num92].velocity *= 3f;
-                    Main.dust[num92].velocity += NPC.DirectionTo(Main.dust[num92].position) * 3f;
-                }
+                            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/YamataRoar"), NPC.position);
+                            Vector2 position = NPC.Center + Vector2.One * -20f;
+                            int num84 = 40;
+                            int height3 = num84;
+                            for (int num85 = 0; num85 < 3; num85++)
+                            {
+                                int num86 = Dust.NewDust(position, num84, height3, DustID.Granite, 0f, 0f, 100, default, 1.5f);
+                                Main.dust[num86].position = NPC.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f;
+                            }
+                            for (int num87 = 0; num87 < 15; num87++)
+                            {
+                                int num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 200, default, 3.7f);
+                                Main.dust[num88].position = NPC.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f;
+                                Main.dust[num88].noGravity = true;
+                                Main.dust[num88].noLight = true;
+                                Main.dust[num88].velocity *= 3f;
+                                Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * (2f + Main.rand.NextFloat() * 4f);
+                                num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 100, default, 1.5f);
+                                Main.dust[num88].position = NPC.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f;
+                                Main.dust[num88].velocity *= 2f;
+                                Main.dust[num88].noGravity = true;
+                                Main.dust[num88].fadeIn = 1f;
+                                Main.dust[num88].color = Color.Crimson * 0.5f;
+                                Main.dust[num88].noLight = true;
+                                Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * 8f;
+                            }
+                            for (int num89 = 0; num89 < 10; num89++)
+                            {
+                                int num90 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 0, default, 2.7f);
+                                Main.dust[num90].position = NPC.Center + Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f;
+                                Main.dust[num90].noGravity = true;
+                                Main.dust[num90].noLight = true;
+                                Main.dust[num90].velocity *= 3f;
+                                Main.dust[num90].velocity += NPC.DirectionTo(Main.dust[num90].position) * 2f;
+                            }
+                            for (int num91 = 0; num91 < 30; num91++)
+                            {
+                                int num92 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 0, default, 1.5f);
+                                Main.dust[num92].position = NPC.Center + Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f;
+                                Main.dust[num92].noGravity = true;
+                                Main.dust[num92].velocity *= 3f;
+                                Main.dust[num92].velocity += NPC.DirectionTo(Main.dust[num92].position) * 3f;
+                            }
 
-                NPC.netUpdate = true;
-                NPC.active = false;
+                            NPC.netUpdate = true;
+                            NPC.active = false;
+                        }
+                        break;
+                }
+            }
+            else
+            {
+                switch (NPC.ai[0])
+                {
+                    case 375:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.1"), AAColor.YamataDialogue);
+
+                        Music = MusicManagementSystem.MusicSlots["Yamata_Awakened"];
+                        NPC.boss = true;
+                        break;
+                    case 650:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.2"), AAColor.YamataDialogue);
+                        break;
+                    case 900:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.3"), AAColor.YamataDialogue);
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.PlayerStatus"), Color.PaleVioletRed);
+                        NPC.netUpdate = true;
+                        break;
+                    case 1100:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.4"), new Color(146, 30, 68));
+                        break;
+                    case 1455:
+                        if (!NPC.AnyNPCs(ModContent.NPCType<YamataABody>()))
+                        {
+                            if (Main.netMode != NetmodeID.MultiplayerClient)
+                            {
+                                AAModGlobalNPC.SpawnBossAtPosition(player, ModContent.NPCType<YamataABody>(), false, NPC.Center, "", false);
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.AwakenStatus"), Color.Magenta);
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Transition.5"), new Color(146, 30, 68));
+                                int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
+                                Main.projectile[b].Center = NPC.Center;
+                            }
+
+                            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/YamataRoar"), NPC.position);
+                            Vector2 position = NPC.Center + Vector2.One * -20f;
+                            int num84 = 40;
+                            int height3 = num84;
+                            for (int num85 = 0; num85 < 3; num85++)
+                            {
+                                int num86 = Dust.NewDust(position, num84, height3, DustID.Granite, 0f, 0f, 100, default, 1.5f);
+                                Main.dust[num86].position = NPC.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f;
+                            }
+                            for (int num87 = 0; num87 < 15; num87++)
+                            {
+                                int num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 200, default, 3.7f);
+                                Main.dust[num88].position = NPC.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f;
+                                Main.dust[num88].noGravity = true;
+                                Main.dust[num88].noLight = true;
+                                Main.dust[num88].velocity *= 3f;
+                                Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * (2f + Main.rand.NextFloat() * 4f);
+                                num88 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 100, default, 1.5f);
+                                Main.dust[num88].position = NPC.Center + Vector2.UnitY.RotatedByRandom(3.1415927410125732) * (float)Main.rand.NextDouble() * num84 / 2f;
+                                Main.dust[num88].velocity *= 2f;
+                                Main.dust[num88].noGravity = true;
+                                Main.dust[num88].fadeIn = 1f;
+                                Main.dust[num88].color = Color.Crimson * 0.5f;
+                                Main.dust[num88].noLight = true;
+                                Main.dust[num88].velocity += NPC.DirectionTo(Main.dust[num88].position) * 8f;
+                            }
+                            for (int num89 = 0; num89 < 10; num89++)
+                            {
+                                int num90 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 0, default, 2.7f);
+                                Main.dust[num90].position = NPC.Center + Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f;
+                                Main.dust[num90].noGravity = true;
+                                Main.dust[num90].noLight = true;
+                                Main.dust[num90].velocity *= 3f;
+                                Main.dust[num90].velocity += NPC.DirectionTo(Main.dust[num90].position) * 2f;
+                            }
+                            for (int num91 = 0; num91 < 30; num91++)
+                            {
+                                int num92 = Dust.NewDust(position, num84, height3, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 0, default, 1.5f);
+                                Main.dust[num92].position = NPC.Center + Vector2.UnitX.RotatedByRandom(3.1415927410125732).RotatedBy(NPC.velocity.ToRotation(), default) * num84 / 2f;
+                                Main.dust[num92].noGravity = true;
+                                Main.dust[num92].velocity *= 3f;
+                                Main.dust[num92].velocity += NPC.DirectionTo(Main.dust[num92].position) * 3f;
+                            }
+
+                            NPC.netUpdate = true;
+                            NPC.active = false;
+                        }
+                        break;
+                }
             }
         }
 
