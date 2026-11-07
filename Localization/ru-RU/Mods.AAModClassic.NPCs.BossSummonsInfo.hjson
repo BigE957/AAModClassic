@@ -72,7 +72,7 @@ SubzeroCrystalSnowZoneFalse: Внутри кристалла видно изоб
 SubzeroCrystalTrue: Морозная змея продолжает атаковать
 ToadstoolFalse: Жаборовик квакает?..
 ToadstoolTrue: Трюфельная жаба квакает
-ZeroFalse: 0ШИБКА. М0ДУЛЬ ЗИР0 УЖЕ АКТИВЕН. П0ВТ0РИТЕ П03ЖЕ.
+// ZeroUnitFalse: ERR0R. ZER0 UNIT ALREADY ACTIVE. PLEASE TRY AGAIN LATER.
 ZeroVoidZoneFalse: 0ШИБКА. PLAYER.GETM0DPLAYER<AAPLAYER>(M0D).Z0NEV0ID == FALSE. П0ВТ0РИТЕ П03ЖЕ.
 ZeroRuneTrue: ПР0Т0К0Л СУДН0Г0 ДНЯ АКТИВИР0ВАН ВРУЧНУЮ. СИСТЕМЫ УНИЧТ0ЖЕНИЯ НА П0ЛН0Й М0ЩН0СТИ
 ZeroTesseractTrue: М0ДУЛЬ ЗИР0 АКТИВИР0ВАН. ЗАПУСК ПР0Т0К0ЛА «ВЕСТНИК СМЕРТИ».

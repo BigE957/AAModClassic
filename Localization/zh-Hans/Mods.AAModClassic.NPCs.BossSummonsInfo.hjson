@@ -72,7 +72,7 @@ SubzeroCrystalSnowZoneFalse: 水晶中显露出临近冰原之景
 SubzeroCrystalTrue: 绝零冰蛇继续发起攻势
 ToadstoolFalse: 蟾蜍臭菇呱呱叫..？
 ToadstoolTrue: 松露蟾蜍呱呱叫
-ZeroFalse: 错 误. 零 单 元 已 经 激 活. 请 稍 后 重 新 尝 试.
+// ZeroUnitFalse: ERR0R. ZER0 UNIT ALREADY ACTIVE. PLEASE TRY AGAIN LATER.
 ZeroVoidZoneFalse: 错 误. 读 取 代 码 PLAYER.GETM0DPLAYER<AAPLAYER>(M0D).Z0NEV0ID == FALSE. 请 稍 后 重 新 尝 试.
 ZeroRuneTrue: 末 日 协 议 手 动 激 活. 终 结 系 统 全 功 率 充 能.
 ZeroTesseractTrue: 零 单 元 启 动. 加 载 末 日 执 行 层 协 议.

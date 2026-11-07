@@ -72,7 +72,7 @@ SubzeroCrystalSnowZoneFalse: El cristal muestra la imagen del bioma de hielo cer
 SubzeroCrystalTrue: La Serpiente Subcero sigue atacando.
 ToadstoolFalse: ¿El hongo venenoso croa...?
 ToadstoolTrue: El Sapo de Trufa croa.
-ZeroFalse: ERR0R. UNIDAD CER0 YA ACTIVA. P0R FAV0R, INTÉNTAL0 DE NUEV0 MÁS TARDE.
+// ZeroUnitFalse: ERR0R. ZER0 UNIT ALREADY ACTIVE. PLEASE TRY AGAIN LATER.
 ZeroVoidZoneFalse: ERR0R. PLAYER.GETM0DPLAYER<AAPLAYER>(M0D).Z0NEV0ID == FALSE. P0R FAV0R, INTÉNTAL0 DE NUEV0 MÁS TARDE.
 ZeroRuneTrue: PR0T0C0L0 DE AP0CALIPSIS ACTIVAD0 MANUALMENTE. SISTEMAS DE TERMINACIÓN A PLENA P0TENCIA.
 ZeroTesseractTrue: UNIDAD CER0 ACTIVADA. INICIAR PR0T0C0L0 DE M0RTÍFER0.

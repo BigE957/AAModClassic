@@ -58,7 +58,16 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
             Glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
             Trail = ModContent.Request<Texture2D>(Texture + "_Trail");
             NPCID.Sets.BossBestiaryPriority.Add(Type);
+
+            WorldTextSystem.TextDataSetup += AddUserPathToWorldText;
         }
+
+        private void AddUserPathToWorldText(string textKey, ref DialogueTextData data)
+        {
+            if (textKey == "Mods.AAModClassic.WorldText.Zero.Attacks")
+                data.Pages[3].Lines[0] = data.Pages[3].Lines[0].Replace("{0}", GetPathText());
+        }
+
         public override void SetDefaults()
         {
             NPC.lifeMax = 500000;
@@ -604,8 +613,15 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 
                         if (NPC.ai[1]++ == 100)
                         {
-                            if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.4"), Color.Red.R, Color.Red.G, Color.Red.B);
-                            if (ShootDir == new Vector2(0, 0)) ShootDir = NPC.DirectionTo(player.Center);
+                            if (Main.netMode != NetmodeID.MultiplayerClient)
+                            {
+                                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                    WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Zero.Attacks", NPC.Center, 5, 30, false, new NearbyBossText(600, 800));
+                                else
+                                    ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.4"), Color.Red);
+                            }
+                            if (ShootDir == new Vector2(0, 0)) 
+                                ShootDir = NPC.DirectionTo(player.Center);
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + 60f * ShootDir, 10f * ShootDir, ModContent.ProjectileType<ZeroA_EchoDeathray>(), 100, 3f, Main.myPlayer, 0, NPC.whoAmI);
                             NPC.ai[3] = 1f;
                         }
@@ -646,49 +662,50 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
             {
                 if (NPC.ai[2] == 10)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.1"), Color.Red.R, Color.Red.G, Color.Red.B);
-                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.2"), Color.Red.R, Color.Red.G, Color.Red.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        {
+                            WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Zero.Attacks", NPC.Center, 1, 30, false, new NearbyBossText(600, 800));
+                            WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Zero.Attacks", NPC.Center, 2, 30, false, new NearbyBossText(600, 800));
+                        }
+                        else
+                        {
+                            ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.1"), Color.Red);
+                            ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.2"), Color.Red);
+                        }
+                    }
                 }
                 if (NPC.ai[2] == 40)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        string path = Main.SavePath;
-                        if (ModContent.GetInstance<AAConfigClient>().HideIdentifiableInfo)
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Zero.Attacks", NPC.Center, 3, 30, false, new NearbyBossText(600, 800));
+                        else
                         {
-                            string name = "";
-                            string previous = "";
-                            bool onName = false;
-                            for (int i = 0; i < path.Length; i++)
-                            {
-                                if (path[i] == '\\')
-                                {
-                                    if (onName)
-                                    {
-                                        name = previous;
-                                        break;
-                                    }
-                                    if (previous.ToLower() == "users")
-                                        onName = true;
-                                    previous = "";
-                                }
-                                else
-                                    previous += path[i];
-                            }
-                            path = path.Replace(name, PlayerIdentityHelper.GetRealName());
+                            string path = GetPathText();
+                            string text = Language.GetText("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.3").WithFormatArgs(path.ToUpper().Replace(" ", "").Replace("O", "0")).Value;
+                            ChatUtils.Chat(text, Color.Red);
                         }
-                        ChatUtils.Chat(Language.GetText("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Self-Organization.3." + (Oblivion.IsPlayerStreaming() ? "Streaming" : "Normal")).WithFormatArgs(path.ToUpper().Replace(" ", "").Replace("O", "0")).Value, Color.Red.R, Color.Red.G, Color.Red.B);
                     }
                 }
                 if (NPC.ai[2] == 110)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(@"[Y]", Color.Red.R, Color.Red.G, Color.Red.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            ChatUtils.Chat($"<{player.name}> [Y]", Color.White);
+                        else
+                            ChatUtils.Chat(@"[Y]", Color.Red);
+                    }
                 }
                 NPC.rotation = NPC.DirectionTo(player.Center).ToRotation() + (float)Math.PI / 2;
                 if (NPC.ai[2] % (NPC.life < NPC.lifeMax / 2 ? 60 : 80) == 20)
                 {
                     Teleport(3);
-                    if (Main.netMode != NetmodeID.MultiplayerClient) NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X + 50 * Main.rand.Next(4, 6) * (Main.rand.NextBool(2) ? -1 : 1), (int)player.Center.Y + 50 * Main.rand.Next(4, 6) * (Main.rand.NextBool(2) ? -1 : 1), ModContent.NPCType<ZeroMini>());
+                    if (Main.netMode != NetmodeID.MultiplayerClient) 
+                        NPC.NewNPC(NPC.GetSource_FromThis(), (int)player.Center.X + 50 * Main.rand.Next(4, 6) * (Main.rand.NextBool(2) ? -1 : 1), (int)player.Center.Y + 50 * Main.rand.Next(4, 6) * (Main.rand.NextBool(2) ? -1 : 1), ModContent.NPCType<ZeroMini>());
                 }
                 Counterattack = false;
                 NPC.ai[1] = 0f;
@@ -769,6 +786,35 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
             }
         }
 
+        internal static string GetPathText()
+        {
+            string path = Main.SavePath;
+            if (ModContent.GetInstance<AAConfigClient>().HideIdentifiableInfo || Oblivion.IsPlayerStreaming())
+            {
+                string name = "";
+                string previous = "";
+                bool onName = false;
+                for (int i = 0; i < path.Length; i++)
+                {
+                    if (path[i] == '\\')
+                    {
+                        if (onName)
+                        {
+                            name = previous;
+                            break;
+                        }
+                        if (previous.Equals("users", StringComparison.CurrentCultureIgnoreCase))
+                            onName = true;
+                        previous = "";
+                    }
+                    else
+                        previous += path[i];
+                }
+                path = path.Replace(name, PlayerIdentityHelper.GetRealName());
+            }
+            return path;
+        }
+
         private void AIChange()
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -807,13 +853,22 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                 {
                     if (!PlayerDead)
                     {
-                        if (player.dead || !player.active)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
-                            if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Kill"), Color.Red.R, Color.Red.G, Color.Red.B);
-                        }
-                        else if (tooFar)
-                        {
-                            if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Despawn"), Color.Red.R, Color.Red.G, Color.Red.B);
+                            if (player.dead || !player.active)
+                            {
+                                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                    WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Zero.Despawn", NPC.Center, 0, 30, false, new BossText());
+                                else
+                                    ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Kill"), Color.Red);
+                            }
+                            else if (tooFar)
+                            {
+                                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                    WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Zero.Despawn", NPC.Center, 1, 30, false, new BossText());
+                                else
+                                    ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Despawn"), Color.Red);
+                            }
                         }
                         PlayerDead = true;
                     }

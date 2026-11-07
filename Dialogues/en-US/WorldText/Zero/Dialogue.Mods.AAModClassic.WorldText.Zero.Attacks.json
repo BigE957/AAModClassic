@@ -1,0 +1,57 @@
+{
+  "Revision": 1,
+  "DefaultColor": "FF0000",
+  "DefaultSpeaker": "Zero",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "RE-ESTABLISHING WEAP0N UNITS."
+      ]
+    },
+    {
+      "Lines": [
+        "SELF-0RGNAZATI0N CHARGING C0MPLETED..."
+      ]
+    },
+    {
+      "Lines": [
+        "BOOTING IN SELF 0RGNAZATI0N MODE..."
+      ]
+    },
+    {
+      "Lines": [
+        "ALLOW {0}\\M0DS\\AAM0D\\ZER0\\SELF-0RGNAZATI0N.EXE ? <Y/N>..."
+      ]
+    },
+    {
+      "Lines": [
+        "[Y]"
+      ]
+    },
+    {
+      "Lines": [
+        "===C A R N A G E==="
+      ]
+    }
+  ]
+}
