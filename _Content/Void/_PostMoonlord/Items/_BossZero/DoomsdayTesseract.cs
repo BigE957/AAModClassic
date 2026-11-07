@@ -6,6 +6,9 @@ using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic.Base;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -45,51 +48,64 @@ N0N-C0NSUMABLE"); */
             Item.useStyle = ItemUseStyleID.HoldUp;
         }
 
-
-
-        // We use the CanUseItem hook to prevent a player from using this item while the boss is present in the world.
         public override bool CanUseItem(Player player)
         {
-            if (player.GetModPlayer<ZAAPlayer>().ZoneVoid)
+            if (!player.GetModPlayer<ZAAPlayer>().ZoneVoid)
             {
-                if (NPC.AnyNPCs(ModContent.NPCType<Zero>()))
+                if (!Main.dedServ && player.whoAmI == Main.myPlayer)
                 {
-                    if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroUnitFalse"), new Color(255, 0, 0), false);
-                    return false;
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Zero.Spawn", player.Center, 0, 30, false, new BossText());
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroUnitVoidZoneFalse"), Color.Red);
                 }
-                if (NPC.AnyNPCs(ModContent.NPCType<ZeroA>()))
-                {
-                    if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroUnitFalse"), new Color(255, 0, 0), false);
-                    return false;
-                }
-                return true;
+                return false;
             }
-            if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroUnitVoidZoneFalse"), new Color(255, 0, 0), false);
-            return false;
+
+            bool anyZeros = false;
+            foreach (NPC n in Main.ActiveNPCs)
+            {
+                if (n.type == ModContent.NPCType<Zero>() || n.type == ModContent.NPCType<ZeroA>())
+                {
+                    anyZeros = true;
+                    break;
+                }
+            }
+
+            if (anyZeros)
+            {
+                if (!Main.dedServ && player.whoAmI == Main.myPlayer)
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Zero.Spawn", player.Center, 1, 30, false, new BossText());
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroUnitFalse"), Color.Red);
+                }
+                return false;
+            }
+
+            return true;
         }
 
         public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            if (!AAWorld.downedZero && !Main.expertMode)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroTesseractTrue"), Color.Red.R, Color.Red.G, Color.Red.B);
-            }
-
-            if (!AAWorld.downedZero && Main.expertMode)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroTesseractTrue"), Color.Red.R, Color.Red.G, Color.Red.B);
-            }
-            if (!Main.expertMode && AAWorld.downedZero)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroTesseractDownedTrue"), Color.Red.R, Color.Red.G, Color.Red.B);
-            }
-            if (Main.expertMode && AAWorld.downedZero)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroTesseractDownedTrue"), Color.Red.R, Color.Red.G, Color.Red.B);
-            }
-
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
+                if (!AAWorld.downedZero)
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Zero.Spawn", player.Center, 2, 30, false, new BossText());
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroTesseractTrue"), Color.Red);
+                }
+                else
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Zero.Spawn", player.Center, 3, 30, false, new BossText());
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ZeroTesseractDownedTrue"), Color.Red);
+                }
+            
                 AAWorld.zeroUS = true;
                 if (!NPC.AnyNPCs(ModContent.NPCType<ZeroDeactivated>()))
                     NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.position.X, (int)player.position.Y - 300, ModContent.NPCType<Zero>());

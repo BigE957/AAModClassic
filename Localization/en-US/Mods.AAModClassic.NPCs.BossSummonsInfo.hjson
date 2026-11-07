@@ -72,7 +72,7 @@ SubzeroCrystalSnowZoneFalse: The crystal shows an image of the nearby ice biome 
 SubzeroCrystalTrue: The Subzero Serpent continues to attack
 ToadstoolFalse: The toadstool croaks..?
 ToadstoolTrue: The Truffle Toad croaks
-ZeroFalse: ERR0R. ZER0 UNIT ALREADY ACTIVE. PLEASE TRY AGAIN LATER.
+ZeroUnitFalse: ERR0R. ZER0 UNIT ALREADY ACTIVE. PLEASE TRY AGAIN LATER.
 ZeroVoidZoneFalse: ERR0R. PLAYER.GETM0DPLAYER<AAPLAYER>(M0D).Z0NEV0ID == FALSE. PLEASE TRY AGAIN LATER.
 ZeroRuneTrue: D00MSDAY PR0T0CALL ACTIVATED MANUALLY. TERMINATI0N SYSTEMS AT FULL P0WER
 ZeroTesseractTrue: ZER0 UNIT ACTIVATED. ENGAGE D00MBRINGER PR0T0C0L.
