@@ -1,5 +1,8 @@
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Base;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
@@ -43,7 +46,12 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
                 if (Projectile.timeLeft == 913)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
-                        ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Defeat.First.3"), Color.Red.R, Color.Red.G, Color.Red.B);
+                    {
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Zero.Defeat", Projectile.Center, 5, 30, false, new BossText());
+                        else
+                            ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Awakened.Defeat.First.3"), Color.Red);
+                    }
                     if (VoidSky.Alpha == -1)
                         VoidSky.Alpha = 0;
                 }

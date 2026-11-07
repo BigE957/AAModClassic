@@ -479,7 +479,7 @@ Zero: {
 
 	Defeat: {
 		Expert: PHYSICAL ZER0 UNIT IN CRITICAL C0NDITI0N. DISCARDING AND ENGAGING D00MSDAY PR0T0C0L.
-		NotExpert: D00MSDAY PR0T0CALL MALFUNCTI0N. MAIN.EXPERTM0DE = FALSE.
+		NotExpert: D00MSDAY PR0T0CALL MALFUNCTI0N. MAIN.EXPERTM0DE == FALSE.
 		Status: Zero's dark influence over the void has been lifted. The doomstone here is now minable.
 	}
 
