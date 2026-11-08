@@ -39,8 +39,6 @@ ClassGlobalStats: {
 		Reduced: 降低
 		More: 更
 		Less: 更不
-		// Faster: faster
-		// Slower: slower
 		Damage: 伤害
 		Knockback: 击退
 		CritSameAsDamageAdditive: " & 暴击率"
@@ -490,26 +488,4 @@ Effect: {
 		'''
 	DemonHelmetSetEffect: 一个忠诚的小恶魔仆从将为你而战，无论何时何地
 	// MeleeSizeEffect: Increases the size of melee weapons
-	// ShadowBandUnofficialEffect: While out of combat, gain 40% increased movement speed and decreased aggro
-	// DragonstrideBootsUnofficialEffect: While out of combat, gain 28% increased movement speed
-	// MendingBandEffect: While out of combat, your regeneration is increased by 3
-	/* CuringBandEffect:
-		'''
-		While out of combat, your regeneration is increased by 3
-		Debuffs wear off faster while out of combat
-		''' */
-	// ShadowFlowerEffect: While out of combat, you heal {0} mana per second
-	// AdjustOutOfCombatTimeEffect: You exit combat {0} seconds {1}
-	// FracturedAnkhEffect: Ails you with most debuffs
-	/* RaptorTalonEffect:
-		'''
-		Increases your heavy critical strike chance the closer you 
-		are to an enemy, up to {0}%
-		''' */
-	// HeavyCritChanceEffect: "{0}% {1} {2}{3}heavy critical strike chance"
-	/* PrimevalScarfEffect:
-		'''
-		Critical strikes are followed by homing bursts of Dyna Arrows
-		The Dyna Arrows deal 15 damage and ignore 10 defense
-		''' */
 }

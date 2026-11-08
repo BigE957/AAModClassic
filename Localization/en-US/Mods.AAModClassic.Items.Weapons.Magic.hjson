@@ -479,7 +479,7 @@ SquidStorm: {
 
 ShadowHand: {
 	DisplayName: Shadow Hand
-	Tooltip: 
+	Tooltip:
 		'''
 		Casts a shadow hand from nearby ground
 		The hand latches onto enemies and deals damage over time

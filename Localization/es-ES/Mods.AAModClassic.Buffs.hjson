@@ -678,3 +678,23 @@ PortaProbe_Buff: {
 	DisplayName: Mini Sonda
 	Description: Busca vida y tesoros para ti
 }
+
+DragonstrideBootsUnofficialEffect_Dragonstride: {
+	// DisplayName: Dragonstride Boots Unofficial Effect_ Dragonstride
+	// Description: Mods.AAModClassic.Buffs.DragonstrideBootsUnofficialEffect_Dragonstride.Description
+}
+
+ShadowBandUnofficialEffect_ShadowStealth: {
+	// DisplayName: Shadow Band Unofficial Effect_ Shadow Stealth
+	// Description: Mods.AAModClassic.Buffs.ShadowBandUnofficialEffect_ShadowStealth.Description
+}
+
+MendingBandEffect_MendingStealth: {
+	// DisplayName: Mending Band Effect_ Mending Stealth
+	// Description: Mods.AAModClassic.Buffs.MendingBandEffect_MendingStealth.Description
+}
+
+CuringBandEffect_CuringStealth: {
+	// DisplayName: Curing Band Effect_ Curing Stealth
+	// Description: Mods.AAModClassic.Buffs.CuringBandEffect_CuringStealth.Description
+}
