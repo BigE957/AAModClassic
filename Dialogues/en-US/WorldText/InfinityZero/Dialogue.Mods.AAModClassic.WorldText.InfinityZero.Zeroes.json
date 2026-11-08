@@ -1,0 +1,40 @@
+{
+  "Revision": 1,
+  "DefaultColor": "9e0320",
+  "DefaultSpeaker": "Infinity Zero",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "[Shaking(1.5):[Scale(1.5):Zero Units in critical condition.]] [Pause(1.25)]",
+        "[Shaking(1.5):[Scale(1.5):Re-routing resources to repair systems.]] [Pause(1.25)]",
+        "[Shaking(1.5):[Scale(1.5):Core defense temporarily disabled.]] [Pause(1.25)]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1.5):[Scale(1.5):Zero Units sufficiently repaired.]] [Pause(1.25)]",
+        "[Shaking(1.5):[Scale(1.5):Re-engaging Core defense system.]] [Pause(1.25)]"
+      ]
+    }
+  ]
+}

@@ -7,6 +7,9 @@ using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic._Unreleased.Content.Void.Buffs;
 using AAModClassic.Base;
 using AAModClassic.Globals;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
+using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -116,7 +119,10 @@ Non-consumable");*/
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Spawn"), new Color(158, 3, 32));
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                    WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.InfinityZero.Spawn", player.Center, uptime: 60, progressDialogue: false, effects: new BossText());
+                else
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Spawn"), new Color(158, 3, 32));
                 foreach (Player p in Main.ActivePlayers)
                 {
                     if (!p.dead)
