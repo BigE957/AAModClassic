@@ -145,7 +145,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<OrthrusXTrophy>(), 10));
 
-            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<OrthrusXRelic>()));
 

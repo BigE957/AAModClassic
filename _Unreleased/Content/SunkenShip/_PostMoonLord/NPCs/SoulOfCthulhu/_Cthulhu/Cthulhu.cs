@@ -292,7 +292,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SoulOfCthulhuTrophy>(), 10));
 
-            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SoulOfCthulhuRelic>()));
 

@@ -10,8 +10,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI;
 using static AAModClassic._Content.Inferno.___PreHardmode.NPCs.DragonClaw_NPC;
-using static AAModClassic.Utilities.ItemDropRuleConditionUtils;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
+using static AAModClassic.Utilities.AAConditions;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.NPCs._Underground._Desert
 {

@@ -77,8 +77,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.ModLoader.Utilities;
 using static AAModClassic.Assets.AssetDirectory;
-using static AAModClassic.Utilities.ItemDropRuleConditionUtils;
-using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
+using static AAModClassic.Utilities.AAConditions;
 
 namespace AAModClassic.Globals
 {

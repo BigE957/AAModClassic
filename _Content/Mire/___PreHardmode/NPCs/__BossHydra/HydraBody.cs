@@ -105,7 +105,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
 
             npcLoot.AddLoreItemDrop<HydraBody>(ModContent.ItemType<HydraLore>());
 
-            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<HydraRelic>()));
 

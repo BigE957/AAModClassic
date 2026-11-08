@@ -115,7 +115,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            LeadingConditionRule unofficialRule = new(new ItemDropRuleConditionUtils.Unofficial());
+            LeadingConditionRule unofficialRule = new(new AAConditions.Unofficial());
 
             unofficialRule.OnSuccess(ItemDropRule.OneFromOptions(7, ModContent.ItemType<AsheMask>(), ModContent.ItemType<HarukaMask>()));
 

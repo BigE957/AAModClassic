@@ -567,7 +567,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
 
             npcLoot.AddLoreItemDrop<DesertDjinn>(ModContent.ItemType<DesertDjinnLore>());
 
-            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DesertDjinnRelic>()));
 

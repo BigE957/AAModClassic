@@ -5,7 +5,6 @@ using AAModClassic._Content.Desert.__Hardmode.Items.Materials;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._Unofficial.Content.Desert.__Hardmode.Items._BossAnubis.Accessories;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.Titles;
@@ -500,7 +499,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 
             npcLoot.AddLoreItemDrop<Anubis>(ModContent.ItemType<AnubisLore>());
 
-            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AnubisRelic>()));
 
@@ -518,7 +517,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
 
             notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
 
-            LeadingConditionRule unofficialRule = new(new ItemDropRuleConditionUtils.Unofficial());
+            LeadingConditionRule unofficialRule = new(new AAConditions.Unofficial());
 
             unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<FracturedAnkh>(), 4));
 

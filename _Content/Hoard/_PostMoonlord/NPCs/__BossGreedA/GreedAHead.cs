@@ -609,7 +609,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GreedATrophy>(), 10));
 
-            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GreedARelic>()));
 

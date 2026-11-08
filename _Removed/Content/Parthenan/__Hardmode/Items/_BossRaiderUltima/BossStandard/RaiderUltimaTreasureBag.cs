@@ -57,7 +57,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossRaiderUl
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            LeadingConditionRule unofficialRule = new(new ItemDropRuleConditionUtils.Unofficial());
+            LeadingConditionRule unofficialRule = new(new AAConditions.Unofficial());
 
             unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RaiderUltimaMask>(), 7));
 

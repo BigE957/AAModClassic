@@ -90,16 +90,20 @@ namespace AAModClassic._Content._Tinker.__Hardmode.Items.Accessories
                 damageMap.GetAttackSpeed(DamageClass.Melee) += 0.12f;
             else
                 damageMap.GetAttackSpeed(DamageClass.Melee) += 0.1f;
+
             damageMap.GetKnockback(DamageClass.Melee) += 2f;
+
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 AddEffect(new AggroEffect(500));
             else
                 AddEffect(new AggroEffect(5));
+
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 AddEffect<MeleeSizeEffect>();
-            AddEffect(new AggroEffect(5));
+
             int buff = WorldGen.crimson ? BuffID.Ichor : BuffID.CursedInferno;
             AddEffect(new AttacksInflictBuffEffect(DamageClass.Melee, (buff, 100)));
+
             AddEffect<DemonGauntletEffect>();
         }
 

@@ -27,7 +27,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using static AAModClassic.Utilities.ItemDropRuleConditionUtils;
+using static AAModClassic.Utilities.AAConditions;
 
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 {
@@ -153,7 +153,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
 
             npcLoot.AddLoreItemDrop<ZeroA>(ModContent.ItemType<ZeroLore>());
 
-            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ZeroRelic>()));
 

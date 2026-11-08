@@ -626,7 +626,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffl
 
             npcLoot.AddLoreItemDrop<TruffleToad>(ModContent.ItemType<TruffleToadLore>());
 
-            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<TruffleToadRelic>()));
 

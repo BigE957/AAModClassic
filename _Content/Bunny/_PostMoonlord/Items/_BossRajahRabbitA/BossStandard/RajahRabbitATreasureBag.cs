@@ -48,7 +48,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Boss
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            LeadingConditionRule unofficialRule = new(new ItemDropRuleConditionUtils.Unofficial());
+            LeadingConditionRule unofficialRule = new(new AAConditions.Unofficial());
 
             unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RajahRabbitAMask>(), 7));
 

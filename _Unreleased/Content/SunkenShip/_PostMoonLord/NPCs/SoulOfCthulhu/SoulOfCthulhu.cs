@@ -253,7 +253,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            LeadingConditionRule unofficialRule = new(new ItemDropRuleConditionUtils.UnofficialNotExpert());
+            LeadingConditionRule unofficialRule = new(new AAConditions.UnofficialNotExpert());
 
             unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SoulOfCthulhuMask>(), 7));
 

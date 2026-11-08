@@ -117,7 +117,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetrieve
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RetrieverTrophy>(), 10));
 
-            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RetrieverRelic>()));
 

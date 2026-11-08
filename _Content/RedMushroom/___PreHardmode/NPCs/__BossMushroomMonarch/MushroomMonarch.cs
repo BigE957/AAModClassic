@@ -391,7 +391,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<MushroomMonarchTreasureBag>()));
 
-            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<MushroomMonarchRelic>()));
 

@@ -497,7 +497,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius
 
             npcLoot.AddLoreItemDrop<Sagittarius>(ModContent.ItemType<SagittariusLore>());
 
-            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SagittariusRelic>()));
 

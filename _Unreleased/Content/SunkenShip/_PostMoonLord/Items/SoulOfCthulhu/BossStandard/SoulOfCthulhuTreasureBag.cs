@@ -53,7 +53,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            LeadingConditionRule unofficialRule = new(new ItemDropRuleConditionUtils.Unofficial());
+            LeadingConditionRule unofficialRule = new(new AAConditions.Unofficial());
 
             unofficialRule.OnSuccess(ItemDropRule.OneFromOptions(7, ModContent.ItemType<SoulOfCthulhuMask>(), ModContent.ItemType<SoulOfCthulhuAMask>()));
 

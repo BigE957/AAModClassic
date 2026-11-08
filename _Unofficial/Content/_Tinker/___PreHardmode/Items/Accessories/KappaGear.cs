@@ -1,4 +1,5 @@
-﻿using AAModClassic.UI.World;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria.ID;
 using Terraria.Localization;

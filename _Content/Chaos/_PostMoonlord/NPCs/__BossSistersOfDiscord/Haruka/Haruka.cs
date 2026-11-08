@@ -207,7 +207,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HarukaTrophy>(), 10));
 
-            LeadingConditionRule unofficialRule = new(new ItemDropRuleConditionUtils.UnofficialNotExpert());
+            LeadingConditionRule unofficialRule = new(new AAConditions.UnofficialNotExpert());
 
             unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<HarukaMask>(), 7));
 

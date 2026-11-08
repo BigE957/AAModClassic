@@ -7,6 +7,7 @@ using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Mire.__Hardmode.Items.Consumables;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using System.Collections.Generic;
 using Terraria.GameContent.ItemDropRules;

@@ -31,7 +31,7 @@ using Terraria.GameContent.UI.BigProgressBar;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using static AAModClassic.Utilities.ItemDropRuleConditionUtils;
+using static AAModClassic.Utilities.AAConditions;
 
 
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero

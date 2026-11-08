@@ -344,13 +344,13 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             npcLoot.AddLoreItemDrop<InfinityZero>(ModContent.ItemType<InfinityZeroLore>());
 
-            LeadingConditionRule unofficialRule = new(new ItemDropRuleConditionUtils.UnofficialNotExpert());
+            LeadingConditionRule unofficialRule = new(new AAConditions.UnofficialNotExpert());
 
             unofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<InfinityZeroMask>(), 7));
 
             npcLoot.Add(unofficialRule);
 
-            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<InfinityZeroRelic>()));
 

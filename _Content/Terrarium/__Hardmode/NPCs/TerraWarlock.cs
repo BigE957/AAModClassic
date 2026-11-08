@@ -12,7 +12,7 @@ using System.IO;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static AAModClassic.Utilities.ItemDropRuleConditionUtils;
+using static AAModClassic.Utilities.AAConditions;
 
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs

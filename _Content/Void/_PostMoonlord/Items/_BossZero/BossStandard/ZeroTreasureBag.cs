@@ -88,13 +88,13 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
         {
             itemLoot.Add(ItemDropRule.OneFromOptions(10, [ModContent.ItemType<ZeroCore>(), ModContent.ItemType<PortaProbe>()]));
 
-            LeadingConditionRule notUnofficialRule = new(new ItemDropRuleConditionUtils.NotUnofficial());
+            LeadingConditionRule notUnofficialRule = new(new AAConditions.NotUnofficial());
 
             notUnofficialRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ZeroMask>(), 7));
 
             itemLoot.Add(notUnofficialRule);
 
-            LeadingConditionRule unofficialRule = new(new ItemDropRuleConditionUtils.Unofficial());
+            LeadingConditionRule unofficialRule = new(new AAConditions.Unofficial());
 
             unofficialRule.OnSuccess(ItemDropRule.OneFromOptions(7, ModContent.ItemType<ZeroMask>(), ModContent.ItemType<ZeroAMask>()));
 

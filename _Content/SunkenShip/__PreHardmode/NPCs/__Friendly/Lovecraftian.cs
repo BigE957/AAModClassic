@@ -20,6 +20,7 @@ using AAModClassic._Content.Void.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Globals;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Humanizer;
 using System.Collections.Generic;

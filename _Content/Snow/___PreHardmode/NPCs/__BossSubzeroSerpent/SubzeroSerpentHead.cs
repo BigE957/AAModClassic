@@ -891,7 +891,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 
             npcLoot.AddLoreItemDrop<SubzeroSerpentHead>(ModContent.ItemType<SubzeroSerpentLore>());
 
-            LeadingConditionRule masterMode = new(new ItemDropRuleConditionUtils.RevOrMaster());
+            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
 
             masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SubzeroSerpentRelic>()));
 

@@ -11,7 +11,7 @@ using Terraria.Localization;
 
 namespace AAModClassic.Utilities
 {
-    public class ItemDropRuleConditionUtils
+    public class AAConditions
     {
         #region general conditions
         // biomes
