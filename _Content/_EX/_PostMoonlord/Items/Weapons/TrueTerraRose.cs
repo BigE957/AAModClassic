@@ -1,18 +1,16 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Terra.__Hardmode.Items.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     public class TrueTerraRose : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Magic";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("True Terra Rose");
@@ -21,27 +19,27 @@ Projectiles explode on hit
 Projectiles go through walls
 Right Clicking fires a piercing rose
 Terra Rose EX"); */
-			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
-		}
+            Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
+        }
 
-		public override void SetDefaults()
-		{
-			Item.damage = 500;
-			Item.DamageType = DamageClass.Magic;
-			Item.mana = 15;
-			Item.width = 68;
-			Item.height = 60;
-			Item.useTime = 10;
-			Item.useAnimation = 10;
-			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.noMelee = true; //so the item's animation doesn't do damage
-			Item.knockBack = 6;
-			Item.value = 500000;
-			Item.rare = ItemRarityID.Purple;
-			Item.UseSound = SoundID.Item20;
-			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<TrueTerraRose_TrueTerraPetal>();
-			Item.shootSpeed = 20f;
+        public override void SetDefaults()
+        {
+            Item.damage = 500;
+            Item.DamageType = DamageClass.Magic;
+            Item.mana = 15;
+            Item.width = 68;
+            Item.height = 60;
+            Item.useTime = 10;
+            Item.useAnimation = 10;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.noMelee = true; //so the item's animation doesn't do damage
+            Item.knockBack = 6;
+            Item.value = 500000;
+            Item.rare = ItemRarityID.Purple;
+            Item.UseSound = SoundID.Item20;
+            Item.autoReuse = true;
+            Item.shoot = ModContent.ProjectileType<TrueTerraRose_TrueTerraPetal>();
+            Item.shootSpeed = 20f;
         }
 
         public override bool AltFunctionUse(Player player)
@@ -72,9 +70,9 @@ Terra Rose EX"); */
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();      
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<TerraRose>());
-			recipe.AddIngredient(ModContent.ItemType<EXSoul>());
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>());
             recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }

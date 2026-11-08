@@ -2,7 +2,6 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Humanizer;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 

@@ -5,8 +5,8 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class SubzeroSerpentMask : BaseAAItem, ILocalizedModType
-	{
+    public class SubzeroSerpentMask : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Masks";
         public static int type;
 
@@ -14,7 +14,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Bo
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Subzero Serpent Mask");
-		}
+        }
 
         public override void SetDefaults()
         {

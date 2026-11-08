@@ -1,5 +1,4 @@
 using AAModClassic._Content._EX._PostMoonlord.Items.Accessories;
-using Terraria;
 using Terraria.ModLoader;
 
 

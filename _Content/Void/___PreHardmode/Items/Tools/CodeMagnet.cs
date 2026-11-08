@@ -2,7 +2,6 @@ using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using ReLogic.Utilities;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -24,7 +23,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tools
             Item.width = Item.height = 16;
             Item.rare = ItemRarityID.LightRed;
             Item.maxStack = 1;
-			Item.value = 8000;
+            Item.value = 8000;
         }
 
         public override bool CanRightClick() => true;

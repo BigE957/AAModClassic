@@ -1,9 +1,8 @@
-﻿using Terraria;
+﻿using AAModClassic.Globals;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
-using AAModClassic.Globals;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Dungeon.___PreHardmode.Items._BossSkeletron

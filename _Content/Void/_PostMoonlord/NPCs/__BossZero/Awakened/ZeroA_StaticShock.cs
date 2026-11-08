@@ -1,7 +1,6 @@
-using System;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -20,10 +19,10 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
             Projectile.width = 12;
             Projectile.height = 12;
             Projectile.friendly = true;
-            Projectile.penetrate = -1;               
+            Projectile.penetrate = -1;
             Projectile.hostile = true;
             Projectile.friendly = false;
-            Projectile.tileCollide = true;       
+            Projectile.tileCollide = true;
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 900;
         }

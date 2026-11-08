@@ -7,6 +7,11 @@
 	<PropertyGroup>
 		
 	</PropertyGroup>
+	<ItemGroup>
+	  <Reference Include="SpiritReforged">
+	    <HintPath>lib\SpiritReforged.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
 
 	<!-- References -->
 

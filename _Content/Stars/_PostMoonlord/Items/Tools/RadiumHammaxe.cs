@@ -1,9 +1,7 @@
 ﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -32,19 +30,19 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tools
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
-        
+
 
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Radium Hammaxe");
         }
 
-        public override void AddRecipes()  
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<RadiantPhoton>(), 5);
             recipe.AddIngredient(ModContent.ItemType<RadiumBar>(), 12);
-            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());   
+            recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
             recipe.Register();
         }
     }

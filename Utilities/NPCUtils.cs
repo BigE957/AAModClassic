@@ -1,10 +1,10 @@
-﻿using System;
+﻿global using static AAModClassic.Utilities.NPCUtils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
+using Terraria.GameContent.Events;
 using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Utilities
@@ -46,6 +46,21 @@ namespace AAModClassic.Utilities
             }
 
             loot.Add(leadingCondition);
+        }
+
+        public static bool AnyEvents(Player player, bool checkBloodMoon = false)
+        {
+            if (Main.invasionType > InvasionID.None && Main.invasionProgressNearInvasion)
+                return true;
+            if (player.ZoneTowerNebula || player.ZoneTowerSolar || player.ZoneTowerStardust || player.ZoneTowerVortex)
+                return true;
+            if (DD2Event.Ongoing && player.ZoneOldOneArmy)
+                return true;
+            if ((player.ZoneOverworldHeight || player.ZoneSkyHeight) && (Main.eclipse || Main.pumpkinMoon || Main.snowMoon))
+                return true;
+            if ((player.ZoneOverworldHeight || player.ZoneSkyHeight) && Main.bloodMoon && checkBloodMoon)
+                return true;
+            return false;
         }
     }
 }

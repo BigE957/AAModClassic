@@ -1,7 +1,6 @@
-﻿using System.Linq;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System.Linq;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -38,13 +37,13 @@ Summons 2 segments for each minion slot"); */
             Item.DamageType = DamageClass.Summon;
         }
 
-		public override void UseStyle(Player player, Rectangle heldItemFrame)
-		{
-			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-			{
-				player.AddBuff(Item.buffType, 3600, true);
-			}
-		}
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
+        {
+            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
+            {
+                player.AddBuff(Item.buffType, 3600, true);
+            }
+        }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
@@ -71,17 +70,17 @@ Summons 2 segments for each minion slot"); */
             //initial spawn
             if (headCheck == -1 && tailCheck == -1)
             {
-                int current = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, 0, 0, ModContent.ProjectileType<SnakeStaff_SerpentHead>(), damage, knockback, player.whoAmI, 0f, 0f);
+                int current = Projectile.NewProjectile(player.GetSource_ItemUse(Item), position.X, position.Y, 0, 0, ModContent.ProjectileType<SnakeStaff_SerpentHead>(), damage, knockback, player.whoAmI, 0f, 0f);
 
                 int previous = 0;
 
                 for (int i = 0; i < 3; i++)
                 {
-                    current = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, 0, 0, ModContent.ProjectileType<SnakeStaff_SerpentBody>(), damage, knockback, player.whoAmI, current, 0f);
+                    current = Projectile.NewProjectile(player.GetSource_ItemUse(Item), position.X, position.Y, 0, 0, ModContent.ProjectileType<SnakeStaff_SerpentBody>(), damage, knockback, player.whoAmI, current, 0f);
                     previous = current;
                 }
 
-                current = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, 0, 0, ModContent.ProjectileType<SnakeStaff_SerpentTail>(), damage, knockback, player.whoAmI, current, 0f);
+                current = Projectile.NewProjectile(player.GetSource_ItemUse(Item), position.X, position.Y, 0, 0, ModContent.ProjectileType<SnakeStaff_SerpentTail>(), damage, knockback, player.whoAmI, current, 0f);
 
                 Main.projectile[previous].localAI[1] = current;
                 Main.projectile[previous].netUpdate = true;
@@ -89,12 +88,12 @@ Summons 2 segments for each minion slot"); */
             //spawn more body segments
             else
             {
-                int previous = (int) Main.projectile[tailCheck].ai[0];
+                int previous = (int)Main.projectile[tailCheck].ai[0];
                 int current = 0;
 
                 for (int i = 0; i < 2; i++)
                 {
-                    current = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<SnakeStaff_SerpentBody>(), damage, knockback, player.whoAmI,
+                    current = Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, velocity, ModContent.ProjectileType<SnakeStaff_SerpentBody>(), damage, knockback, player.whoAmI,
                         Projectile.GetByUUID(Main.myPlayer, previous), 0f);
 
                     previous = current;

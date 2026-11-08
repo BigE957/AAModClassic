@@ -1,7 +1,6 @@
-﻿using System;
-using AAModClassic._Content.Inferno.Buffs;
+﻿using AAModClassic._Content.Inferno.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,12 +9,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 {
     public class Ashe_DayfireShot : ModProjectile
     {
-    	
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Dayfire Shot");
-		}
-    	
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Dayfire Shot");
+        }
+
         public override void SetDefaults()
         {
             Projectile.width = 25;
@@ -29,16 +28,16 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
         public override void AI()
         {
-            if(Main.npc[(int)Projectile.ai[0]].type == ModContent.NPCType<AsheRune>())
+            if (Main.npc[(int)Projectile.ai[0]].type == ModContent.NPCType<AsheRune>())
             {
-                if(Projectile.ai[1] ++ < 30)
+                if (Projectile.ai[1]++ < 30)
                 {
                     Projectile.alpha += 8;
                     Projectile.scale = 0.8f;
                     Projectile.rotation = Projectile.velocity.ToRotation() + 1.57079637f;
                     Projectile.velocity = Vector2.Normalize(Projectile.velocity) * .1f;
                 }
-                else if(Projectile.ai[1] > 60)
+                else if (Projectile.ai[1] > 60)
                 {
                     Projectile.scale = 0.8f;
                     Projectile.rotation = Projectile.velocity.ToRotation() + 1.57079637f;
@@ -49,8 +48,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             {
                 Projectile.rotation = Projectile.velocity.ToRotation() + 1.57079637f;
             }
-            
-            if(Projectile.alpha > 255) Projectile.alpha = 255;
+
+            if (Projectile.alpha > 255) Projectile.alpha = 255;
         }
         public override Color? GetAlpha(Color lightColor)
         {
@@ -59,7 +58,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
         public override void OnKill(int timeLeft)
         {
-            if(Projectile.ai[0] == 0 && Projectile.ai[1] == 0) SoundEngine.PlaySound(SoundID.Item124);
+            if (Projectile.ai[0] == 0 && Projectile.ai[1] == 0) SoundEngine.PlaySound(SoundID.Item124);
             float spread = 45f * 0.0174f;
             double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
             double deltaAngle = spread / 8f;

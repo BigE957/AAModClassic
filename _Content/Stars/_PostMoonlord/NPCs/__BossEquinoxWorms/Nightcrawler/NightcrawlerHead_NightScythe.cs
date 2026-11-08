@@ -1,16 +1,15 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcrawler
 {
     public class NightcrawlerHead_NightScythe : ModProjectile
     {
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Night Scythe");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Night Scythe");
+        }
 
         public override void SetDefaults()
         {
@@ -21,18 +20,18 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nigh
             Projectile.scale = 1f;
             Projectile.ignoreWater = true;
             Projectile.penetrate = -1;
-			Projectile.timeLeft = 600;
+            Projectile.timeLeft = 600;
         }
 
         public override void AI()
         {
-            if(Projectile.localAI[1] ++ == 5f)
+            if (Projectile.localAI[1]++ == 5f)
             {
                 SpawnDust();
             }
             Lighting.AddLight((int)(Projectile.Center.X / 16f), (int)(Projectile.Center.Y / 16f), .37f, .8f, .89f);
 
-            if(Main.rand.NextBool(10))
+            if (Main.rand.NextBool(10))
             {
                 int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.NightcrawlerDust>(), Projectile.velocity.X,
                     Projectile.velocity.Y, 100, new Color(), 2f);

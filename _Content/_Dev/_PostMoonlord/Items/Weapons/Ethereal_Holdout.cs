@@ -1,18 +1,17 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
 {
-	public class Ethereal_Holdout : ModProjectile
-	{
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Etheral");
-		}
+    public class Ethereal_Holdout : ModProjectile
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Etheral");
+        }
 
         public override void SetDefaults()
         {
@@ -117,9 +116,9 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
             }
 
             if (player.direction == 1)
-				Projectile.Center = player.Center + new Vector2(6, 0);
-			if (player.direction == -1)
-				Projectile.Center = player.Center + new Vector2(-14, 0);
+                Projectile.Center = player.Center + new Vector2(6, 0);
+            if (player.direction == -1)
+                Projectile.Center = player.Center + new Vector2(-14, 0);
             Projectile.rotation = Projectile.velocity.ToRotation() + num;
             Projectile.spriteDirection = Projectile.direction;
             Projectile.timeLeft = 2;

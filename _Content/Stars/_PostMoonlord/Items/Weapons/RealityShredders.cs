@@ -1,7 +1,6 @@
 ﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -23,7 +22,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
             Item.useStyle = 100;
             Item.knockBack = 3f;
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Item.rare = ItemRarityID.Purple;      
+            Item.rare = ItemRarityID.Purple;
             Item.shoot = ModContent.ProjectileType<RealityShredders_Holdout>();
             Item.noUseGraphic = true;
         }
@@ -43,7 +42,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
             // Tooltip.SetDefault("Blades made out of Dark matter. Inflicts the Electified debuff");
         }
 
- 
+
         public override void UseItemFrame(Player player)
         {
             player.bodyFrame.Y = 3 * player.bodyFrame.Height;

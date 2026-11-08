@@ -3,7 +3,6 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Terra.__Hardmode.Items.Tools;
 using AAModClassic.UI.Tools;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -55,7 +54,7 @@ Terratool EX"); */
                 Item.damage = 0;
                 return false;
             }
-            else if(player.altFunctionUse != 2)
+            else if (player.altFunctionUse != 2)
             {
                 Item.pick = TerratoolEXUI.Pick;
                 Item.axe = TerratoolEXUI.Axe;

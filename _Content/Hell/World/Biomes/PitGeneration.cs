@@ -1,33 +1,37 @@
-﻿using AAModClassic._Content.Hell.World.Tiles;
-using AAModClassic._Content.Hoard.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+﻿using AAModClassic.Structures;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using System.Collections.Generic;
-using Terraria;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
-using static AAModClassic.Utilities.WorldGenUtils;
 
 namespace AAModClassic._Content.Hell.World.Biomes
 {
-    public class PitTexGenAssets : ModSystem
+    public class PitSchematicAssets : ModSystem
     {
-        public static TexGenData PitContructionTileData;
-        public static TexGenData PitTileData;
-        public static TexGenData PitWallData;
-        public static TexGenData PitLiquidData;
-        public static TexGenData PitSlopeData;
+        public static ResolvedSchematic Pit { get; private set; }
+        public static ResolvedSchematic PitTeaser { get; private set; }
 
-        public override void OnModLoad()
+        public override void PostSetupContent()
         {
-            PitContructionTileData = TexGen.GetTextureForGen("AAModClassic/_Content/Hell/World/Biomes/PitConstruction");
-            PitTileData = TexGen.GetTextureForGen("AAModClassic/_Content/Hell/World/Biomes/Pit");
-            PitWallData = TexGen.GetTextureForGen("AAModClassic/_Content/Hell/World/Biomes/PitWall");
-            PitLiquidData = TexGen.GetTextureForGen("AAModClassic/_Content/Hell/World/Biomes/PitLava");
-            PitSlopeData = TexGen.GetTextureForGen("AAModClassic/_Content/Hell/World/Biomes/PitSlope");
+            Pit = LoadAndResolve("Pit");
+            PitTeaser = LoadAndResolve("Pit_Teaser");
+        }
+
+        private static ResolvedSchematic LoadAndResolve(string name)
+        {
+            SchematicData data = SchematicLoader.ReadFromMod(AAMod.instance, $"Structures/Schematics/{name}.aasch");
+            ResolvedSchematic resolved = SchematicLoader.Resolve(data);
+
+            foreach (string warning in resolved.Warnings)
+                AAMod.instance.Logger.Warn($"{name} schematic: " + warning);
+
+            return resolved;
+        }
+
+        public override void Unload()
+        {
+            Pit = null;
+            PitTeaser = null;
         }
     }
 
@@ -35,40 +39,21 @@ namespace AAModClassic._Content.Hell.World.Biomes
     {
         public override bool Place(Point origin, StructureMap structures)
         {
-            WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, PitTexGenAssets.PitTileData.Width, PitTexGenAssets.PitTileData.Height), 20);
-
-            Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
+            ResolvedSchematic pit = PitSchematicAssets.Pit;
+            if (pit == null)
             {
-                [new Color(128, 128, 128)] = ModContent.TileType<Pitstone_Tile>(),
-                [new Color(0, 0, 255)] = ModContent.TileType<PitBars_Tile>(),
-                [new Color(0, 255, 0)] = ModContent.TileType<PitBridge_Tile>(),
-                [new Color(255, 255, 255)] = -2, //turn into air
-                [Color.Black] = -1 //don't touch when genning		
-            };
+                AAMod.instance.Logger.Warn("Pit schematic isn't loaded; skipping placement.");
+                return false;
+            }
 
-            Dictionary<Color, int> colorToWall = new Dictionary<Color, int>
-            {
-                [new Color(0, 0, 255)] = ModContent.WallType<PitBarWall_Wall>(),
-                [new Color(255, 0, 0)] = ModContent.WallType<PitStoneWall_Wall>(),
-                [new Color(255, 255, 255)] = -2,
-                [Color.Black] = -1
-            };
+            WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, pit.Width, pit.Height), 20);
 
-            WorldUtils.Gen(origin, new Shapes.Rectangle(336, 145), Actions.Chain(new GenAction[] //remove all fluids in sphere...
-			{
-                new InWorld(),
-                new Actions.SetLiquid(0, 0),
-                new Actions.SetSlope(0)
-            }));
+            PlacedSchematic placed = SchematicPlacement.Place(pit, origin, new SchematicPlaceOptions { Anchor = SchematicAnchor.TopLeft, FlipHorizontal = origin.X < Main.maxTilesX / 2 });
 
-            TexGen gen = TexGen.GetTexGenerator(PitTexGenAssets.PitTileData, colorToTile, PitTexGenAssets.PitWallData, colorToWall, PitTexGenAssets.PitLiquidData, PitTexGenAssets.PitSlopeData);
+            foreach (string warning in placed.Warnings)
+                AAMod.instance.Logger.Warn("Pit placement: " + warning);
 
-            gen.Generate(origin.X, origin.Y, true, true);
-
-            WorldGen.PlaceObject(origin.X + 281, origin.Y + 52, ModContent.TileType<Throne_Tile>());
-            NetMessage.SendObjectPlacement(-1, origin.X + 281, origin.Y + 52, ModContent.TileType<Throne_Tile>(), 0, 0, -1, -1);
-
-            return true;
+            return placed.Success;
         }
     }
 
@@ -76,31 +61,21 @@ namespace AAModClassic._Content.Hell.World.Biomes
     {
         public override bool Place(Point origin, StructureMap structures)
         {
-            WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, PitTexGenAssets.PitContructionTileData.Width, PitTexGenAssets.PitContructionTileData.Height), 20);
-
-            Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
+            ResolvedSchematic teaser = PitSchematicAssets.PitTeaser;
+            if (teaser == null)
             {
-                [new Color(128, 128, 128)] = ModContent.TileType<Pitstone_Tile>(),
-                [new Color(0, 0, 255)] = ModContent.TileType<PitBars_Tile>(),
-                [new Color(0, 255, 0)] = ModContent.TileType<PitBridge_Tile>(),
-                [new Color(255, 255, 255)] = -2, //turn into air
-                [Color.Black] = -1 //don't touch when genning		
-            };
+                AAMod.instance.Logger.Warn("Pit Teaser schematic isn't loaded; skipping placement.");
+                return false;
+            }
 
-            WorldUtils.Gen(origin, new Shapes.Rectangle(90, 103), Actions.Chain(new GenAction[] //remove all fluids in sphere...
-			{
-                new InWorld(),
-                new Actions.SetSlope(0)
-            }));
+            WorldGenUtils.AddProtectedStructure(new Rectangle(origin.X, origin.Y, teaser.Width, teaser.Height), 20);
 
-            TexGen gen = TexGen.GetTexGenerator(PitTexGenAssets.PitContructionTileData, colorToTile);
+            PlacedSchematic placed = SchematicPlacement.Place(teaser, origin, new SchematicPlaceOptions { Anchor = SchematicAnchor.TopLeft });
 
-            gen.Generate(origin.X, origin.Y, true, true);
+            foreach (string warning in placed.Warnings)
+                AAMod.instance.Logger.Warn("Pit Teaser placement: " + warning);
 
-            WorldGen.PlaceObject(origin.X + 35, origin.Y + 20, ModContent.TileType<Throne_Tile>());
-            NetMessage.SendObjectPlacement(-1, origin.X + 30, origin.Y + 20, ModContent.TileType<Throne_Tile>(), 0, 0, -1, -1);
-
-            return true;
+            return placed.Success;
         }
     }
 }

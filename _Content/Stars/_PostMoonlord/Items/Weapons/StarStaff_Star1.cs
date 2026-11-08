@@ -1,15 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
 using System;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
 {
     // to investigate: Projectile.Damage, (8843)
     public class StarStaff_Star1 : ModProjectile
-	{
+    {
         public override void SetDefaults()
-		{
+        {
             Projectile.width = 26;
             Projectile.height = 26;
             Projectile.alpha = 30;

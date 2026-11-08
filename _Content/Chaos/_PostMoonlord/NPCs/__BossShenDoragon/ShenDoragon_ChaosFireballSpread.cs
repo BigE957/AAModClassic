@@ -1,15 +1,11 @@
-using AAModClassic._Content.Inferno.Buffs;
-using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
 {
     public class ShenDoragon_ChaosFireballSpread : ShenDoragon_ChaosFireballAbstract
     {
         public override void SetDefaults()
-        { 
+        {
             base.SetDefaults();
 
             Projectile.timeLeft = 240;

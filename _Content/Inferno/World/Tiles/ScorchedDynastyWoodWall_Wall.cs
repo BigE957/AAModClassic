@@ -4,17 +4,17 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.World.Tiles
 {
     public class ScorchedDynastyWoodWall_Wall : ModWall
-	{
-		public override void SetStaticDefaults()
-		{
+    {
+        public override void SetStaticDefaults()
+        {
             DustType = ModContent.DustType<Dusts.AshRain>();
-			AddMapEntry(new Color(50, 25, 0));
-		}
+            AddMapEntry(new Color(50, 25, 0));
+        }
 
         public override void NumDust(int i, int j, bool fail, ref int num)
-		{
-			num = fail ? 1 : 3;
-		}
+        {
+            num = fail ? 1 : 3;
+        }
 
         /*
         public override void KillWall(int i, int j, ref bool fail)

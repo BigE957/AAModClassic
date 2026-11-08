@@ -1,10 +1,8 @@
-using AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -46,7 +44,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Daybreak, 600);
-			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
         }
 
         public override void AI()
@@ -117,10 +115,10 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
                 dust1.noGravity = true;
                 dust2.noGravity = true;
             }
-			if (Projectile.timeLeft == 80)
-			{
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X*0.75f, Projectile.velocity.Y*0.75f, ModContent.ProjectileType<SunPartisan_Proj>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
-			}
+            if (Projectile.timeLeft == 80)
+            {
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X * 0.75f, Projectile.velocity.Y * 0.75f, ModContent.ProjectileType<SunPartisan_Proj>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+            }
         }
 
         public override bool PreDraw(ref Color lightColor)

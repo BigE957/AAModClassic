@@ -2,7 +2,6 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -25,6 +24,9 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
             base.SetDefaults();
             NPC.dontCountMe = true;
             NPC.alpha = 255;
+            NPC.boss = false;
+
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
         }
 
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
@@ -112,7 +114,7 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
             {
                 for (int tY = tileY; tY < tileCenterY; tY++)
                 {
-                    Tile checkTile = WorldGenUtils.GetTileSafely(tX, tY);
+                    Tile checkTile = Framing.GetTileSafely(tX, tY);
                     if (checkTile != null && (checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0) || checkTile.LiquidAmount > 64))
                     {
                         Vector2 tPos;
@@ -254,4 +256,6 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA
             return false;
         }
     }
+
+
 }

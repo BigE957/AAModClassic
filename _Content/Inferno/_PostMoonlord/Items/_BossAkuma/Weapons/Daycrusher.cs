@@ -1,20 +1,16 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
-using AAModClassic.Globals;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Rarities;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {
     public class Daycrusher : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-        
+
         public override void SetStaticDefaults()
         {
 
@@ -35,7 +31,7 @@ Inflicts Daybroken"); */
             Item.useTime = 40;
             Item.reuseDelay = 10;
             Item.knockBack = 7.5F;
-            Item.damage = 200;
+            Item.damage = 400;
             Item.noUseGraphic = true;
             Item.shoot = ModContent.ProjectileType<Daycrusher_Holdout>();
             Item.shootSpeed = 20F;
@@ -45,7 +41,7 @@ Inflicts Daybroken"); */
             Item.channel = true;
         }
 
-        
+
 
         public override void AddRecipes()
         {

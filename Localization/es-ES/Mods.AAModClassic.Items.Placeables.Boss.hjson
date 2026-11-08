@@ -1,6 +1,6 @@
 Trophy: {
 	InfernoGripTrophy: {
-		DisplayName: Trofeo de Agarre Infernal del Caos
+		DisplayName: Trofeo de Garra del Caos del Infierno
 		Tooltip: ""
 	}
 
@@ -10,7 +10,7 @@ Trophy: {
 	}
 
 	DaybringerTrophy: {
-		DisplayName: Trofeo de Traedor del Día
+		DisplayName: Trofeo de Portador Diurno
 		Tooltip: ""
 	}
 
@@ -30,17 +30,17 @@ Trophy: {
 	}
 
 	RetrieverTrophy: {
-		DisplayName: Trofeo de Retriever
+		DisplayName: Trofeo de Recolector
 		Tooltip: ""
 	}
 
 	TechnoTruffleTrophy: {
-		DisplayName: Trofeo de Techno Trufa
+		DisplayName: Trofeo de Tecnotrufa
 		Tooltip: ""
 	}
 
 	InfinityZeroTrophy: {
-		DisplayName: Trofeo de Infinity Zero
+		DisplayName: Trofeo de Cero Infinito
 		Tooltip: ""
 	}
 
@@ -60,12 +60,12 @@ Trophy: {
 	}
 
 	MireGripTrophy: {
-		DisplayName: Trofeo de Agarre del Lodazal del Caos
+		DisplayName: Trofeo de Garra del Caos del Lodazal
 		Tooltip: ""
 	}
 
 	ShenDoragonATrophy: {
-		DisplayName: Trofeo de Shen Doragon Despertado
+		DisplayName: Trofeo del Despertar de Shen Doragon
 		Tooltip: ""
 	}
 
@@ -95,7 +95,7 @@ Trophy: {
 	}
 
 	AnubisATrophy: {
-		DisplayName: Trofeo de Anubis Abandonado
+		DisplayName: Trofeo de Anubis, Juez Abandonado
 		Tooltip: ""
 	}
 
@@ -105,17 +105,17 @@ Trophy: {
 	}
 
 	TruffleToadTrophy: {
-		DisplayName: Trofeo de Sapo Trufa
+		DisplayName: Trofeo de Sapo de Trufa
 		Tooltip: ""
 	}
 
 	GreedTrophy: {
-		DisplayName: Trofeo de Codicia
+		DisplayName: Trofeo de Avaricia
 		Tooltip: ""
 	}
 
 	GreedATrophy: {
-		DisplayName: Trofeo de Rey Gusano Codicia
+		DisplayName: Trofeo de Rey Gusano Avaricia
 		Tooltip: ""
 	}
 
@@ -145,12 +145,12 @@ Trophy: {
 	}
 
 	MushroomMonarchTrophy: {
-		DisplayName: Trofeo de Monarca Champiñón
+		DisplayName: Trofeo de Monarca Fúngico
 		Tooltip: ""
 	}
 
 	SubzeroSerpentTrophy: {
-		DisplayName: Trofeo de Serpiente Subzero
+		DisplayName: Trofeo de Serpiente Subcero
 		Tooltip: ""
 	}
 
@@ -197,7 +197,7 @@ Relic: {
 	}
 
 	GripsOfChaosRelic: {
-		DisplayName: Reliquia de Agarres del Caos
+		DisplayName: Reliquia de Garras del Caos
 		Tooltip: ""
 	}
 
@@ -232,17 +232,17 @@ Relic: {
 	}
 
 	TruffleToadRelic: {
-		DisplayName: Reliquia de Sapo Trufa
+		DisplayName: Reliquia de Sapo de Trufa
 		Tooltip: ""
 	}
 
 	GreedRelic: {
-		DisplayName: Reliquia de Codicia
+		DisplayName: Reliquia de Avaricia
 		Tooltip: ""
 	}
 
 	GreedARelic: {
-		DisplayName: Reliquia de Rey Gusano Codicia
+		DisplayName: Reliquia de Rey Gusano Avaricia
 		Tooltip: ""
 	}
 
@@ -267,12 +267,12 @@ Relic: {
 	}
 
 	MushroomMonarchRelic: {
-		DisplayName: Reliquia de Monarca Champiñón
+		DisplayName: Reliquia de Monarca Fúngico
 		Tooltip: ""
 	}
 
 	SubzeroSerpentRelic: {
-		DisplayName: Reliquia de Serpiente Subzero
+		DisplayName: Reliquia de Serpiente Subcero
 		Tooltip: ""
 	}
 
@@ -302,12 +302,12 @@ Relic: {
 	}
 
 	RetrieverRelic: {
-		DisplayName: Reliquia de Retriever
+		DisplayName: Reliquia de Recolector
 		Tooltip: ""
 	}
 
 	TechnoTruffleRelic: {
-		DisplayName: Reliquia de Techno Trufa
+		DisplayName: Reliquia de Tecnotrufa
 		Tooltip: ""
 	}
 
@@ -317,7 +317,7 @@ Relic: {
 	}
 
 	InfinityZeroRelic: {
-		DisplayName: Reliquia de Infinity Zero
+		DisplayName: Reliquia de Cero Infinito
 		Tooltip: ""
 	}
 }

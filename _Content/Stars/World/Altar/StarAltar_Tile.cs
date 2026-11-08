@@ -1,8 +1,7 @@
 ﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.Localization;
@@ -90,7 +89,7 @@ namespace AAModClassic._Content.Stars.World.Altar
         {
             Player player = Main.LocalPlayer;
             int type = ModContent.ItemType<StarChart>();
-            if (BasePlayer.HasItem(player, type, 1) && !AAWorld.StarActive)
+            if (player.HasItem(type) && !AAWorld.StarActive)
             {
                 for (int m = 0; m < 50; m++)
                 {

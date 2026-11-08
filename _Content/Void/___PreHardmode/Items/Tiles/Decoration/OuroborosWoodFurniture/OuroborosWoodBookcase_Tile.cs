@@ -3,13 +3,12 @@ using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OuroborosWoodFurniture
 {
     public class OuroborosWoodBookcase_Tile : ModTile
-	{
+    {
         public override void SetStaticDefaults()
         {
             this.SetUpBookcase(ModContent.ItemType<OuroborosWoodBookcase>());

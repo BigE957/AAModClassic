@@ -1,11 +1,10 @@
 ﻿using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
@@ -16,7 +15,7 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossTruffl
     public class Toadstool : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.BossSummon";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Toadstool");
@@ -63,9 +62,6 @@ Can only be used in a glowing mushroom biome"); */
             }
             return true;
         }
-
-        public override void UseStyle(Player player, Rectangle heldItemFrame) { BaseUseStyle.SetStyleBoss(player, Item, true, true); }
-        public override void UseItemFrame(Player p) { BaseUseStyle.SetFrameBoss(p, Item); }
 
         public override void AddRecipes()
         {

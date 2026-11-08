@@ -1,7 +1,6 @@
-﻿using System;
-using AAModClassic._Content._Misc._PostMoonlord.Items.Buffs;
+﻿using AAModClassic._Content._Misc._PostMoonlord.Items.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,11 +8,11 @@ namespace AAModClassic._Content._Dev.DevTools
 {
     public class Noodle : ModProjectile
     {
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("[DEV] Noodle");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("[DEV] Noodle");
         }
-    	
+
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(ProjectileID.LightBeam);

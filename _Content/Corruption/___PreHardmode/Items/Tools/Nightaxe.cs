@@ -1,9 +1,8 @@
-﻿using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria;
+﻿using AAModClassic._Content.Dungeon.___PreHardmode.Items.Tools;
 using AAModClassic._Content.Jungle.___PreHardmode.Items.Tools;
-using AAModClassic._Content.Dungeon.___PreHardmode.Items.Tools;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Corruption.___PreHardmode.Items.Tools
 {
@@ -34,7 +33,7 @@ namespace AAModClassic._Content.Corruption.___PreHardmode.Items.Tools
             // DisplayName.SetDefault("Nightaxe");
         }
 
-        public override void AddRecipes()  
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.NightmarePickaxe);

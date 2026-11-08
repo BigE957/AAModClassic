@@ -1,6 +1,5 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,18 +12,18 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Weapons   //whe
         public override void SetDefaults()
         {
 
-            Item.damage = 35;            
-            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
-            Item.width = 58;              
+            Item.damage = 35;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 58;
             Item.height = 60;
             Item.useTime = 30;
             Item.useAnimation = 30;
-            Item.useStyle = ItemUseStyleID.Swing;        
-            Item.knockBack = 5;      
-            Item.value = 3000;        
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 5;
+            Item.value = 3000;
             Item.rare = ItemRarityID.LightRed;
-            Item.UseSound = SoundID.Item1;       
-            Item.autoReuse = false;   
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = false;
             Item.useTurn = true;
             Item.shoot = ModContent.ProjectileType<DiamondGreatsword_DiamondBolt>();
             Item.shootSpeed = 11f;
@@ -32,8 +31,8 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Weapons   //whe
 
         public override void SetStaticDefaults()
         {
-          // DisplayName.SetDefault("Diamond Greatsword");
-          // Tooltip.SetDefault("");
+            // DisplayName.SetDefault("Diamond Greatsword");
+            // Tooltip.SetDefault("");
         }
 
         static int shoot = 0;
@@ -48,10 +47,10 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Weapons   //whe
 
         public override void AddRecipes()  //How to craft this sword
         {
-            Recipe recipe = CreateRecipe();      
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DiamondSaber>(), 1);
-            recipe.AddIngredient(ItemID.LargeDiamond, 1);			
-            recipe.AddTile(TileID.Anvils);   
+            recipe.AddIngredient(ItemID.LargeDiamond, 1);
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
 
         }

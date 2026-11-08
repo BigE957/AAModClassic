@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -20,14 +19,14 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Wea
         protected int shoot;
 
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Dust Devil");
-			Main.projFrames[Projectile.type] = 6;
+        {
+            // DisplayName.SetDefault("Dust Devil");
+            Main.projFrames[Projectile.type] = 6;
             ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
             ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
             ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
         }
-    	
+
         public override void SetDefaults()
         {
             Projectile.netImportant = true;
@@ -88,7 +87,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Wea
             }
             Vector2 vector = Projectile.position;
             float num10 = 400f;
-            
+
             bool flag = false;
             int num11 = -1;
             Projectile.tileCollide = false;
@@ -257,7 +256,7 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Wea
             {
                 float scaleFactor4 = 5f;
                 int num29 = ModContent.ProjectileType<SandScepter_DesertGust>();
-                
+
                 if (flag)
                 {
                     if (Collision.SolidCollision(Projectile.position, Projectile.width, Projectile.height))

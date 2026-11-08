@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -17,9 +16,9 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         }
         public override void SetDefaults()
         {
-			Projectile.CloneDefaults(317);
-			Projectile.aiStyle = ProjAIStyleID.Raven;
-			AIType = ProjectileID.Raven;
+            Projectile.CloneDefaults(317);
+            Projectile.aiStyle = ProjAIStyleID.Raven;
+            AIType = ProjectileID.Raven;
             Projectile.width = 40;
             Projectile.height = 32;
             Projectile.timeLeft = 18000;
@@ -227,6 +226,6 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                 Projectile.frame = 4;
             }
         }
-        
+
     }
 }

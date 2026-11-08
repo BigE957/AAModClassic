@@ -1,12 +1,11 @@
-using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.ID;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest
 {
     public class MadnessMushroom_Tile : ModTile
-	{
+    {
         public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;

@@ -9,11 +9,11 @@ namespace AAModClassic._Unreleased.Content.LostKeep.World.Tiles.Furniture.Terra;
 
 public class TerraCouch_Tile : ModTile
 {
-	public override void SetStaticDefaults()
-	{
+    public override void SetStaticDefaults()
+    {
         this.SetUpSofa(ModContent.ItemType<TerraCouch>());
         DustType = DustID.Terra;
-	}
+    }
 
     public override void MouseOver(int i, int j) => FurnitureUtils.BenchMouseOver(i, j, ModContent.ItemType<TerraCouch>());
 

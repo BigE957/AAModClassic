@@ -5,17 +5,17 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Hell.World.Tiles
 {
     public class PitStoneWall_Wall : ModWall
-	{
-		public override void SetStaticDefaults()
-		{
+    {
+        public override void SetStaticDefaults()
+        {
             DustType = DustID.Torch;
-			AddMapEntry(new Color(10, 10, 10));
-		}
+            AddMapEntry(new Color(10, 10, 10));
+        }
 
         public override void NumDust(int i, int j, bool fail, ref int num)
-		{
-			num = fail ? 1 : 3;
-		}
+        {
+            num = fail ? 1 : 3;
+        }
 
         public override void KillWall(int i, int j, ref bool fail)
         {

@@ -1,8 +1,7 @@
 ﻿using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
-using AAModClassic._Unofficial.Desert;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Effects;
 using AAModClassic.Particles;
 using AAModClassic.Particles.Types;
@@ -12,7 +11,6 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
@@ -51,7 +49,7 @@ Can only be used in the desert on the surface
                 return;
 
             int indexToInsert = -1;
-            for(int i = 0; i < list.Count; i++)
+            for (int i = 0; i < list.Count; i++)
             {
                 var line = list[i];
                 if (line.Mod == "Terraria" && line.Name == "Tooltip1")
@@ -77,7 +75,7 @@ Can only be used in the desert on the surface
 
             if (!player.ZoneDesert && !player.ZoneUndergroundDesert)
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0) 
+                if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.ScepterBossFalse1"), Color.Gold, false);
                 return true;
@@ -105,7 +103,7 @@ Can only be used in the desert on the surface
                 Main.projectile[b].Center = npc.Center;
                 npc.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
             }
-            
+
             SoundEngine.PlaySound(SoundID.Roar, player.position);
 
 

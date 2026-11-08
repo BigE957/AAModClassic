@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.Enums;
 using Terraria.GameContent;
@@ -20,7 +19,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
         public static Asset<Texture2D> Tail;
 
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Doomray");
 
             ProjectileID.Sets.DrawScreenCheckFluff[Type] = 10000;
@@ -28,7 +27,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             Body = ModContent.Request<Texture2D>(Texture + "_Body");
             Tail = ModContent.Request<Texture2D>(Texture + "_Tail");
         }
-    	
+
         public override void SetDefaults()
         {
             Projectile.width = 48;

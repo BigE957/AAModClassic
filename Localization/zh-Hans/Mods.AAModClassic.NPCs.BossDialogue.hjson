@@ -73,7 +73,7 @@ Akuma: {
 
 	Despawn: {
 		Night: 哈啊——啊欠。我累了小子，咱俩的比试要推迟了，明天再来吧。
-		Escape: 我还以为你们泰拉人更有两下子呢。看来不过如此。
+		Escape: 我还以为你们泰拉人有两下子呢。看来不过如此。
 	}
 
 	Defeat: {
@@ -84,9 +84,9 @@ Akuma: {
 	Transition: {
 		1: 呵…
 		2: 你知道吗，小子…
-		3: 扇风可不能灭火…
+		3: 煽风可不能灭火…
 		4: 邪鬼巨龙已经觉醒！
-		5: 只会让它们更猛烈！
+		5: 只会让它们越烧越旺！
 		6: 你周围的空气开始升温…
 	}
 
@@ -272,8 +272,8 @@ Greed: {
 		1: 谁在打扰我数钱？！我正忙着呢——
 		2: …哦哦哦哦哦哦…那是…？
 		3: 你带来了我最爱的菜品..！
-		4: 好了，如果现在你不介意的话…
-		5: 滚 出 我 的 金 窟！！！
+		4: 好了，如果你没别的事的话…
+		5: 就 赶 紧 滚 出 我 的 金 窟！！！
 	}
 
 	Transition: {
@@ -285,7 +285,7 @@ Greed: {
 
 	AwakenedSummon: 你 敢 在 我 的 金 窟 中 大 快 朵 颐？！那 我 就 把 你 变 成 我 的 下 一 餐！
 	Despawn: 呃呃呃呃呃呃！这 是 地 表 的 光！太 亮 了！太 亮 了！
-	Kill: 还 有，离 我 耀 眼 的 财 宝 远 点，你 这 个 小 贼！
+	Kill: 离 我 耀 眼 的 财 宝 远 点，你 这 个 小 贼！
 }
 
 Rajah: {
@@ -480,7 +480,7 @@ Zero: {
 	Defeat: {
 		Expert: 物 理 零 械 单 元 处 于 严 重 损 坏 状 态. 予 以 废 弃，启 动 末 日 协 议.
 		NotExpert: 末 日 协 议 故 障. MAIN.EXPERTM0DE = FALSE.
-		Status: 零械单元对虚空的黑暗影响已经消散。此地的厄劫矿石现在可以开采了。
+		Status: 零械单元对虚空的黑暗影响已经消散。现在可以挖掘此地的厄劫石了。
 	}
 
 	Awakened: {
@@ -492,8 +492,8 @@ Zero: {
 			2: 正 在 以 自 组 织 模 式 启 动...
 
 			3: {
-				Normal: 允 许 {0}\\M0DS\\AAM0D\\ZER0\\自 组 织.EXE ? <Y/N>...
-				Streaming: 观 众 投 票: 允 许 自 组 织.EXE ? <Y/N>...
+				Normal: 允 许 {0}\M0DS\AAM0D\ZER0\自 组 织.EXE 启 动 ? <Y/N>...
+				Streaming: 观 众 投 票: 允 许 自 组 织.EXE 启 动 ? <Y/N>...
 			}
 
 			4: ===大 屠 戮===
@@ -519,7 +519,7 @@ Zero: {
 	ZeroBoss9: 旋 风 协 议 已 启 动
 	ZeroBoss11: 重 新 装 备 武 器 单 元
 	ZeroAwakened2: 警 告. 检 测 到 严 重 损 坏, 故 障 即 将 发 生. 启 动 全 攻 击 协 议
-	ZeroAwakened3: 警 告. 再 次 检 测 到 严 重 损 坏, 故 障 即 将 发 生. 启 动 全 攻 击 协 议 0MEGA
+	ZeroAwakened3: 警 告. 再 次 检 测 到 严 重 损 坏，故 障 即 将 发 生. 启 动 全 攻 击 协 议 0MEGA
 	ZeroAwakened5: 你 的 作 弊 工 具 在 这 里 也 救 不 了 你
 	ZeroDeath2: 任 务 失 败. 正 在 再 次 尝 试 求 救 信 号.
 }
@@ -634,6 +634,8 @@ ShenDoragon: {
 				SacredTools: 浇灭了那只深渊南瓜？那可真是大饱眼福！
 				Catalyst: 你确实把那坨紫色馒头打得满地找牙。
 				CalamityHunt: 把那些史莱姆打回原形肯定费了不少劲儿吧。真没看出来它们还挺能扑腾的！
+				// JetshiftPort: But when that ancient ice dragon let our its final dying roar? That was quite the eye-catcher.
+				// SOTS: Watching you chop that space-bending serpent into bits was quite the bit of entertainment.
 
 				Split: {
 					Seth: 我承认，把那个耍剑的暴脾气给收拾了，确实是一场好戏。
@@ -650,6 +652,7 @@ ShenDoragon: {
 
 				YouBoss: 我是说，把自己活过来的镜像给打碎？那可真了不起。
 				Radiance: 我本来没觉得那个太阳妖精有多惊艳，直到你成功逼出她的全部力量。那真是一出奇景！
+				// NoxusBoss: Bringing that sun-swallowing rift to our doorstep? To be honest, that thing's even got me a little antsy!
 			}
 
 			30: {
@@ -744,7 +747,7 @@ InfinityZero: {
 
 			6: {
 				Normal: ...{0}...
-				Streaming: "...而且没有观众时...   "
+				Streaming: "...而且这里没有观众时...   "
 
 				Hardcore: {
 					Normal: 干得好，{0}。来，给你一张贴纸。
@@ -887,6 +890,7 @@ InfinityZero: {
 					Discord: {
 						Server: {
 							CalDev: 你跟我在这打什么？你不是还有个沉沦之海重做要搞还是什么的吗？
+							// AACord: I promise you no one in the Ancients Awakened server cares that you beat me. Just give it up already.
 							Default: 你不如回{0}去找个愿意搭理你的人烦，行吗？
 						}
 
@@ -906,6 +910,7 @@ InfinityZero: {
 					NoMod: 装个别的mod什么的。模组浏览器上多着呢。
 					#New Additions
 					Jetshift: 不能去烦那两个陨石佬吗？
+					// JetshiftPort: Why not go bother Shen? I hear there's a chance he can become Shifted. Yeah, go beat Shifted Awakened Shen Doragon.
 					StarsAbove: 去烦月读吧，或者去找你家星海旅者聊聊天，别来烦我。
 					LunarVeil: 你认识歌瑟樊吧？去跟她打。听说她很猛。
 					Catalyst: 干嘛不再去打一遍那个紫色馒头？我听说无伤打过它能掉特殊物品。
@@ -917,6 +922,13 @@ InfinityZero: {
 					YouBoss: 你不能自己打发点时间么？就是，字面意思，找那个镜子里的人。
 					Radiance: 那个太阳妖精不是有了新招吗？去跟她打啊。
 					Fables: 干嘛不拜访拜访你那位瑙提螺斯爵士？他可是真心喜欢跟你打架。
+
+					NoxusBoss: {
+						// PreNameless: Don't you have some grand test to be completing? Or did Solyn die for nothing?
+						// PostNameless: Why not do that Test of Resolve thing instead? You got that Seed of Will, didn't you? Azathoth certainly likes fighting you more than I do.
+					}
+
+					// SOTS: Can't you go over to the Planetarium instead of bothering me.
 				}
 			}
 		}

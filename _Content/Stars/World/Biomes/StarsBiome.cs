@@ -1,6 +1,7 @@
 ﻿using AAModClassic.Achievements;
 using AAModClassic.Music;
-using Terraria;
+using AAModClassic.UI.World;
+using Terraria.Graphics.Effects;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars.World.Biomes
@@ -13,6 +14,19 @@ namespace AAModClassic._Content.Stars.World.Biomes
             if (active && player.whoAmI == Main.myPlayer)
                 EquinoxAltarDiscovered.Condition.Complete();
             return AAWorld.Radium + AAWorld.EquinoxAltar >= 20;
+        }
+
+        public override void SpecialVisuals(Player player, bool isActive)
+        {
+            bool rllyActive = isActive && AAWorld.downedEquinox && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Removed);
+
+            if (SkyManager.Instance["AAModClassic:StarsSky"] != null && rllyActive != SkyManager.Instance["AAModClassic:StarsSky"].IsActive())
+            {
+                if (rllyActive)
+                    SkyManager.Instance.Activate("AAModClassic:StarsSky", default);
+                else
+                    SkyManager.Instance.Deactivate("AAModClassic:StarsSky");
+            }
         }
 
         public override int Music => AAWorld.EquinoxAltar > 0 ? MusicManagementSystem.MusicSlots["Equinox_Altar"] : MusicManagementSystem.MusicSlots["Stars"];

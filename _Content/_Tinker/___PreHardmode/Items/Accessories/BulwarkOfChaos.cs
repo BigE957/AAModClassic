@@ -1,7 +1,5 @@
 ﻿using AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.Accessories;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -30,7 +28,7 @@ namespace AAModClassic._Content._Tinker.___PreHardmode.Items.Accessories
 
         public override void RegisterEquipEffects()
         {
-            damageMap.GetDamage(DamageClass.Default).Flat += 5;
+            damageMap.GetDamage(DamageClass.Generic).Flat += 5;
             AddEffect<ShieldOfCthulhuDashEffect>();
         }
 

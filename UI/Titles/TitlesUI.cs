@@ -23,7 +23,6 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Graphics;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -239,7 +238,7 @@ namespace AAModClassic.UI.Titles
         {
             if (AAConfigClient.Instance.AncientIntroText)
             {
-                if(ID == TitleGlobalNPC.Titles.AsheHaruka)
+                if (ID == TitleGlobalNPC.Titles.AsheHaruka)
                     Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ModContent.ProjectileType<SistersTitle>(), 0, 0, Main.myPlayer, 16, 0);
                 else
                     Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, Vector2.Zero, ModContent.ProjectileType<Title>(), 0, 0, Main.myPlayer, (int)ID, 0);

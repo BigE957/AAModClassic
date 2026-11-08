@@ -1,9 +1,9 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic.Utilities.Attributes;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Utilities.Attributes;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 
@@ -19,7 +19,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
             // DisplayName.SetDefault("DJ Duck Shirt");
             // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Devs!'");
         }
-        
+
         public override void ModifyTooltips(List<TooltipLine> list)
         {
             foreach (TooltipLine line2 in list)

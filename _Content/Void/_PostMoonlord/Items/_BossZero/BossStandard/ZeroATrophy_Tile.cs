@@ -1,8 +1,5 @@
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -10,18 +7,18 @@ using Terraria.ObjectData;
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
 {
     public class ZeroATrophy_Tile : ModTile
-	{
-		public override void SetStaticDefaults()
-		{
-			Main.tileFrameImportant[Type] = true;
-			Main.tileLavaDeath[Type] = true;
-			TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3Wall);
+    {
+        public override void SetStaticDefaults()
+        {
+            Main.tileFrameImportant[Type] = true;
+            Main.tileLavaDeath[Type] = true;
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3Wall);
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.StyleWrapLimit = 36;
             TileObjectData.addTile(Type);
             DustType = DustID.WoodFurniture;
-			TileID.Sets.DisableSmartCursor[Type] = true;
-			AddMapEntry(new Color(120, 85, 60));
+            TileID.Sets.DisableSmartCursor[Type] = true;
+            AddMapEntry(new Color(120, 85, 60));
             AnimationFrameHeight = 54;
         }
 
@@ -54,5 +51,5 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard
             BaseDrawing.DrawTileTexture(sb, glowTex, x, y, 16, 16, tile.TileFrameX, frameY, false, false, false, null, Glow);
             */
         }
-	}
+    }
 }

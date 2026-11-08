@@ -1,18 +1,17 @@
 ﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
 {
     public class HydraGlove : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Hydra Glove");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Hydra Glove");
+        }
 
         public override void SetDefaults()
         {
@@ -41,5 +40,5 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
-	}
+    }
 }

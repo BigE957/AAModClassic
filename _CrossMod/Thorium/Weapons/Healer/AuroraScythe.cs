@@ -1,8 +1,5 @@
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-
-using Terraria;
-using Terraria.DataStructures;
+using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,15 +11,15 @@ namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
         public new string LocalizationCategory => "Items.Weapons.CrossMod.Healer";
         public override string CrossoverModName => "ThoriumMod";
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Aurora Scythe");
             /* Tooltip.SetDefault(@"Spins a frostburning scythe around you that shreds through enemies
 Scythes inflict frostburn on contact
-Grants 1 soul essence on direct hit"); */			
-		}
+Grants 1 soul essence on direct hit"); */
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Item.width = 40;
             Item.height = 40;
             Item.rare = ItemRarityID.Orange;
@@ -34,9 +31,9 @@ Grants 1 soul essence on direct hit"); */
             Item.UseSound = SoundID.Item1;
             Item.damage = 24;
             Item.knockBack = 6;
-			Item.noMelee = true;
-			Item.noUseGraphic = true;
-			Item.autoReuse = true;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<AuroraScythe_Holdout>();
             Item.shootSpeed = 0.1f;
             Item.DamageType = ThoriumMod.HealerClass;
@@ -57,10 +54,10 @@ Grants 1 soul essence on direct hit"); */
             for (int m = 0; m < list.Count; m++)
             {
                 if (list[m].Name.Equals("ItemName"))
-                { 
+                {
                     index = m;
                     break;
-                }		
+                }
             }
 
             if (index == -1)
@@ -77,12 +74,12 @@ Grants 1 soul essence on direct hit"); */
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.IceSickle);
+            recipe.AddIngredient(ItemID.IceSickle);
             recipe.AddIngredient(ItemID.AdamantiteBar, 8);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
-			recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.IceSickle);
+            recipe = CreateRecipe();
+            recipe.AddIngredient(ItemID.IceSickle);
             recipe.AddIngredient(ItemID.TitaniumBar, 8);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();

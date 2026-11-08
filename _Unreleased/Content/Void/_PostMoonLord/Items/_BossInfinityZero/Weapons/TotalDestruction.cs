@@ -3,9 +3,7 @@ using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,15 +12,15 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
     public class TotalDestruction : ModItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Magic";
-        
+
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Total Destruction");
+        {
+            // DisplayName.SetDefault("Total Destruction");
             // Tooltip.SetDefault("Destroys everything in front of you with a destructive laser");
         }
 
         public override void SetDefaults()
-        {            
+        {
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 7;
             Item.useTime = 7;
@@ -58,14 +56,14 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
                 }
             }
         }
-        
-		public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<NovaFocus>());
-			recipe.AddIngredient(ModContent.ItemType<Infinitium>(), 12);
-	        recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
-	        recipe.Register();
-		}
-	}
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<NovaFocus>());
+            recipe.AddIngredient(ModContent.ItemType<Infinitium>(), 12);
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
+            recipe.Register();
+        }
+    }
 }

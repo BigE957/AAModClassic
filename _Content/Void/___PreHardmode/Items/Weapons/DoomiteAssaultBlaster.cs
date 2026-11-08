@@ -1,10 +1,9 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
 {
@@ -35,8 +34,8 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
         {
             // DisplayName.SetDefault("Doomite Assault Blaster");
         }
-		
-		public override Vector2? HoldoutOffset()
+
+        public override Vector2? HoldoutOffset()
         {
             return new Vector2(-10, 0);
         }

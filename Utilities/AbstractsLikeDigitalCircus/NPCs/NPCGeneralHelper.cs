@@ -1,12 +1,4 @@
-﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
-using Terraria.ModLoader;
+﻿using Microsoft.Xna.Framework.Graphics;
 
 namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs
 {
@@ -147,24 +139,24 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs
                     }
                 }
                 else
-                if (ai[0] >= -30f)
-                {
-                    npc.aiAction = 1;
-                }
+                    if (ai[0] >= -30f)
+                    {
+                        npc.aiAction = 1;
+                    }
             }
             else //handle moving the npc while in air.
-            if (npc.target < 255 && (npc.direction == 1 && npc.velocity.X < 3f || npc.direction == -1 && npc.velocity.X > -3f))
-            {
-                if (npc.direction == -1 && npc.velocity.X < 0.1 || npc.direction == 1 && npc.velocity.X > -0.1)
+                if (npc.target < 255 && (npc.direction == 1 && npc.velocity.X < 3f || npc.direction == -1 && npc.velocity.X > -3f))
                 {
-                    npc.velocity.X += 0.2f * npc.direction;
-                    return;
+                    if (npc.direction == -1 && npc.velocity.X < 0.1 || npc.direction == 1 && npc.velocity.X > -0.1)
+                    {
+                        npc.velocity.X += 0.2f * npc.direction;
+                        return;
+                    }
+                    npc.velocity.X *= 0.93f;
                 }
-                npc.velocity.X *= 0.93f;
-            }
         }
 
-        public static SpriteEffects SpriteEffectDirection(this NPC npc, bool flip = false) 
+        public static SpriteEffects SpriteEffectDirection(this NPC npc, bool flip = false)
         {
             if (flip)
                 return npc.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;

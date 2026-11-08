@@ -1,5 +1,4 @@
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
@@ -21,7 +20,7 @@ For the record, Anarchy sprited this himself."); */
             Item.consumable = true;
             Item.width = 32;
             Item.height = 32;
-            Item.expert = true;  
+            Item.expert = true;
         }
 
         public override bool CanRightClick()
@@ -29,9 +28,9 @@ For the record, Anarchy sprited this himself."); */
             return true;
         }
 
- 		public override void RightClick(Player player)
-		{
-			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<AnarchyHelmet>());
+        public override void RightClick(Player player)
+        {
+            player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<AnarchyHelmet>());
             player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<AnarchyChestplate>());
             player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<AnarchyLeggings>());
         }

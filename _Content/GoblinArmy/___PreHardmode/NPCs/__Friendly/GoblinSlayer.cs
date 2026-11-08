@@ -1,12 +1,9 @@
-using AAModClassic._Content._Dev.__Hardmode.Items.Pets;
 using AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Armor;
 using AAModClassic._Content.MartianMadness.__Hardmode.Items.Accessories;
 using AAModClassic._Content.OldOnesArmy.___PreHardmode.Items.Accessories;
-using AAModClassic._Content.RedMushroom.World.Biomes;
 using AAModClassic._Content.Terra.__Hardmode.Items.Materials;
 using AAModClassic.Globals;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.Personalities;
@@ -18,7 +15,7 @@ using Terraria.Utilities;
 namespace AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly
 {
     [AutoloadHead]
-	public class GoblinSlayer : ModNPC, ILocalizedModType
+    public class GoblinSlayer : ModNPC, ILocalizedModType
     {
         public new string LocalizationCategory => "NPCs.TownNPCs";
 
@@ -32,10 +29,10 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly
         public static bool Martian = false;
 
         //public override bool IsLoadingEnabled(Mod mod)
-		//{
-		//	name = "Goblin Slayer";
-		//	return Mod.Properties/* tModPorter Note: _Unreleased. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */.Autoload;
-		//}
+        //{
+        //	name = "Goblin Slayer";
+        //	return Mod.Properties/* tModPorter Note: _Unreleased. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */.Autoload;
+        //}
 
         public override void SetStaticDefaults()
         {
@@ -58,21 +55,21 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly
         }
 
         public override void SetDefaults()
-		{
-			NPC.townNPC = true;
-			NPC.friendly = true;
+        {
+            NPC.townNPC = true;
+            NPC.friendly = true;
             NPC.height = 40;
             NPC.width = 18;
-			NPC.height = 40;
-			NPC.aiStyle = NPCAIStyleID.Passive;
-			NPC.damage = 80;
-			NPC.defense = 98;
-			NPC.lifeMax = 600;
-			NPC.HitSound = SoundID.NPCHit1;
-			NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.height = 40;
+            NPC.aiStyle = NPCAIStyleID.Passive;
+            NPC.damage = 80;
+            NPC.defense = 98;
+            NPC.lifeMax = 600;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
             AnimationType = NPCID.Guide;
-		}
+        }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
@@ -84,10 +81,10 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly
         }
 
         public override void HitEffect(NPC.HitInfo hit)
-		{
-		}
+        {
+        }
 
-		public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
+        public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
         {
             if (!AAConfigClient.Instance.NoAATownNPC)
             {
@@ -102,23 +99,23 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly
                         }
                     }
                 }
-			}
-			return false;
-		}
+            }
+            return false;
+        }
 
-		public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
-		{
-			return ["Goblin Slayer"];
-		}
-        
+        public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
+        {
+            return ["Goblin Slayer"];
+        }
+
 
         public override string GetChat()
         {
             WeightedRandom<string> chat = new WeightedRandom<string>();
 
             int Goblin = NPC.FindFirstNPC(NPCID.GoblinTinkerer);
-			if (Goblin >= 0 && Main.rand.NextBool(4))
-			{
+            if (Goblin >= 0 && Main.rand.NextBool(4))
+            {
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.GoblinSlayer.GoblinSlayerChat1") + Main.npc[Goblin].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.GoblinSlayer.GoblinSlayerChat2"));
             }
             int DD2Bartender = NPC.FindFirstNPC(NPCID.DD2Bartender);
@@ -137,7 +134,7 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly
             {
                 chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.GoblinSlayer.GoblinSlayerChat11"));
             }
-            return chat; 
+            return chat;
         }
 
         public static int ChatNumber = 0;
@@ -156,8 +153,8 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly
         }
 
         public override void SetChatButtons(ref string button, ref string button2)
-		{
-			button = Language.GetTextValue("Mods.AAModClassic.Common.GoblinSlayerShopChangeShopType");
+        {
+            button = Language.GetTextValue("Mods.AAModClassic.Common.GoblinSlayerShopChangeShopType");
 
             string GobShop = Language.GetTextValue("Mods.AAModClassic.Common.GoblinSlayerShopGoblinLoot");
             string BloodShop = Language.GetTextValue("Mods.AAModClassic.Common.GoblinSlayerShopBloodMoonLoot");
@@ -223,7 +220,7 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly
             }
             else
             {
-                if(Goblin)
+                if (Goblin)
                     shopName = "GoblinShop";
                 else if (Blood)
                     shopName = "BloodMoonShop";
@@ -240,7 +237,7 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly
                 else if (Martian)
                     shopName = "MartianShop";
             }
-		}
+        }
 
         public override void AddShops()
         {
@@ -917,16 +914,16 @@ namespace AAModClassic._Content.GoblinArmy.___PreHardmode.NPCs.__Friendly
         }
 
         public override void TownNPCAttackStrength(ref int damage, ref float knockback)
-		{
-			damage = 80;
-			knockback = 3f;
-		}
+        {
+            damage = 80;
+            knockback = 3f;
+        }
 
-		public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
-		{
-			cooldown = 10;
-			randExtraCooldown = 10;
-		}
+        public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
+        {
+            cooldown = 10;
+            randExtraCooldown = 10;
+        }
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {

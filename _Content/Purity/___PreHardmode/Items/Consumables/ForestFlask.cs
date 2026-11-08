@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Purity.__Hardmode.Items.Consumables;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -31,6 +30,7 @@ namespace AAModClassic._Content.Purity.___PreHardmode.Items.Consumables
         {
             // DisplayName.SetDefault("Forest Flask");
             // Tooltip.SetDefault(@"Converts Jungle to Forest");
+            Item.ResearchUnlockCount = 99;
         }
 
         public override bool AltFunctionUse(Player player)

@@ -1,6 +1,5 @@
 ﻿using AAModClassic.UI.Tools;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -51,7 +50,7 @@ You may only have a maximum of 2 tool types active"); */
                 Item.damage = 0;
                 return false;
             }
-            else if(player.altFunctionUse != 2)
+            else if (player.altFunctionUse != 2)
             {
                 Item.pick = TerratoolGroxUI.Pick;
                 Item.axe = TerratoolGroxUI.Axe;

@@ -1,10 +1,7 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
+﻿using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tools
 {
@@ -12,8 +9,8 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tools
     {
         public new string LocalizationCategory => "Items.Tools";
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Fulgurite Pitchet");
+        {
+            // DisplayName.SetDefault("Fulgurite Pitchet");
         }
 
         public override void SetDefaults()
@@ -22,7 +19,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tools
             Item.height = 48;
             Item.value = Item.sellPrice(0, 3, 0, 0);
             Item.rare = ItemRarityID.LightRed;
-		    Item.pick = 200;
+            Item.pick = 200;
             Item.axe = 40;
             Item.tileBoost += 1;
 
@@ -36,7 +33,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tools
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.useTurn = true;
             Item.autoReuse = true;
-            
+
             Item.UseSound = SoundID.Item1;
         }
 

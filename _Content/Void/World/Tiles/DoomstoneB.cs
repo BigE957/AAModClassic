@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 namespace AAModClassic._Content.Void.World.Tiles
@@ -22,7 +21,7 @@ namespace AAModClassic._Content.Void.World.Tiles
             Item.consumable = true;
             Item.createTile = ModContent.TileType<DoomstoneB_Tile>(); //put your CustomBlock Tile name
         }
-       
+
         public override void SetStaticDefaults()
         {
 

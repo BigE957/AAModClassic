@@ -1,42 +1,41 @@
-﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
-using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
+﻿using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
+using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     public class GentlemansLongblade : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Gentleman's Longblade");
             /* Tooltip.SetDefault(@"Shoots many spooky dapper top hats
 Right clicking thrusts the blade forward
 Left clicking swings the blade
 Gentleman's Rapier EX"); */
-		}
+        }
 
-		public override void SetDefaults()
-		{
-			Item.damage = 400;
-			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-			Item.width = 94;
-			Item.height = 96;
-			Item.useTime = 8;
-			Item.useAnimation = 8;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack = 3;
-			Item.value = 100000;
-			Item.rare = ItemRarityID.Purple;
+        public override void SetDefaults()
+        {
+            Item.damage = 400;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 94;
+            Item.height = 96;
+            Item.useTime = 8;
+            Item.useAnimation = 8;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 3;
+            Item.value = 100000;
+            Item.rare = ItemRarityID.Purple;
             Item.shoot = ModContent.ProjectileType<GentlemansRapier_TopHat>();
             Item.UseSound = SoundID.Item1;
-			Item.autoReuse = true;
+            Item.autoReuse = true;
             Item.shootSpeed = 50f;
         }
 
@@ -52,12 +51,12 @@ Gentleman's Rapier EX"); */
         }
 
         public override bool AltFunctionUse(Player player)
-		{
-			return true;
-		}
+        {
+            return true;
+        }
 
-		public override bool CanUseItem(Player player)
-		{
+        public override bool CanUseItem(Player player)
+        {
             if (player.altFunctionUse == 2)
             {
                 Item.useStyle = ItemUseStyleID.Thrust;
@@ -67,7 +66,7 @@ Gentleman's Rapier EX"); */
                 Item.useStyle = ItemUseStyleID.Swing;
             }
             return base.CanUseItem(player);
-		}
+        }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {

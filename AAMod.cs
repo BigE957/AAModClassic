@@ -1,3 +1,4 @@
+global using Terraria;
 using AAModClassic._Content._Dev.___PreHardmode.Items.Currency;
 using AAModClassic._Content._Dev.__Hardmode.Items.Accessories;
 using AAModClassic._Content._EX._PostMoonlord.Items.Accessories;
@@ -5,10 +6,8 @@ using AAModClassic._Content._EX._PostMoonlord.Items.Weapons;
 using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.Weapons;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA.Skies;
-using AAModClassic._Content.Acropolis.World.Tiles;
 using AAModClassic._Content.BloodMoon.___PreHardmode.Items.Currency;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
-using AAModClassic._Content.Chaos.___PreHardmode.Items.Tools;
 using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons;
 using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
@@ -25,7 +24,6 @@ using AAModClassic._Content.Evil.__Hardmode.Items.Weapons;
 using AAModClassic._Content.FrostMoon.__Hardmode.Items.Currency;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.NPCs.__BossTruffleToad;
 using AAModClassic._Content.GoblinArmy.___PreHardmode.Items.Currency;
-using AAModClassic._Content.Hoard.World.Tiles;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
@@ -55,11 +53,9 @@ using AAModClassic._Content.Void._PostMoonlord.Items.Accessories.Vanity;
 using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic._CrossMod;
 using AAModClassic._Unofficial.Content._Tinker.__Hardmode.Items.Accessories;
+using AAModClassic._Removed.Content.Stars;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Weapons;
 using AAModClassic.Assets;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Base.NPCs;
-using AAModClassic.Base.Projectiles;
 using AAModClassic.Globals;
 using AAModClassic.UI.Core;
 using AAModClassic.UI.Tools;
@@ -72,10 +68,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Text.RegularExpressions;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.UI;
 using Terraria.Graphics;
@@ -164,7 +156,7 @@ namespace AAModClassic
             }
 
             var field = typeof(FinalFractalHelper).GetField("_fractalProfiles", BindingFlags.Static | BindingFlags.NonPublic);
-            if(field != null)
+            if (field != null)
             {
                 var profiles = (Dictionary<int, FinalFractalHelper.FinalFractalProfile>)field.GetValue(null);
 
@@ -290,83 +282,11 @@ namespace AAModClassic
             }
         }
 
-        private static readonly FieldInfo ShaderRefField = typeof(ShaderData).GetField("_shader", BindingFlags.NonPublic | BindingFlags.Instance);
-
-        private static readonly FieldInfo AssetField = typeof(ShaderData).GetField("_asset", BindingFlags.NonPublic | BindingFlags.Instance);
-
-        private static readonly FieldInfo PassNameField = typeof(ShaderData).GetField("_passName", BindingFlags.NonPublic | BindingFlags.Instance);
-
-        private static ArmorShaderData NewShaderFrom(int vanillaDyeId)
-        {
-            ArmorShaderData baseShader = GameShaders.Armor.GetShaderFromItemId(vanillaDyeId);
-
-            var newShader = (ArmorShaderData)RuntimeHelpers.GetUninitializedObject(typeof(ArmorShaderData));
-
-            ShaderRefField.SetValue(newShader, ShaderRefField.GetValue(baseShader));
-            AssetField.SetValue(newShader, AssetField.GetValue(baseShader));
-            PassNameField.SetValue(newShader, PassNameField.GetValue(baseShader));
-
-            return newShader;
-        }
-
         public void LoadClient()
         {
-            GameShaders.Armor.BindShader(Find<ModItem>("BlazingDye").Type,
-                NewShaderFrom(ItemID.LivingFlameDye)
-                .UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f)
-                .UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f)
-            );
-
-            GameShaders.Armor.BindShader(Find<ModItem>("AbyssalDye").Type,
-                NewShaderFrom(ItemID.LivingFlameDye)
-                .UseColor(146f / 255f, 30f / 255f, 68f / 255f)
-                .UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f)
-            );
-
-            GameShaders.Armor.BindShader(Find<ModItem>("DoomsdayDye").Type,
-                NewShaderFrom(ItemID.VortexDye)
-                .UseImage("Images/Misc/noise")
-                .UseColor(0f, 0f, 0f)
-                .UseSecondaryColor(1f, 0f, 0f)
-                .UseSaturation(1f)
-            );
-
-            GameShaders.Armor.BindShader(Find<ModItem>("DiscordianDye").Type,
-                NewShaderFrom(ItemID.LivingFlameDye)
-                .UseColor(0.66f, 0f, 1f)
-                .UseSecondaryColor(0.66f, 0f, 1f)
-            );
-
-            GameShaders.Armor.BindShader(Find<ModItem>("DiscordianInfernoDye").Type,
-                NewShaderFrom(ItemID.HadesDye)
-                .UseColor(0.88f, 0f, 1f)
-                .UseSecondaryColor(0.66f, 0f, 1f)
-            );
-
-            GameShaders.Armor.BindShader(Find<ModItem>("AbyssalWrathDye").Type,
-                NewShaderFrom(ItemID.HadesDye)
-                .UseColor(146f / 255f, 30f / 255f, 68f / 255f)
-                .UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f)
-            );
-
-            GameShaders.Armor.BindShader(Find<ModItem>("BlazingFuryDye").Type,
-                NewShaderFrom(ItemID.HadesDye)
-                .UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f)
-                .UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f)
-            );
-
-            Asset<Effect> shader = ModContent.Request<Effect>("AAModClassic/Effects/Shockwave");
-            ScreenShaderData shaderdata = new(shader, "Shockwave");
-            Filters.Scene["AAModClassic:Shockwave"] = new Filter(shaderdata, EffectPriority.VeryHigh);
-            Filters.Scene["AAModClassic:Shockwave"].Load();
-
-            shader = ModContent.Request<Effect>("AAModClassic/Effects/Mask");
-            shaderdata = new(shader, "Mask");
-            Filters.Scene["AAModClassic:Mask"] = new Filter(shaderdata, EffectPriority.VeryHigh);
-            Filters.Scene["AAModClassic:Mask"].Load();
-
             //TODO: Perhaps move these to their proper content area so the textures are easier to keep track off
-            Main.QueueMainThreadAction(() => {
+            Main.QueueMainThreadAction(() =>
+            {
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Void/World/Biomes/Backgrounds/VoidBH", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/World/Biomes/Backgrounds/MireBiome_Moon", AssetRequestMode.ImmediateLoad).Value);
                 PremultiplyTexture(ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Backgrounds/Sun", AssetRequestMode.ImmediateLoad).Value);
@@ -429,6 +349,8 @@ namespace AAModClassic
             Filters.Scene["AAModClassic:AnubisASky"] = new Filter(new AnubisASkyData("FilterMiniTower").UseColor(.2f, .5f, .2f).UseOpacity(0.5f), EffectPriority.VeryHigh);
             SkyManager.Instance["AAModClassic:AnubisASky"] = new AnubisASky();
 
+            SkyManager.Instance["AAModClassic:StarsSky"] = new StarsSky();
+
             ReplaceItemTexture(3460, "AAModClassic/Resprites/Luminite");
             ReplaceItemTexture(512, "AAModClassic/Resprites/SoulOfNight");
 
@@ -476,7 +398,7 @@ namespace AAModClassic
             if (field != null)
             {
                 var profiles = (Dictionary<int, FinalFractalHelper.FinalFractalProfile>)field.GetValue(null);
-                foreach(int key in profiles.Keys)
+                foreach (int key in profiles.Keys)
                 {
                     if (ContentSamples.ItemsByType[key].ModItem != null && ContentSamples.ItemsByType[key].ModItem.Mod is AAMod)
                         profiles.Remove(key);

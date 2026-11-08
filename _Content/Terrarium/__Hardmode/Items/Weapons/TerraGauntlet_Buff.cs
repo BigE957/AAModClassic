@@ -1,10 +1,9 @@
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
 {
     public class TerraGauntlet_Buff : ModBuff
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Minions");
@@ -17,7 +16,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.Items.Weapons
         {
             ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
             modPlayer.TerraSummon = true;
-			
+
             if (!modPlayer.TerraSummon)
             {
                 player.DelBuff(buffIndex);

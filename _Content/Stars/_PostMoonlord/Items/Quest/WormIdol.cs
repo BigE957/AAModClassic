@@ -1,9 +1,5 @@
 using AAModClassic._Content.Desert._PostMoonlord.Items.Materials;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -32,7 +28,7 @@ It looks like it hasn't been touched in years"); */
             {
                 if (player.ownedProjectileCounts[ModContent.ProjectileType<WormIdol_Pointer>()] < 1)
                 {
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), player.Center.X, player.Center.Y, 0f, -1f, ModContent.ProjectileType<WormIdol_Pointer>(), 0, 0f, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(player.GetSource_ItemUse(Item), player.Center.X, player.Center.Y, 0f, -1f, ModContent.ProjectileType<WormIdol_Pointer>(), 0, 0f, Main.myPlayer, 0f, 0f);
                 }
             }
         }

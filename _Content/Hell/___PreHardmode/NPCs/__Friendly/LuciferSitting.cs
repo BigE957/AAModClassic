@@ -1,5 +1,4 @@
-﻿using Terraria;
-using Terraria.Audio;
+﻿using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.Localization;
@@ -62,6 +61,8 @@ namespace AAModClassic._Content.Hell.___PreHardmode.NPCs.__Friendly
                 NPC.homeTileY = -1;
                 NPC.netUpdate = true;
             }
+
+            NPC.direction = NPC.spriteDirection = NPC.Center.X / 16 < Main.maxTilesX / 2 ? 1 : -1;
         }
 
         public override void FindFrame(int frameHeight)
@@ -88,10 +89,7 @@ namespace AAModClassic._Content.Hell.___PreHardmode.NPCs.__Friendly
         public override void SetChatButtons(ref string button, ref string button2)
         {
             string buttonsPath = "Mods.AAModClassic.NPCs.TownNPCs.LuciferSitting.Buttons.";
-            string who = "Who are you?";
-            string when = "When will it be done?";
-            string why = "Why are you building it?";
-            string bye = "Alright, goodbye.";
+
             if (chatNumber == 0)
             {
                 button = Language.GetTextValue(buttonsPath + "Who");

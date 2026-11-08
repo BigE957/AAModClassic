@@ -5,14 +5,14 @@ using Terraria.ModLoader;
 namespace AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossZero.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class ZeroAMask : BaseAAItem, ILocalizedModType
+    public class ZeroAMask : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Vanity.Masks";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Zero Protocol Mask");
-		}
+        }
 
         public override void SetDefaults()
         {

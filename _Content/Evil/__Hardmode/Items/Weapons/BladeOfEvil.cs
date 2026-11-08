@@ -1,6 +1,5 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,10 +16,10 @@ namespace AAModClassic._Content.Evil.__Hardmode.Items.Weapons
             Item.width = 52;
             Item.height = 52;
             Item.useTime = 30;
-            Item.useAnimation = 30;     
+            Item.useAnimation = 30;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 4;
-            Item.value = 10000;        
+            Item.value = 10000;
             Item.rare = ItemRarityID.LightRed;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
@@ -29,21 +28,21 @@ namespace AAModClassic._Content.Evil.__Hardmode.Items.Weapons
             Item.shootSpeed = 9;
         }
 
-		public override void MeleeEffects(Player player, Rectangle hitbox)
-		{
-			if (Main.rand.NextBool(2))
-			{
-				Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Demonite);
-				Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Crimstone);
-			}
-		}
-		
-		public override void SetStaticDefaults()
-		{
-		  // DisplayName.SetDefault("Blade of Evil");
-		  /* Tooltip.SetDefault(@"The perfect balance between Corruption and Crimson
-Shoots alternating fireballs of Ichor and Cursed Flames"); */
-		}
+        public override void MeleeEffects(Player player, Rectangle hitbox)
+        {
+            if (Main.rand.NextBool(2))
+            {
+                Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Demonite);
+                Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Crimstone);
+            }
+        }
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Blade of Evil");
+            /* Tooltip.SetDefault(@"The perfect balance between Corruption and Crimson
+  Shoots alternating fireballs of Ichor and Cursed Flames"); */
+        }
 
         int Shot = 0;
 
@@ -61,8 +60,8 @@ Shoots alternating fireballs of Ichor and Cursed Flames"); */
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();      
-			recipe.AddIngredient(ItemID.CrimtaneBar, 8);
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ItemID.CrimtaneBar, 8);
             recipe.AddIngredient(ItemID.DemoniteBar, 8);
             recipe.AddIngredient(ItemID.Ichor, 10);
             recipe.AddIngredient(ItemID.CursedFlame, 10);

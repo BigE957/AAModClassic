@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,13 +7,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Weapons
 {
     public class ChaosBaton_BlazeClaw : ModProjectile
     {
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Blaze Claw");
-			Main.projFrames[Projectile.type] = 5;
-			ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Blaze Claw");
+            Main.projFrames[Projectile.type] = 5;
+            ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
             ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
-		}
+        }
 
 
         public override void SetDefaults()
@@ -59,7 +58,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Weapons
             {
                 Projectile.timeLeft = 2;
             }
-            foreach(Projectile p in Main.ActiveProjectiles)
+            foreach (Projectile p in Main.ActiveProjectiles)
             {
                 if (p.whoAmI != Projectile.whoAmI && p.owner == Projectile.owner && Math.Abs(Projectile.position.X - p.position.X) + Math.Abs(Projectile.position.Y - p.position.Y) < Projectile.width)
                 {
@@ -92,8 +91,8 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Weapons
                 Projectile.tileCollide = false;
             }
             if (player.HasMinionAttackTargetNPC)
-			{
-				NPC target = Main.npc[player.MinionAttackTargetNPC];
+            {
+                NPC target = Main.npc[player.MinionAttackTargetNPC];
                 if (target.CanBeChasedBy(Projectile, false))
                 {
                     float distance = Vector2.Distance(target.Center, Projectile.Center);
@@ -104,9 +103,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Weapons
                         foundTarget = true;
                     }
                 }
-			}
-			else
-			{
+            }
+            else
+            {
                 for (int num645 = 0; num645 < 200; num645++)
                 {
                     NPC target = Main.npc[num645];
@@ -195,14 +194,14 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Weapons
             }
             if (foundTarget)
             {
-				Projectile.spriteDirection = (position - Projectile.Center).X > 0 ? 1 : -1;
+                Projectile.spriteDirection = (position - Projectile.Center).X > 0 ? 1 : -1;
                 Projectile.rotation = (position - Projectile.Center).ToRotation() + 1.57f;
-			}
-			else
-			{
-				Projectile.spriteDirection = Projectile.velocity.X > 0 ? 1 : -1;
-				Projectile.rotation = Projectile.velocity.ToRotation() + 1.57f;
-			}
+            }
+            else
+            {
+                Projectile.spriteDirection = Projectile.velocity.X > 0 ? 1 : -1;
+                Projectile.rotation = Projectile.velocity.ToRotation() + 1.57f;
+            }
             if (Projectile.ai[1] > 0f)
             {
                 Projectile.ai[1] += Main.rand.Next(1, 4);

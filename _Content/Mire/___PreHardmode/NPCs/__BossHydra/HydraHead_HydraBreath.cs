@@ -1,9 +1,8 @@
-﻿using Terraria;
+﻿using AAModClassic.Dusts;
+using Microsoft.Xna.Framework;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using AAModClassic.Dusts;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
 {
@@ -27,7 +26,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             Projectile.aiStyle = -1;
         }
 
-		bool spawnSound = false;
+        bool spawnSound = false;
         public override bool PreDraw(ref Color lightColor)
         {
             return false;
@@ -35,11 +34,11 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
 
         public override void AI()
         {
-			if(!spawnSound)
-			{
-				SoundEngine.PlaySound(SoundID.Item34, Projectile.position);
-				spawnSound = true;
-			}
+            if (!spawnSound)
+            {
+                SoundEngine.PlaySound(SoundID.Item34, Projectile.position);
+                spawnSound = true;
+            }
             if (Projectile.ai[0] < 8f)
             {
                 Projectile.ai[0] = 8f;

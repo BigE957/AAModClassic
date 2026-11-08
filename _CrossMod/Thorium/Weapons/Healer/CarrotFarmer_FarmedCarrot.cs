@@ -1,30 +1,29 @@
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
 {
     public class CarrotFarmer_FarmedCarrot : ModProjectile
-	{
+    {
         public override bool IsLoadingEnabled(Mod mod) => ThoriumMod.IsEnabled;
 
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Farmed Carrot");
-		}
+        }
 
-		public override void SetDefaults()
-		{
-			Projectile.width = 10; 
-			Projectile.height = 10; 
-			Projectile.aiStyle = ProjAIStyleID.Arrow;   
-			Projectile.friendly = true; 
-			Projectile.hostile = false;  
-			Projectile.penetrate = -1;  
-			Projectile.timeLeft = 600;  
-			Projectile.ignoreWater = true;
-			Projectile.tileCollide = true;
-			AIType = ProjectileID.WoodenArrowFriendly;
+        public override void SetDefaults()
+        {
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 600;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
+            AIType = ProjectileID.WoodenArrowFriendly;
             Projectile.DamageType = ThoriumMod.HealerClass;
         }
 

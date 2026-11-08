@@ -1,13 +1,12 @@
 ﻿using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic._Content.Void.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -52,6 +51,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
             }
             NPC.dontTakeDamage = true;
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
         }
 
         public override bool CheckActive()

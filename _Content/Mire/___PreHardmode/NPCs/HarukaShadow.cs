@@ -1,23 +1,22 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
+using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
+using AAModClassic._CrossMod;
+using AAModClassic.Base;
+using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
-using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
-using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka;
-using AAModClassic.Utilities;
-using Terraria.Localization;
-
 namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
-{ 
+{
     public class HarukaShadow : ModNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("...");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("...");
             Main.npcFrameCount[NPC.type] = 3;
             this.HideFromBestiary();
         }
@@ -38,6 +37,14 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs
             NPC.height = 58;
             NPC.rarity = 1;
             NPC.immortal = true;
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (!AAWorld.downedSisters && NPCExtensions.BeenKilled<HydraBody>() && spawnInfo.Player.ZoneAnyMire() && !AnyEvents(spawnInfo.Player) && !NPC.AnyNPCs(ModContent.NPCType<HarukaShadow>()))
+                return ContentReplacementSystem.NeedToReplaceContent ? 0.0005f : .00005f;
+
+            return 0f;
         }
 
         public override void AI()

@@ -1,7 +1,6 @@
 ﻿using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.GripsOfDiscord
@@ -43,13 +42,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
             }
             if (Projectile.timeLeft % 90 == 15)
             {
-                for(int i = 0; i < 16; i++)
+                for (int i = 0; i < 16; i++)
                 {
                     Vector2 shoot = new Vector2((float)Math.Sin((i * 0.125f + rotate * 0.067f) * 3.1415926f), (float)Math.Cos((i * 0.125f + rotate * 0.067f) * 3.1415926f));
                     shoot *= 16f;
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, shoot.X, shoot.Y, ModContent.ProjectileType<AbyssGrip_Orbiter2>(), Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
                 }
-                rotate ++;
+                rotate++;
             }
             if (Projectile.timeLeft == 0)
             {
@@ -75,7 +74,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                Projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
@@ -117,22 +116,17 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Grips
 
         private int HomeOnTarget()
         {
-            const bool homingCanAimAtWetEnemies = true;
-            const float homingMaximumRangeInPixels = 500;
+            const float homingMaximumRangeSQInPixels = 250000;
 
             int selectedTarget = -1;
-            for (int i = 0; i < Main.maxNPCs; i++)
+            float previousBest = float.MaxValue;
+            foreach(Player target in Main.ActivePlayers)
             {
-                Player target = Main.player[i];
-                if (target.active && (!target.wet || homingCanAimAtWetEnemies))
+                float distance = Projectile.DistanceSQ(target.Center);
+                if (distance <= homingMaximumRangeSQInPixels && (selectedTarget == -1 || previousBest > distance))
                 {
-                    float distance = Projectile.Distance(target.Center);
-                    if (distance <= homingMaximumRangeInPixels &&
-                        (
-                            selectedTarget == -1 || //there is no selected target
-                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
-                    )
-                        selectedTarget = i;
+                    selectedTarget = target.whoAmI;
+                    previousBest = distance;
                 }
             }
 

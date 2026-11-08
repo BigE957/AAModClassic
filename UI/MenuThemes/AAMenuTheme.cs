@@ -4,7 +4,6 @@ using AAModClassic._Content.Void.World.Biomes;
 using AAModClassic.Assets;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
@@ -30,9 +29,9 @@ namespace AAModClassic.UI.MenuThemes
             BlankTex = ModContent.Request<Texture2D>(AssetDirectory.General.Nothing);
         }
 
-        public override Asset<Texture2D> Logo 
-        { 
-            get 
+        public override Asset<Texture2D> Logo
+        {
+            get
             {
                 return Phase switch
                 {
@@ -131,6 +130,19 @@ namespace AAModClassic.UI.MenuThemes
         }
 
         public override void OnDeselected()
+        {
+            if (SkyManager.Instance["AAModClassic:MireSky"].IsActive())
+                SkyManager.Instance.Deactivate("AAModClassic:MireSky", [true]);
+            if (SkyManager.Instance["AAModClassic:InfernoSky"].IsActive())
+                SkyManager.Instance.Deactivate("AAModClassic:InfernoSky", [true]);
+            if (SkyManager.Instance["AAModClassic:VoidSky"].IsActive())
+                SkyManager.Instance.Deactivate("AAModClassic:VoidSky", [true]);
+        }
+    }
+
+    public class AAMenuThemeSystem : ModSystem
+    {
+        public override void PreSaveAndQuit()
         {
             if (SkyManager.Instance["AAModClassic:MireSky"].IsActive())
                 SkyManager.Instance.Deactivate("AAModClassic:MireSky", [true]);

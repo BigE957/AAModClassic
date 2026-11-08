@@ -1,7 +1,4 @@
-using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
-using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,9 +9,9 @@ namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
         public override bool IsLoadingEnabled(Mod mod) => ThoriumMod.IsEnabled;
 
         public override void SetDefaults()
-		{
-			Projectile.width = 130;
-			Projectile.height = 128;
+        {
+            Projectile.width = 130;
+            Projectile.height = 128;
             Projectile.aiStyle = 0;
             Projectile.light = 0.2f;
             Projectile.friendly = true;

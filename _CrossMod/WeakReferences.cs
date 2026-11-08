@@ -82,6 +82,7 @@ using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
 using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
 using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother;
 using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
@@ -102,7 +103,6 @@ using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs._Surface._Day;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.AncientLung;
 using AAModClassic._Content.Inferno.Buffs;
-using AAModClassic._Content.Inferno.World.Biomes;
 using AAModClassic._Content.Jungle.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Jungle.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Madness.___PreHardmode.Items.Weapons;
@@ -110,6 +110,7 @@ using AAModClassic._Content.Madness.___PreHardmode.NPCs;
 using AAModClassic._Content.MartianMadness.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra;
 using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandard;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
@@ -167,13 +168,12 @@ using AAModClassic._Content.Void.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.BossStandard;
-using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Pets;
 using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic._Content.Void.World.Biomes;
-using AAModClassic._CrossMod.CalamityMod;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
+using AAModClassic._CrossMod.SpiritReforged;
 using AAModClassic._Removed.Content.Parthenan;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX.BossStandard;
@@ -191,7 +191,6 @@ using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossInfinityZer
 using AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossZero.BossStandard;
 using AAModClassic._Unreleased.Content._Dev._PostMoonlord.Items.Weapons;
 using AAModClassic._Unreleased.Content._Tinker.__Hardmode.Armor.Vanity;
-using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Unreleased.Content.LostKeep._Hardmode.NPCs.__BossBiomiteCore;
 using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle;
 using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.Items._BossTechnoTruffle.BossStandard;
@@ -211,9 +210,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -1111,7 +1108,8 @@ namespace AAModClassic._CrossMod
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Anubis.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Anubis.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>() + "]"),
-                    ["despawnMessage"] = ((NPC npc) => {
+                    ["despawnMessage"] = ((NPC npc) =>
+                    {
                         if (NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()))
                             return null;
                         return Language.GetOrRegister(path + "Anubis.Despawn");
@@ -1129,7 +1127,8 @@ namespace AAModClassic._CrossMod
                     ["spawnInfo"] = Language.GetOrRegister(path + "BiomiteCore.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<BiomePrism>() + "]"),
                     ["despawnMessage"] = Language.GetOrRegister(path + "BiomiteCore.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<BiomePrism>(),
-                    ["customPortrait"] = (SpriteBatch sb, Rectangle rect, Color color) => {
+                    ["customPortrait"] = (SpriteBatch sb, Rectangle rect, Color color) =>
+                    {
                         string path = ModContent.GetInstance<BiomiteCore>().Texture;
                         Texture2D coreTex = ModContent.Request<Texture2D>(path).Value;
                         Rectangle coreFrame = coreTex.Frame(1, 8);
@@ -1178,7 +1177,7 @@ namespace AAModClassic._CrossMod
                 if (CalamityMod.CalamityMod.IsEnabled)
                     greedCollectibles.Add(ModContent.ItemType<GreedLore>());
 
-                AddBoss(bossChecklist, mod, "Greed", (() => NPCExtensions.BeenKilled<GreedHead>()), new List<int>() { ModContent.NPCType<GreedHead>(), ModContent.NPCType<GreedBody>() }, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Greed", () => NPCExtensions.BeenKilled<GreedHead>(), ModContent.NPCType<GreedHead>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Greed.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Greed.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<GoldenGrub>() + "]"),
@@ -1542,7 +1541,8 @@ namespace AAModClassic._CrossMod
                     ["despawnMessage"] = Language.GetOrRegister(path + "InfinityZero.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<InfinityBeacon>(),
                     ["collectibles"] = infZeroCollectibles,
-                    ["customPortrait"] = (SpriteBatch sb, Rectangle rect, Color color) => {
+                    ["customPortrait"] = (SpriteBatch sb, Rectangle rect, Color color) =>
+                    {
                         Texture2D texture = ModContent.Request<Texture2D>(ModContent.GetInstance<InfinityZero>().Texture).Value;
                         Rectangle frame = texture.Frame(1, 4, 0, 0);
                         Vector2 centered = new(rect.Center.X, rect.Center.Y);
@@ -1570,7 +1570,8 @@ namespace AAModClassic._CrossMod
                     ["despawnMessage"] = Language.GetOrRegister(path + "SoulOfCthulhu.Despawn"),
                     ["spawnItems"] = ModContent.ItemType<CursedCompass>(),
                     ["collectibles"] = socCollectibles,
-                    ["customPortrait"] = (SpriteBatch sb, Rectangle rect, Color color) => {
+                    ["customPortrait"] = (SpriteBatch sb, Rectangle rect, Color color) =>
+                    {
                         string path = ModContent.GetInstance<SoulOfCthulhu>().Texture;
                         Texture2D texture2D13 = ModContent.Request<Texture2D>(path).Value;
                         Texture2D WheelTex = ModContent.Request<Texture2D>(path + "_Wheel").Value;
@@ -1683,7 +1684,7 @@ namespace AAModClassic._CrossMod
             if (ModLoader.TryGetMod("Thorium", out Mod thorium))
             {
                 ShenDoragonUtils.CrossModDialogue.Add("Thorium", (Language.GetOrRegister(shenLocPath + "Thorium"), () => (bool)thorium.Call("GetBossDowned", "ThePrimordials")));
-                Oblivion.CrossModDialogue.Add("Throium", (Language.GetOrRegister(izLocPath + "Thorium"), () => true));
+                Oblivion.CrossModDialogue.Add("Thorium", (Language.GetOrRegister(izLocPath + "Thorium"), () => true));
             }
 
             if (ModLoader.TryGetMod("CalamityMod", out Mod cal))
@@ -1791,32 +1792,53 @@ namespace AAModClassic._CrossMod
                 Oblivion.CrossModDialogue.Add("Ultranium", (Language.GetOrRegister(izLocPath + "Ultranium"), () => true));
             }
 
+            if (ModLoader.TryGetMod("JetshiftPort", out Mod jetshiftPort))
+            {
+                ShenDoragonUtils.CrossModDialogue.Add("JetshiftPort", (Language.GetOrRegister(shenLocPath + "JetshiftPort"), () => (bool)jetshiftPort.Call("Downed", "frezyn")));
+                Oblivion.CrossModDialogue.Add("JetshiftPort", (Language.GetOrRegister(izLocPath + "JetshiftPort"), () => true));
+            }
+
+            if (ModLoader.TryGetMod("NoxusBoss", out Mod wotg))
+            {
+                ShenDoragonUtils.CrossModDialogue.Add("NoxusBoss", (Language.GetOrRegister(shenLocPath + "NoxusBoss"), () => NPC.downedMoonlord));
+                Oblivion.CrossModDialogue.Add("NoxusBoss:PreNameless", (Language.GetOrRegister(izLocPath + "NoxusBoss.PreNameless"), () => !(bool)wotg.Call("GetBossDefeated", "namelessdeity")));
+                Oblivion.CrossModDialogue.Add("NoxusBoss:PostNameless", (Language.GetOrRegister(izLocPath + "NoxusBoss.PostNameless"), () => (bool)wotg.Call("GetBossDefeated", "namelessdeity")));
+            }
+
+            if (ModLoader.TryGetMod("SOTS", out var sots) && sots.TryFind<ModSystem>("SystemTweaks", out downed))
+            {
+                var field = downed.GetType().GetField("downedSubspace", BindingFlags.Static | BindingFlags.Public);
+                if (field != null)
+                    ShenDoragonUtils.CrossModDialogue.Add("SOTS", (Language.GetOrRegister(shenLocPath + "SOTS"), () => (bool)field.GetValue(null)));
+                Oblivion.CrossModDialogue.Add("SOTS", (Language.GetOrRegister(izLocPath + "SOTS"), () => true));
+            }
+
             //(bool)ModSupport.GetModWorldConditions("GRealm", "MWorld", "downedMatriarch", false, true);
             //public bool DownedDuo => JetshiftMod.JetshiftWorld.downedCosmicMystery;
         }
 
         private static void PerformReforgedSupport()
         {
-            if (ModLoader.TryGetMod("SpiritReforged", out var reforged))
+            if (SpiritReforgedManager.IsEnabled)
             {
                 #region Register Undead
-                reforged.Call("AddUndead", ModContent.NPCType<MushroomZombie>());
-                reforged.Call("AddUndead", ModContent.NPCType<MushroomZombie2>());
-                reforged.Call("AddUndead", ModContent.NPCType<DragonClaw_NPC>());
-                reforged.Call("AddUndead", ModContent.NPCType<HydraClaw_NPC>());
+                SpiritReforgedManager.Call("AddUndead", ModContent.NPCType<MushroomZombie>());
+                SpiritReforgedManager.Call("AddUndead", ModContent.NPCType<MushroomZombie2>());
+                SpiritReforgedManager.Call("AddUndead", ModContent.NPCType<DragonClaw_NPC>());
+                SpiritReforgedManager.Call("AddUndead", ModContent.NPCType<HydraClaw_NPC>());
 
-                reforged.Call("AddUndead", ModContent.NPCType<GripOfChaosMire>());
-                reforged.Call("AddUndead", ModContent.NPCType<GripOfChaosInferno>());
+                SpiritReforgedManager.Call("AddUndead", ModContent.NPCType<GripOfChaosMire>());
+                SpiritReforgedManager.Call("AddUndead", ModContent.NPCType<GripOfChaosInferno>());
 
-                reforged.Call("AddUndead", ModContent.NPCType<BlazeClaw>());
-                reforged.Call("AddUndead", ModContent.NPCType<AbyssClaw>());
+                SpiritReforgedManager.Call("AddUndead", ModContent.NPCType<BlazeClaw>());
+                SpiritReforgedManager.Call("AddUndead", ModContent.NPCType<AbyssClaw>());
 
-                reforged.Call("AddUndead", ModContent.NPCType<AbyssGrip>());
-                reforged.Call("AddUndead", ModContent.NPCType<BlazeGrip>());
+                SpiritReforgedManager.Call("AddUndead", ModContent.NPCType<AbyssGrip>());
+                SpiritReforgedManager.Call("AddUndead", ModContent.NPCType<BlazeGrip>());
                 #endregion
 
                 #region Add Potion Vat
-                reforged.Call("AddPotionVat", ModContent.ItemType<RoninPotion>(), new Color(154, 136, 231), true);
+                SpiritReforgedManager.Call("AddPotionVat", ModContent.ItemType<RoninPotion>(), new Color(154, 136, 231), true);
                 #endregion
             }
         }

@@ -4,7 +4,6 @@ using AAModClassic.Dusts;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -15,7 +14,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 {
     [AutoloadBossHead]
     public class DeityLeviathan : ModNPC
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Vile-Oct");
@@ -1206,7 +1205,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 }
             }
         }
-        
-        
+
+
     }
 }

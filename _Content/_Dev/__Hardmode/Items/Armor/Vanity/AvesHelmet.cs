@@ -10,9 +10,9 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
     [AutoloadEquip(EquipType.Head)]
     [AutoloadEquipGlow(EquipType.Head)]
     public class AvesHelmet : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Vanity.Aves";
-		public override void SetStaticDefaults()
+        public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("DJ Duck Mask");
@@ -39,5 +39,5 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
             Item.rare = ItemRarityID.Cyan;
             Item.vanity = true;
         }
-	}
+    }
 }

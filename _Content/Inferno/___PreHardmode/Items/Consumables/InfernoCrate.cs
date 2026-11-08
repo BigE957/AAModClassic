@@ -16,11 +16,11 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables
         [
             ItemDropRule.OneFromOptionsNotScalingWithLuck
             (
-                1, 
-                ModContent.ItemType<Pyrosphere>(), 
-                ModContent.ItemType<Firebuster>(), 
-                ModContent.ItemType<Volley>(), 
-                ModContent.ItemType<DragonSoul>(), 
+                1,
+                ModContent.ItemType<Pyrosphere>(),
+                ModContent.ItemType<Firebuster>(),
+                ModContent.ItemType<Volley>(),
+                ModContent.ItemType<DragonSoul>(),
                 ModContent.ItemType<DragonsGuard>(),
                 ModContent.ItemType<LivingRazewoodWand>(),
                 ModContent.ItemType<LivingRazeleafWand>()

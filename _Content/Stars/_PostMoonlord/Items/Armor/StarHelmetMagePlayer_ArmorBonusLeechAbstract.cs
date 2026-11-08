@@ -1,6 +1,4 @@
-﻿using AAModClassic.Buffs;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
@@ -13,7 +11,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
         protected float potencyFactor = 1f;
         public virtual void PlayerBenefit(int potency, Player player)
         {
-           
+
         }
 
         public override void AI()

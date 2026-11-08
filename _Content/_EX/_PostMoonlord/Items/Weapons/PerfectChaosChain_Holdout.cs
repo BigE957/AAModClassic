@@ -3,7 +3,6 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
@@ -70,8 +69,8 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         */
 
         float Rot = 0;
-		
-		public override void AI()
+
+        public override void AI()
         {
             base.AI();
 
@@ -80,7 +79,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                 Rot += Projectile.velocity.X * 0.05f;
             }
 
-            if(CurrentAIState == AIState.Spinning)
+            if (CurrentAIState == AIState.Spinning)
                 Projectile.localNPCHitCooldown = 10;
             else
                 Projectile.localNPCHitCooldown = 5;
@@ -198,9 +197,9 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             if (Main.myPlayer == Projectile.owner)
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity * 2, ModContent.ProjectileType<PerfectChaosChain_Proj>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
         }
-		
-		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-		{
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
             if (CurrentAIState == AIState.LaunchingForward)
                 Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center, Projectile.velocity, ModContent.ProjectileType<PerfectChaosChain_Proj>(), Projectile.damage, 0, Main.myPlayer);
 

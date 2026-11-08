@@ -1,7 +1,6 @@
 ﻿using AAModClassic._Content.Chaos.__Hardmode.Items.Materials;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,7 +9,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
     public class ChaosChain : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Chaos Chain");
@@ -27,7 +26,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
             Item.knockBack = 15f;
             Item.width = 20;
             Item.height = 20;
-            Item.damage = 45;
+            Item.damage = 90;
             Item.shoot = ModContent.ProjectileType<ChaosChain_Holdout>();
             Item.shootSpeed = 14f;
             Item.UseSound = SoundID.Item10;

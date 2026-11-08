@@ -1,8 +1,7 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
+﻿using AAModClassic._Content.Evil.___PreHardmode.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic._Content.Evil.___PreHardmode.Items.Tiles.Functional;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Crimson.___PreHardmode.Items.Tiles.Functional
 {

@@ -1,7 +1,7 @@
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
@@ -16,11 +16,11 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials
             Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = false;
             Main.tileSpelunker[Type] = true;
-            Main.tileOreFinderPriority[Type] = 825; 
+            Main.tileOreFinderPriority[Type] = 825;
             Main.tileBlendAll[Type] = false;
             HitSound = SoundID.Tink;
             Main.tileLighted[Type] = true;
-            RegisterItemDrop(ModContent.ItemType<SkyCrystal>()); 
+            RegisterItemDrop(ModContent.ItemType<SkyCrystal>());
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("SkyCrystal");
             DustType = DustID.BlueCrystalShard;
@@ -42,7 +42,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials
 
         public static Color C()
         {
-            return BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.SkyBlue, Color.Transparent, Color.Transparent, Color.SkyBlue);
+            return ColorUtils.MulticolorLerp(Main.LocalPlayer.miscCounter % 100 / 100f, Color.SkyBlue, Color.Transparent, Color.Transparent, Color.SkyBlue);
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)   //light colors

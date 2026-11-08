@@ -4,7 +4,7 @@ using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapon
 using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Snow.___PreHardmode.NPCs._Night._SnowSerpent;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
@@ -14,9 +14,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Animations;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -24,16 +22,17 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 {
-	public class SubzeroSerpentHead : BiomeConvertableNPC
-	{
+    [AutoloadBossHead]
+    public class SubzeroSerpentHead : BiomeConvertableNPC
+    {
         public int damage = 0;
 
         private static readonly Dictionary<string, int> HeadSlots = [];
         private static readonly Dictionary<string, int> UnofficialHeadSlots = [];
 
         public override string Texture => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpentHead";
-        public override string HeadTexture => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpentHead_Boss";
-        
+        public override string BossHeadTexture => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpentHead_Boss";
+
         public override string AssetPath => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/";
         public override bool SeperateBiomeFolders => true;
 
@@ -44,7 +43,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             foreach (var biome in Biomes)
             {
                 if (biome.Name == "Default")
-                    HeadSlots.Add(biome.Name, Mod.AddBossHeadTexture(HeadTexture, Type));
+                    HeadSlots.Add(biome.Name, Mod.AddBossHeadTexture(BossHeadTexture, Type));
                 else
                     HeadSlots.Add(biome.Name, Mod.AddBossHeadTexture(Texture.Replace("Default", biome.Name) + "_" + biome.Name + "_Head_Boss", Type));
             }
@@ -56,8 +55,8 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
         }
 
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Subzero Serpent");
+        {
+            // DisplayName.SetDefault("Subzero Serpent");
             Main.npcFrameCount[NPC.type] = 4;
             NPCID.Sets.BossBestiaryPriority.Add(Type);
             base.SetStaticDefaults();
@@ -80,10 +79,15 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             ]);
         }
 
+        public override void BossHeadRotation(ref float rotation)
+        {
+            rotation = NPC.rotation;
+        }
+
         public override void SetDefaults()
-		{
+        {
             base.SetDefaults();
-			NPC.npcSlots = 5f;
+            NPC.npcSlots = 5f;
             NPC.width = 32;
             NPC.height = 32;
             if (BiomeType == "Crimson")
@@ -120,9 +124,9 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
         private int attackCounter;
         private int attackTimer;
 
-		public bool tongueFlick = false;
-		public bool tongueFlickDir = false;
-		public int tongueFlickCounter = 0;
+        public bool tongueFlick = false;
+        public bool tongueFlickDir = false;
+        public int tongueFlickCounter = 0;
         private int RunOnce = 0;
         private int StopSnow = 0;
 
@@ -164,7 +168,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             {
                 for (int tY = tileY; tY < tileCenterY; tY++)
                 {
-                    Tile checkTile = WorldGenUtils.GetTileSafely(tX, tY);
+                    Tile checkTile = Framing.GetTileSafely(tX, tY);
                     if (checkTile != null && (checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0) || checkTile.LiquidAmount > 64))
                     {
                         Vector2 tPos;
@@ -186,7 +190,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                 NPC.TargetClosest(true);
             }
             NPC.velocity.Length();
-            
+
             if (internalAI[4] != 1)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -574,7 +578,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                     if (internalAI[0] >= 300)
                     {
                         NPC.active = false;
-                        foreach(NPC n in Main.ActiveNPCs)
+                        foreach (NPC n in Main.ActiveNPCs)
                         {
                             if (n.realLife == NPC.whoAmI)
                             {
@@ -731,8 +735,8 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                     if (attackTimer == 20 || attackTimer == 50 || attackTimer == 79)
                     {
                         int p = BaseAI.FireProjectile(Main.player[NPC.target].Center, NPC, ModContent.ProjectileType<SubzeroSerpent_IceBall>(), damage, 3, 14f, 0, 0, -1);
-                        if(p != -1)
-                            ((SubzeroSerpent_IceBall)Main.projectile[p].ModProjectile).BiomeType = BiomeType; 
+                        if (p != -1)
+                            ((SubzeroSerpent_IceBall)Main.projectile[p].ModProjectile).BiomeType = BiomeType;
                         NPC.netUpdate = true;
                     }
                     if (attackTimer >= 80)
@@ -805,16 +809,16 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
         }
 
         public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
-		{
-			if (Main.expertMode && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-			{
+        {
+            if (Main.expertMode && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
                 target.AddBuff(BuffID.Chilled, 200, true);
-			}
-			else
-			{
+            }
+            else
+            {
                 target.AddBuff(BuffID.Chilled, 100, true);
-			}
-		}
+            }
+        }
 
         public override void BossLoot(ref int potionType)
         {
@@ -828,10 +832,10 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
-		{
-			NPC.lifeMax = (int)(NPC.lifeMax * 0.75f * balance);
-			NPC.damage = (int)(NPC.damage * 0.85f);
-		}
+        {
+            NPC.lifeMax = (int)(NPC.lifeMax * 0.75f * balance);
+            NPC.damage = (int)(NPC.damage * 0.85f);
+        }
 
         public override void HitEffect(NPC.HitInfo hit)
         {
@@ -851,7 +855,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity * 0.2f, Mod.Find<ModGore>("SZSGoreHead").Type, 1f);
 
-                if(!hit.InstantKill)
+                if (!hit.InstantKill)
                     foreach (NPC n in Main.ActiveNPCs)
                     {
                         if (n.whoAmI == NPC.whoAmI)
@@ -875,7 +879,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
                     n.life = 0;
                     n.realLife = -1;
                     n.checkDead();
-                    if(Main.dedServ)
+                    if (Main.dedServ)
                         NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, n.whoAmI);
                 }
             }

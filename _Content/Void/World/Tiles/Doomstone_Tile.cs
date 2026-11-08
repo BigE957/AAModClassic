@@ -1,8 +1,7 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+using Microsoft.Xna.Framework;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.World.Tiles
 {
@@ -15,10 +14,10 @@ namespace AAModClassic._Content.Void.World.Tiles
             Main.tileMergeDirt[Type] = true;
             HitSound = SoundID.Tink;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(ModContent.ItemType<Doomstone>());   
+            RegisterItemDrop(ModContent.ItemType<Doomstone>());
             DustType = ModContent.DustType<Dusts.DoomDust>();
             AddMapEntry(new Color(21, 21, 31));
-			MinPick = 225;
+            MinPick = 225;
         }
 
         public override bool CanKillTile(int i, int j, ref bool blockDamaged)

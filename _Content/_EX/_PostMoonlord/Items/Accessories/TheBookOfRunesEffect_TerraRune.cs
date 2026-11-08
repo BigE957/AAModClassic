@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -48,7 +47,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
                 Projectile.timeLeft = 2;
             }
 
-            Projectile.timeLeft ++;
+            Projectile.timeLeft++;
 
             foreach (Projectile p in Main.ActiveProjectiles)
             {
@@ -74,66 +73,66 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
                 }
             }
             if (Vector2.Distance(player.Center, Projectile.Center) > 400f)
-			{
-				Projectile.ai[0] = 1f;
-				Projectile.tileCollide = false;
-				Projectile.netUpdate = true;
-			}
-			Vector2 vector = player.Center - Projectile.Center - new Vector2(0, 50f);
+            {
+                Projectile.ai[0] = 1f;
+                Projectile.tileCollide = false;
+                Projectile.netUpdate = true;
+            }
+            Vector2 vector = player.Center - Projectile.Center - new Vector2(0, 50f);
             float num639 = 7f;
-			if (vector.Length() > 200f && num639 < 10f)
-			{
-				num639 = 10f;
-			}
-			if (vector.Length() < 100f && Projectile.ai[0] == 1f && !Collision.SolidCollision(Projectile.position, Projectile.width, Projectile.height))
-			{
-				Projectile.ai[0] = 0f;
-				Projectile.netUpdate = true;
-			}
-			if (vector.Length() > 2000f)
-			{
-				Projectile.position.X = Main.player[Projectile.owner].Center.X - Projectile.width / 2;
-				Projectile.position.Y = Main.player[Projectile.owner].Center.Y - Projectile.height / 2;
-				Projectile.netUpdate = true;
-			}
-			if (vector.Length() > 150f)
-			{
-				vector.Normalize();
-				vector *= num639;
-				Projectile.velocity = (Projectile.velocity * 40f + vector) / 41f;
-			}
+            if (vector.Length() > 200f && num639 < 10f)
+            {
+                num639 = 10f;
+            }
+            if (vector.Length() < 100f && Projectile.ai[0] == 1f && !Collision.SolidCollision(Projectile.position, Projectile.width, Projectile.height))
+            {
+                Projectile.ai[0] = 0f;
+                Projectile.netUpdate = true;
+            }
+            if (vector.Length() > 2000f)
+            {
+                Projectile.position.X = Main.player[Projectile.owner].Center.X - Projectile.width / 2;
+                Projectile.position.Y = Main.player[Projectile.owner].Center.Y - Projectile.height / 2;
+                Projectile.netUpdate = true;
+            }
+            if (vector.Length() > 150f)
+            {
+                vector.Normalize();
+                vector *= num639;
+                Projectile.velocity = (Projectile.velocity * 40f + vector) / 41f;
+            }
             else if (vector.Length() > 40f)
-			{
-				vector.Normalize();
-				vector *= num639;
-				Projectile.velocity = (Projectile.velocity * 40f + vector) / 41f;
-			}
-			if (Projectile.velocity.X == 0f && Projectile.velocity.Y == 0f)
-			{
-				Projectile.velocity.X = -0.04f;
-				Projectile.velocity.Y = -0.02f;
-			}
+            {
+                vector.Normalize();
+                vector *= num639;
+                Projectile.velocity = (Projectile.velocity * 40f + vector) / 41f;
+            }
+            if (Projectile.velocity.X == 0f && Projectile.velocity.Y == 0f)
+            {
+                Projectile.velocity.X = -0.04f;
+                Projectile.velocity.Y = -0.02f;
+            }
 
             if (Projectile.ai[1] > 0f)
-			{
-				Projectile.ai[1] += Main.rand.Next(1, 4);
-			}
-			if (Projectile.ai[1] > 220f)
-			{
-				Projectile.ai[1] = 0f;
-				Projectile.netUpdate = true;
-			}
+            {
+                Projectile.ai[1] += Main.rand.Next(1, 4);
+            }
+            if (Projectile.ai[1] > 220f)
+            {
+                Projectile.ai[1] = 0f;
+                Projectile.netUpdate = true;
+            }
             if (Projectile.localAI[0] < 120f)
-			{
-				Projectile.localAI[0] += 1f;
-			}
+            {
+                Projectile.localAI[0] += 1f;
+            }
             if (Projectile.ai[0] == 0f)
             {
                 if (Projectile.ai[1] == 0f && Projectile.localAI[0] >= 120f)
                 {
                     Projectile.ai[1] += 1f;
                     if (Main.myPlayer == Projectile.owner && Main.player[Projectile.owner].statLife < Main.player[Projectile.owner].statLifeMax2)
-					{
+                    {
                         Main.player[Projectile.owner].HealEffect(20, false);
                         Main.player[Projectile.owner].statLife += 20;
                         if (Main.player[Projectile.owner].statLife > Main.player[Projectile.owner].statLifeMax2)

@@ -2,7 +2,6 @@ using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,14 +9,14 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn
 {
     public class DesertDjinn_Djinnado : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Djinnado");
-		}
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Projectile.width = 10;
             Projectile.height = 10;
             Projectile.aiStyle = ProjAIStyleID.AncientStorm;

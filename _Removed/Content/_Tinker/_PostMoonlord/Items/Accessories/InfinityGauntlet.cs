@@ -1,9 +1,6 @@
 using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,7 +11,7 @@ namespace AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories
     [AutoloadEquipGlow(EquipType.HandsOn, EquipType.Wings)]
     public class InfinityGauntlet : EquipAbstract, ILocalizedModType
     {
-            
+
         public override void SetStaticDefaults()
         {
             /*DisplayName.SetDefault("Infinity Gauntlet");
@@ -37,7 +34,7 @@ All effects of the infinity stones
             Item.rare = ItemRarityID.Expert;
             Item.accessory = true;
             Item.defense = 12;
-            
+
         }
 
         public override void RegisterEquipEffects()

@@ -1,12 +1,9 @@
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -28,10 +25,10 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
         public override float MaxRetractSpeed => 28;
 
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Reality Anchor");
+        {
+            // DisplayName.SetDefault("Reality Anchor");
             base.SetStaticDefaults();
-		}
+        }
         public override void SetDefaults()
         {
             Projectile.width = 34;
@@ -166,7 +163,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOf
         }
 
         public override bool PreDraw(ref Color lightColor)
-        {		
+        {
             return base.PreDraw(ref lightColor);
         }
 

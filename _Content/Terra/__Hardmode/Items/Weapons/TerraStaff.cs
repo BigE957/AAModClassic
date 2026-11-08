@@ -1,13 +1,12 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using AAModClassic._Content.Hallow.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Hell.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic._Content.Terrarium.__Hardmode.Items.Materials;
-using AAModClassic._Content.Hell.__Hardmode.Items.Weapons;
-using AAModClassic._Content.Hallow.__Hardmode.Items.Weapons;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Terra.__Hardmode.Items.Weapons
 {
@@ -40,14 +39,14 @@ namespace AAModClassic._Content.Terra.__Hardmode.Items.Weapons
             Item.autoReuse = true;
             Item.value = Item.sellPrice(0, 20, 0, 0);
         }
-		
-		public override void UseStyle(Player player, Rectangle heldItemFrame)
-		{
-			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-			{
-				player.AddBuff(Item.buffType, 3600, true);
-			}
-		}
+
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
+        {
+            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
+            {
+                player.AddBuff(Item.buffType, 3600, true);
+            }
+        }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {

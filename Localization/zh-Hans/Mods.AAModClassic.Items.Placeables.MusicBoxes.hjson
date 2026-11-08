@@ -120,6 +120,11 @@ InfernoUndergroundBox: {
 
 AkumaAwakenedBox: {
 	DisplayName: 八音盒（狂煞魔豪鬼）
+	Tooltip: 播放'Day Breaks' by Tyeski
+}
+
+AkumaAwakenedLegacyBox: {
+	DisplayName: 八音盒（备用狂煞魔豪鬼）
 	Tooltip: 播放'Dawn of the Dragon' by Tyeski
 }
 

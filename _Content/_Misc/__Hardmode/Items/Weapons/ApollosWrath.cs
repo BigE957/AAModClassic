@@ -1,6 +1,5 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -49,7 +48,7 @@ Doesn't use Ammo"); */
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.PulseBow, 1);
             recipe.AddIngredient(ItemID.SoulofMight, 20);
-			recipe.AddTile(TileID.MythrilAnvil);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }
 

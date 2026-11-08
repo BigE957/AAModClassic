@@ -3,17 +3,16 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFurniture
 {
     public class DoomLantern_Tile : ModTile
-	{
+    {
         private static Asset<Texture2D> GlowTexture = null;
 
         public override void SetStaticDefaults()
-		{
+        {
             this.SetUpLantern(ModContent.ItemType<DoomLantern>(), true);
             DustType = ModContent.DustType<DoomDust>();
 
@@ -48,7 +47,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFu
             Vector2 drawOffest = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
             Vector2 drawPosition = new Vector2(i * 16 - Main.screenPosition.X, j * 16 - Main.screenPosition.Y - 4) + drawOffest;
             Color drawColour = Color.White;
-            
+
             if (!tile.IsHalfBlock && tile.Slope == 0)
                 spriteBatch.Draw(glowmask, drawPosition, new Rectangle(xFrameOffset, yFrameOffset, 18, 18), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
             else if (tile.IsHalfBlock)

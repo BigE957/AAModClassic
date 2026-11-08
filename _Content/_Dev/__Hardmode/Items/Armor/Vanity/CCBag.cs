@@ -1,7 +1,6 @@
 ﻿using AAModClassic._Content.Inferno.__Hardmode.Items.Accessories;
 using AAModClassic._Content.Mire.__Hardmode.Items.Accessories;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -26,7 +25,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
             Item.width = 32;
             Item.height = 32;
             Item.expert = true;
-            Item.createTile = ModContent.TileType<CCBag_Tile>(); 
+            Item.createTile = ModContent.TileType<CCBag_Tile>();
         }
 
         public override bool CanRightClick()
@@ -34,7 +33,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
             return true;
         }
 
- 		public override void RightClick(Player player)
+        public override void RightClick(Player player)
         {
             if (player.GetModPlayer<ZAAPlayer>().ShinyCheck())
             {

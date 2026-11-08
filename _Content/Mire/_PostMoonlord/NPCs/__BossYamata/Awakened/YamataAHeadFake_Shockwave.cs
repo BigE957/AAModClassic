@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,7 +10,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Shockwave");     
-            Main.projFrames[Projectile.type] = 6;     
+            Main.projFrames[Projectile.type] = 6;
         }
 
         public override void SetDefaults()

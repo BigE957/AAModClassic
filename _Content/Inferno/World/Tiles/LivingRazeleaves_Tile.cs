@@ -1,6 +1,5 @@
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -19,7 +18,6 @@ namespace AAModClassic._Content.Inferno.World.Tiles
             DustType = ModContent.DustType<RazeleafDust>();
             HitSound = SoundID.Grass;
             AddMapEntry(new Color(127, 57, 0));
-            MinPick = 0;
         }
     }
 }

@@ -1,15 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Globals;
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Inferno.__Hardmode.Items.Weapons;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 {
@@ -43,9 +40,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
             Item.value = Item.sellPrice(0, 30, 0, 0);
         }
 
-        
-		
-		public override bool AltFunctionUse(Player player)
+
+
+        public override bool AltFunctionUse(Player player)
         {
             return true;
         }
@@ -61,14 +58,14 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-			if (player.altFunctionUse == 2)
+            if (player.altFunctionUse == 2)
             {
                 return false;
             }
 
             if (player.maxMinions - player.slotsMinions < 0.5) return false;
-			
-			player.AddBuff(ModContent.BuffType<LungMinion_Buff>(), 2, true);
+
+            player.AddBuff(ModContent.BuffType<LungMinion_Buff>(), 2, true);
 
             int num184 = -1;
             int num185 = -1;
@@ -106,18 +103,18 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
                 int num187 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num81, num82, projType, damage, num77, Main.myPlayer, 0f, 0f);
                 num187 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num81, num82, ModContent.ProjectileType<AncientLungStaff_LungBody>(), damage, num77, Main.myPlayer, num187, 0f);
                 int num188 = num187;
-				for (int z = 0; z < (int)((player.maxMinions - player.slotsMinions) * 2); z++)
-				{
-					num187 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num81, num82, ModContent.ProjectileType<AncientLungStaff_LungBody>(), damage, num77, Main.myPlayer, num187, 0f);
-					Main.projectile[num188].localAI[1] = num187;
-					num188 = num187;
-				}
+                for (int z = 0; z < (int)((player.maxMinions - player.slotsMinions) * 2); z++)
+                {
+                    num187 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num81, num82, ModContent.ProjectileType<AncientLungStaff_LungBody>(), damage, num77, Main.myPlayer, num187, 0f);
+                    Main.projectile[num188].localAI[1] = num187;
+                    num188 = num187;
+                }
                 num187 = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, num81, num82, ModContent.ProjectileType<AncientLungStaff_LungTail>(), damage, num77, Main.myPlayer, num187, 0f);
                 Main.projectile[num188].localAI[1] = num187;
             }
             else
             {
-                int previous = (int) Main.projectile[num185].ai[0];
+                int previous = (int)Main.projectile[num185].ai[0];
                 int current = 0;
 
                 current = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<AncientLungStaff_LungBody>(), damage, knockback, player.whoAmI,
@@ -126,7 +123,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
                 previous = current;
 
                 Main.projectile[current].localAI[1] = num185;
-                
+
                 Main.projectile[num185].ai[0] = current;
                 Main.projectile[num185].netUpdate = true;
                 Main.projectile[num185].ai[1] = 1f;

@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
@@ -8,17 +7,17 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
     {
         public override void SetDefaults()
         {
-            Projectile.penetrate = 2;  
+            Projectile.penetrate = 2;
             Projectile.width = 20;
             Projectile.height = 20;
-			Projectile.friendly = true;
-			Projectile.hostile = false;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
             Projectile.timeLeft = 900;
             Projectile.DamageType = DamageClass.Ranged;
         }
-		
-		public override void AI()
-		{
+
+        public override void AI()
+        {
             int num469 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.VoidDust>(), -Projectile.velocity.X * 0.2f,
                        -Projectile.velocity.Y * 0.2f, 46);
             Main.dust[num469].noGravity = true;
@@ -32,7 +31,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                Projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
@@ -59,7 +58,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                     )
                         selectedTarget = i;
                 }
@@ -83,9 +82,9 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
 
 
         public override void SetStaticDefaults()
-		{
-		    // DisplayName.SetDefault("Vortex");
-		}
+        {
+            // DisplayName.SetDefault("Vortex");
+        }
 
 
     }

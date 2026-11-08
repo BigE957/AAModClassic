@@ -7,8 +7,8 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class AnarchyLeggings : BaseAAItem, ILocalizedModType
-	{
+    public class AnarchyLeggings : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Anarchy";
         public override void SetStaticDefaults()
         {

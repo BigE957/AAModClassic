@@ -3,7 +3,6 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.ObjectInteractions;
@@ -12,7 +11,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFurniture
 {
     public class DoomCouch_Tile : ModTile
-	{
+    {
         private static Asset<Texture2D> GlowTexture = null;
 
         public override void SetStaticDefaults()

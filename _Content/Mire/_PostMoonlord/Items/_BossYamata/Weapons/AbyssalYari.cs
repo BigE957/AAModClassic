@@ -1,13 +1,8 @@
-﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Corruption.___PreHardmode.Items.Weapons;
-using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -38,7 +33,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.shootSpeed = 5f;
-            Item.shoot = ModContent.ProjectileType<AbyssalYari_Holdout>();  
+            Item.shoot = ModContent.ProjectileType<AbyssalYari_Holdout>();
             Item.autoReuse = true;
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }

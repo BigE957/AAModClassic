@@ -1,34 +1,33 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.Projectiles
 {
     public class AcidProj : ModProjectile
-	{
-        
+    {
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Acid");     
-            Main.projFrames[Projectile.type] = 5;     
-		}
+            Main.projFrames[Projectile.type] = 5;
+        }
 
-		public override void SetDefaults()
-		{
-			Projectile.width = 14;               
-			Projectile.height = 14;              
-			Projectile.aiStyle = ProjAIStyleID.Arrow;             
-			Projectile.friendly = false;         
-			Projectile.hostile = true;        
-			Projectile.penetrate = 1;           
-			Projectile.timeLeft = 600;          
-			Projectile.alpha = 20;              
-			Projectile.ignoreWater = true;
-			Projectile.tileCollide = true;        
-			AIType = ProjectileID.WoodenArrowFriendly;           
-            
-		}
+        public override void SetDefaults()
+        {
+            Projectile.width = 14;
+            Projectile.height = 14;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
+            Projectile.friendly = false;
+            Projectile.hostile = true;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 600;
+            Projectile.alpha = 20;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
+            AIType = ProjectileID.WoodenArrowFriendly;
+
+        }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {

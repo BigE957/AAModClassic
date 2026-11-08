@@ -2,7 +2,6 @@
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
 using AAModClassic.Achievements;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs
@@ -51,7 +50,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs
 
         public override void PostUpdateNPCs()
         {
-            if(StormingSiegeActive)
+            if (StormingSiegeActive)
             {
                 if (SiegeMechs[0] == -1 && SiegeMechs[1] == -1 && SiegeMechs[2] == -1)
                 {

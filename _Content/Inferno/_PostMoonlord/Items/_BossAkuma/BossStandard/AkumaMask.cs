@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class AkumaMask : BaseAAItem, ILocalizedModType
+    public class AkumaMask : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Vanity.Masks";
         public static int type;
@@ -13,7 +13,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.BossStand
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Akuma Mask");
-		}
+        }
 
         public override void SetDefaults()
         {

@@ -1,6 +1,4 @@
-﻿using AAModClassic.Globals;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -19,11 +17,11 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Materials
         {
             Item.width = 20;
             Item.height = 20;
-			Item.maxStack = Item.CommonMaxStack;
+            Item.maxStack = Item.CommonMaxStack;
             Item.rare = ItemRarityID.Purple;
         }
 
-        
+
 
     }
 }

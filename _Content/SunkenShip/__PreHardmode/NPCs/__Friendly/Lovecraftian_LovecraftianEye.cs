@@ -1,28 +1,27 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.SunkenShip.__PreHardmode.NPCs.__Friendly
 
 {
     public class Lovecraftian_LovecraftianEye : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Lovecraftian Eye");
-		}
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Projectile.penetrate = 1;
             Projectile.width = 10;
             Projectile.height = 10;
             Projectile.tileCollide = true;
             Projectile.hostile = false;
             Projectile.friendly = true;
-            
-		}
+
+        }
 
         public override void OnKill(int timeleft)
         {

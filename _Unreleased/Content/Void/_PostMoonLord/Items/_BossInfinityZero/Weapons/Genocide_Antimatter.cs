@@ -1,6 +1,4 @@
-using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Weapons
@@ -21,10 +19,10 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
             Projectile.tileCollide = false;
         }
 
-		public override void SetStaticDefaults()
-		{
-		// DisplayName.SetDefault("Antimatter");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Antimatter");
+        }
 
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
@@ -34,7 +32,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
         public override void AI()
         {
             NPC target = Projectile.FindTargetWithinRange(1000);
-            if(target != null)
+            if (target != null)
             {
                 float speed = Projectile.velocity.Length();
                 float currDir = Projectile.velocity.ToRotation();

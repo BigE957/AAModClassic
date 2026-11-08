@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,7 +7,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
 {
     public class FireStaff_BabyPhoenix : ModProjectile
     {
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Baby Phoenix");
@@ -16,7 +15,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
             ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
             ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
             ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
-        } 
+        }
         public override void SetDefaults()
         {
             Projectile.netImportant = true;
@@ -29,7 +28,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
             Projectile.minionSlots = 1f;
             Projectile.tileCollide = false;
         }
-        
+
 
         public override void AI()
         {

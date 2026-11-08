@@ -5,12 +5,9 @@ using AAModClassic._Content.Void._PostMoonlord.Items.Armor;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.UI.World;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Armor
@@ -53,18 +50,18 @@ The power of discordian rage radiates from this hood"); */
         }
 
         public override void SetDefaults()
-		{
-			Item.width = 20;
-			Item.height = 24;
-			Item.value = Item.sellPrice(3, 0, 0, 0);
+        {
+            Item.width = 20;
+            Item.height = 24;
+            Item.value = Item.sellPrice(3, 0, 0, 0);
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
             Item.defense = 30;
-		}
+        }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
-		{
-			return body.type == ModContent.ItemType<ChaosSlayerChestplate>() && legs.type == ModContent.ItemType<ChaosSlayerLeggings>();
-		}
+        {
+            return body.type == ModContent.ItemType<ChaosSlayerChestplate>() && legs.type == ModContent.ItemType<ChaosSlayerLeggings>();
+        }
 
         public override void RegisterEquipEffects()
         {

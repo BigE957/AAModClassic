@@ -1,9 +1,5 @@
-using System;
-using AAModClassic._Content.Bunny.Projectiles;
-using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
+using System;
 using Terraria.ModLoader;
 
 namespace AAModClassic._CrossMod.Thorium.Weapons.Healer

@@ -1,5 +1,4 @@
 using AAModClassic._Content.RedMushroom.World.Tiles;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,8 +10,8 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoratio
 
         public override void SetStaticDefaults()
         {
-			Item.ResearchUnlockCount = 1;
-		}
+            Item.ResearchUnlockCount = 1;
+        }
 
         public override void SetDefaults()
         {
@@ -30,7 +29,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoratio
             Item.autoReuse = true;
             Item.consumable = true;
 
-            Item.createTile = ModContent.TileType<RedmushBookcase_Tile>(); 
+            Item.createTile = ModContent.TileType<RedmushBookcase_Tile>();
             Item.rare = ItemRarityID.White;
         }
 

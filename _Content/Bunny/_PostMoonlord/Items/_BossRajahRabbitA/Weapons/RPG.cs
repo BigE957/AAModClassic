@@ -1,6 +1,5 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -52,7 +51,7 @@ Bunnyzooka EX"); */
             {
                 position += muzzleOffset;
             }
-            Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, ModContent.ProjectileType<RPG_RajahRocket>(), damage, knockback, player.whoAmI, 0.0f, 0.0f);
+            Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, velocity, ModContent.ProjectileType<RPG_RajahRocket>(), damage, knockback, player.whoAmI, 0.0f, 0.0f);
             return false;
         }
     }

@@ -7,8 +7,8 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
     [AutoloadEquip(EquipType.Head)]
-	public class GroxHelmet : BaseAAItem, ILocalizedModType
-	{
+    public class GroxHelmet : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Grox";
         public override void SetStaticDefaults()
         {
@@ -29,7 +29,7 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
                 }
             }
         }
-        
+
         public override void SetDefaults()
         {
             Item.width = 18;
@@ -37,5 +37,5 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
             Item.rare = ItemRarityID.Lime;
             Item.vanity = true;
         }
-	}
+    }
 }

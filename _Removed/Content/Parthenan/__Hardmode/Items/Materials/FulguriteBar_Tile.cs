@@ -1,6 +1,5 @@
 using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -26,7 +25,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials
             TileObjectData.addTile(Type);
             DustType = ModContent.DustType<FulguriteDust>();
             AddMapEntry(new Color(100, 0, 126));
-			MinPick = 0;
+            MinPick = 0;
         }
     }
 }

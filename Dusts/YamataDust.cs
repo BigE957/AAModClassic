@@ -1,11 +1,10 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Dusts
 {
     public class YamataDust : ModDust
-	{
+    {
 
         public override bool MidUpdate(Dust dust)
         {
@@ -37,7 +36,7 @@ namespace AAModClassic.Dusts
             return true;
         }
 
-        
+
 
         public override Color? GetAlpha(Dust dust, Color lightColor)
         {

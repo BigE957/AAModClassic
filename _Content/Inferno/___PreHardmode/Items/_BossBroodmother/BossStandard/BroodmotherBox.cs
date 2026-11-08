@@ -1,17 +1,16 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard
 {
     public class BroodmotherBox : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
-            
-		public override void SetStaticDefaults()
-		{
+
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Music Box (Broodmother)");
             // Tooltip.SetDefault(@"Plays 'Blazing Fury' by SpectralAves");
 
@@ -20,20 +19,20 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Bo
         }
 
         public override void SetDefaults()
-		{
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.useTurn = true;
-			Item.useAnimation = 15;
-			Item.useTime = 10;
-			Item.autoReuse = true;
-			Item.consumable = true;
-			Item.createTile = ModContent.TileType<BroodmotherBox_Tile>();
-			Item.width = 24;
-			Item.height = 24;
-			Item.rare = ItemRarityID.LightRed;
-			Item.value = 10000;
-			Item.accessory = true;
-		}
+        {
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.consumable = true;
+            Item.createTile = ModContent.TileType<BroodmotherBox_Tile>();
+            Item.width = 24;
+            Item.height = 24;
+            Item.rare = ItemRarityID.LightRed;
+            Item.value = 10000;
+            Item.accessory = true;
+        }
 
         public override void AddRecipes()
         {

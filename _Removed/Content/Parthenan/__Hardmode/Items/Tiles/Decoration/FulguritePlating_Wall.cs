@@ -1,21 +1,19 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Tiles.Decoration
 {
-	public class FulguritePlating_Wall : ModWall
-	{
+    public class FulguritePlating_Wall : ModWall
+    {
         public Texture2D glowTex;
-		public bool glow = true;
+        public bool glow = true;
 
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             Main.wallHouse[Type] = true;
-			AddMapEntry(new Color(40, 0, 50));
-		}
+            AddMapEntry(new Color(40, 0, 50));
+        }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {

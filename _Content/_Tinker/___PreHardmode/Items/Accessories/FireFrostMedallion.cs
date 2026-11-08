@@ -1,8 +1,6 @@
 ﻿using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Accessories;
 using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Accessories;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

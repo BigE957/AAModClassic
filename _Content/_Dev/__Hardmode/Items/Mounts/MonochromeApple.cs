@@ -6,26 +6,26 @@ using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Mounts
 {
-	public class MonochromeApple : BaseAAItem
-	{
-		public override void SetStaticDefaults()
-		{
+    public class MonochromeApple : BaseAAItem
+    {
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Monochromatic Apple");
-			// Tooltip.SetDefault("Will attract an equestrian friend");
-		}
+            // Tooltip.SetDefault("Will attract an equestrian friend");
+        }
 
-		public override void SetDefaults()
-		{
-			Item.width = 20;
-			Item.height = 30;
-			Item.useTime = 20;
-			Item.useAnimation = 20;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.value = 300000;
-			Item.UseSound = SoundID.Item79;
-			Item.noMelee = true;
-			Item.mountType = ModContent.MountType<BegPony>();
-		}
+        public override void SetDefaults()
+        {
+            Item.width = 20;
+            Item.height = 30;
+            Item.useTime = 20;
+            Item.useAnimation = 20;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.value = 300000;
+            Item.UseSound = SoundID.Item79;
+            Item.noMelee = true;
+            Item.mountType = ModContent.MountType<BegPony>();
+        }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {

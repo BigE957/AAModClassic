@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -23,17 +22,17 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Weapons
             Item.noMelee = true;
             Item.noUseGraphic = true;
             Item.useTurn = true;
-			Item.autoReuse = false;
+            Item.autoReuse = false;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = Item.sellPrice(0, 2, 40, 0);
             Item.rare = ItemRarityID.Orange;
             Item.shoot = ModContent.ProjectileType<MoltenLance_Holdout>();  //put your Spear projectile name
             Item.shootSpeed = 5f;
         }
-		public override bool CanUseItem(Player player)
-		{
-			return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
-		}
+        public override bool CanUseItem(Player player)
+        {
+            return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
+        }
 
         public override void SetStaticDefaults()
         {
@@ -41,11 +40,11 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Weapons
             // Tooltip.SetDefault("Makes instant barbeque shish kebabs!");
         }
 
-        public override void AddRecipes()  
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.HellstoneBar, 12);   
-            recipe.AddTile(TileID.Anvils);   
+            recipe.AddIngredient(ItemID.HellstoneBar, 12);
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
     }

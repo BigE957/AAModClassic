@@ -5,7 +5,6 @@ using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -36,7 +35,7 @@ namespace AAModClassic._Content._Tinker.__Hardmode.Items.Accessories
             Item.rare = ItemRarityID.Lime;
             Item.accessory = true;
             Item.defense = 8;
-            
+
         }
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
@@ -87,16 +86,21 @@ namespace AAModClassic._Content._Tinker.__Hardmode.Items.Accessories
         public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Melee) += 0.14f;
-            damageMap.GetAttackSpeed(DamageClass.Melee) += 0.1f;
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                damageMap.GetAttackSpeed(DamageClass.Melee) += 0.12f;
+            else
+                damageMap.GetAttackSpeed(DamageClass.Melee) += 0.1f;
             damageMap.GetKnockback(DamageClass.Melee) += 2f;
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 AddEffect(new AggroEffect(500));
             else
                 AddEffect(new AggroEffect(5));
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                AddEffect<MeleeSizeEffect>();
+            AddEffect(new AggroEffect(5));
             int buff = WorldGen.crimson ? BuffID.Ichor : BuffID.CursedInferno;
             AddEffect(new AttacksInflictBuffEffect(DamageClass.Melee, (buff, 100)));
             AddEffect<DemonGauntletEffect>();
-
         }
 
         public override void AddRecipes()

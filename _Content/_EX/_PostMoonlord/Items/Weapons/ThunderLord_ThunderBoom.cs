@@ -1,6 +1,5 @@
 using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
@@ -10,7 +9,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Thunder Boom");     
-            Main.projFrames[Projectile.type] = 5;     
+            Main.projFrames[Projectile.type] = 5;
         }
 
         public override void SetDefaults()
@@ -50,7 +49,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-           target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 500);
+            target.AddBuff(ModContent.BuffType<Electrified_Buff>(), 500);
         }
 
         public override void OnKill(int timeLeft)

@@ -1,11 +1,10 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Dusts
 {
     public class SandDust : ModDust
-	{
+    {
         public override bool MidUpdate(Dust dust)
         {
             dust.rotation += dust.velocity.X / 3f;
@@ -16,6 +15,6 @@ namespace AAModClassic.Dusts
             }
             return false;
         }
-        
+
     }
 }

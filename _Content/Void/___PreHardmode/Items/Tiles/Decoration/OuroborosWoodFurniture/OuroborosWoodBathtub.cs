@@ -1,5 +1,4 @@
-﻿using Terraria;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.OuroborosWoodFurniture
@@ -32,7 +31,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration.Ourob
             recipe.AddIngredient(ModContent.ItemType<OuroborosWood>(), 14);
             recipe.AddTile(TileID.Sawmill);
             recipe.Register();
-            
+
         }
 
     }

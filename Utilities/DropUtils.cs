@@ -1,6 +1,5 @@
 ﻿using AAModClassic._CrossMod.CalamityMod;
 using System;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
@@ -55,9 +54,9 @@ namespace AAModClassic.Utilities
         public override ItemDropAttemptResult TryDroppingItem(DropAttemptInfo info)
         {
             ItemDropAttemptResult result = default;
-            if (denominator == 1 || info.rng.Next(chanceDenominator) < chanceNumerator)
+            if (chanceDenominator == 1 || info.rng.Next(chanceDenominator) < chanceNumerator)
             {
-                int stack = minQuantity == maxQuantity ? minQuantity : info.rng.Next(amountDroppedMinimum, amountDroppedMaximum + 1);
+                int stack = amountDroppedMinimum == amountDroppedMaximum ? amountDroppedMinimum : info.rng.Next(amountDroppedMinimum, amountDroppedMaximum + 1);
                 TryDropInternal(info, itemId, stack);
                 result.State = ItemDropAttemptResultState.Success;
                 return result;

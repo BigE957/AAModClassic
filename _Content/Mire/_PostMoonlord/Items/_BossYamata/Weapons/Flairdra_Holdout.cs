@@ -2,7 +2,6 @@ using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -37,8 +36,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             Projectile.height = 34;
             base.SetDefaults();
         }
-		
-		public override void AI()
+
+        public override void AI()
         {
             /*
             Vector2 vector54 = Main.player[Projectile.owner].Center - Projectile.Center;
@@ -130,8 +129,8 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             Projectile.velocity = (startAngle + (deltaAngle * Projectile.ai[2])).ToRotationVector2() * baseSpeed + Main.player[Projectile.owner].velocity;
         }
 
-        public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
-		{
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
             if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.NextBool(2))
             {
                 target.immune[Projectile.owner] = 1;
@@ -149,7 +148,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             }
             target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 600);
         }
-        
+
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
         {

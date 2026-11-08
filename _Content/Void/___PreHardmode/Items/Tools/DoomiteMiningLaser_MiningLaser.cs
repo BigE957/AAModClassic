@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
@@ -9,9 +8,9 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Tools
 {
     //ported from my tAPI mod because I don't want to make artwork
     public class DoomiteMiningLaser_MiningLaser : ModProjectile
-	{
-		public override void SetDefaults()
-		{
+    {
+        public override void SetDefaults()
+        {
             Projectile.width = 10;
             Projectile.height = 10;
             Projectile.aiStyle = -1;

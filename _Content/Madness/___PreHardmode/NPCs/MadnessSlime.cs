@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Madness.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.Interfaces;
-using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -11,33 +10,33 @@ namespace AAModClassic._Content.Madness.___PreHardmode.NPCs
 {
     public class MadnessSlime : ModNPC, IBannerNPC
     {
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Madness Slime");
-			Main.npcFrameCount[NPC.type] = 2;
-		}
-		
-		public override void SetDefaults()
-		{
-			NPC.aiStyle = NPCAIStyleID.Slime;
-			NPC.damage = 7;
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Madness Slime");
+            Main.npcFrameCount[NPC.type] = 2;
+        }
+
+        public override void SetDefaults()
+        {
+            NPC.aiStyle = NPCAIStyleID.Slime;
+            NPC.damage = 7;
             NPC.width = 30;
-			NPC.height = 22;
-			NPC.defense = 4;
-			NPC.lifeMax = 25;
-			NPC.knockBackResist = 0f;
-			AnimationType = NPCID.CorruptSlime;
-			NPC.value = Item.buyPrice(0, 0, 5, 0);
-			NPC.alpha = 60;
-			NPC.lavaImmune = false;
-			NPC.noGravity = false;
-			NPC.noTileCollide = false;
-			NPC.HitSound = SoundID.NPCHit1;
-			NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.height = 22;
+            NPC.defense = 4;
+            NPC.lifeMax = 25;
+            NPC.knockBackResist = 0f;
+            AnimationType = NPCID.CorruptSlime;
+            NPC.value = Item.buyPrice(0, 0, 5, 0);
+            NPC.alpha = 60;
+            NPC.lavaImmune = false;
+            NPC.noGravity = false;
+            NPC.noTileCollide = false;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
-			Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MadnessSlimeBanner>();
-		}
+            Banner = NPC.type;
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MadnessSlimeBanner>();
+        }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
@@ -45,28 +44,28 @@ namespace AAModClassic._Content.Madness.___PreHardmode.NPCs
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
-		{
-			if (spawnInfo.PlayerSafe || Main.hardMode)
-			{
-				return 0f;
-			}
-			return SpawnCondition.OverworldDaySlime.Chance * 0.1f;
-		}
-		
-		public override void HitEffect(NPC.HitInfo hit)
-		{
-			for (int k = 0; k < 3; k++)
-			{
-				Dust.NewDust(NPC.position, NPC.width, NPC.height, Main.rand.NextBool(2) ? ModContent.DustType<Dusts.InfinityOverloadR>() : ModContent.DustType<Dusts.InfinityOverloadP>(), hit.HitDirection, -1f, 0);
-			}
-			if (NPC.life <= 0)
-			{
-				for (int k = 0; k < 15; k++)
-				{
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, Main.rand.NextBool(2) ? ModContent.DustType<Dusts.InfinityOverloadR>() : ModContent.DustType<Dusts.InfinityOverloadP>(), hit.HitDirection, -1f, 0);
-				}
-			}
-		}
+        {
+            if (spawnInfo.PlayerSafe || Main.hardMode)
+            {
+                return 0f;
+            }
+            return SpawnCondition.OverworldDaySlime.Chance * 0.1f;
+        }
+
+        public override void HitEffect(NPC.HitInfo hit)
+        {
+            for (int k = 0; k < 3; k++)
+            {
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, Main.rand.NextBool(2) ? ModContent.DustType<Dusts.InfinityOverloadR>() : ModContent.DustType<Dusts.InfinityOverloadP>(), hit.HitDirection, -1f, 0);
+            }
+            if (NPC.life <= 0)
+            {
+                for (int k = 0; k < 15; k++)
+                {
+                    Dust.NewDust(NPC.position, NPC.width, NPC.height, Main.rand.NextBool(2) ? ModContent.DustType<Dusts.InfinityOverloadR>() : ModContent.DustType<Dusts.InfinityOverloadP>(), hit.HitDirection, -1f, 0);
+                }
+            }
+        }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {

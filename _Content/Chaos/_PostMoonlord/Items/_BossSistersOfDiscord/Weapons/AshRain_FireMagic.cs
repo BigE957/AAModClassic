@@ -2,7 +2,6 @@
 using AAModClassic._Content.Inferno.Buffs;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -24,7 +23,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
             Projectile.height = 40;
             Projectile.friendly = true;
             Projectile.hostile = false;
-			Projectile.DamageType = DamageClass.Magic;
+            Projectile.DamageType = DamageClass.Magic;
             Projectile.scale = 1.1f;
             Projectile.ignoreWater = true;
             Projectile.penetrate = 1;
@@ -64,27 +63,27 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
                 Main.dust[num190].noGravity = true;
             }
         }
-		
-		public override void OnKill (int timeLeft)
-		{
-			SoundEngine.PlaySound(SoundID.Item124);
-			float spread = 12f * 0.0174f;
-			double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
-			double deltaAngle = spread / 4;
-			for (int i = 0; i < 4; i++)
-			{
-				double offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-				Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f), (float)(Math.Cos(offsetAngle) * 3f), ModContent.ProjectileType<AshRain_Ash>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
-				Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f), (float)(-Math.Cos(offsetAngle) * 3f), ModContent.ProjectileType<AshRain_Ash>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
-			}
-		}
-		
-		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+
+        public override void OnKill(int timeLeft)
+        {
+            SoundEngine.PlaySound(SoundID.Item124);
+            float spread = 12f * 0.0174f;
+            double startAngle = Math.Atan2(Projectile.velocity.X, Projectile.velocity.Y) - spread / 2;
+            double deltaAngle = spread / 4;
+            for (int i = 0; i < 4; i++)
+            {
+                double offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
+                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * 3f), (float)(Math.Cos(offsetAngle) * 3f), ModContent.ProjectileType<AshRain_Ash>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * 3f), (float)(-Math.Cos(offsetAngle) * 3f), ModContent.ProjectileType<AshRain_Ash>(), Projectile.damage / 6, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            }
+        }
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<MagicBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0, 0);
             SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 600);
             Projectile.active = false;
-		}
+        }
     }
 }

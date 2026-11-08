@@ -1,16 +1,13 @@
+using AAModClassic.Assets;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
-using Terraria;
+using Microsoft.Xna.Framework.Graphics;
+using System.IO;
 using Terraria.GameContent;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.Graphics.Shaders;
-using System.IO;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Utilities;
-using AAModClassic.Assets;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Ashe
 {
@@ -90,7 +87,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                 NPC.rotation += spinLeft ? .02f : -.02f;
                 if (count == 0)
                 {
-                    if(Main.player[Main.npc[(int)NPC.ai[3]].target].position - new Vector2(NPC.ai[0], NPC.ai[1]) == new Vector2(0f, 0f))
+                    if (Main.player[Main.npc[(int)NPC.ai[3]].target].position - new Vector2(NPC.ai[0], NPC.ai[1]) == new Vector2(0f, 0f))
                     {
                         Runeshootspeed = new Vector2(0, 0);
                     }
@@ -98,20 +95,20 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
                     {
                         Runeshootspeed = 10f * Vector2.Normalize(Main.player[Main.npc[(int)NPC.ai[3]].target].position - new Vector2(NPC.ai[0], NPC.ai[1]));
                     }
-                    if(Main.netMode != NetmodeID.MultiplayerClient)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        int SootProj = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + Runeshootspeed.X, NPC.Center.Y + Runeshootspeed.Y, Runeshootspeed.X, Runeshootspeed.Y, ModContent.ProjectileType<Ashe_DayfireShot>(), (int)NPC.ai[2]/2, 0, Main.myPlayer, NPC.whoAmI, 0);
+                        int SootProj = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + Runeshootspeed.X, NPC.Center.Y + Runeshootspeed.Y, Runeshootspeed.X, Runeshootspeed.Y, ModContent.ProjectileType<Ashe_DayfireShot>(), (int)NPC.ai[2] / 2, 0, Main.myPlayer, NPC.whoAmI, 0);
                         Main.projectile[SootProj].alpha = 0;
                     }
                     NPC.netUpdate = true;
                 }
-                
-                if(count >= 60)
+
+                if (count >= 60)
                 {
                     Control = 2;
                     NPC.netUpdate = true;
                 }
-                count ++;
+                count++;
             }
             else if (Control == 2)
             {
@@ -154,15 +151,16 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            if (auraDirection) { 
-                auraPercent += 0.1f; 
+            if (auraDirection)
+            {
+                auraPercent += 0.1f;
                 auraDirection = auraPercent < 1f;
             }
             else
-            { 
-                auraPercent -= 0.1f; 
+            {
+                auraPercent -= 0.1f;
                 auraDirection = auraPercent <= 0f;
-            
+
             }
 
             int red = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);

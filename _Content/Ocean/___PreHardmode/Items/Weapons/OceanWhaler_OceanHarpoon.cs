@@ -1,7 +1,6 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -13,7 +12,7 @@ namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Weapons
         {
             // DisplayName.SetDefault("Ocean Harpoon");
         }
-        
+
 
         public override void SetDefaults()
         {
@@ -153,4 +152,3 @@ namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Weapons
 
     }
 }
-         

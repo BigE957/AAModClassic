@@ -7,15 +7,15 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class BegLeggings : BaseAAItem, ILocalizedModType
-	{
+    public class BegLeggings : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Beg";
         public override void SetStaticDefaults()
-		{
+        {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Weird Horse Hoofs");
             // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Devs!'");
-		}
+        }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {

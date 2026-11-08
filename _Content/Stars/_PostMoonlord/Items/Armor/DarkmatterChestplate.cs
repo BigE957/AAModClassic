@@ -2,13 +2,10 @@
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
@@ -24,10 +21,10 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
 
         public override void SetStaticDefaults()
         {
-            
-			// DisplayName.SetDefault("Darkmatter Breastplate");
-			/* Tooltip.SetDefault(@"'Dark, yet still barely visible'"); */
-		}
+
+            // DisplayName.SetDefault("Darkmatter Breastplate");
+            /* Tooltip.SetDefault(@"'Dark, yet still barely visible'"); */
+        }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
@@ -51,11 +48,11 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
         }
 
         public override void SetDefaults()
-		{
-			Item.width = 30;
-			Item.height = 20;
-			Item.value = 300000;
-			Item.defense = 36;
+        {
+            Item.width = 30;
+            Item.height = 20;
+            Item.value = 300000;
+            Item.defense = 36;
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
@@ -65,12 +62,12 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Armor
         }
 
         public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<DarkmatterBar>(), 30);
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<DarkmatterBar>(), 30);
             recipe.AddIngredient(ModContent.ItemType<DarkEnergy>(), 20);
             recipe.AddTile(ModContent.TileType<QuantumFusionAccelerator_Tile>());
-			recipe.Register();
-		}
-	}
+            recipe.Register();
+        }
+    }
 }

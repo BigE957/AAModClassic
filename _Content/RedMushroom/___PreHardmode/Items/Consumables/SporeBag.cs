@@ -1,6 +1,5 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,30 +7,30 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables
 {
     public class SporeBag : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Consumables";
-		public override void SetDefaults()
-		{
-			Item.width = 22;
+        public override void SetDefaults()
+        {
+            Item.width = 22;
             Item.height = 26;
-			Item.maxStack = Item.CommonMaxStack;
-			Item.consumable = true;
-			Item.useTime = 28;
-			Item.useAnimation = 28;
-			Item.shoot = ModContent.ProjectileType<BrownSolution_Proj>();
-			Item.shootSpeed = 1f;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.value = Item.sellPrice(0, 0, 1, 0);
-			Item.rare = ItemRarityID.Green;
-			Item.UseSound = SoundID.Item1;
-			Item.autoReuse = false;
-		}
+            Item.maxStack = Item.CommonMaxStack;
+            Item.consumable = true;
+            Item.useTime = 28;
+            Item.useAnimation = 28;
+            Item.shoot = ModContent.ProjectileType<BrownSolution_Proj>();
+            Item.shootSpeed = 1f;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.value = Item.sellPrice(0, 0, 1, 0);
+            Item.rare = ItemRarityID.Green;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = false;
+        }
 
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Spore Bag");
-			// Tooltip.SetDefault(@"Spreads the surface mushroom biome");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Spore Bag");
+            // Tooltip.SetDefault(@"Spreads the surface mushroom biome");
+        }
 
         public override bool AltFunctionUse(Player player)
         {

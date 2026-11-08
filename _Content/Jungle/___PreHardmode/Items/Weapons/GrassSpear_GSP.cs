@@ -2,7 +2,6 @@ using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Weapons
@@ -64,7 +63,7 @@ namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Weapons
                 Projectile.ai[0] = 3f;
                 Projectile.netUpdate = true;
             }
-            
+
             if (syncedItemAnimation < itemAnimationMax / 3f) // Reel back
                 Projectile.ai[0] -= 2.4f;
             else // Move forward

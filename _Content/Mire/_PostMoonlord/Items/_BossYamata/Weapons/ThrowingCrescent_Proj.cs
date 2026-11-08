@@ -1,6 +1,5 @@
-using System;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,19 +7,19 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
     public class ThrowingCrescent_Proj : ModProjectile
-	{
-		public override void SetDefaults()
-		{
+    {
+        public override void SetDefaults()
+        {
             Projectile.CloneDefaults(ProjectileID.PaladinsHammerFriendly);
-			Projectile.width = 18;
-			Projectile.height = 20;
-			Projectile.friendly = true;
-			Projectile.DamageType = DamageClass.Melee;
-			Projectile.penetrate = 6;
-			Projectile.timeLeft = 550;
-			Projectile.light = 0.9f;
-			Projectile.extraUpdates = 2;
-		}
+            Projectile.width = 18;
+            Projectile.height = 20;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.penetrate = 6;
+            Projectile.timeLeft = 550;
+            Projectile.light = 0.9f;
+            Projectile.extraUpdates = 2;
+        }
 
         int ProjTimer = 0;
 
@@ -37,7 +36,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
             }
         }
 
-         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             Player player = Main.player[Projectile.owner];
             float num72 = 45f;

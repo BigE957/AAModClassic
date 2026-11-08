@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,11 +7,11 @@ namespace AAModClassic._Content.Dungeon.___PreHardmode.Items.Weapons
 {
     public class SkullWand_SkullShot : ModProjectile
     {
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Skull Shot");
-		}
-    	
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Skull Shot");
+        }
+
         public override void SetDefaults()
         {
             Projectile.width = 6;

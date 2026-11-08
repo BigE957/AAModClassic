@@ -1,11 +1,10 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Ammo;
+using AAModClassic._Content.Sky.__Hardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic._Content.Sky.__Hardmode.Items.Materials;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Ammo;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Sky.__Hardmode.Items.Weapons
 {
@@ -44,13 +43,13 @@ namespace AAModClassic._Content.Sky.__Hardmode.Items.Weapons
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-			float rotation = MathHelper.ToRadians(5);
-			position += Vector2.Normalize(velocity) * 45f;
-			for (int i = 0; i < 2; i++)
-			{
-				Vector2 perturbedSpeed = velocity.RotatedBy(MathHelper.Lerp(-rotation, rotation, i));
-				Projectile.NewProjectile(source, position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<DragonsMaw_DragonLaser>(), damage, knockback, player.whoAmI);
-			}
+            float rotation = MathHelper.ToRadians(5);
+            position += Vector2.Normalize(velocity) * 45f;
+            for (int i = 0; i < 2; i++)
+            {
+                Vector2 perturbedSpeed = velocity.RotatedBy(MathHelper.Lerp(-rotation, rotation, i));
+                Projectile.NewProjectile(source, position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<DragonsMaw_DragonLaser>(), damage, knockback, player.whoAmI);
+            }
             Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<DragonArrow_Proj>(), damage, knockback, player.whoAmI, 0f, 0f); //This is spawning a projectile of type FrostburnArrow using the original stats
             return false;
         }
@@ -58,7 +57,7 @@ namespace AAModClassic._Content.Sky.__Hardmode.Items.Weapons
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DragonSpirit>(), 25);
-			recipe.AddTile(TileID.MythrilAnvil);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }
     }

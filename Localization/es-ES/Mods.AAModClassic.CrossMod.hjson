@@ -1,25 +1,25 @@
 BossChecklist: {
 	MushroomMonarch: {
-		Name: Monarca Champiñón
-		Spawn: Usa un {0} durante el día.
-		Despawn: "[c/F08080:El Monarca Champiñón escapa hacia el cielo]"
+		Name: Monarca Fúngico
+		Spawn: Usa {0} durante el día.
+		Despawn: "[c/F08080:El Monarca Fúngico escapa hacia el cielo]"
 	}
 
 	FeudalFungus: {
 		Name: Hongo Feudal
-		Spawn: Usa un {0} en un bioma de Champiñones Luminosos.
+		Spawn: Usa {0} en un bioma de Champiñones Brillantes.
 		Despawn: "[c/70FFF3:El Hongo Feudal se desvanece]"
 	}
 
 	GripsOfChaos: {
 		Name: Garras del Caos
-		Spawn: Usa un {0} o un {1} por la noche.
+		Spawn: Usa {0} o {1} por la noche.
 		Despawn: "[c/75008C:Las Garras se van volando tras haber acabado contigo]"
 	}
 
 	TruffleToad: {
 		Name: Sapo de Trufa
-		Spawn: Usa un {0} en un bioma de Champiñones Luminosos.
+		Spawn: Usa {0} en un bioma de Champiñones Brillantes.
 		Despawn: "[c/70FFF3:El Sapo de Trufa croa y luego se desvanece]"
 	}
 
@@ -31,44 +31,44 @@ BossChecklist: {
 
 	Hydra: {
 		Name: Hidra
-		Spawn: Usa un {0} en el Lodazal por la noche.
+		Spawn: Usa {0} en el Lodazal por la noche.
 		Despawn: "[c/483D8B:La Hidra se desliza de vuelta a su guarida oscura]"
 	}
 
 	SubzeroSerpent: {
 		Name: Serpiente Subcero
-		Spawn: Usa un {0} en la Tundra por la noche.
+		Spawn: Usa {0} en la Tundra por la noche.
 		Despawn: "[c/6495ED:La Serpiente Subcero se entierra de vuelta en la nieve]"
 	}
 
 	DesertDjinn: {
-		Name: Djinn del Desierto
-		Spawn: Usa un {0} en el Desierto durante el día.
-		Despawn: "[c/F4A460:El Djinn del Desierto flexiona sus músculos sobre ti triunfalmente]"
+		Name: Genio del Desierto
+		Spawn: Usa {0} en el Desierto durante el día.
+		Despawn: "[c/F4A460:El Genio del Desierto flexiona sus músculos sobre ti triunfalmente]"
 	}
 
 	Sagittarius: {
 		Name: Sagitario
-		Spawn: Usa un {0} en el Vacío.
+		Spawn: Usa {0} en el Vacío.
 		Despawn: "[c/FF0000:Sagitario galopa hacia la oscuridad infinita...]"
 	}
 
 	TechnoTruffle: {
-		Name: Techno Trufa
-		Spawn: Usa un {0} por la noche.
-		Despawn: "[c/eb34eb:Techno Trufa eliminó a su objetivo.]"
+		Name: Tecnotrufa
+		Spawn: Usa {0} por la noche.
+		Despawn: "[c/eb34eb:Tecnotrufa eliminó a su objetivo.]"
 	}
 
 	Retriever: {
-		Name: El Retriever
-		Spawn: Usa un {0} por la noche.
-		Despawn: "[c/eb34eb:El Retriever recibe su recompensa.]"
+		Name: El Recolector
+		Spawn: Usa {0} por la noche.
+		Despawn: "[c/eb34eb:El Recolector recibe su recompensa.]"
 	}
 
 	OrthrusX: {
-		Name: Ortros X
+		Name: Orthrus X
 		Spawn: Usa un {0} por la noche.
-		Despawn: "[c/eb34eb:Ortros se teletransporta a la base.]"
+		Despawn: "[c/eb34eb:Orthrus X se teletransporta a la base.]"
 	}
 
 	RaiderUltima: {
@@ -79,127 +79,127 @@ BossChecklist: {
 
 	Anubis: {
 		Name: Anubis
-		Spawn: Usa un {0} en el Desierto.
+		Spawn: Usa {0} en el Desierto.
 		Despawn: "[c/FFD700:Anubis bromea y luego regresa a su forma.]"
 	}
 
 	BiomiteCore: {
 		Name: Núcleo de Biomita
-		Spawn: Usa un {0} en el pedestal del Bastión Perdido.
+		Spawn: Usa {0} en el pedestal del Bastión Perdido.
 		Despawn: "[c/228B22:Los mecanismos del bastión se detienen por completo.]"
 	}
 
 	Athena: {
-		Name: Athena
-		Spawn: Usa un {0} en el altar del búho en la Acrópolis, o hiere a un Serafín en la Acrópolis.
-		Despawn: "[c/008AA6:Athena te regaña antes de irse volando.]"
+		Name: Atenea
+		Spawn: Usa {0} en el altar del búho en la Acrópolis, o hiere a un Serafín en la Acrópolis.
+		Despawn: "[c/008AA6:Atenea te regaña antes de irse volando.]"
 	}
 
 	Greed: {
 		Name: Avaricia
-		Spawn: Usa un {0} en el Altar del Deseo en el Alijo, o abre 3 cofres de Avaricia en el Alijo.
+		Spawn: Usa {0} en el Altar del Deseo en el Alijo, o abre 3 cofres de Avaricia en el Alijo.
 		Despawn: "[c/E39F00:La Avaricia vuelve a contar sus cosas brillantes.]"
 	}
 
 	RajahRabbit: {
 		Name: Rajah Rabbit
-		Spawn: Usa una {0} o mata 100 conejos como un imbécil.
+		Spawn: Usa {0} o mata 100 conejos como un imbécil.
 		Despawn: "[c/D3D3D3:La justicia del Castigador Saltarín ha sido servida.]"
 	}
 
 	ForsakenAnubis: {
-		Name: Anubis Abandonado
+		Name: Anubis; Juez Abandonado
 		Spawn: Desafía al Escriba de la Leyenda tras haber derrotado al Señor de la Luna.
 		Despawn: "[c/228B22:El poder del Juez se revierte, su decepción es inconmensurable.]"
 	}
 
 	AthenaA: {
-		Name: Athena Olímpica
+		Name: Atenea Olímpica
 		Spawn: Desafía a Atenea tras haber demostrado tu valía ante Anubis.
 		Despawn: "[c/008AA6:La Diosa se eleva por los aires, completamente complacida.]"
 	}
 
 	GreedA: {
-		Name: Rey Gusano Avaricia
+		Name: Avaricia; Rey Gusano
 		Spawn: Desafía a Avaricia tras haber demostrado tu valía ante Anubis.
 		Despawn: "[c/E39F00:El Acaparador se desliza en su guarida, un tesoro más para la pila.]"
 	}
 
 	EquinoxWorms: {
-		Name: Portador del Día y Rondador Nocturno
-		Spawn: Usa el {0}.
+		Name: Portador Diurno y Reptador Nocturno
+		Spawn: Usa {0}.
 		Despawn: "[c/2F1F6C:La pareja desaparece entre las estrellas para continuar con su equilibrio.]"
 	}
 
 	SistersOfDiscord: {
 		Name: Hermanas de la Discordia
-		Spawn: Usa el {0}.
+		Spawn: Usa {0}.
 		Despawn: "[c/FF00FF:Las hermanas se escabullen a casa para contarles a sus padres sobre su victoria.]"
 	}
 
 	Akuma: {
 		Name: Akuma
-		Spawn: Usa el {0} en el Infierno durante el día.
+		Spawn: Usa {0} en el Infierno durante el día.
 		Despawn: "[c/92251E:El Demonio regresa a su Pagoda, poco entusiasmado con la batalla.]"
 	}
 
 	AkumaA: {
 		Name: Oni Akuma
-		Spawn: Derrota a Akuma en Modo Experto o usa el {0}.
+		Spawn: Derrota a Akuma en Modo Experto o usa {0}.
 		Despawn: "[c/00BFFF:El Demonio se arrastra de vuelta a su Pagoda, furioso por la batalla.]"
 	}
 
 	Yamata: {
 		Name: Yamata
-		Spawn: Usa el {0} en el Lodazal por la noche.
+		Spawn: Usa {0} en el Lodazal por la noche.
 		Despawn: "[c/35397E:El Demonio se retira al Lago de las Almas para deleitarse con su victoria.]"
 	}
 
 	YamataA: {
 		Name: Yamata No Orochi
-		Spawn: Derrota a Yamata en Modo Experto o usa el {0}.
+		Spawn: Derrota a Yamata en Modo Experto o usa {0}.
 		Despawn: "[c/921E44:El Demonio se desliza de vuelta al Lago de las Almas para lamerse las heridas.]"
 	}
 
 	Zero: {
-		Name: Zero
-		Spawn: Usa el {0} en el Vacío.
+		Name: Cero
+		Spawn: Usa {0} en el Vacío.
 		Despawn: "[c/FF0000:La máquina ejecuta el protocolo de retorno y reanuda su vigilia silenciosa.]"
 	}
 
 	ZeroP: {
-		Name: Protocolo Zero
-		Spawn: Derrota a Zero en Modo Experto o usa el {0}.
+		Name: Protocolo Cero
+		Spawn: Derrota a Cero en Modo Experto o usa el {0}.
 		Despawn: "[c/FF0000:La máquina ejecuta el protocolo de reparación antes de reanudar su vigilia silenciosa.]"
 	}
 
 	RajahRabbitR: {
 		Name: Venganza de Rajah Rabbit
-		Spawn: Usa la {0} o mata 100 conejos después de haber matado al menos 1000.
+		Spawn: Usa {0} o mata 100 conejos después de haber matado al menos 1000.
 		Despawn: "[c/D3D3D3:La justicia del Campeón de los Inocentes ha sido servida.]"
 	}
 
 	Shen: {
 		Name: Shen Doragon
-		Spawn: Usa el {0}.
-		Despawn: "[c/FF00FF:El caos sigue reinando de todos modos, el heraldo de la discordia continúa su discordia.]"
+		Spawn: Usa {0}.
+		Despawn: "[c/FF00FF:El caos sigue reinando de todos modos, el profeta del apocalipsis discordiano continúa su discordia.]"
 	}
 
 	ShenA: {
-		Name: Shen Doragon Despertado
-		Spawn: Derrota a Shen Doragon en Modo Experto o usa el {0}.
+		Name: Despertar de Shen Doragon
+		Spawn: Derrota a Shen Doragon en Modo Experto o usa {0}.
 		Despawn: "[c/FF00FF:A pesar de tus mejores esfuerzos, el caos sigue reinando de todos modos.]"
 	}
 
 	InfinityZero: {
-		Name: Infinity Zero
-		Spawn: Usa el {0}.
+		Name: Cero Infinito
+		Spawn: Usa {0}.
 		Despawn: "[c/A9A9A9:Con su directiva completada con éxito, la malicia mecánica aguarda a otro.]"
 	}
 
 	SoulOfCthulhu: {
 		Name: Alma de Cthulhu
-		Spawn: Usa el {0}.
+		Spawn: Usa {0}.
 		Despawn: "[c/00FFFF:Con la ira de los antiguos dioses promulgada, la calamidad cósmica regresa a su letargo.]"
 	}
 
@@ -247,6 +247,11 @@ MusicDisplay: {
 	}
 
 	AkumaAwakened: {
+		Author: by Tyeski
+		DisplayName: Day Breaks
+	}
+
+	AkumaAwakenedLegacy: {
 		Author: by Tyeski
 		DisplayName: Dawn of the Dragon
 	}
@@ -511,4 +516,94 @@ CalamityMod: {
 		Contempla mis obras, tal como están... Arruinadas. Nadie se atrevería a buscarme; a recorrer mi camino.
 		Nada les espera en este cruel mundo.
 		'''
+
+	DraeTalk: {
+		ChaosBiomes: {
+			Prompt: El Caos
+			Dialogue:
+				'''
+				Esas tierras no siempre estuvieron en el estado en el que las has visto. Cuando comencé a explorar estas tierras por primera vez, me encontré con las dos civilizaciones que una vez llamaron hogar a esas regiones. Una se construyó alrededor de una montaña y su comercio principal era la herrería. La otra rodeaba un lago y era un pueblo pesquero.
+
+				Ambas eran singulares, ya que no adoraban a dioses tal como tú y yo los conocemos, sino a los Ancianos de la Furia y la Ira, respectivamente. Nunca habían conocido a estos Ancianos, ya que ambos estaban en un profundo letargo tras una gran batalla de bastante antes de mi tiempo. Sin embargo, al despertar, los dos Ancianos destruyeron a sus devotos. Su Furia y su Ira dieron origen a las tierras tal como las conoces, repletas de influencia caótica.
+
+				Fui testigo de todo esto desarrollarse a través de la lente de uno de mis drones de reconocimiento. Fue este suceso el que me convenció de permanecer oculto durante algún tiempo más. Si hubiera hecho evidente mi presencia entonces, no estoy seguro de si habría tenido las defensas necesarias para alejar a esas bestias enfurecidas.
+
+				La estrecha fijación de Yharim en los Dioses durante su Cruzada solo permitió que las fuerzas del caos crecieran en número y poder. Sin duda ya has conocido a Ashe and Haruka. Ambos se hicieron el hábito de fastidiar tanto a las fuerzas de Yharim como a mis propios laboratorios. Una variable irritante que he tenido que seguir teniendo en cuenta.
+
+				Tus esfuerzos por sofocar la influencia que el caos ejerce sobre este mundo no han pasado desapercibidos. Es a través de estos esfuerzos tuyos que he llegado a verte como un catalizador. Es mi esperanza que continúes adelante y acabes con los de su clase de una vez por todas.
+				'''
+		}
+
+		Ancients: {
+			Prompt: Los Ancianos
+			Dialogue:
+				'''
+				Son una casta única, por decirlo suavemente. A diferencia de los Dioses, sus títulos no son autoproclamados. Los primeros de su orden fueron designados hace mucho tiempo, incluso antes de la Era Dracónica, por el Equinoccio.
+
+				Los títulos que portan se han transmitido a través de sus linajes durante generaciones. Su deber eterno es gobernar sobre los Ecosistemas en los que residen y, a través de esto, se mantiene un equilibrio en todo el planeta.
+
+				Sin embargo, en tiempos más recientes, no estoy seguro de cuál de los miembros de su casta puede considerarse un Anciano verdadero y a cuáles simplemente se les otorga el título debido a su fuerza. Incluso he oído que la máquina que reside en el Vacio es referida como un Anciano. Es verdaderamente desconcertante.
+
+				Además, parecería que algunos de entre ellos poseen la capacidad de templar los poderes que empuñan. Es posible que esto haya sido un proceso intencional, o simplemente que sus habilidades se hayan debilitado al transmitirse a través de las generaciones.
+
+				Sin embargo, en tus batallas contra ellos, una cosa ha quedado clara. El poder sigue residiendo en su interior y es capaz de despertar en los momentos más aciagos.
+
+				Yharim batalló contra los dioses y derrocó su orden. Ahora, parecería que tienes la intención de hacer lo mismo con los Ancianos. Las similitudes entre ustedes dos son verdaderamente fascinantes de observar.
+				'''
+		}
+
+		Fungus: {
+			Prompt: Influencia Fúngica
+			Dialogue:
+				'''
+				¿Qué? ¿De verdad te preocupan las capacidades de los hongos de este mundo? Qué noción tan peculiar. Si bien se puede observar que son capaces de ejercer influencia sobre organismos simples, hay pocas razones para creer que puedan llegar a ser algo más.
+
+				Las entidades hostiles más considerables que han logrado producir son criaturas más grandes habitadas por sus esporas, y esos dos... ¿criaturas? de champiñón. Te refieres a ellos como el "Monarca Fúngico" y el "Hongo Feudal". 
+
+				Lo admito, le he prestado muy poca atención a los hongos de este mundo en mi investigación debido a sus lamentables resultados en la naturaleza.
+
+				Sea como fuere, como dije, hay pocos motivos de preocupación. Por lo que he observado, sus intentos de propagación arrojan pocos resultados. Tal vez si sus esfuerzos se combinaran, podrían llegar a ser algo mayor que la suma de sus partes.
+				'''
+		}
+
+		Void: {
+			Prompt: El Vacío
+			Dialogue:
+				'''
+				Hay mucho que decir sobre la anomalía espacial a la que a menudo se le llama "El Vacío". La datación por carbono de las muestras geológicas recuperadas sitúa su existencia mucho antes de la formación de este planeta. La solitaria máquina que se encontraba en su epicentro era mi principal objeto de estudio. En todos mis intentos, nunca pude lograr que se activara, y ni siquiera mi artillería Exo pudo atravesar sus escudos.
+
+				Tú, sin embargo, lograste tener éxito donde yo fracasé. Lo activaste e incluso conseguiste derrotarlo. Observé vuestra batalla a través de múltiples drones de reconocimiento, y fue fascinante ver la Unidad Cero activada. Su arsenal era particularmente notable. Me queda claro que fue diseñada para el combate, lo que plantea la pregunta de por qué permaneció en silencio todo este tiempo. ¿Por qué se activa ahora?
+
+				Sea como fuere, espero que sigas impresionando. Si mis escáneres funcionan correctamente, algo verdaderamente aterrador ha llegado a través del Vacío. Te has familiarizado con el apogeo de mis investigaciones. Equípate como sea necesario para lo que sea que aguarde dentro de esa brecha.
+				'''
+		}
+
+		Equinox: {
+			Prompt: El Equinoccio
+			Dialogue:
+				'''
+				El Equinoccio es un dúo particularmente antiguo que ha acompañado a este mundo durante siglos; desde antes de que la vida siquiera se hubiera formado en él. Fueron ellos quienes designaron al primero de los Ancianos hace mucho tiempo y los bendijeron con una parte sustancial de sus poderes.
+
+				He oído una gran cantidad de mitos en torno al Equinoccio. Uno que sé que era de particular interés para Yharim relata que una vez ayudaron a un gran héroe a desterrar a un poderoso hechicero que blandía todo el poder del caos. Yharim ha citado al héroe de esta leyenda como inspiración en muchas ocasiones para sus tropas.
+
+				Si bien es cierto que son responsables del paso del día y la noche en nuestro planeta, muchos entienden el proceso completamente mal. El Sol y la Luna no orbitan nuestro planeta. Cualquier examen serio revelaría que el Equinoccio tiene la capacidad de emitir una fuerte aura gravitacional. Con esto, son capaces de arrastrar el planeta alrededor del sol y la luna alrededor del planeta.
+				'''
+		}
+	}
+}
+
+Fables: {
+	Nautilus: {
+		DesertDjinnActive: {
+			1: <m:SmallShake>¡Oh, qué alboroto tan ruidoso día y noche!</m><d:0.6> </d>¡Si todavía tuviera un poco más de movilidad, hace tiempo que habría echado a estos <c:F4A460>Genios</c> de estas ruinas yo mismo!
+			2: <m:Shake>¡Ese <c:F4A460>Genio...!</c></m><d:0.8> </d>¡Hasta sus subordinados son una desgracia, yendo y viniendo a su antojo para atormentarme!<d:0.6> </d>Debe de ser una influencia terrible para ellos, ¡nada que ver con cómo crecí con <d:0.05><s:1.1><c:28dcdc>Signathion!</d></s></c>
+		}
+
+		DesertDjinnDefeated: {
+			First: ¡Dios mio, qué gran favor me has hecho al expulsar a esos <c:F4A460>Genios</c> de estas ruinas!<d:0.4> </d>Por mucho que aprecie una distracción, <m:Empathis>¡simplemente eran demasiado!
+			Repeat: Ciertamente me resulta más fácil descansar sabiendo que el <c:F4A460>Genio</c> y sus gamberros ya no saquean mi viejo hogar. <m:Empathis><s:1.1><d:0.03>¡Te doy mis más sinceras gracias!
+		}
+	}
+
+	Squilium: Hola, ¡soy Squilium!
 }

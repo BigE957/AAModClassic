@@ -1,5 +1,4 @@
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -21,7 +20,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration
             Item.consumable = true;
             Item.createWall = ModContent.WallType<DoomstoneBrick_Wall>();
         }
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Doomstone Brick Wall");

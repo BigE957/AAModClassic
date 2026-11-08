@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
@@ -22,8 +21,8 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items.Armor
 
             if (player.buffTime[buffIndex] == 2)
             {
-				player.DelBuff(buffIndex);
-				buffIndex--;
+                player.DelBuff(buffIndex);
+                buffIndex--;
             }
         }
     }

@@ -1,10 +1,10 @@
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Dusts;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -41,6 +41,13 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
             //Banner = NPC.type;
         }
 
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (AAWorld.downedEquinox && spawnInfo.Water && spawnInfo.Player.AAPlayer().ZoneShip && !AnyEvents(spawnInfo.Player))
+                return 0.6f;
+
+            return 0f;
+        }
 
         public override void AI()
         {
@@ -412,7 +419,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            if(NPC.IsABestiaryIconDummy)
+            if (NPC.IsABestiaryIconDummy)
             {
                 NPC.spriteDirection = -1;
             }

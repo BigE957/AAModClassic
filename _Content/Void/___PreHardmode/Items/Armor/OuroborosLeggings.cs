@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Void.___PreHardmode.Items.Tiles.Decoration;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,8 +7,8 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class OuroborosLeggings : BaseAAItem, ILocalizedModType
-	{
+    public class OuroborosLeggings : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Armor.Ouroboros";
         public override void SetStaticDefaults()
         {

@@ -1,18 +1,16 @@
-using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
 {
     public abstract class BaseAAItem : ModItem
     {
-		public const int GLOWMASKTYPE_NONE = -1;	 //for shit like Daystorm which is a 'projectile' gun
-		public const int  GLOWMASKTYPE_SWORD = 0; //for swords and swordlike items
-		public const int GLOWMASKTYPE_GUN = 1; //for guns and gunlike items (bows too)
+        public const int GLOWMASKTYPE_NONE = -1;     //for shit like Daystorm which is a 'projectile' gun
+        public const int GLOWMASKTYPE_SWORD = 0; //for swords and swordlike items
+        public const int GLOWMASKTYPE_GUN = 1; //for guns and gunlike items (bows too)
 
         //glowmask shenanigans
         public static Dictionary<int, Asset<Texture2D>> GlowmaskCache = [];
@@ -28,14 +26,14 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
             {
                 spriteBatch.Draw
                 (
-                    asset.Value, 
-                    position, 
-                    null, 
-                    GlowmaskDrawColor, 
-                    0, 
-                    origin, 
-                    scale, 
-                    SpriteEffects.None, 
+                    asset.Value,
+                    position,
+                    null,
+                    GlowmaskDrawColor,
+                    0,
+                    origin,
+                    scale,
+                    SpriteEffects.None,
                     0f
                 );
             }
@@ -44,25 +42,25 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
             if (GlowmaskCache.TryGetValue(Item.type, out var asset))
-			{
-				spriteBatch.Draw
-				(
-					asset.Value,
-					new Vector2
-					(
-						Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
-						Item.position.Y - Main.screenPosition.Y + Item.height - asset.Value.Height * 0.5f + 2f
-					),
-					new Rectangle(0, 0, asset.Value.Width, asset.Value.Height),
+            {
+                spriteBatch.Draw
+                (
+                    asset.Value,
+                    new Vector2
+                    (
+                        Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                        Item.position.Y - Main.screenPosition.Y + Item.height - asset.Value.Height * 0.5f + 2f
+                    ),
+                    new Rectangle(0, 0, asset.Value.Width, asset.Value.Height),
                     GlowmaskDrawColor,
-					rotation,
-					asset.Value.Size() * 0.5f,
-					scale,
-					Item.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally,
-					0f
-				);
-			}
-		}
+                    rotation,
+                    asset.Value.Size() * 0.5f,
+                    scale,
+                    Item.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally,
+                    0f
+                );
+            }
+        }
 
         public override void ModifyTooltips(List<TooltipLine> list)
         {
@@ -79,12 +77,12 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
             }
         }
 
-		//DO NOT FUCK WITH THIS!! EDITING THIS COULD BREAK ITEMS BADLY!!!
-		public override ModItem NewInstance(Item itemClone)
-		{
-			BaseAAItem newItem = (BaseAAItem)base.NewInstance(itemClone);
-			newItem.customNameColor = customNameColor;
+        //DO NOT FUCK WITH THIS!! EDITING THIS COULD BREAK ITEMS BADLY!!!
+        public override ModItem NewInstance(Item itemClone)
+        {
+            BaseAAItem newItem = (BaseAAItem)base.NewInstance(itemClone);
+            newItem.customNameColor = customNameColor;
             return newItem;
-		}
-	}
+        }
+    }
 }

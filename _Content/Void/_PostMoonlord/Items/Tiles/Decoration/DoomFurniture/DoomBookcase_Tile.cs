@@ -2,13 +2,12 @@ using AAModClassic.Dusts;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Decoration.DoomFurniture
 {
     public class DoomBookcase_Tile : ModTile
-	{
+    {
         public override void SetStaticDefaults()
         {
             this.SetUpBookcase(ModContent.ItemType<DoomBookcase>());

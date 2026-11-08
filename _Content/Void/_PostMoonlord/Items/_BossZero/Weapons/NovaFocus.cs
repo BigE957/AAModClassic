@@ -1,24 +1,21 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
-using AAModClassic.Globals;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Rarities;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.UI.World;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
 {
     public class NovaFocus : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Magic";
-        
+
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Nova Focus");
+        {
+            // DisplayName.SetDefault("Nova Focus");
             // Tooltip.SetDefault("Fires an insanely powerful death laser");
         }
 
@@ -50,21 +47,21 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Weapons
             }
         }
 
-        
+
 
         public override Vector2? HoldoutOffset()
-		{
-			return new Vector2(-45, -3);
-		}
+        {
+            return new Vector2(-45, -3);
+        }
 
-		public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 5);
-			recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 5);
-			recipe.AddIngredient(ItemID.ChargedBlasterCannon);
-	        recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
-	        recipe.Register();
-		}
-	}
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<ApocalyptitePlate>(), 5);
+            recipe.AddIngredient(ModContent.ItemType<UnstableSingularity>(), 5);
+            recipe.AddIngredient(ItemID.ChargedBlasterCannon);
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
+            recipe.Register();
+        }
+    }
 }

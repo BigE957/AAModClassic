@@ -12,7 +12,7 @@ using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthul
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeitySkull;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Achievements;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.World;
@@ -22,7 +22,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
@@ -58,6 +57,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.boss = true;
             Music = MusicManagementSystem.MusicSlots["SoulOfCthulhu"];
             NPC.noGravity = true;
+            NPC.noTileCollide = true;
             NPC.netAlways = true;
             for (int m = 0; m < NPC.buffImmune.Length; m++) NPC.buffImmune[m] = true;
             SpawnModBiomes = [ModContent.GetInstance<SunkenShipBiome>().Type];
@@ -213,7 +213,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         public float alpha = 255;
         public float scale = 0;
         public float RingRotation = 0;
-        public float RiftSpin = 0;     
+        public float RiftSpin = 0;
 
         public override void SendExtraAI(BinaryWriter writer)
         {
@@ -245,6 +245,9 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             {
                 if (NPC.playerInteraction[Main.myPlayer])
                     SoulOfCthulhuKilled.Condition.Complete();
+
+                if (!NPC.BeenKilled(true))
+                    NPC.OnGameEventClearedForTheFirstTime(-1);
             }
         }
 
@@ -280,7 +283,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         int oneTime = 0;
 
         public int EnemyTimer = 0;
-        
+
         public override void AI()
         {
             Player player = Main.player[NPC.target];
@@ -580,7 +583,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 }
                 if (NPC.ai[1] == 3f)
                 {
-                    if(Main.netMode != NetmodeID.MultiplayerClient)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Kill"), Color.DarkCyan);
                     NPC.ai[1] = 5f;
                 }

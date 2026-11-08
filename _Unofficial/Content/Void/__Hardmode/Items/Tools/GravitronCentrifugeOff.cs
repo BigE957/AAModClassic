@@ -1,8 +1,5 @@
-using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Tools;
-using AAModClassic.UI.World;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,6 +14,7 @@ namespace AAModClassic._Unofficial.Content.Void.__Hardmode.Items.Tools
             // DisplayName.SetDefault("Gravitron Centrifuge (Inactive)");
             /* Tooltip.SetDefault(@"Provides a great deal of centrifugal force, granting standard gravity in space
             Effects are currently inactive, Right click to reactivate"); */
+            Item.ResearchUnlockCount = 0;
         }
 
         public override void SetDefaults()

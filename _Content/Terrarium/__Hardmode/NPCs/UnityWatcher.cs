@@ -1,8 +1,8 @@
 ﻿using AAModClassic._Content.Terrarium.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
+using AAModClassic.Utilities;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -31,8 +31,16 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
             NPC.knockBackResist = 0.5f;
             NPC.noGravity = true;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.UnityWatcherBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.UnityWatcherBanner>();
             SpawnModBiomes = [ModContent.GetInstance<TerrariumBiome>().Type];
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if ((Main.hardMode && !NPC.downedPlantBoss) && spawnInfo.Player.AAPlayer().ZoneTerrarium && !AnyEvents(spawnInfo.Player))
+                return 0.07f;
+
+            return 0f;
         }
 
         public override void HitEffect(NPC.HitInfo hit)
@@ -77,7 +85,7 @@ namespace AAModClassic._Content.Terrarium.__Hardmode.NPCs
                     NPC.netUpdate2 = true;
                 }
             }
-            
+
         }
     }
 }

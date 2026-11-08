@@ -1,7 +1,6 @@
 using AAModClassic._Content.Terrarium.Buffs;
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Terra.Projectiles

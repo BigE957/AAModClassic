@@ -1,12 +1,11 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.Projectiles;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -53,7 +52,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             NPC.npcSlots = 0;
             NPC.dontCountMe = true;
             NPC.noTileCollide = true;
-            NPC.boss = true;
+            NPC.boss = false;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.Item88;
             NPC.noGravity = true;
@@ -62,6 +61,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
                 NPC.buffImmune[k] = true;
             }
             Head = 0;
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
@@ -123,8 +123,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
                 }
                 return;
             }
-			if (bodyNPC == null)
-				return;
+            if (bodyNPC == null)
+                return;
 
             AssignHead();
 
@@ -141,11 +141,11 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             NPC.timeLeft = 100;
 
             NPC.TargetClosest();
-            
+
             Player targetPlayer = Main.player[NPC.target];
 
             if (targetPlayer == null || !targetPlayer.active || targetPlayer.dead) targetPlayer = null; //deliberately set to null
-            
+
             if (targetPlayer != null && !targetPlayer.ZoneAnyMire())
             {
                 NPC.damage = 80;
@@ -174,7 +174,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
 
             Vector2 nextTarget = Body.NPC.Center + HeadPos() + new Vector2(NPC.ai[2], NPC.ai[3]);
 
-			float dist = Vector2.Distance(nextTarget, NPC.Center);
+            float dist = Vector2.Distance(nextTarget, NPC.Center);
             if (dist < 40f)
             {
                 NPC.velocity *= 0.9f;
@@ -186,7 +186,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
                 NPC.Center = Body.NPC.Center;
                 NPC.netOffset = Vector2.Zero;
                 NPC.netUpdate = true;
-            }	
+            }
             else
             {
                 NPC.velocity = Vector2.Normalize(nextTarget - NPC.Center);
@@ -329,7 +329,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             }
         }
 
-        public float moveSpeed = 16f; 
+        public float moveSpeed = 16f;
         public void MoveToPoint(Vector2 point)
         {
             float velMultiplier = 1f;

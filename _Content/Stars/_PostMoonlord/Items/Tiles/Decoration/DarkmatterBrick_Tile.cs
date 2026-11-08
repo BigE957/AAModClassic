@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
@@ -12,7 +11,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration
             Main.tileMergeDirt[Type] = true;
             Main.tileLighted[Type] = false;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(ModContent.ItemType<DarkmatterBrick>());   
+            RegisterItemDrop(ModContent.ItemType<DarkmatterBrick>());
             AddMapEntry(new Color(30, 30, 51));
             DustType = ModContent.DustType<Dusts.DarkmatterDust>();
         }

@@ -1,35 +1,34 @@
 ﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
 {
     public class ExilesKatana : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Exile's Katana");
-			// Tooltip.SetDefault("Formed with the unyielding wrath of the depths.");
-		}
-		public override void SetDefaults()
-		{
-			Item.damage = 14;
-			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-			Item.width = 62;
-			Item.height = 66;
-			Item.useTime = 15;
-			Item.useAnimation = 15;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack =3;
-			Item.value = 3000;
-			Item.rare = ItemRarityID.Green;
-			Item.UseSound = SoundID.Item1;
-			Item.autoReuse = false;
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Exile's Katana");
+            // Tooltip.SetDefault("Formed with the unyielding wrath of the depths.");
+        }
+        public override void SetDefaults()
+        {
+            Item.damage = 14;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 62;
+            Item.height = 66;
+            Item.useTime = 15;
+            Item.useAnimation = 15;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 3;
+            Item.value = 3000;
+            Item.rare = ItemRarityID.Green;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = false;
+        }
 
         public override void MeleeEffects(Player player, Rectangle hitbox)
         {
@@ -43,16 +42,16 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
 
 
         public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
+        {
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 12);
-			recipe.AddTile(TileID.Anvils);
-			recipe.Register();
-		}
-		
-		 public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+            recipe.AddTile(TileID.Anvils);
+            recipe.Register();
+        }
+
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.Poisoned, 300);
         }
-	}
+    }
 }

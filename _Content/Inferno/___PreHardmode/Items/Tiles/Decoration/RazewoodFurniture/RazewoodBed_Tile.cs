@@ -7,15 +7,15 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration.RazewoodFurniture
 {
     public class RazewoodBed_Tile : ModTile
-	{
-		public override void SetStaticDefaults()
-		{
+    {
+        public override void SetStaticDefaults()
+        {
             this.SetUpBed(ModContent.ItemType<RazewoodBed>());
             DustType = ModContent.DustType<RazewoodDust>();
             VanillaFallbackOnModDeletion = TileID.Beds;
         }
 
-		public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
+        public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
 

@@ -1,14 +1,13 @@
 using AAModClassic.Dusts;
 using AAModClassic.Utilities;
-using Terraria;
 using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoration.Furniture
 {
-    public class RedmushDoorClosed_Tile : ModTile 
-	{
+    public class RedmushDoorClosed_Tile : ModTile
+    {
         public override void SetStaticDefaults()
         {
             this.SetUpDoorClosed(ModContent.ItemType<RedmushDoor>(), true);

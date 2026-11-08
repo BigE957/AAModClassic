@@ -1,15 +1,14 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ObjectData;
-using Terraria.Localization;
-using Terraria.ID;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Pets;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
+using AAModClassic.Base;
+using AAModClassic.Globals;
+using Microsoft.Xna.Framework;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
+using Terraria.ObjectData;
 
 namespace AAModClassic._Content.Mire.World.Tiles
 {
@@ -57,6 +56,9 @@ namespace AAModClassic._Content.Mire.World.Tiles
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
+            if (WorldGen.generatingWorld)
+                throw (new("A mod attempted to generate over important AAModClassic tiles, causing an error"));
+
             int thinger = Main.rand.Next(5);
             if (thinger == 0)
             {
@@ -92,15 +94,19 @@ namespace AAModClassic._Content.Mire.World.Tiles
             }
             else
             {
-                Player player = Main.player[BaseAI.GetPlayer(new Vector2(i, j), -1)];
-                AAWorld.SmashHydraPod = 2;
-                if (!Main.dayTime)
+                int p = BaseAI.GetPlayer(new Vector2(i, j), -1);
+                if (p != -1)
                 {
-                    AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<HydraBody>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Hydra"));
-                }
-                else
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Tiles.TilesInfo.HydraPod3"), Color.Blue);
+                    Player player = Main.player[p];
+                    AAWorld.SmashHydraPod = 2;
+                    if (!Main.dayTime)
+                    {
+                        AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<HydraBody>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Hydra"));
+                    }
+                    else
+                    {
+                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Tiles.TilesInfo.HydraPod3"), Color.Blue);
+                    }
                 }
             }
         }

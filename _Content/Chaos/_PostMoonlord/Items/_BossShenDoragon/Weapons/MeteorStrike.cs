@@ -1,18 +1,14 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.DataStructures;
-using Terraria.ModLoader;
-using Terraria.ID;
-using AAModClassic.Globals;
-using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Chaos.Buffs;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
 using AAModClassic.Rarities;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons   //where is located
 {
@@ -35,24 +31,24 @@ Inflicts Discordian Inferno"); */
         public override void SetDefaults()
         {
             Item.shoot = ModContent.ProjectileType<MeteorStrike_Meteor>();
-            Item.damage = 400;            
+            Item.damage = 400;
             Item.DamageType = DamageClass.Magic;            //if it's magic
-            Item.width = 32;              
-            Item.height = 36;             
-            Item.useTime = 16;          
+            Item.width = 32;
+            Item.height = 36;
+            Item.useTime = 16;
             Item.useAnimation = 16;
-            Item.useStyle = ItemUseStyleID.Shoot;      
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = .5f;
             Item.value = Item.sellPrice(1, 50, 0, 0);
             Item.mana = 10;
             Item.UseSound = SoundID.Item124;
-            Item.autoReuse = true;   
+            Item.autoReuse = true;
             Item.useTurn = true;
             Item.shootSpeed = 16f;
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
-        
+
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {

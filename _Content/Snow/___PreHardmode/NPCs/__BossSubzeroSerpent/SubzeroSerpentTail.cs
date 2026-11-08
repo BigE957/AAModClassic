@@ -1,21 +1,51 @@
 ﻿using AAModClassic.Music;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
+using System.Collections.Generic;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
 {
+    [AutoloadBossHead]
     public class SubzeroSerpentTail : BiomeConvertableNPC
     {
+        private static readonly Dictionary<string, int> HeadSlots = [];
+
         public override string Texture => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpentTail";
+        public override string BossHeadTexture => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/Default/SubzeroSerpentTail_Head_Boss";
         public override string AssetPath => "AAModClassic/_Content/Snow/___PreHardmode/NPCs/__BossSubzeroSerpent/BossTextures/";
+
         public override bool SeperateBiomeFolders => true;
+
+        public override void Load()
+        {
+            base.Load();
+
+            foreach (var biome in Biomes)
+            {
+                if (biome.Name == "Default")
+                    HeadSlots.Add(biome.Name, Mod.AddBossHeadTexture(BossHeadTexture, Type));
+                else
+                    HeadSlots.Add(biome.Name, Mod.AddBossHeadTexture(Texture.Replace("Default", biome.Name) + "_" + biome.Name + "_Head_Boss", Type));
+            }
+        }
+
+        public override void BossHeadSlot(ref int index)
+        {
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+            {
+                index = -1;
+                return;
+            }
+
+            index = HeadSlots[BiomeType];
+        }
 
         public override void SetStaticDefaults()
         {
@@ -44,10 +74,15 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             NPC.HitSound = SoundID.NPCHit5;
             NPC.DeathSound = SoundID.NPCDeath7;
             NPC.netAlways = true;
-            NPC.boss = true;
+            NPC.boss = false;
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
             Music = MusicManagementSystem.MusicSlots["Subzero"];
             NPC.alpha = 50;
             NPC.dontCountMe = true;
+        }
+        public override void BossHeadRotation(ref float rotation)
+        {
+            rotation = NPC.rotation;
         }
 
         public override void AI()
@@ -74,7 +109,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent
             {
                 for (int tY = tileY; tY < tileCenterY; tY++)
                 {
-                    Tile checkTile = WorldGenUtils.GetTileSafely(tX, tY);
+                    Tile checkTile = Framing.GetTileSafely(tX, tY);
                     if (checkTile != null && (checkTile.HasUnactuatedTile && (Main.tileSolid[checkTile.TileType] || Main.tileSolidTop[checkTile.TileType] && checkTile.TileFrameY == 0) || checkTile.LiquidAmount > 64))
                     {
                         Vector2 tPos;

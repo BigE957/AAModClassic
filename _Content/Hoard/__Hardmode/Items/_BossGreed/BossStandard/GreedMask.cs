@@ -5,14 +5,14 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class GreedMask : BaseAAItem, ILocalizedModType
+    public class GreedMask : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Vanity.Masks";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Greed Mask");
-		}
+        }
 
         public override void SetDefaults()
         {

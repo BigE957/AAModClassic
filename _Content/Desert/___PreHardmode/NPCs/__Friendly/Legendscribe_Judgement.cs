@@ -1,19 +1,18 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly
 {
     public class Legendscribe_Judgement : ModProjectile
     {
-    	
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Judgement");
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Judgement");
             Main.projFrames[Projectile.type] = 4;
-		}
-    	
+        }
+
         public override void SetDefaults()
         {
             Projectile.width = 10;

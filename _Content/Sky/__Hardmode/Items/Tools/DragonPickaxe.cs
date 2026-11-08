@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Sky.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -29,17 +28,17 @@ namespace AAModClassic._Content.Sky.__Hardmode.Items.Tools
             Item.useTurn = true;
         }
 
-    public override void SetStaticDefaults()
-    {
-      // DisplayName.SetDefault("Dragon Pickaxe");
-      // Tooltip.SetDefault("");
-    }
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Dragon Pickaxe");
+            // Tooltip.SetDefault("");
+        }
 
-        public override void AddRecipes()  
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DragonSpirit>(), 18);
-            recipe.AddTile(TileID.MythrilAnvil);   
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }
     }

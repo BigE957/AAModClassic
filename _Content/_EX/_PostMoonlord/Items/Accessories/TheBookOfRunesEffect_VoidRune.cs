@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
@@ -80,7 +79,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
                 Projectile.ai[1] += 1f;
                 Projectile.extraUpdates = 1;
                 Projectile.rotation = Projectile.velocity.ToRotation() + 1.57f;
-                
+
                 if (Projectile.ai[1] > 40f)
                 {
                     Projectile.ai[1] = 1f;
@@ -121,7 +120,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
                     }
                 }
             }
-            if(target > -1)
+            if (target > -1)
             {
                 vector46 = Main.npc[target].Center;
                 flag25 = true;
@@ -139,7 +138,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
             }
             if (flag25 && Projectile.ai[0] == 0f)
             {
-                Vector2 vector = vector46 - Projectile.Center - new Vector2(0, 50f + Main.npc[target].height/2);
+                Vector2 vector = vector46 - Projectile.Center - new Vector2(0, 50f + Main.npc[target].height / 2);
                 float num639 = 7f;
                 if (vector.Length() > 200f && num639 < 10f)
                 {
@@ -151,7 +150,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
                     vector *= num639;
                     Projectile.velocity = (Projectile.velocity * 40f + vector) / 41f;
                 }
-                else if(vector.Length() < 40f && (Projectile.velocity.X != 0f || Projectile.velocity.Y != 0f))
+                else if (vector.Length() < 40f && (Projectile.velocity.X != 0f || Projectile.velocity.Y != 0f))
                 {
                     vector.Normalize();
                     vector *= num639;
@@ -205,7 +204,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
                     Projectile.velocity.Y = -0.05f;
                 }
             }
-            
+
             if (Projectile.ai[1] > 0f)
             {
                 Projectile.ai[1] += 1;
@@ -218,19 +217,19 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
             if (Projectile.ai[0] == 0f)
             {
                 float scaleFactor3 = 8f;
-				int num658 = ModContent.ProjectileType<TheBookOfRunesEffect_NovaRay>();
-				if (flag25 && Projectile.ai[1] == 0)
-				{
-					Projectile.ai[1] += 1f;
-					if (Main.myPlayer == Projectile.owner && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, vector46, 0, 0))
-					{
-						Vector2 value19 = vector46 - Projectile.Center;
-						value19.Normalize();
-						value19 *= scaleFactor3;
-						int num659 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, num658, Projectile.damage, 0f, Main.myPlayer, Projectile.whoAmI, target);
-						Projectile.netUpdate = true;
-					}
-				}
+                int num658 = ModContent.ProjectileType<TheBookOfRunesEffect_NovaRay>();
+                if (flag25 && Projectile.ai[1] == 0)
+                {
+                    Projectile.ai[1] += 1f;
+                    if (Main.myPlayer == Projectile.owner && Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, vector46, 0, 0))
+                    {
+                        Vector2 value19 = vector46 - Projectile.Center;
+                        value19.Normalize();
+                        value19 *= scaleFactor3;
+                        int num659 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, value19.X, value19.Y, num658, Projectile.damage, 0f, Main.myPlayer, Projectile.whoAmI, target);
+                        Projectile.netUpdate = true;
+                    }
+                }
             }
         }
     }

@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
+using System;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,10 +9,10 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
 {
     public class DaybringerHead_DayStar : ModProjectile
     {
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Day Star");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Day Star");
+        }
 
         public override void SetDefaults()
         {
@@ -24,26 +23,26 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
             Projectile.scale = 1f;
             Projectile.ignoreWater = true;
             Projectile.penetrate = -1;
-			Projectile.extraUpdates = 2;
-			Projectile.timeLeft = 1800;
+            Projectile.extraUpdates = 2;
+            Projectile.timeLeft = 1800;
             CooldownSlot = 1;
-        }	
+        }
         public override void AI()
         {
             Lighting.AddLight((int)(Projectile.Center.X / 16f), (int)(Projectile.Center.Y / 16f), .98f, .96f, .67f);
-			if(Projectile.localAI[0] ++ == 5)
+            if (Projectile.localAI[0]++ == 5)
             {
                 SpawnDust();
             }
 
-            if(Projectile.timeLeft <= 0)
+            if (Projectile.timeLeft <= 0)
             {
                 Projectile.Kill();
             }
 
             Player player = Main.player[(int)Projectile.ai[1]];
 
-            if(Projectile.ai[0] == 0)
+            if (Projectile.ai[0] == 0)
             {
                 Projectile.Center = player.Center + new Vector2(Projectile.ai[0], -300f);
             }
@@ -56,7 +55,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
         public override void OnKill(int timeLeft)
         {
             SpawnDust();
-            if(Main.rand.NextBool(2))
+            if (Main.rand.NextBool(2))
             {
                 int a = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0f, -12f), ModContent.ProjectileType<DaybringerHead_DayRay>(), Projectile.damage, 3);
                 int b = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0f, 12f), ModContent.ProjectileType<DaybringerHead_DayRay>(), Projectile.damage, 3);
@@ -108,24 +107,24 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
         }
 
         public override bool PreDraw(ref Color lightColor)
-		{
-			Color color = Lighting.GetColor((int)(Projectile.position.X + Projectile.width * 0.5) / 16, (int)((Projectile.position.Y + Projectile.height * 0.5) / 16.0));
-			Vector2 vector = Projectile.position + new Vector2(Projectile.width, Projectile.height) / 2f + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition;
-			Texture2D texture2D = TextureAssets.Projectile[Projectile.type].Value;
-			Rectangle rectangle = texture2D.Frame(1, Main.projFrames[Projectile.type], 0, Projectile.frame);
-			Color alpha = Projectile.GetAlpha(color);
-			Vector2 origin = rectangle.Size() / 2f;
-			float scaleFactor = (float)Math.Cos(6.2831855f * (Projectile.localAI[0] / 60f)) + 3f + 3f;
-			for (float num = 0f; num < 2; num += 1f)
-			{
-				SpriteBatch spriteBatch2 = Main.spriteBatch;
-				Texture2D texture = texture2D;
-				Vector2 value = vector;
-				Vector2 unitY = Vector2.UnitY;
-				spriteBatch2.Draw(texture, value + unitY.RotatedBy(0, default) * (num == 0? scaleFactor * 2 : scaleFactor), new Rectangle?(rectangle), num == 0? alpha * 0.4f : alpha, Projectile.rotation, origin, Projectile.scale * (num == 0? 1.2f : 1), SpriteEffects.None, 0f);
-			}
-			return false;
-		}
+        {
+            Color color = Lighting.GetColor((int)(Projectile.position.X + Projectile.width * 0.5) / 16, (int)((Projectile.position.Y + Projectile.height * 0.5) / 16.0));
+            Vector2 vector = Projectile.position + new Vector2(Projectile.width, Projectile.height) / 2f + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition;
+            Texture2D texture2D = TextureAssets.Projectile[Projectile.type].Value;
+            Rectangle rectangle = texture2D.Frame(1, Main.projFrames[Projectile.type], 0, Projectile.frame);
+            Color alpha = Projectile.GetAlpha(color);
+            Vector2 origin = rectangle.Size() / 2f;
+            float scaleFactor = (float)Math.Cos(6.2831855f * (Projectile.localAI[0] / 60f)) + 3f + 3f;
+            for (float num = 0f; num < 2; num += 1f)
+            {
+                SpriteBatch spriteBatch2 = Main.spriteBatch;
+                Texture2D texture = texture2D;
+                Vector2 value = vector;
+                Vector2 unitY = Vector2.UnitY;
+                spriteBatch2.Draw(texture, value + unitY.RotatedBy(0, default) * (num == 0 ? scaleFactor * 2 : scaleFactor), new Rectangle?(rectangle), num == 0 ? alpha * 0.4f : alpha, Projectile.rotation, origin, Projectile.scale * (num == 0 ? 1.2f : 1), SpriteEffects.None, 0f);
+            }
+            return false;
+        }
 
     }
 }

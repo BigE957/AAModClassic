@@ -1,8 +1,7 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
+using Microsoft.Xna.Framework;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.World.Tiles
 {
@@ -16,10 +15,10 @@ namespace AAModClassic._Content.Void.World.Tiles
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             HitSound = SoundID.Tink;
-            RegisterItemDrop(ModContent.ItemType<DoomstoneB>());   
+            RegisterItemDrop(ModContent.ItemType<DoomstoneB>());
             DustType = ModContent.DustType<Dusts.DoomDust>();
             AddMapEntry(new Color(40, 20, 20));
-			MinPick = 60;
+            MinPick = 60;
         }
 
         public static bool PlaceObject(int x, int y, int type, bool mute = false, int style = 0, int alternate = 0, int random = -1, int direction = -1)

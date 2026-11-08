@@ -1,20 +1,17 @@
-using System;
-using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
 {
     public class DragonsClaw_Holdout : ModProjectile
-	{
+    {
         public override bool IsLoadingEnabled(Mod mod) => ThoriumMod.IsEnabled;
 
         public override void SetDefaults()
-		{
-			Projectile.width = 138;
-			Projectile.height = 138;
+        {
+            Projectile.width = 138;
+            Projectile.height = 138;
             Projectile.aiStyle = 0;
             Projectile.light = 0.2f;
             Projectile.friendly = true;
@@ -45,7 +42,7 @@ namespace AAModClassic._CrossMod.Thorium.Weapons.Healer
             Projectile projectile = Projectile;
             projectile.rotation += player.direction * player.gravDir * SpinSpeed;
             Projectile.spriteDirection = player.direction;
-            player.heldProj =Projectile.whoAmI;
+            player.heldProj = Projectile.whoAmI;
             Projectile.Center = player.Center;
             Projectile.gfxOffY = player.gfxOffY;
             SpawnDust();

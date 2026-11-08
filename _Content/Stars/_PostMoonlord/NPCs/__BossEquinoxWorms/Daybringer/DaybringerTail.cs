@@ -1,10 +1,13 @@
-﻿using AAModClassic.Utilities;
+﻿using AAModClassic.UI.World;
+using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Daybringer
 {
+    [AutoloadBossHead]
     public class DaybringerTail : DaybringerHead
-	{
+    {
         public override void SetStaticDefaults()
         {
             //base.SetStaticDefaults();
@@ -12,20 +15,28 @@ namespace AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Dayb
         }
 
         public override void SetDefaults()
-		{
+        {
             base.SetDefaults();
             NPC.dontCountMe = true;
             NPC.npcSlots = 0;
+            NPC.boss = false;
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
+        }
+
+        public override void BossHeadSlot(ref int index)
+        {
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
+                index = -1;
         }
 
         public override bool PreKill()
-		{
-			return false;
-		}
+        {
+            return false;
+        }
 
-		public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
-		{
-			return false;
-		}
+        public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
+        {
+            return false;
+        }
     }
 }

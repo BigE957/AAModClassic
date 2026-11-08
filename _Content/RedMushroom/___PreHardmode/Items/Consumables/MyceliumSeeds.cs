@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.RedMushroom.World.Tiles;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -9,15 +8,15 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables
 {
     public class MyceliumSeeds : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Consumables";
-		public override void SetStaticDefaults()
+        public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Mycelium Seeds");
             // Tooltip.SetDefault("Plants Mycelium");
             Item.ResearchUnlockCount = 25;
-        }		
-		
+        }
+
         public override void SetDefaults()
         {
             Item.width = 16;
@@ -32,7 +31,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables
             Item.autoReuse = true;
             Item.useTurn = true;
             //Item.createTile = ModContent.TileType<Mycelium_Tile>();
-            Item.consumable = true;		
+            Item.consumable = true;
         }
 
         public override bool? UseItem(Player player) => true;

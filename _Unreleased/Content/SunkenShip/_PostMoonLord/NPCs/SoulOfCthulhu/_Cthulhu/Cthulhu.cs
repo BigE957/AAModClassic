@@ -9,7 +9,7 @@ using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthul
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._DeitySkull;
 using AAModClassic._Unreleased.Content.SunkenShip.World.Biomes;
 using AAModClassic.Achievements;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.World;
@@ -19,7 +19,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.Shaders;
@@ -182,7 +181,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 if (NPC.ai[3] == 520)
                 {
                     Projectile.NewProjectile(NPC.GetSource_Death(), NPC.Center, new Vector2(0, 0), ModContent.ProjectileType<CthulhuDeath>(), 0, 0);
-                    if(!Main.dedServ)
+                    if (!Main.dedServ)
                         Gore.NewGore(NPC.GetSource_Death(), NPC.Center, NPC.velocity, Mod.Find<ModGore>("CthulhuGore").Type, 1.2f);
                     NPC.dontTakeDamage = false;
                     NPC.StrikeInstantKill();
@@ -255,7 +254,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
             if (NPC.life <= NPC.lifeMax / 10)
             {
-                if(!AAConfigClient.Instance.DisablePinchThemes)
+                if (!AAConfigClient.Instance.DisablePinchThemes)
                     Music = MusicManagementSystem.MusicSlots["Superancients_Pinch"];
                 if (NPC.ai[2] == 6)
                 {
@@ -270,8 +269,14 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
         {
             if (!Main.expertMode)
                 BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Awakened.Defeat.Cheater"), Color.DarkCyan);
-            else if (NPC.playerInteraction[Main.myPlayer])
-                SoulOfCthulhuKilled.Condition.Complete();
+            else
+            {
+                if (NPC.playerInteraction[Main.myPlayer])
+                    SoulOfCthulhuKilled.Condition.Complete();
+
+                if (!NPC.BeenKilled(true))
+                    NPC.OnGameEventClearedForTheFirstTime(-1);
+            }
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

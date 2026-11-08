@@ -1,7 +1,6 @@
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -23,7 +22,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Blizzard Dragon");
-			Main.projFrames[Projectile.type] = 10;
+            Main.projFrames[Projectile.type] = 10;
 
         }
 
@@ -33,18 +32,18 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         }
 
         public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
-		{
-			fallThrough = false;
-			return true;
-		}
-		
-		public override bool OnTileCollide(Vector2 oldVelocity)
-		{
-			Projectile.width = 80;
-			Projectile.velocity.Y = 0f;
-			return false;
-		}
-		
+        {
+            fallThrough = false;
+            return true;
+        }
+
+        public override bool OnTileCollide(Vector2 oldVelocity)
+        {
+            Projectile.width = 80;
+            Projectile.velocity.Y = 0f;
+            return false;
+        }
+
         public override void AI()
         {
             if (Projectile.localAI[0] == 0f)
@@ -208,7 +207,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                         num523 *= num525;
                         num524 *= num525;
                         int num526 = Projectile.damage;
-                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), vector37.X, vector37.Y, num523*2f, num524*2f, num522, num526, Projectile.knockBack, Main.myPlayer, 0f, 0f);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), vector37.X, vector37.Y, num523 * 2f, num524 * 2f, num522, num526, Projectile.knockBack, Main.myPlayer, 0f, 0f);
                     }
                 }
             }

@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -34,11 +33,11 @@ namespace AAModClassic._Content.Ocean.___PreHardmode.Items.Tools
             // Tooltip.SetDefault("the axe made from the Ocean");
         }
 
-        public override void AddRecipes()  
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Coral, 15); 
-            recipe.AddTile(TileID.WorkBenches);   
+            recipe.AddIngredient(ItemID.Coral, 15);
+            recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }
     }

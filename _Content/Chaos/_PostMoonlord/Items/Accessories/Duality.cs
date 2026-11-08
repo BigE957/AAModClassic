@@ -8,17 +8,13 @@ using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Accessories;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic._Content.Terrarium.Buffs;
-using AAModClassic.Globals;
 using AAModClassic.UI.World;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Humanizer;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using System.Collections.Generic;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -71,7 +67,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Accessories
         public override void RegisterEquipEffects()
         {
             damageMap.GetDamage(DamageClass.Generic) += .15f;
-            damageMap.GetDamage(DamageClass.Default).Flat += 5;
+            damageMap.GetDamage(DamageClass.Generic).Flat += 5;
             AddEffect<DualityChaosEffect>();
             AddEffect(new MovementSpeedEffect(2));
             AddEffect(new NaitokurosuNightEffect(0.5f));

@@ -4,7 +4,6 @@ using System;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.DiscordSupport;
@@ -25,7 +24,7 @@ public class DiscordSystem : ModSystem
 
     public override void OnModLoad()
     {
-        if(IsEnabled)
+        if (IsEnabled)
             Task.Run(() => DiscordLoopAsync(_cts.Token));
     }
 
@@ -142,9 +141,9 @@ public class DiscordSystem : ModSystem
 
                 await Task.Delay(5000, ct);
             }
-            catch (OperationCanceledException) when (ct.IsCancellationRequested) 
-            { 
-                break; 
+            catch (OperationCanceledException) when (ct.IsCancellationRequested)
+            {
+                break;
             }
             catch (Exception ex)
             {

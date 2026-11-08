@@ -4,23 +4,10 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Terraria;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Core;
 
 namespace AAModClassic.Particles;
-
-public enum DrawLayer
-{
-    BeforeAllTiles,
-    BeforeSolidTiles,
-    BeforeNPCs,
-    AfterNPCs,
-    BeforeProjectiles,
-    AfterProjectiles,
-    AfterPlayers,
-    AfterDusts,
-    AfterEverything,
-}
 
 [Autoload(Side = ModSide.Client)]
 public class ParticleSystem : ModSystem
@@ -52,7 +39,7 @@ public class ParticleSystem : ModSystem
         On_Main.DrawDust += DrawParticles_AfterDusts;
         On_Main.DrawInfernoRings += DrawParticles_AfterEverything;
 
-        foreach (Type type in Mod.Code.GetTypes())
+        foreach (Type type in AssemblyManager.GetLoadableTypes(Mod.Code))
         {
             if (type.IsAbstract || !type.IsSubclassOf(typeof(Particle)))
                 continue;
@@ -137,7 +124,8 @@ public class ParticleSystem : ModSystem
             foreach (Particle p in layer)
                 p.Update();
 
-            layer.RemoveAll(p => {
+            layer.RemoveAll(p =>
+            {
                 if (!p.Active || p.Time >= p.Lifetime)
                 {
                     activeCount--;

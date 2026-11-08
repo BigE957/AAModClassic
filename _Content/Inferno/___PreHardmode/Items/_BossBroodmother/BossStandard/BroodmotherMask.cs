@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class BroodmotherMask : BaseAAItem, ILocalizedModType
+    public class BroodmotherMask : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Vanity.Masks";
         public static int type;
@@ -13,7 +13,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.Bo
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Broodmother Mask");
-		}
+        }
 
         public override void SetDefaults()
         {

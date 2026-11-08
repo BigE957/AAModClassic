@@ -2,7 +2,6 @@ using AAModClassic._CrossMod.Overhaul;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -18,7 +17,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons
         public override void SetStaticDefaults()
         {
             Main.projFrames[Projectile.type] = 7;
-            if (Main.netMode == NetmodeID.Server) 
+            if (Main.netMode == NetmodeID.Server)
                 return;
             //TODO: What the fuck are you doing
             Player projOwner = Main.player[Projectile.owner];

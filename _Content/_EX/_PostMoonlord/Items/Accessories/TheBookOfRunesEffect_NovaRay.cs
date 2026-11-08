@@ -1,10 +1,8 @@
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
@@ -50,7 +48,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
             float rotation = shoottarget.ToRotation();
 
             rOffset += 0.03f;
-            if(rOffset > (float)Math.PI / 2)
+            if (rOffset > (float)Math.PI / 2)
             {
                 Projectile.Kill();
             }
@@ -63,7 +61,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
             Projectile.timeLeft = 2;
             int dir = Projectile.direction;
             #endregion
-            
+
             Vector2 start = new Vector2(shooter.Center.X, shooter.Center.Y);
             Vector2 unit = Projectile.velocity;
             unit *= -1;
@@ -90,7 +88,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
             shooter = Main.projectile[(int)Projectile.ai[0]];
             Texture2D projectiletex = TextureAssets.Projectile[Projectile.type].Value;
             DrawLaser(Main.spriteBatch, projectiletex, new Vector2(shooter.Center.X, shooter.Center.Y), Projectile.velocity, 10, -1.57f, 1f, (int)MoveDistance);
-            
+
             return false;
         }
 

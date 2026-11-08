@@ -1,7 +1,6 @@
 ﻿using AAModClassic._Content.RedMushroom.World.Tiles;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;

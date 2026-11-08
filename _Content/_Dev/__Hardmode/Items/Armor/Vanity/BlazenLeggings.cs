@@ -15,8 +15,8 @@ namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
         public new string LocalizationCategory => "Items.Vanity.Blazen";
         public Color Color => AAColor.COLOR_WHITEFADE1;
 
-        public override void SetStaticDefaults()     
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Tactical Assault Boots");
             // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Developers!'");
         }

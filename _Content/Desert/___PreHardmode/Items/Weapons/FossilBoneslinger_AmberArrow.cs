@@ -1,25 +1,24 @@
-using Terraria;
 using Terraria.Audio;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items.Weapons
 {
     public class FossilBoneslinger_AmberArrow : ModProjectile
-	{
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Amber Arrow");
-		}
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Amber Arrow");
+        }
 
-		public override void SetDefaults()
-		{
-			Projectile.CloneDefaults(ProjectileID.BoneArrow);
-			Projectile.width = 14;
-			Projectile.height = 18;
-			Projectile.penetrate = 5;
-			Projectile.timeLeft = 600;
-			AIType = ProjectileID.WoodenArrowFriendly;
+        public override void SetDefaults()
+        {
+            Projectile.CloneDefaults(ProjectileID.BoneArrow);
+            Projectile.width = 14;
+            Projectile.height = 18;
+            Projectile.penetrate = 5;
+            Projectile.timeLeft = 600;
+            AIType = ProjectileID.WoodenArrowFriendly;
             Projectile.arrow = true;
         }
 

@@ -9,7 +9,7 @@ using AAModClassic.Buffs;
 using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using System.Collections.Generic;
-using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._CrossMod.CalamityMod
@@ -32,9 +32,10 @@ namespace AAModClassic._CrossMod.CalamityMod
         {
             if (Calamity != null)
             {
-                if(!Main.dedServ)
+                if (!Main.dedServ)
                     astralDust = Calamity.Find<ModDust>("AstralChunkDust").Type;
 
+                //Debuff Registering
                 Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<SpearStuck_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().Spear);
                 Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<Impaled_Buff>(), (NPC npc) => npc.HasBuff<Impaled_Buff>());
                 Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<Electrified_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().Electrified);
@@ -47,12 +48,18 @@ namespace AAModClassic._CrossMod.CalamityMod
                 Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<HydraToxin_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().Hydratoxin);
                 Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<DragonFire_Buff>(), (NPC npc) => npc.HasBuff<DragonFire_Buff>());
                 Calamity.Call("RegisterDebuff", FilePathUtils.TexturePath<DiscordianInferno_Buff>(), (NPC npc) => npc.GetGlobalNPC<AAModGlobalNPC>().DiscordInferno);
+
+                //Drae-Talk
+                string path = "Mods.AAModClassic.CrossMod.CalamityMod.DraeTalk.";
+                string[] topics = ["ChaosBiomes", "Ancients", "Fungus", "Void", "Equinox"];
+                foreach (string topic in topics)
+                    Calamity.Call("CreateCodebreakerDialogOption", Language.GetTextValue(path + topic + ".Prompt"), Language.GetTextValue(path + topic + ".Dialogue"), () => true);
             }
         }
 
-        private static readonly Dictionary<string, int> modItemCache = []; 
+        private static readonly Dictionary<string, int> modItemCache = [];
         private static readonly Dictionary<string, int> modProjectileCache = [];
-        private static readonly Dictionary<string, int>  modBuffCache = [];
+        private static readonly Dictionary<string, int> modBuffCache = [];
 
         public static int AstralChunkDust => astralDust;
         private static int astralDust = -1;
@@ -65,7 +72,7 @@ namespace AAModClassic._CrossMod.CalamityMod
         public static DamageClass RogueClass => rogueClass ?? (rogueClass = Calamity.Find<DamageClass>("RogueDamageClass"));
 
         public static object Call(params object[] args) => Calamity?.Call(args);
-        
+
         public static int GetModItem(string name)
         {
             if (Calamity == null)
@@ -99,7 +106,7 @@ namespace AAModClassic._CrossMod.CalamityMod
 
             return -1;
         }
-    
+
         public static int GetModBuffType(string name)
         {
             if (Calamity == null)

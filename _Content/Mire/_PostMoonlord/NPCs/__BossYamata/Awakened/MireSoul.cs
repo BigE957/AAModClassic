@@ -1,14 +1,12 @@
-using Terraria;
+using AAModClassic._Content.Mire.Buffs;
+using AAModClassic.Globals;
+using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Globals;
-using AAModClassic._Content.Mire.Buffs;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
-using AAModClassic.Utilities;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 {
@@ -19,6 +17,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
             // DisplayName.SetDefault("Mire Soul");
             Main.npcFrameCount[NPC.type] = 6;
 
+            /*
             NPCID.Sets.NPCBestiaryDrawModifiers value = new()
             {
                 PortraitPositionXOverride = 0,
@@ -26,6 +25,9 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
                 Direction = 1
             };
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+            */
+
+            this.HideFromBestiary();
         }
 
         public override void SetDefaults()
@@ -83,7 +85,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened
 
             spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
             spriteBatch.Draw(TextureAssets.Npc[NPC.type].Value, NPC.Center - screenPos, NPC.frame, GetGlowAlpha(), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
-            if(!NPC.IsABestiaryIconDummy)
+            if (!NPC.IsABestiaryIconDummy)
                 DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, glowTex, NPC.Center - screenPos, NPC.velocity, 4, NPC.frame, Color.White, NPC.scale, [NPC.rotation], NPC.frame.Size() * 0.5f, NPC.SpriteEffectDirection(true), 0.8f);
             return false;
         }

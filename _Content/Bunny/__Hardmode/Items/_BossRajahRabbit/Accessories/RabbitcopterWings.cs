@@ -1,7 +1,4 @@
-﻿using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,18 +6,18 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class RabbitcopterWings : EquipAbstract, ILocalizedModType
-	{
+    public class RabbitcopterWings : EquipAbstract, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Accessories";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Rabbitcopter Ears");
             /* Tooltip.SetDefault(@"'Yeah that's not how rabbit ears work but whatever, it works.'"); */
 
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(180, 8f, 2f);
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
         {
             Item.width = 22;
             Item.height = 20;

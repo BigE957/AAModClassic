@@ -1,17 +1,16 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Weapons
 {
     // to investigate: Projectile.Damage, (8843)
     public class InfinityBlade_Rift : ModProjectile
-	{
+    {
         public override string GlowTexture => Texture + "_Glow";
 
         public override void SetDefaults()
-		{
+        {
             Projectile.width = 64;
             Projectile.height = 64;
             Projectile.alpha = 100;

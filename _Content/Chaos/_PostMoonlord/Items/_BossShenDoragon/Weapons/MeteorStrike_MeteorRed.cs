@@ -1,7 +1,6 @@
 using AAModClassic._Content.Chaos.Projectiles;
 using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons
@@ -49,7 +48,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapo
             for (int num189 = 0; num189 < 1; num189++)
             {
                 int num190 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.YamataADust>(), 0f, 0f, 0);
-                
+
                 Main.dust[num190].fadeIn = 1f;
                 Main.dust[num190].noGravity = true;
             }
@@ -91,7 +90,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapo
             }
         }
 
-        
+
 
         public override bool PreDraw(ref Color lightColor)
         {

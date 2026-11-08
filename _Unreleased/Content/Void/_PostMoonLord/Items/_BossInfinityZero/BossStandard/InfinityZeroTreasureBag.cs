@@ -2,6 +2,7 @@
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.Weapons;
 using AAModClassic.Utilities;
 using Terraria;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,7 +10,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinityZero.BossStandard
 {
     public class InfinityZeroTreasureBag : ModItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.GrabBags.TreasureBags";
         public override void SetStaticDefaults()
         {
@@ -21,14 +22,14 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
             ItemID.Sets.BossBag[Type] = true;
         }
 
-		public override void SetDefaults()
-		{
-			Item.maxStack = Item.CommonMaxStack;
-			Item.consumable = true;
-			Item.width = 36;
-			Item.height = 32;
+        public override void SetDefaults()
+        {
+            Item.maxStack = Item.CommonMaxStack;
+            Item.consumable = true;
+            Item.width = 36;
+            Item.height = 32;
             Item.expert = true;
-		}
+        }
 
         public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
         {
@@ -36,12 +37,12 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
         }
 
         public override bool CanRightClick()
-		{
-			return true;
-		}
+        {
+            return true;
+        }
 
-		public override void RightClick(Player player)
-		{
+        public override void RightClick(Player player)
+        {
             if (Main.rand.NextFloat() < 0.01f)
             {
                 ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();

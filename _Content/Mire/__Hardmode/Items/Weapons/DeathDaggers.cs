@@ -1,9 +1,8 @@
-﻿using System;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,7 +10,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
 {
     public class DeathDaggers : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetStaticDefaults()
         {
@@ -20,7 +19,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
         }
 
         public override void SetDefaults()
-		{
+        {
             Item.autoReuse = true;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.shootSpeed = 8f;
@@ -60,8 +59,8 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<AbyssiumBar>(), 10);
             recipe.AddIngredient(ModContent.ItemType<Bogtoxin>(), 10);
-		    recipe.AddTile(TileID.MythrilAnvil);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
-		}
+        }
     }
 }

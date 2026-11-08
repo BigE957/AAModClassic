@@ -1,13 +1,12 @@
-﻿using Terraria;
+﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
+using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
-using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
@@ -49,16 +48,16 @@ Chaos Bustershot EX"); */
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-		{
-		    float spread = 20f * 0.0174f;
+        {
+            float spread = 20f * 0.0174f;
             float baseSpeed = (float)Math.Sqrt(velocity.X * velocity.X + velocity.Y * velocity.Y);
             double startAngle = Math.Atan2(velocity.X, velocity.Y) - .1d;
             double deltaAngle = spread / 6f;
-		    double offsetAngle;
-		    for (int i = 0; i < 10; i++)
-		    {
-		    	offsetAngle = startAngle + deltaAngle * i;
-		    	Projectile.NewProjectile(source, position.X, position.Y, baseSpeed*(float)Math.Sin(offsetAngle), baseSpeed*(float)Math.Cos(offsetAngle), type, damage, knockback, Main.myPlayer);
+            double offsetAngle;
+            for (int i = 0; i < 10; i++)
+            {
+                offsetAngle = startAngle + deltaAngle * i;
+                Projectile.NewProjectile(source, position.X, position.Y, baseSpeed * (float)Math.Sin(offsetAngle), baseSpeed * (float)Math.Cos(offsetAngle), type, damage, knockback, Main.myPlayer);
             }
             for (int m = 0; m < 2; m++)
             {
@@ -67,7 +66,7 @@ Chaos Bustershot EX"); */
 
             Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<PerfectChaosBustershot_ChaosShot1>(), damage, knockback, player.whoAmI, 0, 1);
             return false;
-		}
+        }
 
         public override void AddRecipes()
         {

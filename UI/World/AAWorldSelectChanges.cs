@@ -1,5 +1,4 @@
-﻿using Humanizer;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System.Linq;
 using Terraria.GameContent.UI.Elements;
@@ -20,7 +19,7 @@ namespace AAModClassic.UI.World
 
         public override void SaveWorldHeader(TagCompound tag)
         {
-            if(AAWorld.downedSAncient)
+            if (AAWorld.downedSAncient)
                 tag["DefeatedAnySuperancient"] = true;
         }
 

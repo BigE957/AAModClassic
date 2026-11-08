@@ -1,7 +1,8 @@
 ﻿using AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMonarch.Accessories;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tools;
+using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -58,6 +59,8 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items._BossMushroomMo
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<HeartyTruffle>()));
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Mushium>(), 1, 30, 40));
+
+            itemLoot.Add(ItemDropRule.OneFromOptions(1, [ModContent.ItemType<Mushpick>(), ModContent.ItemType<Mushmallet>(), ModContent.ItemType<Musharang>(), ModContent.ItemType<MushroomBow>()]));
         }
     }
 }

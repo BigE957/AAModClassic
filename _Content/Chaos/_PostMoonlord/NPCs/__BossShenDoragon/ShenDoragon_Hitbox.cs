@@ -1,7 +1,6 @@
 using AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon.Awakened;
 using AAModClassic.Assets;
 using AAModClassic.Utilities;
-using Terraria;
 using Terraria.ModLoader;
 
 

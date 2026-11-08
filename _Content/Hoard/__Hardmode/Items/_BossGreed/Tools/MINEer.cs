@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Hoard.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -34,100 +33,100 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items._BossGreed.Tools
         }
 
         public override bool CanUseItem(Player player)
-		{
+        {
             Tile tile = Main.tile[Player.tileTargetX, Player.tileTargetY];
             if (Main.tileOreFinderPriority[tile.TileType] > 0 && PickCheck(tile, Item.pick))
             {
                 player.PickTile(Player.tileTargetX, Player.tileTargetY, 5000);
             }
-			return true;
-		}
+            return true;
+        }
 
         public static bool PickCheck(Tile tile, int pickPower)
         {
-			ModTile tile2 = TileLoader.GetTile(tile.TileType);
+            ModTile tile2 = TileLoader.GetTile(tile.TileType);
             if (tile.TileType == TileID.Chlorophyte && pickPower < 200)
-			{
-				return false;
-			}
-			else if ((tile.TileType == TileID.Ebonstone || tile.TileType == TileID.Crimstone) && pickPower < 65)
-			{
-				return false;
-			}
-			else if (tile.TileType == TileID.Pearlstone && pickPower < 65)
-			{
-				return false;
-			}
-			else if (tile.TileType == TileID.Meteorite && pickPower < 50)
-			{
-				return false;
-			}
-			else if (tile.TileType == TileID.DesertFossil && pickPower < 65)
-			{
-				return false;
-			}
-			else if ((tile.TileType == TileID.Demonite || tile.TileType == TileID.Crimtane) && pickPower < 55)
-			{
-				return false;
-			}
-			else if (tile.TileType == TileID.Obsidian && pickPower < 65)
-			{
-				return false;
-			}
-			else if (tile.TileType == TileID.Hellstone && pickPower < 65)
-			{
-				return false;
-			}
-			else if ((tile.TileType == TileID.LihzahrdBrick || tile.TileType == TileID.LihzahrdAltar) && pickPower < 210)
-			{
-				return false;
-			}
-			else if (tile.TileType == TileID.Cobalt && pickPower < 100)
-			{
-				return false;
-			}
-			else if (tile.TileType == TileID.Mythril && pickPower < 110)
-			{
-				return false;
-			}
-			else if (tile.TileType == TileID.Adamantite && pickPower < 150)
-			{
-				return false;
-			}
-			else if (tile.TileType == TileID.Palladium && pickPower < 100)
-			{
-				return false;
-			}
-			else if (tile.TileType == TileID.Orichalcum && pickPower < 110)
-			{
-				return false;
-			}
-			else if (tile.TileType == TileID.Titanium && pickPower < 150)
-			{
-				return false;
-			}
-			else if (tile2 != null && pickPower < tile2.MinPick)
-			{
-				return false;
-			}
-			else
-			{
-				return true;
-			}
-		}
+            {
+                return false;
+            }
+            else if ((tile.TileType == TileID.Ebonstone || tile.TileType == TileID.Crimstone) && pickPower < 65)
+            {
+                return false;
+            }
+            else if (tile.TileType == TileID.Pearlstone && pickPower < 65)
+            {
+                return false;
+            }
+            else if (tile.TileType == TileID.Meteorite && pickPower < 50)
+            {
+                return false;
+            }
+            else if (tile.TileType == TileID.DesertFossil && pickPower < 65)
+            {
+                return false;
+            }
+            else if ((tile.TileType == TileID.Demonite || tile.TileType == TileID.Crimtane) && pickPower < 55)
+            {
+                return false;
+            }
+            else if (tile.TileType == TileID.Obsidian && pickPower < 65)
+            {
+                return false;
+            }
+            else if (tile.TileType == TileID.Hellstone && pickPower < 65)
+            {
+                return false;
+            }
+            else if ((tile.TileType == TileID.LihzahrdBrick || tile.TileType == TileID.LihzahrdAltar) && pickPower < 210)
+            {
+                return false;
+            }
+            else if (tile.TileType == TileID.Cobalt && pickPower < 100)
+            {
+                return false;
+            }
+            else if (tile.TileType == TileID.Mythril && pickPower < 110)
+            {
+                return false;
+            }
+            else if (tile.TileType == TileID.Adamantite && pickPower < 150)
+            {
+                return false;
+            }
+            else if (tile.TileType == TileID.Palladium && pickPower < 100)
+            {
+                return false;
+            }
+            else if (tile.TileType == TileID.Orichalcum && pickPower < 110)
+            {
+                return false;
+            }
+            else if (tile.TileType == TileID.Titanium && pickPower < 150)
+            {
+                return false;
+            }
+            else if (tile2 != null && pickPower < tile2.MinPick)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
-		public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe(1);
-			recipe.AddIngredient(ItemID.GoldPickaxe, 1);
-			recipe.AddIngredient(ModContent.ItemType<StoneShell>(), 10);
-			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.Register();
-			recipe = CreateRecipe(1);
-			recipe.AddIngredient(ItemID.PlatinumPickaxe, 1);
-			recipe.AddIngredient(ModContent.ItemType<StoneShell>(), 10);
-			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.Register();
-		}
-	}
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe(1);
+            recipe.AddIngredient(ItemID.GoldPickaxe, 1);
+            recipe.AddIngredient(ModContent.ItemType<StoneShell>(), 10);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.Register();
+            recipe = CreateRecipe(1);
+            recipe.AddIngredient(ItemID.PlatinumPickaxe, 1);
+            recipe.AddIngredient(ModContent.ItemType<StoneShell>(), 10);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.Register();
+        }
+    }
 }

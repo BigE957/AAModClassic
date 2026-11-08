@@ -1,13 +1,12 @@
 ﻿using AAModClassic._Content.Void.Projectiles;
 using AAModClassic._Content.Void.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
@@ -52,6 +51,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
                 NPC.buffImmune[k] = true;
             }
             SpawnModBiomes = [ModContent.GetInstance<VoidBiome>().Type];
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

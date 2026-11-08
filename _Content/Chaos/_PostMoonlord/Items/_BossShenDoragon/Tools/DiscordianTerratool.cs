@@ -2,11 +2,9 @@
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Tools;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Tools;
-using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.UI.Tools;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -34,7 +32,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Tools
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
-        
+
 
         public override void SetStaticDefaults()
         {
@@ -60,7 +58,7 @@ You may only have a maximum of 2 tool types active"); */
                 Item.damage = 0;
                 return false;
             }
-            else if(player.altFunctionUse != 2)
+            else if (player.altFunctionUse != 2)
             {
                 Item.pick = TerratoolSUI.Pick;
                 Item.axe = TerratoolSUI.Axe;

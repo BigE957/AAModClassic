@@ -1,16 +1,16 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
     [AutoloadEquip(EquipType.Head)]
-	public class AnarchyHelmet : BaseAAItem, ILocalizedModType
-	{
+    public class AnarchyHelmet : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Anarchy";
-		public override void SetStaticDefaults()
+        public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Pristine Helmet");
@@ -36,5 +36,5 @@ For the record, Anarchy sprited this himself."); */
             Item.rare = ItemRarityID.Cyan;
             Item.vanity = true;
         }
-	}
+    }
 }

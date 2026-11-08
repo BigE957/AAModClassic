@@ -1,13 +1,12 @@
 using AAModClassic.Dusts;
 using AAModClassic.Utilities;
-using Terraria;
 using Terraria.GameContent.ObjectInteractions;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.BogwoodFurniture
 {
     public class BogwoodClock_Tile : ModTile
-	{
+    {
         public override void SetStaticDefaults()
         {
             this.SetUpClock(ModContent.ItemType<BogwoodClock>());

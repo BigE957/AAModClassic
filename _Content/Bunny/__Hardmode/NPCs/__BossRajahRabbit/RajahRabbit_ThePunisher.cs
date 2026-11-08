@@ -1,15 +1,10 @@
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
-using AAModClassic._Content.Bunny.Projectiles;
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
-using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using System.Xml.Serialization;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -23,7 +18,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         public static Asset<Texture2D> Chain2;
 
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("The Punisher");
 
             Chain = ModContent.Request<Texture2D>(ModContent.GetInstance<ThePunisher_Holdout>().Texture + "_Chain");
@@ -120,16 +115,16 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             }
         }
 
-        public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
-		{
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
             if (Projectile.ai[0] != 1)
             {
                 Projectile.ai[1] = 1f;
             }
             Projectile.ai[0] = 1;
         }
-		
-		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
+
+        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
         {
             width = 30;
             height = 30;
@@ -168,7 +163,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                     Main.spriteBatch.Draw(texture, position - Main.screenPosition, sourceRectangle, Lighting.GetColor(position.ToTileCoordinates()), rotation, origin, 1f, SpriteEffects.None, 0.0f);
                 }
             }
-            
+
             return true;
         }
     }

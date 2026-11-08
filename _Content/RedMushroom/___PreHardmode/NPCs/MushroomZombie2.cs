@@ -1,9 +1,7 @@
 using AAModClassic._Content.RedMushroom.World.Biomes;
 using AAModClassic.Globals;
-using AAModClassic.UI.Core.BestiaryBackgrounds;
 using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -15,9 +13,9 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
     {
         public int OverrideBannerNPCType => ModContent.NPCType<MushroomZombie>();
 
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Mushroom Zombie");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Mushroom Zombie");
             Main.npcFrameCount[NPC.type] = 3;
 
             NPCID.Sets.NPCBestiaryDrawModifiers value = new()
@@ -27,7 +25,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
         }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
         {
             NPC.width = 18;
             NPC.height = 40;
@@ -42,7 +40,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             NPC.value = 1000f;
             NPC.buffImmune[31] = false;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MushroomZombieBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.MushroomZombieBanner>();
             SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
         }
 
@@ -57,21 +55,21 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
-		{
+        {
             return spawnInfo.Player.GetModPlayer<ZAAPlayer>().ZoneMush ? .7f : 0f;
         }
 
-		public override void HitEffect(NPC.HitInfo hit)
-		{
+        public override void HitEffect(NPC.HitInfo hit)
+        {
 
             int dust1 = ModContent.DustType<Dusts.MushDust>();
             if (NPC.life <= 0)
-			{
+            {
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
                 Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, dust1, 0f, 0f, 0);
             }
-		}
+        }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {

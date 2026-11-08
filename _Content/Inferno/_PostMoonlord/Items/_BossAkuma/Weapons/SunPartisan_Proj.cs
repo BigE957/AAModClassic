@@ -1,6 +1,5 @@
 using AAModClassic._Content.Inferno.Projectiles;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -42,19 +41,19 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
             for (int num189 = 0; num189 < 1; num189++)
             {
                 int num190 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, ModContent.DustType<Dusts.AkumaADust>(), 0f, 0f, 0);
-                
+
                 Main.dust[num190].scale *= 1.3f;
                 Main.dust[num190].fadeIn = 1f;
                 Main.dust[num190].noGravity = true;
             }
-			
-			int foundTarget = HomeOnTarget();
-			if (foundTarget != -1)
-			{
-				NPC n = Main.npc[foundTarget];
-				Vector2 desiredVelocity = Projectile.DirectionTo(n.Center) * 30;
-				Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / 30);
-			}
+
+            int foundTarget = HomeOnTarget();
+            if (foundTarget != -1)
+            {
+                NPC n = Main.npc[foundTarget];
+                Vector2 desiredVelocity = Projectile.DirectionTo(n.Center) * 30;
+                Projectile.velocity = Vector2.Lerp(Projectile.velocity, desiredVelocity, 1f / 30);
+            }
             if (Projectile.numUpdates == 0)
             {
                 int num185 = -1;
@@ -90,7 +89,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                     )
                         selectedTarget = i;
                 }
@@ -101,7 +100,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
 
         public override void OnKill(int timeLeft)
         {
-			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             for (int num468 = 0; num468 < 20; num468++)
             {
                 int num469 = Dust.NewDust(Projectile.Center, Projectile.width, 1, ModContent.DustType<Dusts.AkumaADust>(), -Projectile.velocity.X * 0.2f,
@@ -109,17 +108,17 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
             }
-			for (int k = 0; k < 8; k++)
-			{
-				Vector2 vel = new Vector2(0, -1);
-				float rand = Main.rand.NextFloat() * 6.283f;
-				vel = vel.RotatedBy(rand);
-				vel *= 8f;
-				int i = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, ModContent.ProjectileType<SolarFlare>(), Projectile.damage/3, 0, Main.myPlayer);
-				Main.projectile[i].usesLocalNPCImmunity = true;
-				Main.projectile[i].localNPCHitCooldown = 6;
-				Main.projectile[i].penetrate = -1;
-			}
+            for (int k = 0; k < 8; k++)
+            {
+                Vector2 vel = new Vector2(0, -1);
+                float rand = Main.rand.NextFloat() * 6.283f;
+                vel = vel.RotatedBy(rand);
+                vel *= 8f;
+                int i = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, ModContent.ProjectileType<SolarFlare>(), Projectile.damage / 3, 0, Main.myPlayer);
+                Main.projectile[i].usesLocalNPCImmunity = true;
+                Main.projectile[i].localNPCHitCooldown = 6;
+                Main.projectile[i].penetrate = -1;
+            }
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
@@ -134,8 +133,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
             {
                 Projectile.frame++;
                 Projectile.frameCounter = 0;
-                if (Projectile.frame > 3) 
-                    Projectile.frame = 0; 
+                if (Projectile.frame > 3)
+                    Projectile.frame = 0;
             }
             return true;
         }

@@ -1,19 +1,18 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
 {
     public class Pyrosphere : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Pyrosphere");
             ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
-        }		
-		
+        }
+
         public override void SetDefaults()
         {
             Item.width = 30;
@@ -24,14 +23,14 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
             Item.useAnimation = 45;
             Item.useTime = 45;
             Item.UseSound = SoundID.Item1;
-            Item.damage = 8;
+            Item.damage = 16;
             Item.knockBack = 7;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.shoot = ModContent.ProjectileType<Pyrosphere_Holdout>();
             Item.shootSpeed = 10;
             Item.noUseGraphic = true;
             Item.noMelee = true;
-            Item.channel = true;		
+            Item.channel = true;
         }
-	}
+    }
 }

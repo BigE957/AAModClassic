@@ -1,9 +1,6 @@
-using System;
 using AAModClassic._Content.Snow.Projectiles;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.Items.Weapons
@@ -21,21 +18,21 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Weapons
         //public override float DrawRotationOffset => MathHelper.PiOver4;
 
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Glacier Breaker");
             base.SetStaticDefaults();
-		}
+        }
         public override void SetDefaults()
         {
             Projectile.width = 20;
             Projectile.height = 20;
             Projectile.knockBack = 0;
-            
+
             base.SetDefaults();
         }
-		
-		public override void AI()
-		{
+
+        public override void AI()
+        {
             /*
             if (Main.rand.NextFloat() < 1f)
             {
@@ -116,7 +113,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Weapons
 
             //Projectile.rotation -= MathHelper.PiOver2 + MathHelper.PiOver4;
         }
- 
+
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
         {

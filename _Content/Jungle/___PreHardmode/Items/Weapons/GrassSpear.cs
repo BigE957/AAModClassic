@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -22,30 +21,30 @@ namespace AAModClassic._Content.Jungle.___PreHardmode.Items.Weapons
             Item.noMelee = true;
             Item.noUseGraphic = true;
             Item.useTurn = true;
-			Item.autoReuse = true;
+            Item.autoReuse = true;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.value = Item.sellPrice(0, 2, 40, 0);
             Item.rare = ItemRarityID.Orange;
             Item.shoot = ModContent.ProjectileType<GrassSpear_GSP>();  //put your Spear projectile name
             Item.shootSpeed = 5f;
         }
-		public override bool CanUseItem(Player player)
-		{
-			return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
-		}
+        public override bool CanUseItem(Player player)
+        {
+            return player.ownedProjectileCounts[Item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
+        }
 
         public override void SetStaticDefaults()
         {
-          // DisplayName.SetDefault("Grass Spear");
-          // Tooltip.SetDefault("");
+            // DisplayName.SetDefault("Grass Spear");
+            // Tooltip.SetDefault("");
         }
 
-        public override void AddRecipes()  
+        public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();  
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.Stinger, 4);
             recipe.AddIngredient(ItemID.JungleSpores, 4);
-            recipe.AddTile(TileID.Anvils);   
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
     }

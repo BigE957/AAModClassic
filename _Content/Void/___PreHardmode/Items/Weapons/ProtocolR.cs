@@ -1,8 +1,6 @@
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Void.___PreHardmode.NPCs.__BossSagittarius;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -17,25 +15,25 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
         {
             //DisplayName.SetDefault("Protocol-R");
             //Tooltip.SetDefault(@"fires a barrage of special rockets");
-        }       
+        }
 
         public override void SetDefaults()
-		{
-			Item.damage = 25;
+        {
+            Item.damage = 25;
             Item.DamageType = DamageClass.Ranged;
-			Item.width = 50;
-			Item.height = 30;
-			Item.useTime = 3;
-			Item.useAnimation = 15;
-			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.noMelee = true; 
-			Item.knockBack = 0;
+            Item.width = 50;
+            Item.height = 30;
+            Item.useTime = 3;
+            Item.useAnimation = 15;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.noMelee = true;
+            Item.knockBack = 0;
             Item.value = Item.sellPrice(0, 7, 0, 0);
             Item.rare = ItemRarityID.Yellow;
             Item.UseSound = new SoundStyle("AAModClassic/Sounds/Dayshot");
             Item.autoReuse = true;
             Item.shoot = ProjectileID.PurificationPowder;
-			Item.shootSpeed = 6;
+            Item.shootSpeed = 6;
             Item.reuseDelay = 100;
         }
 
@@ -47,7 +45,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
         int shoot = 0;
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-                        //for (int i = 0; i < 3; i++)
+            //for (int i = 0; i < 3; i++)
             //{
             //    Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(60));
             //    Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<SagRocketF>(), damage, knockBack, player.whoAmI);

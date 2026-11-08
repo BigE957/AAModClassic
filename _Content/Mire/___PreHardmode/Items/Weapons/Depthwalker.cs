@@ -1,6 +1,5 @@
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,10 +10,10 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
         public new string LocalizationCategory => "Items.Weapons.Melee";
         public override void SetDefaults()
         {
-			Item.useTime = 25;
+            Item.useTime = 25;
             Item.CloneDefaults(ItemID.CorruptYoyo);
 
-            Item.damage = 14;                            
+            Item.damage = 14;
             Item.value = 1000000;
             Item.rare = ItemRarityID.Green;
             Item.knockBack = 1;
@@ -22,8 +21,8 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Weapons
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useAnimation = 15;
             Item.useTime = 15;
-            Item.shoot = ModContent.ProjectileType<Depthwalker_Holdout>();  
-		}
+            Item.shoot = ModContent.ProjectileType<Depthwalker_Holdout>();
+        }
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {

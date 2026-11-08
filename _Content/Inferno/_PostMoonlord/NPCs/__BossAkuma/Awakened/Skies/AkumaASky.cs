@@ -1,10 +1,8 @@
-﻿using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
-using AAModClassic._Content.Inferno.World.Biomes;
+﻿using AAModClassic._Content.Inferno.World.Biomes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameInput;
 using Terraria.Graphics.Effects;
@@ -61,6 +59,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.
 
         public override void Update(GameTime gameTime)
         {
+            if (Main.gameMenu)
+                Active = false;
+
             if (Active)
                 Intensity = Math.Min(1f, 0.01f + Intensity);
             else
@@ -68,7 +69,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.
 
             if (Intensity > 0 && ModLoader.TryGetMod("RealisticSky", out var mod))
             {
-                if(SkyManager.Instance["AAModClassic:InfernoSky"].IsActive())
+                if (SkyManager.Instance["AAModClassic:InfernoSky"].IsActive())
                     mod.Call("setsunbloomopacity", 0);
                 else
                     mod.Call("setsunbloomopacity", 1 - Intensity);
@@ -108,7 +109,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened.
                     sunOpacity -= Main.cloudAlpha * 1.5f;
                     if (sunOpacity < 0f)
                         sunOpacity = 0f;
-                    
+
                     int sunX = (int)(Main.time / 54000.0 * (Main.screenWidth + TextureAssets.Sun.Value.Width * 2)) - TextureAssets.Sun.Value.Width;
                     int sunY = 0;
                     float sunScale = 1f;

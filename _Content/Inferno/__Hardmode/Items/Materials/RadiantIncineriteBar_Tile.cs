@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -23,9 +22,9 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Materials
             TileObjectData.addTile(Type);
 
             DustType = ModContent.DustType<Dusts.RadiantIncineriteDust>();
-            RegisterItemDrop(ModContent.ItemType<RadiantIncineriteBar>());   
+            RegisterItemDrop(ModContent.ItemType<RadiantIncineriteBar>());
             AddMapEntry(new Color(100, 50, 0));
-			MinPick = 0;
+            MinPick = 0;
         }
     }
 }

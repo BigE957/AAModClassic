@@ -1,8 +1,7 @@
-﻿using System;
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
+using System;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 
@@ -56,7 +55,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
             Player player = Main.player[Projectile.owner];
             ZAAPlayer modPlayer = player.GetModPlayer<ZAAPlayer>();
 
-            if ((int) Main.time % 120 == 0) Projectile.netUpdate = true;
+            if ((int)Main.time % 120 == 0) Projectile.netUpdate = true;
             if (!player.active)
             {
                 Projectile.active = false;
@@ -161,7 +160,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
             float num1049 = MathHelper.Clamp(Projectile.localAI[0], 0f, 50f);
             Projectile.position = Projectile.Center;
             Projectile.scale = 1f + num1049 * 0.01f;
-            Projectile.width = Projectile.height = (int) (num1038 * Projectile.scale);
+            Projectile.width = Projectile.height = (int)(num1038 * Projectile.scale);
             Projectile.Center = Projectile.position;
             if (Projectile.alpha > 0)
             {

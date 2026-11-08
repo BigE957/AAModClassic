@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.World.Tiles
@@ -14,9 +13,9 @@ namespace AAModClassic._Content.Mire.World.Tiles
             Terraria.ID.TileID.Sets.Conversion.HardenedSand[Type] = true;
             Main.tileLighted[Type] = false;
             DustType = ModContent.DustType<Dusts.DeepAbyssiumDust>();
-            RegisterItemDrop(ModContent.ItemType<DepthsandHardened>());   
+            RegisterItemDrop(ModContent.ItemType<DepthsandHardened>());
             AddMapEntry(new Color(0, 0, 127));
-			MinPick = 65;
+            MinPick = 65;
         }
     }
 }

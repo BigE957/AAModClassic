@@ -2,7 +2,7 @@ LargeLetter: {
 	DisplayName: Letra Grande
 
 	TownNPCMood: {
-		Content: Podría decirse que las cosas han ido sobre rued-E...
+		Content: Podría decirse que las cosas han ido sobre ruEdas...
 		NoHome: Amigo, tienes que ayudarme, Amigo. Perdí los ahorros de toda mi vida. Estoy en la calle. Tienes que ayudarme, Amigo.
 		FarFromHome: Amigo, ¿dónde demonios estoy? ¿Cómo he llegado hasta aquí? ¿Dónde está mi casa?
 		LoveSpace: Ah, la paz y la tranquilidad sin duda se agradecen...
@@ -85,7 +85,7 @@ Legendscribe: {
 	downedMonarchY: ...¿eso era todo?
 	downedMonarchN: Oye, ¿conoces todos esos pequeños champiñones rojos que crecen por todas partes? He oído que si aplastas un montón de ellos juntos y los agitas, su rey o algo así vendrá e intentará atropellarte. Tengo que ver eso.
 	downedFungusY: Buen trabajo. Ahora sé sincero, ¿qué tan fumado estás ahora mismo?
-	downedFungusN: Las cuevas de champiñones luminosos siempre me hacen sentir mareado por alguna razón. De todos modos, ¿quieres mejores habilidades mágicas? Hay un gran monstruo champiñón que tiene algunas grandes habilidades mágicas infundidas en él. Tápate la nariz mientras estés ahí abajo.
+	downedFungusN: Las cuevas de champiñones brillantes siempre me hacen sentir mareado por alguna razón. De todos modos, ¿quieres mejores habilidades mágicas? Hay un gran monstruo champiñón que tiene algunas grandes habilidades mágicas infundidas en él. Tápate la nariz mientras estés ahí abajo.
 	downedGripsY: Buen trabajo derribando esas manos gigantes. Tal vez las pequeñas por fin me dejen en paz por una vez.
 	downedGripsN: Esas garras voladoras por la noche son una pesadilla de manejar, y me dan mala espina. En mis viajes, me he topado con dos REEEEEALMENTE grandes. Tal vez si los matas, los pequeños se larguen. Tal vez matar a algunos de ellos y demostrar que lo has hecho de alguna manera los haga bajar.
 	downedBroodY: Ese ha sido el dragón más gordo que he visto en mi vida.
@@ -97,7 +97,7 @@ Legendscribe: {
 	downedSerpentY: Espero que no hayas pillado '¡CONGELACIÓN!'. *chimpún* ...sí, ya sé que eso fue patético.
 	downedSerpentN: Serpientes, ¿por qué tienen que ser siempre serpientes? ¡Las odio! Como sea, en la tundra últimamente ha habido estas serpientes de nieve que no me dejan en paz. ¿Podrías hacer de exterminador y averiguar qué están haciendo?
 	downedRetrieverY: ¿Recuperaste de casualidad mi tercera edición de 'La vida y las épicas aventuras del perro maravilla Anubis'?
-	downedRetrieverN: ¿Te acuerdas de los Garras del Caos? ¿Esas manos rechonchas y desagradables? Hay una robótica que no para de robarme mis cosas. ¿Me haces el favor y le lanzas una llave inglesa o algo así?
+	downedRetrieverN: ¿Te acuerdas de las Garras del Caos? ¿Esas manos rechonchas y desagradables? Hay una robótica que no para de robarme mis cosas. ¿Me haces el favor y le lanzas una llave inglesa o algo así?
 	downedRaiderY: ¿Así que era un robot gigante después de todo? Bueno, a veces la gente le da demasiadas vueltas al problema. Esa cosa era casi tan gorda como la Madre de la Camada.
 	downedRaiderN: La gente decía que vio una sombra extraña una de las noches. Era tan grande que incluso tapó la luna por un momento. Deberías descubrir este misterio y hacer algo.
 	downedOrthrusY: Supongo que ahora el ortro es lo que come.
@@ -141,8 +141,8 @@ Legendscribe: {
 	}
 
 	downedAthenaAY: ¿Que qué es un Varian, preguntas? Es algo de lo que no había oído hablar en años... hace tanto tiempo que apenas recuerdo el nombre. Aunque sí recuerdo algo sobre otro pululando por ahí...
-	downedAthenaAN: Oye, ¿te encontró esa pequeña y molesta bruja? Perdón por decirle dónde estabas, no paraba de chillarme al oído. En fin, parece que Athena quiere la revancha. Mantente en guardia, amigo. Esto parece una trampa...
-	GreedACalamityMod: ¿Sabes? verte las caras con el Devorador de Dioses me recordó un poco a Codicia... Digo, piénsalo. Los dos tienen capacidades de agujero de gusano y ambos se adaptan a lo que comen. ¿Podrían posiblemente ser... nah, eso sería ridículo... o tal vez..?
+	downedAthenaAN: Oye, ¿te encontró esa pequeña y molesta bruja? Perdón por decirle dónde estabas, no paraba de chillarme al oído. En fin, parece que Atenea quiere la revancha. Mantente en guardia, amigo. Esto parece una trampa...
+	GreedACalamityMod: ¿Sabes? verte las caras con el Devorador de Dioses me recordó un poco a Avaricia... Digo, piénsalo. Los dos tienen capacidades de agujero de gusano y ambos se adaptan a lo que comen. ¿Podrían posiblemente ser... nah, eso sería ridículo... o tal vez..?
 	downedGreedAY: Así que SÍ estaba ocultando su verdadero poder todo este tiempo. Me pregunto por qué, sin embargo... ¿podría estar escondiéndose de algo, tal vez..?
 	downedGreedAN: Sabes, creo que recuerdo una historia sobre el viejo roba-lo-que-es-tuyo. Cuando apareció por primera vez por estas tierras, era mucho más fuerte que cuando le pateaste el trasero. ¿Tal vez se fue debilitando con el tiempo..? O tal vez... nah, no podía ser eso.
 	downedSistersY: ¡Bien, les diste su merecido a esas dos mocosas malcriadas! ¡Esas dos no se lo esperaban!
@@ -327,7 +327,7 @@ Lovecraftian: {
 }
 
 Mushman: {
-	Census.SpawnCondition: Tras derrotar al Monarca Champiñón, construye una casa en un bioma de champiñones rojos
+	Census.SpawnCondition: Tras derrotar al Monarca Fúngico, construye una casa en un bioma de champiñones rojos
 	DisplayName: Hombre Champiñón
 
 	TownNPCMood: {
@@ -349,7 +349,7 @@ Mushman: {
 	button2: Plantas extrañas
 	MushmanChat1: Esas trufas resplandecientes son unas auténticas aguafiestas.
 	MushmanChat2: " me ofreció meterme en su jacuzzi una vez. Lo rechacé porque tenía cosas mejores que hacer."
-	MushmanChat3: El Monarca Champiñón no es todo lo que parece, ya sabes.
+	MushmanChat3: El Monarca Fúngico no es todo lo que parece, ya sabes.
 	MushmanChat4: No preguntes de dónde saco los champiñones para mis pociones.
 	MushmanChat5: Tengo pociones, tienes dinero. ¿Quieres comerciar?
 	MushmanChat6: " me preguntó una vez si las trufas rojas sabían tan bien como las azules. Obviamente no. Las trufas azules son mucho más saladas."

@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.Projectiles
@@ -20,10 +19,10 @@ namespace AAModClassic._Content.Void.Projectiles
             Projectile.tileCollide = true;
         }
 
-		public override void SetStaticDefaults()
-		{
-		// DisplayName.SetDefault("Death Beam");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Death Beam");
+        }
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {

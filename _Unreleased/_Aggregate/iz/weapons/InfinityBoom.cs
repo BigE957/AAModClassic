@@ -1,7 +1,6 @@
 using AAModClassic._Unreleased.Content.Void.Buffs;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Unreleased._Aggregate.iz.weapons

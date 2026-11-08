@@ -1,12 +1,6 @@
-﻿using AAModClassic._Content.Hell.___PreHardmode.NPCs.__Friendly;
-using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Accessories;
-using AAModClassic._Content.Mire.Buffs;
-using Humanizer;
+﻿using Humanizer;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -363,7 +357,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
             player.statLifeMax2 += Amount;
         }
 
-        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount, ChatUtils.IncreaseDecreaseTextType.IncreasesDecreases), Math.Abs(amount)).FirstCharToUpper();
+        public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(Amount, ChatUtils.IncreaseDecreaseTextType.IncreasesDecreases), Math.Abs(Amount)).FirstCharToUpper();
     }
 
     public class MovementSpeedEffect(float amount) : EquipmentEffectData
@@ -721,6 +715,14 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
         public override string GetDescription() => Language.GetTextValue(Description).FormatWith(ChatUtils.IncreaseOrDecreaseText(amount * -1, ChatUtils.IncreaseDecreaseTextType.IncreasesDecreases), ChatUtils.GetDisplayNumber(amount) * 100);
     }
 
+    public class MeleeSizeEffect : EquipmentEffectData
+    {
+        public override void DoEffect(Player player)
+        {
+            player.meleeScaleGlove = true;
+        }
+    }
+
     public class AmmoCost75Effect : EquipmentEffectData
     {
         public override void DoEffect(Player player)
@@ -1045,7 +1047,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items
                     buffName = Lang.GetBuffName(id);
                 else
                     buffName = ModContent.GetModBuff(id).DisplayName.ToString();
-     
+
                 if (i < BuffLoader.BuffCount)
                 {
                     if (i != buffIDs.Length - 1)

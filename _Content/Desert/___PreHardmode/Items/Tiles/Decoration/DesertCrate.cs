@@ -1,7 +1,5 @@
 ﻿using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

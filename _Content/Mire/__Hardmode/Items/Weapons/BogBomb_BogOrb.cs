@@ -1,5 +1,4 @@
 ﻿using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -29,17 +28,17 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
         {
             Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
             Lighting.AddLight(Projectile.Center, 0.1f, 0.1f, 1f);
-                if (Main.rand.NextBool(2))
-                {
-                    Dust.NewDust(Projectile.Center, Projectile.width/2, Projectile.height/2, ModContent.DustType<Dusts.AbyssDust>(), Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 150, default, 0.7f);
-                }
-                float magnitude = (float)Math.Sqrt(Projectile.velocity.X * Projectile.velocity.X + Projectile.velocity.Y * Projectile.velocity.Y);
+            if (Main.rand.NextBool(2))
+            {
+                Dust.NewDust(Projectile.Center, Projectile.width / 2, Projectile.height / 2, ModContent.DustType<Dusts.AbyssDust>(), Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 150, default, 0.7f);
+            }
+            float magnitude = (float)Math.Sqrt(Projectile.velocity.X * Projectile.velocity.X + Projectile.velocity.Y * Projectile.velocity.Y);
             if (magnitude > 0.5f)
             {
-                    Projectile.velocity.X /= 1.005f;
-                    Projectile.velocity.Y /= 1.005f;
+                Projectile.velocity.X /= 1.005f;
+                Projectile.velocity.Y /= 1.005f;
             }
-                Projectile.velocity.Y += 0.05f;
+            Projectile.velocity.Y += 0.05f;
         }
 
         public override void OnKill(int timeLeft)
@@ -49,7 +48,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Weapons
             {
                 for (int k = 0; k < Main.rand.Next(3) + 5; k++)
                 {
-                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(Main.rand.Next(171) - 85) / 100, (float)(Main.rand.Next(176) - 900) / 100, ModContent.ProjectileType<BogBomb_BogDrop>(), Projectile.damage, 2f, Projectile.owner,0f,0f);
+                    Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, (float)(Main.rand.Next(171) - 85) / 100, (float)(Main.rand.Next(176) - 900) / 100, ModContent.ProjectileType<BogBomb_BogDrop>(), Projectile.damage, 2f, Projectile.owner, 0f, 0f);
                 }
             }
         }

@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.BossStandard;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

@@ -1,5 +1,4 @@
 using AAModClassic.Utilities;
-using Terraria;
 using Terraria.GameContent.ObjectInteractions;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -7,12 +6,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.BogwoodFurniture
 {
     public class BogwoodDresser_Tile : ModTile
-	{
-		public override void SetStaticDefaults()
-		{
+    {
+        public override void SetStaticDefaults()
+        {
             this.SetUpDresser(ModContent.ItemType<BogwoodDresser>());
             DustType = ModContent.DustType<Dusts.BogwoodDust>();
-		}
+        }
 
         public override LocalizedText DefaultContainerName(int i, int j) => ModContent.GetModItem(ModContent.ItemType<BogwoodDresser>()).DisplayName;
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;

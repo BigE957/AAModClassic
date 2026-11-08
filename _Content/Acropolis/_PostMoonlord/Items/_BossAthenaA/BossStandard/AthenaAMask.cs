@@ -18,7 +18,7 @@ namespace AAModClassic._Content.Acropolis._PostMoonlord.Items._BossAthenaA.BossS
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Olympian Athena Mask");
-		}
+        }
 
         public override void SetDefaults()
         {

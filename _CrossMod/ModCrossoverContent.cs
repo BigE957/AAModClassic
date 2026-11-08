@@ -1,5 +1,4 @@
 using AAModClassic._CrossMod.Thorium;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._CrossMod

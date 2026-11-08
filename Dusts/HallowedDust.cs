@@ -1,12 +1,11 @@
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Dusts
 {
     public class HallowedDust : ModDust
-	{
+    {
 
         public override bool Update(Dust dust)
         {

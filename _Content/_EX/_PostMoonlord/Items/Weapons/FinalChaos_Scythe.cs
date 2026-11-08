@@ -4,11 +4,11 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     public class FinalChaos_Scythe : ModProjectile
     {
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("CHAOS CHAOS");
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("CHAOS CHAOS");
         }
-    	
+
         public override void SetDefaults()
         {
             Projectile.width = 30;

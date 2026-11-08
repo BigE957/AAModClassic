@@ -1,31 +1,26 @@
 using AAModClassic._Content.Inferno.Projectiles;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Ammo
 {
     public class DaybreakArrow_Proj : ModProjectile
-	{
-		public override void SetDefaults()
-		{
-			Projectile.width = 40;
-			Projectile.height = 14;
-			Projectile.aiStyle = ProjAIStyleID.Arrow;
-			Projectile.friendly = true;
-			Projectile.hostile = false;
-			Projectile.DamageType = DamageClass.Ranged;
-			Projectile.penetrate = 1;
-			Projectile.timeLeft = 600;
-			Projectile.light = 0.5f;
-			Projectile.ignoreWater = true;
-			Projectile.tileCollide = true;
-			Projectile.extraUpdates = 1;
+    {
+        public override void SetDefaults()
+        {
+            Projectile.width = 40;
+            Projectile.height = 14;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 600;
+            Projectile.light = 0.5f;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
+            Projectile.extraUpdates = 1;
             AIType = ProjectileID.WoodenArrowFriendly;
             Projectile.arrow = true;
         }

@@ -1,9 +1,6 @@
 ﻿using AAModClassic._Content.Hallow.__Hardmode.Items.Tiles.Functional;
-using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

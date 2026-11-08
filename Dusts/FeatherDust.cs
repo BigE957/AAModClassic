@@ -1,18 +1,17 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Dusts
 {
     public class FeatherDust : ModDust
-	{
-		public override void OnSpawn(Dust dust)
+    {
+        public override void OnSpawn(Dust dust)
         {
-			dust.noGravity = true;
-			dust.frame = new Rectangle(0, 0, 24, 26);
-		}
+            dust.noGravity = true;
+            dust.frame = new Rectangle(0, 0, 24, 26);
+        }
 
-		public override bool Update(Dust dust)
+        public override bool Update(Dust dust)
         {
             if (Collision.SolidCollision(dust.position - Vector2.One * 5f, 16, 116) && dust.fadeIn == 0f)
             {
@@ -47,6 +46,6 @@ namespace AAModClassic.Dusts
             }
 
             return false;
-		}
-	}
+        }
+    }
 }

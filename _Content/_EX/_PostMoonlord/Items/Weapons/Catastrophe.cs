@@ -3,7 +3,6 @@ using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,35 +10,35 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     public class Catastrophe : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Catastrophe");
-			/* Tooltip.SetDefault(@"An almighty greatblade that was once wielded by the demon lord
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Catastrophe");
+            /* Tooltip.SetDefault(@"An almighty greatblade that was once wielded by the demon lord
 Left Click to unleash destructive demonic energy
 Right Click to unleash catastrophic blades that fall from the sky
 True Melee Strikes have a chance to instantly devour an enemy's soul
 Demise EX"); */
-		}
-		public override void SetDefaults()
-		{
-			Item.damage = 350;
-			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-			Item.width = 58;
-			Item.height = 58;
-			Item.useTime = 20;
-			Item.useAnimation = 20;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack = 5;
+        }
+        public override void SetDefaults()
+        {
+            Item.damage = 350;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 58;
+            Item.height = 58;
+            Item.useTime = 20;
+            Item.useAnimation = 20;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 5;
             Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Cyan;
-			Item.UseSound = SoundID.Item1;
-			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<Catastrophe_CatastropheSphere>();
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+            Item.shoot = ModContent.ProjectileType<Catastrophe_CatastropheSphere>();
             Item.shootSpeed = 13f;
             Item.expert = true;
-		}
+        }
 
         public override bool AltFunctionUse(Player player)
         {
@@ -92,7 +91,7 @@ Demise EX"); */
                     float num83 = vector13.Y;
                     float speedX5 = num82;
                     float speedY6 = num83 + Main.rand.Next(-40, 41) * 0.02f;
-                    Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, speedX5, speedY6, ModContent.ProjectileType<Catastrophe_CatastropheBlade>(), damage * 3 / 2, knockback, Main.myPlayer);
+                    Projectile.NewProjectile(player.GetSource_ItemUse(Item), vector2.X, vector2.Y, speedX5, speedY6, ModContent.ProjectileType<Catastrophe_CatastropheBlade>(), damage * 3 / 2, knockback, Main.myPlayer);
                 }
             }
             else
@@ -100,7 +99,7 @@ Demise EX"); */
                 for (int i = 0; i < 5; i++)
                 {
                     Vector2 perturbedSpeed = velocity.RotatedByRandom(MathHelper.ToRadians(15));
-                    int p = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<Catastrophe_CatastropheSphere>(), damage, knockback, player.whoAmI);
+                    int p = Projectile.NewProjectile(player.GetSource_ItemUse(Item), position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, ModContent.ProjectileType<Catastrophe_CatastropheSphere>(), damage, knockback, player.whoAmI);
                     Main.projectile[p].Center = player.Center;
                 }
             }

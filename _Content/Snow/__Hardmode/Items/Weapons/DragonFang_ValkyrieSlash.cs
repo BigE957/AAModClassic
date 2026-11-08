@@ -1,7 +1,6 @@
-﻿using System;
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,12 +8,12 @@ namespace AAModClassic._Content.Snow.__Hardmode.Items.Weapons
 {
     public class DragonFang_ValkyrieSlash : ModProjectile
     {
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Valkyrie Slash");
-			Main.projFrames[Projectile.type] = 28;
-		}
-    	
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Valkyrie Slash");
+            Main.projFrames[Projectile.type] = 28;
+        }
+
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(ProjectileID.Arkhalis);
@@ -23,17 +22,17 @@ namespace AAModClassic._Content.Snow.__Hardmode.Items.Weapons
             Projectile.DamageType = DamageClass.Melee;
             Projectile.penetrate = -1;
             Projectile.aiStyle = ProjAIStyleID.HeldProjectile;
-			Projectile.netUpdate = true;
+            Projectile.netUpdate = true;
             AIType = ProjectileID.Arkhalis;
         }
         public override void AI()
         {
-			if (Main.myPlayer == Projectile.owner)
+            if (Main.myPlayer == Projectile.owner)
             {
                 //Do net updatey thing. Syncs this projectile.
-				if (Main.rand.NextBool(3))
+                if (Main.rand.NextBool(3))
                 {
-                 int num30 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, Projectile.velocity.X, Projectile.velocity.Y, 100, default, 2f);
+                    int num30 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, Projectile.velocity.X, Projectile.velocity.Y, 100, default, 2f);
                     Main.dust[num30].noGravity = true;
                     Main.dust[num30].position -= Projectile.velocity;
                 }
@@ -60,12 +59,12 @@ namespace AAModClassic._Content.Snow.__Hardmode.Items.Weapons
                     Projectile.position.Y = Main.player[Projectile.owner].Center.Y + (0 - DistYT) - 30;
                 }
             }
-			
+
         }
-		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-		{
-			target.immune[Projectile.owner] = 12;
-		}
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            target.immune[Projectile.owner] = 12;
+        }
 
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
         {

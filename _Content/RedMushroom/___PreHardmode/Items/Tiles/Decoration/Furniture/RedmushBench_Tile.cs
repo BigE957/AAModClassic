@@ -16,7 +16,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Tiles.Decoratio
             DustType = ModContent.DustType<MushDust>();
         }
 
-		public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
+        public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 
         public override void ModifySittingTargetInfo(int i, int j, ref TileRestingInfo info) => FurnitureUtils.BenchSitInfo(i, j, ref info);
 

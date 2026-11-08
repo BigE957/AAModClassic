@@ -1,7 +1,6 @@
 using AAModClassic._Content.Chaos.Buffs;
 using AAModClassic._Content.Chaos.Projectiles;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons

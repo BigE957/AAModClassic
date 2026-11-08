@@ -1,8 +1,7 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using AAModClassic.Conversions;
 using AAModClassic.Assets;
+using AAModClassic.Conversions;
+using Microsoft.Xna.Framework;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void.__Hardmode.Items.Consumables
 {

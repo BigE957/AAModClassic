@@ -1,12 +1,11 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hallow.__Hardmode.Items.Consumables
 {
     public class HallowFlask : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Consumables";
         public override void SetDefaults()
         {
@@ -30,6 +29,7 @@ namespace AAModClassic._Content.Hallow.__Hardmode.Items.Consumables
         {
             // DisplayName.SetDefault("Crystal Flask");
             // Tooltip.SetDefault(@"Spreads the Hallow");
+            Item.ResearchUnlockCount = 99;
         }
 
         public override bool AltFunctionUse(Player player)

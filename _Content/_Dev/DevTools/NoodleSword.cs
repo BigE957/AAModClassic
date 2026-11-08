@@ -1,10 +1,9 @@
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content._Dev.DevTools
 {
@@ -20,22 +19,22 @@ namespace AAModClassic._Content._Dev.DevTools
 
         public override void SetDefaults()
         {
-            Item.damage = 10000;     
-            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;    
-            Item.width = 64;            
-            Item.height = 70;         
-            Item.useTime = 17;   
-            Item.useAnimation = 17;     
-            Item.useStyle = ItemUseStyleID.Swing;       
-            Item.knockBack = 4;   
-            Item.value = 0;        
+            Item.damage = 10000;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 64;
+            Item.height = 70;
+            Item.useTime = 17;
+            Item.useAnimation = 17;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 4;
+            Item.value = 0;
             Item.rare = ItemRarityID.Purple;
             Item.UseSound = SoundID.Item1;
-            Item.autoReuse = true;   
+            Item.autoReuse = true;
             Item.useTurn = true;
             Item.expert = true;
-			Item.shoot = ModContent.ProjectileType<Noodle>();
-			Item.shootSpeed = 9f;
+            Item.shoot = ModContent.ProjectileType<Noodle>();
+            Item.shootSpeed = 9f;
         }
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)

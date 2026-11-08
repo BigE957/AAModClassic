@@ -1,8 +1,7 @@
-﻿using Terraria.ModLoader;
-using Terraria;
-using Terraria.ID;
-using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons
 {
@@ -26,7 +25,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.Items.Weapons
             Item.useAnimation = 30;
             Item.useTime = 30;
             Item.knockBack = 4f;
-            Item.damage = 19 / 2;
+            Item.damage = 19;
             Item.noUseGraphic = true;
             Item.shoot = ModContent.ProjectileType<Mushmace_Holdout>();
             Item.shootSpeed = 9;

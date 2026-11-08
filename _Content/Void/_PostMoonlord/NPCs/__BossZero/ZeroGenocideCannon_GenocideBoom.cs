@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
@@ -8,7 +7,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Genocide Boom");     
-            Main.projFrames[Projectile.type] = 5;     
+            Main.projFrames[Projectile.type] = 5;
         }
 
         public override void SetDefaults()

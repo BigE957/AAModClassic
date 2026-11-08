@@ -1271,3 +1271,45 @@ GoblinTinkererDoll: {
 	DisplayName: Goblin Tinkerer Doll
 	Tooltip: ""
 }
+
+PortaProbe: {
+	DisplayName: Porta-Probe
+	Tooltip: Take a little life-seeking robot with you!
+}
+
+SchematicWand: {
+	DisplayName: Schematic Wand
+	Tooltip: ""
+}
+
+CrossMod: {
+	BogwoodCrossedTrellis: {
+		DisplayName: Crossed Bogwood Trellis
+		Tooltip: Apply Grass Seeds to grow vines
+	}
+
+	BogwoodTrellis: {
+		DisplayName: Bogwood Trellis
+		Tooltip: Apply Grass Seeds to grow vines
+	}
+
+	OuroborosWoodCrossedTrellis: {
+		DisplayName: Ouroboros Wood Crossed Trellis
+		Tooltip: ""
+	}
+
+	OuroborosWoodTrellis: {
+		DisplayName: Ouroboros Wood Trellis
+		Tooltip: ""
+	}
+
+	RazewoodCrossedTrellis: {
+		DisplayName: Razewood Crossed Trellis
+		Tooltip: ""
+	}
+
+	RazewoodTrellis: {
+		DisplayName: Razewood Trellis
+		Tooltip: ""
+	}
+}

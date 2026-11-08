@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -53,7 +52,7 @@ namespace AAModClassic._Content._Dev._PostMoonlord.Items.Weapons
                 Projectile.alpha += 3;
                 Projectile.velocity *= .98f;
             }
-            
+
             if (Projectile.ai[1] > 180)
             {
                 Projectile.ai[0] = 1;

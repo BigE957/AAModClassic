@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.World.Tiles
@@ -13,7 +12,7 @@ namespace AAModClassic._Content.Inferno.World.Tiles
             Main.tileBlendAll[Type] = true;
             Main.tileBlockLight[Type] = true;
             DustType = ModContent.DustType<Dusts.RazewoodDust>();
-            RegisterItemDrop(ModContent.ItemType<TorchsandHardened>());   
+            RegisterItemDrop(ModContent.ItemType<TorchsandHardened>());
             AddMapEntry(new Color(50, 30, 17));
             MinPick = 65;
         }

@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Materials
@@ -17,7 +16,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Materials
         {
             Item.width = 22;
             Item.height = 20;
-			Item.maxStack = Item.CommonMaxStack;
+            Item.maxStack = Item.CommonMaxStack;
         }
     }
 }

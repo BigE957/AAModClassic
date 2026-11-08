@@ -1,26 +1,23 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic.Globals;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     public class Aerodrake : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Aerodrake");
-			// Tooltip.SetDefault("Flying Dragon EX");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Aerodrake");
+            // Tooltip.SetDefault("Flying Dragon EX");
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Item.rare = ItemRarityID.Cyan;
             Item.UseSound = SoundID.DD2_SonicBoomBladeSlash;
             Item.useStyle = ItemUseStyleID.Swing;
@@ -39,20 +36,20 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Item.expert = true;
         }
 
-		public override void UseStyle(Player player, Rectangle heldItemFrame)
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
         {
             player.itemLocation +=
                 new Vector2(-4 * player.direction, 16 * player.gravDir).RotatedBy(player.itemRotation);
         }
-		
-		public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.DD2SquireBetsySword, 1);
-			recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ItemID.DD2SquireBetsySword, 1);
+            recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
             recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
-		}
+        }
 
         public override void MeleeEffects(Player player, Rectangle hitbox)
         {
@@ -68,5 +65,5 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         {
             target.AddBuff(BuffID.Daybreak, 400);
         }
-	}
+    }
 }

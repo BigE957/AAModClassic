@@ -24,14 +24,13 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items._BossOrthrusX.Bos
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
-using AAModClassic._Unofficial.Desert;
+using AAModClassic._Unofficial.Content.Desert;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero;
 using AAModClassic.Globals;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
@@ -39,7 +38,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
@@ -296,7 +294,7 @@ namespace AAModClassic._Unofficial
                     new FlagObjective(() => NPCExtensions.BeenKilled<YamataBody>(), false)
                 ],
                 ["Shen", "SoulOfCthulhu"],
-                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<YamataHead>()]], 
+                TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ModContent.NPCType<YamataHead>()]],
                 hasCompleteText: true
             );
 
@@ -429,6 +427,52 @@ namespace AAModClassic._Unofficial
                                 break;
                         }
                     }
+
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                return; // clients only get Active/EverTurnedIn/UnlockedQuests via packets
+
+            foreach (Questline questline in Questlines.Values.Where(ql => ql.Started))
+                foreach (Quest quest in questline.Quests.Values)
+                {
+                    if (quest.Active && quest.IsComplete && !quest.EverTurnedIn)
+                    {
+                        CompleteQuest(questline, quest);
+                        continue;
+                    }
+
+                    if (quest.Active || quest.EverTurnedIn)
+                        continue;
+
+                    if (quest.QuestRequirements.All(key => questline.Quests[key].IsComplete))
+                        StartQuest(questline, quest);
+                }
+        }
+
+        private static void CompleteQuest(Questline questline, Quest quest)
+        {
+            quest.EverTurnedIn = true;
+            quest.IsTurnedIn = true;
+
+            foreach (string id in quest.QuestUnlocks)
+            {
+                bool canUnlock = questline.Quests[id].QuestRequirements
+                    .Where(gate => gate != quest.ID)
+                    .All(gate => questline.Quests[gate].EverTurnedIn);
+
+                if (canUnlock)
+                    questline.UnlockedQuests.Add(id);
+            }
+
+            if (Main.netMode == NetmodeID.Server)
+                AANet.SendNetMessage<QuestCompletionPacket>(quest);
+        }
+
+        private static void StartQuest(Questline questline, Quest quest)
+        {
+            quest.StartQuest();
+
+            if (Main.netMode == NetmodeID.Server)
+                AANet.SendNetMessage<QuestStartPacket>(quest);
         }
 
         public override void ClearWorld()
@@ -442,28 +486,81 @@ namespace AAModClassic._Unofficial
 
         public override void NetSend(BinaryWriter writer)
         {
+            EnsureQuestlinesModified();
+
+            writer.Write(Questlines.Count);
             foreach (Questline questline in Questlines.Values)
+            {
+                writer.Write(questline.ID);
+                writer.Write(questline.Started);
+
+                writer.Write(questline.Quests.Count);
                 foreach (Quest quest in questline.Quests.Values)
                 {
-                    //writer.Write(quest.IsTurnedIn);
-                    //writer.Write(quest.EverTurnedIn);
+                    writer.Write(quest.ID);
+                    writer.Write(quest.IsTurnedIn);
+                    writer.Write(quest.EverTurnedIn);
+                    writer.Write(quest.Active);
+
+                    writer.Write(quest.Objectives.Count);
                     foreach (QuestObjective obj in quest.Objectives)
                         writer.Write(obj.Progress);
-                    writer.Write(quest.Active);
                 }
+
+                writer.Write(questline.UnlockedQuests.Count);
+                foreach (string unlockedID in questline.UnlockedQuests)
+                    writer.Write(unlockedID);
+            }
         }
 
         public override void NetReceive(BinaryReader reader)
         {
-            foreach (Questline questline in Questlines.Values)
-                foreach (Quest quest in questline.Quests.Values)
+            EnsureQuestlinesModified();
+
+            int questlineCount = reader.ReadInt32();
+            for (int i = 0; i < questlineCount; i++)
+            {
+                string questlineID = reader.ReadString();
+                bool started = reader.ReadBoolean();
+                int questCount = reader.ReadInt32();
+
+                Questlines.TryGetValue(questlineID, out Questline questline);
+                if (questline != null)
+                    questline.Started = started;
+
+                for (int j = 0; j < questCount; j++)
                 {
-                    quest.IsTurnedIn = reader.ReadBoolean();
-                    quest.EverTurnedIn = reader.ReadBoolean();
-                    foreach (QuestObjective obj in quest.Objectives)
-                        obj.AddProgress(reader.ReadInt32(), true, true);
-                    quest.Active = reader.ReadBoolean();
+                    string questID = reader.ReadString();
+                    bool isTurnedIn = reader.ReadBoolean();
+                    bool everTurnedIn = reader.ReadBoolean();
+                    bool active = reader.ReadBoolean();
+                    int objectiveCount = reader.ReadInt32();
+
+                    Quest quest = null;
+                    questline?.Quests.TryGetValue(questID, out quest);
+
+                    for (int k = 0; k < objectiveCount; k++)
+                    {
+                        int progress = reader.ReadInt32();
+                        if (quest != null && k < quest.Objectives.Count)
+                            quest.Objectives[k].AddProgress(progress, true, true);
+                    }
+
+                    if (quest != null)
+                    {
+                        quest.IsTurnedIn = isTurnedIn;
+                        quest.EverTurnedIn = everTurnedIn;
+                        quest.Active = active;
+                    }
                 }
+
+                int unlockedCount = reader.ReadInt32();
+                for (int j = 0; j < unlockedCount; j++)
+                {
+                    string unlockedID = reader.ReadString();
+                    questline?.UnlockedQuests.Add(unlockedID);
+                }
+            }
         }
 
         public override void LoadWorldData(TagCompound tag)
@@ -556,6 +653,11 @@ namespace AAModClassic._Unofficial
 
         public override void PreUpdatePlayers()
         {
+            EnsureQuestlinesModified();
+        }
+
+        private static void EnsureQuestlinesModified()
+        {
             if (!QuestlinesModified)
             {
                 ModifyQuestlines();
@@ -610,7 +712,7 @@ namespace AAModClassic._Unofficial
                 Questlines["LegendscribeEarlyGame"].Quests["GripsOfChaos"].Icon = TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ContentReplacementSystem.NewAA.Find<ModNPC>("InfernoGrip").Type]];
                 Questlines["LegendscribeEarlyGame"].Quests["MushroomMonarch"].Icon = TextureAssets.NpcHeadBoss[NPCID.Sets.BossHeadTextures[ContentReplacementSystem.NewAA.Find<ModNPC>("MushMon").Type]];
 
-                if(newAADownedInfo.Count == 0 && ContentReplacementSystem.NewAA.TryFind("AABossDowned", out ModSystem downed))
+                if (newAADownedInfo.Count == 0 && ContentReplacementSystem.NewAA.TryFind("AABossDowned", out ModSystem downed))
                 {
                     newAADownedInfo.Add("GripsDowned", downed.GetType().GetField("downedGrips", BindingFlags.Static | BindingFlags.Public));
                     newAADownedInfo.Add("MonarchDowned", downed.GetType().GetField("downedMonarch", BindingFlags.Static | BindingFlags.Public));
@@ -962,4 +1064,108 @@ namespace AAModClassic._Unofficial
         }
     }
     #endregion
+
+    #region Packets
+    public sealed class QuestlineStartPacket : AAPacket
+    {
+        protected override void Write(BinaryWriter w, object[] args)
+        {
+            string questlineID = (string)args[0];
+            w.Write(questlineID);
+        }
+
+        public override void HandlePacket(BinaryReader packet, int sender)
+        {
+            string questlineID = packet.ReadString();
+            if (QuestSystem.Questlines.TryGetValue(questlineID, out Questline questline))
+                questline.Started = true;
+        }
+    }
+
+    public sealed class QuestStartPacket : AAPacket
+    {
+        protected override void Write(BinaryWriter w, object[] args)
+        {
+            Quest q = (Quest)args[0];
+            w.Write(q.QuestLine);
+            w.Write(q.ID);
+        }
+
+        public override void HandlePacket(BinaryReader packet, int sender)
+        {
+            string questline = packet.ReadString();
+            string questID = packet.ReadString();
+            Quest subquest = QuestSystem.Questlines[questline].Quests[questID];
+            subquest.Active = true;
+        }
+    }
+
+    public sealed class QuestProgressionPacket : AAPacket
+    {
+        protected override void Write(BinaryWriter w, object[] args)
+        {
+            string questline = (string)args[0];
+            string questID = (string)args[1];
+            int progressionIndex = (int)args[2];
+            int progress = (int)args[3];
+            w.Write(questline);
+            w.Write(questID);
+            w.Write7BitEncodedInt(progressionIndex);
+            w.Write7BitEncodedInt(progress);
+        }
+
+        public override void HandlePacket(BinaryReader packet, int sender)
+        {
+            string questline = packet.ReadString();
+            string questID = packet.ReadString();
+            int progressIndex = packet.Read7BitEncodedInt();
+            int progress = packet.Read7BitEncodedInt();
+            Quest quest = QuestSystem.Questlines[questline].Quests[questID];
+            QuestObjective node = quest.Objectives[progressIndex];
+
+            node.AddProgress(progress, true, true);
+        }
+    }
+
+    public sealed class QuestCompletionPacket : AAPacket
+    {
+        protected override void Write(BinaryWriter w, object[] args)
+        {
+            Quest q = (Quest)args[0];
+            w.Write(q.QuestLine);
+            w.Write(q.ID);
+        }
+
+        public override void HandlePacket(BinaryReader packet, int sender)
+        {
+            string questline = packet.ReadString();
+            string questID = packet.ReadString();
+            Quest subquest = QuestSystem.Questlines[questline].Quests[questID];
+
+            // Progress overall progression if this quest hasnt been completed before
+            if (!subquest.EverTurnedIn)
+            {
+                foreach (string id in subquest.QuestUnlocks)
+                {
+                    bool canUnlock = true;
+                    foreach (string gate in QuestSystem.Questlines[questline].Quests[id].QuestRequirements)
+                    {
+                        if (id == subquest.ID)
+                            continue;
+                        if (!QuestSystem.Questlines[questline].Quests[gate].EverTurnedIn)
+                            canUnlock = false;
+                    }
+                    if (canUnlock)
+                        QuestSystem.Questlines[questline].UnlockedQuests.Add(id);
+                }
+            }
+
+            subquest.IsTurnedIn = true;
+            subquest.Active = false;
+            subquest.EverTurnedIn = true;
+        }
+    }
+    #endregion
 }
+
+

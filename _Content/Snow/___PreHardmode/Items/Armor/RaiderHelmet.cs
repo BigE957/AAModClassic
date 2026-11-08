@@ -1,26 +1,25 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Void.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-	public class RaiderHelmet : BaseAAItem, ILocalizedModType
-	{
+    public class RaiderHelmet : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Armor.Raider";
-		public override void SetStaticDefaults()
-		{
-			base.SetStaticDefaults();
-			// DisplayName.SetDefault("Raider Helmet");
+        public override void SetStaticDefaults()
+        {
+            base.SetStaticDefaults();
+            // DisplayName.SetDefault("Raider Helmet");
         }
 
-		public override void SetDefaults()
-		{
-			Item.width = 22;
-			Item.height = 24;
+        public override void SetDefaults()
+        {
+            Item.width = 22;
+            Item.height = 24;
             Item.value = Item.sellPrice(0, 0, 5, 0);
             Item.rare = ItemRarityID.LightRed;
             Item.defense = 10;

@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,7 +12,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
         {
             Main.projFrames[Projectile.type] = 4;
         }
-    	
+
         public override void SetDefaults()
         {
             Projectile.width = 24;
@@ -98,7 +97,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                Projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
@@ -125,7 +124,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                     )
                         selectedTarget = i;
                 }
@@ -187,7 +186,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                 Main.dust[num92].velocity += Projectile.DirectionTo(Main.dust[num92].position) * 3f;
             }
         }
-        
+
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {

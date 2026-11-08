@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Globals;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Tiles.Decoration
@@ -12,7 +11,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Tiles.Decoration
             Main.tileMergeDirt[Type] = true;
             Main.tileLighted[Type] = false;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(ModContent.ItemType<DaybreakBrick>());   
+            RegisterItemDrop(ModContent.ItemType<DaybreakBrick>());
             AddMapEntry(AAColor.Akuma);
             DustType = ModContent.DustType<Dusts.DaybreakIncineriteDust>();
         }

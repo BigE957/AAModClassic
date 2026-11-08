@@ -8,13 +8,13 @@ using AAModClassic.Achievements;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Titles;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
@@ -72,7 +72,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             NPC.behindTiles = true;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = new SoundStyle("AAModClassic/Sounds/AkumaRoar");
-            Music = MusicManagementSystem.MusicSlots["Akuma_Awakened"];
+            string key = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? "Akuma_Awakened" : "Akuma_Awakened_Legacy";
+            Music = MusicManagementSystem.MusicSlots[key];
             SceneEffectPriority = SceneEffectPriority.BossHigh;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
@@ -181,7 +182,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                 {
                     NPC.realLife = NPC.whoAmI;
                     int latestNPC = NPC.whoAmI;
-                    int[] Frame = { 1, 2, 0, 1, 2, 2, 1, 2, 2, 0, 1, 2, 2, 1, 2, 2, 0, 1, 2, 3, 4};
+                    int[] Frame = { 1, 2, 0, 1, 2, 2, 1, 2, 2, 0, 1, 2, 2, 1, 2, 2, 0, 1, 2, 3, 4 };
                     for (int i = 0; i < Frame.Length; ++i)
                     {
                         latestNPC = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AkumaABody>(), NPC.whoAmI, 0, latestNPC);
@@ -227,7 +228,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                     }
                     else
                     {
-                        if(Main.netMode != NetmodeID.MultiplayerClient)
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
                             AAAI.BreatheFire(NPC, 38, true, ModContent.ProjectileType<AkumaAHead_Breath>(), 2);
                     }
                     if (++NPC.ai[1] > 240)
@@ -460,7 +461,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                     {
                         NPC.ai[2] = 1;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<AsheA>(), 38, 0f, -1, NPC.target); 
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<AsheA>(), 38, 0f, -1, NPC.target);
                         if (!spawnAshe)
                         {
                             spawnAshe = true;
@@ -635,6 +636,9 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                     ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.Defeat.Cheat"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
             }
+
+            if (!NPC.BeenKilled(true))
+                NPC.OnGameEventClearedForTheFirstTime(-1);
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
@@ -745,7 +749,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                     {
                         spriteBatch.Draw(AkumaABody.ArmlessBody.Value, NPC.position + new Vector2(startX + bodyOffset, MathF.Sin((wormTimer + offset * i) * animationSpeed) * range + startY), null, NPC.GetAlpha(drawColor), NPC.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer + offset * i) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, AkumaABody.ArmlessBody.Size() * 0.5f, NPC.scale, SpriteEffects.FlipHorizontally, 0);
 
-                        DrawingUtils.DrawWithVanillaShader(spriteBatch, myShader, (spriteBatch) => {
+                        DrawingUtils.DrawWithVanillaShader(spriteBatch, myShader, (spriteBatch) =>
+                        {
                             spriteBatch.Draw(AkumaABody.ArmlessBodyGlow.Value, NPC.position + new Vector2(startX + bodyOffset, MathF.Sin((wormTimer + offset * i) * animationSpeed) * range + startY), null, NPC.GetAlpha(drawColor), NPC.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer + offset * i) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, AkumaABody.ArmlessBodyGlow.Size() / 2, NPC.scale, SpriteEffects.FlipHorizontally, 0f);
                         });
                     }
@@ -753,7 +758,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                     {
                         Rectangle frame = TextureAssets.Npc[ModContent.NPCType<AkumaABody>()].Frame(1, 5, 0, myFrame);
                         spriteBatch.Draw(TextureAssets.Npc[ModContent.NPCType<AkumaABody>()].Value, NPC.position + new Vector2(startX + bodyOffset, MathF.Sin((wormTimer + offset * i) * animationSpeed) * range + startY), frame, NPC.GetAlpha(drawColor), NPC.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer + offset * i) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, frame.Size() / 2, NPC.scale, SpriteEffects.FlipHorizontally, 0f);
-                        DrawingUtils.DrawWithVanillaShader(spriteBatch, myShader, (spriteBatch) => {
+                        DrawingUtils.DrawWithVanillaShader(spriteBatch, myShader, (spriteBatch) =>
+                        {
                             spriteBatch.Draw(ModContent.Request<Texture2D>(Texture.Replace("Head", "Body") + "_Glow").Value, NPC.position + new Vector2(startX + bodyOffset, MathF.Sin((wormTimer + offset * i) * animationSpeed) * range + startY), frame, NPC.GetAlpha(drawColor), NPC.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer + offset * i) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, frame.Size() / 2, NPC.scale, SpriteEffects.FlipHorizontally, 0f);
                         });
                     }
@@ -772,7 +778,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 
                 // Draw the head
                 spriteBatch.Draw(TextureAssets.Npc[Type].Value, NPC.position + new Vector2(startX + headOffset, MathF.Sin((wormTimer - headSpeedOffset) * animationSpeed) * range + startY), NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer - headSpeedOffset) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.FlipHorizontally, 0f);
-                DrawingUtils.DrawWithVanillaShader(spriteBatch, myShader, (spriteBatch) => {
+                DrawingUtils.DrawWithVanillaShader(spriteBatch, myShader, (spriteBatch) =>
+                {
                     spriteBatch.Draw(ModContent.Request<Texture2D>(Texture + "_Glow").Value, NPC.position + new Vector2(startX + headOffset, MathF.Sin((wormTimer - headSpeedOffset) * animationSpeed) * range + startY), NPC.frame, NPC.GetAlpha(drawColor), NPC.rotation - MathHelper.PiOver2 - MathF.Cos((wormTimer - headSpeedOffset) * animationSpeed) * MathHelper.PiOver4 * rotationStrength, NPC.frame.Size() * 0.5f, NPC.scale, SpriteEffects.FlipHorizontally, 0f);
                 });
                 return false;
@@ -783,7 +790,7 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                 AkumaTex = ModContent.Request<Texture2D>(Texture + "_Open").Value;
 
             Texture2D glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-            
+
             int shader;
             if (NPC.ai[1] == 1 || NPC.ai[2] >= 470 || Main.npc[(int)NPC.ai[3]].ai[1] == 1 || Main.npc[(int)NPC.ai[3]].ai[2] >= 500)
                 shader = GameShaders.Armor.GetShaderIdFromItemId(ItemID.LivingFlameDye);
@@ -796,7 +803,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             else
                 myGlowTex = glowTex;
             spriteBatch.Draw(AkumaTex, NPC.Center - screenPos, NPC.frame, NPC.IsABestiaryIconDummy ? Color.White : NPC.GetAlpha(drawColor), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
-            DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) => { 
+            DrawingUtils.DrawWithVanillaShader(spriteBatch, shader, (spriteBatch) =>
+            {
                 spriteBatch.Draw(myGlowTex, NPC.Center - screenPos, NPC.frame, NPC.IsABestiaryIconDummy ? Color.White : NPC.GetAlpha(Color.White), NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
             });
             return false;

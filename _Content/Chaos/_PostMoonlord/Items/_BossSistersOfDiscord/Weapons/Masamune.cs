@@ -1,8 +1,6 @@
 ﻿using AAModClassic._Content.Mire.Buffs;
-using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,18 +9,18 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.
     public class Masamune : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Masamune");
             /* Tooltip.SetDefault(@"Left click to quickly slash at your foes with the blade
 Ignores invicibility frames
 Right click to shoot a blade wave"); */
-		}
+        }
 
-		public override void SetDefaults()
-		{
+        public override void SetDefaults()
+        {
             Item.damage = 350;
-            Item.width = 70; 
+            Item.width = 70;
             Item.height = 80;
             Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
             Item.noMelee = true;
@@ -40,7 +38,7 @@ Right click to shoot a blade wave"); */
             Item.rare = ModContent.RarityType<PostEquinoxRarity>();
         }
 
-        
+
 
         public override bool AltFunctionUse(Player player)
         {

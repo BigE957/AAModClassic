@@ -2,12 +2,10 @@
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
-using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -15,34 +13,34 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapons
 {
     public class FlamingTwilight : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Ranged";
-		public override void SetDefaults()
-		{
-			Item.damage = 400;
-			Item.DamageType = DamageClass.Ranged;
-			Item.width = 76;
-			Item.height = 36;
-			Item.useTime = 14;
-			Item.useAnimation = 14;
-			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.noMelee = true;
-			Item.knockBack = 6;
-			Item.UseSound = SoundID.Item34;
+        public override void SetDefaults()
+        {
+            Item.damage = 400;
+            Item.DamageType = DamageClass.Ranged;
+            Item.width = 76;
+            Item.height = 36;
+            Item.useTime = 14;
+            Item.useAnimation = 14;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.noMelee = true;
+            Item.knockBack = 6;
+            Item.UseSound = SoundID.Item34;
             Item.value = Item.sellPrice(1, 50, 0, 0);
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
-			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<FlamingTwilight_DiscordianInferno>();
-			Item.shootSpeed = 11f;
-			Item.useAmmo = AmmoID.Gel;
-		}
+            Item.autoReuse = true;
+            Item.shoot = ModContent.ProjectileType<FlamingTwilight_DiscordianInferno>();
+            Item.shootSpeed = 11f;
+            Item.useAmmo = AmmoID.Gel;
+        }
 
-        
+
 
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Flaming Twilight");
-			/* Tooltip.SetDefault(@"Left click to blasts a discordian fireball at your foes 
+        {
+            // DisplayName.SetDefault("Flaming Twilight");
+            /* Tooltip.SetDefault(@"Left click to blasts a discordian fireball at your foes 
 Right click to rain fire and fury at your cursor position
 Consumes gel as ammo
 33% chance not to consume gel"); */
@@ -54,16 +52,16 @@ Consumes gel as ammo
         }
 
         public override bool CanConsumeAmmo(Item ammo, Player player)
-		{
-			return Main.rand.NextFloat() >= .33;
-		}
-		
-		public override Vector2? HoldoutOffset()
-		{
-			return new Vector2(-8, 0);
-		}
-		
-		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            return Main.rand.NextFloat() >= .33;
+        }
+
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(-8, 0);
+        }
+
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             type = ModContent.ProjectileType<FlamingTwilight_DiscordianInferno>();
             if (player.altFunctionUse == 2)
@@ -110,9 +108,9 @@ Consumes gel as ammo
                 }
             }
             return false;
-		}
-		
-		public override void AddRecipes()
+        }
+
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DiscordiumBar>(), 5);
@@ -120,7 +118,7 @@ Consumes gel as ammo
             recipe.AddIngredient(ModContent.ItemType<Dawnstrike>());
             recipe.AddIngredient(ModContent.ItemType<Darksprayer>());
             recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
-			recipe.Register();
-		}
-	}
+            recipe.Register();
+        }
+    }
 }

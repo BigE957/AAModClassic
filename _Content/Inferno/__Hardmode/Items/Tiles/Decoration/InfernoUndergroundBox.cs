@@ -1,16 +1,15 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using AAModClassic._Content.Inferno.World.Tiles;
+﻿using AAModClassic._Content.Inferno.World.Tiles;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.Items.Tiles.Decoration
 {
     public class InfernoUndergroundBox : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Placeables.MusicBoxes";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Music Box (Underground Inferno)");
             // Tooltip.SetDefault(@"Plays ‘Inner Mantle’ by ProduceVGM");
 
@@ -19,20 +18,20 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Tiles.Decoration
         }
 
         public override void SetDefaults()
-		{
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.useTurn = true;
-			Item.useAnimation = 15;
-			Item.useTime = 10;
-			Item.autoReuse = true;
-			Item.consumable = true;
-			Item.createTile = ModContent.TileType<InfernoUndergroundBox_Tile>();
-			Item.width = 24;
-			Item.height = 24;
-			Item.rare = ItemRarityID.LightRed;
-			Item.value = 10000;
-			Item.accessory = true;
-		}
+        {
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.consumable = true;
+            Item.createTile = ModContent.TileType<InfernoUndergroundBox_Tile>();
+            Item.width = 24;
+            Item.height = 24;
+            Item.rare = ItemRarityID.LightRed;
+            Item.value = 10000;
+            Item.accessory = true;
+        }
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();

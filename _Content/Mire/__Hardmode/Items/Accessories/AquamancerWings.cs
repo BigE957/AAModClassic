@@ -1,7 +1,5 @@
 ﻿using AAModClassic._Content.Mire.__Hardmode.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,24 +9,24 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Accessories
 
     [AutoloadEquip(EquipType.Wings)]
     public class AquamancerWings : EquipAbstract, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Accessories";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Aquamancer Wings");
 
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(120, 7, 1.5f);
         }
 
-		public override void SetDefaults()
-		{
-			Item.width = 42;
-			Item.height = 42;
+        public override void SetDefaults()
+        {
+            Item.width = 42;
+            Item.height = 42;
             Item.value = Item.sellPrice(0, 8, 0, 0);
             Item.rare = ItemRarityID.LightPurple;
-			Item.accessory = true;
+            Item.accessory = true;
             Item.alpha = 100;
-		}
+        }
 
         public override void RegisterEquipEffects()
         {
@@ -36,13 +34,13 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Accessories
         }
 
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
-		{
-			ascentWhenFalling = 0.85f;
-			ascentWhenRising = 0.15f;
-			maxCanAscendMultiplier = 1f;
-			maxAscentMultiplier = 1.7f;
-			constantAscend = 0.135f;
-		}
+        {
+            ascentWhenFalling = 0.85f;
+            ascentWhenRising = 0.15f;
+            maxCanAscendMultiplier = 1f;
+            maxAscentMultiplier = 1.7f;
+            constantAscend = 0.135f;
+        }
 
         public override bool WingUpdate(Player player, bool inUse)
         {

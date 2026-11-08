@@ -1,14 +1,13 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
+using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
-using AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons;
-using AAModClassic._Content.Snow.___PreHardmode.Items._BossSubzeroSerpent.Weapons;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
 {
@@ -41,14 +40,14 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
             Item.autoReuse = true;
             Item.value = Item.sellPrice(0, 5, 0, 0);
         }
-		
-		public override void UseStyle(Player player, Rectangle heldItemFrame)
-		{
-			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-			{
-				player.AddBuff(Item.buffType, 3600, true);
-			}
-		}
+
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
+        {
+            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
+            {
+                player.AddBuff(Item.buffType, 3600, true);
+            }
+        }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
@@ -84,24 +83,24 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Weapons
             Projectile.NewProjectile(source, vector2.X, vector2.Y, num78, num79, ModContent.ProjectileType<DoomiteRadio_DoomiteRadioProbe>(), num73, num74, i, 0f, 0f);
             return false;
         }
-		
-		public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<DoomiteSignal>());
-			recipe.AddIngredient(ModContent.ItemType<SandScepter>());
-			recipe.AddIngredient(ModContent.ItemType<SnakeStaff>());
-			recipe.AddIngredient(ModContent.ItemType<FireStaff>());
-			recipe.AddTile(TileID.DemonAltar);
-			recipe.Register();
-			
-			recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<DoomiteSignal>());
-			recipe.AddIngredient(ModContent.ItemType<SandScepter>());
-			recipe.AddIngredient(ModContent.ItemType<SnakeStaff>());
-			recipe.AddIngredient(ModContent.ItemType<HydraStaff>());
-			recipe.AddTile(TileID.DemonAltar);
-			recipe.Register();
-		}
+
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<DoomiteSignal>());
+            recipe.AddIngredient(ModContent.ItemType<SandScepter>());
+            recipe.AddIngredient(ModContent.ItemType<SnakeStaff>());
+            recipe.AddIngredient(ModContent.ItemType<FireStaff>());
+            recipe.AddTile(TileID.DemonAltar);
+            recipe.Register();
+
+            recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<DoomiteSignal>());
+            recipe.AddIngredient(ModContent.ItemType<SandScepter>());
+            recipe.AddIngredient(ModContent.ItemType<SnakeStaff>());
+            recipe.AddIngredient(ModContent.ItemType<HydraStaff>());
+            recipe.AddTile(TileID.DemonAltar);
+            recipe.Register();
+        }
     }
 }

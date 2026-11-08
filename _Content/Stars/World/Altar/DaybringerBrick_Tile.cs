@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Decoration;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Stars.World.Altar
@@ -13,7 +12,7 @@ namespace AAModClassic._Content.Stars.World.Altar
             Main.tileMergeDirt[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(ModContent.ItemType<RadiumBrick>());   
+            RegisterItemDrop(ModContent.ItemType<RadiumBrick>());
             AddMapEntry(Color.DarkGoldenrod);
             DustType = ModContent.DustType<Dusts.RadiumDust>();
         }

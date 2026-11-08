@@ -1,10 +1,5 @@
-using System;
-using AAModClassic._Content.Inferno.Buffs;
-using AAModClassic._Content.Mire.Buffs;
-using AAModClassic.Base.BaseMod.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.GameContent;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 

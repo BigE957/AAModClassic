@@ -1,6 +1,5 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,18 +12,18 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Weapons   //whe
         public override void SetDefaults()
         {
 
-            Item.damage = 32;            
-            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
-            Item.width = 58;              
+            Item.damage = 32;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 58;
             Item.height = 60;
             Item.useTime = 30;
             Item.useAnimation = 30;
-            Item.useStyle = ItemUseStyleID.Swing;        
-            Item.knockBack = 5;      
-            Item.value = 3000;        
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 5;
+            Item.value = 3000;
             Item.rare = ItemRarityID.LightRed;
-            Item.UseSound = SoundID.Item1;       
-            Item.autoReuse = false;   
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = false;
             Item.useTurn = true;
             Item.shoot = ModContent.ProjectileType<RubyGreatsword_RubyBolt>();
             Item.shootSpeed = 10f;
@@ -32,8 +31,8 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Weapons   //whe
 
         public override void SetStaticDefaults()
         {
-          // DisplayName.SetDefault("Ruby Greatsword");
-          // Tooltip.SetDefault("");
+            // DisplayName.SetDefault("Ruby Greatsword");
+            // Tooltip.SetDefault("");
         }
         static int shoot = 0;
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
@@ -46,10 +45,10 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Weapons   //whe
         }
         public override void AddRecipes()  //How to craft this sword
         {
-            Recipe recipe = CreateRecipe();      
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<RubySaber>(), 1);
-            recipe.AddIngredient(ItemID.LargeRuby, 1);		
-            recipe.AddTile(TileID.Anvils);   
+            recipe.AddIngredient(ItemID.LargeRuby, 1);
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
 
         }

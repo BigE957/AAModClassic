@@ -5,10 +5,10 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Chaos.___PreHardmode.Items._BossGripsOfChaos.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class MireGripMask : BaseAAItem, ILocalizedModType
-	{
+    public class MireGripMask : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Masks";
-		public override void SetStaticDefaults()
+        public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Mire Grip of Chaos Mask");

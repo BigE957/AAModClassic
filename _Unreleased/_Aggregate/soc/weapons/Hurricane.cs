@@ -2,7 +2,6 @@ using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
 using ReLogic.Utilities;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,7 +16,7 @@ namespace AAModClassic._Unreleased._Aggregate.soc.weapons
         {
             // DisplayName.SetDefault("Hurricane");
         }
-        
+
         public override void SetDefaults()
         {
             Projectile.width = 80;

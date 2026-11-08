@@ -1,7 +1,7 @@
 ﻿using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudalFungus.Accessories;
 using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Materials;
+using AAModClassic._Content.GlowingMushroom.___PreHardmode.Items.Tools;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -58,6 +58,8 @@ namespace AAModClassic._Content.GlowingMushroom.___PreHardmode.Items._BossFeudal
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<GlowingTruffle>()));
 
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<GlowingMushium>(), 1, 30, 40));
+
+            itemLoot.Add(ItemDropRule.OneFromOptions(1, [ModContent.ItemType<GlowingMushpick>(), ModContent.ItemType<GlowingMushmallet>()]));
         }
     }
 }

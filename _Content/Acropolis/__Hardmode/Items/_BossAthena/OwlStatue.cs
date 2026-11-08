@@ -1,14 +1,12 @@
 ﻿using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
+using AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena;
 using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
-using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
-using AAModClassic._Unofficial.Desert;
 using AAModClassic.Effects;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -68,14 +66,23 @@ Can only be used in the Acropolis at the Owl Altar
             list.RemoveAt(indexToRemove);
         }
 
-        public override bool CanUseItem(Player player) => WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && player.GetModPlayer<ZAAPlayer>().ZoneAcropolis && (NPCExtensions.BeenKilled<AthenaA>() || AAWorld.AthenaAwakened);
+        public override bool CanUseItem(Player player)
+        {
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                return false;
+
+            if (!player.GetModPlayer<ZAAPlayer>().ZoneAcropolis || (!NPCExtensions.BeenKilled<AthenaA>() && !AAWorld.AthenaAwakened))
+                return false;
+
+            return !NPC.AnyNPCs(ModContent.NPCType<Athena>()) && !NPC.AnyNPCs(ModContent.NPCType<AthenaA>());
+        }
 
         public override bool? UseItem(Player player)
         {
             Vector2 spawnPos = player.Center - Vector2.UnitY * 128;
             int a = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<AthenaA>());
             int b = Projectile.NewProjectile(NPC.GetBossSpawnSource(player.whoAmI), spawnPos.X, spawnPos.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
-            
+
             CombatText.NewText(Main.npc[a].Hitbox, Color.CadetBlue, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Athena.AwakenedSummon"));
             return true;
         }

@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -40,15 +39,15 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons
                 Projectile.spriteDirection = 1;
                 Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(-90f);
             }
-            if(Projectile.alpha < 150)
+            if (Projectile.alpha < 150)
             {
                 float x2 = Projectile.position.X + Projectile.width / 2 - Projectile.velocity.X / 2f;
-				float y2 = Projectile.position.Y + Projectile.height / 2 - Projectile.velocity.Y / 2f;
+                float y2 = Projectile.position.Y + Projectile.height / 2 - Projectile.velocity.Y / 2f;
                 int num166 = Dust.NewDust(new Vector2(Projectile.position.X + Projectile.width / 2, Projectile.position.Y + Projectile.height / 2), Projectile.width, Projectile.height + 5, ModContent.DustType<Dusts.AkumaDust>(), Projectile.velocity.X * 0.2f,
                     Projectile.velocity.Y * 0.2f, 0, default, 2f);
                 Main.dust[num166].alpha = Projectile.alpha;
                 Main.dust[num166].position.X = x2;
-				Main.dust[num166].position.Y = y2;
+                Main.dust[num166].position.Y = y2;
                 Main.dust[num166].velocity *= 0f;
                 Main.dust[num166].noGravity = true;
             }

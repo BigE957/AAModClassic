@@ -7,11 +7,11 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class FazerLeggings : BaseAAItem, ILocalizedModType
-	{
+    public class FazerLeggings : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Fazer";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Fluffy Fox Pants");
             // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Contributors!'");

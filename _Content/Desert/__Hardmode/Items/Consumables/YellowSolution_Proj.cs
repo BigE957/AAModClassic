@@ -1,7 +1,6 @@
 using AAModClassic.Assets;
 using AAModClassic.Conversions;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

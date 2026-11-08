@@ -7,12 +7,12 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Armor.Vanity
 {
     [AutoloadEquip(EquipType.Legs)]
-	public class ApawnLeggings : BaseAAItem, ILocalizedModType
-	{
+    public class ApawnLeggings : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Vanity.Apawn";
-		public override void SetStaticDefaults()
-       
-		{
+        public override void SetStaticDefaults()
+
+        {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Apawn's Greaves");
             // Tooltip.SetDefault(@"'Great for impersonating Ancients Awakened Testers!'");

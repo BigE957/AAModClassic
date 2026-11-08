@@ -1,17 +1,14 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.DataStructures;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.GameContent;
-using Terraria.ModLoader;
-using Terraria.ID;
-using AAModClassic.Globals;
-using ReLogic.Content;
-using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
+using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using Terraria.DataStructures;
+using Terraria.GameContent;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Materials
 {
@@ -32,7 +29,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Materials
                 glowmask = ModContent.Request<Texture2D>(Texture + "_Glow");
         }
 
-        
+
 
         // TODO -- Velocity Y smaller, post NewItem?
         public override void SetDefaults()

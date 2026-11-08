@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,14 +6,14 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Evil.__Hardmode.Items.Weapons
 {
     public class BladeOfEvil_FlareOfEvil : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Flare of Evil");
             Main.projFrames[Projectile.type] = 2;
-		}
+        }
 
-		public override void SetDefaults()
+        public override void SetDefaults()
         {
             Projectile.width = 16;
             Projectile.height = 16;
@@ -64,19 +63,19 @@ namespace AAModClassic._Content.Evil.__Hardmode.Items.Weapons
             Main.dust[num102].noGravity = true;
             Projectile.ai[1] += 1f;
 
-			if (Projectile.ai[1] >= 20f)
-			{
-				Projectile.velocity.Y = Projectile.velocity.Y + 0.2f;
-			}
+            if (Projectile.ai[1] >= 20f)
+            {
+                Projectile.velocity.Y = Projectile.velocity.Y + 0.2f;
+            }
 
             Projectile.rotation += 0.3f * Projectile.direction;
 
             if (Projectile.velocity.Y > 16f)
-			{
-				Projectile.velocity.Y = 16f;
-				return;
-			}
-		}
+            {
+                Projectile.velocity.Y = 16f;
+                return;
+            }
+        }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {

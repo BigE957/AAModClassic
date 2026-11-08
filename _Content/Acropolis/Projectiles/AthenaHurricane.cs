@@ -2,12 +2,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace AAModClassic._Content.Acropolis.Projectiles
 {
@@ -16,9 +14,9 @@ namespace AAModClassic._Content.Acropolis.Projectiles
         public override string Texture => AssetDirectory.General.Nothing;
 
         public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Tornado");
-		}
+        {
+            // DisplayName.SetDefault("Tornado");
+        }
 
         public override void SetDefaults()
         {
@@ -33,7 +31,7 @@ namespace AAModClassic._Content.Acropolis.Projectiles
 
         public override void AI()
         {
-			float upTime = 600f;
+            float upTime = 600f;
             if (Projectile.soundDelay == 0)
             {
                 Projectile.soundDelay = -1;
@@ -133,11 +131,11 @@ namespace AAModClassic._Content.Acropolis.Projectiles
             float opacity = MathHelper.Clamp(counter / 30f, 0f, 1f);
             if (counter > upTime - 60f)
                 opacity = MathHelper.Lerp(1f, 0f, (counter - (upTime - 60f)) / 60f);
-            
+
             Point point5 = Projectile.Center.ToTileCoordinates();
             Collision.ExpandVertically(point5.X, point5.Y, out var topY, out var bottomY, 15, 15);
-			float topWorld = (topY + 1) * 16 + 8;
-			float bottomWorld = (bottomY - 1) * 16 + 8;
+            float topWorld = (topY + 1) * 16 + 8;
+            float bottomWorld = (bottomY - 1) * 16 + 8;
             float distance = bottomWorld - topWorld;
             Texture2D texture = TextureAssets.Projectile[ProjectileID.SandnadoFriendly].Value;
             float baseRotation = -(float)Math.PI / 50f * counter;

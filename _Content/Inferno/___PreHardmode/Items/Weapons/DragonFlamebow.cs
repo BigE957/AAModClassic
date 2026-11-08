@@ -1,11 +1,10 @@
-﻿using Terraria;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Ammo;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Ammo;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
 {
@@ -51,7 +50,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<IncineriteBar>(), 8);
-			recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
     }

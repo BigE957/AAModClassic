@@ -1,6 +1,5 @@
 using AAModClassic._Content._Misc.__Hardmode.Items.Materials.Mushrooms;
 using AAModClassic._Content._Misc._PostMoonlord.Items.Consumables;
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
@@ -8,8 +7,8 @@ using AAModClassic._Content.RedMushroom.World.Biomes;
 using AAModClassic._Content.RedMushroom.World.Tiles;
 using AAModClassic.Achievements;
 using AAModClassic.Utilities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.Personalities;
@@ -120,7 +119,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
         {
             MushmanEncountered.Condition.Complete();
 
-            WeightedRandom<string> chat = new WeightedRandom<string>();
+            WeightedRandom<string> chat = new();
 
             int Truffle = NPC.FindFirstNPC(NPCID.Truffle);
             if (Truffle >= 0 && Main.rand.NextBool(4))
@@ -140,7 +139,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
             {
                 return Main.npc[Clothier].GivenName + Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.MushmanChat6");
             }
-            return chat; 
+            return chat;
         }
 
         public override void SetChatButtons(ref string button, ref string button2)
@@ -182,7 +181,18 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
                 int DyePink = player.FindItem(ItemID.PinkPricklyPear);
                 int DyeGray = player.FindItem(ItemID.BlackInk);
 
-                string[] lootTable = { "Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Gray", "Pink", "Brown" };
+                int[] lootTable =
+                {
+                    ModContent.ItemType<RedAlchemicalMushroom>(),
+                    ModContent.ItemType<OrangeAlchemicalMushroom>(),
+                    ModContent.ItemType<YellowAlchemicalMushroom>(),
+                    ModContent.ItemType<GreenAlchemicalMushroom>(),
+                    ModContent.ItemType<BlueAlchemicalMushroom>(),
+                    ModContent.ItemType<PurpleAlchemicalMushroom>(),
+                    ModContent.ItemType<GrayAlchemicalMushroom>(),
+                    ModContent.ItemType<PinkAlchemicalMushroom>(),
+                    ModContent.ItemType<BrownAlchemicalMushroom>(),
+                };
                 int loot = Main.rand.Next(lootTable.Length);
 
                 if (Special >= 0)
@@ -208,7 +218,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type, 5);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), lootTable[loot], 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -222,7 +232,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type, 5);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), lootTable[loot], 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -236,7 +246,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type, 5);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), lootTable[loot], 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -250,7 +260,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
                     }
 
                     Main.npcChatText = MushroomChat();
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), Mod.Find<ModItem>(lootTable[loot]).Type, 5);
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), lootTable[loot], 5);
 
                     SoundEngine.PlaySound(SoundID.Chat);
                     return;
@@ -448,7 +458,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
 
         public static string NoMushroomChat()
         {
-            WeightedRandom<string> chat = new WeightedRandom<string>();
+            WeightedRandom<string> chat = new();
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.NoMushroomChat1"));
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.NoMushroomChat2"));
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.NoMushroomChat3"));
@@ -457,7 +467,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
 
         public static string SpecialChat()
         {
-            WeightedRandom<string> chat = new WeightedRandom<string>();
+            WeightedRandom<string> chat = new();
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.SpecialChat1"));
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.SpecialChat2"));
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.SpecialChat3"));
@@ -466,7 +476,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
 
         public static string MushroomChat()
         {
-            WeightedRandom<string> chat = new WeightedRandom<string>();
+            WeightedRandom<string> chat = new();
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.MushroomChat1"));
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.MushroomChat2"));
             chat.Add(Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Mushman.MushroomChat3"));
@@ -482,7 +492,6 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
             shop.Add(ItemID.RecallPotion);
             shop.Add(ItemID.MushroomGrassSeeds);
             shop.Add<MyceliumSeeds>();
-            shop.Add(ItemID.MushroomGrassSeeds);
             shop.Add(ItemID.LesserHealingPotion);
             shop.Add(ItemID.LesserManaPotion);
 
@@ -496,10 +505,10 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
             shop.Add(ItemID.SuperManaPotion, Condition.DownedMoonLord);
 
             //TODO: Give these text
-            shop.Add<GrandHealingPotion>([new((LocalizedText)null, () => AAWorld.downedAncient)]);
-            shop.Add<GrandManaPotion>([new((LocalizedText)null, () => AAWorld.downedAncient)]);
+            shop.Add<GrandHealingPotion>(AAConditions.DownedAnyLateAncient);
+            shop.Add<GrandManaPotion>(AAConditions.DownedAnyLateAncient);
 
-            shop.Add<TheBigOne>([new((LocalizedText)null, () => AAWorld.downedSAncient)]);
+            shop.Add<TheBigOne>(AAConditions.DownedAnySuperancient);
 
             shop.Register();
         }
@@ -510,16 +519,16 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.Friendly
         }
 
         public override void TownNPCAttackStrength(ref int damage, ref float knockback)
-		{
-			damage = 20;
-			knockback = 4f;
-		}
+        {
+            damage = 20;
+            knockback = 4f;
+        }
 
-		public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
-		{
-			cooldown = 20;
-			randExtraCooldown = 20;
-		}
+        public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
+        {
+            cooldown = 20;
+            randExtraCooldown = 20;
+        }
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {

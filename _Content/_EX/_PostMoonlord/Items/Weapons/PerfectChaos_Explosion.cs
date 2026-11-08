@@ -1,7 +1,6 @@
 using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -26,7 +25,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             }
             Projectile.glowMask = customGlowMask;
             // DisplayName.SetDefault("Discordian Fury");     
-            Main.projFrames[Projectile.type] = 7;     
+            Main.projFrames[Projectile.type] = 7;
         }
 
         public override void SetDefaults()

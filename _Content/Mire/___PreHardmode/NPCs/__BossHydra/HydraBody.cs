@@ -1,4 +1,4 @@
-using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandard;
+﻿using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandard;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Accessories;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Pets;
@@ -6,19 +6,20 @@ using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Mire.World.Biomes;
 using AAModClassic._CrossMod;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using System.IO;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
+using Terraria.GameContent.UI.BigProgressBar;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -73,6 +74,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
             Music = MusicManagementSystem.MusicSlots["Hydra"];
             NPC.buffImmune[BuffID.Poisoned] = true;
             SpawnModBiomes = [ModContent.GetInstance<MireBiome>().Type];
+            NPC.BossBar = new HydraBossBar();
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -135,58 +137,58 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
         public bool TeleportMe2 = false;
         public bool TeleportMe3 = false;
 
-		public void HandleHeads()
-		{
-			if(Main.netMode != NetmodeID.MultiplayerClient)
-			{
-				if(!HeadsSpawned)
-				{
+        public void HandleHeads()
+        {
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                if (!HeadsSpawned)
+                {
                     headindex[0] = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HydraHead1>(), 0);
-					Head1 = Main.npc[headindex[0]];
-					Head1.ai[0] = NPC.whoAmI;
+                    Head1 = Main.npc[headindex[0]];
+                    Head1.ai[0] = NPC.whoAmI;
 
                     headindex[1] = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HydraHead2>(), 0);
-					Head2 = Main.npc[headindex[1]];
-					Head2.ai[0] = NPC.whoAmI;
+                    Head2 = Main.npc[headindex[1]];
+                    Head2.ai[0] = NPC.whoAmI;
 
                     headindex[2] = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<HydraHead3>(), 0);
-					Head3 = Main.npc[headindex[2]];
-					Head3.ai[0] = NPC.whoAmI;					
+                    Head3 = Main.npc[headindex[2]];
+                    Head3.ai[0] = NPC.whoAmI;
 
-					Head1.netUpdate = true;
-					Head2.netUpdate = true;
-					Head3.netUpdate = true;
-					HeadsSpawned = true;
+                    Head1.netUpdate = true;
+                    Head2.netUpdate = true;
+                    Head3.netUpdate = true;
+                    HeadsSpawned = true;
                     NPC.netUpdate = true;
-				}
-			}
+                }
+            }
             else
-			{
-				if(!HeadsSpawned)
-				{
-                    if(headindex[0] != -1)
+            {
+                if (!HeadsSpawned)
+                {
+                    if (headindex[0] != -1)
                     {
                         Head1 = Main.npc[headindex[0]];
-					    Head1.ai[0] = NPC.whoAmI;
+                        Head1.ai[0] = NPC.whoAmI;
                     }
-                    if(headindex[1] != -1)
+                    if (headindex[1] != -1)
                     {
                         Head2 = Main.npc[headindex[1]];
-					    Head1.ai[0] = NPC.whoAmI;
+                        Head1.ai[0] = NPC.whoAmI;
                     }
-                    if(headindex[2] != -1)
+                    if (headindex[2] != -1)
                     {
                         Head3 = Main.npc[headindex[2]];
-					    Head1.ai[0] = NPC.whoAmI;
+                        Head1.ai[0] = NPC.whoAmI;
                     }
 
-					if(Head1 != null && Head2 != null && Head3 != null)
-					{
-						HeadsSpawned = true;
-					}
-				}
-			}
-		}
+                    if (Head1 != null && Head2 != null && Head3 != null)
+                    {
+                        HeadsSpawned = true;
+                    }
+                }
+            }
+        }
 
         public override void AI()
         {
@@ -275,7 +277,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
                 AIMovementRunAway();
                 return;
             }
-            
+
             bool noHeads = !NPC.AnyNPCs(ModContent.NPCType<HydraHead1>()) && !NPC.AnyNPCs(ModContent.NPCType<HydraHead2>()) && !NPC.AnyNPCs(ModContent.NPCType<HydraHead3>()) &&
                 !NPC.AnyNPCs(ModContent.NPCType<HydraHead4>()) && !NPC.AnyNPCs(ModContent.NPCType<HydraHead5>()) && !NPC.AnyNPCs(ModContent.NPCType<HydraHead6>()) &&
                 !NPC.AnyNPCs(ModContent.NPCType<HydraHead7>()) && !NPC.AnyNPCs(ModContent.NPCType<HydraHead8>()) && !NPC.AnyNPCs(ModContent.NPCType<HydraHead9>());
@@ -294,7 +296,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
 
         public float[] internalAI = new float[1];
 
-        public int[] headindex = {-1, -1, -1};
+        public int[] headindex = { -1, -1, -1 };
         public override void SendExtraAI(BinaryWriter writer)
         {
             base.SendExtraAI(writer);
@@ -490,7 +492,7 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
         {
             string headTex = Texture.Replace("Body", "Head");
 
-            if(NPC.IsABestiaryIconDummy)
+            if (NPC.IsABestiaryIconDummy)
             {
                 Rectangle frame = ModContent.Request<Texture2D>(headTex + "2").Frame(1, 2);
                 bool small = NPC.scale == 0.65f;
@@ -539,5 +541,53 @@ namespace AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra
                 DrawHead(sb, headTex + "9", headTex + "6_Glow", Head9.Center - Main.screenPosition, Head9.frame, Head9.rotation, drawColor);
             }
         }
+    }
+
+    public class HydraBossBar : ModBossBar
+    {
+        private Asset<Texture2D> _icon = ModContent.Request<Texture2D>("AAModClassic/_Content/Mire/___PreHardmode/NPCs/__BossHydra/HydraHead1_Head_Boss");
+        public override bool? ModifyInfo(ref BigProgressBarInfo info, ref float life, ref float lifeMax, ref float shield, ref float shieldMax)
+        {
+
+            if (Main.npc.Length < info.npcIndexToAimAt)
+                return false;
+
+            NPC npc = Main.npc[info.npcIndexToAimAt];
+
+            if (npc == null || !npc.active)
+                return false;
+
+            if (npc.ModNPC is not HydraBody Body)
+                return false;
+
+            // set value to default value
+            life = 0;
+            lifeMax = 0;
+
+            if (Body.Head1 == null)
+                return false;
+
+            // lifemax will be calculate here
+            lifeMax = Body.Head1.lifeMax * 9;
+
+            // combine all head's life
+            NPC[] heads = [Body.Head1, Body.Head2, Body.Head3, Body.Head4, Body.Head5, Body.Head6, Body.Head7, Body.Head8, Body.Head9];
+
+            foreach (var head in heads)
+            {
+                if (head == null)
+                {
+                    life += Body.Head1.lifeMax;
+                    continue;
+                }
+
+                if (head.life >= 0)
+                    life += head.life;
+            }
+
+            return true;
+        }
+
+        public override Asset<Texture2D> GetIconTexture(ref Rectangle? iconFrame) => _icon;
     }
 }

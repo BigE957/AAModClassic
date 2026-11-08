@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -23,9 +22,9 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Materials
             TileObjectData.addTile(Type);
 
             DustType = ModContent.DustType<Dusts.DarkmatterDust>();
-            RegisterItemDrop(ModContent.ItemType<DarkmatterBar>());   
+            RegisterItemDrop(ModContent.ItemType<DarkmatterBar>());
             AddMapEntry(new Color(0, 0, 255));
-			MinPick = 0;
+            MinPick = 0;
         }
     }
 }

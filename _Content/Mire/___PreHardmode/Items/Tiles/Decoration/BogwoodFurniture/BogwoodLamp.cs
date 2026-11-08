@@ -1,10 +1,9 @@
-﻿using Terraria;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Mire.___PreHardmode.Items.Tiles.Decoration.BogwoodFurniture
 {
-    public class BogwoodLamp: ModItem, ILocalizedModType
+    public class BogwoodLamp : ModItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Placeables.Furniture.Bogwood";
         public override void SetStaticDefaults()

@@ -1,42 +1,39 @@
-﻿using AAModClassic._Content.Chaos.__Hardmode.Items.Weapons;
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     public class PerfectChaosYari_Holdout : ModProjectile
     {
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Chaos Yari");
-		}
-    	
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Chaos Yari");
+        }
+
         public override void SetDefaults()
         {
-			Projectile.width = 40;  //The width of the .png file in pixels divided by 2.
-			//Projectile.aiStyle = ProjAIStyleID.Spear;
-			Projectile.DamageType = DamageClass.Melee;  //Dictates whether this is a melee-class weapon.
-			Projectile.timeLeft = 90;
-			Projectile.height = 40;  //The height of the .png file in pixels divided by 2.
-			Projectile.friendly = true;
-			Projectile.hostile = false;
-			Projectile.tileCollide = false;
-			Projectile.ignoreWater = true;
-			Projectile.penetrate = -1;
-			Projectile.ownerHitCheck = true;
-			Projectile.hide = true;
+            Projectile.width = 40;  //The width of the .png file in pixels divided by 2.
+                                    //Projectile.aiStyle = ProjAIStyleID.Spear;
+            Projectile.DamageType = DamageClass.Melee;  //Dictates whether this is a melee-class weapon.
+            Projectile.timeLeft = 90;
+            Projectile.height = 40;  //The height of the .png file in pixels divided by 2.
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = -1;
+            Projectile.ownerHitCheck = true;
+            Projectile.hide = true;
         }
 
         bool shot = false;
 
         public override void AI()
         {
-        	if (Main.rand.NextBool(5))
+            if (Main.rand.NextBool(5))
             {
                 int DustType = ModContent.DustType<Dusts.AkumaADust>();
                 if (Main.rand.NextBool(3))
@@ -49,7 +46,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                 }
                 Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustType, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
             }
-                    
+
             // ai[0] = Speed value of the spear. Changes as time goes by.
             // localAI[0] = Special effect 0-1 flag value. Actived right before the spear goes backward.
 
@@ -100,10 +97,10 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             if (Projectile.spriteDirection == -1)
                 Projectile.rotation -= MathHelper.PiOver2;
         }
-        
+
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-        	target.immune[Projectile.owner] = 5;
+            target.immune[Projectile.owner] = 5;
         }
 
         public override bool PreDraw(ref Color lightColor)

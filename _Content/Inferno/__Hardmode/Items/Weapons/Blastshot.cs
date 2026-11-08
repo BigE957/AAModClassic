@@ -1,19 +1,18 @@
-﻿using Terraria;
-using Terraria.DataStructures;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.__Hardmode.Items.Materials;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Inferno.Projectiles;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
+using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
 {
     public class Blastshot : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Ranged";
-        
+
         public override void SetDefaults()
         {
             Item.damage = 50;
@@ -33,8 +32,8 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Weapons
             Item.autoReuse = true;
             Item.shootSpeed = 14f;
         }
-		
-		public override Vector2? HoldoutOffset()
+
+        public override Vector2? HoldoutOffset()
         {
             return new Vector2(-4, 0);
         }

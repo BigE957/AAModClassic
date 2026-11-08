@@ -5,14 +5,14 @@ using Terraria.ModLoader;
 namespace AAModClassic._Unofficial.Content.Void._PostMoonlord.Items._BossInfinityZero.BossStandard
 {
     [AutoloadEquip(EquipType.Head)]
-	public class InfinityZeroMask : BaseAAItem, ILocalizedModType
+    public class InfinityZeroMask : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Vanity.Masks";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("Infinity Zero Mask");
-		}
+        }
 
         public override void SetDefaults()
         {

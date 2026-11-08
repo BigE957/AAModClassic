@@ -1,8 +1,6 @@
 ﻿using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,7 +10,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons     //We need pl
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
 
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Scythe of Evil");
@@ -23,20 +21,20 @@ Death Sickle EX"); */
 
         public override void SetDefaults()
         {
-            Item.damage = 1250;  
-            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */; 
-            Item.width = 80;    
-            Item.height = 72; 
+            Item.damage = 1250;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 80;
+            Item.height = 72;
 
-            Item.useTime = 6; 
+            Item.useTime = 6;
             Item.useAnimation = 6;
             Item.channel = true;
-            Item.useStyle = 100;  
-            Item.knockBack = 2f; 
-            Item.value = Item.sellPrice(0, 30, 0, 0); 
+            Item.useStyle = 100;
+            Item.knockBack = 2f;
+            Item.value = Item.sellPrice(0, 30, 0, 0);
             Item.rare = ItemRarityID.Cyan;
             Item.expert = true;
-            Item.shoot = ModContent.ProjectileType<ScytheOfEvil_Holdout>(); 
+            Item.shoot = ModContent.ProjectileType<ScytheOfEvil_Holdout>();
             Item.noUseGraphic = true;
             Item.noMelee = true;
         }
@@ -49,8 +47,8 @@ Death Sickle EX"); */
             recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
             recipe.Register();
         }
- 
-        public override void UseItemFrame(Player player)  
+
+        public override void UseItemFrame(Player player)
         {
             player.bodyFrame.Y = 3 * player.bodyFrame.Height;
         }

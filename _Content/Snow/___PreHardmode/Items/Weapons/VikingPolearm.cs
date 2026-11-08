@@ -1,18 +1,17 @@
-﻿using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria;
-using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
+﻿using AAModClassic._Content.Snow.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Snow.___PreHardmode.Items.Weapons
 {
     public class VikingPolearm : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Viking Polearm");		
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Viking Polearm");		
+        }
 
         public override void SetDefaults()
         {
@@ -40,13 +39,13 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Weapons
         }
 
         public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
+        {
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<SnowMana>(), 8);
             recipe.AddIngredient(ItemID.IceBlock, 40);
             recipe.AddIngredient(ItemID.BorealWood, 12);
             recipe.AddTile(TileID.Anvils);
-			recipe.Register();
-		}
+            recipe.Register();
+        }
     }
 }

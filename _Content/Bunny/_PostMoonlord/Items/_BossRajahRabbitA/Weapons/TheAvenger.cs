@@ -1,5 +1,4 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,7 +7,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
     public class TheAvenger : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("The Avenger");
@@ -25,7 +24,7 @@ namespace AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weap
             Item.knockBack = 7f;
             Item.width = 30;
             Item.height = 10;
-            Item.damage = 250;
+            Item.damage = 500;
             Item.shoot = ModContent.ProjectileType<TheAvenger_Holdout>();
             Item.shootSpeed = 15f;
             Item.UseSound = SoundID.Item1;

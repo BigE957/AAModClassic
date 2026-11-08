@@ -1,8 +1,4 @@
-﻿using AAModClassic._Content.Inferno.Buffs;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
-using Terraria.Audio;
-using Terraria.DataStructures;
+﻿using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 

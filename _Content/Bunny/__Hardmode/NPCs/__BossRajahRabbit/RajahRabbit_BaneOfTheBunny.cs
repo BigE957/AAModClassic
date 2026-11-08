@@ -1,11 +1,10 @@
-using Terraria;
+using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
 namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
 {
-    public class RajahRabbit_BaneOfTheBunny: ModProjectile
+    public class RajahRabbit_BaneOfTheBunny : ModProjectile
     {
         public override void SetStaticDefaults()
         {

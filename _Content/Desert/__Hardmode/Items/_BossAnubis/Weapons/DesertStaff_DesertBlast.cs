@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -57,14 +56,14 @@ namespace AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis.Weapons
                 dust1 = Main.dust[Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.JudgementDust>(), 0, 0, 0, Color.White, 1f)];
                 dust1.noGravity = true;
             }
-			for (int h = 0; h < 3; h++)
-			{
-				Vector2 vel = new Vector2(0, -1);
-				float rand = Main.rand.NextFloat() * 6.283f;
-				vel = vel.RotatedBy(rand);
-				vel *= 8f;
-				Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, ModContent.ProjectileType<DesertStaff_FragBlast>(), Projectile.damage, 0, Main.myPlayer);
-			}
+            for (int h = 0; h < 3; h++)
+            {
+                Vector2 vel = new Vector2(0, -1);
+                float rand = Main.rand.NextFloat() * 6.283f;
+                vel = vel.RotatedBy(rand);
+                vel *= 8f;
+                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, ModContent.ProjectileType<DesertStaff_FragBlast>(), Projectile.damage, 0, Main.myPlayer);
+            }
         }
     }
 }

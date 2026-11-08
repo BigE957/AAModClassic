@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration
@@ -12,7 +11,7 @@ namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Decoration
             Main.tileMergeDirt[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(ModContent.ItemType<IncineriteBrick>());   
+            RegisterItemDrop(ModContent.ItemType<IncineriteBrick>());
             AddMapEntry(new Color(80, 60, 20));
             DustType = ModContent.DustType<Dusts.IncineriteDust>();
         }

@@ -1,6 +1,4 @@
 ﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

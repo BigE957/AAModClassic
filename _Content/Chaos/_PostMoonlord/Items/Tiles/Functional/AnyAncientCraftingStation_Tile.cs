@@ -1,10 +1,9 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Functional;
+using Microsoft.Xna.Framework;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.ID;
-using AAModClassic._Content.Void._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional
 {
@@ -26,7 +25,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional
             TileID.Sets.DisableSmartCursor[Type] = true;
             RegisterItemDrop(ModContent.ItemType<BinaryReassembler>());
         }
-        
+
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {

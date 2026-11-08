@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
@@ -19,9 +18,9 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.BossStandard.R
 
         public int FrameWidth => 18 * (PedestalStyle == 2 ? 5 : 3);
         public const int FrameHeight = 18 * 4;
-        
+
         public override string Texture => "AAModClassic/Utilities/AbstractsLikeDigitalCircus/Items/BossStandard/Relics/RelicPedestal_" + PedestalStyle;
-        
+
         public virtual int PedestalStyle { get; }
 
         public virtual int ItemType { get; }

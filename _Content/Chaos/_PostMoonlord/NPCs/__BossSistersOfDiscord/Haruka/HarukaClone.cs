@@ -1,11 +1,10 @@
-using Terraria;
+﻿using AAModClassic.Base;
+using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Utilities;
 
 namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.Haruka
 {
@@ -40,6 +39,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
             NPC.netAlways = true;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
@@ -51,12 +51,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
         public override void AI()
         {
             NPC Haruka = Main.npc[(int)NPC.ai[0]];
-            if(!Main.npc[(int)NPC.ai[0]].active || Main.npc[(int)NPC.ai[0]].life <= 0)
+            if (!Main.npc[(int)NPC.ai[0]].active || Main.npc[(int)NPC.ai[0]].life <= 0)
             {
                 NPC.life = 0;
                 NPC.active = false;
             }
-            if(((Haruka)Haruka.ModNPC).internalAI[0] != 4)
+            if (((Haruka)Haruka.ModNPC).internalAI[0] != 4)
             {
                 NPC.boss = false;
                 NPC.life = 0;

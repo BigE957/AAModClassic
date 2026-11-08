@@ -1,36 +1,28 @@
-﻿using AAModClassic._Content.Void._PostMoonlord.Items._BossZero.Accessories;
-using AAModClassic.Dusts;
-using AAModClassic.Utilities;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
-using Microsoft.Xna.Framework;
-using System;
-using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Terraria.DataStructures;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories
 {
     [AutoloadEquip(EquipType.Wings)]
-	public class OlympianWings : EquipAbstract, ILocalizedModType
-	{
+    public class OlympianWings : EquipAbstract, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Accessories";
-		public override void SetStaticDefaults()
-		{
+        public override void SetStaticDefaults()
+        {
             // DisplayName.SetDefault("Olympian Wings");
 
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(170, 8, 2f);
         }
 
-		public override void SetDefaults()
-		{
-			Item.width = 26;
-			Item.height = 30;
+        public override void SetDefaults()
+        {
+            Item.width = 26;
+            Item.height = 30;
             Item.value = Item.sellPrice(0, 8, 0, 0);
             Item.rare = ItemRarityID.Yellow;
-			Item.accessory = true;
+            Item.accessory = true;
         }
 
         public override void RegisterEquipEffects()
@@ -47,5 +39,5 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessori
             maxAscentMultiplier = 2.1f;
             constantAscend = 0.135f;
         }
-	}
+    }
 }

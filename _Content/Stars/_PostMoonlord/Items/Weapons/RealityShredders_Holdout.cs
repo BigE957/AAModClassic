@@ -2,7 +2,6 @@ using AAModClassic.Buffs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -31,7 +30,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons     //We need 
             Projectile.ignoreWater = true;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.scale = 4f;
-            
+
         }
         public override void AI()
         {
@@ -49,7 +48,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons     //We need 
                     Projectile.Kill();
                 }
             }
-            Lighting.AddLight(Projectile.Center, 0f, .1f, .5f); 
+            Lighting.AddLight(Projectile.Center, 0f, .1f, .5f);
             Projectile.Center = player.MountedCenter;
             Projectile.position.X += player.width / 2 * player.direction;
             Projectile.spriteDirection = player.direction;
@@ -71,7 +70,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Weapons     //We need 
                 int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Electric, 0, 0, 0, default, .1f);
                 Main.dust[dust].velocity /= 2f;
             }
- 
+
         }
 
 

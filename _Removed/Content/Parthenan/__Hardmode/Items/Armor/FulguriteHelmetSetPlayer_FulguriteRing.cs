@@ -1,6 +1,4 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -33,7 +31,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Armor
             Projectile.Center = player.Center;
             Projectile.direction = player.direction;
         }
-        
+
 
         public override void OnKill(int timeLeft)
         {

@@ -2,20 +2,18 @@
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
 {
     public class TheBookOfRunes : EquipAbstract, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Accessories";
-		public override void SetStaticDefaults()
+        public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("The Book of Runes");
@@ -47,14 +45,14 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Accessories
         }
 
         public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
+        {
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<APageOfTheRuneBook>(), 1);
-			recipe.AddIngredient(ItemID.Book, 1);
+            recipe.AddIngredient(ItemID.Book, 1);
             recipe.AddIngredient(ModContent.ItemType<DreadScale>(), 15);
             recipe.AddIngredient(ModContent.ItemType<EXSoul>(), 1);
-			recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
-			recipe.Register();
-		}
+            recipe.AddTile(ModContent.TileType<AnyAncientCraftingStation_Tile>());
+            recipe.Register();
+        }
     }
 }

@@ -8,7 +8,6 @@ using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -30,13 +29,13 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
 
         public override void SetDefaults()
         {
-			base.SetDefaults();
-			NPC.lifeMax = 1600;
+            base.SetDefaults();
+            NPC.lifeMax = 1600;
             NPC.damage = 32;
-            NPC.defense = 15;	
-            NPC.buffImmune[BuffID.OnFire] = true;			
+            NPC.defense = 15;
+            NPC.buffImmune[BuffID.OnFire] = true;
 
-			offsetBasePoint = new Vector2(-240f, 0f);
+            offsetBasePoint = new Vector2(-240f, 0f);
 
             SpawnModBiomes = new int[1] { ModContent.GetInstance<InfernoBiome>().Type };
         }
@@ -64,7 +63,7 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.__BossGripsOfChaos
             int blueGripExists = NPC.CountNPCS(ModContent.NPCType<GripOfChaosMire>());
             if (blueGripExists == 0)
             {
-                AAWorld.downedGrips = true;
+                NPC.SetEventFlagCleared(ref AAWorld.downedGrips, -1);
                 if (NPC.playerInteraction[Main.myPlayer])
                     GripsOfChaosKilled.Condition.Complete();
             }

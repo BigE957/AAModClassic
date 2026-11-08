@@ -1,15 +1,14 @@
+using AAModClassic._Content.Mire.Buffs;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
-using AAModClassic._Content.Mire.Buffs;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 {
     public class PerfectChaos_ChaosBeam : ModProjectile
-    { 
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Chaos Beam");
@@ -18,18 +17,18 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
 
         public override void SetDefaults()
         {
-            Projectile.penetrate = 1;  
+            Projectile.penetrate = 1;
             Projectile.width = 30;
             Projectile.height = 30;
-			Projectile.friendly = true;
-			Projectile.hostile = false;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.timeLeft = 600;
             Projectile.aiStyle = -1;
         }
-		
-		public override void AI()
-		{
+
+        public override void AI()
+        {
             for (int dust = 0; dust < 5; dust++)
             {
                 int dustId = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y + 2f), Projectile.width, Projectile.height + 5, ModContent.DustType<Dusts.AkumaADust>(), Projectile.velocity.X * 0.2f,
@@ -39,7 +38,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                     Projectile.velocity.Y * 0.2f, 100, new Color(Main.DiscoR, 0, Main.DiscoB), 1f);
                 Main.dust[dustId3].noGravity = true;
             }
-            
+
             Projectile.frameCounter++;
             if (Projectile.frameCounter > 5)
             {
@@ -50,14 +49,14 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                     Projectile.frame = 0;
                 }
             }
-            
-            
+
+
             Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 0.785f;
             if (Projectile.velocity.Y > 16f)
             {
                 Projectile.velocity.Y = 16f;
             }
-            
+
             const int aislotHomingCooldown = 0;
             const int homingDelay = 30;
             const float desiredFlySpeedInPixelsPerFrame = 20;
@@ -66,7 +65,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             Projectile.ai[aislotHomingCooldown]++;
             if (Projectile.ai[aislotHomingCooldown] > homingDelay)
             {
-                Projectile.ai[aislotHomingCooldown] = homingDelay; 
+                Projectile.ai[aislotHomingCooldown] = homingDelay;
 
                 int foundTarget = HomeOnTarget();
                 if (foundTarget != -1)
@@ -93,7 +92,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                     if (distance <= homingMaximumRangeInPixels &&
                         (
                             selectedTarget == -1 || //there is no selected target
-                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance) 
+                            Projectile.Distance(Main.npc[selectedTarget].Center) > distance)
                     )
                         selectedTarget = i;
                 }
@@ -137,8 +136,8 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
             }
             Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position.X, Projectile.position.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<PerfectChaos_Explosion>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
         }
-        
-		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(ModContent.BuffType<Moonraze_Buff>(), 600);
             target.AddBuff(BuffID.Daybreak, 600);

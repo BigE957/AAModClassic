@@ -1,33 +1,44 @@
-﻿using AAModClassic._Content.Acropolis.__Hardmode.Items.Tiles;
-using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
+﻿using AAModClassic._Content.Acropolis._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Acropolis._PostMoonlord.Items.Tiles.Decoration;
 using AAModClassic._Content.Acropolis.World.Tiles;
-using AAModClassic._Unreleased.Content.Parthenan.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Structures;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 
 namespace AAModClassic._Content.Acropolis.World.Biomes
 {
-    public class AcropolisTexGenAssets : ModSystem
+    public class AcropolisSchematicAssets : ModSystem
     {
-        public static TexGenData AcropolisTileData;
-        public static TexGenData AcropolisWallData;
-        public static TexGenData AcropolisRoofData;
+        public static ResolvedSchematic Acropolis { get; private set; }
+        public static HashSet<int> UnbreakableTiles { get; } = [];
+        public static HashSet<int> UnbreakableWalls { get; } = [];
 
-        public override void OnModLoad()
+        public override void PostSetupContent()
         {
-            AcropolisTileData = TexGen.GetTextureForGen("AAModClassic/_Content/Acropolis/World/Biomes/Acropolis");
-            AcropolisWallData = TexGen.GetTextureForGen("AAModClassic/_Content/Acropolis/World/Biomes/AcropolisWalls");
-            AcropolisRoofData = TexGen.GetTextureForGen("AAModClassic/_Content/Acropolis/World/Biomes/AcropolisRoof");;
+            SchematicData data = SchematicLoader.ReadFromMod(AAMod.instance, "Structures/Schematics/Acropolis.aasch");
+            Acropolis = SchematicLoader.Resolve(data);
+
+            foreach (string warning in Acropolis.Warnings)
+                AAMod.instance.Logger.Warn("Acropolis schematic: " + warning);
+
+            UnbreakableTiles.Add(ModContent.TileType<SkymarbleBrick_Tile>());
+            UnbreakableTiles.Add(ModContent.TileType<SkycrystalBrick_Tile>());
+            UnbreakableTiles.Add(ModContent.TileType<SkyCrystal_Tile>());
+
+            UnbreakableWalls.Add(ModContent.WallType<AcropolisBrickWall_Wall>());
+            UnbreakableWalls.Add(ModContent.WallType<AcropolisPillarWall_Wall>());
+        }
+
+        public override void Unload()
+        {
+            Acropolis = null;
+            UnbreakableTiles.Clear();
+            UnbreakableWalls.Clear();
         }
     }
 
@@ -35,101 +46,51 @@ namespace AAModClassic._Content.Acropolis.World.Biomes
     {
         public override bool Place(Point origin, StructureMap structures)
         {
-            int attempts = 0;
-            int maxAttempts = 5000;
+            ResolvedSchematic acropolis = AcropolisSchematicAssets.Acropolis;
+            if (acropolis == null)
+            {
+                AAMod.instance.Logger.Warn("Acropolis schematic isn't loaded; skipping placement.");
+                return false;
+            }
+
+            int width = acropolis.Width;
+            int height = acropolis.Height;
+
             Point placementPoint = origin;
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
-                do
-                {
-                    //AAMod.instance.Logger.Info("Attempting to Place Acropolis at: " + placementPoint);
-
-                    bool canGenerateInLocation = true;
-
-                    if (!structures.CanPlace(new Rectangle(placementPoint.X, placementPoint.Y, AcropolisTexGenAssets.AcropolisTileData.Width, AcropolisTexGenAssets.AcropolisTileData.Height), WorldGenUtils.AllTilesAllowed, 0))
+                const int maxAttempts = 5000;
+                PlacementSearchResult search = StructurePlacementSearch.Find(
+                    origin, width, height, maxAttempts, structures,
+                    shouldAvoidTile: (p, attempts) => Framing.GetTileSafely(p).HasTile,
+                    nextCandidate: attempts =>
                     {
-                        //AAMod.instance.Logger.Info("Acropolis Placement Failed, Encountered a Pre-Existing Structure");
-                        canGenerateInLocation = false;
-                    }
+                        int radius = 200 + attempts / 5;
+                        int targetX = Math.Clamp(origin.X + WorldGen.genRand.Next(-radius, radius), 200, Main.maxTilesX - 200);
+                        return new Point(targetX, origin.Y);
+                    },
+                    logName: "Acropolis",
+                    canPlace: rect => structures.CanPlace(rect, WorldGenUtils.AllTilesAllowed, 0));
 
-                    if (canGenerateInLocation)
-                    {
-                        int fullX = placementPoint.X + AcropolisTexGenAssets.AcropolisTileData.Width;
-                        int fullY = placementPoint.Y + AcropolisTexGenAssets.AcropolisTileData.Height;
-
-                        for (int x = placementPoint.X; x < fullX; x++)
-                        {
-                            for (int y = placementPoint.Y; y < fullY; y++)
-                            {
-                                if (Framing.GetTileSafely(x, y).HasTile)//ShouldAvoidLocation(new Point(x, y), attempts > 1000, attempts > 4000))
-                                {
-                                    canGenerateInLocation = false;
-                                    break;
-                                }
-                            }
-                            if (!canGenerateInLocation)
-                                break;
-                        }
-                    }
-
-                    if (canGenerateInLocation)
-                    {
-                        AAMod.instance.Logger.Info("Acropolis successfully placed after " + attempts + " attempts.");
-                        break;
-                    }
-
-                    int radius = 200 + attempts / 5;
-                    int targetX = Math.Clamp(origin.X + WorldGen.genRand.Next(-radius, radius), 200, Main.maxTilesX - 200);
-                    int targetY = origin.Y;
-                    placementPoint = new Point(targetX, targetY);
-
-                } while (attempts++ < maxAttempts);
+                placementPoint = search.Position;
             }
-            WorldGenUtils.AddProtectedStructure(new Rectangle(placementPoint.X, placementPoint.Y, AcropolisTexGenAssets.AcropolisTileData.Width, AcropolisTexGenAssets.AcropolisTileData.Height), 20);
 
+            WorldGenUtils.AddProtectedStructure(new Rectangle(placementPoint.X, placementPoint.Y, width, height), 20);
             AAWorld.acropolisPos = placementPoint;
 
-            Dictionary<Color, int> colorToTile = new Dictionary<Color, int>
+            var options = new SchematicPlaceOptions
             {
-                [new Color(255, 0, 0)] = ModContent.TileType<SkymarbleBrick_Tile>(),
-                [new Color(128, 128, 128)] = ModContent.TileType<SkycrystalBrick_Tile>(),
-                [new Color(255, 255, 0)] = ModContent.TileType<SkyCrystal_Tile>(),
-                [new Color(0, 255, 255)] = TileID.Grass,
-                [new Color(0, 255, 0)] = TileID.Dirt,
-                [new Color(0, 0, 255)] = TileID.Cloud,
-                [new Color(255, 255, 255)] = -2, //turn into air
-                [Color.Black] = -1 //don't touch when genning		
+                Anchor = SchematicAnchor.TopLeft,
+                UnbreakableTiles = AcropolisSchematicAssets.UnbreakableTiles,
+                UnbreakableWalls = AcropolisSchematicAssets.UnbreakableWalls,
             };
 
-            HashSet<int> protectedTiles = [
-                ModContent.TileType<SkymarbleBrick_Tile>(),
-                ModContent.TileType<SkycrystalBrick_Tile>(),
-                ModContent.TileType<SkyCrystal_Tile>(),
-            ];
+            PlacedSchematic placed = SchematicPlacement.Place(acropolis, placementPoint, options);
 
-            Dictionary<Color, int> colorToWall = new Dictionary<Color, int>
-            {
-                [new Color(255, 0, 0)] = ModContent.WallType<AcropolisBrickWall_Wall>(),
-                [new Color(0, 255, 255)] = ModContent.WallType<AcropolisPillarWall_Wall>(),
-                [new Color(0, 255, 0)] = WallID.Dirt,
-                [new Color(0, 0, 255)] = WallID.Cloud,
-                [new Color(255, 255, 255)] = -2,
-                [Color.Black] = -1
-            };
+            foreach (string warning in placed.Warnings)
+                AAMod.instance.Logger.Warn("Acropolis placement: " + warning);
 
-            HashSet<int> protectedWalls = [
-                ModContent.WallType<AcropolisBrickWall_Wall>(),
-                ModContent.WallType<AcropolisPillarWall_Wall>(),
-            ];
-
-            TexGen gen = TexGen.GetTexGenerator(AcropolisTexGenAssets.AcropolisTileData, colorToTile, AcropolisTexGenAssets.AcropolisWallData, colorToWall, null, AcropolisTexGenAssets.AcropolisRoofData, unbreakableTiles: protectedTiles, unbreakableWalls: protectedWalls);
-
-            gen.Generate(placementPoint.X, placementPoint.Y, true, true);
-
-            WorldGen.PlaceObject(placementPoint.X + 79, placementPoint.Y + 86, (ushort)ModContent.TileType<AcropolisAltar_Tile>());
-            NetMessage.SendObjectPlacement(-1, placementPoint.X + 79, placementPoint.Y + 87, (ushort)ModContent.TileType<AcropolisAltar_Tile>(), 0, 0, -1, -1);
-
-            return true;
+            return placed.Success;
         }
     }
 }

@@ -1,19 +1,18 @@
-﻿using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria;
+﻿using AAModClassic._Content.Chaos.__Hardmode.Items.Materials;
 using AAModClassic._Content.Snow.__Hardmode.Items.Weapons;
-using AAModClassic._Content.Chaos.__Hardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
 {
     public class ChaosYari : BaseAAItem, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Chaos Yari");		
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Chaos Yari");		
+        }
 
         public override void SetDefaults()
         {
@@ -41,13 +40,13 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
         }
 
         public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
+        {
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<AsgardianLance>(), 1);
             recipe.AddIngredient(ItemID.Gungnir, 1);
             recipe.AddIngredient(ModContent.ItemType<ChaosPrism>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
-			recipe.Register();
-		}
+            recipe.Register();
+        }
     }
 }

@@ -1,6 +1,5 @@
-using System;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,28 +9,28 @@ namespace AAModClassic._Content.Mire.___PreHardmode.Items.Pets
     /// ALPHA THIS IS NOT AN ITEM
     /// </summary>
 	public class GlowingMossBall_Pet : ModProjectile
-	{
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Glowmoss");
-			Main.projFrames[Projectile.type] = 1;
-			Main.projPet[Projectile.type] = true;
-			ProjectileID.Sets.LightPet[Projectile.type] = true;
-		}
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Glowmoss");
+            Main.projFrames[Projectile.type] = 1;
+            Main.projPet[Projectile.type] = true;
+            ProjectileID.Sets.LightPet[Projectile.type] = true;
+        }
 
-		public override void SetDefaults()
-		{
-			Projectile.width = 30;
-			Projectile.height = 30;
-			Projectile.penetrate = -1;
-			Projectile.netImportant = true;
-			Projectile.timeLeft *= 5;
-			Projectile.friendly = true;
-			Projectile.ignoreWater = true;
-			Projectile.tileCollide = false;
-		}
+        public override void SetDefaults()
+        {
+            Projectile.width = 30;
+            Projectile.height = 30;
+            Projectile.penetrate = -1;
+            Projectile.netImportant = true;
+            Projectile.timeLeft *= 5;
+            Projectile.friendly = true;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = false;
+        }
 
-		public override void AI()
+        public override void AI()
         {
             Lighting.AddLight((int)(Projectile.Center.X + Projectile.width / 2) / 16, (int)(Projectile.position.Y + Projectile.height / 2) / 16, 0f, 0.5f, 0.2f);
             Player player = Main.player[Projectile.owner];

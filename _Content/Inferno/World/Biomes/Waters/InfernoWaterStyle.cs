@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Inferno.World.Biomes.Waters
 {
     public class InfernoWaterStyle : ModWaterStyle
-	{
+    {
         public static ModWaterStyle Instance { get; private set; }
         public static ModWaterfallStyle WaterfallStyle { get; private set; }
         public static int SplashDust { get; private set; }
@@ -34,16 +34,16 @@ namespace AAModClassic._Content.Inferno.World.Biomes.Waters
         public override int GetDropletGore() => DropletGore;
         public override Asset<Texture2D> GetRainTexture() => RainTexture ??= ModContent.Request<Texture2D>("AAModClassic/_Content/Inferno/World/Biomes/Waters/InfernoRain");
 
-		public override void LightColorMultiplier(ref float r, ref float g, ref float b)
-		{
-			r = 1f;
-			g = 1f;
-			b = 1f;
-		}
+        public override void LightColorMultiplier(ref float r, ref float g, ref float b)
+        {
+            r = 1f;
+            g = 1f;
+            b = 1f;
+        }
 
-		public override Color BiomeHairColor()
-		{
-			return Color.OrangeRed;
-		}
-	}
+        public override Color BiomeHairColor()
+        {
+            return Color.OrangeRed;
+        }
+    }
 }

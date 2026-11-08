@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 

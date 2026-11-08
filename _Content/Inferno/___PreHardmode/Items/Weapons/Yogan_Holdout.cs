@@ -1,7 +1,6 @@
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.ID;
 
 namespace AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons

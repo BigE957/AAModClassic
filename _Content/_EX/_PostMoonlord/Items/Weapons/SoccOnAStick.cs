@@ -1,10 +1,8 @@
 ﻿using AAModClassic._Content._Dev._PostMoonlord.Items.Weapons;
 using AAModClassic._Content._EX._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
-using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -53,11 +51,11 @@ Sock Puppet Staff EX"); */
             vector2.Y = Main.mouseY + Main.screenPosition.Y;
             if (player.ownedProjectileCounts[ModContent.ProjectileType<SoccOnAStick_SockDudeFromBaldis>()] > 0)
             {
-                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, 0, 0, ModContent.ProjectileType<SoccOnAStick_SockPuppet>(), damage, num74, i, 0f, 0f);
+                Projectile.NewProjectile(player.GetSource_ItemUse(Item), vector2.X, vector2.Y, 0, 0, ModContent.ProjectileType<SoccOnAStick_SockPuppet>(), damage, num74, i, 0f, 0f);
             }
             else
             {
-                Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), vector2.X, vector2.Y, 0, 0, ModContent.ProjectileType<SoccOnAStick_SockDudeFromBaldis>(), (int)(damage * 1.5f), num74, i, 0f, 0f);
+                Projectile.NewProjectile(player.GetSource_ItemUse(Item), vector2.X, vector2.Y, 0, 0, ModContent.ProjectileType<SoccOnAStick_SockDudeFromBaldis>(), (int)(damage * 1.5f), num74, i, 0f, 0f);
             }
             return false;
         }

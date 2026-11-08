@@ -1,38 +1,37 @@
+using AAModClassic.Dusts;
+using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
-using Terraria;
+using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.DataStructures;
-using Terraria.ID;
-using AAModClassic.Globals;
-using AAModClassic.Dusts;
 
 namespace AAModClassic._Removed.Content.Parthenan
 {
     public class SiegeBox_Tile : ModTile, IGlowmaskTile
-	{
-		public override void SetStaticDefaults()
-		{
-			Main.tileFrameImportant[Type] = true;
-			Main.tileObsidianKill[Type] = true;
-			TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
-			TileObjectData.newTile.Origin = new Point16(0, 1);
-			TileObjectData.newTile.LavaDeath = false;
-			TileObjectData.newTile.DrawYOffset = 2;
-			TileObjectData.addTile(Type);
-			TileID.Sets.DisableSmartCursor[Type] = true;
-			RegisterItemDrop(ModContent.ItemType<SiegeBox>());
+    {
+        public override void SetStaticDefaults()
+        {
+            Main.tileFrameImportant[Type] = true;
+            Main.tileObsidianKill[Type] = true;
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
+            TileObjectData.newTile.Origin = new Point16(0, 1);
+            TileObjectData.newTile.LavaDeath = false;
+            TileObjectData.newTile.DrawYOffset = 2;
+            TileObjectData.addTile(Type);
+            TileID.Sets.DisableSmartCursor[Type] = true;
+            RegisterItemDrop(ModContent.ItemType<SiegeBox>());
             DustType = ModContent.DustType<FulguriteDust>();
             AddMapEntry(new Color(200, 200, 200), Language.GetText("ItemName." + ItemID.Search.GetName(ItemID.MusicBox)));
         }
 
         public override void MouseOver(int i, int j)
-		{
-			Player player = Main.LocalPlayer;
-			player.noThrow = 2;
-			player.cursorItemIconEnabled = true;
-			player.cursorItemIconID = ModContent.ItemType<SiegeBox>();
-		}
-	}
+        {
+            Player player = Main.LocalPlayer;
+            player.noThrow = 2;
+            player.cursorItemIconEnabled = true;
+            player.cursorItemIconID = ModContent.ItemType<SiegeBox>();
+        }
+    }
 }

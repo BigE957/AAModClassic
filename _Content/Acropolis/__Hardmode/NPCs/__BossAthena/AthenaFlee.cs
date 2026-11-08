@@ -1,26 +1,10 @@
-using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
-using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.BossStandard;
-using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Weapons;
-using AAModClassic._Content.Acropolis.__Hardmode.Items.Materials;
-using AAModClassic._Content.Acropolis._PostMoonlord.NPCs.__BossAthenaA;
-using AAModClassic._Content.Acropolis.Projectiles;
-using AAModClassic._Content.Chaos._PostMoonlord.Items._BossSistersOfDiscord.Weapons;
-using AAModClassic.Base.BaseMod.Base;
-using AAModClassic.Dusts;
-using AAModClassic.Effects;
-using AAModClassic.UI.Titles;
+using AAModClassic.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using System;
-using System.IO;
-using Terraria;
 using Terraria.GameContent;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
@@ -69,7 +53,12 @@ namespace AAModClassic._Content.Acropolis.__Hardmode.NPCs.__BossAthena
                     NPC.velocity.Y -= 0.5f;
                     if (NPC.velocity.Y < -8f) NPC.velocity.Y = -8f;
                 }
-                if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient) { BaseAI.KillNPC(NPC); NPC.netUpdate = true; }
+                if (NPC.position.Y + NPC.velocity.Y <= 0f && Main.netMode != NetmodeID.MultiplayerClient) 
+                { 
+                    NPC.active = false;
+                    NPC.netUpdate = true;
+                    return;
+                }
             }
         }
 

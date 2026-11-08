@@ -1,5 +1,4 @@
-﻿using Terraria;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
 namespace AAModClassic._Content._EX._PostMoonlord.Items._BossEmperorFishron.Mounts
 {

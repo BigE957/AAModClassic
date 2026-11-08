@@ -1,18 +1,17 @@
 ﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Misc.__Hardmode.Items.Weapons
 {
-	public class MidasClub : BaseAAItem, ILocalizedModType
-	{
+    public class MidasClub : BaseAAItem, ILocalizedModType
+    {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Midas Club");
-			// Tooltip.SetDefault("Hit stuff for more cash");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Midas Club");
+            // Tooltip.SetDefault("Hit stuff for more cash");
+        }
         public override void SetDefaults()
         {
             Item.damage = 50;
@@ -29,7 +28,7 @@ namespace AAModClassic._Content._Misc.__Hardmode.Items.Weapons
             Item.UseSound = SoundID.Item1;
         }
         public override void AddRecipes()
-		{
+        {
             Recipe recipe;
             recipe = CreateRecipe();
             recipe.AddRecipeGroup("AAModClassic:GoldBar", 15);

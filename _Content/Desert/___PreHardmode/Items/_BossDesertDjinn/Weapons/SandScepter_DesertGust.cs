@@ -1,18 +1,17 @@
 ﻿using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Weapons
 {
     public class SandScepter_DesertGust : ModProjectile
     {
-    	
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Desert Gust");
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Desert Gust");
             Main.projFrames[Projectile.type] = 5;
-		}
-    	
+        }
+
         public override void SetDefaults()
         {
             Projectile.width = 10;
@@ -43,8 +42,8 @@ namespace AAModClassic._Content.Desert.___PreHardmode.Items._BossDesertDjinn.Wea
             {
                 Projectile.frame++;
                 Projectile.frameCounter = 0;
-                if (Projectile.frame > 4) 
-                    Projectile.frame = 0; 
+                if (Projectile.frame > 4)
+                    Projectile.frame = 0;
             }
             return true;
         }

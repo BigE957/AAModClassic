@@ -1,13 +1,12 @@
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using System;
-using Terraria;
 using AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened;
+using Microsoft.Xna.Framework;
+using System;
+using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma
 {
     public class AkumaAttacks
-	{
+    {
         public static void Dragonfire(NPC npc, Mod mod, bool Awakened = false)
         {
             Player player = Main.player[npc.target];

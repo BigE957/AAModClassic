@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Madness.___PreHardmode.Items.Materials;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,7 +8,7 @@ namespace AAModClassic._Content.Madness.___PreHardmode.Items.Weapons   //where i
     public class MadnessSaber : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-        
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Madness Saber");
@@ -21,10 +20,10 @@ namespace AAModClassic._Content.Madness.___PreHardmode.Items.Weapons   //where i
             Item.width = 42;
             Item.height = 46;
             Item.useTime = 17;
-            Item.useAnimation = 17;     
+            Item.useAnimation = 17;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 5;
-            Item.value = 3000;        
+            Item.value = 3000;
             Item.rare = ItemRarityID.Green;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = false;
@@ -33,7 +32,7 @@ namespace AAModClassic._Content.Madness.___PreHardmode.Items.Weapons   //where i
 
         public override void AddRecipes()  //How to craft this sword
         {
-            Recipe recipe = CreateRecipe();      
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<MadnessFragment>(), 5);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();

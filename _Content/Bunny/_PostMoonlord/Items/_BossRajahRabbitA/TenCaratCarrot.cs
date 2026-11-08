@@ -5,14 +5,12 @@ using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
@@ -45,7 +43,7 @@ Non-consumable"); */
             Item.UseSound = new SoundStyle("AAModClassic/Sounds/Rajah");
         }
 
-        
+
 
         public override bool CanUseItem(Player player)
         {
@@ -71,7 +69,7 @@ Non-consumable"); */
                         Name = "Terrarians";
                     else
                         Name = Main.LocalPlayer.name;
-                    
+
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DiamondCarrotRajahText2") + " " + Name + "!", 107, 137, 179);
                 }
                 int overrideDirection = Main.rand.NextBool(2) ? -1 : 1;

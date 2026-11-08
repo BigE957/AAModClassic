@@ -1,7 +1,6 @@
-using System;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
 using Microsoft.Xna.Framework;
-using Terraria;
+using System;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -50,7 +49,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 else
                     rajah = null;
             }
-            if (rajah.CurrentAttack != RajahRabbit.RajahAttacks.CarrotFarmer|| rajah == null || rajah.NPC.active == false || (rajah.NPC.type != ModContent.NPCType<RajahRabbit>() && rajah.NPC.type != ModContent.NPCType<RajahRabbitA>()))
+            if (rajah.CurrentAttack != RajahRabbit.RajahAttacks.CarrotFarmer || rajah == null || rajah.NPC.active == false || (rajah.NPC.type != ModContent.NPCType<RajahRabbit>() && rajah.NPC.type != ModContent.NPCType<RajahRabbitA>()))
                 Projectile.active = false;
 
             if (rajah.NPC.spriteDirection > 0)

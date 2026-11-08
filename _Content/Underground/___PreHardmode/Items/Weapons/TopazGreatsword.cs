@@ -1,9 +1,8 @@
-﻿using Terraria;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 
 namespace AAModClassic._Content.Underground.___PreHardmode.Items.Weapons   //where is located
 {
@@ -13,18 +12,18 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Weapons   //whe
         public override void SetDefaults()
         {
 
-            Item.damage = 26;            
-            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;            
-            Item.width = 58;              
+            Item.damage = 26;
+            Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+            Item.width = 58;
             Item.height = 60;
             Item.useTime = 30;
             Item.useAnimation = 30;
-            Item.useStyle = ItemUseStyleID.Swing;        
-            Item.knockBack = 5;      
-            Item.value = 3000;        
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 5;
+            Item.value = 3000;
             Item.rare = ItemRarityID.LightRed;
-            Item.UseSound = SoundID.Item1;       
-            Item.autoReuse = false;   
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = false;
             Item.useTurn = true;
             Item.shoot = ModContent.ProjectileType<TopazGreatsword_TopazBolt>();
             Item.shootSpeed = 6f;
@@ -32,8 +31,8 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Weapons   //whe
 
         public override void SetStaticDefaults()
         {
-          // DisplayName.SetDefault("Topaz Greatsword");
-          // Tooltip.SetDefault("");
+            // DisplayName.SetDefault("Topaz Greatsword");
+            // Tooltip.SetDefault("");
         }
 
         static int shoot = 0;
@@ -48,10 +47,10 @@ namespace AAModClassic._Content.Underground.___PreHardmode.Items.Weapons   //whe
 
         public override void AddRecipes()  //How to craft this sword
         {
-            Recipe recipe = CreateRecipe();      
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<TopazSaber>(), 1);
-			recipe.AddIngredient(ItemID.LargeTopaz, 1);			
-            recipe.AddTile(TileID.Anvils);   
+            recipe.AddIngredient(ItemID.LargeTopaz, 1);
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
 
         }

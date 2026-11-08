@@ -1,15 +1,14 @@
+using AAModClassic._Content.Inferno.Projectiles;
+using Microsoft.Xna.Framework;
 using Terraria.Audio;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
-using AAModClassic._Content.Inferno.Projectiles;
 
 namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Ammo
 {
     public class DaybreakBullet_Proj : ModProjectile
     {
-        
+
         public override void SetDefaults()
         {
             Projectile.width = 4;
@@ -26,10 +25,10 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.Items.Ammo
             AIType = ProjectileID.Bullet;
         }
 
-		public override void SetStaticDefaults()
-		{
-		    // DisplayName.SetDefault("Antimatter");
-		}
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Antimatter");
+        }
 
         public override void AI()
         {

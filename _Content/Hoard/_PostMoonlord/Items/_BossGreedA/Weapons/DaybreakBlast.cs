@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
@@ -7,8 +6,8 @@ namespace AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons
     public class DaybreakBlast : ModProjectile
     {
         public override void SetStaticDefaults()
-        {    
-            Main.projFrames[Projectile.type] = 7;     
+        {
+            Main.projFrames[Projectile.type] = 7;
         }
 
         public override void SetDefaults()

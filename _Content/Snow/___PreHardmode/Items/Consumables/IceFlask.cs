@@ -1,6 +1,5 @@
 ﻿using AAModClassic._Content.Snow.__Hardmode.Items.Consumables;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -31,6 +30,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Consumables
         {
             // DisplayName.SetDefault("Ice Flask");
             // Tooltip.SetDefault(@"Spreads the Tundra");
+            Item.ResearchUnlockCount = 99;
         }
 
         public override bool AltFunctionUse(Player player)

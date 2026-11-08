@@ -1,8 +1,7 @@
-﻿using System;
-using AAModClassic.Globals;
+﻿using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
+using System;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,11 +11,11 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
 {
     public class ZeroGigataser_TaserShock : ModProjectile
     {
-    	public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Taser Shock");
-		}
-    	
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Taser Shock");
+        }
+
         public override void SetDefaults()
         {
             Projectile.width = 14;
@@ -164,9 +163,9 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
                 Projectile.velocity = Vector2.Zero;
                 Projectile.localAI[1] = 1f;
                 goto IL_230BF;
-                IL_230B7:
+            IL_230B7:
                 spinningpoint2 = vector85;
-                IL_230BF:
+            IL_230BF:
                 if (Projectile.velocity != Vector2.Zero)
                 {
                     Projectile.localAI[0] += spinningpoint2.X * (Projectile.extraUpdates + 1) * 2f * num855;
@@ -247,4 +246,3 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
         }*/
     }
 }
- 

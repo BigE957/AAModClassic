@@ -1,12 +1,5 @@
-﻿using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandard;
-using AAModClassic.Dusts;
+﻿using AAModClassic.Dusts;
 using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.Localization;

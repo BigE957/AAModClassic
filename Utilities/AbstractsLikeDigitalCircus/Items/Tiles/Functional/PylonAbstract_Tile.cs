@@ -1,14 +1,7 @@
-﻿using AAModClassic._Content.Chaos.World.Tiles;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Materials;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Functional;
-using AAModClassic._Content.Inferno.World.Biomes;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.Tiles.Functional;
+﻿using AAModClassic._Content.Inferno.___PreHardmode.Items.Tiles.Functional;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using System;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -26,7 +19,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.Tiles.Function
 
         // firtst three are inferno pylon stuff, last two are ocean pylon light and dust
         public virtual int PylonItemID => ModContent.ItemType<InfernoPylon>();
-        public virtual Condition ShopCondition => InfernoConditions.InAnyInferno;
+        public virtual Condition ShopCondition => AAConditions.InAnyInferno;
         public virtual bool TeleportBiomeRequirements => AAWorld.infernoTiles > 100;
         public virtual (float, float, float) LightColor => (0.4f, 0.4f, 1.15f);
         public virtual Color DustColor => new Color(0.2f, 0.2f, 0.95f, 1f);

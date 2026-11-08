@@ -1,7 +1,6 @@
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -64,8 +63,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
             Lighting.AddLight(Projectile.Center, (255 - Projectile.alpha) * 0.5f / 255f, (255 - Projectile.alpha) * 0f / 255f, (255 - Projectile.alpha) * 0.15f / 255f);
 
             int dustId = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height + 10, ModContent.DustType<Dusts.VoidDust>(), Projectile.velocity.X * 0.2f,
-					Projectile.velocity.Y * 0.2f, 100);
-				Main.dust[dustId].noGravity = true;
+                    Projectile.velocity.Y * 0.2f, 100);
+            Main.dust[dustId].noGravity = true;
         }
 
         public override void OnKill(int timeLeft)
@@ -92,8 +91,8 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
             {
                 Projectile.frame++;
                 Projectile.frameCounter = 0;
-                if (Projectile.frame > 2) 
-                    Projectile.frame = 0; 
+                if (Projectile.frame > 2)
+                    Projectile.frame = 0;
             }
             return true;
         }

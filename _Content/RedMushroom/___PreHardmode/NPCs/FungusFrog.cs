@@ -1,12 +1,9 @@
-using AAModClassic._Content.Inferno._PostMoonlord.Items.Materials;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Materials;
 using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarch;
 using AAModClassic._Content.RedMushroom.World.Biomes;
-using AAModClassic.Base.BaseMod.Base;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using AAModClassic.Utilities.Interfaces;
-using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -37,7 +34,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
             if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
             //Banner = NPC.type;
-			//BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.FungusFrogBanner>();
+            //BannerItem = ModContent.ItemType<AAModClassic.Items.Banners.FungusFrogBanner>();
             SpawnModBiomes = [ModContent.GetInstance<RedMushroomBiome>().Type];
         }
 
@@ -50,13 +47,13 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs
                 Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType, NPC.velocity.X * 0.2f, NPC.velocity.Y * 0.2f, 100, default, isDead ? 2f : 1.5f);
             }
         }
-        
+
         public override void AI()
         {
             NPC.TargetClosest(true);
             NPC.LookAtTargetWhileNotMovingLookTowardsDirectionWhileMoving();
 
-            if (NPC.ai[0] < -10) 
+            if (NPC.ai[0] < -10)
                 NPC.ai[0] = -10; //force rapid jumping
             NPC.AISlime(ref NPC.ai, false, 60, 3f, -2f, 6f, -4f);
         }

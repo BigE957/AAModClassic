@@ -3,7 +3,6 @@ using AAModClassic.Dusts;
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,14 +10,14 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
     public class AbyssalBomb_SoulBomb : ModProjectile
-	{
+    {
         public bool isSmall = false;
 
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Soul Bomb");     
-            Main.projFrames[Projectile.type] = 4;     
-		}
+            Main.projFrames[Projectile.type] = 4;
+        }
 
         public override Color? GetAlpha(Color lightColor)
         {
@@ -26,18 +25,18 @@ namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
         }
 
         public override void SetDefaults()
-		{
-			Projectile.width = 14;               
-			Projectile.height = 14;              
-			Projectile.aiStyle = ProjAIStyleID.Arrow;             
-			Projectile.friendly = true;         
-			Projectile.hostile = false;         
-			Projectile.DamageType = DamageClass.Magic;           
-			Projectile.penetrate = 1;           
-			Projectile.timeLeft = 600;          
-			Projectile.alpha = 20;              
-			Projectile.ignoreWater = true;
-			Projectile.tileCollide = true;
+        {
+            Projectile.width = 14;
+            Projectile.height = 14;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 600;
+            Projectile.alpha = 20;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
             Projectile.aiStyle = 0;
 
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))

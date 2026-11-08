@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -44,44 +43,44 @@ namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons
                 dust1 = Main.dust[Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.ForsakenDust>(), 0, 0, 0, Color.White, 1.5f)];
                 dust1.noGravity = true;
             }
-			if (Projectile.localAI[0] == 0f)
-			{
+            if (Projectile.localAI[0] == 0f)
+            {
                 AdjustMagnitude(ref Projectile.velocity);
-				Projectile.localAI[0] = 1f;
-			}
-			Vector2 move = Vector2.Zero;
-			float distance = 200f;
-			bool target = false;
-			for (int k = 0; k < 200; k++)
-			{
-				if (Main.npc[k].active && !Main.npc[k].dontTakeDamage && !Main.npc[k].friendly && Main.npc[k].lifeMax > 5 && Main.npc[k].type != NPCID.TargetDummy)
-				{
-					Vector2 newMove = Main.npc[k].Center - Projectile.Center;
-					float distanceTo = (float)Math.Sqrt(newMove.X * newMove.X + newMove.Y * newMove.Y);
-					if (distanceTo < distance)
-					{
-						move = newMove;
-						distance = distanceTo;
-						target = true;
-					}
-				}
-			}
-			if (target)
-			{
+                Projectile.localAI[0] = 1f;
+            }
+            Vector2 move = Vector2.Zero;
+            float distance = 200f;
+            bool target = false;
+            for (int k = 0; k < 200; k++)
+            {
+                if (Main.npc[k].active && !Main.npc[k].dontTakeDamage && !Main.npc[k].friendly && Main.npc[k].lifeMax > 5 && Main.npc[k].type != NPCID.TargetDummy)
+                {
+                    Vector2 newMove = Main.npc[k].Center - Projectile.Center;
+                    float distanceTo = (float)Math.Sqrt(newMove.X * newMove.X + newMove.Y * newMove.Y);
+                    if (distanceTo < distance)
+                    {
+                        move = newMove;
+                        distance = distanceTo;
+                        target = true;
+                    }
+                }
+            }
+            if (target)
+            {
                 AdjustMagnitude(ref move);
-				Projectile.velocity = (10 * Projectile.velocity + move) / 11f;
+                Projectile.velocity = (10 * Projectile.velocity + move) / 11f;
                 AdjustMagnitude(ref Projectile.velocity);
-			}
-		}
+            }
+        }
 
-		private static void AdjustMagnitude(ref Vector2 vector)
-		{
-			float magnitude = (float)Math.Sqrt(vector.X * vector.X + vector.Y * vector.Y);
-			if (magnitude > 6f)
-			{
-				vector *= 9f / magnitude;
-			}
-		}
+        private static void AdjustMagnitude(ref Vector2 vector)
+        {
+            float magnitude = (float)Math.Sqrt(vector.X * vector.X + vector.Y * vector.Y);
+            if (magnitude > 6f)
+            {
+                vector *= 9f / magnitude;
+            }
+        }
 
         public override void OnKill(int timeleft)
         {
@@ -93,14 +92,14 @@ namespace AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons
                 dust1 = Main.dust[Dust.NewDust(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.ForsakenDust>(), 0, 0, 0, Color.White, 1f)];
                 dust1.noGravity = true;
             }
-			for (int h = 0; h < 3; h++)
-			{
-				Vector2 vel = new Vector2(0, -1);
-				float rand = Main.rand.NextFloat() * 6.283f;
-				vel = vel.RotatedBy(rand);
-				vel *= 8f;
-				Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, ModContent.ProjectileType<ForsakenStaff_ForsakenFrag>(), Projectile.damage, 0, Main.myPlayer);
-			}
+            for (int h = 0; h < 3; h++)
+            {
+                Vector2 vel = new Vector2(0, -1);
+                float rand = Main.rand.NextFloat() * 6.283f;
+                vel = vel.RotatedBy(rand);
+                vel *= 8f;
+                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, ModContent.ProjectileType<ForsakenStaff_ForsakenFrag>(), Projectile.damage, 0, Main.myPlayer);
+            }
         }
     }
 }

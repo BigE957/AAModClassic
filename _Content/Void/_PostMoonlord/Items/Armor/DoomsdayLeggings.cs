@@ -3,7 +3,6 @@ using AAModClassic._Content.Void._PostMoonlord.Items.Materials;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.Attributes;
-using Terraria;
 using Terraria.ModLoader;
 
 
@@ -12,21 +11,21 @@ namespace AAModClassic._Content.Void._PostMoonlord.Items.Armor
     [AutoloadEquip(EquipType.Legs)]
     [AutoloadEquipGlow(EquipType.Legs)]
     public class DoomsdayLeggings : EquipAbstract, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Armor.Doomsday";
-		public override void SetStaticDefaults()
-		{
-			// DisplayName.SetDefault("Doomsday Assault Greaves");
-			/* Tooltip.SetDefault(@"'The power to destroy entire planets rests in this armor'"); */
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Doomsday Assault Greaves");
+            /* Tooltip.SetDefault(@"'The power to destroy entire planets rests in this armor'"); */
 
-		}
+        }
 
         public override void SetDefaults()
-		{
-			Item.width = 26;
-			Item.height = 18;
-			Item.value = 3000000;
-			Item.defense = 28;
+        {
+            Item.width = 26;
+            Item.height = 18;
+            Item.value = 3000000;
+            Item.defense = 28;
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 

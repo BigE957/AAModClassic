@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -137,7 +136,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items.Weapons
                 Main.dust[num36].noGravity = true;
                 Main.dust[num36].velocity *= 3f;
             }
-            if(!Main.dedServ)
+            if (!Main.dedServ)
                 for (int num37 = 0; num37 < num25; num37++)
                 {
                     int num38 = Gore.NewGore(Projectile.GetSource_Death(), Projectile.position + new Vector2(Projectile.width * Main.rand.Next(100) / 100f, Projectile.height * Main.rand.Next(100) / 100f) - Vector2.One * 10f, default, Main.rand.Next(61, 64), 1f);

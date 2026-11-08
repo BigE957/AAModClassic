@@ -1,6 +1,5 @@
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,25 +7,25 @@ using Terraria.ModLoader;
 namespace AAModClassic._Content.Terra.Projectiles
 {
     public class TerraSphere : ModProjectile
-	{
+    {
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Terra Bomb");
             Main.projFrames[Projectile.type] = 4;
-		}
+        }
 
-		public override void SetDefaults()
-		{
-			Projectile.width = 20;
-			Projectile.height = 20;
-			Projectile.friendly = true; 
-			Projectile.hostile = false;
-			Projectile.penetrate = 1;
-			Projectile.timeLeft = 600;
-			Projectile.alpha = 20;
-			Projectile.ignoreWater = true;
-            Projectile.tileCollide = true;          
-		}
+        public override void SetDefaults()
+        {
+            Projectile.width = 20;
+            Projectile.height = 20;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.penetrate = 1;
+            Projectile.timeLeft = 600;
+            Projectile.alpha = 20;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
+        }
 
         public override void AI()
         {
@@ -83,7 +82,7 @@ namespace AAModClassic._Content.Terra.Projectiles
 
         public override void OnKill(int timeleft)
         {
-			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+            SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
             int p = Projectile.NewProjectile(Projectile.GetSource_FromThis(), (int)Projectile.Center.X, (int)Projectile.Center.Y, 0, 0, ModContent.ProjectileType<TerraBoom>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
             Main.projectile[p].Center = Projectile.Center;
             Main.projectile[p].DamageType = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) == true ? Projectile.DamageType : DamageClass.Melee;
@@ -94,7 +93,7 @@ namespace AAModClassic._Content.Terra.Projectiles
                 Main.dust[num469].noGravity = true;
                 Main.dust[num469].velocity *= 2f;
             }
-            
+
         }
     }
 }

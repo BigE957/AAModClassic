@@ -5,7 +5,6 @@ using AAModClassic.Globals;
 using AAModClassic.Music;
 using Microsoft.Xna.Framework;
 using System;
-using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -16,7 +15,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 {
     [AutoloadBossHead]
     public class DeityRose : ModNPC
-	{
+    {
 
         public override void SetStaticDefaults()
         {
@@ -530,7 +529,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                     Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.CthulhuDust>(), 2 * hit.HitDirection, -2f, 0, default, 1f);
                 }
             }
-            
+
         }
     }
 }

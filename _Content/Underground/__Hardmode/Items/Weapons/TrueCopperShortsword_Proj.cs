@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,15 +9,15 @@ namespace AAModClassic._Content.Underground.__Hardmode.Items.Weapons
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(ProjectileID.LightBeam);
-            Projectile.penetrate = 10;  
+            Projectile.penetrate = 10;
             Projectile.width = 30;
             Projectile.height = 30;
-			Projectile.friendly = true;
-			Projectile.hostile = false;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
             Projectile.timeLeft = 900;
         }
         public override void AI()
-		{
+        {
             if (Main.rand.NextFloat() < 1f)
             {
                 Dust dust;

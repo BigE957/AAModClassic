@@ -1,11 +1,10 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Dusts
 {
     public class AbyssDust : ModDust
-	{
+    {
         public override void OnSpawn(Dust dust)
         {
             dust.scale *= 1.3f;

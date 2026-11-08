@@ -2,8 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Linq;
-using Terraria;
-using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Utilities.Attributes

@@ -1,7 +1,7 @@
 //Boss Kills
 MushroomMonarchKilled: {
 	FriendlyName: El Gran Hongo
-	Description: Derroca al Monarca Champiñón, una abominación fúngica cuyo título se ha impuesto él mismo.
+	Description: Derroca al Monarca Fúngico, una abominación fúngica cuyo título se ha impuesto él mismo.
 }
 
 FeudalFungusKilled: {
@@ -31,7 +31,7 @@ HydraKilled: {
 
 DesertDjinnKilled: {
 	FriendlyName: ¿Sin Deseos?
-	Description: Supera en músculos al Djinn del Desierto, un genio musculoso que vaga por los páramos arenosos.
+	Description: Supera en músculos al Genio del Desierto, un genio musculoso que vaga por los páramos arenosos.
 }
 
 SubzeroSerpentKilled: {
@@ -61,7 +61,7 @@ BiomiteCoreKilled: {
 
 AthenaKilled: {
 	FriendlyName: Disciplina Divina
-	Description: Defriega a la astuta Reina Serafín, Athena.
+	Description: Defriega a la astuta Reina Serafín, Atenea.
 }
 
 ChampionRajahKilled: {
@@ -76,17 +76,17 @@ EquinoxWormsKilled: {
 
 GreedKilled: {
 	FriendlyName: Tótem No Fungible
-	Description: Derrota al avaricioso Codicia y haz tuyo su tesoro.
+	Description: Derrota al codicioso Avaricia y haz tuyo su tesoro.
 }
 
 InfinityZeroKilled: {
 	FriendlyName: Error Fatal
-	Description: Oblitera a Infinity Zero, sin dejar ninguno de los juguetes del Olvido ileso.
+	Description: Oblitera a Cero Infinito, sin dejar ninguno de los juguetes del Olvido ileso.
 }
 
 PreEquinoxAncientsKilled: {
 	FriendlyName: El Despertar
-	Description: Derrota a Anubis, Athena y Codicia en su máximo esplendor.
+	Description: Derrota a Anubis, Atenea y Avaricia en su máximo esplendor.
 }
 
 RajahKilled: {
@@ -101,12 +101,12 @@ ShenDoragonKilled: {
 
 SiegeMechsKilled: {
 	FriendlyName: Arsenal de Chatarra de Guerra
-	Description: Derrota a las tres amenazas nocturnas de Fulgaria: el Retriever, Ortrus X y Raider Ultima.
+	Description: Derrota a las tres amenazas nocturnas de Fulgaria: El Recolector, Ortrus X y Raider Ultima.
 }
 
 SistersOfDiscordKilled: {
 	FriendlyName: Intervención Discordiana
-	Description: Manda a las Hermanas del Caos llorando de vuelta con sus papás.
+	Description: Manda a las Hermanas de la Discordia llorando de vuelta con sus papás.
 }
 
 SoulOfCthulhuKilled: {
@@ -116,12 +116,12 @@ SoulOfCthulhuKilled: {
 
 StormingSiege: {
 	FriendlyName: Asalto Muele-engranajes
-	Description: Lucha contra el Retriever, Orthrus X y Raider Ultima simultáneamente y sal victorioso.
+	Description: Lucha contra El Recolector, Orthrus X y Raider Ultima simultáneamente y sal victorioso.
 }
 
 TechnoTruffleKilled: {
 	FriendlyName: El Cuarto Ingrediente Metálico
-	Description: Destruye el error fúngico de Fulgaria, Techno Trufa.
+	Description: Destruye el error fúngico de Fulgaria, Tecnotrufa.
 }
 
 YamataKilled: {
@@ -131,7 +131,7 @@ YamataKilled: {
 
 ZeroKilled: {
 	FriendlyName: System.DivideByZeroException
-	Description: Saca de servicio a la Unidad Zero principal del Vacío y gánate la ira de una amenaza mucho mayor...
+	Description: Saca de servicio a la Unidad Cero principal del Vacío y gánate la ira de una amenaza mucho mayor...
 }
 
 AllBossesKilled: {
@@ -152,7 +152,7 @@ CelestialOreMined: {
 
 TierThreeChaosOreMined: {
 	FriendlyName: Antediluviano
-	Description: Mina Incinerita del Alba o Abyssium del Anochecer, formas primordiales de los minerales anteriores que se encuentran dentro del Infierno y el Lodazal respectivamente.
+	Description: Mina Incinerita del Amanecer o Abyssium del Anochecer, formas primordiales de los minerales anteriores que se encuentran dentro del Infierno y el Lodazal respectivamente.
 }
 
 ApocalyptiteOreMined: {
@@ -162,7 +162,7 @@ ApocalyptiteOreMined: {
 
 //Items Obtained
 LuckyArmorEquipped: {
-	FriendlyName: Yu-Farm-Lot
+	FriendlyName: Tu-Farmeas-Mucho
 	Description: Equípate un conjunto completo de la armadura de la Suerte del Hombre de las Rayas, lo que te permitirá minar, pescar y cultivar como a nadie.
 }
 
@@ -178,7 +178,7 @@ ChaosCrafted: {
 
 TerratoolCrafted: {
 	FriendlyName: Omniherramienta
-	Description: Consigue una Terratool para blandir un pico, un hacha y un martillo, todo en una sola herramienta.
+	Description: Consigue una Terramienta para blandir un pico, un hacha y un martillo, todo en una sola herramienta.
 }
 
 DragonstrideBootsCrafted: {
@@ -187,8 +187,8 @@ DragonstrideBootsCrafted: {
 }
 
 TimecallerCrafted: {
-	FriendlyName: Yendo al Extremo
-	Description: Mejora un arma con un Alma EX. ¡Ahora sí que te has puesto las pilas!
+	FriendlyName: Señor del Tiempo
+	Description: Fabrica el Convocador del Tiempo, lo que te permitirá manipular el tiempo a tu antojo.
 }
 
 EXSoulCrafted: {

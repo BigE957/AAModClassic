@@ -1,8 +1,7 @@
-using AAModClassic.Base.BaseMod.Base;
+using AAModClassic.Base;
 using AAModClassic.Music;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -31,7 +30,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord
             NPC.aiStyle = -1;
             NPC.timeLeft = 10;
             Music = MusicManagementSystem.MusicSlots["Sisters_Outro"];
-            NPC.boss = true;
+            NPC.boss = false;
 
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
@@ -46,8 +45,9 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord
 
             if (AAConfigClient.Instance.NoBossDialogue)
             {
-                AAWorld.downedSisters = true;
+                NPC.SetEventFlagCleared(ref AAWorld.downedSisters, -1);
                 NPC.active = false;
+                return;
             }
 
             NPC.Center = player.Center;
@@ -95,12 +95,12 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.First.3"), new Color(72, 78, 117));
                 }
             }
-            
+
             if (NPC.ai[1] == 840)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                     BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.Defeat.First.4"), new Color(102, 20, 48));
-                AAWorld.downedSisters = true;
+                NPC.SetEventFlagCleared(ref AAWorld.downedSisters, -1);
                 NPC.active = false;
             }
         }

@@ -1,22 +1,18 @@
-﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Terraria;
+﻿using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
+using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
+using AAModClassic.Rarities;
+using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
+using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
-using AAModClassic.Globals;
-using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Rarities;
-using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 
 namespace AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons
 {
     public class Flairdra : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-        
+
         public override void SetStaticDefaults()
         {
 
@@ -36,7 +32,7 @@ Inflicts Moonraze"); */
             Item.useAnimation = 12;
             Item.useTime = 12;
             Item.knockBack = 3.5f;
-            Item.damage = 80;
+            Item.damage = 160;
             Item.noUseGraphic = true;
             Item.shoot = ModContent.ProjectileType<Flairdra_Holdout>();
             Item.shootSpeed = 24f;
@@ -47,13 +43,13 @@ Inflicts Moonraze"); */
             Item.rare = ModContent.RarityType<AncientsRarity>();
         }
 
-        
+
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {           
+        {
             for (int i = 0; i < 7; i++)
             {
-                int proj = Projectile.NewProjectile(Item.GetSource_ReleaseEntity(), position, velocity, type, damage, knockback, Main.myPlayer, ai2: i - 3);
+                int proj = Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, velocity, type, damage, knockback, Main.myPlayer, ai2: i - 3);
                 Main.projectile[proj].DamageType = DamageClass.Melee;
                 Main.projectile[proj].localAI[1] = i * 60f / 35f; //* 60 / 5 / 7
             }

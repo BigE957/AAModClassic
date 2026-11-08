@@ -2,7 +2,6 @@ using AAModClassic._Content.Inferno.Buffs;
 using AAModClassic._Content.Mire.Buffs;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
@@ -22,11 +21,11 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
         public override float MaxRetractSpeed => base.MaxRetractSpeed;
 
         public override void SetStaticDefaults()
-		{
+        {
             // DisplayName.SetDefault("Chaos Chain");
 
             base.SetStaticDefaults();
-		}
+        }
         public override void SetDefaults()
         {
             Projectile.width = 58;
@@ -37,7 +36,7 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
         }
 
         public override void AI()
-		{
+        {
             if (Main.rand.NextFloat() < 1f)
             {
                 Dust dust1;
@@ -142,13 +141,13 @@ namespace AAModClassic._Content.Chaos.__Hardmode.Items.Weapons
             */
         }
 
-        public override void OnHitNPC (NPC target, NPC.HitInfo hit, int damageDone)
-		{
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
             target.AddBuff(ModContent.BuffType<HydraToxin_Buff>(), 150);
             target.AddBuff(ModContent.BuffType<DragonFire_Buff>(), 150);
         }
-		
- 
+
+
         // chain voodoo
         public override bool PreDraw(ref Color lightColor)
         {

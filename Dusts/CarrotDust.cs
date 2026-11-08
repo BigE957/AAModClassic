@@ -1,10 +1,9 @@
-using Terraria;
 using Terraria.ModLoader;
 
 namespace AAModClassic.Dusts
 {
     public class CarrotDust : ModDust
-	{
+    {
         public override void OnSpawn(Dust dust)
         {
             dust.noGravity = false;

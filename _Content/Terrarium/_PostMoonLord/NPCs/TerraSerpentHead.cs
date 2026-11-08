@@ -4,7 +4,6 @@ using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -37,13 +36,21 @@ namespace AAModClassic._Content.Terrarium._PostMoonLord.NPCs
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0f;
-            if(!NPC.IsABestiaryIconDummy)
+            if (!NPC.IsABestiaryIconDummy)
                 NPC.alpha = 255;
             NPC.noGravity = true;
             NPC.noTileCollide = true;
             //Banner = NPC.type;
             //BannerItem = Mod.Find<ModItem>("TerraSerpentBanner").Type;
             SpawnModBiomes = new int[1] { ModContent.GetInstance<TerrariumBiome>().Type };
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (AAWorld.downedEquinox && spawnInfo.Player.AAPlayer().ZoneTerrarium && !AnyEvents(spawnInfo.Player))
+                return 0.025f;
+
+            return 0f;
         }
 
         public override bool PreAI()

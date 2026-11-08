@@ -1,19 +1,15 @@
-﻿using AAModClassic._Content._EX._PostMoonlord.Items.Accessories;
-using AAModClassic._Content.Acropolis.__Hardmode.Items._BossAthena.Accessories;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
+﻿using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAModClassic._Content._Dev.__Hardmode.Items.Accessories
 {
     public class APageOfTheRuneBook : EquipAbstract, ILocalizedModType
-	{
+    {
         public new string LocalizationCategory => "Items.Accessories";
-		public override void SetStaticDefaults()
+        public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
             // DisplayName.SetDefault("A Page of the Rune Book");

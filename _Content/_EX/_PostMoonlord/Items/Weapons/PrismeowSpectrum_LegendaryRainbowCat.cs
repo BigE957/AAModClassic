@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -59,15 +58,15 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Weapons
                     if (Main.rand.NextBool(3))
                     {
                         int proj = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, -16 + Main.rand.Next(0, 33), -16 + Main.rand.Next(0, 33), Shoot, Projectile.damage, 3, Main.myPlayer);
-						Main.projectile[proj].usesLocalNPCImmunity = true;
-						Main.projectile[proj].localNPCHitCooldown = 4;
-						//Main.projectile[proj].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
-						Main.projectile[proj].DamageType = DamageClass.Magic;
+                        Main.projectile[proj].usesLocalNPCImmunity = true;
+                        Main.projectile[proj].localNPCHitCooldown = 4;
+                        //Main.projectile[proj].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                        Main.projectile[proj].DamageType = DamageClass.Magic;
                         int proj1 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, -16 + Main.rand.Next(0, 33), -16 + Main.rand.Next(0, 33), Shoot, Projectile.damage, 3, Main.myPlayer);
-						Main.projectile[proj1].usesLocalNPCImmunity = true;
-						Main.projectile[proj1].localNPCHitCooldown = 4;
-						//Main.projectile[proj1].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
-						Main.projectile[proj1].DamageType = DamageClass.Magic;
+                        Main.projectile[proj1].usesLocalNPCImmunity = true;
+                        Main.projectile[proj1].localNPCHitCooldown = 4;
+                        //Main.projectile[proj1].melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+                        Main.projectile[proj1].DamageType = DamageClass.Magic;
                     }
                     if (Main.rand.NextBool(50))
                     {

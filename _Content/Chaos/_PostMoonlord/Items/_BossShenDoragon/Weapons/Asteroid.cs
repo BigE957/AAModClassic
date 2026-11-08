@@ -2,11 +2,8 @@
 using AAModClassic._Content.Chaos._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic._Content.Inferno._PostMoonlord.Items._BossAkuma.Weapons;
 using AAModClassic._Content.Mire._PostMoonlord.Items._BossYamata.Weapons;
-using AAModClassic.Globals;
 using AAModClassic.Rarities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
-using System.Collections.Generic;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -15,7 +12,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.Items._BossShenDoragon.Weapo
     public class Asteroid : BaseAAItem, ILocalizedModType
     {
         public new string LocalizationCategory => "Items.Weapons.Melee";
-        
+
         public override void SetStaticDefaults()
         {
 
@@ -35,7 +32,7 @@ Inflicts Discordian Inferno"); */
             Item.useAnimation = 40;
             Item.useTime = 40;
             Item.knockBack = 7.5f;
-            Item.damage = 150;
+            Item.damage = 300;
             Item.noUseGraphic = true;
             Item.shoot = ModContent.ProjectileType<Asteroid_Holdout>();
             Item.shootSpeed = 32f;
@@ -46,7 +43,7 @@ Inflicts Discordian Inferno"); */
             Item.rare = ModContent.RarityType<SuperancientsRarity>();
         }
 
-        
+
 
         public override void AddRecipes()  //How to craft this sword
         {
