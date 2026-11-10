@@ -3,13 +3,17 @@ using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.Items.SoulOfCthu
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu;
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
 using AAModClassic.Base;
+using AAModClassic.Dialogues;
 using AAModClassic.Globals;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.Components;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -326,6 +330,9 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
                 RopeEnds = [];
         }
 
+        HashSet<int> previousShipPlayers = [];
+        HashSet<int> leftShipPlayers = [];
+
         public override void PreUpdateNPCs()
         {
             bool anyCthulhus = false;
@@ -340,13 +347,16 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
                 {
                     Vector2 spawnPos;
                     if (AAWorld_Unreleased.AmbientSoCPos != Point.Zero)
-                        spawnPos = (AAWorld_Unreleased.AmbientSoCPos + new Point(0, 0)).ToWorldCoordinates(0, 0);
+                        spawnPos = AAWorld_Unreleased.AmbientSoCPos.ToWorldCoordinates(0, 0);
                     else
                         spawnPos = (AAWorld_Unreleased.shipPos + new Point(141, 30)).ToWorldCoordinates();
 
                     NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<AmbientSoulOfCthulhu>());
                     Ropes = [];
+
                     CthulhuCountdown = 10800;
+                    leftShipPlayers.Clear();
+                    previousShipPlayers.Clear();
                 }
 
                 if (!anyCthulhus)
@@ -354,12 +364,18 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
                     int firstInShip = -1;
                     int firstWithCompass = -1;
 
+                    HashSet<int> shipPlayers = [];
+
                     foreach (Player p in Main.ActivePlayers)
                     {
-                        if (firstInShip == -1 && p.GetModPlayer<ZAAPlayer>().ZoneShip)
+                        if (p.GetModPlayer<ZAAPlayer>().ZoneShip)
                         {
-                            firstInShip = p.whoAmI;
+                            if (firstInShip == -1)
+                                firstInShip = p.whoAmI;
+
+                            shipPlayers.Add(p.whoAmI);
                         }
+
                         if (p.inventory.Any(i => i.type == ModContent.ItemType<CursedCompass>() && i.stack > 0))
                         {
                             firstWithCompass = p.whoAmI;
@@ -370,18 +386,44 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
                     if (!AAWorld_Unreleased.Compass && firstWithCompass != -1)
                     {
                         AAWorld_Unreleased.Compass = true;
-                        Leave = false;
+
                         Player thief = Main.player[firstWithCompass];
                         if (thief.GetModPlayer<ZAAPlayer>().ZoneShip && Main.netMode != NetmodeID.MultiplayerClient)
                         {
                             Vector2 spawnPos = thief.Center + (Vector2.UnitY.RotatedBy(Main.rand.NextFloat(-MathHelper.PiOver2, MathHelper.PiOver2)) * 800);
-                            int n = NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<UDUNFUKED>());
-                            Main.npc[n].target = firstWithCompass;
-                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.CompassSteal"), Color.Cyan);
+                            NPC n = NPC.NewNPCDirect(NPC.GetSource_NaturalSpawn(), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<UDUNFUKED>());
+                            n.target = firstWithCompass;
+                            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.PreFight", n, 2, 60, false, new NearbyBossText());
+                            else
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.CompassSteal"), Color.Cyan);
+                        }
+
+                        Leave = false;
+                        CthulhuCountdown = 10800;
+                        leftShipPlayers.Clear();
+                        previousShipPlayers.Clear();
+                    }
+
+                    if (!Main.dedServ && CthulhuCountdown >= 9500 && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                    {
+                        foreach (Player p in Main.ActivePlayers)
+                        {
+                            if (leftShipPlayers.Contains(p.whoAmI))
+                                continue;
+
+                            if (previousShipPlayers.Contains(p.whoAmI) && !shipPlayers.Contains(p.whoAmI))
+                            {
+                                leftShipPlayers.Add(p.whoAmI);
+                                if (p.whoAmI == Main.myPlayer)
+                                    WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.SoulOfCthulhu.PreFight", Main.LocalPlayer.Center, 0, 60, false, new BossText());
+                            }
                         }
                     }
 
-                    if (firstInShip != -1 && !Leave)
+                    previousShipPlayers = shipPlayers;
+
+                    if (firstInShip != -1)
                     {
                         CthulhuCountdown--;
                         if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -389,19 +431,35 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
                             switch (CthulhuCountdown)
                             {
                                 case 9500:
-                                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.1"), Color.Blue);
+                                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.PreFight", AAWorld_Unreleased.AmbientSoCPos.ToWorldCoordinates(0, 0), 3, 60, false, new NearbyBossText());
+                                    else
+                                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.1"), Color.Blue);
+                                    Leave = true;
                                     break;
                                 case 7050:
-                                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.2"), Color.DarkCyan);
+                                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.PreFight", AAWorld_Unreleased.AmbientSoCPos.ToWorldCoordinates(0, 0), 4, 60, false, new NearbyBossText());
+                                    else
+                                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.2"), Color.DarkCyan);
                                     break;
                                 case 5050:
-                                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.3"), Color.Cyan);
+                                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.PreFight", AAWorld_Unreleased.AmbientSoCPos.ToWorldCoordinates(0, 0), 5, 60, false, new NearbyBossText());
+                                    else
+                                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.3"), Color.Cyan);
                                     break;
                                 case 3000:
-                                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.4"), Color.Cyan);
+                                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.PreFight", AAWorld_Unreleased.AmbientSoCPos.ToWorldCoordinates(0, 0), 6, 60, false, new NearbyBossText());
+                                    else
+                                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.4"), Color.Cyan);
                                     break;
                                 case 1200:
-                                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.5"), Color.DarkCyan);
+                                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.PreFight", AAWorld_Unreleased.AmbientSoCPos.ToWorldCoordinates(0, 0), 7, 60, false, new NearbyBossText());
+                                    else
+                                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.5"), Color.DarkCyan);
                                     break;
                             }
                         }
@@ -435,22 +493,34 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
                             }
 
                             if (Main.netMode != NetmodeID.MultiplayerClient)
-                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.6"), Color.Cyan);
+                            {
+                                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                    WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.PreFight", AAWorld_Unreleased.AmbientSoCPos.ToWorldCoordinates(0, 0), 8, 60, false, new NearbyBossText());
+                                else
+                                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.6"), Color.Cyan);
+                            }
                         }
                     }
+
                     if (firstInShip == -1)
                     {
                         CthulhuCountdown = 10800;
-                    }
-                    if (firstInShip == -1 && Leave == true)
-                    {
-                        Leave = false;
-                        if (Main.netMode != NetmodeID.MultiplayerClient)
-                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.Escape"), Color.DarkCyan);
+                        leftShipPlayers.Clear();
+                        previousShipPlayers.Clear();
+                        if (Leave)
+                        {
+                            Leave = false;
+                            if (Main.netMode != NetmodeID.MultiplayerClient && !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.Escape"), Color.DarkCyan);
+                        }
                     }
                 }
                 else
+                {
                     CthulhuCountdown = 10800;
+                    leftShipPlayers.Clear();
+                    previousShipPlayers.Clear();
+                }
             }
 
             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && ((AAWorld.downedEquinox || AAWorld.downedAllAncients) || anyCthulhus))

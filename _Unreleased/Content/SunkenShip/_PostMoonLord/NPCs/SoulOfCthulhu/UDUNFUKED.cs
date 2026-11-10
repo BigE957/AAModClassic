@@ -1,4 +1,7 @@
 using AAModClassic.Globals;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -68,13 +71,19 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
 
             if (player.dead || !player.active || !modPlayer.ZoneShip)
             {
-                if (Line == false && Main.netMode != NetmodeID.MultiplayerClient)
+                if (!Line)
                 {
                     Line = true;
-                    Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.Kill"), Color.DarkCyan);
+                    if (player.whoAmI == Main.myPlayer)
+                    {
+                        if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.SoulOfCthulhu.PreFight", Main.LocalPlayer.Center, 1, 60, false, new BossText());
+                        else
+                            Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.Kill"), Color.DarkCyan);
+                    }
                 }
             }
-            if (Line == true)
+            if (Line)
             {
                 NPC.velocity.X *= 0.8f;
                 NPC.velocity.Y *= 0.8f;
