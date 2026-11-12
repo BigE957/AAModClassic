@@ -1,6 +1,9 @@
 using AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfCthulhu._Cthulhu;
 using AAModClassic.Base;
 using AAModClassic.Music;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
@@ -50,81 +53,102 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
             NPC.scale = 1f - NPC.alpha / 255f;
             NPC.rotation += .15f;
 
-            if (Speechtimer == 180)
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.1"), Color.DarkCyan);
-            }
-
-            if (Speechtimer == 360)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.2"), Color.DarkCyan);
-            }
-
-            if (Speechtimer >= 360)
-            {
-                if (!Spawned)
+                switch (Speechtimer)
                 {
-                    NPC.alpha -= 1;
+                    case 180:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.Transition", NPC, uptime: 30, effects: new NearbyBossText());
+                        break;
 
-                    if (NPC.alpha <= 0)
+                    case 1620:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            SummonSoul();
+                        
+                        Spawned = true;
+                        break;
+                }
+                if (Speechtimer >= 360)
+                {
+                    if (!Spawned)
                     {
-                        NPC.alpha = 0;
+                        NPC.alpha -= 1;
+
+                        if (NPC.alpha <= 0)
+                            NPC.alpha = 0;
                     }
+                    else
+                        NPC.alpha += 3;
                 }
-                else
+            }
+            else
+            {
+                switch (Speechtimer)
                 {
-                    NPC.alpha += 3;
+                    case 180:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.1"), Color.DarkCyan);
+                        break;
+
+                    case 360:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.2"), Color.DarkCyan);
+                        break;
+
+                    case 540:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.3"), Color.DarkCyan);
+                        break;
+
+                    case 720:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.4"), Color.DarkCyan);
+                        break;
+
+                    case 900:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.5"), Color.DarkCyan);
+                        break;
+
+                    case 1080:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.6"), Color.DarkCyan);
+                        break;
+
+                    case 1260:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.7"), Color.DarkCyan);
+                        break;
+
+                    case 1440:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.8"), Color.DarkCyan);
+                        break;
+
+                    case 1620:
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                        {
+                            SummonSoul();
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.9"), Color.DarkCyan);
+                        }
+                        Spawned = true;
+                        break;
                 }
-            }
 
-            if (Speechtimer == 540)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.3"), Color.DarkCyan);
-            }
-
-            if (Speechtimer == 720)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.4"), Color.DarkCyan);
-            }
-
-            if (Speechtimer == 900)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.5"), Color.DarkCyan);
-            }
-
-            if (Speechtimer == 1080)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.6"), Color.DarkCyan);
-            }
-
-            if (Speechtimer == 1260)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.7"), Color.DarkCyan);
-            }
-
-            if (Speechtimer == 1440)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.8"), Color.DarkCyan);
-            }
-
-            if (Speechtimer == 1620)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
+                if (Speechtimer >= 360)
                 {
-                    SummonSoul();
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Transition.9"), Color.DarkCyan);
-                }
-                Spawned = true;
-            }
+                    if (!Spawned)
+                    {
+                        NPC.alpha -= 1;
 
+                        if (NPC.alpha <= 0)
+                            NPC.alpha = 0;
+                    }
+                    else
+                        NPC.alpha += 3;
+                }
+            }
         }
 
         public void SummonSoul()

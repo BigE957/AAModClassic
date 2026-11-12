@@ -15,6 +15,8 @@ using AAModClassic.Achievements;
 using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
@@ -585,13 +587,23 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                 if (NPC.ai[1] == 3f)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Kill"), Color.DarkCyan);
+                    {
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.Despawn", NPC, 1, 30, false, effects: new NearbyBossText());
+                        else
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Kill"), Color.DarkCyan);
+                    }
                     NPC.ai[1] = 5f;
                 }
                 if (NPC.ai[1] == 4f)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Despawn"), Color.DarkCyan);
+                    {
+                        if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.Despawn", NPC, 0, 30, false, effects: new NearbyBossText());
+                        else
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.Despawn"), Color.DarkCyan);
+                    }
                     NPC.ai[1] = 5f;
                 }
                 if (NPC.ai[1] == 5f)

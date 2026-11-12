@@ -1,0 +1,74 @@
+{
+  "Revision": 1,
+  "DefaultColor": "008b8b",
+  "DefaultSpeaker": "Soul of Cthulhu",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "[Wavy(4, 3):...you utter fool...]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Wavy(4, 3):Thanks to you breaking that disgusting old ship’s wheel...]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Wavy(4, 3):...I am now free...]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Wavy(4, 3):I should thank you, you simple-minded mortal...]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Wavy(4, 3):However, you stand in the way between me and this world’s impending destruction...]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Wavy(4, 3):And after all, you [Shaking(2.5):DID] kill my brother... Such a shame he’s gone.]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Wavy(4, 3):...so you must die.]"
+      ]
+    },
+    {
+      "BaseColor": "00FFFF",
+      "Lines": [
+        "[Shaking(3):YOU SHALL BE SLAIN BY ME, CTHULHU, COSMIC CALAMITY!]"
+      ]
+    },
+    {
+      "BaseColor": "00FFFF",
+      "Lines": [
+        "[Shaking(3):PREPARE FOR YOU AND YOUR WORLD’S CATASTROPHIC DEMISE!]"
+      ]
+    }
+  ]
+}
