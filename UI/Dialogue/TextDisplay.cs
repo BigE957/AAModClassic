@@ -529,7 +529,9 @@ namespace AAModClassic.UI.Dialogue
 
                         if ((delay == 0 || (TextTimer + loopCounter) % delay == 0) && TextTimer >= 0)
                         {
-                            if (Text[textIndex] == ' ' || forcedPause)
+                            char justRevealed = Text[textIndex];
+
+                            if (justRevealed == ' ' || forcedPause)
                             {
                                 storedDelay = 0;
                                 lockDelay = false;
@@ -541,6 +543,16 @@ namespace AAModClassic.UI.Dialogue
                                     speaker = DialoguePage.Speaker;
                                 if (speaker != null && DialogueSounds.TryGetValue(speaker.Name, out var value))
                                     SoundEngine.PlaySound(value);
+
+                                if (storedDelay > 0 && IsPunctuation(justRevealed) && textIndex + 1 < Text.Length)
+                                {
+                                    char next = Text[textIndex + 1];
+                                    if (char.IsLetterOrDigit(next))
+                                    {
+                                        storedDelay = 0;
+                                        lockDelay = false;
+                                    }
+                                }
                             }
 
                             TextTimer = 0;

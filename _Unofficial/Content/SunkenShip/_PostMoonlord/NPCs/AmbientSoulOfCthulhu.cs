@@ -368,6 +368,9 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
 
                     foreach (Player p in Main.ActivePlayers)
                     {
+                        if (p.dead)
+                            continue;
+
                         if (p.GetModPlayer<ZAAPlayer>().ZoneShip)
                         {
                             if (firstInShip == -1)
@@ -432,32 +435,32 @@ namespace AAModClassic._Unofficial.Content.SunkenShip._PostMoonlord.NPCs
                             {
                                 case 9500:
                                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.PreFight", AAWorld_Unreleased.AmbientSoCPos.ToWorldCoordinates(0, 0), 3, 120, false, new NearbyBossText());
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.PreFight", AAWorld_Unreleased.AmbientSoCPos.ToWorldCoordinates(0, 0), 3, 180, false, new NearbyBossText());
                                     else
                                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.1"), Color.Blue);
                                     Leave = true;
                                     break;
                                 case 7050:
                                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.PreFight", AAWorld_Unreleased.AmbientSoCPos.ToWorldCoordinates(0, 0), 4, 120, false, new NearbyBossText());
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.PreFight", AAWorld_Unreleased.AmbientSoCPos.ToWorldCoordinates(0, 0), 4, 180, false, new NearbyBossText());
                                     else
                                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.2"), Color.DarkCyan);
                                     break;
                                 case 5050:
                                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.PreFight", AAWorld_Unreleased.AmbientSoCPos.ToWorldCoordinates(0, 0), 5, 120, false, new NearbyBossText());
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.PreFight", AAWorld_Unreleased.AmbientSoCPos.ToWorldCoordinates(0, 0), 5, 180, false, new NearbyBossText());
                                     else
                                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.3"), Color.Cyan);
                                     break;
                                 case 3000:
                                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.PreFight", AAWorld_Unreleased.AmbientSoCPos.ToWorldCoordinates(0, 0), 6, 120, false, new NearbyBossText());
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.PreFight", AAWorld_Unreleased.AmbientSoCPos.ToWorldCoordinates(0, 0), 6, 180, false, new NearbyBossText());
                                     else
                                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.4"), Color.Cyan);
                                     break;
                                 case 1200:
                                     if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
-                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.PreFight", AAWorld_Unreleased.AmbientSoCPos.ToWorldCoordinates(0, 0), 7, 120, false, new NearbyBossText());
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.PreFight", AAWorld_Unreleased.AmbientSoCPos.ToWorldCoordinates(0, 0), 7, 180, false, new NearbyBossText());
                                     else
                                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SoulOfCthulhu.PreFight.SunkenShipWarning.5"), Color.DarkCyan);
                                     break;
