@@ -25,7 +25,7 @@
   "Pages": [
     {
       "Lines": [
-        "[Wavy(4, 3):...you utter fool...]"
+        "[Wavy(4, 3):...you utter fool...][Pause(1)] "
       ]
     },
     {
@@ -50,12 +50,12 @@
     },
     {
       "Lines": [
-        "[Wavy(4, 3):And after all, you [Shaking(2.5):DID] kill my brother... Such a shame he’s gone.]"
+        "[Wavy(4, 3):And after all, you [Shaking(1):DID] kill my brother... Such a shame he’s gone.]"
       ]
     },
     {
       "Lines": [
-        "[Wavy(4, 3):...so you must die.]"
+        "[Wavy(4, 3):...so you must die.][Pause(1)] "
       ]
     },
     {

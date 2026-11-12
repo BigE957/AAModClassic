@@ -62,7 +62,7 @@ namespace AAModClassic._Unreleased.Content.SunkenShip._PostMoonLord.NPCs.SoulOfC
                             WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.SoulOfCthulhu.Transition", NPC, uptime: 30, effects: new NearbyBossText());
                         break;
 
-                    case 1620:
+                    case 1730:
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                             SummonSoul();
                         
