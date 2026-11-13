@@ -1,0 +1,79 @@
+{
+  "Revision": 1,
+  "DefaultColor": "00FFFF",
+  "DefaultSpeaker": "Soul of Cthulhu",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "[Scale(1.5):[Shaking(3):YOU CANNOT CHEAT DEATH!!]]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Scale(1.5):[Shaking(1):I SHALL NOT LOSE TO A MORTAL AGAIN.]][Pause(1)] ",
+        "[Scale(1.5):[Shaking(3):YOU WILL FEEL MY WRATH UPON YOUR WORLD!]]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(2):Cyaegha!][Pause(1)] ",
+        "[Shaking(1):Scorch this insignificant mortal with your flames of agony!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(2):Crom Cruach!][Pause(1)] ",
+        "[Shaking(1):Devour my foe for me so I may destroy this world!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(2):Lu'Kthu!][Pause(1)] ",
+        "[Shaking(1):Send your minions upon this pest to distract them!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(2):Rhan-Tegoth!][Pause(1)] ",
+        "[Shaking(1):Crush this annoyance with your claws of pain!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(2):Ei'Lor!][Pause(1)] ",
+        "[Shaking(1):Tear this fool limb from limb with your vines!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Scale(1.25):[Shaking(2):THAT TEARS IT!]]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Scale(1.25):[Shaking(2):VILE-OCT!]][Pause(1)] ",
+        "[Scale(1.25):[Shaking(2):DESTROY THIS INSIGNIFICANT PEST!]]"
+      ]
+    }
+  ]
+}
