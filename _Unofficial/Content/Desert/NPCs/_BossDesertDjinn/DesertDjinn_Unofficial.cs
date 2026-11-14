@@ -19,7 +19,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
+namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
 {
     [AutoloadBossHead]
     public class DesertDjinn_Unofficial : ModNPC

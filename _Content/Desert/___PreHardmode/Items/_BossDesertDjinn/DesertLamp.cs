@@ -1,6 +1,6 @@
 ﻿using AAModClassic._Content.Desert.___PreHardmode.Items.Materials;
 using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
-using AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn;
+using AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn;
 using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.UI.World;

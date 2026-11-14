@@ -13,7 +13,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn
+namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
 {
     public class CactusBaseball : ModProjectile
     {

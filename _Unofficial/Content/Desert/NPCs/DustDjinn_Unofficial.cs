@@ -1,6 +1,6 @@
 ﻿using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
 using AAModClassic._Content.Desert.___PreHardmode.NPCs._Day;
-using AAModClassic._Unofficial.Desert.NPCs._BossDesertDjinn;
+using AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn;
 using AAModClassic.Dusts;
 using AAModClassic.Globals;
 using AAModClassic.UI.World;
@@ -13,7 +13,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAModClassic._Unofficial.Desert.NPCs
+namespace AAModClassic._Unofficial.Content.Desert.NPCs
 {
     public class DustDjinn_Unofficial : ModNPC
     {
