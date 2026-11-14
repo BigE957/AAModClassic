@@ -5,7 +5,7 @@ namespace AAModClassic.Utilities
 {
     public static class MathUtils
     {
-        public static bool TryGetLaunchVelocity(Vector2 goal, float initialYVelocity, float gravity, out Vector2 velocity)
+        public static bool TryGetLaunchVelocityUsingY(Vector2 goalFromZero, float initialYVelocity, float gravity, out Vector2 velocity)
         {
             if (MathF.Abs(gravity) == 0)
             {
@@ -15,7 +15,7 @@ namespace AAModClassic.Utilities
 
             float vyisq = initialYVelocity * initialYVelocity;
 
-            float d = vyisq + 2 * gravity * goal.Y;
+            float d = vyisq + 2 * gravity * goalFromZero.Y;
 
             if (d < 0)
             {
@@ -32,7 +32,7 @@ namespace AAModClassic.Utilities
                 return false;
             }
 
-            float vxi = goal.X / t;
+            float vxi = goalFromZero.X / t;
 
             if (float.IsNaN(vxi) || float.IsInfinity(vxi))
             {
@@ -41,6 +41,34 @@ namespace AAModClassic.Utilities
             }
 
             velocity = new Vector2(vxi, -initialYVelocity);
+            return true;
+        }
+
+        public static bool TryGetLaunchVelocityUsingX(Vector2 goalFromZero, float initialXVelocity, float gravity, out Vector2 velocity)
+        {
+            if (MathF.Abs(initialXVelocity) <= float.Epsilon || MathF.Abs(gravity) == 0)
+            {
+                velocity = Vector2.Zero;
+                return false;
+            }
+
+            float t = goalFromZero.X / initialXVelocity;
+
+            if (t <= float.Epsilon)
+            {
+                velocity = Vector2.Zero;
+                return false;
+            }
+
+            float initialYVelocity = (goalFromZero.Y - 0.5f * gravity * t * t) / t;
+
+            if (float.IsNaN(initialYVelocity) || float.IsInfinity(initialYVelocity))
+            {
+                velocity = Vector2.Zero;
+                return false;
+            }
+
+            velocity = new Vector2(initialXVelocity, initialYVelocity);
             return true;
         }
 

@@ -55,7 +55,8 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
             SubmergedUppercut,
             Dive,
             MudaMuda,
-            CactusBaseball
+            CactusBaseball,
+            BurialBarrage
         }
 
         public DjinnState CurrentState { get => (DjinnState)NPC.ai[0]; set => NPC.ai[0] = (float)value; }
@@ -68,6 +69,18 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
         public int AttackAmount = -1;
         public float AttackAngle = 0f;
         public bool Phase2 = false;
+
+        internal enum BurialBarrageSubState
+        {
+            Start,
+            SetupLaunch,
+            Overhead,
+            Targeted,
+            OverheadEarlyMixUp,
+            OverheadLateMixup,
+            Finisher
+        }
+        internal BurialBarrageSubState burialBarrageState = BurialBarrageSubState.Start;
 
         #region Balancing Values
         // Recovery Flex
@@ -182,7 +195,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                         if(Time == 180)
                         {
                             List<DjinnState> options = [DjinnState.GrandSlam, DjinnState.TwisterPunch, DjinnState.SubmergedUppercut, DjinnState.Dive, DjinnState.CactusBaseball];
-                            CurrentState = options[Main.rand.Next(options.Count)];
+                            CurrentState = DjinnState.BurialBarrage;// options[Main.rand.Next(options.Count)];
                             PreviousStartingState = CurrentState;
                             AttackFlag = false;
                             Time = 0;
@@ -505,7 +518,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                     {
                         NPC.TargetClosest();
                         Vector2 targetPos = Target.Center + Target.velocity * 4f;
-                        if (MathUtils.TryGetLaunchVelocity(targetPos - NPC.Center, 12f, gravity, out Vector2 velocity))
+                        if (MathUtils.TryGetLaunchVelocityUsingY(targetPos - NPC.Center, 12f, gravity, out Vector2 velocity))
                         {
                             NPC.velocity = velocity;
                             FrameX = 4;
@@ -1263,6 +1276,177 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                             CurrentState = DjinnState.RecoverFlex;
                         }
                         return;
+                    }
+                    break;
+                case DjinnState.BurialBarrage:
+                    gravity = 0.6f;
+                    switch (burialBarrageState)
+                    {
+                        case BurialBarrageSubState.Start:
+                            if (Time == 0)
+                            {
+                                if (Collision.SolidCollision(NPC.position + new Vector2(NPC.width / 4, 0), NPC.width - (NPC.width / 4), 2))
+                                {
+                                    Time = 0;
+                                    burialBarrageState = BurialBarrageSubState.SetupLaunch;
+                                    return;
+                                }
+
+                                int side = NPC.Center.X > Target.Center.X ? 1 : -1;
+                                NPC.velocity = new Vector2(4 * side, -8);
+                                FrameX = 4;
+                                NPC.TargetClosest();
+                                NPC.direction *= -1;
+                            }
+                            else
+                            {
+                                NPC.velocity.Y += gravity;
+
+                                if (NPC.velocity.Y > 0 && NPC.Bottom.Y > Target.Bottom.Y && Collision.SolidCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
+                                {
+                                    SoundEngine.PlaySound(SoundID.DD2_MonkStaffGroundImpact, NPC.Center);
+                                    Time = 0;
+                                    burialBarrageState = BurialBarrageSubState.SetupLaunch;
+
+                                    Point start = NPC.Center.ToTileCoordinates() - new Point(-2 * NPC.direction, 8);
+                                    Point ground = CollisionUtils.FindSurfaceBelow(start);
+                                    GroundWave particle = new(ground, 8, NPC.direction == 1, 24, 2, 16, 0.5f);
+                                    ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
+
+                                    start = NPC.Center.ToTileCoordinates() - new Point(2 * NPC.direction, 8);
+                                    ground = CollisionUtils.FindSurfaceBelow(start);
+                                    ParticleSystem.SpawnParticle(new GroundWave(ground, 8, NPC.direction != 1, 24, 2, 16, 0.5f), DrawLayer.AfterPlayers);
+
+                                    start = NPC.Center.ToTileCoordinates() - new Point(0, 8);
+                                    ground = CollisionUtils.FindSurfaceBelow(start);
+                                    for (int i = -4; i <= 4; i++)
+                                    {
+                                        Point spawnTile = CollisionUtils.FindSurfaceAround(ground + new Point(i, 0), true);
+                                        WorldGen.KillTile(spawnTile.X, spawnTile.Y, effectOnly: true);
+                                        if (Framing.GetTileSafely(spawnTile).TileType == TileID.Sand)
+                                        {
+                                            Vector2 spawnPos = spawnTile.ToWorldCoordinates();
+                                            for (int j = 0; j < 3; j++)
+                                            {
+                                                LargeDust d = new(spawnPos, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-1, -1 - j)), new Color(212, 192, 100), new Color(212, 192, 100), Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
+                                                ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
+                                            }
+                                        }
+                                    }
+                                    return;
+                                }
+                            }
+                            break;
+                        case BurialBarrageSubState.SetupLaunch:
+                            bool left = NPC.Center.X < Target.Center.X;
+                            if (Time == 0)
+                            {
+                                Vector2 start;
+                                if (left)
+                                    start = Target.Center + new Vector2(Main.rand.NextFloat(-700, -500), -128);
+                                else
+                                    start = Target.Center + new Vector2(Main.rand.NextFloat(500, 800), -128);
+                                Point tileStart = CollisionUtils.FindSurfaceBelow(start.ToTileCoordinates(), true);
+                                NPC.Center = tileStart.ToWorldCoordinates(8, NPC.height);
+
+                                float xVelocity = left ? 10 : -10;
+                                if (!MathUtils.TryGetLaunchVelocityUsingX((Target.Center - Vector2.UnitY * 128) - NPC.Center, xVelocity, gravity, out NPC.velocity))
+                                    NPC.velocity = new Vector2(xVelocity, -16);
+
+                                NPC.Center -= NPC.velocity;
+                            }
+                            else if(Time < 45)
+                            {
+                                float xVelocity = left ? 10 : -10;
+                                if (!MathUtils.TryGetLaunchVelocityUsingX((Target.Center - Vector2.UnitY * 128) - NPC.Center, xVelocity, gravity, out NPC.velocity))
+                                    NPC.velocity = new Vector2(xVelocity, -16);
+
+                                Point spawnTile = NPC.Center.ToTileCoordinates();
+                                for (int i = 0; i <= 4; i++)
+                                {
+                                    bool sand = Framing.GetTileSafely(spawnTile).TileType == TileID.Sand;
+                                    Vector2 spawnPos = spawnTile.ToWorldCoordinates();
+                                    for (int j = 0; j < 3; j++)
+                                    {
+                                        Color c = sand ? new Color(212, 192, 100) : Color.Brown;
+                                        LargeDust d = new(spawnPos + Main.rand.NextVector2Circular(NPC.width / 2f, NPC.height / 2f), new Vector2(left ? 8 : -8, -10), c, c, Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
+                                        ParticleSystem.SpawnParticle(d, DrawLayer.BeforeAllTiles);
+                                    }
+                                }
+
+                                NPC.Center -= NPC.velocity;
+                            }
+                            else
+                            {
+                                burialBarrageState = BurialBarrageSubState.Overhead;
+                                Time = 0;
+                                return;
+                            }
+                            break;
+                        case BurialBarrageSubState.Overhead:
+                            NPC.velocity.Y += gravity;
+
+                            if (Time > 10 && NPC.velocity.Y > 0 && (NPC.Bottom.Y + NPC.velocity.Y) > Target.Bottom.Y && CollisionUtils.SurfaceCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
+                            {
+                                SoundEngine.PlaySound(SoundID.DD2_MonkStaffGroundImpact, NPC.Center);
+                                Time = 0;
+                                AttackFlag = true;
+
+                                for (int i = -3; i <= 3; i++)
+                                {
+                                    Point s = NPC.Center.ToTileCoordinates() - new Point(-i * NPC.direction, 8);
+                                    Point g = CollisionUtils.FindSurfaceBelow(s);
+                                    WorldGen.KillTile(g.X, g.Y, effectOnly: true);
+                                }
+                                Point start = NPC.Center.ToTileCoordinates() - new Point(-2 * NPC.direction, 8);
+                                Point ground = CollisionUtils.FindSurfaceBelow(start);
+                                /*
+                                GroundWave particle = new(ground, 32, NPC.direction == 1, 162, 1, 24, strong: true);
+                                ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
+                                int dir = (NPC.direction == 1 ? 1 : -1);
+
+                                Projectile proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(13.75f * dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), GrandSlamWaveDamage, 0f, ai1: 10, ai2: 150);
+                                proj.timeLeft = particle.Lifetime - 12;
+                                proj.position.Y -= 25;
+
+                                start = NPC.Center.ToTileCoordinates() - new Point(2 * NPC.direction, 8);
+                                ground = CollisionUtils.FindSurfaceBelow(start);
+                                ParticleSystem.SpawnParticle(new GroundWave(ground, 10, NPC.direction != 1, 24, 3, 16, 0.5f), DrawLayer.AfterPlayers);
+                                */
+                                start = NPC.Center.ToTileCoordinates() - new Point(0, 8);
+                                ground = CollisionUtils.FindSurfaceBelow(start);
+                                for (int i = -6; i <= 6; i++)
+                                {
+                                    Point spawnTile = CollisionUtils.FindSurfaceAround(ground + new Point(i, 0), true);
+                                    WorldGen.KillTile(spawnTile.X, spawnTile.Y, effectOnly: true);
+                                    if (Framing.GetTileSafely(spawnTile).TileType == TileID.Sand)
+                                    {
+                                        Vector2 spawnPos = spawnTile.ToWorldCoordinates();
+                                        for (int j = 0; j < 4; j++)
+                                        {
+                                            LargeDust d = new(spawnPos, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, -3 - (j * 2))), new Color(212, 192, 100), new Color(212, 192, 100), Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
+                                            ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
+                                        }
+                                    }
+                                }
+
+                                bool tooFar = NPC.DistanceSQ(Target.Center) > 640000;
+                                if (tooFar || (Exhaustion + 1 < ExhaustionCap && Collision.SolidCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))) //800^2
+                                {
+                                    burialBarrageState = BurialBarrageSubState.Start;
+                                    Time = 1;
+                                }
+                                break;
+                            }
+                            break;
+                        case BurialBarrageSubState.Targeted:
+                            break;
+                        case BurialBarrageSubState.OverheadEarlyMixUp:
+                            break;
+                        case BurialBarrageSubState.OverheadLateMixup:
+                            break;
+                        case BurialBarrageSubState.Finisher:
+                            break;
                     }
                     break;
             }

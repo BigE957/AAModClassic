@@ -495,7 +495,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                             if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                             {
                                 Vector2 goal = player.Center - NPC.Center;
-                                if (!MathUtils.TryGetLaunchVelocity(goal, 10, 0.2f, out Vector2 velocity))
+                                if (!MathUtils.TryGetLaunchVelocityUsingY(goal, 10, 0.2f, out Vector2 velocity))
                                     velocity = new Vector2(Math.Sign(goal.X) == -1 ? -10 : 10, 10);
                                 if (Main.netMode != NetmodeID.MultiplayerClient)
                                     Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, velocity, ModContent.ProjectileType<Axe>(), 18, 0.5f, -1);
@@ -579,7 +579,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                         else
                             goal.X += Main.rand.NextFloat(randomCenterMin, randomCenterMax);
 
-                        if (!MathUtils.TryGetLaunchVelocity(goal, 10, 0.2f, out Vector2 velocity))
+                        if (!MathUtils.TryGetLaunchVelocityUsingY(goal, 10, 0.2f, out Vector2 velocity))
                             velocity = NPC.DirectionTo(targetPos) * 100;
 
                         if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -628,7 +628,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                         else
                             goal.X += Main.rand.NextFloat(randomCenterMin, randomCenterMax);
 
-                        if (!MathUtils.TryGetLaunchVelocity(goal, 10, 0.2f, out Vector2 velocity))
+                        if (!MathUtils.TryGetLaunchVelocityUsingY(goal, 10, 0.2f, out Vector2 velocity))
                             velocity = NPC.DirectionTo(targetPos) * 100;
 
                         if (Main.netMode != NetmodeID.MultiplayerClient)
