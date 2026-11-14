@@ -734,6 +734,13 @@ InfinityZero: {
 	}
 
 	Defeat: {
+		Interceptions: {
+			0: I love Oblivion.
+			1: Oblivion is perfection.
+			2: Entropy is peace.
+			3: Hail the God of Entropy.
+		}
+
 		First: {
 			1: ...impressive.
 			2: Defeating my mechanical body...
