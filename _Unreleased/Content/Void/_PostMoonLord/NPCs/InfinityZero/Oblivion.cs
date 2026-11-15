@@ -1027,7 +1027,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         private ChatMessage InterceptChatMessageSending(On_ChatCommandProcessor.orig_CreateOutgoingMessage orig, ChatCommandProcessor self, string text)
         {
             if (OblivionActive)
-                text = Language.GetTextValue($"Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Interceptions.{Main.rand.Next(4)}");
+                text = Language.GetTextValue($"Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Interceptions.{Main.rand.Next(6)}");
             AAMod.instance.Logger.Info(text);
             return orig(self, text);
         }
