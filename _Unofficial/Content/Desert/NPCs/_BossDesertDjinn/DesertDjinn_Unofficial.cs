@@ -75,7 +75,6 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
             Start,
             SetupLaunch,
             Overhead,
-            Targeted,
             OverheadEarlyMixUp,
             OverheadLateMixup,
             Finisher
