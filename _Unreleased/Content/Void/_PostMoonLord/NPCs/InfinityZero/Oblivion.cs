@@ -831,59 +831,120 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
 
             Oblivion.HasSpoken = true;
             CurrentMessage = message;
-            List<ChatMessageContainer> messages = (List<ChatMessageContainer>)(ChatMessageList.GetValue(Main.chatMonitor));
+            int targetCount = Tokenize(CurrentMessage).Count;
+
+            List<ChatMessageContainer> messages = (List<ChatMessageContainer>)ChatMessageList.GetValue(Main.chatMonitor);
+            PositionsToChange = [];
+            FirstMessageCache.Clear();
+
             if ((int)MessageTimeLeft.GetValue(messages[0]) <= 0)
             {
-                Main.NewText("".PadRight(CurrentMessage.Length), color);
-                PositionsToChange = [];
-                for (int i = 0; i < MathHelper.Max(CurrentMessage.Length, messages[0].OriginalText.Length); i++)
+                Main.NewText("".PadRight(targetCount), color);
+                int count = Math.Max(targetCount, Tokenize(messages[0].OriginalText).Count);
+                for (int i = 0; i < count; i++)
                     PositionsToChange.Add(i);
                 firstMessage = false;
             }
             else
             {
-                string displayed = messages[0].OriginalText;
-                if (displayed.Length < CurrentMessage.Length)
-                    displayed = displayed.PadRight(CurrentMessage.Length);
-                PositionsToChange = [];
-                RateOfChange = (int)MathHelper.Max(CurrentMessage.Length, displayed.Length) / 16;
-                for (int i = 0; i < MathHelper.Max(CurrentMessage.Length, displayed.Length); i++)
+                List<string> displayed = Tokenize(messages[0].OriginalText);
+                while (displayed.Count < targetCount)
+                    displayed.Add(" ");
+
+                RateOfChange = Math.Max(1, displayed.Count / 16);
+                for (int i = 0; i < displayed.Count; i++)
                 {
-                    if (i < displayed.Length)
-                        FirstMessageCache.Add(displayed[i].ToString());
-                    else
-                        FirstMessageCache.Add(" ");
+                    FirstMessageCache.Add(displayed[i]);
                     PositionsToChange.Add(i);
                 }
 
-                messages[0].SetContents(displayed, (Color)MessageColor.GetValue(messages[0]), -1);
-
+                messages[0].SetContents(string.Concat(displayed), (Color)MessageColor.GetValue(messages[0]), -1);
                 ChatMessageList.SetValue(Main.chatMonitor, messages);
             }
         }
-     
+
         public override void PostUpdateNPCs()
         {
             if (OblivionActive)
-            {
                 for (int i = 0; i < RateOfChange; i++)
                     UpdateMessage();
-            }
-            else
-            {
-                Oblivion.HasSpoken = false;
-                PositionsToChange.Clear();
-                FirstMessageCache.Clear();
-                firstMessage = true;
-                RateOfChange = 4;
-                CurrentMessage = "";
-            }
         }
 
         public override void PostUpdateEverything()
         {
             if (OblivionActive)
+            {
                 OblivionActive = NPC.AnyNPCs(ModContent.NPCType<Oblivion>());
+                if (!OblivionActive)
+                {
+                    Oblivion.HasSpoken = false;
+                    PositionsToChange.Clear();
+                    FirstMessageCache.Clear();
+                    firstMessage = true;
+                    RateOfChange = 4;
+                    CurrentMessage = "";
+                }
+            }
+        }
+
+        private static readonly Regex TagStart = new(@"\G\[(?<tag>[a-zA-Z]{1,10})(?:/(?<opt>[^\[\]:]+))?:", RegexOptions.Compiled);
+
+        private static List<string> Tokenize(string text, string colorOpt = null)
+        {
+            List<string> tokens = [];
+            int i = 0;
+            while (i < text.Length)
+            {
+                if (text[i] == '[')
+                {
+                    Match head = TagStart.Match(text, i);
+                    if (head.Success)
+                    {
+                        int bodyStart = head.Index + head.Length;
+                        int close = FindClose(text, bodyStart);
+                        if (close >= 0)
+                        {
+                            string tag = head.Groups["tag"].Value.ToLowerInvariant();
+                            if ((tag == "c" || tag == "color") && head.Groups["opt"].Success)
+                                tokens.AddRange(Tokenize(text.Substring(bodyStart, close - bodyStart), head.Groups["opt"].Value));
+                            else
+                                tokens.Add(text.Substring(i, close + 1 - i));
+                            i = close + 1;
+                            continue;
+                        }
+                    }
+                }
+
+                string ch = text[i].ToString();
+                tokens.Add(colorOpt != null ? $"[c/{colorOpt}:{ch}]" : ch);
+                i++;
+            }
+            return tokens;
+        }
+
+        private static int FindClose(string text, int from)
+        {
+            int depth = 1;
+            for (int i = from; i < text.Length; i++)
+            {
+                char c = text[i];
+                if (c == '\\') { i++; continue; }
+                if (c == '[' && TagStart.IsMatch(text, i)) depth++;
+                else if (c == ']' && --depth == 0) return i;
+            }
+            return -1;
+        }
+
+        private static bool IsColorToken(string token) => token.Length > 3 && (token.StartsWith("[c/", StringComparison.OrdinalIgnoreCase) || token.StartsWith("[color/", StringComparison.OrdinalIgnoreCase));
+        
+        private static bool IsNonColorTag(string token) => token.Length > 1 && token[0] == '[' && !IsColorToken(token);
+
+        private static string TokenText(string token)
+        {
+            if (!IsColorToken(token))
+                return token;
+            int colon = token.IndexOf(':');
+            return token.Substring(colon + 1, token.Length - colon - 2);
         }
 
         private static void UpdateMessage()
@@ -896,26 +957,33 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             PositionsToChange.RemoveAt(posSlot);
 
             List<ChatMessageContainer> messages = (List<ChatMessageContainer>)ChatMessageList.GetValue(Main.chatMonitor);
-            char[] arr;
+            List<string> target = Tokenize(CurrentMessage);
+            string result;
+
             if (firstMessage)
             {
-                if (messageSlot >= CurrentMessage.Length)
+                if (messageSlot >= target.Count)
                     FirstMessageCache[messageSlot] = " ";
                 else
-                    FirstMessageCache[messageSlot] = "[C/8B0000:" + CurrentMessage[messageSlot].ToString() + "]";
-
-                string str = "";
-                foreach (string s in FirstMessageCache)
-                    str += s;
-                arr = str.ToCharArray();
+                {
+                    string tok = target[messageSlot];
+                    if (IsNonColorTag(tok))
+                        FirstMessageCache[messageSlot] = tok;
+                    else
+                    {
+                        string ch = TokenText(tok);
+                        FirstMessageCache[messageSlot] = ch is "[" or "]" or "\\" ? ch : "[C/8B0000:" + ch + "]";
+                    }
+                }
+                result = string.Concat(FirstMessageCache);
             }
             else
             {
-                arr = messages[0].OriginalText.ToCharArray();
-                if (messageSlot >= CurrentMessage.Length)
-                    arr[messageSlot] = ' ';
-                else
-                    arr[messageSlot] = CurrentMessage[messageSlot];
+                List<string> tokens = Tokenize(messages[0].OriginalText);
+                while (tokens.Count <= messageSlot)
+                    tokens.Add(" ");
+                tokens[messageSlot] = messageSlot >= target.Count ? " " : target[messageSlot];
+                result = string.Concat(tokens);
             }
 
             if (MessageSwapComplete)
@@ -925,17 +993,18 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             }
             else if (firstMessage)
             {
-                messages[0].SetContents(new string(arr), (Color)MessageColor.GetValue(messages[0]), -1);
+                messages[0].SetContents(result, (Color)MessageColor.GetValue(messages[0]), -1);
             }
             else
-                messages[0].SetContents(new string(arr), AAColor.OblivionDialogue, -1);
+            {
+                messages[0].SetContents(result, AAColor.OblivionDialogue, -1);
+            }
 
             ChatMessageList.SetValue(Main.chatMonitor, messages);
         }
 
         private static void InterceptChatMessageDisplay(On_RemadeChatMonitor.orig_AddNewMessage orig, RemadeChatMonitor self, string text, Color color, int widthLimitInPixels)
         {
-            AAMod.instance.Logger.Info("REMADE MESSAGE INTERCEPTED");
             if (!Oblivion.HasSpoken)
                 orig(self, text, color, widthLimitInPixels);
             else
@@ -959,6 +1028,7 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
         {
             if (OblivionActive)
                 text = Language.GetTextValue($"Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Defeat.Interceptions.{Main.rand.Next(4)}");
+            AAMod.instance.Logger.Info(text);
             return orig(self, text);
         }
     }
