@@ -1279,8 +1279,8 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                     break;
                 case DjinnState.BurialBarrage:
                     gravity = 0.6f;
-                    int regularDelay = 8;
-                    int mixUpDelay = 16;
+                    int regularDelay = 6;
+                    int mixUpDelay = 12;
                     switch (burialBarrageState)
                     {
                         case BurialBarrageSubState.Start:
@@ -1357,9 +1357,9 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
 
                                 Vector2 start;
                                 if (left)
-                                    start = Target.Center + new Vector2(Main.rand.NextFloat(-630, -430), -128);
+                                    start = Target.Center + new Vector2(Main.rand.NextFloat(-600, -450), -128);
                                 else
-                                    start = Target.Center + new Vector2(Main.rand.NextFloat(430, 630), -128);
+                                    start = Target.Center + new Vector2(Main.rand.NextFloat(450, 600), -128);
                                 Point tileStart = CollisionUtils.FindSurfaceBelow(start.ToTileCoordinates(), true);
                                 NPC.Center = tileStart.ToWorldCoordinates(8, NPC.height);
 
@@ -1391,7 +1391,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                 {
                                     bool sand = Framing.GetTileSafely(spawnTile).TileType == TileID.Sand;
                                     Vector2 spawnPos = spawnTile.ToWorldCoordinates();
-                                    Color c = sand ? new Color(212, 192, 100) : Color.Brown;
+                                    Color c = sand ? new(212, 192, 100) : new(145, 98, 54);
                                     LargeDust d = new(spawnPos + Main.rand.NextVector2Circular(NPC.width / 2f, NPC.height / 2f), NPC.velocity * Main.rand.NextFloat(0.75f, 1.75f), c, c, Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
                                     ParticleSystem.SpawnParticle(d, DrawLayer.BeforeAllTiles);
                                 }
@@ -1408,6 +1408,53 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                     _ => BurialBarrageSubState.Overhead,
                                 };
                                 Time = 0;
+
+                                if(true)//Main.masterMode)
+                                {
+                                    SoundEngine.PlaySound(SoundID.DD2_MonkStaffGroundImpact, NPC.Center);
+
+                                    for (int i = -3; i <= 3; i++)
+                                    {
+                                        Point s = NPC.Center.ToTileCoordinates() - new Point(-i * NPC.direction, 8);
+                                        Point g = CollisionUtils.FindSurfaceBelow(s);
+                                        WorldGen.KillTile(g.X, g.Y, effectOnly: true);
+                                    }
+                                    Point start = NPC.Center.ToTileCoordinates() - new Point(-2 * NPC.direction, 8);
+                                    Point ground = CollisionUtils.FindSurfaceBelow(start);
+
+                                    GroundWave particle = new(ground, 20, NPC.direction == 1, 72, 1, 24, strong: true);
+                                    ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
+                                    int dir = (NPC.direction == 1 ? 1 : -1);
+
+                                    Projectile proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(14 * dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), DiveWaveDamage, 0f, ai1: 8, ai2: 60);
+                                    proj.timeLeft = particle.Lifetime - 24;
+
+                                    start = NPC.Center.ToTileCoordinates() - new Point(2 * NPC.direction, 8);
+                                    ground = CollisionUtils.FindSurfaceBelow(start);
+                                    particle = new(ground, 12, NPC.direction != 1, 108, 1, 24, strong: true);
+                                    ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
+
+                                    proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(14 * -dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), DiveWaveDamage, 0f, ai1: 8, ai2: 90);
+                                    proj.timeLeft = particle.Lifetime - 24;
+
+                                    start = NPC.Center.ToTileCoordinates() - new Point(0, 8);
+                                    ground = CollisionUtils.FindSurfaceBelow(start);
+                                    for (int i = -6; i <= 6; i++)
+                                    {
+                                        Point spawnTile = CollisionUtils.FindSurfaceAround(ground + new Point(i, 0), true);
+                                        WorldGen.KillTile(spawnTile.X, spawnTile.Y, effectOnly: true);
+                                        if (Framing.GetTileSafely(spawnTile).TileType == TileID.Sand)
+                                        {
+                                            Vector2 spawnPos = spawnTile.ToWorldCoordinates();
+                                            for (int j = 0; j < 4; j++)
+                                            {
+                                                LargeDust d = new(spawnPos, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, -3 - (j * 2))), new Color(212, 192, 100), new Color(212, 192, 100), Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
+                                                ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
+                                            }
+                                        }
+                                    }
+                                }
+
                                 return;
                             }
                             break;
