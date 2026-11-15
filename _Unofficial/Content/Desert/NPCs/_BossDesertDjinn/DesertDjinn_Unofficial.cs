@@ -78,7 +78,6 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
             Overhead,
             OverheadEarlyMixUp,
             OverheadLateMixUp,
-            Finisher
         }
         internal BurialBarrageSubState burialBarrageState = BurialBarrageSubState.Start;
 
@@ -1776,8 +1775,6 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                     }
                                 }
                             }
-                            break;
-                        case BurialBarrageSubState.Finisher:
                             break;
                     }
                     break;
