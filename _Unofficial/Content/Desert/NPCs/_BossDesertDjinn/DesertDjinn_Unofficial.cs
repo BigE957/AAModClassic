@@ -18,6 +18,7 @@ using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using static SpiritReforged.Content.Underground.Moss.Oganesson.OganessonPlants;
 
 namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
 {
@@ -1286,6 +1287,23 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                         case BurialBarrageSubState.Start:
                             if (Time == 0)
                             {
+                                SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
+                                if (Collision.SolidCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
+                                {
+                                    NPC.velocity = new Vector2(0, -8);
+                                    FrameX = 5;
+                                    NPC.frame.Y = NPC.frame.Height * 3;
+                                    NPC.frameCounter = 0;
+                                }
+                                else
+                                    Time = 35;
+                            }
+                            else if (Time < 36)
+                            {
+                                NPC.velocity *= 0.95f;
+                            }
+                            else if (Time == 36)
+                            {
                                 int side = NPC.Center.X > Target.Center.X ? 1 : -1;
                                 NPC.velocity = new Vector2(4 * side, -8);
                                 FrameX = 4;
@@ -1299,7 +1317,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                 if (NPC.velocity.Y > 0 && NPC.Bottom.Y > Target.Bottom.Y && Collision.SolidCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
                                 {
                                     SoundEngine.PlaySound(SoundID.DD2_MonkStaffGroundImpact, NPC.Center);
-                                    Time = 0;
+                                    Time = -5;
                                     burialBarrageState = BurialBarrageSubState.SetupLaunch;
 
                                     Point start = NPC.Center.ToTileCoordinates() - new Point(-2 * NPC.direction, 8);
@@ -1348,7 +1366,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                 if(AttackCounter > 6)
                                 {
                                     NPC.velocity = Vector2.Zero;
-                                    Time = -30;
+                                    Time = -48;
                                     CurrentState = DjinnState.SubmergedUppercut;
                                     AttackFlag = true;
                                     AttackCounter = 0;
