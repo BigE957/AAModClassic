@@ -468,7 +468,7 @@ DoomStaff: {
 }
 
 GalacticStormspike: {
-	DisplayName: 银河风暴荆棘
+	DisplayName: 星穹暴风棘
 	Tooltip: 射出一道分支状的黑暗电流
 }
 
