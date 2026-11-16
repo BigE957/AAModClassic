@@ -147,11 +147,12 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
             Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
             SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);
 
-            if (Main.netMode != NetmodeID.MultiplayerClient)
-            {
-                string id = Textures[(int)Projectile.ai[2]].id;
+            
+            string id = Textures[(int)Projectile.ai[2]].id;
 
-                if (id == "Default")
+            if (id == "Default")
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     int amount = Main.rand.Next(3, 6);
                     float startOff = Main.rand.NextFloat();
@@ -164,33 +165,73 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                         Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, velocity, ProjectileID.RollingCactusSpike, 10, 2f, Main.myPlayer);
                     }
                 }
-                else if(id == "Stactus")
-                {
-                    SoundEngine.PlaySound(SoundID.NPCDeath1, Projectile.Center);
+            }
+            else if (id == "Stactus")
+            {
+                SoundEngine.PlaySound(SoundID.NPCDeath1, Projectile.Center);
 
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                {
                     for (int i = 0; i < 5; i++)
                         Projectile.NewProjectileDirect(Projectile.GetSource_FromAI(), Projectile.Center - Projectile.velocity, Main.rand.NextVector2Unit() * Main.rand.NextFloat(1, 2.2f), CactusSpine, 10, 1, ai0: Main.rand.Next(0, 3));
-                
-                    if(!Main.dedServ)
+                }
+
+                if (!Main.dedServ)
+                {
+                    Vector2 velocity = new(Projectile.velocity.X * 0.1f, Projectile.velocity.Y);
+                    Gore.NewGore(Projectile.GetSource_Death(), Projectile.position, velocity, stactusHeadGoreTypes[Main.rand.Next(2)]);
+
+                    if (Projectile.frame > 0 && Projectile.frame < 5)
                     {
-                        Vector2 velocity = new(Projectile.velocity.X * 0.1f, Projectile.velocity.Y);
-                        Gore.NewGore(Projectile.GetSource_Death(), Projectile.position, velocity, stactusHeadGoreTypes[Main.rand.Next(2)]);
+                        int crownIndex = Projectile.frame;
+                        Gore.NewGore(Projectile.GetSource_Death(), Projectile.position, velocity, stactusCrownGoreTypes[crownIndex, 0]);
 
-                        if (Projectile.frame > 0 && Projectile.frame < 5)
-                        {
-                            int crownIndex = Projectile.frame;
-                            Gore.NewGore(Projectile.GetSource_Death(), Projectile.position, velocity, stactusCrownGoreTypes[crownIndex, 0]);
+                        for (int i = 0; i < 2; i++)
+                            Gore.NewGore(Projectile.GetSource_Death(), Projectile.position, velocity, stactusCrownGoreTypes[crownIndex, 1]);
 
-                            for (int i = 0; i < 2; i++)
-                                Gore.NewGore(Projectile.GetSource_Death(), Projectile.position, velocity, stactusCrownGoreTypes[crownIndex, 1]);
-
-                            for (int i = 0; i < 4; i++)
-                                Gore.NewGore(Projectile.GetSource_Death(), Projectile.position, velocity, stactusCrownGoreTypes[crownIndex, 2]);
-                        }
+                        for (int i = 0; i < 4; i++)
+                            Gore.NewGore(Projectile.GetSource_Death(), Projectile.position, velocity, stactusCrownGoreTypes[crownIndex, 2]);
                     }
                 }
-                else
-                    SoundEngine.PlaySound(SoundID.DD2_SkeletonHurt, Projectile.Center);
+            }
+            else if(!Main.dedServ) //Fables DS Spine
+            {
+                Vector2 visualPos = Projectile.Center + Projectile.oldVelocity / 2f;
+                for (int i = 0; i < 5; i++)
+                {
+                    Vector2 dustPos = visualPos + Main.rand.NextVector2Circular(40f, 10f);
+                    Vector2 dustVelocity = (visualPos + Vector2.UnitY * 40f).DirectionTo(dustPos) * Main.rand.NextFloat(4f, 8f);
+                    Dust.NewDustPerfect(dustPos, DustID.FoodPiece, dustVelocity, 0, Color.Tan, Main.rand.NextFloat(1f, 2f));
+                }
+                for (int i = 0; i < 5; i++)
+                {
+                    Vector2 dustPos = visualPos + Main.rand.NextVector2Circular(40f, 10f);
+                    Vector2 dustVelocity = -Vector2.UnitY * Main.rand.NextFloat(3f, 6f);
+                    Dust d = Dust.NewDustPerfect(dustPos, DustID.FoodPiece, dustVelocity, 0, Color.Tan, Main.rand.NextFloat(2f, 3f));
+                    d.noGravity = true;
+                }
+
+                for (int i = 0; i < 5; i++)
+                {
+                    Vector2 dustPos = visualPos + Main.rand.NextVector2Circular(40f, 10f);
+                    Vector2 dustVelocity = -Vector2.UnitY.RotatedByRandom(MathHelper.PiOver2 * 0.8f) * Main.rand.NextFloat(3f, 6f);
+                    Dust.NewDustPerfect(dustPos, DustID.Bone, dustVelocity, 0, Color.White, Main.rand.NextFloat(0.8f, 1.3f));
+                }
+
+                for (int i = 0; i < 9; i++)
+                {
+                    Vector2 dustPos = visualPos + Main.rand.NextVector2Circular(30f, 10f);
+                    Vector2 dustVelocity = -Vector2.UnitY * Main.rand.NextFloat(1f, 3f);
+                    dustVelocity += visualPos.DirectionTo(dustPos) * 2f;
+
+                    dustPos += Vector2.UnitY * 16f;
+
+                    Color dustColor = new(133, 122, 94);
+                    LargeDust sandsmoke = new(dustPos, dustVelocity, dustColor, dustColor, Main.rand.NextFloat(0.8f, 1.3f), 204, 0.03f);
+                    ParticleSystem.SpawnParticle(sandsmoke, DrawLayer.AfterEverything);
+                }
+
+                SoundEngine.PlaySound(SoundID.DD2_SkeletonHurt, Projectile.Center);
             }
         }
 
