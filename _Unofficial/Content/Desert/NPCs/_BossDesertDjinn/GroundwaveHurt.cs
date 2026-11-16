@@ -67,11 +67,11 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             if (target.noKnockback)
-                target.velocity = Projectile.velocity / 2f + Vector2.UnitY * -10;
+                target.velocity = Projectile.velocity / 2f + new Vector2(info.HitDirection * 2f, -10);
             else
                 target.velocity = Projectile.velocity + Vector2.UnitY * -16;
 
-            target.velocity *= Projectile.height == 150 ? 1f : 0.6f;
+            target.velocity *= MathHelper.Lerp(0.5f, 1f, Projectile.height / 360f);
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
