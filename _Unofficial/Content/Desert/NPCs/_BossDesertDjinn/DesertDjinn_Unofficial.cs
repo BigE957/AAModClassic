@@ -83,6 +83,10 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
         internal BurialBarrageSubState burialBarrageState = BurialBarrageSubState.Start;
 
         #region Balancing Values
+        //General
+        public static int Phase1Defense => 24;
+        public static int Phase2Defense => 8;
+
         // Recovery Flex
         public static int RecoverTime => Main.masterMode ? 180 : Main.expertMode ? 240 : 270;
 
@@ -150,11 +154,13 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
             NPC.CloneDefaults(ModContent.NPCType<DesertDjinn>());
             Music = MusicManagementSystem.MusicSlots["Djinn"];
             NPC.npcSlots = 6f;
+            NPC.dontTakeDamage = true;
         }
 
         public override void AI()
         {
             NPC.hide = CurrentState == DjinnState.SubmergedUppercut;
+            NPC.defense = Phase2 ? Phase2Defense : Phase1Defense;
 
             ManageSandstormffects();
 
@@ -163,7 +169,6 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                 case DjinnState.Spawn:
                     int spawnBurrowTime = 240;
                     int spawnHoldTime = 120;
-                    NPC.dontTakeDamage = false;
                     NPC.hide = !AttackFlag;
                     if (AttackFlag)
                     {
@@ -479,7 +484,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                         NPC.velocity = ((Target.Center - Vector2.UnitY * 96f) - NPC.Center) / 90f;
 
                     if (Time >= 30 && Time < trueRecoveryTime)
-                    {               
+                    {
                         if (Time == 30)
                         {
                             NPC.frameCounter = -1;
@@ -488,7 +493,11 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                         FrameX = 5;
                     }
                     else
+                    {
                         FrameX = 0;
+                        NPC.immortal = false;
+                        NPC.dontTakeDamage = false;
+                    }
 
                     NPC.damage = 0;
                     if (Time >= trueRecoveryTime + 60)
@@ -506,8 +515,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                         Time = 0;
                         AttackCounter = 0;
                         Exhaustion = CurrentState == DjinnState.GrandSlam ? 2 : 1;
-                        NPC.immortal = false;
-                        NPC.dontTakeDamage = false;
+                        
                         NPC.netUpdate = true;
                         return;
                     }
