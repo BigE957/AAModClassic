@@ -124,7 +124,7 @@ GlowingMushpick: {
 
 UnityPickaxe: {
 	DisplayName: 统一镐
-	Tooltip: 可以挖掘秘银和山铜。
+	Tooltip: 可以挖掘秘银和山铜
 }
 
 MINEer: {
@@ -161,7 +161,7 @@ Suncaller: {
 	DisplayName: 唤日者
 	Tooltip:
 		'''
-		唤出晨曦之日。
+		唤出晨曦之日
 		不消耗
 		'''
 }
@@ -215,14 +215,14 @@ Mooncaller: {
 	DisplayName: 唤月者
 	Tooltip:
 		'''
-		唤出清辉之月。
+		唤出清辉之月
 		不消耗
 		'''
 }
 
 PerfectShadowDrill: {
 	DisplayName: 精铸暗影钻机
-	Tooltip: 这才像回事嘛。
+	Tooltip: 这才像回事嘛
 }
 
 DreadTerratool: {
@@ -317,7 +317,7 @@ DoomsdayTerratool: {
 
 ShatteredMirror: {
 	DisplayName: 破碎之镜
-	Tooltip: 一件被遗弃多年的纪念物，亟需修复。
+	Tooltip: 一件被遗弃多年的纪念物，亟需修复
 }
 
 GravitronCentrifuge: {
@@ -342,9 +342,9 @@ TheGripsOfChaos: {
 	DisplayName: 混沌之攫
 	Tooltip:
 		'''
-		交替射出两种钩爪。
+		交替射出两种钩爪
 		红钩射程更长
-		蓝钩回收更快。
+		蓝钩回收更快
 		'''
 }
 
