@@ -81,6 +81,13 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
         }
         internal BurialBarrageSubState burialBarrageState = BurialBarrageSubState.Start;
 
+        private enum ImpactDebrisStrength
+        {
+            Light,
+            Medium,
+            Heavy
+        }
+
         #region Balancing Values
         //General
         public static int Phase1Defense => 24;
@@ -272,22 +279,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                 ground = CollisionUtils.FindSurfaceBelow(start, true);
                                 ParticleSystem.SpawnParticle(new GroundWave(ground, 8, NPC.direction != 1, 24, 2, 16, 0.5f), DrawLayer.AfterPlayers);
 
-                                start = NPC.Center.ToTileCoordinates() - new Point(0, 8);
-                                ground = CollisionUtils.FindSurfaceBelow(start);
-                                for (int i = -4; i <= 4; i++)
-                                {
-                                    Point spawnTile = CollisionUtils.FindSurfaceAround(ground + new Point(i, 0), true);
-                                    WorldGen.KillTile(spawnTile.X, spawnTile.Y, effectOnly: true);
-                                    if (Framing.GetTileSafely(spawnTile).TileType == TileID.Sand)
-                                    {
-                                        Vector2 spawnPos = spawnTile.ToWorldCoordinates();
-                                        for (int j = 0; j < 5; j++)
-                                        {
-                                            LargeDust d = new(spawnPos, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-4, -5 - (j * 3))), new Color(212, 192, 100), new Color(212, 192, 100), Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
-                                            ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
-                                        }
-                                    }
-                                }
+                                SpawnImpactDebris(4, ImpactDebrisStrength.Heavy);
                             }
                         }
                         else
@@ -380,22 +372,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                             ground = CollisionUtils.FindSurfaceBelow(start);
                             ParticleSystem.SpawnParticle(new GroundWave(ground, 8, NPC.direction != 1, 24, 2, 16, 0.5f), DrawLayer.AfterPlayers);
 
-                            start = NPC.Center.ToTileCoordinates() - new Point(0, 8);
-                            ground = CollisionUtils.FindSurfaceBelow(start);
-                            for (int i = -4; i <= 4; i++)
-                            {
-                                Point spawnTile = CollisionUtils.FindSurfaceAround(ground + new Point(i, 0), true);
-                                WorldGen.KillTile(spawnTile.X, spawnTile.Y, effectOnly: true);
-                                if (Framing.GetTileSafely(spawnTile).TileType == TileID.Sand)
-                                {
-                                    Vector2 spawnPos = spawnTile.ToWorldCoordinates();
-                                    for (int j = 0; j < 3; j++)
-                                    {
-                                        LargeDust d = new(spawnPos, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-1, -1 - j)), new Color(212, 192, 100), new Color(212, 192, 100), Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
-                                        ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
-                                    }
-                                }
-                            }
+                            SpawnImpactDebris(4, ImpactDebrisStrength.Light);
                         }
                     }
                     else
@@ -570,22 +547,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                 ground = CollisionUtils.FindSurfaceBelow(start);
                                 ParticleSystem.SpawnParticle(new GroundWave(ground, 10, NPC.direction != 1, 24, 3, 16, 0.5f), DrawLayer.AfterPlayers);
 
-                                start = NPC.Center.ToTileCoordinates() - new Point(0, 8);
-                                ground = CollisionUtils.FindSurfaceBelow(start);
-                                for (int i = -6; i <= 6; i++)
-                                {
-                                    Point spawnTile = CollisionUtils.FindSurfaceAround(ground + new Point(i, 0), true);
-                                    WorldGen.KillTile(spawnTile.X, spawnTile.Y, effectOnly: true);
-                                    if (Framing.GetTileSafely(spawnTile).TileType == TileID.Sand)
-                                    {
-                                        Vector2 spawnPos = spawnTile.ToWorldCoordinates();
-                                        for (int j = 0; j < 4; j++)
-                                        {
-                                            LargeDust d = new(spawnPos, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, -3 -(j * 2))), new Color(212, 192, 100), new Color(212, 192, 100), Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
-                                            ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
-                                        }
-                                    }
-                                }
+                                SpawnImpactDebris(6, ImpactDebrisStrength.Medium);
 
                                 bool tooFar = NPC.DistanceSQ(Target.Center) > 640000;
                                 if (tooFar || (Exhaustion + 1 < ExhaustionCap && Collision.SolidCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))) //800^2
@@ -757,22 +719,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                 ground = CollisionUtils.FindSurfaceBelow(start);
                                 ParticleSystem.SpawnParticle(new GroundWave(ground, 8, NPC.direction != 1, 24, 2, 16, 0.5f), DrawLayer.AfterPlayers);
 
-                                start = NPC.Center.ToTileCoordinates() - new Point(0, 8);
-                                ground = CollisionUtils.FindSurfaceBelow(start);
-                                for (int i = -4; i <= 4; i++)
-                                {
-                                    Point spawnTile = CollisionUtils.FindSurfaceAround(ground + new Point(i, 0), true);
-                                    WorldGen.KillTile(spawnTile.X, spawnTile.Y, effectOnly: true);
-                                    if (Framing.GetTileSafely(spawnTile).TileType == TileID.Sand)
-                                    {
-                                        Vector2 spawnPos = spawnTile.ToWorldCoordinates();
-                                        for (int j = 0; j < 3; j++)
-                                        {
-                                            LargeDust d = new(spawnPos, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-1, -1 - j)), new Color(212, 192, 100), new Color(212, 192, 100), Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
-                                            ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
-                                        }
-                                    }
-                                }
+                                SpawnImpactDebris(4, ImpactDebrisStrength.Light);
                                 return;
                             }
                         }
@@ -840,22 +787,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                         ground = CollisionUtils.FindSurfaceBelow(start, true);
                                         ParticleSystem.SpawnParticle(new GroundWave(ground, 8, NPC.direction != 1, 24, 2, 16, 0.5f), DrawLayer.AfterPlayers);
 
-                                        start = NPC.Center.ToTileCoordinates() - new Point(0, 8);
-                                        ground = CollisionUtils.FindSurfaceBelow(start);
-                                        for (int i = -4; i <= 4; i++)
-                                        {
-                                            Point spawnTile = CollisionUtils.FindSurfaceAround(ground + new Point(i, 0), true);
-                                            WorldGen.KillTile(spawnTile.X, spawnTile.Y, effectOnly: true);
-                                            if (Framing.GetTileSafely(spawnTile).TileType == TileID.Sand)
-                                            {
-                                                Vector2 spawnPos = spawnTile.ToWorldCoordinates();
-                                                for (int j = 0; j < 5; j++)
-                                                {
-                                                    LargeDust d = new(spawnPos, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-4, -5 -(j * 3))), new Color(212, 192, 100), new Color(212, 192, 100), Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
-                                                    ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
-                                                }
-                                            }
-                                        }
+                                        SpawnImpactDebris(4, ImpactDebrisStrength.Heavy);
                                     }
                                 }
                                 else
@@ -1081,22 +1013,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                 proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(16 * -dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), DiveWaveDamage, 0f, ai1: 10, ai2: Phase2 ? 90 : 50);
                                 proj.timeLeft = particle.Lifetime - 12;
 
-                                start = NPC.Center.ToTileCoordinates() - new Point(0, 8);
-                                ground = CollisionUtils.FindSurfaceBelow(start);
-                                for (int i = -6; i <= 6; i++)
-                                {
-                                    Point spawnTile = CollisionUtils.FindSurfaceAround(ground + new Point(i, 0), true);
-                                    WorldGen.KillTile(spawnTile.X, spawnTile.Y, effectOnly: true);
-                                    if (Framing.GetTileSafely(spawnTile).TileType == TileID.Sand)
-                                    {
-                                        Vector2 spawnPos = spawnTile.ToWorldCoordinates();
-                                        for (int j = 0; j < 3; j++)
-                                        {
-                                            LargeDust d = new(spawnPos, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-1, -1 - j)), new Color(212, 192, 100), new Color(212, 192, 100), Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
-                                            ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
-                                        }
-                                    }
-                                }
+                                SpawnImpactDebris(6, ImpactDebrisStrength.Light);
 
                                 return;
                             }
@@ -1342,22 +1259,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                     ground = CollisionUtils.FindSurfaceBelow(start);
                                     ParticleSystem.SpawnParticle(new GroundWave(ground, 8, NPC.direction != 1, 24, 2, 16, 0.5f), DrawLayer.AfterPlayers);
 
-                                    start = NPC.Center.ToTileCoordinates() - new Point(0, 8);
-                                    ground = CollisionUtils.FindSurfaceBelow(start);
-                                    for (int i = -4; i <= 4; i++)
-                                    {
-                                        Point spawnTile = CollisionUtils.FindSurfaceAround(ground + new Point(i, 0), true);
-                                        WorldGen.KillTile(spawnTile.X, spawnTile.Y, effectOnly: true);
-                                        if (Framing.GetTileSafely(spawnTile).TileType == TileID.Sand)
-                                        {
-                                            Vector2 spawnPos = spawnTile.ToWorldCoordinates();
-                                            for (int j = 0; j < 3; j++)
-                                            {
-                                                LargeDust d = new(spawnPos, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-1, -1 - j)), new Color(212, 192, 100), new Color(212, 192, 100), Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
-                                                ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
-                                            }
-                                        }
-                                    }
+                                    SpawnImpactDebris(4, ImpactDebrisStrength.Light);
                                     return;
                                 }
                             }
@@ -1374,15 +1276,15 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                             
                             if (Time == 0)
                             {
-                                AttackCounter++;
+                                AttackAmount++;
 
-                                if(AttackCounter > 6)
+                                if(AttackAmount > 6)
                                 {
                                     NPC.velocity = Vector2.Zero;
                                     Time = -48;
                                     CurrentState = DjinnState.SubmergedUppercut;
                                     AttackFlag = true;
-                                    AttackCounter = 0;
+                                    AttackAmount = 0;
                                     Exhaustion = 1;
                                     burialBarrageState = BurialBarrageSubState.Start;
                                     return;
@@ -1473,22 +1375,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                 proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(14 * -dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), DiveWaveDamage, 0f, ai1: 8, ai2: 90);
                                 proj.timeLeft = particle.Lifetime - 24;
 
-                                start = NPC.Center.ToTileCoordinates() - new Point(0, 8);
-                                ground = CollisionUtils.FindSurfaceBelow(start);
-                                for (int i = -6; i <= 6; i++)
-                                {
-                                    Point spawnTile = CollisionUtils.FindSurfaceAround(ground + new Point(i, 0), true);
-                                    WorldGen.KillTile(spawnTile.X, spawnTile.Y, effectOnly: true);
-                                    if (Framing.GetTileSafely(spawnTile).TileType == TileID.Sand)
-                                    {
-                                        Vector2 spawnPos = spawnTile.ToWorldCoordinates();
-                                        for (int j = 0; j < 4; j++)
-                                        {
-                                            LargeDust d = new(spawnPos, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, -3 - (j * 2))), new Color(212, 192, 100), new Color(212, 192, 100), Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
-                                            ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
-                                        }
-                                    }
-                                }
+                                SpawnImpactDebris(6, ImpactDebrisStrength.Medium);
 
                                 return;
                             }
@@ -1496,6 +1383,8 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                         case BurialBarrageSubState.Overhead:
                             NPC.velocity.Y += gravity;
                             NPC.hide = Time <= 10;
+                            if (AttackCounter > 0)
+                                AttackCounter--;
 
                             if (Time > 10 && NPC.velocity.Y > 0 && (NPC.Bottom.Y + NPC.velocity.Y) > Target.Bottom.Y && CollisionUtils.SurfaceCollision(NPC.position + NPC.velocity, NPC.width, NPC.height, true))
                             {
@@ -1525,33 +1414,53 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                 proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(14 * -dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), DiveWaveDamage, 0f, ai1: 8, ai2: 90);
                                 proj.timeLeft = particle.Lifetime - 24;
 
-                                start = NPC.Center.ToTileCoordinates() - new Point(0, 8);
-                                ground = CollisionUtils.FindSurfaceBelow(start);
-                                for (int i = -6; i <= 6; i++)
-                                {
-                                    Point spawnTile = CollisionUtils.FindSurfaceAround(ground + new Point(i, 0), true);
-                                    WorldGen.KillTile(spawnTile.X, spawnTile.Y, effectOnly: true);
-                                    if (Framing.GetTileSafely(spawnTile).TileType == TileID.Sand)
-                                    {
-                                        Vector2 spawnPos = spawnTile.ToWorldCoordinates();
-                                        for (int j = 0; j < 4; j++)
-                                        {
-                                            LargeDust d = new(spawnPos, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, -3 - (j * 2))), new Color(212, 192, 100), new Color(212, 192, 100), Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
-                                            ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
-                                        }
-                                    }
-                                }
+                                SpawnImpactDebris(6, ImpactDebrisStrength.Medium);
 
                                 Time = -regularDelay;
                                 burialBarrageState = BurialBarrageSubState.SetupLaunch;
                                 return;
                             }
+                            else if(AttackCounter == 0 && CollisionUtils.PlatformOnlySurfaceCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
+                            {
+                                AttackCounter = 24;
+                                SoundEngine.PlaySound(SoundID.Dig, NPC.Center);
+
+                                for (int i = -3; i <= 3; i++)
+                                {
+                                    Point s = NPC.Center.ToTileCoordinates() - new Point(-i * NPC.direction, 8);
+                                    Point g = CollisionUtils.FindSurfaceBelow(s);
+                                    WorldGen.KillTile(g.X, g.Y, effectOnly: true);
+                                }
+                                Point start = NPC.Center.ToTileCoordinates() - new Point(-2 * NPC.direction, 8);
+                                Point ground = CollisionUtils.FindSurfaceBelow(start);
+
+                                GroundWave particle = new(ground, 64, NPC.direction == 1, 108, 1, 24, strong: true);
+                                ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
+                                int dir = (NPC.direction == 1 ? 1 : -1);
+
+                                Projectile proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(14 * dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), DiveWaveDamage, 0f, ai1: 8, ai2: 90);
+                                proj.timeLeft = particle.Lifetime - 24;
+
+                                start = NPC.Center.ToTileCoordinates() - new Point(2 * NPC.direction, 8);
+                                ground = CollisionUtils.FindSurfaceBelow(start);
+                                particle = new(ground, 64, NPC.direction != 1, 108, 1, 24, strong: true);
+                                ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
+
+                                proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(14 * -dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), DiveWaveDamage, 0f, ai1: 8, ai2: 90);
+                                proj.timeLeft = particle.Lifetime - 24;
+
+                                SpawnImpactDebris(6, ImpactDebrisStrength.Medium);
+                            }
+                            
                             break;
                         case BurialBarrageSubState.OverheadEarlyMixUp:
                             if(!AttackFlag)
                             {
                                 NPC.velocity.Y += gravity;
                                 NPC.hide = Time <= 10;
+                                if (AttackCounter > 0)
+                                    AttackCounter--;
+
                                 float offsetTarget = Target.Center.X - NPC.direction * 72;
 
                                 if ((NPC.direction == 1 && NPC.Center.X > offsetTarget) || (NPC.direction == -1 && NPC.Center.X < offsetTarget)) 
@@ -1589,26 +1498,42 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                     proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(14 * -dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), DiveWaveDamage, 0f, ai1: 8, ai2: 60);
                                     proj.timeLeft = particle.Lifetime - 24;
 
-                                    start = NPC.Center.ToTileCoordinates() - new Point(0, 8);
-                                    ground = CollisionUtils.FindSurfaceBelow(start);
-                                    for (int i = -6; i <= 6; i++)
-                                    {
-                                        Point spawnTile = CollisionUtils.FindSurfaceAround(ground + new Point(i, 0), true);
-                                        WorldGen.KillTile(spawnTile.X, spawnTile.Y, effectOnly: true);
-                                        if (Framing.GetTileSafely(spawnTile).TileType == TileID.Sand)
-                                        {
-                                            Vector2 spawnPos = spawnTile.ToWorldCoordinates();
-                                            for (int j = 0; j < 4; j++)
-                                            {
-                                                LargeDust d = new(spawnPos, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, -3 - (j * 2))), new Color(212, 192, 100), new Color(212, 192, 100), Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
-                                                ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
-                                            }
-                                        }
-                                    }
+                                    SpawnImpactDebris(6, ImpactDebrisStrength.Medium);
 
                                     Time = -regularDelay;
                                     burialBarrageState = BurialBarrageSubState.SetupLaunch;
                                     return;
+                                }
+                                else if (AttackCounter == 0 && CollisionUtils.PlatformOnlySurfaceCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
+                                {
+                                    AttackCounter = 24;
+                                    SoundEngine.PlaySound(SoundID.Dig, NPC.Center);
+
+                                    for (int i = -3; i <= 3; i++)
+                                    {
+                                        Point s = NPC.Center.ToTileCoordinates() - new Point(-i * NPC.direction, 8);
+                                        Point g = CollisionUtils.FindSurfaceBelow(s);
+                                        WorldGen.KillTile(g.X, g.Y, effectOnly: true);
+                                    }
+                                    Point start = NPC.Center.ToTileCoordinates() - new Point(-2 * NPC.direction, 8);
+                                    Point ground = CollisionUtils.FindSurfaceBelow(start);
+
+                                    GroundWave particle = new(ground, 64, NPC.direction == 1, 108, 1, 24, strong: true);
+                                    ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
+                                    int dir = (NPC.direction == 1 ? 1 : -1);
+
+                                    Projectile proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(14 * dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), DiveWaveDamage, 0f, ai1: 8, ai2: 90);
+                                    proj.timeLeft = particle.Lifetime - 24;
+
+                                    start = NPC.Center.ToTileCoordinates() - new Point(2 * NPC.direction, 8);
+                                    ground = CollisionUtils.FindSurfaceBelow(start);
+                                    particle = new(ground, 64, NPC.direction != 1, 108, 1, 24, strong: true);
+                                    ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
+
+                                    proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(14 * -dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), DiveWaveDamage, 0f, ai1: 8, ai2: 90);
+                                    proj.timeLeft = particle.Lifetime - 24;
+
+                                    SpawnImpactDebris(6, ImpactDebrisStrength.Medium);
                                 }
                             }
                             else
@@ -1652,22 +1577,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                         ground = CollisionUtils.FindSurfaceBelow(start);
                                         ParticleSystem.SpawnParticle(new GroundWave(ground, 10, NPC.direction != 1, 24, 3, 16, 0.5f), DrawLayer.AfterPlayers);
 
-                                        start = NPC.Center.ToTileCoordinates() - new Point(0, 8);
-                                        ground = CollisionUtils.FindSurfaceBelow(start);
-                                        for (int i = -6; i <= 6; i++)
-                                        {
-                                            Point spawnTile = CollisionUtils.FindSurfaceAround(ground + new Point(i, 0), true);
-                                            WorldGen.KillTile(spawnTile.X, spawnTile.Y, effectOnly: true);
-                                            if (Framing.GetTileSafely(spawnTile).TileType == TileID.Sand)
-                                            {
-                                                Vector2 spawnPos = spawnTile.ToWorldCoordinates();
-                                                for (int j = 0; j < 4; j++)
-                                                {
-                                                    LargeDust d = new(spawnPos, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, -3 - (j * 2))), new Color(212, 192, 100), new Color(212, 192, 100), Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
-                                                    ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
-                                                }
-                                            }
-                                        }
+                                        SpawnImpactDebris(6, ImpactDebrisStrength.Medium);
 
                                         Time = -mixUpDelay;
                                         burialBarrageState = BurialBarrageSubState.SetupLaunch;
@@ -1681,6 +1591,9 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                             {
                                 NPC.velocity.Y += gravity;
                                 NPC.hide = Time <= 10;
+                                if (AttackCounter > 0)
+                                    AttackCounter--;
+
                                 float offsetTarget = Target.Center.X + NPC.direction * 36;
 
                                 if ((NPC.direction == 1 && NPC.Center.X > offsetTarget) || (NPC.direction == -1 && NPC.Center.X < offsetTarget))
@@ -1718,26 +1631,42 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                     proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(14 * -dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), DiveWaveDamage, 0f, ai1: 8, ai2: 60);
                                     proj.timeLeft = particle.Lifetime - 24;
 
-                                    start = NPC.Center.ToTileCoordinates() - new Point(0, 8);
-                                    ground = CollisionUtils.FindSurfaceBelow(start);
-                                    for (int i = -6; i <= 6; i++)
-                                    {
-                                        Point spawnTile = CollisionUtils.FindSurfaceAround(ground + new Point(i, 0), true);
-                                        WorldGen.KillTile(spawnTile.X, spawnTile.Y, effectOnly: true);
-                                        if (Framing.GetTileSafely(spawnTile).TileType == TileID.Sand)
-                                        {
-                                            Vector2 spawnPos = spawnTile.ToWorldCoordinates();
-                                            for (int j = 0; j < 4; j++)
-                                            {
-                                                LargeDust d = new(spawnPos, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, -3 - (j * 2))), new Color(212, 192, 100), new Color(212, 192, 100), Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
-                                                ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
-                                            }
-                                        }
-                                    }
+                                    SpawnImpactDebris(6, ImpactDebrisStrength.Medium);
 
                                     Time = -regularDelay;
                                     burialBarrageState = BurialBarrageSubState.SetupLaunch;
                                     return;
+                                }
+                                else if (AttackCounter == 0 && CollisionUtils.PlatformOnlySurfaceCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
+                                {
+                                    AttackCounter = 24;
+                                    SoundEngine.PlaySound(SoundID.Dig, NPC.Center);
+
+                                    for (int i = -3; i <= 3; i++)
+                                    {
+                                        Point s = NPC.Center.ToTileCoordinates() - new Point(-i * NPC.direction, 8);
+                                        Point g = CollisionUtils.FindSurfaceBelow(s);
+                                        WorldGen.KillTile(g.X, g.Y, effectOnly: true);
+                                    }
+                                    Point start = NPC.Center.ToTileCoordinates() - new Point(-2 * NPC.direction, 8);
+                                    Point ground = CollisionUtils.FindSurfaceBelow(start);
+
+                                    GroundWave particle = new(ground, 64, NPC.direction == 1, 108, 1, 24, strong: true);
+                                    ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
+                                    int dir = (NPC.direction == 1 ? 1 : -1);
+
+                                    Projectile proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(14 * dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), DiveWaveDamage, 0f, ai1: 8, ai2: 90);
+                                    proj.timeLeft = particle.Lifetime - 24;
+
+                                    start = NPC.Center.ToTileCoordinates() - new Point(2 * NPC.direction, 8);
+                                    ground = CollisionUtils.FindSurfaceBelow(start);
+                                    particle = new(ground, 64, NPC.direction != 1, 108, 1, 24, strong: true);
+                                    ParticleSystem.SpawnParticle(particle, DrawLayer.AfterPlayers);
+
+                                    proj = Projectile.NewProjectileDirect(NPC.GetSource_FromThis(), ground.ToWorldCoordinates(), new Vector2(14 * -dir, 0f), ModContent.ProjectileType<GroundwaveHurt>(), DiveWaveDamage, 0f, ai1: 8, ai2: 90);
+                                    proj.timeLeft = particle.Lifetime - 24;
+
+                                    SpawnImpactDebris(6, ImpactDebrisStrength.Medium);
                                 }
                             }
                             else
@@ -1784,22 +1713,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                         ground = CollisionUtils.FindSurfaceBelow(start);
                                         ParticleSystem.SpawnParticle(new GroundWave(ground, 10, NPC.direction != 1, 24, 3, 16, 0.5f), DrawLayer.AfterPlayers);
 
-                                        start = NPC.Center.ToTileCoordinates() - new Point(0, 8);
-                                        ground = CollisionUtils.FindSurfaceBelow(start);
-                                        for (int i = -6; i <= 6; i++)
-                                        {
-                                            Point spawnTile = CollisionUtils.FindSurfaceAround(ground + new Point(i, 0), true);
-                                            WorldGen.KillTile(spawnTile.X, spawnTile.Y, effectOnly: true);
-                                            if (Framing.GetTileSafely(spawnTile).TileType == TileID.Sand)
-                                            {
-                                                Vector2 spawnPos = spawnTile.ToWorldCoordinates();
-                                                for (int j = 0; j < 4; j++)
-                                                {
-                                                    LargeDust d = new(spawnPos, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, -3 - (j * 2))), new Color(212, 192, 100), new Color(212, 192, 100), Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
-                                                    ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
-                                                }
-                                            }
-                                        }
+                                        SpawnImpactDebris(6, ImpactDebrisStrength.Medium);
 
                                         Time = -mixUpDelay;
                                         AttackFlag = false;
@@ -1814,6 +1728,39 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
             }
 
             Time++;
+        }
+
+        private void SpawnImpactDebris(int halfWidth, ImpactDebrisStrength strength)
+        {
+            (int puffs, float minRise, float maxRiseBase, float maxRiseStep) = strength switch
+            {
+                ImpactDebrisStrength.Light => (3, 1f, 1f, 1f),
+                ImpactDebrisStrength.Medium => (4, 2f, 3f, 2f),
+                _ => (5, 4f, 5f, 3f)
+            };
+
+            Color sand = new(212, 192, 100);
+            Point ground = CollisionUtils.FindSurfaceBelow(NPC.Center.ToTileCoordinates() - new Point(0, 8));
+
+            for (int i = -halfWidth; i <= halfWidth; i++)
+            {
+                Point spawnTile = CollisionUtils.FindSurfaceAround(ground + new Point(i, 0));
+                if (Math.Abs(spawnTile.Y - ground.Y) > 2)
+                    continue;
+
+                WorldGen.KillTile(spawnTile.X, spawnTile.Y, effectOnly: true);
+
+                if (Framing.GetTileSafely(spawnTile).TileType != TileID.Sand)
+                    continue;
+
+                Vector2 spawnPos = spawnTile.ToWorldCoordinates();
+                for (int j = 0; j < puffs; j++)
+                {
+                    Vector2 velocity = new(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-minRise, -(maxRiseBase + j * maxRiseStep)));
+                    LargeDust d = new(spawnPos, velocity, sand, sand, Main.rand.NextFloat(0.75f, 1.5f), 200, Main.rand.NextFloat(0.01f, 0.05f));
+                    ParticleSystem.SpawnParticle(d, DrawLayer.AfterPlayers);
+                }
+            }
         }
 
         //Credit to Spirit Reforged

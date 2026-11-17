@@ -1,4 +1,5 @@
 ﻿using AAModClassic.Utilities;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -114,7 +115,24 @@ namespace AAModClassic.Particles.Types
             int surfaceOffset = 0;
             for (int i = 0; i < Count; i++)
             {
-                ColumnPositions[i] = CollisionUtils.FindSurfaceAround(StartPosition + new Point(i * Direction, surfaceOffset));
+                Point checkPoint = StartPosition + new Point(i * Direction, surfaceOffset - 1);
+                if (CollisionUtils.IsTerrainTile(checkPoint))
+                    ColumnPositions[i] = CollisionUtils.FindSurfaceAround(checkPoint);
+                else
+                {
+                    ColumnPositions[i] = CollisionUtils.FindSurfaceBelow(checkPoint);
+                    if (i != 0 && ColumnPositions[i].Y - ColumnPositions[i - 1].Y > 1)
+                    {
+                        bool previousIsPlatform = TileID.Sets.Platforms[Framing.GetTileSafely(ColumnPositions[i - 1]).TileType];
+                        bool tile2FromPreviousIsPlatform = TileID.Sets.Platforms[Framing.GetTileSafely(ColumnPositions[i - 1] + new Point(2 * Direction, 0)).TileType];
+                        if(previousIsPlatform && tile2FromPreviousIsPlatform)
+                        {
+                            ColumnPositions[i] = Point.Zero;
+                            continue;
+                        }
+                    }
+                }
+
                 surfaceOffset = ColumnPositions[i].Y - StartPosition.Y;
                 ColumnOffsets[i] = 0f;
 
@@ -135,6 +153,12 @@ namespace AAModClassic.Particles.Types
 
             for (int i = 0; i < Count; i++)
             {
+                if (ColumnPositions[i] == Point.Zero)
+                {
+                    ColumnDepths[i] = 0;
+                    continue;
+                }
+
                 int naturalDepth = ComputeColumnDepth(i, out bool endedOnGap);
 
                 if (endedOnGap)
@@ -162,6 +186,9 @@ namespace AAModClassic.Particles.Types
             for (int i = 0; i < Count; i++)
             {
                 Point col = ColumnPositions[i];
+                if (col == Point.Zero)
+                    continue;
+
                 minX = Math.Min(minX, col.X);
                 maxX = Math.Max(maxX, col.X);
                 minY = Math.Min(minY, col.Y - MaxShiftTiles);
@@ -216,6 +243,12 @@ namespace AAModClassic.Particles.Types
                     return k;
                 }
 
+                if(TileID.Sets.Platforms[t.TileType])
+                {
+                    endedOnGap = true;
+                    return k + 1;
+                }
+
                 Color light = Lighting.GetColor(p.X, p.Y);
                 bool dark = light.R < DarkByte && light.G < DarkByte && light.B < DarkByte;
 
@@ -254,6 +287,9 @@ namespace AAModClassic.Particles.Types
 
             for (int i = 0; i < Count; i++)
             {
+                if (ColumnPositions[i] == Point.Zero)
+                    continue;
+
                 int myStartTime = ColumnDelay * i;
                 int myEndTime = myStartTime + Duration;
 
@@ -367,6 +403,9 @@ namespace AAModClassic.Particles.Types
 
             for (int i = 0; i < Count; i++)
             {
+                if (ColumnPositions[i] == Point.Zero)
+                    continue;
+
                 _shift[i] = ShiftTiles(ColumnOffsets[i]);
 
                 TileDraw[] tiles = _tiles[i];
@@ -386,6 +425,9 @@ namespace AAModClassic.Particles.Types
             for (int i = 0; i < Count; i++)
             {
                 Point col = ColumnPositions[i];
+                if (col == Point.Zero)
+                    continue;
+
                 float px = MathF.Floor(col.X * 16f - screenPos.X);
                 if (px < inset.X - CullPadding || px > inset.X + viewSize.X + CullPadding)
                     continue;
@@ -467,6 +509,9 @@ namespace AAModClassic.Particles.Types
             int ci = (x - StartPosition.X) * Direction;
             if (ci >= 0 && ci < Count)
             {
+                if(ColumnPositions[ci] == Point.Zero)
+                    return RealRaw(x, y);
+
                 int j = y - ColumnPositions[ci].Y + _shift[ci];
                 if (j >= 0 && j < _tiles[ci].Length && _tiles[ci][j].Kind != TileKind.None)
                     return _carried[ci][j];
@@ -566,6 +611,9 @@ namespace AAModClassic.Particles.Types
             for (int i = 0; i < Count; i++)
             {
                 Point start = ColumnPositions[i];
+                if (start == Point.Zero)
+                    continue;
+
                 int depth = ColumnDepths[i];
                 TileDraw[] column = new TileDraw[depth];
                 _tiles[i] = column;

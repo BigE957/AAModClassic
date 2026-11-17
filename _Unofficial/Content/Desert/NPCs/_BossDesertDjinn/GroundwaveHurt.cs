@@ -3,6 +3,7 @@ using AAModClassic._Content.Desert.___PreHardmode.NPCs._Day;
 using AAModClassic.Assets;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -33,8 +34,15 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
             if (Projectile.ai[0] <= Projectile.ai[1])
                 Projectile.Resize(Projectile.width, (int)(Projectile.ai[2] * (Projectile.ai[0] / Projectile.ai[1])));
 
-            Vector2 ground = CollisionUtils.FindSurfaceBelow((Projectile.Center + Vector2.UnitX * Projectile.ai[0]).ToTileCoordinates()).ToWorldCoordinates();
-            Projectile.Bottom = new(Projectile.Center.X, ground.Y);
+            Point basePos = (Projectile.Center + Vector2.UnitX * Projectile.ai[0]).ToTileCoordinates();
+
+            Vector2 groundCenter = CollisionUtils.FindSurfaceBelow(basePos).ToWorldCoordinates();
+            Vector2 groundLeft = CollisionUtils.FindSurfaceBelow(basePos - new Point(1, 0)).ToWorldCoordinates();
+            Vector2 groundRight = CollisionUtils.FindSurfaceBelow(basePos - new Point(-1, 0)).ToWorldCoordinates();
+
+            float targetY = Math.Min(groundCenter.Y, Math.Min(groundLeft.Y, groundRight.Y));
+
+            Projectile.Bottom = new(Projectile.Center.X, targetY);
 
             if (Projectile.ai[0] < Projectile.ai[1])
                 Projectile.position -= Projectile.velocity;
