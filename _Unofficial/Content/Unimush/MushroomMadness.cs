@@ -64,6 +64,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
             public Vector2 GoalOffset = goalOffset;
             public float AmplitudeMultiplier = 1f;
             public float SineIncrement = 0.05f;
+            private readonly int EndFrame = Main.rand.Next(3);
 
             private float sineCounter = Main.rand.NextFloat(0f, 100f);
 
@@ -110,7 +111,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
                         Vector2 toNext = Points[j] - Points[j - 1];
                         Vector2 midPoint = (Points[j] + Points[j - 1]) / 2f;
                         Color light = Lighting.GetColor(midPoint.ToTileCoordinates());
-                        Rectangle frame = tendril.Frame(4, 5, 0, 4);
+                        Rectangle frame = tendril.Frame(2, 7, 0, 4 + EndFrame);
                         frame.Width = 24;
                         spriteBatch.Draw(tendril, Points[j] - screenPos, frame, light, toNext.ToRotation(), new Vector2(0, frame.Height / 2f), 1f, 0, 0);
 
@@ -129,7 +130,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
                         Vector2 toNext = Points[j + 1] - Points[j];
                         Vector2 midPoint = (Points[j + 1] + Points[j]) / 2f;
                         Color light = Lighting.GetColor(midPoint.ToTileCoordinates());
-                        Rectangle frame = tendril.Frame(4, 5, frameX, frameY);
+                        Rectangle frame = tendril.Frame(4, 7, frameX, frameY);
 
                         spriteBatch.Draw(tendril, Points[j] - screenPos, frame, light, toNext.ToRotation(), new Vector2(2, frame.Height / 2f), new Vector2(toNext.Length() / (frame.Width - 2), 1f), 0, 0);
 
@@ -185,6 +186,8 @@ namespace AAModClassic._Unofficial.Content.Unimush
                 for (int j = 0; j < tendrils[i].Count; j++)
                     tendrils[i].Points[j] = npc.Center;
             }
+
+            Array.Sort(tendrils, (a, b) => b.Length.CompareTo(a.Length));
 
             return tendrils;
         }
@@ -389,7 +392,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
                 for (int i = 0; i < Tendrils.Length; i++)
                     Tendrils[i].Draw(spriteBatch, screenPos, i);
 
-            Vector2 mouthPos = NPC.Center + new Vector2(4, 32) * NPC.scale;
+            Vector2 mouthPos = NPC.Center + new Vector2(0, 32) * NPC.scale;
             Vector2 jawPos = NPC.Center + drawOffset + new Vector2(jawX, jawY) * NPC.scale;
             Vector2 jawBackPos = (mouthPos + jawPos) / 2f;
             spriteBatch.Draw(Jaw_Back.Value, jawBackPos - screenPos, null, drawColor, NPC.rotation, Jaw_Back.Size() * 0.5f, NPC.scale, 0, 0);
