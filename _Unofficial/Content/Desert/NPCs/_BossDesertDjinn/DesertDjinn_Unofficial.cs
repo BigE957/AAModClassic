@@ -136,8 +136,15 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
         public int GetMudaMudaAmount() => Phase2 ? Main.rand.Next(2, 4) : (Main.rand.NextBool() ? 2 : 1);
         public static float MudaMudaOffset => 128f;
         public float MudaMudaSpeed => Phase2 ? 20f : 10f;
-
         public int MudaMudaDuration => Phase2 ? 25 : 40;
+
+        // Burial Barrage
+        public int BurialUndergroundStartDelay = 24;
+        public int BurialRegularLaunchDelay = 6;
+        public int BurialMixUpLaunchDelay = 12;
+        public float BurialBaseXVelocity = 14;
+        public float BurialBaseYVelocity = 21;
+        public int BurialEndDelay = 48;
         #endregion
 
         public Player Target => Main.player[NPC.target];
@@ -1215,8 +1222,6 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                     break;
                 case DjinnState.BurialBarrage:
                     gravity = 0.6f;
-                    int regularDelay = 6;
-                    int mixUpDelay = 12;
                     switch (burialBarrageState)
                     {
                         case BurialBarrageSubState.Start:
@@ -1227,7 +1232,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
 
                                 if (Collision.SolidCollision(NPC.position + new Vector2(NPC.width / 4, 0), NPC.width - (NPC.width / 4), 2))
                                 {
-                                    Time = -24;
+                                    Time = -BurialUndergroundStartDelay;
                                     burialBarrageState = BurialBarrageSubState.SetupLaunch;
                                     return;
                                 }
@@ -1247,7 +1252,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                 if (NPC.velocity.Y > 0 && NPC.Bottom.Y > Target.Bottom.Y && Collision.SolidCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
                                 {
                                     SoundEngine.PlaySound(SoundID.DD2_MonkStaffGroundImpact, NPC.Center);
-                                    Time = -mixUpDelay;
+                                    Time = -BurialMixUpLaunchDelay;
                                     burialBarrageState = BurialBarrageSubState.SetupLaunch;
 
                                     Point start = NPC.Center.ToTileCoordinates() - new Point(-2 * NPC.direction, 8);
@@ -1266,8 +1271,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                             break;
                         case BurialBarrageSubState.SetupLaunch:
                             bool left = NPC.Center.X < Target.Center.X;               
-                            float xVelocity = left ? 14 : -14;
-                            float yVelocity = 21;
+                            float xVelocity = left ? BurialBaseXVelocity : -BurialBaseXVelocity;
                             NPC.hide = true;
                             NPC.rotation = 0f;
 
@@ -1281,7 +1285,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                 if(AttackAmount > 6)
                                 {
                                     NPC.velocity = Vector2.Zero;
-                                    Time = -48;
+                                    Time = -BurialEndDelay;
                                     CurrentState = DjinnState.SubmergedUppercut;
                                     AttackFlag = true;
                                     AttackAmount = 0;
@@ -1303,7 +1307,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                 Point tileStart = CollisionUtils.FindSurfaceBelow(start.ToTileCoordinates(), true);
                                 NPC.Center = tileStart.ToWorldCoordinates(8, NPC.height);
 
-                                if (!MathUtils.TryGetLaunchVelocityUsingY(targetPosition - NPC.Center, yVelocity, gravity, out NPC.velocity))
+                                if (!MathUtils.TryGetLaunchVelocityUsingY(targetPosition - NPC.Center, BurialBaseYVelocity, gravity, out NPC.velocity))
                                 {
                                     if (!left)
                                         start = Target.Center + new Vector2(Main.rand.NextFloat(-630, -430), -128);
@@ -1312,8 +1316,8 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                     tileStart = CollisionUtils.FindSurfaceBelow(start.ToTileCoordinates(), true);
                                     NPC.Center = tileStart.ToWorldCoordinates(8, NPC.height);
 
-                                    if (!MathUtils.TryGetLaunchVelocityUsingY(targetPosition - NPC.Center, yVelocity, gravity, out NPC.velocity))
-                                        NPC.velocity = new Vector2(xVelocity, -yVelocity) * 1.5f;
+                                    if (!MathUtils.TryGetLaunchVelocityUsingY(targetPosition - NPC.Center, BurialBaseYVelocity, gravity, out NPC.velocity))
+                                        NPC.velocity = new Vector2(xVelocity, -BurialBaseYVelocity) * 1.5f;
                                 }
 
                                 NPC.direction = left ? 1 : -1;
@@ -1323,8 +1327,8 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                             {
                                 Vector2 targetPosition = CollisionUtils.FindSurfaceBelow((Target.Center).ToTileCoordinates()).ToWorldCoordinates() + new Vector2(left ? 128 : -128, -200);
 
-                                if (!MathUtils.TryGetLaunchVelocityUsingY(targetPosition - NPC.Center, yVelocity, gravity, out NPC.velocity))
-                                    NPC.velocity = new Vector2(xVelocity, -yVelocity);
+                                if (!MathUtils.TryGetLaunchVelocityUsingY(targetPosition - NPC.Center, BurialBaseYVelocity, gravity, out NPC.velocity))
+                                    NPC.velocity = new Vector2(xVelocity, -BurialBaseYVelocity);
 
                                 Point spawnTile = NPC.Center.ToTileCoordinates();
                                 for (int i = 0; i < 2; i++)
@@ -1416,7 +1420,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
 
                                 SpawnImpactDebris(6, ImpactDebrisStrength.Medium);
 
-                                Time = -regularDelay;
+                                Time = -BurialRegularLaunchDelay;
                                 burialBarrageState = BurialBarrageSubState.SetupLaunch;
                                 return;
                             }
@@ -1500,7 +1504,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
 
                                     SpawnImpactDebris(6, ImpactDebrisStrength.Medium);
 
-                                    Time = -regularDelay;
+                                    Time = -BurialRegularLaunchDelay;
                                     burialBarrageState = BurialBarrageSubState.SetupLaunch;
                                     return;
                                 }
@@ -1579,7 +1583,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
 
                                         SpawnImpactDebris(6, ImpactDebrisStrength.Medium);
 
-                                        Time = -mixUpDelay;
+                                        Time = -BurialMixUpLaunchDelay;
                                         burialBarrageState = BurialBarrageSubState.SetupLaunch;
                                         return;
                                     }
@@ -1633,7 +1637,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
 
                                     SpawnImpactDebris(6, ImpactDebrisStrength.Medium);
 
-                                    Time = -regularDelay;
+                                    Time = -BurialRegularLaunchDelay;
                                     burialBarrageState = BurialBarrageSubState.SetupLaunch;
                                     return;
                                 }
@@ -1715,7 +1719,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
 
                                         SpawnImpactDebris(6, ImpactDebrisStrength.Medium);
 
-                                        Time = -mixUpDelay;
+                                        Time = -BurialMixUpLaunchDelay;
                                         AttackFlag = false;
                                         burialBarrageState = BurialBarrageSubState.SetupLaunch;
                                         return;
