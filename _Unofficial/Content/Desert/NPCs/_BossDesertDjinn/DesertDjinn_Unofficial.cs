@@ -18,7 +18,6 @@ using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using static SpiritReforged.Content.Underground.Moss.Oganesson.OganessonPlants;
 
 namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
 {
@@ -880,7 +879,18 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                             CurrentState = Main.rand.NextBool(3) ? DjinnState.MudaMuda : DjinnState.Dive;
                                             if (CurrentState == DjinnState.Dive)
                                                 AttackFlag = true;
+                                            else
+                                                AttackFlag = false;
                                             Exhaustion += 1;
+                                            return;
+                                        }
+                                        else if(UseBurialBarrage)
+                                        {
+                                            Time = 0;
+                                            AttackFlag = false;
+                                            NPC.rotation = 0f;
+                                            FrameX = 0;
+                                            CurrentState = DjinnState.BurialBarrage;
                                             return;
                                         }
                                     }
@@ -1296,27 +1306,22 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                             if (Time == 0)
                             {
                                 SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
-                                if (Collision.SolidCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
+                                FrameX = 4;
+
+                                if (Collision.SolidCollision(NPC.position + new Vector2(NPC.width / 4, 0), NPC.width - (NPC.width / 4), 2))
                                 {
-                                    NPC.velocity = new Vector2(0, -8);
-                                    FrameX = 5;
-                                    NPC.frame.Y = NPC.frame.Height * 3;
-                                    NPC.frameCounter = 0;
+                                    Time = -24;
+                                    burialBarrageState = BurialBarrageSubState.SetupLaunch;
+                                    return;
                                 }
                                 else
-                                    Time = 35;
-                            }
-                            else if (Time < 36)
-                            {
-                                NPC.velocity *= 0.95f;
-                            }
-                            else if (Time == 36)
-                            {
-                                int side = NPC.Center.X > Target.Center.X ? 1 : -1;
-                                NPC.velocity = new Vector2(4 * side, -8);
-                                FrameX = 4;
-                                NPC.TargetClosest();
-                                NPC.direction *= -1;
+                                {
+                                    int side = NPC.Center.X > Target.Center.X ? 1 : -1;
+                                    NPC.velocity = new Vector2(4 * side, -8);
+                                    
+                                    NPC.TargetClosest();
+                                    NPC.direction *= -1;
+                                }
                             }
                             else
                             {
@@ -1325,7 +1330,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                 if (NPC.velocity.Y > 0 && NPC.Bottom.Y > Target.Bottom.Y && Collision.SolidCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
                                 {
                                     SoundEngine.PlaySound(SoundID.DD2_MonkStaffGroundImpact, NPC.Center);
-                                    Time = -5;
+                                    Time = -mixUpDelay;
                                     burialBarrageState = BurialBarrageSubState.SetupLaunch;
 
                                     Point start = NPC.Center.ToTileCoordinates() - new Point(-2 * NPC.direction, 8);
@@ -1434,6 +1439,8 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                             }
                             else
                             {
+                                SoundEngine.PlaySound(SoundID.DD2_MonkStaffGroundImpact, NPC.Center);
+
                                 burialBarrageState = Main.rand.Next(4) switch 
                                 {
                                     1 => BurialBarrageSubState.OverheadEarlyMixUp,
