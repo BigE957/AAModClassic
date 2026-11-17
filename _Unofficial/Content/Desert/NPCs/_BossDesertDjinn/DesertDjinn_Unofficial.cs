@@ -1422,7 +1422,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                             }
                             else if(AttackCounter == 0 && CollisionUtils.PlatformOnlySurfaceCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
                             {
-                                AttackCounter = 24;
+                                AttackCounter = 36;
                                 SoundEngine.PlaySound(SoundID.Dig, NPC.Center);
 
                                 for (int i = -3; i <= 3; i++)
@@ -1506,7 +1506,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                 }
                                 else if (AttackCounter == 0 && CollisionUtils.PlatformOnlySurfaceCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
                                 {
-                                    AttackCounter = 24;
+                                    AttackCounter = 36;
                                     SoundEngine.PlaySound(SoundID.Dig, NPC.Center);
 
                                     for (int i = -3; i <= 3; i++)
@@ -1639,7 +1639,7 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._BossDesertDjinn
                                 }
                                 else if (AttackCounter == 0 && CollisionUtils.PlatformOnlySurfaceCollision(NPC.position + NPC.velocity, NPC.width, NPC.height))
                                 {
-                                    AttackCounter = 24;
+                                    AttackCounter = 36;
                                     SoundEngine.PlaySound(SoundID.Dig, NPC.Center);
 
                                     for (int i = -3; i <= 3; i++)
