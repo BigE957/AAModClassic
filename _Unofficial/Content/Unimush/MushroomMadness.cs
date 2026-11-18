@@ -30,6 +30,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
 
         public override void SetStaticDefaults()
         {
+            Main.npcFrameCount[Type] = 3;
             if (!Main.dedServ)
             {
                 Jaw = ModContent.Request<Texture2D>(path + "MushroomMadness_Jaw");
@@ -254,6 +255,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
         private float jawY = 64f;
         private float oldY = 64f;
         private Vector2 drawOffset = Vector2.Zero;
+        private int FrameY = 0;
 
         public override void AI()
         {
@@ -301,6 +303,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
                     Main.BestiaryTracker.Sights.RegisterWasNearby(NPC);
                     NPC.velocity.Y = -18f;
                     NPC.hide = false;
+                    FrameY = 1;
                 }
 
                 if (NPC.ai[1] <= 30f)
@@ -315,6 +318,8 @@ namespace AAModClassic._Unofficial.Content.Unimush
                     jawY += jawOff.Y;
 
                     drawOffset = Main.rand.NextVector2Circular(4f, 4f) * ease;
+                    if (NPC.ai[1] > 16)
+                        FrameY = 2;
                 }
                 else if(NPC.ai[1] < 90)
                 {
@@ -394,10 +399,13 @@ namespace AAModClassic._Unofficial.Content.Unimush
 
             Vector2 mouthPos = NPC.Center + new Vector2(0, 32) * NPC.scale;
             Vector2 jawPos = NPC.Center + drawOffset + new Vector2(jawX, jawY) * NPC.scale;
-            Vector2 jawBackPos = (mouthPos + jawPos) / 2f;
+            Vector2 jawBackPos = (mouthPos + jawPos) / 2f + Vector2.UnitY * -6;
             spriteBatch.Draw(Jaw_Back.Value, jawBackPos - screenPos, null, drawColor, NPC.rotation, Jaw_Back.Size() * 0.5f, NPC.scale, 0, 0);
 
-            spriteBatch.Draw(TextureAssets.Npc[Type].Value, NPC.Center + drawOffset - screenPos, null, drawColor, NPC.rotation, TextureAssets.Npc[Type].Size() * 0.5f, NPC.scale, 0, 0);
+            Texture2D body = TextureAssets.Npc[Type].Value;
+            Rectangle bodyFrame = body.Frame(1, 3, 0, FrameY);
+
+            spriteBatch.Draw(body, NPC.Center + drawOffset - screenPos, bodyFrame, drawColor, NPC.rotation, bodyFrame.Size() * 0.5f, NPC.scale, 0, 0);
             return false;
         }
 
