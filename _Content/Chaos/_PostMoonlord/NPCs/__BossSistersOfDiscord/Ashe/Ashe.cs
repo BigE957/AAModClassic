@@ -10,7 +10,10 @@ using AAModClassic.Achievements;
 using AAModClassic.Assets;
 using AAModClassic.Base;
 using AAModClassic.Music;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.UI.Titles;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
@@ -578,7 +581,13 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossSistersOfDiscord.
 
             int DeathAnim = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<AsheVanish>(), 0);
             Main.npc[DeathAnim].velocity = NPC.velocity;
-            if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.AsheDowned"), new Color(102, 20, 48));
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                    WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Sisters.Defeat.Individual", NPC.Center, 0, 30, false, new NearbyBossText(600, 600));
+                else
+                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.SistersOfDiscord.AsheDowned"), new Color(102, 20, 48));
+            }
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

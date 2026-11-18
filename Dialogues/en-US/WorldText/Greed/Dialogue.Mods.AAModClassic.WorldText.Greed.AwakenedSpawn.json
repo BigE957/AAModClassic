@@ -1,0 +1,32 @@
+{
+  "Revision": 1,
+  "DefaultColor": "daa520",
+  "DefaultSpeaker": "Greed",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "[Shaking(1.5):[Scale(1.5):YOU DARE TO FEAST IN MY HOARD?! THEN I WILL TURN]] [Shaking(4):[Scale(2):YOU]] [Shaking(1.5):[Scale(1.5):INTO MY NEXT MEAL!]] [Pause(1.25)]"
+      ]
+    }
+  ]
+}

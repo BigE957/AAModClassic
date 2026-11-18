@@ -101,7 +101,7 @@ ShenDoragonKilled: {
 
 SiegeMechsKilled: {
 	FriendlyName: 战争军械库
-	Description: 击败风暴科学家创造的三个夜间行动的威胁：捕猎者-电子猎犬爪、食腐者-双头狗俄耳托斯X型与侵入者-创世哺育之母。
+	Description: 击败雷灵族创造的三个在夜间行动的威胁：捕猎者-电子猎犬爪、食腐者-双头狗俄耳托斯X型与侵入者-创世哺育之母。
 }
 
 SistersOfDiscordKilled: {
@@ -121,7 +121,7 @@ StormingSiege: {
 
 TechnoTruffleKilled: {
 	FriendlyName: 第四金属元素
-	Description: 摧毁风暴科学家的错误真菌造物——电子化-机械松露怪。
+	Description: 摧毁雷灵族的真菌谬种——电子化-机械松露怪。
 }
 
 YamataKilled: {
@@ -131,7 +131,7 @@ YamataKilled: {
 
 ZeroKilled: {
 	FriendlyName: 系统.除以零异常
-	Description: 废除虚空的主零号单元，招致一个远为可怕的威胁之怒火……
+	Description: 使虚空的主零械单元报废，招致一个远为可怕的威胁的怒火……
 }
 
 AllBossesKilled: {

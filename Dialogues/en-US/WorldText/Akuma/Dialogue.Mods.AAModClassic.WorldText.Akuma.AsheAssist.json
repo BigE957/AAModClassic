@@ -1,0 +1,51 @@
+{
+  "Revision": 1,
+  "DefaultColor": "00bfff",
+  "DefaultSpeaker": "Akuma",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Speaker": "Ashe",
+      "BaseColor": "961e47",
+      "Lines": [
+        "[Shaking(1):Hey! Hands off my papa!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Pause(1.5)] [Wavy(2, 3):Atta-girl..!]"
+      ]
+    },
+    {
+      "Lines": [
+        "Ashe? Help your dear old dad with this kid again!"
+      ]
+    },
+    {
+      "Speaker": "Ashe",
+      "BaseColor": "961e47",
+      "Lines": [
+        "[Pause(2)] [Wavy(2, 3):You got it, daddy..!]"
+      ]
+    }
+  ]
+}

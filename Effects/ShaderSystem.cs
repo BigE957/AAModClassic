@@ -11,6 +11,7 @@ using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.WorldBuilding;
 
 namespace AAModClassic.Effects
 {
@@ -22,15 +23,19 @@ namespace AAModClassic.Effects
             if (Main.dedServ)
                 return;
 
+            RegisterSceneFilter("Shockwave", "Shockwave");
+
+            RegisterSceneFilter("RadialBlurPass", "RadialBlur");
+
             RegisterMiscShader("Mask", "Mask");
 
             RegisterMiscShader("MaskingPass", "Masking");
 
             RegisterMiscShader("EdgePass", "MaskEdge");
 
-            RegisterSceneFilter("Shockwave", "Shockwave");
+            RegisterMiscShader("VerticalFade", "VerticalFade");
 
-            RegisterSceneFilter("RadialBlurPass", "RadialBlur");
+            RegisterMiscShader("DialogueBloom", "DialogueBloom");
 
             BindDyeShaders();
         }

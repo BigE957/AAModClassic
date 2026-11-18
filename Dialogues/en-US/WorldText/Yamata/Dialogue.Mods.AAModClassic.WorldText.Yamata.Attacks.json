@@ -1,0 +1,67 @@
+{
+  "Revision": 1,
+  "DefaultColor": "55566e",
+  "DefaultSpeaker": "Yamata",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "[Shaking(1.5):TASTE ACID YOU UNBEARABLE MAGGOT!!!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1.5):STOP MOVING AND LET ME MELT YOU!!!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Wavy(3, 4):Down Down [Shaking(1.5):DOWN THE VENOM GOES!!!] When it will it stop? [Shaking(1.5):WHO KNOWS?! NYEHEHEHEHEHEH!!!]]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Scale(1.25):[Shaking(2):DIEDIEDIEDIEDIEDIEDIEDIIIIIIIIIIIIIIIE!!!]]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1.5):BAM![Pause(1)] BOOM![Pause(1)] I'LL BLOW YOU INTO NEXT SUNDAY!!!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Scale(1.25):[Shaking(2):NGAAAAAAAAAAAAAAAAAH!!!]]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1.5):GET THEM! EAT THEM! JUST GET THEM OUT OF MY FACE!!!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1.5):I HAVE EATEN RABBITS MORE INTIMIDATING THAN YOU!]"
+      ]
+    }
+  ]
+}

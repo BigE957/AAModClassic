@@ -1,0 +1,49 @@
+{
+  "Revision": 1,
+  "DefaultColor": "00bfff",
+  "DefaultSpeaker": "Akuma",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "BaseColor": "b42920",
+      "Lines": [
+        "Hmpf... You’re pretty good kid, but not good enough. Come back once you’ve gotten a bit better."
+      ]
+    },
+    {
+      "Lines": [
+        "[Scale(1.25):[Shaking(2):GRAH..! HOW!? HOW COULD I LOSE TO A MERE MORTAL TERRARIAN?!]]",
+        "[Shaking(1):Hmpf...] Fine kid, you win, fair and square. Here's your reward."
+      ]
+    },
+    {
+      "Lines": [
+        "Heh, not too shabby this time kid. I'm impressed. Here. Take your prize."
+      ]
+    },
+    {
+      "Lines": [
+        "Nice. You cheated. Now come fight me in expert mode like a real man."
+      ]
+    }
+  ]
+}

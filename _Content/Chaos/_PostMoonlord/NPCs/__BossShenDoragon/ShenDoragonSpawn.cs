@@ -223,7 +223,7 @@ namespace AAModClassic._Content.Chaos._PostMoonlord.NPCs.__BossShenDoragon
         {
             MusicUtils.InstantSwitchMusic(MusicManagementSystem.MusicSlots["Shen"]);
             if (Main.netMode != NetmodeID.MultiplayerClient)
-                AAModGlobalNPC.SpawnBoss(Main.player[NPC.target], ModContent.NPCType<ShenDoragon>(), false, NPC.Center, "");
+                AAModGlobalNPC.SpawnBossAtPosition(Main.player[NPC.target], ModContent.NPCType<ShenDoragon>(), false, NPC.Center, "");
         }
 
         public static Color GetColorAlpha()

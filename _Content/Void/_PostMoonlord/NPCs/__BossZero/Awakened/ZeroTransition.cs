@@ -63,7 +63,7 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened
             }
             if (NPC.ai[0] >= 135 && !NPC.AnyNPCs(ModContent.NPCType<ZeroA>()) && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<ZeroA>(), false, NPC.Center, "", false);
+                AAModGlobalNPC.SpawnBossAtPosition(player, ModContent.NPCType<ZeroA>(), false, NPC.Center, "", false);
 
                 int b = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<ShockwaveBoom>(), 0, 1, Main.myPlayer, 0, 0);
                 Main.projectile[b].Center = NPC.Center;

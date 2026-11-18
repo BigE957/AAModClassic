@@ -84,7 +84,7 @@ namespace AAModClassic._Content.Stars.World.Altar
         public static void SpawnBoss(Player player, int bossType, bool spawnMessage = true, Vector2 Pos = default, int overrideDirection = 0, int overrideDirectionY = 0, string overrideDisplayName = "", bool namePlural = false)
         {
             Vector2 npcCenter = Pos;
-            AAModGlobalNPC.SpawnBoss(player, bossType, spawnMessage, npcCenter, overrideDisplayName, namePlural);
+            AAModGlobalNPC.SpawnBossAtPosition(player, bossType, spawnMessage, npcCenter, overrideDisplayName, namePlural);
         }
 
         public override bool CanKillTile(int i, int j, ref bool blockDamaged)

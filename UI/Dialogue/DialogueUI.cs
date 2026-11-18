@@ -1,0 +1,1025 @@
+﻿using AAModClassic.Dialogues;
+using AAModClassic.UI.Dialogue.DisplayEffects;
+using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
+using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Terraria.Audio;
+using Terraria.GameContent;
+using Terraria.GameContent.UI.Elements;
+using Terraria.GameInput;
+using Terraria.Graphics.Shaders;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria.UI;
+
+namespace AAModClassic.UI.Dialogue
+{
+    public class DialogueUI : UIState
+    {
+        // Elements
+        internal DialoguePanel panel;
+        internal TextDisplay dialogue;
+        internal List<ResponseButton> responses = [];
+        internal DialoguePortrait portrait;
+
+        // Data
+        internal string treeName;
+        internal int currentIndex = 0;
+        internal Vector2 worldCenter = Vector2.Zero;
+        private DialogueTree tree;
+
+        public override void OnInitialize()
+        {
+            var width = 640;
+
+            dialogue = new(new(), new DialogueUIEffect(), true, width);
+
+            var height = 300;
+            Vector2 origin = Main.ScreenSize.ToVector2() / 2;
+            var drawPos = new Vector2(origin.X - width / 2, origin.Y - height / 2);
+            var bgRect = new Rectangle((int)drawPos.X, (int)drawPos.Y, width, height);
+
+            panel = new DialoguePanel();
+            panel.Left.Pixels = bgRect.X;
+            panel.Top.Pixels = bgRect.Y;
+            panel.Width.Pixels = bgRect.Width;
+            panel.Height.Pixels = bgRect.Height;
+            panel.BackgroundColor = Color.Transparent;
+            panel.BorderColor = Color.Transparent;
+            panel.OnLeftClick += OnBoxPress;
+
+            portrait = new(ModContent.Request<Texture2D>("AAModClassic/UI/Dialogue/Assets/Portraits/Portrait_Truffle_shimmer"));
+            portrait.Top.Percent = PortraitTopPercent;
+
+            ((DialogueUIEffect)dialogue.DisplayEffects).SceneOverlay = portrait.DrawImage;
+
+            Append(panel);
+
+            panel.Append(portrait);
+            panel.Append(dialogue);
+        }
+
+        public override void OnActivate()
+        {
+            if (treeName == null)
+                return;
+
+            if (!DialogueLoader.TryGetDialogueTree(treeName, out tree))
+            {
+                AAMod.instance.Logger.Error($"Unable to find Dialogue Tree for given name: '{treeName}'");
+                return;
+            }
+
+            if (currentIndex >= tree.Count)
+                currentIndex = tree.Count - 1;
+
+            DialogueUISystem.DialogueTreeSetup?.Invoke(treeName, ref tree);
+
+            ChangeDialogue();
+
+            (dialogue.DisplayEffects as DialogueUIEffect).ChangePosition = Vector2.Zero;
+            (dialogue.DisplayEffects as DialogueUIEffect).ChangeSize = Vector2.Zero;
+            dialogue.DialogueTimer = 0;
+            
+            portrait.Opacity = 0f;
+            leftSide = Main.LocalPlayer.Center.X > worldCenter.X;
+            if (leftSide)
+                portrait.effects = SpriteEffects.None;
+            else
+                portrait.effects = SpriteEffects.FlipHorizontally;
+        }
+
+        private void OnBoxPress(UIMouseEvent evt, UIElement listeningElement)
+        {
+            if (dialogue.textIndex < dialogue.Text.Length - 1)
+                dialogue.textIndex = dialogue.Text.Length - 1;
+        }
+
+        public void OnResponsePress(int responseIndex)
+        {
+            if (responseIndex == -1)
+            {
+                if (!responses[0].Interactable)
+                    return;
+
+                DialogueUISystem.ResponseSelect?.Invoke(treeName, currentIndex, responseIndex);
+
+                SwitchDialogue(currentIndex + 1);
+                responses[0].Hide(0);
+                return;
+            }
+
+            if (!responses[responseIndex].Interactable)
+                return;
+
+            var response = tree.Dialogues[currentIndex].Responses[responseIndex];
+
+            DialogueUISystem.ResponseSelect?.Invoke(treeName, currentIndex, responseIndex);
+
+            if (response.Heading == -1)
+            {
+                DialogueUISystem.EndDialogue(false);
+            }
+            else
+            {
+                SwitchDialogue(response.Heading == -2 ? currentIndex + 1 : response.Heading);
+
+                for (int i = 0; i < responses.Count; i++)
+                {
+                    int delta = Math.Abs(i - responseIndex);
+                    responses[i].Hide(delta * -5);
+                }
+            }
+        }
+
+        private bool switchStarted = false;
+
+        internal void SwitchDialogue(int newIndex)
+        {
+            currentIndex = newIndex;
+            switchStarted = true;
+            if (currentIndex == -1)
+                dialogue.ClosingDialogue = true;
+            else
+            {
+                dialogue.SwitchingPage = true;
+                var nextDialogue = tree.Dialogues[currentIndex].DialogueInfo;
+
+                Vector2 futureSize = dialogue.PredictTextSize(nextDialogue, out Vector2 futureOffset);
+                Vector2 futurePosition = dialogue.Position + (dialogue.TextSize - futureSize) / 2f;
+                Vector2 futurePageTop = dialogue.DisplayEffects.TextOffsetFromStart(futurePosition, futureSize) - futureOffset;
+                Vector2 currentPageTop = dialogue.DisplayEffects.TextOffsetFromStart(dialogue.Position, dialogue.TextSize) - dialogue.SizeOffsetFromStart;
+
+                var effect = (DialogueUIEffect)dialogue.DisplayEffects;
+                effect.ChangePosition = futurePageTop - currentPageTop;
+                effect.ChangeSize = futureSize - dialogue.TextSize;
+            }
+        }
+
+        private void ChangeDialogue()
+        {
+            List<UIElement> toRemove = [];
+            foreach (var child in panel.Children)
+                if (child is ResponseButton)
+                    toRemove.Add(child);
+
+            foreach (var child in toRemove)
+                panel.RemoveChild(child);
+
+            responses.Clear();
+
+            crawlOver = false;
+            switchStarted = false;
+
+            if (currentIndex == -1)
+            {
+                DialogueUISystem.ForceCloseDialogue();
+                return;
+            }
+
+            var effect = (DialogueUIEffect)dialogue.DisplayEffects;
+            bool isPageSwitch = dialogue.SwitchingPage;   // must be read before ResetText clears it
+
+            dialogue.ResetText(tree.Dialogues[currentIndex].DialogueInfo);
+
+            effect.ChangePosition = Vector2.Zero;
+            effect.ChangeSize = Vector2.Zero;
+            effect.SkipIntroFade = isPageSwitch;
+
+            int count = tree.Dialogues[currentIndex].Responses.Length;
+            if (count > 0)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    var response = tree.Dialogues[currentIndex].Responses[i];
+                    var (texture, frame) = DialogueUISystem.ResponseIcons[response.Icon];
+                    ResponseButton button = new(response, texture, frame, Color.White, Color.White, 1.5f);
+                    int myIndex = i;
+                    button.OnLeftClick += (_, _) => OnResponsePress(myIndex);
+
+                    float xAlign = (i + 1) / (float)(count + 1);
+                    button.idealAligns = new(xAlign, 0.75f + (MathF.Sin(xAlign * MathHelper.Pi) / 3f));
+                    button.HAlign = 0.5f;
+                    button.VAlign = 0.5f;
+
+                    panel.Append(button);
+                    responses.Add(button);
+                }
+            }
+            else
+            {
+                var (texture, frame) = DialogueUISystem.ResponseIcons["Default"];
+                ResponseButton button = new(null, texture, frame, Color.White, Color.White, 1.5f);
+                button.OnLeftClick += (_, _) => OnResponsePress(-1);
+                float xAlign = 0.75f;
+                button.idealAligns = new(xAlign, 0.75f + (MathF.Sin(xAlign * MathHelper.Pi) / 3f));
+                button.HAlign = 0.5f;
+                button.VAlign = 0.5f;
+
+                panel.Append(button);
+                responses.Add(button);
+            }
+        }
+
+        bool crawlOver = false;
+
+        private static float PortraitBaseLeft => 24f;
+        private static float PortraitBaseRight => 64f;
+        private static float PortraitBaseTop => -130f;
+        private static float PortraitTopPercent => 0.25f;
+        private static float oldOffset = 0;
+        private static int slideCounter = 0;
+        private static bool leftSide = true;
+        private static bool previousLeftSide = true;
+
+        private void UpdatePortrait()
+        {
+            Vector2 size = dialogue.TextSize;
+            Vector2 virtualSize = size;
+
+            if (switchStarted && dialogue.SwitchingPage && !dialogue.ClosingDialogue)
+            {
+                var effect = (DialogueUIEffect)dialogue.DisplayEffects;
+                virtualSize += effect.ChangeSize * DialogueUIEffect.SwitchProgress(dialogue.SwitchCounter);
+            }
+
+            float widthDiff = size.X - virtualSize.X;
+            float heightDiff = (size.Y - virtualSize.Y) * 2f;   // panel height is TextSize.Y * 2
+
+            if (leftSide)
+                portrait.Left.Pixels = PortraitBaseLeft + widthDiff / 2f;
+            else
+                portrait.Left.Pixels = portrait.Parent.Width.Pixels - (PortraitBaseRight + widthDiff / 2f + portrait.ImageWidth);
+
+            //Dynamic side swapping code.
+            /*
+            bool shouldBeLeft = Main.LocalPlayer.Center.X > worldCenter.X;
+            float idealLeft;
+            if (shouldBeLeft)
+            {
+                idealLeft = PortraitBaseLeft + widthDiff / 2f;
+                portrait.effects = SpriteEffects.None;
+            }
+            else
+            {
+                idealLeft = portrait.Parent.Width.Pixels - (PortraitBaseRight + widthDiff / 2f + portrait.ImageWidth);
+                portrait.effects = SpriteEffects.FlipHorizontally;
+            }
+
+
+            if (leftSide == shouldBeLeft)
+                portrait.Left.Pixels = idealLeft;
+            else
+            {
+                float dur = 24f;
+                portrait.Left.Pixels = MathHelper.Lerp(oldOffset, idealLeft, MathUtils.SineInOutEasing(slideCounter / dur));
+                if(slideCounter < dur / 4)
+                    portrait.effects = shouldBeLeft ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+
+                if (slideCounter >= dur)
+                {
+                    leftSide = shouldBeLeft;
+                    slideCounter = 0;
+                }
+                slideCounter++;
+            }
+
+            oldOffset = portrait.Left.Pixels;
+            */
+            previousLeftSide = leftSide;
+
+            portrait.Top.Pixels = PortraitBaseTop + (0.5f - PortraitTopPercent) * heightDiff;
+
+            if (dialogue.DialogueTimer < 30f && !(dialogue.DisplayEffects as DialogueUIEffect).SkipIntroFade)
+            {
+                portrait.Opacity = MathUtils.CircOutEasing(dialogue.DialogueTimer / 30f);
+
+                portrait.Top.Pixels += 48 * (1 - portrait.Opacity);
+            }
+            else if (dialogue.SwitchCounter > 0 && dialogue.ClosingDialogue)
+            {
+                portrait.Opacity = 1 - MathHelper.Clamp(MathUtils.SineInEasing(dialogue.SwitchCounter / 20f), 0f, 1f);
+
+                portrait.Top.Pixels += 48 * MathHelper.Clamp(MathUtils.SineInEasing(dialogue.SwitchCounter / 30f), 0f, 1f);
+            }
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            if (switchStarted)
+            {
+                dialogue.SwitchCounter++;
+                if (dialogue.SwitchCounter >= 30)
+                    ChangeDialogue();
+            }
+
+            panel.Width.Pixels = dialogue.TextSize.X;
+            panel.Height.Pixels = dialogue.TextSize.Y * 2;
+
+            Vector2 halfSize = new(panel.Width.Pixels / 2f, panel.Height.Pixels / 2f);
+            Vector2 cameraPosition = Main.screenPosition;
+            Vector2 screenPos = worldCenter - cameraPosition - halfSize;
+
+            panel.Left.Pixels = screenPos.X;
+            panel.Top.Pixels = screenPos.Y;
+
+            UpdatePortrait();
+
+            panel.Recalculate();
+
+            dialogue.Position = panel.GetInnerDimensions().Center() - dialogue.TextSize / 2f;
+
+            if (!crawlOver && !dialogue.Crawling)
+            {
+                for (int i = 0; i < responses.Count; i++)
+                    responses[i].Show(i * -10);
+
+                crawlOver = true;
+            }
+
+            base.Update(gameTime);
+
+            if (panel.ContainsPoint(Main.MouseScreen))
+                Main.LocalPlayer.mouseInterface = true;
+        }
+    }
+
+    public class ResponseButton : UIElement
+    {
+        private Response _response;
+
+        private Asset<Texture2D> _texture;
+        private Rectangle _frame;
+        private float _baseScale;
+        private Color _hoverColor;
+        private Color _unhoverColor;
+        private Color _color;
+        private Color _previousColor;
+        private float _scale;
+        private float _previousScale;
+
+        private byte _hoverTimer = 18;
+        private static float visibilityActive => 1f;
+        private static float visibilityInactive => 0.8f;
+        private bool _hovered = false;
+
+        private bool show = false;
+        private int showTimer = 0;
+        private bool hide = false;
+        private int hideTimer = 0;
+        internal Vector2 idealAligns = Vector2.One * 0.5f;
+        internal bool Interactable => showTimer == 30 && !hide;
+
+        private static float HoverTextScale => 0.75f;
+        private static float HoverIconScale => 0.5f;
+        private static float HoverArrowScale => 1f;
+        private static int ExitPadding => 6;
+
+        private readonly string _wrappedTitle;
+        private readonly Vector2 _titleSize;
+
+        public ResponseButton(Response response, Asset<Texture2D> texture, Rectangle frame, Color hoverColor, Color unhoverColor, float baseScale = 1f)
+        {
+            _response = response;
+
+            _color = _unhoverColor = unhoverColor * visibilityInactive;
+            _hoverColor = hoverColor * visibilityActive;
+            
+            _texture = texture;
+            _frame = frame;
+            _baseScale = baseScale;
+
+            Width.Set(_frame.Width * _baseScale, 0f);
+            Height.Set(_frame.Height * _baseScale, 0f);
+
+            if (_response != null)
+            {
+                _wrappedTitle = FontAssets.MouseText.Value.CreateWrappedText(_response.Title, 180f);
+                _titleSize = FontAssets.MouseText.Value.MeasureString(_wrappedTitle);
+            }
+            else
+            {
+                _wrappedTitle = null;
+                _titleSize = Vector2.Zero;
+            }
+        }
+
+        public void Show(int time)
+        {
+            show = true;
+            showTimer = time;
+        }
+
+        public void Hide(int time)
+        {
+            hide = true;
+            hideTimer = time;
+
+            _previousColor = _color;
+            _previousScale = _scale;
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+            
+            if(hide)
+            {
+                if (hideTimer > 18)
+                    return;
+
+                hideTimer++;
+
+                if (hideTimer >= 0)
+                {
+                    float lerp = MathUtils.SineOutEasing(hideTimer / 18f);
+                    HAlign = MathHelper.Lerp(idealAligns.X, (0.5f + idealAligns.X) / 2f, lerp);
+                    VAlign = MathHelper.Lerp(idealAligns.Y, 0.5f, lerp);
+
+                    _scale = MathHelper.Lerp(_previousScale, 0.1f, lerp);
+                    _color = Color.Lerp(_previousColor, Color.Transparent, lerp);
+                }
+            }
+            else if (showTimer == 30)
+            {
+                HAlign = idealAligns.X;
+                VAlign = idealAligns.Y;
+
+                if (_hoverTimer == 0)
+                {
+                    _previousColor = _color;
+                    _previousScale = _scale;
+                }
+
+                float lerp = MathUtils.SineInOutEasing(_hoverTimer / 18f);
+                if (_hovered)
+                {               
+                    _color = Color.Lerp(_previousColor, _hoverColor * visibilityActive, lerp);
+                    _scale = MathHelper.Lerp(_previousScale, _response == null ? HoverArrowScale : HoverIconScale, lerp);
+
+                    //Main.instance.MouseText(_response.Title);
+                }
+                else
+                {
+                    _color = Color.Lerp(_previousColor, _unhoverColor * visibilityInactive, lerp);
+                    _scale = MathHelper.Lerp(_previousScale, 0.75f, lerp);
+
+                }
+
+                if (_hoverTimer < 18)
+                    _hoverTimer++;
+            }
+            else if (show)
+            {
+                showTimer++;
+
+                if (showTimer >= 0)
+                {
+                    float lerp = MathUtils.SineOutEasing(showTimer / 30f);
+                    HAlign = MathHelper.Lerp((0.5f + idealAligns.X) / 2f, idealAligns.X, lerp);
+                    VAlign = MathHelper.Lerp(0.5f, idealAligns.Y, lerp);
+
+                    _previousScale = _scale = MathHelper.Lerp(0.1f, 0.75f, lerp);
+                    _previousColor = _color = Color.Lerp(Color.Transparent, _unhoverColor * visibilityInactive, lerp);
+                }
+            }
+        }
+
+        internal bool InEntryRegion(Vector2 point) => base.ContainsPoint(point);
+
+        public override bool ContainsPoint(Vector2 point)
+        {
+            if (base.ContainsPoint(point))
+                return true;
+
+            if (_response == null)
+                return false;
+
+            if (!_hovered || !Interactable || !GetExitRegion().Contains((int)point.X, (int)point.Y))
+                return false;
+
+            if (Parent != null)
+            {
+                foreach (UIElement sibling in Parent.Children)
+                    if (sibling is ResponseButton other && other != this && other.Interactable && other.InEntryRegion(point))
+                        return false;
+            }
+
+            return true;
+        }
+
+        private Rectangle GetExitRegion()
+        {
+            CalculatedStyle dims = GetDimensions();
+            Vector2 center = dims.Center();
+
+            Vector2 textSize = _titleSize * HoverTextScale;
+            Vector2 textPos = center - textSize / 2f + new Vector2(4, 6);
+            Rectangle region = new((int)textPos.X, (int)textPos.Y, (int)textSize.X, (int)textSize.Y);
+
+            Vector2 iconSize = _frame.Size() * _baseScale * HoverIconScale;
+            Vector2 iconCenter = center + new Vector2(_titleSize.X / -2f + 10, 2);
+            region = Rectangle.Union(region, new Rectangle((int)(iconCenter.X - iconSize.X / 2f), (int)(iconCenter.Y - iconSize.Y / 2f), (int)iconSize.X, (int)iconSize.Y));
+
+            region = Rectangle.Union(region, dims.ToRectangle());
+            region.Inflate(ExitPadding, ExitPadding);
+            return region;
+        }
+
+        public override void MouseOver(UIMouseEvent evt)
+        {
+            if (!Interactable)
+                return;
+
+            base.MouseOver(evt);
+            SoundEngine.PlaySound(SoundID.MenuTick);
+            _hovered = true;
+            _hoverTimer = 0;
+        }
+
+        public override void MouseOut(UIMouseEvent evt)
+        {
+            if (!Interactable)
+                return;
+
+            base.MouseOut(evt);
+            _hovered = false;
+            _hoverTimer = 0;
+        }
+
+        protected override void DrawSelf(SpriteBatch spriteBatch)
+        {
+            CalculatedStyle dimensions = GetDimensions();
+            Vector2 drawCenter = dimensions.Position() + new Vector2(dimensions.Width, dimensions.Height) / 2f;
+
+            Color drawColor = _color;
+            float opacity = 1f;
+            if (showTimer < 30)
+                opacity = MathUtils.SineOutEasing(showTimer / 30f);
+
+            float hideRatio = 1f;
+            if(hide)
+                hideRatio = 1 - MathUtils.SineInEasing(MathHelper.Clamp(hideTimer / 10f, 0f, 1f));
+
+            float hoverRatio = 0f;
+            if (_response != null)
+            {
+                hoverRatio = MathUtils.SineInOutEasing(_hoverTimer / 18f) * hideRatio;
+                if (!_hovered && hoverRatio > 0)
+                    hoverRatio = 1 - hoverRatio;
+                if (!_hovered && hide)
+                    hoverRatio = 0f;
+
+                DialogueUIEffect.DrawBloom(spriteBatch, drawCenter, _titleSize, hoverRatio * 0.5f);
+            
+                float scale = MathHelper.Lerp(0.5f, HoverTextScale, hoverRatio);
+
+                float iconWidth = _frame.Width * _scale * _baseScale;
+                float spacing = 4f;
+                float iconTargetX = -(_titleSize.X / 2f) * scale + (4 * scale) - spacing - (iconWidth / 2f);
+
+                Vector2 iconOffset = new Vector2(iconTargetX, 2f) * hoverRatio;
+                spriteBatch.Draw(_texture.Value, drawCenter + iconOffset, _frame, drawColor * opacity, 0f, _frame.Size() / 2f, _scale * _baseScale, SpriteEffects.None, 0f);
+
+                Vector2 offset = ((_titleSize / 2f) - new Vector2(4, 6)) * scale;
+                DrawingUtils.DrawBorderStringEightWay(spriteBatch, FontAssets.MouseText.Value, _wrappedTitle, drawCenter - offset, Color.White * hoverRatio, Color.Black * hoverRatio, scale);
+            }
+            else
+            {
+                spriteBatch.Draw(_texture.Value, drawCenter, _frame, drawColor * opacity, 0f, _frame.Size() / 2f, _scale * _baseScale, SpriteEffects.None, 0f);
+            }
+        }
+    }
+
+    public class DialoguePortrait : UIElement
+    {
+        private Asset<Texture2D> _texture;
+        public float ImageScale = 1f;
+        public float Opacity = 1f;
+        public float Rotation;
+        public bool AllowResizingDimensions = true;
+        public Color Color = Color.White;
+        public Vector2 NormalizedOrigin = Vector2.Zero;
+        public SpriteEffects effects = SpriteEffects.None;
+        public bool RemoveFloatingPointsFromDrawPosition;
+        public float ImageWidth => _texture.Width() * ImageScale;
+        private Texture2D _nonReloadingTexture;
+
+        public DialoguePortrait(Asset<Texture2D> texture)
+        {
+            SetImage(texture);
+        }
+
+        public DialoguePortrait(Texture2D nonReloadingTexture)
+        {
+            SetImage(nonReloadingTexture);
+        }
+
+        public void SetImage(Asset<Texture2D> texture)
+        {
+            _texture = texture;
+            _nonReloadingTexture = null;
+            if (AllowResizingDimensions)
+            {
+                Width.Set(_texture.Width(), 0f);
+                Height.Set(_texture.Height(), 0f);
+            }
+        }
+
+        public void SetImage(Texture2D nonReloadingTexture)
+        {
+            _texture = null;
+            _nonReloadingTexture = nonReloadingTexture;
+            if (AllowResizingDimensions)
+            {
+                Width.Set(_nonReloadingTexture.Width, 0f);
+                Height.Set(_nonReloadingTexture.Height, 0f);
+            }
+        }
+
+        protected override void DrawSelf(SpriteBatch spriteBatch) => DrawImage(spriteBatch);
+
+        internal void DrawImage(SpriteBatch spriteBatch)
+        {
+            CalculatedStyle dimensions = GetDimensions();
+            Texture2D texture2D = _texture != null ? _texture.Value : _nonReloadingTexture;
+
+            spriteBatch.End(out var snap);
+            var shaderSnap = snap;
+
+            Effect effect = GameShaders.Misc["AAModClassic:VerticalFade"].Shader;
+            effect.Parameters["fadeStart"].SetValue(0.75f);
+
+            shaderSnap.SortMode = SpriteSortMode.Immediate;
+            shaderSnap.CustomEffect = effect;
+            spriteBatch.Begin(shaderSnap);
+
+            Vector2 size = texture2D.Size();
+            Vector2 drawPos = dimensions.Position() + size * (1f - ImageScale) / 2f + size * NormalizedOrigin;
+            if (RemoveFloatingPointsFromDrawPosition)
+                drawPos = drawPos.Floor();
+
+            spriteBatch.Draw(texture2D, drawPos, null, Color * Opacity, Rotation, size * NormalizedOrigin, ImageScale, effects, 0f);
+
+            spriteBatch.End();
+            spriteBatch.Begin(snap);
+        }
+    }
+
+    internal class DialoguePanel : UIPanel
+    {
+        public override bool ContainsPoint(Vector2 point)
+        {
+            if (base.ContainsPoint(point))
+                return true;
+
+            foreach (UIElement child in Children)
+                if (child is ResponseButton && child.ContainsPoint(point))
+                    return true;
+
+            return false;
+        }
+    }
+
+    public delegate void DialogueEventNotifier(string treeKey, int dialogueID);
+    public delegate void DialogueTreeNotifier(string treeKey, ref DialogueTree tree);
+    public delegate void ResponseSelectNotifier(string treeKey, int dialogueID, int buttonID);
+    public struct DialogueContext(string catagory, params float[] args)
+    {
+        public string Catagory = catagory;
+        public float[] Arguments = args;
+    }
+
+    [Autoload(Side = ModSide.Client)]
+    public class DialogueUISystem : ModSystem
+    {
+        internal static DialogueUI State;
+
+        internal static UserInterface UI;
+
+        internal static Dictionary<string, (Asset<Texture2D> texture, Rectangle frame)> ResponseIcons = [];
+
+        internal static bool Visible = false;
+
+        public static DialogueEventNotifier DialogueStart;
+        public static DialogueTreeNotifier DialogueTreeSetup;
+        public static ResponseSelectNotifier ResponseSelect;
+        public static DialogueEventNotifier DialogueEnd;
+
+        public static DialogueContext CurrentContext;
+
+        public override void Load()
+        {
+            if (!Main.dedServ)
+            {
+                UI = new();
+                State = new();
+                State.Activate();
+                DialogueSceneCapture.Register();
+            }
+        }
+
+        public override void PostSetupContent()
+        {
+            ResponseIcons.Add("Default", (TextureAssets.Item[ItemID.FallenStar], TextureAssets.Item[ItemID.FallenStar].Frame(1, 8)));
+        }
+
+        internal static void DrawLayer()
+        {
+            Main.spriteBatch.End(out var snap);
+
+            var m = Main.GameViewMatrix;
+            var oldZoom = m.Zoom;
+            m.Zoom = new(1 + CameraSystem.Zoom);
+            var zoomSnap = snap;
+            zoomSnap.TransformMatrix = m.TransformationMatrix;
+            Main.spriteBatch.Begin(zoomSnap);
+            UI.Draw(Main.spriteBatch, new());
+            Main.spriteBatch.End();
+
+            Main.spriteBatch.Begin(snap);
+            Main.GameViewMatrix.Zoom = oldZoom;
+        }
+
+        internal static SpriteBatchSnapshot ZoomedSnapshot(SpriteBatchSnapshot snap)
+        {
+            var m = Main.GameViewMatrix;
+            var oldZoom = m.Zoom;
+            m.Zoom = new(1 + CameraSystem.Zoom);
+            snap.TransformMatrix = m.TransformationMatrix;
+            m.Zoom = oldZoom;
+            return snap;
+        }
+
+        public override void UpdateUI(GameTime gameTime)
+        {
+            if (UI?.CurrentState != null)
+            {
+                var oldZoom = Main.GameViewMatrix.Zoom;
+                Main.GameViewMatrix.Zoom = new(1 + CameraSystem.Zoom);
+                PlayerInput.SetZoom_World();
+                UI.Update(gameTime);
+                PlayerInput.SetZoom_Unscaled();
+                Main.GameViewMatrix.Zoom = oldZoom;
+            }
+        }
+    
+        public static void StartDialogue(string name, int startIndex, Vector2 position, DialogueContext context)
+        {
+            DialogueStart?.Invoke(name, startIndex);
+
+            State.worldCenter = position;
+            State.treeName = name;
+            State.currentIndex = startIndex;
+            CurrentContext = context;
+
+            if (!Visible)
+            {
+                Visible = true;
+
+                UI.SetState(State);
+
+                SoundEngine.PlaySound(SoundID.MenuOpen);
+            }
+        }
+
+        public static void EndDialogue(bool silent)
+        {
+            string name = State.treeName;
+            int index = State.currentIndex;
+
+            State.SwitchDialogue(-1);
+            for (int i = 0; i < State.responses.Count; i++)
+                State.responses[i].Hide(i * -5);
+
+            DialogueEnd?.Invoke(name, index);
+
+            CurrentContext = default;
+
+            if (!silent)
+                SoundEngine.PlaySound(SoundID.MenuClose);
+        }
+        
+        public static void ForceCloseDialogue()
+        {
+            if (Visible)
+            {
+                Visible = false;
+
+                UI.SetState(null);
+            }
+        }
+
+        internal static class DialogueSceneCapture
+        {
+            private static SceneCaptureSlot plain;
+            private static SceneCaptureSlot overlay;
+
+            public static RenderTarget2D PlainScene => plain?.Target;
+            public static RenderTarget2D OverlayScene => overlay?.Target;
+
+            public static void Register()
+            {
+                plain = SceneCapture.Register("Dialogue.Plain", () => WorldTextUI.Dialogues.Count > 0 || Visible);
+                overlay = SceneCapture.Register("Dialogue.Overlay", () => GetOverlay() != null, GetOverlay, ZoomedSnapshot);
+            }
+
+            private static Action<SpriteBatch> GetOverlay() => Visible && State?.dialogue?.DisplayEffects is DialogueUIEffect effect ? effect.SceneOverlay : null;
+        }
+    }
+
+    public class DialogueLayerSystem : ModSystem
+    {
+        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
+        {
+            layers.InsertRange(0,
+            [
+                new LegacyGameInterfaceLayer("AAModClassic: Dialogue", () =>
+                {
+                    DialogueUISystem.DrawLayer();
+                    return true;
+                }, InterfaceScaleType.Game),
+
+                new LegacyGameInterfaceLayer("AAModClassic: World Text", () =>
+                {
+                    WorldTextSystem.UI?.Draw(Main.spriteBatch, new());
+                    return true;
+                }, InterfaceScaleType.Game),
+            ]);
+        }
+    }
+
+    public class DialogueGlobalNPC : GlobalNPC
+    {
+        public override bool? CanChat(NPC npc)
+        {
+            if (DialogueUISystem.Visible)
+                return false;
+            return null;
+        }
+    }
+
+    [JsonConverter(typeof(SpeakerConverter))]
+    public class Speaker(string name, string portrait = null)
+    {
+        public string Name { get; init; } = name;
+        public string Portrait { get; set; } = portrait;
+    }
+    public class SpeakerConverter : JsonConverter<Speaker>
+    {
+        public override Speaker Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        {
+            if (reader.TokenType == JsonTokenType.String)
+                return new Speaker(reader.GetString());
+
+            if (reader.TokenType == JsonTokenType.StartObject)
+            {
+                using (JsonDocument doc = JsonDocument.ParseValue(ref reader))
+                {
+                    var root = doc.RootElement;
+
+                    string name = root.TryGetProperty("Name", out var n) ? n.GetString() : string.Empty;
+                    string portrait = root.TryGetProperty("Portrait", out var p) ? p.GetString() : null;
+
+                    return new Speaker(name, portrait);
+                }
+            }
+
+            throw new JsonException($"Unexpected token type {reader.TokenType} when parsing Speaker.");
+        }
+
+        public override void Write(Utf8JsonWriter writer, Speaker value, JsonSerializerOptions options)
+        {
+            writer.WriteStartObject();
+            writer.WriteString("Name", value.Name);
+            writer.WriteString("Portrait", value.Portrait);
+            writer.WriteEndObject();
+        }
+    }
+
+    public class DialogueTree
+    {
+        public string DefaultColor { get; init; }
+        public Speaker DefaultSpeaker { get; init; }
+        public int DefaultScale { get; init; }
+
+        public Alignment AlignType { get; init; }
+        public int TextDelay { get; init; }
+        public PunctuationData BasePunctuationDelay { get; init; }
+        public int PunctuationDelayCap { get; init; }
+        public Dictionary<string, PunctuationData> PunctuationDelays { get; init; }
+
+        public Dialogue[] Dialogues { get; set; }
+
+        public int Revision { get; init; }
+
+        public int Count => Dialogues.Length;
+
+        [JsonConstructor]
+        public DialogueTree(Dialogue[] Dialogues, string DefaultColor = null, Speaker DefaultSpeaker = null, int DefaultScale = 1, Alignment AlignType = 0, int TextDelay = 3, PunctuationData BasePunctuationDelay = null, int PunctuationDelayCap = 60, Dictionary<string, PunctuationData> PunctuationDelays = null, int Revision = 0)
+        {
+            this.Dialogues = Dialogues;
+            this.DefaultColor = DefaultColor;
+            this.DefaultSpeaker = DefaultSpeaker;
+            this.DefaultScale = DefaultScale;
+            this.AlignType = AlignType;
+            this.TextDelay = TextDelay;
+            this.BasePunctuationDelay = BasePunctuationDelay ?? new();
+            this.PunctuationDelayCap = PunctuationDelayCap;
+            this.PunctuationDelays = PunctuationDelays ?? [];
+            this.Revision = Revision;
+
+            foreach (Dialogue d in Dialogues)
+            {
+                DialoguePage p = d.DialogueInfo;
+                if (p == null)
+                    continue;
+
+                p.BaseColor ??= this.DefaultColor;
+                p.Speaker ??= this.DefaultSpeaker;
+                if (p.TextScale == -1)
+                    p.TextScale = this.DefaultScale;
+                if (p.TextDelay == -1)
+                    p.TextDelay = this.TextDelay;
+                if (p.InPunctuationDelay == -1)
+                    p.InPunctuationDelay = this.TextDelay;
+                if (p.AlignType == Alignment.None)
+                    p.AlignType = this.AlignType;
+                p.BasePunctuationDelay ??= this.BasePunctuationDelay;
+                if (p.PunctuationDelayCap == -1)
+                    p.PunctuationDelayCap = this.PunctuationDelayCap;
+                p.PunctuationDelays ??= this.PunctuationDelays;
+            }
+        }
+    }
+
+    public class Dialogue
+    {
+        public DialoguePage DialogueInfo { get; set; }
+        public Response[] Responses { get; set; } = [];
+
+        /// <summary>
+        /// Make something happen once you close the dialogue
+        /// </summary>
+        public Action endEvent = null;
+
+        public string PortraitKey = null;
+    }
+
+    public class Response
+    {
+        /// <summary>
+        /// The title that appears for this response
+        /// </summary>
+        public string Title { get; set; } = "...";
+
+        /// <summary>
+        /// The name of the Icon used for this response
+        /// </summary>
+        public string Icon { get; set; } = "Default";
+
+        /// <summary>
+        /// The index within the DialogueTree that selecting this Response leads to.
+        /// Setting this to -2 will have it lead to the index ahead of it.
+        /// Setting this to -1 will have this response close the dialogue.
+        /// </summary>
+        public int Heading { get; set; } = -2;
+
+        /// <summary>
+        /// The key of the tree that selecting this response option will have the dialogue switch to
+        /// The heading value will still determine what dialogue index is used, even in the new tree
+        /// </summary>
+        public string SwapTree { get; set; } = null;
+
+        /// <summary>
+        /// Dictates if this response can show up or not
+        /// </summary>
+        public bool Unlocked { get; set; } = true;
+
+        /// <summary>
+        /// When should the response unlock?
+        /// </summary>
+        public Func<bool> UnlockCondition = null;
+
+        /// <summary>
+        /// Make something happen once you select this response
+        /// </summary>
+        public Action selectEvent = null;
+
+        /// <summary>
+        /// Unlocks or locks the dialogue option
+        /// </summary>
+        /// <param name="status">Whether to unlock or lock the option</param>
+        /// <returns></returns>
+        public bool SetLockStatus(bool status = true)
+        {
+            Unlocked = status;
+            return Unlocked;
+        }
+    }
+}

@@ -1,0 +1,52 @@
+{
+  "Revision": 1,
+  "DefaultColor": "5f9ea0",
+  "DefaultSpeaker": "Seraph",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "HEY! EARTHWALKER! YEAH YOU, YA STUPID APE!"
+      ]
+    },
+    {
+      "Lines": [
+        "Queen Athena requests your presence at the Acropolis again immediately!"
+      ]
+    },
+    {
+      "Lines": [
+        "She demands a rematch, and this time, she won't let you tear her down so easily!"
+      ]
+    },
+    {
+      "Lines": [
+        "I would say break a leg, but we can do that ourselves when you show up!"
+      ]
+    },
+    {
+      "Lines": [
+        "See ya twerp!"
+      ]
+    }
+  ]
+}
