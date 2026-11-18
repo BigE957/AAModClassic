@@ -277,12 +277,12 @@ DiscordianTorch: {
 }
 
 DesertCrate: {
-	DisplayName: 沙漠板条箱
+	DisplayName: 沙漠匣
 	Tooltip: "'灰太大，打不开'"
 }
 
 HellCrate: {
-	DisplayName: 地狱板条箱
+	DisplayName: 地狱匣
 	Tooltip: "'烫得打不开'"
 }
 
@@ -502,7 +502,7 @@ MushroomBlock: {
 }
 
 IceCrate: {
-	DisplayName: 冰雪板条箱
+	DisplayName: 冰雪匣
 	Tooltip: "'冻得打不开'"
 }
 
@@ -638,7 +638,7 @@ DecayPainting: {
 
 FulgurusPainting: {
 	DisplayName: 引雷者
-	Tooltip: "'这幅不是我画的。是风暴科学家送的礼物……他们看起来人还不错。'"
+	Tooltip: "'这幅不是我画的。是雷灵族送的礼物……他们看起来人还不错。'"
 }
 
 GreedPainting: {

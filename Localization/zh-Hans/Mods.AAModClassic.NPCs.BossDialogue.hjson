@@ -629,8 +629,8 @@ ShenDoragon: {
 				SacredTools: 浇灭了那只深渊南瓜？那可真是大饱眼福！
 				Catalyst: 你确实把那坨紫色馒头打得满地找牙。
 				CalamityHunt: 把那些史莱姆打回原形肯定费了不少劲儿吧。真没看出来它们还挺能扑腾的！
-				// JetshiftPort: But when that ancient ice dragon let our its final dying roar? That was quite the eye-catcher.
-				// SOTS: Watching you chop that space-bending serpent into bits was quite the bit of entertainment.
+				JetshiftPort: 可当那条远古冰龙发出临终最后一声咆哮时呢？那场面着实引人注目。
+				SOTS: 目睹你将那条扭曲空间的巨蛇斩作碎块，还真是挺有乐子的。
 
 				Split: {
 					Seth: 我承认，把那个耍剑的暴脾气给收拾了，确实是一场好戏。
@@ -647,7 +647,7 @@ ShenDoragon: {
 
 				YouBoss: 我是说，把自己活过来的镜像给打碎？那可真了不起。
 				Radiance: 我本来没觉得那个太阳妖精有多惊艳，直到你成功逼出她的全部力量。那真是一出奇景！
-				// NoxusBoss: Bringing that sun-swallowing rift to our doorstep? To be honest, that thing's even got me a little antsy!
+				NoxusBoss: 把那道能把太阳都吞了的裂隙引到我们家门口来？老实说，那东西连我都觉得心里有点发毛！
 			}
 
 			30: {
@@ -709,8 +709,8 @@ ShenDoragon: {
 	ShenDoragon12: 放弃吧，孩子。世界终将堕入混沌！
 	ShenDoragon13: 不 留 怜 悯！
 	ShenDoragon14: 什么？你还在战斗？为什么？！
-	ShenDoragon15: 超远古者的败亡赋予守石者力量。
-	ShenDoragon17: 超远古者的败亡赋予守石者力量。
+	ShenDoragon15: 超远古者的败亡赋予石之守卫力量。
+	ShenDoragon17: 超远古者的败亡赋予石之守卫力量。
 }
 
 InfinityZero: {
@@ -729,6 +729,15 @@ InfinityZero: {
 	}
 
 	Defeat: {
+		Interceptions: {
+			// 0: I don't know when to stop talking!
+			// 1: I talk too much.
+			// 2: I should stop talking.
+			// 3: I love talking over other people!
+			// 4: I can't stop talking over people!!!
+			// 5: My parents never taught me how to shut up.
+		}
+
 		First: {
 			1: "...令人钦佩。        "
 			2: "摧毁我的机械躯体...     "
@@ -885,7 +894,7 @@ InfinityZero: {
 					Discord: {
 						Server: {
 							CalDev: 你跟我在这打什么？你不是还有个沉沦之海重做要搞还是什么的吗？
-							// AACord: I promise you no one in the Ancients Awakened server cares that you beat me. Just give it up already.
+							AACord: 我跟你保证，远古觉醒的聊天服务器里没人会在乎你打赢了我。省省吧。
 							Default: 你不如回{0}去找个愿意搭理你的人烦，行吗？
 						}
 
@@ -905,7 +914,7 @@ InfinityZero: {
 					NoMod: 装个别的mod什么的。模组浏览器上多着呢。
 					#New Additions
 					Jetshift: 不能去烦那两个陨石佬吗？
-					// JetshiftPort: Why not go bother Shen? I hear there's a chance he can become Shifted. Yeah, go beat Shifted Awakened Shen Doragon.
+					JetshiftPort: 干嘛不去折腾折腾上神应龙呢？听说他有机会变成异变体。对对对，去揍那个异变的觉醒上神应龙吧。
 					StarsAbove: 去烦月读吧，或者去找你家星海旅者聊聊天，别来烦我。
 					LunarVeil: 你认识歌瑟樊吧？去跟她打。听说她很猛。
 					Catalyst: 干嘛不再去打一遍那个紫色馒头？我听说无伤打过它能掉特殊物品。
@@ -919,11 +928,11 @@ InfinityZero: {
 					Fables: 干嘛不拜访拜访你那位瑙提螺斯爵士？他可是真心喜欢跟你打架。
 
 					NoxusBoss: {
-						// PreNameless: Don't you have some grand test to be completing? Or did Solyn die for nothing?
-						// PostNameless: Why not do that Test of Resolve thing instead? You got that Seed of Will, didn't you? Azathoth certainly likes fighting you more than I do.
+						PreNameless: 你不是还有什么试炼要完成吗？还是说索琳白死了？
+						PostNameless: 怎么不去参加那个什么意志试炼？你不是已经拿到意志之种了吗？阿撒托斯可比我更喜欢和你打架。
 					}
 
-					// SOTS: Can't you go over to the Planetarium instead of bothering me.
+					SOTS: 你就不能去星象岛转转，非得在这儿烦我吗？
 				}
 			}
 		}
@@ -985,7 +994,7 @@ SoulOfCthulhu: {
 			6: 我 诅 咒 你 和 你 的 世 界！
 			7: 愿 你 与 你 的 同 类 永 世 腐 烂 在 渊 洋 之 底！
 			8: 啊 啊 啊 啊 啊 啊 啊 啊..！
-			Cheater: 作弊者不配获得战斗的战利品。
+			Cheater: 作弊者不配获得战利品。
 		}
 	}
 }

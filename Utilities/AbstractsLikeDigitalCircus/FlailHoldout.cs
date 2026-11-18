@@ -1,9 +1,11 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAModClassic.UI.World;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -75,6 +77,30 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
             Projectile.DamageType = DamageClass.Melee; // Deals melee damage
             Projectile.usesLocalNPCImmunity = true; // Used for hit cooldown changes in the ai hook
             Projectile.localNPCHitCooldown = 10; // This facilitates custom hit cooldown logic
+        }
+
+        private static bool UseOldBehavior => !WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial);
+
+        public override void OnSpawn(IEntitySource source)
+        {
+            if (UseOldBehavior)
+            {
+                Player player = Main.player[Projectile.owner];
+                Vector2 unitVectorTowardsMouse = player.MountedCenter.DirectionTo(Main.MouseWorld).SafeNormalize(Vector2.UnitX * player.direction);
+
+                CurrentAIState = AIState.LaunchingForward;
+                StateTimer = 0f;
+                
+                float meleeSpeedMultiplier = player.GetTotalAttackSpeed(DamageClass.Melee);
+                float myLaunchSpeed = LaunchSpeed * meleeSpeedMultiplier;
+                Projectile.velocity = unitVectorTowardsMouse * myLaunchSpeed + player.velocity;
+                Projectile.Center = player.MountedCenter;
+                Projectile.netUpdate = true;
+                Projectile.ResetLocalNPCHitImmunity();
+                Projectile.localNPCHitCooldown = MovingHitCooldown;
+
+                ModifyLaunchedFlail();
+            }
         }
 
         public override void AI()
@@ -162,7 +188,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
                         doFastThrowDust = true;
                         bool shouldSwitchToRetracting = StateTimer++ >= LaunchTimeLimit;
                         shouldSwitchToRetracting |= Projectile.Distance(mountedCenter) >= MaxLaunchLength;
-                        if (player.controlUseItem) // If the player clicks, transition to the Dropping state
+                        if (player.controlUseItem && !UseOldBehavior) // If the player clicks, transition to the Dropping state
                         {
                             if (!Projectile.tileCollide)
                             {
@@ -202,7 +228,7 @@ namespace AAModClassic.Utilities.AbstractsLikeDigitalCircus
                             Projectile.Kill(); // Kill the projectile once it is close enough to the player
                             return;
                         }
-                        if (player.controlUseItem) // If the player clicks, transition to the Dropping state
+                        if (player.controlUseItem && !UseOldBehavior) // If the player clicks, transition to the Dropping state
                         {
                             if (!Projectile.tileCollide)
                             {

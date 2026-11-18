@@ -729,6 +729,15 @@ InfinityZero: {
 	}
 
 	Defeat: {
+		Interceptions: {
+			0: I don't know when to stop talking!
+			1: I talk too much.
+			2: I should stop talking.
+			3: I love talking over other people!
+			4: I can't stop talking over people!!!
+			5: My parents never taught me how to shut up.
+		}
+
 		First: {
 			1: ...impressive.
 			2: Defeating my mechanical body...
