@@ -61,6 +61,11 @@ Configs: {
 			Label: 隐藏个人识别信息
 			Tooltip: 禁用使用个人身份信息打破第四面墙的对话。
 		}
+
+		TextEffects: {
+			// Label: Text Effects
+			// Tooltip: ""
+		}
 	}
 }
 

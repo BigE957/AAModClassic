@@ -1,0 +1,52 @@
+{
+  "Revision": 1,
+  "DefaultColor": "5f9ea0",
+  "DefaultSpeaker": "Seraph",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "[Scale(1.5):[Shaking(1.5):OUCH..! How RUDE!]] [Pause(1)][Scale(2):[Shaking(2):ATHENAAAAAAAAAAAAAAA!!!]]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Scale(1.5):[Shaking(1.5):HEY!]] I was only playing! Wait till Athena hears about [Scale(1.5):[Shaking(1.5):THIS!]]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Scale(1.5):[Shaking(1.5):NOW]] You've done it! [Pause(1)]Oh [Scale(2):[Shaking(2):ATHEEEEENAAAAAAAA!!!]]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Scale(2):[Shaking(2):THAT HURT..! WAAAAAAAAAAH ATHENAAAAAA THE EARTHWALKER IS BEING MEAN!]]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1.5):*GASP*!] You scuffed up my dress..! I'm getting Athena..!"
+      ]
+    }
+  ]
+}

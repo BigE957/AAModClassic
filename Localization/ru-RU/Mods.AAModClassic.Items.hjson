@@ -1309,3 +1309,15 @@ CrossMod: {
 		// Tooltip: ""
 	}
 }
+
+Debug: {
+	DialogueDisplayDebugItem: {
+		// DisplayName: Dialogue Display Debug Item
+		// Tooltip: ""
+	}
+
+	UIDebugItem: {
+		// DisplayName: U I Debug Item
+		// Tooltip: ""
+	}
+}

@@ -21,7 +21,7 @@ TruffleToadKilled: {
 
 BroodmotherKilled: {
 	FriendlyName: Ashes to Ashes
-	Description: Defeat the The Broodmother, a dragon born of molten fury.
+	Description: Defeat the Broodmother, a dragon born of molten fury.
 }
 
 HydraKilled: {
@@ -31,7 +31,7 @@ HydraKilled: {
 
 DesertDjinnKilled: {
 	FriendlyName: No Wishes?
-	Description: Outflex the the Desert Djinn, a muscular genie who roams the sandy wastes.
+	Description: Outflex the Desert Djinn, a muscular genie who roams the sandy wastes.
 }
 
 SubzeroSerpentKilled: {

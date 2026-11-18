@@ -1,0 +1,52 @@
+{
+  "Revision": 1,
+  "DefaultColor": "609ea0",
+  "DefaultSpeaker": "Athena",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "Destroying one of my artifacts...? You Earthwalkers just don't stop pissing me off!"
+      ]
+    },
+    {
+      "Lines": [
+        "And stay away...idiot."
+      ]
+    },
+    {
+      "Lines": [
+        "OW! Fine, fine..! I'll leave you alone! Geez, you don't let up, do you."
+      ]
+    },
+    {
+      "Lines": [
+        "And stay away, idiot."
+      ]
+    },
+    {
+      "Lines": [
+        "No more kidding around, the storms are calling, and they're coming for you!"
+      ]
+    }
+  ]
+}

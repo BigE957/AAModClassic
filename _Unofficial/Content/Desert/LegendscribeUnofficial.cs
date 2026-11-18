@@ -1,4 +1,5 @@
 using AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly;
+using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis;
 using AAModClassic._Content.Desert.__Hardmode.Items.Quest;
 using AAModClassic._Content.Desert.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
@@ -6,6 +7,9 @@ using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
 using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic.Globals;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -36,6 +40,32 @@ namespace AAModClassic._Unofficial.Content.Desert
         public static Asset<Texture2D> Glowmask;
         public static Asset<Texture2D> GlowmaskShimmer;
         public static Asset<Texture2D> PartyHat;
+
+        public enum BehaviorState
+        {
+            TownNPC,
+            RuinsIdle
+        }
+        internal BehaviorState MyBehavior = BehaviorState.TownNPC;
+
+        private const string DialoguePath = "Mods.AAModClassic.DialogueTrees.Anubis.";
+
+        public static readonly DialoguePool<(Player player, LegendscribeUnofficial self)> pool = new(
+            //Intro
+            (DialoguePath + "Intro", (ctx) => ctx.self.MyBehavior == BehaviorState.RuinsIdle, 250, true),
+            (DialoguePath + "IntroReminder", (ctx) => ctx.self.NPC.homeless && !UnofficialAnubisSystem.AnubisHoused, 249, true),
+            (DialoguePath + "IntroComplete", (ctx) => !ctx.self.NPC.homeless && !UnofficialAnubisSystem.AnubisHoused, 249, true),
+
+            //First Fight
+            (DialoguePath + "SparChallenge", (ctx) => NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3, 200, false),
+            (DialoguePath + "SparIncomplete", (ctx) => !NPCExtensions.BeenKilled<Anubis>() && NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3, 199, true),
+
+            //Awakened Fight
+            (DialoguePath + "TrialChallenge", (ctx) => NPC.downedMoonlord, 200, false),
+            (DialoguePath + "TrialIncomplete", (ctx) => !NPCExtensions.BeenKilled<AnubisA>() && NPC.downedMoonlord, 199, true),
+
+            (DialoguePath + "Default", (_) => true, 0, true)
+        );
 
         public override void Load()
         {
@@ -81,15 +111,9 @@ namespace AAModClassic._Unofficial.Content.Desert
                 Main.spriteBatch.Draw(PartyHat.Value, position, npc.frame, color, npc.rotation, npc.frame.Size() / 2f, npc.scale, npc.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
-        {
-            return false;
-        }
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) => false;
 
-        public override void ModifyTypeName(ref string typeName)
-        {
-            typeName = "Legendscribe";
-        }
+        public override void ModifyTypeName(ref string typeName) => typeName = "Legendscribe";
 
         public override ITownNPCProfile TownNPCProfile()
         {
@@ -121,6 +145,10 @@ namespace AAModClassic._Unofficial.Content.Desert
                 .SetNPCAffection(NPCID.ArmsDealer, AffectionLevel.Dislike);
 
             this.HideFromBestiary();
+
+            DialogueUISystem.DialogueTreeSetup += ModifyTree;
+            DialogueUISystem.ResponseSelect += AnubisDialogueReponseClicked;
+            DialogueUISystem.DialogueEnd += AnubisDialogueEnd;
         }
 
         public override void SetDefaults()
@@ -167,7 +195,7 @@ namespace AAModClassic._Unofficial.Content.Desert
 
         public override bool CanTownNPCSpawn(int numTownNPCs)
         {
-            return !NPC.AnyNPCs(ModContent.NPCType<AnubisUnreleased>()) && !NPC.AnyNPCs(ModContent.NPCType<Anubis>()) && !NPC.AnyNPCs(ModContent.NPCType<LegendscribeUnofficial>()) && !NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) && !NPC.AnyNPCs(ModContent.NPCType<AnubisA>());
+            return !UnofficialAnubisSystem.AnyAnubis(NPC);
 
         }
 
@@ -199,71 +227,407 @@ namespace AAModClassic._Unofficial.Content.Desert
             return hasGate && isTallEnough;
         }
 
-        public override List<string> SetNPCNameList()
-        {
-            return ["Anubis"];
-        }
+        public override List<string> SetNPCNameList() => ["Anubis"];
 
         public override bool PreAI()
         {
-            if (NPC.AnyNPCs(ModContent.NPCType<Anubis>()) ||
-                NPC.AnyNPCs(ModContent.NPCType<AnubisForsakenTransition>()) ||
-                NPC.AnyNPCs(ModContent.NPCType<AnubisA>()) ||
-                NPC.AnyNPCs(ModContent.NPCType<AnubisUnreleased>()))
+            if (UnofficialAnubisSystem.AnyAnubis(NPC))
             {
                 TPDust();
                 NPC.active = false;
+                return false;
             }
-            if (Vector2.Distance(NPC.position, new Vector2(NPC.homeTileX, NPC.homeTileY)) > 3000 && AwayFromPlayerTimer < 240 && !NPC.homeless)
+
+            if (MyBehavior == BehaviorState.TownNPC)
             {
-                AwayFromPlayerTimer++;
-                if (AwayFromPlayerTimer >= 240)
+                NPC.townNPC = true;
+                NPC.aiStyle = NPCAIStyleID.Passive;
+
+                if (Vector2.Distance(NPC.position, new Vector2(NPC.homeTileX, NPC.homeTileY)) > 3000 && AwayFromPlayerTimer < 240 && !NPC.homeless)
                 {
-                    bool IsNearbyPlayer = false;
-                    for (int k = 0; k < 2; k++)
+                    AwayFromPlayerTimer++;
+                    if (AwayFromPlayerTimer >= 240)
                     {
-                        Rectangle NPCNearbyRectangle = new Rectangle((int)(NPC.position.X + NPC.width / 2 - NPC.sWidth / 2 - NPC.safeRangeX), (int)(NPC.position.Y + NPC.height / 2 - NPC.sHeight / 2 - NPC.safeRangeY), NPC.sWidth + NPC.safeRangeX * 2, NPC.sHeight + NPC.safeRangeY * 2);
-                        if (k == 1)
+                        bool IsNearbyPlayer = false;
+                        for (int k = 0; k < 2; k++)
                         {
-                            NPCNearbyRectangle = new Rectangle(NPC.homeTileX * 16 + 8 - NPC.sWidth / 2 - NPC.safeRangeX, NPC.homeTileY * 16 + 8 - NPC.sHeight / 2 - NPC.safeRangeY, NPC.sWidth + NPC.safeRangeX * 2, NPC.sHeight + NPC.safeRangeY * 2);
-                        }
-                        for (int l = 0; l < 255; l++)
-                        {
-                            if (Main.player[l].active)
+                            Rectangle NPCNearbyRectangle = new Rectangle((int)(NPC.position.X + NPC.width / 2 - NPC.sWidth / 2 - NPC.safeRangeX), (int)(NPC.position.Y + NPC.height / 2 - NPC.sHeight / 2 - NPC.safeRangeY), NPC.sWidth + NPC.safeRangeX * 2, NPC.sHeight + NPC.safeRangeY * 2);
+                            if (k == 1)
                             {
-                                Rectangle PlayerNearbyRectangle = new Rectangle((int)Main.player[l].position.X, (int)Main.player[l].position.Y, Main.player[l].width, Main.player[l].height);
-                                if (PlayerNearbyRectangle.Intersects(NPCNearbyRectangle))
-                                {
-                                    IsNearbyPlayer = true;
-                                    break;
-                                }
+                                NPCNearbyRectangle = new Rectangle(NPC.homeTileX * 16 + 8 - NPC.sWidth / 2 - NPC.safeRangeX, NPC.homeTileY * 16 + 8 - NPC.sHeight / 2 - NPC.safeRangeY, NPC.sWidth + NPC.safeRangeX * 2, NPC.sHeight + NPC.safeRangeY * 2);
                             }
-                            if (IsNearbyPlayer)
-                                break;
+                            for (int l = 0; l < 255; l++)
+                            {
+                                if (Main.player[l].active)
+                                {
+                                    Rectangle PlayerNearbyRectangle = new Rectangle((int)Main.player[l].position.X, (int)Main.player[l].position.Y, Main.player[l].width, Main.player[l].height);
+                                    if (PlayerNearbyRectangle.Intersects(NPCNearbyRectangle))
+                                    {
+                                        IsNearbyPlayer = true;
+                                        break;
+                                    }
+                                }
+                                if (IsNearbyPlayer)
+                                    break;
+                            }
                         }
-                    }
-                    if (!IsNearbyPlayer)
-                    {
-                        if (!Collision.SolidTiles(NPC.homeTileX - 1, NPC.homeTileX + 1, NPC.homeTileY - 3, NPC.homeTileY - 1))
+                        if (!IsNearbyPlayer)
                         {
-                            TPDust();
-                            // why are you talkingwhen nobody sees you???
-                            CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.CombatTextChat"));
-                            NPC.velocity.X = 0f;
-                            NPC.velocity.Y = 0f;
-                            NPC.position.X = NPC.homeTileX * 16 + 8 - NPC.width / 2;
-                            NPC.position.Y = NPC.homeTileY * 16 - NPC.height - 0.1f;
-                            NPC.netUpdate = true;
-                            AwayFromPlayerTimer = 0;
+                            if (!Collision.SolidTiles(NPC.homeTileX - 1, NPC.homeTileX + 1, NPC.homeTileY - 3, NPC.homeTileY - 1))
+                            {
+                                TPDust();
+                                // why are you talkingwhen nobody sees you???
+                                CombatText.NewText(NPC.Hitbox, Color.Gold, Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.CombatTextChat"));
+                                NPC.velocity.X = 0f;
+                                NPC.velocity.Y = 0f;
+                                NPC.position.X = NPC.homeTileX * 16 + 8 - NPC.width / 2;
+                                NPC.position.Y = NPC.homeTileY * 16 - NPC.height - 0.1f;
+                                NPC.netUpdate = true;
+                                AwayFromPlayerTimer = 0;
+                            }
                         }
                     }
                 }
             }
+            else
+            {
+                NPC.townNPC = false;
+                NPC.aiStyle = -1;
+                NPC.homeTileX = UnofficialAnubisSystem.AnubisRuinsTile.X;
+                NPC.homeTileY = UnofficialAnubisSystem.AnubisRuinsTile.Y;
+            }
+
+            if (chattingLastFrame && DialogueUISystem.UI.CurrentState != null)
+                Main.LocalPlayer.SetTalkNPC(NPC.whoAmI);
             return true;
+        }
+
+        private bool chattingLastFrame = false;
+        private int appearTimer = 0;
+        private string DialogueToUse = "";
+
+        public override void AI()
+        {
+            if (Main.dedServ || !chattingLastFrame)
+                return;
+
+            // Resets dialogue state after the UI has been closed by itself
+            if (appearTimer >= 60 && DialogueUISystem.UI.CurrentState == null)
+            {
+                Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().ChattingAnubis = -1;
+                chattingLastFrame = false;
+                appearTimer = 0;
+                return;
+            }
+
+            if (Main.LocalPlayer.sign >= 0 || Main.clothesWindow)
+            {
+                InteruptDialogue(true);
+                return;
+            }
+
+            // Handles camera stuff when dialogue is happening
+            float zoom = Main.GameZoomTarget - 1f;
+            Vector2 cameraCenter = (NPC.Center + Main.LocalPlayer.Center) / 2f - Vector2.UnitY * MathHelper.Lerp(140f, 80f, zoom);
+            DialogueUISystem.State.worldCenter = cameraCenter - Vector2.UnitY * 60f;
+                
+            Vector2 regionCenter = NPC.Center - Vector2.UnitY * 140f;
+            Rectangle bounds = new((int)regionCenter.X - Main.screenWidth / 2, (int)regionCenter.Y - Main.screenHeight / 2, Main.screenWidth, Main.screenHeight);
+
+            if (bounds.Contains((int)Main.LocalPlayer.Center.X, (int)Main.LocalPlayer.Center.Y))
+            {
+                float dist = MathF.Abs(regionCenter.X - Main.LocalPlayer.Center.X);
+                float buffer = 256f;
+                float nearbyRatio = 1 - MathHelper.Clamp((dist - buffer) / (Main.screenWidth / 2f - buffer), 0f, 1f);
+                    
+                float appearRatio = 1f;
+                if (appearTimer <= 60)
+                {
+                    if(appearTimer == 30)
+                        DialogueUISystem.StartDialogue(DialogueToUse, 0, NPC.Center - Vector2.UnitY * 180, new(Name, NPC.whoAmI));
+                    appearRatio = MathUtils.SineInOutEasing(appearTimer / 60f);
+                    appearTimer++;
+                }
+
+                if (nearbyRatio != 0f)
+                {
+                    float ease = MathUtils.SineInOutEasing(nearbyRatio);
+                    Vector2 goalCenter = Vector2.Lerp(Main.LocalPlayer.Center, cameraCenter, ease);
+
+                    CameraSystem.InterpolateCamera(goalCenter, appearRatio);
+                    CameraSystem.Zoom = MathUtils.SineInOutEasing(MathHelper.Clamp(ease - 0.5f, 0f, 0.5f) * 2f) / 4f * appearRatio;
+                }
+
+                chattingLastFrame = true;
+            }
+            else
+            {
+                InteruptDialogue(false);
+                CameraSystem.ResetCamera();
+
+                WorldTextSystem.StartDialogue("Mods.CalamityMod.DevourerOfGods.Phases", NPC.Center - Vector2.UnitY * 90f, 2, 90, false, new AlwaysOnScreen());
+                chattingLastFrame = false;
+            }
+        }
+
+        internal void InteruptDialogue(bool silent)
+        {
+            chattingLastFrame = false;
+            appearTimer = 0;
+            Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().ChattingAnubis = -1;
+            Main.LocalPlayer.SetTalkNPC(-1);
+            DialogueUISystem.EndDialogue(silent);
+        }
+
+        public override bool CanChat() => true;
+
+        private static void ModifyTree(string treeKey, ref DialogueTree tree)
+        {
+            string name = treeKey.Replace("Mods.AAModClassic.DialogueTrees.Anubis.", "");
+
+            switch(name)
+            {
+                case "Default":
+                    tree.Dialogues[1].DialogueInfo.Lines = GetAnubisHint();
+                    break;
+                case "TrialChallenge":
+                    tree.Dialogues[0].DialogueInfo.Lines[0] = tree.Dialogues[0].DialogueInfo.Lines[0].Replace("{0}", Main.LocalPlayer.name);
+                    break;
+            }                
+        }
+
+        private static string[] GetAnubisHint()
+        {
+            return ["You just gotta lock in dude.", "Lock the fuck in."];
+        }
+
+        public override string GetChat()
+        {
+            AnubisDialoguePlayer p = Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>();
+
+            Main.BestiaryTracker.Chats.RegisterChatStartWith(ContentSamples.NpcsByNetId[ModContent.NPCType<Legendscribe>()]);
+
+            DialogueToUse = pool.GetTree(Main.LocalPlayer, this);
+
+            chattingLastFrame = true;
+
+            Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().ChattingAnubis = NPC.whoAmI;
+
+            if(Main.clothesWindow)
+                Main.CancelClothesWindow(true);
+
+            if (Main.LocalPlayer.sign >= 0)
+            {
+                Main.LocalPlayer.sign = -1;
+                Main.editSign = false;
+                Main.npcChatText = "";
+            }
+
+            return "";
+            /*
+            if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>())
+            {
+                if (!p.HasLostToForsakenAnubis)
+                {
+                    if (!p.HasSpokenToAnubisPostMoonLord)
+                    {
+                        p.HasSpokenToAnubisPostMoonLord = true;
+                        return Language.GetOrRegister("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAnubisFAnubisN").Format(Main.LocalPlayer.name);
+                    }
+                    else
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PreFight.Repeat");
+                }
+                else
+                {
+                    if (!p.HasSpokenToAnubisAfterDyingToForsakenAnubis)
+                    {
+                        p.HasSpokenToAnubisAfterDyingToForsakenAnubis = true;
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.First");
+                    }
+                    else if (p.HasLostMultipleTimesToForsakenAnubis)
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.Repeat.MultipleDeaths." + Main.rand.Next(3));
+                    else
+                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.Repeat.FirstDeath" + Main.rand.Next(2));
+                }
+            }
+            else if (!p.HasSpokenToAnubisPostForsakenAnubis && NPCExtensions.BeenKilled<AnubisA>())
+            {
+                p.HasSpokenToAnubisPostForsakenAnubis = true;
+                return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostVictory");
+            }
+
+            return Legendscribe.LegendscribeDialogue(NPC);
+            */
+        }
+
+        public static int FindFemaleNPC()
+        {
+            int FemaleNPC = Main.rand.Next(6);
+            switch (FemaleNPC)
+            {
+                case 0:
+                    FemaleNPC = NPCID.Nurse;
+                    break;
+                case 1:
+                    FemaleNPC = NPCID.Dryad;
+                    break;
+                case 2:
+                    FemaleNPC = NPCID.Stylist;
+                    break;
+                case 3:
+                    FemaleNPC = NPCID.Mechanic;
+                    break;
+                case 4:
+                    FemaleNPC = NPCID.Steampunker;
+                    break;
+                default:
+                    FemaleNPC = NPCID.PartyGirl;
+                    break;
+            }
+            return FemaleNPC;
+        }
+
+        private static void AnubisDialogueReponseClicked(string treeKey, int dialogueID, int buttonID)
+        {
+            if (DialogueUISystem.CurrentContext.Arguments[0] < 0 || DialogueUISystem.CurrentContext.Arguments[0] > 200)
+                return;
+
+            NPC npc = Main.npc[(int)DialogueUISystem.CurrentContext.Arguments[0]];
+
+            if (!npc.active || npc.ModNPC is not LegendscribeUnofficial me)
+                return;
+
+            string name = treeKey.Replace("Mods.AAModClassic.DialogueTrees.Anubis.", "");
+
+            switch (name)
+            {
+                case "Intro":
+                    if (dialogueID >= 4 && dialogueID <= 6)
+                        me.MyBehavior = BehaviorState.TownNPC;
+                    break;
+                case "Default":
+                    if (dialogueID == 0 && buttonID == 0)
+                        OpenLegendscribeUI(npc);
+                    break;
+                case "SparChallenge":
+                    if (dialogueID == 0)
+                        Main.LocalPlayer.QuickSpawnItem(npc.GetSource_GiftOrReward(), ModContent.ItemType<RasScepter>(), 1);
+                    break;
+                case "SparIncomplete":
+                case "TrialChallenge":
+                case "TrialIncomplete":
+                    if (dialogueID == 0 && buttonID == 1)
+                        Main.LocalPlayer.QuickSpawnItem(npc.GetSource_GiftOrReward(), ModContent.ItemType<RasScepter>(), 1);
+                    break;
+            }          
+        }
+
+        private static void AnubisDialogueEnd(string treeKey, int dialogueID)
+        {
+            if (DialogueUISystem.CurrentContext.Arguments[0] < 0 || DialogueUISystem.CurrentContext.Arguments[0] > 200)
+                return;
+
+            NPC npc = Main.npc[(int)DialogueUISystem.CurrentContext.Arguments[0]];
+
+            if (!npc.active || npc.ModNPC is not LegendscribeUnofficial me)
+                return;
+
+            string name = treeKey.Replace("Mods.AAModClassic.DialogueTrees.Anubis.", "");
+
+            switch (name)
+            {
+                case "IntroComplete":
+                    if (dialogueID == 1)
+                    {
+                        OpenLegendscribeUI(npc);
+                    }
+                    UnofficialAnubisSystem.AnubisHoused = true;
+                    break;
+            }                
+        }
+
+        public override void SetChatButtons(ref string button, ref string button2)
+        {
+            bool fAnubisTime = NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>();
+            bool hasGreedBook = !Main.LocalPlayer.GetModPlayer<ZAAPlayer>().AnubisBook && Main.LocalPlayer.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>()) >= 0;
+            if (!fAnubisTime && hasGreedBook)
+                button = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LegendscribeUnofficial.Buttons.Book");
+            else
+                button = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LegendscribeUnofficial.Buttons.Help");
+
+            if (!NPC.downedMoonlord || NPCExtensions.BeenKilled<AnubisA>())
+                button2 = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LegendscribeUnofficial.Buttons.Next");
+        }
+
+        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
+        {
+            if (firstButton)
+            {
+                Player player = Main.LocalPlayer;
+
+                if (!NPCExtensions.BeenKilled<Anubis>() && player.GetModPlayer<ZAAPlayer>().GivenAnuSummon && !player.HasItem(ModContent.ItemType<RasScepter>()))
+                {
+                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<RasScepter>(), 1);
+                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisScapterLost");
+                    return;
+                }
+
+                if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>())
+                {
+                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.Help");
+                    return;
+                }
+
+                if (!player.GetModPlayer<ZAAPlayer>().AnubisBook && NPCExtensions.BeenKilled<GreedHead>())
+                {
+                    int Item = player.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>());
+                    if (Item >= 0)
+                    {
+                        player.inventory[Item].stack--;
+                        if (player.inventory[Item].stack <= 0)
+                        {
+                            player.inventory[Item] = new Item();
+                        }
+
+                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.GetBookChat");
+                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition>(), 1);
+                        player.GetModPlayer<ZAAPlayer>().AnubisBook = true;
+                        SoundEngine.PlaySound(SoundID.Chat);
+                        return;
+                    }
+                }
+
+                Main.npcChatText = Legendscribe.GuideChat();
+            }
+            else
+            {
+                OpenLegendscribeUI(NPC);
+            }
+        }
+
+        private static void OpenLegendscribeUI(NPC npc)
+        {
+            if (Main.LocalPlayer.GetModPlayer<ZAAPlayer>().AnubisBook)
+                QuestSystem.Questlines["LegendscribeEarlyGame"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeEarlyGame.Greed.Description.FoundBook");
+            else
+                QuestSystem.Questlines["LegendscribeEarlyGame"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeEarlyGame.Greed.Description.Complete");
+
+            LegendscribeQuestUISystem.OpenLegendscribeUI(npc.whoAmI);
+
+            Questline questline = LegendscribeQuestUI.CurrentQuestline;
+            if (!questline.Started)
+            {
+                questline.Started = true;
+
+                if (Main.netMode == NetmodeID.MultiplayerClient)
+                    AANet.SendNetMessage<QuestlineStartPacket>(questline.ID);
+            }
         }
 
         public override void PostAI()
         {
+            if (chattingLastFrame && DialogueUISystem.UI.CurrentState != null && !LegendscribeQuestUISystem.IsActive)
+                Main.LocalPlayer.SetTalkNPC(-1);
             /*
             Main.NewText("ai 0: " + NPC.ai[0]);
             Main.NewText("ai 1: " + NPC.ai[1]);
@@ -306,6 +670,17 @@ namespace AAModClassic._Unofficial.Content.Desert
 
         public override void FindFrame(int frameHeight)
         {
+            if(MyBehavior == BehaviorState.RuinsIdle)
+            {
+                if(NPC.Center.X / 16 < Main.spawnTileX)
+                    NPC.direction = NPC.spriteDirection = 1;
+                else
+                    NPC.direction = NPC.spriteDirection = -1;
+
+                NPC.frame.Y = 12 * frameHeight;
+                return;
+            }
+
             int type = NPC.type;
             int num165 = NPCID.Sets.ExtraFramesCount[NPC.type];
 
@@ -313,20 +688,15 @@ namespace AAModClassic._Unofficial.Content.Desert
             // tldr if u put in an animationstyle itll pull ALL data from the npc ur pulling anim style from
             // even if u have different frame counts itll pull from ur animstyle guy
             // tml should really fix this
+            #region This needs a region christ
             if (NPC.velocity.Y == 0f)
             {
-                if (NPC.direction == 1)
-                {
-                    NPC.spriteDirection = 1;
-                }
-                if (NPC.direction == -1)
-                {
-                    NPC.spriteDirection = -1;
-                }
+                NPC.spriteDirection = NPC.direction;
+
                 int num166 = Main.npcFrameCount[type] - NPCID.Sets.AttackFrameCount[type];
                 if (NPC.ai[0] == 23f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num167 = NPC.frame.Y / frameHeight;
                     int num85 = num166 - num167;
                     if ((uint)(num85 - 1) > 1u && (uint)(num85 - 4) > 1u && num167 != 0)
@@ -354,7 +724,7 @@ namespace AAModClassic._Unofficial.Content.Desert
                             }
                             if (num170 > 0)
                             {
-                                NPC.frameCounter += 1.0;
+                                NPC.frameCounter++;
                             }
                             if (NPC.frameCounter > 4.0)
                             {
@@ -377,7 +747,7 @@ namespace AAModClassic._Unofficial.Content.Desert
                             }
                             if (num170 > 0)
                             {
-                                NPC.frameCounter += 1.0;
+                                NPC.frameCounter++;
                             }
                             if (NPC.frameCounter > 4.0)
                             {
@@ -398,7 +768,7 @@ namespace AAModClassic._Unofficial.Content.Desert
                 }
                 else if (NPC.ai[0] == 2f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     if (NPC.frame.Y / frameHeight == num166 - 1 && NPC.frameCounter >= 5.0)
                     {
                         NPC.frame.Y = 0;
@@ -417,7 +787,7 @@ namespace AAModClassic._Unofficial.Content.Desert
                 }
                 else if (NPC.ai[0] == 11f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     if (NPC.frame.Y / frameHeight == num166 - 1 && NPC.frameCounter >= 50.0)
                     {
                         if (NPC.frameCounter == 50.0)
@@ -462,7 +832,7 @@ namespace AAModClassic._Unofficial.Content.Desert
                 }
                 else if (NPC.ai[0] == 6f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num175 = NPC.frame.Y / frameHeight;
                     int num84 = num166 - num175;
                     if ((uint)(num84 - 1) > 1u && (uint)(num84 - 4) > 1u && num175 != 0)
@@ -493,7 +863,7 @@ namespace AAModClassic._Unofficial.Content.Desert
                 }
                 else if (NPC.ai[0] == 7f || NPC.ai[0] == 19f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num179 = NPC.frame.Y / frameHeight;
                     int num83 = num166 - num179;
                     if ((uint)(num83 - 1) > 1u && (uint)(num83 - 4) > 1u && num179 != 0)
@@ -534,7 +904,7 @@ namespace AAModClassic._Unofficial.Content.Desert
                 }
                 else if (NPC.ai[0] == 9f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num182 = NPC.frame.Y / frameHeight;
                     int num82 = num166 - num182;
                     if ((uint)(num82 - 1) > 1u && (uint)(num82 - 4) > 1u && num182 != 0)
@@ -556,7 +926,7 @@ namespace AAModClassic._Unofficial.Content.Desert
                 }
                 else if (NPC.ai[0] == 18f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num184 = NPC.frame.Y / frameHeight;
                     int num81 = num166 - num184;
                     if ((uint)(num81 - 1) > 1u && (uint)(num81 - 4) > 1u && num184 != 0)
@@ -590,7 +960,7 @@ namespace AAModClassic._Unofficial.Content.Desert
                 }
                 else if (NPC.ai[0] == 10f || NPC.ai[0] == 13f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num186 = NPC.frame.Y / frameHeight;
                     if ((uint)(num186 - num166) > 3u && num186 != 0)
                     {
@@ -605,7 +975,7 @@ namespace AAModClassic._Unofficial.Content.Desert
                 }
                 else if (NPC.ai[0] == 15f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num190 = NPC.frame.Y / frameHeight;
                     if ((uint)(num190 - num166) > 3u && num190 != 0)
                     {
@@ -623,7 +993,7 @@ namespace AAModClassic._Unofficial.Content.Desert
                 }
                 else if (NPC.ai[0] == 12f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num194 = NPC.frame.Y / frameHeight;
                     if ((uint)(num194 - num166) > 4u && num194 != 0)
                     {
@@ -635,7 +1005,7 @@ namespace AAModClassic._Unofficial.Content.Desert
                 }
                 else if (NPC.ai[0] == 14f || NPC.ai[0] == 24f)
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num196 = NPC.frame.Y / frameHeight;
                     if ((uint)(num196 - num166) > 1u && num196 != 0)
                     {
@@ -668,7 +1038,7 @@ namespace AAModClassic._Unofficial.Content.Desert
                 }
                 else if (NPC.CanTalk && (NPC.ai[0] == 3f || NPC.ai[0] == 4f))
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num199 = NPC.frame.Y / frameHeight;
                     int num80 = num166 - num199;
                     if ((uint)(num80 - 1) > 1u && (uint)(num80 - 4) > 1u && num199 != 0)
@@ -753,7 +1123,7 @@ namespace AAModClassic._Unofficial.Content.Desert
                 }
                 else if (NPC.CanTalk && (NPC.ai[0] == 16f || NPC.ai[0] == 17f))
                 {
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num205 = NPC.frame.Y / frameHeight;
                     int num79 = num166 - num205;
                     if ((uint)(num79 - 1) > 1u && (uint)(num79 - 4) > 1u && num205 != 0)
@@ -969,7 +1339,7 @@ namespace AAModClassic._Unofficial.Content.Desert
                 {
                     int num221 = 6;
                     NPC.frameCounter += Math.Abs(NPC.velocity.X) * 2f;
-                    NPC.frameCounter += 1.0;
+                    NPC.frameCounter++;
                     int num222 = frameHeight * 2;
                     if (NPC.frame.Y < num222)
                     {
@@ -993,6 +1363,7 @@ namespace AAModClassic._Unofficial.Content.Desert
             }
 
             NPC.position -= NPC.netOffset;
+            #endregion
         }
 
         public void TPDust()
@@ -1041,146 +1412,6 @@ namespace AAModClassic._Unofficial.Content.Desert
             }
         }
 
-        public override void SetChatButtons(ref string button, ref string button2)
-        {
-            bool fAnubisTime = NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>();
-            bool hasGreedBook = !Main.LocalPlayer.GetModPlayer<ZAAPlayer>().AnubisBook && Main.LocalPlayer.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>()) >= 0;
-            if (!fAnubisTime && hasGreedBook)
-                button = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LegendscribeUnofficial.Buttons.Book");
-            else
-                button = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LegendscribeUnofficial.Buttons.Help");
-
-            if (!NPC.downedMoonlord || NPCExtensions.BeenKilled<AnubisA>())
-                button2 = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.LegendscribeUnofficial.Buttons.Next");
-        }
-
-        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
-        {
-            if (firstButton)
-            {
-                Player player = Main.LocalPlayer;
-
-                if (!NPCExtensions.BeenKilled<Anubis>() && player.GetModPlayer<ZAAPlayer>().GivenAnuSummon && !player.HasItem(ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>()))
-                {
-                    player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<_Content.Desert.__Hardmode.Items._BossAnubis.RasScepter>(), 1);
-                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.AnubisScapterLost");
-                    return;
-                }
-
-                if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>())
-                {
-                    Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.Help");
-                    return;
-                }
-
-                if (!player.GetModPlayer<ZAAPlayer>().AnubisBook && NPCExtensions.BeenKilled<GreedHead>())
-                {
-                    int Item = player.FindItem(ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDog>());
-                    if (Item >= 0)
-                    {
-                        player.inventory[Item].stack--;
-                        if (player.inventory[Item].stack <= 0)
-                        {
-                            player.inventory[Item] = new Item();
-                        }
-
-                        Main.npcChatText = Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.GetBookChat");
-                        player.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ModContent.ItemType<TheLifeAndEpicAdventuresOfAnubisTheWonderDogSpecialEdition>(), 1);
-                        player.GetModPlayer<ZAAPlayer>().AnubisBook = true;
-                        SoundEngine.PlaySound(SoundID.Chat);
-                        return;
-                    }
-                }
-
-                Main.npcChatText = Legendscribe.GuideChat();
-            }
-            else
-            {
-                if (Main.LocalPlayer.GetModPlayer<ZAAPlayer>().AnubisBook)
-                    QuestSystem.Questlines["LegendscribeEarlyGame"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeEarlyGame.Greed.Description.FoundBook");
-                else
-                    QuestSystem.Questlines["LegendscribeEarlyGame"].Quests["Greed"].DescriptionComplete = Language.GetOrRegister("Mods.AAModClassic.UI.Quests.LegendscribeEarlyGame.Greed.Description.Complete");
-
-                LegendscribeQuestUISystem.OpenLegendscribeUI(NPC.whoAmI);
-
-                Questline questline = LegendscribeQuestUI.CurrentQuestline;
-                if (!questline.Started)
-                {
-                    questline.Started = true;
-
-                    if (Main.netMode == NetmodeID.MultiplayerClient)
-                        AANet.SendNetMessage<QuestlineStartPacket>(questline.ID);
-                }
-            }
-        }
-
-        public override string GetChat()
-        {
-            AnubisDialoguePlayer p = Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>();
-
-            Main.BestiaryTracker.Chats.RegisterChatStartWith(ContentSamples.NpcsByNetId[ModContent.NPCType<Legendscribe>()]);
-
-            if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>())
-            {
-                if (!p.HasLostToForsakenAnubis)
-                {
-                    if (!p.HasSpokenToAnubisPostMoonLord)
-                    {
-                        p.HasSpokenToAnubisPostMoonLord = true;
-                        return Language.GetOrRegister("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.downedAnubisFAnubisN").Format(Main.LocalPlayer.name);
-                    }
-                    else
-                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PreFight.Repeat");
-                }
-                else
-                {
-                    if (!p.HasSpokenToAnubisAfterDyingToForsakenAnubis)
-                    {
-                        p.HasSpokenToAnubisAfterDyingToForsakenAnubis = true;
-                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.First");
-                    }
-                    else if (p.HasLostMultipleTimesToForsakenAnubis)
-                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.Repeat.MultipleDeaths." + Main.rand.Next(3));
-                    else
-                        return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostLose.Repeat.FirstDeath." + Main.rand.Next(2));
-                }
-            }
-            else if (!p.HasSpokenToAnubisPostForsakenAnubis && NPCExtensions.BeenKilled<AnubisA>())
-            {
-                p.HasSpokenToAnubisPostForsakenAnubis = true;
-                return Language.GetTextValue("Mods.AAModClassic.NPCs.TownNPCs.Legendscribe.UnofficialInterim.PostVictory");
-            }
-
-            return Legendscribe.LegendscribeDialogue(NPC);
-        }
-
-        public static int FindFemaleNPC()
-        {
-            int FemaleNPC = Main.rand.Next(6);
-            switch (FemaleNPC)
-            {
-                case 0:
-                    FemaleNPC = NPCID.Nurse;
-                    break;
-                case 1:
-                    FemaleNPC = NPCID.Dryad;
-                    break;
-                case 2:
-                    FemaleNPC = NPCID.Stylist;
-                    break;
-                case 3:
-                    FemaleNPC = NPCID.Mechanic;
-                    break;
-                case 4:
-                    FemaleNPC = NPCID.Steampunker;
-                    break;
-                default:
-                    FemaleNPC = NPCID.PartyGirl;
-                    break;
-            }
-            return FemaleNPC;
-        }
-
         #region attack values
         public override void TownNPCAttackStrength(ref int damage, ref float knockback)
         {
@@ -1214,11 +1445,47 @@ namespace AAModClassic._Unofficial.Content.Desert
 
     public class AnubisDialoguePlayer : ModPlayer
     {
+        internal int ChattingAnubis = -1;
         internal bool HasSpokenToAnubisPostMoonLord = false;
         internal bool HasLostToForsakenAnubis = false;
         internal bool HasLostMultipleTimesToForsakenAnubis = false;
         internal bool HasSpokenToAnubisAfterDyingToForsakenAnubis = false;
         internal bool HasSpokenToAnubisPostForsakenAnubis = false;
+
+        public override void Load()
+        {
+            On_Player.CloseSign += CloseSign;
+            On_Player.ToggleInv += DialogueBlockInventory;
+            On_Player.ToggleCreativeMenu += DialogueBlockCreative;
+        }
+
+        private void CloseSign(On_Player.orig_CloseSign orig, Player self)
+        {
+            orig(self);
+
+            int chattingAnubis = self.GetModPlayer<AnubisDialoguePlayer>().ChattingAnubis;
+            
+            if (chattingAnubis != -1)
+                (Main.npc[chattingAnubis].ModNPC as LegendscribeUnofficial).InteruptDialogue(true);
+        }
+
+        private void DialogueBlockInventory(On_Player.orig_ToggleInv orig, Player self)
+        {
+            int chattingAnubis = self.GetModPlayer<AnubisDialoguePlayer>().ChattingAnubis;
+            if (chattingAnubis != -1)
+                (Main.npc[chattingAnubis].ModNPC as LegendscribeUnofficial).InteruptDialogue(Main.mapFullscreen);
+            else
+                orig(self);
+        }
+
+        private void DialogueBlockCreative(On_Player.orig_ToggleCreativeMenu orig, Player self)
+        {
+            int chattingAnubis = self.GetModPlayer<AnubisDialoguePlayer>().ChattingAnubis;
+            if (chattingAnubis != -1)
+                (Main.npc[chattingAnubis].ModNPC as LegendscribeUnofficial).InteruptDialogue(false);
+            else
+                orig(self);
+        }
 
         public override void SaveData(TagCompound tag)
         {
@@ -1241,6 +1508,67 @@ namespace AAModClassic._Unofficial.Content.Desert
                 HasSpokenToAnubisAfterDyingToForsakenAnubis = false;
             if (!tag.TryGet("HasSpokenToAnubisPostForsakenAnubis", out HasSpokenToAnubisPostForsakenAnubis))
                 HasSpokenToAnubisPostForsakenAnubis = false;
+        }
+
+        public override void ResetEffects()
+        {
+            //ChattingAnubis = -1;
+            //Main.NewText(Main.LocalPlayer.Center.ToTileCoordinates() - new Point(Main.spawnTileX, Main.spawnTileY));
+        }
+
+        public override void UpdateDead()
+        {
+            if (ChattingAnubis != -1)
+            {
+                (Main.npc[ChattingAnubis].ModNPC as LegendscribeUnofficial).InteruptDialogue(true);
+                ChattingAnubis = -1;
+            }
+        }
+    }
+
+    public class UnofficialAnubisSystem : ModSystem
+    {
+        internal static Point AnubisRuinsTile = Point.Zero;
+        internal static bool AnubisHoused = false;
+
+        public override void PreUpdateNPCs()
+        {
+            //Main.NewText(AnubisRuinsTile - Main.LocalPlayer.Center.ToTileCoordinates());
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) && AnubisRuinsTile != Point.Zero && !AnyAnubis(null))
+            {
+                NPC anubis = NPC.NewNPCDirect(NPC.GetSource_NaturalSpawn(), AnubisRuinsTile.ToWorldCoordinates(0, 0), ModContent.NPCType<LegendscribeUnofficial>());
+                (anubis.ModNPC as LegendscribeUnofficial).MyBehavior = LegendscribeUnofficial.BehaviorState.RuinsIdle;
+            }
+        }
+
+        public static bool AnyAnubis(NPC me)
+        {
+            foreach (NPC npc in Main.ActiveNPCs)
+            {
+                if (me != null && me.active && npc.whoAmI == me.whoAmI)
+                    continue;
+
+                if (npc.type == ModContent.NPCType<LegendscribeUnofficial>() || npc.type == ModContent.NPCType<LegendscribeUnofficial>() || npc.type == ModContent.NPCType<Legendscribe>() || npc.type == ModContent.NPCType<Anubis>() || npc.type == ModContent.NPCType<AnubisUnreleased>() || npc.type == ModContent.NPCType<AnubisForsakenTransition>() || npc.type == ModContent.NPCType<AnubisA>())
+                    return true;
+            }
+            return false;
+        }
+
+        public override void SaveWorldData(TagCompound tag)
+        {
+            tag.Add("AnubisRuinsTile", AnubisRuinsTile);
+            tag.Add("AnubisHoused", AnubisHoused);
+            LegendscribeUnofficial.pool.SaveData("AnubisDialogue", tag);
+        }
+
+        public override void LoadWorldData(TagCompound tag)
+        {
+            if (!tag.TryGet("AnubisRuinsTile", out AnubisRuinsTile))
+                AnubisRuinsTile = Point.Zero;
+            if (!tag.TryGet("AnubisHoused", out AnubisHoused))
+                AnubisHoused = false;
+
+            LegendscribeUnofficial.pool.LoadData("AnubisDialogue", tag);
         }
     }
 }

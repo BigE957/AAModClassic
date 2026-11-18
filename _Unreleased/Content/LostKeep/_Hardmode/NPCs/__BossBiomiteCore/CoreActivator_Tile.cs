@@ -72,7 +72,7 @@ public class CoreActivator_Tile : ModTile
                     item.stack--;
                     Vector2 spawnPos = (AAWorld_Unreleased.lostKeepOrigin + new Point(140, 125) + new Point(5, 6)).ToWorldCoordinates(0, 0);
                     spawnPos.Y += 3;
-                    AAModGlobalNPC.SpawnBoss(localPlayer, ModContent.NPCType<BiomiteCore>(), false, spawnPos);
+                    AAModGlobalNPC.SpawnBossAtPosition(localPlayer, ModContent.NPCType<BiomiteCore>(), false, spawnPos);
                 }
             }
         }

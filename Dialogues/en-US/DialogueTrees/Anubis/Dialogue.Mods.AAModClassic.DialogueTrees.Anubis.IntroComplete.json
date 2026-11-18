@@ -1,0 +1,82 @@
+{
+  "Revision": 1,
+  "DefaultSpeaker": "Anubis",
+  "AlignType": 0,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Dialogues": [
+    {
+      "IndexComment": "Index 0!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "Oh man, its nice to have a roof under my head after so long. You have my thanks!"
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "No problem!"
+        },
+        {
+          "Title": "So now what?"
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 1!",
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "Right, now I can start properly guiding you. I've actually already got a list of foes you should consider taking on. Beating them will help you grow much stronger. Wanna take a look?"
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "Sure!",
+          "Heading": -1
+        },
+        {
+          "Title": "Not right now."
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 2!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "Hey, no rush. Just come talk to me whenever you'd like some help!"
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "Will do.",
+          "Heading": -1
+        },
+        {
+          "Title": "Thanks!",
+          "Heading": -1
+        }
+      ]
+    }
+  ]
+}

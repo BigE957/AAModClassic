@@ -8,6 +8,8 @@ using AAModClassic._Content.Mire._PostMoonlord.Items.Materials;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Tiles.Functional;
 using AAModClassic.Base;
 using AAModClassic.Globals;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
@@ -57,19 +59,21 @@ Non-Consumable"); */
             if (AAWorld.SistersSummoned && !AAWorld.downedSisters)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.SistersDownedInfo1"), new Color(102, 20, 48));
-
+                {
+                    WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Sisters.Intro.Repeat", Main.LocalPlayer.Center, 0, 30, false, effects: new NearbyBossText());
+                    WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Sisters.Intro.Repeat", Main.LocalPlayer.Center, 1, 30, false, effects: new NearbyBossText());
+                }
                 AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Ashe>(), false, -1, 0, "Ashe Akuma", false);
-
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.SistersDownedInfo2"), new Color(72, 78, 117));
                 AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Haruka>(), false, 1, 0, "Haruka Yamata", false);
                 return true;
             }
             else if (AAWorld.SistersSummoned && AAWorld.downedSisters)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.SistersInfo1"), new Color(72, 78, 117));
-
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.SistersInfo2"), new Color(102, 20, 48));
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Sisters.Intro.Repeat", Main.LocalPlayer.Center, 2, 30, false, effects: new NearbyBossText());
+                    WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Sisters.Intro.Repeat", Main.LocalPlayer.Center, 3, 30, false, effects: new NearbyBossText());
+                }
                 AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Ashe>(), false, -1, 0, "Ashe Akuma", false);
                 AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<Haruka>(), false, 1, 0, "Haruka Yamata", false);
                 return true;

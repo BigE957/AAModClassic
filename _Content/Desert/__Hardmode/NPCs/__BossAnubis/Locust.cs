@@ -65,7 +65,7 @@ namespace AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis
             if (body == -1)
             {
                 int npcID;
-                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased) || WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                     npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<AnubisUnreleased>(), -1, null);
                 else
                     npcID = BaseAI.GetNPC(NPC.Center, ModContent.NPCType<Anubis>(), -1, null);

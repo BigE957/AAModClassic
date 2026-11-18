@@ -1,0 +1,55 @@
+{
+  "Revision": 1,
+  "DefaultSpeaker": "Anubis",
+  "AlignType": 0,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Dialogues": [
+    {
+      "IndexComment": "Index 0!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "Hey, thanks for getting back to me. I wanna test your strength. After you thrashed those mechanical meatheads, I'm interested in seeing how you fair against someone like me."
+        ]
+      }
+    },
+    {
+      "IndexComment": "Index 1!",
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "Here, take this scepter and go use it in the desert whenever you're ready. I'm ready whenever."
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "Gotcha.",
+          "Heading": -1
+        },
+        {
+          "Title": "Will do.",
+          "Heading": -1
+        }
+      ]
+    }
+  ]
+}
