@@ -437,8 +437,6 @@ namespace AAModClassic._Unofficial.Content.Unimush
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            //for (int i = 0; i < 4; i++)
-            //    DrawRoot(spriteBatch, screenPos, drawColor, i);
             DrawRoot(spriteBatch, screenPos, drawColor, 0);
             DrawRoot(spriteBatch, screenPos, drawColor, 2);
 
