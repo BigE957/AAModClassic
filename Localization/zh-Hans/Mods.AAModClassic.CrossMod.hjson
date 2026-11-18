@@ -593,6 +593,20 @@ CalamityMod: {
 }
 
 Fables: {
+	BossIntroCard: {
+		// GripsOfChaos: lel
+
+		DesertDjinn: {
+			// Name: Desert Djinn
+			// Title: Dune-Bending Brawler
+
+			Song: {
+				// Name: The Dust Bowl
+				// Artist: Tyeski
+			}
+		}
+	}
+
 	Nautilus: {
 		DesertDjinnActive: {
 			1: <m:SmallShake>唉，日日夜夜都这般喧闹嘈杂！</m><d:0.6> </d>若我尚有余力，早就把这些<c:F4A460>沙漠巨灵</c>赶出这片废墟了！
