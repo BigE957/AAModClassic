@@ -102,7 +102,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
                 }
             }
 
-            public void Draw(SpriteBatch spriteBatch, Vector2 screenPos, int index)
+            public void Draw(SpriteBatch spriteBatch, Vector2 screenPos)
             {
                 Texture2D tendril = Tendril.Value;
                 int frameX = 3;
@@ -444,7 +444,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
 
             if (Tendrils != null)
                 for (int i = 0; i < Tendrils.Length; i++)
-                    Tendrils[i].Draw(spriteBatch, screenPos, i);
+                    Tendrils[i].Draw(spriteBatch, screenPos);
 
             DrawRoot(spriteBatch, screenPos, drawColor, 1);
             DrawRoot(spriteBatch, screenPos, drawColor, 3);
