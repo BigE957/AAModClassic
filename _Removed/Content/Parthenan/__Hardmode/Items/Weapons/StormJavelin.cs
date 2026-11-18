@@ -12,6 +12,7 @@ namespace AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Weapons
         {
             // DisplayName.SetDefault("Storm Javelin");
             // Tooltip.SetDefault("");
+            Item.ResearchUnlockCount = 99;
         }
 
         public override void SetDefaults()

@@ -68,6 +68,12 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 
         public override void AI()
         {
+            if (!NPC.AnyNPCs(ModContent.NPCType<AnubisA>()))
+            {
+                NPC.active = false;
+                return;
+            }
+
             NPC.TargetClosest(true);
             Player player = Main.player[NPC.target];
             for (int m = NPC.oldPos.Length - 1; m > 0; m--)

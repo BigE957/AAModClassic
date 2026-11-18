@@ -1808,31 +1808,18 @@ namespace AAModClassic
             if (Player.dead)
                 return;
 
-            if (AAMod.Rift.JustPressed)
+            if (AAMod.Rift.JustPressed && Player.HasItem(ModContent.ItemType<RiftMirror>()))
             {
                 RiftPos = Player.position;
-                for (int m = 0; m < 58; m++)
-                {
-                    if (Player.inventory[m].type == ModContent.ItemType<RiftMirror>())
-                    {
-                        SoundEngine.PlaySound(SoundID.Item6, Player.position);
-                        Player.Spawn(PlayerSpawnContext.RecallFromItem);
-                    }
-                }
+                LeaveDust(Player);
+                Player.Spawn(PlayerSpawnContext.RecallFromItem);
+                Main.TeleportEffect(Player.getRect(), TeleportationStyleID.RecallPotion, 0, 0.99f, TeleportationSide.Exit, RiftPos);
             }
 
-            if (AAMod.RiftReturn.JustPressed && RiftPos != new Vector2(0, 0))
+            if (AAMod.RiftReturn.JustPressed && RiftPos != new Vector2(0, 0) && Player.HasItem(ModContent.ItemType<RiftMirror>()))
             {
-                for (int m = 0; m < 58; m++)
-                {
-                    if (Player.inventory[m].type == ModContent.ItemType<RiftMirror>())
-                    {
-                        SoundEngine.PlaySound(SoundID.Item6, Player.position);
-                        LeaveDust(Player);
-                        Player.velocity = Vector2.Zero;
-                        Player.position = RiftPos;
-                    }
-                }
+                LeaveDust(Player);
+                Player.Teleport(RiftPos, TeleportationStyleID.RecallPotion);
             }
 
             if (ChaosRa2)

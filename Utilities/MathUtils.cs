@@ -44,7 +44,9 @@ namespace AAModClassic.Utilities
             return true;
         }
 
-        public static float CircOutEasing(float amount) => (float)Math.Sqrt(1.0 - Math.Pow(amount - 1f, 2.0));
+        public static float CircInEasing(float amount) => (1f - (float)Math.Sqrt(1 - Math.Pow(amount, 2f)));
+        public static float CircOutEasing(float amount) => (float)Math.Sqrt(1 - Math.Pow(amount - 1f, 2f));
+        public static float CircInOutEasing(float amount) => amount < 0.5 ? (1f - (float)Math.Sqrt(1 - Math.Pow(2 * amount, 2f))) / 2f : ((float)Math.Sqrt(1 - Math.Pow(-2f * amount - 2f, 2f)) + 1f) / 2f;
 
         public static float ExpInEasing(float amount)
         {

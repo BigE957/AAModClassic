@@ -10,6 +10,8 @@ using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Core;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
@@ -402,21 +404,36 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             if (NPC.life <= NPC.lifeMax / 4 * 3 && threeQuarterHealth == false)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.75"), new Color(158, 3, 32));
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.InfinityZero.Health", NPC.Center, 0, 60, false, new BossText());
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.75"), new Color(158, 3, 32));
+                }
                 threeQuarterHealth = true;
                 roarTimer = 200;
             }
             if (NPC.life <= NPC.lifeMax / 2 && HalfHealth == false)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.50"), new Color(158, 3, 32));
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.InfinityZero.Health", NPC.Center, 1, 60, false, new BossText());
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.50"), new Color(158, 3, 32));
+                }
                 HalfHealth = true;
                 roarTimer = 200;
             }
             if (NPC.life <= NPC.lifeMax / 4 && quarterHealth == false)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.25"), new Color(158, 3, 32));
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.InfinityZero.Health", NPC.Center, 2, 60, false, new BossText());
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.25"), new Color(158, 3, 32));
+                }
                 quarterHealth = true;
                 roarTimer = 200;
             }
@@ -424,7 +441,12 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
             {
                 tenthHealth = true;
                 if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.10"), new Color(158, 3, 32));
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.InfinityZero.Health", NPC.Center, 3, 60, false, new BossText());
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Health.10"), new Color(158, 3, 32));
+                }
                 roarTimer = 200;
             }
             if (NPC.ai[3] == 6)
@@ -434,12 +456,20 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.NPCs.InfinityZero
                 if (Main.netMode != NetmodeID.MultiplayerClient && !FirstCoreLine)
                 {
                     FirstCoreLine = true;
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Zeroes.Defeated"), new Color(158, 3, 32));
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.InfinityZero.Zeroes", NPC.Center, 0, 60, false, new BossText());
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Zeroes.Defeated"), new Color(158, 3, 32));
                 }
                 if (CoreTimer <= 0)
                 {
                     if (Main.netMode != NetmodeID.MultiplayerClient)
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Zeroes.Revived"), new Color(158, 3, 32));
+                    {
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.InfinityZero.Zeroes", NPC.Center, 1, 60, false, new BossText());
+                        else
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.InfinityZero.Zeroes.Revived"), new Color(158, 3, 32));
+                    }
                     NPC.ai[3] = 0;
                     OpenCore = false;
                     CoreTimer = 600;

@@ -70,7 +70,6 @@ using Terraria.GameContent;
 using Terraria.GameContent.UI;
 using Terraria.Graphics;
 using Terraria.Graphics.Effects;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -97,18 +96,6 @@ namespace AAModClassic
         public static ModKeybind Rift;
         public static ModKeybind RiftReturn;
         public static ModKeybind TimeStoneKey;
-
-        // UI
-        public UserInterface TerratoolInterface;
-        public TerratoolTUI TerratoolTState;
-        public TerratoolCUI TerratoolCState;
-        public TerratoolAUI TerratoolAState;
-        public TerratoolYUI TerratoolYState;
-        public TerratoolZUI TerratoolZState;
-        public TerratoolSUI TerratoolSState;
-        public TerratoolKipUI TerratoolKipState;
-        public TerratoolGroxUI TerratoolGroxState;
-        public TerratoolEXUI TerratoolEXState;
 
         public static AAMod instance;
 
@@ -280,81 +267,8 @@ namespace AAModClassic
             }
         }
 
-        private static readonly FieldInfo ShaderRefField = typeof(ShaderData).GetField("_shader", BindingFlags.NonPublic | BindingFlags.Instance);
-
-        private static readonly FieldInfo AssetField = typeof(ShaderData).GetField("_asset", BindingFlags.NonPublic | BindingFlags.Instance);
-
-        private static readonly FieldInfo PassNameField = typeof(ShaderData).GetField("_passName", BindingFlags.NonPublic | BindingFlags.Instance);
-
-        private static ArmorShaderData NewShaderFrom(int vanillaDyeId)
-        {
-            ArmorShaderData baseShader = GameShaders.Armor.GetShaderFromItemId(vanillaDyeId);
-
-            var newShader = (ArmorShaderData)RuntimeHelpers.GetUninitializedObject(typeof(ArmorShaderData));
-
-            ShaderRefField.SetValue(newShader, ShaderRefField.GetValue(baseShader));
-            AssetField.SetValue(newShader, AssetField.GetValue(baseShader));
-            PassNameField.SetValue(newShader, PassNameField.GetValue(baseShader));
-
-            return newShader;
-        }
-
         public void LoadClient()
         {
-            GameShaders.Armor.BindShader(Find<ModItem>("BlazingDye").Type,
-                NewShaderFrom(ItemID.LivingFlameDye)
-                .UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f)
-                .UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f)
-            );
-
-            GameShaders.Armor.BindShader(Find<ModItem>("AbyssalDye").Type,
-                NewShaderFrom(ItemID.LivingFlameDye)
-                .UseColor(146f / 255f, 30f / 255f, 68f / 255f)
-                .UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f)
-            );
-
-            GameShaders.Armor.BindShader(Find<ModItem>("DoomsdayDye").Type,
-                NewShaderFrom(ItemID.VortexDye)
-                .UseImage("Images/Misc/noise")
-                .UseColor(0f, 0f, 0f)
-                .UseSecondaryColor(1f, 0f, 0f)
-                .UseSaturation(1f)
-            );
-
-            GameShaders.Armor.BindShader(Find<ModItem>("DiscordianDye").Type,
-                NewShaderFrom(ItemID.LivingFlameDye)
-                .UseColor(0.66f, 0f, 1f)
-                .UseSecondaryColor(0.66f, 0f, 1f)
-            );
-
-            GameShaders.Armor.BindShader(Find<ModItem>("DiscordianInfernoDye").Type,
-                NewShaderFrom(ItemID.HadesDye)
-                .UseColor(0.88f, 0f, 1f)
-                .UseSecondaryColor(0.66f, 0f, 1f)
-            );
-
-            GameShaders.Armor.BindShader(Find<ModItem>("AbyssalWrathDye").Type,
-                NewShaderFrom(ItemID.HadesDye)
-                .UseColor(146f / 255f, 30f / 255f, 68f / 255f)
-                .UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f)
-            );
-
-            GameShaders.Armor.BindShader(Find<ModItem>("BlazingFuryDye").Type,
-                NewShaderFrom(ItemID.HadesDye)
-                .UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f)
-                .UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f)
-            );
-
-            Asset<Effect> shader = ModContent.Request<Effect>("AAModClassic/Effects/Shockwave");
-            ScreenShaderData shaderdata = new(shader, "Shockwave");
-            Filters.Scene["AAModClassic:Shockwave"] = new Filter(shaderdata, EffectPriority.VeryHigh);
-            Filters.Scene["AAModClassic:Shockwave"].Load();
-
-            shader = ModContent.Request<Effect>("AAModClassic/Effects/Mask");
-            shaderdata = new(shader, "Mask");
-            Filters.Scene["AAModClassic:Mask"] = new Filter(shaderdata, EffectPriority.VeryHigh);
-            Filters.Scene["AAModClassic:Mask"].Load();
-
             //TODO: Perhaps move these to their proper content area so the textures are easier to keep track off
             Main.QueueMainThreadAction(() =>
             {
@@ -505,32 +419,12 @@ namespace AAModClassic
         }
     }
 
-    public class AAModSystem : ModSystem
+    public class AALoadingSystem : ModSystem
     {
         public static bool AAloadedOnly = true;
 
         public override void Load()
         {
-            ModContent.GetInstance<AAMod>().TerratoolInterface = new UserInterface();
-            ModContent.GetInstance<AAMod>().TerratoolTState = new TerratoolTUI();
-            ModContent.GetInstance<AAMod>().TerratoolTState.Activate();
-            ModContent.GetInstance<AAMod>().TerratoolCState = new TerratoolCUI();
-            ModContent.GetInstance<AAMod>().TerratoolCState.Activate();
-            ModContent.GetInstance<AAMod>().TerratoolAState = new TerratoolAUI();
-            ModContent.GetInstance<AAMod>().TerratoolAState.Activate();
-            ModContent.GetInstance<AAMod>().TerratoolYState = new TerratoolYUI();
-            ModContent.GetInstance<AAMod>().TerratoolYState.Activate();
-            ModContent.GetInstance<AAMod>().TerratoolZState = new TerratoolZUI();
-            ModContent.GetInstance<AAMod>().TerratoolZState.Activate();
-            ModContent.GetInstance<AAMod>().TerratoolSState = new TerratoolSUI();
-            ModContent.GetInstance<AAMod>().TerratoolSState.Activate();
-            ModContent.GetInstance<AAMod>().TerratoolKipState = new TerratoolKipUI();
-            ModContent.GetInstance<AAMod>().TerratoolKipState.Activate();
-            ModContent.GetInstance<AAMod>().TerratoolGroxState = new TerratoolGroxUI();
-            ModContent.GetInstance<AAMod>().TerratoolGroxState.Activate();
-            ModContent.GetInstance<AAMod>().TerratoolEXState = new TerratoolEXUI();
-            ModContent.GetInstance<AAMod>().TerratoolEXState.Activate();
-
             On_Player.GetPickaxeDamage += ModifyLuminitePickaxePower;
 
             BrokenCodeTeleportUnofficialEdits.ApplyEdits();
@@ -588,38 +482,6 @@ namespace AAModClassic
                 {
                     AALuckyConfig.ListRareNpc.Add(i);
                 }
-            }
-        }
-
-        private static GameTime lastUpdateUIGameTime;
-
-        public override void UpdateUI(GameTime gameTime)
-        {
-            lastUpdateUIGameTime = gameTime;
-
-            if (AAMod.instance.TerratoolInterface?.CurrentState != null)
-            {
-                AAMod.instance.TerratoolInterface.Update(gameTime);
-            }
-        }
-
-        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
-        {
-            int wireSelectionLayerIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Wire Selection"));
-            if (wireSelectionLayerIndex != -1)
-            {
-                layers.Insert(wireSelectionLayerIndex, new LegacyGameInterfaceLayer(
-                "AAModClassic: Radial UIs",
-                delegate
-                {
-                    if (AAMod.instance.TerratoolInterface?.CurrentState is ToggableUI && lastUpdateUIGameTime != null)
-                    {
-                        AAMod.instance.TerratoolInterface.Draw(Main.spriteBatch, lastUpdateUIGameTime);
-                    }
-
-                    return true;
-                },
-                InterfaceScaleType.UI));
             }
         }
     }

@@ -12,6 +12,7 @@ namespace AAModClassic._Content.Inferno.__Hardmode.Items.Consumables
         {
             // DisplayName.SetDefault("Flask of Dragonfire");
             // Tooltip.SetDefault("Melee attacks inflict Dragonflame");
+            Item.ResearchUnlockCount = 20;
         }
 
         public override void SetDefaults()

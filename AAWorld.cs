@@ -61,6 +61,7 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.Items.Materials;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
+using AAModClassic._Unofficial.Content.Desert;
 using AAModClassic._Unreleased;
 using AAModClassic._Unreleased.Content.LostKeep.World.Biomes;
 using AAModClassic._Unreleased.Content.LostKeep.World.Tiles;
@@ -85,6 +86,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.Utilities;
 using Terraria.WorldBuilding;
+using static Terraria.GameContent.Bestiary.IL_BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions;
 
 namespace AAModClassic
 {
@@ -568,7 +570,12 @@ namespace AAModClassic
             int ChaosIndex = (SpiritReforgedManager.IsEnabled || ModLoader.HasMod("SOTS")) ? tasks.Count - 2 : tasks.FindIndex(genpass => genpass.Name.Equals("Micro Biomes"));
             if (ChaosIndex > -1)
             {
-                tasks.Insert(ChaosIndex + 1, new PassLegacy("Mire and Inferno", delegate (GenerationProgress progress, GameConfiguration config)
+                tasks.Insert(ChaosIndex + 1, new PassLegacy("AnubisRuins", delegate (GenerationProgress progress, GameConfiguration config)
+                {
+                    AnubisRuins(progress);
+                }));
+
+                tasks.Insert(ChaosIndex + 2, new PassLegacy("Mire and Inferno", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     MireAndInferno(progress);
                 }));
@@ -587,7 +594,6 @@ namespace AAModClassic
             int shiniesIndex2 = tasks.FindIndex(genpass => genpass.Name.Equals("Final Cleanup"));
             if (shiniesIndex2 > -1)
             {
-
                 tasks.Insert(shiniesIndex2, new PassLegacy("Ender", delegate (GenerationProgress progress, GameConfiguration config)
                 {
                     EnderShrine();
@@ -1185,66 +1191,56 @@ namespace AAModClassic
                 }
             }
 
-            if (!ContentReplacementSystem.NeedToReplaceContent && !Main.dayTime)
+            if (!ContentReplacementSystem.NeedToReplaceContent && Main.netMode != NetmodeID.MultiplayerClient && !downedGrips && !Main.dayTime && !Main.IsFastForwardingTime())
             {
-                if (!Main.IsFastForwardingTime()/* tModPorter Note: _Unreleased. Suggestion: IsFastForwardingTime(), fastForwardTimeToDawn or fastForwardTimeToDusk */)
+                if (Main.time == 1 && !WorldGen.spawnEye)
                 {
-                    if (Main.time == 1 && !WorldGen.spawnEye)
+                    bool flag3 = false;
+                    foreach (Player p in Main.ActivePlayers)
                     {
-                        if (!downedGrips && Main.netMode != NetmodeID.MultiplayerClient)
+                        if (p.statLifeMax >= 200 && p.statDefense > 10)
                         {
-                            bool flag3 = false;
-                            for (int n = 0; n < 255; n++)
-                            {
-                                if (Main.player[n].active && Main.player[n].statLifeMax >= 200 && Main.player[n].statDefense > 10)
-                                {
-                                    flag3 = true;
-                                    break;
-                                }
-                            }
-                            if (flag3 && Main.rand.NextBool(3))
-                            {
-                                int num8 = 0;
-                                for (int num9 = 0; num9 < 200; num9++)
-                                {
-                                    if (Main.npc[num9].active && Main.npc[num9].townNPC)
-                                    {
-                                        num8++;
-                                    }
-                                }
-                                if (num8 >= 4)
-                                {
-                                    spawnGrips = true;
-                                    if (Main.netMode == NetmodeID.SinglePlayer)
-                                    {
-                                        Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossSummonsInfo.GripsAwoken"), 50, 255, 130);
-                                    }
-                                    else if (Main.netMode == NetmodeID.Server)
-                                    {
-                                        NetMessage.SendData(MessageID.ChatText, -1, -1, null, 255, 50f, 255f, 130f, 0, 0, 0);
-                                    }
-                                }
-                            }
+                            flag3 = true;
+                            break;
                         }
                     }
-                    if (spawnGrips && Main.netMode != NetmodeID.MultiplayerClient && Main.time > 4860.0)
+                    if (flag3 && Main.rand.NextBool(3))
                     {
-                        for (int k = 0; k < 255; k++)
+                        int num8 = 0;
+                        foreach (NPC npc in Main.ActiveNPCs)
                         {
-                            if (Main.player[k].active && !Main.player[k].dead && Main.player[k].position.Y < Main.worldSurface * 16.0)
+                            if (npc.townNPC)
+                                num8++;
+                            else if (npc.boss)
                             {
-                                if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.Grips.GripsofChaosAwoken"), 175, 75, 255, false); }
-                                else if (Main.netMode == NetmodeID.Server)
-                                    if (Main.netMode == NetmodeID.SinglePlayer) { if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.Grips.GripsofChaosAwoken"), 175, 75, 255, false); }
-                                    else if (Main.netMode == NetmodeID.Server)
-                                    {
-                                        ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.AAModClassic.Common.Grips.GripsofChaosAwoken")), new Color(175, 75, 255), -1);
-                                    }
-                                AAModGlobalNPC.SpawnBoss(Main.player[k], ModContent.NPCType<GripOfChaosMire>(), false, 1, 0);
-                                AAModGlobalNPC.SpawnBoss(Main.player[k], ModContent.NPCType<GripOfChaosInferno>(), false, -1, 0);
-                                spawnGrips = false;
+                                num8 = -1;
                                 break;
                             }
+                        }
+                        if (num8 >= 4)
+                        {
+                            spawnGrips = true;
+                            if (Main.netMode == NetmodeID.SinglePlayer)
+                                Main.NewText(Language.GetTextValue("Mods.AAModClassic.NPCs.BossSummonsInfo.GripsAwoken"), 50, 255, 130);
+                            else if (Main.netMode == NetmodeID.Server)
+                                NetMessage.SendData(MessageID.ChatText, -1, -1, null, 255, 50f, 255f, 130f, 0, 0, 0);
+                        }
+                    }
+                }
+                if (spawnGrips && Main.time > 4860.0)
+                {
+                    foreach (Player p in Main.ActivePlayers)
+                    {
+                        if (!p.dead && p.position.Y < Main.worldSurface * 16.0)
+                        {
+                            if (Main.netMode == NetmodeID.SinglePlayer)
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.Grips.GripsofChaosAwoken"), 175, 75, 255, false);
+                            else if (Main.netMode == NetmodeID.Server)
+                                ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.AAModClassic.Common.Grips.GripsofChaosAwoken")), new Color(175, 75, 255), -1);
+                            AAModGlobalNPC.SpawnBoss(p, ModContent.NPCType<GripOfChaosMire>(), false, 1, 0);
+                            AAModGlobalNPC.SpawnBoss(p, ModContent.NPCType<GripOfChaosInferno>(), false, -1, 0);
+                            spawnGrips = false;
+                            break;
                         }
                     }
                 }
@@ -1445,9 +1441,11 @@ namespace AAModClassic
                 {
                     if (!ContentReplacementSystem.NeedToReplaceContent)
                     {
-                        ConversionHandler.ConvertDownBoth((int)MireCenter.X, (int)InfernoCenter.X, 0, 120);
                         if (Main.netMode != NetmodeID.MultiplayerClient)
+                        {
+                            ConversionHandler.ConvertDownBoth((int)MireCenter.X, (int)InfernoCenter.X, 0, 120);
                             BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.hardModeInfo"), Color.Magenta.R, Color.Magenta.G, Color.Magenta.B);
+                        }
                     }
                     ChaosStripes = true;
                 }
@@ -1758,6 +1756,167 @@ namespace AAModClassic
                 Point origin = new(flip ? offset : Main.maxTilesX - offset, Main.maxTilesY - 200);
                 new PitGeneration().Place(origin, GenVars.structures);
             }
+        }
+
+        private static void AnubisRuins(GenerationProgress progress)
+        {
+            if (!WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                return;
+
+            progress.Message = "Ruining an ancient monument";
+
+            int desertMin = GenVars.UndergroundDesertLocation.X;
+            int desertMax = GenVars.UndergroundDesertLocation.X + GenVars.UndergroundDesertLocation.Width;
+
+            int start = Main.spawnTileX + 100;
+            int end = desertMax;
+            int inc = 1;
+            bool sandReached = false;
+            if (desertMin < Main.spawnTileX)
+            {
+                start = Main.spawnTileX - 100;
+                end = desertMin;
+                inc = -1;
+            }
+
+            int bestX = 0;
+            int medianY = 0;
+            int bestDiff = int.MaxValue;
+            bool hopped = false;
+
+            for (int x = start; inc == 1 ? x < end : x > end; x += inc)
+            {
+                if (inc == 1 && (x == GenVars.jungleMinX || x == GenVars.snowMinX[0]))
+                {
+                    if (x == GenVars.jungleMinX)
+                        x = GenVars.jungleMaxX;
+                    else if (x == GenVars.snowMinX[0])
+                        x = GenVars.snowMaxX[0];
+                    hopped = true;
+                }
+                else if (inc == -1 && (x == GenVars.jungleMaxX || x == GenVars.snowMaxX[0]))
+                {
+                    if (x == GenVars.jungleMaxX)
+                        x = GenVars.jungleMinX;
+                    else if (x == GenVars.snowMaxX[0])
+                        x = GenVars.snowMinX[0];
+                    hopped = true;
+                }
+
+                Point tileClose = CollisionUtils.FindSurfaceBelow(new(x, 50), true);
+                if (Framing.GetTileSafely(tileClose).TileType != TileID.Sand || Framing.GetTileSafely(tileClose - new Point(0, 1)).LiquidAmount > 0)
+                    continue;
+
+                Point tileFar = CollisionUtils.FindSurfaceBelow(new(x + ((AnubisRuinsSchematicAssets.Ruins.Width + 1) * inc), 50), true);
+                if (Framing.GetTileSafely(tileFar).TileType != TileID.Sand || Framing.GetTileSafely(tileFar - new Point(0, 1)).LiquidAmount > 0)
+                    continue;
+
+                if (!GenVars.structures.CanPlace(new Rectangle(x, tileClose.Y - AnubisRuinsSchematicAssets.Ruins.Height / 2, AnubisRuinsSchematicAssets.Ruins.Width, AnubisRuinsSchematicAssets.Ruins.Height), 8))
+                    continue;
+
+                //Jump into the sand region a little so structure doesnt generate on its very edge.
+                if (!sandReached)
+                {
+                    sandReached = true;
+                    x += 10 * inc;
+                    continue;
+
+                }
+
+                int diff = Math.Abs(tileClose.Y - tileFar.Y);
+
+                if (diff < bestDiff)
+                {
+                    bestX = x;
+                    bestDiff = diff;
+                    if (bestDiff == 0)
+                    {
+                        medianY = tileClose.Y;
+                        break;
+                    }
+                    else
+                        medianY = (tileClose.Y + tileFar.Y) / 2;
+                }
+            }
+
+            // Main desert is past the snow/jungle or we failed to find a spot. Check the other side and praaaaay for a dunes biome
+            // There are no dunes to save us with remnants so dont bother
+            if (!ModLoader.HasMod("Remnants") && (hopped || bestX == 0))
+            {
+                int travelled = Math.Abs(start - bestX);
+                int altStart = Main.spawnTileX - 100;
+                int altEnd = altStart - travelled;
+                int altInc = -1;
+                if (desertMin < Main.spawnTileX)
+                {
+                    altStart = Main.spawnTileX + 100;
+                    altEnd = altStart + travelled;
+                    altInc = 1;
+                }
+
+                bool anyHits = false;
+
+                for (int altX = altStart; altInc == 1 ? altX < altEnd : altX > altEnd; altX += altInc)
+                {
+                    if (altInc == 1)
+                    {
+                        if (altX == GenVars.jungleMinX)
+                            altX = GenVars.jungleMaxX;
+                        else if (altX == GenVars.snowMinX[0])
+                            altX = GenVars.snowMaxX[0];
+                    }
+                    else if (altInc == -1 && (altX == GenVars.jungleMaxX || altX == GenVars.snowMaxX[0]))
+                    {
+                        if (altX == GenVars.jungleMaxX)
+                            altX = GenVars.jungleMinX;
+                        else if (altX == GenVars.snowMaxX[0])
+                            altX = GenVars.snowMinX[0];
+                    }
+
+                    Point tileClose = CollisionUtils.FindSurfaceBelow(new(altX, 50), true);
+                    if (Framing.GetTileSafely(tileClose).TileType != TileID.Sand || Framing.GetTileSafely(tileClose - new Point(0, 1)).LiquidAmount > 0)
+                        continue;
+
+                    Point tileMiddle = CollisionUtils.FindSurfaceBelow(new(altX, 50), true);
+                    if (Framing.GetTileSafely(tileClose).TileType != TileID.Sand || Framing.GetTileSafely(tileClose - new Point(0, 1)).LiquidAmount > 0 || Math.Abs(tileClose.Y - tileMiddle.Y) > 5)
+                        continue;
+
+                    Point tileFar = CollisionUtils.FindSurfaceBelow(new(altX + ((AnubisRuinsSchematicAssets.Ruins.Width + 1) * altInc), 50), true);
+                    if (Framing.GetTileSafely(tileFar).TileType != TileID.Sand || Framing.GetTileSafely(tileFar - new Point(0, 1)).LiquidAmount > 0)
+                        continue;
+
+                    if (!GenVars.structures.CanPlace(new Rectangle(altX, tileClose.Y - AnubisRuinsSchematicAssets.Ruins.Height / 2, AnubisRuinsSchematicAssets.Ruins.Width, AnubisRuinsSchematicAssets.Ruins.Height), 8))
+                        continue;
+
+                    int diff = Math.Abs(tileClose.Y - tileFar.Y);
+
+                    if (diff < bestDiff || (!anyHits && Math.Abs(diff - bestDiff) <= 2))
+                    {
+                        anyHits = true;
+                        inc = altInc;
+
+                        bestX = altX;
+                        bestDiff = diff;
+                        if (bestDiff == 0)
+                        {
+                            medianY = tileClose.Y;
+                            break;
+                        }
+                        else
+                            medianY = (tileClose.Y + tileFar.Y) / 2;
+                    }
+                }
+            }
+
+            if (bestX == 0)
+                return;
+
+            Point origin = new(bestX + (AnubisRuinsSchematicAssets.Ruins.Width / 2 * inc), medianY);
+            origin.X += inc;
+            origin.Y -= 2;
+
+            AnubisRuinsGen biome = new();
+            biome.Place(origin, GenVars.structures);
         }
 
         public override void ResetNearbyTileEffects()

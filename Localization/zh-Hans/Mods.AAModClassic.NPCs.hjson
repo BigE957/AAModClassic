@@ -29,14 +29,14 @@ Athena.DisplayName: 穹武鸮姬 雅典娜
 AthenaDefeat.DisplayName: "{$NPCs.Athena.DisplayName}"
 AthenaFlee.DisplayName: "{$NPCs.Athena.DisplayName}"
 OwlRune.DisplayName: 天鸮符文
-SeraphA.DisplayName: 六翼鸟妖护卫
-Seraph.DisplayName: 六翼鸟妖
+SeraphA.DisplayName: 六翼天使护卫
+Seraph.DisplayName: 六翼天使
 SeraphHurt.DisplayName: "{$NPCs.Seraph.DisplayName}"
 AthenaA.DisplayName: 觉醒之奥林匹亚女武神 雅典娜
 AthenaCloneDark.DisplayName: "{$NPCs.AthenaCloneLight.DisplayName}"
 AthenaCloneLight.DisplayName: 穹武鸮姬的克隆体
 ChargedOwlRune.DisplayName: 蓄能天鸮符文
-SeraphHerald.DisplayName: 六翼鸟妖斥候
+SeraphHerald.DisplayName: 六翼天使斥候
 BunnyBrawler.DisplayName: 兔兔打手
 RabbitcopterSoldier.DisplayName: 直升飞兔
 RabidRabbit.DisplayName: 红眼狂兔
@@ -337,3 +337,4 @@ Oblivion.DisplayName: 遗忘 熵之谜
 TerraSerpentBody.DisplayName: "{$NPCs.TerraSerpentHead.DisplayName}"
 TerraSerpentHead.DisplayName: 泰拉心球之蛇
 TerraSerpentTail.DisplayName: "{$NPCs.TerraSerpentHead.DisplayName}"
+// MushroomMadness.DisplayName: Mushroom Madness

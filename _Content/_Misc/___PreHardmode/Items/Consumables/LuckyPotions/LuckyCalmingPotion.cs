@@ -13,6 +13,7 @@ namespace AAModClassic._Content._Misc.___PreHardmode.Items.Consumables.LuckyPoti
         {
             // DisplayName.SetDefault("Lucky Calming Potion");
             // Tooltip.SetDefault("Reduces enemy aggression");
+            Item.ResearchUnlockCount = 20;
         }
 
         public override void SetDefaults()

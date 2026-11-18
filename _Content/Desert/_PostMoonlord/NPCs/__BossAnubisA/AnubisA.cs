@@ -4,10 +4,12 @@ using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.BossStandard
 using AAModClassic._Content.Desert._PostMoonlord.Items._BossAnubisA.Weapons;
 using AAModClassic._Content.Desert._PostMoonlord.Items.Materials;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
-using AAModClassic._Unofficial.Desert;
+using AAModClassic._Unofficial.Content.Desert;
 using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
@@ -266,7 +268,10 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
                     if (!text)
                     {
                         text = true;
-                        CombatText.NewText(NPC.Hitbox, Color.ForestGreen, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Warning"), true);
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Anubis.Forsaken.LastWarning", NPC.Center, 0, 60, false, new NearbyBossText());
+                        else
+                            CombatText.NewText(NPC.Hitbox, Color.ForestGreen, Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Warning"), true);
                     }
 
                     if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[1] == 10)
@@ -613,7 +618,13 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
 
             if (!NPCExtensions.BeenKilled<AnubisA>(true))
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Defeat"), Color.ForestGreen);
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Anubis.Forsaken.Defeat", NPC.Center, 0, 60, false, new NearbyBossText());
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Defeat"), Color.ForestGreen);
+                }
             }
         }
 
@@ -656,14 +667,18 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
                     deathtimer++;
                     if (Main.netMode != NetmodeID.MultiplayerClient && deathtimer > 240)
                     {
-                        if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Kill"), Color.ForestGreen);
-                        int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Legendscribe>());
-                        Main.npc[a].Center = NPC.Center;
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                        {
+                            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Anubis.Forsaken.Kill", NPC.Center, 0, 60, false, new NearbyBossText());
+                            else
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Kill"), Color.ForestGreen);
+                        }
+                        NPC.Transform(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? ModContent.NPCType<LegendscribeUnofficial>() : ModContent.NPCType<Legendscribe>());
                         if (Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().HasLostToForsakenAnubis)
                             Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().HasLostMultipleTimesToForsakenAnubis = true;
                         else
                             Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().HasLostToForsakenAnubis = true;
-                        NPC.active = false;
                     }
                     return false;
                 }

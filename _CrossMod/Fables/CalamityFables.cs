@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content.Desert.___PreHardmode.NPCs.__BossDesertDjinn;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
 using MonoMod.RuntimeDetour;
 using System;
 using System.Collections.Generic;
@@ -55,6 +56,16 @@ namespace AAModClassic._CrossMod.Fables
         }
 
         public static object Call(params object[] args) => calamityFables?.Call(args);
+
+        public static bool DisplayBossIntroCard(string bossKey, int uptime, bool flipBorder, Color borderColor, Color titleColor, Color abberationColor1, Color abberationColor2)
+        {
+            string localizationPath = $"Mods.AAModClassic.CrossMod.Fables.BossIntroCard.{bossKey}.";
+            string name = Language.GetTextValue(localizationPath + "Name");
+            string title = Language.GetTextValue(localizationPath + "Title");
+            string songName = Language.GetTextValue(localizationPath + "Song.Name");
+            string songArtist = Language.GetTextValue(localizationPath + "Song.Artist");
+            return (bool)Call("vfx.displayBossIntroCard", name, title, uptime, flipBorder, borderColor, titleColor, abberationColor1, abberationColor2, songName, songArtist);
+        }
 
         //Nautilus Portraits
         /*

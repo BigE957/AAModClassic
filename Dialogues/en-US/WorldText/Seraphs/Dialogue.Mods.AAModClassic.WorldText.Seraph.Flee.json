@@ -1,0 +1,52 @@
+{
+  "Revision": 1,
+  "DefaultColor": "5f9ea0",
+  "DefaultSpeaker": "Seraph",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "Aww you're no fun! Sissy..!"
+      ]
+    },
+    {
+      "Lines": [
+        "Hahahah! Running away like the spineless earthwalker you are!"
+      ]
+    },
+    {
+      "Lines": [
+        "I'm bored now."
+      ]
+    },
+    {
+      "Lines": [
+        "Come back! I was having fun kicking you around..!"
+      ]
+    },
+    {
+      "Lines": [
+        "Aww the wittle earthwalker is weaving. Gonna go cry?"
+      ]
+    }
+  ]
+}

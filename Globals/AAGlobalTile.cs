@@ -132,48 +132,24 @@ namespace AAModClassic.Globals
             return glowColor;
         }
 
-        public static Color GetGradientColor(Color tColor1, Color tColor2, Color color, bool clamp)
-        {
-            Color glowColor = Color.Lerp(tColor1, tColor2, BaseUtility.MultiLerp(glowTick / (float)glowMax, 0f, 1f, 0f));
-
-            if (clamp)
-            {
-                if (color.R > glowColor.R)
-                {
-                    glowColor.R = color.R;
-                }
-
-                if (color.G > glowColor.G)
-                {
-                    glowColor.G = color.G;
-                }
-
-                if (color.B > glowColor.B)
-                {
-                    glowColor.B = color.B;
-                }
-            }
-
-            return glowColor;
-        }
-
         public override bool CanKillTile(int i, int j, int type, ref bool blockDamaged)
         {
             if (TileProtectionSystem.UnbreakableTiles.Contains(new(i, j)))
                 return false;
 
-            Tile t = Framing.GetTileSafely(i, j - 1);
+            Tile aboveTile = Framing.GetTileSafely(i, j - 1);
+            Tile tile = Framing.GetTileSafely(i, j);
 
-            if (!t.HasTile)
+            if (!aboveTile.HasTile)
                 return true;
 
-            if ((t.TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || t.TileType == ModContent.TileType<DragonAltarUnsafe_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<DragonAltarUnsafe_Tile>()))
+            if ((aboveTile.TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || aboveTile.TileType == ModContent.TileType<DragonAltarUnsafe_Tile>()) && (tile.TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || tile.TileType != ModContent.TileType<DragonAltarUnsafe_Tile>()))
                 return false;
 
-            if ((t.TileType == ModContent.TileType<GreedAltar_Tile>() || t.TileType == ModContent.TileType<AcropolisAltar_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<GreedAltar_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<AcropolisAltar_Tile>()))
+            if ((aboveTile.TileType == ModContent.TileType<GreedAltar_Tile>() || aboveTile.TileType == ModContent.TileType<AcropolisAltar_Tile>()) && (tile.TileType != ModContent.TileType<GreedAltar_Tile>() || tile.TileType != ModContent.TileType<AcropolisAltar_Tile>()))
                 return false;
 
-            if ((t.TileType == ModContent.TileType<StarAltar_Tile>() || t.TileType == ModContent.TileType<GravAltar_Tile>() || t.TileType == ModContent.TileType<WormAltar_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<StarAltar_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<GravAltar_Tile>() || Main.tile[i, j].TileType == ModContent.TileType<WormAltar_Tile>()))
+            if ((aboveTile.TileType == ModContent.TileType<StarAltar_Tile>() || aboveTile.TileType == ModContent.TileType<GravAltar_Tile>() || aboveTile.TileType == ModContent.TileType<WormAltar_Tile>()) && (tile.TileType != ModContent.TileType<StarAltar_Tile>() || tile.TileType != ModContent.TileType<GravAltar_Tile>() || tile.TileType == ModContent.TileType<WormAltar_Tile>()))
                 return false;
 
             return true;
@@ -184,18 +160,19 @@ namespace AAModClassic.Globals
             if (TileProtectionSystem.UnbreakableTiles.Contains(new(i, j)))
                 return false;
 
-            Tile t = Framing.GetTileSafely(i, j - 1);
+            Tile aboveTile = Framing.GetTileSafely(i, j - 1);
+            Tile tile = Framing.GetTileSafely(i, j);
 
-            if (!t.HasTile)
+            if (!aboveTile.HasTile)
                 return true;
 
-            if ((t.TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || t.TileType == ModContent.TileType<DragonAltarUnsafe_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<DragonAltarUnsafe_Tile>()))
+            if ((aboveTile.TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || aboveTile.TileType == ModContent.TileType<DragonAltarUnsafe_Tile>()) && (tile.TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || tile.TileType != ModContent.TileType<DragonAltarUnsafe_Tile>()))
                 return false;
 
-            if ((t.TileType == ModContent.TileType<GreedAltar_Tile>() || t.TileType == ModContent.TileType<AcropolisAltar_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<GreedAltar_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<AcropolisAltar_Tile>()))
+            if ((aboveTile.TileType == ModContent.TileType<GreedAltar_Tile>() || aboveTile.TileType == ModContent.TileType<AcropolisAltar_Tile>()) && (tile.TileType != ModContent.TileType<GreedAltar_Tile>() || tile.TileType != ModContent.TileType<AcropolisAltar_Tile>()))
                 return false;
 
-            if ((t.TileType == ModContent.TileType<StarAltar_Tile>() || t.TileType == ModContent.TileType<GravAltar_Tile>() || t.TileType == ModContent.TileType<WormAltar_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<StarAltar_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<GravAltar_Tile>() || Main.tile[i, j].TileType == ModContent.TileType<WormAltar_Tile>()))
+            if ((aboveTile.TileType == ModContent.TileType<StarAltar_Tile>() || aboveTile.TileType == ModContent.TileType<GravAltar_Tile>() || aboveTile.TileType == ModContent.TileType<WormAltar_Tile>()) && (tile.TileType != ModContent.TileType<StarAltar_Tile>() || tile.TileType != ModContent.TileType<GravAltar_Tile>() || tile.TileType == ModContent.TileType<WormAltar_Tile>()))
                 return false;
 
             return true;
@@ -203,8 +180,9 @@ namespace AAModClassic.Globals
 
         public override bool CanExplode(int i, int j, int type)
         {
-            Tile t = Framing.GetTileSafely(i, j - 1);
-            if (t.HasTile && (t.TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || t.TileType == ModContent.TileType<DragonAltarUnsafe_Tile>()) && (t.TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || t.TileType != ModContent.TileType<DragonAltarUnsafe_Tile>()))
+            Tile aboveTile = Framing.GetTileSafely(i, j - 1);
+
+            if (aboveTile.HasTile && (aboveTile.TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || aboveTile.TileType == ModContent.TileType<DragonAltarUnsafe_Tile>()))
                 return false;
 
             if (TileProtectionSystem.UnbreakableTiles.Contains(new(i, j)))
@@ -215,13 +193,15 @@ namespace AAModClassic.Globals
 
         public override bool Slope(int i, int j, int type)
         {
-            Tile t = Framing.GetTileSafely(i, j - 1);
-            if (t.HasTile && (t.TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || t.TileType == ModContent.TileType<DragonAltarUnsafe_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<DragonAltarUnsafe_Tile>()))
+            Tile aboveTile = Framing.GetTileSafely(i, j - 1);
+            Tile tile = Framing.GetTileSafely(i, j);
+
+            if (aboveTile.HasTile && (aboveTile.TileType == ModContent.TileType<AbyssAltarUnsafe_Tile>() || aboveTile.TileType == ModContent.TileType<DragonAltarUnsafe_Tile>()) && (tile.TileType != ModContent.TileType<AbyssAltarUnsafe_Tile>() || tile.TileType != ModContent.TileType<DragonAltarUnsafe_Tile>()))
             {
                 return false;
             }
 
-            if (t.HasTile && (t.TileType == ModContent.TileType<GreedAltar_Tile>() || t.TileType == ModContent.TileType<AcropolisAltar_Tile>()) && (Main.tile[i, j].TileType != ModContent.TileType<GreedAltar_Tile>() || Main.tile[i, j].TileType != ModContent.TileType<AcropolisAltar_Tile>()))
+            if (aboveTile.HasTile && (aboveTile.TileType == ModContent.TileType<GreedAltar_Tile>() || aboveTile.TileType == ModContent.TileType<AcropolisAltar_Tile>()) && (tile.TileType != ModContent.TileType<GreedAltar_Tile>() || tile.TileType != ModContent.TileType<AcropolisAltar_Tile>()))
             {
                 return false;
             }
@@ -247,7 +227,7 @@ namespace AAModClassic.Globals
                 }
             }
 
-            if (Main.hardMode && !tAbove.IsTileSolid() && Main.rand.NextBool(800))
+            if (t.TileType == TileID.Grass && Main.hardMode)
             {
                 switch(t.TileType)
                 {
@@ -290,7 +270,7 @@ namespace AAModClassic.Globals
             {
                 if (ModContent.RequestIfExists(tile.Texture + "_Glow", out Asset<Texture2D> tex))
                 {
-                    Tile t = Main.tile[i, j];
+                    Tile t = Framing.GetTileSafely(i, j);
                     Vector2 zero = new(Main.offScreenRange, Main.offScreenRange);
                     if (Main.drawToScreen)
                         zero = Vector2.Zero;

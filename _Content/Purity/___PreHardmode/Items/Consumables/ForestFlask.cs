@@ -30,6 +30,7 @@ namespace AAModClassic._Content.Purity.___PreHardmode.Items.Consumables
         {
             // DisplayName.SetDefault("Forest Flask");
             // Tooltip.SetDefault(@"Converts Jungle to Forest");
+            Item.ResearchUnlockCount = 99;
         }
 
         public override bool AltFunctionUse(Player player)

@@ -16,6 +16,7 @@ namespace AAModClassic._Unreleased.Content.Inferno.__Hardmode.Items.Tiles.Decora
         public override void SetStaticDefaults()
         {
             ItemID.Sets.IsLavaImmuneRegardlessOfRarity[Type] = true;
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

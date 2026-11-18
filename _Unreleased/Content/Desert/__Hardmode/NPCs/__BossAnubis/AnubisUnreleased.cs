@@ -9,6 +9,8 @@ using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis.Runes
 using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.UI.Titles;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
@@ -158,12 +160,17 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
 
         public override void AI()
         {
-            NPC.velocity.X *= 0;
-
-            if (!NPC.HasPlayerTarget)
+            if (!AliveCheck(NPC.target))
             {
-                NPC.TargetClosest();
+                if (NPC.velocity.Y > 0.05f)
+                    NPC.velocity.Y *= 0.9f;
+                else
+                    NPC.velocity.Y = 0f;
+                return;
             }
+
+            NPC.velocity.X = 0;
+
             Player player = Main.player[NPC.target];
 
             if (player.Center.X < NPC.Center.X)
@@ -175,10 +182,9 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                 NPC.direction = NPC.spriteDirection = -1;
             }
 
-            if (HasDonePreamble == false)
+            if (!HasDonePreamble)
             {
                 NPC.noGravity = false;
-                AttackTimer++;
                 Preamble();
                 return;
             }
@@ -778,29 +784,28 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
 
         int deathtimer = 0;
 
-        public bool AliveCheck(Player player)
+        public bool AliveCheck(int playerIndex)
         {
-            if (!player.active || player.dead || Vector2.Distance(NPC.Center, player.Center) > 5000f || !player.ZoneDesert)
+            if (playerIndex == -1 || !Main.player[playerIndex].active || Main.player[playerIndex].dead || Vector2.Distance(NPC.Center, Main.player[playerIndex].Center) > 5000f || !Main.player[playerIndex].ZoneDesert)
             {
                 NPC.TargetClosest();
-                if (!player.active || player.dead || Vector2.Distance(NPC.Center, player.Center) > 5000f || !player.ZoneDesert)
+                playerIndex = NPC.target;
+
+                if (playerIndex == -1 || !Main.player[playerIndex].active || Main.player[playerIndex].dead || Vector2.Distance(NPC.Center, Main.player[playerIndex].Center) > 5000f || !Main.player[playerIndex].ZoneDesert)
                 {
                     deathtimer++;
-                    if (Main.netMode != NetmodeID.MultiplayerClient && deathtimer > 240)
+                    if (deathtimer > 240)
                     {
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                         {
-                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Kill"), Color.Gold);
-                            int a = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Legendscribe>());
-                            Main.npc[a].Center = NPC.Center;
+                            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Anubis.Kill", NPC.Center, 0, 60, false, new NearbyBossText(800f, 800f));
+                            else
+                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Kill"), Color.Gold);
+                            NPC.Transform(ModContent.NPCType<Legendscribe>());
                         }
-                        NPC.active = false;
                     }
                     return false;
-                }
-                else
-                {
-                    deathtimer = 0;
                 }
             }
             deathtimer = 0;
@@ -833,37 +838,14 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                 NPC.OnGameEventClearedForTheFirstTime(-1);
 
             if (NPC.downedMoonlord && beenKilled)
-                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<AnubisForsakenTransition>());
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y + 6, ModContent.NPCType<AnubisForsakenTransition>());
             else
-                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<Legendscribe>());
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y + 6, ModContent.NPCType<Legendscribe>());
         }
 
-        //TODO: make this pull from reg anubis' lootpool
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AnubisTreasureBag>()));
-
-            npcLoot.AddLoreItemDrop<Anubis>(ModContent.ItemType<AnubisLore>());
-
-            LeadingConditionRule masterMode = new(new AAConditions.RevOrMaster());
-
-            masterMode.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AnubisRelic>()));
-
-            npcLoot.Add(masterMode);
-
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AnubisTrophy>(), 10));
-
-            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
-
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AnubisMask>(), 7));
-
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ForsakenFragment>(), 1, 8, 16));
-
-            int[] lootTable = { ModContent.ItemType<Judgment>(), ModContent.ItemType<NeithsString>(), ModContent.ItemType<DesertStaff>(), ModContent.ItemType<JackalsWrath>(), ModContent.ItemType<Sandthrower>(), ModContent.ItemType<SentryOfTheEye>() };
-
-            notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
-
-            npcLoot.Add(notExpertRule);
+            ModContent.GetModNPC(ModContent.NPCType<Anubis>()).ModifyNPCLoot(npcLoot);
         }
 
         int CurrentTextureFrame = 0;
@@ -892,7 +874,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                 CurrentGlowmask = PreludeGlowmask.Value;
                 CurrentTextureFrameCount = PRELUDE_FRAMECOUNT;
 
-                if (AttackTimer >= 240 && AttackTimer < 320)
+                if (AttackTimer >= 240 && AttackTimer < 380)
                 {
                     if (CurrentTextureFrame < 9)
                     {
@@ -1175,68 +1157,96 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
             NPC.dontTakeDamage = true;
 
             AttackNext = (int)AnubisAttacks.Preamble;
-            if (Main.netMode != NetmodeID.MultiplayerClient)
+            Music = MusicLoader.GetMusicSlot("AAModClassic/Music/silence");
+            if (NPC.velocity.Y != 0)
+                return;
+
+            AttackTimer++;
+
+            if (!NPCExtensions.BeenKilled<Anubis>())
             {
-                Music = MusicLoader.GetMusicSlot("AAModClassic/Music/silence");
-                if (NPC.velocity.Y == 0)
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
                 {
-                    if (AttackTimer++ < 420)
+                    switch (AttackTimer)
                     {
-                        if (!NPCExtensions.BeenKilled<Anubis>())
-                        {
-                            if (AttackTimer == 60)
+                        case 60:
+                            if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
                                 int activePlayers = 0;
                                 foreach (Player p in Main.ActivePlayers)
                                     activePlayers++;
                                 string s = activePlayers > 1 ? "Multiplayer" : "Singleplayer";
-                                if (Main.netMode != NetmodeID.MultiplayerClient)
-                                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Intro.1." + s), Color.Gold);
+                                WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Anubis.Intro." + s, NPC.Center, 0, 60, true, new NearbyBossText(800f, 800f));
                             }
-
-                            if (AttackTimer == 150)
-                            {
-                                if (Main.netMode != NetmodeID.MultiplayerClient)
-                                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Intro.2"), Color.Gold);
-                            }
-
-                            if (AttackTimer == 240)
-                            {
-                                if (Main.netMode != NetmodeID.MultiplayerClient)
-                                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Intro.3"), Color.Gold);
-                            }
-
-                            if (AttackTimer == 320)
-                            {
-                                if (Main.netMode != NetmodeID.MultiplayerClient)
-                                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Intro.4"), Color.Gold);
-                            }
-
-                            if (AttackTimer >= 410)
-                            {
-                                Music = MusicLoader.GetMusicSlot("AAModClassic/Music/Anubis");
-                                if (Main.netMode != NetmodeID.MultiplayerClient)
-                                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Intro.5"), Color.Gold);
-                                HasDonePreamble = true;
-                                AttackNext = 0;
-                                NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
-                                Teleport();
-                                NPC.netUpdate = true;
-                            }
-                        }
-                        else
-                        {
+                            break;
+                        case 610:
                             Music = MusicLoader.GetMusicSlot("AAModClassic/Music/Anubis");
-                            if (Main.netMode != NetmodeID.MultiplayerClient)
-                                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Intro.Rematch"), Color.Gold);
                             HasDonePreamble = true;
                             AttackNext = 0;
                             NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
                             Teleport();
                             NPC.netUpdate = true;
-                        }
+                            return;
                     }
                 }
+                else
+                {
+                    if (AttackTimer == 60)
+                    {
+                        int activePlayers = 0;
+                        foreach (Player p in Main.ActivePlayers)
+                            activePlayers++;
+                        string s = activePlayers > 1 ? "Multiplayer" : "Singleplayer";
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Intro.1." + s), Color.Gold);
+                    }
+
+                    if (AttackTimer == 150)
+                    {
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Intro.2"), Color.Gold);
+                    }
+
+                    if (AttackTimer == 240)
+                    {
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Intro.3"), Color.Gold);
+                    }
+
+                    if (AttackTimer == 320)
+                    {
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Intro.4"), Color.Gold);
+                    }
+
+                    if (AttackTimer >= 410)
+                    {
+                        Music = MusicLoader.GetMusicSlot("AAModClassic/Music/Anubis");
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Intro.5"), Color.Gold);
+                        HasDonePreamble = true;
+                        AttackNext = 0;
+                        NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
+                        Teleport();
+                        NPC.netUpdate = true;
+                    }
+                }
+            }
+            else
+            {
+                Teleport();
+                Music = MusicLoader.GetMusicSlot("AAModClassic/Music/Anubis");
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Anubis.Intro.Rematch", NPC.Center, 0, 60, true, new NearbyBossText(800f, 800f));
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Intro.Rematch"), Color.Gold);
+                }
+                HasDonePreamble = true;
+                AttackNext = 0;
+                NPC.GetGlobalNPC<TitleGlobalNPC>().ShowTitle = true;
+                NPC.netUpdate = true;
             }
         }
 
@@ -1264,7 +1274,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
             //Main.NewText(NPC.velocity.Y);
 
             if (HasDonePreamble == true && NPC.velocity != Vector2.Zero)
-                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, CurrentTexture, NPC.Center - Main.screenPosition, NPC.velocity, 8, frame, new Color(150, 255, 150) * (Main.mouseTextColor / 255f), NPC.scale, [NPC.rotation], frame.Size() * 0.5f, NPC.SpriteEffectDirection());
+                DrawingUtils.DrawAfterimageWithVelocity(spriteBatch, CurrentTexture, NPC.Center - Main.screenPosition, NPC.velocity, 8, frame, new Color(150, 255, 150) * (Main.mouseTextColor / 255f), NPC.scale, [NPC.rotation], frame.Size() * 0.5f, NPC.SpriteEffectDirection(true));
             BaseDrawing.DrawTexture(spriteBatch, CurrentTexture, 0, position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, CurrentTextureFrameCount, frame, drawColor, true);
             BaseDrawing.DrawTexture(spriteBatch, CurrentGlowmask, 0, position, NPC.width, NPC.height, NPC.scale, NPC.rotation, NPC.direction, CurrentTextureFrameCount, frame, AAColor.COLOR_WHITEFADE1, true);
 

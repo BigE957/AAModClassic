@@ -172,8 +172,6 @@ namespace AAModClassic._Content.Chaos.___PreHardmode.NPCs.Friendly
             shop.Add(ItemID.NinjaShirt);
             shop.Add(ItemID.NinjaPants);
 
-            shop.Add(ItemID.DynastyWood);
-
             shop.Add<OrangeSolution>(Condition.Hardmode, Condition.TimeDay);
             shop.Add<IndigoSolution>(Condition.Hardmode, Condition.TimeNight);
             shop.Add<OrderSolution>(Condition.Hardmode);

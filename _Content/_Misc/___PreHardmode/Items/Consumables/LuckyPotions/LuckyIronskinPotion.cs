@@ -13,6 +13,7 @@ namespace AAModClassic._Content._Misc.___PreHardmode.Items.Consumables.LuckyPoti
         {
             // DisplayName.SetDefault("Lucky Ironskin Potion");
             // Tooltip.SetDefault("Increase defense by 9");
+            Item.ResearchUnlockCount = 20;
         }
 
         public override void SetDefaults()

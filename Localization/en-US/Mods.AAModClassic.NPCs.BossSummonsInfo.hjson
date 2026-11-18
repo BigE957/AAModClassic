@@ -33,11 +33,12 @@ DraconianDayTimeFalse: Geez, kid. Can't a dragon get a little shut-eye? Come bac
 DraconianRuneFalse1: An image of the scorched tower at the peak of the inferno flashes through your mind
 DraconianRuneFalse2: Hey kid, that rune only works once, ya know.
 DraconianRuneInfernoFalse: You can only use that rune in the Inferno, kid.
-DraconianRuneInfernoFalse2: That sigil has to be used at the Altar of the Draconian Sun, kid. It's in the middle of the inferno.
+DraconianRuneInfernoFalse2: That rune has to be used at the Altar of the Draconian Sun, kid. It's in the middle of the Inferno.
 DraconianRuneTrue1: The air around you begins to heat up...
 DraconianRuneTrue2: Cutting right to the chase I see..? Alright then, prepare for hell..!
 DraconianSigilFalse: Hey kid, that Sigil only works once, ya know.
 DraconianSigilInfernoFalse: You can only use that Sigil in the Inferno, kid.
+DraconianSigilInfernoFalse2: That Sigil has to be used at the Altar of the Draconian Sun, kid. It's in the middle of the inferno.
 DraconianSignalTrue1: Heh, I hope you’re ready to feel the fury of the blazing sun kid.
 DraconianSignalTrue2: Back for more, kid? Don’t you have better things to do? You already beat me once.  Alright, but I won’t go easy on you.
 DragonBellDayTimeFalse: The bell rings on deaf ears. The dragons are asleep now.
@@ -52,7 +53,7 @@ DreadMireFalse: Hey Dumbo! Mire is that way!
 DreadMireFalse2: You NEED to use that sigil on the altar at the center of the mire! Trust me, nothing bad will happen!
 DreadSigilTrue1: You DARE enter my territory, Terrarian?! NYEHEHEHEHEH..! Big mistake..!
 DreadSigilTrue2: Back for more..?! This time you won't be so lucky you little whelp..!
-SistersDownedInfo1: Again..!? Didin't you learn from last time? Oh well, I'm gonna have a ball blasting you to shreds!
+SistersDownedInfo1: Again..!? Didn't you learn from last time? Oh well, I'm gonna have a ball blasting you to shreds!
 SistersDownedInfo2: Whatever, let's just get this over with.
 SistersInfo1: Sigh... Here we go again...
 SistersInfo2: THIS TIME I'M NOT LOSING! You're gonna feel the taste of defeat you disgusting warm-blood!
@@ -71,7 +72,7 @@ SubzeroCrystalSnowZoneFalse: The crystal shows an image of the nearby ice biome 
 SubzeroCrystalTrue: The Subzero Serpent continues to attack
 ToadstoolFalse: The toadstool croaks..?
 ToadstoolTrue: The Truffle Toad croaks
-ZeroFalse: ERR0R. ZER0 UNIT ALREADY ACTIVE. PLEASE TRY AGAIN LATER.
+ZeroUnitFalse: ERR0R. ZER0 UNIT ALREADY ACTIVE. PLEASE TRY AGAIN LATER.
 ZeroVoidZoneFalse: ERR0R. PLAYER.GETM0DPLAYER<AAPLAYER>(M0D).Z0NEV0ID == FALSE. PLEASE TRY AGAIN LATER.
 ZeroRuneTrue: D00MSDAY PR0T0CALL ACTIVATED MANUALLY. TERMINATI0N SYSTEMS AT FULL P0WER
 ZeroTesseractTrue: ZER0 UNIT ACTIVATED. ENGAGE D00MBRINGER PR0T0C0L.

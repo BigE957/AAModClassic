@@ -24,6 +24,7 @@ using AAModClassic._Content.Stars._PostMoonlord.NPCs.__BossEquinoxWorms.Nightcra
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero;
 using AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero.Awakened;
 using AAModClassic._Unreleased.Content.Acropolis.__Hardmode.NPCs.__Athena;
+using AAModClassic.UI.World;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -121,6 +122,9 @@ namespace AAModClassic._CrossMod.CalamityMod
 
         public override void ModifyHitPlayer(NPC npc, Player target, ref Player.HurtModifiers modifiers)
         {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                return;
+
             if (CalamityMod.IsEnabled)
             {
                 if (npc.type >= NPCID.Count && npc.ModNPC.Mod == AAMod.instance && npc.boss)
@@ -139,6 +143,9 @@ namespace AAModClassic._CrossMod.CalamityMod
 
         public override void ModifyHitByItem(NPC npc, Player player, Item item, ref NPC.HitModifiers modifiers)
         {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                return;
+
             if (CalamityMod.IsEnabled)
             {
                 if (npc.type >= NPCID.Count && npc.boss && npc.ModNPC.Mod == AAMod.instance)
@@ -160,6 +167,9 @@ namespace AAModClassic._CrossMod.CalamityMod
 
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers)
         {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                return;
+
             if (CalamityMod.IsEnabled)
             {
                 if (npc.type >= NPCID.Count && npc.boss && npc.ModNPC.Mod == AAMod.instance)
@@ -184,6 +194,9 @@ namespace AAModClassic._CrossMod.CalamityMod
     {
         public override void ModifyHitPlayer(Projectile projectile, Player target, ref Player.HurtModifiers modifiers)
         {
+            if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                return;
+
             if (CalamityMod.IsEnabled)
             {
                 if (projectile.hostile && !projectile.friendly && projectile.type >= ProjectileID.Count && projectile.ModProjectile.Mod == AAMod.instance)

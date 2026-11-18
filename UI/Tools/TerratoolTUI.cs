@@ -20,7 +20,7 @@ namespace AAModClassic.UI.Tools
 
         public override Asset<Texture2D> ButtonOffImage => ModContent.Request<Texture2D>("AAModClassic/UI/Tools/ToolButtonOff");
 
-        public override UIState State => AAMod.instance.TerratoolTState;
+        public override UIState State => TerratoolUISystem.TerratoolTState;
 
         public override int HeldItemType => ModContent.ItemType<Terratool>();
 

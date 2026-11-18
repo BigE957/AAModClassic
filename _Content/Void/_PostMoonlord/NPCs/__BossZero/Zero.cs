@@ -15,7 +15,10 @@ using AAModClassic.Effects;
 using AAModClassic.Globals;
 using AAModClassic.Music;
 using AAModClassic.UI.Core;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.UI.Titles;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -130,7 +133,10 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
                 RespawnArms1 = true;
 
                 RespawnArms();
-                if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Rearm"), Color.Red, false);
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                    WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Zero.Attacks", NPC.Center, 0, 30, false, new NearbyBossText(600, 800));
+                else
+                    ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Rearm"), Color.Red, false);
                 NPC.netUpdate = true;
             }
             if (NPC.life <= (int)(NPC.lifeMax * .33f) && !RespawnArms2 && Main.netMode != NetmodeID.MultiplayerClient)
@@ -139,7 +145,10 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
                 NPC.ai[1] = 0;
                 RespawnArms2 = true;
                 RespawnArms();
-                if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Rearm"), Color.Red, false);
+                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                    WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Zero.Attacks", NPC.Center, 0, 30, false, new NearbyBossText(600, 800));
+                else
+                    ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Rearm"), Color.Red, false);
                 NPC.netUpdate = true;
             }
 
@@ -159,7 +168,13 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
                 }
                 if (!Main.expertMode)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Defeat.NotExpert"), Color.Red.R, Color.Red.G, Color.Red.B);
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Zero.Defeat", NPC.Center, 1, 30, false, new BossText());
+                        else
+                            ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Defeat.NotExpert"), Color.Red);
+                    }
                 }
             }
         }
@@ -221,7 +236,13 @@ namespace AAModClassic._Content.Void._PostMoonlord.NPCs.__BossZero
         {
             if (Main.expertMode)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Defeat.Expert"), Color.Red.R, Color.Red.G, Color.Red.B);
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Zero.Defeat", NPC.Center, 0, 30, false, new BossText());
+                    else
+                        ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Zero.Defeat.Expert"), Color.Red);
+                }
                 if (NPC.BeenKilled(true))
                 {
                     int z = NPC.NewNPC(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<ZeroA>(), 0, 0, 0, 0, 0, NPC.target);

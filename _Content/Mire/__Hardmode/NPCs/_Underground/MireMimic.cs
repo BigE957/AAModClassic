@@ -40,7 +40,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.NPCs._Underground
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             Player player = spawnInfo.Player;
-            if (spawnInfo.Player.ZoneAnyMire() && Main.hardMode && !spawnInfo.PlayerSafe && !AnyEvents(spawnInfo.Player))
+            if (spawnInfo.Player.ZoneAnyMire() && Main.hardMode && !spawnInfo.PlayerSafe && !AnyEvents(spawnInfo.Player) && !NPC.AnyNPCs(Type))
             {
                 return SpawnCondition.UndergroundMimic.Chance;
             }

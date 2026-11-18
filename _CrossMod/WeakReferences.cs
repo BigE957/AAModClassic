@@ -82,6 +82,7 @@ using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
 using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
 using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother;
 using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard;
+using AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
@@ -109,6 +110,7 @@ using AAModClassic._Content.Madness.___PreHardmode.NPCs;
 using AAModClassic._Content.MartianMadness.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra;
 using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandard;
+using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
@@ -1175,7 +1177,7 @@ namespace AAModClassic._CrossMod
                 if (CalamityMod.CalamityMod.IsEnabled)
                     greedCollectibles.Add(ModContent.ItemType<GreedLore>());
 
-                AddBoss(bossChecklist, mod, "Greed", (() => NPCExtensions.BeenKilled<GreedHead>()), new List<int>() { ModContent.NPCType<GreedHead>(), ModContent.NPCType<GreedBody>() }, new Dictionary<string, object>()
+                AddBoss(bossChecklist, mod, "Greed", () => NPCExtensions.BeenKilled<GreedHead>(), ModContent.NPCType<GreedHead>(), new Dictionary<string, object>()
                 {
                     ["displayName"] = Language.GetOrRegister(path + "Greed.Name"),
                     ["spawnInfo"] = Language.GetOrRegister(path + "Greed.Spawn").WithFormatArgs("[i: " + ModContent.ItemType<GoldenGrub>() + "]"),
@@ -1799,8 +1801,8 @@ namespace AAModClassic._CrossMod
             if (ModLoader.TryGetMod("NoxusBoss", out Mod wotg))
             {
                 ShenDoragonUtils.CrossModDialogue.Add("NoxusBoss", (Language.GetOrRegister(shenLocPath + "NoxusBoss"), () => NPC.downedMoonlord));
-                Oblivion.CrossModDialogue.Add("NoxusBoss", (Language.GetOrRegister(izLocPath + "NoxusBoss.PreNameless"), () => !(bool)wotg.Call("GetBossDefeated", "namelessdeity")));
-                Oblivion.CrossModDialogue.Add("NoxusBoss", (Language.GetOrRegister(izLocPath + "NoxusBoss.PostNameless"), () => (bool)wotg.Call("GetBossDefeated", "namelessdeity")));
+                Oblivion.CrossModDialogue.Add("NoxusBoss:PreNameless", (Language.GetOrRegister(izLocPath + "NoxusBoss.PreNameless"), () => !(bool)wotg.Call("GetBossDefeated", "namelessdeity")));
+                Oblivion.CrossModDialogue.Add("NoxusBoss:PostNameless", (Language.GetOrRegister(izLocPath + "NoxusBoss.PostNameless"), () => (bool)wotg.Call("GetBossDefeated", "namelessdeity")));
             }
 
             if (ModLoader.TryGetMod("SOTS", out var sots) && sots.TryFind<ModSystem>("SystemTweaks", out downed))

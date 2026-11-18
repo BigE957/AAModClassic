@@ -61,6 +61,11 @@ Configs: {
 			Label: Ocultar información identificable
 			Tooltip: Desactiva los diálogos que rompen la cuarta pared y que hacen uso de información de identificación personal.
 		}
+
+		TextEffects: {
+			// Label: Text Effects
+			// Tooltip: ""
+		}
 	}
 }
 

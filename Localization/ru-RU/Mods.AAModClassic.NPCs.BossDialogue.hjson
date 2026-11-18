@@ -410,6 +410,7 @@ Yamata: {
 	}
 
 	Despawn.Daytime: Ш-Ш-Ш-Ш-Ш-Ш-Ш-Ш-Ш-Ш!!! СО-О-О-О-О-О-О-ОЛНЦЕ-Е-Е-Е-Е-Е! МАТЬ ТВОЮ, ПОКА!
+	// Kill: NYEHEHEHEHEHEHEH..! And don't come back!
 
 	Transition: {
 		1: НЬЕХЕХЕХЕХЕХЕ~!
@@ -440,7 +441,6 @@ Yamata: {
 		}
 
 		Heads.Killed: УВА-ВА!!!
-		Kill: НЬЕХЕХЕХЕХЕХЕХЕХ!.. СКАТЕРТЬЮ ДОРОЖКА, ОТРЕБЬЕ!
 
 		Defeat: {
 			First: НЕТ!.. БРЕХНЯ! ДАЖЕ В МОЕЙ ПРОБУЖДЁННОЙ ФОРМЕ?! ЧИСТОЙ ВОДЫ ОБМАН, ЛОЖЬ, НАДУВАТЕЛЬСТВО, НЕЧЕСТНО! ГЬЯ-А-А-А-А..! ЛАДЫ! ЗАБИРАЙ ЭТО ДЕРЬМО! СКАТЕРТЬЮ ДОРОГА!..
@@ -490,12 +490,7 @@ Zero: {
 		Self-Organization: {
 			1: САМ00РГАНИЗАЦИЯ: ЗАРЯДКА ЗАВЕРШЕНА...
 			2: ЗАГРУЗКА В РЕЖИМЕ САМ00РГАНИЗАЦИИ...
-
-			3: {
-				Normal: РАЗРЕШИТЬ {0}\M0DS\AAM0D\ZER0\SELF-0RGNAZATI0N.EXE ? <Y/N>...
-				Streaming: Г0Л0С0ВАНИЕ ЗРИТЕЛЕЙ: РАЗРЕШИТЬ SELF-0RGNAZATI0N.EXE ? <Y/N>...
-			}
-
+			// 3: ALLOW {0}\M0DS\AAM0D\ZER0\SELF-0RGNAZATI0N.EXE ? <Y/N>...
 			4: ===Р Е З Н Я===
 		}
 
@@ -734,6 +729,15 @@ InfinityZero: {
 	}
 
 	Defeat: {
+		Interceptions: {
+			// 0: I don't know when to stop talking!
+			// 1: I talk too much.
+			// 2: I should stop talking.
+			// 3: I love talking over other people!
+			// 4: I can't stop talking over people!!!
+			// 5: My parents never taught me how to shut up.
+		}
+
 		First: {
 			1: ...впечатляет.
 			2: Одолеть моё механическое тело...

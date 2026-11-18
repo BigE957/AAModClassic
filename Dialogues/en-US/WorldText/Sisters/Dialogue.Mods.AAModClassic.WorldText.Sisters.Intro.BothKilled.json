@@ -1,0 +1,61 @@
+{
+  "Revision": 1,
+  "DefaultColor": "961e47",
+  "DefaultSpeaker": "Ashe",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "[Wavy(4, 3):Well hello there, what a surprise to see YOU here~!]"
+      ]
+    },
+    {
+      "Lines": [
+        "Oh yes, I've heard [Shaking(2):PLENTY] about you, kid... [Shaking(1):You're the little warm-blood who thrashed my mother..!]"
+      ]
+    },
+    {
+      "Speaker": "Haruka",
+      "BaseColor": "484e75",
+      "Lines": [
+        "[Shaking(1):And mine...]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Wavy(2, 3):So now..!] Heh..."
+      ]
+    },
+    {
+      "Lines": [
+        "We're gonna give you something to absolutely [Shaking(2):SCREAM] about..! [Wavy(4, 3):Come on, Hakie, let's torch this little warm-blood~!]"
+      ]
+    },
+    {
+      "Speaker": "Haruka",
+      "BaseColor": "484e75",
+      "Lines": [
+        "Please don't call me Hakie again...[Pause(1)] Ever."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "Revision": 1,
+  "DefaultColor": "55566e",
+  "DefaultSpeaker": "Yamata",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "Resistance isn't gonna save you here! Now stop being a little brat and let me destroy you!"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1.5):STOP SQUIRMING AND LET ME SQUASH YOU!!!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Scale(1.25):[Shaking(2):NGAAAAAAAAAAAAAH]] [Shaking(1.5):YOU'RE REALLY ANNOYING YOU KNOW..!]"
+      ]
+    },
+    {
+      "Lines": [
+        "I don't understand why you keep fighting me! [Wavy(3, 4):I'm superior to you in every single way!]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Scale(1.25):[Shaking(2):I'M GETTING FRUSTRATED AGAIN!]]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1.25):I HATE FIGHTING YOU!] [Shaking(1.5):I HATE IT] [Scale(1.25):[Shaking(1.75):I HATE IT]] [Scale(1.5):[Shaking(2):I HATE IT!!!]]"
+      ]
+    }
+  ]
+}

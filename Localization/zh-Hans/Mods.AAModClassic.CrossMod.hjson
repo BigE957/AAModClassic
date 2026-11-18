@@ -91,7 +91,7 @@ BossChecklist: {
 
 	Athena: {
 		Name: 穹武鸮姬 雅典娜
-		Spawn: 在天穹卫城的猫头鹰祭坛处使用{0}，或在天穹卫城中击伤一只六翼鸟妖。
+		Spawn: 在天穹卫城的猫头鹰祭坛处使用{0}，或在天穹卫城中击伤一只六翼天使。
 		Despawn: "[c/008AA6:穹武鸮姬训斥了你一番后飞走了。]"
 	}
 
@@ -247,6 +247,11 @@ MusicDisplay: {
 	}
 
 	AkumaAwakened: {
+		Author: by Tyeski
+		DisplayName: Day Breaks
+	}
+
+	AkumaAwakenedLegacy: {
 		Author: by Tyeski
 		DisplayName: Dawn of the Dragon
 	}
@@ -588,6 +593,20 @@ CalamityMod: {
 }
 
 Fables: {
+	BossIntroCard: {
+		// GripsOfChaos: lel
+
+		DesertDjinn: {
+			// Name: Desert Djinn
+			// Title: Dune-Bending Brawler
+
+			Song: {
+				// Name: The Dust Bowl
+				// Artist: Tyeski
+			}
+		}
+	}
+
 	Nautilus: {
 		DesertDjinnActive: {
 			1: <m:SmallShake>唉，日日夜夜都这般喧闹嘈杂！</m><d:0.6> </d>若我尚有余力，早就把这些<c:F4A460>沙漠巨灵</c>赶出这片废墟了！

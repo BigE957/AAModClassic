@@ -1,0 +1,72 @@
+{
+  "Revision": 1,
+  "DefaultColor": "609ea0",
+  "DefaultSpeaker": "Athena",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "[Shaking(1.5):...hah...hah...]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Shaking(1.5):...I still lost.]"
+      ]
+    },
+    {
+      "Lines": [
+        "No."
+      ]
+    },
+    {
+      "Lines": [
+        "I'm not giving up that easilly."
+      ]
+    },
+    {
+      "Lines": [
+        "There's a phrase my people live by, Earthwalker."
+      ]
+    },
+    {
+      "Lines": [
+        "[Colors(2, 0.5, 609ea0, a09d60):[Wavy:Brightest of dawn...]]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Colors(2, 0.5, 609ea0, 7760a0):[Wavy:Darkest of night...]]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Colors(2, 0.5, 609ea0, 596d6e):[Shaking(1.25):[Scale(0.75):Even in defeat...]]]"
+      ]
+    },
+    {
+      "Lines": [
+        "[Colors(6494ed):[Shaking(3):[Scale(1.5):A VARIAN ALWAYS PUTS UP ONE LAST FIGHT!!!]]]"
+      ]
+    }
+  ]
+}

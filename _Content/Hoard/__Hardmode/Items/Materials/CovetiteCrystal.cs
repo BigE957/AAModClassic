@@ -12,6 +12,7 @@ namespace AAModClassic._Content.Hoard.__Hardmode.Items.Materials
             // DisplayName.SetDefault("Covetite Crystal");
             /* Tooltip.SetDefault(@"You have a strange desire for this crystal, 
 despite you already owning it."); */
+            Item.ResearchUnlockCount = 25;
         }
         public override void SetDefaults()
         {

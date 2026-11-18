@@ -49,7 +49,7 @@ namespace AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMo
             {
                 return 0f;
             }
-            if (biomeCorrect || Main.dayTime)
+            if (biomeCorrect && Main.dayTime)
             {
                 return SpawnCondition.OverworldDaySlime.Chance * 0.001f;
             }

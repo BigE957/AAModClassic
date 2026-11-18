@@ -34,6 +34,7 @@ namespace AAModClassic._Content.Void.___PreHardmode.Items.Consumables
             // Tooltip.SetDefault(@"Spreads the Void");
             Main.RegisterItemAnimation(Type, new DrawAnimationVertical(1, 4));
             ItemID.Sets.AnimatesAsSoul[Type] = true;
+            Item.ResearchUnlockCount = 99;
         }
 
         public override bool AltFunctionUse(Player player)

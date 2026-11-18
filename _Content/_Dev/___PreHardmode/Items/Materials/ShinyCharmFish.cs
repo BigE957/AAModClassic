@@ -20,7 +20,7 @@ namespace AAModClassic._Content._Dev.___PreHardmode.Items.Materials
             // DisplayName.SetDefault("Shiny Charm Fish");
             // Tooltip.SetDefault("A kind of rare fish");
 
-            Item.ResearchUnlockCount = 100;
+            Item.ResearchUnlockCount = 3;
         }
     }
 }

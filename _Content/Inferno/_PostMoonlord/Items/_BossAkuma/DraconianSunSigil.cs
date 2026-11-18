@@ -9,6 +9,9 @@ using AAModClassic._CrossMod;
 using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Rarities;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus;
 using Microsoft.Xna.Framework;
@@ -49,79 +52,105 @@ Non-Consumable"); */
         {
             if (!Main.dayTime)
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem)
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                if (!Main.dedServ && player.whoAmI == Main.myPlayer)
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Akuma.Spawn", Main.LocalPlayer.Center, 0, 60, false, new BossText());
+                    else
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianDayTimeFalse"), new Color(180, 41, 32), false);
+                }
                 return false;
             }
             if (!player.ZoneAnyInferno())
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem)
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                if (!Main.dedServ && player.whoAmI == Main.myPlayer)
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Akuma.Spawn", Main.LocalPlayer.Center, 6, 60, false, new BossText());
+                    else
                         BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianSigilInfernoFalse"), new Color(180, 41, 32), false);
+                }
                 return false;
             }
 
             if (!ContentReplacementSystem.NeedToReplaceContent && !AAWorld.downedAkuma && !player.GetModPlayer<ZAAPlayer>().ZoneRisingSunPagoda)
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem)
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianRuneFalse2"), new Color(180, 41, 32), false);
+                if (!Main.dedServ && player.whoAmI == Main.myPlayer)
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Akuma.Spawn", Main.LocalPlayer.Center, 7, 60, false, new BossText());
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianSigilInfernoFalse2"), new Color(180, 41, 32), false);
+                }
                 return false;
             }
-            if (NPC.AnyNPCs(ModContent.NPCType<AkumaHead>()))
+
+            bool anyActiveAkuma = false;
+            bool anyBlockingEnemy = false;
+            bool isAwakened = false;
+            foreach (NPC npc in Main.ActiveNPCs)
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem)
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianSigilFalse"), new Color(180, 41, 32), false);
-                return false;
+                if (npc.type == ModContent.NPCType<AkumaAHead>())
+                {
+                    anyActiveAkuma = true;
+                    isAwakened = true;
+                    break;
+                }
+
+                if (npc.type == ModContent.NPCType<AkumaHead>())
+                {
+                    anyActiveAkuma = true;
+                    isAwakened = false;
+                    break;
+                }
+
+                if (npc.type == ModContent.NPCType<ShenDoragon>() || npc.type == ModContent.NPCType<ShenDoragonA>() ||
+                    npc.type == ModContent.NPCType<ShenDoragonSpawn>() || npc.type == ModContent.NPCType<ShenDoragonTransition>() || npc.type == ModContent.NPCType<ShenDoragonDeath>() || npc.type == ModContent.NPCType<ShenDoragonDefeat>() ||
+                    npc.type == ModContent.NPCType<AkumaTransition>())
+                    anyBlockingEnemy = true;
             }
-            if (NPC.AnyNPCs(ModContent.NPCType<AkumaAHead>()))
+
+            if (anyActiveAkuma)
             {
-                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != NetmodeID.MultiplayerClient) BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianSigilFalse"), new Color(0, 191, 255), false);
+                if (!Main.dedServ && player.whoAmI == Main.myPlayer)
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogueOnClient("Mods.AAModClassic.WorldText.Akuma.Spawn", Main.LocalPlayer.Center, isAwakened ? 1 : 5, 60, false, new BossText());
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianRuneFalse2"), isAwakened ? Color.DeepSkyBlue : new Color(180, 41, 32), false);
+                }
                 return false;
             }
-            if (NPC.AnyNPCs(ModContent.NPCType<ShenDoragon>()) || NPC.AnyNPCs(ModContent.NPCType<ShenDoragonA>()) || NPC.AnyNPCs(ModContent.NPCType<ShenDoragonSpawn>()) ||
-                NPC.AnyNPCs(ModContent.NPCType<ShenDoragonTransition>()) || NPC.AnyNPCs(ModContent.NPCType<ShenDoragonDeath>()) || NPC.AnyNPCs(ModContent.NPCType<ShenDoragonDefeat>()))
-            {
+
+            if (anyBlockingEnemy)
                 return false;
-            }
-            if (NPC.AnyNPCs(ModContent.NPCType<AkumaTransition>()))
-            {
-                return false;
-            }
+
             return true;
 
         }
 
-        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
-        {
-
-            if (!AAWorld.downedAkuma)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianSignalTrue1"), new Color(180, 41, 32));
-            }
-            if (AAWorld.downedAkuma)
-            {
-                if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianSignalTrue2"), new Color(180, 41, 32));
-            }
-            AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<AkumaHead>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Akuma"), false);
-            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/AkumaRoar"), player.position);
-            return true;
-        }
-
-        public void SpawnBoss(Player player, string name, string displayName)
+        public override bool? UseItem(Player player)
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                int bossType = Mod.Find<ModNPC>(name).Type;
-                if (NPC.AnyNPCs(bossType)) { return; } //don't spawn if there's already a boss!
-                int npcID = NPC.NewNPC(NPC.GetBossSpawnSource(player.whoAmI), (int)player.Center.X, (int)player.Center.Y, bossType, 0);
-                Main.npc[npcID].Center = player.Center - new Vector2(MathHelper.Lerp(-2000, 2000, (float)Main.rand.NextDouble()), 1200f);
-                Main.npc[npcID].netUpdate2 = true;
+                if (!AAWorld.downedAkuma)
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Spawn", Main.LocalPlayer.Center, 8, 60, false, new BossText());
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianSignalTrue1"), new Color(180, 41, 32));
+                }
+                else
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Spawn", Main.LocalPlayer.Center, 9, 60, false, new BossText());
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.DraconianSignalTrue2"), new Color(180, 41, 32));
+                }
+                AAModGlobalNPC.SpawnBoss(player, ModContent.NPCType<AkumaHead>(), true, 0, 0, Language.GetTextValue("Mods.AAModClassic.Common.Akuma"), false);
             }
+            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/AkumaRoar"), player.position);
+            return true;
         }
 
         public override void AddRecipes()

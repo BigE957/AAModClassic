@@ -11,6 +11,8 @@ using AAModClassic.Achievements;
 using AAModClassic.Base;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.UI.Titles;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
@@ -191,41 +193,74 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
         {
             modifiers.TargetDamageMultiplier *= 0;
 
-            if (!AAWorld.downedYamata)
+            CheckHurtDialogue();
+        }
+
+        public void CheckHurtDialogue()
+        {
+            if (NPC.life <= (NPC.lifeMax * 0.75f) && !threeQuarterHealth)
             {
-                if (NPC.life <= NPC.lifeMax / 4 * 3 && threeQuarterHealth == false)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.First.ThreeQuarters"), AAColor.YamataDialogue);
-                    threeQuarterHealth = true;
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                    {
+                        if (!AAWorld.downedYamata)
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Health", NPC, 0, 30, false, new NearbyBossText(600, 800));
+                        else
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Health", NPC, 3, 30, false, new NearbyBossText(600, 800));
+                    }
+                    else
+                    {
+                        if (!AAWorld.downedYamata)
+                            ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.First.ThreeQuarters"), AAColor.YamataDialogue);
+                        else
+                            ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.Repeat.ThreeQuarters"), AAColor.YamataDialogue);
+                    }
+
                 }
-                if (NPC.life <= NPC.lifeMax / 2 && HalfHealth == false)
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.First.Half"), AAColor.YamataDialogue);
-                    HalfHealth = true;
-                }
-                if (NPC.life <= NPC.lifeMax / 4 && quarterHealth == false)
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.First.Quarter"), AAColor.YamataDialogue);
-                    quarterHealth = true;
-                }
+                threeQuarterHealth = true;
             }
-            else
+            if (NPC.life <= (NPC.lifeMax * 0.5f) && !HalfHealth)
             {
-                if (NPC.life <= NPC.lifeMax / 4 * 3 && threeQuarterHealth == false)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.Repeat.ThreeQuarters"), AAColor.YamataDialogue);
-                    threeQuarterHealth = true;
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                    {
+                        if (!AAWorld.downedYamata)
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Health", NPC, 1, 30, false, new NearbyBossText(600, 800));
+                        else
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Health", NPC, 4, 30, false, new NearbyBossText(600, 800));
+                    }
+                    else
+                    {
+                        if (!AAWorld.downedYamata)
+                            ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.First.Half"), AAColor.YamataDialogue);
+                        else
+                            ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.Repeat.Half"), AAColor.YamataDialogue);
+                    }
                 }
-                if (NPC.life <= NPC.lifeMax / 2 && HalfHealth == false)
+                HalfHealth = true;
+            }
+            if (NPC.life <= (NPC.lifeMax * 0.25f) && !quarterHealth)
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.Repeat.Half"), AAColor.YamataDialogue);
-                    HalfHealth = true;
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                    {
+                        if (!AAWorld.downedYamata)
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Health", NPC, 2, 30, false, new NearbyBossText(600, 800));
+                        else
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Health", NPC, 5, 30, false, new NearbyBossText(600, 800));
+                    }
+                    else
+                    {
+                        if (!AAWorld.downedYamata)
+                            ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.First.Quarter"), AAColor.YamataDialogue);
+                        else
+                            ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.Repeat.Quarter"), AAColor.YamataDialogue);
+                    }
                 }
-                if (NPC.life <= NPC.lifeMax / 4 && quarterHealth == false)
-                {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Health.Repeat.Quarter"), AAColor.YamataDialogue);
-                    quarterHealth = true;
-                }
+                quarterHealth = true;
             }
         }
 
@@ -245,7 +280,13 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             if (!Main.expertMode)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
-                    BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Defeat.NotExpert"), AAColor.YamataDialogue);
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Defeat", NPC.Center, 0, 30, false, new BossText());
+                    else
+                        BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Defeat.NotExpert"), AAColor.YamataDialogue);
+                }
+
                 if (!NPC.BeenKilled(true))
                 {
                     NPC.OnGameEventClearedForTheFirstTime(-1);
@@ -313,7 +354,7 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
         public int SayTheLineYamata = 300;
         public bool FirstLine = false;
         public bool NoFly4U = false;
-        public int NoFlyCountDown = 60;
+        public int NoFlyCountDown = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? 180 : 60;
 
         public void HandleHeads()
         {
@@ -403,7 +444,10 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                 if (Main.netMode != NetmodeID.MultiplayerClient && !flag)
                 {
                     flag = true;
-                    ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Despawn.Daytime"), AAColor.YamataDialogue);
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Despawn", NPC.Center, 0, 30, false, new NearbyBossText(600, 800));
+                    else
+                        ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Despawn.Daytime"), AAColor.YamataDialogue);
                 }
                 NPC.alpha += 10;
                 if (NPC.alpha >= 255)
@@ -425,11 +469,10 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
             bool foundTarget = TargetClosest();
             if (foundTarget)
             {
-                for (int p = 0; p < Main.maxPlayers; p++)
+                foreach(Player p in Main.ActivePlayers)
                 {
-                    Player t = Main.player[p];
-                    if (t.active && !t.dead)
-                        Main.player[p].AddBuff(ModContent.BuffType<YamataBody_AbyssalGravity>(), 10, true);
+                    if (!p.dead)
+                        p.AddBuff(ModContent.BuffType<YamataBody_AbyssalGravity>(), 10, true);
                 }
                 NoFlyCountDown--;
                 if (!NoFly4U && NoFlyCountDown <= 0 && !AAWorld.downedYamata)
@@ -437,7 +480,13 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                     NoFlyCountDown = 0;
                     NoFly4U = true;
 
-                    if (NPC.type == ModContent.NPCType<YamataBody>()) if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.NoFly"), AAColor.YamataDialogue);
+                    if (NPC.type == ModContent.NPCType<YamataBody>() && Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Alert", NPC.Center, 0, 30, false, new NearbyBossText(600, 800));
+                        else
+                            ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.NoFly"), AAColor.YamataDialogue);
+                    }
                 }
 
                 float dist = NPC.Distance(playerTarget.Center);
@@ -447,7 +496,13 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
                     {
                         if (!FirstLine)
                         {
-                            if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Teleport"), AAColor.YamataDialogue);
+                            if (Main.netMode != NetmodeID.MultiplayerClient)
+                            {
+                                if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                    WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Alert", NPC.Center, 1, 30, false, new NearbyBossText(600, 800));
+                                else
+                                    ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Teleport"), AAColor.YamataDialogue);
+                            }
                             FirstLine = true;
                         }
                     }
@@ -512,7 +567,13 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata
         {
             if (Main.netMode != NetmodeID.MultiplayerClient && !loludide)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Kill"), AAColor.YamataDialogue);
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Yamata.Despawn", NPC.Center, 1, 30, false, new NearbyBossText(600, 800));
+                    else
+                        ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Yamata.Kill"), AAColor.YamataDialogue);
+                }
                 loludide = true;
             }
 

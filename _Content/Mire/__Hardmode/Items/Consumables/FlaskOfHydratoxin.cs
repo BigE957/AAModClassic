@@ -12,6 +12,7 @@ namespace AAModClassic._Content.Mire.__Hardmode.Items.Consumables
         {
             // DisplayName.SetDefault("Flask of Hydratoxin");
             // Tooltip.SetDefault("Melee attacks inflict hydratoxin");
+            Item.ResearchUnlockCount = 20;
         }
 
         public override void SetDefaults()

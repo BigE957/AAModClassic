@@ -58,6 +58,9 @@ namespace AAModClassic._Content.Mire._PostMoonlord.NPCs.__BossYamata.Awakened.Sk
 
         public override void Update(GameTime gameTime)
         {
+            if (Main.gameMenu)
+                Active = false;
+
             if (Active)
             {
                 Intensity = Math.Min(1f, 0.01f + Intensity);

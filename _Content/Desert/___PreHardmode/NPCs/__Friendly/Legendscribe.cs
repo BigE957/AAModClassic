@@ -18,7 +18,7 @@ using AAModClassic._Content.RedMushroom.___PreHardmode.NPCs.__BossMushroomMonarc
 using AAModClassic._Content.Snow.___PreHardmode.NPCs.__BossSubzeroSerpent;
 using AAModClassic._Content.Stars._PostMoonlord.Items.Quest;
 using AAModClassic._CrossMod.CalamityMod;
-using AAModClassic._Unofficial.Desert;
+using AAModClassic._Unofficial.Content.Desert;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;

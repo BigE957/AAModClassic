@@ -30,6 +30,7 @@ namespace AAModClassic._Content.Snow.___PreHardmode.Items.Consumables
         {
             // DisplayName.SetDefault("Ice Flask");
             // Tooltip.SetDefault(@"Spreads the Tundra");
+            Item.ResearchUnlockCount = 99;
         }
 
         public override bool AltFunctionUse(Player player)

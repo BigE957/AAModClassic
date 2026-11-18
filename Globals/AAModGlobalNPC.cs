@@ -967,7 +967,7 @@ namespace AAModClassic.Globals
                 spawnInfo.Player.AAPlayer().ZoneTerrarium ||
                 spawnInfo.Player.AAPlayer().ZoneAcropolis ||
                 spawnInfo.Player.AAPlayer().ZoneHoard ||
-                spawnInfo.Player.AAPlayer().ZoneShip;
+                (spawnInfo.Player.AAPlayer().ZoneShip && AAWorld.downedEquinox);
 
             //Nukes vanilla spawns
             if (aaBiomeZone && !pillarZone)
@@ -1036,11 +1036,11 @@ namespace AAModClassic.Globals
 
             Vector2 npcCenter = player.Center + new Vector2(Main.rand.NextFloat(500, 800) * overrideDirection, 800f * overrideDirectionY);
 
-            SpawnBoss(player, bossType, spawnMessage, npcCenter, overrideDisplayName, namePlural);
+            SpawnBossAtPosition(player, bossType, spawnMessage, npcCenter, overrideDisplayName, namePlural);
         }
 
         // SpawnBoss(player, mod.NPCType("MyBoss"), true, player.Center + new Vector2(0, 800f), "DerpFromBelow", false);
-        public static void SpawnBoss(Player player, int bossType, bool spawnMessage = true, Vector2 npcCenter = default, string overrideDisplayName = "", bool namePlural = false)
+        public static void SpawnBossAtPosition(Player player, int bossType, bool spawnMessage = true, Vector2 npcCenter = default, string overrideDisplayName = "", bool namePlural = false)
         {
             if (npcCenter == default)
             {

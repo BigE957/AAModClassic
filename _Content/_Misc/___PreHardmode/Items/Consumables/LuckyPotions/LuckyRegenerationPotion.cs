@@ -13,6 +13,7 @@ namespace AAModClassic._Content._Misc.___PreHardmode.Items.Consumables.LuckyPoti
         {
             // DisplayName.SetDefault("Lucky Regeneration Potion");
             // Tooltip.SetDefault("Provides life regeneration");
+            Item.ResearchUnlockCount = 20;
         }
 
         public override void SetDefaults()

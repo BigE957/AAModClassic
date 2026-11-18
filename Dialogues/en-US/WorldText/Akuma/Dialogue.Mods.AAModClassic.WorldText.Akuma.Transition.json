@@ -1,0 +1,49 @@
+{
+  "Revision": 1,
+  "DefaultColor": "b42920",
+  "DefaultSpeaker": "Akuma",
+  "AlignType": 1,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Pages": [
+    {
+      "Lines": [
+        "Heh...[Pause(3)] "
+      ]
+    },
+    {
+      "Lines": [
+        "You know, kid...[Pause(3)] "
+      ]
+    },
+    {
+      "BaseColor": "00bfff",
+      "Lines": [
+        "Fanning the flames doesn't put them out...[Pause(3.5)] "
+      ]
+    },
+    {
+      "BaseColor": "00bfff",
+      "Lines": [
+        "[Shaking(2):IT ONLY MAKES THEM STRONGER!][Pause(1)] "
+      ]
+    }
+  ]
+}

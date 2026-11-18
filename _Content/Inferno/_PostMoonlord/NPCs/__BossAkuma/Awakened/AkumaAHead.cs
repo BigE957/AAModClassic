@@ -7,7 +7,10 @@ using AAModClassic._Removed.Content._Tinker._PostMoonlord.Items.Accessories;
 using AAModClassic.Achievements;
 using AAModClassic.Globals;
 using AAModClassic.Music;
+using AAModClassic.UI.Dialogue;
+using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.UI.Titles;
+using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
@@ -72,7 +75,8 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             NPC.behindTiles = true;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = new SoundStyle("AAModClassic/Sounds/AkumaRoar");
-            Music = MusicManagementSystem.MusicSlots["Akuma_Awakened"];
+            string key = WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? "Akuma_Awakened" : "Akuma_Awakened_Legacy";
+            Music = MusicManagementSystem.MusicSlots[key];
             SceneEffectPriority = SceneEffectPriority.BossHigh;
             for (int k = 0; k < NPC.buffImmune.Length; k++)
             {
@@ -218,10 +222,16 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                                 Main.dust[num935].noGravity = true;
                                 Main.dust[num935].velocity.Y -= 1f;
                             }
-                            if (weakness == false)
+                            if (!weakness)
                             {
                                 weakness = true;
-                                if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma1"), Color.DeepSkyBlue);
+                                if (Main.netMode != NetmodeID.MultiplayerClient)
+                                {
+                                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.WaterHit", NPC, 1, 60, false, new NearbyBossText(400, 1800));
+                                    else
+                                        ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.WaterHit"), Color.DeepSkyBlue);
+                                }
                             }
                         }
                     }
@@ -464,15 +474,34 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
                         if (!spawnAshe)
                         {
                             spawnAshe = true;
-                            if (AAWorld.downedAkuma)
+                            if (Main.netMode != NetmodeID.MultiplayerClient)
                             {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.AsheAppear.Akuma"), Color.DeepSkyBlue);
-                                if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.AsheAppear.Ashe"), new Color(102, 20, 48));
-                            }
-                            else
-                            {
-                                if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.AsheAppear.First.Ashe"), new Color(102, 20, 48));
-                                if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.AsheAppear.First.Akuma"), Color.DeepSkyBlue);
+                                if (AAWorld.downedAkuma)
+                                {
+                                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                    {
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.AsheAssist", NPC, 2, 30, false, new NearbyBossText(600, 1800));
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.AsheAssist", player, 3, 30, false, new NearbyBossText(400, 1000));
+                                    }
+                                    else
+                                    {
+                                        ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.AsheAppear.Akuma"), Color.DeepSkyBlue);
+                                        ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.AsheAppear.Ashe"), new Color(102, 20, 48));
+                                    }
+                                }
+                                else
+                                {
+                                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                                    {
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.AsheAssist", player, 0, 30, false, new NearbyBossText(400, 1000));
+                                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.AsheAssist", NPC, 1, 30, false, new NearbyBossText(600, 1800));
+                                    }
+                                    else
+                                    {
+                                        ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.AsheAppear.First.Ashe"), new Color(102, 20, 48));
+                                        ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.AsheAppear.First.Akuma"), Color.DeepSkyBlue);
+                                    }
+                                }
                             }
                         }
                     }
@@ -503,16 +532,28 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
 
             if (!Main.dayTime)
             {
-                if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.DayReset"), Color.DeepSkyBlue);
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Despawn", NPC, 2, 60, false, new NearbyBossText(400, 1800));
+                    else
+                        ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.DayReset"), Color.DeepSkyBlue);
+                }
                 Main.dayTime = true;
                 Main.time = 0;
             }
 
             if (Main.player[NPC.target].dead || Math.Abs(NPC.position.X - Main.player[NPC.target].position.X) > 6000f || Math.Abs(NPC.position.Y - Main.player[NPC.target].position.Y) > 6000f)
             {
-                if (Loludided == false)
+                if (!Loludided)
                 {
-                    if (Main.netMode != NetmodeID.MultiplayerClient) ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.Kill"), new Color(180, 41, 32));
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                            WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Despawn", NPC, 3, 60, false, new NearbyBossText(400, 1800));
+                        else
+                            ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.Kill"), new Color(180, 41, 32));
+                    }
                     Loludided = true;
                 }
                 NPC.velocity.Y = NPC.velocity.Y + 1f;
@@ -626,14 +667,27 @@ namespace AAModClassic._Content.Inferno._PostMoonlord.NPCs.__BossAkuma.Awakened
             if (Main.expertMode)
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
-                    ChatUtils.Chat(NPCExtensions.BeenKilled<AkumaAHead>(true) ? Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.Defeat.Repeat") : Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.Defeat.First"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
+                {
+                    if(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Defeat", NPC.Center, NPC.BeenKilled(true) ? 1 : 1, 30, false, new BossText());
+                    else if(NPC.BeenKilled(true))
+                        ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.Defeat.Repeat"), Color.DeepSkyBlue);
+                    else
+                        ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.Defeat.First"), Color.DeepSkyBlue);
+
+                }
                 if (NPC.playerInteraction[Main.myPlayer])
                     AkumaKilled.Condition.Complete();
             }
             else
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
-                    ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.Defeat.Cheat"), Color.DeepSkyBlue.R, Color.DeepSkyBlue.G, Color.DeepSkyBlue.B);
+                {
+                    if (WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial))
+                        WorldTextSystem.StartDialogue("Mods.AAModClassic.WorldText.Akuma.Defeat", NPC.Center, 3, 30, false, new BossText());
+                    else
+                        ChatUtils.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Akuma.Awakened.Defeat.Cheat"), Color.DeepSkyBlue);
+                }
             }
 
             if (!NPC.BeenKilled(true))
