@@ -33,6 +33,16 @@ namespace AAModClassic._Unofficial.Content.Unimush
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[Type] = 3;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionYOverride = 0f,
+                Position = new(0, -16f),
+                Scale = 0.8f,
+                PortraitScale = 0.9f
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+
             if (!Main.dedServ)
             {
                 Jaw = ModContent.Request<Texture2D>(path + "MushroomMadness_Jaw");
@@ -255,8 +265,8 @@ namespace AAModClassic._Unofficial.Content.Unimush
 
         private float jawX = 0f;
         private float jawRot = 0f;
-        private float jawY = 64f;
-        private float oldY = 64f;
+        private float jawY = 48f;
+        private float oldY = 48f;
         private Vector2 drawOffset = Vector2.Zero;
         private int FrameY = 0;
 
@@ -268,12 +278,6 @@ namespace AAModClassic._Unofficial.Content.Unimush
             {
                 NPC.velocity.X = 0f;
                 NPC.velocity.Y = MathF.Sin(NPC.ai[1]) * 0.5f;
-
-                jawX = MathHelper.Lerp(-1.5f, 1.5f, MathF.Sin(NPC.ai[1] * 3f) / 2f + 0.5f);
-                jawRot = jawX / MathHelper.TwoPi / 18f;
-                jawY = MathHelper.Lerp(48f, 58f, MathF.Cos(NPC.ai[1] * 1.5f) / 2f + 0.5f);
-
-                NPC.ai[1] += 0.04f;
 
                 if (Main.LocalPlayer.Distance(NPC.Center) < Main.screenWidth / 2.5f)
                 {
@@ -389,6 +393,18 @@ namespace AAModClassic._Unofficial.Content.Unimush
             }
         }
 
+        public override void FindFrame(int frameHeight)
+        {
+            if (NPC.IsABestiaryIconDummy || State == MushMadState.Idle)
+            {
+                jawX = MathHelper.Lerp(-1.5f, 1.5f, MathF.Sin(NPC.ai[1] * 3f) / 2f + 0.5f);
+                jawRot = jawX / MathHelper.TwoPi / 18f;
+                jawY = MathHelper.Lerp(48f, 58f, MathF.Cos(NPC.ai[1] * 1.5f) / 2f + 0.5f);
+
+                NPC.ai[1] += 0.04f;
+            }
+        }
+
         public override void DrawBehind(int index)
         {
             Main.instance.DrawCacheNPCsMoonMoon.Add(index);
@@ -438,7 +454,8 @@ namespace AAModClassic._Unofficial.Content.Unimush
                 _ => 0
             };
 
-            float wave = MathF.Sin(Main.GlobalTimeWrappedHourly * waveSpeed);
+            float time = NPC.IsABestiaryIconDummy ? NPC.ai[1] / 2.4f : Main.GlobalTimeWrappedHourly;
+            float wave = MathF.Sin(time * waveSpeed);
             float baseWaveMult = index % 2 == 0 ? -0.15f : 0.15f;
 
             spriteBatch.Draw(Roots.Value, drawPos - screenPos, frame, drawColor, NPC.rotation + rotationOffset + wave * baseWaveMult, origin, NPC.scale, effects, 0);
