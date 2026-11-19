@@ -398,35 +398,44 @@ namespace AAModClassic._Unofficial.Content.Unimush
         {
             Vector2 drawPos = NPC.Center + index switch
             {
-                0 => new Vector2(30, 15),
-                1 => new Vector2(10, 30),
-                2 => new Vector2(-30, 15),
-                3 => new Vector2(-10, 30),
+                0 => new Vector2(36, 18),
+                1 => new Vector2(24, 32),
+                2 => new Vector2(10, 36),
+                3 => new Vector2(-36, 18),
+                4 => new Vector2(-24, 32),
+                5 => new Vector2(-10, 36),
                 _ => Vector2.Zero
             } * NPC.scale;
 
-            Rectangle frame = Roots.Frame(1, 4, 0, index);
-            SpriteEffects effects = index > 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-            Vector2 origin = index > 1 ? new Vector2(frame.Width, 0) : Vector2.Zero;
+            Rectangle frame = Roots.Frame(1, 6, 0, index);
+            SpriteEffects effects = index > 2 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+            Vector2 origin = index > 2 ? new Vector2(frame.Width, 0) : Vector2.Zero;
 
             float sensitivity = 0.3f;
             float velocityRotationContribution = (NPC.velocity.Y * 0.5f) / (1f + MathF.Abs(NPC.velocity.Y) * sensitivity);
 
             float rotationOffset = index switch
             {
-                0 => -(MathHelper.PiOver4 / 4f + velocityRotationContribution),
+                0 => MathHelper.PiOver4 / 4f + velocityRotationContribution,
                 1 => -(MathHelper.PiOver4 / 4f + velocityRotationContribution),
-                2 => MathHelper.PiOver4 / 4f + velocityRotationContribution,
-                3 => MathHelper.PiOver4 / 4f + velocityRotationContribution,
-                _ => MathHelper.PiOver2
+                2 => -velocityRotationContribution,
+
+                3 => -MathHelper.PiOver4 / 4f + velocityRotationContribution,
+                4 => MathHelper.PiOver4 / 4f + velocityRotationContribution,
+                5 => velocityRotationContribution,
+
+                _ => 0
             };
 
             float waveSpeed = index switch
             {
-                0 => 1.2f,
-                1 => 2.8f,
-                2 => 2.2f,
-                _ => 1.7f
+                0 => 1.9f,
+                1 => 1.2f,
+                2 => 2.8f,
+                3 => 1.4f,
+                4 => 2.2f,
+                5 => 1.7f,
+                _ => 0
             };
 
             float wave = MathF.Sin(Main.GlobalTimeWrappedHourly * waveSpeed);
@@ -438,14 +447,17 @@ namespace AAModClassic._Unofficial.Content.Unimush
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             DrawRoot(spriteBatch, screenPos, drawColor, 0);
+            DrawRoot(spriteBatch, screenPos, drawColor, 3);
+
             DrawRoot(spriteBatch, screenPos, drawColor, 2);
+            DrawRoot(spriteBatch, screenPos, drawColor, 5);
 
             if (Tendrils != null)
                 for (int i = 0; i < Tendrils.Length; i++)
                     Tendrils[i].Draw(spriteBatch, screenPos);
 
             DrawRoot(spriteBatch, screenPos, drawColor, 1);
-            DrawRoot(spriteBatch, screenPos, drawColor, 3);
+            DrawRoot(spriteBatch, screenPos, drawColor, 4);
 
             Vector2 mouthPos = NPC.Center + new Vector2(0, 32) * NPC.scale;
             Vector2 jawPos = NPC.Center + drawOffset + new Vector2(jawX, jawY) * NPC.scale;
