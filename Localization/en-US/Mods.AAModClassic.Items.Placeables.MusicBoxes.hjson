@@ -1,4 +1,4 @@
-﻿BroodmotherBox: {
+BroodmotherBox: {
 	DisplayName: Music Box (Broodmother)
 	Tooltip: Plays 'Blazing Fury' by SpectralAves
 }
@@ -256,4 +256,9 @@ SunkenShipPreSoCBox: {
 CthulhuBox: {
 	DisplayName: Music Box (Cthulhu)
 	Tooltip: Plays 'Recondite Rhapsody (Combat)' by MaestroVGM
-}
+}
+
+SuperancientsPinchBox: {
+	DisplayName: Music Box (Superancients Pinch)
+	Tooltip: Plays 'Bygone Battles' by SpectralAves
+}

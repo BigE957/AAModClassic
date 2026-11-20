@@ -8,12 +8,16 @@ namespace AAModClassic.UI.Dialogue
 {
     public class DialoguePool<TContext>
     {
-        public readonly List<(string TreeKey, Func<TContext, bool> Requirement, byte Priority, bool Repeatable)> Dialogues;
-        public List<(string TreeKey, Func<TContext, bool> Requirement, byte Priority)> CirculatingDialogues = [];
+        public readonly Dictionary<string, (Func<TContext, bool> Requirement, byte Priority, bool Repeatable)> Dialogues;
+        private readonly HashSet<string> CirculatingDialogues = [];
 
         public DialoguePool(params (string TreeKey, Func<TContext, bool> Requirement, byte Priority, bool Repeatable)[] dialogues)
         {
-            Dialogues = dialogues.ToList();
+            Dialogues = [];
+            foreach (var (TreeKey, Requirement, Priority, Repeatable) in dialogues)
+            {
+                Dialogues.Add(TreeKey, (Requirement, Priority, Repeatable));
+            }
             ResetCirculatingDialogues();
         }
 
@@ -21,71 +25,82 @@ namespace AAModClassic.UI.Dialogue
         {
             CirculatingDialogues.Clear();
 
-            foreach (var (TreeKey, Requirement, Priority, Repeatable) in Dialogues)
+            foreach (var key in Dialogues.Keys)
             {
-                (string TreeKey, Func<TContext, bool> Requirement, byte Priority) myDialogue = new(TreeKey, Requirement, Priority);
-                CirculatingDialogues.Add(myDialogue);
+                CirculatingDialogues.Add(key);
             }
         }
 
+        public bool IsTreeInCirculation(string key) => CirculatingDialogues.Contains(key);
+
         public string GetTree(TContext context)
         {
-            short globalTopPriority = -1;
-            foreach (var (TreeKey, Requirement, Priority, Repeatable) in Dialogues)
+            List<(string Key, byte Priority)> passing = [];
+            int topPriority = -1;
+
+            foreach (var (key, (requirement, priority, repeatable)) in Dialogues)
             {
-                if (Requirement.Invoke(context) && (Repeatable || CirculatingDialogues.Any(t => t.TreeKey == TreeKey)) && Priority > globalTopPriority)
-                    globalTopPriority = Priority;
+                if (!repeatable && !CirculatingDialogues.Contains(key))
+                    continue;
+                if (priority < topPriority)
+                    continue;
+                if (!requirement(context))
+                    continue;
+
+                passing.Add((key, priority));
+                if (priority > topPriority)
+                    topPriority = priority;
             }
 
-            if (globalTopPriority == -1)
+            if (passing.Count == 0)
                 return null;
 
-            bool hasAvailableInTopTier = CirculatingDialogues.Any(d => d.Priority == globalTopPriority && d.Requirement.Invoke(context));
+            bool hasAvailableInTopTier = false;
+            foreach (var (key, priority) in passing)
+            {
+                if (priority == topPriority && CirculatingDialogues.Contains(key))
+                {
+                    hasAvailableInTopTier = true;
+                    break;
+                }
+            }
 
             if (!hasAvailableInTopTier)
             {
-                foreach (var (TreeKey, Requirement, Priority, Repeatable) in Dialogues)
+                foreach (var (key, entry) in Dialogues)
                 {
-                    if (Priority == globalTopPriority && Repeatable && !CirculatingDialogues.Any(d => d.TreeKey == TreeKey))
-                        CirculatingDialogues.Add((TreeKey, Requirement, Priority));
+                    if (entry.Priority == topPriority && entry.Repeatable)
+                        CirculatingDialogues.Add(key);
                 }
             }
 
             WeightedRandom<string> keys = new();
-            foreach (var (TreeKey, Requirement, Priority) in CirculatingDialogues)
+            foreach (var (key, priority) in passing)
             {
-                if (Priority == globalTopPriority && Requirement.Invoke(context))
-                    keys.Add(TreeKey);
+                if (priority == topPriority && CirculatingDialogues.Contains(key))
+                    keys.Add(key);
             }
 
             string selectedKey = keys.Get();
-
-            CirculatingDialogues.RemoveAll(d => d.TreeKey == selectedKey);
-
+            CirculatingDialogues.Remove(selectedKey);
             return selectedKey;
         }
 
         public void SaveData(string tagKey, TagCompound tag)
         {
-            List<string> circulatingTrees = [];
-            for (int i = 0; i < CirculatingDialogues.Count; i++)
-                circulatingTrees.Add(CirculatingDialogues[i].TreeKey);
-
-            tag[tagKey] = circulatingTrees;
+            List<string> usedKeys = Dialogues.Keys.Where(key => !CirculatingDialogues.Contains(key)).ToList();
+            tag[tagKey + "_Used"] = usedKeys;
         }
 
         public void LoadData(string tagKey, TagCompound tag)
         {
-            if (!tag.ContainsKey(tagKey))
+            ResetCirculatingDialogues();
+
+            if (!tag.ContainsKey(tagKey + "_Used"))
                 return;
 
-            CirculatingDialogues.Clear();
-            List<string> circulatingTrees = (List<string>)tag.GetList<string>(tagKey);
-            for (int i = 0; i < circulatingTrees.Count; i++)
-            {
-                var (TreeKey, Requirement, Priority, Repeatable) = Dialogues.First(d => d.TreeKey == circulatingTrees[i]);
-                CirculatingDialogues.Add(new(TreeKey, Requirement, Priority));
-            }
+            foreach (var key in tag.GetList<string>(tagKey + "_Used"))
+                CirculatingDialogues.Remove(key);
         }
     }
 

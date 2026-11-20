@@ -1446,11 +1446,6 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._NpcLegendscribe
     public class AnubisDialoguePlayer : ModPlayer
     {
         internal int ChattingAnubis = -1;
-        internal bool HasSpokenToAnubisPostMoonLord = false;
-        internal bool HasLostToForsakenAnubis = false;
-        internal bool HasLostMultipleTimesToForsakenAnubis = false;
-        internal bool HasSpokenToAnubisAfterDyingToForsakenAnubis = false;
-        internal bool HasSpokenToAnubisPostForsakenAnubis = false;
 
         public override void Load()
         {
@@ -1489,25 +1484,12 @@ namespace AAModClassic._Unofficial.Content.Desert.NPCs._NpcLegendscribe
 
         public override void SaveData(TagCompound tag)
         {
-            tag.Add("HasSpokenToAnubisPostMoonLord", HasSpokenToAnubisPostMoonLord);
-            tag.Add("HasDiedToForsakenAnubis", HasLostToForsakenAnubis);
-            tag.Add("HasDiedMultipleTimesToForsakenAnubis", HasLostMultipleTimesToForsakenAnubis);
-            tag.Add("HasSpokenToAnubisAfterDyingToForsakenAnubis", HasSpokenToAnubisAfterDyingToForsakenAnubis);
-            tag.Add("HasSpokenToAnubisPostForsakenAnubis", HasSpokenToAnubisPostForsakenAnubis);
+            
         }
 
         public override void LoadData(TagCompound tag)
         {
-            if (!tag.TryGet("HasSpokenToAnubisPostMoonLord", out HasSpokenToAnubisPostMoonLord))
-                HasSpokenToAnubisPostMoonLord = false;
-            if (!tag.TryGet("HasDiedToForsakenAnubis", out HasLostToForsakenAnubis))
-                HasLostToForsakenAnubis = false;
-            if (!tag.TryGet("HasDiedMultipleTimesToForsakenAnubis", out HasLostMultipleTimesToForsakenAnubis))
-                HasLostMultipleTimesToForsakenAnubis = false;
-            if (!tag.TryGet("HasSpokenToAnubisAfterDyingToForsakenAnubis", out HasSpokenToAnubisAfterDyingToForsakenAnubis))
-                HasSpokenToAnubisAfterDyingToForsakenAnubis = false;
-            if (!tag.TryGet("HasSpokenToAnubisPostForsakenAnubis", out HasSpokenToAnubisPostForsakenAnubis))
-                HasSpokenToAnubisPostForsakenAnubis = false;
+
         }
 
         public override void ResetEffects()

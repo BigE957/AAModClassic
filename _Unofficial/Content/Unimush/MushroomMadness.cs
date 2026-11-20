@@ -1,4 +1,5 @@
-﻿using AAModClassic._Content.RedMushroom.World.Biomes;
+﻿using AAModClassic._Content.Mire.World.Biomes;
+using AAModClassic._Content.RedMushroom.World.Biomes;
 using AAModClassic.Effects;
 using AAModClassic.Music;
 using AAModClassic.Particles;
@@ -27,14 +28,27 @@ namespace AAModClassic._Unofficial.Content.Unimush
         internal static Asset<Texture2D> Jaw;
         internal static Asset<Texture2D> Jaw_Back;
         internal static Asset<Texture2D> Tendril;
+        internal static Asset<Texture2D> Roots;
 
         public override void SetStaticDefaults()
         {
+            Main.npcFrameCount[Type] = 3;
+
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new()
+            {
+                PortraitPositionYOverride = 0f,
+                Position = new(0, -16f),
+                Scale = 0.8f,
+                PortraitScale = 0.9f
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset[Type] = value;
+
             if (!Main.dedServ)
             {
                 Jaw = ModContent.Request<Texture2D>(path + "MushroomMadness_Jaw");
                 Jaw_Back = ModContent.Request<Texture2D>(path + "MushroomMadness_Jaw_Back");
                 Tendril = ModContent.Request<Texture2D>(path + "MushroomMadness_Tendril");
+                Roots = ModContent.Request<Texture2D>(path + "MushroomMadness_Roots");
             }
         }
 
@@ -98,7 +112,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
                 }
             }
 
-            public void Draw(SpriteBatch spriteBatch, Vector2 screenPos, int index)
+            public void Draw(SpriteBatch spriteBatch, Vector2 screenPos)
             {
                 Texture2D tendril = Tendril.Value;
                 int frameX = 3;
@@ -251,9 +265,10 @@ namespace AAModClassic._Unofficial.Content.Unimush
 
         private float jawX = 0f;
         private float jawRot = 0f;
-        private float jawY = 64f;
-        private float oldY = 64f;
+        private float jawY = 48f;
+        private float oldY = 48f;
         private Vector2 drawOffset = Vector2.Zero;
+        private int FrameY = 0;
 
         public override void AI()
         {
@@ -263,12 +278,6 @@ namespace AAModClassic._Unofficial.Content.Unimush
             {
                 NPC.velocity.X = 0f;
                 NPC.velocity.Y = MathF.Sin(NPC.ai[1]) * 0.5f;
-
-                jawX = MathHelper.Lerp(-1.5f, 1.5f, MathF.Sin(NPC.ai[1] * 3f) / 2f + 0.5f);
-                jawRot = jawX / MathHelper.TwoPi / 18f;
-                jawY = MathHelper.Lerp(50f, 60f, MathF.Cos(NPC.ai[1] * 1.5f) / 2f + 0.5f);
-
-                NPC.ai[1] += 0.04f;
 
                 if (Main.LocalPlayer.Distance(NPC.Center) < Main.screenWidth / 2.5f)
                 {
@@ -301,6 +310,7 @@ namespace AAModClassic._Unofficial.Content.Unimush
                     Main.BestiaryTracker.Sights.RegisterWasNearby(NPC);
                     NPC.velocity.Y = -18f;
                     NPC.hide = false;
+                    FrameY = 1;
                 }
 
                 if (NPC.ai[1] <= 30f)
@@ -315,6 +325,8 @@ namespace AAModClassic._Unofficial.Content.Unimush
                     jawY += jawOff.Y;
 
                     drawOffset = Main.rand.NextVector2Circular(4f, 4f) * ease;
+                    if (NPC.ai[1] > 24)
+                        FrameY = 2;
                 }
                 else if(NPC.ai[1] < 90)
                 {
@@ -381,23 +393,98 @@ namespace AAModClassic._Unofficial.Content.Unimush
             }
         }
 
+        public override void FindFrame(int frameHeight)
+        {
+            if (NPC.IsABestiaryIconDummy || State == MushMadState.Idle)
+            {
+                jawX = MathHelper.Lerp(-1.5f, 1.5f, MathF.Sin(NPC.ai[1] * 3f) / 2f + 0.5f);
+                jawRot = jawX / MathHelper.TwoPi / 18f;
+                jawY = MathHelper.Lerp(48f, 58f, MathF.Cos(NPC.ai[1] * 1.5f) / 2f + 0.5f);
+
+                NPC.ai[1] += 0.04f;
+            }
+        }
+
         public override void DrawBehind(int index)
         {
             Main.instance.DrawCacheNPCsMoonMoon.Add(index);
         }
 
+        private void DrawRoot(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor, int index)
+        {
+            Vector2 drawPos = NPC.Center + index switch
+            {
+                0 => new Vector2(36, 18),
+                1 => new Vector2(24, 32),
+                2 => new Vector2(10, 36),
+                3 => new Vector2(-36, 18),
+                4 => new Vector2(-24, 32),
+                5 => new Vector2(-10, 36),
+                _ => Vector2.Zero
+            } * NPC.scale;
+
+            Rectangle frame = Roots.Frame(1, 6, 0, index);
+            SpriteEffects effects = index > 2 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+            Vector2 origin = index > 2 ? new Vector2(frame.Width, 0) : Vector2.Zero;
+
+            float sensitivity = 0.3f;
+            float velocityRotationContribution = (NPC.velocity.Y * 0.5f) / (1f + MathF.Abs(NPC.velocity.Y) * sensitivity);
+
+            float rotationOffset = index switch
+            {
+                0 => MathHelper.PiOver4 / 4f + velocityRotationContribution,
+                1 => -(MathHelper.PiOver4 / 4f + velocityRotationContribution),
+                2 => -velocityRotationContribution,
+
+                3 => -MathHelper.PiOver4 / 4f + velocityRotationContribution,
+                4 => MathHelper.PiOver4 / 4f + velocityRotationContribution,
+                5 => velocityRotationContribution,
+
+                _ => 0
+            };
+
+            float waveSpeed = index switch
+            {
+                0 => 1.9f,
+                1 => 1.2f,
+                2 => 2.8f,
+                3 => 1.4f,
+                4 => 2.2f,
+                5 => 1.7f,
+                _ => 0
+            };
+
+            float time = NPC.IsABestiaryIconDummy ? NPC.ai[1] / 2.4f : Main.GlobalTimeWrappedHourly;
+            float wave = MathF.Sin(time * waveSpeed);
+            float baseWaveMult = index % 2 == 0 ? -0.15f : 0.15f;
+
+            spriteBatch.Draw(Roots.Value, drawPos - screenPos, frame, drawColor, NPC.rotation + rotationOffset + wave * baseWaveMult, origin, NPC.scale, effects, 0);
+        }
+
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
+            DrawRoot(spriteBatch, screenPos, drawColor, 0);
+            DrawRoot(spriteBatch, screenPos, drawColor, 3);
+
+            DrawRoot(spriteBatch, screenPos, drawColor, 2);
+            DrawRoot(spriteBatch, screenPos, drawColor, 5);
+
             if (Tendrils != null)
                 for (int i = 0; i < Tendrils.Length; i++)
-                    Tendrils[i].Draw(spriteBatch, screenPos, i);
+                    Tendrils[i].Draw(spriteBatch, screenPos);
+
+            DrawRoot(spriteBatch, screenPos, drawColor, 1);
+            DrawRoot(spriteBatch, screenPos, drawColor, 4);
 
             Vector2 mouthPos = NPC.Center + new Vector2(0, 32) * NPC.scale;
             Vector2 jawPos = NPC.Center + drawOffset + new Vector2(jawX, jawY) * NPC.scale;
-            Vector2 jawBackPos = (mouthPos + jawPos) / 2f;
+            Vector2 jawBackPos = (mouthPos + jawPos) / 2f + Vector2.UnitY * -6;
             spriteBatch.Draw(Jaw_Back.Value, jawBackPos - screenPos, null, drawColor, NPC.rotation, Jaw_Back.Size() * 0.5f, NPC.scale, 0, 0);
 
-            spriteBatch.Draw(TextureAssets.Npc[Type].Value, NPC.Center + drawOffset - screenPos, null, drawColor, NPC.rotation, TextureAssets.Npc[Type].Size() * 0.5f, NPC.scale, 0, 0);
+            Texture2D body = TextureAssets.Npc[Type].Value;
+            Rectangle bodyFrame = body.Frame(1, 3, 0, FrameY);
+
+            spriteBatch.Draw(body, NPC.Center + drawOffset - screenPos, bodyFrame, drawColor, NPC.rotation, bodyFrame.Size() * 0.5f, NPC.scale, 0, 0);
             return false;
         }
 
