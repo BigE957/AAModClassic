@@ -1154,7 +1154,7 @@ namespace AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis
                 {
                     if (AttackTimer < 420)
                     {
-                        if (true || !NPCExtensions.BeenKilled<Anubis>())
+                        if (!NPCExtensions.BeenKilled<Anubis>())
                         {
                             if (AttackTimer == 60)
                             {
