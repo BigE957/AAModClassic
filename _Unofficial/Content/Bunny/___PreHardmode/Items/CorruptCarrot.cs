@@ -7,7 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAModClassic._Unofficial.Bunny.Items
+namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items
 {
     public class CorruptCarrot : ModItem, ILocalizedModType
     {

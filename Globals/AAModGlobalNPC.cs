@@ -58,7 +58,6 @@ using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossOrthrusX;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRaiderUltima;
 using AAModClassic._Removed.Content.Parthenan.__Hardmode.NPCs.__BossRetriever;
 using AAModClassic._Unreleased.Content.Parthenan.__Hardmode.NPCs.__BossTechnoTruffle;
-using AAModClassic._Unofficial.Bunny.Items;
 using AAModClassic.Base;
 using AAModClassic.UI.Core;
 using AAModClassic.UI.World;
@@ -77,6 +76,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
+using AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items;
 
 namespace AAModClassic.Globals
 {

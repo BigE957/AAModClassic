@@ -1,4 +1,4 @@
-using AAModClassic._Unofficial.Bunny.Items;
+using AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

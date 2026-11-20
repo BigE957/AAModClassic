@@ -6,7 +6,6 @@ using AAModClassic._Content.Mire.World.Tiles;
 using AAModClassic._Content.RedMushroom.___PreHardmode.Items.Quest;
 using AAModClassic._Content.Stars.World.Altar;
 using AAModClassic.Base;
-using AAModClassic._Unofficial.Bunny.Items;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -17,6 +16,7 @@ using System.Linq;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
+using AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items;
 
 namespace AAModClassic.Globals
 {
