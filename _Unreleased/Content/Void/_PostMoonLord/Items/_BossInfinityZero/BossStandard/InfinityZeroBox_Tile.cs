@@ -2,6 +2,7 @@ using AAModClassic.Base;
 using AAModClassic.Globals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.Localization;
@@ -12,6 +13,8 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
 {
     public class InfinityZeroBox_Tile : ModTile
     {
+        private static Asset<Texture2D> glowTex;
+
         public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
@@ -25,26 +28,20 @@ namespace AAModClassic._Unreleased.Content.Void._PostMoonLord.Items._BossInfinit
             RegisterItemDrop(ModContent.ItemType<InfinityZeroBox>());
             DustType = ModContent.DustType<Dusts.VoidDust_Unreleased>();
             AddMapEntry(new Color(200, 200, 200), Language.GetText("ItemName." + ItemID.Search.GetName(ItemID.MusicBox)));
-        }
 
-        public Texture2D glowTex;
-        public bool glow = true;
+            if(!Main.dedServ)
+                glowTex = ModContent.Request<Texture2D>(Texture + "_Glow");
+        }
 
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)
         {
-            if (!glow) return;
             Color color = BaseUtility.ColorMult(ZAAPlayer.ZeroColor, 0.7f);
             r = color.R / 255f; g = color.G / 255f; b = color.B / 255f;
         }
 
         public override void PostDraw(int x, int y, SpriteBatch sb)
         {
-            Tile tile = Main.tile[x, y];
-            if (glow && tile != null && tile.HasTile && tile.TileType == Type)
-            {
-                if (glowTex == null) glowTex = ModContent.Request<Texture2D>(Texture + "_Glow").Value;
-                BaseDrawing.DrawTileTexture(sb, glowTex, x, y, true, false, false, null, AAGlobalTile.GetZeroColorDim);
-            }
+            BaseDrawing.DrawTileTexture(sb, glowTex.Value, x, y, true, false, false, null, AAGlobalTile.GetZeroColorDim);
         }
 
         public override void MouseOver(int i, int j)

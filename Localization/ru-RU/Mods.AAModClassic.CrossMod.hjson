@@ -500,6 +500,11 @@ MusicDisplay: {
 		Author: за авторством: MaestroVGM
 		DisplayName: Infinitum
 	}
+
+	Superancients_Pinch: {
+		// Author: by SpectralAves
+		// DisplayName: Bygone Battles
+	}
 }
 
 CalamityMod: {

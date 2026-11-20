@@ -257,3 +257,8 @@ CthulhuBox: {
 	DisplayName: Музыкальная шкатулка (Ктулху)
 	Tooltip: Проигрывает «Recondite Rhapsody (Combat)» за авторством: MaestroVGM
 }
+
+SuperancientsPinchBox: {
+	// DisplayName: Music Box (Superancients Pinch)
+	// Tooltip: Plays 'Bygone Battles' by SpectralAves
+}
