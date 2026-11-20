@@ -27,7 +27,7 @@ namespace AAModClassic._Content.Stars._PostMoonlord.Items.Tiles
             Item.createTile = ModContent.TileType<EquinoxAltarBox_Tile>();
             Item.width = 24;
             Item.height = 24;
-            Item.rare = ItemRarityID.Yellow;
+            Item.rare = ItemRarityID.LightRed;
             Item.value = 10000;
             Item.accessory = true;
         }
