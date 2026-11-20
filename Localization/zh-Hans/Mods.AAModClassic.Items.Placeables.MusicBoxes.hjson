@@ -257,3 +257,8 @@ CthulhuBox: {
 	DisplayName: 八音盒（克苏鲁）
 	Tooltip: 播放'Recondite Rhapsody (Combat)' by MaestroVGM
 }
+
+SuperancientsPinchBox: {
+	// DisplayName: Music Box (Superancients Pinch)
+	// Tooltip: Plays 'Bygone Battles' by SpectralAves
+}

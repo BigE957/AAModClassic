@@ -1627,7 +1627,6 @@ namespace AAModClassic._CrossMod
             AddMusic("BiomiteCore");
             AddMusic("LostKeep");
             AddMusic("TechnoTruffle");
-            AddMusic("Superancients_Pinch");
         }
 
         private static void PerformFargosSupport()
