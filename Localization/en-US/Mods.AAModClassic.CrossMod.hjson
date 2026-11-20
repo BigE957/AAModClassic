@@ -505,6 +505,11 @@ MusicDisplay: {
 		Author: by SpectralAves
 		DisplayName: Bygone Battles
 	}
+
+	RajahEpilogue: {
+		Author: by Seeksery
+		DisplayName: Passing the Baton
+	}
 }
 
 CalamityMod: {

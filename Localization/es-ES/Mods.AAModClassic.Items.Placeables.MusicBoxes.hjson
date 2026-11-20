@@ -262,3 +262,28 @@ SuperancientsPinchBox: {
 	// DisplayName: Music Box (Superancients Pinch)
 	// Tooltip: Plays 'Bygone Battles' by SpectralAves
 }
+
+RajahEpilogueBox: {
+	// DisplayName: Music Box (Champion of the Innocent - Epilogue)
+	// Tooltip: Plays 'Passing the Baton' by Seeksery
+}
+
+EquinoxAltarBox: {
+	// DisplayName: Music Box (Equinox Altar)
+	// Tooltip: Plays 'Offerings' by ProduceVGM
+}
+
+BiomiteCoreBox: {
+	// DisplayName: Music Box (Biomite Core)
+	// Tooltip: Plays 'Restless Spirit' by ProduceVGM
+}
+
+LostKeepBox: {
+	// DisplayName: Music Box (Lost Keep)
+	// Tooltip: Plays 'Hall of Memories' by Saucecoie
+}
+
+TechnoTruffleBox: {
+	// DisplayName: Music Box (Techno Truffle)
+	// Tooltip: Plays 'Mechanical Mold Match' by SpectralAves
+}

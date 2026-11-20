@@ -28,7 +28,7 @@ namespace AAModClassic._Content._EX._PostMoonlord.Items.Tiles
             Item.createTile = ModContent.TileType<SuperancientsPinchBox_Tile>();
             Item.width = 24;
             Item.height = 24;
-            Item.rare = ItemRarityID.Yellow;
+            Item.rare = ItemRarityID.Expert;
             Item.value = 10000;
             Item.accessory = true;
         }

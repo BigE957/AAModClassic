@@ -505,6 +505,11 @@ MusicDisplay: {
 		// Author: by SpectralAves
 		// DisplayName: Bygone Battles
 	}
+
+	RajahEpilogue: {
+		// Author: Mods.AAModClassic.CrossMod.MusicDisplay.RajahEpilogue.Author
+		// DisplayName: Mods.AAModClassic.CrossMod.MusicDisplay.RajahEpilogue.DisplayName
+	}
 }
 
 CalamityMod: {

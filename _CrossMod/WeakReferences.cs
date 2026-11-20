@@ -82,7 +82,6 @@ using AAModClassic._Content.Hoard._PostMoonlord.Items._BossGreedA.Weapons;
 using AAModClassic._Content.Hoard._PostMoonlord.NPCs.__BossGreedA;
 using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother;
 using AAModClassic._Content.Inferno.___PreHardmode.Items._BossBroodmother.BossStandard;
-using AAModClassic._Content.Inferno.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Inferno.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs;
 using AAModClassic._Content.Inferno.___PreHardmode.NPCs.__BossBroodmother;
@@ -110,7 +109,6 @@ using AAModClassic._Content.Madness.___PreHardmode.NPCs;
 using AAModClassic._Content.MartianMadness.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra;
 using AAModClassic._Content.Mire.___PreHardmode.Items._BossHydra.BossStandard;
-using AAModClassic._Content.Mire.___PreHardmode.Items.Consumables;
 using AAModClassic._Content.Mire.___PreHardmode.Items.Weapons;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs;
 using AAModClassic._Content.Mire.___PreHardmode.NPCs.__BossHydra;
@@ -1622,11 +1620,6 @@ namespace AAModClassic._CrossMod
                 LocalizedText displayName = Language.GetOrRegister(displayPath + name.Replace("_", "") + ".DisplayName");
                 display.Call("AddMusic", MusicManagementSystem.MusicSlots[name], displayName, author, modName);
             }
-
-            AddMusic("Equinox_Altar");
-            AddMusic("BiomiteCore");
-            AddMusic("LostKeep");
-            AddMusic("TechnoTruffle");
         }
 
         private static void PerformFargosSupport()
