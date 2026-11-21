@@ -33,6 +33,8 @@ namespace AAModClassic.UI.Dialogue
 
         public bool IsTreeInCirculation(string key) => CirculatingDialogues.Contains(key);
 
+        public bool AllTreesInCirculation() => CirculatingDialogues.Count == Dialogues.Keys.Count;
+
         public string GetTree(TContext context)
         {
             List<(string Key, byte Priority)> passing = [];
@@ -89,17 +91,17 @@ namespace AAModClassic.UI.Dialogue
         public void SaveData(string tagKey, TagCompound tag)
         {
             List<string> usedKeys = Dialogues.Keys.Where(key => !CirculatingDialogues.Contains(key)).ToList();
-            tag[tagKey + "_Used"] = usedKeys;
+            tag[tagKey] = usedKeys;
         }
 
         public void LoadData(string tagKey, TagCompound tag)
         {
             ResetCirculatingDialogues();
 
-            if (!tag.ContainsKey(tagKey + "_Used"))
+            if (!tag.ContainsKey(tagKey))
                 return;
 
-            foreach (var key in tag.GetList<string>(tagKey + "_Used"))
+            foreach (var key in tag.GetList<string>(tagKey))
                 CirculatingDialogues.Remove(key);
         }
     }

@@ -39,6 +39,7 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
             NPC.value = 0;
             Music = MusicManagementSystem.MusicSlots["Silence"];
             NPC.boss = true;
+            NPC.noTileCollide = false;
         }
 
         public override void AI()
