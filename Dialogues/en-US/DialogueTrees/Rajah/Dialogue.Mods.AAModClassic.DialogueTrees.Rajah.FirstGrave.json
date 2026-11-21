@@ -1,0 +1,258 @@
+{
+  "Revision": 1,
+  "DefaultSpeaker": "Rajah",
+  "AlignType": 0,
+  "TextDelay": 2,
+  "BasePunctuationDelay": {
+    "Delay": 10,
+    "ForceSet": false,
+    "Locks": false
+  },
+  "PunctuationDelayCap": 30,
+  "PunctuationDelays": {
+    "!": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    },
+    "?": {
+      "Delay": 20,
+      "ForceSet": true,
+      "Locks": true
+    }
+  },
+  "Dialogues": [
+    {
+      "IndexComment": "Index 0!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "... huh?"
+        ]
+      }
+    },
+    {
+      "IndexComment": "Index 1!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "Oh, why hello. Were you... an acquaintance of theirs?"
+        ]
+      },
+
+      "Responses": [
+        {
+          "Title": "Yes.",
+          "Heading": 2
+        },
+        {
+          "Title": "No.",
+          "Heading": 10
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 2!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "I am truly sorry for your loss.[Pause(2)] Had I only arrived sooner, then perhaps they would still be with us..."
+        ]
+      }
+    },
+    {
+      "IndexComment": "Index 3!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "I must ask. Did you see who could have done this? I fear that whoever this was may strike again, and that is something I cannot allow."
+        ]
+      },
+
+      "Responses": [
+        {
+          "Title": "I didn't.",
+          "Heading": 4
+        },
+        {
+          "Title": "It was me.",
+          "Heading": 6
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 4!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "I assumed as much. Well, I have had my time to grieve. I can leave you to yours should you wish."
+        ]
+      },
+
+      "Responses": [
+        {
+          "Title": "I'd appreciate that.",
+          "Heading": -1
+        },
+        {
+          "Title": "You can stay.",
+          "Heading": 5
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 5!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "Oh? Well, then stay I shall."
+        ]
+      },
+      "Responses": [
+        {
+          "Title": "Thank you.",
+          "Heading": -1
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 6!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "[Shaking(1):What...?][Pause(2)] "
+        ]
+      },
+
+      "Responses": [
+        {
+          "Title": "It was a mistake.",
+          "Heading": 7
+        },
+        {
+          "Title": "I'd do it again.",
+          "Heading": -1
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 7!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "[Shaking(1):...][Pause(1)] "
+        ]
+      }
+    },
+    {
+      "IndexComment": "Index 7!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "[Shaking(1):I...] appreciate your honesty. It is easy for us to not realize our own strength.",
+          "I must inist you try to be more careful with that strength. It is our duty to be mindful of our power. Understand?"
+        ]
+      },
+
+      "Responses": [
+        {
+          "Title": "Of course.",
+          "Heading": 8
+        },
+        {
+          "Title": "I disagree.",
+          "Heading": 9
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 8!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "I am glad to hear. I must be off then. I have had my time to grieve, and I must ensure such accidents won't happen elsewhere."
+        ]
+      },
+
+      "Responses": [
+        {
+          "Title": "Farewell.",
+          "Heading": -1
+        },
+        {
+          "Title": "Best of luck.",
+          "Heading": -1
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 9!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "[Shaking(1):I beg your pardon...?][Pause(2)] "
+        ]
+      },
+
+      "Responses": [
+        {
+          "Title": "Strength is all that matters.",
+          "Heading": -1
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 10!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "Ah, just passing by then? I must ask. Did you see who could have done this? I fear that whoever this was may strike again, and that is something I cannot allow."
+        ]
+      },
+
+      "Responses": [
+        {
+          "Title": "I didn't.",
+          "Heading": 11
+        },
+        {
+          "Title": "It was me.",
+          "Heading": 6
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 11!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "I assumed as much. Well, I have had my time to grieve. I must be off to ensure this won't happen elsewhere."
+        ]
+      },
+
+      "Responses": [
+        {
+          "Title": "Farewell.",
+          "Heading": -1
+        },
+        {
+          "Title": "Best of luck.",
+          "Heading": -1
+        }
+      ]
+    }
+  ]
+}
