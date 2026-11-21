@@ -675,10 +675,10 @@ namespace AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA
                                 BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.NPCs.BossDialogue.Anubis.Forsaken.Kill"), Color.ForestGreen);
                         }
                         NPC.Transform(WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unofficial) ? ModContent.NPCType<LegendscribeUnofficial>() : ModContent.NPCType<Legendscribe>());
-                        if (Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().HasLostToForsakenAnubis)
-                            Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().HasLostMultipleTimesToForsakenAnubis = true;
-                        else
-                            Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().HasLostToForsakenAnubis = true;
+                        //if (Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().HasLostToForsakenAnubis)
+                        //    Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().HasLostMultipleTimesToForsakenAnubis = true;
+                        //else
+                        //    Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().HasLostToForsakenAnubis = true;
                     }
                     return false;
                 }

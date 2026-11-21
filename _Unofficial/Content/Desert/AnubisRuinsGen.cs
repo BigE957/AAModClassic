@@ -1,4 +1,5 @@
-﻿using AAModClassic.Structures;
+﻿using AAModClassic._Unofficial.Content.Desert.NPCs._NpcLegendscribe;
+using AAModClassic.Structures;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;

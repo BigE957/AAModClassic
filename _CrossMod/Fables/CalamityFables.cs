@@ -59,6 +59,9 @@ namespace AAModClassic._CrossMod.Fables
 
         public static bool DisplayBossIntroCard(string bossKey, int uptime, bool flipBorder, Color borderColor, Color titleColor, Color abberationColor1, Color abberationColor2)
         {
+            if (calamityFables == null)
+                return false;
+
             string localizationPath = $"Mods.AAModClassic.CrossMod.Fables.BossIntroCard.{bossKey}.";
             string name = Language.GetTextValue(localizationPath + "Name");
             string title = Language.GetTextValue(localizationPath + "Title");

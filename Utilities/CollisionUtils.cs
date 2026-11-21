@@ -66,6 +66,7 @@ public static class CollisionUtils
     {
 
         if (IsTerrainTile(p))
+        {
             while (IsTerrainTile(p.X, p.Y - 1) && p.Y >= 1)
                 p.Y--;
         }
@@ -74,7 +75,6 @@ public static class CollisionUtils
 
             while (!IsTerrainTile(p.X, p.Y) && (ignorePlatforms || !TileID.Sets.Platforms[Framing.GetTileSafely(p.X, p.Y).TileType]) && p.Y < Main.maxTilesY)
                 p.Y++;
-            }
         }
 
         return p;
