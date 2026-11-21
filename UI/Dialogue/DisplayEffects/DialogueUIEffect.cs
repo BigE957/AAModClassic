@@ -12,7 +12,7 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
     public class DialogueUIEffect : DisplayEffect
     {
         public static Vector2 TextAnchor => new(0.5f, 0.5f);
-        public static Vector2 MinTextArea => new(200f, 60f);
+        public static Vector2 MinTextArea => new(300f, 60f);
         public static Vector2 ClampTextArea(Vector2 size) => Vector2.Max(size, MinTextArea);
         public Vector2 RegionSize(Vector2 textSize, int switchTimer, bool closing)
         {
