@@ -38,7 +38,7 @@
       "DialogueInfo": {
         "BorderDarkening": 0,
         "Lines": [
-          "Oh, why hello. Were you... an acquaintance of theirs?"
+          "Oh, why hello.[Pause(1)] Were you... an acquaintance of theirs?"
         ]
       },
 
@@ -49,7 +49,7 @@
         },
         {
           "Title": "No.",
-          "Heading": 10
+          "Heading": 11
         }
       ]
     },
@@ -59,7 +59,7 @@
       "DialogueInfo": {
         "BorderDarkening": 0,
         "Lines": [
-          "I am truly sorry for your loss.[Pause(2)] Had I only arrived sooner, then perhaps they would still be with us..."
+          "I am truly sorry for your loss.[Pause(1)] [Shaking(1):Had I only arrived sooner], then perhaps they would still be with us..."
         ]
       }
     },
@@ -69,7 +69,7 @@
       "DialogueInfo": {
         "BorderDarkening": 0,
         "Lines": [
-          "I must ask. Did you see who could have done this? I fear that whoever this was may strike again, and that is something I cannot allow."
+          "I must ask.[Pause(0.5)] Did you see who could have done this? I fear that whoever this was may strike again, and that is something I cannot allow."
         ]
       },
 
@@ -90,7 +90,7 @@
       "DialogueInfo": {
         "BorderDarkening": 0,
         "Lines": [
-          "I assumed as much. Well, I have had my time to grieve. I can leave you to yours should you wish."
+          "I assumed as much.[Pause(1)] Well, I have had my time to grieve.[Pause(0.5)] I can leave you to yours should you wish."
         ]
       },
 
@@ -153,7 +153,7 @@
       }
     },
     {
-      "IndexComment": "Index 7!",
+      "IndexComment": "Index 8!",
 
       "DialogueInfo": {
         "BorderDarkening": 0,
@@ -166,16 +166,16 @@
       "Responses": [
         {
           "Title": "Of course.",
-          "Heading": 8
+          "Heading": 9
         },
         {
           "Title": "I disagree.",
-          "Heading": 9
+          "Heading": 10
         }
       ]
     },
     {
-      "IndexComment": "Index 8!",
+      "IndexComment": "Index 9!",
 
       "DialogueInfo": {
         "BorderDarkening": 0,
@@ -196,12 +196,12 @@
       ]
     },
     {
-      "IndexComment": "Index 9!",
+      "IndexComment": "Index 10!",
 
       "DialogueInfo": {
         "BorderDarkening": 0,
         "Lines": [
-          "[Shaking(1):I beg your pardon...?][Pause(2)] "
+          "[Shaking(1):I beg your pardon...?][Pause(1)] "
         ]
       },
 
@@ -213,7 +213,7 @@
       ]
     },
     {
-      "IndexComment": "Index 10!",
+      "IndexComment": "Index 11!",
 
       "DialogueInfo": {
         "BorderDarkening": 0,
@@ -225,7 +225,7 @@
       "Responses": [
         {
           "Title": "I didn't.",
-          "Heading": 11
+          "Heading": 12
         },
         {
           "Title": "It was me.",
@@ -234,7 +234,7 @@
       ]
     },
     {
-      "IndexComment": "Index 11!",
+      "IndexComment": "Index 12!",
 
       "DialogueInfo": {
         "BorderDarkening": 0,

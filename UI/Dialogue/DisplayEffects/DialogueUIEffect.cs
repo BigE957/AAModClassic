@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
-using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 using static AAModClassic.UI.Dialogue.DialogueUISystem;
@@ -12,6 +11,17 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
 {
     public class DialogueUIEffect : DisplayEffect
     {
+        public static Vector2 TextAnchor => new(0.5f, 0.5f);
+        public static Vector2 MinTextArea => new(200f, 60f);
+        public static Vector2 ClampTextArea(Vector2 size) => Vector2.Max(size, MinTextArea);
+        public Vector2 RegionSize(Vector2 textSize, int switchTimer, bool closing)
+        {
+            Vector2 size = textSize;
+            if (switchTimer > 0 && !closing)
+                size += ChangeSize * SwitchProgress(switchTimer);
+            return ClampTextArea(size);
+        }
+
         public Vector2 ChangePosition = Vector2.Zero;
         public Vector2 ChangeSize = Vector2.Zero;
         public bool SkipIntroFade = false;
@@ -89,7 +99,10 @@ namespace AAModClassic.UI.Dialogue.DisplayEffects
                 }
             }
 
-            DrawBloom(spriteBatch, drawPos + drawSize * 0.5f, drawSize, Opacity, SceneOverlay != null);
+            Vector2 area = ClampTextArea(drawSize);
+            Vector2 regionPos = drawPos - (area - drawSize) * TextAnchor;
+
+            DrawBloom(spriteBatch, regionPos + area * 0.5f, area, Opacity, SceneOverlay != null);
         }
 
         private static Asset<Texture2D> bloomAsset;

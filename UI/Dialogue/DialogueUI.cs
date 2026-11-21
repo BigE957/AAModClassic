@@ -240,17 +240,14 @@ namespace AAModClassic.UI.Dialogue
 
         private void UpdatePortrait()
         {
-            Vector2 size = dialogue.TextSize;
-            Vector2 virtualSize = size;
+            var effect = (DialogueUIEffect)dialogue.DisplayEffects;
+            bool switching = switchStarted && dialogue.SwitchingPage && !dialogue.ClosingDialogue;
 
-            if (switchStarted && dialogue.SwitchingPage && !dialogue.ClosingDialogue)
-            {
-                var effect = (DialogueUIEffect)dialogue.DisplayEffects;
-                virtualSize += effect.ChangeSize * DialogueUIEffect.SwitchProgress(dialogue.SwitchCounter);
-            }
+            Vector2 region = effect.RegionSize(dialogue.TextSize, switching ? dialogue.SwitchCounter : 0, dialogue.ClosingDialogue);
+            Vector2 panelSize = new(panel.Width.Pixels, panel.Height.Pixels);
 
-            float widthDiff = size.X - virtualSize.X;
-            float heightDiff = (size.Y - virtualSize.Y) * 2f;   // panel height is TextSize.Y * 2
+            float widthDiff = panelSize.X - region.X;
+            float heightDiff = panelSize.Y - region.Y * 2f;
 
             if (leftSide)
                 portrait.Left.Pixels = PortraitBaseLeft + widthDiff / 2f;
@@ -312,6 +309,9 @@ namespace AAModClassic.UI.Dialogue
 
         public override void Update(GameTime gameTime)
         {
+            panel.BackgroundColor = Color.Transparent;
+            panel.BorderColor = Color.Transparent;
+
             if (switchStarted)
             {
                 dialogue.SwitchCounter++;
@@ -319,10 +319,12 @@ namespace AAModClassic.UI.Dialogue
                     ChangeDialogue();
             }
 
-            panel.Width.Pixels = dialogue.TextSize.X;
-            panel.Height.Pixels = dialogue.TextSize.Y * 2;
+            Vector2 area = DialogueUIEffect.ClampTextArea(dialogue.TextSize);
 
-            Vector2 halfSize = new(panel.Width.Pixels / 2f, panel.Height.Pixels / 2f);
+            panel.Width.Pixels = area.X;
+            panel.Height.Pixels = area.Y * 2f;
+
+            Vector2 halfSize = new(area.X / 2f, area.Y);
             Vector2 cameraPosition = Main.screenPosition;
             Vector2 screenPos = worldCenter - cameraPosition - halfSize;
 
@@ -333,7 +335,8 @@ namespace AAModClassic.UI.Dialogue
 
             panel.Recalculate();
 
-            dialogue.Position = panel.GetInnerDimensions().Center() - dialogue.TextSize / 2f;
+            Vector2 slack = (area - dialogue.TextSize) * DialogueUIEffect.TextAnchor;
+            dialogue.Position = panel.GetInnerDimensions().Center() - area / 2f + slack;
 
             if (!crawlOver && !dialogue.Crawling)
             {
