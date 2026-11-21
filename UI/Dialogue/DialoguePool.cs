@@ -33,6 +33,8 @@ namespace AAModClassic.UI.Dialogue
 
         public bool IsTreeInCirculation(string key) => CirculatingDialogues.Contains(key);
 
+        public bool AllTreesInCirculation() => CirculatingDialogues.Count == Dialogues.Keys.Count;
+
         public string GetTree(TContext context)
         {
             List<(string Key, byte Priority)> passing = [];
