@@ -59,7 +59,7 @@ namespace AAModClassic._Content.Hell.___PreHardmode.Items.Weapons
         public override void OnKill(int timeleft)
         {
             SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
-            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<TheVulcano_VulcanExplosion>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, Projectile.velocity.X, Projectile.velocity.Y, ModContent.ProjectileType<TheVulcano_VulcanExplosion>(), Projectile.damage / 2, Projectile.knockBack, Projectile.owner, 0f, 0f);
             int DustType = DustID.Torch;
             for (int num583 = 0; num583 < 20; num583++)
             {
