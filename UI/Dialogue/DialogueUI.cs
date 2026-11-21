@@ -1,4 +1,5 @@
-﻿using AAModClassic.Dialogues;
+﻿using AAModClassic._Unofficial.Content.Desert;
+using AAModClassic.Dialogues;
 using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -15,6 +16,7 @@ using Terraria.GameInput;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 using Terraria.UI;
 
 namespace AAModClassic.UI.Dialogue
@@ -108,7 +110,6 @@ namespace AAModClassic.UI.Dialogue
                     return;
 
                 DialogueUISystem.ResponseSelect?.Invoke(treeName, currentIndex, responseIndex);
-
                 SwitchDialogue(currentIndex + 1);
                 responses[0].Hide(0);
                 return;
@@ -790,6 +791,9 @@ namespace AAModClassic.UI.Dialogue
 
         public static void EndDialogue(bool silent)
         {
+            if (!Visible || State.dialogue.ClosingDialogue)
+                return;
+
             string name = State.treeName;
             int index = State.currentIndex;
 
@@ -864,6 +868,180 @@ namespace AAModClassic.UI.Dialogue
         }
     }
 
+    // This literally only exists to circumvent the npc talk range limit.
+    // Without it, the NPC can walk off while the ui is still up if the player exists the vanilla npc talk range,
+    // and if you dont un-set it after the npc updates then it spams the menu open sound if you're out of the range limit
+    // I hate it here.
+    public class DialogueTalkNPCSystem : ModSystem
+    {
+        public override void PreUpdateNPCs()
+        {
+            DialoguePlayer dp = Main.LocalPlayer.GetModPlayer<DialoguePlayer>();
+            if (dp.chattingLastFrame && DialogueUISystem.UI.CurrentState != null)
+                Main.LocalPlayer.SetTalkNPC(dp.ChattingNPC);
+        }
+
+        public override void PostUpdateNPCs()
+        {
+            DialoguePlayer dp = Main.LocalPlayer.GetModPlayer<DialoguePlayer>();
+            if (dp.chattingLastFrame && DialogueUISystem.UI.CurrentState != null)
+                Main.LocalPlayer.SetTalkNPC(-1);
+        }
+    }
+
+    public class DialoguePlayer : ModPlayer
+    {
+        internal int ChattingNPC = -1;
+        internal bool chattingLastFrame = false;
+        private int appearTimer = 0;
+        private string DialogueToUse = "";
+
+        public override void Load()
+        {
+            On_Player.CloseSign += CloseSign;
+            On_Player.ToggleInv += DialogueBlockInventory;
+            On_Player.ToggleCreativeMenu += DialogueBlockCreative;
+        }
+
+        private void CloseSign(On_Player.orig_CloseSign orig, Player self)
+        {
+            orig(self);
+
+            DialoguePlayer dp = self.GetModPlayer<DialoguePlayer>();
+
+            int chattingNPC = dp.ChattingNPC;
+
+            if (chattingNPC != -1)
+                dp.InteruptDialogue(true);
+        }
+
+        private void DialogueBlockInventory(On_Player.orig_ToggleInv orig, Player self)
+        {
+            DialoguePlayer dp = self.GetModPlayer<DialoguePlayer>();
+            int chattingNPC = dp.ChattingNPC;
+            if (chattingNPC != -1)
+                dp.InteruptDialogue(Main.mapFullscreen);
+            else
+                orig(self);
+        }
+
+        private void DialogueBlockCreative(On_Player.orig_ToggleCreativeMenu orig, Player self)
+        {
+            DialoguePlayer dp = self.GetModPlayer<DialoguePlayer>();
+            int chattingNPC = dp.ChattingNPC;
+            if (chattingNPC != -1)
+                dp.InteruptDialogue(false);
+            else
+                orig(self);
+        }
+
+        public override void PreUpdate()
+        {
+            if (Main.dedServ || !chattingLastFrame)
+                return;
+
+            // Resets dialogue state after the UI has been closed by itself
+            if (appearTimer >= 60 && DialogueUISystem.UI.CurrentState == null)
+            {
+                ChattingNPC = -1;
+                chattingLastFrame = false;
+                appearTimer = 0;
+                return;
+            }
+
+            if (Player.sign >= 0 || Main.clothesWindow)
+            {
+                InteruptDialogue(true);
+                return;
+            }
+
+            // Handles camera stuff when dialogue is happening
+            NPC npc = Main.npc[ChattingNPC];
+
+            float zoom = Main.GameZoomTarget - 1f;
+            Vector2 cameraCenter = (npc.Center + Player.Center) / 2f - Vector2.UnitY * MathHelper.Lerp(140f, 80f, zoom);
+            DialogueUISystem.State.worldCenter = cameraCenter - Vector2.UnitY * 60f;
+
+            Vector2 regionCenter = npc.Center - Vector2.UnitY * 140f;
+            Rectangle bounds = new((int)regionCenter.X - Main.screenWidth / 2, (int)regionCenter.Y - Main.screenHeight / 2, Main.screenWidth, Main.screenHeight);
+
+            if (bounds.Contains((int)Player.Center.X, (int)Player.Center.Y))
+            {
+                float dist = MathF.Abs(regionCenter.X - Player.Center.X);
+                float buffer = 256f;
+                float nearbyRatio = 1 - MathHelper.Clamp((dist - buffer) / (Main.screenWidth / 2f - buffer), 0f, 1f);
+
+                float appearRatio = 1f;
+                if (appearTimer <= 60)
+                {
+                    if (appearTimer == 30)
+                        DialogueUISystem.StartDialogue(DialogueToUse, 0, npc.Center - Vector2.UnitY * 180, new(Name, npc.whoAmI));
+                    appearRatio = MathUtils.SineInOutEasing(appearTimer / 60f);
+                    appearTimer++;
+                }
+
+                if (nearbyRatio != 0f)
+                {
+                    float ease = MathUtils.SineInOutEasing(nearbyRatio);
+                    Vector2 goalCenter = Vector2.Lerp(Player.Center, cameraCenter, ease);
+
+                    CameraSystem.InterpolateCamera(goalCenter, appearRatio);
+                    CameraSystem.Zoom = MathUtils.SineInOutEasing(MathHelper.Clamp(ease - 0.5f, 0f, 0.5f) * 2f) / 4f * appearRatio;
+                }
+
+                chattingLastFrame = true;
+            }
+            else //Player left the camera/dialogue region. Close and display interuption dialogue
+            {
+                InteruptDialogue(false);
+                CameraSystem.ResetCamera();
+
+                WorldTextSystem.StartDialogue("Mods.CalamityMod.DevourerOfGods.Phases", npc.Center - Vector2.UnitY * 90f, 2, 90, false, new AlwaysOnScreen());
+                chattingLastFrame = false;
+            }
+        }
+
+        public override void UpdateDead()
+        {
+            if (ChattingNPC != -1)
+            {
+                InteruptDialogue(true);
+                ChattingNPC = -1;
+            }
+        }
+
+        public void StartDialogue(NPC npc, string tree)
+        {
+            DialogueToUse = tree;
+
+            chattingLastFrame = true;
+
+            ChattingNPC = npc.whoAmI;
+
+            if (Main.clothesWindow)
+                Main.CancelClothesWindow(true);
+
+            if (Player.sign >= 0)
+            {
+                Player.sign = -1;
+                Main.editSign = false;
+                Main.npcChatText = "";
+            }
+        }
+
+        internal void InteruptDialogue(bool silent, bool resetTalkNPC = true)
+        {
+            chattingLastFrame = false;
+            appearTimer = 0;
+            ChattingNPC = -1;
+            if(resetTalkNPC)
+                Player.SetTalkNPC(-1);
+            DialogueUISystem.EndDialogue(silent);
+        }
+    }
+
+
+    //Dialogue Classes
     [JsonConverter(typeof(SpeakerConverter))]
     public class Speaker(string name, string portrait = null)
     {

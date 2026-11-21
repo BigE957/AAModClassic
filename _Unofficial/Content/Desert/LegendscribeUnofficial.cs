@@ -1,14 +1,10 @@
 using AAModClassic._Content.Desert.___PreHardmode.NPCs.__Friendly;
 using AAModClassic._Content.Desert.__Hardmode.Items._BossAnubis;
-using AAModClassic._Content.Desert.__Hardmode.Items.Quest;
-using AAModClassic._Content.Desert.__Hardmode.Items.Weapons;
 using AAModClassic._Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic._Content.Desert._PostMoonlord.NPCs.__BossAnubisA;
-using AAModClassic._Content.Hoard.__Hardmode.NPCs.__BossGreed;
 using AAModClassic._Unreleased.Content.Desert.__Hardmode.NPCs.__BossAnubis;
 using AAModClassic.Globals;
 using AAModClassic.UI.Dialogue;
-using AAModClassic.UI.Dialogue.DisplayEffects;
 using AAModClassic.UI.World;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
@@ -17,7 +13,6 @@ using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Events;
 using Terraria.GameContent.Personalities;
@@ -297,86 +292,12 @@ namespace AAModClassic._Unofficial.Content.Desert
                 NPC.homeTileY = UnofficialAnubisSystem.AnubisRuinsTile.Y;
             }
 
-            if (chattingLastFrame && DialogueUISystem.UI.CurrentState != null)
-                Main.LocalPlayer.SetTalkNPC(NPC.whoAmI);
             return true;
-        }
-
-        private bool chattingLastFrame = false;
-        private int appearTimer = 0;
-        private string DialogueToUse = "";
+        } 
 
         public override void AI()
         {
-            if (Main.dedServ || !chattingLastFrame)
-                return;
-
-            // Resets dialogue state after the UI has been closed by itself
-            if (appearTimer >= 60 && DialogueUISystem.UI.CurrentState == null)
-            {
-                Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().ChattingAnubis = -1;
-                chattingLastFrame = false;
-                appearTimer = 0;
-                return;
-            }
-
-            if (Main.LocalPlayer.sign >= 0 || Main.clothesWindow)
-            {
-                InteruptDialogue(true);
-                return;
-            }
-
-            // Handles camera stuff when dialogue is happening
-            float zoom = Main.GameZoomTarget - 1f;
-            Vector2 cameraCenter = (NPC.Center + Main.LocalPlayer.Center) / 2f - Vector2.UnitY * MathHelper.Lerp(140f, 80f, zoom);
-            DialogueUISystem.State.worldCenter = cameraCenter - Vector2.UnitY * 60f;
-                
-            Vector2 regionCenter = NPC.Center - Vector2.UnitY * 140f;
-            Rectangle bounds = new((int)regionCenter.X - Main.screenWidth / 2, (int)regionCenter.Y - Main.screenHeight / 2, Main.screenWidth, Main.screenHeight);
-
-            if (bounds.Contains((int)Main.LocalPlayer.Center.X, (int)Main.LocalPlayer.Center.Y))
-            {
-                float dist = MathF.Abs(regionCenter.X - Main.LocalPlayer.Center.X);
-                float buffer = 256f;
-                float nearbyRatio = 1 - MathHelper.Clamp((dist - buffer) / (Main.screenWidth / 2f - buffer), 0f, 1f);
-                    
-                float appearRatio = 1f;
-                if (appearTimer <= 60)
-                {
-                    if(appearTimer == 30)
-                        DialogueUISystem.StartDialogue(DialogueToUse, 0, NPC.Center - Vector2.UnitY * 180, new(Name, NPC.whoAmI));
-                    appearRatio = MathUtils.SineInOutEasing(appearTimer / 60f);
-                    appearTimer++;
-                }
-
-                if (nearbyRatio != 0f)
-                {
-                    float ease = MathUtils.SineInOutEasing(nearbyRatio);
-                    Vector2 goalCenter = Vector2.Lerp(Main.LocalPlayer.Center, cameraCenter, ease);
-
-                    CameraSystem.InterpolateCamera(goalCenter, appearRatio);
-                    CameraSystem.Zoom = MathUtils.SineInOutEasing(MathHelper.Clamp(ease - 0.5f, 0f, 0.5f) * 2f) / 4f * appearRatio;
-                }
-
-                chattingLastFrame = true;
-            }
-            else
-            {
-                InteruptDialogue(false);
-                CameraSystem.ResetCamera();
-
-                WorldTextSystem.StartDialogue("Mods.CalamityMod.DevourerOfGods.Phases", NPC.Center - Vector2.UnitY * 90f, 2, 90, false, new AlwaysOnScreen());
-                chattingLastFrame = false;
-            }
-        }
-
-        internal void InteruptDialogue(bool silent)
-        {
-            chattingLastFrame = false;
-            appearTimer = 0;
-            Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().ChattingAnubis = -1;
-            Main.LocalPlayer.SetTalkNPC(-1);
-            DialogueUISystem.EndDialogue(silent);
+            NPC.homeless = false;
         }
 
         public override bool CanChat() => true;
@@ -403,25 +324,11 @@ namespace AAModClassic._Unofficial.Content.Desert
 
         public override string GetChat()
         {
-            AnubisDialoguePlayer p = Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>();
+            DialoguePlayer p = Main.LocalPlayer.GetModPlayer<DialoguePlayer>();
 
             Main.BestiaryTracker.Chats.RegisterChatStartWith(ContentSamples.NpcsByNetId[ModContent.NPCType<Legendscribe>()]);
 
-            DialogueToUse = pool.GetTree(Main.LocalPlayer, this);
-
-            chattingLastFrame = true;
-
-            Main.LocalPlayer.GetModPlayer<AnubisDialoguePlayer>().ChattingAnubis = NPC.whoAmI;
-
-            if(Main.clothesWindow)
-                Main.CancelClothesWindow(true);
-
-            if (Main.LocalPlayer.sign >= 0)
-            {
-                Main.LocalPlayer.sign = -1;
-                Main.editSign = false;
-                Main.npcChatText = "";
-            }
+            p.StartDialogue(NPC, pool.GetTree(Main.LocalPlayer, this));
 
             return "";
             /*
@@ -507,7 +414,10 @@ namespace AAModClassic._Unofficial.Content.Desert
                     break;
                 case "Default":
                     if (dialogueID == 0 && buttonID == 0)
+                    {
                         OpenLegendscribeUI(npc);
+                        DialogueUISystem.ForceCloseDialogue();
+                    }
                     break;
                 case "SparChallenge":
                     if (dialogueID == 0)
@@ -540,12 +450,13 @@ namespace AAModClassic._Unofficial.Content.Desert
                     if (dialogueID == 1)
                     {
                         OpenLegendscribeUI(npc);
+                        Main.LocalPlayer.GetModPlayer<DialoguePlayer>().chattingLastFrame = false;
                     }
                     UnofficialAnubisSystem.AnubisHoused = true;
                     break;
             }                
         }
-
+        /*
         public override void SetChatButtons(ref string button, ref string button2)
         {
             bool fAnubisTime = NPC.downedMoonlord && !NPCExtensions.BeenKilled<AnubisA>();
@@ -604,7 +515,7 @@ namespace AAModClassic._Unofficial.Content.Desert
                 OpenLegendscribeUI(NPC);
             }
         }
-
+        */
         private static void OpenLegendscribeUI(NPC npc)
         {
             if (Main.LocalPlayer.GetModPlayer<ZAAPlayer>().AnubisBook)
@@ -622,12 +533,18 @@ namespace AAModClassic._Unofficial.Content.Desert
                 if (Main.netMode == NetmodeID.MultiplayerClient)
                     AANet.SendNetMessage<QuestlineStartPacket>(questline.ID);
             }
+
+            if (npc.Center.Distance(Main.LocalPlayer.Center) > 100)
+            {
+                npc.Center = Main.LocalPlayer.Center - Vector2.UnitY * 24;
+                npc.netUpdate = true;
+            }
+
+            Main.LocalPlayer.SetTalkNPC(npc.whoAmI);
         }
 
         public override void PostAI()
         {
-            if (chattingLastFrame && DialogueUISystem.UI.CurrentState != null && !LegendscribeQuestUISystem.IsActive)
-                Main.LocalPlayer.SetTalkNPC(-1);
             /*
             Main.NewText("ai 0: " + NPC.ai[0]);
             Main.NewText("ai 1: " + NPC.ai[1]);
@@ -1441,71 +1358,6 @@ namespace AAModClassic._Unofficial.Content.Desert
         }
         #endregion
 
-    }
-
-    public class AnubisDialoguePlayer : ModPlayer
-    {
-        internal int ChattingAnubis = -1;
-
-        public override void Load()
-        {
-            On_Player.CloseSign += CloseSign;
-            On_Player.ToggleInv += DialogueBlockInventory;
-            On_Player.ToggleCreativeMenu += DialogueBlockCreative;
-        }
-
-        private void CloseSign(On_Player.orig_CloseSign orig, Player self)
-        {
-            orig(self);
-
-            int chattingAnubis = self.GetModPlayer<AnubisDialoguePlayer>().ChattingAnubis;
-            
-            if (chattingAnubis != -1)
-                (Main.npc[chattingAnubis].ModNPC as LegendscribeUnofficial).InteruptDialogue(true);
-        }
-
-        private void DialogueBlockInventory(On_Player.orig_ToggleInv orig, Player self)
-        {
-            int chattingAnubis = self.GetModPlayer<AnubisDialoguePlayer>().ChattingAnubis;
-            if (chattingAnubis != -1)
-                (Main.npc[chattingAnubis].ModNPC as LegendscribeUnofficial).InteruptDialogue(Main.mapFullscreen);
-            else
-                orig(self);
-        }
-
-        private void DialogueBlockCreative(On_Player.orig_ToggleCreativeMenu orig, Player self)
-        {
-            int chattingAnubis = self.GetModPlayer<AnubisDialoguePlayer>().ChattingAnubis;
-            if (chattingAnubis != -1)
-                (Main.npc[chattingAnubis].ModNPC as LegendscribeUnofficial).InteruptDialogue(false);
-            else
-                orig(self);
-        }
-
-        public override void SaveData(TagCompound tag)
-        {
-            
-        }
-
-        public override void LoadData(TagCompound tag)
-        {
-
-        }
-
-        public override void ResetEffects()
-        {
-            //ChattingAnubis = -1;
-            //Main.NewText(Main.LocalPlayer.Center.ToTileCoordinates() - new Point(Main.spawnTileX, Main.spawnTileY));
-        }
-
-        public override void UpdateDead()
-        {
-            if (ChattingAnubis != -1)
-            {
-                (Main.npc[ChattingAnubis].ModNPC as LegendscribeUnofficial).InteruptDialogue(true);
-                ChattingAnubis = -1;
-            }
-        }
     }
 
     public class UnofficialAnubisSystem : ModSystem
