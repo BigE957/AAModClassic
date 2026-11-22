@@ -113,8 +113,8 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
                 return;
             }
 
-            //if (!HasMetRajah && change < 0)
-            //    return;
+            if (!HasMetRajah)
+                change /= 10f;
 
             MyRajahReputation += change;
             if (MyRajahReputation <= -1)
@@ -155,14 +155,20 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
 
     public class RajahReputationGlobalNPC : GlobalNPC
     {
+        public override void OnChatButtonClicked(NPC npc, bool firstButton)
+        {
+            if(npc.type == NPCID.TownBunny && firstButton)
+                Main.LocalPlayer.ModifyRajahReputation(0.001f);
+        }
+
         public override void OnHitByItem(NPC npc, Player player, Item item, NPC.HitInfo hit, int damageDone)
         {
             if (npc.IsBunny())
                 player.ModifyRajahReputation((npc.life <= 0) ? -0.05f : -0.001f);
             else if (npc.IsGoodToKill())
-                player.ModifyRajahReputation((npc.life <= 0) ? 0.075f : 0.003f);
+                player.ModifyRajahReputation((npc.life <= 0) ? 0.075f : 0.0015f);
             else if (RajahReputationSystem.NPCsWhoHurtBunnies.Contains(npc.whoAmI))
-                player.ModifyRajahReputation((npc.life <= 0) ? 0.1f : 0.005f);
+                player.ModifyRajahReputation((npc.life <= 0) ? 0.1f : 0.002f);
         }
 
         public override void OnHitByProjectile(NPC npc, Projectile projectile, NPC.HitInfo hit, int damageDone)
@@ -175,9 +181,9 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
             if (npc.IsBunny())
                 player.ModifyRajahReputation((npc.life <= 0) ? -0.05f : -0.001f);
             else if (npc.IsGoodToKill())
-                player.ModifyRajahReputation((npc.life <= 0) ? 0.075f : 0.003f);
-            else if(RajahReputationSystem.NPCsWhoHurtBunnies.Contains(npc.whoAmI))
-                player.ModifyRajahReputation((npc.life <= 0) ? 0.1f : 0.005f);
+                player.ModifyRajahReputation((npc.life <= 0) ? 0.075f : 0.0015f);
+            else if (RajahReputationSystem.NPCsWhoHurtBunnies.Contains(npc.whoAmI))
+                player.ModifyRajahReputation((npc.life <= 0) ? 0.1f : 0.002f);
         }
 
         public override void OnHitNPC(NPC npc, NPC target, NPC.HitInfo hit)
@@ -196,19 +202,19 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
     {
         public override void OnCreated(Item item, ItemCreationContext context)
         {
-            if (context is RecipeItemCreationContext crafted)
+            if (context is RecipeItemCreationContext)
             {
                 switch (item.type)
                 {
                     case ItemID.ExplosiveBunny:
-                        Main.LocalPlayer.ModifyRajahReputation(-0.01f);
+                        Main.LocalPlayer.ModifyRajahReputation(-0.06f);
                         break;
                     case ItemID.BunnyStew:
-                        Main.LocalPlayer.ModifyRajahReputation(-0.05f);
+                        Main.LocalPlayer.ModifyRajahReputation(-0.04f);
                         break;
                 }
             }
-            else if(context is BuyItemCreationContext bought)
+            else if(context is BuyItemCreationContext)
             {
                 switch (item.type)
                 {
