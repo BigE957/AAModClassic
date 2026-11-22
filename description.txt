@@ -2,7 +2,7 @@ The Ancients have Awakened. Chaos reigns, storms ravage, and reality tears at th
 
 Reexperience the original 1.3 version of Ancients Awakened; ported to 1.4.4.
 
-Notice: Multiplayer is currently very buggy, and known to corrupt worlds. Play at your own risk!
+Notice: Multiplayer has yet to be thoroughly tested. If you choose to play it, please report any bugs or issues you find!
 
 Looking for a new, modern take on the original mod? Check out Ancients Awakened [BETA]!
 

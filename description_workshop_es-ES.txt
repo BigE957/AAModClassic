@@ -2,7 +2,7 @@
 
 Revive la versión 1.3 original de Ancients Awakened, adaptada a 1.4.4.
 
-Aviso: El multijugador tiene muchos errores actualmente y es conocido por corromper mundos. ¡Juega bajo tu propia responsabilidad!
+Aviso: El modo multijugador aún no se ha probado a fondo. Si decides jugar, ¡por favor, informa de cualquier error o problema que encuentres!
 
 ¿Buscas una versión nueva y moderna del mod original? ¡Echa un vistazo a [url=steamcommunity.com/sharedfiles/filedetails/?id=3596943461] Ancients Awakened[/url]!
 
