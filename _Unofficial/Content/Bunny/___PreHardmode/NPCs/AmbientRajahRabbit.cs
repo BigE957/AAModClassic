@@ -11,6 +11,7 @@ using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
 {
@@ -92,6 +93,11 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
     {
         internal static HashSet<int> NPCsWhoHurtBunnies = [];
 
+        public override void ClearWorld()
+        {
+            NPCsWhoHurtBunnies.Clear();
+        }
+
         public override void PostUpdateNPCs()
         {
             if(NPCsWhoHurtBunnies.Count > 0)
@@ -131,6 +137,23 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
                 Player.ModifyRajahReputation((target.life <= 0) ? 0.075f : 0.0015f);
             else if (RajahReputationSystem.NPCsWhoHurtBunnies.Contains(target.whoAmI))
                 Player.ModifyRajahReputation((target.life <= 0) ? 0.1f : 0.002f);
+        }
+
+        public override void SaveData(TagCompound tag)
+        {
+            tag.Add("HasMetRajah", HasMetRajah);
+            tag.Add("MyRajahReputation", MyRajahReputation);
+            tag.Add("BeyondSaving", BeyondSaving);
+        }
+
+        public override void LoadData(TagCompound tag)
+        {
+            if (!tag.TryGet("HasMetRajah", out HasMetRajah))
+                HasMetRajah = false;
+            if (!tag.TryGet("MyRajahReputation", out MyRajahReputation))
+                MyRajahReputation = 0f;
+            if (!tag.TryGet("BeyondSaving", out BeyondSaving))
+                BeyondSaving = false;
         }
     }
 
