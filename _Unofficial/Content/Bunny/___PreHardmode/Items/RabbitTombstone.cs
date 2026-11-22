@@ -1,5 +1,6 @@
 ﻿using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
+using AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
@@ -47,13 +48,11 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items
         private static int GraveSpawnCooldown = 0;
 
         internal static readonly Dictionary<Point, DateTime> RecentlyPlacedTombstones = [];
-        private static bool ActiveRajah = false;
 
         public override void OnWorldUnload()
         {
             queuedRabbitTombstonePositions.Clear();
             GraveSpawnCooldown = 0;
-            ActiveRajah = false;
             RecentlyPlacedTombstones.Clear();
         }
 
@@ -93,6 +92,8 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items
             if (TryFindTombstoneLocation(deathPosition.ToTileCoordinates(), out Point validTile))
             {
                 queuedRabbitTombstonePositions.Add(new(validTile, golden));
+                if (queuedRabbitTombstonePositions.Count > 5)
+                    queuedRabbitTombstonePositions.RemoveAt(0);
                 GraveSpawnCooldown = 1800;
                 //Main.NewText("Tomb Time");
             }
@@ -108,7 +109,7 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items
 
         private static bool TryFindTombstoneLocation(Point deathTile, out Point tilePos)
         {
-            bool deathTileWasSolid = CollisionUtils.SurfaceTile(deathTile);
+            //bool deathTileWasSolid = CollisionUtils.SurfaceTile(deathTile);
             Point groundPoint = ToAirTile(CollisionUtils.FindSurfaceBelow(deathTile));
             bool groundValid = IsValidTombstoneLocation(groundPoint);
 
@@ -195,17 +196,22 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items
 
         internal static void SpawnRajahAtTombstone(Point p)
         {
-            if(NPC.downedMoonlord && !NPCExtensions.BeenKilled<RajahRabbitA>())
+            Vector2 spawnPos = p.ToWorldCoordinates(16, 16);
+            spawnPos += Vector2.UnitX * (Main.rand.NextBool() ? -180 : 180);
+            if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<RajahRabbitA>())
             {
                 //Natural Champion Rajah (maybe mourning rajah based on rabbits killed)
+                NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<AmbientRajahRabbit>());
             }
             else if(Main.hardMode && !NPCExtensions.BeenKilled<RajahRabbit>())
             {
                 //Natural Base Rajah (maybe mourning rajah based on rabbits killed)
+                NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<AmbientRajahRabbit>());
             }
             else if(!Main.hardMode)
             {
                 //Mourning Rajah (maybe natural base rajah based on rabbits killed)
+                NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<AmbientRajahRabbit>());
             }
         }
     }
@@ -213,6 +219,7 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items
     public class RabbitTombstone_Tile : ModTile
     {
         private static int RandomStyleRange => 1;
+        private static int RajahAtGraveTimeMinutes => 2;
 
         public override void SetStaticDefaults()
         {
@@ -256,7 +263,7 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items
 
             if (RabbitTombstoneSystem.RecentlyPlacedTombstones.TryGetValue(p, out DateTime time))
             {
-                if ((DateTime.Now - time).TotalMinutes < 5)
+                if ((DateTime.Now - time).TotalMinutes < RajahAtGraveTimeMinutes && !NPC.AnyNPCs(ModContent.NPCType<AmbientRajahRabbit>()))
                     RabbitTombstoneSystem.SpawnRajahAtTombstone(p);
                 RabbitTombstoneSystem.RecentlyPlacedTombstones.Remove(p);
             }

@@ -180,7 +180,7 @@
       "DialogueInfo": {
         "BorderDarkening": 0,
         "Lines": [
-          "I am glad to hear. I must be off then. I have had my time to grieve, and I must ensure such accidents won't happen elsewhere."
+          "I am glad to hear. Well then, I must be off then. I have had my time to grieve, and I must ensure such accidents won't happen elsewhere."
         ]
       },
 
@@ -206,6 +206,10 @@
       },
 
       "Responses": [
+        {
+          "Title": "Sorry, I do agree.",
+          "Heading": 9
+        },
         {
           "Title": "Strength is all that matters.",
           "Heading": -1

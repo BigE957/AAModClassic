@@ -77,6 +77,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 using AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items;
+using AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs;
 
 namespace AAModClassic.Globals
 {
@@ -108,24 +109,6 @@ namespace AAModClassic.Globals
         public static int Rajah = -1;
 
         public override bool InstancePerEntity => true;
-
-        public static bool IsBunny(NPC npc)
-        {
-            return npc.type == NPCID.Bunny ||
-                   npc.type == NPCID.GoldBunny ||
-                   npc.type == NPCID.BunnySlimed ||
-                   npc.type == NPCID.BunnyXmas ||
-                   npc.type == NPCID.ExplosiveBunny ||
-                   npc.type == NPCID.GemBunnyAmber ||
-                   npc.type == NPCID.GemBunnyAmethyst ||
-                   npc.type == NPCID.GemBunnyDiamond ||
-                   npc.type == NPCID.GemBunnyEmerald ||
-                   npc.type == NPCID.GemBunnyRuby ||
-                   npc.type == NPCID.GemBunnySapphire ||
-                   npc.type == NPCID.GemBunnyTopaz ||
-                   npc.type == NPCID.TownBunny || //Idk if blud should count but whatever
-                   npc.type == NPCID.PartyBunny;
-        }
 
         public override void ResetEffects(NPC npc)
         {
@@ -263,7 +246,7 @@ namespace AAModClassic.Globals
 
         public override void PostAI(NPC npc)
         {
-            if (npc.CountsAsACritter && !npc.dontTakeDamage && NPCExtensions.BeenKilled<RajahRabbitA>() && IsBunny(npc))
+            if (npc.CountsAsACritter && !npc.dontTakeDamage && NPCExtensions.BeenKilled<RajahRabbitA>() && npc.IsBunny())
             {
                 npc.dontTakeDamage = true;
             }
@@ -704,10 +687,7 @@ namespace AAModClassic.Globals
             }
             */
 
-            bool bunnyKilled = IsBunny(npc);
-
-            if (bunnyKilled && WorldTypeSystem.IsWorldOptionEnabled(AAWorldOption.Unreleased))
-                RabbitTombstoneSystem.RegisterRabbitDeath(npc.Center, npc.type == NPCID.GoldBunny);
+            bool bunnyKilled = npc.IsBunny();
 
             if (Main.hardMode && bunnyKilled && Rajah != -1)
             {
