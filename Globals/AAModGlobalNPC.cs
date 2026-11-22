@@ -131,16 +131,6 @@ namespace AAModClassic.Globals
             FFlames = false;
         }
 
-        public override void SetDefaults(NPC npc)
-        {
-            base.SetDefaults(npc);
-
-            if (NPCID.Sets.TownCritter[npc.type])
-            {
-                npc.dontTakeDamageFromHostiles = true;
-            }
-        }
-
         public override void SetBestiary(NPC npc, BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             if (npc.ModNPC != null && npc.ModNPC.Mod is AAMod && (!NPCID.Sets.NPCBestiaryDrawOffset.TryGetValue(npc.type, out var modifiers) || !modifiers.Hide) && !bestiaryEntry.Info.Any(e => e is FlavorTextBestiaryInfoElement || e is ColoredFlavorTextBestiaryInfoElement))
