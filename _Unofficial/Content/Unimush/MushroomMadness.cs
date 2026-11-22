@@ -10,6 +10,7 @@ using AAModClassic.Utilities.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using ReLogic.Utilities;
 using System;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -29,6 +30,9 @@ namespace AAModClassic._Unofficial.Content.Unimush
         internal static Asset<Texture2D> Jaw_Back;
         internal static Asset<Texture2D> Tendril;
         internal static Asset<Texture2D> Roots;
+        internal static SoundStyle Roar = new("AAModClassic/Sounds/MushroomMadness_Roar");
+        private SlotId soundSlot;
+        private bool soundPlayed = false;
 
         public override void SetStaticDefaults()
         {
@@ -302,10 +306,22 @@ namespace AAModClassic._Unofficial.Content.Unimush
             }
             else
             {
+                if (!SoundEngine.TryGetActiveSound(soundSlot, out var activeRoar))
+                {
+                    if (!soundPlayed)
+                    {
+                        soundSlot = SoundEngine.PlaySound(Roar, NPC.Center);
+                        soundPlayed = true;
+                    }
+                }
+                else
+                {
+                    activeRoar.Position = NPC.Center;
+                }
+
                 if (NPC.ai[1] == 0)
                 {
                     oldY = jawY;
-                    SoundEngine.PlaySound(SoundID.Roar);
                     MushroomMadnessSystem.Encountered = true;
                     Main.BestiaryTracker.Sights.RegisterWasNearby(NPC);
                     NPC.velocity.Y = -18f;
