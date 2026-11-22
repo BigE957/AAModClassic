@@ -122,6 +122,16 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
 
             Main.NewText("Your reputation has changed: " + MyRajahReputation);
         }
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            if (target.IsBunny())
+                Player.ModifyRajahReputation((target.life <= 0) ? -0.05f : -0.001f);
+            else if (target.IsGoodToKill())
+                Player.ModifyRajahReputation((target.life <= 0) ? 0.075f : 0.0015f);
+            else if (RajahReputationSystem.NPCsWhoHurtBunnies.Contains(target.whoAmI))
+                Player.ModifyRajahReputation((target.life <= 0) ? 0.1f : 0.002f);
+        }
     }
 
     public static class RajahReputationUtils
@@ -159,31 +169,6 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
         {
             if(npc.type == NPCID.TownBunny && firstButton)
                 Main.LocalPlayer.ModifyRajahReputation(0.001f);
-        }
-
-        public override void OnHitByItem(NPC npc, Player player, Item item, NPC.HitInfo hit, int damageDone)
-        {
-            if (npc.IsBunny())
-                player.ModifyRajahReputation((npc.life <= 0) ? -0.05f : -0.001f);
-            else if (npc.IsGoodToKill())
-                player.ModifyRajahReputation((npc.life <= 0) ? 0.075f : 0.0015f);
-            else if (RajahReputationSystem.NPCsWhoHurtBunnies.Contains(npc.whoAmI))
-                player.ModifyRajahReputation((npc.life <= 0) ? 0.1f : 0.002f);
-        }
-
-        public override void OnHitByProjectile(NPC npc, Projectile projectile, NPC.HitInfo hit, int damageDone)
-        {
-            if (projectile.owner == 255)
-                return;
-
-            Player player = Main.player[projectile.owner];
-
-            if (npc.IsBunny())
-                player.ModifyRajahReputation((npc.life <= 0) ? -0.05f : -0.001f);
-            else if (npc.IsGoodToKill())
-                player.ModifyRajahReputation((npc.life <= 0) ? 0.075f : 0.0015f);
-            else if (RajahReputationSystem.NPCsWhoHurtBunnies.Contains(npc.whoAmI))
-                player.ModifyRajahReputation((npc.life <= 0) ? 0.1f : 0.002f);
         }
 
         public override void OnHitNPC(NPC npc, NPC target, NPC.HitInfo hit)
