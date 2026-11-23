@@ -110,7 +110,7 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
         {
             foreach(Player p in Main.ActivePlayers)
             {
-                p.GetModPlayer<RajahReputationPlayer>().ResetReputation();
+                //p.GetModPlayer<RajahReputationPlayer>().ResetReputation();
 
                 if (p.dead)
                     continue;
