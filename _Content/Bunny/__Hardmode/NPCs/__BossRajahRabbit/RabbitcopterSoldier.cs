@@ -1,4 +1,5 @@
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
+using AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs;
 using Microsoft.Xna.Framework;
 using System.IO;
 using Terraria.GameContent.Bestiary;
@@ -42,6 +43,8 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         {
             bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface);
         }
+
+        public override bool CanHitNPC(NPC target) => !target.IsBunny();
 
         public override bool PreKill()
         {

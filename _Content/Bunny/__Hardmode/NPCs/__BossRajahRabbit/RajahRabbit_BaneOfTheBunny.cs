@@ -1,3 +1,4 @@
+using AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -22,6 +23,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         }
 
         public bool StuckInEnemy = false;
+        public override bool? CanHitNPC(NPC target) => target.IsBunny() ? false : null;
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             Rectangle myRect = new Rectangle((int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width, Projectile.height);

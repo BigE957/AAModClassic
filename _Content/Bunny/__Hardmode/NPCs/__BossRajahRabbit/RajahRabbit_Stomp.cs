@@ -1,3 +1,4 @@
+using AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs;
 using AAModClassic.Assets;
 using Terraria.ModLoader;
 
@@ -21,5 +22,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             Projectile.extraUpdates = 1;
             Projectile.timeLeft = 30;
         }
+
+        public override bool? CanHitNPC(NPC target) => target.IsBunny() ? false : null;
     }
 }

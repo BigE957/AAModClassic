@@ -6,6 +6,7 @@ using AAModClassic._Content.Bunny.__Hardmode.Items.Materials;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
 using AAModClassic._CrossMod.CalamityMod.LoreItems;
 using AAModClassic._CrossMod.Thorium.Weapons.Healer;
+using AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs;
 using AAModClassic.Assets;
 using AAModClassic.Base;
 using AAModClassic.Globals;
@@ -50,7 +51,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         public bool isSupreme = false;
 
         public int RoarTimer = 0;
-        public int RoarTimerMax = 240;
+        public const int RoarTimerMax = 240;
         public bool IsRoaring => RoarTimer > 0;
 
         public int JumpDelayTimer = -1;
@@ -1186,6 +1187,8 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             else
                 NPC.spriteDirection = 1;
         }
+
+        public override bool CanHitNPC(NPC target) => !target.IsBunny();
 
         public override void OnKill()
         {

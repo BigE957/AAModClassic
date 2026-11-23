@@ -1,3 +1,4 @@
+using AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,6 +15,8 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
         {
             Projectile.CloneDefaults(ProjectileID.WoodenArrowHostile);
         }
+
+        public override bool? CanHitNPC(NPC target) => target.IsBunny() ? false : null;
 
         public override void OnKill(int timeleft)
         {

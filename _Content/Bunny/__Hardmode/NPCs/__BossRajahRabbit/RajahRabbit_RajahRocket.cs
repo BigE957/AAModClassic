@@ -1,3 +1,4 @@
+using AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs;
 using AAModClassic.UI.World;
 using Microsoft.Xna.Framework;
 using System;
@@ -44,6 +45,8 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
             }
         }
+
+        public override bool? CanHitNPC(NPC target) => target.IsBunny() ? false : null;
 
         public override void OnKill(int timeLeft)
         {

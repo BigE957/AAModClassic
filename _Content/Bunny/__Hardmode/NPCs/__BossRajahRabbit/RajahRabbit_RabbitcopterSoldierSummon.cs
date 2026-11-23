@@ -1,4 +1,5 @@
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
+using AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs;
 using AAModClassic.Assets;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
@@ -83,5 +84,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             Projectile.velocity *= Speed;
             Projectile.velocity *= velMultiplier;
         }
+
+        public override bool? CanHitNPC(NPC target) => target.IsBunny() ? false : null;
     }
 }

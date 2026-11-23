@@ -1,6 +1,7 @@
 using AAModClassic._Content.Bunny.__Hardmode.Items._BossRajahRabbit.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.Items._BossRajahRabbitA.Weapons;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
+using AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -114,6 +115,8 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
                 return;
             }
         }
+
+        public override bool? CanHitNPC(NPC target) => target.IsBunny() ? false : null;
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
