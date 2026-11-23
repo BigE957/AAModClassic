@@ -5,11 +5,13 @@ using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Stubble.Core.Classes;
 using System.Collections.Generic;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
@@ -24,6 +26,58 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
             // DisplayName.SetDefault("Rajah Rabbit");
             Main.npcFrameCount[NPC.type] = 8;
             this.HideFromBestiary();
+
+            DialogueUISystem.DialogueTreeSetup += RajahModifyTree;
+            DialogueUISystem.ResponseSelect += RajahDialogueReponseClicked;
+            DialogueUISystem.DialogueEnd += RajahDialogueEnd;
+        }
+
+        private static void RajahModifyTree(string treeKey, ref DialogueTree tree)
+        {
+            //Nothing to see here.
+        }
+
+        private static void RajahDialogueReponseClicked(string treeKey, int dialogueID, int buttonID)
+        {
+            if (DialogueUISystem.CurrentContext.Arguments[0] < 0 || DialogueUISystem.CurrentContext.Arguments[0] > 200)
+                return;
+
+            NPC npc = Main.npc[(int)DialogueUISystem.CurrentContext.Arguments[0]];
+
+            if (!npc.active || npc.ModNPC is not AmbientRajahRabbit me)
+                return;
+
+            string name = treeKey.Replace("Mods.AAModClassic.DialogueTrees.Rajah.", "");
+            switch (name)
+            {
+                case "FirstGrave":
+                    if ((dialogueID == 4 && buttonID == 0) || dialogueID == 9 || dialogueID == 12)
+                    {
+                        int p = Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center + new Vector2(-80, -16), npc.velocity, ModContent.ProjectileType<RajahRabbitBookIt>(), 100, 0, Main.myPlayer);
+                        npc.active = false;
+                        npc.netUpdate = true;
+                        break;
+                    }
+
+                    if ((dialogueID == 6 && buttonID == 1) || (dialogueID == 10 && buttonID == 1))
+                    {
+                        npc.Transform(ModContent.NPCType<RajahRabbit>());
+                        npc.position.X -= 36;
+                        npc.ai[3] = -1;
+                        npc.netUpdate = true;
+                        (npc.ModNPC as RajahRabbit).Roar(RajahRabbit.RoarTimerMax);
+                        ChatUtils.Chat(npc.TypeName + " " + Language.GetTextValue("Mods.AAModClassic.Common.BosshasAwoken"), new Color(175, 75, 255));
+                        Main.LocalPlayer.ModifyRajahReputation(-2f);
+                        DialogueUISystem.ForceCloseDialogue();
+                        break;
+                    }
+                    break;
+            }
+        }
+
+        private static void RajahDialogueEnd(string treeKey, int dialogueID)
+        {
+            //Nothing to see here.
         }
 
         public override void SetDefaults()
@@ -45,12 +99,30 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
 
         public override void AI()
         {
-            base.AI();
+            foreach(Player p in Main.ActivePlayers)
+            {
+                if (p.dead)
+                    continue;
+
+                if(p.GetModPlayer<RajahReputationPlayer>().BeyondSaving && p.DistanceSQ(NPC.Center) < 102400)
+                {
+                    NPC.Transform(ModContent.NPCType<RajahRabbit>());
+                    NPC.position.X -= 36;
+                    NPC.ai[3] = -1;
+                    NPC.netUpdate = true;
+                    (NPC.ModNPC as RajahRabbit).Roar(RajahRabbit.RoarTimerMax);
+                    ChatUtils.Chat(NPC.TypeName + " " + Language.GetTextValue("Mods.AAModClassic.Common.BosshasAwoken"), new Color(175, 75, 255));
+                    Main.LocalPlayer.ModifyRajahReputation(-2f);
+                    DialogueUISystem.ForceCloseDialogue();
+                }
+            }
+
+            NPC.ai[0]++;
         }
 
-        public override bool CheckActive() => true;
+        public override bool CheckActive() => NPC.ai[0] < 3600;
 
-        public override bool CanChat() => true;
+        public override bool CanChat() => !Main.LocalPlayer.GetModPlayer<RajahReputationPlayer>().BeyondSaving;
 
         public override string GetChat()
         {
@@ -84,7 +156,7 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
         {
             Texture2D tex = TextureAssets.Npc[NPC.type].Value;
             Vector2 drawPos = NPC.Center - Vector2.UnitY * 31 - screenPos;
-            spriteBatch.Draw(tex, drawPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(), 0);
+            spriteBatch.Draw(tex, drawPos, NPC.frame, drawColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, NPC.SpriteEffectDirection(true), 0);
             return false;
         }
     }
@@ -129,6 +201,13 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
             Main.NewText("Your reputation has changed: " + MyRajahReputation);
         }
 
+        public void ResetReputation()
+        {
+            HasMetRajah = false;
+            MyRajahReputation = 0f;
+            BeyondSaving = false;
+        }
+
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             if (target.IsBunny())
@@ -148,12 +227,11 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
 
         public override void LoadData(TagCompound tag)
         {
-            if (!tag.TryGet("HasMetRajah", out HasMetRajah))
-                HasMetRajah = false;
-            if (!tag.TryGet("MyRajahReputation", out MyRajahReputation))
-                MyRajahReputation = 0f;
-            if (!tag.TryGet("BeyondSaving", out BeyondSaving))
-                BeyondSaving = false;
+            ResetReputation();
+
+            tag.TryGet("HasMetRajah", out HasMetRajah);
+            tag.TryGet("MyRajahReputation", out MyRajahReputation);
+            tag.TryGet("BeyondSaving", out BeyondSaving);
         }
     }
 

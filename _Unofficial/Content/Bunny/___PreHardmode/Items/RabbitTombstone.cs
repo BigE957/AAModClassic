@@ -210,7 +210,6 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items
             }
             else if(!Main.hardMode)
             {
-                //Mourning Rajah (maybe natural base rajah based on rabbits killed)
                 NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<AmbientRajahRabbit>());
             }
         }
