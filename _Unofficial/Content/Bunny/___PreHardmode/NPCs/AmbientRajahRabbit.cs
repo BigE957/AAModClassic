@@ -51,25 +51,23 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
             {
                 case "FirstGrave":
                     if ((dialogueID == 4 && buttonID == 0) || dialogueID == 9 || dialogueID == 12)
-                    {
-                        me.RajahFlee();
-                        break;
-                    }
-
-                    if ((dialogueID == 6 && buttonID == 1) || (dialogueID == 10 && buttonID == 1))
-                    {
+                        me.RajahLeave();
+                    else if ((dialogueID == 6 && buttonID == 1) || (dialogueID == 10 && buttonID == 1))
                         me.RajahEnrage();
-                        break;
-                    }
+                    else if (dialogueID == 8)
+                        Main.LocalPlayer.ModifyRajahReputation(buttonID == 0 ? 0.02f : -0.02f);
+                    else
+                        Main.LocalPlayer.ModifyRajahReputation(0.01f);
                     break;
             }
         }
 
-        private void RajahFlee()
+        private void RajahLeave()
         {
             int p = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(-80, -16), NPC.velocity, ModContent.ProjectileType<RajahRabbitBookIt>(), 100, 0, Main.myPlayer);
             NPC.active = false;
             NPC.netUpdate = true;
+            Main.LocalPlayer.ModifyRajahReputation(0.01f);
         }
 
         private void RajahEnrage()
@@ -80,7 +78,7 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
             NPC.netUpdate = true;
             (NPC.ModNPC as RajahRabbit).Roar(RajahRabbit.RoarTimerMax);
             ChatUtils.Chat(NPC.TypeName + " " + Language.GetTextValue("Mods.AAModClassic.Common.BosshasAwoken"), new Color(175, 75, 255));
-            Main.LocalPlayer.ModifyRajahReputation(-2f);
+            Main.LocalPlayer.ModifyRajahReputation(-5f);
             Main.LocalPlayer.GetModPlayer<DialoguePlayer>().chattingLastFrame = false;
         }
 
