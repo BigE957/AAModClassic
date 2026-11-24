@@ -87,6 +87,14 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
             //Nothing to see here.
         }
 
+        public enum AmbientRajahState : byte
+        {
+            AtGrave,
+
+        }
+        public AmbientRajahState MyState { get => (AmbientRajahState)NPC.ai[2]; set => NPC.ai[2] = (float)value; }
+        public ref float Uptime => ref NPC.ai[3];
+
         public override void SetDefaults()
         {
             NPC.width = 60;
@@ -108,8 +116,6 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
         {
             foreach(Player p in Main.ActivePlayers)
             {
-                //p.GetModPlayer<RajahReputationPlayer>().ResetReputation();
-
                 if (p.dead)
                     continue;
 
@@ -117,10 +123,10 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
                     RajahEnrage();
             }
 
-            NPC.ai[0]++;
+            Uptime++;
         }
 
-        public override bool CheckActive() => NPC.ai[0] < 3600;
+        public override bool CheckActive() => Uptime < 3600;
 
         public override bool CanChat() => !Main.LocalPlayer.GetModPlayer<RajahReputationPlayer>().BeyondSaving;
 
@@ -211,7 +217,11 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             if (target.IsBunny())
+            {
                 Player.ModifyRajahReputation((target.life <= 0) ? -0.05f : -0.001f);
+                if (target.life <= 0)
+                    target.GetGlobalNPC<BunnyDeathGlobalNPC>().DeathType = RabbitDeathType.KilledByEnemy;
+            }
             else if (target.IsGoodToKill())
                 Player.ModifyRajahReputation((target.life <= 0) ? 0.075f : 0.0015f);
             else if (RajahReputationSystem.NPCsWhoHurtBunnies.Contains(target.whoAmI))
@@ -275,12 +285,11 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
         public override void OnHitNPC(NPC npc, NPC target, NPC.HitInfo hit)
         {
             if (target.IsBunny())
+            {
                 RajahReputationSystem.NPCsWhoHurtBunnies.Add(npc.whoAmI);
-        }
-
-        public override void OnKill(NPC npc)
-        {
-            RabbitTombstoneSystem.RegisterRabbitDeath(npc.Center, npc.type == NPCID.GoldBunny);
+                if (target.life <= 0)
+                    target.GetGlobalNPC<BunnyDeathGlobalNPC>().DeathType = RabbitDeathType.KilledByEnemy;
+            }
         }
     }
 

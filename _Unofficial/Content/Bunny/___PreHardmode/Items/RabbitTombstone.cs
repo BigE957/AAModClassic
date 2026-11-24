@@ -35,19 +35,39 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items
         }
     }
 
+    public enum RabbitDeathType : byte
+    {
+        KilledByPlayer,
+        KilledByEnemy,
+        KilledByCircumstance
+    }
+
+    public class BunnyDeathGlobalNPC : GlobalNPC
+    {
+        public override bool InstancePerEntity => true;
+        public override bool AppliesToEntity(NPC entity, bool lateInstantiation) => entity.IsBunny();
+        public RabbitDeathType DeathType = RabbitDeathType.KilledByCircumstance;
+        public override void OnKill(NPC npc)
+        {
+            RabbitTombstoneSystem.RegisterRabbitDeath(npc.Center, npc.type == NPCID.GoldBunny, DeathType);
+        }
+    }
+
     public class RabbitTombstoneSystem : ModSystem
     {
-        internal readonly struct RabbitGraveData(Point point, bool golden)
+        internal readonly struct RabbitGraveData(Point point, bool golden, RabbitDeathType deathType)
         {
             internal readonly Point SpawnTile = point;
             internal readonly bool Golden = golden;
+            internal readonly RabbitDeathType DeathType = deathType;
         }
+
         private static readonly List<RabbitGraveData> queuedRabbitTombstonePositions = [];
         private static int MaxHorizontalSearchRange => 10;
 
         private static int GraveSpawnCooldown = 0;
 
-        internal static readonly Dictionary<Point, DateTime> RecentlyPlacedTombstones = [];
+        internal static readonly Dictionary<Point, (RabbitGraveData data, DateTime time)> RecentlyPlacedTombstones = [];
 
         public override void OnWorldUnload()
         {
@@ -78,20 +98,20 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items
                 if (noPlayers)
                 {
                     PlaceRabbitTombstone(data);
-                    RecentlyPlacedTombstones.Add(data.SpawnTile, DateTime.Now);
+                    RecentlyPlacedTombstones.Add(data.SpawnTile, (data, DateTime.Now));
                     queuedRabbitTombstonePositions.RemoveAt(i);
                 }
             }
         }
 
-        public static void RegisterRabbitDeath(Vector2 deathPosition, bool golden)
+        public static void RegisterRabbitDeath(Vector2 deathPosition, bool golden, RabbitDeathType deathType)
         {
             if (!golden && (GraveSpawnCooldown > 0 || !Main.rand.NextBool(3)))
                 return;
 
             if (TryFindTombstoneLocation(deathPosition.ToTileCoordinates(), out Point validTile))
             {
-                queuedRabbitTombstonePositions.Add(new(validTile, golden));
+                queuedRabbitTombstonePositions.Add(new(validTile, golden, deathType));
                 if (queuedRabbitTombstonePositions.Count > 5)
                     queuedRabbitTombstonePositions.RemoveAt(0);
                 GraveSpawnCooldown = 1800;
@@ -194,7 +214,7 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items
             return $"{introduction}\n{quote}\n{date}";
         }
 
-        internal static void SpawnRajahAtTombstone(Point p)
+        internal static void SpawnRajahAtTombstone(Point p, RabbitGraveData data)
         {
             Vector2 spawnPos = p.ToWorldCoordinates(16, 16);
             spawnPos += Vector2.UnitX * (Main.rand.NextBool() ? -180 : 180);
@@ -260,10 +280,10 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items
 
             Point p = new(i, j);
 
-            if (RabbitTombstoneSystem.RecentlyPlacedTombstones.TryGetValue(p, out DateTime time))
+            if (RabbitTombstoneSystem.RecentlyPlacedTombstones.TryGetValue(p, out var value))
             {
-                if ((DateTime.Now - time).TotalMinutes < RajahAtGraveTimeMinutes && !NPC.AnyNPCs(ModContent.NPCType<AmbientRajahRabbit>()))
-                    RabbitTombstoneSystem.SpawnRajahAtTombstone(p);
+                if ((DateTime.Now - value.time).TotalMinutes < RajahAtGraveTimeMinutes && !NPC.AnyNPCs(ModContent.NPCType<AmbientRajahRabbit>()))
+                    RabbitTombstoneSystem.SpawnRajahAtTombstone(p, value.data);
                 RabbitTombstoneSystem.RecentlyPlacedTombstones.Remove(p);
             }
         }
