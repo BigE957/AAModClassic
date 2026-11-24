@@ -339,3 +339,4 @@ TerraSerpentHead.DisplayName: 泰拉心球之蛇
 TerraSerpentTail.DisplayName: "{$NPCs.TerraSerpentHead.DisplayName}"
 // MushroomMadness.DisplayName: Mushroom Madness
 // AmbientRajahRabbit.DisplayName: Ambient Rajah Rabbit
+// WoundedBunny.DisplayName: Wounded Bunny

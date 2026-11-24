@@ -46,7 +46,10 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items
     {
         public override bool InstancePerEntity => true;
         public override bool AppliesToEntity(NPC entity, bool lateInstantiation) => entity.IsBunny();
+
         public RabbitDeathType DeathType = RabbitDeathType.KilledByCircumstance;
+        public bool BeenHealed = false;
+
         public override void OnKill(NPC npc)
         {
             RabbitTombstoneSystem.RegisterRabbitDeath(npc.Center, npc.type == NPCID.GoldBunny, DeathType);

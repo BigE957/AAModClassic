@@ -264,7 +264,8 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
                    npc.type == NPCID.GemBunnySapphire ||
                    npc.type == NPCID.GemBunnyTopaz ||
                    npc.type == NPCID.TownBunny ||
-                   npc.type == NPCID.PartyBunny;
+                   npc.type == NPCID.PartyBunny ||
+                   npc.type == ModContent.NPCType<WoundedBunny>();
         }
 
         public static bool IsGoodToKill(this NPC npc)
@@ -282,13 +283,29 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
                 Main.LocalPlayer.ModifyRajahReputation(0.001f);
         }
 
+        public override void ModifyHitNPC(NPC npc, NPC target, ref NPC.HitModifiers modifiers)
+        {
+            if (target.type == NPCID.Bunny && !target.GetGlobalNPC<BunnyDeathGlobalNPC>().BeenHealed)
+                modifiers.SetMaxDamage(target.life - 1);
+        }
+
         public override void OnHitNPC(NPC npc, NPC target, NPC.HitInfo hit)
         {
             if (target.IsBunny())
             {
                 RajahReputationSystem.NPCsWhoHurtBunnies.Add(npc.whoAmI);
-                if (target.life <= 0)
-                    target.GetGlobalNPC<BunnyDeathGlobalNPC>().DeathType = RabbitDeathType.KilledByEnemy;
+
+                bool defaultBunny = target.type == NPCID.Bunny;
+                if (target.life <= (defaultBunny ? 1 : 0))
+                {
+                    var deathGlobalNPC = target.GetGlobalNPC<BunnyDeathGlobalNPC>();
+                    deathGlobalNPC.DeathType = RabbitDeathType.KilledByEnemy;
+                    if (defaultBunny && !deathGlobalNPC.BeenHealed)
+                    {
+                        target.Transform(ModContent.NPCType<WoundedBunny>());
+                        target.life = 1;
+                    }
+                }
             }
         }
     }
