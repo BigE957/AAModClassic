@@ -1,7 +1,9 @@
 ﻿using AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items;
 using AAModClassic.Utilities;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -52,7 +54,10 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
 
         public override bool PreHoverInteract(bool mouseIntersects)
         {
-            if (!mouseIntersects)
+            Point tileCoords = NPC.Hitbox.ClosestPointInRect(Main.LocalPlayer.Center).ToTileCoordinates();
+            bool inRange = Main.LocalPlayer.InInteractionRange(tileCoords.X, tileCoords.Y, TileReachCheckSettings.Simple);
+
+            if (!mouseIntersects || !inRange)
                 return true;
 
             Player player = Main.LocalPlayer;

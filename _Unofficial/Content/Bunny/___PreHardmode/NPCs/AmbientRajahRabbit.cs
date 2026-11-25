@@ -1,4 +1,5 @@
-﻿using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
+﻿using AAModClassic._Content._Misc.__Hardmode.Items.Consumables;
+using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
 using AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items;
 using AAModClassic.UI.Dialogue;
 using AAModClassic.Utilities;
@@ -9,6 +10,7 @@ using System.Collections.Generic;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
+using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -275,10 +277,55 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
         }
 
         public static bool CanBecomeWounded(this NPC npc) => npc.type == NPCID.Bunny && !npc.SpawnedFromStatue && !npc.GetGlobalNPC<BunnyDeathGlobalNPC>().BeenHealed;
-    } 
+    }
+
+    public class BunnyCarrotGlobalNPC : GlobalNPC
+    {
+        public override bool InstancePerEntity => true;
+        public override bool AppliesToEntity(NPC entity, bool lateInstantiation) => entity.IsBunny();
+        public bool FedCarrot = false;
+    }
+
 
     public class RajahReputationGlobalNPC : GlobalNPC
     {
+        public override bool PreHoverInteract(NPC npc, bool mouseIntersects)
+        {
+            Point tileCoords = npc.Hitbox.ClosestPointInRect(Main.LocalPlayer.Center).ToTileCoordinates();
+            bool inRange = Main.LocalPlayer.InInteractionRange(tileCoords.X, tileCoords.Y, TileReachCheckSettings.Simple);
+
+            if (!mouseIntersects || !inRange)
+                return true;
+
+            if (!npc.IsBunny() || npc.type == ModContent.NPCType<WoundedBunny>() || npc.GetGlobalNPC<BunnyCarrotGlobalNPC>().FedCarrot)
+                return true;
+
+            if(Main.LocalPlayer.HasItem(ModContent.ItemType<Carrot>()))
+            {
+                Player player = Main.LocalPlayer;
+                player.noThrow = 2;
+                player.cursorItemIconEnabled = true;
+                player.cursorItemIconID = ModContent.ItemType<Carrot>();
+
+                if (!player.dead && Main.mouseRight)
+                {
+                    if (PlayerInput.UsingGamepad)
+                        player.releaseInventory = false;
+
+                    if (!player.tileInteractionHappened && Main.LocalPlayer.ConsumeItem(ModContent.ItemType<Carrot>()))
+                    {
+                        player.ModifyRajahReputation(0.025f);
+                        npc.GetGlobalNPC<BunnyCarrotGlobalNPC>().FedCarrot = true;
+                        SoundEngine.PlaySound(SoundID.Item2, npc.Center);
+                    }
+                }
+
+                return false;
+            }
+
+            return true;
+        }
+
         public override void OnChatButtonClicked(NPC npc, bool firstButton)
         {
             if(npc.type == NPCID.TownBunny && firstButton)
