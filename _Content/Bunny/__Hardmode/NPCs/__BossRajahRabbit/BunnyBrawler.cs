@@ -90,7 +90,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             }
         }
 
-        public override bool CanHitNPC(NPC target) => !target.IsBunny();
+        public override bool CanHitNPC(NPC target) => !target.CountsAsACritter;
 
         public override bool PreKill()
         {

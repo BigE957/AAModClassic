@@ -44,7 +44,7 @@ namespace AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit
             bestiaryEntry.Info.Add(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface);
         }
 
-        public override bool CanHitNPC(NPC target) => !target.IsBunny();
+        public override bool CanHitNPC(NPC target) => !target.CountsAsACritter;
 
         public override bool PreKill()
         {
