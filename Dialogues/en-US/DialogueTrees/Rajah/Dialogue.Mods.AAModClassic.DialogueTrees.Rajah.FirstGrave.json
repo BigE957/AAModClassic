@@ -75,6 +75,10 @@
 
       "Responses": [
         {
+          "Title": "A monster.",
+          "Heading": 13
+        },
+        {
           "Title": "I didn't.",
           "Heading": 4
         },
@@ -228,6 +232,10 @@
 
       "Responses": [
         {
+          "Title": "A monster.",
+          "Heading": 13
+        },
+        {
           "Title": "I didn't.",
           "Heading": 12
         },
@@ -244,6 +252,37 @@
         "BorderDarkening": 0,
         "Lines": [
           "I assumed as much. Well, I have had my time to grieve. I must be off to ensure this won't happen elsewhere."
+        ]
+      },
+
+      "Responses": [
+        {
+          "Title": "Farewell.",
+          "Heading": -1
+        },
+        {
+          "Title": "Best of luck.",
+          "Heading": -1
+        }
+      ]
+    },
+    {
+      "IndexComment": "Index 13!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "These lands hold no shortage of horrid beasts... I [Shaking(1):must] be quicker, more vigilant, lest more innocent lives be taken."
+        ]
+      }
+    },
+    {
+      "IndexComment": "Index 14!",
+
+      "DialogueInfo": {
+        "BorderDarkening": 0,
+        "Lines": [
+          "Well, I have had my time to grieve. I must be off. The innocent need their champion."
         ]
       },
 

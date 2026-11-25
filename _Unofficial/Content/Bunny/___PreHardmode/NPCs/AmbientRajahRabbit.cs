@@ -35,7 +35,38 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
 
         private static void RajahModifyTree(string treeKey, ref DialogueTree tree)
         {
-            //Nothing to see here.
+            if (DialogueUISystem.CurrentContext.Arguments[0] < 0 || DialogueUISystem.CurrentContext.Arguments[0] > 200)
+                return;
+
+            NPC npc = Main.npc[(int)DialogueUISystem.CurrentContext.Arguments[0]];
+
+            if (!npc.active || npc.ModNPC is not AmbientRajahRabbit)
+                return;
+
+            string name = treeKey.Replace("Mods.AAModClassic.DialogueTrees.Rajah.", "");
+            switch (name)
+            {
+                case "FirstGrave":
+                    RabbitDeathType t = (RabbitDeathType)npc.ai[0];
+                    switch (t)
+                    {
+                        case RabbitDeathType.KilledByCircumstance:
+                            tree.Dialogues[3].Responses[0].Unlocked = false;
+                            tree.Dialogues[3].Responses[2].Unlocked = false;
+                            tree.Dialogues[11].Responses[0].Unlocked = false;
+                            tree.Dialogues[11].Responses[2].Unlocked = false;
+                            break;
+                        case RabbitDeathType.KilledByEnemy:
+                            tree.Dialogues[3].Responses[0].Unlocked = false;
+                            tree.Dialogues[11].Responses[0].Unlocked = false;
+                            break;
+                        case RabbitDeathType.KilledByPlayer:
+                            tree.Dialogues[3].Responses[2].Unlocked = false;
+                            tree.Dialogues[11].Responses[2].Unlocked = false;
+                            break;
+                    }
+                    break;
+            }
         }
 
         private static void RajahDialogueReponseClicked(string treeKey, int dialogueID, int buttonID)
@@ -92,7 +123,6 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
         public enum AmbientRajahState : byte
         {
             AtGrave,
-
         }
         public AmbientRajahState MyState { get => (AmbientRajahState)NPC.ai[2]; set => NPC.ai[2] = (float)value; }
         public ref float Uptime => ref NPC.ai[3];
@@ -285,7 +315,6 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
         public override bool AppliesToEntity(NPC entity, bool lateInstantiation) => entity.IsBunny();
         public bool FedCarrot = false;
     }
-
 
     public class RajahReputationGlobalNPC : GlobalNPC
     {

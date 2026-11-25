@@ -237,16 +237,16 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items
             if (NPC.downedMoonlord && !NPCExtensions.BeenKilled<RajahRabbitA>())
             {
                 //Natural Champion Rajah (maybe mourning rajah based on rabbits killed)
-                NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<AmbientRajahRabbit>());
+                NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<AmbientRajahRabbit>(), ai0: (float)data.DeathType);
             }
             else if(Main.hardMode && !NPCExtensions.BeenKilled<RajahRabbit>())
             {
                 //Natural Base Rajah (maybe mourning rajah based on rabbits killed)
-                NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<AmbientRajahRabbit>());
+                NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<AmbientRajahRabbit>(), ai0: (float)data.DeathType);
             }
             else if(!Main.hardMode)
             {
-                NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<AmbientRajahRabbit>());
+                NPC.NewNPC(NPC.GetSource_NaturalSpawn(), (int)spawnPos.X, (int)spawnPos.Y, ModContent.NPCType<AmbientRajahRabbit>(), ai0: (float)data.DeathType);
             }
         }
     }
