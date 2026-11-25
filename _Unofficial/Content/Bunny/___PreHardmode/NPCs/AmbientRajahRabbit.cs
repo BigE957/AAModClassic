@@ -287,7 +287,7 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
 
         public override void ModifyHitNPC(NPC npc, NPC target, ref NPC.HitModifiers modifiers)
         {
-            if (npc.CanBecomeWounded())
+            if (target.CanBecomeWounded())
                 modifiers.SetMaxDamage(target.life - 1);
         }
 
@@ -297,7 +297,7 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
             {
                 RajahReputationSystem.NPCsWhoHurtBunnies.Add(npc.whoAmI);
 
-                bool canBecomeWounded = npc.CanBecomeWounded();
+                bool canBecomeWounded = target.CanBecomeWounded();
                 if (target.life <= (canBecomeWounded ? 1 : 0))
                 {
                     target.GetGlobalNPC<BunnyDeathGlobalNPC>().DeathType = RabbitDeathType.KilledByEnemy;
