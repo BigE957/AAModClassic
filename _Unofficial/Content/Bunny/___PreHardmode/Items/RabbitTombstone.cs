@@ -49,6 +49,19 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items
 
         public RabbitDeathType DeathType = RabbitDeathType.KilledByCircumstance;
         public bool BeenHealed = false;
+        public byte HostileIFrames = 0;
+
+        public override bool PreAI(NPC npc)
+        {
+            if (HostileIFrames > 0)
+            {
+                if (--HostileIFrames <= 0)
+                    npc.dontTakeDamageFromHostiles = false;
+                else
+                    npc.dontTakeDamageFromHostiles = true;
+            }
+            return true;
+        }
 
         public override void OnKill(NPC npc)
         {

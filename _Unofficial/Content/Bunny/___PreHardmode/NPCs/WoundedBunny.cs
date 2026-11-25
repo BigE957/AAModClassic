@@ -80,7 +80,9 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
 
                     NPC.Transform(NPCID.Bunny);
                     NPC.life = NPC.lifeMax;
-                    NPC.GetGlobalNPC<BunnyDeathGlobalNPC>().BeenHealed = true;
+                    var bunnyDeath = NPC.GetGlobalNPC<BunnyDeathGlobalNPC>();
+                    bunnyDeath.BeenHealed = true;
+                    bunnyDeath.HostileIFrames = 120;
                     SoundEngine.PlaySound(SoundID.Item4);
                     player.ModifyRajahReputation(0.05f);
                 }

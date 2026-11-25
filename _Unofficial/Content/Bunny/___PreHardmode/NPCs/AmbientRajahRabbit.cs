@@ -273,6 +273,8 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
             return npc.type == NPCID.CorruptBunny || 
                    npc.type == NPCID.CrimsonBunny;
         }
+
+        public static bool CanBecomeWounded(this NPC npc) => npc.type == NPCID.Bunny && !npc.SpawnedFromStatue && !npc.GetGlobalNPC<BunnyDeathGlobalNPC>().BeenHealed;
     } 
 
     public class RajahReputationGlobalNPC : GlobalNPC
@@ -285,7 +287,7 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
 
         public override void ModifyHitNPC(NPC npc, NPC target, ref NPC.HitModifiers modifiers)
         {
-            if (target.type == NPCID.Bunny && !target.GetGlobalNPC<BunnyDeathGlobalNPC>().BeenHealed)
+            if (npc.CanBecomeWounded())
                 modifiers.SetMaxDamage(target.life - 1);
         }
 
@@ -295,12 +297,11 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
             {
                 RajahReputationSystem.NPCsWhoHurtBunnies.Add(npc.whoAmI);
 
-                bool defaultBunny = target.type == NPCID.Bunny;
-                if (target.life <= (defaultBunny ? 1 : 0))
+                bool canBecomeWounded = npc.CanBecomeWounded();
+                if (target.life <= (canBecomeWounded ? 1 : 0))
                 {
-                    var deathGlobalNPC = target.GetGlobalNPC<BunnyDeathGlobalNPC>();
-                    deathGlobalNPC.DeathType = RabbitDeathType.KilledByEnemy;
-                    if (defaultBunny && !deathGlobalNPC.BeenHealed)
+                    target.GetGlobalNPC<BunnyDeathGlobalNPC>().DeathType = RabbitDeathType.KilledByEnemy;
+                    if (canBecomeWounded)
                     {
                         target.Transform(ModContent.NPCType<WoundedBunny>());
                         target.life = 1;
