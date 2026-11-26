@@ -78,6 +78,7 @@ using Terraria.ModLoader.IO;
 using static AAModClassic.Utilities.AbstractsLikeDigitalCircus.Items.AAConditions;
 using AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items;
 using AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs;
+using AAModClassic._Unofficial.Content.Bunny;
 
 namespace AAModClassic.Globals
 {
