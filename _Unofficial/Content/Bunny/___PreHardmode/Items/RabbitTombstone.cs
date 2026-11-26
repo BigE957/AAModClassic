@@ -1,6 +1,8 @@
 ﻿using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
 using AAModClassic._Content.Bunny._PostMoonlord.NPCs.__BossRajahRabbitA;
 using AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs;
+using AAModClassic.Base;
+using AAModClassic.Globals;
 using AAModClassic.Utilities;
 using Microsoft.Xna.Framework;
 using System;
@@ -66,6 +68,73 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items
         public override void OnKill(NPC npc)
         {
             RabbitTombstoneSystem.RegisterRabbitDeath(npc.Center, npc.type == NPCID.GoldBunny, DeathType);
+
+            if (AAModGlobalNPC.Rajah != -1 || !npc.IsBunny())
+                return;
+
+            if (npc.GetGlobalNPC<BunnyDeathGlobalNPC>().DeathType != RabbitDeathType.KilledByPlayer)
+                return;
+
+            Player killer = FindClosestPlayerInRange(npc.Center, npc.width, npc.height, 1800f);
+            RajahReputationPlayer repPlayer = killer.GetModPlayer<RajahReputationPlayer>();
+
+            if (!repPlayer.Evil)
+                return;
+
+            if (!Main.hardMode && !repPlayer.BeyondSaving)
+                return;
+
+            bool awakened = NPC.downedMoonlord || NPCExtensions.BeenKilled<RajahRabbit>();
+
+            if (awakened)
+                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.RajahGlobalInfo2") + killer.name.ToUpper() + "!", 107, 137, 179);
+            else
+                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.RajahGlobalInfo1"), 107, 137, 179);
+
+            SpawnRajah(killer, new Vector2(npc.Center.X, npc.Center.Y - 2000), awakened);
+            
+            SoundEngine.PlaySound(new SoundStyle("AAModClassic/Sounds/Rajah"), new Vector2(npc.Center.X, npc.Center.Y - 2000));
+        }
+
+        public static void SpawnRajah(Player player, Vector2 npcCenter, bool awakened)
+        {
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+                return;
+
+            int RajahType = awakened ? ModContent.NPCType<RajahRabbitA>() : ModContent.NPCType<RajahRabbit>();
+
+            if (NPC.AnyNPCs(RajahType))
+                return;
+
+            NPC npc = NPC.NewNPCDirect(NPC.GetBossSpawnSource(player.whoAmI), (int)npcCenter.X, (int)npcCenter.Y, RajahType, 0, 0, 0, player.whoAmI);
+            npc.Center = npcCenter;
+            npc.netUpdate = true;
+
+            ChatUtils.Chat(npc.TypeName + " " + Language.GetTextValue("Mods.AAModClassic.Common.BosshasAwoken"), new Color(175, 75, 255));
+        }
+
+        public static Player FindClosestPlayerInRange(Vector2 Position, int Width, int Height, float range)
+        {
+            Player result = null;
+
+            float shortestDistance = float.MaxValue;
+            foreach(Player p in Main.ActivePlayers)
+            {
+                if (p.dead)
+                    continue;
+
+                float dist = MathF.Abs(p.position.X + (p.width / 2f) - (Position.X + (Width / 2f))) + Math.Abs(p.position.Y + (p.height / 2f) - (Position.Y + (Height / 2f)));
+                if (dist > range)
+                    continue;
+
+                if (dist < shortestDistance)
+                {
+                    shortestDistance = dist;
+                    result = p;
+                }
+            }
+
+            return result;
         }
     }
 

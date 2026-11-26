@@ -1,6 +1,7 @@
 ﻿using AAModClassic._Content._Misc.__Hardmode.Items.Consumables;
 using AAModClassic._Content.Bunny.__Hardmode.NPCs.__BossRajahRabbit;
 using AAModClassic._Unofficial.Content.Bunny.___PreHardmode.Items;
+using AAModClassic.Base;
 using AAModClassic.UI.Dialogue;
 using AAModClassic.Utilities;
 using AAModClassic.Utilities.AbstractsLikeDigitalCircus.NPCs;
@@ -151,7 +152,8 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
                 if (p.dead)
                     continue;
 
-                if(p.GetModPlayer<RajahReputationPlayer>().BeyondSaving && p.DistanceSQ(NPC.Center) < 102400)
+                RajahReputationPlayer repPlayer = p.GetModPlayer<RajahReputationPlayer>();
+                if (repPlayer.Evil && p.DistanceSQ(NPC.Center) < 102400)
                     RajahEnrage();
             }
 
@@ -220,23 +222,29 @@ namespace AAModClassic._Unofficial.Content.Bunny.___PreHardmode.NPCs
         public bool HasMetRajah = false;
         public float MyRajahReputation = 0f;
         public bool BeyondSaving = false;
+        public bool Good => !BeyondSaving && MyRajahReputation > 0.5f;
+        public bool Evil => BeyondSaving || MyRajahReputation < -0.5f;
+        public bool GettingEvil = false;
 
         public void ModifyReputation(float change)
         {
             if (BeyondSaving)
-            {
-                Main.NewText("You're fucking disgusting there's no saving you.");
                 return;
-            }
 
             if (!HasMetRajah)
                 change /= 10f;
 
+            if (!GettingEvil && MyRajahReputation > -0.25f && MyRajahReputation + change <= -0.25f)
+            {
+                BaseUtility.Chat(Language.GetTextValue("Mods.AAModClassic.Common.RajahGlobalInfo3"), 107, 137, 179);
+                GettingEvil = true;
+            }
+            else if (GettingEvil && MyRajahReputation <= -0.25f && MyRajahReputation + change > -0.25f)
+                GettingEvil = false;
+
             MyRajahReputation += change;
             if (MyRajahReputation <= -1)
                 BeyondSaving = true;
-
-            Main.NewText("Your reputation has changed: " + MyRajahReputation);
         }
 
         public void ResetReputation()
